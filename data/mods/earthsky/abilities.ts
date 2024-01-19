@@ -1,4 +1,4 @@
-export const Abilities: {[abilityid: string]: ModdedabilityState} = {
+export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	//New Abilities
 	againstcurrent: {
 		onBeforeTurn(pokemon){
@@ -12,6 +12,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Against Current",
 		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, Imprison, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction if inflicted earlier in the same turn. If given a Choice item earlier in the turn, the move locking will be ignored. Gravity and Heal Block will still prevent moves from executing. Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
 		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",
+        flags: {},
 		rating: 1,
 		num: 1020,
 	},
@@ -26,6 +27,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Bludgeon",
 		desc: "This Pokemon's tail and hammer attacks have their power multiplied by 1.5.",
 		shortDesc: "This Pokemon's tail and hammer attacks have 1.5x power.",
+        flags: {},
 		rating: 2.5,
 		num: 1001,
 	},
@@ -40,6 +42,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Cacophony",
 		desc: "This Pokemon's sound-based attacks have their power multiplied by 1.2.",
 		shortDesc: "This Pokemon's sound-based attacks have 1.2x power.",
+        flags: {},
 		rating: 3,
 		num: 1002,
 	},
@@ -66,6 +69,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "Clean House",
 		shortDesc: "On switch-in, removes hazards and substitutes.",
+        flags: {},
 		rating: 3,
 		num: 1022,
 	},
@@ -85,6 +89,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Deep Terror",
 		desc: "When a Pokemon has more than 1/2 its maximum HP and damage from this Pokemon's attack brings it to 1/2 or less of its maximum HP, it is forced to switch out and be replaced with a random unfainted ally, assuming such an ally exists. This effect applies after all hits from a multi-hit move; This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
 		shortDesc: "If this Pokemon brings a foe under 50% HP, it scares them out.",
+        flags: {},
 		rating: 2,
 		num: 1003,
 		switchOut: "  [POKEMON] was scared off of the battlefield!",
@@ -105,10 +110,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Disturbance",
-		rating: 3.5,
-		num: 1026,
 		desc: "On switch-in, this Pokemon lowers the Special Attack of opposing Pokemon by 1 stage. Pokemon with the Inner Focus, Oblivious, Own Tempo, or Scrappy Abilities and Pokemon behind a substitute are immune. This Ability triggers the Rattled Ability and a held Adrenaline Orb.",
 		shortDesc: "On switch-in, this Pokemon lowers the Sp. Atk of opponents by 1 stage.",
+        flags: {},
+		rating: 3.5,
+		num: 1026,
 	},
 	heatsink: {
 		onTryHit(target, source, move) {
@@ -130,12 +136,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				return this.effectState.target;
 			}
 		},
-		isBreakable: true,
 		name: "Heat Sink",
-		rating: 3,
-		num: 1024,
 		desc: "This Pokemon is immune to Fire-type moves and raises its Special Attack by 1 stage when hit by a Fire-type move. If this Pokemon is not the target of a single-target Fire-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
 		shortDesc: "This Pokemon draws Fire moves to itself to raise Sp. Atk by 1; Fire immunity.",
+        flags: {breakable: 1},
+		rating: 3,
+		num: 1024,
 	},
 	icebreaker: {
 		onBasePowerPriority: 21,
@@ -151,6 +157,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Ice Breaker",
 		desc: "If Snow is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Snow.",
 		shortDesc: "This Pokemon's attacks have 1.3x power in snow; immunity to it.",
+        flags: {},
 		rating: 2.5,
 		num: 1004,
 	},
@@ -159,6 +166,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Irresistable",
 		desc: "This Pokemon can cause other Pokemon to become attracted to it even if they are the same gender as it or are genderless. Pokemon with the Ability Oblivious are still immune to attraction.",
 		shortDesc: "Attraction works regardless of gender. Oblivious is unaffected.",
+        flags: {},
 		rating: 1.5,
 		num: 1005,
 	},
@@ -182,10 +190,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Misty Shroud",
 		desc: "If this Pokemon is sent out during Misty Terrain, or if Misty Terrain is set while it is on the field, it becomes Evasive for the rest of the turn. While Evasive, all moves used on this Pokemon will fail accuracy checks, unless they ignore the condition.",
 		shortDesc: "This Pokemon becomes Evasive on the turn it encounters Misty Terrain.",
-		start: "  [POKEMON] disappeared into the mist!",
-		end: "  [POKEMON] became visible again.",
+        flags: {},
 		rating: 1.5,
 		num: 1006,
+		start: "  [POKEMON] disappeared into the mist!",
+		end: "  [POKEMON] became visible again.",
 	},
 	nightwalker: {
 		onModifySpe(spe, pokemon) {
@@ -195,6 +204,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "Night Walker",
 		shortDesc: "If Midnight is active, this Pokemon's Speed is doubled.",
+        flags: {},
 		rating: 2.5,
 		num: 1007,
 	},
@@ -216,6 +226,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Potency",
 		desc: "When this Pokemon poisons another, the poison is automatically upgraded to bad poison. If this Pokemon uses Toxic Spikes, it will set two layers so as to badly poison Pokemon affected.",
 		shortDesc: "All poison inflicted by this Pokemon is turned into bad poison.",
+        flags: {},
 		rating: 1,
 		num: 1008,
 	},
@@ -250,10 +261,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				}
 			},
 		},
-		isPermanent: true,
 		name: "Rage Mode",
 		desc: "If this Pokemon is a Darmanitan-Galar, it changes to Rage Mode if it has 1/2 or less of its maximum HP at the end of a turn. If Darmanitan's HP is above 1/2 of its maximum HP at the end of a turn, it changes back to Standard Mode. This Ability cannot be removed or suppressed.",
 		shortDesc: "If Darmanitan-Galar, at end of turn changes Mode to Standard if > 1/2 max HP, else Rage.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		rating: 0,
 		num: 1009,
 	},
@@ -284,9 +295,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			return this.chainModify([dmgMod[numConsecutive], 4096]);
 		},
 		name: "Relentless",
+		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
+        flags: {},
 		num: 1025,
 		rating: 2,
-		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
 	},
 	slumberveil: {
 		onHit(target, source, move) {
@@ -298,6 +310,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "Slumber Veil",
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will fall asleep.",
+        flags: {},
 		rating: 2.5,
 		num: 1010,
 	},
@@ -352,10 +365,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				this.add("-fail", target, "unboost", "[from] ability: Stoneskin", "[of] " + target);
 			}
 		},
-		isPermanent: true,
 		name: "Stoneskin",
 		desc: "On switch-in and before using a non-attacking move, enters Statue Form. When in Statue Form, the Pokemon cannot be inflicted with statuses or have its stats dropped, and it will not take damage from field effects. Exits Statue Form when using an attacking move. This Ability has no effect if used by a Pokemon other than Mega Druddigon.",
-		shortDesc: "Status moove = Statue, attack = regular. When Statue, no status/stat drop/residual dmg.",
+		shortDesc: "Status move = Statue, attack = regular. When Statue, no status/stat drop/residual dmg.",
+		flags: {breakable: 1, cantsuppress: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		rating: 4,
 		num: 1023,
 	},
@@ -370,6 +383,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		desc: "The user recovers 1/5 of the damage, rounded half up, dealt by each of its attacks. The healing occurs even if an attack hits a substitute.",
 		shortDesc: "After an attack, holder gains 1/5 of the damage in HP dealt to other Pokemon.",
 		heal: "  [POKEMON] restored a little HP with Soul Drain!",
+        flags: {},
 		rating: 2,
 		num: 1011,
 	},
@@ -380,6 +394,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "Supermassive",
 		shortDesc: "On switch-in, this Pokemon summons Gravity.",
+        flags: {},
 		rating: 3.5,
 		num: 1012,
 	},
@@ -404,6 +419,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Tactician",
 		desc: "All single-target moves used by this Pokemon and its allies can target non-adjacent Pokemon. When this Pokemon or its ally uses a move that hits multiple targets, the move does not have the 25% damage reduction.",
 		shortDesc: "This Pokemon and its allies ignore spread damage drops and can target anyone.",
+        flags: {},
 		rating: 2,
 		num: 1013,
 	},
@@ -433,6 +449,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		desc: "When this Pokemon uses a move that must spend a turn charging, it executes on the first turn, after any effects are applied from the charge. When it uses a move that must spend a turn recharging, it does not need to recharge.",
 		shortDesc: "This Pokemon's attacks skip charging and recharging turns.",
 		activate: "  [POKEMON] became energized immediately!",
+        flags: {},
 		rating: 2,
 		num: 1014,
 	},
@@ -443,6 +460,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "Trade Winds",
 		shortDesc: "On switch-in, this Pokemon summons Tailwind.",
+        flags: {},
 		rating: 4,
 		num: 1015,
 	},
@@ -464,9 +482,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "Warmonger",
 		shortDesc: "On switch-in, this Pokemon Taunts adjacent foes.",
-		activate: "  [POKEMON] is belligerent!",
+        flags: {},
 		rating: 3.5,
 		num: 1016,
+		activate: "  [POKEMON] is belligerent!",
 	},
 	glyphicspell: {
 		onSwitchIn(pokemon) {
@@ -499,18 +518,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 							this.add('-block', target, 'item: Ability Shield');
 							continue;
 						}
-						if (target.illusion) {
-							this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
-						}
-						if (target.volatiles['slowstart']) {
-							delete target.volatiles['slowstart'];
-							this.add('-end', target, 'Slow Start', '[silent]');
-						}
-						if (strongWeathers.includes(target.getAbility().id)) {
-							this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
-						}
-						if (target.volatiles['protosynthesis'] && this.field.isWeather('sunnyday')) target.removeVolatile('protosynthesis');
-						if (target.volatiles['quarkdrive'] && this.field.isTerrain('electricterrain')) target.removeVolatile('quarkdrive');
+						this.singleEvent('End', target.getAbility(), target.abilityState, target, pokemon, 'neutralizinggas');
 					}
 				}
 			}
@@ -753,7 +761,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			if(pokemon.species.baseSpecies === 'Unown' && pokemon.abilityState.unownType === 'Y'){ //Yield: Quashes foes
 				if(this.turn !== 1) return; //This only needs to be called if Unown is in on the first turn, because it will activate on switch-in otherwise.
 				let activated = false;
-				if (pokemon.side.active.length < 2) return; // fails in singles
+				//does NOT fail in Singles - Unown can move on the first turn
 				for (const target of pokemon.side.foe.active) {
 					const action = this.queue.willMove(target);
 					if (!action) continue;
@@ -910,7 +918,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 			pokemon.abilityState.warnMoves = [];
 		},
-		isPermanent: true,
 		name: "Glyphic Spell",
 		desc: `This Ability functions differently based on Unown's forme. Each letter is given a designated word (similar to the TCG) starting with that letter that grants effects while Unown is on the field. They are as follows:
 		A - Adapt:		When attacking a foe, Unown's type changes to the one with the greatest advantage over it. Its Hidden Power also changes to this type, and its STAB bonus is boosted to 2x.
@@ -943,6 +950,9 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		! - !!!!!:		Unown primes itself. If it takes damage, or at the end of the turn if it doesn't, it uses Explosion, ignoring immunities to the move and always scoring critical hits.
 		Glyphic Spell cannot be copied, swapped, suppressed, or overridden, and will not have any effect if acquired through Transform/Imposter or if hacked onto another Pokemon.`,
 		shortDesc: "Has a special effect depending on Unown's letter.",
+        flags: {cantsuppress: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		rating: 3,
+		num: 1019,
 		fitem: "  [POKEMON] observed [TARGET]'s [ITEM]!",
 		fmove: "  [TARGET]'s [MOVE] was observed!",
 		h: "  [POKEMON] was healed!",
@@ -950,8 +960,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		j: "  [POKEMON] and [TARGET] had their stats shared!",
 		t: "  [POKEMON] is preparing a counterattack!",
 		ex: "  [POKEMON] radiates a lot of power...",
-		rating: 3,
-		num: 1019,
 	},
 	//Changed Abilities
 	airlock: {
@@ -972,7 +980,9 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		suppressWeather: true,
 		name: "Air Lock",
-		shortDesc: "When this Pokemon is active, weather disappears.",
+		shortDesc: "When this Pokemon is active, weather disappears and cannot be set.",
+		desc: "When this Pokemon is sent in, active weather is cleared. Using a weather-changing move will fail, and weather-changing Abilities will not work, except for Primordial Sea, Desolate Land, and Delta Stream.",
+        flags: {},
 		rating: 2,
 		num: 76,
 		start: "  The skies cleared above the battlefield.",
@@ -986,20 +996,18 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			const replaced = pokemon.side.faintedThisTurn;
 			if (!this.effectState.switchingIn || !replaced) return;
 			const ability = replaced.getAbility();
-			const additionalBannedAbilities = [
-				'noability', 'alchemy', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'receiver', 'trace', 'wonderguard',
-			];
-			if (ability.isPermanent || additionalBannedAbilities.includes(ability)) return;
+			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
 			this.add('-ability', this.effectState.target, ability, '[from] ability: Alchemy', '[of] ' + replaced);
 			this.effectState.target.setAbility(ability);
 			this.effectState.switchingIn = false;
 			
 		},
 		name: "Alchemy",
-		rating: 1,
-		num: 223,
 		desc: "This Pokemon copies the Ability of an ally that fainted this turn. Abilities that cannot be copied are \"No Ability\", Alchemy, Comatose, Commander, Disguise, Flower Gift, Forecast, Glyphic Spell, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Rage Mode, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, Zen Mode, and Zero to Hero.",
 		shortDesc: "This Pokemon copies the Ability of an ally that fainted.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		rating: 1,
+		num: 223,
 	},
 	analytic: {
 		inherit: true,
@@ -1098,6 +1106,18 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "Shudders to detect x4 effective moves and becomes Evasive to them.",
 		miss: "  [POKEMON] anticipated the attack and evaded!",
 	},
+	arenatrap: {
+		onStart(pokemon){
+			this.add('-activate', pokemon, 'ability: Arena Trap');
+			this.field.addPseudoWeather('arenatrapped');
+		},
+		flags: {},
+		name: "Arena Trap",
+		rating: 4.5,
+		num: 71,
+		desc: "Prevents all Pokemon from choosing to switch out next turn unless they are airborne, are holding a Shed Shell, have the Run Away or Arena Trap Abilities, or are a Ghost type.",
+		shortDesc: "Prevents Pokemon from switching next turn unless they are airborne.",
+	},
 	asoness: {
 		num: 266,
 		name: "As One S-S",
@@ -1133,6 +1153,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "As One that combines the two standard Abilities of Calyrex (Unnerve) and its mount (Glastrier's Ice Body or Spectrier's Cursed Body.)",
 		shortDesc: "Combines Unnerve and either Ice Body or Cursed Body.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 	},
 	asonesh: {
 		num: 266,
@@ -1170,6 +1191,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "As One that combines the standard Ability of Calyrex (Unnerve) and Hidden Ability of its mount (Glastrier's Ice Breaker or Spectrier's Soul Drain).",
 		shortDesc: "Combines Unnerve and either Ice Breaker or Soul Drain.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 	},
 	asonehs: {
 		num: 267,
@@ -1210,6 +1232,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "As One that combines the Hidden Ability of Calyrex (Majesty) and standard Ability of its mount (Glastrier's Ice Body or Spectrier's Cursed Body).",
 		shortDesc: "Combines Majesty and either Ice Body or Cursed Body.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 	},
 	asonehh: {
 		num: 267,
@@ -1251,6 +1274,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "As One that combines the two Hidden Abilities of Calyrex (Majesty) and its mount (Glastrier's Ice Breaker or Spectrier's Soul Drain).",
 		shortDesc: "Combines Majesty and either Ice Breaker or Soul Drain.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 	},
 	berserk: {
 		inherit: true,
@@ -1274,10 +1298,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Big Pecks",
-		rating: 1.5,
-		num: 145,
 		desc: "If another Pokemon tries to lower this Pokemon's Defense stat stage, it raises by that amount instead.",
 		shortDesc: "If Defense is attempted to be lowered by others, raises by that amount instead.",
+        flags: {breakable: 1},
+		rating: 1.5,
+		num: 145,
 	},
 	climatebreak: {
 		onStart(pokemon) {
@@ -1289,7 +1314,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			if (target === source || move.category === 'Status') return;
 			move.hasAuraBreak = true;
 		},
-		onAnySetTerrain(target, source, weather) {
+		onAnySetTerrain(target, source, terrain) {
 			this.add('-ability', pokemon, 'ability: Climate Break');
 			return false;
 		},
@@ -1297,6 +1322,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Climate Break",
 		desc: "This Pokemon clears terrain from the field on switch-in. While this Pokemon is active, terrain cannot be set, and the effects of the Dark Aura, Fairy Aura, and Power Aura Abilities are negated.",
 		shortDesc: "While this Pokemon is active, terrain disappears and Aura Abilities are negated.",
+        flags: {breakable: 1},
 		rating: 2,
 		num: 188,
 		start: "  [POKEMON] is regulating the climate of the battlefield!",
@@ -1327,6 +1353,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		suppressWeather: true,
 		name: "Cloud Nine",
+        flags: {breakable: 1},
 		rating: 2,
 		num: 13,
 	},
@@ -1558,10 +1585,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			delete this.effectState.embodyBoost;
 		},
 		name: "Embody Aspect",
-		rating: 3.5,
-		num: 301,
 		desc: "If this Pokemon is Ogerpon and switches in at or drops below 1/2 of its max HP, raises a stat one stage based on its held Mask: Teal Mask raises Speed, Wellspring Mask raises Special Defense, Hearthstone Mask raises Attack, and Cornerstone Mask raises Defense. This effect can only happen once per switch-in.",
 		shortDesc: "Ogerpon: Below half health, +1 to a stat based on Mask. Once per switch-in.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		rating: 3.5,
+		num: 301,
 	},
 	flareboost: {
 		name: "Flare Boost",
@@ -1588,12 +1616,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		onEnd(pokemon) {
 			pokemon.removeVolatile('preheat');
 		},
-		isBreakable: true,
 		name: "Flash Fire",
-		rating: 3.5,
-		num: 18,
 		desc: "This Pokemon is immune to Fire-type moves and gains the Preheat effect when hit by a Fire-type move. If this Pokemon is frozen, it cannot be defrosted by Fire-type attacks.",
 		shortDesc: "This Pokemon gains the Preheat effect if hit by one Fire move; Fire immunity.",
+        flags: {breakable: 1},
+		rating: 3.5,
+		num: 18,
 	},
 	flowerveil: {
 		onAllySetStatus(status, target, source, effect) {
@@ -1617,6 +1645,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Flower Veil",
 		desc: "If Grassy Terrain is active and affecting this Pokemon, itself and its allies cannot gain a non-volatile status condition or the Yawn condition, and Rest will fail for any of them.",
 		shortDesc: "If Grassy Terrain is active, this Pokemon and its allies cannot be statused.",
+        flags: {breakable: 1},
 		rating: 0.5,
 		num: 166,
 	},
@@ -1706,10 +1735,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Guard Dog",
-		rating: 2,
-		num: 275,
 		desc: "Prevents other Pokemon from lowering this Pokemon's Attack or Defense stat stages. This Pokemon cannot be forced to switch out by another Pokemon's attack or item.",
 		shortDesc: "Immune to Attack and Defense stat stage lowering. Cannot be forced to switch out.",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 275,
 	},
 	hadronengine: {
 		inherit: true,
@@ -1724,16 +1754,17 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	},
 	//Harvest change implemented in the item-removing effects.
 	healer: {
-		name: "Healer",
 		onStart(pokemon) {
 			for (const ally of pokemon.adjacentAllies()) {
 				this.add('-activate', pokemon, 'ability: Healer');
 				ally.cureStatus();
 			}
 		},
+		name: "Healer",
+		shortDesc: "On switch-in, this Pokemon cures adjacent allies' non-volatile status.",
+		flags: {},
 		rating: 0,
 		num: 131,
-		shortDesc: "On switch-in, this Pokemon cures adjacent allies' non-volatile status.",
 	},
 	heatproof: {
 		inherit: true,
@@ -1778,10 +1809,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Hyper Cutter",
-		rating: 2,
-		num: 52,
 		desc: "If another Pokemon tries to lower this Pokemon's Attack stat stage, it raises by that amount instead.",
 		shortDesc: "If Attack is attempted to be lowered by others, raises by that amount instead.",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 52,
 	},
 	icebody: {
 		inherit: true,
@@ -1800,7 +1832,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "If Snow is active, this Pokemon heals 1/8 of its max HP each turn. No cold damage.",
 	},
 	illuminate: {
-		name: "Illuminate",
 		onStart(pokemon){
 			if ('midnight' in this.field.pseudoWeather) {
 				this.field.removePseudoWeather('midnight');
@@ -1813,10 +1844,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				return false;
 			}
 		},
-		rating: 0.5,
-		num: 35,
+		name: "Illuminate",
 		desc: "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's Evasiveness. While this Pokemon is active, supernatural darkness is dispelled and cannot be set.",
 		shortDesc: "Accuracy can't be lowered by others, ignores Evasiveness, and dispels Midnight.",
+        flags: {breakable: 1},
+		rating: 0.5,
+		num: 35,
 	},
 	immunity: {
 		inherit: true,
@@ -1846,7 +1879,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				this.add('-fail', target, 'unboost', 'Special Attack', '[from] ability: Inner Focus', '[of] ' + target);
 			}
 		},
-		desc: "This Pokemon cannot be made to flinch, and its moves cannot be redirected to a different target by any effect. This Pokemon is immune to the effect of the Intimidate and Disturbance Abilities.",
+		onDamagingHit(damage, target, source){
+			if(target.volatiles['focuspunch']?.lostFocus) delete target.volatiles['focuspunch'].lostFocus;
+		},
+		desc: "This Pokemon cannot be made to flinch, its moves cannot be redirected to a different target by any effect, and it will never lose focus when using Focus Punch. This Pokemon is immune to the effect of the Intimidate and Disturbance Abilities.",
 		shortDesc: "This Pokemon cannot flinch, ignores redirection. Immune to Intimidate/Disturbance.",
 	},
 	insomnia: {
@@ -1933,33 +1969,15 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	},
 	limber: {
 		inherit: true,
-		onDamage(damage, target, source, effect) {
-			if (effect && ['spikes','stealthrock'].includes(effect.id)) {
-				return null;
-			}
-		},
-		onChangeBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'stickyweb') {
-				return null;
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (status.id === 'par'){
-				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] ability: Limber');
-				}
-				return false;
-			}
-			if (effect && effect.id === 'toxicspikes') {
-				return null;
-			}
+		onEntryHazard(pokemon) {
+			return null;
 		},
 		shortDesc: "This Pokemon cannot be paralyzed. When switching in, it is unaffected by hazards.",
 	},
 	liquidooze: {
 		inherit: true,
 		onSourceTryHeal(damage, target, source, effect) {
-			console.log("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
+			//console.log("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
 			const canOoze = ['drain', 'leechseed', 'strengthsap'];
 			if (canOoze.includes(effect.id)) {
 				const boost = (!target.ignoringItem() && target.item === 'bigroot' && effect.id === 'leechseed');
@@ -1969,8 +1987,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 	},
 	magician: { //Can't inherit because otherwise onAfterMoveSecondarySelf DOESN'T OVERRIDE ITSELF
-		name: "Magician",
-		num: 170,
 		onAfterMoveSecondarySelf(source, target, move) {
 			//console.log("magicked? " + this.effectState.magicked);
 			if (!move || !target || target === source || move.category === 'Status' || this.effectState.magicked) return;
@@ -2008,9 +2024,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		onSwitchOut(pokemon) {
 			delete this.effectState.magicked;
 		},
-		rating: 1.5,
+		name: "Magician",
 		desc: "The user swaps its held item with the held item of a Pokemon it hits with an attack. This effect fails if neither the user or the target is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, a Memory, a Rusted Sword, or a Rusted Shield to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta, respectively. The target is immune to this effect if it has the Sticky Hold Ability. This effect can only trigger once per switch-in. Does not affect Doom Desire and Future Sight.",
 		shortDesc: "Swaps items with a Pokemon it hits with an attack. Once per switch-in.",
+        flags: {},
+		num: 170,
+		rating: 1.5,
 	},
 	magicguard: {
 		onDamage(damage, target, source, effect) {
@@ -2024,6 +2043,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Magic Guard",
 		desc: "This Pokemon can only be damaged by direct attacks. Curse and Substitute on use, Belly Drum, Pain Split, recoil, and confusion damage are considered direct damage.",
 		shortDesc: "This Pokemon can only be damaged by direct attacks or recoil.",
+        flags: {},
 		rating: 4,
 		num: 98,
 	},
@@ -2046,6 +2066,38 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "The power of Ice-type attacks against this Pokemon is halved, and it is immune to being frozen or taking cold damage from Snow.",
 		shortDesc: "Halves power of Ice-type moves against this Pokemon; prevents freeze and cold damage.",
+	},
+	magnetpull: {
+		onStart(pokemon){
+			let activated = false;
+			for(const target of pokemon.adjacentFoes()){
+				if (target.hasType('Steel') && !target.volatiles['trapped']) {
+					if(!activated){
+						this.add('-ability', pokemon, 'Magnet Pull');
+						activated = true;
+					}
+					target.addVolatile('trapped', pokemon, 'magnetpull', 'trapper');
+				}
+			}
+		},
+		onFoeSwitchIn(target){
+			if (target.hasType('Steel') && !target.volatiles['trapped']) {
+				target.addVolatile('trapped', this.effectState.target, '[from] ability: Magnet Pull', 'trapper');
+			}
+		},
+		onEnd(pokemon){
+			if(pokemon.volatiles['trapper']){
+				for(const trapped of pokemon.volatiles['trapper'].linkedPokemon){
+					trapped.removeVolatile('trapped');
+				}
+			}
+		},
+		flags: {},
+		name: "Magnet Pull",
+		rating: 4,
+		num: 42,
+		desc: "Prevents opposing Steel-type Pokemon from choosing to switch out for three turns, unless they are holding a Shed Shell or are a Ghost type.",
+		shortDesc: "Prevents opposing Steel-type Pokemon from choosing to switch out for 3 turns.",
 	},
 	megalauncher: {
 		inherit: true,
@@ -2082,11 +2134,9 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			if (types[0] === newType || !pokemon.setType(types[1] ? [newType, types[1]] : newType)) return;
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] ability: Mimicry');
 		},
-		name: "Mimicry",
-		rating: 1,
-		num: 250,
 		desc: "This Pokemon's primary type changes to match the active Terrain when this Pokemon acquires this Ability, or whenever a Terrain begins. Electric type during Electric Terrain, Grass type during Grassy Terrain, Fairy type during Misty Terrain, and Psychic type during Psychic Terrain. If this Ability is acquired without an active Terrain, or a Terrain ends or is suppressed, this Pokemon's types become the original types for its species.",
 		shortDesc: "This Pokemon's first type changes to match the Terrain. Type reverts when Terrain ends.",
+		rating: 1,
 	},
 	moody: {
 		onSourceHit(target, source, move) {
@@ -2128,6 +2178,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		-Receiving a healing effect of 20% or more of its max HP raises both attacking stats and Speed, but lowers both defenses.
 		If multiple conditions are met in one turn, only the latest-occuring one will determine the stat change.`,
 		shortDesc: "Raises and lowers stats each turn depending on what happens in battle.",
+		flags: {},
 		rating: 3,
 		num: 141,
 	},
@@ -2157,16 +2208,20 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	normalize: {
 		onModifyTypePriority: 1,
 		onAnyModifyType(move, source, target) {
-			if (!(source === this.effectState.target || target === this.effectState.target)) return;
+			console.log("Normalizer: ");
+			console.log(this.effectState.target);
+			console.log(source === this.effectState.target);
+			console.log(target === this.effectState.target);
+			if (move.id === 'struggle'|| !(source === this.effectState.target || target === this.effectState.target)) return;
 			const noModifyType = [
-				'bullfight', 'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terablast', 'weatherball',
+				'bullfight', 'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'secretpower', 'technoblast', 'terablast', 'weatherball',
 			];
-			if (!noModifyType.includes(move.id)) {
+			if (!(source === this.effectState.target && noModifyType.includes(move.id))) {
 				move.type = 'Normal';
 				if (move.twoType) delete move.twoType;
 			}
 		},
-		flags: {},
+		flags: {breakable: 1},
 		name: "Normalize",
 		rating: 1,
 		num: 96,
@@ -2182,7 +2237,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		rating: 4,
-		shortDesc: "On switch-in, summons strong sun. During strong sun, Attack is 1.1x.",
+		shortDesc: "On switch-in, summons sun. During sun, Attack is 1.1x.",
 	},
 	overcoat: {
 		inherit: true,
@@ -2219,6 +2274,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		-Psych Up, Co-Star, Opportunist, and a Mirror Herb will fail to copy its stat changes, and Spectral Thief will fail to steal them. A Mirror Herb will still be consumed.
 		-Transform, Imposter, and Glyphic Spell Copy will fail to transform into it.`,
 		shortDesc: "This Pokemon cannot be confused. Attempts to copy or steal its moves and attributes fail.",
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1},
 		activate: "  [POKEMON]'s mannerisms couldn't be acquired!",
 	},
 	parentalbond: {
@@ -2238,6 +2294,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Parental Bond",
+		flags: {},
 		rating: 4.5,
 		num: 184,
 	},
@@ -2264,9 +2321,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			return false;
 		},
 		name: "Pastel Veil",
+		shortDesc: "This Pokemon and its allies cannot be poisoned.",
+        flags: {breakable: 1},
 		rating: 2,
 		num: 257,
-		shortDesc: "This Pokemon and its allies cannot be poisoned.",
 	},
 	pickpocket: {
 		inherit: true,
@@ -2296,9 +2354,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Power Aura",
+		shortDesc: "This Pokemon's allies have the power of their moves multiplied by 1.3.",
+		flags: {},
 		rating: 1,
 		num: 249,
-		shortDesc: "This Pokemon's allies have the power of their moves multiplied by 1.3.",
 		start: "  [POKEMON] is radiating a power aura!",
 	},
 	prismarmor: {
@@ -2313,10 +2372,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon);
 		},
 		name: "Prism Armor",
-		rating: 1,
-		num: 232,
 		desc: "This Pokemon receives 3/4 damage from supereffective attacks. It also loses 10% of its max HP at the end of each turn. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
 		shortDesc: "3/4 damage from supereffective attacks but loses 10% max HP each turn.",
+        flags: {breakable: 1},
+		rating: 1,
+		num: 232,
 	},
 	protean: {
 		onPrepareHit(source, target, move) {
@@ -2328,10 +2388,65 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Protean",
-		rating: 4.5,
-		num: 168,
 		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
+		flags: {},
+		rating: 4.5,
+		num: 168,
+	},
+	protosynthesis: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protosynthesis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protosynthesis');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosynthesis');
+			},
+		},
+		onEnd(pokemon){
+			if(pokemon.volatiles['protosynthesis']) delete pokemon.volatiles['protosynthesis'];
+		},
+		flags: {},
+		desc: "If Sunny Day is active or this Pokemon uses a held Booster Energy, this Pokemon's highest stat is multiplied by 1.3. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. If this effect was started by Sunny Day, a held Booster Energy will not activate and the effect ends when Sunny Day is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
+		shortDesc: "Sunny Day active or Booster Energy used: highest stat is 1.3x.",
 	},
 	purifyingsalt: {
 		onUpdate(pokemon) {
@@ -2345,16 +2460,70 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		onSourceBasePowerPriority: 18,
 		onSourceBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Ghost') {
+			if ((move.type === 'Ghost' || (move.twoType && move.twoType === 'Ghost'))) {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
 		name: "Purifying Salt",
-		rating: 2,
-		num: 272,
 		desc: "The power of Ghost-type attacks against this Pokemon is halved, and it is immune to freeze and cold damage from Snow.",
 		shortDesc: "Halves power of Ghost-type attacks against this Pokemon; no freeze or cold damage.",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 272,
+	},
+	quarkdrive: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Quark Drive', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Quark Drive');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Quark Drive');
+			},
+		},
+		onEnd(pokemon){
+			if(pokemon.volatiles['quarkdrive']) delete pokemon.volatiles['quarkdrive'];
+		},
+		flags: {},
+		desc: "If Electric Terrain is active or this Pokemon uses a held Booster Energy, this Pokemon's highest stat is multiplied by 1.3. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. If this effect was started by Electric Terrain, a held Booster Energy will not activate and the effect ends when Electric Terrain is no longer active. If this effect was started by a held Booster Energy, it ends when this Pokemon is no longer active.",
+		shortDesc: "Electric Terrain active or Booster Energy used: highest stat is 1.3x.",
 	},
 	raindish: {
 		inherit: true,
@@ -2374,19 +2543,17 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			const replaced = pokemon.side.faintedThisTurn;
 			if (!this.effectState.switchingIn || !replaced) return;
 			const ability = replaced.getAbility();
-			const additionalBannedAbilities = [
-				'noability', 'alchemy', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'receiver', 'trace', 'wonderguard',
-			];
-			if (ability.isPermanent || additionalBannedAbilities.includes(ability)) return;
+			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
 			this.add('-ability', this.effectState.target, ability, '[from] ability: Receiver', '[of] ' + replaced);
 			this.effectState.target.setAbility(ability);
 			this.effectState.switchingIn = false;
 		},
 		name: "Receiver",
-		rating: 1,
-		num: 223,
 		desc: "This Pokemon copies the Ability of an ally that fainted this turn. Abilities that cannot be copied are \"No Ability\", Alchemy, As One, Comatose, Disguise, Flower Gift, Forecast, Glyphic Spell, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Rage Mode, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, Zen Mode, and Zero to Hero.",
 		shortDesc: "This Pokemon copies the Ability of an ally that fainted.",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		rating: 1,
+		num: 223,
 	},
 	rivalry: {
 		inherit: true,
@@ -2408,11 +2575,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
 			if(!pokemon.volatiles['meanlooked']){
-				pokemon.trapped = pokemon.maybeTrapped = false;
+				pokemon.trapped = false;
 			}
 		},
 		name: "Run Away",
 		desc: "This Pokemon may switch out even when trapped by another Pokemon.",
+        flags: {},
 		rating: 1,
 		num: 50,
 	},
@@ -2437,10 +2605,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Sand Veil",
-		rating: 1.5,
-		num: 8,
 		desc: "If this Pokemon is sent out during a Sandstorm, or if a Sandstorm activates while it is on the field, it becomes Evasive for the rest of the turn. While Evasive, all moves used on this Pokemon will fail accuracy checks, unless they ignore the condition. This Pokemon takes no damage from Sandstorm.",
 		shortDesc: "This Pokemon becomes Evasive when it encounters a Sandstorm; immunity to it.",
+		flags: {},
+		rating: 1.5,
+		num: 8,
 		start: "  [POKEMON] disappeared into the sandstorm!",
 		end: "  [POKEMON] became visible again.",
 	},
@@ -2481,12 +2650,45 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				}
 			}
 		},
-		isPermanent: true,
 		name: "Schooling",
-		rating: 3,
-		num: 208,
 		desc: "On switch-in, if this Pokemon is a Wishiwashi or Tynamo that is level 20 or above and has more than 1/4 of its maximum HP left, it changes to School Form. If it is in School Form and its HP drops to 1/4 of its maximum HP or less, it changes to Solo Form at the end of the turn. If it is in Solo Form and its HP is greater than 1/4 its maximum HP at the end of the turn, it changes to School Form.",
 		shortDesc: "If user is Wishiwashi/Tynamo, changes to School Form if it has > 1/4 max HP, else Solo Form.",
+        flags: {cantsuppress: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		rating: 3,
+		num: 208,
+	},
+	shadowtag: {
+		onStart(pokemon){
+			let activated = false;
+			for(const target of pokemon.adjacentFoes()){
+				if (!target.hasAbility('shadowtag') && !target.volatiles['trapped']) {
+					if(!activated){
+						this.add('-ability', pokemon, 'Shadow Tag');
+						activated = true;
+					}
+					target.addVolatile('trapped', pokemon, 'shadowtag', 'trapper');
+				}
+			}
+		},
+		onFoeSwitchIn(target){
+			if (!target.hasAbility('shadowtag') && !target.volatiles['trapped']) {
+				this.add('-ability', this.effectState.target, 'Shadow Tag');
+				target.addVolatile('trapped', this.effectState.target, '[from] ability: Shadow Tag', 'trapper');
+			}
+		},
+		onEnd(pokemon){
+			if(pokemon.volatiles['trapper']){
+				for(const trapped of pokemon.volatiles['trapper'].linkedPokemon){
+					trapped.removeVolatile('trapped');
+				}
+			}
+		},
+		flags: {},
+		name: "Shadow Tag",
+		rating: 4.5,
+		num: 23,
+		desc: "Prevents opposing Pokemon from choosing to switch out for three turns, unless they are holding a Shed Shell, have the Run Away or Shadow Tag Abilities, or are a Ghost type.",
+		shortDesc: "Prevents foes from switching for 3 turns unless they also have this Ability.",
 	},
 	sharpness: {
 		inherit: true,
@@ -2575,12 +2777,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				delete move.ignoringAbility;
 			}
 		},
-		isPermanent: true,
 		name: "Shields Down",
-		rating: 3,
-		num: 197,
 		desc: "If this Pokemon is a Minior or Prominoid, it changes to its Core forme if it has 1/2 or less of its maximum HP, and changes to Meteor Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Meteor Form, it cannot become affected by non-volatile status conditions. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
 		shortDesc: "If Minior/Prominoid, on switch-in/turn end, changes to Core at <= 1/2 max HP, else Meteor.",
+        flags: {breakable: 1, cantsuppress: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		rating: 3,
+		num: 197,
 	},
 	slowstart: {
 		onStart(pokemon) {
@@ -2606,10 +2808,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Slow Start",
-		rating: -1,
-		num: 112,
 		desc: "This Pokemon's Attack and Speed are halved for the first 5 turns it is on the field in battle.",
 		shortDesc: "This Pokemon's Attack and Speed are halved for its first 5 turns.",
+		flags: {},
+		rating: -1,
+		num: 112,
 	},
 	snowcloak: {
 		onImmunity(type, pokemon) {
@@ -2632,10 +2835,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Snow Cloak",
-		rating: 1.5,
-		num: 81,
 		desc: "If this Pokemon is sent out during Snow, or if Snow activates while it is on the field, it becomes Evasive for the rest of the turn. While Evasive, all moves used on this Pokemon will fail accuracy checks, unless they ignore the condition. This Pokemon takes no damage from Snow.",
 		shortDesc: "This Pokemon becomes Evasive when it encounters Snow; immunity to it.",
+		flags: {},
+		rating: 1.5,
+		num: 81,
 		start: "  [POKEMON] disappeared into the snow!",
 		end: "  [POKEMON] became visible again.",
 	},
@@ -2649,9 +2853,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Snow Plow",
+		shortDesc: "If Snow is active, this Pokemon's Speed is doubled; immunity to it.",
+		flags: {},
 		rating: 3,
 		num: 202,
-		shortDesc: "If Snow is active, this Pokemon's Speed is doubled; immunity to it.",
 	},
 	stalwart: {
 		inherit: true,
@@ -2683,10 +2888,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Steadfast",
-		rating: 2.5,
-		num: 128,
 		desc: "This Pokemon's Speed is raised by 1 stage for each of its stat stages that is lowered by an opposing Pokemon.",
 		shortDesc: "This Pokemon's Speed is raised by 1 for each of its stats that is lowered by a foe.",
+		flags: {},
+		rating: 2.5,
+		num: 128,
 	},
 	suctioncups: {
 		inherit: true,
@@ -2730,23 +2936,25 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Tangled Feet",
-		activate: "  [POKEMON] became hard to hit!",
-		rating: 1,
-		num: 77,
 		desc: "If the Pokemon is confused and hits itself in confusion, it becomes Evasive until its next turn. While Evasive, all moves used on this Pokemon will fail accuracy checks, unless they ignore the condition.",
 		shortDesc: "Becomes Evasive after hitting itself in confusion.",
+		flags: {},
+		rating: 1,
+		num: 77,
+		activate: "  [POKEMON] became hard to hit!",
 	},
 	tangling: {
 		onHit(target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				source.addVolatile('singletrap');
+				source.addVolatile('singletrap', target, Dex.abilities.get('tangling'), 'trapper');
 			}
 		},
 		name: "Tangling",
-		rating: 2,
-		num: 221,
 		desc: "Pokemon making contact with this Pokemon become trapped on the following turn.",
 		shortDesc: "Pokemon making contact with this Pokemon become trapped for a turn.",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 221,
 	},
 	teraformzero: {
 		onStart(pokemon) {
@@ -2754,15 +2962,40 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			this.field.clearWeather();
 			this.field.clearTerrain();
 		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (!strongWeathers.includes(weather.id)){
+				this.add('-activate', this.effectState.target, 'ability: Teraform Zero');
+				return false;
+			}
+		},
+		onAnySetTerrain(target, source, terrain) {
+			this.add('-ability', pokemon, 'ability: Teraform Zero');
+			return false;
+		},
 		suppressWeather: true,
 		suppressTerrain: true,
 		name: "Teraform Zero",
+		shortDesc: "Clears weather and terrain from the field and prevents them from being set.",
+		desc: "When this Pokemon is sent in, active weather and terrain is cleared. Using a weather- or terrain-changing move will fail, and weather- or terrain-changing Abilities will not work, except for Primordial Sea, Desolate Land, and Delta Stream.",
+        flags: {breakable: 1}, 
 		rating: 3.5,
 		num: 309,
-		shortDesc: "Clears weather and terrain from the field and prevents them from being set.",
 	},
 	terashell: {
 		inherit: true,
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (move.category === 'Status') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			if (target.hp < target.maxhp) return;
+
+			this.add('-activate', target, 'ability: Tera Shell');
+			this.effectState.resisted = true;
+			delete move.twoType; //Don't want double resistance
+			return -1;
+		},
 		onBasePowerPriority: 22,
 		onBasePower(basePower, attacker, defender, move) {
 			const itemName = attacker.getItem().name;
@@ -2773,11 +3006,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "If this Pokemon is at full HP, any damage-dealing attack used on it will be treated as not very effective. The user's moves whose type matches that of its held Tera Shard will have their base power multiplied by 1.5x.",
 		shortDesc: "Full HP: damaging attacks not very effective. Moves of Tera Shard type: 1.5x pwr.",
+        flags: {breakable: 1},
 	},
 	terashift: {
 		inherit: true,
 		onPreStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos' || pokemon.transformed || magicroom in this.field.pseudoWeather) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos' || pokemon.transformed || 'magicroom' in this.field.pseudoWeather) return;
 			switch(pokemon.getItem().name){
 			case "Stellar Tera Shard":
 				this.add('-activate', pokemon, 'ability: Tera Shift');
@@ -2829,7 +3063,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	teravolt: {
 		inherit: true,
 		//Ignoring Full Metal Body, Prism Armor, Shadow Shield, and Shields Down implemented in those Abilities because of annoying coding setups
-		onAnyBasePowerPriority: 21,
+		onBasePowerPriority: 21,
 		onBasePower(damage, source, target, move) {
 			if(move.hasAuraBreak) delete move.hasAuraBreak;
 		},
@@ -2842,10 +3076,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Thermal Exchange",
-		rating: 2,
-		num: 270,
 		desc: "This Pokemon's Attack is raised 2 stages after it is damaged by a Fire-type move.",
 		shortDesc: "This Pokemon's Attack is raised by 2 when damaged by Fire moves.",
+		flags: {},
+		rating: 2,
+		num: 270,
 	},
 	toughclaws: {
 		inherit: true,
@@ -2857,20 +3092,21 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "This Pokemon's contact moves have their power multiplied by 1.2.",
 	},
 	toxicboost: {
-		name: "Toxic Boost",
-		rating: 3,
-		num: 137,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				return this.chainModify(2);
 			}
 		},
+		name: "Toxic Boost",
 		desc: "If this Pokemon is poisoned or badly poisoned, its Attack is multiplied by 2.",
 		shortDesc: "If this Pokemon is poisoned, its Attack is 2x.",
+        flags: {breakable: 1},
+		rating: 3,
+		num: 137,
 	},
 	turboblaze: {
 		inherit: true,
-		onAnyBasePowerPriority: 21,
+		onBasePowerPriority: 21,
 		onBasePower(damage, source, target, move) {
 			if(move.hasAuraBreak) delete move.hasAuraBreak;
 		},
@@ -2922,13 +3158,13 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			return false;
 		},
 		name: "Water Bubble",
-		rating: 2,
-		num: 199,
 		desc: "The power of Fire-type attacks against this Pokemon is halved, and it is immune to burns.",
 		shortDesc: "The power of Fire-type attacks against this Pokemon is halved; burns are prevented.",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 199,
 	},
 	waterveil: {
-		name: "Water Veil",
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Water Veil');
@@ -2943,10 +3179,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				return null;
 			}
 		},
-		rating: 2,
-		num: 175,
+		name: "Water Veil",
 		shortDesc: "This Pokemon and its allies cannot be burned.",
 		block: "  [POKEMON] can't be burned due to a watery veil!",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 175,
 	},
 	whitesmoke: {
 		onUpdate(pokemon) {
@@ -2967,6 +3205,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		name: "White Smoke",
 		desc: "Restores all lowered stat stages to 0 when one is less than 0.",
+		flags: {},
 		rating: 3,
 		num: 73,
 	},
@@ -3041,12 +3280,12 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
 		},
-		isPermanent: true,
 		name: "Zero to Hero",
-		rating: 3.5,
-		num: 278,
 		desc: "This Pokemon transforms into its Hero Form when it enters the field after an ally has fainted. While in Hero Form, its moves have their power multiplied by 1+(X*0.1), where X is the total number of times any Pokemon has fainted on the user's side when this Ability became active, and X cannot be greater than 5.",
 		shortDesc: "This Pokemon transforms when an ally faints; moves have 10% more power for each one, max 5.",
+        flags: {cantsuppress: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		rating: 3.5,
+		num: 278,
 	},
 	/* Abilities edited as changes to other elements */
 	clearbody: {
@@ -3080,6 +3319,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Dazzling",
+        flags: {breakable: 1},
 		rating: 2.5,
 		num: 219,
 	},
@@ -3106,10 +3346,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Full Metal Body",
-		rating: 2,
-		num: 230,
 		desc: "Prevents other Pokemon from lowering this Pokemon's stat stages. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
 		shortDesc: "Prevents other Pokemon from lowering this Pokemon's stat stages.",
+        flags: {breakable: 1},
+		rating: 2,
+		num: 230,
 	},
 	imposter: {
 		onSwitchIn(pokemon) {
@@ -3132,6 +3373,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Imposter",
 		rating: 5,
 		num: 150,
+        flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 	},
 	neutralizinggas: {
 		inherit: true,
@@ -3145,18 +3387,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 					this.add('-block', target, 'item: Ability Shield');
 					continue;
 				}
-				if (target.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
-				}
-				if (target.volatiles['slowstart']) {
-					delete target.volatiles['slowstart'];
-					this.add('-end', target, 'Slow Start', '[silent]');
-				}
-				if (strongWeathers.includes(target.getAbility().id)) {
-					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
-				}
-				if (target.volatiles['protosynthesis']) target.removeVolatile('protosynthesis');
-				if (target.volatiles['quarkdrive']) target.removeVolatile('quarkdrive');
+				this.singleEvent('End', target.getAbility(), target.abilityState, target, pokemon, 'neutralizinggas');
 			}
 		},
 	},
@@ -3230,10 +3461,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Shadow Shield",
-		rating: 3.5,
-		num: 231,
 		desc: "If this Pokemon is at full HP, damage taken from attacks is halved. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
 		shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved.",
+        flags: {breakable: 1},
+		rating: 3.5,
+		num: 231,
 	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
@@ -3244,6 +3476,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Sticky Hold",
+        flags: {breakable: 1},
 		rating: 2,
 		num: 60,
 	},
@@ -3253,38 +3486,34 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "This Pokemon's bite-based attacks have 1.5x power.",
 	},
 	trace: {
-		inherit: true,
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
-			while (possibleTargets.length) {
-				let rand = 0;
-				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
-				const target = possibleTargets[rand];
-				if(target.ability === 'owntempo'){ //Own Tempo isn't exempt from copying, it causes it to fail
-					this.add('-activate', pokemon, 'ability: Trace');
-					this.add('-immune', target, '[from] ability: Own Tempo');
-					this.hint('Own Tempo blocks effects that steal or copy its attributes');
-					this.effectState.gaveUp = true;
-					return;
-				}
-				const ability = target.getAbility();
-				const additionalBannedAbilities = [
-					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'alchemy', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'receiver', 'trace', 'zenmode',
-				];
-				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
-					possibleTargets.splice(rand, 1);
-					continue;
-				}
-				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
-				pokemon.setAbility(ability);
+
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			if(target.ability === 'owntempo'){ //Own Tempo isn't exempt from copying, it causes it to fail
+				this.add('-activate', pokemon, 'ability: Trace');
+				this.add('-immune', target, '[from] ability: Own Tempo');
+				this.hint('Own Tempo blocks effects that steal or copy its attributes');
+				this.effectState.gaveUp = true;
 				return;
+			}
+			if (pokemon.setAbility(ability)) {
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
 			}
 		},
 		onEnd(pokemon){
 			if(this.effectState.gaveUp) delete this.effectState.gaveUp;
 		},
+		name: "Trace",
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		rating: 2.5,
+		num: 36,
 	},
 	zenmode: {
 		inherit: true,
@@ -3362,7 +3591,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		inherit: true,
 		onCriticalHit(target, source, move) {
 			if (!target) return;
-			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
+			if (target.species.id !== 'mimikyu' || target.transformed) {
 				return;
 			}
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
@@ -3373,7 +3602,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
+			if (target.species.id !== 'mimikyu' || target.transformed) {
 				return;
 			}
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
@@ -3381,6 +3610,17 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 
 			if (!target.runImmunity(move.type) || !(move.twoType && target.runImmunity(move.twoType))) return;
 			return 0;
+		},
+	},
+	eartheater: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Ground' || (move.twoType && move.twoType === 'Ground'))) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Earth Eater');
+				}
+				return null;
+			}
 		},
 	},
 	fairyaura: {
@@ -3534,6 +3774,23 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				move.type = 'Ice';
 				if(move.twoType) delete move.twoType;
 				move.refrigerateBoosted = true;
+			}
+		},
+	},
+	rockypayload: {
+		inherit: true,
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if ((move.type === 'Rock' || (move.twoType && move.twoType === 'Rock'))) {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if ((move.type === 'Rock' || (move.twoType && move.twoType === 'Rock'))) {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
 			}
 		},
 	},
@@ -3697,166 +3954,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 	},
-	/* Status move contact updates */
-	cutecharm: {
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('attract', this.effectState.target);
-				}
-			}
-		},
-		name: "Cute Charm",
-		rating: 0.5,
-		num: 56,
-	},
-	effectspore: {
-		onHit(target, source, move) {
-			if (move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
-				const r = this.random(100);
-				if (r < 11) {
-					source.setStatus('slp', target);
-				} else if (r < 21) {
-					source.setStatus('par', target);
-				} else if (r < 30) {
-					source.setStatus('psn', target);
-				}
-			}
-		},
-		name: "Effect Spore",
-		rating: 2,
-		num: 27,
-	},
-	flamebody: {
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				if (this.randomChance(3, 10)) {
-					source.trySetStatus('brn', target);
-				}
-			}
-		},
-		name: "Flame Body",
-		rating: 2,
-		num: 49,
-	},
-	gooey: {
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				this.add('-ability', target, 'Gooey');
-				this.boost({spe: -1}, source, target, null, true);
-			}
-		},
-		name: "Gooey",
-		rating: 2,
-		num: 183,
-	},
-	ironbarbs: {
-		onHitOrder: 1,
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				this.damage(source.baseMaxhp / 8, source, target);
-			}
-		},
-		name: "Iron Barbs",
-		rating: 2.5,
-		num: 160,
-	},
-	mummy: {
-		name: "Mummy",
-		onHit(target, source, move) {
-			const sourceAbility = source.getAbility();
-			if (sourceAbility.isPermanent || sourceAbility.id === 'mummy') {
-				return;
-			}
-			if (move.flags['contact']) {
-				const oldAbility = source.setAbility('mummy', target);
-				if (oldAbility) {
-					this.add('-activate', target, 'ability: Mummy', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
-				}
-			}
-		},
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
-		},
-		rating: 2,
-		num: 152,
-	},
-	poisonpoint: {
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				if (this.randomChance(3, 10)) {
-					source.trySetStatus('psn', target);
-				}
-			}
-		},
-		name: "Poison Point",
-		rating: 1.5,
-		num: 38,
-	},
-	poisontouch: {
-		// upokecenter says this is implemented as an added secondary effect
-		onModifyMove(move) {
-			if (!move || !move.flags['contact'] || move.category === "Status" || move.target === 'self') return;
-			if (!move.secondaries) {
-				move.secondaries = [];
-			}
-			move.secondaries.push({
-				chance: 30,
-				status: 'psn',
-				ability: this.dex.abilities.get('poisontouch'),
-			});
-		},
-		name: "Poison Touch",
-		rating: 2,
-		num: 143,
-	},
-	roughskin: {
-		onHitOrder: 1,
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				this.damage(source.baseMaxhp / 8, source, target);
-			}
-		},
-		name: "Rough Skin",
-		rating: 2.5,
-		num: 24,
-	},
-	static: {
-		onHit(target, source, move) {
-			if (move.flags['contact']) {
-				if (this.randomChance(3, 10)) {
-					source.trySetStatus('par', target);
-				}
-			}
-		},
-		name: "Static",
-		rating: 2,
-		num: 9,
-	},
-	wanderingspirit: {
-		onHit(target, source, move) {
-			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
-			if (source.getAbility().isPermanent || additionalBannedAbilities.includes(source.ability) ||
-				target.volatiles['dynamax']
-			) {
-				return;
-			}
-
-			if (move.flags['contact']) {
-				const sourceAbility = source.setAbility('wanderingspirit', target);
-				if (!sourceAbility) return;
-				if (target.side === source.side) {
-					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
-				} else {
-					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
-				}
-				target.setAbility(sourceAbility);
-			}
-		},
-		name: "Wandering Spirit",
-		rating: 2.5,
-		num: 254,
-	},
 	
 	/* Renamed and deleted Abilities */
 	escapeplan: {
@@ -3871,10 +3968,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			this.add('-activate', target, 'ability: Escape Plan');
 		},
 		name: "Escape Plan",
-		rating: 1,
-		num: 1017,
 		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move; This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
 		shortDesc: "This Pokemon switches out when it reaches 1/2 or less of its maximum HP.",
+		flags: {},
+		rating: 1,
+		num: 1017,
 	},
 	wimpout: null,
 	emergencyexit: null,
@@ -3896,15 +3994,13 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Induction",
 		desc: "If an active ally also has this Ability, this Pokemon's Special Attack is multiplied by 1.5.",
 		shortDesc: "If an active ally also has this Ability, this Pokemon's Sp. Atk is 1.5x.",
+		flags: {},
 		rating: 0,
 		num: 1018,
 	},
 	plus: null,
 	minus: null,
-	powerofalchemy: {
-		name: "Power of Alchemy",
-		isNonstandard: "Past",
-	},
+	powerofalchemy: null,
 	powerspot: null,
 	majesty: {
 		onFoeTryMove(source, target, move) {
@@ -3920,10 +4016,11 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Majesty",
-		rating: 2.5,
-		num: 214,
 		desc: "While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",
 		shortDesc: "While this Pokemon is active, allies are protected from opposing priority moves.",
+        flags: {breakable: 1},
+		rating: 2.5,
+		num: 214,
 	},
 	queenlymajesty: null,
 	rebound: null,
@@ -3956,8 +4053,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	
 	/* CAP */
 	emergence: {
-		isNonstandard: "CAP",
-		name: "Emergence",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
@@ -3984,9 +4079,13 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		condition: {
 			duration: 1,
 		},
-		rating: 3,
-		num: -3,
+		isNonstandard: "CAP",
+		name: "Emergence",
 		desc: "On switch-in, this Pokemon blocks certain status moves and instead uses the move against the original user.",
 		shortDesc: "On switch-in, blocks certain status moves and bounces them back to the user.",
+        flags: {breakable: 1},
+		rating: 3,
+		num: -3,
 	},
+	mountaineer: null,
 };

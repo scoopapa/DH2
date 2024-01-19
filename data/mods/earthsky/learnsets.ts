@@ -6872,7 +6872,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			chipaway: ["9M"],
 			round: ["9M"],
 			echoedvoice: ["9M"],
-			facade: ["9M"],
 			payback: ["9M"],
 			compensation: ["9M"],
 			assurance: ["9M"],
@@ -6905,7 +6904,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			beatup: ["9D"],
 		},
 	},
-	squawkapoblueplumage: {
+	squawkapoblue: {
 		learnset: {
 			boomburst: ["9L0"],
 			growl: ["9L1"],
@@ -6939,7 +6938,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			chipaway: ["9M"],
 			round: ["9M"],
 			echoedvoice: ["9M"],
-			facade: ["9M"],
 			payback: ["9M"],
 			compensation: ["9M"],
 			assurance: ["9M"],
@@ -6972,7 +6970,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			beatup: ["9D"],
 		},
 	},
-	squawkapoyellowplumage: {
+	squawkapoyellow: {
 		learnset: {
 			firstimpression: ["9L0"],
 			growl: ["9L1"],
@@ -7006,7 +7004,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			chipaway: ["9M"],
 			round: ["9M"],
 			echoedvoice: ["9M"],
-			facade: ["9M"],
 			payback: ["9M"],
 			compensation: ["9M"],
 			assurance: ["9M"],
@@ -7039,7 +7036,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			beatup: ["9D"],
 		},
 	},
-	squawkapowhiteplumage: {
+	squawkapowhite: {
 		learnset: {
 			suckerpunch: ["9L0"],
 			growl: ["9L1"],
@@ -7073,7 +7070,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			chipaway: ["9M"],
 			round: ["9M"],
 			echoedvoice: ["9M"],
-			facade: ["9M"],
 			payback: ["9M"],
 			compensation: ["9M"],
 			assurance: ["9M"],
@@ -7465,7 +7461,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			snarl: ["9M"],
 			magiccoat: ["9M"],
 			calmmind: ["9M"],
-			icebeam: ["9M"],
 			fireblast: ["9M"],
 			psychic: ["9M"],
 			dazzlinggleam: ["9M"],

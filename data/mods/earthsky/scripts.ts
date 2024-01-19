@@ -6,7 +6,7 @@ import {Utils} from '../../../lib';
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['ES', 'Uber', 'OU', 'NFE', 'LC'],
+		customTiers: ['ESH', 'Uber', 'OU', 'NFE', 'LC'],
 		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
 			let abilityid: ID = set ? toID(set.ability) : '' as ID;
 			const itemid: ID = set ? toID(set.item) : '' as ID;
@@ -16,13 +16,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (itemid === 'blastoisinite' || itemid === 'magmortarite') abilityid = 'megalauncher' as ID;
 			if (itemid === 'heracronite') abilityid = 'skilllink' as ID;
 			if (itemid === 'cameruptite') abilityid = 'sheerforce' as ID;
-			if (itemid === 'aerodactylite' || itemid === 'charizardmegax') abilityid = 'toughclaws' as ID;
+			if (itemid === 'aerodactylite' || itemid === 'charizarditex') abilityid = 'toughclaws' as ID;
+			if (itemid === 'ralitite' || itemid === 'charizarditey') abilityid = 'drought' as ID;
 			if (itemid === 'glalitite') abilityid = 'refrigerate' as ID;
 			if (itemid === 'galladite') abilityid = 'sharpness' as ID;
 			if (itemid === 'sharpedonite') abilityid = 'strongjaw' as ID;
 			
 			if (species.baseSpecies === "Unown") {
-				if(id.startsWith('hiddenpower')) return id === (species.forme ? 'hiddenpowerpsychic' : 'hiddenpower');
+				if(id.startsWith('hiddenpower')) return id === (species.forme ? 'hiddenpowerpsychic' : 'hiddenpower'); //Only A wants regular HP since it changes type anyway
 				else return ["G", "P", "Q"].includes(species.forme); //Stored Power
 			}
 
@@ -79,7 +80,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'hiddenpowerground':
 				return !moves.includes('earthpower');
 			case 'hypnosis':
-				return ['baddreams', 'compoundeyes', 'insomnia'].includes(abilityid);
+				return ['baddreams', 'compoundeyes', 'insomnia'].includes(abilityid) && 
+				!(moves.includes('spore') || moves.includes('darkvoid') || moves.includes('grasswhistle') || moves.includes('sing') || moves.includes('sleeppowder'));
 			case 'ironhead':
 				return !moves.includes('metaledge');
 			case 'irontail':
@@ -108,10 +110,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				return abilityid === 'bludgeon' && !(itemid === '' || dex.items.get(itemid)?.consumable);
 			case 'tantrum':
 				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || formatType !== 'singles';
-				case 'terablast':
+			case 'terablast':
 				return itemid.endsWith('terashard');
 			case 'wildcharge':
-				return !(moves.includes('volttackle') || moves.includes('zingzap'));
+				return !(moves.includes('volttackle') || moves.includes('zingzap') || moves.includes('plasmafists'));
 			}
 
 			if (formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
@@ -146,10 +148,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			return !this.BAD_STRONG_MOVES.includes(id);
 		},
 		GOOD_STATUS_MOVES: [
-			'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'batonpass', 'bellydrum', 'bulkup', 'bunkerdown', 'calmmind', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'doubleteam', 'dragondance', 'eminence', 'encore', 'escapetunnel', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healblock', 'healorder', 'healpulse', 'healingwish', 'heartswap', 'honeclaws', 'irondefense', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'meditate', 'memento', 'midnight', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'preheat', 'protect', 'quiverdance', 'rebound', 'recover', 'reflect', 'reflecttype', 'rejuvenate', 'rest', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'rototiller', 'shellsmash', 'shelter', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'slipaway', 'softboiled', 'spiderweb', 'spikes', 'spikyshield', 'spore', 'stasis', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'toxic', 'transform', 'trick', 'victorydance', 'warriorssoul', 'whirlwind', 'willowisp', 'wish', 'yawn',
+			'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'batonpass', 'bellydrum', 'bulkup', 'bunkerdown', 'calmmind', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'doubleteam', 'dragondance', 'eminence', 'encore', 'escapetunnel', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healblock', 'healorder', 'healpulse', 'healingwish', 'heartswap', 'honeclaws', 'irondefense', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'meditate', 'memento', 'midnight', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'preheat', 'protect', 'psybubble', 'quiverdance', 'rebound', 'recover', 'reflect', 'reflecttype', 'rejuvenate', 'rest', 'restorelife', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'rototiller', 'shellsmash', 'shelter', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'slipaway', 'softboiled', 'spiderweb', 'spikes', 'spikyshield', 'spore', 'stasis', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'toxic', 'transform', 'trick', 'victorydance', 'warriorssoul', 'whirlwind', 'willowisp', 'wish', 'yawn',
 		],
 		GOOD_WEAK_MOVES: [
-			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'ruination', 'saltcure', 'scald', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
+			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'ruination', 'saltcure', 'scald', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball', 'withering',
 		],
 		BAD_STRONG_MOVES: [
 			'belch', 'burnup', 'completeshock', 'crushclaw', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megapunch', 'muddywater', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
@@ -160,11 +162,16 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	/* sim edits */
 	pokemon: {
-		previousTurnState: EffectState;
-		turnState: EffectState;
-		updateTurnState(): { //New function that stores current stats/status/volatiles each turn for Preservation
-			this.previousTurnState = Utils.deepClone(this.turnState);
-			this.turnState = {status: {id: this.status, statusState: this.statusState}, volatiles: {...this.volatiles}, statBoosts: {...this.boosts}, weighthg: this.weighthg};
+		previousTurnState: EffectState,
+		turnState: EffectState,
+		updateTurnState(): null { //New function that stores current stats/status/volatiles each turn for Preservation
+			//console.log(this.name + " Turn #" + this.activeTurns);
+			this.previousTurnState = Object.assign({}, this.turnState);
+			//console.log("previousTurnState:");
+			//console.log(this.previousTurnState);
+			this.turnState = {status: {...this.statusState}, volatiles: {...this.volatiles}, boosts: {...this.boosts}, weighthg: this.weighthg};
+			//console.log("turnState:");
+			//console.log(this.turnState);
 		},
 		isValidTarget(): boolean { //New property to condense fainted, Play Dead, and Commanding checks
 			return !(this.fainted || this.volatiles['playdead'] || this.volatiles['commanding']);
@@ -502,6 +509,19 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return strongestMove;
 		},
+		getWorstStat(unboosted?: boolean, unmodified?: boolean): StatIDExceptHP { //New function used for Acupressure/Starf Berry
+			let statName: StatIDExceptHP = 'atk';
+			let bestStat = 3000;
+			const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			for (const i of stats) {
+				if (this.getStat(i, unboosted, unmodified) < bestStat) {
+					statName = i;
+					bestStat = this.getStat(i, unboosted, unmodified);
+				}
+			}
+
+			return statName;
+		},
 		setType(newType: string | string[], enforce = false) { //Stasis, Soak and friends can give Arceus/Silvally secondary types
 			// First type of Arceus, Silvally cannot be normally changed
 			if(this.volatiles['stasis']) return false;
@@ -536,7 +556,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		canFloat(){ //New method. Not all effects that ground a Pokemon force it to stay grounded. Pokemon immune to Telekinesis are now immune to all floating.
 			if (['Burrorm', 'Burryrm', 'Colossoil', 'Diglett', 'Dorsoil', 'Dugtrio', 'Palossand', 'Sandygast', 'Wiglett', 'Wugtrio'].includes(this.baseSpecies.baseSpecies)){
-				this.battle.hint("The Burrorm, Diglett, Sandygast, and Wiglett families are unable to float.");
+				//this.battle.hint("The Burrorm, Diglett, Sandygast, and Wiglett families are unable to float.");
 				return false;
 			}
 			if (this.hasAbility('suctioncups') || this.hasAbility('heavymetal')) return false;
@@ -564,7 +584,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				moves: {move: string, id: string, target?: string, disabled?: string | boolean}[],
 				maybeDisabled?: boolean,
 				trapped?: boolean,
-				maybeTrapped?: boolean,
 				canMegaEvo?: boolean,
 				canUltraBurst?: boolean,
 				canZMove?: AnyObject | null,
@@ -581,8 +600,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (canSwitchIn) {
 					if (this.trapped === true) {
 						data.trapped = true;
-					} else if (this.maybeTrapped) {
-						data.maybeTrapped = true;
 					}
 				}
 			} else if (canSwitchIn) {
@@ -1081,10 +1098,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.trapped) {
 					const includeRequest = this.updateRequestForPokemon(pokemon, req => {
 						let updated = false;
-						if (req.maybeTrapped) {
-							delete req.maybeTrapped;
-							updated = true;
-						}
 						if (!req.trapped) {
 							req.trapped = true;
 							updated = true;
@@ -1094,8 +1107,6 @@ export const Scripts: ModdedBattleScriptsData = {
 					const status = this.emitChoiceError(`Can't switch: The active Pokémon is trapped`, includeRequest);
 					if (includeRequest) this.emitRequest(this.activeRequest!);
 					return status;
-				} else if (pokemon.maybeTrapped) {
-					this.choice.cantUndo = this.choice.cantUndo || pokemon.isLastActive();
 				}
 			} else if (this.requestState === 'switch') {
 				if (!this.choice.forcedSwitchesLeft) {
@@ -1505,17 +1516,6 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (!this.queue.peek()) {
 				this.checkFainted();
-			/*} else if (action.choice === 'megaEvo') { //TODO: See if Gen 8+ auto-speed update solves this
-				this.eachEvent('Update');
-				for (const [i, queuedAction] of this.queue.list.entries()) {
-					if (queuedAction.pokemon === action.pokemon && queuedAction.choice === 'move') {
-						this.queue.list.splice(i, 1);
-						queuedAction.mega = 'done';
-						this.queue.insertChoice(queuedAction, true);
-						break;
-					}
-				}
-				return false;*/
 			} else if (this.queue.peek()?.choice === 'instaswitch') {
 				return false;
 			}
@@ -1961,7 +1961,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 					}
 
-					pokemon.trapped = pokemon.maybeTrapped = false;
+					pokemon.trapped = false;
 					this.runEvent('TrapPokemon', pokemon);
 					if (!pokemon.knownType || this.dex.getImmunity('trapped', pokemon)) {
 						this.runEvent('MaybeTrapPokemon', pokemon);
@@ -2078,7 +2078,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return;
 			}
 			if (move.beforeMoveCallback) {
-				if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
+				if (move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
 					this.battle.clearActiveMove(true);
 					pokemon.moveThisTurnResult = false;
 					return;
@@ -2657,15 +2657,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			const unfaintedActive = oldActive?.hp ? oldActive : null;
 			if (unfaintedActive) {
 				oldActive.beingCalledBack = true;
-				let switchCopyFlag: 'copyvolatile' | 'shedtail' | boolean = false;
+				let switchCopyFlag: 'copyvolatile' | boolean = false;
 				if (sourceEffect && typeof (sourceEffect as Move).selfSwitch === 'string') {
 					switchCopyFlag = (sourceEffect as Move).selfSwitch!;
 				}
 				if (!oldActive.skipBeforeSwitchOutEventFlag && !isDrag) {
 					this.battle.runEvent('BeforeSwitchOut', oldActive);
-					if (this.battle.gen >= 5) {
-						this.battle.eachEvent('Update');
-					}
+					this.battle.eachEvent('Update');
 				}
 				oldActive.skipBeforeSwitchOutEventFlag = false;
 				if (!this.battle.runEvent('SwitchOut', oldActive)) {
@@ -2717,6 +2715,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			side.active[pos] = pokemon;
 			pokemon.activeTurns = 0;
 			pokemon.activeMoveActions = 0;
+			pokemon.updateTurnState();
 			for (const moveSlot of pokemon.moveSlots) {
 				moveSlot.used = false;
 			}
@@ -2727,10 +2726,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getDetails);
 			}
 			pokemon.abilityOrder = this.battle.abilityOrder++;
-			if (isDrag && this.battle.gen === 2) pokemon.draggedIn = this.battle.turn;
 			pokemon.previouslySwitchedIn++;
 
-			if (isDrag && this.battle.gen >= 5) {
+			if (isDrag) {
 				// runSwitch happens immediately so that Mold Breaker can make hazards bypass Clear Body and Levitate
 				this.battle.singleEvent('PreStart', pokemon.getAbility(), pokemon.abilityState, pokemon);
 				this.runSwitch(pokemon);
@@ -2969,15 +2967,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	//},
 	init() {
 		/* Removed/renamed accessibility and other init stuff */
-		/*const unavailablePokemon = [
-			"pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar", "pikachustarter", "eeveestarter", "pichuspikyeared", "dialgaorigin", "palkiaorigin", "floetteeternal", "eternatuseternamax", "zarudedada"
-		];*/
-		/*const renamedPokemon = [
-			"Victreebel", "Darmanitan-Galar-Zen", "Lycanroc-Dusk", "Iron Bundle", "Iron Jugulis", "Iron Hands", "Iron Moth", "Iron Thorns", "Iron Valiant", "Iron Leaves"
-		];
-		const newNamePokemon = [
-			"Victreebell", "Darmanitan-Rage", "Lycanroc-Twilight", "Robo Bundle", "Mecha Jugulis", "Press Hands", "Astro Glider", "Armor Thorns", "Valiant Droid", "Saber Leaves"
-		];*/
 		const baseSeven = [ //Pokemon modified to use a relative's Gen VII learnset as a base
 			"meowthgalar", "perrserker", "growlithehisui", "arcaninehisui", "ponytagalar", "rapidashgalar", "slowpokegalar", "slowbrogalar", "slowkinggalar", "voltorbhisui", "electrodehisui", "weezinggalar", "taurospaldeacombat", "taurospaldeablaze", "taurospaldeaaqua", "articunogalar", "zapdosgalar", "moltresgalar", "typhlosionhisui", "sneaselhisui", "sneasler", "corsolagalar", "cursola", "samurotthisui", "lilliganthisui", "yamaskgalar", "runerigus", "zoruahisui", "zoroarkhisui", "stunfiskgalar", "braviaryhisui", "sliggoohisui", "goodrahisui", "avalugghisui", "decidueyehisui", "regieleki", "regidrago", "wyrdeer", "ursaluna", "toedscool", "toedscruel", "wiglett", "wugtrio", "kingambit"
 		];
@@ -2987,32 +2976,26 @@ export const Scripts: ModdedBattleScriptsData = {
 		const baseNine = [ //Pokemon using their Gen IX learnsets as a base
 			"wooper", "wooperpaldea", "quagsire", "riolu", "lucario", "basculin", "basculinbluestriped", "basculinwhitestriped", "indeedee", "indeedeef", "kleavor"
 		];
-		/*const deletedItems = [
-			"adamantcrystal", "griseouscore", "luckypunch", "lustrousglobe", "punchingglove", "throatspray", "utilityumbrella",
-		];*/
-		/*const deletedAbilities = [
-			"angershell", "asoneglastrier", "asonespectrier", "battlebond", "chillingneigh", "curiousmedicine", "dragonsmaw", "gorillatactics", "grimneigh", "libero", "lingeringaroma", "mirrorarmor", "perishbody", "punkrock", "steelyspirit", "supremeoverlord", "transistor", "unseenfist", "wellbakedbody",
-		];*/
-		const renamedAbilities = [
+		/*const renamedAbilities = [
 			"aurabreak", "minus", "plus", "powerofalchemy", "powerspot", "queenlymajesty", "slushrush", "tanglinghair",
 		];
 		const newNameAbilities = [
 			"climatebreak", "induction", "induction", "alchemy", "poweraura", "majesty", "snowplow", "tangling",
-		];
-		const deletedMoves = [
-			"appleacid", "bittermalice", "bleakwindstorm", "burningbulwark", "burningjealousy", "ceaselessedge", "celebrate", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dragoncheer", "dualwingbeat", "electroshot", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "headlongrush", "holdhands", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mightycleave", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "psychicnoise", "ragingbull", "ragingfury", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "tachyoncutter", "takeheart", "terrainpulse", "thunderclap", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "upperhand", "wildboltstorm"
-		];
+		];*/
 		/*const addedMachines = [ //Machines added in Gen VIII or IX and retained in Earth & Sky - currently not needed in the algorithm, but it's a long list so I don't want to delete it
 			"amnesia", "assurance", "avalanche", "brine", "charm", "chillingwater", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "trailblaze", "whirlpool"
 		];*/
-		const droppedMachines = [ //Machines dropped from Earth & Sky; includes Flash, Natural Gift, and Toxic, which are re-added to their Pokemon after the algorithm, and the few moves which are still Tutored
-			"agility", "aircutter", "airslash", "alluringvoice", "aurasphere", "batonpass", "beatup", "blastburn", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "charge", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "disarmingvoice", "doubleteam", "dracometeor", "dragondance", "drainingkiss", "firefang", "firepledge", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "frenzyplant", "grasspledge", "guardswap", "haze", "heatcrash", "heavyslam", "highhorsepower", "hydrocannon", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "lunge", "magicalleaf", "megakick", "megapunch", "megahorn", "metalclaw", "meteorbeam", "mudshot", "mudslap", "muddywater", "mysticalfire", "naturalgift", "nightshade", "payday", "pinmissile", "playrough", "poisontail", "pollenpuff", "pounce", "powerswap", "poweruppunch", "powerwhip", "psychicfangs", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "selfdestruct", "solarblade", "speedswap", "spikes", "steelbeam", "storedpower", "strugglebug", "supercellslam", "superfang", "swagger", "swift", "takedown", "tailslap", "temperflare", "terablast", "throatchop", "thunderfang", "toxic", "toxicspikes", "triattack", "venomdrench", "waterpledge", "weatherball", "worryseed"
-		];
 		const renamedMoves = [ //Also includes the replacement of Axe Kick and Hail with Jump Kick and Snowscape, respectively
 			"axekick", "banefulbunker", "chillingwater", "clangoroussoul", "doubleshock", "flowertrick", "hail", "moongeistbeam", "psyblade", "psychicfangs", "psyshieldbash", "ragefist", "stompingtantrum", "strangesteam", "sunsteelstrike", "supercellslam", "trailblaze"
 		];
 		const newNameMoves = [
 			"jumpkick", "bunkerdown", "chillywater", "warriorssoul", "completeshock", "flowertrap", "snowscape", "lunarray", "energyblade", "psychicfang", "barrierbash", "vengefulspirit", "tantrum", "strangesmoke", "solarimpact", "particleslam", "trailhead"
+		];
+		const deletedMoves = [
+			"appleacid", "bittermalice", "bleakwindstorm", "burningbulwark", "burningjealousy", "ceaselessedge", "celebrate", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dragoncheer", "dualwingbeat", "electroshot", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "headlongrush", "holdhands", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mightycleave", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "psychicnoise", "ragingbull", "ragingfury", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "tachyoncutter", "takeheart", "terrainpulse", "thunderclap", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "upperhand", "wildboltstorm"
+		];
+		const droppedMachines = [ //Machines dropped from Earth & Sky; includes Flash, Natural Gift, and Toxic, which are re-added to their Pokemon after the algorithm, and the few moves which are still Tutored since they're handled separately
+			"agility", "aircutter", "airslash", "alluringvoice", "aurasphere", "batonpass", "beatup", "bind", "blastburn", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "charge", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "disarmingvoice", "doubleteam", "dracometeor", "dragondance", "drainingkiss", "firefang", "firepledge", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "frenzyplant", "grasspledge", "guardswap", "hardpress", "haze", "heatcrash", "heavyslam", "highhorsepower", "hydrocannon", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "lunge", "magicalleaf", "megakick", "megapunch", "megahorn", "metalclaw", "meteorbeam", "mudshot", "mudslap", "muddywater", "mysticalfire", "naturalgift", "nightshade", "particleslam", "payday", "pinmissile", "playrough", "poisontail", "pollenpuff", "pounce", "powerswap", "poweruppunch", "powerwhip", "psychicfang", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "selfdestruct", "solarblade", "speedswap", "spikes", "steelbeam", "storedpower", "strugglebug", "superfang", "swagger", "swift", "takedown", "tailslap", "temperflare", "terablast", "throatchop", "thunderfang", "toxic", "toxicspikes", "triattack", "venomdrench", "waterpledge", "weatherball", "worryseed"
 		];
 		const noUniversalTMs = [ //Only Gen 5+ since it's the earliest to lose a universal TM
 			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
@@ -3026,7 +3009,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			const formatsTest = false;//["basculin", "basculinbluestriped", "basculinwhitestriped"].includes(pokemonID);
 			if(formatsTest) console.log(pokemonID);
 			 //Don't do anything with new or deleted Pokemon
-			if(pokemon === null || pokemon.num < -500 || (pokemon.forme && (["Egelas", "Sartori", "Hassrim", "Mega-Statue"].includes(pokemon.forme) || ["Revavroom", "Tynamo"].includes(pokemon.baseSpecies) ||
+			if(pokemon === null || pokemon.num < -500 || 
+				(pokemon.forme && (["Egelas", "Sartori", "Hassrim", "Mega-Statue"].includes(pokemon.forme) || pokemonID === "indeedeehassrimf" || ["Revavroom", "Tynamo"].includes(pokemon.baseSpecies) ||
 				(pokemon.forme === "Mega" && ["Butterfree", "Slowking", "Torkoal", "Milotic", "Electivire", "Magmortar", "Garbodor", "Beheeyem", "Sandaconda", "Alcremie", "Froslass", "Druddigon"].includes(pokemon.baseSpecies)))))
 			continue;
 			//Change generational accessibility
@@ -3035,43 +3019,49 @@ export const Scripts: ModdedBattleScriptsData = {
 					console.log(this.modData('FormatsData', pokemonID));
 				}
 				switch(this.modData('FormatsData', pokemonID).isNonstandard) {
-					case "CAP":
-						if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
+					/*case "CAP":
+						if(!pokemon.battleOnly){
 							if(pokemon.evos) {
 								this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "CAP NFE" : "CAP LC";
 							} else {
 								this.modData('FormatsData', pokemonID).tier = "CAP";
 							}
 						}
-						break;
+						break;*/
 					case "Past":
 						if(formatsTest) {
 							console.log(pokemon.name + " restoration");
 						}
 						delete this.modData('FormatsData', pokemonID).isNonstandard;
-						delete pokemon.isNonstandard;
+						//delete pokemon.isNonstandard;
+					case null:
 					case undefined:
 						if(!pokemon.battleOnly || (pokemon.forme && ["Mega", "Mega-X", "Mega-Y", "Primal", "Ultra"].includes(pokemon.forme))){ //Reset tiers for all Pokemon that have their own tiering data
 							if(pokemon.nfe) {
 								this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 								this.modData('FormatsData', pokemonID).natDexTier = pokemon.prevo ? "NFE" : "LC";
-								pokemon.tier = pokemon.prevo ? "NFE" : "LC";
-								pokemon.natDexTier = pokemon.prevo ? "NFE" : "LC";
+								//pokemon.tier = pokemon.prevo ? "NFE" : "LC";
+								//pokemon.natDexTier = pokemon.prevo ? "NFE" : "LC";
 							} else {
 								const tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
 								this.modData('FormatsData', pokemonID).tier = tier;
 								this.modData('FormatsData', pokemonID).natDexTier = tier;
-								pokemon.tier = tier;
-								pokemon.natDexTier = tier;
+								//pokemon.tier = tier;
+								//pokemon.natDexTier = tier;
 							}
+							if(this.modData('FormatsData', pokemonID).doublesTier) delete this.modData('FormatsData', pokemonID).doublesTier;
 						}
 						break;
 					default: //All other non-standard Pokemon are to remain unusable
 						continue;
 				}
-				if(pokemon.canGigantamax) delete pokemon.canGigantamax;
-				if(formatsTest) {
+				//if(pokemon.canGigantamax) delete pokemon.canGigantamax;
+				if(pokemon.tier === 'Uber' && this.modData('FormatsData', pokemonID).tier !== 'Uber'){
+					console.log(pokemonID + ": ");
 					console.log(this.modData('FormatsData', pokemonID));
+					console.log(",");
+				}
+				if(formatsTest) {
 					console.log(pokemon.tier);
 					console.log(pokemon.natDexTier);
 				}
@@ -3117,7 +3107,24 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if(learnsetTest) console.log("Commencing update");
 			}
-			
+			// Move renames
+			for(let i = 0; i < renamedMoves.length; i++){
+				if(this.modData('Learnsets',pokemonID).learnset[renamedMoves[i]]){
+					if(learnsetTest) console.log("Renaming " + renamedMoves[i]);
+					this.modData('Learnsets',pokemonID).learnset[newNameMoves[i]] = this.modData('Learnsets',pokemonID).learnset[renamedMoves[i]];
+					//delete this.data.Learnsets[pokemonID].learnset[renamedMoves[i]];
+					delete this.modData('Learnsets',pokemonID).learnset[renamedMoves[i]];
+				}
+			}
+			// Move deletion
+			for(let i = 0; i < deletedMoves.length; i++){
+				if(this.modData('Learnsets',pokemonID).learnset[deletedMoves[i]]){
+					if(learnsetTest) console.log("Deleting " + deletedMoves[i]);
+					//delete this.data.Learnsets[pokemonID].learnset[deletedMoves[i]];
+					delete this.modData('Learnsets',pokemonID).learnset[deletedMoves[i]];
+				}
+			}
+			// Now compile valid means of learning moves in Earth & Sky
 			for(let move of this.moves.all()) {
 				const moveID = this.toID(move.name);
 				moveLearn = this.modData('Learnsets',pokemonID).learnset[moveID];
@@ -3133,7 +3140,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						} else if(moveID === "attract" && pokemon.gen === 9 && pokemon.gender !== 'N'){
 							if(learnsetTest) console.log("Adding universal TM Attract");
 							this.modData('Learnsets',pokemonID).learnset[moveID] = ["9M"];
-						} else if(moveid === "terablast" && pokemon.gen < 9) {
+						} else if(moveID === "terablast" && pokemon.gen < 9) {
 							if(learnsetTest) console.log("Adding universal Tutor Tera Blast");
 							this.modData('Learnsets',pokemonID).learnset[moveID] = ["9T"];
 						}
@@ -3203,54 +3210,20 @@ export const Scripts: ModdedBattleScriptsData = {
 					delete this.modData('Learnsets',pokemonID).learnset[moveID];
 					continue;
 				}
-				//Other
-				/* Move removals */
-				//Dropped teachables
-				/*if(droppedMachines.includes(moveID) && moveMeans.includes("9M")){
-					if(learnsetTest) console.log("This move is actually no longer taught"); //Note: Flash is in this list because it's restricted and gets re-added manually
-					moveMeans.splice(moveMeans.indexOf("9M"),1);
-					if(moveMeans.length === 0){
-						delete this.modData('Learnsets',pokemonID).learnset[moveID];
-						if(learnsetTest) console.log("This move is not learned anymore");
-						continue;
-					}
-				}*/
-				//Egg moves learned by other means
-				/*if(moveMeans.length > 1 && moveMeans.includes("9E")){
-					if(learnsetTest) console.log("This move is redundantly an egg move");
-					moveMeans.splice(moveMeans.indexOf("9E"),1);
-				}*/
 				this.modData('Learnsets',pokemonID).learnset[moveID] = moveMeans;
 			}
-			// Move renames
-			for(let i = 0; i < renamedMoves.length; i++){
-				if(this.modData('Learnsets',pokemonID).learnset[renamedMoves[i]]){
-					if(learnsetTest) console.log("Renaming " + renamedMoves[i]);
-					this.modData('Learnsets',pokemonID).learnset[newNameMoves[i]] = this.modData('Learnsets',pokemonID).learnset[renamedMoves[i]];
-					//delete this.data.Learnsets[pokemonID].learnset[renamedMoves[i]];
-					delete this.modData('Learnsets',pokemonID).learnset[renamedMoves[i]];
-				}
-			}
-			// Move deletion
-			for(let i = 0; i < deletedMoves.length; i++){
-				if(this.modData('Learnsets',pokemonID).learnset[deletedMoves[i]]){
-					if(learnsetTest) console.log("Deleting " + deletedMoves[i]);
-					//delete this.data.Learnsets[pokemonID].learnset[deletedMoves[i]];
-					delete this.modData('Learnsets',pokemonID).learnset[deletedMoves[i]];
-				}
-			}
 			// Ability renames
-			for(let i = 0; i < renamedAbilities.length; i++){ //Abilities
+			/*for(let i = 0; i < renamedAbilities.length; i++){ //Abilities
 				const pokeAbilities = pokemon.abilities;
 				for(const abilityKey in pokeAbilities){
 					if(this.toID(pokeAbilities[abilityKey]) === renamedAbilities[i]){
 						//console.log(renamedAbilities[i] + " name change on " + pokemon.name);
-						pokemon.abilities[abilityKey] = this.data.Abilities[newNameAbilities[i]].name;
-						//console.log(pokemon.abilities[abilityKey]);
+						this.modData('Pokedex',pokemonID).abilities[abilityKey] = this.data.Abilities[newNameAbilities[i]].name;
+						//console.log(pokemon.abilities);
 						break;
 					}
 				}
-			}
+			}*/
 			if(learnsetTest){
 				console.log("Final: ");
 				console.log(this.modData('Learnsets',pokemonID).learnset);
@@ -3259,61 +3232,23 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		
 		/* Renames, re-additions, and removals */
-		/*for(let i = 0; i < renamedPokemon.length; i++){
-			const oldID = this.toID(renamedPokemon[i]);
-			const newID = this.toID(newNamePokemon[i]);
-			if(!this.modData('Pokedex', newID)) this.data['Pokedex'][newID] = this.modData('Pokedex', oldID);
-			this.modData('Pokedex', newID).name = newNamePokemon[i];
-			if(!this.modData('Pokedex', oldID).battleOnly) this.data['Learnsets'][newID] = this.modData('Learnsets',oldID);
-			this.data['FormatsData'][newID] = this.modData('FormatsData', oldID);
-			delete this.data['Pokedex'][oldID];
-			delete this.data['Learnsets'][oldID];
-			delete this.data['FormatsData'][oldID];
-		}*/
-		for(let move of this.moves.all()) {
+		/*for(let move of this.moves.all()) {
 			const moveID = this.toID(move.name);
 			if(moveID.endsWith('torque') || move.isNonstandard === "Past") {
-				this.modData('Moves',moveID).isNonstandard = null;
-				move.isNonstandard = null;
+				//this.modData('Moves',moveID).isNonstandard = null;
+				//move.isNonstandard = null;
 			}
 		}
-		/*for(const moveID of renamedMoves) {
-			//delete Object.keys(Dex.moves)[moveID];
-			const move = this.modData('Moves', moveID);
-			move.isNonstandard = "Unobtainable";
-		}
-		for(const moveID of deletedMoves) {
-			//delete this.modData('Moves', moveID);
-			const move = this.modData('Moves', moveID);
-			move.isNonstandard = "Past";
-		}
-		for(const abilityID of renamedAbilities) {
-			//delete this.modData('Abilities', abilityID);
-			const ability = this.modData('Abilities', abilityID);
-			ability.isNonstandard = "Unobtainable";
-		}
-		for(const abilityID of deletedAbilities) {
-			//delete this.modData('Abilities', abilityID);
-			const ability = this.modData('Abilities', abilityID);
-			ability.isNonstandard = "Past";
-		}*/
 		for(let item of this.items.all()){
 			const itemID = this.toID(item.name);
-			
 			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove){
-				this.modData('Items',itemID).isNonstandard = null;
-				item.isNonstandard = null;
+				//this.modData('Items',itemID).isNonstandard = null;
+				//item.isNonstandard = null;
 			}
-			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
 			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs
-				if(item.isBerry || ["airballoon", "fairyfeather"].includes(item)) continue;
 				item.fling.basePower = 20;
 			}
 			if(itemID.startsWith('tr')) delete item.fling; //TRs can't be Flung anymore.
-		}
-		/*for(const itemID of deletedItems) {
-			//delete this.modData('Items', itemID);
-			this.modData('Items', itemID).isNonstandard = "Unobtainable";
 		}*/
 		
 		/* individual Pokemon moveset edits */
@@ -4852,15 +4787,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Mew
 		this.modData('Learnsets','mew').learnset.hypnosis = ["9D"];
 		this.modData('Learnsets','mew').learnset.teleport = ["9L1"];
+		this.modData('Learnsets','mew').learnset.wrap = ["9L10"];
+		this.modData('Learnsets','mew').learnset.aurasphere = ["9L90"];
+		this.modData('Learnsets','mew').learnset.psybubble = ["9L100"];
 		this.modData('Learnsets','mew').learnset.chipaway = ["9M"];
 		this.modData('Learnsets','mew').learnset.flash = ["9M"];
 		this.modData('Learnsets','mew').learnset.fullcollide = ["9M"];
 		this.modData('Learnsets','mew').learnset.midnight = ["9T"];
+		this.modData('Learnsets','mew').learnset.nastyplot = ["9M"];
 		this.modData('Learnsets','mew').learnset.naturalgift = ["9M"];
 		this.modData('Learnsets','mew').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','mew').learnset.toxic = ["9M"];
 		this.modData('Learnsets','mew').learnset.stasis = ["9T"];
 		this.modData('Learnsets','mew').learnset.vitaldrain = ["9M"];
+		delete this.modData('Learnsets','mew').learnset.megapunch;
 		// Chikorita
 		this.modData('Learnsets','chikorita').learnset.spicyextract = ["9D"];
 		this.modData('Learnsets','chikorita').learnset.amnesia = ["9M"];
@@ -5623,6 +5563,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','celebi').learnset.healingwish = ["9L73"];
 		this.modData('Learnsets','celebi').learnset.leafstorm = ["9L81"];
 		this.modData('Learnsets','celebi').learnset.perishsong = ["9L89"];
+		this.modData('Learnsets','celebi').learnset.restorelife = ["9L97"];
 		this.modData('Learnsets','celebi').learnset.safeguard = ["9M"];
 		this.modData('Learnsets','celebi').learnset.flash = ["9M"];
 		this.modData('Learnsets','celebi').learnset.nightmare = ["9M"];
@@ -9767,9 +9708,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','nihilego').learnset.pound;
 		// Buzzwole
 		this.modData('Learnsets','buzzwole').learnset.skyuppercut = ["9D"];
+		this.modData('Learnsets','buzzwole').learnset.vitaldrain = ["9L29", "9M"];
 		this.modData('Learnsets','buzzwole').learnset.bodypress = ["9M"];
 		this.modData('Learnsets','buzzwole').learnset.strength = ["9M"];
 		this.modData('Learnsets','buzzwole').learnset.trailhead = ["9M"];
+		delete this.modData('Learnsets','buzzwole').learnset.leechlife;
 		// Pheromosa
 		this.modData('Learnsets','pheromosa').learnset.playdead = ["9D"];
 		this.modData('Learnsets','pheromosa').learnset.faketears = ["9M"];

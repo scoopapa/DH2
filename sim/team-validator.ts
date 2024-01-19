@@ -2600,6 +2600,9 @@ export class TeamValidator {
 						moveSources.pomegEventEgg = learned + ' ' + species.id;
 					}
 				} else if (learned.charAt(1) === 'D') {
++					if(learned === '9D'){
++						return;
++					}
 					// DW moves:
 					//   only if that was the source
 					moveSources.add(learned + species.id);
