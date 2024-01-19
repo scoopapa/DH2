@@ -221,6 +221,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			fly: ["9L1"],
 			flamecharge: ["9L1"],
 			voltswitch: ["9L1"],
+			electricterrain: ["9L1"],
 		},
 	},
 	irontower: {
@@ -602,6 +603,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			terablast: ["9L1"],
 			voltswitch: ["9L1"],
 			titansjudgment: ["9L1"],
+			electricterrain: ["9L1"],
 		},
 	},
 	ironiron: {
@@ -722,6 +724,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			spikes: ["9M"],
 			bodypress: ["9M"],
 			crunch: ["9M"],
+			sunnyday: ["9M"],
 		},
 	},
 	bigshot: {
