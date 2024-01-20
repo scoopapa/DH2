@@ -856,8 +856,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	stantler: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	raikou: {
 		tier: 'OU',

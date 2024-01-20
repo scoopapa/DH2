@@ -2049,6 +2049,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Bludgeon", H: "Harvest"},
 	},
+	hitmonlee: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 125, def: 53, spa: 35, spd: 110, spe: 82},
+	},
 	hitmonchan: {
 		inherit: true,
 		abilities: {0: "Inner Focus", 1: "Iron Fist", H: "Relentless"},
