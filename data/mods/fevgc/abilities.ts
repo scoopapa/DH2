@@ -668,14 +668,37 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				move.accuracy = true;
-				if (!target.addVolatile('flashfire')) {
+				if (!target.addVolatile('pyrotechnic')) {
 					this.add('-immune', target, '[from] ability: Pyrotechnic');
 				}
 				return null;
 			}
 		},
 		onEnd(pokemon) {
-			pokemon.removeVolatile('flashfire');
+			pokemon.removeVolatile('pyrotechnic');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Pyrotechnic');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('pyrotechnic')) {
+					this.debug('Pyrotechnic boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('pyrotechnic')) {
+					this.debug('Pyrotechnic boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Pyrotechnic', '[silent]');
+			},
 		},
 		flags: {breakable: 1},
 		name: "Pyrotechnic",
@@ -803,4 +826,542 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Safe Entry",
 		shortDesc: "This Pokemon cannot be inflicted with status when switching in.",
 	},
+	speeddemon: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Speed Demon",
+		shortDesc: "Speed Boost + Chlorophyll",
+	},
+	pestilence: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, attacker, defender, move) {
+			if (!defender.hasType('Bug')) {
+				this.debug('Pestilence boost');
+				return this.chainModify(1.25);
+			} else {
+				this.debug('Pestilence weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {},
+		name: "Pestilence",
+		shortDesc: "This Pokemon's Bug attacks do 1.25x damage to non-Bug targets; 0.75x on Bugs.",
+	},
+	breakingcharacter: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Breaking Character');
+			this.add('-message', `${pokemon.name} is breaking character!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		flags: {},
+		name: "Breaking Character",
+		shortDesc: "Mold Breaker + Moxie",
+	},
+	unsettling: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Unsettling');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'Unsettling');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		flags: {}, // add burn immunity in scripts.ts
+		name: "Unsettling",
+		shortDesc: "While this Pokemon is active, foes can't eat berries. Ignores burn Attack drop.",
+	},
+	kelppower: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (['Water', 'Grass'].includes(move.type) && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Kelp Power boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (['Water', 'Grass'].includes(move.type) && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Kelp Power boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Kelp Power",
+		shortDesc: "Torrent + Overgrow",
+	},
+	prideful: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) { // add all intim clones later
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Prideful', '[of] ' + target);
+			}
+		},
+		flags: {},
+		name: "Prideful",
+		shortDesc: "Scrappy + Moxie",
+	},
+	smelting: {
+		onTryHit(target, source, move) {
+			if (move.category === 'Status' && target !== source) {
+				this.add('-immune', target, '[from] ability: Smelting');
+				return null;
+			}
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('smelting')) {
+					this.add('-immune', target, '[from] ability: Smelting');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('smelting');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Smelting');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('smelting')) {
+					this.debug('Smelting boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('smelting')) {
+					this.debug('Smelting boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Smelting', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Smelting",
+		shortDesc: "Good as Gold + Flash Fire",
+	},
+	downinflames: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Down In Flames boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Down In Flames boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Down In Flames boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Down In Flames",
+		shortDesc: "Reckless + Blaze",
+	},
+	fromashes: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: From Ashes', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+		name: "From Ashes",
+		shortDesc: "Regenerator + Frisk",
+	},
+	bubbleburster: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Bubble Burster');
+			this.add('-message', `${pokemon.name} bursts the foe's bubble!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Bubble Burster');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Bubble Burster');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Bubble Burster",
+		shortDesc: "Mold Breaker + Water Bubble",
+	},
+	owntides: {
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Own Tides');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Own Tides');
+				}
+				return null;
+			}
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Own Tides');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) { // add intim clones here later
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tides', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Own Tides",
+		shortDesc: "Own Tempo + Water Absorb",
+	},
+	saltwatersauna: {
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Saltwater Sauna');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Saltwater Sauna');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (['Water', 'Fire', 'Ghost'].includes(move.type)) {
+				this.debug('Saltwater Sauna weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (['Water', 'Fire', 'Ghost'].includes(move.type)) {
+				this.debug('Saltwater Sauna weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Saltwater Sauna",
+		shortDesc: "Ghost/Fire/Water-type moves against this Pokemon deal 0.5x damage; can't be statused.",
+	},
+	obsidianbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Obsidian Body", "[of] " + target);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Obsidian Body');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Obsidian Body');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Obsidian Body",
+		shortDesc: "Pokemon making contact have a 30% chance to be burnt. Foes can't lower this Pokemon's stats or burn it.",
+	},
+	sturdyfire: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Sturdy Fire');
+				return null;
+			}
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('sturdyfire')) {
+					this.add('-immune', target, '[from] ability: Sturdy Fire');
+				}
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Sturdy Fire');
+				return target.hp - 1;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('sturdyfire');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Sturdy Fire');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('sturdyfire')) {
+					this.debug('Sturdy Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('sturdyfire')) {
+					this.debug('Sturdy Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Sturdy Fire', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Sturdy Fire",
+		shortDesc: "Sturdy + Flash Fire",
+	},
+	deeptoxin: {
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		// implement corrosion effect in scripts.ts
+		flags: {},
+		name: "Deep Toxin",
+		shortDesc: "Corrosion + Infiltrator",
+	},
+	clueless: {
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Clueless');
+				return null;
+			}
+			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
+				this.add('-immune', pokemon, '[from] ability: Clueless');
+				return null;
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				this.add('-activate', pokemon, 'ability: Clueless');
+				pokemon.removeVolatile('attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Clueless');
+			}
+			if (pokemon.volatiles['taunt']) {
+				this.add('-activate', pokemon, 'ability: Clueless');
+				pokemon.removeVolatile('taunt');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'attract') return false;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) { // add all intim clones here
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Clueless', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Clueless",
+		shortDesc: "Oblivious + Telepathy",
+	},
+	eerieflames: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+			if (move.type === 'Fire') {
+				this.add('-immune', pokemon, '[from] ability: Eerie Flames');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		flags: {breakable: 1},
+		name: "Eerie Flames",
+		shortDesc: "Bounces back certain status moves; Fire immunity.",
+	},
+	guardsup: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (['reflect', 'lightscreen', 'auroraveil', 'substitute'].includes(move.id)) {
+						this.add('-ability', pokemon, 'Guards Up');
+						return;
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Guards Up",
+		shortDesc: "This Pokemon shudders if any foe has Reflect/Light Screen/Aurora Veil/Substitute.",
+	},
+	healingburns: {
+		onDamagingHit(damage, target, source, move) {
+			for (const allyActive of target.adjacentAllies()) {
+				if (this.checkMoveMakesContact(move, source, allyActive)) {
+					if (allyActive.status && this.randomChance(3, 10)) {
+						this.add('-activate', target, 'ability: Healing Burns');
+						allyActive.cureStatus();
+					}
+				}
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const allyActive of pokemon.adjacentAllies()) {
+				if (allyActive.status && this.randomChance(3, 10)) {
+					this.add('-activate', pokemon, 'ability: Healing Burns');
+					allyActive.cureStatus();
+				}
+			}
+		},
+		flags: {},
+		name: "Healing Burns",
+		shortDesc: "30% chance to heal ally's status each turn or if they get hit by a contact move.",
+	},
+	smellytouch: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			const targetAbility = target.getAbility();
+			if (targetAbility.flags['cantsuppress'] || targetAbility.id === 'smellytouch') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.randomChance(3, 10)) {
+					const oldAbility = target.setAbility('smellytouch', source);
+					if (oldAbility) {
+						this.add('-activate', source, 'ability: Smelly Touch', this.dex.abilities.get(oldAbility).name, '[of] ' + target);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Smelly Touch",
+		shortDesc: "This Pokemon's contact moves have a 30% chance of replacing the target's ability with Smelly Touch.",
+	},
+
 };
