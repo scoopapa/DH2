@@ -1769,6 +1769,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		flags: {protect: 1},
 		isNonstandard: null,
+		noSketch: null,
 		contestType: "Cool",
 	},
 	blizzard: {
@@ -1920,6 +1921,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Fails unless the user is a Fire type. If this move is successful and the user's Ability isn't Turboblaze, the user's Fire type becomes typeless as long as it remains active.",
+		isNonstandard: null,
 	},
 	captivate: {
 		num: 445,
@@ -1939,6 +1941,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cute",
 		desc: "Lowers the target's Special Attack by 2 stages.",
 		shortDesc: "Lowers the target's Sp. Atk by 2",
+		isNonstandard: null,
 	},
 	chargebeam: {
 		inherit: true,
@@ -2065,6 +2068,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 		desc: "The target's Ability is rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target is behind a substitute, or if the target's Ability is As One, Comatose, Commander, Disguise, Gulp Missile, Hadron Engine, Ice Face, Multitype, Orichalcum Pulse, Power Construct, Protosynthesis, Quark Drive, Rage Mode, RKS System, Schooling, Shields Down, Stance Change, Stoneskin, Zen Mode, or Zero to Hero, this effect does not happen; with any of the mentioned Abilities, receiving the effect through Baton Pass ends it immediately.",
 		shortDesc: "Nullifies the target's Ability unless a substitute is hit.",
+		isNonstandard: null,
 	},
 	cottonspore: {
 		inherit: true,
@@ -2104,6 +2108,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		willCrit: true,
 		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or Shelter or has the Battle Armor or Shell Armor Abilities.",
 		shortDesc: "Always results in a critical hit.",
+		isNonstandard: null,
 	},
 	darkpulse: {
 		inherit: true,
@@ -2119,6 +2124,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "Causes the target to fall asleep. In Doubles and Triples Battles, this move's accuracy lowers to 50%.",
 		shortDesc: "Causes the foe(s) to fall asleep. 2v2/3v3: 50% acc.",
+		noSketch: null,
 	},
 	defendorder: {
 		inherit: true,
@@ -2467,6 +2473,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Removes the target's item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield, respectively.",
 		shortDesc: "Removes target's item.",
 		enditem: "  [POKEMON] had its [ITEM] confiscated!",
+		isNonstandard: null,
 	},
 	energyblade: {
 		num: 875,
@@ -2914,6 +2921,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "As long as the user remains active, its moves can't be made to miss due to Evasiveness, and its Normal- and Fighting-type attacks can hit Ghost type Pokemon.",
 		shortDesc: "User ignores Ghost immunities and Evasiveness.",
 		start: "  [POKEMON] identified its surroundings!",
+		isNonstandard: null,
 	},
 	forestscurse: {
 		inherit: true,
@@ -3275,6 +3283,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used.",
 		shortDesc: "Power doubles on each hit, up to 160.",
+		isNonstandard: null,
 	},
 	icefang: {
 		inherit: true,
@@ -3681,7 +3690,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 		desc: "Prevents the target from switching out; overrides a Ghost-type target's immunity to being trapped. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
-		shortDesc: "Prevents the target from switching out, even if it's a Ghost.",
+		shortDesc: "Prevents the target from switching out, even Ghosts.",
 	},
 	meditate: {
 		inherit: true,
@@ -3764,6 +3773,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "The user's next move will succeed its accuracy check, even if the target is in the middle of a two-turn move. It will also hit through protection moves.",
 		shortDesc: "User's next attack always hits, ignores protection.",
 		start: "  [POKEMON] is sensing the movements of the battlefield...",
+		isNonstandard: null,
 	},
 	minimize: {
 		inherit: true,
@@ -3842,6 +3852,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "As long as the user remains active, its moves can't be made to miss due to Evasiveness, and its Psychic-type attacks and Prankster-boosted status moves can hit Dark type Pokemon.",
 		shortDesc: "User ignores Dark immunities and Evasiveness.",
 		start: "  [POKEMON] gained supernatural sight!",
+		isNonstandard: null,
 	},
 	mirrorshot: {
 		inherit: true,
@@ -5184,23 +5195,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Raises the target's Attack by 2 stages, lowers its Defense by 2 stages, and inflicts a taunt.",
 		shortDesc: "Raises target's Atk and lowers Def by 2. Taunts.",
 	},
-	spiderweb: {
-		num: 169,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Spider Web",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		secondary: null,
-		volatileStatus: 'trapped',
-		target: 'allAdjacentFoes',
-		type: "Bug",
-		contestType: "Clever",
-		desc: "Prevents the target from switching out for three turns. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped.",
-		shortDesc: "Traps foe(s) for three turns.",
-	},
 	spikecannon: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bullet: 1},
@@ -5462,6 +5456,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 		desc: "Power doubles if the target shares at least one type with the user.",
 		shortDesc: "Power doubles if foe shares type with user.",
+		isNonstandard: null,
 	},
 	synthesis: {
 		inherit: true,
@@ -5598,6 +5593,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyType(move, pokemon) {},
 		desc: "If the user is a Terapagos in Stellar Form, this move hits all opposing Pokemon.",
 		shortDesc: "If the user is a Terapagos in Stellar Form, this move hits all opposing Pokemon.",
+		noSketch: null,
 	},
 	throatchop: {
 		inherit: true,
@@ -5619,6 +5615,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 		desc: "This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 		shortDesc: "Hits adjacent foes. Can hit floating foes.",
+		isNonstandard: null,
 	},
 	thundercage: {
 		inherit: true,
@@ -5768,6 +5765,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		isNonstandard: null,
 	},
 	twister: {
 		inherit: true,
@@ -5779,6 +5777,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	vcreate: {
 		inherit: true,
 		accuracy: 100,
+		isNonstandard: null,
 	},
 	vengefulspirit: {
 		num: 889,
@@ -5939,6 +5938,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		flags: {protect: 1},
 		isNonstandard: null,
+		noSketch: null,
 	},
 	willowisp: {
 		inherit: true,
@@ -6636,6 +6636,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage. The theft does not occur if the target has the Ability Own Tempo.",
 		contestType: "Clever",
 	},
+	spiderweb: {
+		inherit: true,
+		isNonstandard: null,
+		desc: "Prevents the target from switching out for three turns. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped.",
+		shortDesc: "Traps foe(s) for three turns.",
+	},
 	stormthrow: {
 		inherit: true,
 		isNonstandard: null,
@@ -7106,6 +7112,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	chatter: {
 		inherit: true,
 		isNonstandard: null,
+		noSketch: null,
 	},
 	chipaway: {
 		inherit: true,
@@ -7115,6 +7122,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1},
 		isNonstandard: null,
+		noSketch: null,
 	},
 	craftyshield: {
 		inherit: true,
@@ -7232,10 +7240,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	lightofruin: {
+	/*lightofruin: {
 		inherit: true,
 		isNonstandard: null,
-	},
+	},*/
 	luckychant: {
 		inherit: true,
 		isNonstandard: null,
@@ -7244,6 +7252,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1},
 		isNonstandard: null,
+		noSketch: null,
 	},
 	magiccoat: {
 		inherit: true,
@@ -7269,6 +7278,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1},
 		isNonstandard: null,
+		noSketch: null,
 	},
 	oblivionwing: {
 		inherit: true,

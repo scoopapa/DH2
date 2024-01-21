@@ -331,19 +331,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ESH",
 	},
 	kricketotsartori: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	kricketunesartori: {
 		tier: "NFE",
 	},
 	glameowsartori: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	puruglysartori: {
 		tier: "ESH",
 	},
 	phantumpsartori: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	octilleryhassrim: {
 		tier: "ESH",
@@ -352,6 +352,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ESH",
 	},
 	indeedeehassrim: {
+		tier: "ESH",
+	},
+	wandruss: {
+		tier: "ESH",
+	},
+	mistyplumage: {
+		tier: "ESH",
+	},
+	orbiterunit: {
 		tier: "ESH",
 	},
 	// New Megas
