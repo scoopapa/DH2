@@ -119,4 +119,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dragapult: {
 		tier: "NS",
 	},
+	rookada: {
+		tier: "NS",
+	},
+	dragaplunge: {
+		tier: "NS",
+	},
+	ironblimp: {
+		tier: "NS",
+	},
+	puffache: {
+		tier: "NS",
+	},
+	fushimmer: {
+		tier: "NS",
+	},
 };
