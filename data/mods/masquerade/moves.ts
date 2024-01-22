@@ -805,7 +805,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					boosts[statName2] = 0;
 				}
 				target.setBoost(boosts);
-				this.battle.addMove('-anim', pokemon, "Ultra Gulp", target);
 			}
 		},
 		onAfterSubDamage(target, pokemon, move) {
