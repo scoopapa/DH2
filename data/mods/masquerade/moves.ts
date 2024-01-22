@@ -773,7 +773,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
-			case 'Guzzlord-Black Hole': case 'Guzzlord-Black Hole-Tera':
+			case 'Guzzlord-Black-Hole': case 'Guzzlord-Black-Hole-Tera':
 				move.type = 'Ghost';
 				break;
 			case 'Guzzlord-Miasma': case 'Guzzlord-Miasma-Tera':
