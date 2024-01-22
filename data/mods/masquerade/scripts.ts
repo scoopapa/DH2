@@ -8,6 +8,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "drifblim").learnset.securelanding = ["9L1"];
 		this.modData("Learnsets", "feraligatr").learnset.splashbite = ["9L1"];
 		this.modData("Learnsets", "aurorus").learnset.diamondglow = ["9L1"];
+		this.modData("Learnsets", "guzzlord").learnset.ultragulp = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.cottonswab = ["9L1"];
 	},
 	actions: {
 		inherit: true,
