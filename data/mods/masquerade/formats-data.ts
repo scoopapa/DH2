@@ -243,4 +243,68 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	excadrill: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	excadrilljungletrimmer: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	excadrillancientspear: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	excadrillexoslasher: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	whimsicott: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	whimsicottscarespore: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	whimsicottsteelspore: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	whimsicottwindspore: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	absol: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	absolmothman: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	absolsandscythe: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	absolarchangels: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	guzzlord: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	guzzlordmiasma: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	guzzlordrainbow: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	guzzlordblackhole: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
