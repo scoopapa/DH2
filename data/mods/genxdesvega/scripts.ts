@@ -109,6 +109,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
 		
+		//bidoof line
+		delete this.modData("Learnsets", "bidoof").learnset.sunnyday;
+		delete this.modData("Learnsets", "bibarel").learnset.sunnyday;
+		this.modData("Learnsets", "bibarel").learnset.wavecrash = ["9L70"];
+		this.modData("Learnsets", "bibarel").learnset.shocktail = ["9M"];
+		
 		//stunfisk
 		this.modData("Learnsets", "stunfisk").learnset.sparkingleap = ["9L1","8L1"];
 		
@@ -159,6 +165,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "naganadel").learnset.toxicshock = ["9L1"];
 		
 		//rotom
+		this.modData("Learnsets", "rotom").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "rotom").learnset.dazzlinggleam = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.playrough = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.wildcharge = ["9L1"];
@@ -171,6 +178,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//mareanie line
 		this.modData("Learnsets", "mareanie").learnset.toxicshock = ["9L1"];
 		this.modData("Learnsets", "toxapex").learnset.toxicshock = ["9L1"];
+
+		//sinnoh hippopotas line
+		this.modData("Learnsets", "hippopotas").learnset.terracharge = ["9L1","8L1"];
+		this.modData("Learnsets", "hippowdon").learnset.terracharge = ["9L1","8L1"];
 		
 		//kalosian litleo line
 		this.modData("Learnsets", "litleo").learnset.drift = ["9L1"];
@@ -183,8 +194,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "fennekin").learnset.quickshot = ["9L1","8L1"];
 		this.modData("Learnsets", "braixen").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "braixen").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "braixen").learnset.shocktail = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "delphox").learnset.shocktail = ["9L1"];
 		
 		//rockruff line
 		this.modData("Learnsets", "rockruff").learnset.drainfang = ["9L1","8L1"];
@@ -198,17 +211,75 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "stonjourner").learnset.crippleclobber = ["9L1","8L1"];
+
+		//magby line
+		this.modData("Learnsets", "magby").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "magmar").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "magmortar").learnset.quickshot = ["9L1","8L1"];
 		
-		//misc shock tail distribution
+		//elekid line
+		this.modData("Learnsets", "elekid").learnset.thunderstrike = ["9L1","8L1"];
+		this.modData("Learnsets", "elekid").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "electabuzz").learnset.thunderstrike = ["9L1","8L1"];
+		this.modData("Learnsets", "electabuzz").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "electivire").learnset.thunderstrike = ["9L1","8L1"];
 		this.modData("Learnsets", "electivire").learnset.shocktail = ["9L1","8L1"];
+
+		//trapinch line
+		this.modData("Learnsets", "vibrava").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "flygon").learnset.shocktail = ["9L1","8L1"];
+		
+		//pichu line
+		this.modData("Learnsets", "pichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichualola").learnset.shocktail = ["9L1","8L1"];
-		
-		//misc drain fang distribution
-		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
+
+		//eeveelutions
+		this.modData("Learnsets", "eevee").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "vaporeon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "jolteon").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "jolteon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "flareon").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "flareon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "flareon").learnset.bulkup = ["9L1","8L1"];
+		this.modData("Learnsets", "espeon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "umbreon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "leafeon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "leafeon").learnset.bushclaws = ["9L1","8L1"];
+		this.modData("Learnsets", "leafeon").learnset.fireworkleaf = ["9L1","8L1"];
+		this.modData("Learnsets", "glaceon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "glaceon").learnset.surf = ["9L1","8L1"];
+		this.modData("Learnsets", "glaceon").learnset.hydropump = ["9L1","8L1"];
+		this.modData("Learnsets", "sylveon").learnset.drainfang = ["9L1","8L1"];
+
+		//ekans line
 		this.modData("Learnsets", "ekans").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "ekans").learnset.poisonterrain = ["9L1","8L1"];
 		this.modData("Learnsets", "arbok").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.poisonterrain = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.uturn = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.dragonrush = ["9L1","8L1"];
+		
+		//sableye
+		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
+		
+		//dratini line
+		this.modData("Learnsets", "dragonair").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.defog = ["9L1"];
+		
+		//hoennian bagon line
+		this.modData("Learnsets", "bagon").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "shelgon").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "salamence").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "salamence").learnset.defog = ["9L1"];
+		
+		//rolycoly line
+		this.modData("Learnsets", "rolycoly").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "carkol").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "carkol").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.knockoff = ["9L1"];
 		
 		//misc drift distribution (wouldn't you know it they're all in desvega)
 		this.modData("Learnsets", "flareon").learnset.drift = ["9L1"];
@@ -216,12 +287,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "pignite").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "emboar").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "turtonator").learnset.drift = ["9L1"];
-		this.modData("Learnsets", "rolycoly").learnset.drift = ["9L1"];
-		this.modData("Learnsets", "carkol").learnset.drift = ["9L1"];
-		this.modData("Learnsets", "coalossal").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "capsakid").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "scovillain").learnset.drift = ["9L1"];
-		
+
+		//unovan starters (obtained from mega distribution back in loria, ampharos still kept dragon pulse since gen 6 after all)
+		this.modData("Learnsets", "serperior").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "serperior").learnset.dragonhammer = ["9L1","8L1"];
+		this.modData("Learnsets", "serperior").learnset.drillrun = ["9L1","8L1"];
+		this.modData("Learnsets", "emboar").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "emboar").learnset.calmmind = ["9L1","8L1"];
+		this.modData("Learnsets", "emboar").learnset.earthpower = ["9L1","8L1"];
+		this.modData("Learnsets", "samurott").learnset.shadowball = ["9L1","8L1"];
+		this.modData("Learnsets", "samurott").learnset.hypervoice = ["9L1","8L1"];
+		this.modData("Learnsets", "samurott").learnset.focusblast = ["9L1","8L1"];
 		
 		//Distributions at https://www.smogon.com/forums/threads/generation-x-the-third-chapter-desvega-concluded-coders-wanted.3722319/page-8
 		//(Toxic excluded for mons present in SV because that post was made before the Teal Mask, which made Toxic a TM again and with limited distribution too)

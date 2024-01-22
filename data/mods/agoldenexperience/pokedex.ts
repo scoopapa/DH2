@@ -164,11 +164,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	arcanine: {
 		inherit: true,
+		types: ["Fire", "Fairy"],
 		baseStats: {hp: 90, atk: 115, def: 90, spa: 75, spd: 90, spe: 95},
 	},
 	arcaninehisui: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 115, def: 80, spa: 85, spd: 80, spe: 100},
+		baseStats: {hp: 95, atk: 115, def: 80, spa: 75, spd: 80, spe: 110},
 	},
 	poliwrath: {
 		inherit: true,
@@ -800,6 +801,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Pickup", 1: "Thick Fat", H: "Sand Veil"},
 	},
+	donphan: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Sand Veil"},
+	},
 	houndour: {
 		inherit: true,
 		otherFormes: ["Houndour-Galar"],
@@ -818,10 +823,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Purple",
 		evos: ["Baskiron"],
 		eggGroups: ["Field"],
-	},
-	donphan: {
-		inherit: true,
-		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Sand Veil"},
 	},
 	stantler: {
 		inherit: true,

@@ -806,7 +806,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'wigglytuff').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'florges').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'infarmatem').learnset.sweetheart = ['9L1'];
-    this.modData('Learnsets', 'diancie').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'meganium').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'bellossom').learnset.sweetheart = ['9L1'];
