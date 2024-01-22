@@ -1515,8 +1515,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	whimsicott: {
 		inherit: true,
-		otherFormes: ["Whimsicott-Scarepore", "Whimsicott-Steelspore", "Whimsicott-Windspore", "Whimsicott-Scarepore-Tera", "Whimsicott-Steelspore-Tera", "Whimsicott-Windspore-Tera"],
-		formeOrder: ["Whimsicott", "Whimsicott-Scarepore", "Whimsicott-Steelspore", "Whimsicott-Windspore", "Whimsicott-Scarepore-Tera", "Whimsicott-Steelspore-Tera", "Whimsicott-Windspore-Tera"],
+		otherFormes: ["Whimsicott-Scarespore", "Whimsicott-Steelspore", "Whimsicott-Windspore", "Whimsicott-Scarespore-Tera", "Whimsicott-Steelspore-Tera", "Whimsicott-Windspore-Tera"],
+		formeOrder: ["Whimsicott", "Whimsicott-Scarespore", "Whimsicott-Steelspore", "Whimsicott-Windspore", "Whimsicott-Scarespore-Tera", "Whimsicott-Steelspore-Tera", "Whimsicott-Windspore-Tera"],
 		forceTeraType: "Grass",
 	},
 	whimsicottscarespore: {
@@ -1546,7 +1546,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 6.6,
 		color: "Gray",
 		requiredItem: "Scarespore Mask",
-		battleOnly: "Whimsicott-Scarepore",
+		battleOnly: "Whimsicott-Scarespore",
 		forceTeraType: "Dark",
 	},
 	whimsicottsteelspore: {
