@@ -610,6 +610,233 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 	},
+	smartstrike: {
+		num: 684,
+		accuracy: true,
+		basePower: 70,
+		category: "Physical",
+		name: "Smart Strike",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Excadrill-Jungletrimmer': case 'Excadrill-Jungletrimmer-Tera':
+				move.type = 'Grass';
+				break;
+			case 'Excadrill-Ancientspear': case 'Excadrill-Ancientspear-Tera':
+				move.type = 'Rock';
+				break;
+			case 'Excadrill-Exoslasher': case 'Excadrill-Exoslasher-Tera':
+				move.type = 'Bug';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	throatchop: {
+		num: 675,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Throat Chop",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Absol-Archangels': case 'Absol-Archangels-Tera':
+				move.type = 'Fairy';
+				break;
+			case 'Absol-Sandscythe': case 'Absol-Sandscythe-Tera':
+				move.type = 'Rock';
+				break;
+			case 'Absol-Mothman': case 'Absol-Mothman-Tera':
+				move.type = 'Bug';
+				break;
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'Throat Chop', '[silent]');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['sound']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Throat Chop', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('throatchop');
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	cottonswab: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "If there are hazards on the user's side, clears them but has halved power.",
+		name: "Cotton Swab",
+		pp: 15,
+		priority: 0,
+		flags: {powder: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pollen Puff", target);
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.side.getSideCondition('stealthrock') || pokemon.side.getSideCondition('spikes') ||
+				pokemon.side.getSideCondition('toxicspikes') || pokemon.side.getSideCondition('stickyweb') ||
+				pokemon.side.getSideCondition('gmaxsteelsurge')) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Whimsicott-Scarespore': case 'Whimsicott-Scarespore-Tera':
+				move.type = 'Dark';
+				break;
+			case 'Whimsicott-Steelspore': case 'Whimsicott-Steelspore-Tera':
+				move.type = 'Steel';
+				break;
+			case 'Whimsicott-Windspore': case 'Whimsicott-Windspore-Tera':
+				move.type = 'Flying';
+				break;
+			}
+		},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Cotton Swab', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Cotton Swab', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Grass",
+	},
+	ultragulp: {
+		num: 202,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "Heals 33% of the damage dealt and steals positive boosts.",
+		name: "Ultra Gulp",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 3],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Guzzlord-Black Hole': case 'Guzzlord-Black Hole-Tera':
+				move.type = 'Ghost';
+				break;
+			case 'Guzzlord-Miasma': case 'Guzzlord-Miasma-Tera':
+				move.type = 'Poison';
+				break;
+			case 'Guzzlord-Rainbow': case 'Guzzlord-Rainbow-Tera':
+				move.type = 'Electric';
+				break;
+			}
+		},
+		onHit(target, pokemon, move) {
+			const boosts: SparseBoostsTable = {};
+			let stolen = false;
+			let statName: BoostID;
+			for (statName in target.boosts) {
+				const stage = target.boosts[statName];
+				if (stage > 0) {
+					boosts[statName] = stage;
+					stolen = true;
+				}
+			}
+			if (stolen) {
+				this.attrLastMove('[still]');
+				this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
+				this.boost(boosts, pokemon, pokemon);
+
+				let statName2: BoostID;
+				for (statName2 in boosts) {
+					boosts[statName2] = 0;
+				}
+				target.setBoost(boosts);
+				this.battle.addMove('-anim', pokemon, "Ultra Gulp", target);
+			}
+		},
+		onAfterSubDamage(target, pokemon, move) {
+			const boosts: SparseBoostsTable = {};
+			let stolen = false;
+			let statName: BoostID;
+			for (statName in target.boosts) {
+				const stage = target.boosts[statName];
+				if (stage > 0) {
+					boosts[statName] = stage;
+					stolen = true;
+				}
+			}
+			if (stolen) {
+				this.attrLastMove('[still]');
+				this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
+				this.boost(boosts, pokemon, pokemon);
+
+				let statName2: BoostID;
+				for (statName2 in boosts) {
+					boosts[statName2] = 0;
+				}
+				target.setBoost(boosts);
+				this.battle.addMove('-anim', pokemon, "Ultra Gulp", target);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+	},
 
 // unchanged moves
 	defog: {
