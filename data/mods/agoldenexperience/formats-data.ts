@@ -393,7 +393,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	arcanine: {
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	arcaninehisui: {
@@ -1972,7 +1972,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	metagross: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	metagrossmega: {
@@ -3005,7 +3005,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	bouffalant: {
-		tier: "UU",
+		tier: "RUBL",
 		doublesTier: "DUU",
 	},
 	rufflet: {
@@ -3064,7 +3064,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	tornadus: {
-		tier: "NUBL",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	tornadustherian: {
@@ -3551,7 +3551,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	crabominable: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "(DUU)"
 	},
 	oricorio: {
