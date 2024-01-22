@@ -988,4 +988,280 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Aurorus-Glacier: Terastallize to gain Water Absorb.",
 	},
+	jungletrimmermask: {
+		name: "Jungletrimmer Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Excadrill') return false;
+			return true;
+		},
+		forcedForme: "Excadrill-Jungletrimmer",
+		itemUser: ["Excadrill-Jungletrimmer"],
+		num: -1042,
+		gen: 9,
+		desc: "Excadrill-Jungletrimmer: Terastallize to gain Tough Claws.",
+	},
+	ancientspearmask: {
+		name: "Ancientspear Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Excadrill') return false;
+			return true;
+		},
+		forcedForme: "Excadrill-Ancientspear",
+		itemUser: ["Excadrill-Ancientspear"],
+		num: -1043,
+		gen: 9,
+		desc: "Excadrill-Ancientspear: Terastallize to gain Solid Rock.",
+	},
+	exoslashermask: {
+		name: "Exoslasher Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Excadrill') return false;
+			return true;
+		},
+		forcedForme: "Excadrill-Exoslasher",
+		itemUser: ["Excadrill-Exoslasher"],
+		num: -1044,
+		gen: 9,
+		desc: "Excadrill-Exoslasher: Terastallize to gain Defiant.",
+	},
+	scareporemask: {
+		name: "Scarepore Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Whimsicott') return false;
+			return true;
+		},
+		forcedForme: "Whimsicott-Scarepore",
+		itemUser: ["Whimsicott-Scarepore"],
+		num: -1045,
+		gen: 9,
+		desc: "Whimsicott-Scarepore: Terastallize to gain Analytic.",
+	},
+	steelsporemask: {
+		name: "Steelspore Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Whimsicott') return false;
+			return true;
+		},
+		forcedForme: "Whimsicott-Steelspore",
+		itemUser: ["Whimsicott-Steelspore"],
+		num: -1046,
+		gen: 9,
+		desc: "Whimsicott-Steelspore: Terastallize to gain Infiltrator.",
+	},
+	windsporemask: {
+		name: "Windspore Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Whimsicott') return false;
+			return true;
+		},
+		forcedForme: "Whimsicott-Windspore",
+		itemUser: ["Whimsicott-Windspore"],
+		num: -1047,
+		gen: 9,
+		desc: "Whimsicott-Windspore: Terastallize to gain No Guard.",
+	},
+	mothmanmask: {
+		name: "Mothman Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Absol') return false;
+			return true;
+		},
+		forcedForme: "Absol-Mothman",
+		itemUser: ["Absol-Mothman"],
+		num: -1048,
+		gen: 9,
+		desc: "Absol-Mothman: Terastallize to gain Sharpness.",
+	},
+	sandscythemask: {
+		name: "Sandscythe Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Absol') return false;
+			return true;
+		},
+		forcedForme: "Absol-Sandscythe",
+		itemUser: ["Absol-Sandscythe"],
+		num: -1049,
+		gen: 9,
+		desc: "Absol-Sandscythe: Terastallize to gain Victory Star.",
+	},
+	archangelsmask: {
+		name: "Archangels Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Absol') return false;
+			return true;
+		},
+		forcedForme: "Absol-Archangels",
+		itemUser: ["Absol-Archangels"],
+		num: -1050,
+		gen: 9,
+		desc: "Absol-Archangels: Terastallize to gain Shield Dust.",
+	},
+	blackholemask: {
+		name: "Black Hole Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Guzzlord') return false;
+			return true;
+		},
+		forcedForme: "Guzzlord-Black Hole",
+		itemUser: ["Guzzlord-Black Hole"],
+		num: -1051,
+		gen: 9,
+		desc: "Guzzlord-Black Hole: Terastallize to gain Gravitas Body.",
+	},
+	miasmamask: {
+		name: "Miasma Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Guzzlord') return false;
+			return true;
+		},
+		forcedForme: "Guzzlord-Miasma",
+		itemUser: ["Guzzlord-Miasma"],
+		num: -1052,
+		gen: 9,
+		desc: "Guzzlord-Miasma: Terastallize to gain Regenerator.",
+	},
+	rainbowmask: {
+		name: "Rainbow Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Guzzlord') return false;
+			return true;
+		},
+		forcedForme: "Guzzlord-Rainbow",
+		itemUser: ["Guzzlord-Rainbow"],
+		num: -1053,
+		gen: 9,
+		desc: "Guzzlord-Rainbow: Terastallize to gain Magic Bounce.",
+	},
 };
