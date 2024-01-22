@@ -11677,8 +11677,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','varoom').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','varoom').learnset.payback = ["9M"];
 		this.modData('Learnsets','varoom').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','varoom').learnset.screech = ["9M"];
+		this.modData('Learnsets','varoom').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','varoom').learnset.spite = ["9M"];
+		this.modData('Learnsets','varoom').learnset.torment = ["9M"];
+		this.modData('Learnsets','varoom').learnset.highhorsepower = ["9E"];
+		this.modData('Learnsets','varoom').learnset.metalsound = ["9E"];
+		delete this.modData('Learnsets','varoom').learnset.partingshot;
 		// Revavroom
 		this.modData('Learnsets','revavroom').learnset.tarshot = ["9D"];
 		this.modData('Learnsets','revavroom').learnset.endeavor = ["9M"];
@@ -11688,9 +11692,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroom').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','revavroom').learnset.payback = ["9M"];
 		this.modData('Learnsets','revavroom').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','revavroom').learnset.screech = ["9M"];
+		this.modData('Learnsets','revavroom').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','revavroom').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroom').learnset.strength = ["9M"];
+		this.modData('Learnsets','revavroom').learnset.torment = ["9M"];
 		// Revavroom Segin Mod
 		this.modData('Learnsets','revavroomsegin').learnset.tarshot = ["9D"];
 		this.modData('Learnsets','revavroomsegin').learnset.endeavor = ["9M"];
@@ -11701,9 +11706,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroomsegin').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','revavroomsegin').learnset.payback = ["9M"];
 		this.modData('Learnsets','revavroomsegin').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','revavroomsegin').learnset.screech = ["9M"];
+		this.modData('Learnsets','revavroomsegin').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','revavroomsegin').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroomsegin').learnset.strength = ["9M"];
+		this.modData('Learnsets','revavroomsegin').learnset.torment = ["9M"];
 		// Revavroom Schedar Mod
 		this.modData('Learnsets','revavroomschedar').learnset.tarshot = ["9D"];
 		this.modData('Learnsets','revavroomschedar').learnset.endeavor = ["9M"];
@@ -11714,9 +11720,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroomschedar').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','revavroomschedar').learnset.payback = ["9M"];
 		this.modData('Learnsets','revavroomschedar').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','revavroomschedar').learnset.screech = ["9M"];
+		this.modData('Learnsets','revavroomschedar').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','revavroomschedar').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroomschedar').learnset.strength = ["9M"];
+		this.modData('Learnsets','revavroomschedar').learnset.torment = ["9M"];
 		// Revavroom Navi Mod
 		this.modData('Learnsets','revavroomnavi').learnset.tarshot = ["9D"];
 		this.modData('Learnsets','revavroomnavi').learnset.endeavor = ["9M"];
@@ -11727,9 +11734,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroomnavi').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','revavroomnavi').learnset.payback = ["9M"];
 		this.modData('Learnsets','revavroomnavi').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','revavroomnavi').learnset.screech = ["9M"];
+		this.modData('Learnsets','revavroomnavi').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','revavroomnavi').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroomnavi').learnset.strength = ["9M"];
+		this.modData('Learnsets','revavroomnavi').learnset.torment = ["9M"];
 		// Revavroom Ruchbah Mod
 		this.modData('Learnsets','revavroomruchbah').learnset.tarshot = ["9D"];
 		this.modData('Learnsets','revavroomruchbah').learnset.endeavor = ["9M"];
@@ -11740,9 +11748,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroomruchbah').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','revavroomruchbah').learnset.payback = ["9M"];
 		this.modData('Learnsets','revavroomruchbah').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','revavroomruchbah').learnset.screech = ["9M"];
+		this.modData('Learnsets','revavroomruchbah').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','revavroomruchbah').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroomruchbah').learnset.strength = ["9M"];
+		this.modData('Learnsets','revavroomruchbah').learnset.torment = ["9M"];
 		// Revavroom Caph Mod
 		this.modData('Learnsets','revavroomcaph').learnset.tarshot = ["9D"];
 		this.modData('Learnsets','revavroomcaph').learnset.endeavor = ["9M"];
@@ -11753,9 +11762,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revavroomcaph').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','revavroomcaph').learnset.payback = ["9M"];
 		this.modData('Learnsets','revavroomcaph').learnset.rockpolish = ["9M"];
-		this.modData('Learnsets','revavroomcaph').learnset.screech = ["9M"];
+		this.modData('Learnsets','revavroomcaph').learnset.screech = ["9L25", "9M"];
 		this.modData('Learnsets','revavroomcaph').learnset.spite = ["9M"];
 		this.modData('Learnsets','revavroomcaph').learnset.strength = ["9M"];
+		this.modData('Learnsets','revavroomcaph').learnset.torment = ["9M"];
 		// Cyclizar
 		this.modData('Learnsets','cyclizar').learnset.extremespeed = ["9D"];
 		this.modData('Learnsets','cyclizar').learnset.agility = ["9L31"];
