@@ -1196,7 +1196,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Absol-Archangels: Terastallize to gain Shield Dust.",
 	},
 	blackholemask: {
-		name: "Black Hole Mask",
+		name: "Black-Hole Mask",
 		spritenum: 758,
 		fling: {
 			basePower: 60,
@@ -1212,11 +1212,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Guzzlord') return false;
 			return true;
 		},
-		forcedForme: "Guzzlord-Black Hole",
-		itemUser: ["Guzzlord-Black Hole"],
+		forcedForme: "Guzzlord-Black-Hole",
+		itemUser: ["Guzzlord-Black-Hole"],
 		num: -1051,
 		gen: 9,
-		desc: "Guzzlord-Black Hole: Terastallize to gain Gravitas Body.",
+		desc: "Guzzlord-Black-Hole: Terastallize to gain Gravitas Body.",
 	},
 	miasmamask: {
 		name: "Miasma Mask",
