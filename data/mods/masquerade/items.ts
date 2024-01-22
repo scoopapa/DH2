@@ -1057,8 +1057,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Excadrill-Exoslasher: Terastallize to gain Defiant.",
 	},
-	scareporemask: {
-		name: "Scarepore Mask",
+	Scaresporemask: {
+		name: "Scarespore Mask",
 		spritenum: 758,
 		fling: {
 			basePower: 60,
@@ -1074,11 +1074,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Whimsicott') return false;
 			return true;
 		},
-		forcedForme: "Whimsicott-Scarepore",
-		itemUser: ["Whimsicott-Scarepore"],
+		forcedForme: "Whimsicott-Scarespore",
+		itemUser: ["Whimsicott-Scarespore"],
 		num: -1045,
 		gen: 9,
-		desc: "Whimsicott-Scarepore: Terastallize to gain Analytic.",
+		desc: "Whimsicott-Scarespore: Terastallize to gain Analytic.",
 	},
 	steelsporemask: {
 		name: "Steelspore Mask",
