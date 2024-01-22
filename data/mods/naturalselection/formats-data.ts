@@ -18,7 +18,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NS",
 	},
 	emolga: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	crabominable: {
 		tier: "NS",
@@ -30,7 +30,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NS",
 	},
 	ariados: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	klawf: {
 		tier: "NS",
@@ -66,10 +66,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NS",
 	},
 	delibird: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	mightyena: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	orbeetle: {
 		tier: "NS",
@@ -93,7 +93,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NS",
 	},
 	eiscue: {
-		tier: "NS",
+		tier: "Extinct",
 	},
 	haxorus: {
 		tier: "NS",
@@ -117,6 +117,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NS",
 	},
 	dragapult: {
+		tier: "NS",
+	},
+	rookada: {
+		tier: "NS",
+	},
+	dragaplunge: {
+		tier: "NS",
+	},
+	ironblimp: {
+		tier: "NS",
+	},
+	puffache: {
+		tier: "NS",
+	},
+	fushimmer: {
 		tier: "NS",
 	},
 };
