@@ -1,5 +1,4 @@
 export const Aliases: {[alias: string]: string} = {
-	knight: "Knightmare",
 	stickbug: "Stickler",
 	polybius: "Arcognition",
 	zaza: "Tapu Zaza",
