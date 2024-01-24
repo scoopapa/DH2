@@ -879,7 +879,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ruffdot: {
 		num: 2099,
 		name: "Ruffdot",
-		gender: M,
+		gender: "M",
 		types: ["Grass", "Normal"],
 		baseStats: {hp: 55, atk: 77, def: 50, spa: 33, spd: 40, spe: 45},
 		abilities: {0: "Sheer Bird", 1: "Sun Bathe", H: "Robin"},
