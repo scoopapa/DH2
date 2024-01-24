@@ -486,7 +486,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Cool",
 	},
-	//Realmon distribution: Braviary (status for Hisuian unknown), Mandibuzz, Hawlucha
+	//Realmon distribution: Unovan Braviary, Mandibuzz, Hawlucha
 	airdive: {
 		num: -19,
 		accuracy: 90,
@@ -1554,7 +1554,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	//Realmon distribution (pre-Loria): Carvanha Families, Snorunt line, Hydreigon line, Lycanroc line, Silvally, Guzzlord, Crobat line,
 	//Noivern line, Mimikyu, Grimmsnarl line, Arbok line, Girafarig (+Farigiraf), Houndoom line, Mightyena line, Seviper, Huntail, 
-	//Eelektross line, Gengar line, Banette line, Sableye (Desvegan status unknown), Giratina, Trevenant, Lunala, Dragapult line
+	//Eelektross line, Gengar line, Banette line, Hoennian Sableye (likely Desvegan too), Giratina, Trevenant, Lunala, Dragapult line
 	drainfang: {
 		accuracy: 100,
 		basePower: 80,
@@ -1576,7 +1576,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		contestType: "Clever",
 	},
-	//Realmon distribution (pre-Loria): Rhyhorn line, Mudkip line, Numel line, Swinub line (Desvegan status unknown), Mudbray line
+	//Realmon distribution (pre-Loria): Rhyhorn line, Mudkip line, Numel line, Johtonian Swinub line (likely Desvegan too), Mudbray line
 	terracharge: {
 		accuracy: 100,
 		basePower: 120,
