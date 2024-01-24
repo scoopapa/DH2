@@ -451,4 +451,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "DoNU",
 		doublesTier: "DoNU",
 	},
+
+// Ubers
+	smeargle: {
+		tier: "DoNU Uber",
+		doublesTier: "DoNU Uber",
+	},
+	wishiwashi: {
+		tier: "DoNU Uber",
+		doublesTier: "DoNU Uber",
+	},
+	wingull: {
+		tier: "DoNU Uber",
+		doublesTier: "DoNU Uber",
+	},
+	dewpider: {
+		tier: "DoNU Uber",
+		doublesTier: "DoNU Uber",
+	},
+	flittle: {
+		tier: "DoNU Uber",
+		doublesTier: "DoNU Uber",
+	},
+	zigzagoon: {
+		tier: "DoNU Uber",
+		doublesTier: "DoNU Uber",
+	},
 };
