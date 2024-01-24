@@ -975,8 +975,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1_5AwZ24dPu3-5m5yOyIO4OTPmW9OwIWXXzZ5IJZkj4c/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'gen9vaporemons',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay'],
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -2767,8 +2767,8 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen9vaporemons',
 		teambuilderFormat: 'UU',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Dancing Shoes'],
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Dancing Shoes', 'Fling + Segin Star Shard'],
 	},
 	
 	///////////////////////////////////////////////////////////////
