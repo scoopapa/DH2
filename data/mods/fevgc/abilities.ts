@@ -1363,5 +1363,276 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Smelly Touch",
 		shortDesc: "This Pokemon's contact moves have a 30% chance of replacing the target's ability with Smelly Touch.",
 	},
-
+	berryfeast: {
+		onStart(pokemon) { // add gluttony effects in items.ts
+			pokemon.abilityState.gluttony = true;
+		},
+		onDamage(item, pokemon) {
+			pokemon.abilityState.gluttony = true;
+		},
+		onEatItem(item, pokemon) {
+			if (item.isBerry) {
+				pokemon.addVolatile('berryfeast');
+			}
+		},
+		onTakeItem(item, pokemon) {
+			if (item.isBerry) {
+				pokemon.addVolatile('berryfeast');
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('unburden');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item && !pokemon.ignoringAbility()) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		flags: {},
+		name: "Berry Feast",
+		shortDesc: "Gluttony + Unburden (for berries only)",
+	},
+	thickpressure: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Thick Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Pressure weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Pressure weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Thick Pressure",
+		shortDesc: "Thick Fat + Pressure",
+	},
+	incorporate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Incorporate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onTryBoost(boost, target, source, effect) { // add all other intim clones here
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Incorporate', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Incorporate",
+		shortDesc: "Intimidate + Inner Focus",
+	},
+	itemmeddler: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				const source = pokemon.allies()[0];
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Item Meddler', '[of] ' + pokemon, '[identify]');
+					if (!source.item) {
+						const myItem = target.getItem().name;
+						if (!myItem) return;
+						if (!pokemon.setItem(myItem)) {
+							source.item = myItem.id;
+							return;
+						}
+						this.add('-activate', source, 'ability: Item Meddler', myItem, '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Item Meddler",
+		shortDesc: "Identifies all foes' items and gives one to its ally if they don't have one.",
+	},
+	mindalign: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if ((target !== source && move.type === 'Grass') ||
+				 (target !== source && target.isAlly(source) && move.category !== 'Status')) {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Mind Align');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Mind Align",
+		shortDesc: "Attack is raised 1 stage if hit by a Grass move or ally's moves; Grass & Ally move immunity.",
+	},
+	scavenge: {
+		shortDesc: "This Pokemon's heals 33% of its HP after KOing a foe or eating a berry.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'ability: Scavenge');
+				this.heal(source.baseMaxhp / 3, source, source, effect);
+			}
+		},
+		onEatItem(item, pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Scavenge",
+		rating: 3.5,
+	},
+	hungerfate: {
+		onStart(pokemon) { // add gluttony effects later
+			pokemon.abilityState.gluttony = true;
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Incorporate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onDamage(item, pokemon) {
+			pokemon.abilityState.gluttony = true;
+		},
+		flags: {},
+		name: "Hunger Fate",
+		shortDesc: "Intimidate + Gluttony",
+	},
+	parroting: {
+		// implement dancer effects in scripts
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['sound'] || move.flags['dance']) {
+				this.debug('Parroting weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Parroting",
+		shortDesc: "Uses a dance or sound move after another Pokemon does. Takes 0.5x damage from dance and sound moves.",
+	},
+	telescopicsight: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Telescopic Sight", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Telescopic Sight boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Telescopic Sight",
+		shortDesc: "Keen Eye + Sniper",
+	},
+	slowbugs: {
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.type === 'Bug') {
+				return -0.1;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Slow Bugs boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Slow Bugs boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Slow Bugs",
+		shortDesc: "User's Bug moves deal 1.5x damage, but move last in their priority bracket.",
+	},
+	nightlyjokes: {
+		onTryHit(target, source, move) {
+			if (move.category === 'Status' && target !== source) {
+				this.add('-immune', target, '[from] ability: Nightly Jokes');
+				return null;
+			}
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true; // add dark-type prankster immunity in scripts
+				return priority + 1;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Nightly Jokes",
+		shortDesc: "This Pokemon is immune to status moves and its own have +1 priority.",
+	},
+	supercharmingsyrup: {
+		onStart(pokemon) {
+			if (pokemon.syrupTriggered) return;
+			pokemon.syrupTriggered = true;
+			this.add('-ability', pokemon, 'Supercharming Syrup');
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Supersweet Syrup', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({evasion: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					this.add('-ability', target, 'Gooey');
+					this.boost({evasion: -1}, source, target, null, true);
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Supercharming Syrup",
+		shortDesc: "Lowers the foe's evasiveness once per battle. 30% chance to lower the evasiveness of foes making contact.",
+	},
 };
