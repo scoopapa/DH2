@@ -1,455 +1,455 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	applin: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	arrokuda: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	azurill: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	bidoof: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	blipbug: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	bounsweet: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	bramblin: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	budew: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	bunnelby: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	burmy: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	cascoon: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	caterpie: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	charcadet: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	cherubi: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	cleffa: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	combee: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	cosmog: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	cottonee: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	diglett: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	diglettalola: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	dreepy: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	feebas: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	fletchling: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	fomantis: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	gossifleur: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	happiny: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	hatenna: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	hoothoot: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	hoppip: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	igglybuff: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	impidimp: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	jigglypuff: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	kakuna: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	kirlia: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	kricketot: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	lechonk: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	ledyba: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	lillipup: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	litwick: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	lotad: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	magikarp: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	makuhita: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	mareep: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	marill: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	meditite: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	metapod: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	milcery: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	nacli: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	nickit: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	nidoranf: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	nidoranm: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	nincada: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	noibat: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	nymble: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	patrat: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	pawmi: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	petilil: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	pichu: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	pidgey: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	pidove: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	pikipek: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	poochyena: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	ralts: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	rattata: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	rattataalola: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	rellor: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	rockruff: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	roggenrola: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	rolycoly: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	rookidee: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	scatterbug: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	seedot: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	sentret: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	shedinja: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	shinx: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	silcoon: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	skitty: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	skwovet: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	slakoth: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	slugma: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	smoliv: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	snom: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	spearow: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	spewpa: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	spinarak: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	starly: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	sunkern: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	surskit: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	swinub: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	tadbulb: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	taillow: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	tarountula: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	togepi: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	toxel: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	tynamo: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	tyrogue: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	venipede: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wattrel: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	weedle: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	whismur: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wiglett: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wimpod: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wooloo: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wooper: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wooperpaldea: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wurmple: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	wynaut: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	yamper: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	yungoos: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	zigzagoongalar: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	zubat: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	luvdisc: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 	unown: {
 		tier: "DoNU",
-		doublesTier: "DoNU",
+		isNonstandard: null,
 	},
 
 // Ubers
@@ -476,5 +476,159 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zigzagoon: {
 		tier: "DoNU Uber",
 		doublesTier: "DoNU Uber",
+	},
+	
+// Needed for Eviolite to work
+	bibarel: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	dottler: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	roselia: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	diggersby: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	wormadam: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	wormadamsandy: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	wormadamtrash: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	dustox: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	beautifly: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	butterfree: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	beedrill: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	cherrim: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	eldegoss: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	ledian: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	herdier: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	thievul: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	nidorino: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	nidorina: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	ninjask: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	watchog: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	pidgeotto: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	tranquil: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	raticate: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	raticatealola: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	boldore: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	delcatty: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	fearow: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	swellow: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	togetic: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	whirlipede: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	loudred: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	golisopod: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	dubwool: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	wobbuffet: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	boltund: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	linoonegalar: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	linoone: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	golbat: {
+		tier: "OU",
+		isNonstandard: null,
 	},
 };
