@@ -1096,6 +1096,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			taunt: ["9L1"],
 			dig: ["9L1"],
 			rockblast: ["9L1"],
+			drainfang: ["9L1"],
 		},
 	},
 	aurumine: {
@@ -1179,6 +1180,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			thunderwave: ["9L1"],
 			uproar: ["9L1"],
 			terablast: ["9L1"],
+
+			drainfang: ["9L1"],
 		},
 	},
 	hierrazona: {
@@ -3091,6 +3094,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			superpower: ["9L1"],
 			toxic: ["9L1"],
 			oilslick: ["9L1"],
+			terracharge: ["9L1"],
 		},
 	},
 	piloswinedesvega: {
@@ -3104,6 +3108,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			superpower: ["9L1"],
 			toxic: ["9L1"],
 			oilslick: ["9L1"],
+			terracharge: ["9L1"],
 		},
 	},
 	mamoswinedesvega: {
@@ -3117,6 +3122,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			superpower: ["9L1"],
 			toxic: ["9L1"],
 			oilslick: ["9L1"],
+			terracharge: ["9L1"],
 		},
 	},
 	saunusca: {
