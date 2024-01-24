@@ -3,19 +3,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 		isNonstandard: null,
 	},
-	magby: {
-		tier: "LC",
-		isNonstandard: null,
-	},
 	smoochum: {
-		tier: "LC",
-		isNonstandard: null,
-	},
-	elekid: {
-		tier: "LC",
-		isNonstandard: null,
-	},
-	tyrogue: {
 		tier: "LC",
 		isNonstandard: null,
 	},
@@ -27,20 +15,38 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 		isNonstandard: null,
 	},
-	chingling: {
-		tier: "LC",
-		isNonstandard: null,
-	},
-	munchlax: {
-		tier: "LC",
-		isNonstandard: null,
-	},
 	mimejr: {
 		tier: "LC",
 		isNonstandard: null,
 	},
 	mantyke: {
 		tier: "LC",
+		isNonstandard: null,
+	},
+
+// so eviolite works
+	togetic: {
+		tier: "NFE",
+		isNonstandard: null,
+	},
+	jynx: {
+		tier: "PU",
+		isNonstandard: null,
+	},
+	wobbuffet: {
+		tier: "PU",
+		isNonstandard: null,
+	},
+	roselia: {
+		tier: "NFE",
+		isNonstandard: null,
+	},
+	mrmime: {
+		tier: "PU",
+		isNonstandard: null,
+	},
+	mantine: {
+		tier: "RU",
 		isNonstandard: null,
 	},
 };
