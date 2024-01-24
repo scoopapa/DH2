@@ -455,27 +455,27 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 // Ubers
 	smeargle: {
 		tier: "DoNU Uber",
-		doublesTier: "DoNU Uber",
+		isNonstandard: null,
 	},
 	wishiwashi: {
 		tier: "DoNU Uber",
-		doublesTier: "DoNU Uber",
+		isNonstandard: null,
 	},
 	wingull: {
 		tier: "DoNU Uber",
-		doublesTier: "DoNU Uber",
+		isNonstandard: null,
 	},
 	dewpider: {
 		tier: "DoNU Uber",
-		doublesTier: "DoNU Uber",
+		isNonstandard: null,
 	},
 	flittle: {
 		tier: "DoNU Uber",
-		doublesTier: "DoNU Uber",
+		isNonstandard: null,
 	},
 	zigzagoon: {
 		tier: "DoNU Uber",
-		doublesTier: "DoNU Uber",
+		isNonstandard: null,
 	},
 	
 // Needed for Eviolite to work
