@@ -1635,4 +1635,269 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Supercharming Syrup",
 		shortDesc: "Lowers the foe's evasiveness once per battle. 30% chance to lower the evasiveness of foes making contact.",
 	},
+	magicsticks: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Magic Sticks');
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Magic Sticks",
+		shortDesc: "Sticky Hold + Magic Guard",
+	},
+	recollect: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Recollect",
+		shortDesc: "Regenerator + Unaware",
+	},
+	surgeoneye: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Surgeon Eye boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Surgeon Eye",
+		shortDesc: "Regenerator + Analytic",
+	},
+	neutralpolarity: {
+		onStart(pokemon) {
+			for (const foe of pokemon.adjacentFoes()) {
+				if (foe.hasType('Steel')) {
+					foe.clearBoosts();
+					this.add('-clearboost', foe, '[from] ability: Neutral Polarity', '[of] ' + pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Neutral Polarity",
+		shortDesc: "On switch-in, foe Steel-types have their stat changes reset.",
+	},
+	toughbrains: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Tough Brains');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Tough Brains');
+				return target.hp - 1;
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Tough Brains');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Tough Brains');
+			}
+		},
+		onTryBoost(boost, target, source, effect) { // add intim clones here
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Tough Brains', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Tough Brains",
+		shortDesc: "Sturdy + Own Tempo",
+	},
+	allseeing: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: All-Seeing', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		flags: {},
+		name: "All-Seeing",
+		shortDesc: "Frisk + No Guard",
+	},
+	tuffclaws: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Tuff Claws",
+		rating: 3,
+		shortDesc: "This Pokemon's contact moves deal 1.2x damage.",
+	},
+	malfunction: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Malfunction only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				source.addVolatile('embargo')
+			}
+		},
+		flags: {},
+		name: "Malfunction",
+		shortDesc: "Foes that lower this Pokemon's stats lose the effects of their item until they switch out.",
+	},
+	sirocco: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		}, // add life orb damaging immunity in scripts
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				if (!this.boost({atk: 1}, target, target)) {
+					this.add('-immune', target, '[from] ability: Sirocco');
+				}
+				return null;
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sirocco",
+		shortDesc: "Sheer Force + Wind Rider",
+	},
+	sunbathe: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('sunbathe - enhancing accuracy');
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Sun Bathe",
+		shortDesc: "In Sun, this Pokemon's Speed and Accuracy are doubled.",
+	},
+	combative: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Combative only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({atk: 2}, target, target, null, false, true);
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Combative', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Combative', '[of] ' + source);
+			}
+		},
+		flags: {},
+		name: "Combative",
+		shortDesc: "If a foe lowers this Pokemon's stats, this Pokemon steals its item and gains +2 Attack.",
+	},
 };
