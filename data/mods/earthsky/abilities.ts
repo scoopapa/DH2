@@ -1368,7 +1368,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		desc: "After being hit by a move, the user's typing changes to the type that has the best advantage over the move's type, after modifications. It will prioritize any type that is immune to the move, followed by types that are doubly resistant, then normally resistant, then neutral to the move. If multiple types are possible after any of these choices, it will prioritize types that are super effective against that type. If multiple types are still possible, it will prioritize types matching any of the user's damaging moves. Fails if the target has not made a move, if the user cannot change its type, or if this move would only be able to select the user's current type.",
-		shortDesc: "This Pokemon's type changes to the type most advantageous against a move it's hit by, unless it has the type.",
+		shortDesc: "This Pokemon's type changes to the type most advantageous against a move it's hit by.",
 	},
 	commander: {
 		inherit: true,

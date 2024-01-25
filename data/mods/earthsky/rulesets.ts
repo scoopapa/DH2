@@ -5,7 +5,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: 'The standard ruleset for all Earth & Sky tiers',
 		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Post-Gen 7 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause', 'Dynamax Clause',
 			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod',],
-		onValidateSet(set, format) { //Re-calculate Hidden Power
+		onValidateSet(set, format) { //Forme-exclusive moves, re-calculate Hidden Power
 			if(!set.hpType){
 				const hpTypes = [
 					'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
@@ -20,6 +20,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				}
 				set.hpType = hpTypes[Math.min(15,this.dex.trunc(hpTypeX * 16 / 63))];
 			}
+			const problems: string[] = [];
+			const species = this.dex.species.get(set.species || set.name);
+			if (species.changesFrom) {
+				const baseSpecies = this.dex.species.get(species.baseSpecies);
+				if (set.moves && baseSpecies.exclusiveMoves) {
+					for (const move of set.moves) {
+						if (baseSpecies.exclusiveMoves.includes(move)) {
+							problems.push(`${species.name} can't know ${move} while in its ${species.forme} form.`);
+						}
+					}
+				}
+			}
+			return problems;
 		},
 	},
 	egelaspokedex: {
@@ -46,7 +59,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			];
 			const species = this.dex.species.get(set.species || set.name);
 			if (!egelasDex.includes(species.baseSpecies)) {
-				return [species.name + " is not obtainable in Earth and Sky without transfer."];
+				return [species.name + " is not in the Egelan or Sartorian Pokedexes."];
 			}
 		},
 	},
@@ -62,7 +75,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			];
 			const species = this.dex.species.get(set.species || set.name);
 			if (!egelasDex.includes(species.baseSpecies)) {
-				return [species.name + " is not obtainable in Earth and Sky without transfer."];
+				return [species.name + " is not in the Egelan, Sartorian, or Hassriman Pokedexes."];
 			}
 		},
 	},
@@ -112,7 +125,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						//console.log(pokemon + " knows " + moveID + " with means " + pokeLearnsMove);
 						if(pokeLearnsMove == "9D"){
 							if(isHidden){ //Since it can't know the same move twice, it must have gotten it from a family member, and exclusive ones are taken care of.
-								problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+								problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 							} else {
 								isHidden = true;
 							}
@@ -125,10 +138,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								if(baseLearns) isNatural = true;
 								if(baseLearns == "9D"){ //This move is base forme's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -141,10 +154,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								if(prevoLearns) isNatural = true;
 								if(prevoLearns == "9D"){//This move is prevo's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -157,10 +170,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 										if(firstLearns) isNatural = true;
 										if(firstLearns == "9D") {//This move is first stage's Hidden Move
 											if(pokemon.exclusiveHidden || prevo.exclusiveHidden) { //and the Pokemon can't learn it
-												problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${first}'s exclusive Hidden Move.`);
+												problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${first}'s exclusive Hidden Move.`);
 											} else {
 												if(isHidden){
-													problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+													problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 												} else {
 													isHidden = true;
 												}
