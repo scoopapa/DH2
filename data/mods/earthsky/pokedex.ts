@@ -234,6 +234,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Utilitron-Boat", "Utilitron-Copter"],
 		formeOrder: ["Utilitron", "Utilitron-Boat", "Utilitron-Copter"],
+		exclusiveMoves: ["Bulldoze", "Drill Run", "Earth Power", "Earthquake", "Rock Slide", "Steamroller", "Stone Edge", "Trailhead"],
 	},
 	utilitronboat: {
 		num: -517,
@@ -246,7 +247,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.4,
 		weightkg: 240,
 		color: "Gray",
-		//changesFrom: "Utilitron",
+		changesFrom: "Utilitron",
 		eggGroups: ["Mineral"],
 	},
 	utilitroncopter: {
@@ -260,7 +261,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.4,
 		weightkg: 240,
 		color: "Gray",
-		//changesFrom: "Utilitron",
+		changesFrom: "Utilitron",
 		eggGroups: ["Mineral"],
 	},
 	faerunee: {
@@ -1873,6 +1874,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.6,
 		weightkg: 280,
 		color: "Black",
+		changesFrom: "Revavroom",
 		eggGroups: ["Mineral"],
 	},
 	revavroomschedar: {
@@ -1886,6 +1888,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.6,
 		weightkg: 280,
 		color: "Yellow",
+		changesFrom: "Revavroom",
 		eggGroups: ["Mineral"],
 	},
 	revavroomnavi: {
@@ -1899,6 +1902,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.6,
 		weightkg: 280,
 		color: "Pink",
+		changesFrom: "Revavroom",
 		eggGroups: ["Mineral"],
 	},
 	revavroomruchbah: {
@@ -1912,6 +1916,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.6,
 		weightkg: 280,
 		color: "Purple",
+		changesFrom: "Revavroom",
 		eggGroups: ["Mineral"],
 	},
 	revavroomcaph: {
@@ -1925,6 +1930,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.6,
 		weightkg: 280,
 		color: "Orange",
+		changesFrom: "Revavroom",
 		eggGroups: ["Mineral"],
 	},
 	// Existing Mon Attribute Changes
@@ -2622,6 +2628,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rotom: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Prankster"},
+		exclusiveMoves: ["Astonish", "Confuse Ray", "Hex", "Ominous Wind"],
 	},
 	rotomwash: {
 		inherit: true,
@@ -2712,6 +2719,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	shaymin: {
 		inherit: true,
 		abilities: {0: "Natural Cure", H: "Grass Pelt"},
+		exclusiveMoves: ["Aromatherapy", "Healing Wish", "Lucky Chant"],
 	},
 	shayminsky: {
 		inherit: true,
@@ -2990,6 +2998,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	meloetta: {
 		inherit: true,
 		abilities: {0: "Serene Grace", H: "Soundproof"},
+		exclusiveMoves: ["Confusion", "Echoed Voice", "Hyper Voice", "Lucky Chant", "Perish Song", "Psybeam", "Psychic", "Round", "Sing"],
 	},
 	meloettapirouette: {
 		num: 648,
@@ -3150,6 +3159,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	hoopa: {
 		inherit: true,
 		abilities: {0: "Magician", H: "Pickpocket"},
+		exclusiveMoves: ["Hyperspace Hole"],
 	},
 	hoopaunbound: {
 		inherit: true,
@@ -3815,6 +3825,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	revavroom: {
 		inherit: true,
 		abilities: {0: "Overcoat", H: "Stalwart"},
+		exclusiveMoves: ["Gunk Shot", "Poison Gas", "Poison Jab", "Sludge Bomb", "Smog"],
 		otherFormes: ["Revavroom-Segin", "Revavroom-Schedar", "Revavroom-Navi", "Revavroom-Ruchbah", "Revavroom-Caph"],
 		formeOrder: ["Revavroom", "Revavroom-Segin", "Revavroom-Schedar", "Revavroom-Navi", "Revavroom-Ruchbah", "Revavroom-Caph"],
 	},
