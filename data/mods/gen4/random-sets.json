@@ -92,7 +92,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["aquatail", "crunch", "earthquake", "glare", "gunkshot", "poisonjab", "seedbomb", "switcheroo"],
+                "movepool": ["crunch", "earthquake", "glare", "gunkshot", "poisonjab", "seedbomb", "switcheroo"],
                 "preferredTypes": ["Ground"]
             }
         ]
@@ -236,7 +236,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["aerialace", "bite", "doubleedge", "fakeout", "hypnosis", "return", "seedbomb", "switcheroo", "taunt", "uturn"],
+                "movepool": ["bite", "doubleedge", "fakeout", "hypnosis", "return", "seedbomb", "taunt", "uturn"],
                 "preferredTypes": ["Dark"]
             }
         ]
@@ -989,8 +989,8 @@
                 "movepool": ["encore", "energyball", "sleeppowder", "stunspore", "toxic", "uturn"]
             },
             {
-                "role": "Staller",
-                "movepool": ["bounce", "leechseed", "substitute", "toxic"]
+                "role": "Fast Support",
+                "movepool": ["hiddenpowerflying", "leechseed", "protect", "substitute", "toxic"]
             }
         ]
     },
@@ -1076,7 +1076,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["batonpass", "calmmind", "hiddenpowerfire", "psychic", "substitute", "thunderbolt"]
+                "movepool": ["batonpass", "calmmind", "hiddenpowerfighting", "hiddenpowerfire", "psychic", "substitute", "thunderbolt"]
             }
         ]
     },
@@ -1085,7 +1085,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["explosion", "gyroball", "rapidspin", "spikes", "stealthrock", "toxicspikes"]
+                "movepool": ["explosion", "payback", "rapidspin", "spikes", "stealthrock", "toxicspikes"]
             }
         ]
     },
@@ -1225,6 +1225,10 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["bravebird", "roost", "spikes", "stealthrock", "whirlwind"]
+            },
+            {
+                "role": "Staller",
+                "movepool": ["bravebird", "roost", "spikes", "stealthrock", "toxic"]
             }
         ]
     },
@@ -1587,7 +1591,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["bodyslam", "earthquake", "encore", "lowkick", "nightslash", "return", "slackoff", "suckerpunch"]
+                "movepool": ["bodyslam", "earthquake", "encore", "nightslash", "return", "slackoff", "suckerpunch"]
             },
             {
                 "role": "Bulky Setup",
@@ -1595,7 +1599,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["bodyslam", "bulkup", "earthquake", "lowkick", "nightslash", "return", "suckerpunch"]
+                "movepool": ["bodyslam", "bulkup", "earthquake", "nightslash", "return", "suckerpunch"]
             }
         ]
     },
@@ -1767,6 +1771,10 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["earthquake", "encore", "explosion", "icebeam", "painsplit", "sludgebomb", "toxic", "yawn"]
+            },
+            {
+                "role": "Staller",
+                "movepool": ["earthquake", "protect", "sludgebomb", "toxic"]
             }
         ]
     },
@@ -1816,7 +1824,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["focusblast", "healbell", "lightscreen", "psychic", "reflect", "thunderwave", "toxic"]
+                "movepool": ["focusblast", "healbell", "psychic", "thunderwave", "toxic"]
             },
             {
                 "role": "Bulky Attacker",
@@ -2119,7 +2127,7 @@
         "sets": [
             {
                 "role": "Staller",
-                "movepool": ["charm", "protect", "surf", "toxic"]
+                "movepool": ["icebeam", "protect", "substitute", "surf", "toxic"]
             }
         ]
     },
@@ -2311,7 +2319,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["lightscreen", "psychoboost", "reflect", "spikes", "stealthrock", "superpower", "taunt"]
+                "movepool": ["psychoboost", "spikes", "stealthrock", "superpower", "taunt"]
             }
         ]
     },
@@ -2737,7 +2745,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["blizzard", "earthquake", "focusblast", "hiddenpowerfire", "iceshard", "woodhammer"],
+                "movepool": ["blizzard", "earthquake", "focusblast", "iceshard", "woodhammer"],
                 "preferredTypes": ["Grass"]
             }
         ]
@@ -2931,7 +2939,8 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["earthquake", "icepunch", "painsplit", "shadowsneak", "trick", "willowisp"]
+                "movepool": ["earthquake", "icepunch", "painsplit", "shadowsneak", "trick", "willowisp"],
+                "preferredTypes": ["Ground"]
             },
             {
                 "role": "Bulky Attacker",
@@ -3102,7 +3111,7 @@
         "sets": [
             {
                 "role": "Staller",
-                "movepool": ["confuseray", "earthquake", "return", "substitute", "thunderwave"]
+                "movepool": ["earthquake", "return", "substitute", "thunderwave"]
             }
         ]
     },
