@@ -25,7 +25,7 @@ Guide for install
     altport: 80,
     registered: true
 ```
-You may need to copy this file to ./play.pokemonshowdown.com/config manually if there is not already config data present there.
+You may need to copy this file to `play.pokemonshowdown.com/config` manually if there is not already config data present there.
 
 6. if you're using Git, go to the dh2-client directory and type these two commands, one after the other:
 
