@@ -8,7 +8,7 @@ A fork of [pokemon-showdown](https://github.com/smogon/pokemon-showdown) that en
 Guide for install
 ========================================================================
 
-1. Fork https://github.com/scoopapa/dh2-client.git to your GitHub profile
+1. Fork https://github.com/scoopapa/dh2-client to your GitHub profile
 
 2. Fork https://github.com/scoopapa/DH2 to your GitHub profile as well
 
