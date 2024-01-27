@@ -2019,7 +2019,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: 737,
 		accuracy: 90,
 		basePower: 70,
-		category: "Special",
+		category: "Physical",
 		shortDesc: "-1 Atk/Def to target.",
 		name: "Baddy Bad",
 		pp: 15,
