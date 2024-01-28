@@ -178,7 +178,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return 0;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Instinct",
 		shortDesc: "This pokemon has a 10% chance to evade all attacks.",
 		rating: 3.5,
@@ -234,7 +234,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Perception",
 		shortDesc: "This pokemon evades allies attacks.",
 		rating: 0,
@@ -313,7 +313,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return 0;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Dodge",
 		rating: 3.5,
 		shortDesc: "This Pokemon has a 10% chance to evade contact moves and lower opponent's defense and speed by 1 stage if succesful",
@@ -357,7 +357,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return 0;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Parry",
 		shortDesc: "10% chance to block damage from contact moves and deal 1/16th of opponent's max HP in damage to the opponent.",
 		rating: 3.5,
@@ -408,7 +408,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Grass Cloak",
 		shortDesc: "This pokemon has 1.5x def on grassy terrain.",
 		rating: 0.5,

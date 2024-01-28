@@ -128,7 +128,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Divine Idol",
 		shortDesc: "Halves damage taken from Ghost- or Dark-type moves.",
 		rating: 4,

@@ -203,6 +203,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return {
 				id: move.id,
 				name: move.name,
+				flags: {},
 				// Does not need activation message with this
 				fullname: 'ability: ' + move.name,
 				onStart(this: Battle, pokemon: Pokemon) {
@@ -226,7 +227,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			const species = pokemon.species;
 			if (pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 				(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5) ||
-				species.name === 'Eternatus-Eternamax') {
+				species.name === 'Eternatus-Eternamax' || (['Ogerpon', 'Terapagos'].includes(species.baseSpecies) &&
+				(this.terastallized || pokemon.terastallized)) || this.terastallized === 'Stellar') {
 				return false;
 			}
 
@@ -254,7 +256,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.
 			}
 			this.moveSlots = [];
-			this.set.ivs = (this.battle.gen >= 5 ? this.set.ivs : pokemon.set.ivs);
 			this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
 			this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
 			this.timesAttacked = pokemon.timesAttacked;
@@ -279,7 +280,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.boosts[boostName] = pokemon.boosts[boostName];
 			}
 			if (this.battle.gen >= 6) {
-				const volatilesToCopy = ['focusenergy', 'gmaxchistrike', 'laserfocus'];
+				const volatilesToCopy = ['dragoncheer', 'focusenergy', 'gmaxchistrike', 'laserfocus'];
 				for (const volatile of volatilesToCopy) {
 					if (pokemon.volatiles[volatile]) {
 						this.addVolatile(volatile);
@@ -321,6 +322,11 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 			}
+
+			// Pokemon transformed into Ogerpon cannot Terastallize
+			// restoring their ability to tera after they untransform is handled ELSEWHERE
+			if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
+			if (this.species.baseSpecies === 'Terapagos' && this.canTerastallize) this.canTerastallize = false;
 
 			return true;
 		},

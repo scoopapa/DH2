@@ -644,14 +644,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lugia: {
 		tier: "Uber",
 	},
-	hooh: {
-		tier: "Uber",
-	},
 	celebi: {
 		tier: "Uber",
 	},
 
 	// JEP CHANGES FROM BASE
+	hooh: {
+		tier: "OU",
+	},
 	raichu: {
 		tier: "NFE",
 	},
@@ -891,7 +891,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	farfetchdgalar: {
 		tier: "LC",
 	},
-	luxswan: {
+	luxwan: {
 		tier: "OU",
 	},
 	sirfetchd: {
@@ -961,7 +961,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	rapidashgalar: {
-		tier: "LC",
+		tier: "OU",
 	},
 	balumba: {
 		tier: "OU",
@@ -1117,7 +1117,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ursaluna: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	ursalunabloodmoon: {
 		tier: "OU",
@@ -1317,7 +1317,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	luanbo: {
 		tier: "NFE",
 	},
-	grnabo: {
+	granbo: {
 		tier: "OU",
 	},
 	angore: {
@@ -1366,13 +1366,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	fluttermane: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	irontreads: {
 		tier: "OU",
 	},
 	ironbundle: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	ironthorns: {
 		tier: "OU",

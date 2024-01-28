@@ -1,12 +1,10 @@
 export const Aliases = {
 
 	// basically deerling & sawsbuck formes
-	"deerlingspring": "Deerling-Spring",
-	"deerlingsummer": "Deerling-Summer",
-	"deerlingautumn": "Deerling-Autumn",
-	"deerlingwinter": "Deerling-Winter",
-	"sawsbuckspring": "Sawsbuck-Spring",
-	"sawsbucksummer": "Sawsbuck-Summer",
-	"sawsbuckautumn": "Sawsbuck-Autmn",
-	"sawsbuckwinter": "Sawsbuck-Winter",
+	"deerlingsummer": null,
+	"deerlingautumn": null,
+	"deerlingwinter": null,
+	"sawsbucksummer": null,
+	"sawsbuckautumn": null,
+	"sawsbuckwinter": null,
 };

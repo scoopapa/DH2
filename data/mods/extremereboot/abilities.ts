@@ -731,7 +731,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const targetForme = (move.category === 'Status' ? 'Salamoon' : 'Salamoon-Allegro');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Magi-Morph",
 		rating: 4,
 	},

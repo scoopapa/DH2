@@ -189,7 +189,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const targetForme = (move.category === 'Special' ? 'Girafatak' : 'Girafatak-Nocturnal');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Double Spirit",
 		rating: 4,
 		num: -9,
@@ -488,11 +488,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
-				move.type = 'Rock';
+				move.type = 'Ground';
 			}
 		},
 		name: "Desert Song",
-		shortDesc: "Turns sounds moves into Rock type moves.",
+		shortDesc: "Turns sounds moves into Ground type moves.",
 		rating: 1.5,
 		num: -24,
 	},
@@ -508,7 +508,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	},
 	coldvengeance: {
 		desc: "When replacing a fainted party member, its next move has x1.5 BP.",
@@ -593,7 +593,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.item = 'zoroarkite' as ID;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Forgery",
 		rating: 3,
 		num: -29,
@@ -1580,7 +1580,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Ice Face",
 		rating: 3,
 		num: 248,
@@ -1904,7 +1904,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon, this.dex.species.get(speciesid)); // 6.25% instead of 12.5% HP lost
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Disguise",
 		rating: 3.5,
 		num: 209,
@@ -1972,7 +1972,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		shortDesc: "If Darmanitan, changes Mode to Zen.",
 		rating: 0,
@@ -2101,17 +2101,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	defeatist: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+			if (pokemon.side.totalFainted === 5) {
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+		onModifySpA(spa, pokemon) {
+			if (pokemon.side.totalFainted === 5) {
 				return this.chainModify(0.5);
 			}
 		},
 		name: "Defeatist",
+		desc: "If this Pokemon is the last Pokemon of the team, its Attack and Special Attack are halved.",
+		shortDesc: "If this Pokemon is the last Pokemon of the team, its Attack and Sp. Atk are halved.",
 		rating: -1,
 		num: 129,
 	},
@@ -2135,6 +2137,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.2);
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "RKS System",
 		rating: 4,
 		num: 225,
@@ -2158,7 +2161,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onBasePowerPriority: 7,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.25);
+			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
@@ -2167,7 +2170,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		name: "Parental Bond",
-		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered. Doesn't affect fixed damages moves.",
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage halved. Doesn't affect fixed damages moves.",
 		rating: 4.5,
 		num: 184,
 	},
@@ -2194,7 +2197,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.debug('schooling - enhancing accuracy');
 			return accuracy * 1.3;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Schooling",
 		rating: 3,
 		num: 208,
@@ -2387,7 +2390,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Wonder Skin",
 		shortDesc: "This Pokemon is immune to Status moves.",
 		rating: 5,

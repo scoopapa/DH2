@@ -1,7 +1,7 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	/* FEG9 abils */
 	unfiltered: {
-	  shortDesc: "Filter + Contrary + This Pokemon's NvE Moves deal 4/3x damage.",
+		shortDesc: "Filter + Contrary + This Pokemon's NvE Moves deal 4/3x damage.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Unfiltered neutralize');
@@ -21,11 +21,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([5461, 4096]);
 			}
 		},
-		isBreakable: true,
-	  name: "Unfiltered",
+		flags: {breakable: 1},
+		name: "Unfiltered",
     },
 	quickstart: {
-	  shortDesc: "On switch-in, this Pokemon's Attack and Speed are doubled for 5 turns.",
+		shortDesc: "On switch-in, this Pokemon's Attack and Speed are doubled for 5 turns.",
 		onStart(pokemon) {
 			pokemon.addVolatile('quickstart');
 		},
@@ -49,7 +49,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', target, 'Quickstart');
 			},
 		},
-	  name: "Quickstart",
+		flags: {},
+		name: "Quickstart",
     },
 	holygrail: {
 	  shortDesc: "Good As Gold + Levitate",
@@ -59,7 +60,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	  name: "Holy Grail",
     },
 	alldevouring: {
@@ -102,7 +103,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  name: "Galvanic Relay",
     },
 	forestfury: {
-	  shortDesc: "Intimidate + Hyper Cutter + This Pokemon can't be statused by opponents.",
+	  shortDesc: "Intimidate + Hyper Cutter + Cannot be statused by opponents.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
@@ -138,8 +139,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
-	  name: "Forest Fury",
+		flags: {breakable: 1},
+		name: "Forest Fury",
     },
 	growthspurt: {
 	  shortDesc: "Effects of Harvest; Berry is restored at 1/3 or less of its max HP.",
@@ -164,7 +165,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-item', target, target.getItem(), '[from] ability: Growth Spurt');
 			}
 		},
-	  name: "Growth Spurt",
+		flags: {},
+		name: "Growth Spurt",
     },
 	lightdrive: {
 	  shortDesc: "Light Metal + Quark Drive. Quark Drive activates if the user is lighter.",
@@ -216,7 +218,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Light Drive', '[fromitem]');
 				} else {
@@ -226,33 +228,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Light Drive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Light Drive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Light Drive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Light Drive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -264,10 +266,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Light Drive",
-		rating: 1,
-		num: 135,
 	},
 	scraprock: {
 	  shortDesc: "Scrappy + Solid Rock",
@@ -279,8 +279,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			move.ignoreImmunity ||= {};
-			if (move.ignoreImmunity !== true) {
+			//if ignoreImmunity does not exist replace with blank object
+			//If it's not unconditional then populate Fighting and Normal fields
+			if ((move.ignoreImmunity ||= {}) !== true) {
 				move.ignoreImmunity['Fighting'] = true;
 				move.ignoreImmunity['Normal'] = true;
 			}
@@ -294,7 +295,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Scrap Rock', '[of] ' + target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Scrap Rock",
 		rating: 3,
 	},
@@ -313,6 +314,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (this.activeMove.id !== 'struggle') return null;
 			}
 		},
+		flags: {},
 		name: "Reachless",
 		rating: 3,
 	},
@@ -357,7 +359,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Opening Act', '[fromitem]');
 				} else {
@@ -367,33 +369,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Opening Act atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Opening Act def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Opening Act spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Opening Act spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -405,7 +407,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Opening Act",
 		rating: 3,
 	},
@@ -451,7 +453,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Necromancer",
 		rating: 3,
 	},
@@ -481,6 +483,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
+		flags: {},
 		name: "Regain Patience",
 		rating: 3,
 	},
@@ -505,7 +508,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Quark Surge', '[fromitem]');
 				} else {
@@ -515,33 +518,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Surge atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Surge def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Surge spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Surge spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -553,11 +556,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		activate: "  The Electric Terrain activated [POKEMON]'s Quark Drive!",
-		activateFromItem: "  [POKEMON] used its Booster Energy to activate its Quark Drive!",
-		start: "  [POKEMON]'s [STAT] was heightened!",
-		end: "  The effects of [POKEMON]'s Quark Drive wore off!",
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Quark Surge",
 		rating: 3,
 	},
@@ -582,7 +581,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Once Upon a Time', '[fromitem]');
 				} else {
@@ -592,33 +591,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Once Upon a Time atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Once Upon a Time def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Once Upon a Time spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Once Upon a Time spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -633,7 +632,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			move.infiltrates = true;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Once Upon a Time",
 		rating: 3,
 	},
@@ -688,7 +687,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Primitive', '[fromitem]');
 				} else {
@@ -698,33 +697,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Primitive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Primitive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Primitive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Primitive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -736,7 +735,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Primitive",
 		rating: 3,
 	},
@@ -762,7 +761,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: System Purge', '[fromitem]');
 					this.add('-message', `${pokemon.name} used its booster energy to activate a System Purge!`);
@@ -774,33 +773,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('System Purge atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('System Purge def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('System Purge spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('System Purge spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -812,7 +811,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "System Purge",
 		rating: 3,
 	},
@@ -837,6 +836,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.switchFlag = true;				
 			},
 		},
+		flags: {},
 		name: "Delayed Reaction",
 		rating: 1,
 	},
@@ -873,6 +873,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			target.switchFlag = true;
 		},
+		flags: {},
 		name: "Mad Cow",
 		rating: 3.5,
 	},
@@ -888,6 +889,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn(pokemon) {
 			delete this.effectState.choreography;
 		},
+		flags: {},
 		name: "Choreography",
 		rating: 4,
 	},
@@ -914,7 +916,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, pokemon, pokemon);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Squall",
 		rating: 4,
 	},
@@ -948,7 +950,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Stone Age",
 		rating: 3,
 	},
@@ -975,6 +977,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {},
 		name: "Stone Wheel",
 		rating: 3,
 	},
@@ -992,6 +995,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			move.ignoreAbility = true;
 		},
+		flags: {},
 		name: "Molten Core",
 		rating: 3,
 	},
@@ -1019,7 +1023,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['accuracy'] = 0;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Eczema",
 		rating: 3,
 	},
@@ -1039,6 +1043,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			else if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
+		flags: {},
 		name: "Aura Shield",
 		rating: 3,
 	},
@@ -1092,7 +1097,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Faulty Photon', '[fromitem]');
 				} else {
@@ -1102,33 +1107,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Faulty Photon atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Faulty Photon def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Faulty Photon spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Faulty Photon spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1140,8 +1145,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
-		isBreakable: true,
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},	
 		name: "Faulty Photon",
 		rating: 3,
 	},
@@ -1150,10 +1157,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtkPriority: 4,
 		onAnyModifyAtk(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
-				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || attacker.isAlly(abilityHolder)) return;
+				if (attacker.isAlly(abilityHolder) || attacker.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
 						if (attacker?.volatiles[paradox]?.bestStat !== 'atk') return;
@@ -1165,8 +1173,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyDefPriority: 5,
 		onAnyModifyDef(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
-				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || defender.isAlly(abilityHolder)) return;
+				if (defender.isAlly(abilityHolder) || defender.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
@@ -1180,10 +1189,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpAPriority: 4,
 		onAnyModifySpA(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
-				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || attacker.isAlly(abilityHolder)) return;
+				if (attacker.isAlly(abilityHolder) || attacker.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
 						if (attacker?.volatiles[paradox]?.bestStat !== 'spa') return;
@@ -1195,8 +1205,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpDPriority: 5,
 		onAnyModifySpD(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
-				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || defender.isAlly(abilityHolder)) return;
+				if (defender.isAlly(abilityHolder) || defender.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
@@ -1220,8 +1231,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd() {
 			this.effectState.unnerved = false;
 		},
-		isBreakable: true,
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Dyschronometria",
 		rating: 3,
 	},
@@ -1230,6 +1240,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Quark Drive + x1.5 power to Fire-type moves when active",
 		onStart(pokemon) {
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.volatiles['firewall']) {
+				this.debug('Firewall Fire boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.volatiles['firewall']) {
+				this.debug('Firewall Fire boost');
+				return this.chainModify(1.5);
+			}
 		},
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
@@ -1246,7 +1270,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Firewall', '[fromitem]');
 				} else {
@@ -1256,49 +1280,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon.hasAbility('dyschronometria') && !pokemon.isAlly(source)) {
-						this.debug('Dyschronometria negating damage boost');
-						return;
-					}
-				}
-				const isItFire = (move.type === 'Fire');
-				if (this.effectState.bestStat === 'atk') {
-					this.debug('Firewall atk boost');
-					return this.chainModify([isItFire ? 7987 : 5325, 4096]);
-				} else if (isItFire) return this.chainModify(1.5);
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Firewall atk boost');
+				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Firewall def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon.hasAbility('dyschronometria') && !pokemon.isAlly(source)) {
-						this.debug('Dyschronometria negating damage boost');
-						return;
-					}
-				}
-				const isItFire = (move.type === 'Fire');
-				if (this.effectState.bestStat === 'spa') {
-					this.debug('Firewall spa boost');
-					return this.chainModify([isItFire ? 7987 : 5325, 4096]);
-				} else if (isItFire) return this.chainModify(1.5);
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Firewall spa boost');
+				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Firewall spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1310,7 +1318,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Firewall",
 		rating: 3,
 	},
@@ -1337,7 +1345,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Nanorepairs', '[fromitem]');
 				} else {
@@ -1347,33 +1355,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Nanorepairs atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Nanorepairs def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Nanorepairs spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Nanorepairs spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1385,12 +1393,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Nanorepairs",
 		rating: 3,
 	},
 	ironsights: {
-	  shortDesc: "This Pokemon's Attack, Special Attack, and accuracy are x1.33.",
+		shortDesc: "x1.33 Atk/SpA/Acc.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
 			return this.chainModify([5461, 4096]);
@@ -1405,7 +1413,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('ironsights - enhancing accuracy');
 			return this.chainModify([5461, 4096]);
 		},
-		isPermanent: true,
+		flags: {},
 		name: "Iron Sights",
 		rating: 3,
 	},
@@ -1486,6 +1494,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// (once you know a Pokemon has Natural Cure, its cures are always known)
 			pokemon.showCure ||= undefined;
 		},
+		flags: {},
 		name: "Rejuvenate",
 		rating: 3,
 	},
@@ -1513,7 +1522,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Electromagnetic Veil",
 		rating: 3,
 	},
@@ -1527,7 +1536,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			//}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Rising Tension",
 		rating: 3,
 	},
@@ -1550,6 +1559,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Grindset Atk drop');
 			return this.chainModify(0.5);
 		},
+		flags: {},
 		name: "Grindset",
 		rating: 3,
 	},
@@ -1574,6 +1584,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					source.trySetStatus('par', target);
 			}
 		},
+		flags: {},
 		name: "Shock Factor",
 		rating: 3,
 	},
@@ -1587,13 +1598,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMove(move) {
 			if (!move || !(move.recoil || move.hasCrashDamage) || move.target === 'self') return;
-			move.secondaries ||= [];
-			move.secondaries.push({
+			(move.secondaries ||= []).push({
 				chance: 30,
 				status: 'par',
 				ability: this.dex.abilities.get('shellshock'),
 			});
 		},
+		flags: {},
 		name: "Shell Shock",
 		rating: 3,
 	},
@@ -1624,7 +1635,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Circuit Breaker', '[fromitem]');
 					this.add('-message', `${pokemon.name} used its Booster Energy to break the circuit harder!`);
@@ -1636,33 +1647,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Circuit Breaker atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Circuit Breaker def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Circuit Breaker spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Circuit Breaker spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1674,7 +1685,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Circuit Breaker",
 		rating: 3,
 	},
@@ -1731,7 +1742,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Weight of Life', '[fromitem]');
 				} else {
@@ -1741,33 +1752,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Weight of Life atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Weight of Life def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Weight of Life spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Weight of Life spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1779,7 +1790,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Weight of Life",
 		rating: 1,
 		num: 135,
@@ -1795,13 +1806,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMove(move) {
 			if (!move || !move.flags['slicing'] || move.target === 'self') return;
-			move.secondaries ||= [];
-			move.secondaries.push({
+			(move.secondaries ||= []).push({
 				chance: 30,
 				status: 'psn',
 				ability: this.dex.abilities.get('rebelsblade'),
 			});
 		},
+		flags: {},
 		name: "Rebel's Blade",
 		rating: 3,
 	},
@@ -1891,6 +1902,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.side === source.side) return;
 			return 1;
 		},
+		flags: {},
 		name: "Natural Pressures",
 		rating: 3,
 	},
@@ -1929,6 +1941,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		flags: {},
 		name: "Vital Metal Body",
 		rating: 3,
 	},
@@ -1938,6 +1951,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  onDamagingHit(damage, target, source, move) {
 			target.addVolatile('laserfocus');
 		},
+		flags: {},
 		name: "Fortunomorphosis",
 		rating: 3,
 	},
@@ -1968,7 +1982,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
-			if (target.hasType('Fire') && source && target !== source && effect && effect.id !== 'yawn') {
+			if (source && target !== source && effect && effect.id !== 'yawn' && target.hasType('Fire')) {
 				this.debug('interrupting setStatus with Burning Petals');
 				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
@@ -2011,7 +2025,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', target, 'ability: Burning Petals', '[silent]');
 			},
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Burning Petals",
 		rating: 3,
 	},
@@ -2023,6 +2037,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			if (move.flags['contact']) delete move.flags['protect'];
 		},
+		flags: {},
 		name: "Snowblind",
 		rating: 3,
 	},
@@ -2063,11 +2078,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		flags: {breakable: 1},
 		name: "Unvital",
 		rating: 3,
 	},
 	ownluck: {
-	  shortDesc: "This Pokemon has a +1 crit ratio and is immune to Intimidate.",
+	  shortDesc: "This Pokemon has a +1 crit ratio and is immune to Intimidate and derivatives thereof.",
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
 		},
@@ -2080,6 +2096,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Own Luck', '[of] ' + target);
 			}
 		},
+		flags: {},
 		name: "Own Luck",
 		rating: 3,
 	},
@@ -2094,6 +2111,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onCriticalHit: false,
+		flags: {breakable: 1},
 		name: "Armour Lock",
 		rating: 3,
 	},
@@ -2111,7 +2129,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Glacial Focus",
 		rating: 3,
 	},
@@ -2129,6 +2147,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(2);
 			}
 		},
+		flags: {},
 		name: "Slushie",
 		rating: 3,
 	},
@@ -2151,6 +2170,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
 		},
+		flags: {},
 		name: "Sand Wrath",
 		rating: 3,
 	},
@@ -2171,7 +2191,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Pondweed",
 		rating: 3,
 	},
@@ -2200,6 +2220,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
+		flags: {},
 		name: "Wet Skin",
 		rating: 3,
 	},
@@ -2229,7 +2250,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Frisk Exchange",
 		rating: 3,
 	},
@@ -2247,7 +2268,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn() {
 			delete this.effectState.libero;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Free Flight",
 		rating: 3,
 	},
@@ -2266,12 +2287,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp || !this.effectState.switchingIn) return;
-			const additionalBannedAbilities = [
-				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage'
-			];
-			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
-				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
+			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().flags['notrace']
+				&& !foeActive.getAbility().flags['failskillswap'] && foeActive.isAdjacent(pokemon));
 			if (!possibleTargets.length) return;
 			const rand = (possibleTargets.length > 1) ? this.random(possibleTargets.length) : 0;
 			const target = possibleTargets[rand];
@@ -2291,6 +2308,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('Start', pillageAbil, target.abilityState, target);
 			
 		},
+		flags: {failroleplay: 1, noentrain: 1, notrace: 1},
 		rating: 5,
 	},
 	fatfingers: {
@@ -2312,7 +2330,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Fat Fingers",
 		rating: 3,
 	},
@@ -2342,7 +2360,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Hourglass",
 		rating: 3,
 	},
@@ -2353,6 +2371,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(2);
 			}
 		},
+		flags: {},
 		name: "Field Day",
 		rating: 3,
 	},
@@ -2375,16 +2394,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
 		},
+		flags: {},
 		name: "Force of Nature",
 	},
 	airbornearmor: {
-	  shortDesc: "Prism Armor + Levitate",
+		shortDesc: "Prism Armor + Levitate",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Airborne Armor neutralize');
 				return this.chainModify(0.75);
 			}
 		},
+		flags: {},
 		name: "Airborne Armor",
 		rating: 3,
 	},
@@ -2406,6 +2427,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {},
 		name: "Bleeding Edge",
 		rating: 3,
 	},
@@ -2437,7 +2459,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Ancient Marble', '[fromitem]');
 				} else {
@@ -2447,33 +2469,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Ancient Marble atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Ancient Marble def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Ancient Marble spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Ancient Marble spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -2485,7 +2507,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Ancient Marble",
 		rating: 3,
 	},
@@ -2512,7 +2534,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Sponge of Ruin",
 		rating: 3,
 	},
@@ -2538,11 +2560,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
 		},
+		flags: {},
 		name: "Overwhelming",
 		rating: 3,
 	},
 	prehistorichunter: {
-	  shortDesc: "Protosynthesis + Gulp Missile. Gulp Missile is also activated by Sun and Booster Energy.",
+	  shortDesc: "Protosynthesis + Gulp Missile; Activating one also activates the other",
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
@@ -2589,7 +2612,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');
 					this.add('-message', `${pokemon.name} used its Booster Energy to locate nearby prey!`);
@@ -2601,33 +2624,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Prehistoric Hunter atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Prehistoric Hunter def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Prehistoric Hunter spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Prehistoric Hunter spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -2639,7 +2662,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Prehistoric Hunter",
 		rating: 3,
 	},
@@ -2651,7 +2674,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name}'s Lawnmower of Ruin weakened the Sp. Atk of all surrounding Pokémon!`);
 		},
 		onAnyModifySpA(spa, source, target, move) {
-			if (source.hasAbility(['Vessel of Ruin', 'Lawnmower of Ruin'])) return;
+			if (source.hasAbility(['Lawnmower of Ruin', 'Vessel of Ruin'])) return;
 			const abilityHolder = this.effectState.target;
 			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
 			else if (move.ruinedSpA !== abilityHolder) return;
@@ -2671,7 +2694,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Grass') return;
 			this.boost({atk: 1}, this.effectState.target);
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Lawnmower of Ruin",
 	},
 	barbedchain: {
@@ -2696,7 +2719,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Steamy Scales",
 	},
 	marvelsteam: {
@@ -2706,6 +2729,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({def: 6, spe: 6});
 			}
 		},
+		flags: {},
 		name: "Marvel Steam",
 	},
 	hellkite: {
@@ -2725,7 +2749,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Hellkite",
 	},
 	feistytempo: {
@@ -2760,7 +2784,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Feisty Tempo', '[of] ' + target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Feisty Tempo",
 	},
 	wellbakedflameorb: {
@@ -2780,13 +2804,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Well-Baked Flame Orb",
 	},
 	honeymoon: {
 		shortDesc: "Levitate + Honey Gather",
 		// airborneness implemented in scripts.ts
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Honey Moon",
 	},
 	aircontrol: {
@@ -2794,12 +2818,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMovePriority: -5,
 		onModifyMove(move, attacker, defender) {
 			if (!defender.hasType('Flying')) return; //Type-based immunities were specified, not ability-based. 
-			move.ignoreImmunity ||= {};
-			if (move.ignoreImmunity !== true) {
+			if ((move.ignoreImmunity ||= {}) !== true) {
 				move.ignoreImmunity['Ground'] = true;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Air Control",
 	},
 	livelylocks: {
@@ -2809,7 +2832,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			
 			//let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
-				if (!target.boosts['spe']) continue;
+				if (!target.boosts.spe) continue;
 			//	if (!activated) {
 			//		this.add('-ability', pokemon, 'Lively Locks', 'boost');
 			//		activated = true;
@@ -2817,11 +2840,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			//	if (target.volatiles['substitute']) {
 			//		this.add('-immune', target);
 			//	} else {
-					this.boost({spe: target.boosts['spe']}, pokemon);
+					this.boost({spe: target.boosts.spe}, pokemon);
 					return;
 			//	}
 			}
 		},
+		flags: {},
 		name: "Lively Locks",
 	},
 	angrybird: {
@@ -2841,6 +2865,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Angry Bird",
 	},
 	sharpgoggles: {
@@ -2866,6 +2891,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Sharp Goggles",
 	},
 	winterstorm: {
@@ -2881,6 +2907,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
+		flags: {},
 		name: "Winter Storm",
 	},
 	fishythreat: {
@@ -2899,6 +2926,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Fishy Threat",
 		rating: 3.5,
 	},
@@ -2907,14 +2935,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Atk weaken');
+				this.debug('Heatproof Drive Atk weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof SpA weaken');
+				this.debug('Heatproof Drive SpA weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -2942,7 +2970,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Heatproof Drive', '[fromitem]');
 				} else {
@@ -2952,33 +2980,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -2990,8 +3018,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
-		isBreakable: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Heatproof Drive",
 		rating: 4,
 	},
@@ -3017,7 +3044,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([(move.priority > 0.1 && move.flags['punch']) ? 5898 : 4915, 4096]);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Armor Fist",
 	},
 	mercurypulse: {
@@ -3036,6 +3063,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([5461, 4096]);
 			}
 		},
+		flags: {},
 		name: "Mercury Pulse",
 		rating: 4.5,
 	},
@@ -3070,7 +3098,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Fire Drinker",
 	},
 	minddomain: {
@@ -3094,6 +3122,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Mind Domain",
 		rating: 4,
 	},
@@ -3109,7 +3138,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMovePriority: 1,
 		onModifyMove(move, attacker, defender) {
 			if (attacker.species.baseSpecies !== 'Deoxyslash-Speed' || attacker.transformed) return;
-			var targetForme;
+			let targetForme;
 			if (move.id === 'kingsshield') {
 				targetForme = 'Deoxyslash-Speed';
 			} else if (move.category !== 'Status') {
@@ -3117,9 +3146,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else {
 				return;
 			}
+		
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Forced Fencer",
 		rating: 4,
 	},
@@ -3189,46 +3219,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onSwitchOut(pokemon) {
-			if (!pokemon.status) return;
-
-			// if pokemon.showCure is undefined, it was skipped because its ability
-			// is known
-			if (pokemon.showCure === undefined) pokemon.showCure = true;
-
-			if (pokemon.showCure) this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Natural Cure');
-			pokemon.setStatus('');
-
-			// only reset .showCure if it's false
-			// (once you know a Pokemon has Natural Cure, its cures are always known)
-			pokemon.showCure ||= undefined;
-		},
-		name: "Natural Cure",
-		rating: 2.5,
-		num: 30,
+		inherit: true,
 	},
 	//Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {
-		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
-		},
-		onWeatherChange(pokemon) {
-			if (pokemon.transformed) return;
-			// Protosynthesis is not affected by Utility Umbrella
-			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('protosynthesis');
-			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
-				pokemon.removeVolatile('protosynthesis');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['protosynthesis'];
-			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
-		},
+		inherit: true,
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Protosynthesis', '[fromitem]');
 				} else {
@@ -3238,33 +3237,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Protosynthesis atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Protosynthesis def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Protosynthesis spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Protosynthesis spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -3276,31 +3275,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Protosynthesis",
 		rating: 3,
 		num: 281,
 	},
 	quarkdrive: {
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
-		onTerrainChange(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarkdrive');
-			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
-				pokemon.removeVolatile('quarkdrive');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['quarkdrive'];
-			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
+		inherit: true,
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
+				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Quark Drive', '[fromitem]');
 				} else {
@@ -3310,33 +3295,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
 				this.debug('Quark Drive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -3348,9 +3333,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
-		name: "Quark Drive",
-		rating: 3,
-		num: 282,
 	},
 };

@@ -9,9 +9,19 @@ Credits
 ====
 As the open source nature of this project implies, people are free to reuse what's here for their own ends, **so long as credit is given, to this hack and those who worked on what you reuse.** Additionally, we strongly urge you to make any projects using JEP's content open source. JEP strongly supports the [free software movement](https://www.fsf.org/about/) and its four essential freedoms. If you have any questions on the topic of content reuse, contact @ plague_von_karma on Discord.
 
-* [Plague von Karma / Llinos Evans](https://www.youtube.com/channel/UClX86_ilOzCCUBryPCFGiqA) - Director & Programmer* * [Rezzo] - Programmer
+* [Plague von Karma / Llinos Evans](https://www.youtube.com/channel/UClX86_ilOzCCUBryPCFGiqA) - Director & Programmer* 
+* [Rezzo] - Programmer
 * Zeta_Null - Spriter
 * [Farore.gba] (https://twitter.com/KmiE_821/status/1715434081234698367) - Original Calflac design interpretation
+* [nuukiie] (https://www.deviantart.com/nuukiie , https://twitter.com/nuukiie) - Sprites
+
+Zeta_Null's sprites: Typhlosion-H, Gouging Fire, Porygon-Z, Barreau, Omegadge, Totartle, Exeggutor-Alola
+
+Nuukiee's sprites: Marowak-A, Azurill, Clodsire, Cursola, Farigiraf, Glaceon, Gliscor, Corsola-G, Grimer-A, Honchkrow, Leafeon, Muk-A, Mamoswine, Wooper-P, Sylveon, Togekiss, Weavile, Wyrdeer
+
+SuperZACH's sprites: Mismagius, Dudunsparce (Three Segment)
+
+Sprites by JosJet: Kazeppelin, Tricules, Lickilord (icon)
 
 Legacy Credits
 ====
