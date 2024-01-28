@@ -67,6 +67,17 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		damage: "  [POKEMON] is hurt by the freezing cold!",
 	},
+	trapped: {
+		inherit: true,
+		duration: 4,
+		onStart(target) {
+			if(!this.turn) this.effectState.duration--;
+			this.add('-activate', target, 'trapped');
+		},
+		onEnd(target) {
+			this.add('-end', target, 'trapped');
+		},
+	},
 	partiallytrapped: {
 		inherit: true,
 		onStart(pokemon, source) {
@@ -157,6 +168,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	blocked: {
 		name: 'blocked',
 		noCopy: true,
+		duration: 4,
 		onStart(target, source, move) {
 			this.add('-activate', target, 'trapped');
 		},
@@ -191,12 +203,24 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	meanlooked: {
 		name: 'meanlooked',
 		noCopy: true,
+		duration: 4,
 		onStart(target, source, move) {
 			this.add('-activate', target, 'trapped');
 		},
 		onTrapPokemonPriority: 100,
 		onTrapPokemon(pokemon) {
-			pokemon.trapped = pokemon.maybeTrapped = true;
+			pokemon.trapped = true;
+		},
+	},
+	arenatrapped: {
+		name: 'arenatrapped',
+		duration: 2,
+		onFieldStart(target) {
+			if(!this.turn) this.effectState.duration--;
+			this.add('-fieldactivate', 'move: Fairy Lock');
+		},
+		onTrapPokemon(pokemon) {
+			if(pokemon.isGrounded() && !pokemon.hasAbility('arenatrap')) pokemon.tryTrap();
 		},
 	},
 	singletrap: {

@@ -41,8 +41,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
-		isBreakable: true,
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Beyond A Doubt",
 		shortDesc: "(Falsiken only) The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
 		rating: 3.5,

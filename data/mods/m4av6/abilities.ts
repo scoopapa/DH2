@@ -709,7 +709,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectState.busted = true;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Blackmail",
 		rating: 3,
 		num: -23,
@@ -1554,7 +1554,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.item = 'zoroarkite' as ID;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Forgery",
 		rating: 3,
 		num: -50,
@@ -1713,7 +1713,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.maxhp = newMaxHP;
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "SOS",
 		rating: 5,
 		num: -54,
@@ -2408,7 +2408,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Pacifying Pelt",
 		rating: 4,
 		num: -72,
@@ -2635,7 +2635,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Petrification",
 		rating: 3,
 		num: -1005,

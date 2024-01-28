@@ -1035,7 +1035,7 @@ export class TeamValidator {
 
 		const allowAVs = ruleTable.has('allowavs');
 		const evLimit = ruleTable.evLimit;
-		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc')) || dex.mod('moderngen1');
+		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc')) || dex.currentMod === 'moderngen1';
 
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, evLimit === null ? 252 : 0);
 		if (!set.ivs) set.ivs = TeamValidator.fillStats(null, 31);
@@ -1073,7 +1073,7 @@ export class TeamValidator {
 
 		const cantBreedNorEvolve = (species.eggGroups[0] === 'Undiscovered' && !species.prevo && !species.nfe);
 		const isLegendary = (cantBreedNorEvolve && !species.tags.includes('Paradox') && ![
-			'Pikachu', 'Unown', 'Dracozolt', 'Arctozolt', 'Dracovish', 'Arctovish',
+			'Pikachu', 'Unown', 'Dracozolt', 'Arctozolt', 'Dracovish', 'Arctovish', 'Gouging Fire', 'Raging Bolt', 'Iron Boulder', 'Iron Crown', 'Terapagos',
 		].includes(species.baseSpecies)) || [
 			'Manaphy', 'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala',
 		].includes(species.baseSpecies);
@@ -1623,6 +1623,19 @@ export class TeamValidator {
 		if (species.baseSpecies === "Greninja" && toID(set.ability) === 'battlebond') {
 			set.species = "Greninja-Bond";
 		}
+
+		if (species.baseSpecies === "Unown" && dex.gen === 2) {
+			let resultBinary = '';
+			for (const iv of ['atk', 'def', 'spe', 'spa'] as const) {
+				resultBinary += set.ivs[iv].toString(2).padStart(5, '0').slice(1, 3);
+			}
+			const resultDecimal = Math.floor(parseInt(resultBinary, 2) / 10);
+			const expectedLetter = String.fromCharCode(resultDecimal + 65);
+			const unownLetter = species.forme || "A";
+			if (unownLetter !== expectedLetter) {
+				problems.push(`Unown has forme ${unownLetter}, but its DVs give it the forme ${expectedLetter}.`);
+			}
+		}
 		return problems;
 	}
 
@@ -2030,7 +2043,7 @@ export class TeamValidator {
 		let requiredIVs = 0;
 		if (eventData.ivs) {
 			/** In Gen 7+, IVs can be changed to 31 */
-			const canBottleCap = dex.gen >= 7 && set.level >= (dex.gen < 9 ? 100 : 50) || dex.mod('moderngen1');
+			const canBottleCap = dex.gen >= 7 && set.level >= (dex.gen < 9 ? 100 : 50) || dex.currentMod === 'moderngen1';
 
 			if (!set.ivs) set.ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 			let statName: StatID;
@@ -2587,6 +2600,9 @@ export class TeamValidator {
 						moveSources.pomegEventEgg = learned + ' ' + species.id;
 					}
 				} else if (learned.charAt(1) === 'D') {
+					if(learned === '9D'){
+						return;
+					}
 					// DW moves:
 					//   only if that was the source
 					moveSources.add(learned + species.id);

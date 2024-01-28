@@ -1424,7 +1424,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				attacker.canMegaEvo = (targetForme === 'Sableior-Meteor' ? 'sableiormeteormega' : 'sableiormega');
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Mode Shift",
 		shortDesc: "Status moves +1 priority. Changes to Meteor Form before using a status move.",
 	},
@@ -1745,7 +1745,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			if (move.self?.chance) move.self.chance *= 2;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Battle Theme",
 		shortDesc: "If Meloslash: change forme to Range before using move with secondary, change form to Melee otherwise. Secondary effect chances are doubled.",
 	},
@@ -3018,7 +3018,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Deus Ex Machina",
 		shortDesc: "Schooling effects. When this Pokemon enters Solo form, it gains +12 Attack.",
 	},
@@ -3068,6 +3068,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Neutralizing Gas",
 		shortDesc: "While this Pokemon is active, Abilities have no effect. Weezlord: +1 to highest stat upon KO",
 		rating: 5,
@@ -3516,7 +3517,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Reboot System",
 		shortDesc: "RKS System + Regenerator",
 	},
@@ -3789,7 +3790,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Gulp Rock",
 		shortDesc: "Gulp Missile + Surf & Dive deal 1.3x and this Pokemon takes 50% damage from Surf and Dive.",
 	},
@@ -3852,7 +3853,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,
@@ -4632,7 +4633,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-immune', target, '[from] ability: Bombshell');
 			return null;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		isUnbreakable: true,
 		name: "Bombshell",
 		shortDesc: "Analytic effects. Transforms into Core form when moving last or if the opponent switches. Transforms into Meteor at the end of each turn.",
@@ -4838,7 +4839,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			move.ignoreAbility = true;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		isUnbreakable: true,
 		name: "Hold Breaker",
 		shortDesc: "This Pokemon's moves and their effects ignore the abilities of other Pokemon and can't be removed due to another Pokemon's ability.",
@@ -4884,7 +4885,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		isUnbreakable: true,
 		name: "Shadowy Dreams",
 		shortDesc: "Comatose + Frisk",
@@ -4927,7 +4928,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				source.formeChange('Eiscudile-Noice', this.effect, true);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Icebreaker",
 		shortDesc: "When this Pokemon KOes a Pokemon with an attack, it transforms into Noice form.",
 	},
@@ -5432,7 +5433,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return target.hp - 1;
 			}
 		},
-	  isPermanent: true,
+	  flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	  name: "Metamorphic",
 	},
 	galingsands: {

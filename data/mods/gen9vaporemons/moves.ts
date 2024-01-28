@@ -195,7 +195,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
-					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
+					 pokemon.hasItem('mantisclaw')) return;
 				let healAmounts = [0, 3]; // 1/8
 				this.heal(healAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -455,7 +455,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	pluck: {
 		num: 365,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 70,
 		category: "Physical",
 		shortDesc: "Heals the user by 75% of the damage dealt.",
 		viable: true,
@@ -578,6 +578,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			const yourSide = pokemon.side;
+			const targetSide = target.side;
 			let allLayers = 0;
 			if (yourSide.getSideCondition('stealthrock')) allLayers++;
 			if (yourSide.getSideCondition('healingstones')) allLayers++;
@@ -588,19 +589,52 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (yourSide.sideConditions['toxicspikes']) {
 				allLayers += yourSide.sideConditions['toxicspikes'].layers;
 			}
+			if (targetSide.getSideCondition('stealthrock')) allLayers++;
+			if (targetSide.getSideCondition('healingstones')) allLayers++;
+			if (targetSide.getSideCondition('stickyweb')) allLayers++;
+			if (targetSide.sideConditions['spikes']) {
+				allLayers += targetSide.sideConditions['spikes'].layers;
+			}
+			if (targetSide.sideConditions['toxicspikes']) {
+				allLayers += targetSide.sideConditions['toxicspikes'].layers;
+			}
 			this.debug('Hazardous Waste damage boost');
-			return Math.min(300, 50 + 50 * allLayers);
+			return Math.min(400, 50 + 50 * allLayers);
 		},
 		category: "Physical",
-		shortDesc: "+50 power for each hazard layer on user's side. Caps at 300.",
+		shortDesc: "+50 power for each hazard layer on the field. Caps at 400.",
 		name: "Hazardous Waste",
-		viable: true,
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Acid Downpour", target);
+		},
+		onHit(target, source, move) {
+			const yourSide = source.side;
+			const targetSide = target.side;
+			let allLayers = 0;
+			if (yourSide.getSideCondition('stealthrock')) allLayers++;
+			if (yourSide.getSideCondition('healingstones')) allLayers++;
+			if (yourSide.getSideCondition('stickyweb')) allLayers++;
+			if (yourSide.sideConditions['spikes']) {
+				allLayers += yourSide.sideConditions['spikes'].layers;
+			}
+			if (yourSide.sideConditions['toxicspikes']) {
+				allLayers += yourSide.sideConditions['toxicspikes'].layers;
+			}
+			if (targetSide.getSideCondition('stealthrock')) allLayers++;
+			if (targetSide.getSideCondition('healingstones')) allLayers++;
+			if (targetSide.getSideCondition('stickyweb')) allLayers++;
+			if (targetSide.sideConditions['spikes']) {
+				allLayers += targetSide.sideConditions['spikes'].layers;
+			}
+			if (targetSide.sideConditions['toxicspikes']) {
+				allLayers += targetSide.sideConditions['toxicspikes'].layers;
+			}
+			const bp = Math.min(400, 50 + 50 * allLayers);
+			this.add('-message', `Hazardous Waste currently has a BP of ${bp}!`);
 		},
 		secondary: null,
 		target: "normal",
@@ -961,7 +995,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-	   shortDesc: "Heals by 1/3 max HP, then 1/8 every turn. Burns foe if they switch out.",
+	   shortDesc: "Heals 33%, heals 12.5% every turn. Burns foe if hit by contact.",
 		name: "Rekindle",
 		pp: 10,
 		priority: 0,
@@ -974,47 +1008,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			onHit(pokemon, source, move) {
 				pokemon.addVolatile('rekindleheal');
+				pokemon.addVolatile('rekindle');
+				this.add('-message', `${pokemon.name}'s flames burn brightly!`);
 			},
-		},
-		beforeTurnCallback(pokemon) {
-			for (const side of this.sides) {
-				if (side.hasAlly(pokemon)) continue;
-				side.addSideCondition('rekindle', pokemon);
-				const data = side.getSideConditionData('rekindle');
-				if (!data.sources) {
-					data.sources = [];
-				}
-				data.sources.push(pokemon);
-			}
-		},
-		onTryHit(target, pokemon) {
-			target.side.removeSideCondition('rekindle');
 		},
 		condition: {
 			duration: 1,
-			onBeforeSwitchOut(pokemon) {
-				this.debug('Rekindle start');
-				let alreadyAdded = false;
-				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectState.sources) {
-					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
-					if (!alreadyAdded) {
-						this.add('-activate', pokemon, 'move: Rekindle');
-						alreadyAdded = true;
-					}
-					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
-					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
-								this.queue.list.splice(actionIndex, 1);
-								break;
-							}
-						}
-					}
-					pokemon.trySetStatus('brn', source);
-					this.actions.runMove('rekindle', source, source.getLocOf(pokemon));
+			onDamagingHit(damage, target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('brn', target);
+					this.add('-message', `${target.name}'s flames burnt its attacker!`);
+					target.removeVolatile('rekindleheal');
+					this.add('-message', `${target.name}'s flames were put out!`);
 				}
 			},
 		},
@@ -1150,15 +1155,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	brickbreak: {
 		inherit: true,
-		basePower: 85,
+		basePower: 90,
 	},
 	psychicfangs: {
 		inherit: true,
+		basePower: 90,
 		flags: {bite: 1, protect: 1, mirror: 1},
 	},
 	sledgehammerblow: {
 		accuracy: 100,
-		basePower: 85,
+		basePower: 90,
 		category: "Physical",
 	   shortDesc: "Destroys screens, unless the target is immune.",
 		name: "Sledgehammer Blow",
@@ -1702,7 +1708,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
-					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
+					 pokemon.hasItem('mantisclaw')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				if (pokemon.hasAbility('smelt')) {
 					const fireHazard = this.dex.getActiveMove('Stealth Rock');
@@ -1744,7 +1750,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
-					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
+					 pokemon.hasItem('mantisclaw')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -1781,7 +1787,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('mantisclaw')) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1811,7 +1817,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('mantisclaw')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},

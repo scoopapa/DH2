@@ -3,6 +3,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ["MSQ"],
 	},
+	init() {
+		this.modData("Learnsets", "emboar").learnset.drainingtusk = ["9L1"];
+		this.modData("Learnsets", "drifblim").learnset.securelanding = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.splashbite = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.diamondglow = ["9L1"];
+		this.modData("Learnsets", "guzzlord").learnset.ultragulp = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.cottonswab = ["9L1"];
+		delete this.modData('Learnsets', 'excadrill').learnset.swordsdance;
+		delete this.modData('Learnsets', 'excadrill').learnset.honeclaws;
+		delete this.modData('Learnsets', 'drilbur').learnset.swordsdance;
+		delete this.modData('Learnsets', 'drilbur').learnset.honeclaws;
+	},
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
@@ -54,6 +66,62 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Corviknight') {
 				const tera = pokemon.species.id === 'corviknight' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Drapion') {
+				const tera = pokemon.species.id === 'drapion' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Flygon') {
+				const tera = pokemon.species.id === 'flygon' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Drifblim') {
+				const tera = pokemon.species.id === 'drifblim' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Kleavor') {
+				const tera = pokemon.species.id === 'kleavor' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Feraligatr') {
+				const tera = pokemon.species.id === 'feraligatr' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Porygon2') {
+				const tera = pokemon.species.id === 'porygon2' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Kingdra') {
+				const tera = pokemon.species.id === 'kingdra' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Galvantula') {
+				const tera = pokemon.species.id === 'galvantula' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Druddigon') {
+				const tera = pokemon.species.id === 'druddigon' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Aurorus') {
+				const tera = pokemon.species.id === 'aurorus' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Excadrill') {
+				const tera = pokemon.species.id === 'excadrill' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Whimsicott') {
+				const tera = pokemon.species.id === 'whimsicott' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Guzzlord') {
+				const tera = pokemon.species.id === 'guzzlord' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Absol') {
+				const tera = pokemon.species.id === 'absol' ? 'basetera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);

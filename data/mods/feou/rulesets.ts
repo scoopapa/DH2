@@ -42,6 +42,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			for (const pokemon of this.getAllPokemon()) {
 				const species = this.dex.species.get(pokemon.species.name);
 				const baseSpecies = Dex.species.get(pokemon.species.name);
+				//let modded = [0,1].some(type => species.types[type] !== baseSpecies.types[type]);
 				let modded = false;
 				for (const type in [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {

@@ -54,6 +54,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	burnup: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	celebrate: {
 		inherit: true,
 		flags: {nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
@@ -104,6 +108,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	corrosivegas: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	craftyshield: {
 		inherit: true,
 		isNonstandard: null,
@@ -117,6 +125,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "randomNormal",
 	},
+	cut: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	darkvoid: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -125,6 +137,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	doubleironbash: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	dragonhammer: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1},
 	},
 	dualchop: {
 		inherit: true,
@@ -162,7 +178,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// The animation leak target itself isn't "accurate"; the target it reveals is as if Fly weren't a charge movee
 			// (Fly, like all other charge moves, will actually target slots on its charging turn, relevant for things like Follow Me)
 			// We use a generic single-target move to represent this
-			if (this.gameType === 'doubles' || this.gameType === 'multi') {
+			if (this.sides.length > 2) {
 				const animatedTarget = attacker.getMoveTargets(this.dex.getActiveMove('aerialace'), defender).targets[0];
 				if (animatedTarget) {
 					this.hint(`${move.name}'s animation targeted ${animatedTarget.name}`);
@@ -174,7 +190,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	futuresight: {
 		inherit: true,
-		flags: {futuremove: 1},
+		flags: {metronome: 1, futuremove: 1},
 	},
 	geargrind: {
 		inherit: true,
@@ -212,8 +228,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	holdback: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	holdhands: {
 		inherit: true,
+		isNonstandard: null,
 		flags: {bypasssub: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 	},
 	hyperspacefury: {
@@ -537,6 +558,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: "Past",
 	},
 	trickortreat: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	vcreate: {
 		inherit: true,
 		isNonstandard: null,
 	},

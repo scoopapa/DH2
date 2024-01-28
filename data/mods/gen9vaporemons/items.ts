@@ -280,14 +280,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.moveThisTurnResult === false) {
-				this.boost({spe: 2});
+				this.boost({spe: 2, accuracy: 2});
 				pokemon.useItem();
 			}
 		},
 		// Item activation located in scripts.js
 		num: 1121,
 		gen: 8,
-		desc: "+2 Speed if the holder's move fails. Single use.",
+		desc: "+2 Speed & Accuracy if the holder's move fails. Single use.",
 		rating: 3,
 	},
 	punchingglove: {
@@ -297,17 +297,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				this.debug('Punching Glove boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move.flags['punch']) delete move.flags['contact'];
 		},
-		desc: "Holder's punch-based attacks have 1.2x power and do not make contact.",
+		desc: "Holder's punch-based attacks have 1.3x power and do not make contact.",
 		num: 1884,
 		gen: 9,
-		rating: 3,
 	},
 	razorclaw: {
 		name: "Razor Claw",
@@ -319,17 +318,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
 				this.debug('Razor Claw boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move.flags['slicing']) delete move.flags['contact'];
 		},
-		desc: "Holder's slicing-based attacks have 1.2x power and do not make contact.",
+		desc: "Holder's slicing-based attacks have 1.3x power and do not make contact.",
 		num: 326,
 		gen: 4,
-		rating: 3,
 	},
 	razorfang: {
 		name: "Razor Fang",
@@ -342,18 +340,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bite']) {
 				this.debug('Razor Fang boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move.flags['bite']) delete move.flags['contact'];
 		},
-		desc: "Holder's biting-based attacks have 1.2x power and do not make contact.",
+		desc: "Holder's biting-based attacks have 1.3x power and do not make contact.",
 		num: 327,
 		gen: 4,
 		isNonstandard: null,
-		rating: 3,
 	},
 	baseballbat: {
 		name: "Baseball Bat",
@@ -460,6 +457,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
+		onSwitchOut(pokemon) {
+			pokemon.cureStatus();
+		},
 		// effect coded into the moves themselves
 		desc: "Holder's wind-based attacks heal the party's status.",
 		num: -1009,
@@ -510,14 +510,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		onSwitchIn(pokemon) {
-			const type = pokemon.hpType;
-			if (pokemon.baseSpecies.baseSpecies === 'Charizard') {			
+			const targetType = pokemon.types[1];
+			if (pokemon.baseSpecies.baseSpecies === 'Charizard') {
 				this.add('-item', pokemon, 'Charizardite Shard X');
 				this.add('-anim', pokemon, "Cosmic Power", pokemon);
-				if (type && type !== '???') {
-					if (!pokemon.setType('Dragon')) return;
-					this.add('-start', pokemon, 'typechange', 'Dragon', '[from] item: Charizardite Shard X');
-				}
+				pokemon.setType(pokemon.getTypes(true).map(type => type === targetType ? "Dragon" : type));
 				this.add('-message', `${pokemon.name}'s Charizardite Shard X changed its type!`);
 				pokemon.setAbility('toughclaws', pokemon, true);
 				this.add('-activate', pokemon, 'ability: Tough Claws');
@@ -526,7 +523,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 6 && (move.type === 'Dragon' || move.type === 'Fire')) {
+			if (move && user.baseSpecies.num === 6 && ['Dragon', 'Fire'].includes(move.type)) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
@@ -539,8 +536,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Charizard"],
 		num: -1011,
 		gen: 9,
-		desc: "Charizard: Becomes Dragon-type, Ability: Tough Claws, +1 Atk, 1.2x Dragon/Fire power.",
-	},	
+		desc: "Charizard: Becomes Fire/Dragon-type, Ability: Tough Claws, +1 Atk, 1.2x Dragon/Fire power.",
+	},
 	charizarditeshardy: {
 		name: "Charizardite Shard Y",
 		spritenum: 586,
@@ -986,14 +983,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move?.priority > 0.1) {
 				this.debug('Quick Claw boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move?.priority > 0.1) delete move.flags['contact'];
 		},
-		desc: "Holder's priority attacks have 1.2x power and do not make contact.",
+		desc: "Holder's priority attacks have 1.3x power and do not make contact.",
 		num: 217,
 		gen: 2,
 		rating: 3,
@@ -1008,13 +1005,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.recoil || move.hasCrashDamage) {
 				this.debug('Protective Pads boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		// protective effect handled in Battle#checkMoveMakesContact
 		num: 880,
 		gen: 7,
-		desc: "This Pokemon's recoil moves deal 1.2x damage and all of its moves don't make contact.",
+		desc: "This Pokemon's recoil moves deal 1.3x damage and all of its moves don't make contact.",
 		rating: 3,
 	},
 	desertrose: {
@@ -1076,10 +1073,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 624,
 		onTakeItem: false,
 		onSwitchIn(pokemon) {
-			this.add('-item', pokemon, 'Diancite Stone Fragment');
-			pokemon.setAbility('magicbounce', pokemon, true);
-			this.add('-activate', pokemon, 'ability: Magic Bounce');
-			this.boost({atk: 1, spa: 1, spe: 1});
+			if (pokemon.baseSpecies.name === 'Diancie') {
+				this.add('-item', pokemon, 'Diancite Stone Fragment');
+				pokemon.setAbility('magicbounce', pokemon, true);
+				this.add('-activate', pokemon, 'ability: Magic Bounce');
+				this.boost({atk: 1, spa: 1, spe: 1});
+			}
 		},
 		itemUser: ["Diancie"],
 		gen: 9,

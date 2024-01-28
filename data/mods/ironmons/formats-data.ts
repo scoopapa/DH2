@@ -15,4 +15,40 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	junglespike: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	sinisterdoll: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chillinggale: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironguardian: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironiron: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	rigidbunker: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	bigshot: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	irontiara: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironman: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };

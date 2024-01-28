@@ -7,6 +7,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	dragonscale: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	dubiousdisc: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -49,6 +53,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		isNonstandard: "Past",
 	},
 	ribbonsweet: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	souldew: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
