@@ -145,6 +145,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ironleaves").learnset.psychocut = ["9L1"];
 		this.modData("Learnsets", "ironthorns").learnset.flamethrower = ["9L1"];
 		this.modData("Learnsets", "ironthorns").learnset.risingvoltage = ["9L1"];
+		this.modData("Learnsets", "kingler").learnset.meteormash = ["9L1"];
+		this.modData("Learnsets", "kingler").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "drednaw").learnset.stoneaxe = ["9L1"];
+		this.modData("Learnsets", "drednaw").learnset.brickbreak = ["9L1"];
+		this.modData("Learnsets", "drednaw").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "orbeetle").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "orbeetle").learnset.heatwave = ["9L1"];
+		this.modData("Learnsets", "orbeetle").learnset.encore = ["9L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.painsplit = ["9L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.willowisp = ["9L1"];
 	},
 	actions: {
 		inherit: true,
