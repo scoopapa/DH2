@@ -207,4 +207,43 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 279,
 		shortDesc: "This Pokemon deals 20% more damage to slower foes, 30% more if the foe is Water or Dragon-type.",
 	},
+	steamengine: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Steam Engine');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Steam Engine');
+			}
+			return false;
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water' || move.type === 'Fire') {
+				this.debug('Steam Engine weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water' || move.type === 'Fire') {
+				this.debug('Steam Engine weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Water' || move.type === 'Fire') {
+				this.field.setWeather('sunnyday');
+			}
+		},
+		flags: {breakable: 1},
+		name: "Steam Engine",
+		rating: 2,
+		num: 243,
+		shortDesc: "This Pokemon is immune to burn and takes 0.5x damage from Fire and Water moves. Sets Sun if hit by either.",
+	},
 };
