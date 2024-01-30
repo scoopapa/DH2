@@ -143,8 +143,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Mummy"},
 	},
+	kingler: {
+		inherit: true,
+		types: ["Water", "Steel"],
+		baseStats: {hp: 75, atk: 130, def: 125, spa: 50, spd: 50, spe: 85},
+		abilities: {0: "Hyper Cutter", 1: "Tough Claws", H: "Sheer Force"},
+	},
 	kinglergmax: {
 		inherit: true,
+		types: ["Water", "Steel"],
+		baseStats: {hp: 75, atk: 130, def: 125, spa: 50, spd: 50, spe: 85},
 		abilities: {0: "Anger Shell"},
 	},
 	laprasgmax: {
@@ -183,16 +191,34 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Iron Barbs"},
 	},
+	orbeetle: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 25, def: 110, spa: 90, spd: 120, spe: 115},
+		abilities: {0: "Swarm", 1: "Frisk", H: "Psychic Surge"},
+	},
 	orbeetlegmax: {
 		inherit: true,
 		abilities: {0: "Magic Guard"},
 	},
+	drednaw: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 48, spd: 88, spe: 74},
+		abilities: {0: "Sturdy", 1: "Swift Swim", H: "Shell Armor"},
+	},
 	drednawgmax: {
 		inherit: true,
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 48, spd: 88, spe: 74},
 		abilities: {0: "Solid Rock"},
+	},
+	coalossal: {
+		inherit: true,
+		types: ["Rock"],
+		baseStats: {hp: 125, atk: 80, def: 125, spa: 100, spd: 100, spe: 20},
 	},
 	coalossalgmax: {
 		inherit: true,
+		types: ["Rock"],
+		baseStats: {hp: 125, atk: 80, def: 125, spa: 100, spd: 100, spe: 20},
 		abilities: {0: "Earth Eater"},
 	},
 	flapple: {
@@ -241,9 +267,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Natural Cure"},
 	},
+	grimmsnarl: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 120, def: 80, spa: 90, spd: 80, spe: 60},
+		abilities: {0: "Prankster", 1: "Hustle", H: "Pickpocket"},
+	},
 	grimmsnarlgmax: {
 		inherit: true,
-		abilities: {0: "Tangling Hair"},
+		abilities: {0: "Misty Surge"},
 	},
 	alcremie: {
 		inherit: true,
