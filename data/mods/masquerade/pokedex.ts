@@ -1807,7 +1807,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Guzzlord-Rainbow",
 		forceTeraType: "Electric",
 	},
-/* commented out until i can finish everything later
 	gigalith: {
 		inherit: true,
 		otherFormes: ["Gigalith-Incense", "Gigalith-Graveyard", "Gigalith-Swarmrock", "Gigalith-Incense-Tera", "Gigalith-Graveyard-Tera", "Gigalith-Swarmrock-Tera"],
@@ -2162,5 +2161,4 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Kommo-o-Combatwing",
 		forceTeraType: "Flying",
 	},
-*/
 };
