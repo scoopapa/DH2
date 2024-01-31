@@ -14,6 +14,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'excadrill').learnset.honeclaws;
 		delete this.modData('Learnsets', 'drilbur').learnset.swordsdance;
 		delete this.modData('Learnsets', 'drilbur').learnset.honeclaws;
+		this.modData("Learnsets", "gigalith").learnset.earthmover = ["9L1"];
+		delete this.modData('Learnsets', 'kommoo').learnset.swordsdance;
+		delete this.modData('Learnsets', 'kommoo').learnset.clangoroussoul;
+		delete this.modData('Learnsets', 'kommoo').learnset.bellydrum;
+		delete this.modData('Learnsets', 'hakamoo').learnset.swordsdance;
+		delete this.modData('Learnsets', 'jangmoo').learnset.swordsdance;
 	},
 	actions: {
 		inherit: true,
@@ -122,6 +128,22 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Absol') {
 				const tera = pokemon.species.id === 'absol' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Kommo-o') {
+				const tera = pokemon.species.id === 'kommoo' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Jellicent') {
+				const tera = pokemon.species.id === 'jellicent' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Starmie') {
+				const tera = pokemon.species.id === 'starmie' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Gigalith') {
+				const tera = pokemon.species.id === 'gigalith' ? 'basetera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
