@@ -272,7 +272,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							(move.name === 'Brave Bird' && pokemon.baseSpecies.baseSpecies === 'Corviknight') ||
 							(move.name === 'Psychic' && pokemon.baseSpecies.baseSpecies === 'Orbeetle') ||
 							(move.name === 'Razor Shell' && pokemon.baseSpecies.baseSpecies === 'Drednaw') || 
-							(move.name === 'Power Gem' && pokemon.baseSpecies.baseSpecies === 'Coalossal') ||
+							(move.name === 'Tar Shot' && pokemon.baseSpecies.baseSpecies === 'Coalossal') ||
 							(move.name === 'Grav Apple' && pokemon.baseSpecies.baseSpecies === 'Flapple') ||
 							(move.name === 'Apple Acid' && pokemon.baseSpecies.baseSpecies === 'Appletun') ||
 							(move.name === 'Sand Tomb' && pokemon.baseSpecies.baseSpecies === 'Sandaconda') ||
