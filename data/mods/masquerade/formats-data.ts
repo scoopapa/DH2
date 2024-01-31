@@ -307,4 +307,64 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	gigalith: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	gigalithincense: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	gigalithgraveyard: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	gigalithswarmrock: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	jellicent: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	jellicentseawitch: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	jellicentironclad: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	starmie: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	starmiestarfighter: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	starmieufo: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	starmieburningstar: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kommoo: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kommooscarabshield: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kommoometalscale: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kommoocombatwing: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
