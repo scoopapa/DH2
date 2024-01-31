@@ -1905,8 +1905,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
  	jellicent: {
 		inherit: true,
-		otherFormes: ["Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Windspore", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera", "Jellicent-Windspore-Tera"],
-		formeOrder: ["Jellicent", "Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Windspore", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera", "Jellicent-Windspore-Tera"],
+		otherFormes: ["Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera"],
+		formeOrder: ["Jellicent", "Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera"],
 		forceTeraType: "Water",
 	},
 	jellicentseawitch: {
