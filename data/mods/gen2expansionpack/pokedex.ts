@@ -58,6 +58,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		gen: 1
 	},
+	paras: {
+		inherit: true,
+		prevo: "Paraspor",
+	},
 	meowth: {
 		inherit: true,
 		otherFormes: ["Meowth-Alola", "Meowth-Galar"],

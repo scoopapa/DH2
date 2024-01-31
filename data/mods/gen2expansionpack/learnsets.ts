@@ -6535,7 +6535,15 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"whirlwind": [
 				"1M"
-			]
+			],
+			jumpkick: ["2L35"],
+			rollingkick: ["2L37"],
+			highjumpkick: ["2L40"],
+			flail: ["2E"],
+			foresight: ["2E"],
+			gust: ["2E"],
+			mirrormove: ["2E"],
+			quickattack: ["2E"],
 		}
 	},
 	"farigiraf": {
@@ -7727,6 +7735,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"hiddenpower": [
 				"2M"
 			],
+			megapunch: ["2E"],
 			"metronome": [
 				"1M"
 			],
@@ -7749,8 +7758,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"return": [
 				"2M"
 			],
+			rockslash: ["2E"],
 			"rockslide": [
-				"1M"
+				"1M", "2E"
 			],
 			"rocksmash": [
 				"2M"
@@ -8182,6 +8192,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"attract": [
 				"2M"
 			],
+			bellydrum: ["2L70"],
 			"bide": [
 				"1M"
 			],
@@ -8885,7 +8896,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"zapcannon": [
 				"2M"
-			]
+			],
+			crunch: ["2L45"],
+			bite: ["2L20"],
+			meanlook: ["2E"],
+			pursuit: ["2E"],
 		}
 	},
 	"growlithehisui": {
@@ -15482,7 +15497,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"zapcannon": [
 				"2M"
-			]
+			],
+			crunch: ["2L52"],
+			bite: ["2L20"],
+			meanlook: ["2E"],
+			pursuit: ["2E"],
 		}
 	},
 	"munchlax": {
@@ -16782,7 +16801,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"dazzlinggleam": [
-				"1L39"
+				"1L39", "2L44"
 			],
 			"defensecurl": [
 				"2M"
@@ -17150,6 +17169,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"bubblebeam": [
 				"1M"
 			],
+			coinhurl: ["2L59"],
 			"curse": [
 				"2M"
 			],
@@ -19490,6 +19510,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"protect": [
 				"2M"
 			],
+			pursuit: ["2L30"],
 			"quickattack": [
 				"1L4"
 			],
@@ -19665,6 +19686,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"protect": [
 				"2M"
 			],
+			pursuit: ["2L27"],
 			"quickattack": [
 				"1L4"
 			],
@@ -21470,9 +21492,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"rocksmash": [
 				"2M"
 			],
-			"rollingkick": [
-				"2E"
-			],
 			"sandattack": [
 				"1L1"
 			],
@@ -21523,7 +21542,14 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"whirlwind": [
 				"1M"
-			]
+			],
+			jumpkick: ["2L44"],
+			rollingkick: ["2L49"],
+			highjumpkick: ["2L55"],
+			flail: ["2E"],
+			foresight: ["2E"],
+			gust: ["2E"],
+			mirrormove: ["2E"],
 		}
 	},
 	"slowbrogalar": {
@@ -24512,7 +24538,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M",
 				"2M"
 			],
-			"dynamic": [
+			"dynamicpunch": [
 				"2M"
 			],
 			"earthquake": [
@@ -26520,7 +26546,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		}
 	},
 	// MANUAL NEW ENTRIES
-	typhlosionhiusi: {
+	typhlosionhisui: {
 		learnset: {
 			attract: ["2M"],
 			curse: ["2M"],
@@ -29324,7 +29350,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	ruddernaut: {
 		learnset: {
-			gility: ["2L28"],
+			agility: ["2L28"],
 			attract: ["2M"],
 			blizzard: ["2M"],
 			bubblebeam: ["2L21"],
