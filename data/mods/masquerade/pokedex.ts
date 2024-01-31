@@ -1807,7 +1807,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Guzzlord-Rainbow",
 		forceTeraType: "Electric",
 	},
-/* commented out until i can finish everything later
 	gigalith: {
 		inherit: true,
 		otherFormes: ["Gigalith-Incense", "Gigalith-Graveyard", "Gigalith-Swarmrock", "Gigalith-Incense-Tera", "Gigalith-Graveyard-Tera", "Gigalith-Swarmrock-Tera"],
@@ -1906,8 +1905,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
  	jellicent: {
 		inherit: true,
-		otherFormes: ["Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Windspore", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera", "Jellicent-Windspore-Tera"],
-		formeOrder: ["Jellicent", "Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Windspore", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera", "Jellicent-Windspore-Tera"],
+		otherFormes: ["Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera"],
+		formeOrder: ["Jellicent", "Jellicent-Sea-Witch", "Jellicent-Ironclad", "Jellicent-Sea-Witch-Tera", "Jellicent-Ironclad-Tera"],
 		forceTeraType: "Water",
 	},
 	jellicentseawitch: {
@@ -2162,5 +2161,4 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Kommo-o-Combatwing",
 		forceTeraType: "Flying",
 	},
-*/
 };

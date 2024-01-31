@@ -100,4 +100,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Light Shield",
 		rating: 4,
 	},
+	honeystone: {
+		shortDesc: "Once per battle, heals 50% of this Pokemon HP on switch-in.",
+		onStart(pokemon) {
+			if (pokemon.honeyBoost) return;
+			pokemon.honeyBoost = true;
+			pokemon.heal(pokemon.baseMaxhp / 2);
+		},
+		flags: {},
+		name: "Honeystone",
+		rating: 3.5,
+	},
 };
