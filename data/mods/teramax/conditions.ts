@@ -119,8 +119,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Natural Cure');
 						break;
 					case 'Grimmsnarl':
-						pokemon.setAbility('tanglinghair', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Tangling Hair');
+						pokemon.setAbility('mistysurge', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Misty Surge');
 						break;
 					case 'Alcremie':
 						pokemon.setAbility('wellbakedbody', pokemon, true);
