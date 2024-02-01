@@ -315,7 +315,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return typeMod + 1;
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Rock",
 	},
