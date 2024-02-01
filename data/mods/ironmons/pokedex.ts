@@ -147,7 +147,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Iron Tiara",
 		types: ["Rock", "Flying"],
 		gender: "N",
-		baseStats: {hp: 80, atk: 140, def: 120, spa: 50, spd: 80, spe: 110},
+		baseStats: {hp: 80, atk: 140, def: 120, spa: 60, spd: 80, spe: 110},
 		abilities: {0: "Quark Drive"},
 		heightm: 1.1,
 		weightkg: 27.8,

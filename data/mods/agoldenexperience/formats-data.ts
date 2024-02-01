@@ -1237,6 +1237,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	granbull: {
 		tier: "RU",
+		doublesTier: "NFE",
 	},
 	qwilfish: {
 		tier: "(PU)",
@@ -1820,7 +1821,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	claydol: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	lileep: {
@@ -2996,6 +2997,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	golurk: {
 		tier: "RU",
+		doublesTier: "NFE",
 	},
 	pawniard: {
 		tier: "LC",
@@ -4112,6 +4114,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	flapple: {
 		tier: "(PU)",
+		doublesTier: "NFE",
 	},
 	flapplegmax: {
 		isNonstandard: "Past",
@@ -4123,6 +4126,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	appletun: {
 		tier: "RU",
+		doublesTier: "NFE",
 	},
 	appletungmax: {
 		isNonstandard: "Past",
@@ -4134,7 +4138,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	dipplin: {
 		tier: "PU",
-		doublesTier: "(DUU)",
+		doublesTier: "NFE",
 	},
 	silicobra: {
 		tier: "LC",

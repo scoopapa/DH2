@@ -3168,6 +3168,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Bug"],
 		requiredItem: "Kleavorite",
 	},
+	ursaluna: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Bulletproof", H: "Honey Gather"},
+	},
 	basculegion: {
 		inherit: true,
 		abilities: {0: "Rattled", 1: "Adaptability", H: "Reckless"}, 
