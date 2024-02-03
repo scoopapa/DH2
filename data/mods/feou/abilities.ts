@@ -2958,9 +2958,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarkdrive');
-			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
-				pokemon.removeVolatile('quarkdrive');
+				pokemon.addVolatile('heatproofdrive');
+			} else if (!pokemon.volatiles['heatproofdrive']?.fromBooster) {
+				pokemon.removeVolatile('heatproofdrive');
 			}
 		},
 		onEnd(pokemon) {

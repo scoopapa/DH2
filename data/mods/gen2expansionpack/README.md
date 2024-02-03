@@ -21,7 +21,7 @@ Nuukiee's sprites: Marowak-A, Azurill, Clodsire, Cursola, Farigiraf, Glaceon, Gl
 
 SuperZACH's sprites: Mismagius, Dudunsparce (Three Segment)
 
-Sprites by JosJet: Kazeppelin, Tricules, Lickilord (icon)
+Sprites by JosJet: Kazeppelin, Lickilord (icon)
 
 Legacy Credits
 ====

@@ -5223,6 +5223,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate or Limber Abilities. Can be used up to three times before failing. Opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/5 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully, or if any Pokemon uses Defog or Rototiller successfully.",
 	},
+	spinout: {
+		inherit: true,
+		basePower: 110,
+	},
 	spiritbreak: {
 		inherit: true,
 		basePower: 70,

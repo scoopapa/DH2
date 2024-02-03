@@ -677,6 +677,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -44,
 		gen: 9,
 	},
+	awakeningeye: {
+		name: "Awakening Eye",
+		shortDesc: "If held by a Meowstic, its Sp. Atk and its Sp. Def are x1.5.",
+		// spritenum: 699,
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.name === 'Meowstic' || pokemon.baseSpecies.name === 'Meowstic-F') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.name === 'Meowstic' || pokemon.baseSpecies.name === 'Meowstic-F') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Meowstic", "Meowstic-F"],
+		num: -45,
+		gen: 9,
+	},
 	// icemane: {
 	// 	name: "Ice Mane",
 	// 	spritenum: 715,

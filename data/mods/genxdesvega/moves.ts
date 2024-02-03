@@ -75,7 +75,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Reveals the target's moveset.",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, protect: 1, mirror: 1},
+		flags: {reflectable: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Foresight", target);
@@ -102,7 +102,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Lowers target's Attack, Sp. Atk, Speed by 1. User faints.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Memento", target);
@@ -127,7 +127,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "20% chance to lower the target's Def and SpD by 1.",
 		pp: 15,
 		priority: 0,
-		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crunch", target);
@@ -173,7 +173,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "User switches out after damaging the target.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flame Charge", target);
@@ -193,7 +193,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "10% chance to confuse the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magical Torque", target);
@@ -325,7 +325,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% chance to burn the target.",
 		pp: 15,
 		priority: 0,
-		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hyper Fang", target);
@@ -349,7 +349,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "5 turns. Grounded: +Poison power, -1/16 max HP if not Bug/Poison/Steel, Poison -> Toxic.",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1},
+		flags: {nonsky: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Grassy Terrain", target);
@@ -439,7 +439,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "30% to badly poison. Crits if target is grounded on Poison Terrain.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Gunk Shot", target);
@@ -497,7 +497,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Always results in a critical hit.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Beak Blast", target);
@@ -518,7 +518,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Usually moves first.",
 		pp: 30,
 		priority: 1,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Quick Attack", target);
@@ -606,7 +606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Zing Zap", target);
+			this.add('-anim', source, "Electro Ball", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -754,7 +754,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "+2 SpA, +1 Def for 1/8 user's max HP.",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {snatch: 1, metronome: 1},
 		onTry(source) {
 			if (source.hp <= (source.maxhp / 8) || source.maxhp === 1) return false;
 		},
@@ -813,10 +813,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		isViable: true,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Spin Out", target);
+			this.add('-anim', source, "Mega Kick", target);
 		},
 		secondary: {
 			chance: 100,
@@ -1291,7 +1291,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Berry Blast",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyType(move, pokemon) {
 			if (pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
@@ -1330,7 +1330,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Bush Claws",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Metal Claw", target);
@@ -1351,7 +1351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Revelation Spin",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, dance: 1},
+		flags: {protect: 1, mirror: 1, dance: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Revelation Dance", target);
@@ -1439,7 +1439,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Jaw Crush",
 		pp: 15,
 		priority: 0,
-		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crunch", target);
@@ -1565,7 +1565,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Drain Fang",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, bite: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, bite: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Strength Sap", target);
@@ -1587,7 +1587,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Terra Charge",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Head Smash", target);
@@ -1614,7 +1614,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Pressure Cook",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psyshock", target);
@@ -1637,7 +1637,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Poison Dart",
 		pp: 30,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Sting", target);
@@ -2076,7 +2076,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Psychic Surf",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Expanding Force", target);
@@ -2106,7 +2106,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Shock Tail",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Charge", target);
@@ -2135,7 +2135,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Banana Split",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
@@ -2215,7 +2215,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Sparking Leap",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bolt Beak", target);
@@ -2262,7 +2262,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Firework Leaf",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, bullet: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Jungle Healing", target);
@@ -2287,7 +2287,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Quick Shot",
 		pp: 30,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, bullet: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Ember", target);
@@ -2307,7 +2307,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Merciless Rend",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1, bite: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, bite: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crunch", target);
@@ -2382,7 +2382,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Steaming Blast",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, defrost: 1},
+		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
 		thawsTarget: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -2446,7 +2446,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Javelin Stone",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Wrecker", target);
@@ -2474,7 +2474,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Cripple Clobber",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Low Kick", target);
@@ -2499,7 +2499,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Thunderstrike",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bolt Strike", target);
@@ -2525,7 +2525,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Aqua Ballet",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1, dance: 1},
+		flags: {snatch: 1, dance: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rain Dance", target);

@@ -266,6 +266,58 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
+	tarshot: {
+		num: 749,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "30% chance to burn foe. Negates burn immunity abilities.",
+		name: "Tar Shot",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		onHit(target) {
+			if (target.getAbility().flags['cantsuppress']) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			if (target.hasAbility('flashfire') || target.hasAbility('waterbubble') ||
+				target.hasAbility('thermalexchange') || target.hasAbility('waterveil') ||
+				target.hasAbility('thickfat') || target.hasAbility('steamengine') ||
+				target.hasAbility('wellbakedbody') || target.hasAbility('heatproof') ||
+				target.hasAbility('purifyingsalt')) {
+					target.addVolatile('gastroacid');
+			}
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().flags['cantsuppress']) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			if (target.hasAbility('flashfire') || target.hasAbility('waterbubble') ||
+				target.hasAbility('thermalexchange') || target.hasAbility('waterveil') ||
+				target.hasAbility('thickfat') || target.hasAbility('steamengine') ||
+				target.hasAbility('wellbakedbody') || target.hasAbility('heatproof') ||
+				target.hasAbility('purifyingsalt')) {
+					target.addVolatile('gastroacid');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Tar Shot');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {

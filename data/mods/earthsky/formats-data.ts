@@ -240,7 +240,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ESH",
 	},
 	solrunt: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	ralie: {
 		tier: "ESH",
@@ -801,8 +801,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	girafarig: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	steelixmega: {
 		tier: 'OU',
@@ -1945,8 +1945,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'Uber'
 	},
 	kubfu: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	urshifu: {
 		tier: 'OU',
@@ -2129,8 +2129,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	flittle: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	tinkatuff: {
 		tier: 'NFE',
@@ -2584,8 +2584,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	dunsparce: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	teddiursa: {
 		tier: 'LC',
@@ -3800,8 +3800,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	vulpixalola: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	ninetales: {
 		tier: 'OU',
@@ -3828,8 +3828,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	diglett: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	dugtrio: {
 		tier: 'OU',
@@ -4140,8 +4140,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	aipom: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	sunkern: {
 		tier: 'LC',
@@ -4152,8 +4152,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	yanma: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	wooper: {
 		tier: 'LC',
@@ -4168,8 +4168,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	murkrow: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	pineco: {
 		tier: 'LC',
@@ -4368,8 +4368,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	meditite: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	medicham: {
 		tier: 'OU',
@@ -4880,8 +4880,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	rufflet: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	braviary: {
 		tier: 'OU',
@@ -5112,8 +5112,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	cutiefly: {
-		tier: 'NFE',
-		natDexTier: 'NFE'
+		tier: 'LC',
+		natDexTier: 'LC'
 	},
 	ribombee: {
 		tier: 'OU',

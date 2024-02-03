@@ -836,6 +836,102 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Clever",
 	},
+	earthmover: {
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		shortDesc: "Switches user out. Switch-in is immune to hazards.",
+		name: "Earthmover",
+		viable: true,
+		pp: 7.5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stomping Tantrum", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Gigalith-Incense': case 'Gigalith-Incense-Tera':
+				move.type = 'Fairy';
+				break;
+			case 'Gigalith-Graveyard': case 'Gigalith-Graveyard-Tera':
+				move.type = 'Ghost';
+				break;
+			case 'Gigalith-Swarmrock': case 'Gigalith-Swarmrock-Tera':
+				move.type = 'Bug';
+				break;
+			}
+		},
+		self: {
+			sideCondition: 'earthmover',
+		},
+		condition: {
+			duration: 1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cute",
+	},
+	surf: {
+		num: 57,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Surf",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Jellicent-Sea-Witch': case 'Jellicent-Sea-Witch-Tera':
+				move.type = 'Psychic';
+				break;
+			case 'Jellicent-Ironclad': case 'Jellicent-Ironclad-Tera': case 'Starmie-UFO': case 'Starmie-UFO-Tera':
+				move.type = 'Steel';
+				break;
+			case 'Starmie-Starfighter': case 'Starmie-Starfighter-Tera':
+				move.type = 'Fighting';
+				break;
+			case 'Starmie-Burningstar': case 'Starmie-Burningstar-Tera':
+				move.type = 'Fire';
+				break;
+			}
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	dragontail: {
+		num: 525,
+		accuracy: 90,
+		basePower: 60,
+		category: "Physical",
+		name: "Dragon Tail",
+		pp: 10,
+		priority: -6,
+		flags: {contact: 1, protect: 1, mirror: 1, noassist: 1, failcopycat: 1},
+		forceSwitch: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Kommo-o-Scarabshield': case 'Kommo-o-Scarabshield-Tera':
+				move.type = 'Bug';
+				break;
+			case 'Kommo-o-Metalscale': case 'Kommo-o-Metalscale-Tera':
+				move.type = 'Steel';
+				break;
+			case 'Kommo-o-Combatwing': case 'Kommo-o-Combatwing-Tera':
+				move.type = 'Flying';
+				break;
+			}
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	},
 
 // unchanged moves
 	defog: {
@@ -982,5 +1078,132 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, mustpressure: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('earthmover')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, mustpressure: 1},
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('earthmover')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	toxicspikes: {
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, mustpressure: 1},
+		sideCondition: 'toxicspikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('earthmover')) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stickyweb: {
+		num: 564,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Web",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1},
+		sideCondition: 'stickyweb',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.getSideCondition('earthmover')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Bug",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
 	},
 };
