@@ -1197,6 +1197,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			superpower: ["9L1"],
 			extremespeed: ["9L1"],
 			swordsdance: ["9L1"],
+			steelbeam: ["9L1"],
 		},
 	},
 	tejautlaw: {
@@ -1215,6 +1216,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			lashout: ["9L1"],
 			lowkick: ["9L1"],
 			rockslide: ["9L1"],
+			steelbeam: ["9L1"],
 		},
 	},
 	hotrolly: {
@@ -1233,6 +1235,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			stealthrock: ["9L1"],
 			yawn: ["9L1"],
 			haze: ["9L1"],
+			steelbeam: ["9L1"],
 		},
 	},
 	melttro: {
@@ -1251,6 +1254,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			stealthrock: ["9L1"],
 			yawn: ["9L1"],
 			haze: ["9L1"],
+			steelbeam: ["9L1"],
 		},
 	},
 	varoomdesvega: {
@@ -4460,6 +4464,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			superpower: ["9L1"],
 			tripleaxel: ["9L1"],
 			waterpulse: ["9L1"],
+			steelbeam: ["9L1"],
 		},
 	},
 	bibarricade: {
@@ -5796,6 +5801,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			darkpulse: ["9L1"],
 			thunder: ["9L1"],
 			thunderwave: ["9L1"],
+			steelbeam: ["9L1"],
 		},
 	},
 	silicuit: {
