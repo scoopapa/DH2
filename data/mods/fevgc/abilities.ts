@@ -2155,7 +2155,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	clumpingup: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.heal(target.baseMaxhp / 4) && !this.boost({def: 2})) {
+				if (!this.boost({def: 2})) {
+					this.heal(target.baseMaxhp / 4, target, target);
 					this.add('-immune', target, '[from] ability: Clumping Up');
 				}
 				return null;
