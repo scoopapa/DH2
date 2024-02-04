@@ -238,8 +238,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.speedSort(sortedActive);
 			for (const pokemon of sortedActive) {
 				if (pokemon !== source) {
-					if (pokemon.getAbility().flags['cantsuppress']) continue; // does not interact with e.g Ice Face, Zen Mode
-					if (pokemon.hasItem('abilityshield')) continue; // don't restart abilities that weren't suppressed
+					if (pokemon.getAbility().flags['cantsuppress']) continue;
+					if (pokemon.hasItem('abilityshield')) continue;
 					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 					if (pokemon.ability === "gluttony") {
 						pokemon.abilityState.gluttony = false;
@@ -590,7 +590,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllySetStatus(status, target, source, effect) {
 			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
 				this.debug('interrupting setStatus with Flower Veil');
-				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) { // add any synchro clones here
+				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
 					this.add('-block', target, 'ability: Overbloom', '[of] ' + effectHolder);
 				}
@@ -679,7 +679,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('pyrotechnic');
 		},
 		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
+			noCopy: true,
 			onStart(target) {
 				this.add('-start', target, 'ability: Pyrotechnic');
 			},
@@ -958,7 +958,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('smelting');
 		},
 		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
+			noCopy: true,
 			onStart(target) {
 				this.add('-start', target, 'ability: Smelting');
 			},
@@ -1201,7 +1201,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.removeVolatile('sturdyfire');
 		},
 		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
+			noCopy: true, 
 			onStart(target) {
 				this.add('-start', target, 'ability: Sturdy Fire');
 			},
@@ -1256,7 +1256,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.volatiles['taunt']) {
 				this.add('-activate', pokemon, 'ability: Clueless');
 				pokemon.removeVolatile('taunt');
-				// Taunt's volatile already sends the -end message when removed
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -1818,10 +1817,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, pokemon) {
 			if (move.secondaries) {
 				delete move.secondaries;
-				// Technically not a secondary effect, but it is negated
 				delete move.self;
 				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
 				move.hasSheerForce = true;
 			}
 		}, // add life orb damaging immunity in scripts
@@ -3396,7 +3393,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const weakenBerries = [
 				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
 			];
-			// Record if the pokemon ate a berry to resist the attack
 			pokemon.abilityState.berryWeaken = weakenBerries.includes(item.name);
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -3508,7 +3504,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const yourItem = target.takeItem(source);
 				if (!yourItem) return;
 				if (!source.setItem(yourItem)) {
-					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					target.item = yourItem.id;
 					return;
 				}
 				this.add('-item', source, yourItem, '[from] ability: Robin', '[of] ' + target);
