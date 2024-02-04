@@ -251,12 +251,11 @@ export const Scripts: ModdedBattleScriptsData = {
 	
 			if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 	
-			if (pokemon.status === 'brn' && move.category === 'Physical' && (!pokemon.hasAbility('guts') ||
-				!pokemon.hasAbility('migrate') || !pokemon.hasAbility('unsettling') ||
-				!pokemon.hasAbility('careless') || !pokemon.hasAbility('overguts'))) {
-				if (this.battle.gen < 6 || move.id !== 'facade') {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['migrate','unsettling','guts','careless','overguts'])
+				 && move.id !== 'facade') {
+				//if (this.battle.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.battle.modify(baseDamage, 0.5);
-				}
+				//}
 			}
 	
 			// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
