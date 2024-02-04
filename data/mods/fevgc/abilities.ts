@@ -2155,12 +2155,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	clumpingup: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.boost({def: 2})) {
-					this.heal(target.baseMaxhp / 4, target, target);
+				if (!target.addVolatile('clumpingup')) {
 					this.add('-immune', target, '[from] ability: Clumping Up');
 				}
 				return null;
 			}
+		},
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.boost({def: 2});
+				target.heal(target.baseMaxhp / 4);
+				target.removeVolatile('clumpingup');
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Clumping Up', '[silent]');
+			},
 		},
 		flags: {breakable: 1},
 		name: "Clumping Up",
