@@ -2818,4 +2818,987 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Desert Shot",
 		shortDesc: "Sand Veil + Sniper",
 	},
+	goowiththeflow: {
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Goo With The Flow');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Goo With The Flow');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.spe && boost.spe < 0) {
+				delete boost.spe;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Speed", "[from] ability: Goo With The Flow", "[of] " + target);
+				}
+			}
+		},
+		flags: {},
+		name: "Goo With The Flow",
+		shortDesc: "This Pokemon can't be confused or have its Speed lowered.",
+	},
+	murkywater: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Murky Water boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Murky Water boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.category !== "Status") {
+				this.debug('Adding Murky Water flinch');
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 10,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		flags: {},
+		name: "Murky Water",
+		shortDesc: "Torrent + Stench",
+	},
+	dawnriser: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		}, // implement this is conditions.ts
+		flags: {},
+		name: "Dawn Riser",
+		shortDesc: "Chlorophyll + Early Bird",
+	},
+	keenswim: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Keen Swim", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Keen Swim",
+		shortDesc: "Keen Eye + Swift Swim",
+	},
+	overguts: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overguts boost');
+				return this.chainModify(1.5);
+			}			
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		}, // implement burn drop ignore in scripts.ts
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overguts boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Overguts",
+		shortDesc: "Guts + Overgrow",
+	},
+	bulletveil: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('sandstorm')) {
+				this.debug('Bullet Veil - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Bullet Veil');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Bullet Veil",
+		shortDesc: "Sand Veil + Bulletproof",
+	},
+	greenthumbs: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Green Thumbs boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Green Thumbs boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && this.randomChance(33, 100)) {
+				this.debug('shed skin');
+				this.add('-activate', pokemon, 'ability: Green Thumbs');
+				pokemon.cureStatus();
+			}
+		},
+		flags: {},
+		name: "Green Thumbs",
+		shortDesc: "Shed Skin + Overgrow",
+	},
+	weatherpreview: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Weather Preview');
+						return;
+					}
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather(['hail', 'snow'])) {
+				this.debug('Weather Preview - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Weather Preview",
+		shortDesc: "Snow Cloak + Anticipation",
+	},
+	snowlayers: {
+		onStart(source) {
+			this.field.setWeather('snow');
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (move.forceSTAB || source.hasType(move.type)) {
+				if (stab === 2) {
+					return 2.25;
+				}
+				return 2;
+			}
+		},
+		flags: {},
+		name: "Snow Layers",
+		shortDesc: "Snow Warning + Adaptability",
+	},
+	visuallearner: {
+		onStart(pokemon) {
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+			if (pokemon.hasItem('Ability Shield')) {
+				this.add('-block', pokemon, 'item: Ability Shield');
+				this.effectState.gaveUp = true;
+			}
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Visual Learner', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			if (pokemon.setAbility(ability)) {
+				this.add('-ability', pokemon, ability, '[from] ability: Visual Learner', '[of] ' + target);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		name: "Visual Learner",
+		shortDesc: "Trace + Frisk",
+	},
+	sunaway: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Sun Away",
+		shortDesc: "If Sunny Day is active, this Pokemon's Speed is doubled.",
+	},
+	durianbreath: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.category !== "Status") {
+				this.debug('Adding Durian Breath flinch');
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 10,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		flags: {},
+		name: "Durian Breath",
+		shortDesc: "Stench + Chlorophyll",
+	},
+	fastflame: {
+		onFlinch(damage, target, source, move)) {
+			this.boost({spe: 2}, target, target);
+			source.trySetStatus('brn', target);
+		},
+		flags: {},
+		name: "Fast Flame",
+		shortDesc: "If this Pokemon flinches, its Speed is raised by 1 stage and the attacker is burned.",
+	},
+	bravelook: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Brave Look', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Brave Look", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		flags: {breakable: 1},
+		name: "Brave Look",
+		shortDesc: "Intimidate + Keen Eye",
+	},
+	longmoxie: {
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		flags: {},
+		name: "Long Moxie",
+		shortDesc: "Long Reach + Moxie",
+	},
+	speedyfire: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('speedyfire')) {
+					this.add('-immune', target, '[from] ability: Speedy Fire');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('speedyfire');
+		},
+		condition: {
+			noCopy: true, 
+			onStart(target) {
+				this.add('-start', target, 'ability: Speedy Fire');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('speedyfire')) {
+					this.debug('Speedy Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('speedyfire')) {
+					this.debug('Speedy Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Speedy Fire', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Speedy Fire",
+		shortDesc: "This Pokemon's Fire attacks do 1.5x damage if hit by one Fire move; Fire immunity.",
+	},
+	ghoulfire: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Bug' || move.type === 'Dark' || move.type === 'Fire' || move.type === 'Ghost')) {
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Ghoul Fire');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Ghoul Fire",
+		shortDesc: "Speed is raised 1 stage if hit by a Bug-, Dark-, Fire- or Ghost-type move; Immunity to those types.",
+	},
+	rekindle: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('rekindle')) {
+					this.add('-immune', target, '[from] ability: Rekindle');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('rekindle');
+		},
+		condition: {
+			noCopy: true, 
+			onStart(target) {
+				this.add('-start', target, 'ability: Rekindle');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('rekindle')) {
+					this.debug('Rekindle boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('rekindle')) {
+					this.debug('Rekindle boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Rekindle', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Rekindle",
+		shortDesc: "Regenerator + Flash Fire",
+	},
+	roughbody: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Rough Body", "[of] " + target);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Rough Body Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Rough Body SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Rough Body",
+		shortDesc: "Clear Body + Heatproof",
+	},
+	aromatricks: {
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+				if (effect.effectType === 'Move') {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Aroma Tricks', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Aroma Tricks');
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Aroma Tricks",
+		shortDesc: "Protects allies from losing their items, as well as Attract, Taunt, Disable, Encore, Torment, and Heal Block.",
+	},
+	hungryeyes: {
+		onStart(pokemon) { // implement gluttony effects in items
+			pokemon.abilityState.gluttony = true;
+		},
+		onDamage(item, pokemon) {
+			pokemon.abilityState.gluttony = true;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Hungry Eyes", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		flags: {breakable: 1},
+		name: "Hungry Eyes",
+		shortDesc: "Gluttony + Keen Eye",
+	},
+	innerfat: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Inner Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Inner Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) { // add intim clones here later
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Fat', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Inner Fat",
+		shortDesc: "Inner Focus + Thick Fat",
+	},
+	cutefruit: {
+		onTryHeal(damage, target, source, effect) {
+			if (!effect) return;
+			if (effect.name === 'Berry Juice' || effect.name === 'Leftovers') {
+				this.add('-activate', target, 'ability: Cute Fruit');
+			}
+			if ((effect as Item).isBerry) return this.chainModify(2);
+		},
+		onChangeBoost(boost, target, source, effect) {
+			if (effect && (effect as Item).isBerry) {
+				let b: BoostID;
+				for (b in boost) {
+					boost[b]! *= 2;
+				}
+			}
+		},
+		onSourceModifyDamagePriority: -1,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.abilityState.berryWeaken) {
+				target.abilityState.berryWeaken = false;
+				return this.chainModify(0.5);
+			}
+		},
+		onTryEatItemPriority: -1,
+		onTryEatItem(item, pokemon) {
+			this.add('-activate', pokemon, 'ability: Cute Fruit');
+		},
+		onEatItem(item, pokemon) {
+			const weakenBerries = [
+				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
+			];
+			// Record if the pokemon ate a berry to resist the attack
+			pokemon.abilityState.berryWeaken = weakenBerries.includes(item.name);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('attract', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cute Fruit",
+		shortDesc: "Ripen + Cute Charm",
+	},
+	lunchwithfriends: {
+		onStart(pokemon) { // implement gluttony effects in items
+			pokemon.abilityState.gluttony = true;
+		},
+		onDamage(item, pokemon) {
+			pokemon.abilityState.gluttony = true;
+		},
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target !== this.effectState.target && target.isAlly(this.effectState.target)) {
+				this.debug('Lunch With Friends weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Lunch With Friends",
+		shortDesc: "Gluttony + Friend Guard",
+	},
+	irondiet: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem(pokemon) {
+			const target = pokemon.isAdjacent(this.effectState.target);
+			if (target.hasType('Steel')) {
+				return !this.effectState.unnerved;
+			}
+		},
+		flags: {},
+		name: "Iron Diet",
+		shortDesc: "Prevents opposing Steel-type Pokemon from eating berries.",
+	},
+	unfriendguard: {
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target !== this.effectState.target && target.isAlly(this.effectState.target)) {
+				this.debug('Unfriend Guard weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		flags: {breakable: 1},
+		name: "Unfriend Guard",
+		shortDesc: "Friend Guard + No Guard",
+	},
+	sheerbird: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		// implement early bird effects in conditions
+		flags: {},
+		name: "Sheer Bird",
+		shortDesc: "Sheer Force + Early Bird",
+	},
+	robin: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (target !== source && move.category === 'Physical') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Robin', '[of] ' + target);
+			}
+		},
+		flags: {},
+		name: "Robin",
+		shortDesc: "This Pokemon's physical attacks deal 1.5x damage and steal items, but have 0.8x accuracy.",
+	},
+	quickstart: {
+		shortDesc: "On switch-in, this Pokemon's Attack and Speed are doubled for 5 turns.",
+		onStart(pokemon) {
+			pokemon.addVolatile('quickstart');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quickstart'];
+			this.add('-end', pokemon, 'Quickstart', '[silent]');
+		},
+		condition: {
+			duration: 5,
+			onStart(target) {
+				this.add('-start', target, 'ability: Quickstart');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				return this.chainModify(2);
+			},
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(2);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Quickstart');
+			},
+		},
+		flags: {},
+		name: "Quickstart",
+    },
+	summerbugs: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.debug('Swarm boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.debug('Swarm boost');
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Summer Bugs",
+		shortDesc: "In Sun, this Pokemon's Speed is doubled and its Bug moves deal 2x damage.",
+	},
+	solarpanel: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.category === 'Special') {
+				this.debug('Solar Panel boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Solar Panel",
+		shortDesc: "Battery + Chlorophyll",
+	},
+	staticdust: {
+		onModifySecondaries(secondaries) {
+			this.debug('Static Dust prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Static Dust",
+		shortDesc: "Shield Dust + Static",
+	},
+	gangly: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Gangly boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Gangly');
+			pokemon.setItem(item);
+		},
+		flags: {},
+		name: "Gangly",
+		shortDesc: "Reckless + Pickup",
+	},
+	zappysap: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Zappy Sap');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Electric' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Zappy Sap');
+				}
+				return this.effectState.target;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Zappy Sap",
+		shortDesc: "This Pokemon draws Electric moves to itself to raise Sp. Atk by 1; Electric immunity.",
+	},
+	rockfeet: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		flags: {},
+		name: "Rock Feet",
+		shortDesc: "Quick Feet + Rock Head",
+	},
+	rivalgroup: {
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, attacker, defender, move) {
+			if (typeof accuracy !== 'number') return;
+			if (attacker.gender && defender.gender) {
+				if (attacker.gender === defender.gender) {
+					this.debug('rivalgroup - enhancing accuracy');
+					return this.chainModify([5325, 4096]);
+				} else {
+					this.debug('rivalgroup - decreasing accuracy');
+					return this.chainModify([2867, 4096]);
+				}
+			}
+		},
+		flags: {},
+		name: "Rival Group",
+		shortDesc: "This Pokemon's moves have 1.3x accuracy on same gendered targets, 0.7x on opposite gendered.",
+	},
+	hitandrun: {
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon, target, move) {
+			if (move?.category === 'Status') {
+				this.add('cant', pokemon, 'ability: Hit and Run');
+				return false;
+			}
+		},
+		flags: {},
+		name: "Hit and Run",
+		shortDesc: "This Pokemon's status moves have no competitive use.",
+	},
+	picktempo: {
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Pick Tempo');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Pick Tempo');
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move?.flags['contact']) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Pick Tempo', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Pick Tempo', '[of] ' + source);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) { // add other intim clones here
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Pick Tempo', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Pick Tempo",
+		shortDesc: "Own Tempo + Pickpocket",
+	},
+	moreburdens: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: More Burdens');
+			pokemon.setItem(item);
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target) return;
+			pokemon.addVolatile('moreburdens');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('moreburdens');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('moreburdens');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item && !pokemon.ignoringAbility()) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		flags: {},
+		name: "More Burdens",
+		shortDesc: "Pickup + Unburden",
+	},
+	fatcat: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Fat Cat boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Fat Cat boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Fat Cat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Fat Cat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Fat Cat",
+		shortDesc: "Thick Fat + Blaze",
+	},
 };
