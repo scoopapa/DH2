@@ -2165,7 +2165,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(target) {
 				this.boost({def: 2});
-				this.heal(target.baseMaxhp / 3);
+				this.heal(target.baseMaxhp / 4);
 				target.removeVolatile('clumpingup');
 			},
 			onEnd(target) {
