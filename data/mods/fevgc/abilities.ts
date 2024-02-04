@@ -2165,6 +2165,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Clumping Up",
 		shortDesc: "Water Compaction + Water Absorb",
 	},
+	dissolution: {
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('raindance')) {
+				this.debug('Dissolution - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Dissolution",
+		shortDesc: "If Rain is active, this Pokemon's evasiveness is 1.25x.",
+	},
 	hydrostaticpressure: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Hydrostatic Pressure');
