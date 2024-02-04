@@ -3109,7 +3109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Stench + Chlorophyll",
 	},
 	fastflame: {
-		onFlinch(damage, target, source, move)) {
+		onFlinch(damage, target, source, move) {
 			this.boost({spe: 2}, target, target);
 			source.trySetStatus('brn', target);
 		},
