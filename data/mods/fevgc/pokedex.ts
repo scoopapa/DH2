@@ -260,8 +260,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricorioampedpompom: {
 		num: 2030,
 		name: "Toxtricorio-Amped-Pom-Pom",
-		baseSpecies: "Toxtricorio",
-		forme: "Amped-Pom-Pom",
 		types: ["Flying", "Electric"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -270,8 +268,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricorioampedbaile: {
 		num: 2030,
 		name: "Toxtricorio-Amped-Baile",
-		baseSpecies: "Toxtricorio",
-		forme: "Amped-Baile",
 		types: ["Fire", "Electric"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -280,8 +276,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricorioampedpau: {
 		num: 2030,
 		name: "Toxtricorio-Amped-Pau",
-		baseSpecies: "Toxtricorio",
-		forme: "Amped-Pau",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -290,8 +284,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricorioampedsensu: {
 		num: 2030,
 		name: "Toxtricorio-Amped-Sensu",
-		baseSpecies: "Toxtricorio",
-		forme: "Amped-Sensu",
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -300,8 +292,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricoriolowkeypompom: {
 		num: 2030,
 		name: "Toxtricorio-Low-Key-Pom-Pom",
-		baseSpecies: "Toxtricorio",
-		forme: "Low-Key-Pom-Pom",
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -310,8 +300,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricoriolowkeybaile: {
 		num: 2030,
 		name: "Toxtricorio-Low-Key-Baile",
-		baseSpecies: "Toxtricorio",
-		forme: "Low-Key-Baile",
 		types: ["Fire", "Poison"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -320,8 +308,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricoriolowkeypau: {
 		num: 2030,
 		name: "Toxtricorio-Low-Key-Pau",
-		baseSpecies: "Toxtricorio",
-		forme: "Low-Key-Pau",
 		types: ["Psychic", "Poison"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -330,8 +316,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricoriolowkeysensu: {
 		num: 2030,
 		name: "Toxtricorio-Low-Key-Sensu",
-		baseSpecies: "Toxtricorio",
-		forme: "Low-Key-Sensu",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 75, atk: 84, def: 70, spa: 106, spd: 70, spe: 104},
 		abilities: {0: "Parroting"},
@@ -389,8 +373,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	lycanrosmiddaypaldeaaqua: {
 		num: 2044,
 		name: "Lycanros-Midday-Paldea-Aqua",
-		baseSpecies: "Lycanros",
-		forme: "Midday-Paldea-Aqua",
 		types: ["Rock", "Water"],
 		baseStats: {hp: 85, atk: 117, def: 85, spa: 42, spd: 67, spe: 109},
 		abilities: {0: "Eliminate", 1: "Oasis Lunch", H: "Fighting Fury"},
@@ -399,8 +381,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	lycanrosmidnightpaldeablaze: {
 		num: 2044,
 		name: "Lycanros-Midnight-Paldea-Blaze",
-		baseSpecies: "Lycanros",
-		forme: "Midnight-Paldea-Blaze",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 95, atk: 115, def: 90, spa: 42, spd: 72, spe: 91},
 		abilities: {0: "Dominate", 1: "Night Snack", H: "Rustle Rage"},
@@ -409,8 +389,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	lycanrosduskpaldeacombat: {
 		num: 2044,
 		name: "Lycanros-Dusk-Paldea-Combat",
-		baseSpecies: "Lycanros",
-		forme: "Dusk-Paldea-Combat",
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 90, atk: 113, def: 85, spa: 42, spd: 70, spe: 105},
 		abilities: {0: "Obliterate"},
