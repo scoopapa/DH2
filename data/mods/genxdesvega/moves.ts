@@ -1231,21 +1231,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 	},
-	/*knockoff: {
+	knockoff: {
 		inherit: true,
 		onAfterHit(target, source) {
 			if (source.hp) {
 				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
-					for (const pokemon in this.getAllActive()) {
-	  //TODO: Figure out why this ability check crashes (apparently it's not defined???)
+					for (const pokemon of this.getAllActive()) {
 						if (pokemon.hasAbility('ravenous')) this.heal(pokemon.maxhp / 6, pokemon, pokemon, this.dex.abilities.get('ravenous'));
 					}
 				}
 			}
 		},
-	},*/
+	},
 	//There are mons that got dexited in SV but not Desvega and thus their signatures can't be used, so freeing their signatures here
 	naturesmadness: {
 		inherit: true,
