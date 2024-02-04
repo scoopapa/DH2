@@ -2600,6 +2600,18 @@ export const Formats: FormatList = [
 		// ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Data Mod', 'Z-Move Clause'],
 	// },
 	// {
+// name: "[Gen 1] Modern Gen 1 Randbats",
+		// desc: [
+			// "<b>Modern Gen 1</b>: Gen 1 with all Pokemon and moves from Gen 9 Natdex added.",
+		// ],
+		// threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Thread on the Smogon Forums</a>`,
+		// ],
+		// mod: 'moderngen1',	
+		// team: 'random',
+		// ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	// },
+	// {
 		// name: "[Gen 8] Roulettemons Random",
 		// threads: [
 			// `&bullet; <a href="https://www.smogon.com/forums/threads/3649106/">Roulettemons on Smogon Forums</a>`,
@@ -3268,6 +3280,16 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
 		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
+	},
+	{
+		name: "[Gen 1] Modern Gen 1 Randbats",
+		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">MG1</a>`,
+		],
+		mod: 'moderngen1',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod','Mega Data Mod'],
 	},
 	{
 		name: "[Gen 1] Modern Gen 1 Ubers",
