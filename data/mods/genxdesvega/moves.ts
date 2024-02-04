@@ -1551,7 +1551,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Century Blade",
 		pp: 10,
 		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1, contact: 1},
+		flags: {charge: 1, protect: 1, mirror: 1, contact: 1, slicing: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
