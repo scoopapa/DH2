@@ -56,9 +56,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Keen Eye + Shell Armor",
 	},
 	rootsnap: {
-		onModifyMove(move) {
-			move.ignoreAbility = true;
-      // come back and add a check for all immunity abilities
+		onModifyMove(move, attacker, defender) {
+				for (const immunity of ['dryskin', 'flashfire', 'sapsipper', 'lightningrod', 'motordrive', 'stormdrain', 'voltabsorb',
+					'waterabsorb', 'eartheater', 'sappyjest', 'heatblade', 'eerieflames', 'mindallign', 'nightlyjokes', 'levitate', 'leafcoat',
+					'friendlyprank', 'bulletproof', 'soundproof', 'wellbakedbody', 'clumpingup', 'windrider', 'wonderguard', 'divegoggles',
+					'smokeabsorb', 'sandproof', 'pyrotechnic', 'smelting', 'goodasgold', 'owntides', 'sturdyfire', 'speedyfire', 'ghoulfire',
+					'clueless', 'sirocco', 'sunlitflight', 'lithoproof', 'shockhorror', 'respark', 'hydrophillic', 'bulletveil', 'rekindle']) {
+				if (defender.hasAbility(immunity)) {
+					move.ignoreAbility = true;
+				}
+			}
 		},
 		flags: {},
 		name: "Root Snap",
