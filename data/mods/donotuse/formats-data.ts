@@ -200,7 +200,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	nidoranm: {
-		tier: "DoNU",
+		tier: "DoNU Uber",
 		isNonstandard: null,
 	},
 	nincada: {
