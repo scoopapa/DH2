@@ -58,7 +58,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rootsnap: {
 		onModifyMove(move, attacker, defender) {
 				for (const immunity of ['dryskin', 'flashfire', 'sapsipper', 'lightningrod', 'motordrive', 'stormdrain', 'voltabsorb',
-					'waterabsorb', 'eartheater', 'sappyjest', 'heatblade', 'eerieflames', 'mindallign', 'nightlyjokes', 'levitate', 'leafcoat',
+					'waterabsorb', 'eartheater', 'sappyjest', 'heatblade', 'eerieflames', 'mindalign', 'nightlyjokes', 'levitate', 'leafcoat',
 					'friendlyprank', 'bulletproof', 'soundproof', 'wellbakedbody', 'clumpingup', 'windrider', 'wonderguard', 'divegoggles',
 					'smokeabsorb', 'sandproof', 'pyrotechnic', 'smelting', 'goodasgold', 'owntides', 'sturdyfire', 'speedyfire', 'ghoulfire',
 					'clueless', 'sirocco', 'sunlitflight', 'lithoproof', 'shockhorror', 'respark', 'hydrophillic', 'bulletveil', 'rekindle']) {
