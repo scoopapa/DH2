@@ -3037,28 +3037,29 @@ export const Formats: FormatList = [
 		// name: "officialnonsmogonformats",
 	},
 	{
-		name: "[Gen 9] Battle Stadium Singles Regulation E",
+		name: "[Gen 9] BSS Reg F",
 
 		mod: 'gen9',
+		bestOfDefault: true,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer'],
-		banlist: ['Walking Wake', 'Iron Leaves'],
+		banlist: [],
 	},
 	{
-		name: "[Gen 9] VGC 2023 Regulation E",
+		name: "[Gen 9] VGC 2024 Reg F",
 
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets'],
-		banlist: ['Walking Wake', 'Iron Leaves'],
+		banlist: [],
 	},
 	{
-		name: "[Gen 9] VGC 2023 Regulation E (Bo3)",
+		name: "[Gen 9] VGC 2024 Reg F (Bo3)",
 
 		mod: 'gen9',
 		gameType: 'doubles',
 		challengeShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3'],
-		banlist: ['Walking Wake', 'Iron Leaves'],
+		banlist: [],
 	},
 
 	///////////////////////////////////////////////////////////////
@@ -3247,19 +3248,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
-	{
-		name: "[Gen 9] vgc reg e but you only have sv",
-		mod: 'vgccopium',
-		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets'],
-		banlist: ['Raichu-Alola', 'Diglett-Alola', 'Dugtrio-Alola', 'Meowth-Alola', 'Persian-Alola', 'Grimer-Alola', 'Muk-Alola',
-					 'Voltorb-Hisui', 'Electrode-Hisui', 'Kleavor', 'Articuno-Galar', 'Moltres-Galar', 'Zapdos-Galar',
-					 'Qwilfish-Hisui', 'Overqwil', 'Sneasel-Hisui', 'Sneasler', 'Ursaluna-Base', 'Wyrdeer', 'Uxie', 'Mesprit', 'Azelf',
-					 'Heatran', 'Cresselia', 'Lilligant-Hisui', 'Braviary-Hisui', 'Tornadus', 'Thundurus', 'Landorus',
-					 'Sliggoo-Hisui', 'Goodra-Hisui', 'Avalugg-Hisui', 'Kubfu', 'Urshifu', 'Regieleki', 'Regidrago', 'Glastrier', 'Spectrier',
-					 'Enamorus', 'Sandshrew-Alola', 'Sandslash-Alola', 'Ninetales-Alola', 'Vulpix-Alola', 'Geodude-Alola', 'Graveler-Alola',
-					 'Golem-Alola', 'Weezing-Galar', 'Zapdos', 'Articuno', 'Moltres'],
 	},
 	{
 		name: "[Gen 9] White Tusk",
