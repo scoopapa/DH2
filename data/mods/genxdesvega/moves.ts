@@ -1044,6 +1044,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	naturepower: {
 		inherit: true,
+		isNonstandard: null,
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
 			if (this.field.isTerrain('electricterrain')) {
@@ -1114,6 +1115,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	secretpower: {
 		inherit: true,
+		isNonstandard: null,
 		onModifyMove(move, pokemon) {
 			if (this.field.isTerrain('')) return;
 			move.secondaries = [];
@@ -1153,6 +1155,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	camouflage: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "The user's type changes based on the battle terrain. Normal type on the regular Wi-Fi terrain, Electric type during Electric Terrain, Fairy type during Misty Terrain, Grass type during Grassy Terrain, Psychic type during Psychic Terrain, and Poison type during Poison Terrain. Fails if the user's type cannot be changed or if the user is already purely that type.",
 		onHit(target) {
 			let newType = 'Normal';
@@ -1235,7 +1238,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
-					for (const pokemon in this.getAllActive()) {
+					for (const pokemon of this.getAllActive()) {
 						if (pokemon.hasAbility('ravenous')) this.heal(pokemon.maxhp / 6, pokemon, pokemon, this.dex.abilities.get('ravenous'));
 					}
 				}
@@ -1254,6 +1257,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		isNonstandard: null,
 	},
 	shelltrap: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
+	//misc movexit undoing
+	frustration: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	return: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	naturalgift: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1530,7 +1551,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Century Blade",
 		pp: 10,
 		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1, contact: 1},
+		flags: {charge: 1, protect: 1, mirror: 1, contact: 1, slicing: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
