@@ -453,18 +453,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	yanroar: {
 		num: 2054,
 		name: "Yanroar",
-		gender: "M",
-		types: ["Bug", "Fire"],
-		baseStats: {hp: 86, atk: 72, def: 79, spa: 112, spd: 61, spe: 100},
-		abilities: {0: "Move Mastery", 1: "Item Lockdown", H: "Speedy"},
-		otherFormes: ["Yanroar-F"],
-		formeOrder: ["Yanroar", "Yanroar-F"],
-		weightkg: 66.5,
-	},
-	yanroarf: {
-		num: 2054,
-		name: "Yanroar-F",
-		gender: "F",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 86, atk: 72, def: 79, spa: 112, spd: 61, spe: 100},
 		abilities: {0: "Move Mastery", 1: "Item Lockdown", H: "Speedy"},
