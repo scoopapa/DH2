@@ -28,6 +28,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	indeechufalola: {
 		num: 2003,
 		name: "Indeechu-F-Alola",
+		gender: "F",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 70, atk: 70, def: 60, spa: 95, spd: 100, spe: 100},
 		abilities: {0: "Electric Surge"},
