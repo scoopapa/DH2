@@ -1250,7 +1250,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
-				this.add('-immune', pokemon, '[from] ability: Clueless');
+				this.add('-immune', target, '[from] ability: Clueless');
 				return null;
 			}
 		},
