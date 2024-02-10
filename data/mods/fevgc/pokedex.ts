@@ -374,6 +374,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	lycanrosmiddaypaldeaaqua: {
 		num: 2044,
 		name: "Lycanros-Midday-Paldea-Aqua",
+		gender: "M",
 		types: ["Rock", "Water"],
 		baseStats: {hp: 85, atk: 117, def: 85, spa: 42, spd: 67, spe: 109},
 		abilities: {0: "Eliminate", 1: "Oasis Lunch", H: "Fighting Fury"},
@@ -382,6 +383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	lycanrosmidnightpaldeablaze: {
 		num: 2044,
 		name: "Lycanros-Midnight-Paldea-Blaze",
+		gender: "M",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 95, atk: 115, def: 90, spa: 42, spd: 72, spe: 91},
 		abilities: {0: "Dominate", 1: "Night Snack", H: "Rustle Rage"},
@@ -390,6 +392,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	lycanrosduskpaldeacombat: {
 		num: 2044,
 		name: "Lycanros-Dusk-Paldea-Combat",
+		gender: "M",
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 90, atk: 113, def: 85, spa: 42, spd: 70, spe: 105},
 		abilities: {0: "Obliterate"},
