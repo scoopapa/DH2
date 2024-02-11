@@ -1507,7 +1507,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-activate', source, 'ability: Scavenge');
-				this.heal(source.baseMaxhp / 3, source, source, effect);
+				this.heal(length * source.baseMaxhp / 3, source, source, effect);
 			}
 		},
 		onEatItem(item, pokemon) {
