@@ -1637,7 +1637,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				if (this.randomChance(3, 10)) {
-					this.add('-ability', target, 'Gooey');
+					this.add('-ability', target, 'Supercharming Syrup');
 					this.boost({evasion: -1}, source, target, null, true);
 				}
 			}
