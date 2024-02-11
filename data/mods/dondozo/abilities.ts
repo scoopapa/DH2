@@ -458,7 +458,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} transformed into Dondozo!`);
 			pokemon.formeChange('Dondozo');
-			pokemon.species.dondozo = true;
+			pokemon.m.dondozo = true;
 			const randAbil = this.random(3);
 			if (randAbil < 1) pokemon.setAbility('unaware');
 			else if (randAbil < 2) pokemon.setAbility('waterveil');
