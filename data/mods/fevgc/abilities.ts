@@ -1282,6 +1282,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	eerieflames: {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
+			if (move.type === 'Fire') {
+				this.add('-immune', pokemon, '[from] ability: Eerie Flames');
+				return null;
+			}
 			if (target === source || move.hasBounced || !move.flags['reflectable']) {
 				return;
 			}
@@ -1290,10 +1294,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			newMove.pranksterBoosted = false;
 			this.actions.useMove(newMove, target, source);
 			return null;
-			if (move.type === 'Fire') {
-				this.add('-immune', pokemon, '[from] ability: Eerie Flames');
-				return null;
-			}
 		},
 		onAllyTryHitSide(target, source, move) {
 			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
