@@ -3289,7 +3289,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen1',
 		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod','Mega Data Mod'],
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
 		name: "[Gen 1] Modern Gen 1 Ubers",
