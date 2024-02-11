@@ -1339,6 +1339,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	noxioustorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	/*
 	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them
