@@ -102,7 +102,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 124, spd: 84, spe: 82},
 	},
-
+	revavroom: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 119, def: 110, spa: 54, spd: 77, spe: 100},
+		abilities: {0: "Overcoat", 1: "Neutralizing Gas", H: "Filter"},
+	},
+	kilowattrel: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 70, def: 70, spa: 115, spd: 70, spe: 125},
+	},
+	togekiss: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 60, def: 95, spa: 120, spd: 115, spe: 90},
+		abilities: {0: "Thick Fat", 1: "Serene Grace", H: "Super Luck"},
+	},
+	ninjask: {
+		inherit: true,
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 81, atk: 110, def: 45, spa: 50, spd: 50, spe: 160},
+		abilities: {0: "Speed Boost", 1: "Sharpness", H: "Infiltrator"},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
