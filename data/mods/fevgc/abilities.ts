@@ -3246,6 +3246,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		onAfterBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
+				this.boost({spe: 1});
+			}
+		},
 		flags: {breakable: 1},
 		name: "Ghoul Fire",
 		shortDesc: "Speed is raised 1 stage if hit by a Bug-, Dark-, Fire- or Ghost-type move; Immunity to those types.",
