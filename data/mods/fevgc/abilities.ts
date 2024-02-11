@@ -145,6 +145,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
 		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Hyperfocus', '[of] ' + target);
+			}
+		},
 		onCriticalHit: false,
 		flags: {breakable: 1},
 		name: "Hyperfocus",
@@ -2876,6 +2883,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!(effect as ActiveMove).secondaries) {
 					this.add("-fail", target, "unboost", "Speed", "[from] ability: Goo With The Flow", "[of] " + target);
 				}
+			}
+			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Goo With The Flow', '[of] ' + target);
 			}
 		},
 		flags: {},
