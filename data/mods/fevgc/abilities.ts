@@ -1283,7 +1283,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (move.type === 'Fire') {
-				this.add('-immune', pokemon, '[from] ability: Eerie Flames');
+				this.add('-immune', target, '[from] ability: Eerie Flames');
 				return null;
 			}
 			if (target === source || move.hasBounced || !move.flags['reflectable']) {
