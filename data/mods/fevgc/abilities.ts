@@ -723,7 +723,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
 				this.boost({def: -1, spe: 2}, target, target);
-				pokemon.weighthg = Math.max(1, pokemon.weighthg / 2);
+				target.weighthg = Math.max(1, target.weighthg / 2);
 			}
 		},
 		flags: {},
