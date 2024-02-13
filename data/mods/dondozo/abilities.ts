@@ -454,7 +454,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		rating: 5,
 		num: -1001,
 	},
@@ -465,7 +465,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} transformed into Dondozo!`);
 			pokemon.formeChange('Dondozo');
-			pokemon.species.dondozo = true;
+			pokemon.m.dondozo = true;
 			const randAbil = this.random(3);
 			if (randAbil < 1) pokemon.setAbility('unaware');
 			else if (randAbil < 2) pokemon.setAbility('waterveil');
