@@ -54,8 +54,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Eisugiri-Dondozo');
 				pokemon.setAbility('coldcommander');
 			}
+			if (pokemon.species.id === 'eisugiridondozo' && !this.effectState.busted) {
+				pokemon.formeChange('Eisugiri');
+				pokemon.setAbility('coldcommander');
+			}
 		},
-		onWeatherStart(pokemon, source, sourceEffect) {
+		onWeatherChange(pokemon, source, sourceEffect) {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
@@ -114,7 +118,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	commanderguard: {
 		onTryHit(target, source, move) {
 			this.debug('Commander Guard immunity: ' + move.id);
-			if (target === source || move.type === '???' || move.id === 'struggle') return;
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
 			if (!source.species.dondozo && source.species.id !== "shedigiri") {
 				if (move.smartTarget) {
 					move.smartTarget = false;
@@ -349,6 +353,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	fishbond: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') return;
+			if (source.abilityState.battleBondTriggered) return;
 			if (source.species.id === 'grenigiri' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
 				this.add('-activate', source, 'ability: Fish Bond');
 				pokemon.formeChange('Grenigiri-Dondozo', effect, true);
@@ -356,11 +361,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (randAbil < 1) pokemon.setAbility('unaware');
 				else if (randAbil < 2) pokemon.setAbility('waterveil');
 				else pokemon.setAbility('oblivious');
+				this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe: 2});
+				source.abilityState.battleBondTriggered = true;
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Fish Bond",
-		shortDesc: "When this Pokemon attacks and KOes another Pokemon, it transforms into Dondozo.",
+		shortDesc: "After KOing a Pokemon: raises all stats by 2, transforms into Dondozo. Once per battle.",
 	},
 	zombiefish: {
 		shortDesc: "When this Pokemon faints, it's replaced by a Dondozo with 1/4 max HP.",
@@ -447,7 +454,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		rating: 5,
 		num: -1001,
 	},
@@ -458,7 +465,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} transformed into Dondozo!`);
 			pokemon.formeChange('Dondozo');
-			pokemon.species.dondozo = true;
+			pokemon.m.dondozo = true;
 			const randAbil = this.random(3);
 			if (randAbil < 1) pokemon.setAbility('unaware');
 			else if (randAbil < 2) pokemon.setAbility('waterveil');
@@ -588,7 +595,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Call for Help",
-		shortDesc: "(Mimigiri only) The first hit it takes is blocked, and it takes 1/8 HP damage instead and becomes Dondozo.",
+		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead and becomes Dondozo.",
 	},
 	ouroboros: {
 		onStart(pokemon) {
@@ -660,7 +667,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeSwitchIn(pokemon) {
 			const set = {
 			   name: "Dondozo",
-			   moves: ["Liquidation", "Body Press", "Curse", "Rest"],
+			   moves: ["Avalanche", "Body Press", "Curse", "Rest"],
 			};
 			pokemon.illusion = new Pokemon(set, pokemon.side);
 		},
