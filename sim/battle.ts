@@ -2168,11 +2168,11 @@ export class Battle {
 		let statName: keyof StatsTable;
 		for (statName in modStats) {
 			const stat = baseStats[statName];
-			modStats[statName] = tr(tr(2 * stat + set.ivs[statName] + tr(set.evs[statName] / 4)) * set.level / 100 + 5);
+			modStats[statName] = tr(((2 * (stat + set.ivs[statName]) + set.evs[statName]) / 100) * set.level + 5);
 		}
 		if ('hp' in baseStats) {
 			const stat = baseStats['hp'];
-			modStats['hp'] = tr(tr(2 * stat + set.ivs['hp'] + tr(set.evs['hp'] / 4) + 100) * set.level / 100 + 10);
+			modStats['hp'] = ((2 * (stat + set.ivs['hp']) + set.evs['hp']) / 100 + 1) * set.level + 10;
 		}
 		return this.natureModify(modStats as StatsTable, set);
 	}
