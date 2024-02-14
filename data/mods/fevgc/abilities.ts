@@ -69,7 +69,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Root Snap",
-		shortDesc: "(Placeholder) This Pokemon's moves ignore ability-based immunities",
+		shortDesc: "This Pokemon's moves ignore ability-based immunities",
 	},
 	hydrovision: {
 		onResidualOrder: 5,
@@ -116,7 +116,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.status === 'slp') {
 				this.add('-activate', pokemon, 'ability: Restless Speed');
 				pokemon.cureStatus();
-        this.boost({spe: 1}, pokemon, pokemon, null, false, true);
+				this.boost({spe: 1}, pokemon, pokemon, null, false, true);
 			}
 		},
 		onSetStatus(status, target, source, effect) {
@@ -124,13 +124,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Restless Speed');
 			}
-      this.boost({spe: 1}, target, target, null, false, true);
+			this.boost({spe: 1}, target, target, null, false, true);
 			return false;
 		},
 		onTryAddVolatile(status, target) {
 			if (status.id === 'yawn' || status.id === 'flinch') {
 				this.add('-immune', target, '[from] ability: Restless Speed');
-        this.boost({spe: 1}, target, target, null, false, true);
+				this.boost({spe: 1}, target, target, null, false, true);
 				return null;
 			}
 		},
@@ -1820,7 +1820,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			if (statsLowered) {
-				source.addVolatile('embargo')
+				source.addVolatile('embargo');
 			}
 		},
 		flags: {},
