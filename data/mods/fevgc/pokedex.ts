@@ -9,7 +9,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 171.3,
 	},
 	meowsdraf: {
-		num: 2001,
+		num: 2000,
 		name: "Meowsdra-F",
 		gender: "F",
 		types: ["Psychic", "Dragon"],
