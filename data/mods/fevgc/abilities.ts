@@ -28,7 +28,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(pokemon, target, move) {
-			if (move.priority > 0.1) {
+			if (move.priority > 0.1 && target !== pokemon) {
 				this.add('-immune', pokemon, '[from] ability: Sappy Jest');
 				return null;
 			}
