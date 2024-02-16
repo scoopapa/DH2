@@ -1996,7 +1996,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] DNU Randbats",
-		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
+		desc: `<b>Do Not Use</b>: A National Dex metagame where only Pokemon with 280 BST or less are allowed.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-do-not-use.3734326/">Do Not Use</a>`,
 		],
