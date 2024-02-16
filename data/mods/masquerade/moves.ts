@@ -951,7 +951,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			case 'Sinistcha-Corrosive': case 'Sinistcha-Corrosive-Tera': case 'Sinistcha-Masterpiece-Corrosive': case 'Sinistcha-Masterpiece-Corrosive-Tera':
 				move.type = 'Poison';
 				break;
-			case 'Sinistcha-Pure': case 'Sinistcha-Pure-Tera': case 'Sinistcha-Masterpiece-Corrosive': case 'Sinistcha-Masterpiece-Corrosive-Tera':
+			case 'Sinistcha-Pure': case 'Sinistcha-Pure-Tera': case 'Sinistcha-Masterpiece-Pure': case 'Sinistcha-Masterpiece-Pure-Tera':
 				move.type = 'Water';
 				break;
 			}
