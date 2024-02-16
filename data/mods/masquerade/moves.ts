@@ -1049,7 +1049,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
