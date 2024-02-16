@@ -111,4 +111,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Honeystone",
 		rating: 3.5,
 	},
+	noxiousliquid: {
+		shortDesc: "This Pokemon's Poison moves can hit Steel-types.",
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		flags: {},
+		name: "Noxious Liquid",
+		rating: 3.5,
+	},
+	purewater: {
+		shortDesc: "This Pokemon's draining moves heal it 50% more than usual.",
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Pure Water",
+		rating: 3.5,
+	},
 };
