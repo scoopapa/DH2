@@ -932,6 +932,127 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Tough",
 	},
+	matchagotcha: {
+		num: 902,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Matcha Gotcha",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		thawsTarget: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Sinistcha-Scalding': case 'Sinistcha-Scalding-Tera': case 'Sinistcha-Masterpiece-Scalding': case 'Sinistcha-Masterpiece-Scalding-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Sinistcha-Corrosive': case 'Sinistcha-Corrosive-Tera': case 'Sinistcha-Masterpiece-Corrosive': case 'Sinistcha-Masterpiece-Corrosive-Tera':
+				move.type = 'Poison';
+				break;
+			case 'Sinistcha-Pure': case 'Sinistcha-Pure-Tera': case 'Sinistcha-Masterpiece-Corrosive': case 'Sinistcha-Masterpiece-Corrosive-Tera':
+				move.type = 'Water';
+				break;
+			}
+		},
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Grass",
+	},
+	dracometeor: {
+		num: 434,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Draco Meteor",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tatsugiri-Riceroll': case 'Tatsugiri-Riceroll-Tera':
+				move.type = 'Fairy';
+				break;
+			case 'Tatsugiri-Tempura': case 'Tatsugiri-Tempura-Tera':
+				move.type = 'Fire';
+				break;
+			}
+		},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	seedbomb: {
+		num: 402,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Seed Bomb",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tsareena-Winterstyle': case 'Tsareena-Winterstyle-Tera':
+				move.type = 'Ice';
+				break;
+			case 'Tsareena-Feathercrown': case 'Tsareena-Feathercrown-Tera':
+				move.type = 'Flying';
+				break;
+			case 'Tsareena-Warmaidens': case 'Tsareena-Warmaidens-Tera':
+				move.type = 'Fighting';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	fungalenergy: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals the user by 50% of their max HP and sets Misty Terrain.",
+		name: "Fungal Energy",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		terrain: 'mistyterrain',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Recover", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Toedscruel-Fairydust': case 'Toedscruel-Fairydust-Tera':
+				move.type = 'Fairy';
+				break;
+			case 'Toedscruel-Wyrmstool': case 'Toedscruel-Wyrmstool-Tera':
+				move.type = 'Dragon';
+				break;
+			case 'Toedscruel-Mushroot': case 'Toedscruel-Mushroot-Tera':
+				move.type = 'Normal';
+				break;
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
 
 // unchanged moves
 	defog: {
