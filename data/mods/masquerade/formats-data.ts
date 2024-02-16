@@ -367,4 +367,80 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	toedscruel: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	toedscruelmushroot: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	toedscruelwyrmstool: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	toedscruelfairydust: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareena: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareenawarmaidens: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareenafeathercrown: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareenawinterstyle: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistcha: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchascalding: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchacorrosive: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchapure: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiece: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiecescalding: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiececorrosive: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiecepure: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tatsugiri: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tatsugiririceroll: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tatsugiritempura: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
