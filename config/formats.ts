@@ -1995,6 +1995,16 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] DNU Randbats",
+		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-do-not-use.3734326/">Do Not Use</a>`,
+		],
+		mod: 'donotuse',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Cancel Mod'],
+	},
+	{
 		name: "[Gen 9] Dream World Theorymons",
 		desc: '<b>[Gen 8] Gen 9 Dream World Theorymons</b>: A testing ground for the Gen 9 OU Theorymons metagame.',
 		mod: 'outheorymons',
