@@ -652,7 +652,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	amoonguss: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	alomomola: {
@@ -704,7 +704,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	tornadustherian: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	thundurus: {
@@ -964,7 +964,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	barraskewda: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	toxtricity: {
@@ -1152,7 +1152,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	garganacl: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	armarouge: {
@@ -1332,7 +1332,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	roaringmoon: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	ironvaliant: {
@@ -1674,6 +1674,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ironboulder: {
+		tier: "UU",
+	},
+	pecharunt: {
 		tier: "OU",
 	},
 	venusaur: {
@@ -1841,7 +1844,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	regigigas: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	latias: {
