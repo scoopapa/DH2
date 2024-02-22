@@ -2175,7 +2175,7 @@ export const Formats: FormatList = [
 		      ],
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod'],
-		mod: 'fevgc',
+		mod: 'gen9fevgc',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -2198,7 +2198,7 @@ export const Formats: FormatList = [
 		      ],
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Data Mod', 'Force Open Team Sheets', 'Best of = 3'],
-		mod: 'fevgc',
+		mod: 'gen9fevgc',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
