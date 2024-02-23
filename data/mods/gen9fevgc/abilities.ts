@@ -4,14 +4,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.infiltrates = true;
 		},
 		onSourceDamagingHit(damage, target, source, move) {
+         if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
 				for (const side of [source.side.foeSidesWithConditions()]) {
-            	if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
             	if (target.volatiles['substitute'] || side.getSideCondition(sideCondition)) {
-              		if (this.randomChance(10, 10)) {
                 		this.add('-ability', source, 'Sly Slime');
                 		this.boost({spe: -1}, target, source, null, true);
-						}
+							return;
 					}
 				}
 			}
@@ -57,15 +56,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	rootsnap: {
 		onModifyMove(move, attacker, defender) {
-				for (const immunity of ['dryskin', 'flashfire', 'sapsipper', 'lightningrod', 'motordrive', 'stormdrain', 'voltabsorb',
+				if (defender.hasAbility(['dryskin', 'flashfire', 'sapsipper', 'lightningrod', 'motordrive', 'stormdrain', 'voltabsorb',
 					'waterabsorb', 'eartheater', 'sappyjest', 'heatblade', 'eerieflames', 'mindalign', 'nightlyjokes', 'levitate', 'leafcoat',
 					'friendlyprank', 'bulletproof', 'soundproof', 'wellbakedbody', 'clumpingup', 'windrider', 'wonderguard', 'divegoggles',
 					'smokeabsorb', 'sandproof', 'pyrotechnic', 'smelting', 'goodasgold', 'owntides', 'sturdyfire', 'speedyfire', 'ghoulfire',
-					'clueless', 'sirocco', 'sunlitflight', 'lithoproof', 'shockhorror', 'respark', 'hydrophillic', 'bulletveil', 'rekindle']) {
-				if (defender.hasAbility(immunity)) {
-					move.ignoreAbility = true;
+					'clueless', 'sirocco', 'sunlitflight', 'lithoproof', 'shockhorror', 'respark', 'hydrophillic', 'bulletveil', 'rekindle'])) {
+						move.ignoreAbility = true;
 				}
-			}
 		},
 		flags: {},
 		name: "Root Snap",
@@ -96,20 +93,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				return;
 			}
-			let statsLowered = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					statsLowered = true;
+					this.boost({spe: 2}, target, target, null, false, true);
+					return;
 				}
-			}
-			if (statsLowered) {
-				this.boost({spe: 2}, target, target, null, false, true);
 			}
 		},
 		flags: {},
 		name: "Goo-Getter",
-		shortDesc: "This Pokemon's Speed is raised by 2 for each of its stats that is lowered by a foe.",
+		shortDesc: "This Pokemon's Speed is raised by 2 when its stats are lowered by a foe.",
 	},
 	restlessspeed: {
 		onUpdate(pokemon) {
@@ -146,8 +140,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return critRatio + 1;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Hyperfocus', '[of] ' + target);
 			}
@@ -202,15 +196,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				return;
 			}
-			let statsLowered = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					statsLowered = true;
+					this.boost({spa: 2}, target, target, null, false, true);
+					return;
 				}
-			}
-			if (statsLowered) {
-				this.boost({spa: 2}, target, target, null, false, true);
 			}
 		},
 		// add ngas functionality in scripts
@@ -252,8 +243,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.speedSort(sortedActive);
 			for (const pokemon of sortedActive) {
 				if (pokemon !== source) {
-					if (pokemon.getAbility().flags['cantsuppress']) continue;
-					if (pokemon.hasItem('abilityshield')) continue;
+					if (pokemon.getAbility().flags['cantsuppress'] || pokemon.hasItem('abilityshield')) continue;
 					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 					if (pokemon.ability === "gluttony") {
 						pokemon.abilityState.gluttony = false;
@@ -284,8 +274,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Focus Falls', '[of] ' + target);
 			}
@@ -337,8 +327,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	stormysight: {
 		onStart(source) {
 			for (const action of this.queue) {
-				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyogre') return;
-				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+				if (action.choice === 'runPrimal') {
+					if (action.pokemon === source && source.species.id === 'kyogre') return;
+				} else if (action.choice !== 'runSwitch') break;
 			}
 			this.field.setWeather('raindance');
 		},
@@ -388,16 +379,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	solarradiation: {
 		onStart(source) {
 			for (const action of this.queue) {
-				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'groudon') return;
-				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+				if (action.choice === 'runPrimal') {
+						if (action.pokemon === source && source.species.id === 'groudon') return;
+				} else if (action.choice !== 'runSwitch') break;
 			}
 			this.field.setWeather('sunnyday');
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.trySetStatus('psn', target);
-				}
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.trySetStatus('psn', target);
 			}
 		},
 		flags: {},
@@ -408,12 +398,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
-				boosts['evasion'] = 0;
+			if (unawareUser === this.activePokemon) {
+				if (pokemon === this.activeTarget) {
+					boosts['def'] = 0;
+					boosts['spd'] = 0;
+					boosts['evasion'] = 0;
+				}
 			}
-			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
@@ -861,13 +853,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	pestilence: {
 		onBasePowerPriority: 24,
 		onBasePower(basePower, attacker, defender, move) {
-			if (!defender.hasType('Bug')) {
-				this.debug('Pestilence boost');
-				return this.chainModify(1.25);
-			} else {
+			if (defender.hasType('Bug')) {
 				this.debug('Pestilence weaken');
 				return this.chainModify(0.75);
 			}
+			this.debug('Pestilence boost');
+			return this.chainModify(1.25);
 		},
 		flags: {},
 		name: "Pestilence",
@@ -932,7 +923,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	prideful: {
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			move.ignoreImmunity ||= {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Fighting'] = true;
 				move.ignoreImmunity['Normal'] = true;
@@ -944,8 +935,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Prideful', '[of] ' + target);
 			}
@@ -1110,8 +1101,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tides', '[of] ' + target);
 			}
@@ -1153,10 +1144,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	obsidianbody: {
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.trySetStatus('brn', target);
-				}
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.trySetStatus('brn', target);
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
@@ -1276,8 +1265,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'attract') return false;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Clueless', '[of] ' + target);
 			}
@@ -1338,11 +1327,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	healingburns: {
 		onDamagingHit(damage, target, source, move) {
 			for (const allyActive of target.adjacentAllies()) {
-				if (this.checkMoveMakesContact(move, source, allyActive)) {
-					if (allyActive.status && this.randomChance(3, 10)) {
-						this.add('-activate', target, 'ability: Healing Burns');
-						allyActive.cureStatus();
-					}
+				if (this.checkMoveMakesContact(move, source, allyActive) && allyActive.status && this.randomChance(3, 10)) {
+					this.add('-activate', target, 'ability: Healing Burns');
+					allyActive.cureStatus();
 				}
 			}
 		},
@@ -1367,12 +1354,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (targetAbility.flags['cantsuppress'] || targetAbility.id === 'smellytouch') {
 				return;
 			}
-			if (this.checkMoveMakesContact(move, target, source)) {
-				if (this.randomChance(3, 10)) {
-					const oldAbility = target.setAbility('smellytouch', source);
-					if (oldAbility) {
-						this.add('-activate', source, 'ability: Smelly Touch', this.dex.abilities.get(oldAbility).name, '[of] ' + target);
-					}
+			if (this.checkMoveMakesContact(move, target, source) && this.randomChance(3, 10)) {
+				const oldAbility = target.setAbility('smellytouch', source);
+				if (oldAbility) {
+					this.add('-activate', source, 'ability: Smelly Touch', this.dex.abilities.get(oldAbility).name, '[of] ' + target);
 				}
 			}
 		},
@@ -1456,8 +1441,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Incorporate', '[of] ' + target);
 			}
@@ -1491,8 +1476,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	mindalign: {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if ((target !== source && move.type === 'Grass') ||
-				 (target !== source && target.isAlly(source) && move.category !== 'Status')) {
+			if (target !== source && (move.type === 'Grass' || (target.isAlly(source) && move.category !== 'Status'))) {
 				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] ability: Mind Align');
 				}
@@ -1633,6 +1617,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Supersweet Syrup', 'boost');
 					activated = true;
+					this.add('-ability', pokemon, 'Supercharming Syrup', '[silent]');
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
@@ -1642,16 +1627,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					this.add('-ability', target, 'Supercharming Syrup');
-					this.boost({evasion: -1}, source, target, null, true);
-				}
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				this.add('-ability', target, 'Supercharming Syrup');
+				this.boost({evasion: -1}, source, target, null, true);
 			}
 		},
 		flags: {breakable: 1},
 		name: "Supercharming Syrup",
-		shortDesc: "Lowers the foe's evasiveness once per battle. 30% chance to lower the evasiveness of foes making contact.",
+		shortDesc: "Lowers the foe's evasiveness on switch once per battle. 30% chance to lower the evasiveness of foes making contact.",
 	},
 	magicsticks: {
 		onDamage(damage, target, source, effect) {
@@ -1679,12 +1662,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
-				boosts['evasion'] = 0;
+			if (unawareUser === this.activePokemon) {
+				if (pokemon === this.activeTarget) {
+					boosts['def'] = 0;
+					boosts['spd'] = 0;
+					boosts['evasion'] = 0;
+				}
 			}
-			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
@@ -1701,18 +1686,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
-			let boosted = true;
 			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (this.queue.willMove(target)) {
-					boosted = false;
-					break;
+				if (target !== pokemon && this.queue.willMove(target)) {
+					return;
 				}
 			}
-			if (boosted) {
-				this.debug('Surgeon Eye boost');
-				return this.chainModify([5325, 4096]);
-			}
+			this.debug('Surgeon Eye boost');
+			return this.chainModify([5325, 4096]);
 		},
 		flags: {},
 		name: "Surgeon Eye",
@@ -1729,7 +1709,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Neutral Polarity",
-		shortDesc: "On switch-in, foe Steel-types have their stat changes reset.",
+		shortDesc: "On switch-in, opposing Steel-types have their stat changes reset.",
 	},
 	toughbrains: {
 		onTryHit(pokemon, target, move) {
@@ -1760,8 +1740,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Tough Brains', '[of] ' + target);
 			}
@@ -1812,15 +1792,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				return;
 			}
-			let statsLowered = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					statsLowered = true;
+					source.addVolatile('embargo');
+					return;
 				}
-			}
-			if (statsLowered) {
-				source.addVolatile('embargo');
 			}
 		},
 		flags: {},
@@ -1894,6 +1871,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					statsLowered = true;
+					break;
 				}
 			}
 			if (statsLowered) {
@@ -2162,22 +2140,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	clumpingup: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!target.addVolatile('clumpingup')) {
+				if (this.boost({def: 2})) {
+					this.heal(target.baseMaxhp / 4);
+				} else if (!this.heal(target.baseMaxhp / 4)) {
+					//Heal is attempted regardless of whether defense boost goes through
+					//The message shows up if neither the defense boost nor the healing goes through
 					this.add('-immune', target, '[from] ability: Clumping Up');
 				}
 				return null;
 			}
-		},
-		condition: {
-			noCopy: true,
-			onStart(target) {
-				this.boost({def: 2});
-				this.heal(target.baseMaxhp / 3);
-				target.removeVolatile('clumpingup');
-			},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Clumping Up', '[silent]');
-			},
 		},
 		flags: {breakable: 1},
 		name: "Clumping Up",
@@ -2186,8 +2157,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	dissolution: {
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('raindance')) {
+			if (typeof accuracy === 'number' && this.field.isWeather('raindance')) {
 				this.debug('Dissolution - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -2400,10 +2370,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	movemastery: {
 		onModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod < 0) {
+			if (!move) return;
+			const effectiveness = target.getMoveHitData(move).typeMod;
+			if (effectiveness < 0) {
 				this.debug('Move Mastery boost');
 				return this.chainModify(2);
-			} else if (move && target.getMoveHitData(move).typeMod > 0) {
+			} else if (effectiveness > 0) {
+				this.debug('Move Mastery boost');
 				return this.chainModify([5120, 4096]);
 			}
 		},
@@ -2510,6 +2483,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Blade Edge",
 		shortDesc: "Moxie + Sharpness",
 	},
+	armorconfidence: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		onCriticalHit: false,
+		flags: {breakable: 1},
+		name: "Armor Confidence",
+		shortDesc: "Moxie + Shell Armor",
+	},
 	joltspores: {
 		onStart(source) {
 			this.field.setTerrain('electricterrain');
@@ -2607,11 +2591,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceDamagingHit(damage, target, source, move) {
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
-			if (this.checkMoveMakesContact(move, target, source)) {
-				if (this.randomChance(3, 10)) {
+			if (!target.hasAbility('shielddust') && !target.hasItem('covertcloak')
+				 	&& this.checkMoveMakesContact(move, target, source) && this.randomChance(3,10)) {
 					target.trySetStatus('psn', source);
-				}
 			}
 		},
 		flags: {},
@@ -2679,11 +2661,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	revitalize: {
 		onDamagingHit(damage, target, source, move) {
-			if (source.volatiles['disable']) return;
-			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('disable', this.effectState.target);
-				}
+			if (!source.volatiles['disable'] && !move.flags['futuremove'] && move.id !== 'struggle' && !move.isMax && this.randomChance(3, 10)) {
+				source.addVolatile('disable', this.effectState.target);
 			}
 		},
 		onSwitchOut(pokemon) {
@@ -2714,8 +2693,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Growing Grass', '[of] ' + target);
 			}
@@ -2752,8 +2731,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Power', '[of] ' + target);
 			}
@@ -2772,7 +2751,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyAccuracyPriority: -1,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			this.debug('friendlylooks - enhancing accuracy');
+			this.debug('Friendly Looks - enhancing accuracy');
 			return this.chainModify([5325, 4096]);
 		},
 		flags: {breakable: 1},
@@ -2884,8 +2863,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add("-fail", target, "unboost", "Speed", "[from] ability: Goo With The Flow", "[of] " + target);
 				}
 			}
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Goo With The Flow', '[of] ' + target);
 			}
@@ -3239,7 +3218,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	ghoulfire: {
 		onTryHit(target, source, move) {
-			if (target !== source && (move.type === 'Bug' || move.type === 'Dark' || move.type === 'Fire' || move.type === 'Ghost')) {
+			if (target !== source && ['Bug', 'Dark', 'Fire', 'Ghost'].includes(move.type)) {
 				if (!this.boost({spe: 1})) {
 					this.add('-immune', target, '[from] ability: Ghoul Fire');
 				}
@@ -3401,8 +3380,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Fat', '[of] ' + target);
 			}
@@ -3445,10 +3424,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityState.berryWeaken = weakenBerries.includes(item.name);
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.addVolatile('attract', this.effectState.target);
-				}
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.addVolatile('attract', this.effectState.target);
 			}
 		},
 		flags: {},
@@ -3547,8 +3524,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
-			if (target !== source && move.category === 'Physical') {
+			if (move && target && source.switchFlag !== true && target !== source && move.category === 'Physical') {
 				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
 				const yourItem = target.takeItem(source);
 				if (!yourItem) return;
@@ -3600,14 +3576,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Bug' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.debug('Swarm boost');
+				this.debug('Summer Bugs boost');
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Bug' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.debug('Swarm boost');
+				this.debug('Summer Bugs boost');
 				return this.chainModify(2);
 			}
 		},
@@ -3638,10 +3614,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.randomChance(3, 10)) {
-					source.trySetStatus('par', target);
-				}
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.trySetStatus('par', target);
 			}
 		},
 		flags: {breakable: 1},
@@ -3777,8 +3751,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
-				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name) && boost.atk) {
+			if (boost.atk && ['Intimidate', 'Underestimate', 'Migrate', 'Incorporate', 'Hunger Fate', 'Eliminate', 'Dominate', 'Obliterate',
+				  'Sea Monster', 'Inflame', 'Brave Look'].includes(effect.name)) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Pick Tempo', '[of] ' + target);
 			}
