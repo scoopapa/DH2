@@ -1770,4 +1770,257 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Tatsugiri-Tempura: Terastallize to gain Flame Body.",
 	},
+	stormcloudmask: {
+		name: "Stormcloud Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wigglytuff') return false;
+			return true;
+		},
+		forcedForme: "Wigglytuff-Stormcloud",
+		itemUser: ["Wigglytuff-Stormcloud"],
+		num: -1077,
+		gen: 9,
+		desc: "Wigglytuff-Stormcloud: Terastallize to gain Electric Surge.",
+	},
+	moonlightmask: {
+		name: "Moonlight Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wigglytuff') return false;
+			return true;
+		},
+		forcedForme: "Wigglytuff-Moonlight",
+		itemUser: ["Wigglytuff-Moonlight"],
+		num: -1078,
+		gen: 9,
+		desc: "Wigglytuff-Moonlight: Terastallize to gain Psychic Surge.",
+	},
+	nightballoonmask: {
+		name: "Nightballoon Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wigglytuff') return false;
+			return true;
+		},
+		forcedForme: "Wigglytuff-Nightballoon",
+		itemUser: ["Wigglytuff-Nightballoon"],
+		num: -1079,
+		gen: 9,
+		desc: "Wigglytuff-Nightballoon: Terastallize to gain Misty Surge.",
+	},
+	nightkitemask: {
+		name: "Nightkite Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Crobat') return false;
+			return true;
+		},
+		forcedForme: "Crobat-Nightkite",
+		itemUser: ["Crobat-Nightkite"],
+		num: -1080,
+		gen: 9,
+		desc: "Crobat-Nightkite: Terastallize to gain Wind Rider.",
+	},
+	herowingmask: {
+		name: "Herowing Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Crobat') return false;
+			return true;
+		},
+		forcedForme: "Crobat-Herowing",
+		itemUser: ["Crobat-Herowing"],
+		num: -1081,
+		gen: 9,
+		desc: "Crobat-Herowing: Terastallize to gain Reckless.",
+	},
+	petalvampmask: {
+		name: "Petalvamp Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Crobat') return false;
+			return true;
+		},
+		forcedForme: "Crobat-Petalvamp",
+		itemUser: ["Crobat-Petalvamp"],
+		num: -1082,
+		gen: 9,
+		desc: "Crobat-Petalvamp: Terastallize to gain Sharpness.",
+	},
+	sunfishmask: {
+		name: "Sunfish Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solgaleo') return false;
+			return true;
+		},
+		forcedForme: "Solgaleo-Sunfish",
+		itemUser: ["Solgaleo-Sunfish"],
+		num: -1083,
+		gen: 9,
+		desc: "Solgaleo-Sunfish: Terastallize to gain Clear Body.",
+	},
+	suncoremask: {
+		name: "Suncore Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solgaleo') return false;
+			return true;
+		},
+		forcedForme: "Solgaleo-Suncore",
+		itemUser: ["Solgaleo-Suncore"],
+		num: -1084,
+		gen: 9,
+		desc: "Solgaleo-Suncore: Terastallize to gain Flame Body.",
+	},
+	sunflowermask: {
+		name: "Sunflower Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solgaleo') return false;
+			return true;
+		},
+		forcedForme: "Solgaleo-Sunflower",
+		itemUser: ["Solgaleo-Sunflower"],
+		num: -1085,
+		gen: 9,
+		desc: "Solgaleo-Sunflower: Terastallize to gain Heatproof.",
+	},
+	guardianmask: {
+		name: "Guardian Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Granbull') return false;
+			return true;
+		},
+		forcedForme: "Granbull-Guardian",
+		itemUser: ["Granbull-Guardian"],
+		num: -1086,
+		gen: 9,
+		desc: "Granbull-Guardian: Terastallize to gain Regenerator.",
+	},
+	wardenmask: {
+		name: "Warden Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Granbull') return false;
+			return true;
+		},
+		forcedForme: "Granbull-Warden",
+		itemUser: ["Granbull-Warden"],
+		num: -1087,
+		gen: 9,
+		desc: "Granbull-Warden: Terastallize to gain Chlorophyll.",
+	},
 };
