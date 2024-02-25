@@ -1,5 +1,4 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-
 // New Moves
 	chemicalplant: {
 		accuracy: 100,
@@ -1746,5 +1745,63 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+	},
+
+	// Undexited Moves	
+	boltbeak: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	meteorassault: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	refresh: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	snatch: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	naturepower: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	poweruppunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	vcreate: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	searingshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	boneclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	bonemerang: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shelltrap: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spikecannon: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	plasmafists: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	iondeluge: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };
