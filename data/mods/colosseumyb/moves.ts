@@ -1804,4 +1804,522 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	
+	// Shadow Moves
+	shadowaura: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Protects from moves. Non-Shadow moves: loses 1/8 max HP.",
+		viable: true,
+		name: "Shadow Aura",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'shadowaura',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Aura');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.type !== 'Shadow') {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.type !== 'Shadow') {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
+	},
+	shadowblitz: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Usually moves first.",
+		viable: true,
+		name: "Shadow Blitz",
+		pp: 30,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Quick Attack", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Blitz');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowbreak: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "Breaks the foe's Reflect/Light Screen/Aurora Veil.",
+		viable: true,
+		name: "Shadow Break",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Brick Break", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Break');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowcharge: {
+		accuracy: 90,
+		basePower: 95,
+		category: "Physical",
+		shortDesc: "Deals 1.5x damage to a switching in opponent.",
+		viable: true,
+		name: "Shadow Charge",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Tackle", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Charge');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onBasePower(basePower, attacker, defender) {
+			if (!defender.activeTurns) {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowcrusher: {
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		shortDesc: "Hits twice. Lowers the target's Def after each hit.",
+		isViable: true,
+		name: "Shadow Crusher",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Crush Claw", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Crusher');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowdance: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's SpA and Speed by 1.",
+		isViable: true,
+		name: "Shadow Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Dragon Dance", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Dance');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	shadowdarts: {
+		accuracy: 100,
+		basePower: 45,
+		category: "Special",
+		shortDesc: "Hits twice. Doubles: Tries to hit each foe once.",
+		isViable: true,
+		name: "Shadow Darts",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		multihit: 2,
+		smartTarget: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Dragon Darts", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Darts');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		maxMove: {basePower: 130},
+	},
+	shadowdown: {
+		num: 103,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Lowers the foe(s)'s Defense by 2 stages.",
+		isViable: true,
+		name: "Shadow Down",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Snarl", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Down');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		boosts: {
+			def: -2,
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Shadow",
+		zMove: {boost: {atk: 1}},
+		contestType: "Clever",
+	},
+	shadowechoes: {
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.volatiles['shadowechoes'] || move.hit === 1) {
+				pokemon.addVolatile('shadowechoes');
+			}
+			const bp = this.clampIntRange(move.basePower * pokemon.volatiles['shadowechoes'].multiplier, 1, 160);
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		category: "Special",
+		shortDesc: "BP doubles on consecutive uses.",
+		isViable: true,
+		name: "Shadow Echoes",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Hyper Voice", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Aura');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectState.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
+				}
+				this.effectState.duration = 2;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Beautiful",
+	},
+	shadowend: {
+		accuracy: 90,
+		basePower: 150,
+		category: "Physical",
+		shortDesc: "User loses 50% max HP.",
+		isViable: true,
+		name: "Shadow End",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Poltergeist", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow End');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				const hpBeforeRecoil = pokemon.hp;
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Shadow End'), true);
+				if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+	},
+	shadowhalf: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "All Pokemon on the field lose 50% of their current HP.",
+		isViable: true,
+		name: "Shadow Half",
+		pp: 5,
+		priority: 0,
+		flags: {bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Gravity", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Half');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHitField(target, source) {
+			this.damage(source.getUndynamaxedHP() / 2, source, target);
+			this.damage(target.getUndynamaxedHP() / 2, source, target);
+		},
+		secondary: null,
+		target: "all",
+		type: "Shadow",
+		zMove: {effect: 'heal'},
+		contestType: "Beautiful",
+	},
+	shadowhold: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Traps the foe(s).",
+		isViable: true,
+		name: "Shadow Hold",
+		pp: 5,
+		priority: 0,
+		flags: {reflectable: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Block", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Hold');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(target, source, move) {
+			return target.addVolatile('trapped', source, move, 'trapper');
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Shadow",
+		zMove: {boost: {def: 1}},
+		contestType: "Cute",
+	},
+	shadowjuggle: {
+		accuracy: 100,
+		basePower: 0,
+		damage: 35,
+		category: "Physical",
+		shortDesc: "Deals 35 damage. Hits 3 times.",
+		isViable: true,
+		name: "Shadow Juggle",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 3,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Seismic Toss", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Juggle');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		maxMove: {basePower: 75},
+		contestType: "Tough",
+	},
+	shadowleech: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "Heals the user by 50% of the damage dealt.",
+		isViable: true,
+		name: "Shadow Leech",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, bite: 1},
+		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Leech Life", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Leech');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Clever",
+	},
+	shadowlove: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Swaps all stat changes with target.",
+		isViable: true,
+		name: "Shadow Love",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bypasssub: 1, allyanim: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Heart Swap", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Love');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(target, source) {
+			const targetBoosts: SparseBoostsTable = {};
+			const sourceBoosts: SparseBoostsTable = {};
+
+			let i: BoostID;
+			for (i in target.boosts) {
+				targetBoosts[i] = target.boosts[i];
+				sourceBoosts[i] = source.boosts[i];
+			}
+
+			target.setBoost(sourceBoosts);
+			source.setBoost(targetBoosts);
+
+			this.add('-swapboost', source, target, '[from] move: Shadow Love');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		zMove: {effect: 'crit2'},
+		contestType: "Clever",
+	},
 };
