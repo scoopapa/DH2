@@ -3530,6 +3530,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Ampharos
 		this.modData("Learnsets", "ampharos").learnset.bodypress = ["9L1"];
 		this.modData("Learnsets", "ampharos").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "ampharos").learnset.thunderclap = ["9L1"];
 		// Sudowoodo
 		this.modData("Learnsets", "sudowoodo").learnset.poprocks = ["9L1"];
 		// Pineco
@@ -4962,10 +4963,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "plusle").learnset.afteryou = ["9L1"];
 		this.modData("Learnsets", "plusle").learnset.storedpower = ["9L1"];
 		this.modData("Learnsets", "plusle").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "plusle").learnset.coaching = ["9L1"];
+		this.modData("Learnsets", "plusle").learnset.risingvoltage = ["9L1"];
 		// Minun
 		this.modData("Learnsets", "minun").learnset.followme = ["9L1"];
 		this.modData("Learnsets", "minun").learnset.storedpower = ["9L1"];
 		this.modData("Learnsets", "minun").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "minun").learnset.coaching = ["9L1"];
+		this.modData("Learnsets", "minun").learnset.risingvoltage = ["9L1"];
 		// Budew
 		this.modData("Learnsets", "budew").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "budew").learnset.endure = ["9L1"];
