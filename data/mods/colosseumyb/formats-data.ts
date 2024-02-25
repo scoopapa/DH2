@@ -1928,6 +1928,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "UU Colo",
 	},
 	ogerpon: {
+		tier: "UU Colo",
+		doublesTier: "OU Colo",
+	},
+	ogerponwellspring: {
+		tier: "OU Colo",
+		doublesTier: "OU Colo",
+	},
+	ogerponhearthflame: {
+		tier: "Uber Colo",
+		doublesTier: "OU Colo",
+	},
+	ogerponcornerstone: {
 		tier: "OU Colo",
 		doublesTier: "OU Colo",
 	},
