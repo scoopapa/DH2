@@ -1,7 +1,7 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
-		excludeStandardTiers: true,
+		excludeStandardTiers: true, 
 		customTiers: ["OUAoK", "UUAoK", "RUAoK", "NFEAoK", "LCAoK", "UberAoK"],
 	},
 	actions: {
