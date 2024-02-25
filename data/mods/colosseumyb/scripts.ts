@@ -697,6 +697,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fearow").learnset.cooldown = ["9L1"];
 		// Arbok
 		this.modData("Learnsets", "arbok").learnset.batonpass = ["9L1"];
+		// Pikachu
+		this.modData("Learnsets", "pikachu").learnset.zippyzap = ["9L1"];
+		// Raichu
+		this.modData("Learnsets", "raichu").learnset.zippyzap = ["9L1"];
+		// Raichu-Alola
+		this.modData("Learnsets", "raichualola").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "raichualola").learnset.speedswap = ["9L1"];
 		// Sandslash
 		this.modData("Learnsets", "sandslash").learnset.spikyshield = ["9L1"];
 		// SandslashAlola
