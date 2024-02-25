@@ -2953,7 +2953,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.scald = ["9L1"];
 		// Lapras
 		this.modData("Learnsets", "lapras").learnset.healbell = ["9L1"];
-		this.modData("Learnsets", "lapras").learnset.resonance = ["9L1"];
+		this.modData("Learnsets", "lapras").learnset.resonanttone = ["9L1"];
 		this.modData("Learnsets", "lapras").learnset.calmmind = ["9L1"];
 		// Eevee
 		this.modData("Learnsets", "eevee").learnset.evoboost = ["9L1"];
