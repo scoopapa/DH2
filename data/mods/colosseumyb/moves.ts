@@ -1,4 +1,5 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+
 // New Moves
 	chemicalplant: {
 		accuracy: 100,
@@ -922,7 +923,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		shortDesc: "Heals the user by 50% of the damage dealt.",
 		name: "Burn Away",
-    viable: true,
+		viable: true,
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
@@ -943,7 +944,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		shortDesc: "Burns the foe.",
 		name: "Firebrand",
-    viable: true,
+		viable: true,
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, defrost: 1, protect: 1, mirror: 1, metronome: 1},
@@ -965,7 +966,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		shortDesc: "Heals the user or ally's HP by 25% and boosts their Atk and Def by 1 stage.",
 		name: "Glacial Roar",
-    viable: true,
+		viable: true,
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1, sound: 1, allyanim: 1},
@@ -987,7 +988,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		shortDesc: "Protects the user and bounces back status moves.",
 		name: "Leaf Shield",
-    viable: true,
+		viable: true,
 		pp: 10,
 		priority: 4,
 		flags: {noassist: 1, failcopycat: 1},
@@ -1039,7 +1040,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		shortDesc: "Switches out the user, heals the replacement's status and 1/8 of their HP.",
 		name: "Olive Branch",
-    viable: true,
+		viable: true,
 		pp: 20,
 		priority: 0,
 		flags: {heal: 1, protect: 1, mirror: 1, metronome: 1},
@@ -1071,7 +1072,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		shortDesc: "+1 Priority in Rain. 10% chance to lower the foe's Def by 1 stage.",
 		name: "Riptide",
-    viable: true,
+		viable: true,
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -1100,7 +1101,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		shortDesc: "30% chance to deal doubled damage.",
 		name: "Rumble",
-    viable: true,
+		viable: true,
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -1123,5 +1124,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 // Shadow Moves
   
 // Changed Moves
+
+// Undexited Moves
 
 };
