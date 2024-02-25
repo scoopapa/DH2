@@ -495,7 +495,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
-	granbullsunflower: {
+	granbullguardian: {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
