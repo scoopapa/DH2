@@ -1,0 +1,7 @@
+export const Scripts: ModdedBattleScriptsData = {
+	gen: 9,
+	teambuilderConfig: {
+		excludeStandardTiers: true, 
+		customTiers: ["OU Colo", "UU Colo", "RU Colo", "NFE Colo", "LC Colo", "Uber Colo"],
+	},
+};
