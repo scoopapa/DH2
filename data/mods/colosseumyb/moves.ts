@@ -2322,4 +2322,155 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'crit2'},
 		contestType: "Clever",
 	},
+	shadowmist: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Sets Mist and lowers the foe(s) evasion by 2 stages.",
+		isViable: true,
+		name: "Shadow Mist",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Haze", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Mist');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		boosts: {
+			evasion: -2,
+		},
+		self: {
+			sideCondition: 'mist',
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Shadow",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cute",
+	},
+	shadowpanic: {
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Confuses the foe(s).",
+		isViable: true,
+		name: "Shadow Panic",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
+		volatileStatus: 'confusion',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Confide", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Panic');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Shadow",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	shadowpounce: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "Super effective on Shadow Pokemon.",
+		isViable: true,
+		name: "Shadow Pounce",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Lunge", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Pounce');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Shadow') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Beautiful",
+	},
+	shadowchaser: {
+		accuracy: true,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Super effective on Shadow Pokemon. Deals 2x damage to Zangoose or Seviper, depending on the user.",
+		isViable: true,
+		name: "Shadow Chaser",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Extreme Speed", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Chaser');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onBasePower(basePower, source, target, move) {
+			if (source.baseSpecies.baseSpecies === 'Zangoose' && target.baseSpecies.baseSpecies === 'Seviper' || 
+				source.baseSpecies.baseSpecies === 'Seviper' && target.baseSpecies.baseSpecies === 'Zangoose') {
+				return this.chainModify(2);
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Shadow') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Beautiful",
+	},
+	shadowpress: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
+		isViable: true,
+		name: "Shadow Press",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		overrideOffensiveStat: 'spd',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Night Shade", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Press');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+	},
 };
