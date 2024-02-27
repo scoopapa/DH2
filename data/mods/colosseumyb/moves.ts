@@ -2473,4 +2473,673 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Shadow",
 	},
+	shadowrage: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
+		isViable: true,
+		name: "Shadow Rage",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, failinstruct: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Outrage", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Rage');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		secondary: null,
+		target: "randomNormal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowrave: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "Hits all adjacent foes.",
+		isViable: true,
+		name: "Shadow Rave",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Fiery Wrath", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Rave');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowrush: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "No additional effect.",
+		isViable: true,
+		name: "Shadow Rush",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Double-Edge", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Rush');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Tough",
+	},
+	shadowsights: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User's attacks ignore abilities and immunities.",
+		isViable: true,
+		name: "Shadow Sights",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1,
+		volatileStatus: 'shadowsights',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Laser Focus", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Sights');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		condition: {
+			onStart(target, source, effect) {
+				this.add('-start', target, 'move: Shadow Sights');
+				this.add('-message', `${target.name} is hyperfocusing on the foe's shadows!`);
+			},
+			onModifyMovePriority: -5,
+			onModifyMove(move) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity = true;
+				}
+				move.ignoreAbility = true;
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	shadowshards: {
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+	  	shortDesc: "Hits 2-5 times. High crit ratio.",
+		viable: true,
+		name: "Shadow Shards",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Spike Cannon", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Shards');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	shadowshatter: {
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+	  	shortDesc: "Lowers the user's Sp. Atk by 2.",
+		viable: true,
+		name: "Shadow Shatter",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Diamond Storm", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Shatter');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Beautiful",
+	},
+	shadowshed: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	  	shortDesc: "User: +1 Acc. Clears all screens/hazards/terrains.",
+		viable: true,
+		name: "Shadow Shed",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Minimize", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Shed');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(pokemon) {
+			let success = false;
+			const removeAll = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist',
+									 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
+			for (const side of sides) {
+				for (const sideCondition of removeAll) {
+					if (side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
+						success = true;
+					}
+				}
+			}
+			this.field.clearTerrain();
+			if (success) this.add('-activate', pokemon, 'move: Shadow Shed');
+			return !!this.boost({accuracy: 1}, pokemon, pokemon, null, false, true) || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+	},
+	shadowsky: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	  	shortDesc: "Removes weather and damages non-Shadow foes for 5 turns.",
+		viable: true,
+		name: "Shadow Sky",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Rain Dance", source);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Sky');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(target, source, move) {
+			this.field.clearWeather();
+			for (const side of source.side.foeSidesWithConditions()) {
+				side.addSideCondition('shadowsky');
+			}
+		},
+		condition: {
+			duration: 5,
+			onSideStart(targetSide) {
+				this.add('-sidestart', targetSide, 'Shadow Sky');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1,
+			onResidual(target) {
+				if (!target.hasType('Shadow')) this.damage(target.baseMaxhp / 8, target);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 11,
+			onSideEnd(targetSide) {
+				this.add('-sideend', targetSide, 'Shadow Sky');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Shadow",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	shadowspores: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+	  	shortDesc: "Applies the Powder effect for the rest of the turn.",
+		viable: true,
+		name: "Shadow Spores",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, powder: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Stun Spore", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Spores');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'powder',
+		},
+		target: "normal",
+		type: "Shadow",
+	},
+	shadowstorm: {
+		accuracy: 80,
+		basePower: 110,
+		category: "Special",
+	  	shortDesc: "30% chance to lower foe(s) SpA by 1 stage.",
+		viable: true,
+		name: "Shadow Storm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Bleakind Storm", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Storm');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Shadow",
+	},
+	shadowwave: {
+		accuracy: true,
+		basePower: 60,
+		category: "Special",
+	  	shortDesc: "Lowers the foe(s)'s Speed by 1. Can't miss.",
+		viable: true,
+		name: "Shadow Wave",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Shock Wave", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Wave');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Shadow",
+		contestType: "Beautiful",
+	},
+	shadowblast: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+	  	shortDesc: "High critical hit ratio.",
+		viable: true,
+		name: "Shadow Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1},
+		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Downpour", target);
+			this.add('-anim', source, "Aeroblast", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Blast');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "any",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowbolt: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+	  	shortDesc: "20% chance to paralyze the foe.",
+		viable: true,
+		name: "Shadow Bolt",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Thunder", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Bolt');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowchill: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+	  	shortDesc: "20% chance to freeze the foe.",
+		viable: true,
+		name: "Shadow Chill",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Sheer Cold", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Chill');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 20,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowfire: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+	  	shortDesc: "20% chance to burn the foe.",
+		viable: true,
+		name: "Shadow Fire",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Fire Blast", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Fire');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Shadow",
+		contestType: "Cool",
+	},
+	shadowgrip: {
+		accuracy: 80,
+		basePower: 100,
+		category: "Physical",
+	  	shortDesc: "Traps and damages the foe for 5 turns.",
+		viable: true,
+		name: "Shadow Grip",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		volatileStatus: 'partiallytrapped',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Bind", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Grip');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+		contestType: "Tough",
+	},
+	shadowhammer: {
+		accuracy: 100,
+		basePower: 145,
+		category: "Physical",
+	  	shortDesc: "Cannot be selected the turn after it's used.",
+		viable: true,
+		name: "Shadow Hammer",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, cantusetwice: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Gigaton Hammer", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Hammer');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Shadow",
+	},
+	shadoweclipse: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	  	shortDesc: "User: +2 Atk/SpA/Spe, loses Shadow-type.",
+		viable: true,
+		name: "Shadow Eclipse",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Blood Moon", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Eclipse');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(pokemon) {
+			pokemon.setType(pokemon.getTypes(true).map(type => type === "Shadow" ? "???" : type));
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Shadow Eclipse');
+		},
+		boosts: {
+			atk: 2,
+			spa: 2,
+			spe: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Tough",
+	},
+	shadowflood: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+	  	shortDesc: "Sets a swamp on the foe's side of the field.",
+		viable: true,
+		name: "Shadow Flood",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Mortal Spin", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Flood');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(target, source, move) {
+			for (const side of source.side.foeSidesWithConditions()) {
+				side.addSideCondition('waterpledge');
+			}
+		},
+		secondary: {},
+		target: "allAdjacentFoes",
+		type: "Shadow",
+	},
+	shadowjuice: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	  	shortDesc: "Heals the user by 33% of its max HP, sets Aqua Ring.",
+		viable: true,
+		name: "Shadow Juice",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		heal: [1, 3],
+		volatileStatus: 'aquaring',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Life Dew", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Juice');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+	},
+	shadowtwirl: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	  	shortDesc: "Uses a random Shadow move.",
+		viable: true,
+		name: "Shadow Twirl",
+		pp: 10,
+		priority: 0,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "Metronome", target);
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Shadow')) return;
+			this.add('-fail', pokemon, 'move: Shadow Twirl');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(target, source, effect) {
+			const moves = this.dex.moves.all().filter(move => (
+				(![2, 4].includes(this.gen) || !source.moves.includes(move.id)) &&
+				(!move.isNonstandard || move.isNonstandard === 'Unobtainable') &&
+				move.type === 'Shadow'
+			));
+			let randomMove = '';
+			if (moves.length) {
+				moves.sort((a, b) => a.num - b.num);
+				randomMove = this.sample(moves).id;
+			}
+			if (!randomMove) return false;
+			source.side.lastSelectedMove = this.toID(randomMove);
+			this.actions.useMove(randomMove, target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Shadow",
+		contestType: "Cute",
+	},
 };
