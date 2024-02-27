@@ -1437,7 +1437,7 @@ export class RandomTeams {
 		} else if (ability === 'Scavenge') {
 			item = 'Soul Blade';
 		} else if (species.name === 'Unown') {
-			item = 'Choice Specs';
+			item = (this.randomChance(2, 3)) ? 'Choice Specs' : 'Choice Scarf';
 		} else if (hasMove['bellydrum']) {
 			item = (!!counter['priority'] || !hasMove['substitute']) ? 'Sitrus Berry' : 'Salac Berry';
 		} else if (hasMove['geomancy'] || hasMove['meteorbeam']) {
@@ -1568,7 +1568,7 @@ export class RandomTeams {
 			item = 'Lum Berry';
 		}
 
-		if (species.name === 'Tadbulb') {
+		if (species.name === 'Tadbulb' || species.name === 'Wimpod') {
 			item = 'Eviolite';
 		} else if (species.name === 'Luvdisc' && item === 'Eviolite') {
 			item = 'Heavy-Duty Boots';
@@ -1638,10 +1638,21 @@ export class RandomTeams {
 
 		if (species.name === 'Rattata' && !hasType['Dark']) {
 			//
+			level = 72;
 		} else if (species.name === 'Applin') {
 			level = 78;
+		} else if (species.name === 'Taillow') {
+			level = 72;
+		} else if (species.name === 'Unown') {
+			level = level + 6;
 		} else if (species.name === 'Shedinja') {
 			level = 76;
+		} else if (species.name === 'Nymble') {
+			level = 76;
+		} else if (species.name === 'Shedinja') {
+			level = 76;
+		} else if (species.name === 'Nickit') {
+			level = level + 4;
 		}
 		//}
 
