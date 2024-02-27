@@ -9754,7 +9754,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "sandslashalola").learnset.shadowshards = ["9L1"];
 		this.modData("Learnsets", "sandslashalola").learnset.shadowshatter = ["9L1"];
 		// Cleffa
-		this.modData("Learnsets", "cleffa").learnset.shadowaura = ["9L1"];
+		this.modData("Learnsets", "cleffa").learnset.shadowtwirl = ["9L1"];
 		this.modData("Learnsets", "cleffa").learnset.shadowechoes = ["9L1"];
 		this.modData("Learnsets", "cleffa").learnset.shadowhalf = ["9L1"];
 		this.modData("Learnsets", "cleffa").learnset.shadowmist = ["9L1"];
@@ -9763,7 +9763,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "cleffa").learnset.shadowshatter = ["9L1"];
 		this.modData("Learnsets", "cleffa").learnset.shadowjuggle = ["9L1"];
 		// Clefairy
-		this.modData("Learnsets", "clefairy").learnset.shadowaura = ["9L1"];
+		this.modData("Learnsets", "clefairy").learnset.shadowtwirl = ["9L1"];
 		this.modData("Learnsets", "clefairy").learnset.shadowechoes = ["9L1"];
 		this.modData("Learnsets", "clefairy").learnset.shadowhalf = ["9L1"];
 		this.modData("Learnsets", "clefairy").learnset.shadowmist = ["9L1"];
@@ -9772,7 +9772,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "clefairy").learnset.shadowshatter = ["9L1"];
 		this.modData("Learnsets", "clefairy").learnset.shadowjuggle = ["9L1"];
 		// Clefable
-		this.modData("Learnsets", "clefable").learnset.shadowaura = ["9L1"];
+		this.modData("Learnsets", "clefable").learnset.shadowtwirl = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.shadowechoes = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.shadowhalf = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.shadowmist = ["9L1"];
