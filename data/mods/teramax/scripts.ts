@@ -156,6 +156,24 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "orbeetle").learnset.encore = ["9L1"];
 		this.modData("Learnsets", "grimmsnarl").learnset.painsplit = ["9L1"];
 		this.modData("Learnsets", "grimmsnarl").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.noxioustorque = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.bounce = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.powerwhip = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "kilowattrel").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "kilowattrel").learnset.heatwave = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.aquacutter = ["9L1"];
 	},
 	actions: {
 		inherit: true,

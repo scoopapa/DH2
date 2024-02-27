@@ -367,4 +367,140 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	toedscruel: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	toedscruelmushroot: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	toedscruelwyrmstool: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	toedscruelfairydust: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareena: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareenawarmaidens: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareenafeathercrown: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tsareenawinterstyle: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistcha: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchascalding: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchacorrosive: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchapure: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiece: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiecescalding: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiececorrosive: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	sinistchamasterpiecepure: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tatsugiri: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tatsugiririceroll: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	tatsugiritempura: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuff: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffnightballoon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffmoonlight: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffstormcloud: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobat: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatpetalvamp: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatherowing: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatnightkite: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleo: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosunflower: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosuncore: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosunfish: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbull: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbullguardian: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbullwarden: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };

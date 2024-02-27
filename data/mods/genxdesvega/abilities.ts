@@ -257,14 +257,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	suctioncups: {
 		inherit: true,
-		shortDesc: "This Pokemon and its allies are protected from moves that force them out.",
+		shortDesc: "Cannot be forcibly switched out; Allies are protected from moves that switch the user out.",
 		onFoeTryMove(target, source, move) {
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 				return;
 			}
 
 			const dazzlingHolder = this.effectState.target;
-			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && (move.forceSwitch || move.selfSwitch)) {
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.selfSwitch) {
 				this.attrLastMove('[still]');
 				this.add('cant', dazzlingHolder, 'ability: Suction Cups', move, '[of] ' + target);
 				return false;
