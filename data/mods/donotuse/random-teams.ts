@@ -1572,7 +1572,7 @@ export class RandomTeams {
 			item = 'Lum Berry';
 		}
 
-		if (species.name === 'Tadbulb' || species.name === 'Wimpod') {
+		if (species.name === 'Tadbulb' || species.name === 'Wimpod' || species.name === 'Tynamo') {
 			item = 'Eviolite';
 		} else if (species.name === 'Luvdisc' && item === 'Eviolite') {
 			item = 'Heavy-Duty Boots';
@@ -1657,6 +1657,8 @@ export class RandomTeams {
 			level = 76;
 		} else if (species.name === 'Nickit') {
 			level = level + 4;
+		} else if (species.name === 'Tynamo') {
+			level = level + 6;
 		}
 		//}
 
