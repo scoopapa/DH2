@@ -1282,6 +1282,8 @@ export class RandomTeams {
 				ability = 'Sand Force';
 			} else if (species.name === 'Wooloo') {
 				ability = 'Fluffy';
+			} else if (species.name === 'Nickit') {
+				ability = 'Unburden';
 			} else if (forme === 'Copperajah' && gmax) {
 				ability = 'Heavy Metal';
 			} else if (hasAbility['Guts'] && (hasMove['facade'] || (hasMove['rest'] && hasMove['sleeptalk']))) {
@@ -1456,7 +1458,9 @@ export class RandomTeams {
 			item = 'Life Orb';
 		} else if (ability === 'Unburden') {
 			if (hasMove['snarl']) item = 'Throat Spray';
-			item = (hasMove['closecombat'] || hasMove['curse']) ? 'White Herb' : 'Sitrus Berry';
+			else {
+				item = (hasMove['closecombat'] || hasMove['curse']) ? 'White Herb' : 'Sitrus Berry';
+			}
 		} else if (hasMove['acrobatics']) {
 			item = (ability === 'Grassy Surge') ? 'Grassy Seed' : '';
 		} else if (hasMove['auroraveil'] || hasMove['lightscreen'] && hasMove['reflect']) {
