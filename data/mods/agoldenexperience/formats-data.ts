@@ -1292,7 +1292,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	mamoswine: {
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	corsola: {
@@ -4923,7 +4923,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	hydrapple: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	gougingfire: {
@@ -4939,7 +4939,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	ironcrown: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	terapagos: {
@@ -4947,7 +4947,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	pecharunt: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 
