@@ -2568,7 +2568,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Shadow Sights",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1,
+		flags: {snatch: 1},
 		volatileStatus: 'shadowsights',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -2585,7 +2585,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(target, source, effect) {
 				this.add('-start', target, 'move: Shadow Sights');
 				this.add('-message', `${target.name} is hyperfocusing on the foe's shadows!`);
-			},
+			},			
 			onModifyMovePriority: -5,
 			onModifyMove(move) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
@@ -3142,5 +3142,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Shadow",
 		contestType: "Cute",
 	},	
-	},
 };
