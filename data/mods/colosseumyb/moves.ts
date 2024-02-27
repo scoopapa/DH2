@@ -3100,7 +3100,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Shadow",
-	},
+	}, /*
 	shadowtwirl: {
 		accuracy: true,
 		basePower: 0,
@@ -3142,4 +3142,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Shadow",
 		contestType: "Cute",
 	},
+	*/	
 };
