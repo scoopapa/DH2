@@ -278,9 +278,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, pokemon, target) {
 			if (move.category === 'Status' && move.target === 'normal') {
 				move.ignoreAbility = true;
-				if (!target.hasType('Grass')) {
-					target.addVolatile('leechseed');
+				if (!target.hasType('Grass') && !move.volatileStatus) {
+					move.volatileStatus = 'leechseed';
 				}
+			}
+		},
+		onAnyAfterSetStatus(status, target, source, effect, move) {
+			if (source !== this.effectState.target || target === source || target.hasType('Grass') ||
+				 effect.effectType !== 'Move' || move.category !== 'Status') return;
+			if (status.id === 'taunt' || status.id === 'confusion') {
+				target.addVolatile('leechseed');
 			}
 		},
 		flags: {},
