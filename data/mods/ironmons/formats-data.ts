@@ -51,4 +51,24 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	terracottatitan: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	duskendeputy: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironsavage: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironbeetle: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	spinningrat: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
