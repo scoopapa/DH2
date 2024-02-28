@@ -318,6 +318,74 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	doodle: {
+		num: 867,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Doodle",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		onHit(target, source, move) {
+			const move1 = target.moveSlots[0];
+			const move2 = target.moveSlots[1];
+			const move3 = target.moveSlots[2];
+			const move4 = target.moveSlots[3];
+
+			const newmove1 = {
+				move: move.name,
+				id: move.id,
+				pp: move.pp,
+				maxpp: move.pp,
+				target: move.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			const newmove2 = {
+				move: move.name,
+				id: move.id,
+				pp: move.pp,
+				maxpp: move.pp,
+				target: move.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			const newmove3 = {
+				move: move.name,
+				id: move.id,
+				pp: move.pp,
+				maxpp: move.pp,
+				target: move.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			const newmove4 = {
+				move: move.name,
+				id: move.id,
+				pp: move.pp,
+				maxpp: move.pp,
+				target: move.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[0] = newmove1;
+			source.baseMoveSlots[0] = newmove1;
+			source.moveSlots[3] = newmove4;
+			source.baseMoveSlots[3] = newmove4;
+			source.moveSlots[1] = newmove2;
+			source.baseMoveSlots[1] = newmove2;
+			source.moveSlots[2] = newmove3;
+			source.baseMoveSlots[2] = newmove3;
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Normal",
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
