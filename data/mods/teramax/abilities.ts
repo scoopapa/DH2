@@ -299,8 +299,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType !== 'Move' && source.hp >= source.maxhp) {
-				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+			if (effect.effectType !== 'Move' && target.hp >= target.maxhp) {
+				if (effect.effectType === 'Ability') this.add('-activate', target, 'ability: ' + effect.name);
 				return false;
 			}
 		},
