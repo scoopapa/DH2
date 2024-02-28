@@ -331,6 +331,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		onHit(target, source, move) {
+			if (source.transformed || source.volatiles['doodle']) {
+				return false;
+			}
 			const move1 = target.moveSlots[0];
 			const move2 = target.moveSlots[1];
 			const move3 = target.moveSlots[2];
@@ -383,8 +386,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					virtual: true,
 				};
 			}
+			source.addVolatile('doodle');
 			this.add('-start', source, 'Doodle', move.name);
 		},
+		condition: {},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
