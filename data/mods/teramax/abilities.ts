@@ -283,17 +283,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAnyAfterSetStatus(status, target, source, effect) {
-			if (source !== this.effectState.target || target === source || target.hasType('Grass') || effect.effectType !== 'Move') return;
-			if (status.id === 'taunt' || status.id === 'confusion') {
-				target.addVolatile('leechseed');
-			}
-		},
 		flags: {},
 		name: "Mycelium Might",
 		rating: 3,
 		num: 298,
-		shortDesc: "Single-target status moves move last, but ignore abilities and leech the foe.",
+		shortDesc: "(Partially functional placeholder) Single-target status moves move last, but ignore abilities and leech the foe.",
 	},
 	icescales: {
 		onSourceModifyDamage(damage, source, target, move) {
