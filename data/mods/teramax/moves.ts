@@ -322,7 +322,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	doodle: {
 		num: 867,
 		accuracy: 100,
-		shortDesc: "Copies the foe's entire moveset.",
+		shortDesc: "(Partially functional placeholder) Copies the foe's entire moveset.",
 		basePower: 0,
 		category: "Status",
 		name: "Doodle",
