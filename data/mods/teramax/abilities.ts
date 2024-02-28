@@ -279,7 +279,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Status' && move.target === 'normal') {
 				move.ignoreAbility = true;
 				if (!target.hasType('Grass')) {
-					move.volatileStatus = 'leechseed';
+					target.addVolatile('leechseed');
 				}
 			}
 		},
