@@ -174,6 +174,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ninjask").learnset.earthquake = ["9L1"];
 		this.modData("Learnsets", "ninjask").learnset.stealthrock = ["9L1"];
 		this.modData("Learnsets", "ninjask").learnset.aquacutter = ["9L1"];
+		this.modData("Learnsets", "frosmoth").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "frosmoth").learnset.thunder = ["9L1"];
+		this.modData("Learnsets", "frosmoth").learnset.thunderbolt = ["9L1"];
+		this.modData("Learnsets", "staraptor").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "staraptor").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "toedscruel").learnset.synthesis = ["9L1"];
+		this.modData("Learnsets", "toedscruel").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "gastrodon").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "gastrodon").learnset.knockoff = ["9L1"];
 	},
 	actions: {
 		inherit: true,
