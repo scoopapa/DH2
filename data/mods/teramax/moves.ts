@@ -335,7 +335,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const move2 = target.moveSlots[1];
 			const move3 = target.moveSlots[2];
 			const move4 = target.moveSlots[3];
-			if (move1 && !move1.flags['failmimic']) {
+			if (move1) {
 				source.moveSlots[0] = {
 					move: move1.name,
 					id: move1.id,
@@ -347,7 +347,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					virtual: true,
 				};
 			}
-			if (move2 && !move2.flags['failmimic']) {
+			if (move2) {
 				source.moveSlots[1] = {
 					move: move2.name,
 					id: move2.id,
@@ -359,7 +359,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					virtual: true,
 				};
 			}
-			if (move3 && !move3.flags['failmimic']) {
+			if (move3) {
 				source.moveSlots[2] = {
 					move: move3.name,
 					id: move3.id,
@@ -371,7 +371,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					virtual: true,
 				};
 			}
-			if (move4 && !move4.flags['failmimic']) {
+			if (move4) {
 				source.moveSlots[3] = {
 					move: move4.name,
 					id: move4.id,
