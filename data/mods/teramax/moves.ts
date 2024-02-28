@@ -274,6 +274,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to burn foe. Negates burn immunity abilities.",
 		name: "Tar Shot",
 		pp: 10,
+		viable: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -321,12 +322,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	doodle: {
 		num: 867,
 		accuracy: 100,
+		shortDesc: "Copies the foe's entire moveset.",
 		basePower: 0,
 		category: "Status",
 		name: "Doodle",
+		viable: true,
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		onHit(target, source, move) {
 			const move1 = target.moveSlots[0];
 			const move2 = target.moveSlots[1];
@@ -375,7 +378,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-start', source, 'Doodle', move.name);
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Normal",
 	},
 
