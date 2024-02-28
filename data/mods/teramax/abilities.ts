@@ -278,12 +278,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			if (move.category === 'Status' && move.target === 'normal') {
 				move.ignoreAbility = true;
-			}
-		},
-		onAfterMoveSecondarySelf(target, source, move) {
-			if (move.category === 'Status' && move.target === 'normal' && !target.hasType('Grass')) {
-				this.add('-activate', source, 'ability: Mycelium Might');
-				target.addVolatile('leechseed', this.effectState.target);
+				move.volatileStatus = 'leechseed';
 			}
 		},
 		flags: {},
