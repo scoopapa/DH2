@@ -283,9 +283,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAnyAfterSetStatus(status, target, source, effect, move) {
-			if (source !== this.effectState.target || target === source || target.hasType('Grass') ||
-				 effect.effectType !== 'Move' || move.category !== 'Status') return;
+		onAnyAfterSetStatus(status, target, source, effect) {
+			if (source !== this.effectState.target || target === source || target.hasType('Grass') || effect.effectType !== 'Move') return;
 			if (status.id === 'taunt' || status.id === 'confusion') {
 				target.addVolatile('leechseed');
 			}
