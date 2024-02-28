@@ -332,55 +332,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const move2 = target.moveSlots[1];
 			const move3 = target.moveSlots[2];
 			const move4 = target.moveSlots[3];
-
-			const newmove1 = {
-				move: move.name,
-				id: move.id,
-				pp: move.pp,
-				maxpp: move.pp,
-				target: move.target,
+			source.moveSlots[0] = {
+				move: move1.name,
+				id: move1.id,
+				pp: move1.pp,
+				maxpp: move1.pp,
+				target: move1.target,
 				disabled: false,
 				used: false,
 				virtual: true,
 			};
-			const newmove2 = {
-				move: move.name,
-				id: move.id,
-				pp: move.pp,
-				maxpp: move.pp,
-				target: move.target,
+			source.moveSlots[1] = {
+				move: move2.name,
+				id: move2.id,
+				pp: move2.pp,
+				maxpp: move2.pp,
+				target: move2.target,
 				disabled: false,
 				used: false,
 				virtual: true,
 			};
-			const newmove3 = {
-				move: move.name,
-				id: move.id,
-				pp: move.pp,
-				maxpp: move.pp,
-				target: move.target,
+			source.moveSlots[2] = {
+				move: move3.name,
+				id: move3.id,
+				pp: move3.pp,
+				maxpp: move3.pp,
+				target: move3.target,
 				disabled: false,
 				used: false,
 				virtual: true,
 			};
-			const newmove4 = {
-				move: move.name,
-				id: move.id,
-				pp: move.pp,
-				maxpp: move.pp,
-				target: move.target,
+			source.moveSlots[3] = {
+				move: move4.name,
+				id: move4.id,
+				pp: move4.pp,
+				maxpp: move4.pp,
+				target: move4.target,
 				disabled: false,
 				used: false,
 				virtual: true,
 			};
-			source.moveSlots[0] = newmove1;
-			source.baseMoveSlots[0] = newmove1;
-			source.moveSlots[3] = newmove4;
-			source.baseMoveSlots[3] = newmove4;
-			source.moveSlots[1] = newmove2;
-			source.baseMoveSlots[1] = newmove2;
-			source.moveSlots[2] = newmove3;
-			source.baseMoveSlots[2] = newmove3;
+			this.add('-start', source, 'Doodle', move.name);
 		},
 		secondary: null,
 		target: "adjacentFoe",
