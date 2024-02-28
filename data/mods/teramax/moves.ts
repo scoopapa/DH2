@@ -335,46 +335,54 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const move2 = target.moveSlots[1];
 			const move3 = target.moveSlots[2];
 			const move4 = target.moveSlots[3];
-			source.moveSlots[0] = {
-				move: move1.name,
-				id: move1.id,
-				pp: move1.pp,
-				maxpp: move1.pp,
-				target: move1.target,
-				disabled: false,
-				used: false,
-				virtual: true,
-			};
-			source.moveSlots[1] = {
-				move: move2.name,
-				id: move2.id,
-				pp: move2.pp,
-				maxpp: move2.pp,
-				target: move2.target,
-				disabled: false,
-				used: false,
-				virtual: true,
-			};
-			source.moveSlots[2] = {
-				move: move3.name,
-				id: move3.id,
-				pp: move3.pp,
-				maxpp: move3.pp,
-				target: move3.target,
-				disabled: false,
-				used: false,
-				virtual: true,
-			};
-			source.moveSlots[3] = {
-				move: move4.name,
-				id: move4.id,
-				pp: move4.pp,
-				maxpp: move4.pp,
-				target: move4.target,
-				disabled: false,
-				used: false,
-				virtual: true,
-			};
+			if (move1 && !move1.flags['failmimic']) {
+				source.moveSlots[0] = {
+					move: move1.name,
+					id: move1.id,
+					pp: move1.pp,
+					maxpp: move1.pp,
+					target: move1.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+			}
+			if (move2 && !move2.flags['failmimic']) {
+				source.moveSlots[1] = {
+					move: move2.name,
+					id: move2.id,
+					pp: move2.pp,
+					maxpp: move2.pp,
+					target: move2.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+			}
+			if (move3 && !move3.flags['failmimic']) {
+				source.moveSlots[2] = {
+					move: move3.name,
+					id: move3.id,
+					pp: move3.pp,
+					maxpp: move3.pp,
+					target: move3.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+			}
+			if (move4 && !move4.flags['failmimic']) {
+				source.moveSlots[3] = {
+					move: move4.name,
+					id: move4.id,
+					pp: move4.pp,
+					maxpp: move4.pp,
+					target: move4.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+			}
 			this.add('-start', source, 'Doodle', move.name);
 		},
 		secondary: null,
