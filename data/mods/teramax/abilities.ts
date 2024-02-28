@@ -275,10 +275,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return -0.1;
 			}
 		},
-		onModifyMove(move) {
+		onModifyMove(move, pokemon, target) {
 			if (move.category === 'Status' && move.target === 'normal') {
 				move.ignoreAbility = true;
-				move.volatileStatus = 'leechseed';
+				if (!target.hasType('Grass')) {
+					move.volatileStatus = 'leechseed';
+				}
 			}
 		},
 		flags: {},
