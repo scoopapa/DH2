@@ -1,4 +1,6 @@
 export const Conditions: {[k: string]: ConditionData} = {
+// Hidden Gem activation template
+/*
 	psychicgem: {
 		name: 'psychicgem',
 		duration: 1,
@@ -13,4 +15,5 @@ export const Conditions: {[k: string]: ConditionData} = {
       this.boost({spa: 1, spd: 1, spe: 1}, source);
 		},
 	},
+*/
 };
