@@ -334,56 +334,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || source.volatiles['doodle']) {
 				return false;
 			}
-			const move1 = target.moveSlots[0];
-			const move2 = target.moveSlots[1];
-			const move3 = target.moveSlots[2];
-			const move4 = target.moveSlots[3];
-			if (move1) {
-				source.moveSlots[0] = {
-					move: move1.name,
-					id: move1.id,
-					pp: move1.pp,
-					maxpp: move1.pp,
-					target: move1.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
-			}
-			if (move2) {
-				source.moveSlots[1] = {
-					move: move2.name,
-					id: move2.id,
-					pp: move2.pp,
-					maxpp: move2.pp,
-					target: move2.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
-			}
-			if (move3) {
-				source.moveSlots[2] = {
-					move: move3.name,
-					id: move3.id,
-					pp: move3.pp,
-					maxpp: move3.pp,
-					target: move3.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
-			}
-			if (move4) {
-				source.moveSlots[3] = {
-					move: move4.name,
-					id: move4.id,
-					pp: move4.pp,
-					maxpp: move4.pp,
-					target: move4.target,
-					disabled: false,
-					used: false,
-					virtual: true,
+			for (const moveid in target.moveSlots) {
+				 const copiedmove = target.moveSlots[moveid];
+				 source.moveSlots[moveid] = {
+					  move: copiedmove.name,
+					  id: copiedmove.id,
+					  pp: copiedmove.pp,
+					  maxpp: copiedmove.pp,
+					  target: copiedmove.target,
+					  disabled: false,
+					  used: false,
+					  virtual: true,
 				};
 			}
 			source.addVolatile('doodle');
