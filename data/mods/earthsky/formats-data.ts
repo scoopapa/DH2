@@ -1249,8 +1249,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	darkrai: {
-		tier: 'OU',
-		natDexTier: 'OU'
+		tier: 'Uber',
+		natDexTier: 'Uber'
 	},
 	shaymin: {
 		tier: 'OU',
