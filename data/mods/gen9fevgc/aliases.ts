@@ -14,4 +14,6 @@ export const Aliases: {[alias: string]: string} = {
 	floeleefyellow: "Floeleef",
 	floeleeforange: "Floeleef",
 	floeleefwhite: "Floeleef",
+	toxtricorioampedpompom: "Toxtricorio",
+	samureedeem: "Samureedee",
 };
