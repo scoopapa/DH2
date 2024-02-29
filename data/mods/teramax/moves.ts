@@ -334,7 +334,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || source.volatiles['doodle']) {
 				return false;
 			}
-		/*	for (const moveid in target.moveSlots) {
+			for (const moveid in target.moveSlots) {
 				 const copiedmove = target.moveSlots[moveid];
 				 source.moveSlots[moveid] = {
 					  move: copiedmove.name,
@@ -346,23 +346,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					  used: false,
 					  virtual: true,
 				};
-			} */
-        for (const moveSlot of target.moveSlots) {
-            let moveName = moveSlot.move;
-            if (moveSlot.id === 'hiddenpower') {
-                moveName = 'Hidden Power ' + this.hpType;
-            }
-            this.moveSlots.push({
-                move: moveName,
-                id: moveSlot.id,
-                pp: moveSlot.pp,
-                maxpp: moveSlot.maxpp,
-                target: moveSlot.target,
-                disabled: false,
-                used: false,
-                virtual: true,
-            });
-        }
+			}
 			source.addVolatile('doodle');
 			this.add('-start', source, 'Doodle', move.name);
 		},
