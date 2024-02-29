@@ -1,4 +1,24 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+// Template
+/*
+	psychicgem: {
+		name: "Psychic Gem",
+		spritenum: 369,
+		isGem: true,
+		onSourceTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			if (move.type === 'Psychic' && source.useItem()) {
+				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Golduck') {
+				  source.addVolatile('psychicgem');
+        		}
+			}
+		},
+		num: 557,
+		gen: 5,
+		isNonstandard: null,
+	},
+*/
 	buggem: {
 		name: "Bug Gem",
 		spritenum: 53,
