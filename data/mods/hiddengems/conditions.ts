@@ -7,13 +7,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
-			this.add('-anim', source, "Cosmic Power", source);
-	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
-	      const targetType = source.types[1];
-	      this.add('-start', source, 'typeadd', 'Psychic', '[from] item: Psychic Gem');
-	      source.setAbility('goodasgold', source, true);
-	      this.add('-activate', source, 'ability: Good as Gold');
-	      this.boost({spa: 1, spd: 1, spe: 1}, source);
+      this.add('-anim', source, "Cosmic Power", source);
+      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+      const targetType = source.types[1];
+      this.add('-start', source, 'typeadd', 'Psychic', '[from] item: Psychic Gem');
+      source.setAbility('goodasgold', source, true);
+      this.add('-activate', source, 'ability: Good as Gold');
+      this.boost({spa: 1, spd: 1, spe: 1}, source);
 		},
 	},
 */
