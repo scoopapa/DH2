@@ -301,5 +301,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1000,
 		gen: 9,
 		isNonstandard: null,
+		desc: "Holder's first successful attack will have 1.3x power. Single use.",
 	},
 };

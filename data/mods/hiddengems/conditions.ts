@@ -7,6 +7,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+      this.add('-anim', source, "Cosmic Power", source);
       this.add('-message', `${source.name}'s Hidden Gem activated!`);
       const targetType = source.types[1];
       this.add('-start', source, 'typeadd', 'Psychic', '[from] item: Psychic Gem');

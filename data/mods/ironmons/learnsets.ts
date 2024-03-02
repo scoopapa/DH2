@@ -1268,7 +1268,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			uturn: ["9M"],
 		},
 	},
-	raticatealola: {
+	spinningrat: {
 		learnset: {
 			assurance: ["9L19"],
 			attract: ["9M"],
@@ -1337,6 +1337,18 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			stockpile: ["9E"],
 			swallow: ["9E"],
 			switcheroo: ["9E"],
+			hyperspin: ["9E"],
+			acrobatics: ["9E"],
+			airslash: ["9E"],
+			aerialace: ["9E"],
+			aircutter: ["9E"],
+			defog: ["9E"],
+			rapidspin: ["9E"],
+			fly: ["9E"],
+			gust: ["9E"],
+			icespinner: ["9E"],
+			firespin: ["9E"],
+			earthquake: ["9E"],
 		},
 	},
 };

@@ -222,7 +222,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	spinningrat: {
 		num: -18,
-		name: "Raticate-Alola",
+		name: "Spinning Rat",
 		types: ["Dark", "Flying"],
 		gender: "N",
 		baseStats: {hp: 97, atk: 123, def: 91, spa: 51, spd: 97, spe: 111},
