@@ -1053,6 +1053,123 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
+	bodyslam: {
+		num: 34,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Body Slam",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Wigglytuff-Stormcloud': case 'Wigglytuff-Stormcloud-Tera':
+				move.type = 'Electric';
+				break;
+			case 'Wigglytuff-Moonlight': case 'Wigglytuff-Moonlight-Tera':
+				move.type = 'Psychic';
+				break;
+			case 'Wigglytuff-Nightballoon': case 'Wigglytuff-Nightballoon-Tera':
+				move.type = 'Ghost';
+				break;
+			}
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	crosspoison: {
+		num: 440,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Cross Poison",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Crobat-Nightkite': case 'Crobat-Nightkite-Tera':
+				move.type = 'Normal';
+				break;
+			case 'Crobat-Herowing': case 'Crobat-Herowing-Tera':
+				move.type = 'Fighting';
+				break;
+			case 'Crobat-Petalvamp': case 'Crobat-Petalvamp-Tera':
+				move.type = 'Grass';
+				break;
+			}
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		critRatio: 2,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	spiritbreak: {
+		num: 789,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Spirit Break",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Granbull-Warden': case 'Granbull-Warden-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Granbull-Guardian': case 'Granbull-Guardian-Tera':
+				move.type = 'Fighting';
+				break;
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	sunsteelstrike: {
+		num: 713,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Sunsteel Strike",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Solgaleo-Sunfish': case 'Solgaleo-Sunfish-Tera':
+				move.type = 'Water';
+				break;
+			case 'Solgaleo-Suncore': case 'Solgaleo-Suncore-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Solgaleo-Sunflower': case 'Solgaleo-Sunflower-Tera':
+				move.type = 'Grass';
+				break;
+			}
+		},
+		ignoreAbility: true,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
 
 // unchanged moves
 	defog: {

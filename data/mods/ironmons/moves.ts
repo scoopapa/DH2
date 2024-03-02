@@ -118,6 +118,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Beautiful",
 	},
+	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	mk42charge: {
 		num: -5,
 		accuracy: true,
@@ -141,5 +145,67 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Raises the user's Special Attack and Accuracy by 1 stage, and also Speed by 1 stage in Electric Terrain.",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cute",
+	},
+	warpblast: {
+		num: -6,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Warp Blast",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		pseudoWeather: 'gravity',
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		shortDesc: "Sets Gravity.",
+	},
+	hyperspin: {
+		num: -7,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Hyper Spin",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Hyper Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Hyper Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Hyper Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Hyper Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		shortDesc: "Removes hazards, Leech Seed, and partially trapping moves.",
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
 	},
 }

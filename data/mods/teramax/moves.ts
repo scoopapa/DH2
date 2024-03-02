@@ -274,6 +274,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to burn foe. Negates burn immunity abilities.",
 		name: "Tar Shot",
 		pp: 10,
+		viable: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -317,6 +318,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Rock",
+	},
+	doodle: {
+		num: 867,
+		accuracy: 100,
+		shortDesc: "(Partially functional placeholder) Copies the foe's entire moveset.",
+		basePower: 0,
+		category: "Status",
+		name: "Doodle",
+		viable: true,
+		pp: 10,
+		priority: 0,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onHit(target, source, move) {
+			if (source.transformed || source.volatiles['doodle']) {
+				return false;
+			}
+			for (const moveid in target.moveSlots) {
+				 const copiedmove = target.moveSlots[moveid];
+				 source.moveSlots[moveid] = {
+					  move: copiedmove.name,
+					  id: copiedmove.id,
+					  pp: copiedmove.pp,
+					  maxpp: copiedmove.pp,
+					  target: copiedmove.target,
+					  disabled: false,
+					  used: false,
+					  virtual: true,
+				};
+			}
+			source.addVolatile('doodle');
+			this.add('-start', source, 'Doodle', move.name);
+		},
+		condition: {},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
 	},
 
 // Max and GMax Moves

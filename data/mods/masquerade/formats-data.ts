@@ -443,4 +443,64 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	wigglytuff: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffnightballoon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffmoonlight: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffstormcloud: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobat: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatpetalvamp: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatherowing: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatnightkite: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleo: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosunflower: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosuncore: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosunfish: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbull: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbullguardian: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbullwarden: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
