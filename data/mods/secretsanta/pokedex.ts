@@ -201,7 +201,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		name: "Anabola",
 		types: ["Poison", "Ghost"],
 		baseStats: {hp: 47, atk: 80, def: 140, spa: 80, spd: 140, spe: 68},
-		abilities: {0: "Trace", H: "Perscription"},
+		abilities: {0: "Trace", H: "Prescription"},
 	},
 	angami: {
 		num: 1002,
