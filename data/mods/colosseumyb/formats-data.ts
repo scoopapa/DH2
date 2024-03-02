@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: SpeciesFormatsData} = { 
   caterpie: {
 		tier: "LC Colo",
 		doublesTier: "LC Colo",
