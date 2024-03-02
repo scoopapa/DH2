@@ -475,7 +475,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Hidden Gems",
 		mod: 'hiddengems',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
