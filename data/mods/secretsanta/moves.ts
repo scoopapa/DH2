@@ -272,7 +272,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-	}
+	},
 	slideout: {
 		num: 100012,
 		accuracy: 100,
