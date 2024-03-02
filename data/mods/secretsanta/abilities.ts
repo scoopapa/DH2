@@ -63,7 +63,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (trickyMoves.includes(move.name));
 			move.category = "Physical";
 			move.basePower = 80;
-		}
+		},
 		num: 100004,
 	},
 	wishingstar: {
