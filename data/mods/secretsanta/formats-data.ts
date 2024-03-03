@@ -168,7 +168,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "santa",
 		doublesTier: "Dsanta",
 	},
-	samurottundefined: {
+	samurottsinnoh: {
 		tier: "santa",
 		doublesTier: "Dsanta",
 	},
