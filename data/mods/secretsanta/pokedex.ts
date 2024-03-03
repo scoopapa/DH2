@@ -294,11 +294,11 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		baseStats: {hp: 70, atk: 111, def: 79, spa: 100, spd: 111, spe: 79},
 		abilities: {0: "Adaptability", 1: "Shed Skin", H: "Earth Eater"},
 	},
-	samurottundefined: {
+	samurottsinnoh: {
 		num: 1015,
-		name: "Samurott"-"undefined",
+		name: "Samurott-Sinnoh",
 		baseSpecies: "Samurott",
-		forme: "undefined",
+		forme: "Sinnoh",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 85, atk: 105, def: 80, spa: 70, spd: 75, spe: 115},
 		abilities: {0: "Blaze", H: "Sharpness"},
