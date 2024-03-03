@@ -2537,7 +2537,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["9L1"],
 		},
 	},
-	samurottundefined: {
+	samurottsinnoh: {
 		learnset: {
 			aerialace: ["9M", "9L29"],
 			airslash: ["9M"],
