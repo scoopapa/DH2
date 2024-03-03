@@ -227,4 +227,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	snowdown: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	flossilisk: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	maulsoleum: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 };

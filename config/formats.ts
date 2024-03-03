@@ -452,6 +452,26 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	/*{
+		name: "[Gen 9] Fusion Evolution UU",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/fusion-evolution-uu-gen-9-slate-0-drop-slate-discussion-phase.3737223/#post-9994453/">Gen 9 Fusion Evolution UU</a>`,
+		],
+		mod: 'gen9fe',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: ['FEOU', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Swampertite', 'Mawilite', 'Alakazite', 'Baton Pass', 'Light Clay'],
+		onValidateTeam(team, format) {
+			/(**@type {{[k: string]: true}}*)/
+			let speciesTable = {};
+			let allowedTiers = ['FEUU', 'FENFE', "FELC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Fusion Evolution UU.'];
+				}
+			}
+		},
+	},*/
 	{
 		name: "[Gen 9] Generation X",
 		threads: [
@@ -2452,7 +2472,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: "scootopia",
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'Terastal Clause',  'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule',],
 		banlist: ['All Pokemon'],
 		unbanlist: ["Arbrella", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Orchile",
 		"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Platypad", "Lumoth",

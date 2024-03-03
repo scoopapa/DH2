@@ -257,6 +257,52 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
+	selfimagebreak: {
+		num: 100016,
+		basePower: 70,
+		category: "Special",
+		accuracy: 85,
+		pp: 5,
+		name: "Self-Image Break",
+		shortDesc: "Traps 4-5 turns, lowers SpD each turn",
+		volatileStatus: 'selfimagebreak',
+		condition: {
+			name: 'selfimagebreak',
+			duration: 5,
+			durationCallback(target, source) {
+				if (source?.hasItem('gripclaw')) return 8;
+				return this.random(4, 5);
+			},
+			onStart(pokemon, source) {
+				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				const source = this.effectState.source;
+				// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+				const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
+					delete pokemon.volatiles['selfimagebreak'];
+					this.add('-end', pokemon, this.effectState.sourceEffect, '[selfimagebreak]', '[silent]');
+					return;
+				}
+				this.boost({spd: -1});
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[selfimagebreak]');
+			},
+			onTrapPokemon(pokemon) {
+				const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+				if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
+			},
+		},
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
 	slideout: {
 		num: 100012,
 		accuracy: 100,

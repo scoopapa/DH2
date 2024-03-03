@@ -89,8 +89,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	katabaticwinds: {
 		name: "Katabatic Winds",
 		shortDesc: "If Gravity is active, Flying attacks deal 50% less to this Pokemon.",
-		onDamagingHit(damage, target, source, move) {
-			if (move.type == "Flying" && this.field.getPseudoWeather('gravity')) {
+		onDamage(damage, target, source, effect) {
+			if (!effect.effectType || effect.effectType !== "Move") return damage;
+			if (effect.type === "Flying" && this.field.getPseudoWeather('gravity')) {
 				return Math.floor(damage * 0.5);
 			}
 		},
@@ -112,7 +113,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			else pokemon.m.prescription = false;
 		},
 		onChangeBoost(boost, target, source, effect) {
-			if (!pokemon.m.prescription) return;
+			if (!target.m.prescription) return;
 			let i: BoostID;
 			for (i in boost) {
 				boost[i]! *= 2;
