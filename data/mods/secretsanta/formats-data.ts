@@ -112,4 +112,108 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Dsanta",
 	},
 
+		anabola: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	angami: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	applwirm: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	bigpenguin: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	caffardice: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	crystough: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	kelvign: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	mafical: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	merpagos: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	mesalacial: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	nocturnyx: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	parantisedal: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	pyrrend: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	ribbyte: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	samurottundefined: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	sargampus: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	scycrow: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	speculass: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	sporemountain: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	stratitan: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	sunomon: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	techplica: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	toxitoad: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	vielemoth: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	volcanisaur: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
+	volcavilu: {
+		tier: "santa",
+		doublesTier: "Dsanta",
+	},
 };
