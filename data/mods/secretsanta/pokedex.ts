@@ -94,7 +94,7 @@ export const Pokedex: {[nameid: string]: nameData} = {
 		num: 1014,
 		name: "Coralssal",
 		types: ["Water", "Ground"],
-		baseStats: {hp: 80, atk: 110, def: 110, spa: 65, spd: 110, spe: 35},
+		baseStats: {hp: 80, atk: 110, def: 100, spa: 65, spd: 100, spe: 35},
 		abilities: {0: "Hustle", 1: "Natural Cure", H: "Regenerator"},
 	},
 	droseric: {
