@@ -3401,7 +3401,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			cottonguard: ["9L1"],
 			stickyweb: ["9L1"],
 			coil: ["9L1"],
-			protect: ["9L1"],
 			glare: ["9L1"],
 			thunderwave: ["9L1"],
 			wildcharge: ["9L1"],
