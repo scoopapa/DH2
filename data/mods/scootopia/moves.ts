@@ -148,9 +148,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectState.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
-				console.log("energy siphon");
-				console.log(target);
+				const target = this.getAtSlot(pokemon.volatiles['energysiphon'].sourceSlot);
 				if (!target || target.fainted || target.hp <= 0) {
 					console.log('Nothing to leech into');
 					return;
