@@ -188,7 +188,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-	}
+	},
 	flareup: {
 		num: 100008,
 		accuracy: 100,
