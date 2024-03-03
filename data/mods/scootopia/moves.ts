@@ -149,8 +149,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 				const target = this.effectState.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
+				console.log("energy siphon");
+				console.log(target);
 				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to leech into');
+					console.log('Nothing to leech into');
 					return;
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
