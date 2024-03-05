@@ -37,6 +37,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "crobat").learnset.poisonjab = ["9L1"];
 		this.modData("Learnsets", "crobat").learnset.drillrun = ["9L1"];
 		this.modData("Learnsets", "crobat").learnset.sludgewave = ["9L1"];
+		delete this.modData('Learnsets', 'emboar').learnset.bulkup;
+		delete this.modData('Learnsets', 'pignite').learnset.bulkup;
 	},
 	actions: {
 		inherit: true,

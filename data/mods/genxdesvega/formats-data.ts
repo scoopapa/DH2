@@ -1022,7 +1022,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	gligar: {
-		tier: "Desvega LC",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	gliscor: {
