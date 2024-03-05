@@ -2041,16 +2041,16 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	deoxysattack: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	deoxysdefense: {
 		tier: "RU",
 		doublesTier: "DOU",
 	},
 	deoxysspeed: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	turtwig: {
 		tier: "LC",

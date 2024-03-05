@@ -1031,6 +1031,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'relicanth').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'regirock').learnset.shoreup = ['9L1'];
     this.modData('Learnsets', 'metagross').learnset.skullbash = ['9L1'];
+    delete this.modData('Learnsets', 'deoxys').learnset.spikes;
+    delete this.modData('Learnsets', 'deoxys').learnset.magiccoat;
 
     // Gen 4:
     this.modData('Learnsets', 'torterra').learnset.weatherball = ['9L1'];
