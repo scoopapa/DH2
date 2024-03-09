@@ -1300,6 +1300,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 50, atk: 110, def: 110, spa: 110, spd: 110, spe: 110},
 	},
+	deoxysattack: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 140, def: 80, spa: 140, spd: 80, spe: 110},
+	},
 
 	// Gen 4 :
 	torterra: {
@@ -1327,6 +1331,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	rampardos: {
 		inherit: true,
+		types: ["Rock", "Normal"],
 		baseStats: {hp: 107, atk: 165, def: 75, spa: 30, spd: 60, spe: 58},
 		abilities: {0: "Mold Breaker", 1: "Rock Head", H: "Sheer Force"},
 	},
