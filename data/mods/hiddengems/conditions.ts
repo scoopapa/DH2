@@ -17,4 +17,30 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 */
+	normalgem: {
+		name: 'normalgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+			this.add('-message', `${source.name}'s Hidden Gem activated!`);
+			source.setAbility('libero', source, true);
+      	this.add('-activate', source, 'ability: Libero');
+      	this.boost({atk: 1, spe: 2}, source);
+		},
+	},
+	buggem: {
+		name: 'buggem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+			this.add('-message', `${source.name}'s Hidden Gem activated!`);
+			source.setAbility('tintedlens', source, true);
+      	this.add('-activate', source, 'ability: Tinted Lens');
+      	this.boost({spa: 1, accuracy: 1, spe: 1}, source);
+		},
+	},
 };

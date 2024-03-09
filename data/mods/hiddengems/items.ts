@@ -27,6 +27,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Bug' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Galvantula') {
+				  source.addVolatile('buggem');
+        		}
 			}
 		},
 		num: 558,
@@ -196,6 +199,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type === 'Normal' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Ambipom') {
+				  source.addVolatile('normalgem');
+        		}
 			}
 		},
 		num: 564,
