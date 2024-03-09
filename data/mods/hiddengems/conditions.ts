@@ -43,4 +43,17 @@ export const Conditions: {[k: string]: ConditionData} = {
       	this.boost({spa: 1, accuracy: 1, spe: 1}, source);
 		},
 	},
+	fightinggem: {
+		name: 'fightinggem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('noguard', source, true);
+	      this.add('-activate', source, 'ability: No Guard');
+	      this.boost({spa: 1, spd: 1}, source);
+		},
+	},
 };
