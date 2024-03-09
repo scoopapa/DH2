@@ -1797,6 +1797,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	cobalion: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	terrakion: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	virizion: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	keldeo: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
   
 	cirno: {
 		isNonstandard: "Custom",
