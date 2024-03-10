@@ -2133,7 +2133,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowhalf: {
 		accuracy: true,
 		basePower: 0,
-		category: "Status",
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
+		},
+		category: "Special",
 		shortDesc: "All Pokemon on the field lose 50% of their current HP.",
 		isViable: true,
 		name: "Shadow Half",
@@ -2143,14 +2146,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hex", source);
-			this.add('-anim', source, "Gravity", target);
+			this.add('-anim', source, "Gravity", source);
 		},
-		onHitField(target, source) {
-			this.damage(source.getUndynamaxedHP() / 2, source, target);
-			this.damage(target.getUndynamaxedHP() / 2, target, source);
+		self: {
+			onHit(pokemon, source, move) {
+				this.damage(source.baseMaxhp / 3, source, pokemon);
+			},
 		},
 		secondary: null,
-		target: "all",
+		target: "allAdjacent",
 		type: "Shadow",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
