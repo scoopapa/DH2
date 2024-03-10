@@ -35,6 +35,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([4915, 4096]);
 			}
 		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Shadow') {
 				return this.chainModify(0.5);
