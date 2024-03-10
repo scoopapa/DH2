@@ -15737,5 +15737,5 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
-	};
+	},
 };
