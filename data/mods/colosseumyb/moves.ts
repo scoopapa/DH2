@@ -2147,7 +2147,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHitField(target, source) {
 			this.damage(source.getUndynamaxedHP() / 2, source, target);
-			this.damage(target.getUndynamaxedHP() / 2, source, target);
+			this.damage(target.getUndynamaxedHP() / 2, target, source);
 		},
 		secondary: null,
 		target: "all",
