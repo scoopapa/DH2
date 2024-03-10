@@ -873,13 +873,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Cool",
 	},
-	badomen: {
+	badomenattack: {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Switches the user out. Hits 2 turns later.",
+		shortDesc: "Attack portion of Bad Omen.",
 		viable: true,
-		name: "Bad Omen",
+		name: "Bad Omen Attack",
 		pp: 10,
 		priority: 0,
 		flags: {allyanim: 1, metronome: 1, futuremove: 1},
@@ -888,17 +888,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
-				move: 'badomen',
+				move: 'badomenattack',
 				source: source,
 				moveData: {
-					id: 'badomen',
-					name: "Bad Omen",
+					id: 'badomenattack',
+					name: "Bad Omen Attack",
 					accuracy: 100,
 					basePower: 100,
 					category: "Physical",
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
-  				onPrepareHit(target, source, move) {
+  					onPrepareHit(target, source, move) {
 						this.attrLastMove('[still]');
 						this.add('-anim', source, "Psyshock", target);
 					},
@@ -907,14 +907,41 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					type: 'Dark',
 				},
 			});
-			this.add('-start', source, 'move: Bad Omen');
+			this.add('-start', source, 'move: Bad Omen Attack');
 			return this.NOT_FAIL;
 		},
-		selfSwitch: true,
 		secondary: null,
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+	},
+	badomen: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Switches the user out. Foe is hit by an attack 2 turns later.",
+		name: "Bad Omen",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Laser Focus", target);
+		},
+		onTry(source) {
+			return !!this.canSwitch(source.side);
+		},
+		onHit(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				this.actions.useMove("Bad Omen Attack", target);
+			}
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Dark",
+		zMove: {effect: 'heal'},
+		contestType: "Cool",
 	},
 	burnaway: {
 		accuracy: 100,
