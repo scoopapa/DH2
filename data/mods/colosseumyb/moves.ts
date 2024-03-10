@@ -2324,7 +2324,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Lunge", target);
 		},
 		onBasePower(basePower, source, target, move) {
-			if (target.hasType('Shadow')) {
+			if (target.hasItem('shadowadapter')) {
 				return this.chainModify(2);
 			}
 		},
@@ -2351,7 +2351,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, source, target, move) {
 			if (source.baseSpecies.baseSpecies === 'Zangoose' && target.baseSpecies.baseSpecies === 'Seviper' || 
 				source.baseSpecies.baseSpecies === 'Seviper' && target.baseSpecies.baseSpecies === 'Zangoose' ||
-				target.hasType('Shadow')) {
+				target.hasItem('shadowadapter')) {
 				return this.chainModify(2);
 			}
 		},
