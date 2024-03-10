@@ -35,6 +35,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 100002,
 	},
 	chemicalburn: {
+		shortDesc: "Contact moves lower foe's SpD.",
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -87,6 +88,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	// slate 2
 	katabaticwinds: {
 		name: "Katabatic Winds",
+		shortDesc: "If Gravity is active, Flying attacks deal 50% less to this Pokemon.",
 		onDamage(damage, target, source, effect) {
 			if (!effect.effectType || effect.effectType !== "Move") return damage;
 			if (effect.type === "Flying" && this.field.getPseudoWeather('gravity')) {
@@ -127,10 +129,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Prescription",
+		shortDesc: "Doubles stat changes and healing if user HP > target HP.",
 		rating: 4,
 		num: 100007,
 	},
 	reallyfat: {
+		shortDesc: "Electric, Fire, and Ice attacks always deal 12.5%, and secondary effects don't activate.",
 		onTryHit(target, source, move) {
 			if (target !== source && ['Electric','Fire','Ice'].includes(move.type)) {
 				if (this.damage(target.baseMaxhp / 8)) {
@@ -155,6 +159,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Table Flip",
+		shortDesc: "Reverses type matchups, inflicts Torment on user, overrides Mold Breaker.",
 		rating: 3.5,
 		num: 100009,
 	},

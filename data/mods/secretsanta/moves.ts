@@ -83,12 +83,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	tranbeam: {
 		num: 100005,
-		shortDesc: "Does nothing (placeholder)",
+		shortDesc: "Changes opponent's type to Normal",
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
 		name: "Tran Beam",
 		pp: 10,
+		onHit(target) {
+			if (target.getTypes().join() === 'Normal' || !target.setType('Normal')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Normal');
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
@@ -141,6 +150,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Amino Acid",
+		shortDesc: "After hitting, averages user and target's HP.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
@@ -158,6 +168,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	crystallize: {
+		num: 349,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Crystallize",
+		shortDesc: "Boosts Def and Spe by 1.",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
 	},
 	flareup: {
 		num: 100008,
@@ -177,12 +207,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	maelstorm: {
+	maelstrom: {
 		num: 100009,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		name: "Maelstorm",
+		name: "Maelstrom",
 		shortDesc: "Changes foe's ability to Desolate Land",
 		pp: 10,
 		priority: 0,

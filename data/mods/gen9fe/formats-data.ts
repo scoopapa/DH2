@@ -6,10 +6,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	varantis: {
-		tier: "FENFE",
+		tier: "FEOU",
 		doublesTier: "NFE",
 		randomBattleMoves: ["ironhead", "leafblade", "gunkshot", "partingshot"],
-		randomBattleLevel: 83,
+		randomBattleLevel: 78,
 	},
 	rotoghold: {
 		tier: "FEOU",
@@ -18,10 +18,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	guguzzparce: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["stealthrock", "roost", "boomburst", "darkpulse"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	toedieleki: {
 		tier: "FEOU",
@@ -61,10 +61,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	slitherking: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["morningsun", "uturn", "firstimpression", "flareblitz"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	gargamise: {
 		tier: "FEOU",
@@ -79,10 +79,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	muktariaalola: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["roost", "willowisp", "gunkshot", "playrough"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	muktariaalolamega: {
 		tier: "FEOU",
@@ -145,10 +145,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		requiredItem: "Absolite",
 	},
 	golisorospaldeablaze: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["liquidation", "bodypress", "spikes", "willowisp"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	brambleswine: {
 		tier: "FEOU",
@@ -177,10 +177,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	lashiram: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["blueflare", "earthpower", "roost", "stealthrock", "flareblitz", "toxic"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	garpyuku: {
 		tier: "FEOU",
@@ -363,30 +363,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	tyranix: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["stealthrock", "stoneedge", "earthquake", "thunderwave"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	tyranixmegax: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		requiredItem: "Tyranitarite",
 		randomBattleMoves: ["dragondance", "stoneedge", "earthquake", "icepunch"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	tyranixmegay: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		requiredItem: "Steelixite",
 		randomBattleMoves: ["curse", "stoneedge", "earthquake", "icepunch"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},	
 	gooperthisui: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["stealthrock", "toxic", "dracometeor", "flipturn"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	gooperthisuimega: {
 		tier: "FEOU",
@@ -476,10 +476,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	mawlakazam: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["nastyplot", "fireblast", "psychic", "dazzlinggleam"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	mawlakazammegay: {
 		tier: "FEOU",
@@ -532,10 +532,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	conkelbun: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["facade", "machpunch", "knockoff", "playrough"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	amigotrioalola: {
 		tier: "FEOU",
@@ -587,30 +587,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	overgyara: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["crunch", "earthquake", "dragondance", "barbbarrage"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	overgyaramega: {
-		tier: "FEOU",
+		tier: "FEUU",
 		requiredItem: "Gyaradosite",
 		doublesTier: "DOU",
 		randomBattleMoves: ["crunch", "earthquake", "dragondance", "barbbarrage"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	chomptry: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["crunch", "scaleshot", "earthquake", "stoneedge", "earthpower", "dracometeor", "darkpulse", "fireblast"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	chomptrymega: {
-		tier: "FEOU",
+		tier: "FEUU",
 		requiredItem: "Garchompite",
 		doublesTier: "DOU",
 		randomBattleMoves: ["crunch", "scaleshot", "earthquake", "stoneedge", "earthpower", "dracometeor", "darkpulse", "fireblast"],
-		randomBattleLevel: 75,
+		randomBattleLevel: 80,
 	},
 	farinape: {
 		tier: "FEOU",

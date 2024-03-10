@@ -199,7 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Iron Savage",
 		types: ["Dark", "Steel"],
 		gender: "N",
-		baseStats: {hp: 108, atk: 106, def: 92, spa: 50, spd: 124, spe: 88},
+		baseStats: {hp: 108, atk: 106, def: 92, spa: 52, spd: 124, spe: 88},
 		abilities: {0: "Quark Drive"},
 		heightm: 1.2,
 		weightkg: 92.4,
