@@ -2324,7 +2324,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Lunge", target);
 		},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Shadow') return 1;
+			if (target.terastallized) return 1;
 		},
 		secondary: null,
 		target: "normal",
@@ -2353,7 +2353,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Shadow') return 1;
+			if (target.terastallized) return 1;
 		},
 		secondary: null,
 		target: "normal",
