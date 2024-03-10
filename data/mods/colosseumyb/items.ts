@@ -176,7 +176,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1005,
 		gen: 9,
-		desc: "Holder takes 3/4 damage from foes that share a type.",
+		desc: "Holder takes 3/4 damage from Shadow Pokemon.",
 		rating: 3,
 	},
 	stellarplate: {
