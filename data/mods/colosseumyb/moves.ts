@@ -2150,7 +2150,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(pokemon, source, move) {
-				this.damage(source.baseMaxhp / 3, source, pokemon);
+				this.damage(source.baseMaxhp / 2, source, pokemon);
 			},
 		},
 		secondary: null,
