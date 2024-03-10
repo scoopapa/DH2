@@ -12,7 +12,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Shadow') {
-				return this.chainModify(1.5);
+				if (user.hasAbility('adaptability')) {
+					return this.chainModify(2);
+				} else {
+					return this.chainModify(1.5);
+				}
 			}
 		},
 		onModifyAtkPriority: 1,
