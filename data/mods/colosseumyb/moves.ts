@@ -2312,7 +2312,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		shortDesc: "Super effective on Shadow Pokemon.",
+		shortDesc: "2x damage on Shadow Pokemon.",
 		isViable: true,
 		name: "Shadow Pounce",
 		pp: 10,
@@ -2323,8 +2323,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Hex", source);
 			this.add('-anim', source, "Lunge", target);
 		},
-		onEffectiveness(typeMod, target, type) {
-			if (target.terastallized) return 1;
+		onBasePower(basePower, source, target, move) {
+			if (target.hasType('Shadow')) {
+				return this.chainModify(2);
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -2335,7 +2337,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "Super effective on Shadow Pokemon. Deals 2x damage to Zangoose or Seviper, depending on the user.",
+		shortDesc: "2x damage on Shadow Pokemon, as well as Zangoose or Seviper, depending on the user.",
 		isViable: true,
 		name: "Shadow Chaser",
 		pp: 10,
@@ -2348,12 +2350,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onBasePower(basePower, source, target, move) {
 			if (source.baseSpecies.baseSpecies === 'Zangoose' && target.baseSpecies.baseSpecies === 'Seviper' || 
-				source.baseSpecies.baseSpecies === 'Seviper' && target.baseSpecies.baseSpecies === 'Zangoose') {
+				source.baseSpecies.baseSpecies === 'Seviper' && target.baseSpecies.baseSpecies === 'Zangoose' ||
+				target.hasType('Shadow')) {
 				return this.chainModify(2);
 			}
-		},
-		onEffectiveness(typeMod, target, type) {
-			if (target.terastallized) return 1;
 		},
 		secondary: null,
 		target: "normal",
