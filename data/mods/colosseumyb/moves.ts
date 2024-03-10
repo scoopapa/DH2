@@ -2447,9 +2447,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Hex", source);
 			this.add('-anim', source, "Double-Edge", target);
 		},
-		onDisableMove(pokemon) {
-			if (!pokemon.terastallized) pokemon.disableMove('shadowrush');
-		},
 		secondary: null,
 		target: "normal",
 		type: "Shadow",
