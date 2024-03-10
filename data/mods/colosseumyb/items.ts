@@ -34,7 +34,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			for (const allyActive of pokemon.allies()) {
-				if (pokemon.hasAbility(['minus', 'plus'] && !allyActive.hasAbility(['minus', 'plus'])) {
+				if (pokemon.hasAbility(['minus', 'plus'] && !allyActive.hasAbility(['minus', 'plus']))) {
 					return this.chainModify(1.5);
 				}
 			}
