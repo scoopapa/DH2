@@ -11,8 +11,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.volatiles['confusion']) {
-				return this.chainModify([6144, 4096]);
+			if (move.type === 'Shadow') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				return this.chainModify(1.5);
+			} else {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				return this.chainModify(1.5);
 			} else {
 				return this.chainModify([4915, 4096]);
 			}
