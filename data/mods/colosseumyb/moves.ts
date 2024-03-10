@@ -1849,7 +1849,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Aura');
 			this.attrLastMove('[still]');
 			return null;
@@ -1914,7 +1914,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Quick Attack", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Blitz');
 			this.attrLastMove('[still]');
 			return null;
@@ -1940,7 +1940,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Brick Break", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Break');
 			this.attrLastMove('[still]');
 			return null;
@@ -1972,7 +1972,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Tackle", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Charge');
 			this.attrLastMove('[still]');
 			return null;
@@ -2004,7 +2004,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Crush Claw", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Crusher');
 			this.attrLastMove('[still]');
 			return null;
@@ -2035,7 +2035,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Dragon Dance", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Dance');
 			this.attrLastMove('[still]');
 			return null;
@@ -2068,7 +2068,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Dragon Darts", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Darts');
 			this.attrLastMove('[still]');
 			return null;
@@ -2095,7 +2095,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Snarl", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Down');
 			this.attrLastMove('[still]');
 			return null;
@@ -2133,7 +2133,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Hyper Voice", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Aura');
 			this.attrLastMove('[still]');
 			return null;
@@ -2172,7 +2172,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Poltergeist", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow End');
 			this.attrLastMove('[still]');
 			return null;
@@ -2206,7 +2206,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Gravity", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Half');
 			this.attrLastMove('[still]');
 			return null;
@@ -2237,7 +2237,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Block", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Hold');
 			this.attrLastMove('[still]');
 			return null;
@@ -2269,7 +2269,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Seismic Toss", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Juggle');
 			this.attrLastMove('[still]');
 			return null;
@@ -2297,7 +2297,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Leech Life", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Leech');
 			this.attrLastMove('[still]');
 			return null;
@@ -2323,7 +2323,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Heart Swap", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Love');
 			this.attrLastMove('[still]');
 			return null;
@@ -2365,7 +2365,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Haze", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Mist');
 			this.attrLastMove('[still]');
 			return null;
@@ -2399,7 +2399,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Confide", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Panic');
 			this.attrLastMove('[still]');
 			return null;
@@ -2426,7 +2426,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Lunge", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Pounce');
 			this.attrLastMove('[still]');
 			return null;
@@ -2455,7 +2455,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Extreme Speed", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Chaser');
 			this.attrLastMove('[still]');
 			return null;
@@ -2491,7 +2491,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Night Shade", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Press');
 			this.attrLastMove('[still]');
 			return null;
@@ -2516,7 +2516,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Outrage", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Rage');
 			this.attrLastMove('[still]');
 			return null;
@@ -2550,7 +2550,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Fiery Wrath", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Rave');
 			this.attrLastMove('[still]');
 			return null;
@@ -2576,7 +2576,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Double-Edge", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Rush');
 			this.attrLastMove('[still]');
 			return null;
@@ -2603,7 +2603,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Laser Focus", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Sights');
 			this.attrLastMove('[still]');
 			return null;
@@ -2646,7 +2646,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Spike Cannon", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Shards');
 			this.attrLastMove('[still]');
 			return null;
@@ -2674,7 +2674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Diamond Storm", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Shatter');
 			this.attrLastMove('[still]');
 			return null;
@@ -2705,7 +2705,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Minimize", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Shed');
 			this.attrLastMove('[still]');
 			return null;
@@ -2747,7 +2747,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Rain Dance", source);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Sky');
 			this.attrLastMove('[still]');
 			return null;
@@ -2796,7 +2796,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Stun Spore", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Spores');
 			this.attrLastMove('[still]');
 			return null;
@@ -2824,7 +2824,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Bleakind Storm", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Storm');
 			this.attrLastMove('[still]');
 			return null;
@@ -2854,7 +2854,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Shock Wave", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Wave');
 			this.attrLastMove('[still]');
 			return null;
@@ -2886,7 +2886,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Aeroblast", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Blast');
 			this.attrLastMove('[still]');
 			return null;
@@ -2912,7 +2912,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Thunder", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Bolt');
 			this.attrLastMove('[still]');
 			return null;
@@ -2941,7 +2941,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Sheer Cold", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Chill');
 			this.attrLastMove('[still]');
 			return null;
@@ -2970,7 +2970,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Fire Blast", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Fire');
 			this.attrLastMove('[still]');
 			return null;
@@ -3000,7 +3000,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Bind", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Grip');
 			this.attrLastMove('[still]');
 			return null;
@@ -3026,7 +3026,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Gigaton Hammer", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Hammer');
 			this.attrLastMove('[still]');
 			return null;
@@ -3051,7 +3051,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Blood Moon", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Eclipse');
 			this.attrLastMove('[still]');
 			return null;
@@ -3087,7 +3087,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Mortal Spin", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Flood');
 			this.attrLastMove('[still]');
 			return null;
@@ -3119,7 +3119,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Life Dew", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Juice');
 			this.attrLastMove('[still]');
 			return null;
@@ -3144,7 +3144,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Metronome", target);
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Shadow')) return;
+			if (pokemon.terastallized === 'Shadow') return;
 			this.add('-fail', pokemon, 'move: Shadow Twirl');
 			this.attrLastMove('[still]');
 			return null;
