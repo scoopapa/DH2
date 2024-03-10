@@ -10571,8 +10571,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "staryu").learnset.shadowstorm = ["9L1"];
 		this.modData("Learnsets", "staryu").learnset.shadowmist = ["9L1"];
 		this.modData("Learnsets", "staryu").learnset.shadowrush = ["9L1"];
-		this.modData("Learnsets", "staryu").learnset.shadowmist = ["9L1"];
-		this.modData("Learnsets", "staryu").learnset.shadowstorm = ["9L1"];
+		this.modData("Learnsets", "staryu").learnset.shadowrave = ["9L1"];
+		this.modData("Learnsets", "staryu").learnset.shadowdown = ["9L1"];
 		this.modData("Learnsets", "staryu").learnset.shadowcharge = ["9L1"];
 		this.modData("Learnsets", "staryu").learnset.shadowaura = ["9L1"];
 		// Starmie
@@ -10580,8 +10580,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "starmie").learnset.shadowstorm = ["9L1"];
 		this.modData("Learnsets", "starmie").learnset.shadowmist = ["9L1"];
 		this.modData("Learnsets", "starmie").learnset.shadowrush = ["9L1"];
-		this.modData("Learnsets", "starmie").learnset.shadowmist = ["9L1"];
-		this.modData("Learnsets", "starmie").learnset.shadowstorm = ["9L1"];
+		this.modData("Learnsets", "starmie").learnset.shadowrave = ["9L1"];
+		this.modData("Learnsets", "starmie").learnset.shadowdown = ["9L1"];
 		this.modData("Learnsets", "starmie").learnset.shadowcharge = ["9L1"];
 		this.modData("Learnsets", "starmie").learnset.shadowaura = ["9L1"];
 		// Mime Jr
@@ -12512,7 +12512,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "skorupi").learnset.shadowdarts = ["9L1"];
 		this.modData("Learnsets", "skorupi").learnset.shadowsights = ["9L1"];
 		this.modData("Learnsets", "skorupi").learnset.shadowsky = ["9L1"];
-		this.modData("Learnsets", "skorupi").learnset.down = ["9L1"];
+		this.modData("Learnsets", "skorupi").learnset.shadowdown = ["9L1"];
 		// Drapion
 		this.modData("Learnsets", "drapion").learnset.shadowbreak = ["9L1"];
 		this.modData("Learnsets", "drapion").learnset.shadowcrusher = ["9L1"];
@@ -12521,7 +12521,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "drapion").learnset.shadowdarts = ["9L1"];
 		this.modData("Learnsets", "drapion").learnset.shadowsights = ["9L1"];
 		this.modData("Learnsets", "drapion").learnset.shadowsky = ["9L1"];
-		this.modData("Learnsets", "drapion").learnset.down = ["9L1"];
+		this.modData("Learnsets", "drapion").learnset.shadowdown = ["9L1"];
 		// Heatran
 		this.modData("Learnsets", "heatran").learnset.shadowrage = ["9L1"];
 		this.modData("Learnsets", "heatran").learnset.shadowrave = ["9L1"];
