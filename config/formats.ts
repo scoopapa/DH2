@@ -2004,6 +2004,58 @@ export const Formats: FormatList = [
     },
 	},
 	{
+		name: "[Gen 9] Colosseum YB",
+		desc: [
+			"<b>Colosseum YB</b>: A Gen 9 Solomod based in the Orre Region where a controlled form of the Shadow Pokemon phenomenon can be used by any Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DPy4hCz0_zV08xPjyNw7nF0mCIDUvuq0K6rMklyzIWE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'colosseumyb',
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct',
+					 'Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU Colo', 'UU Colo', 'RU Colo', 'NFE Colo', 'LC Colo'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Colosseum YB.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Colosseum YB VGC",
+		desc: [
+			"<b>Colosseum YB</b>: A Gen 9 Solomod based in the Orre Region where a controlled form of the Shadow Pokemon phenomenon can be used by any Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DPy4hCz0_zV08xPjyNw7nF0mCIDUvuq0K6rMklyzIWE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'colosseumyb',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer',
+					 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit Two Restricted'],
+		restricted: ['Restricted Legendary'],
+		banlist: ['Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU Colo', 'UU Colo', 'RU Colo', 'NFE Colo', 'LC Colo', 'Uber Colo'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Colosseum YB.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 2] Crystal Legacy",
 		mod: 'gen2crystallegacy',
 		desc: `A Solomod centered around Crystal Legacy.`,
