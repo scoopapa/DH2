@@ -70,7 +70,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-	  shortDesc: "If the user is hit this turn, +1 SpA.",
+	  	shortDesc: "If the user is hit this turn, +1 SpA.",
 		name: "Dragon's Roar",
 		viable: true,
 		pp: 15,
@@ -103,7 +103,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 60,
 		category: "Special",
-	  shortDesc: "Switches the foe out. Sets Sand if it fails.",
+	  	shortDesc: "Switches the foe out. Sets Sand if it fails.",
 		viable: true,
 		name: "Dust Devil",
 		pp: 10,
@@ -125,7 +125,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
-	  shortDesc: "Hits 2-5 times.",
+	  	shortDesc: "Hits 2-5 times.",
 		viable: true,
 		name: "Muscle Memory",
 		pp: 30,
@@ -152,7 +152,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.debug('BP for ' + currentSpecies.name + ' hit: ' + bp);
 			return bp;
 		},
-	  shortDesc: "All healthy allies aid in damaging the target.",
+	  	shortDesc: "All healthy allies aid in damaging the target.",
 		category: "Physical",
 		viable: true,
 		name: "Night March",
@@ -176,7 +176,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-	  shortDesc: "Protects the user. Disables a foe that makes contact.",
+	  	shortDesc: "Protects the user. Disables a foe that makes contact.",
 		viable: true,
 		name: "Rock Wall",
 		pp: 10,
@@ -235,7 +235,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 55,
 		category: "Physical",
-	  shortDesc: "Lowers the foe's Speed at the end of the turn for 3 turns.",
+	  	shortDesc: "Lowers the foe's Speed at the end of the turn for 3 turns.",
 		viable: true,
 		name: "Soul Sink",
 		pp: 10,
@@ -270,7 +270,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-	  shortDesc: "After dealing damage, this move deals an additional 6.25% of the all foes' max HP.",
+	  	shortDesc: "After dealing damage, this move deals an additional 6.25% of all foes' max HP.",
 		viable: true,
 		name: "Sparkling Spike",
 		pp: 15,
@@ -301,7 +301,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-	  shortDesc: "Fails if the foe wasn't using an offensive move. +1 Priority.",
+	  	shortDesc: "Fails if the foe wasn't using an offensive move. +1 Priority.",
 		viable: true,
 		name: "Toxic Shock",
 		pp: 5,
@@ -327,7 +327,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
-	  shortDesc: "Uses target's Speed stat in damage calculation.",
+	  	shortDesc: "Uses target's Speed stat in damage calculation.",
 		viable: true,
 		name: "Updraft",
 		pp: 10,
@@ -574,7 +574,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
   				return;
   			}
   			return oldAbility as false | null;
-      }
+      	}
 		},
 		secondary: null,
 		target: "normal",
@@ -882,7 +882,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Bad Omen Attack",
 		pp: 10,
 		priority: 0,
-		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		flags: {allyanim: 1, futuremove: 1},
 		ignoreImmunity: true,
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -1082,7 +1082,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					const source = this.effectState.source;
 					const damage = this.heal(target.baseMaxhp / 8, target, target);
 					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Olive Branch', '[of] ' + this.effectState.source);
-          target.cureStatus();
+          		target.cureStatus();
 					target.side.removeSlotCondition(target, 'olivebranch');
 				}
 		  },
@@ -1117,14 +1117,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				def: -1,
 			},
 		},
-    target: "normal",
+    	target: "normal",
 		type: "Water",
 		contestType: "Cool",
 	},
 	rumble: {
 		accuracy: 100,
 		basePower: 80,
-		category: "Special",
+		category: "Physical",
 		shortDesc: "30% chance to deal doubled damage.",
 		name: "Rumble",
 		viable: true,
@@ -3094,7 +3094,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			for (const side of source.side.foeSidesWithConditions()) {
-				side.addSideCondition('waterpledge');
+				side.addSideCondition('grasspledge');
 			}
 		},
 		secondary: {},
