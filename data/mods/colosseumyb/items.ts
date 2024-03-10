@@ -31,6 +31,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([4915, 4096]);
 			}
 		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Shadow') {
+				return this.chainModify(0.5);
+			}
+		},
 		num: -1007,
 		gen: 9,
 		desc: "Turns the holder into a Shadow Pokemon.",
