@@ -162,6 +162,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 88, atk: 101, def: 82, spa: 70, spd: 130, spe: 99},
   },
+  squawkabilly: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Flock Rock", H: "Guts"},
+  },
+  squawkabillyblue: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Flock Rock", H: "Guts"},
+  },
+  squawkabillygreen: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Flock Rock", H: "Sheer Force"},
+  },
+  squawkabillyyellow: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Flock Rock", H: "Sheer Force"},
+  },
 
 // Add Shadow Lugia later
 
