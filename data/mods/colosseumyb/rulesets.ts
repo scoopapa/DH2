@@ -11,7 +11,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (set.moves) {
 				for (const moveId of set.moves) {
 					const move = this.dex.moves.get(moveId);
-			    const item = this.dex.items.get(set.item);
+			    	const item = this.dex.items.get(set.item);
 					if (move.type === 'Shadow' && item.id !== 'shadowadapter') problems.push(move.name + ' can only be used by Shadow Pokemon, who need to hold a Shadow Adapter.');
 				}
 			}
