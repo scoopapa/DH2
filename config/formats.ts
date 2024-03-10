@@ -2013,7 +2013,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DPy4hCz0_zV08xPjyNw7nF0mCIDUvuq0K6rMklyzIWE/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'colosseumyb',
-		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Shadow Adapter Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct',
 					 'Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
 		onValidateTeam(team, format) {
@@ -2040,7 +2040,7 @@ export const Formats: FormatList = [
 		mod: 'colosseumyb',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer',
-					 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit Two Restricted'],
+					 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit Two Restricted', 'Shadow Adapter Mod'],
 		restricted: ['Restricted Legendary'],
 		banlist: ['Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
 		onValidateTeam(team, format) {
