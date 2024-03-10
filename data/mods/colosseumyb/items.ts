@@ -1,6 +1,28 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 // Shadow Adapter
-
+	shadowadapter: {
+		name: "Shadow Adapter",
+		spritenum: 761,
+		onTakeItem: false,
+		onSwitchIn(pokemon) {
+			this.add('-item', pokemon, 'Shadow Adapter');
+			this.add('-anim', pokemon, "Poltergeist", pokemon);
+			this.add('-message', `${pokemon.name}'s Shadow Adapter temporarily closed its heart!`);
+			this.add('-start', pokemon, 'typeadd', 'Shadow', '[from] item: Shadow Adapter');
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.volatiles['confusion']) {
+				return this.chainModify([6144, 4096]);
+			} else {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: -1007,
+		gen: 9,
+		desc: "Turns the holder into a Shadow Pokemon.",
+		rating: 3,
+	},
 
 // New Items
 	collider: {
