@@ -3,7 +3,165 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 
 
 // New Items
-
+	collider: {
+		name: "Collider",
+		spritenum: 119,
+		fling: {
+			basePower: 80,
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (pokemon.hasAbility(['minus', 'plus'] && !allyActive.hasAbility(['minus', 'plus'])) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		num: -1002,
+		gen: 9,
+		rating: 3,
+		desc: "Activates the abilities Plus & Minus.",
+	},
+	earbuds: {
+		name: "Earbuds",
+		spritenum: 713,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Earbuds boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['sound']) {
+				this.add('-immune', target, '[from] item: Earbuds');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-immune', this.effectState.target, '[from] item: Earbuds');
+			}
+		},
+		num: -1000,
+		desc: "Holder is immune to sound moves and its own deal 1.2x damage.",
+		gen: 9,
+		rating: 3,
+	},
+	sandysupplement: {
+		name: "Sandy Supplement",
+		spritenum: 456,
+		fling: {
+			basePower: 10,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.hasType('Rock')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0 && target.hasType('Rock')) {
+				this.debug('Sandy Supplement neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		num: -1001,
+		gen: 9,
+		desc: "Rock-types: Heal 1/16 of their max HP every turn and take 0.75x damage from super effective moves.",
+		rating: 3,
+	},
+	tunnelvisor: {
+		name: "Tunnel Visor",
+		spritenum: 539,
+		fling: {
+			basePower: 80,
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const visorHolder = this.effectState.target;
+			if (visorHolder === pokemon) return;
+			if (pokemon === this.activePokemon && visorHolder === this.activeTarget) {
+				boosts['accuracy'] = 0;
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+			move.tracksTarget = true;
+		},
+   	num: -1003,
+		gen: 9,
+		rating: 3,
+		desc: "Holder's moves ignore redirection, accuracy drops, and evasion boosts.",
+	},
+	hacaiberry: {
+		name: "Hacai Berry",
+		spritenum: 124,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Shadow",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Shadow' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+   	num: -1004,
+		gen: 9,
+		desc: "Halves damage taken from a Shadow-type attack. Single use.",
+		rating: 3,
+	},
+	heartnecklace: {
+		name: "Heart Necklace",
+		spritenum: 747,
+		fling: {
+			basePower: 30,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.hasType('Shadow')) {
+				return this.chainModify(0.75);
+			}
+		},
+		num: -1005,
+		gen: 9,
+		desc: "Holder takes 3/4 damage from foes that share a type.",
+		rating: 3,
+	},
+	stellarplate: {
+		name: "Stellar Plate",
+		spritenum: 463,
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			const targetType = user.types[1];
+			if (move.type === targetType) {
+				return this.chainModify([5325, 4096]);
+			} else {
+				return this.chainModify([4506, 4096]);
+			} 
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Terapagos"],
+		num: -1006,
+		gen: 9,
+		desc: "Terapagos: STAB moves have 1.3x power, non-STAB have 1.1x.",
+	},
 
 // Old Items
 	berryjuice: {
