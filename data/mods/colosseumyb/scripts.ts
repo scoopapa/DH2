@@ -15742,7 +15742,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		inherit: true,
 		runEffectiveness(move: ActiveMove) {
 			if (this.terastallized && move.type === 'Stellar') return 1;
-			if (this.terastallized && move.type === 'Shadow') return 2;
+			if (this.terastallized && move.type === 'Shadow') return -1;
 			let totalTypeMod = 0;
 			for (const type of this.getTypes()) {
 				let typeMod = this.battle.dex.getEffectiveness(move, type);
