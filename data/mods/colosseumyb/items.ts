@@ -6,8 +6,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem: false,
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Shadow Adapter');
+			this.add('-terastallize', pokemon, 'Shadow');
 			this.add('-message', `${pokemon.name}'s Shadow Adapter temporarily closed its heart!`);
-			this.battle.add('-terastallize', pokemon, 'Shadow');
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
