@@ -4,14 +4,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Shadow Adapter",
 		spritenum: 761,
 		onTakeItem: false,
-		/*
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Shadow Adapter');
-			this.add('-anim', pokemon, "Poltergeist", pokemon);
 			this.add('-message', `${pokemon.name}'s Shadow Adapter temporarily closed its heart!`);
-			this.add('-start', pokemon, 'typeadd', 'Shadow', '[from] item: Shadow Adapter');
+			this.battle.add('-terastallize', pokemon, 'Shadow');
 		},
-  		*/
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (user.volatiles['confusion']) {
