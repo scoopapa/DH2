@@ -2488,7 +2488,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	shadowshards: {
 		accuracy: 100,
-		basePower: 25,
+		basePower: 20,
 		category: "Physical",
 	  	shortDesc: "Hits 2-5 times. High crit ratio.",
 		viable: true,
