@@ -170,7 +170,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Flock Rock", H: "Guts"},
   },
-  squawkabillygreen: {
+  squawkabillywhite: {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Flock Rock", H: "Sheer Force"},
   },
