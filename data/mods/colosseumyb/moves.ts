@@ -932,9 +932,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return !!this.canSwitch(source.side);
 		},
 		onHit(pokemon) {
-			for (const target of pokemon.adjacentFoes()) {
-				this.actions.useMove("Bad Omen Attack", target);
-			}
+			this.actions.useMove("Bad Omen Attack", pokemon);
 		},
 		selfSwitch: true,
 		secondary: null,
