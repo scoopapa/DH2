@@ -343,4 +343,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "+2 Speed if the holder's move fails. Single use.",
 		rating: 3,
 	},
+	
+// Undexited signature items
+	thickclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	leek: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	luckypunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
