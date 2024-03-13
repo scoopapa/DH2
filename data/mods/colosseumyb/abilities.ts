@@ -71,8 +71,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (defender.hasType('Shadow')) {
-  			this.debug('Pure Heart boost');
+			if (defender.hasItem('shadowadapter')) {
+  				this.debug('Pure Heart boost');
 				return this.chainModify([4915, 4096]);
 			}
 		},
