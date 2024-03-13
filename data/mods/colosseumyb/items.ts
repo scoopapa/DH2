@@ -177,7 +177,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.hasType('Shadow')) {
+			if (source.hasItem('shadowadapter')) {
 				return this.chainModify(0.75);
 			}
 		},
