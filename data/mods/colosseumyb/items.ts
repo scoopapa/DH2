@@ -191,8 +191,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 463,
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			const targetType = user.types[1];
-			if (move.type === targetType) {
+			if (move.type === 'Normal') {
 				return this.chainModify([5325, 4096]);
 			} else {
 				return this.chainModify([4506, 4096]);
@@ -207,7 +206,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Terapagos"],
 		num: -1006,
 		gen: 9,
-		desc: "Terapagos: STAB moves have 1.3x power, non-STAB have 1.1x.",
+		desc: "Terapagos: Normal-types moves have 1.3x power, all others have 1.1x.",
 	},
 
 // Old Items
