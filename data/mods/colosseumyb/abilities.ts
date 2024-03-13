@@ -64,7 +64,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	pureheart: {
     shortDesc: "This Pokemon is immune to Shadow moves and deals 1.2x damage to Shadow Pokemon. Can't be a Shadow Pokemon.", 
 		onTryHit(pokemon, target, move) {
-			if (move.hasType('Shadow')) {
+			if (move.type === 'Shadow') {
 				this.add('-immune', pokemon, '[from] ability: Pure Heart');
 				return null;
 			}
