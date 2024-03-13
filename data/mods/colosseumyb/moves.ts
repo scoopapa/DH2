@@ -2198,6 +2198,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Hex", source);
 			this.add('-anim', source, "Seismic Toss", target);
 		},
+		onModifyMove(move, pokemon) {
+			if (this.gameType !== 'doubles') {
+				move.damage = 20;
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Shadow",
