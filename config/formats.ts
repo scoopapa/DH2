@@ -541,7 +541,8 @@ export const Formats: FormatList = [
 		],
      mod: 'masquerade',
 	  ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
-	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock',
+					'Baton Pass', 'Last Respects', 'Shed Tail', 'Cornerstone Mask'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['MSQ'];
