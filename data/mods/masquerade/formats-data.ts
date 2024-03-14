@@ -503,4 +503,80 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	ironbundle: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ironbundleshadowspear: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ironbundlevoltchurner: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambit: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambitkusari: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambitpoisonforged: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambithydramurai: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokix: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokixleechfist: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokixstrider: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokixlasersword: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharunt: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharuntbabiri: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharuntlum: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharuntchesto: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerpon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerponhearthflame: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerponwellspring: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerponmournstone: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
