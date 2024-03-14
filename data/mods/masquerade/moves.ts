@@ -1170,6 +1170,154 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+	ivycudgel: {
+		num: 904,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Ivy Cudgel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			if (move.type !== "Grass" && move.type !== "Ghost") {
+				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
+			}
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera':
+				move.type = 'Water';
+				break;
+			case 'Ogerpon-Hearthflame': case 'Ogerpon-Hearthflame-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Ogerpon-Cornerstone': case 'Ogerpon-Cornerstone-Tera':
+				move.type = 'Rock';
+				break;
+			case 'Ogerpon-Mournstone': case 'Ogerpon-Mournstone-Tera':
+				move.type = 'Ghost';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
+	hydropump: {
+		num: 56,
+		accuracy: 80,
+		basePower: 110,
+		category: "Special",
+		name: "Hydro Pump",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Iron Bundle-Shadowspear': case 'Iron Bundle-Shadowspear-Tera':
+				move.type = 'Ghost';
+				break;
+			case 'Iron Bundle-Voltchurner': case 'Iron Bundle-Voltchurner-Tera':
+				move.type = 'Electric';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	kowtowcleave: {
+		num: 869,
+		accuracy: true,
+		basePower: 85,
+		category: "Physical",
+		name: "Kowtow Cleave",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Kingambit-Kusari': case 'Kingambit-Kusari-Tera':
+				move.type = 'Ghost';
+				break;
+			case 'Kingambit-Hydramurai': case 'Kingambit-Hydramurai-Tera':
+				move.type = 'Water';
+				break;
+			case 'Kingambit-Poisonforged': case 'Kingambit-Poisonforged-Tera':
+				move.type = 'Poison';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	nightslash: {
+		num: 400,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Night Slash",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 2,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Lokix-Lasersword': case 'Lokix-Lasersword-Tera':
+				move.type = 'Electric';
+				break;
+			case 'Lokix-Strider': case 'Lokix-Strider-Tera':
+				move.type = 'Water';
+				break;
+			case 'Lokix-Leechfist': case 'Lokix-Leechfist-Tera':
+				move.type = 'Fighting';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	hex: {
+		num: 506,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Hex",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Pecharunt-Chesto': case 'Pecharunt-Chesto-Tera':
+				move.type = 'Fairy';
+				break;
+			case 'Pecharunt-Lum': case 'Pecharunt-Lum-Tera':
+				move.type = 'Grass';
+				break;
+			case 'Pecharunt-Babiri': case 'Pecharunt-Babiri-Tera':
+				move.type = 'Steel';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 160},
+		contestType: "Clever",
+	},
 
 // unchanged moves
 	defog: {
