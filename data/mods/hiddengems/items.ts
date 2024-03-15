@@ -299,8 +299,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				source.addVolatile('gem');
 	        	if (source.baseSpecies.baseSpecies === 'Goodra') {
 					source.addVolatile('watergem');
-					const targetType = source.types[1];
-					this.add('-start', source, 'typeadd', 'Water', '[from] move: move');
         		}
 			}
 		},
