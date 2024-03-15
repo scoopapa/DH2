@@ -65,7 +65,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      const targetType = source.types[1];
-	      this.add('-start', source, 'typeadd', 'Water', '[from] item: Water Gem');
+			source.setType(source.getTypes(true).map(type => type === targetType ? "Water" : type));
 	      source.setAbility('unaware', source, true);
 	      this.add('-activate', source, 'ability: Unaware');
 	      this.boost({def: 1, spa: 1}, source);
