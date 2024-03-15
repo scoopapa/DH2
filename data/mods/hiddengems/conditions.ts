@@ -67,6 +67,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      source.setAbility('unaware', source, true);
 	      this.add('-activate', source, 'ability: Unaware');
 	      this.boost({def: 1, spa: 1}, source);
+			this.actions.useMove("Hidden Gem Water", source, source);
 		},
 	},
 	grassgem: {
