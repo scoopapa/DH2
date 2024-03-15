@@ -62,14 +62,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.waterGem) return;
+			this.effectState.waterGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('unaware', source, true);
 	      this.add('-activate', source, 'ability: Unaware');
 	      this.boost({def: 1, spa: 1}, source);
-			if (target.hasType('Water') && !target.addType('Water')) {
-				this.add('-start', target, 'typeadd', 'Water', '[from] move: Hidden Gem Water');
-			}
+			this.actions.useMove("Hidden Gem Water", source, source);
 		},
 	},
 	grassgem: {
