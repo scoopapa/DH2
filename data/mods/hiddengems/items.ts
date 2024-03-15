@@ -298,6 +298,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.type === 'Water' && source.useItem()) {
 				source.addVolatile('gem');
 	        	if (source.baseSpecies.baseSpecies === 'Goodra') {
+					this.actions.useMove("Hidden Gem Water", source, source);
 					source.addVolatile('watergem');
         		}
 			}
