@@ -59,4 +59,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 	},
+	burnup: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
