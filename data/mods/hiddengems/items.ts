@@ -300,7 +300,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	        	if (source.baseSpecies.baseSpecies === 'Goodra') {
 					source.addVolatile('watergem');
 					const targetType = source.types[1];
-					source.setType(source.getTypes(true).map(type => type === targetType ? "Water" : type));
+					this.add('-start', source, 'typeadd', 'Water', '[from] item: Water Gem');
         		}
 			}
 		},
