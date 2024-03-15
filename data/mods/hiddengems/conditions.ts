@@ -68,6 +68,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      this.add('-activate', source, 'ability: Unaware');
 	      this.boost({def: 1, spa: 1}, source);
 		},
+		onAfterMove(pokemon, target, move) {
+			this.actions.useMove("Hidden Gem Water", pokemon, pokemon);
+		},
 	},
 	grassgem: {
 		name: 'grassgem',
