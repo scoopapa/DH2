@@ -56,4 +56,45 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      this.boost({spa: 1, spd: 1}, source);
 		},
 	},
+	watergem: {
+		name: 'watergem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      const targetType = source.types[1];
+	      this.add('-start', source, 'typeadd', 'Water', '[from] item: Water Gem');
+	      source.setAbility('unaware', source, true);
+	      this.add('-activate', source, 'ability: Unaware');
+	      this.boost({def: 1, spa: 1}, source);
+		},
+	},
+	grassgem: {
+		name: 'grassgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('electricsurge', source, true);
+	      this.add('-activate', source, 'ability: Electric Surge');
+      	this.boost({spd: 1, accuracy: 1, spe: 1}, source);
+		},
+	},
+	firegem: {
+		name: 'firegem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('amorphous', source, true);
+	      this.add('-activate', source, 'ability: Amorphous');
+      	this.boost({def: 1, spd: 1}, source);
+		},
+	},
 };
