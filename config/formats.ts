@@ -454,9 +454,6 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Fusion Evolution UU",
-		desc: [
-			`<b>Fusion Evolution Under Used</b>: A format focusing on the fusions .`
-		],
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/fusion-evolution-uu-gen-9-slate-0-drop-slate-discussion-phase.3737223/#post-9994453/">Gen 9 Fusion Evolution UU</a>`,
 		],
