@@ -452,26 +452,31 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	/*{
+	{
 		name: "[Gen 9] Fusion Evolution UU",
+		desc: [
+			`<b>Fusion Evolution Under Used</b>: A format focusing on the fusions .`
+		],
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/fusion-evolution-uu-gen-9-slate-0-drop-slate-discussion-phase.3737223/#post-9994453/">Gen 9 Fusion Evolution UU</a>`,
 		],
 		mod: 'gen9fe',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: ['Altarianite', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Swampertite', 'Mawilite', 'Alakazite', 'Baton Pass', 'Light Clay',
-			//oh boy just slapping "FEOU" here DID exclude these mons from the teambuilder... but an error ('Nothing matches "FEOU"') was thrown in dex-formats on the server side
-			//So I'll have do do all these manually
-			'Aero Wake', 'Amigotrio-Alola', 'Amphamence', 'Anoraidon', 'Arbolosion-Hisui', 'Baxgeist-Large', 'Bellikiss', 'Bouffa-Lu', 'Brambleswine', 'Bronze Bonnet',
+			/*'Aero Wake', 'Amigotrio-Alola', 'Amphamence', 'Anoraidon', 'Arbolosion-Hisui', 'Baxgeist-Large', 'Bellikiss', 'Bouffa-Lu', 'Brambleswine', 'Bronze Bonnet',
 			'Celedos', 'Corvizolt', 'Cresserace', 'Crygargonal', 'Decidulax', 'Deciperior-Hisui', 'Deliraidon', 'Deoxyslash-Speed', 'Dragocoal', 'Drampiclus', 'Druddizor',
 			'Empoliary-Hisui', 'Farinape', 'Floatzera', 'Florgerouge', 'Gargamise', 'Garpyuku', 'Great Kleav', 'Icekrai', 'Iron Dirge', 'Iron Legion', 'Iron Matcha',
 			'Iron Meta', 'Iron Mimic', 'Iron Pins', 'Iron Tornado', 'Lelecuno-Galar', 'Meowscorio-Sensu', 'Necrotrik-Dawn-Wings', 'Necrotrik-Ultra', 'Okiferro', 'Primeleo',
 			'Relishadow', 'Revarantis', 'Roaring Sal', 'Rotoghold', 'Samuraiai-Hisui', 'Scream Cormorant', 'Sol Valiant', 'Stargrowth', 'Tapu Titan', 'Tinkovish', 'Toedieleki',
 			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox', 'Zarubok', 'Zoinkazenta',
-			'Muktaria-Mega', 'Mawlakazam-Mega-X', 'Mawlakazam-Mega-Y', 'Goopert-Hisui-Mega'
+			'Muktaria-Mega', 'Mawlakazam-Mega-X', 'Mawlakazam-Mega-Y', 'Goopert-Hisui-Mega'*/ 'All Pokemon'
 		],
+			//Just slapping "FEOU" in the banlist exclude these mons from the teambuilder... but an error ('Nothing matches "FEOU"') was thrown in dex-formats on the server side
+			//So unbans will have to be manual
+		unbanlist: ['Lashiram', 'Chomptry', 'Chomptry-Mega', 'Overgyara', 'Overgyara-Mega', 'Golisoros-Paldea-Blaze', 'Conkelbun', 'Muktaria-Alola', 'Mawlakazam', 'Slither King', 'Goopert-Hisui',
+						'Guguzzparce', 'Tyranix', 'Tyranix-Mega-X', 'Tyranix-Mega-Y'],
 		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}* /
+			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
 			let allowedTiers = ['FEUU', 'FENFE', "FELC"];
 			for (const set of team) {
@@ -481,7 +486,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},*/
+	},
 	{
 		name: "[Gen 9] Generation X",
 		threads: [
