@@ -1655,4 +1655,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	shadowbone: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
