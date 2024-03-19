@@ -106,6 +106,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Totem Pokemon: Causes the boost from Totem Trial to persist.",
 	},
+	mysteriousbundle: {
+		name: "Mysterious Bundle",
+		spritenum: 287,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Delibird') {
+				this.add('-message', `${pokemon.name} feels strange...`);
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				pokemon.formeChange('Iron Bundle');
+				pokemon.setAbility('quarkdrive');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Delibird' || source.baseSpecies.baseSpecies === 'Iron Bundle') return false;
+			return true;
+		},
+		itemUser: ["Delibird"],
+		num: -1005,
+		gen: 9,
+		desc: "Delibird: Transforms into Iron Bundle on switch-in (before hazards).",
+	},
 
 // Old Items
 	berryjuice: {
