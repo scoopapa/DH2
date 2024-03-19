@@ -167,4 +167,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 194,
 	},
+	teraformzero: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Terapagos-Stellar') return;
+			if (this.field.weather || this.field.terrain) {
+				this.add('-ability', pokemon, 'Teraform Zero');
+				this.field.clearWeather();
+				this.field.clearTerrain();
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		shortDesc: "Terapagos: Switching in ends the effects of weather and terrain.",
+		name: "Teraform Zero",
+		rating: 3,
+		num: 309,
+	},
 };
