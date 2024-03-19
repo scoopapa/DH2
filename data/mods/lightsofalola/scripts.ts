@@ -3274,6 +3274,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "marowakalola").learnset.wideslash = ["9L1"];
 		this.modData("Learnsets", "marowakalola").learnset.nightmarch = ["9L1"];
 		this.modData("Learnsets", "marowakalola").learnset.boneclub = ["9L1"];
+		this.modData("Learnsets", "marowakalola").learnset.shadowbone = ["9L1"];		
 		// Marowak-Alola-Totem
 		this.modData("Learnsets", "marowakalolatotem").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "marowakalolatotem").learnset.endure = ["9L1"];
@@ -3380,6 +3381,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "marowakalolatotem").learnset.rollout = ["9L1"];
 		this.modData("Learnsets", "marowakalolatotem").learnset.wideguard = ["9L1"];
 		this.modData("Learnsets", "marowakalolatotem").learnset.quickguard = ["9L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.shadowbone = ["9L1"];
 		// Kangaskhan
 		this.modData("Learnsets", "kangaskhan").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "kangaskhan").learnset.endure = ["9L1"];
