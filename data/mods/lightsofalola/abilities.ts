@@ -142,4 +142,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 79,
 		shortDesc: "This Pokemon's attacks do 1.25x on same gender targets.",
 	},
+	emergencyexit: {
+	  shortDesc: "This Pokemon switches out at the end of the turn after being lowered to 50% of its max HP.",
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp*.5 && target.hp + damage > target.maxhp*.5) {
+				target.addVolatile('emergencyexit');
+				this.add('-ability', target, 'Emergency Exit');
+			}
+		},
+		condition: {
+			duration: 1,
+			onEnd(pokemon) {
+				this.add('-ability', pokemon, 'Emergency Exit');
+				this.add('-message', `${pokemon.name} made an emergency exit!`);
+				pokemon.switchFlag = true;				
+			},
+		},
+		flags: {},
+		name: "Emergency Exit",
+		rating: 2,
+		num: 194,
+	},
 };
