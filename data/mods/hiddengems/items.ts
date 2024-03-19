@@ -117,6 +117,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type === 'Fire' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Chandelure') {
+				  source.addVolatile('firegem');
+        		}
 			}
 		},
 		num: 548,
@@ -160,6 +163,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type === 'Grass' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Iron Leaves') {
+				  source.addVolatile('grassgem');
+        		}
 			}
 		},
 		num: 551,
@@ -291,6 +297,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type === 'Water' && source.useItem()) {
 				source.addVolatile('gem');
+	        	if (source.baseSpecies.baseSpecies === 'Goodra') {
+				//	this.actions.useMove("Hidden Gem Water", source, source);
+					source.addVolatile('watergem');
+        		}
 			}
 		},
 		num: 549,

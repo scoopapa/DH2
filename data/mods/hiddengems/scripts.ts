@@ -5,5 +5,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ambipom").learnset.closecombat = ["9L1"];
 		this.modData("Learnsets", "ambipom").learnset.encore = ["9L1"];
 		this.modData("Learnsets", "ambipom").learnset.tailslap = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "chandelure").learnset.burnup = ["9L1"];
+		this.modData("Learnsets", "chandelure").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "goodra").learnset.recover = ["9L1"];		
 	},
 };

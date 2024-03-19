@@ -59,4 +59,74 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 	},
+	burnup: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
+// to add types to mons since the old move suddenly no longer works. new ones will be added as needed
+	hiddengemgrass: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Grass",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onHit(target) {
+			if (target.hasType('Grass')) return false;
+			if (!target.addType('Grass')) return false;
+			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Hidden Gem Grass');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	hiddengembug: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Bug",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onHit(target) {
+			if (target.hasType('Bug')) return false;
+			if (!target.addType('Bug')) return false;
+			this.add('-start', target, 'typeadd', 'Bug', '[from] move: Hidden Gem Bug');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	hiddengemwater: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Water",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(target) {
+			if (target.hasType('Water')) return false;
+			if (!target.addType('Water')) return false;
+			this.add('-start', target, 'typeadd', 'Water', '[from] move: Hidden Gem Water');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
 };
