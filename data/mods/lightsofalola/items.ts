@@ -6,12 +6,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 80,
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			for (const allyActive of pokemon.allies()) {
-				if (pokemon.hasAbility(['minus', 'plus'] && !allyActive.hasAbility(['minus', 'plus']))) {
-					return this.chainModify(1.5);
-				}
+		onUpdate(pokemon) {
+			if (pokemon.hasAbility(['minus', 'plus'])) {
+				pokemon.addVolatile('plus');
+			} else {
+				pokemon.removeVolatile('plus');
 			}
 		},
 		num: -1002,
