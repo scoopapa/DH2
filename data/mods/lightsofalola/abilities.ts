@@ -29,34 +29,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	totemtrial: {
 		onStart(pokemon) {
-	  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
-	          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
-	          (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
-				this.boost({def: 1}, pokemon);
-			}
-	    	if ((pokemon.baseSpecies.baseSpecies === 'Raticate' && ['Alola-Totem'].includes(pokemon.species.forme)) ||
-	          (pokemon.baseSpecies.baseSpecies === 'Togedemaru' && ['Totem'].includes(pokemon.species.forme)) ||
-	          (pokemon.baseSpecies.baseSpecies === 'Vikavolt' && ['Totem'].includes(pokemon.species.forme))) {
-				this.boost({spd: 1}, pokemon);
-			}
-	    	if ((pokemon.baseSpecies.baseSpecies === 'Lurantis' && ['Totem'].includes(pokemon.species.forme)) ||
-	          (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
-				this.boost({spe: 1}, pokemon);
-			}
-	    	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
-				this.boost({atk: 1}, pokemon);
-			}
-	    	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
-				this.boost({spa: 1}, pokemon);
-			}
-	      if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
-				pokemon.addVolatile('gmaxchistrike');
-			}
 			pokemon.addVolatile('totemtrial');
-			this.add('-message', `${pokemon.name} aura flared to life!`);
+		},
+		onTakeItem(item, pokemon) {
+			if (item.id === 'strangesouvenir') {
+	  			pokemon.removeVolatile('totemtrial');
+			}
 		},
 		condition: {
 			duration: 2,
+			onStart(pokemon) {
+		  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
+		          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
+		          (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
+					this.boost({def: 1}, pokemon);
+				}
+		    	if ((pokemon.baseSpecies.baseSpecies === 'Raticate' && ['Alola-Totem'].includes(pokemon.species.forme)) ||
+		          (pokemon.baseSpecies.baseSpecies === 'Togedemaru' && ['Totem'].includes(pokemon.species.forme)) ||
+		          (pokemon.baseSpecies.baseSpecies === 'Vikavolt' && ['Totem'].includes(pokemon.species.forme))) {
+					this.boost({spd: 1}, pokemon);
+				}
+		    	if ((pokemon.baseSpecies.baseSpecies === 'Lurantis' && ['Totem'].includes(pokemon.species.forme)) ||
+		          (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
+					this.boost({spe: 1}, pokemon);
+				}
+		    	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
+					this.boost({atk: 1}, pokemon);
+				}
+		    	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
+					this.boost({spa: 1}, pokemon);
+				}
+		      if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
+					pokemon.addVolatile('gmaxchistrike');
+				}
+				this.add('-message', `${pokemon.name} aura flared to life!`);
+			},
 			onEnd(pokemon) {
 			  if (pokemon.hasItem('strangesouvenir')) return;
 				this.add('-ability', pokemon, 'Totem Trial');
@@ -183,4 +190,47 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 309,
 	},
+	plus: {
+		onUpdate(pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['minus', 'plus'])) {
+					pokemon.addVolatile('plus');
+				} else {
+					pokemon.removeVolatile('plus');
+				}
+			}
+		},
+		condition: {
+			noCopy: true,
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Plus",
+		rating: 0,
+		num: 57,
+	},
+	minus: {
+		onUpdate(pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['minus', 'plus'])) {
+					pokemon.addVolatile('minus');
+				} else {
+					pokemon.removeVolatile('minus');
+				}
+			}
+		},
+		condition: {
+			noCopy: true,
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Minus",
+		rating: 0,
+		num: 58
 };
