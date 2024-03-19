@@ -1029,30 +1029,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
-	crushgrip: {
-		num: 462,
-		accuracy: 100,
-		basePower: 0,
-		basePowerCallback(pokemon, target) {
-			const hp = target.hp;
-			const maxHP = target.maxhp;
-			const bp = Math.floor(Math.floor((150 * (100 * Math.floor(hp * 4096 / maxHP)) + 2048 - 1) / 4096) / 100) || 1;
-			this.debug('BP for ' + hp + '/' + maxHP + " HP: " + bp);
-			return bp;
-		},
-		viable: true,
-		category: "Physical",
-		name: "Crush Grip",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		zMove: {basePower: 190},
-		maxMove: {basePower: 140},
-		contestType: "Tough",
-	},
 	dragoncheer: {
 		num: 913,
 		accuracy: true,
@@ -1237,11 +1213,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},
-	fishiousrend: {
-		inherit: true,
-		isNonstandard: null,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-	},
 	hardpress: {
 		num: 912,
 		accuracy: 100,
@@ -1395,30 +1366,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 	},
 	purify: {
-		num: 685,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		inherit: true,
 		isNonstandard: null,
-		name: "Purify",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, heal: 1, metronome: 1},
-		onHit(target, source) {
-			if (!target.cureStatus() && !target.hasType('Shadow')) {
-				this.add('-fail', source);
-				this.attrLastMove('[still]');
-				return this.NOT_FAIL;
-			}
-			target.setType(target.getTypes(true).map(type => type === "Shadow" ? "???" : type));
-			this.add('-start', target, 'typechange', target.getTypes().join('/'), '[from] move: Purify');
-			this.heal(Math.ceil(source.maxhp * 0.5), source);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Poison",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
-		contestType: "Beautiful",
 	},
 	ragefist: {
 		num: 889,
@@ -1458,31 +1407,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
-	},
-	tripledive: {
-		inherit: true,
-		basePower: 40,
-	},
-	triplekick: {
-		num: 167,
-		accuracy: 90,
-		basePower: 20,
-		basePowerCallback(pokemon, target, move) {
-			return 20 * move.hit;
-		},
-		category: "Physical",
-		name: "Triple Kick",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		multihit: 3,
-		multiaccuracy: true,
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-		zMove: {basePower: 120},
-		maxMove: {basePower: 80},
-		contestType: "Cool",
 	},
 	upperhand: {
 		num: 918,
@@ -1607,18 +1531,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 
 	// Undexited Moves	
-	boltbeak: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	meteorassault: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	refresh: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	snatch: {
 		inherit: true,
 		isNonstandard: null,
@@ -1662,5 +1574,85 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	iondeluge: {
 		inherit: true,
 		isNonstandard: null,
-	},	
+	},
+	mindblown: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kinesis: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandwaves: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandarrows: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	landswrath: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kingsshield: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spectralthief: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	naturesmadness: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	xscissor: {
+		num: 404,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "High critical hit ratio.",
+		name: "X-Scissor",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	dragonclaw: {
+		num: 337,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "High critical hit ratio.",
+		name: "Dragon Claw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	defog: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},
+	},
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	lovelykiss: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
