@@ -29,27 +29,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	totemtrial: {
 		onStart(pokemon) {
-  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
-          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
-          (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
-			  this.boost({def: 1}, pokemon);
+	  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
+	          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
+	          (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
+				this.boost({def: 1}, pokemon);
 			}
-    	if ((pokemon.baseSpecies.baseSpecies === 'Raticate' && ['Alola-Totem'].includes(pokemon.species.forme)) ||
-          (pokemon.baseSpecies.baseSpecies === 'Togedemaru' && ['Totem'].includes(pokemon.species.forme)) ||
-          (pokemon.baseSpecies.baseSpecies === 'Vikavolt' && ['Totem'].includes(pokemon.species.forme))) {
-			  this.boost({spd: 1}, pokemon);
+	    	if ((pokemon.baseSpecies.baseSpecies === 'Raticate' && ['Alola-Totem'].includes(pokemon.species.forme)) ||
+	          (pokemon.baseSpecies.baseSpecies === 'Togedemaru' && ['Totem'].includes(pokemon.species.forme)) ||
+	          (pokemon.baseSpecies.baseSpecies === 'Vikavolt' && ['Totem'].includes(pokemon.species.forme))) {
+				this.boost({spd: 1}, pokemon);
 			}
-    	if ((pokemon.baseSpecies.baseSpecies === 'Lurantis' && ['Totem'].includes(pokemon.species.forme)) ||
-          (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
-			  this.boost({spe: 1}, pokemon);
+	    	if ((pokemon.baseSpecies.baseSpecies === 'Lurantis' && ['Totem'].includes(pokemon.species.forme)) ||
+	          (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
+				this.boost({spe: 1}, pokemon);
 			}
-    	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
-			  this.boost({atk: 1}, pokemon);
+	    	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
+				this.boost({atk: 1}, pokemon);
 			}
-    	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
-			  this.boost({spa: 1}, pokemon);
+	    	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
+				this.boost({spa: 1}, pokemon);
 			}
-      if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
+	      if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
 				pokemon.addVolatile('gmaxchistrike');
 			}
 			pokemon.addVolatile('totemtrial');
@@ -61,34 +61,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			  if (pokemon.hasItem('strangesouvenir')) return;
 				this.add('-ability', pokemon, 'Totem Trial');
 				this.add('-message', `${pokemon.name} aura died down!`);
-    		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
-            (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
-            (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
-  			  this.boost({def: -1}, pokemon);
-  			}
-      	if ((pokemon.baseSpecies.baseSpecies === 'Raticate' && ['Alola-Totem'].includes(pokemon.species.forme)) ||
-            (pokemon.baseSpecies.baseSpecies === 'Togedemaru' && ['Totem'].includes(pokemon.species.forme)) ||
-            (pokemon.baseSpecies.baseSpecies === 'Vikavolt' && ['Totem'].includes(pokemon.species.forme))) {
-  			  this.boost({spd: -1}, pokemon);
-  			}
-      	if ((pokemon.baseSpecies.baseSpecies === 'Lurantis' && ['Totem'].includes(pokemon.species.forme)) ||
-            (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
-  			  this.boost({spe: -1}, pokemon);
-  			}
-      	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
-  			  this.boost({atk: -1}, pokemon);
-  			}
-      	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
-  			  this.boost({spa: -1}, pokemon);
-  			}
-        if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
-  				pokemon.removeVolatile('gmaxchistrike');
-  			}
-      },
+	    		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
+	            (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
+	            (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
+	  			  this.boost({def: -1}, pokemon);
+	  			}
+	      	if ((pokemon.baseSpecies.baseSpecies === 'Raticate' && ['Alola-Totem'].includes(pokemon.species.forme)) ||
+	            (pokemon.baseSpecies.baseSpecies === 'Togedemaru' && ['Totem'].includes(pokemon.species.forme)) ||
+	            (pokemon.baseSpecies.baseSpecies === 'Vikavolt' && ['Totem'].includes(pokemon.species.forme))) {
+	  			  this.boost({spd: -1}, pokemon);
+	  			}
+	      	if ((pokemon.baseSpecies.baseSpecies === 'Lurantis' && ['Totem'].includes(pokemon.species.forme)) ||
+	            (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
+	  			  this.boost({spe: -1}, pokemon);
+	  			}
+	      	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
+	  			  this.boost({atk: -1}, pokemon);
+	  			}
+	      	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
+	  			  this.boost({spa: -1}, pokemon);
+	  			}
+	        if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
+	  				pokemon.removeVolatile('gmaxchistrike');
+	  			}
+	      },
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Totem Trial",
 		rating: 3.5,
-    shortDesc: "Boosts a certain stat on switch-in. Boost goes away at the end of the next turn.",
+		shortDesc: "Boosts a certain stat on switch-in. Boost goes away at the end of the next turn.",
 	},
 
   // Old Abilities
