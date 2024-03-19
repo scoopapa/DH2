@@ -94,6 +94,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 		desc: "Holder's moves ignore redirection, accuracy drops, and evasion boosts.",
 	},
+	strangesouvenir: {
+		name: "Strange Souvenir",
+		spritenum: 747,
+		fling: {
+			basePower: 30,
+		},
+		itemUser: ["Gumshoos-Totem", "Raticate-Alola-Totem", "Vikavolt-Totem", "Ribombee-Totem", "Lurantis-Totem",
+					  "Marowak-Alola-Totem", "Araquanid-Totem", "Mimikyu-Totem", "Togedemaru-Totem", "Kommo-o-Totem", "Salazzle-Totem"],
+   	num: -1004,
+		gen: 9,
+		desc: "Totem Pokemon: Causes the boost from Totem Trial to persist.",
+	},
 
 // Old Items
 	berryjuice: {
