@@ -804,7 +804,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {allyanim: 1, futuremove: 1},
-    noSketch: true,
+    	noSketch: true,
 		ignoreImmunity: true,
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -860,7 +860,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Dark",
-		zMove: {effect: 'heal'},
+		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
 	},
 	firebrand: {
