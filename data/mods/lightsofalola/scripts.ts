@@ -11219,6 +11219,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'froakie').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'frogadier').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'greninja').learnset.echoedvoice = ["9L1"];
+		this.modData('Learnsets', 'greninja').learnset.matblock = ["9L1"];
 		this.modData('Learnsets', 'diancie').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'munkidori').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'rowlet').learnset.snatch = ["9L1"];
