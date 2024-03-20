@@ -211,4 +211,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 107, def: 103, spa: 107, spd: 103, spe: 67},
 		abilities: {0: "Totem Trial"},
 	},
+	vibrava: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Sand Force", H: "Wind Rider"},
+  },
+	flygon: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Sand Force", H: "Wind Rider"},
+  },
 };
