@@ -499,7 +499,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(target, source, effect) {
-				this.add('-start', target, 'move: Shadow Sights');
+				this.add('-start', target, 'move: Work Around');
 				this.add('-message', `${target.name} is thinking of ways to get around the foe's natural defenses!`);
 			},			
 			onModifyMovePriority: -5,
