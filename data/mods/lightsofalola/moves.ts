@@ -2427,6 +2427,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isZ: "beweariumz",
+		ignoreImmunity: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Attract", source);
