@@ -119,6 +119,34 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU LoA",
 		doublesTier: "NU LoA",
 	},
+	pikachuoriginal: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
+	pikachuhoenn: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
+	pikachusinnoh: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
+	pikachuunova: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
+	pikachukalos: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
+	pikachualola: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
+	pikachupartner: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
 	raichualola: {
 		tier: "UU LoA",
 		doublesTier: "UU LoA",
