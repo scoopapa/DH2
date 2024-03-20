@@ -6338,6 +6338,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tapukoko").learnset.electroweb = ["9L1"];
 		this.modData("Learnsets", "tapukoko").learnset.alluringvoice = ["9L1"];
 		this.modData("Learnsets", "tapukoko").learnset.electroball = ["9L1"];
+		this.modData("Learnsets", "tapukoko").learnset.grassknot = ["9L1"];
 		// Tapu Lele
 		this.modData("Learnsets", "tapulele").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "tapulele").learnset.endure = ["9L1"];
