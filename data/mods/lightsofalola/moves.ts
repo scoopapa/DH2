@@ -891,7 +891,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		shortDesc: "Heals the team's status and 25% of the user's HP.",
 		name: "Alpha Helix",
-    viable: 1,
+    	viable: 1,
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, distance: 1, bypasssub: 1, metronome: 1, heal: 1},
@@ -943,8 +943,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
-		shortDesc: "Ignores the foe's ability.",
-    viable: true,
+		shortDesc: "Foe can't use Wind moves for 2 turns.",
+    	viable: true,
 		name: "Fragile Gale",
 		pp: 10,
 		priority: 0,
@@ -954,7 +954,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Gust", target);
 		},
-		secondary: null,
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'Fragile Gale', '[silent]');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['wind']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (!move.isZ && !move.isMax && move.flags['wind']) {
+					this.add('cant', pokemon, 'move: Fragile Gale');
+					return false;
+				}
+			},
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Fragile Gale', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('fragilegale');
+			},
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
@@ -964,7 +993,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		shortDesc: "User recovers 50% of the damage dealt.",
-    viable: true,
+    	viable: true,
 		name: "Omega Dome",
 		pp: 10,
 		priority: 0,
