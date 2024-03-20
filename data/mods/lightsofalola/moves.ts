@@ -1690,7 +1690,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	"10000000voltthunderbolt": {
 		num: 719,
 		accuracy: true,
-		basePower: 210,
+		basePower: 190,
 		category: "Special",
 		isNonstandard: null,
 		name: "10,000,000 Volt Thunderbolt",
@@ -1707,7 +1707,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	catastropika: {
 		num: 658,
 		accuracy: true,
-		basePower: 210,
+		basePower: 190,
 		category: "Physical",
 		isNonstandard: null,
 		name: "Catastropika",
@@ -1724,7 +1724,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	stokedsparksurfer: {
 		num: 700,
 		accuracy: true,
-		basePower: 180,
+		basePower: 170,
 		category: "Special",
 		shortDesc: "Turns Normal moves into Electric moves for the rest of the turn.",
 		isNonstandard: null,
@@ -1765,7 +1765,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	pulverizingpancake: {
 		num: 701,
 		accuracy: true,
-		basePower: 190,
+		basePower: 180,
 		category: "Physical",
 		shortDesc: "Paralyzes the foe.",
 		isNonstandard: null,
@@ -1785,7 +1785,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	genesissupernova: {
 		num: 703,
 		accuracy: true,
-		basePower: 190,
+		basePower: 170,
 		category: "Special",
 		isNonstandard: null,
 		name: "Genesis Supernova",
@@ -1808,7 +1808,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	sinisterarrowraid: {
 		num: 695,
 		accuracy: true,
-		basePower: 180,
+		basePower: 170,
 		category: "Physical",
 		shortDesc: "Traps the foe.",
 		isNonstandard: null,
@@ -1830,7 +1830,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	maliciousmoonsault: {
 		num: 696,
 		accuracy: true,
-		basePower: 180,
+		basePower: 170,
 		category: "Physical",
 		shortDesc: "Sets Lucky Chant for 5 turns.",
 		isNonstandard: null,
@@ -1850,14 +1850,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	oceanicoperetta: {
 		num: 697,
 		accuracy: true,
-		basePower: 180,
+		basePower: 170,
 		category: "Special",
 		shortDesc: "Heals the party's status conditions.",
 		isNonstandard: null,
 		name: "Oceanic Operetta",
 		pp: 1,
 		priority: 0,
-		flags: {},
+		flags: {sound: 1},
 		isZ: "primariumz",
 		self: {
 			onHit(pokemon, source, move) {
@@ -1921,7 +1921,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	letssnuggleforever: {
 		num: 726,
 		accuracy: true,
-		basePower: 170,
+		basePower: 160,
 		category: "Physical",
 		shortDesc: "Fully goes through protection.",
 		isNonstandard: null,
@@ -1938,7 +1938,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	clangoroussoulblaze: {
 		num: 728,
 		accuracy: true,
-		basePower: 160,
+		basePower: 140,
 		category: "Special",
 		isNonstandard: null,
 		name: "Clangorous Soulblaze",
@@ -2084,7 +2084,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	gorgeousgoldilockdown: {
 		accuracy: true,
-		basePower: 180,
+		basePower: 170,
 		category: "Physical",
 		shortDesc: "Traps and damages the foe for 5 turns, even if the user switches.",
 		name: "Gorgeous Goldi-Lockdown",
@@ -2107,16 +2107,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	onegoodnightssleep: {
 		accuracy: true,
-		basePower: 190,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) {
-				this.debug('BP doubled from status condition');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
+		basePower: 170,
 		category: "Special",
-		shortDesc: "Deals doubled damage to a statused foe.",
+		shortDesc: "Replaces the foe's status with Sleep.",
 		name: "One Good Night's Sleep",
 		pp: 1,
 		priority: 0,
@@ -2124,8 +2117,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isZ: "hypniumz",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Follow Me", source);
 			this.add('-anim', source, "Never-Ending Nightmare", target);
-			this.add('-anim', source, "Yawn", source);
+		},
+		onHit(target, source, move) {
+			if (target.status) {
+				target.cureStatus();
+				target.trySetStatus('slp', source);
+				this.add('-message', `Good night, ${target.name}!`);
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -2134,7 +2134,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	retrorodeorampage: {
 		accuracy: true,
-		basePower: 230,
+		basePower: 200,
 		category: "Physical",
 		shortDesc: "Causes the user to recharge, unless it KOes the foe.",
 		name: "Retro Rodeo Rampage",
@@ -2202,7 +2202,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	burningblastfurnace: {
 		accuracy: true,
-		basePower: 210,
+		basePower: 180,
 		category: "Special",
 		shortDesc: "Hits all adjacent foes.",
 		name: "Burning Blast Furnace",
@@ -2222,7 +2222,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	dielectricbreakdown: {
 		accuracy: true,
-		basePower: 190,
+		basePower: 180,
 		category: "Physical",
 		shortDesc: "Deals neutral damage to Electric-types.",
 		name: "Dielectric Breakdown",
@@ -2245,7 +2245,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	zenithofabeautifulworld: {
 		accuracy: true,
-		basePower: 190,
+		basePower: 180,
 		category: "Physical",
 		shortDesc: "Suppresses the foe(s)'s ability.",
 		name: "Zenith of a Beautiful World",
@@ -2276,7 +2276,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hotheadedheatseeker: {
 		accuracy: true,
-		basePower: 200,
+		basePower: 170,
 		category: "Physical",
 		shortDesc: "Burns the foe.",
 		name: "Hot-Headed Heatseeker",
@@ -2299,7 +2299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mountaintopmollywop: {
 		accuracy: true,
-		basePower: 200,
+		basePower: 170,
 		category: "Physical",
 		shortDesc: "Sets Snow for 5 turns.",
 		name: "Mountaintop Mollywop",
@@ -2325,7 +2325,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	equestrianearthshaker: {
 		accuracy: true,
-		basePower: 210,
+		basePower: 180,
 		category: "Physical",
 		shortDesc: "Sets Mud Sport for 5 turns.",
 		name: "Equestrian Earthshaker",
@@ -2348,7 +2348,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	emergencyassembly: {
 		accuracy: true,
-		basePower: 190,
+		basePower: 170,
 		category: "Special",
 		shortDesc: "Heals 50% of the damage dealt.",
 		name: "Emergency Assembly",
@@ -2369,7 +2369,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	irrestibleoverhead: {
 		accuracy: true,
-		basePower: 190,
+		basePower: 180,
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.gender && target.gender) {
 				if (pokemon.gender !== target.gender) {
@@ -2398,7 +2398,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	armorpiercingaxehandle: {
 		accuracy: true,
-		basePower: 170,
+		basePower: 160,
 		category: "Physical",
 		shortDesc: "Switches the foe out.",
 		name: "Armor-Piercing Axehandle",
@@ -2419,7 +2419,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	everyonehugitout: {
 		accuracy: true,
-		basePower: 200,
+		basePower: 180,
 		category: "Physical",
 		shortDesc: "Ignores immunities.",
 		name: "Everyone Hug It Out",
