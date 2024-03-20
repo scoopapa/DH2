@@ -12916,4 +12916,41 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'mewtwo').learnset.explosion = ["9L1"];
 		this.modData('Learnsets', 'lickilicky').learnset.explosion = ["9L1"];
   },
+	actions: {
+		inherit: true,
+		canUltraBurst(pokemon: Pokemon) {
+			if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+				pokemon.getItem().id === 'ultranecroziumz') {
+				return "Necrozma-Ultra";
+			}
+			if (['Terapagos', 'Terapagos-Terastal'].includes(pokemon.baseSpecies.name) &&
+				pokemon.getItem().id === 'terapagiumz') {
+				return "Terapagos-Stellar";
+			}
+			return null;
+		},
+		getActiveZMove(move: Move, pokemon: Pokemon): ActiveMove {
+			if (pokemon) {
+				const item = pokemon.getItem();
+				if (move.name === item.zMoveFrom) {
+					const zMove = this.dex.getActiveMove(item.zMove as string);
+					zMove.isZOrMaxPowered = true;
+					return zMove;
+				}
+			}
+			if (move.category === 'Status') {
+				const zMove = this.dex.getActiveMove(move);
+				zMove.isZ = true;
+				zMove.isZOrMaxPowered = true;
+				return zMove;
+			}
+			const zMove = this.dex.getActiveMove(this.Z_MOVES[move.type]);
+			zMove.basePower = move.zMove!.basePower! - 30;
+			zMove.category = move.category;
+			// copy the priority for Quick Guard
+			zMove.priority = move.priority;
+			zMove.isZOrMaxPowered = true;
+			return zMove;
+		},
+	},
 };
