@@ -1091,6 +1091,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "adjacentAllyOrSelf",
 		type: "Dragon",
+		zMove: {effect: 'crit2'},
 	},
 	facade: {
 		num: 263,
@@ -1378,6 +1379,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
+		zMove: {boost: {atk: 1, spa: 1}},
 	},
 	psychicnoise: {
 		num: 917,
@@ -2759,6 +2761,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fire",
+		zMove: {boost: {def: 1}},
 	},
 	kingsshield: {
 		num: 588,
@@ -2867,5 +2870,111 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
+	},
+
+	// Z-Move Effects for Gen 8-9 moves
+	clangoroussoul: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	coaching: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	corrosivegas: {
+		inherit: true,
+		zMove: {boost: {def: 1}},
+	},
+	courtchange: {
+		inherit: true,
+		zMove: {boost: {spe: 1}},
+	},
+	decorate: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	junglehealing: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	lifedew: {
+		inherit: true,
+		zMove: {boost: {spd: 1}},
+	},
+	lunarblessing: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	magicpowder: {
+		inherit: true,
+		zMove: {boost: {spd: 1}},
+	},
+	noretreat: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	obstruct: {
+		inherit: true,
+		zMove: {boost: {def: 1}},
+	},
+	shelter: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	stuffcheeks: {
+		inherit: true,
+		zMove: {boost: {def: 2}},
+	},
+	takeheart: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	tarshot: {
+		inherit: true,
+		zMove: {boost: {spa: 2}},
+	},
+	teatime: {
+		inherit: true,
+		zMove: {boost: {def: 1}},
+	},
+	victorydance: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	chillyreception: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
+	},
+	doodle: {
+		inherit: true,
+		zMove: {boost: {atk: 2}},
+	},
+	filletaway: {
+		inherit: true,
+		zMove: {effect: 'heal'},
+	},
+	revivalblessing: {
+		inherit: true,
+		zMove: {effect: 'heal'},
+	},
+	shedtail: {
+		inherit: true,
+		zMove: {effect: 'heal'},
+	},
+	silktrap: {
+		inherit: true,
+		zMove: {boost: {def: 1}},
+	},
+	snowscape: {
+		inherit: true,
+		zMove: {boost: {spe: 1}},
+	},
+	spicyextract: {
+		inherit: true,
+		zMove: {boost: {atk: 2}},
+	},
+	tidyup: {
+		inherit: true,
+		zMove: {effect: 'clearnegativeboost'},
 	},
 };
