@@ -12530,7 +12530,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'okidogi').learnset.toxicshock = ["9L1"];
 		this.modData('Learnsets', 'munkidori').learnset.toxicshock = ["9L1"];
 		this.modData('Learnsets', 'fezandipiti').learnset.toxicshock = ["9L1"];
-		this.modData('Learnsets', 'pecharunt').learnset.toxicshock = ["9L1"];
+		this.modData('Learnsets', 'pecharunt').learnset.toxicshock = ["9L1"]; */
 		this.modData('Learnsets', 'litten').learnset.tribocharge = ["9L1"];
 		this.modData('Learnsets', 'torracat').learnset.tribocharge = ["9L1"];
 		this.modData('Learnsets', 'incineroar').learnset.tribocharge = ["9L1"];
@@ -12944,7 +12944,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'golurk').learnset.explosion = ["9L1"];
 		this.modData('Learnsets', 'mew').learnset.explosion = ["9L1"];
 		this.modData('Learnsets', 'mewtwo').learnset.explosion = ["9L1"];
-		this.modData('Learnsets', 'lickilicky').learnset.explosion = ["9L1"]; */
+		this.modData('Learnsets', 'lickilicky').learnset.explosion = ["9L1"];
   },
 	actions: {
 		inherit: true,
