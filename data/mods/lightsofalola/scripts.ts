@@ -11086,7 +11086,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fezandipiti").learnset.clearsmog = ["9L1"];
 		this.modData("Learnsets", "fezandipiti").learnset.drainingkiss = ["9L1"];
 		// New TMs 
-		this.modData('Learnsets', 'litten').learnset.echoedvoice = ["9L1"];
+	/*	this.modData('Learnsets', 'litten').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'torracat').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'incineroar').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'popplio').learnset.echoedvoice = ["9L1"];
@@ -12141,7 +12141,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'aurorus').learnset.dragonsroar = ["9L1"];
 		this.modData('Learnsets', 'noibat').learnset.dragonsroar = ["9L1"];
 		this.modData('Learnsets', 'noivern').learnset.dragonsroar = ["9L1"];
-		this.modData('Learnsets', 'mew').learnset.dragonsroar = ["9L1"];
+		this.modData('Learnsets', 'mew').learnset.dragonsroar = ["9L1"]; */
 		this.modData('Learnsets', 'grubbin').learnset.dustdevil = ["9L1"];
 		this.modData('Learnsets', 'charjabug').learnset.dustdevil = ["9L1"];
 		this.modData('Learnsets', 'vikavolt').learnset.dustdevil = ["9L1"];
