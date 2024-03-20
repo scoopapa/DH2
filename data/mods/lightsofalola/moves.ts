@@ -1628,10 +1628,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	kingsshield: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	spectralthief: {
 		inherit: true,
 		isNonstandard: null,
@@ -2767,7 +2763,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
+		isNonstandard: null,
 		name: "King's Shield",
 		pp: 10,
 		priority: 4,
