@@ -2176,7 +2176,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Physical",
-		shortDesc: "User uses all of their moves.",
+		shortDesc: "Boosts all the user's stats, then uses the foe's move.",
 		name: "Timeless Time-Lapse",
 		pp: 1,
 		priority: 0,
@@ -2186,16 +2186,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sketch", target);
 		},
-		onHit(target, pokemon) {
-			this.add('-message', `${pokemon.name} is painting a masterpiece!`);
-         const move1 = pokemon.moveSlots[0];
-         const move2 = pokemon.moveSlots[1];
-         const move3 = pokemon.moveSlots[2];
-         const move4 = pokemon.moveSlots[3];
-			this.actions.useMove(move1, pokemon, target);
-			this.actions.useMove(move2, pokemon, target);
-			this.actions.useMove(move3, pokemon, target);
-			this.actions.useMove(move4, pokemon, target);
+		onTryHit(target, pokemon) {
+			this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon, pokemon);
+			const action = this.queue.willMove(target);
+			if (!action) return false;
+			const move = this.dex.getActiveMove(action.move.id);
+			if (action.zmove || move.isZ || move.isMax) return false;
+			if (target.volatiles['mustrecharge']) return false;
+			if (move.category === 'Status' || move.flags['failmefirst']) return false;
+			pokemon.addVolatile('timelesstimelapse');
+			this.actions.useMove(move, pokemon, target);
+			return null;
+		},
+		condition: {
+			duration: 1,
+			onBasePowerPriority: 12,
+			onBasePower(basePower) {
+				return this.chainModify(1.5);
+			},
 		},
 		secondary: null,
 		target: "normal",
