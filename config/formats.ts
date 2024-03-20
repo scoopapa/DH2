@@ -2425,6 +2425,55 @@ export const Formats: FormatList = [
 			'Karakasa','Grag','Kimokus','Toknight','Cowpy','Cowork','Barbecow','Hoorel','Baishark','Luviu','Shucklony','Dreamer','Nohtyp']
 	},
 	{
+		name: "[Gen 9] Lights of Alola OU",
+		desc: [
+			"<b>Lights of Alola</b>: A Gen 9 Solomod based in the Alola Region featuring a number of new Z-Moves, overhauls to Totem Pokemon, and buffs to old Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'lightsofalola',
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU LoA', 'UU LoA', 'RU LoA', 'NU LoA', 'NFE LoA', 'LC LoA', 'Uber LoA'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Lights of Alola.'];
+				}
+			}
+		},
+	},
+	// Add LoA randbats later
+	{
+		name: "[Gen 9] Lights of Alola VGC",
+		desc: [
+			"<b>Lights of Alola</b>: A Gen 9 Solomod based in the Alola Region featuring a number of new Z-Moves, overhauls to Totem Pokemon, and buffs to old Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'lightsofalola',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU LoA', 'UU LoA', 'RU LoA', 'NU LoA', 'NFE LoA', 'LC LoA', 'Uber LoA'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Lights of Alola.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Limited Meta",
 		mod: 'limited',
 		ruleset: ['Standard'],
