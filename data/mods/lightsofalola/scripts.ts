@@ -11071,8 +11071,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fezandipiti").learnset.breakingswipe = ["9L1"];
 		this.modData("Learnsets", "fezandipiti").learnset.clearsmog = ["9L1"];
 		this.modData("Learnsets", "fezandipiti").learnset.drainingkiss = ["9L1"];
-		// New TMs
-		this.modData('Learnsets', 'litten').learnset.echoedvoice = ["9L1"];
+		// New TMs 
+		/*this.modData('Learnsets', 'litten').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'torracat').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'incineroar').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'popplio').learnset.echoedvoice = ["9L1"];
@@ -12930,7 +12930,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'golurk').learnset.explosion = ["9L1"];
 		this.modData('Learnsets', 'mew').learnset.explosion = ["9L1"];
 		this.modData('Learnsets', 'mewtwo').learnset.explosion = ["9L1"];
-		this.modData('Learnsets', 'lickilicky').learnset.explosion = ["9L1"];
+		this.modData('Learnsets', 'lickilicky').learnset.explosion = ["9L1"]; */
   },
 	actions: {
 		inherit: true,
