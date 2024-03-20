@@ -855,6 +855,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(pokemon) {
 			this.actions.useMove("Bad Omen Attack", pokemon);
+			this.add('-message', `${pokemon.name} forsees a disaster!`);
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -2096,8 +2097,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Rock Polish", source);
 			this.add('-anim', source, "Corkscrew Crash", target);
 		},
-		onHit(target) {
-			pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Gorgeous Goldi-Lockdown'));
+		onHit(target, source) {
+			target.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Gorgeous Goldi-Lockdown'));
 		},
 		secondary: null,
 		target: "normal",
