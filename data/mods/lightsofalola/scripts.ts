@@ -671,6 +671,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "pichu").learnset.zippyzap = ["9L1"];
 		// Pikachu
 		this.modData("Learnsets", "pikachu").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachuoriginal").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachuhoenn").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachusinnoh").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachuunova").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachualola").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachukalos").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachupartner").learnset.zippyzap = ["9L1"];
 		// Raichu
 		this.modData("Learnsets", "raichu").learnset.zippyzap = ["9L1"];
 		// Raichu-Alola
