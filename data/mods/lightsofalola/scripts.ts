@@ -667,6 +667,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ledian").learnset.warmup = ["9L1"];
 		this.modData("Learnsets", "ledian").learnset.workout = ["9L1"];
 		this.modData("Learnsets", "ledian").learnset.cooldown = ["9L1"];
+		// Pichu
+		this.modData("Learnsets", "pichu").learnset.zippyzap = ["9L1"];
+		// Pikachu
+		this.modData("Learnsets", "pikachu").learnset.zippyzap = ["9L1"];
+		// Raichu
+		this.modData("Learnsets", "raichu").learnset.zippyzap = ["9L1"];
+		// Raichu-Alola
+		this.modData("Learnsets", "raichualola").learnset.zippyzap = ["9L1"];
 		// Vikavolt-Totem
 		this.modData("Learnsets", "vikavolttotem").learnset.acrobatics = ["9L1"];
 		this.modData("Learnsets", "vikavolttotem").learnset.agility = ["9L1"];
