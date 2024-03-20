@@ -2035,6 +2035,383 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		contestType: "Cool",
 	},
+	powerofpurrfection: {
+		accuracy: true,
+		basePower: 190,
+		category: "Physical",
+		shortDesc: "Uses target's Attack stat in damage calculation.",
+		name: "Power of Purrfection",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		overrideOffensivePokemon: 'target',
+		isZ: "alopersianiumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', source, "Foul Play", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	gorgeousgoldilockdown: {
+		accuracy: true,
+		basePower: 180,
+		category: "Physical",
+		shortDesc: "Traps and damages the foe for 5 turns, even if the user switches.",
+		name: "Gorgeous Goldi-Lockdown",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "alodugtriumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Polish", source);
+			this.add('-anim', source, "Corkscrew Crash", target);
+		},
+		onHit(target) {
+			pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Gorgeous Goldi-Lockdown'));
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	onegoodnightssleep: {
+		accuracy: true,
+		basePower: 190,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Deals doubled damage to a statused foe.",
+		name: "One Good Night's Sleep",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "hypniumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Never-Ending Nightmare", target);
+			this.add('-anim', source, "Yawn", source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	retrorodeorampage: {
+		accuracy: true,
+		basePower: 230,
+		category: "Physical",
+		shortDesc: "Causes the user to recharge, unless it KOes the foe.",
+		name: "Retro Rodeo Rampage",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "taurosiumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stomping Tantrum", target);
+			this.add('-anim', source, "Double-Edge", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tauros-Paldea-Combat':
+				move.type = 'Fighting';
+				break;
+			case 'Tauros-Paldea-Blaze':
+				move.type = 'Fire';
+				break;
+			case 'Tauros-Paldea-Aqua':
+				move.type = 'Water';
+				break;
+			}
+		},
+		onAfterHit(target, source) {
+			if (target && target.hp > 0) {
+				source.addVolatile('mustrecharge');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	timelesstimelapse: {
+		accuracy: true,
+		basePower: 0,
+		category: "Physical",
+		shortDesc: "User uses all of their moves.",
+		name: "Timeless Time-Lapse",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "smeargiumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sketch", target);
+		},
+		onHit(target, pokemon) {
+			this.add('-message', `${pokemon.name} is painting a masterpiece!`);
+         const move1 = pokemon.moveSlots[0];
+         const move2 = pokemon.moveSlots[1];
+         const move3 = pokemon.moveSlots[2];
+         const move4 = pokemon.moveSlots[3];
+			this.actions.useMove(move1, pokemon, target);
+			this.actions.useMove(move2, pokemon, target);
+			this.actions.useMove(move3, pokemon, target);
+			this.actions.useMove(move4, pokemon, target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	burningblastfurnace: {
+		accuracy: true,
+		basePower: 210,
+		category: "Special",
+		shortDesc: "Hits all adjacent foes.",
+		name: "Burning Blast Furnace",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "magmortiumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Overheat", target);
+			this.add('-anim', source, "Bulk Up", source);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	dielectricbreakdown: {
+		accuracy: true,
+		basePower: 190,
+		category: "Physical",
+		shortDesc: "Deals neutral damage to Electric-types.",
+		name: "Dielectric Breakdown",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "electiviumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", source);
+			this.add('-anim', source, "Bolt Strike", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Electric') return 0;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	zenithofabeautifulworld: {
+		accuracy: true,
+		basePower: 190,
+		category: "Physical",
+		shortDesc: "Suppresses the foe(s)'s ability.",
+		name: "Zenith of a Beautiful World",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "zygardiumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thousand Waves", target);
+			this.add('-anim', source, "Precipice Blades", target);
+			this.add('-anim', source, "Core Enforcer", target);
+		},
+		onHit(target) {
+			if (target.getAbility().flags['cantsuppress']) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().flags['cantsuppress']) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	hotheadedheatseeker: {
+		accuracy: true,
+		basePower: 200,
+		category: "Physical",
+		shortDesc: "Burns the foe.",
+		name: "Hot-Headed Heatseeker",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "toucanniumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magma Storm", source);
+			this.add('-anim', source, "Supersonic Skystrike", target);
+		},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	mountaintopmollywop: {
+		accuracy: true,
+		basePower: 200,
+		category: "Physical",
+		shortDesc: "Sets Snow for 5 turns.",
+		name: "Mountaintop Mollywop",
+		pp: 1,
+		priority: 0,
+		flags: {punch: 1},
+		isZ: "crabominabiumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Climb", target);
+			this.add('-anim', source, "Vacuum Wave", target);
+			this.add('-anim', source, "Ice Hammer", target);
+		},
+		self: {
+			onHit() {
+				this.field.setWeather('snow');
+			},
+		},
+		secondary: {},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	equestrianearthshaker: {
+		accuracy: true,
+		basePower: 210,
+		category: "Physical",
+		shortDesc: "Sets Mud Sport for 5 turns.",
+		name: "Equestrian Earthshaker",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "mudsdaliumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stomping Tantrum", target);
+			this.add('-anim', source, "High Horsepower", target);
+		},
+		self: {
+			pseudoWeather: 'mudsport',
+		},
+		secondary: {},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	emergencyassembly: {
+		accuracy: true,
+		basePower: 190,
+		category: "Special",
+		shortDesc: "Heals 50% of the damage dealt.",
+		name: "Emergency Assembly",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "wishiwashiumz",
+		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", source);
+			this.add('-anim', source, "Origin Pulse", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Water",
+		contestType: "Cool",
+	},
+	irrestibleoverhead: {
+		accuracy: true,
+		basePower: 190,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.gender && target.gender) {
+				if (pokemon.gender !== target.gender) {
+					this.debug('Irrestible Overhead boost');
+					return move.basePower * 1.25;
+				}
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Deals 25% more damage to male Pokemon.",
+		name: "Irrestible Overhead",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "tsareeniumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Attract", target);
+			this.add('-anim', source, "Wood Hammer", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	armorpiercingaxehandle: {
+		accuracy: true,
+		basePower: 170,
+		category: "Physical",
+		shortDesc: "Switches the foe out.",
+		name: "Armor-Piercing Axehandle",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "golisopiumz",
+		forceSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "First Impression", target);
+			this.add('-anim', source, "Hurricane", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	everyonehugitout: {
+		accuracy: true,
+		basePower: 200,
+		category: "Physical",
+		shortDesc: "Ignores immunities.",
+		name: "Everyone Hug It Out",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "beweariumz",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Attract", source);
+			this.add('-anim', source, "Anchor Shot", target);
+			this.add('-anim', source, "Mach Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
 
 // For Let's Snuggle Forever
 	protect: {
