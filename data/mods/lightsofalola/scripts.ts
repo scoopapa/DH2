@@ -11598,6 +11598,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'druddigon').learnset.poweruppunch = ["9L1"];
 		this.modData('Learnsets', 'golett').learnset.poweruppunch = ["9L1"];
 		this.modData('Learnsets', 'golurk').learnset.poweruppunch = ["9L1"];
+		this.modData('Learnsets', 'golurk').learnset.shiftgear = ["9L1"];
 		this.modData('Learnsets', 'hawlucha').learnset.poweruppunch = ["9L1"];
 		this.modData('Learnsets', 'zeraora').learnset.poweruppunch = ["9L1"];
 		this.modData('Learnsets', 'mew').learnset.poweruppunch = ["9L1"];
