@@ -6807,6 +6807,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "celesteela").learnset.stompingtantrum = ["9L1"];
 		this.modData("Learnsets", "celesteela").learnset.seedbomb = ["9L1"];
 		this.modData("Learnsets", "celesteela").learnset.zenheadbutt = ["9L1"];
+		this.modData("Learnsets", "celesteela").learnset.meteorbeam = ["9L1"];
 		// Kartana
 		this.modData("Learnsets", "kartana").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "kartana").learnset.endure = ["9L1"];
@@ -9464,6 +9465,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "buneary").learnset.psychup = ["9L1"];
 		this.modData("Learnsets", "buneary").learnset.doubleedge = ["9L1"];
 		this.modData("Learnsets", "buneary").learnset.tidyup = ["9L1"];
+		this.modData("Learnsets", "buneary").learnset.tripleaxel = ["9L1"];
 		// Lopunny
 		this.modData("Learnsets", "lopunny").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "lopunny").learnset.endure = ["9L1"];
@@ -9560,6 +9562,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "lopunny").learnset.doubleedge = ["9L1"];
 		this.modData("Learnsets", "lopunny").learnset.tidyup = ["9L1"];
 		this.modData("Learnsets", "lopunny").learnset.strength = ["9L1"];
+		this.modData("Learnsets", "lopunny").learnset.tripleaxel = ["9L1"];
 		// Scraggy
 		this.modData("Learnsets", "scraggy").learnset.shedtail = ["9L1"];
 		// Scrafty
