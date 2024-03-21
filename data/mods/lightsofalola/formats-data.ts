@@ -1988,8 +1988,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Uber LoA",
 	},
 	mew: {
-		tier: "Uber LoA",
-		doublesTier: "Uber LoA",
+		tier: "OU LoA",
+		doublesTier: "OU LoA",
 	},
 	skitty: {
 		tier: "NFE LoA",
