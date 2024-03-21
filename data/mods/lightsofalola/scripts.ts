@@ -2333,6 +2333,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "espeon").learnset.evoboost = ["9L1"];
 		// Umbreon
 		this.modData("Learnsets", "umbreon").learnset.evoboost = ["9L1"];
+		this.modData("Learnsets", "umbreon").learnset.nightdaze = ["9L1"];
 		// Leafeon
 		this.modData("Learnsets", "leafeon").learnset.evoboost = ["9L1"];
 		// Glaceon
