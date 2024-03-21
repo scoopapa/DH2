@@ -31,13 +31,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			pokemon.addVolatile('totemtrial');
 		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns && !pokemon.hasItem('strangesouvenir')) {
+				pokemon.removeVolatile('totemtrial');
+			}
+		},
 		onTakeItem(item, pokemon) {
 			if (item.id === 'strangesouvenir') {
 	  			pokemon.removeVolatile('totemtrial');
 			}
 		},
 		condition: {
-			duration: 2,
 			onStart(pokemon) {
 		  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
 		          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
@@ -65,7 +71,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-message', `${pokemon.name} aura flared to life!`);
 			},
 			onEnd(pokemon) {
-			  if (pokemon.hasItem('strangesouvenir')) return;
+			  	// if (pokemon.hasItem('strangesouvenir')) return;
 				this.add('-ability', pokemon, 'Totem Trial');
 				this.add('-message', `${pokemon.name} aura died down!`);
 	    		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
