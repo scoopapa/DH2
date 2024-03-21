@@ -37,7 +37,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		condition: {
-			duration: 1,
+			duration: 2,
 			onStart(pokemon) {
 		  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
 		          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
