@@ -2120,7 +2120,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Follow Me", source);
-			this.add('-anim', source, "Never-Ending Nightmare", target);
+			this.add('-anim', source, "Hypnosis", target);
+			this.add('-anim', source, "Psycho Boost", target);
 		},
 		onHit(target, source, move) {
 			if (target.status) {
