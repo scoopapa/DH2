@@ -9636,6 +9636,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "frillish").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "frillish").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "frillish").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "frillish").learnset.willowisp = ["9L1"];
 		// Jellicent
 		this.modData("Learnsets", "jellicent").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "jellicent").learnset.endure = ["9L1"];
@@ -9697,6 +9698,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "jellicent").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "jellicent").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "jellicent").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "jellicent").learnset.willowisp = ["9L1"];
 		// Elgyem
 		this.modData("Learnsets", "elgyem").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "elgyem").learnset.endure = ["9L1"];
