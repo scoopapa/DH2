@@ -45,6 +45,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
+				this.add('-ability', pokemon, 'Totem Trial');
 		  		if ((pokemon.baseSpecies.baseSpecies === 'Gumshoos' && ['Totem'].includes(pokemon.species.forme)) ||
 		          (pokemon.baseSpecies.baseSpecies === 'Salazzle' && ['Totem'].includes(pokemon.species.forme)) ||
 		          (pokemon.baseSpecies.baseSpecies === 'Mimikyu' && ['Totem', 'Busted-Totem'].includes(pokemon.species.forme))) {
@@ -59,14 +60,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		          (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
 					this.boost({spe: 1}, pokemon);
 				}
-		    	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
+	      	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme) ||
+					 pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
 					this.boost({atk: 1}, pokemon);
 				}
 		    	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
 					this.boost({spa: 1}, pokemon);
-				}
-		      if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
-					pokemon.addVolatile('gmaxchistrike');
 				}
 				this.add('-message', `${pokemon.name} aura flared to life!`);
 			},
@@ -88,14 +87,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	            (pokemon.baseSpecies.baseSpecies === 'Kommo-o' && ['Totem'].includes(pokemon.species.forme))) {
 	  			  this.boost({spe: -1}, pokemon);
 	  			}
-	      	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme)) {
+	      	if (pokemon.baseSpecies.baseSpecies === 'Araquanid' && ['Totem'].includes(pokemon.species.forme) ||
+					 pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
 	  			  this.boost({atk: -1}, pokemon);
 	  			}
 	      	if (pokemon.baseSpecies.baseSpecies === 'Marowak' && ['Alola-Totem'].includes(pokemon.species.forme)) {
 	  			  this.boost({spa: -1}, pokemon);
-	  			}
-	        if (pokemon.baseSpecies.baseSpecies === 'Ribombee' && ['Totem'].includes(pokemon.species.forme)) {
-	  				pokemon.removeVolatile('gmaxchistrike');
 	  			}
 	      },
 		},
