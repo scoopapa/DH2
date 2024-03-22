@@ -49,6 +49,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'ogerpon').learnset.swordsdance;
 		delete this.modData('Learnsets', 'ogerpon').learnset.trailblaze;
 		delete this.modData('Learnsets', 'ogerpon').learnset.grassyglide;
+		this.modData("Learnsets", "pecharunt").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "pecharunt").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.dragonhammer = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.dragonclaw = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.dragonpulse = ["9L1"];
