@@ -98,4 +98,46 @@ export const Conditions: {[k: string]: ConditionData} = {
       	this.boost({def: 1, spd: 1}, source);
 		},
 	},
+	flyinggem: {
+		name: 'flyinggem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.flyingGem) return;
+			this.effectState.flyingGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('deltastream', source, true);
+	      this.add('-activate', source, 'ability: Delta Stream');
+	      this.boost({def: 1, spe: 1}, source);
+			this.actions.useMove("Hidden Gem Flying", source, source);
+		},
+	},
+	electricgem: {
+		name: 'electricgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('triage', source, true);
+	      this.add('-activate', source, 'ability: Triage');
+      	this.boost({def: 1, spa: 1, spd: 1}, source);
+		},
+	},
+	icegem: {
+		name: 'icegem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('inversion', source, true);
+	      this.add('-activate', source, 'ability: Inversion');
+      	this.boost({atk: 1, spd: 1, accuracy: 1}, source);
+		},
+	},
 };
