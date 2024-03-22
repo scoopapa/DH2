@@ -2088,7 +2088,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 170,
 		category: "Physical",
-		shortDesc: "Traps and damages the foe for 5 turns, even if the user switches.",
+		shortDesc: "Traps and damages the foe for 3 turns, even if the user switches.",
 		name: "Gorgeous Goldi-Lockdown",
 		pp: 1,
 		priority: 0,
