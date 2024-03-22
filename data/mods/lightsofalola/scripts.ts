@@ -2323,6 +2323,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "stoutland").learnset.ironhead = ["9L1"];
 		// Eevee
 		this.modData("Learnsets", "eevee").learnset.evoboost = ["9L1"];
+		this.modData("Learnsets", "eevee").learnset.playrough = ["9L1"];
 		// Vaporeon
 		this.modData("Learnsets", "vaporeon").learnset.evoboost = ["9L1"];
 		// Jolteon
@@ -2331,6 +2332,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "flareon").learnset.evoboost = ["9L1"];
 		// Espeon
 		this.modData("Learnsets", "espeon").learnset.evoboost = ["9L1"];
+		this.modData("Learnsets", "espeon").learnset.meteorbeam = ["9L1"];
 		// Umbreon
 		this.modData("Learnsets", "umbreon").learnset.evoboost = ["9L1"];
 		this.modData("Learnsets", "umbreon").learnset.nightdaze = ["9L1"];
@@ -11370,6 +11372,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'krokorok').learnset.snatch = ["9L1"];
 		this.modData('Learnsets', 'krookodile').learnset.snatch = ["9L1"];
 		this.modData('Learnsets', 'klefki').learnset.snatch = ["9L1"];
+		this.modData("Learnsets", 'klefki').learnset.meteorbeam = ["9L1"];
 		this.modData('Learnsets', 'mimikyu').learnset.snatch = ["9L1"];
 		this.modData('Learnsets', 'mimikyutotem').learnset.snatch = ["9L1"];
 		this.modData('Learnsets', 'absol').learnset.snatch = ["9L1"];
