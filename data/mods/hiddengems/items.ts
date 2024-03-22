@@ -32,6 +32,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Galvantula"],
 		num: 558,
 		gen: 5,
 		isNonstandard: null,
@@ -72,8 +73,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type === 'Electric' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Dedenne') {
+				  source.addVolatile('electricgem');
+        		}
 			}
 		},
+		itemUser: ["Dedenne"],
 		num: 550,
 		gen: 5,
 		isNonstandard: null,
@@ -105,6 +110,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Keldeo"],
 		num: 553,
 		gen: 5,
 		isNonstandard: null,
@@ -122,6 +128,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Chandelure"],
 		num: 548,
 		gen: 5,
 		isNonstandard: null,
@@ -134,8 +141,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Flying' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Electivire') {
+				  source.addVolatile('flyinggem');
+        		}
 			}
 		},
+		itemUser: ["Electivire"],
 		num: 556,
 		gen: 5,
 		isNonstandard: null,
@@ -168,6 +179,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Iron Leaves"],
 		num: 551,
 		gen: 5,
 		isNonstandard: null,
@@ -194,8 +206,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Ice' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Crabominable') {
+				  source.addVolatile('icegem');
+        		}
 			}
 		},
+		itemUser: ["Crabominable"],
 		num: 552,
 		gen: 5,
 		isNonstandard: null,
@@ -213,6 +229,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Ambipom"],
 		num: 564,
 		gen: 5,
 	},
@@ -303,6 +320,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Goodra"],
 		num: 549,
 		gen: 5,
 		isNonstandard: null,
