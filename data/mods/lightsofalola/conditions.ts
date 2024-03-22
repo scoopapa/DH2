@@ -46,7 +46,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 5,
 		durationCallback(target, source, effect) {
 			if (source?.hasItem('gripclaw')) return 8;
-			if (['gmaxcentiferno', 'gmaxsandblast', 'gorgeousgoldilockdown'].includes(this.effectState.sourceEffect.id) return 3;
+			if (['gmaxcentiferno', 'gmaxsandblast', 'gorgeousgoldilockdown'].includes(this.effectState.sourceEffect.id)) return 3;
 			return this.random(5, 7);
 		},
 		onStart(pokemon, source) {
