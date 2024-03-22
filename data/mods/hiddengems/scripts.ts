@@ -9,6 +9,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ironleaves").learnset.supercellslam = ["9L1"];
 		this.modData("Learnsets", "chandelure").learnset.burnup = ["9L1"];
 		this.modData("Learnsets", "chandelure").learnset.recover = ["9L1"];
-		this.modData("Learnsets", "goodra").learnset.recover = ["9L1"];		
+		this.modData("Learnsets", "goodra").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "crabominable").learnset.gyroball = ["9L1"];
+		this.modData("Learnsets", "dedenne").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "electivire").learnset.acrobatics = ["9L1"];
 	},
 };
