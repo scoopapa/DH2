@@ -1292,8 +1292,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NU LoA",
 	},
 	sneasler: {
-		tier: "OU LoA",
-		doublesTier: "OU LoA",
+		tier: "Uber LoA",
+		doublesTier: "Uber LoA",
 	},
 	sandshrewalola: {
 		tier: "LC LoA",
