@@ -13,4 +13,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
 	},
+	inversion: {
+		shortDesc: "On switch-in, this Pokemon summons Trick Room.",
+		onStart(source) {
+			this.add('-ability', source, 'Inversion');
+			this.field.addPseudoWeather('trickroom', source, source.ability);
+		},
+		flags: {},
+		name: "Inversion",
+		rating: 5,
+	},
 };
