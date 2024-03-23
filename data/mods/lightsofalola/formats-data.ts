@@ -2048,8 +2048,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU LoA",
 	},
 	ogerponhearthflame: {
-		tier: "OU LoA",
-		doublesTier: "OU LoA",
+		tier: "Uber LoA",
+		doublesTier: "Uber LoA",
 	},
 	ogerponwellspring: {
 		tier: "OU LoA",
