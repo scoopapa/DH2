@@ -2437,7 +2437,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'lightsofalola',
 		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct', 'Hearthflame Mask'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
