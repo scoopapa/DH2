@@ -41,13 +41,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 	},
-	partiallytrapped: {
-		name: 'partiallytrapped',
-		duration: 5,
+	goldilockdown: {
+		name: 'goldilockdown',
+		duration: 3,
 		durationCallback(target, source, effect) {
-			if (source?.hasItem('gripclaw')) return 8;
-			if (['gmaxcentiferno', 'gmaxsandblast', 'gorgeousgoldilockdown'].includes(this.effectState.sourceEffect.id)) return 3;
-			return this.random(5, 7);
+			if (source?.hasItem('gripclaw')) return 5;
+			return 3;
 		},
 		onStart(pokemon, source) {
 			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
