@@ -3396,7 +3396,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (source.volatiles['disable']) return;
+			if (this.effectState.fallen >= 5) return;
 			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
 				if (this.effectState.fallen) {
 					this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
