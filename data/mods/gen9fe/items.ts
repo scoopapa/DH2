@@ -263,4 +263,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 672,
 		desc: "If held by an Aero Wake, this item allows it to Mega Evolve in battle.",
 	},
+	eviolite: {
+		inherit: true,
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.num === 215) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.num === 215) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 };
