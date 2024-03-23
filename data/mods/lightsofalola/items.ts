@@ -110,10 +110,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 287,
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Delibird') {
-				this.add('-message', `${pokemon.name} feels strange...`);
+				this.add('-message', `${pokemon.name} feels a bit weird...`);
 				this.add('-anim', pokemon, "Cosmic Power", pokemon);
 				pokemon.formeChange('Iron Bundle');
 				pokemon.setAbility('quarkdrive');
+				this.add('-message', `${pokemon.name} became a strange Pokemon from the future?!`);
 			}
 		},
 		onTakeItem(item, source) {
