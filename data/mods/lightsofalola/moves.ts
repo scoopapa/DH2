@@ -2100,7 +2100,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Corkscrew Crash", target);
 		},
 		onHit(target, source) {
-			target.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Gorgeous Goldi-Lockdown'));
+			target.addVolatile('goldilockdown', source, this.dex.getActiveMove('Gorgeous Goldi-Lockdown'));
 		},
 		secondary: null,
 		target: "normal",
