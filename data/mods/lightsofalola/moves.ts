@@ -15,8 +15,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Magical Leaf", target);
 		},
 		onHit(source, target, move) {
-			const item = target.getItem();
-			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return;
 			if (source.hp && target.takeItem(source)) {
 				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
 				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
@@ -29,7 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onAfterHit(target, source) {
 			if (source.hp) {
-				const item = target.takeItem();
+				const item = source.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Chemical Plant', '[of] ' + source);
 					this.add('-message', `${target.name}'s item rotted!`);
