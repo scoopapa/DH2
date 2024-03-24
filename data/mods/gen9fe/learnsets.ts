@@ -11264,7 +11264,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			headsmash: ["9L1"],
 			headbutt: ["9L1"],
 			hydropump: ["9L1"],
-			hyperbeam: ["9L1"],
 			icebeam: ["9L1"],
 			icepunch: ["9L1"],
 			icespinner: ["9L1"],
