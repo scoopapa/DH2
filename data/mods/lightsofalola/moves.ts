@@ -16,8 +16,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(source, target, move) {
 			const item = source.getItem();
-			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return;
-			if (source.hp && target.takeItem(source)) {
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (source.hp && source.takeItem(target)) {
 				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
 				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
 				  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
