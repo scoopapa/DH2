@@ -788,8 +788,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "LC LoA",
 	},
 	seaking: {
-		tier: "NU LoA",
-		doublesTier: "NU LoA",
+		tier: "UU LoA",
+		doublesTier: "UU LoA",
 	},
 	feebas: {
 		tier: "LC LoA",
@@ -1600,8 +1600,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "LC LoA",
 	},
 	kabutops: {
-		tier: "UU LoA",
-		doublesTier: "UU LoA",
+		tier: "RU LoA",
+		doublesTier: "RU LoA",
 	},
 	hoothoot: {
 		tier: "LC LoA",
