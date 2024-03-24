@@ -1420,14 +1420,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "User's Atk is lowered by 2 stages if it misses.",
+		shortDesc: "User's Atk is lowered by 3 stages if it misses.",
 		name: "Supercell Slam",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			this.boost({atk: -2}, source, source, this.dex.conditions.get('Supercell Slam'));
+			this.boost({atk: -3}, source, source, this.dex.conditions.get('Supercell Slam'));
 		},
 		secondary: null,
 		target: "normal",
