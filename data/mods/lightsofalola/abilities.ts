@@ -101,23 +101,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		shortDesc: "Boosts a certain stat on switch-in. Boost goes away at the end of the next turn.",
 	},
-	windshield: {
+	thundercape: {
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
-			if (!pokemon.side.sideConditions['tailwind']) {
-				return this.chainModify(2);
-			}
+			return this.chainModify(2);
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
-			if (pokemon.side.sideConditions['tailwind']) {
-				return this.chainModify(2);
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Electric') {
+				this.boost({def: 1});
 			}
 		},
 		flags: {breakable: 1},
-		name: "Windshield",
+		name: "Thunder Cape",
 		rating: 4,
-		shortDesc: "This Pokemon's Defense is doubled. In Tailwind, its SpA is doubled instead.",
+		shortDesc: "This Pokemon's Defense is doubled. +1 Defense if hit by an Electric move.",
 	},
 
   // Old Abilities
