@@ -14,10 +14,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magical Leaf", target);
 		},
-		onHit(source, target, move) {
+		/*onHit(source, target, move) {
 			const item = source.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
-			if (source.hp && source.takeItem(target)) {
+			if (source.hp && target.takeItem(source)) {
 				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
 				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
 				  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
@@ -26,11 +26,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						this.add('-message', `${source.name}'s item rotted and poisoned it!`);
 				}
 			}
-		},
+		}, */
 		onAfterHit(target, source) {
 			if (source.hp) {
-				const item = source.takeItem();
+				const item = target.takeItem();
 				if (item) {
+					if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
+					  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
+					  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
+					  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
+							target.trySetStatus('psn', source);
+							this.add('-message', `${target.name}'s item rotted and poisoned it!`);
+					}
 					this.add('-enditem', target, item.name, '[from] move: Chemical Plant', '[of] ' + source);
 					this.add('-message', `${target.name}'s item rotted!`);
 				}
