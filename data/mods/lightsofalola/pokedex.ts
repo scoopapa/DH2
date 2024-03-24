@@ -219,4 +219,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Sand Force", H: "Wind Rider"},
   },
+	emolga: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 75, def: 60, spa: 75, spd: 60, spe: 103},
+		abilities: {0: "Static", 1: "Windshield", H: "Motor Drive"},
+  },
 };
