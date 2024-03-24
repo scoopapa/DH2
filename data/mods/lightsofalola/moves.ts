@@ -908,7 +908,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		type: "Water",
 		target: "allyTeam",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: {boost: {atk: 1, spa: 1, spe: 1}},
 	},
 	fightlight: {
 		accuracy: 100,
