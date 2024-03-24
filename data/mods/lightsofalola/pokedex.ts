@@ -222,6 +222,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	emolga: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 75, def: 60, spa: 75, spd: 60, spe: 103},
-		abilities: {0: "Static", 1: "Windshield", H: "Motor Drive"},
+		abilities: {0: "Static", 1: "Thunder Cape", H: "Motor Drive"},
   },
 };
