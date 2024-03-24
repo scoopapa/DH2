@@ -227,7 +227,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Gardevoir-Sandshroud"],
 		num: -1008,
 		gen: 9,
-		desc: "Gardevoir-Sandshroud: Terastallize to gain Sand Stream.",
+		desc: "Gardevoir-Sandshroud: Terastallize to gain Dry Skin.",
 	},
 	blightbentmask: {
 		name: "Blightbent Mask",
@@ -250,7 +250,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Gardevoir-Blightbent"],
 		num: -1009,
 		gen: 9,
-		desc: "Gardevoir-Blightbent: Terastallize to gain Toxic Chain.",
+		desc: "Gardevoir-Blightbent: Terastallize to gain Poison Point.",
 	},
 	allicemask: {
 		name: "All Ice Mask",
@@ -273,7 +273,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Gardevoir-All-Ice"],
 		num: -1010,
 		gen: 9,
-		desc: "Gardevoir-All-Ice: Terastallize to gain Snow Warning.",
+		desc: "Gardevoir-All-Ice: Terastallize to gain Clear Body.",
 	},
 	pondweedmask: {
 		name: "Pondweed Mask",
