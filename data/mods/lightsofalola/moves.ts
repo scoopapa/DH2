@@ -2,9 +2,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 // New Moves
 	chemicalplant: {
 		accuracy: 100,
-		basePower: 50,
+		basePower: 55,
 		category: "Special",
-		shortDesc: "Removes the foe's item. Poisons the foe if they had a plant-based item.",
+		shortDesc: "Removes the foe's item. Toxics the foe if they had a plant-based item.",
 		viable: true,
 		name: "Chemical Plant",
 		pp: 20,
@@ -14,19 +14,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magical Leaf", target);
 		},
-		/*onHit(source, target, move) {
-			const item = source.getItem();
-			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
-			if (source.hp && target.takeItem(source)) {
-				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
-				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
-				  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
-				  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
-						source.trySetStatus('psn', target);
-						this.add('-message', `${source.name}'s item rotted and poisoned it!`);
-				}
-			}
-		}, */
 		onAfterHit(target, source) {
 			if (source.hp) {
 				const item = target.takeItem();
@@ -35,7 +22,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
 					  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
 					  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
-							target.trySetStatus('psn', source);
+							target.trySetStatus('tox', source);
 							this.add('-message', `${target.name}'s item rotted and poisoned it!`);
 					}
 					this.add('-enditem', target, item.name, '[from] move: Chemical Plant', '[of] ' + source);
