@@ -17,13 +17,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
-			if (target.hp && source.takeItem(target)) {
+			if (source.hp && target.takeItem(source)) {
 				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
 				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
 				  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
 				  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
-						target.trySetStatus('psn', source);
-						this.add('-message', `${target.name}'s item rotted and poisoned it!`);
+						source.trySetStatus('psn', target);
+						this.add('-message', `${source.name}'s item rotted and poisoned it!`);
 				}
 			}
 		},
