@@ -992,15 +992,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Beautiful",
 	},
-	seedbomb: {
-		num: 402,
+	petalblizzard: {
+		num: 572,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
-		name: "Seed Bomb",
+		name: "Petal Blizzard",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
 			case 'Tsareena-Winterstyle': case 'Tsareena-Winterstyle-Tera':
@@ -1015,9 +1015,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacent",
 		type: "Grass",
-		contestType: "Tough",
+		contestType: "Beautiful",
 	},
 	fungalenergy: {
 		accuracy: true,

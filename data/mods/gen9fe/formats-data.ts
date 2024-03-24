@@ -618,6 +618,26 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["vacuumwave", "nastyplot", "twinbeam", "thunderbolt"],
 		randomBattleLevel: 75,
 	},
+	sneaselprime: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	brambleshao: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	eisephalon: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	frosgambit: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	kabupult: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -676,6 +696,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	chimcharig: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	bramblefoo: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	pawnrunt: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	kabeepy: {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
