@@ -39,7 +39,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							this.add('-message', `${target.name}'s item rotted and poisoned it!`);
 					}
 					this.add('-enditem', target, item.name, '[from] move: Chemical Plant', '[of] ' + source);
-					this.add('-message', `${target.name}'s item rotted!`);
 				}
 			}
 		},
