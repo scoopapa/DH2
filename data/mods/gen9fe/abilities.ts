@@ -3388,22 +3388,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Deal 10% bonus damage for each hit taken (up to 50%)",
 		onStart(pokemon) {
 			this.effectState.fallen = 0;
-			if (pokemon.side.totalFainted) {
-				this.add('-activate', pokemon, 'ability: Supreme Overlord');
-				const fallen = Math.min(pokemon.side.totalFainted, 5);
-				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
-				this.effectState.fallen = fallen;
-			}
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.effectState.fallen >= 5) return;
 			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
 				if (this.effectState.fallen) {
-					this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+					this.add('-end', target, `fallen${this.effectState.fallen}`, '[silent]');
 				}
 				this.effectState.fallen++;
-				this.add('-activate', pokemon, 'ability: Emperor\'s Clothes');
-				this.add('-start', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+				this.add('-activate', target, 'ability: Emperor\'s Clothes');
+				this.add('-start', target, `fallen${this.effectState.fallen}`, '[silent]');
 			}
 		},
 		onBasePowerPriority: 21,
