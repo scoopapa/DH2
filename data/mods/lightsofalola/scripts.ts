@@ -11901,6 +11901,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'basculegionf').learnset.wavecrash = ["9L1"];
 		this.modData('Learnsets', 'clawitzer').learnset.wavecrash = ["9L1"];
 		this.modData('Learnsets', 'mew').learnset.wavecrash = ["9L1"];
+		this.modData('Learnsets', 'gyarados').learnset.wavecrash = ["9L1"];
 		this.modData('Learnsets', 'incineroar').learnset.ragingfury = ["9L1"];
 		this.modData('Learnsets', 'toucannon').learnset.ragingfury = ["9L1"];
 		this.modData('Learnsets', 'arcanine').learnset.ragingfury = ["9L1"];
