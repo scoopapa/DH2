@@ -202,7 +202,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			rest: ["9L1"],
 			roar: ["9L1"],
 			rockblast: ["9L1"],
-			rockpolish: ["9L1"],
 			rockslide: ["9L1"],
 			rocksmash: ["9L1"],
 			rockthrow: ["9L1"],
