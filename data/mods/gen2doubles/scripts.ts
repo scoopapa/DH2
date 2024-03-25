@@ -233,7 +233,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.spreadHit && move.target === 'allAdjacentFoes') {
 				const spreadModifier = move.spreadModifier || 0.5;
 				this.battle.debug('Spread modifier: ' + spreadModifier);
-				baseDamage = this.battle.modify(baseDamage, spreadModifier);
+				damage = this.battle.modify(damage, spreadModifier);
 			}
 
 			// Apply random factor if damage is greater than 1, except for Flail and Reversal
