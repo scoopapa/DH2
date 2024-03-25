@@ -102,7 +102,48 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 124, spd: 84, spe: 82},
 	},
-
+	revavroom: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 119, def: 110, spa: 54, spd: 77, spe: 100},
+		abilities: {0: "Overcoat", 1: "Neutralizing Gas", H: "Filter"},
+	},
+	kilowattrel: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 70, def: 70, spa: 115, spd: 70, spe: 125},
+	},
+	togekiss: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 60, def: 95, spa: 120, spd: 115, spe: 90},
+		abilities: {0: "Thick Fat", 1: "Serene Grace", H: "Super Luck"},
+	},
+	ninjask: {
+		inherit: true,
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 81, atk: 110, def: 45, spa: 50, spd: 50, spe: 160},
+		abilities: {0: "Speed Boost", 1: "Sharpness", H: "Infiltrator"},
+	},
+	frosmoth: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 75, def: 75, spa: 125, spd: 100, spe: 75},
+		abilities: {0: "Shield Dust", 1: "Compound Eyes", H: "Ice Scales"},
+	},
+	toedscruel: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 70, def: 80, spa: 100, spd: 120, spe: 100},
+	},
+	talonflame: {
+		inherit: true,
+		baseStats: {hp: 83, atk: 81, def: 81, spa: 84, spd: 79, spe: 126},
+	},
+	grafaiai: {
+		inherit: true,
+		baseStats: {hp: 73, atk: 95, def: 75, spa: 80, spd: 82, spe: 110},
+		abilities: {0: "Unburden", 1: "Corrosion", H: "Prankster"},
+	},
+	gastrodon: {
+		inherit: true,
+		baseStats: {hp: 126, atk: 103, def: 68, spa: 92, spd: 82, spe: 39},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {

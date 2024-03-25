@@ -83,12 +83,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	tranbeam: {
 		num: 100005,
-		shortDesc: "Does nothing (placeholder)",
+		shortDesc: "Changes opponent's type to Normal",
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
 		name: "Tran Beam",
 		pp: 10,
+		onHit(target) {
+			if (target.getTypes().join() === 'Normal' || !target.setType('Normal')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Normal');
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
@@ -134,6 +143,252 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		}
 	},
+	// Slate 2
+	aminoacid: {
+		num: 100007,
+		accuracy: true,
+		basePower: 100,
+		category: "Special",
+		name: "Amino Acid",
+		shortDesc: "After hitting, averages user and target's HP.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
+		onAfterHit(target, pokemon) {
+			const targetHP = target.getUndynamaxedHP();
+			const averagehp = Math.floor((targetHP + pokemon.hp) / 2) || 1;
+			const targetChange = targetHP - averagehp;
+			target.sethp(target.hp - targetChange);
+			this.add('-sethp', target, target.getHealth, '[from] move: Amino Acid', '[silent]');
+			pokemon.sethp(averagehp);
+			this.add('-sethp', pokemon, pokemon.getHealth, '[from] move: Amino Acid');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	crystallize: {
+		num: 349,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Crystallize",
+		shortDesc: "Boosts Def and Spe by 1.",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	flareup: {
+		num: 100008,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Flare-Up",
+		shortDesc: "+1 Priority. 10% chance to Burn.",
+		pp: 15,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "allAdjacent",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	maelstrom: {
+		num: 100009,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Maelstrom",
+		shortDesc: "Changes foe's ability to Desolate Land",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Water",
+		contestType: "Beautiful",
+		onHit(target, source, move){
+			target.setAbility("desolateland");
+		},
+	},
+	papercut: {
+		num: 100010,
+		accuracy: true,
+		basePower: 70,
+		category: "Physical",
+		name: "Paper Cut",
+		shortDesc: "Always hits, always lands a critical hit.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	reapandsow: {
+		num: 100011,
+		name: "Reap and Sow",
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		pp: 15,
+		type: "Ghost",
+		shortDesc: "If it faints a pokemon, sets Grassy Terrain",
+		priority: 0,
+		flags: {contact: 1, slicing: 1, protect: 1, mirror: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.field.setTerrain('grassyterrain');
+		},
+		target: "normal",
+		secondary: null,
+	},
+	selfimagebreak: {
+		num: 100016,
+		basePower: 70,
+		category: "Special",
+		accuracy: 85,
+		pp: 5,
+		name: "Self-Image Break",
+		shortDesc: "Traps 4-5 turns, lowers SpD each turn",
+		volatileStatus: 'selfimagebreak',
+		condition: {
+			name: 'selfimagebreak',
+			duration: 5,
+			durationCallback(target, source) {
+				if (source?.hasItem('gripclaw')) return 8;
+				return this.random(4, 5);
+			},
+			onStart(pokemon, source) {
+				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				const source = this.effectState.source;
+				// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+				const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
+					delete pokemon.volatiles['selfimagebreak'];
+					this.add('-end', pokemon, this.effectState.sourceEffect, '[selfimagebreak]', '[silent]');
+					return;
+				}
+				this.boost({spd: -1});
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[selfimagebreak]');
+			},
+			onTrapPokemon(pokemon) {
+				const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+				if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
+			},
+		},
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	slideout: {
+		num: 100012,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Slide Out",
+		shortDesc: "User switches out.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	smite: {
+		num: 100013,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+		name: "Smite",
+		shortDesc: "Never misses.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	sparklingslice: {
+		num: 100014,
+		accuracy: 90,
+		basePower: 60,
+		category: "Physical",
+		name: "Sparkling Slice",
+		shortDesc: "50% chance to lower foe's Atk and SpA.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, slicing: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 50,
+			boosts: {
+				spa: -1,
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
+	},
+	sporeeruption: {
+		num: 100015,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Spore Eruption",
+		shortDesc: "If the opponent makes contact, sets Leech Seed.",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, bullet: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('sporeeruption');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Spore Eruption');
+			},
+			onHit(target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target) && !target.hasType('Grass')) {
+					target.addVolatile('leechseed', source);
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('beakblast')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('sporeeruption');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	// Dexin't
 	karatechop: {
 		inherit: true,
 		isNonstandard: null,

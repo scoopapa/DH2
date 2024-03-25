@@ -227,7 +227,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Gardevoir-Sandshroud"],
 		num: -1008,
 		gen: 9,
-		desc: "Gardevoir-Sandshroud: Terastallize to gain Sand Stream.",
+		desc: "Gardevoir-Sandshroud: Terastallize to gain Dry Skin.",
 	},
 	blightbentmask: {
 		name: "Blightbent Mask",
@@ -250,7 +250,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Gardevoir-Blightbent"],
 		num: -1009,
 		gen: 9,
-		desc: "Gardevoir-Blightbent: Terastallize to gain Toxic Chain.",
+		desc: "Gardevoir-Blightbent: Terastallize to gain Poison Point.",
 	},
 	allicemask: {
 		name: "All Ice Mask",
@@ -273,7 +273,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Gardevoir-All-Ice"],
 		num: -1010,
 		gen: 9,
-		desc: "Gardevoir-All-Ice: Terastallize to gain Snow Warning.",
+		desc: "Gardevoir-All-Ice: Terastallize to gain Clear Body.",
 	},
 	pondweedmask: {
 		name: "Pondweed Mask",
@@ -1516,5 +1516,833 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1064,
 		gen: 9,
 		desc: "Jellicent-Ironclad: Terastallize to gain Bulletproof.",
+	},
+	fairydustmask: {
+		name: "Fairydust Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Toedscruel') return false;
+			return true;
+		},
+		forcedForme: "Toedscruel-Fairydust",
+		itemUser: ["Toedscruel-Fairydust"],
+		num: -1065,
+		gen: 9,
+		desc: "Toedscruel-Fairydust: Terastallize to gain Shield Dust.",
+	},
+	wyrmstoolmask: {
+		name: "Wyrmstool Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Toedscruel') return false;
+			return true;
+		},
+		forcedForme: "Toedscruel-Wyrmstool",
+		itemUser: ["Toedscruel-Wyrmstool"],
+		num: -1066,
+		gen: 9,
+		desc: "Toedscruel-Wyrmstool: Terastallize to gain Purifying Salt.",
+	},
+	mushrootmask: {
+		name: "Mushroot Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Toedscruel') return false;
+			return true;
+		},
+		forcedForme: "Toedscruel-Mushroot",
+		itemUser: ["Toedscruel-Mushroot"],
+		num: -1067,
+		gen: 9,
+		desc: "Toedscruel-Mushroot: Terastallize to gain Seed Sower.",
+	},
+	winterstylemask: {
+		name: "Winterstyle Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Tsareena') return false;
+			return true;
+		},
+		forcedForme: "Tsareena-Winterstyle",
+		itemUser: ["Tsareena-Winterstyle"],
+		num: -1068,
+		gen: 9,
+		desc: "Tsareena-Winterstyle: Terastallize to gain Skill Link.",
+	},
+	feathercrownmask: {
+		name: "Feathercrown Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Tsareena') return false;
+			return true;
+		},
+		forcedForme: "Tsareena-Feathercrown",
+		itemUser: ["Tsareena-Feathercrown"],
+		num: -1069,
+		gen: 9,
+		desc: "Tsareena-Feathercrown: Terastallize to gain Aerilate.",
+	},
+	warmaidensmask: {
+		name: "Warmaidens Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Tsareena') return false;
+			return true;
+		},
+		forcedForme: "Tsareena-Warmaidens",
+		itemUser: ["Tsareena-Warmaidens"],
+		num: -1070,
+		gen: 9,
+		desc: "Tsareena-Warmaidens: Terastallize to gain Rock Head.",
+	},
+	scaldingmask: {
+		name: "Scalding Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Sinistcha') return false;
+			return true;
+		},
+		forcedForme: "Sinistcha-Scalding",
+		itemUser: ["Sinistcha-Scalding", "Sinistcha-Scalding-Corrosive"],
+		num: -1071,
+		gen: 9,
+		desc: "Sinistcha-Scalding: Terastallize to gain Turboblaze.",
+	},
+	corrosivemask: {
+		name: "Corrosive Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Sinistcha') return false;
+			return true;
+		},
+		forcedForme: "Sinistcha-Corrosive",
+		itemUser: ["Sinistcha-Corrosive", "Sinistcha-Masterpiece-Corrosive"],
+		num: -1072,
+		gen: 9,
+		desc: "Sinistcha-Corrosive: Terastallize to gain Noxious Liquid.",
+	},
+	puremask: {
+		name: "Pure Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Sinistcha') return false;
+			return true;
+		},
+		forcedForme: "Sinistcha-Pure",
+		itemUser: ["Sinistcha-Pure", "Sinistcha-Masterpiece-Pure"],
+		num: -1073,
+		gen: 9,
+		desc: "Sinistcha-Pure: Terastallize to gain Pure Water.",
+	},
+	ricerollmask: {
+		name: "Riceroll Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Tatsugiri') return false;
+			return true;
+		},
+		forcedForme: "Tatsugiri-Riceroll",
+		itemUser: ["Tatsugiri-Riceroll"],
+		num: -1075,
+		gen: 9,
+		desc: "Tatsugiri-Riceroll: Terastallize to gain Pixilate.",
+	},
+	tempuramask: {
+		name: "Tempura Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Tatsugiri') return false;
+			return true;
+		},
+		forcedForme: "Tatsugiri-Tempura",
+		itemUser: ["Tatsugiri-Tempura"],
+		num: -1076,
+		gen: 9,
+		desc: "Tatsugiri-Tempura: Terastallize to gain Flame Body.",
+	},
+	stormcloudmask: {
+		name: "Stormcloud Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wigglytuff') return false;
+			return true;
+		},
+		forcedForme: "Wigglytuff-Stormcloud",
+		itemUser: ["Wigglytuff-Stormcloud"],
+		num: -1077,
+		gen: 9,
+		desc: "Wigglytuff-Stormcloud: Terastallize to gain Electric Surge.",
+	},
+	moonlightmask: {
+		name: "Moonlight Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wigglytuff') return false;
+			return true;
+		},
+		forcedForme: "Wigglytuff-Moonlight",
+		itemUser: ["Wigglytuff-Moonlight"],
+		num: -1078,
+		gen: 9,
+		desc: "Wigglytuff-Moonlight: Terastallize to gain Psychic Surge.",
+	},
+	nightballoonmask: {
+		name: "Nightballoon Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Wigglytuff') return false;
+			return true;
+		},
+		forcedForme: "Wigglytuff-Nightballoon",
+		itemUser: ["Wigglytuff-Nightballoon"],
+		num: -1079,
+		gen: 9,
+		desc: "Wigglytuff-Nightballoon: Terastallize to gain Misty Surge.",
+	},
+	nightkitemask: {
+		name: "Nightkite Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Crobat') return false;
+			return true;
+		},
+		forcedForme: "Crobat-Nightkite",
+		itemUser: ["Crobat-Nightkite"],
+		num: -1080,
+		gen: 9,
+		desc: "Crobat-Nightkite: Terastallize to gain Wind Rider.",
+	},
+	herowingmask: {
+		name: "Herowing Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Crobat') return false;
+			return true;
+		},
+		forcedForme: "Crobat-Herowing",
+		itemUser: ["Crobat-Herowing"],
+		num: -1081,
+		gen: 9,
+		desc: "Crobat-Herowing: Terastallize to gain Reckless.",
+	},
+	petalvampmask: {
+		name: "Petalvamp Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Crobat') return false;
+			return true;
+		},
+		forcedForme: "Crobat-Petalvamp",
+		itemUser: ["Crobat-Petalvamp"],
+		num: -1082,
+		gen: 9,
+		desc: "Crobat-Petalvamp: Terastallize to gain Sharpness.",
+	},
+	sunfishmask: {
+		name: "Sunfish Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solgaleo') return false;
+			return true;
+		},
+		forcedForme: "Solgaleo-Sunfish",
+		itemUser: ["Solgaleo-Sunfish"],
+		num: -1083,
+		gen: 9,
+		desc: "Solgaleo-Sunfish: Terastallize to gain Clear Body.",
+	},
+	suncoremask: {
+		name: "Suncore Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solgaleo') return false;
+			return true;
+		},
+		forcedForme: "Solgaleo-Suncore",
+		itemUser: ["Solgaleo-Suncore"],
+		num: -1084,
+		gen: 9,
+		desc: "Solgaleo-Suncore: Terastallize to gain Flame Body.",
+	},
+	sunflowermask: {
+		name: "Sunflower Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Solgaleo') return false;
+			return true;
+		},
+		forcedForme: "Solgaleo-Sunflower",
+		itemUser: ["Solgaleo-Sunflower"],
+		num: -1085,
+		gen: 9,
+		desc: "Solgaleo-Sunflower: Terastallize to gain Heatproof.",
+	},
+	guardianmask: {
+		name: "Guardian Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Granbull') return false;
+			return true;
+		},
+		forcedForme: "Granbull-Guardian",
+		itemUser: ["Granbull-Guardian"],
+		num: -1086,
+		gen: 9,
+		desc: "Granbull-Guardian: Terastallize to gain Regenerator.",
+	},
+	wardenmask: {
+		name: "Warden Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Granbull') return false;
+			return true;
+		},
+		forcedForme: "Granbull-Warden",
+		itemUser: ["Granbull-Warden"],
+		num: -1087,
+		gen: 9,
+		desc: "Granbull-Warden: Terastallize to gain Chlorophyll.",
+	},
+	shadowspearmask: {
+		name: "Shadowspear Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Iron Bundle') return false;
+			return true;
+		},
+		forcedForme: "Iron Bundle-Shadowspear",
+		itemUser: ["Iron Bundle-Shadowspear"],
+		num: -1088,
+		gen: 9,
+		desc: "Iron Bundle-Shadowspear: Terastallize to gain Sheer Force.",
+	},
+	voltchurnermask: {
+		name: "Voltchurner Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Iron Bundle') return false;
+			return true;
+		},
+		forcedForme: "Iron Bundle-Voltchurner",
+		itemUser: ["Iron Bundle-Voltchurner"],
+		num: -1089,
+		gen: 9,
+		desc: "Iron Bundle-Voltchurner: Terastallize to gain Intimidate.",
+	},
+	hydramuraimask: {
+		name: "Hydramurai Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kingambit') return false;
+			return true;
+		},
+		forcedForme: "Kingambit-Hydramurai",
+		itemUser: ["Kingambit-Hydramurai"],
+		num: -1090,
+		gen: 9,
+		desc: "Kingambit-Hydramurai: Terastallize to gain Bulletproof.",
+	},
+	poisonforgedmask: {
+		name: "Poisonforged Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kingambit') return false;
+			return true;
+		},
+		forcedForme: "Kingambit-Poisonforged",
+		itemUser: ["Kingambit-Poisonforged"],
+		num: -1091,
+		gen: 9,
+		desc: "Kingambit-Poisonforged: Terastallize to gain Flash Fire.",
+	},
+	kusarimask: {
+		name: "Kusari Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kingambit') return false;
+			return true;
+		},
+		forcedForme: "Kingambit-Kusari",
+		itemUser: ["Kingambit-Kusari"],
+		num: -1092,
+		gen: 9,
+		desc: "Kingambit-Kusari: Terastallize to gain Armor Tail.",
+	},
+	laserswordmask: {
+		name: "Lasersword Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Lokix') return false;
+			return true;
+		},
+		forcedForme: "Lokix-Lasersword",
+		itemUser: ["Lokix-Lasersword"],
+		num: -1093,
+		gen: 9,
+		desc: "Lokix-Lasersword: Terastallize to gain Surge Surfer.",
+	},
+	stridermask: {
+		name: "Strider Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Lokix') return false;
+			return true;
+		},
+		forcedForme: "Lokix-Strider",
+		itemUser: ["Lokix-Strider"],
+		num: -1094,
+		gen: 9,
+		desc: "Lokix-Strider: Terastallize to gain Moxie.",
+	},
+	leechfistmask: {
+		name: "Leechfist Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Lokix') return false;
+			return true;
+		},
+		forcedForme: "Lokix-Leechfist",
+		itemUser: ["Lokix-Leechfist"],
+		num: -1095,
+		gen: 9,
+		desc: "Lokix-Leechfist: Terastallize to gain Triage.",
+	},
+	chestomask: {
+		name: "Chesto Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Pecharunt') return false;
+			return true;
+		},
+		forcedForme: "Pecharunt-Chesto",
+		itemUser: ["Pecharunt-Chesto"],
+		num: -1096,
+		gen: 9,
+		desc: "Pecharunt-Chesto: Terastallize to gain Insomnia.",
+	},
+	lummask: {
+		name: "Lum Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Pecharunt') return false;
+			return true;
+		},
+		forcedForme: "Pecharunt-Lum",
+		itemUser: ["Pecharunt-Lum"],
+		num: -1097,
+		gen: 9,
+		desc: "Pecharunt-Lum: Terastallize to gain Purifying Salt.",
+	},
+	babirimask: {
+		name: "Babiri Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Pecharunt') return false;
+			return true;
+		},
+		forcedForme: "Pecharunt-Babiri",
+		itemUser: ["Pecharunt-Babiri"],
+		num: -1098,
+		gen: 9,
+		desc: "Pecharunt-Babiri: Terastallize to gain Pressure.",
+	},
+	hearthflamemask: {
+		name: "Hearthflame Mask",
+		spritenum: 760,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Hearthflame",
+		itemUser: ["Ogerpon-Hearthflame"],
+		num: 2408,
+		gen: 9,
+		desc: "Ogerpon-Hearthflame: Terastallize to gain Sheer Force.",
+	},
+	wellspringmask: {
+		name: "Wellspring Mask",
+		spritenum: 759,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Wellspring",
+		itemUser: ["Ogerpon-Wellspring"],
+		num: 2407,
+		gen: 9,
+		desc: "Ogerpon-Wellspring: Terastallize to gain Embody Aspect.",
+	},
+	mournstonemask: {
+		name: "Mournstone Mask",
+		spritenum: 759,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Mournstone",
+		itemUser: ["Ogerpon-Mournstone"],
+		num: -1099,
+		gen: 9,
+		desc: "Ogerpon-Mournstone: Terastallize to gain Moxie.",
 	},
 };

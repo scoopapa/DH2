@@ -154,13 +154,17 @@
         "level": 88,
         "moves": ["fireblast", "drillrun", "wildcharge", "morningsun"]
     },
+    "rapidashgalar": {
+        "level": 84,
+        "moves": ["dazzlinggleam", "drillrun", "batonpass", "morningsun"]
+    },
     "slowbro": {
         "level": 80,
         "moves": ["amnesia", "thunderwave", "slackoff", "surf"]
     },
     "slowbrogalar": {
         "level": 84,
-        "moves": ["amnesia", "shellsidearm", "fireblast", "slackoff"]
+        "moves": ["amnesia", "storedpower", "fireblast", "slackoff"]
     },
     "farfetchd": {
         "level": 94,
@@ -1273,7 +1277,7 @@
         "moves": ["earthquake", "thunderwave"],
         "essentialMoves": ["dracometeor"],
         "exclusiveMoves": ["stoneedge", "stoneedge", "willowisp", "shadowclaw"],
-        "comboMoves": ["thunderbolt", "calmmind", "rest"]
+        "comboMoves": ["thunderbolt", "calmmind", "rest", "dracometeor"]
 },
     "cresselia": {
         "level": 82,
@@ -1856,7 +1860,7 @@
 },
     "trevenant": {
         "level": 88,
-        "moves": ["shadowclaw", "focusblast", "xscissor", "destinybond"]
+        "moves": ["shadowclaw", "earthquake", "xscissor", "destinybond"]
 },
     "gourgeist": {
         "level": 88,
@@ -1916,7 +1920,7 @@
         "moves": ["moonblast", "healbell"],
 	"essentialMoves": ["stoneedge"],
 	"exclusiveMoves": ["bodypress", "batonpass"],
-	"comboMoves": ["amnesia", "rockpolish", "storedpower"]
+	"comboMoves": ["amnesia", "rockpolish", "storedpower", "stoneedge"]
 },
     "hoopa": {
         "level": 84,
@@ -2543,12 +2547,13 @@
     "dachsbun": {
         "level": 90,
         "moves": ["stompingtantrum", "batonpass", "bodyslam"],
-        "essentialMoves": ["playrough", "alluringvoice"]   
+        "exclusiveMoves": ["playrough", "alluringvoice"]   
 },
     "arboliva": {
         "level": 88,
         "moves": ["earthpower", "growth", "hyperbeam"],
-        "essentialMoves": ["leafstorm", "petalblizzard"]
+        "essentialMoves": ["synthesis"],
+        "exclusiveMoves": ["leafstorm", "petalblizzard"]
 },
     "squawkabilly": {
         "level": 90,
@@ -2795,7 +2800,7 @@
 },
     "sinistcha": {
         "level": 86,
-        "moves": ["matchagotcha", "calmmind", "strenghtsap", "stunspore"]
+        "moves": ["matchagotcha", "calmmind", "strengthsap", "stunspore"]
 },
     "okidogi": {
         "level": 86,

@@ -1013,13 +1013,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		condition: {
-			duration: 1,
 			onDamagingHit(damage, target, source, move) {
 				if (this.checkMoveMakesContact(move, source, target)) {
 					source.trySetStatus('brn', target);
 					this.add('-message', `${target.name}'s flames burnt its attacker!`);
 					target.removeVolatile('rekindleheal');
 					this.add('-message', `${target.name}'s flames were put out!`);
+					target.removeVolatile('rekindle');
 				}
 			},
 		},
