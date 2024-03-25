@@ -1057,7 +1057,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Excadrill-Exoslasher: Terastallize to gain Defiant.",
 	},
-	Scaresporemask: {
+	scaresporemask: {
 		name: "Scarespore Mask",
 		spritenum: 758,
 		fling: {
