@@ -3153,8 +3153,167 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Forced Fencer",
 		rating: 4,
 	},
+	//Introduced with FEUU
+	stormclinic: {
+	  shortDesc: "Regenerator + Wind Rider",
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				if (!this.boost({atk: 1}, target, target)) {
+					this.add('-immune', target, '[from] ability: Wind Rider');
+				}
+				return null;
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {breakable: 1},
+		name: "Storm Clinic",
+	},
+	ultraface: {
+		shortDesc: "Eisephalon: Change to No Face form on KO; Reverts in Snow",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move' && source.species.id === 'eisephalon') {
+				source.formeChange('Eisephalon-No-Face', this.effect, true);
+			}
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather || !pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eisephalonnoface') {
+				this.add('-activate', pokemon, 'ability: Ultra Face');
+				pokemon.formeChange('Eisephalon', this.effect, true);
+			}
+		},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			notransform: 1,
+		},
+		name: "Ultra Face",
+		rating: 3.5,
+		num: 224,
+	},
+	emperorsclothes: {
+		shortDesc: "Deal 10% bonus damage for each hit taken (up to 50%)",
+		onStart(pokemon) {
+			this.effectState.fallen = 0;
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.effectState.fallen >= 5) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.effectState.fallen) {
+					this.add('-end', target, `fallen${this.effectState.fallen}`, '[silent]');
+				}
+				this.effectState.fallen++;
+				this.add('-activate', target, 'ability: Emperor\'s Clothes');
+				this.add('-start', target, `fallen${this.effectState.fallen}`, '[silent]');
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "Emperor's Clothes",
+	},
+	innermood: {
+		shortDesc: "Inner Focus + Moody",
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			let stats: BoostID[] = [];
+			const boost: SparseBoostsTable = {};
+			let statPlus: BoostID;
+			for (statPlus in pokemon.boosts) {
+				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+				if (pokemon.boosts[statPlus] < 6) {
+					stats.push(statPlus);
+				}
+			}
+			let randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
+			if (randomStat) boost[randomStat] = 2;
 
+			stats = [];
+			let statMinus: BoostID;
+			for (statMinus in pokemon.boosts) {
+				if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
+				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
+					stats.push(statMinus);
+				}
+			}
+			randomStat = stats.length ? this.sample(stats) : undefined;
+			if (randomStat) boost[randomStat] = -1;
+
+			this.boost(boost, pokemon, pokemon);
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Mood', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Mood', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Inner Mood",
+	},
+	nononsense: {
+		shortDesc: "Battle Armor + Clear Body",
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: No Nonsense", "[of] " + target);
+			}
+		},
+		onCriticalHit: false,
+		flags: {breakable: 1},
+		name: "No Nonsense",
+	},
 	//Vanilla abilities
+	//Extending Inner Focus's Intimidate immunity to derivatives
+	innerfocus: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Focus', '[of] ' + target);
+			}
+		},
+	},
 	naturalcure: {
 		onCheckShow(pokemon) {
 			// This is complicated
@@ -3333,163 +3492,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-	},
-	stormclinic: {
-	  shortDesc: "Regenerator + Wind Rider",
-		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind']) {
-				this.boost({atk: 1}, pokemon, pokemon);
-			}
-		},
-		onTryHit(target, source, move) {
-			if (target !== source && move.flags['wind']) {
-				if (!this.boost({atk: 1}, target, target)) {
-					this.add('-immune', target, '[from] ability: Wind Rider');
-				}
-				return null;
-			}
-		},
-		onAllySideConditionStart(target, source, sideCondition) {
-			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind') {
-				this.boost({atk: 1}, pokemon, pokemon);
-			}
-		},
-		onSwitchOut(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 3);
-		},
-		flags: {breakable:1},
-		name: "Storm Clinic",
-	},
-	ultraface: {
-		shortDesc: "Eisephalon: Change to No Face form on KO; Reverts in Snow",
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move' && source.species.id === 'eisephalon') {
-				source.formeChange('Eisephalon-No-Face', this.effect, true);
-			}
-		},
-		onWeatherChange(pokemon, source, sourceEffect) {
-			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
-			if ((sourceEffect as Ability)?.suppressWeather || !pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eisephalonnoface') {
-				this.add('-activate', pokemon, 'ability: Ultra Face');
-				pokemon.formeChange('Eisephalon', this.effect, true);
-			}
-		},
-		flags: {
-			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
-			notransform: 1,
-		},
-		name: "Ultra Face",
-		rating: 3.5,
-		num: 224,
-	},
-	emperorsclothes: {
-		shortDesc: "Deal 10% bonus damage for each hit taken (up to 50%)",
-		onStart(pokemon) {
-			this.effectState.fallen = 0;
-		},
-		onDamagingHit(damage, target, source, move) {
-			if (this.effectState.fallen >= 5) return;
-			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
-				if (this.effectState.fallen) {
-					this.add('-end', target, `fallen${this.effectState.fallen}`, '[silent]');
-				}
-				this.effectState.fallen++;
-				this.add('-activate', target, 'ability: Emperor\'s Clothes');
-				this.add('-start', target, `fallen${this.effectState.fallen}`, '[silent]');
-			}
-		},
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.fallen) {
-				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
-				return this.chainModify([powMod[this.effectState.fallen], 4096]);
-			}
-		},
-		flags: {},
-		name: "Emperor's Clothes",
-	},
-	innerfocus: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name)) {
-				if (boost.atk) {
-					delete boost.atk;
-					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
-				}
-			} else if (effect.name === 'Fishy Threat' && boost.spe) {
-				delete boost.spe;
-				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Focus', '[of] ' + target);
-			}
-		},
-	},
-	innermood: {
-		shortDesc: "Inner Focus + Moody",
-		onTryAddVolatile(status, pokemon) {
-			if (status.id === 'flinch') return null;
-		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			let stats: BoostID[] = [];
-			const boost: SparseBoostsTable = {};
-			let statPlus: BoostID;
-			for (statPlus in pokemon.boosts) {
-				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (pokemon.boosts[statPlus] < 6) {
-					stats.push(statPlus);
-				}
-			}
-			let randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = 2;
-
-			stats = [];
-			let statMinus: BoostID;
-			for (statMinus in pokemon.boosts) {
-				if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
-					stats.push(statMinus);
-				}
-			}
-			randomStat = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = -1;
-
-			this.boost(boost, pokemon, pokemon);
-		},
-		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name)) {
-				if (boost.atk) {
-					delete boost.atk;
-					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Mood', '[of] ' + target);
-				}
-			} else if (effect.name === 'Fishy Threat' && boost.spe) {
-				delete boost.spe;
-				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Mood', '[of] ' + target);
-			}
-		},
-		flags: {breakable: 1},
-		name: "Inner Mood",
-	},
-	nononsense: {
-		shortDesc: "Battle Armor + Clear Body",
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add("-fail", target, "unboost", "[from] ability: No Nonsense", "[of] " + target);
-			}
-		},
-		onCriticalHit: false,
-		flags: {breakable: 1},
-		name: "No Nonsense",
 	},
 };
