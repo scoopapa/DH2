@@ -228,7 +228,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// Attempting to add correct spread damage nerf
-			const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
+			const {targets, pressureTargets} = source.getMoveTargets(move, target);
 			if (targets.length > 1) move.spreadHit = true;
 			if (move.spreadHit && move.target === 'allAdjacentFoes') {
 				const spreadModifier = move.spreadModifier || 0.5;
