@@ -237,8 +237,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// Attempt to fix screens not being 2/3 with 2 active mons
-			if (((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
-				(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) &&
+			if (((target.side.getSideCondition('reflect') && move.category === 'Physical') ||
+				(target.side.getSideCondition('lightscreen') && move.category === 'Special')) &&
 				target.side.active.length > 1) {
 				damage = Math.floor(damage * 1.33333333);
 			}
