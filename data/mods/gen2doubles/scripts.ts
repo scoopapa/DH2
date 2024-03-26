@@ -234,6 +234,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				const spreadModifier = move.spreadModifier || 0.5;
 				this.battle.debug('Spread modifier: ' + spreadModifier);
 				damage = this.battle.modify(damage, spreadModifier);
+				if (this.side.sideConditions['reflect'] && move.category === 'Physical' ||
+					 this.side.sideConditions['lightscreen'] && move.category === 'Special') {
+					damage = Math.floor(damage * 1.333333333);
+				}
 			}
 
 			// Apply random factor if damage is greater than 1, except for Flail and Reversal
