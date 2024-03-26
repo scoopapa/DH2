@@ -44,4 +44,48 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	reflect: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			// Defense boost applied directly in stat calculation
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Reflect');
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect should only reduce damage by 2/3 in doubles');
+						if (this.activePerHalf > 1) return this.chainModify([5461, 4096]);
+					}
+				}
+			},
+			onSideResidualOrder: 9,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Reflect');
+			},
+		},
+	},
+	lightscreen: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			// Sp. Def boost applied directly in stat calculation
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Light Screen');
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect should only reduce damage by 2/3 in doubles');
+						if (this.activePerHalf > 1) return this.chainModify([5461, 4096]);
+					}
+				}
+			},
+			onSideResidualOrder: 9,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Light Screen');
+			},
+		},
+	},
 };
