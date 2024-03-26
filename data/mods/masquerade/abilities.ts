@@ -140,7 +140,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	lifedrain: {
 		shortDesc: "This Pokemon's moves heal it for 33% of the damage dealt.",
 		onModifyMove(move, pokemon) {
-			if (!move.drain && move.category !== 'Special') {
+			if (!move.drain && move.category !== 'Status') {
 				move.drain = [1, 3];
 			}
 		},
