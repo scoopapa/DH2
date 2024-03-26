@@ -1,6 +1,71 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
+	pokemon: {
+		inherit: true,
+		getStat(statName, unboosted, unmodified, fastReturn) {
+			// @ts-ignore - type checking prevents 'hp' from being passed, but we're paranoid
+			if (statName === 'hp') throw new Error("Please read `maxhp` directly");
+
+			// base stat
+			let stat = this.storedStats[statName];
+
+			// Stat boosts.
+			if (!unboosted) {
+				let boost = this.boosts[statName];
+				if (boost > 6) boost = 6;
+				if (boost < -6) boost = -6;
+				if (boost >= 0) {
+					const boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
+					stat = Math.floor(stat * boostTable[boost]);
+				} else {
+					const numerators = [100, 66, 50, 40, 33, 28, 25];
+					stat = Math.floor(stat * numerators[-boost] / 100);
+				}
+			}
+
+			if (this.status === 'par' && statName === 'spe') {
+				stat = Math.floor(stat / 4);
+			}
+
+			if (!unmodified) {
+				// Burn attack drop is checked when you get the attack stat upon switch in and used until switch out.
+				if (this.status === 'brn' && statName === 'atk') {
+					stat = Math.floor(stat / 2);
+				}
+			}
+
+			// Gen 2 caps stats at 999 and min is 1.
+			stat = this.battle.clampIntRange(stat, 1, 999);
+			if (fastReturn) return stat;
+
+			// Screens
+			if (!unboosted) {
+				if (
+					(statName === 'def' && this.side.sideConditions['reflect']) ||
+					(statName === 'spd' && this.side.sideConditions['lightscreen'])
+				) {
+					if (this.side.active.length === 1) {
+						stat *= 2;
+					} else {
+						stat *= 1.5;
+					}
+				}
+			}
+
+			// Handle boosting items
+			if (
+				(['Cubone', 'Marowak'].includes(this.baseSpecies.name) && this.item === 'thickclub' && statName === 'atk') ||
+				(this.baseSpecies.name === 'Pikachu' && this.item === 'lightball' && statName === 'spa')
+			) {
+				stat *= 2;
+			} else if (this.baseSpecies.name === 'Ditto' && this.item === 'metalpowder' && ['def', 'spd'].includes(statName)) {
+				stat = Math.floor(stat * 1.5);
+			}
+
+			return stat;
+		},
+	},
 	actions: {
 		inherit: true,
 		getDamage(source, target, move, suppressMessages) {
@@ -236,12 +301,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				damage = this.battle.modify(damage, spreadModifier);
 			}
 
-			// Attempt to fix screens not being 2/3 with 2 active mons
+		/*	// Attempt to fix screens not being 2/3 with 2 active mons
 			if (((target.side.getSideCondition('reflect') && move.category === 'Physical') ||
 				(target.side.getSideCondition('lightscreen') && move.category === 'Special')) &&
 				target.side.active.length > 1) {
 				damage = Math.floor(damage * 1.33333333);
-			}
+			} */
 
 			// Apply random factor if damage is greater than 1, except for Flail and Reversal
 			if (!move.noDamageVariance && damage > 1) {
