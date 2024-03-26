@@ -440,8 +440,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OU LoA",
 	},
 	delibird: {
-		tier: "RU LoA",
-		doublesTier: "RU LoA",
+		tier: "UU LoA",
+		doublesTier: "UU LoA",
 	},
 	oricorio: {
 		tier: "NU LoA",
