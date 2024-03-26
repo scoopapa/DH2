@@ -236,6 +236,13 @@ export const Scripts: ModdedBattleScriptsData = {
 				damage = this.battle.modify(damage, spreadModifier);
 			}
 
+			// Attempt to fix screens not being 2/3 with 2 active mons
+			if (((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+				(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) &&
+				target.side.active.length > 1) {
+					damage = Math.floor(damage * 1.33333333);
+			}
+
 			// Apply random factor if damage is greater than 1, except for Flail and Reversal
 			if (!move.noDamageVariance && damage > 1) {
 				damage *= this.battle.random(217, 256);
