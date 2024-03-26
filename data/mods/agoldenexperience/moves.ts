@@ -1359,7 +1359,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	sweetheart: {
 		num: -43,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 65,
 		category: "Special",
 		name: "Sweetheart",
 		pp: 10,
@@ -1445,14 +1445,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	naturepower: {
-		num: 267,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Nature Power",
-		pp: 20,
-		priority: 0,
-		flags: {},
+		inherit: true,
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
 			if (this.field.isTerrain('electricterrain')) {
@@ -1469,20 +1462,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.actions.useMove(move, pokemon, target);
 			return null;
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Beautiful",
 	},
 	terrainpulse: {
-		num: 805,
-		accuracy: 100,
-		basePower: 50,
-		category: "Special",
-		name: "Terrain Pulse",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		inherit: true,
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
 			switch (this.field.terrain) {
@@ -1508,11 +1490,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.basePower *= 2;
 			}
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		zMove: {basePower: 160},
-		maxMove: {basePower: 130},
 	},
 	secretpower: {
 		inherit: true,
@@ -1618,8 +1595,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 	},
 	payback: {
-		num: 371,
-		accuracy: 100,
+		inherit: true,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
@@ -1629,16 +1605,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.debug('Payback damage boost');
 			return move.basePower * 2;
 		},
-		category: "Physical",
-		name: "Payback",
 		shortDesc: "Usually goes last. Power doubles if the user moves after the target.",
-		pp: 10,
 		priority: -1,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: null,
-		target: "normal",
-		type: "Dark",
-		contestType: "Tough",
 	},
 	armthrust: {
 		inherit: true,
@@ -1733,15 +1701,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 	},
 	powergem: {
-		num: 408,
-		accuracy: 100,
+		inherit: true,
 		basePower: 95,
-		category: "Special",
-		name: "Power Gem",
 		shortDesc: "10% chance to raise user's Def by one.",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 10,
 			self: {
@@ -1750,9 +1712,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				},
 			},
 		},
-		target: "normal",
-		type: "Rock",
-		contestType: "Beautiful",
 	},
 	roaroftime: {
 		num: 459,
@@ -3265,7 +3224,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
 	},
