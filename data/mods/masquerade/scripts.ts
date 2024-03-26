@@ -58,6 +58,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ogerpon").learnset.dragonbreath = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.dragonrush = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "lokix").learnset.nightslash = ["9L1"];
 	},
 	actions: {
 		inherit: true,

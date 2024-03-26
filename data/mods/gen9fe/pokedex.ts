@@ -1419,8 +1419,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	bramblefoo: {
 		num: 1101, 
 		//fusion: ["Bramblin", "Mienfoo"],
-		name: "Chimcharig", 
-		types: ["Fire", "Fighting"],
+		name: "Bramblefoo", 
+		types: ["Fighting", "Grass"],
 		baseStats: {hp: 50, atk: 75, def: 45, spa: 50, spd:45, spe: 65}, 
 		abilities: {0: "Storm Clinic"}, 
 		weightkg: 10.3,
