@@ -44,6 +44,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+/*
 	reflect: {
 		inherit: true,
 		condition: {
@@ -56,7 +57,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect should only reduce damage by 2/3 in doubles');
-						if (source.side.active.length === 2) return this.chainModify([5461, 4096]);
+						if (target.side.active.length === 2) return this.chainModify([5461, 4096]);
 					}
 				}
 			},
@@ -78,7 +79,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen should only reduce damage by 2/3 in doubles');
-						if (source.side.active.length === 2) return this.chainModify([5461, 4096]);
+						if (target.side.active.length === 2) return this.chainModify([5461, 4096]);
 					}
 				}
 			},
@@ -88,4 +89,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+*/
 };
