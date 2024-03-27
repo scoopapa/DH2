@@ -872,7 +872,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
+		itemUser: ["Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-World", "Pikachu-Partner"],
 		num: 836,
 		isNonstandard: null,
 		gen: 7,
