@@ -813,6 +813,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "abra").learnset.painsplit = ["9L1"];
 		this.modData("Learnsets", "abra").learnset.futuresight = ["9L1"];
 		this.modData("Learnsets", "abra").learnset.expandingforce = ["9L1"];
+		this.modData("Learnsets", "abra").learnset.knockoff = ["9L1"];
 		// Kadabra
 		this.modData("Learnsets", "kadabra").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "kadabra").learnset.endure = ["9L1"];
