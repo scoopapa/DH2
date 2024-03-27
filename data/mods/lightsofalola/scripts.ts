@@ -680,6 +680,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "pikachualola").learnset.zippyzap = ["9L1"];
 		this.modData("Learnsets", "pikachukalos").learnset.zippyzap = ["9L1"];
 		this.modData("Learnsets", "pikachupartner").learnset.zippyzap = ["9L1"];
+		this.modData("Learnsets", "pikachuworld").learnset.zippyzap = ["9L1"];
 		// Raichu
 		this.modData("Learnsets", "raichu").learnset.zippyzap = ["9L1"];
 		// Raichu-Alola
