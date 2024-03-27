@@ -3328,6 +3328,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Min Team Size = 4', 'Max Team Size = 4'],
 		banlist: [],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 9] White Tusk",
