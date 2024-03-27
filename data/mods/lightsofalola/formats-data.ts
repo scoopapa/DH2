@@ -147,6 +147,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU LoA",
 		doublesTier: "NU LoA",
 	},
+	pikachuworld: {
+		tier: "NU LoA",
+		doublesTier: "NU LoA",
+	},
 	raichualola: {
 		tier: "UU LoA",
 		doublesTier: "UU LoA",
