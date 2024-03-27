@@ -304,6 +304,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "raticatealolatotem").learnset.poisonfang = ["9L1"];
 		this.modData("Learnsets", "raticatealolatotem").learnset.poisontail = ["9L1"];
 		this.modData("Learnsets", "raticatealolatotem").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "raticatealolatotem").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "raticatealolatotem").learnset.poisonjab = ["9L1"];
 		// Rattata
 		this.modData("Learnsets", "rattata").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "rattata").learnset.endure = ["9L1"];
