@@ -3323,6 +3323,14 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 2] VGC 2001",
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Team Preview', 'Picked Team Size = 4'],
+		banlist: [],
+		teambuilderFormat: 'OU',
+	},
+	{
 		name: "[Gen 9] White Tusk",
 
 		mod: 'whitetusk',
