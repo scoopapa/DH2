@@ -2,6 +2,46 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	//Vanilla mons (+ custom megas and regional forms) :
 
 	// Gen 1 :
+	venusaur: {
+		inherit: true,
+		otherFormes: ["Venusaur-Mega", "Venusaur-Mega-Y"],
+		formeOrder: ["Venusaur", "Venusaur-Mega", "Venusaur-Mega-Y"],
+	},
+	venusaurmegay: {
+		num: 3,
+		name: "Venusaur-Mega-Y",
+		baseSpecies: "Venusaur",
+		forme: "Mega-Y",
+		types: ["Grass", "Ghost"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 80, atk: 132, def: 103, spa: 100, spd: 110, spe: 100},
+		abilities: {0: "Whithering"},
+		heightm: 2.4,
+		weightkg: 155.5,
+		color: "Green",
+		eggGroups: ["Monster", "Grass"],
+		requiredItem: "Venusaurite Y",
+	},
+	blastoise: {
+		inherit: true,
+		otherFormes: ["Blastoise-Mega", "Blastoise-Mega-X"],
+		formeOrder: ["Blastoise", "Blastoise-Mega", "Blastoise-Mega-X"],
+	},
+	blastoisemegax: {
+		num: 9,
+		name: "Blastoise-Mega-X",
+		baseSpecies: "Blastoise",
+		forme: "Mega-X",
+		types: ["Water", "Steel"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 79, atk: 133, def: 110, spa: 85, spd: 115, spe: 108},
+		abilities: {0: "Anger Shell"},
+		heightm: 1.6,
+		weightkg: 101.1,
+		color: "Blue",
+		eggGroups: ["Monster", "Water 1"],
+		requiredItem: "Blastoisinite-X",
+	},
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 90, spd: 80, spe: 75},
@@ -1342,17 +1382,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	wormadam: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 59, def: 90, spa: 79, spd: 116, spe: 36},
-		abilities: {0: "Anticipation", 1:"Filter", H: "Overcoat"},
+		abilities: {0: "Anticipation", 1:"Filter", H: "Leaf Dress"},
 	},
 	wormadamsandy: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 79, def: 116, spa: 59, spd: 90, spe: 36},
-		abilities: {0: "Anticipation", 1:"Filter", H: "Overcoat"},
+		abilities: {0: "Anticipation", 1:"Filter", H: "Sand Spit"},
 	},
 	wormadamtrash: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 69, def: 103, spa: 69, spd: 103, spe: 36},
-		abilities: {0: "Anticipation", 1:"Filter", H: "Overcoat"},
+		abilities: {0: "Anticipation", 1:"Filter", H: "Toxic Debris"},
 	},
 	mothim: {
 		inherit: true,

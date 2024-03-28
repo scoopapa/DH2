@@ -842,12 +842,17 @@ export const Scripts: ModdedBattleScriptsData = {
     // New movepool changes :
 
     // Gen 1: 
+    this.modData('Learnsets', 'venusaur').learnset.shadowclaw = ['9L1'];
+    this.modData('Learnsets', 'venusaur').learnset.shadowsneak = ['9L1'];
+    this.modData('Learnsets', 'venusaur').learnset.punishingblow = ['9L1'];
     delete this.modData('Learnsets', 'squirtle').learnset.shellsmash;
     delete this.modData('Learnsets', 'wartortle').learnset.shellsmash;
     delete this.modData('Learnsets', 'blastoise').learnset.shellsmash;
     this.modData('Learnsets', 'squirtle').learnset.calmmind = ['9L1'];
     this.modData('Learnsets', 'wartortle').learnset.calmmind = ['9L1'];
     this.modData('Learnsets', 'blastoise').learnset.calmmind = ['9L1'];
+    this.modData('Learnsets', 'blastoise').learnset.ironhead = ['9L1'];
+    this.modData('Learnsets', 'blastoise').learnset.meteormash = ['9L1'];
     this.modData('Learnsets', 'pidgeot').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'spearow').learnset.bravebird = ['9L1'];
     this.modData('Learnsets', 'arbok').learnset.meanlook = ['9L1'];
@@ -1051,12 +1056,18 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'wormadam').learnset.aircutter = ['9L1'];
     this.modData('Learnsets', 'wormadam').learnset.airslash = ['9L1'];
     this.modData('Learnsets', 'wormadam').learnset.defog = ['9L1'];
+    this.modData('Learnsets', 'wormadam').learnset.roost = ['9L1'];
+    this.modData('Learnsets', 'wormadam').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'wormadamsandy').learnset.rockthrow = ['9L1'];
     this.modData('Learnsets', 'wormadamsandy').learnset.rockslide = ['9L1'];
     this.modData('Learnsets', 'wormadamsandy').learnset.powergem = ['9L1'];
+    this.modData('Learnsets', 'wormadamsandy').learnset.roost = ['9L1'];
+    this.modData('Learnsets', 'wormadamsandy').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'wormadamtrash').learnset.sludge = ['9L1'];
     this.modData('Learnsets', 'wormadamtrash').learnset.sludgebomb = ['9L1'];
     this.modData('Learnsets', 'wormadamtrash').learnset.sludgewave = ['9L1'];
+    this.modData('Learnsets', 'wormadamtrash').learnset.roost = ['9L1'];
+    this.modData('Learnsets', 'wormadamtrash').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'mothim').learnset.leechlife = ['9L1'];
     this.modData('Learnsets', 'mothim').learnset.zenheadbutt = ['9L1'];
     this.modData('Learnsets', 'mothim').learnset.extrasensory = ['9L1'];

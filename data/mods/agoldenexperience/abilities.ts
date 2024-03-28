@@ -2626,4 +2626,23 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "Active Pokemon have their Sp. Atk multiplied by 0.83, including this Pokemon.",
 	},
+	withering: {
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 100,
+				boosts: {
+					spe: -1,
+				},
+				ability: this.dex.abilities.get('withering'),
+			});
+		},
+		name: "Withering",
+		shortDesc: "This Pokemon's contact moves lower the target's Speed by one stage.",
+		rating: 2,
+		num: -71,
+	},
 };

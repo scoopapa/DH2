@@ -13,6 +13,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
+	venusaurmegay: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	venusaurgmax: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -51,6 +55,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	blastoisemega: {
 		tier: "RU",
+		doublesTier: "DOU",
+	},
+	blastoisemegax: {
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	blastoisegmax: {

@@ -730,4 +730,32 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 	num: -47,
 	// 	gen: 9,
 	// },
+	venusauritey: {
+		name: "Venusaurite Y",
+		spritenum: 608,
+		megaStone: "Venusaur-Mega-Y",
+		megaEvolves: "Venusaur",
+		itemUser: ["Venusaur"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -46,
+		gen: 9,
+		desc: "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
+	},
+	blastoisinitex: {
+		name: "Blastoisinite X",
+		spritenum: 583,
+		megaStone: "Blastoise-Mega-X",
+		megaEvolves: "Blastoise",
+		itemUser: ["Blastoise"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -47,
+		gen: 9,
+		desc: "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
+	},
 }
