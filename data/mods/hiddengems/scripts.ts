@@ -13,5 +13,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "crabominable").learnset.gyroball = ["9L1"];
 		this.modData("Learnsets", "dedenne").learnset.calmmind = ["9L1"];
 		this.modData("Learnsets", "electivire").learnset.acrobatics = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.gravity = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.icefang = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.icespinner = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.slackoff = ["9L1"];
 	},
 };
