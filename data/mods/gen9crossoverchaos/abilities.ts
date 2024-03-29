@@ -314,4 +314,46 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -17,
 	},
+	binarysoul: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.species.baseSpecies !== 'Twinrova' || pokemon.terastallized) return;
+			const targetForme = pokemon.species.name === 'Twinrova' ? 'Twinrova-Fire' : 'Twinrova';
+			pokemon.formeChange(targetForme);
+		},
+		// I have no clue what's going on here, all I know is that this is how Morpeko was coded
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Binary Soul",
+		rating: 1,
+		num: -18,
+	},
+	perplexinggaze: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Perplexing Gaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Perplexing Gaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Perplexing Gaze",
+		rating: 3.5,
+		num: -19,
+	},
+	rainbowpuppeteer: {
+		onModifyMove(move) {
+			move.forceSTAB = true;
+		},
+		flags: {},
+		name: "Rainbow Puppeteer",
+		rating: 4,
+		num: -20,
+	},
 };
