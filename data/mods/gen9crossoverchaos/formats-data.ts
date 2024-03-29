@@ -111,5 +111,25 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	hestu: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	twinrova: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	snecko: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	kaguyahouraisan: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	luigi: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 
 };
