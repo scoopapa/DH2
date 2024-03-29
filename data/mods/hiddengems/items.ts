@@ -192,6 +192,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Ground' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Flapple') {
+				  source.addVolatile('groundgem');
+        		}
 			}
 		},
 		num: 555,
@@ -241,6 +244,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Poison' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Tornadus') {
+				  source.addVolatile('poisongem');
+        		}
 			}
 		},
 		num: 554,
@@ -280,12 +286,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Rock' && source.useItem()) {
 				source.addVolatile('gem');
-			/*	if (source.baseSpecies.baseSpecies === 'Carbink') {
-					this.add('-message', `${source.name}'s Hidden Gem activated!`);
-					source.setAbility('hugepower', source, true);
-					this.add('-activate', source, 'ability: Huge Power');
-					this.boost({def: 1, spd: 2}, source);
-				} */
+        		if (source.baseSpecies.baseSpecies === 'Sandaconda') {
+				  source.addVolatile('rockgem');
+        		}
 			}
 		},
 		num: 559,
