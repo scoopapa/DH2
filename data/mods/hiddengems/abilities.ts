@@ -23,4 +23,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Inversion",
 		rating: 5,
 	},
+	gravityfield: {
+		shortDesc: "On switch-in, this Pokemon summons Gravity.",
+		onStart(source) {
+			this.add('-ability', source, 'Gravity Field');
+			this.field.addPseudoWeather('gravity', source, source.ability);
+		},
+		flags: {},
+		name: "Gravity Field",
+		rating: 4,
+	},
 };
