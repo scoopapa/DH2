@@ -151,6 +151,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      source.setAbility('magicbounce', source, true);
 	      this.add('-activate', source, 'ability: Magic Bounce');
       	this.boost({def: 1, spd: 1, accuracy: 1}, source);
+			this.actions.useMove("Hidden Gem Poison", source, source);
 		},
 	},
 	groundgem: {
@@ -164,6 +165,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      source.setAbility('gravityfield', source, true);
 	      this.add('-activate', source, 'ability: Gravity Field');
       	this.boost({atk: 1, spe: 1}, source);
+			this.actions.useMove("Hidden Gem Ground", source, source);
 		},
 	},
 	rockgem: {
@@ -177,6 +179,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      source.setAbility('sandrush', source, true);
 	      this.add('-activate', source, 'ability: Sand Rush');
       	this.boost({atk: 2, spd: 1}, source);
+			this.actions.useMove("Hidden Gem Rock", source, source);
 		},
 	},
 };
