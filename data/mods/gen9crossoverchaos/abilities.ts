@@ -358,13 +358,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	devouringjaw: {
 		onModifyMove(move) {
-			if (move.flags['contact']) { 
+			if (move.flags['bite']) { 
 				move.drain: [1, 2],
 			},
 		},
 		flags: {},
 		name: "Devouring Jaw",
 		rating: 3,
-		num: 35,
+		num: -21,
 	},
 };
