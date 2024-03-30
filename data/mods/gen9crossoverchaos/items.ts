@@ -61,7 +61,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	kaguyiumz: {
-		name: "Hecatium Z",
+		name: "Kaguyium Z",
 		desc: "If held by a Kaguya Houraisan with Giga Drain, it can use Tree-Ocean of Hourai.",
 		spritenum: 635,
 		onTakeItem: false,
