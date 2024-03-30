@@ -147,5 +147,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	marle: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	marleparasite: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	yuumatoutetsu: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	inaros: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 
 };

@@ -595,7 +595,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Cute",
 	},
-	// Negative Zone has no valid means of use due to using an invalid move as base, not implementing
+	// Negative Zone has no valid means of use due to using an invalid move as base, not implementing unless this is resolved
+	heavenlysphere: {
+		num: -25,
+		accuracy: true,
+		basePower: 200,
+		category: "Special",
+		shortDesc: "If Marle-Parasite: Electric-type",
+		name: "Tree-Ocean of Hourai",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "marliumz",
+		secondary: null,
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Marle-Parasite') {
+				move.type = 'Electric';
+			} else {
+				move.type = 'Flying';
+			}
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Beautiful",
+	},
+	dessication: {
+		num: -20,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Dessication",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+			return target.addVolatile('leechseed', source, move, 'trapper');
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Grass",
+		contestType: "Cute",
+	},
 	
 
 	// Below are vanilla moves altered by custom interractions
