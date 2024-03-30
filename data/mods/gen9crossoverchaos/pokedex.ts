@@ -365,7 +365,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Cloud Nine", 1: "Pastel Veil", H: "Queenly Majesty"},
 		weightkg: 40,
 	},
-	marle: {
+	marleparasite: {
 		num: 34,
 		name: "Marle-Parasite",
 		baseSpecies: "Marle",
