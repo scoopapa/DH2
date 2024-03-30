@@ -602,7 +602,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 200,
 		category: "Special",
 		shortDesc: "If Marle-Parasite: Electric-type",
-		name: "Tree-Ocean of Hourai",
+		name: "Heavenly Sphere",
 		pp: 1,
 		priority: 0,
 		flags: {},
