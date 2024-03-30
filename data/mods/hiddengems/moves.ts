@@ -153,4 +153,52 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
+	hiddengempoison: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Poison",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(target) {
+			if (target.hasType('Poison')) return false;
+			if (!target.addType('Poison')) return false;
+			this.add('-start', target, 'typeadd', 'Poison', '[from] move: Hidden Gem Poison');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	hiddengemground: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Ground",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(target) {
+			if (target.hasType('Ground')) return false;
+			if (!target.addType('Ground')) return false;
+			this.add('-start', target, 'typeadd', 'Ground', '[from] move: Hidden Gem Ground');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
 };
