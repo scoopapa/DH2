@@ -131,5 +131,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	goldenfreddy: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	queen: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	alicemartagoid: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	reva: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 
 };

@@ -329,8 +329,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 1.7,
 		weightkg: 62,
 	},
-	alicemartagoid: {
+	goldenfreddy: {
 		num: 30,
+		name: "Golden Freddy",
+		types: ["Ghost"],
+		baseStats: {hp: 183, atk: 130, def: 40, spa: 100, spd: 40, spe: 90},
+		abilities: {0: "Strong Jaw", 1: "Cursed Body", H: "Supreme Overlord"},
+		weightkg: 0.1,
+	},
+	alicemartagoid: {
+		num: 32,
 		name: "Alice Martagoid",
 		types: ["Normal"],
 		gender: "F",
@@ -339,7 +347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 62,
 	},
 	reva: {
-		num: 31,
+		num: 33,
 		name: "Reva",
 		types: ["Steel", "Fighting"],
 		gender: "F",
