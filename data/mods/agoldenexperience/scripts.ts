@@ -2033,9 +2033,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'happiny').learnset.hiddenpower;
     delete this.modData('Learnsets', 'chatot').learnset.hiddenpower;
     delete this.modData('Learnsets', 'spiritomb').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'gible').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'gabite').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'garchomp').learnset.hiddenpower;
     delete this.modData('Learnsets', 'munchlax').learnset.hiddenpower;
     delete this.modData('Learnsets', 'riolu').learnset.hiddenpower;
     delete this.modData('Learnsets', 'lucario').learnset.hiddenpower;

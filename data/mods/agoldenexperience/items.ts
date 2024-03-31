@@ -758,4 +758,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
 	},
+	bananapeel: {
+		name: "Banana Peel",
+		onStart(pokemon) {
+			pokemon.useItem();
+		},
+		boosts: {
+			atk: 2,
+		},
+		desc: "Raises holder's Attack by 2 stages if holder is Tropius or Sautropius. Single use.",
+		itemUser: ["Tropius", "Sautropius"],
+		num: -48,
+		gen: 9,
+	},
 }

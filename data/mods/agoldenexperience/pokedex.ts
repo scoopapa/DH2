@@ -40,7 +40,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 101.1,
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
-		requiredItem: "Blastoisinite-X",
+		requiredItem: "Blastoisinite X",
 	},
 	butterfree: {
 		inherit: true,
