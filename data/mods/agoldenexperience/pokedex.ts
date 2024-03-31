@@ -608,7 +608,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Noctowl",
 		forme: "Mega",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 100, atk: 70, def: 70, spa: 106, spd: 116, spe: 90},
+		baseStats: {hp: 100, atk: 50, def: 70, spa: 126, spd: 116, spe: 90},
 		abilities: {0: "Endless Dream"},
 		heightm: 1.8,
 		weightkg: 40.8,
