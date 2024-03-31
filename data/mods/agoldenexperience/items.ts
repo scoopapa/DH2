@@ -761,7 +761,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bananapeel: {
 		name: "Banana Peel",
 		onStart(pokemon) {
-			pokemon.useItem();
+			if (pokemon.baseSpecies.name === 'Tropius' || pokemon.baseSpecies.name === 'Sautropius') {
+				pokemon.useItem();
+			}
 		},
 		boosts: {
 			atk: 2,
