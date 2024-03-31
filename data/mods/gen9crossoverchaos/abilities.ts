@@ -359,7 +359,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	devouringjaw: {
 		onModifyMove(move) {
 			if (move.flags['bite']) { 
-				move.drain: [1, 2],
+				move.drain ||=[1, 2],
 			},
 		},
 		flags: {},
