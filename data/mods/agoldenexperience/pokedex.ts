@@ -434,7 +434,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	taurospaldeacombat: {
 		inherit: true,
-		types: ["Fighting", "Normal"],
 		baseStats: {hp: 75, atk: 120, def: 115, spa: 30, spd: 70, spe: 100},
 	},
 	taurospaldeablaze: {
@@ -1127,7 +1126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Cacturne",
 		forme: "Mega-X",
 		types: ["Grass", "Dark"],
-		baseStats: {hp: 70, atk: 130, def: 85, spa: 130, spd: 85, spe: 75},
+		baseStats: {hp: 70, atk: 155, def: 75, spa: 115, spd: 75, spe: 85},
 		abilities: {0: "Sand Rush"},
 		heightm: 1.3,
 		weightkg: 77.4,
@@ -3289,7 +3288,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	palafinhero: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 140, def: 97, spa: 116, spd: 97, spe: 100},
+		types: ["Water", "Fighting"],
 	},
 	cyclizar: {
 		inherit: true,
