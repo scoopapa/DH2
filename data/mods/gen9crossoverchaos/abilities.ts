@@ -360,7 +360,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			if (move.flags['bite']) { 
 				move.drain ||= [1, 2];
-			},
+			}
 		},
 		flags: {},
 		name: "Devouring Jaw",
