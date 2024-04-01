@@ -2407,6 +2407,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 173,
 		gen: 3,
+		rating: 0,
 	},
 	gripclaw: {
 		name: "Grip Claw",

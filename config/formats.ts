@@ -2092,8 +2092,8 @@ export const Formats: FormatList = [
 	 	mod: 'earthsky',
 	 	ruleset: [ '[Gen 9] Earth & Sky Horizons OU', 'Horizons Pokedex',],
 		banlist: [
-			'Manaphy', 'Meloetta-Pirouette', 'Diancie-Mega', 'Melmetal', 'Enamorus-Base', 'Latias-Mega', 'Latios-Mega', 'Zygarde-Base', 'Hoopa-Unbound', 'Marshadow',
-			'Spectrier', 'Calyrex-Ice', 'Roaring Moon', 'Valiant Droid', 'Terapagos-Terastal'],
+			'Manaphy', 'Meloetta-Pirouette', 'Diancie-Mega', 'Melmetal', 'Enamorus-Base', 'Latias-Mega', 'Latios-Mega', 'Zygarde-Base', 'Hoopa-Unbound',
+			'Spectrier', 'Roaring Moon', 'Valiant Droid', 'Terapagos-Terastal'],
 	 },
 	 {
 	 	name: "[Gen 9] Earth & Sky Horizons Ubers",

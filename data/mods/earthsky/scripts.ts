@@ -9626,6 +9626,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','inteleon').learnset.aquatail = ["9L38", "9M"];
 		this.modData('Learnsets','inteleon').learnset.ambush = ["9L62"];
 		this.modData('Learnsets','inteleon').learnset.chillywater = ["9M"];
+		this.modData('Learnsets','inteleon').learnset.chipaway = ["9M"];
 		this.modData('Learnsets','inteleon').learnset.dragontail = ["9M"];
 		this.modData('Learnsets','inteleon').learnset.faketears = ["9M"];
 		this.modData('Learnsets','inteleon').learnset.hydropump = ["9M"];

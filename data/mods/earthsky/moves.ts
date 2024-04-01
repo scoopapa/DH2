@@ -935,9 +935,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if(!pokemon.volatiles['slipaway']) return 4;
 		},
 		onPrepareHit(pokemon) { //Regular protection check
+			this.attrLastMove('[still]');
 			if(!pokemon.volatiles['slipaway']){
 				if(this.runEvent('StallMove', pokemon)){
-					this.attrLastMove('[still]');
 					this.add('-anim', pokemon, "Defense Curl");
 					return true;
 				}
@@ -5642,7 +5642,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	torchsong: {
 		inherit: true,
 		basePower: 70,
-		pp: 15,
 	},
 	toxic: {
 		inherit: true,
