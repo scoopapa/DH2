@@ -134,7 +134,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 74, atk: 115, def: 140, spa: 72, spd: 82, spe: 65},
 		abilities: {0: "Plated Armor"},
 	},
-	blasgronamega: {
+	blasgronmegaa: {
 		name: "Blasgron-Mega-A",
 		baseSpecies: "Blasgron",
 		forme: "Mega-A",
@@ -143,7 +143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Filter"},
 		requiredItem: "Aggronite",
 	},
-	blasgronbmega: {
+	blasgronmegab: {
 		name: "Blasgron-Mega-B",
 		baseSpecies: "Blasgron",
 		forme: "Mega-B",
@@ -827,9 +827,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 95, spa: 100, spd: 70, spe: 80},
 		abilities: {0: "Lucky Charm"},
 	},
-	absalutonmega: {
-		name: "Absaluton-Mega",
-		baseSpecies: "Absaluton",
+	absaludonmega: {
+		name: "Absaludon-Mega",
+		baseSpecies: "Absaludon",
 		forme: "Mega",
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 85, atk: 140, def: 95, spa: 140, spd: 70, spe: 120},

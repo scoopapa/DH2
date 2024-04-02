@@ -43,7 +43,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	zygarb50: {
+	zygarb: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
@@ -67,11 +67,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	blasgronamega: {
+	blasgronmegaa: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	blasgronbmega: {
+	blasgronmegab: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
@@ -207,7 +207,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	raichudusincarnate: {
+	raichudus: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
@@ -331,11 +331,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	beetarbmega: {
+	beetarmegab: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	beetartmega: {
+	beetarmegat: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
