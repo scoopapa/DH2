@@ -107,7 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	baseballed: {
 		onTryHit(target, source, move) {
-			if ((target.hasType(move.type) || source.hasType(move.type)) && target !== source) {
+			if (target.hasType(move.type)) && target !== source) {
 				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/862940088122867722/1223475560882114580/1080726657708593172.png?ex=6619fd68&is=66078868&hm=a2a4709233c25ae27af6ee5d78748ba79c0e47e2e921a07776b47001808a6d54&" height="400" width="400">`);
 				return null;
 			}
