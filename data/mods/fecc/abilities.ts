@@ -1526,7 +1526,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.add('-start', target, 'typechange', 'Normal', "[silent]");
+					this.add('-start', target, 'typechange', 'Normal');
 					this.add('-message', `${target.name} became a normie!`);
 				}
 			}
@@ -2326,7 +2326,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	atv: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'ATV');
-			this.add('-start', pokemon, 'typechange', 'Grass/Fairy/Electric/Psychic', "[silent]");
+			this.add('-start', pokemon, 'typechange', 'Grass/Fairy/Electric/Psychic');
 		},
 		onSetStatus(status, target, source, effect) {
 			if (!target.isGrounded() || target.isSemiInvulnerable()) return;
