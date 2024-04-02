@@ -31,10 +31,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('alotofbees')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if(!['Bug', 'Ground', 'Rock', 'Steel'].includes(target.types)) {
-				this.add('-message', `${target.name} was stung by bees!`);
-				this.damage(target.baseMaxhp / 16);
+			if(target.hasAbility('honeyrush')) return;
+			for(const type of target.types) {
+				if(['Bug', 'Ground', 'Rock', 'Steel'].includes(type)) return;
 			}
+			this.add('-message', `${target.name} was stung by bees!`);
+			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
 			this.add('-message', "The bees are leaving! Bye-bye, bees!");

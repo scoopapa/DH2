@@ -71,11 +71,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				else {
 					const r = this.random(30);
 					if (r < 11) {
-						pokemon.setStatus('slp', pokemon);
+						pokemon.trySetStatus('slp', pokemon);
 					} else if (r < 21) {
-						pokemon.setStatus('par', pokemon);
+						pokemon.trySetStatus('par', pokemon);
 					} else if (r < 30) {
-						pokemon.setStatus('psn', pokemon);
+						pokemon.trySetStatus('psn', pokemon);
 					}
 				}
 			},
@@ -318,17 +318,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(pokemon, source, effect) {
-				if (!source.hasAbility("pansexual") && !(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) {
+				if (effect.name === 'Pansexual' || source.hasAbility("pansexual")) {
+					this.add('-start', pokemon, 'Attract', '[from] ability: Pansexual', '[of] ' + source);
+				}  else if (!source.hasAbility("pansexual") && !(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) {
 					this.debug('incompatible gender');
 					return false;
-				}
-				if (!this.runEvent('Attract', pokemon, source)) {
+				} else if (!this.runEvent('Attract', pokemon, source)) {
 					this.debug('Attract event failed');
 					return false;
-				}
-
-				if (effect.name === 'Pansexual') {
-					this.add('-start', pokemon, 'Attract', '[from] ability: Pansexual', '[of] ' + source);
 				} else if (effect.name === 'Destiny Knot') {
 					this.add('-start', pokemon, 'Attract', '[from] item: Destiny Knot', '[of] ' + source);
 				} else {
@@ -364,6 +361,34 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Swaloseed-Lol');
 			}
+		},
+	},
+	darkvoid: {
+		inherit: true,
+		onTry(source, target, move) {
+			if (source.species.name === 'Darkerupt' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Dark Void');
+			this.hint("Only a Pokemon whose form is Darkerupt can use this move.");
+			return null;
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(source) {
+			if (source.species.name === 'Hooporant-Unbound') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Hooporant Unbound can use this move.");
+			if (source.species.name === 'Hooporant') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
+			return null;
 		},
 	},
 };

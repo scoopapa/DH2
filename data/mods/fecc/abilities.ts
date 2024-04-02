@@ -29,7 +29,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Aim For The Horn",
-		shortDesc: "This Pokemon's moves and their effects have no effect.",
+		//shortDesc: "This Pokemon's moves and their effects have no effect.",
 	},
 	bongcloud: {
 		onStart(pokemon) {
@@ -49,7 +49,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bongcloud",
-		shortDesc: "This Pokemon gains 20 levels for each fainted ally, up to 5.",
+		//shortDesc: "This Pokemon gains 20 levels for each fainted ally, up to 5.",
 	},
 	jankster: {
 		onStart(pokemon) {
@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Jankster",
-		shortDesc: "On switch-in, this Pokemon lowers opposing Pokemon's priority by 1.",
+		//shortDesc: "On switch-in, this Pokemon lowers opposing Pokemon's priority by 1.",
 	},
 	baseballed: {
 		onTryHit(target, source, move) {
@@ -88,7 +88,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Baseballed!",
-		shortDesc: "This Pokemon is non-grounded, and is immune to its own and the opponent's STABs.",
+		//shortDesc: "This Pokemon is non-grounded, and is immune to its own and the opponent's STABs.",
 	},
 	goondrive: {
 		onModifyAtkPriority: 5,
@@ -156,7 +156,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Goon Drive",
-		shortDesc: "If this Pokemon is statused, its Attack is 1.5x and highest stat is 1.3x, or 1.5x if Speed; ignores burn halving physical damage.",
+		//shortDesc: "If this Pokemon is statused, its Attack is 1.5x and highest stat is 1.3x, or 1.5x if Speed; ignores burn halving physical damage.",
 	},
 	perfectfreeze: {
 		onModifyMovePriority: -2,
@@ -182,7 +182,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Perfect Freeze",
-		shortDesc: "This Pokemon's moves have their secondary effect chance doubled.  If Snow is active, this Pokemon's evasiveness is 1.5x.",
+		//shortDesc: "This Pokemon's moves have their secondary effect chance doubled.  If Snow is active, this Pokemon's evasiveness is 1.5x.",
 	},
 	imtosper: {
 		onSwitchIn(pokemon) {
@@ -202,7 +202,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Imtosper",
-		shortDesc: "On switchin, the opponent transforms into this Pokemon.",
+		//shortDesc: "On switchin, the opponent transforms into this Pokemon.",
 	},
 	trepidsword: {
 		onStart(pokemon) {
@@ -218,7 +218,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Trepid Sword",
-		shortDesc: "On switchin, this Pokemon switches out.",
+		//shortDesc: "On switchin, this Pokemon switches out.",
 	},
 	magicmissile: {
 		/*
@@ -232,7 +232,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		(how does this behave with Instruct? maybe you could test with that if you're doing the doubles format Aquatic mentioned)
 		*/
 		name: "Magic Missile",
-		shortDesc: "If hit by a contact move while holding an item: lose item, apply item Fling effects, attacker loses 1/4 max HP. If hitting a foe with a contact move while not holding an item: steals the foe's item.",
+		//shortDesc: "If hit by a contact move while holding an item: lose item, apply item Fling effects, attacker loses 1/4 max HP. If hitting a foe with a contact move while not holding an item: steals the foe's item.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
@@ -327,12 +327,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Stinky Veil",
-		shortDesc: "This Pokemon's moves have a 30% chance of causing Toxic, Attract, Disable, Encore, Heal Block, Taunt, and Torment.",
+		//shortDesc: "This Pokemon's moves have a 30% chance of causing Toxic, Attract, Disable, Encore, Heal Block, Taunt, and Torment.",
 	},
 	secondphase: {
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && target.species.id == 'zygarb50') {
+			if (damage >= target.hp && target.species.id == 'zygarb') {
 				this.add('-activate', target, 'ability: Second Phase');
 				this.add('-message', `But ${target.name} refused.`);
 				this.effectState.secondPhase = true;
@@ -340,14 +340,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id == 'zygarb50' && this.effectState.secondPhase) {
+			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
 				this.add('-message', `${target.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
 		name: "Second Phase",
-		shortDesc: "Changes to Zygarb-Reclyced at 0 or less HP and fully heals user.",
+		//shortDesc: "Changes to Zygarb-Reclyced at 0 or less HP and fully heals user.",
 	},
 	asonesex: {
 		onPreStart(pokemon) {
@@ -395,7 +395,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "As One (Sex)",
-		shortDesc: "Chilling Neigh effects. This Pokemon's and the opponent's attacks have a 30% chance to Poison/Paralyze/Sleep the target(s). When the user is killed by an attack, the attacker is inflicted with Poison/Paralysis/Sleep.",
+		//shortDesc: "Chilling Neigh effects. This Pokemon's and the opponent's attacks have a 30% chance to Poison/Paralyze/Sleep the target(s). When the user is killed by an attack, the attacker is inflicted with Poison/Paralysis/Sleep.",
 	},
 	corruptcouncil: {
 		onStart(pokemon) {
@@ -420,7 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Corrupt Council",
-		shortDesc: "This Pokemon's moves have 10% more power for each Dark-type ally, up to 5 allies.",
+		//shortDesc: "This Pokemon's moves have 10% more power for each Dark-type ally, up to 5 allies.",
 	},
 	platedarmor: {
 		onDamage(damage, target, source, effect) {
@@ -434,7 +434,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Plated Armor",
-		shortDesc: "This Pokemon heals 1/16 max HP instead of taking recoil damage besides Struggle/Life Orb/crash damage.",
+		//shortDesc: "This Pokemon heals 1/16 max HP instead of taking recoil damage besides Struggle/Life Orb/crash damage.",
 	},
 	vaporgrowth: {
 		onModifyAtkPriority: 5,
@@ -457,7 +457,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Vapor Growth",
-		shortDesc: "This Pokemon's Grass-type moves have x1.3 power and x1.5 power below 1/3 max HP.",
+		//shortDesc: "This Pokemon's Grass-type moves have x1.3 power and x1.5 power below 1/3 max HP.",
 	},
 	airheaded: {
 		onStart(pokemon) {
@@ -474,7 +474,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Airheaded",
-		shortDesc: "While this Pokemon is active, the effects of all stat changes are ignored.",
+		//shortDesc: "While this Pokemon is active, the effects of all stat changes are ignored.",
 	},
 	bigassmagnets: {
 		onFoeTrapPokemon(pokemon) {
@@ -495,7 +495,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Big Ass Magnets",
-		shortDesc: "Traps opposing Pokemon that aren't Electric-type. On switchin, summons Big Ass Magnet Terrain for 5 turns, which prevent non-Electric Pokemon on the field from switching out.",
+		//shortDesc: "Traps opposing Pokemon that aren't Electric-type. On switchin, summons Big Ass Magnet Terrain for 5 turns, which prevent non-Electric Pokemon on the field from switching out.",
 	},
 	loosefuse: {
 		onSourceDamagingHit(damage, target, source, move) {
@@ -510,7 +510,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Loose Fuse",
-		shortDesc: "This Pokemon's attacks without a chance to make the user explode gain a 10% chance to make the user explode.",
+		//shortDesc: "This Pokemon's attacks without a chance to make the user explode gain a 10% chance to make the user explode.",
 	},
 	swaloseedlol: {
 		onTakeItem(item, pokemon, source) {
@@ -538,7 +538,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Swaloseed-Lol",
-		shortDesc: "Sticky Hold effects. When the user eats a Berry, it is used twice and not consumed.",
+		//shortDesc: "Sticky Hold effects. When the user eats a Berry, it is used twice and not consumed.",
 	},
 	randomdanceparty: {
 		onResidual(pokemon) {
@@ -551,23 +551,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "RANDOM DANCE PARTY!",
-		shortDesc: "This Pokemon uses a random dance move at the end of each turn.",
+		//shortDesc: "This Pokemon uses a random dance move at the end of each turn.",
 	},
 	larping: {
 		onStart(pokemon) {
 			const abilities = this.dex.abilities.all();
 			const newAbility = this.sample(abilities);
-			const oldAbility = pokemon.setAbility(newAbility.id, pokemon);
-			if (oldAbility) {
+			if (pokemon.setAbility(newAbility.id)) {
 				this.add('-message', `${pokemon.name} is getting into character!`);
-				this.add('-activate', pokemon, `ability: ${oldAbility.name}`, '[of] ' + pokemon);
 				this.add('-activate', pokemon, `ability: ${newAbility.name}`, '[of] ' + pokemon);
 				this.add('-message', `${pokemon.name}'s ability is now ${newAbility.name}!`);
 			}
 		},
 		flags: {},
 		name: "LARPing",
-		shortDesc: "On switch-in, this Pokemon gains a random ability.",
+		//shortDesc: "On switch-in, this Pokemon gains a random ability.",
 	},
 	dotheroar: {
 		onStart(pokemon) {
@@ -611,7 +609,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Do The Roar",
-		shortDesc: "On switchin, this Pokemon lowers the highest stat of adjacent opponents by 1.",
+		//shortDesc: "On switchin, this Pokemon lowers the highest stat of adjacent opponents by 1.",
 	},
 	coldsleep: {
 		onResidualOrder: 28,
@@ -650,7 +648,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Coldsleep",
-		shortDesc: "Causes sleeping foes to be frozen at the end of each turn. The user cannot be frozen or put to sleep.",
+		//shortDesc: "Causes sleeping foes to be frozen at the end of each turn. The user cannot be frozen or put to sleep.",
 	},
 	toxicspores: {
 		onDamagingHit(damage, target, source, move) {
@@ -663,7 +661,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Toxic Spores",
-		shortDesc: "If this Pokemon is hit by a physical attack, Dire Spores are set on the opposing side.",
+		//shortDesc: "If this Pokemon is hit by a physical attack, Dire Spores are set on the opposing side.",
 	},
 	peressurout: {
 		onStart(pokemon) {
@@ -690,7 +688,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Peressurout",
-		shortDesc: "Pressure + Stakeout",
+		//shortDesc: "Pressure + Stakeout",
 	},
 	goodvibes: {
 		onStart(pokemon) {
@@ -702,7 +700,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Good Vibes",
-		shortDesc: "On switch-in, sets Good Vibes for 5 turns. This Pokemon has 1.5x Atk in Bad Vibes.",
+		//shortDesc: "On switch-in, sets Good Vibes for 5 turns. This Pokemon has 1.5x Atk in Bad Vibes.",
 	},
 	badvibes: {
 		onStart(pokemon) {
@@ -714,7 +712,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bad Vibes",
-		shortDesc: "On switch-in, sets Bad Vibes for 5 turns. This Pokemon has 1.5x SpA in Good Vibes.",
+		//shortDesc: "On switch-in, sets Bad Vibes for 5 turns. This Pokemon has 1.5x SpA in Good Vibes.",
 	},
 	riptides: {
 		onStart(pokemon) {
@@ -882,18 +880,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Riptides",
-		shortDesc: "If 50% or 10%: At full HP, its form is School-50% or School-10%. If its HP falls below 1/2 but above 1/4, becomes School-Complete. If HP falls below 1/4, becomes Solo-Complete. If the form is School-Complete, turns into Complete-Solo at below 1/4 max HP. If the form is Solo-Complete, turns into Complete-School at above 1/4 max HP",
+		//shortDesc: "If 50% or 10%: At full HP, its form is School-50% or School-10%. If its HP falls below 1/2 but above 1/4, becomes School-Complete. If HP falls below 1/4, becomes Solo-Complete. If the form is School-Complete, turns into Complete-Solo at below 1/4 max HP. If the form is Solo-Complete, turns into Complete-School at above 1/4 max HP",
 	},
 	pillage: {
 		name: "Pillage",
-		shortDesc: "On switch-in, swaps ability with the opponent.",
+		//shortDesc: "On switch-in, swaps ability with the opponent.",
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
 			if (pokemon.foes().some(
 				foeActive => foeActive && foeActive.isAdjacent(pokemon) && foeActive.ability === 'noability'
-			) || pokemon.species.id !== 'zoinkazenta') {
+			) || pokemon.species.id !== 'hatterune') {
 				this.effectState.gaveUp = true;
 			}
 		},
@@ -930,7 +928,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Gorillomorphosis",
-		shortDesc: "When this Pokemon is damaged by an attack, its next physical move has 1.5x power.",
+		//shortDesc: "When this Pokemon is damaged by an attack, its next physical move has 1.5x power.",
 	},
 	eatpaint: {
 		onAfterMoveSecondary(target, source, move) {
@@ -956,7 +954,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Eat Paint",
-		shortDesc: "When this Pokemon is hit by a move, it uses that move at the end of the next turn.",
+		//shortDesc: "When this Pokemon is hit by a move, it uses that move at the end of the next turn.",
 	},
 	muckedup: {
 		onDamagingHit(damage, target, source, move) {
@@ -967,7 +965,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Mucked Up",
-		shortDesc: "When this Pokemon is hit with a contact move, its Speed is raised by 1.",
+		//shortDesc: "When this Pokemon is hit with a contact move, its Speed is raised by 1.",
 	},
 	weatherwar: {
 		onResidualOrder: 29,
@@ -980,7 +978,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Weather War",
-		shortDesc: "Changes form and the type of Aura Wheel at the end of every turn.",
+		//shortDesc: "Changes form and the type of Aura Wheel at the end of every turn.",
 	},
 	asoneou: {
 		onStart(pokemon) {
@@ -1067,7 +1065,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "As One (OU)",
-		shortDesc: "Intimidate + Protosynthesis",
+		//shortDesc: "Intimidate + Protosynthesis",
 	},
 	horrendousskin: {
 		onPreStart(pokemon) {
@@ -1087,7 +1085,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Horrendous Skin",
-		shortDesc: "While this Pokemon is active, foes cannot use status moves.",
+		//shortDesc: "While this Pokemon is active, foes cannot use status moves.",
 	},
 	reprise: {
 		onAfterMove(target, source, move) {
@@ -1112,7 +1110,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Reprise",
-		shortDesc: "When this Pokemon uses a move, it uses that move again at the end of the next turn.",
+		//shortDesc: "When this Pokemon uses a move, it uses that move again at the end of the next turn.",
 	},
 	poweroffriendship: {
 		onBeforeSwitchIn(pokemon) {
@@ -1140,7 +1138,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Power of Friendship",
-		shortDesc: "This Pokemon's moves are disguised as the last Pokemon in its party.",
+		//shortDesc: "This Pokemon's moves are disguised as the last Pokemon in its party.",
 	},
 	hugescaling: {
 		onStart(pokemon) {
@@ -1155,7 +1153,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Huge Scaling",
-		shortDesc: "This Pokemon's HP is doubled.",
+		//shortDesc: "This Pokemon's HP is doubled.",
 	},
 	fishificationbeam: {
 		onAnyAfterSetStatus(status, target, source, effect) {
@@ -1178,7 +1176,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Fishification Beam",
-		shortDesc: "If this Pokemon poisons a target, the target also becomes Dondozo.",
+		//shortDesc: "If this Pokemon poisons a target, the target also becomes Dondozo.",
 	},
 	blownaway: {
 		onStart(pokemon) {
@@ -1211,7 +1209,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Blown Away",
-		shortDesc: "This Pokemon's Attack is raised by 1 and it switches out when hit by a Wind move; immune to Wind moves.",
+		//shortDesc: "This Pokemon's Attack is raised by 1 and it switches out when hit by a Wind move; immune to Wind moves.",
 	},
 	specialsauce: {
 		onModifyMovePriority: -1,
@@ -1449,7 +1447,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Special Sauce",
-		shortDesc: "Sheer Force effects. This Pokemon's attacks gain a 10% chance to inflict each secondary effect that Sheer Force can remove.",
+		//shortDesc: "Sheer Force effects. This Pokemon's attacks gain a 10% chance to inflict each secondary effect that Sheer Force can remove.",
 	},
 	selfish: {
 		onModifyMove(move) {
@@ -1468,7 +1466,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Selfish",
-		shortDesc: "This Pokemon redirects all status moves toward itself; its own have their priority increased by 1.",
+		//shortDesc: "This Pokemon redirects all status moves toward itself; its own have their priority increased by 1.",
 	},
 	musicaljungal: {
 		onModifyTypePriority: -1,
@@ -1481,7 +1479,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Musical Jungal",
-		shortDesc: "This Pokemon's sound moves become Grass type and summon Grassy Terrain.",
+		//shortDesc: "This Pokemon's sound moves become Grass type and summon Grassy Terrain.",
 	},
 	shockandballtorture: {
 		onModifyTypePriority: -1,
@@ -1515,7 +1513,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Shock and Ball Torture",
-		shortDesc: "Galvanize + contact with this Pokemon inflicts both this Pokemon and the attacker with Curse of Shocking.",
+		//shortDesc: "Galvanize + contact with this Pokemon inflicts both this Pokemon and the attacker with Curse of Shocking.",
 	},
 	becomeaverage: {
 		onStart(pokemon) {
@@ -1528,17 +1526,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.add('-start', target, 'typechange', 'Normal', "[silent]");
+					if(!target.setType('Normal')) return;
+					this.add('-start', target, 'typechange', 'Normal', '[from] ability: Become Average');
 					this.add('-message', `${target.name} became a normie!`);
 				}
 			}
 		},
 		flags: {},
 		name: "Become Average",
-		shortDesc: "On switch-in, this Pokemon turns adjacent opponents into Normal-types.",
+		//shortDesc: "On switch-in, this Pokemon turns adjacent opponents into Normal-types.",
 	},
 	quickstart: {
-		shortDesc: "On switch-in, this Pokemon's Attack and Speed are doubled for 5 turns.",
+		//shortDesc: "On switch-in, this Pokemon's Attack and Speed are doubled for 5 turns.",
 		onStart(pokemon) {
 			pokemon.addVolatile('quickstart');
 		},
@@ -1579,7 +1578,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Beewitch",
-		shortDesc: "If this Pokemon hits a Pokemon that is holding a removable item, that item is replaced with Honey.",
+		//shortDesc: "If this Pokemon hits a Pokemon that is holding a removable item, that item is replaced with Honey.",
 	},
 	royalpass: {
 		onDamagingHit(damage, target, source, move) {
@@ -1612,7 +1611,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Royal Pass",
-		shortDesc: "If a Pokemon makes contact with this Pokemon, their move is replaced with King's Shield until they switch out.",
+		//shortDesc: "If a Pokemon makes contact with this Pokemon, their move is replaced with King's Shield until they switch out.",
 	},
 	metamorphic: {
 		onStart(pokemon) {
@@ -1645,7 +1644,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Metamorphic",
-		shortDesc: "Mind's Eye + when this Pokemon uses a Fighting or Normal move, it changes forms.",
+		//shortDesc: "Mind's Eye + when this Pokemon uses a Fighting or Normal move, it changes forms.",
 	},
 	dauntingshield: {
 		onStart(pokemon) {
@@ -1669,7 +1668,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Daunting Shield",
-		shortDesc: "On switchin, this Pokemon halves the PP of adjacent foes. Once per battle.",
+		//shortDesc: "On switchin, this Pokemon halves the PP of adjacent foes. Once per battle.",
 	},
 	codebreaker: {
 		onStart(pokemon) {
@@ -1683,7 +1682,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Code Breaker",
-		shortDesc: "This Pokemon's moves and their effects ignore the Types of other Pokemon.",
+		//shortDesc: "This Pokemon's moves and their effects ignore the Types of other Pokemon.",
 	},
 	prismatic: {
 		onResidual(pokemon) {
@@ -1699,7 +1698,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Prismatic",
-		shortDesc: "This Pokemon changes to a random typing at the end of each turn.",
+		//shortDesc: "This Pokemon changes to a random typing at the end of each turn.",
 	},
 	teratooth: {
 		onPreStart(pokemon) {
@@ -1719,7 +1718,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Tera Tooth",
-		shortDesc: "Tera Shift + this Pokemon's form change is doubled.",
+		//shortDesc: "Tera Shift + this Pokemon's form change is doubled.",
 	},
 	terashell: {
 		inherit: true,
@@ -1759,7 +1758,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Humongous Power",
-		shortDesc: "This Pokemon's Attack is 3x and accuracy of its physical attacks is 0.6x.",
+		//shortDesc: "This Pokemon's Attack is 3x and accuracy of its physical attacks is 0.6x.",
 	},
 	badhax: {
 		onModifyMovePriority: -2,
@@ -1781,7 +1780,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bad Hax",
-		shortDesc: "Every move used by or against this Pokemon will always activate its secondary.",
+		//shortDesc: "Every move used by or against this Pokemon will always activate its secondary.",
 	},
 	noigofirst: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -1789,7 +1788,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "NO I GO FIRST!!",
-		shortDesc: "This Pokemon's moves that can crit have +1 priority.",
+		//shortDesc: "This Pokemon's moves that can crit have +1 priority.",
 	},
 	gorillaofruin: {
 		onStart(pokemon) {
@@ -1830,7 +1829,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Gorilla of Ruin",
-		shortDesc: "Vessel of Ruin + Pokemon without this ability can only select 0.75x moves.",
+		//shortDesc: "Vessel of Ruin + Pokemon without this ability can only select 0.75x moves.",
 	},
 	swallowswallow: {
 		onTryHit(target, source, move) {
@@ -1842,7 +1841,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Swallow Swallow",
-		shortDesc: "This Pokemon is immune to Flying-type moves.",
+		//shortDesc: "This Pokemon is immune to Flying-type moves.",
 	},
 	wetchain: {
 		onSourceDamagingHit(damage, target, source, move) {
@@ -1854,7 +1853,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Wet Chain",
-		shortDesc: "This Pokemon's moves have a 30% chance of giving it Moisturizer.",
+		//shortDesc: "This Pokemon's moves have a 30% chance of giving it Moisturizer.",
 	},
 	imleabinthisgronp: {
 		onFoeSwitchOut(pokemon) {
@@ -1869,13 +1868,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "im leabin this gronp",
-		shortDesc: "Whenever the opponent switches out, this Pokemon also switches out.",
+		//shortDesc: "Whenever the opponent switches out, this Pokemon also switches out.",
 	},
 	trjumpscare: {
 		//handled in battle-actions
 		flags: {},
 		name: "trjumpscare",
-		shortDesc: "This Pokemon's Speed is reversed.",
+		//shortDesc: "This Pokemon's Speed is reversed.",
 	},
 	defensiveice: {
 		onStart(source) {
@@ -1891,7 +1890,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Defensive Ice",
-		shortDesc: "Snow Warning + Ice Body",
+		//shortDesc: "Snow Warning + Ice Body",
 	},
 	ultrayoink: {
 		onStart(pokemon) {
@@ -1937,7 +1936,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Ultra Yoink",
-		shortDesc: "On switchin, this Pokemon copies the opponent's highest non-HP stat.",
+		//shortDesc: "On switchin, this Pokemon copies the opponent's highest non-HP stat.",
 	},
 	ultraalchemist: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -1977,7 +1976,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Ultra Alchemist",
-		shortDesc: "This Pokemon copies the highest non-HP stat of a Pokemon that it attacks and KOs.",
+		//shortDesc: "This Pokemon copies the highest non-HP stat of a Pokemon that it attacks and KOs.",
 	},
 	ac: {
 		onStart(pokemon) {
@@ -2012,7 +2011,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "AC",
-		shortDesc: "Wind Rider + this Pokémon's Wind moves become Ice-Type, do 1.2x damage and raise the user's attack by 1 stage.",
+		//shortDesc: "Wind Rider + this Pokémon's Wind moves become Ice-Type, do 1.2x damage and raise the user's attack by 1 stage.",
 	},
 	windstorm: {
 		onStart(pokemon) {
@@ -2021,7 +2020,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Wind Storm",
-		shortDesc: "On switchin, this Pokemon summons Tailwind.",
+		//shortDesc: "On switchin, this Pokemon summons Tailwind.",
 	},
 	asonegears: {
 		onPreStart(pokemon) {
@@ -2035,7 +2034,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "As One (Gears)",
-		shortDesc: "While this Pokemon is active, opponents are prevented from fainting.",
+		//shortDesc: "While this Pokemon is active, opponents are prevented from fainting.",
 	},
 	'windows11': {
 		onStart(pokemon) {
@@ -2053,7 +2052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Windows 11",
-		shortDesc: "On switchin, this Pokemon summons Reflect or Light Screen depending on the higher defense of the opponent.",
+		//shortDesc: "On switchin, this Pokemon summons Reflect or Light Screen depending on the higher defense of the opponent.",
 	},
 	theplague: {
 		onStart(source) {
@@ -2061,7 +2060,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "The Plague",
-		shortDesc: "On switchin, this Pokemon summons A Lot Of Bees.",
+		//shortDesc: "On switchin, this Pokemon summons A Lot Of Bees.",
 	},
 	gotyourguts: {
 		onFoeTrapPokemon(pokemon) {
@@ -2084,23 +2083,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Got Your Guts!",
-		shortDesc: "Shadow Tag + Innards Out",
+		//shortDesc: "Shadow Tag + Innards Out",
 	},
 	countertype: {
-		onEffectiveness(typeMod) {
-			return typeMod * -1;
-		},
-		flags: {},
-		name: "Countertype",
-		shortDesc: "This Pokemon's attacking effectiveness is reversed.",
-	},
-	rolidsock: {
 		onFoeEffectiveness(typeMod) {
 			return typeMod * -1;
 		},
 		flags: {},
+		name: "Countertype",
+		//shortDesc: "This Pokemon's attacking effectiveness is reversed.",
+	},
+	rolidsock: {
+		onEffectiveness(typeMod) {
+			return typeMod * -1;
+		},
+		flags: {},
 		name: "Rolid Sock",
-		shortDesc: "This Pokemon's defending effectiveness is reversed.",
+		//shortDesc: "This Pokemon's defending effectiveness is reversed.",
 	},
 	graceofruin: {
 		onStart(pokemon) {
@@ -2118,7 +2117,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Grace of Ruin",
-		shortDesc: "Pokemon without this ability have 0.75x luck.",
+		//shortDesc: "Pokemon without this ability have 0.75x luck.",
 	},
 	ironthorn: {
 		onDamagingHitOrder: 1,
@@ -2161,7 +2160,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Iron Thorn",
-		shortDesc: "Iron Barbs + Electric Terrain active or Booster Energy used: gain Iron Thorn.",
+		//shortDesc: "Iron Barbs + Electric Terrain active or Booster Energy used: gain Iron Thorn.",
 	},
 	pansexual: {
 		onDamagingHit(damage, target, source, move) {
@@ -2174,7 +2173,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//pansexuality implemented in moves.ts
 		flags: {},
 		name: "Pansexual",
-		shortDesc: "Cute Charm + this Pokemon can attract opponents regardless of gender.",
+		//shortDesc: "Cute Charm + this Pokemon can attract opponents regardless of gender.",
 	},
 	seriousshowdown: {
 		onAnyModifyBoost(boosts, pokemon) {
@@ -2271,7 +2270,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Serious Showdown",
-		shortDesc: "This Pokemon ignores abilities, stat changes, and paradox boosts.",
+		//shortDesc: "This Pokemon ignores abilities, stat changes, and paradox boosts.",
 	},
 	bidenblast: {
 		onStart(pokemon) {
@@ -2293,7 +2292,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Biden Blast",
-		shortDesc: "On switch-in, this Pokemon disables adjacent opponents' last move.",
+		//shortDesc: "On switch-in, this Pokemon disables adjacent opponents' last move.",
 	},
 	herbgather: {
 		onResidualOrder: 28,
@@ -2310,7 +2309,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Herb Gather",
-		shortDesc: "If last item used is a White Herb, 50% chance to restore it at the end of each turn. 100% in Sun.",
+		//shortDesc: "If last item used is a White Herb, 50% chance to restore it at the end of each turn. 100% in Sun.",
 	},
 	'tier1boomer': {
 		onStart(pokemon) {
@@ -2323,12 +2322,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Tier 1 Boomer",
-		shortDesc: "On switch-in, this Pokemon explodes.",
+		//shortDesc: "On switch-in, this Pokemon explodes.",
 	},
 	atv: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'ATV');
-			this.add('-start', pokemon, 'typechange', 'Grass/Fairy/Electric/Psychic', "[silent]");
+			let newBaseTypes = ['Grass', 'Electric', 'Fairy', 'Psychic'];
+			if(!pokemon.setType(newBaseTypes)) return;
+			this.add('-start', pokemon, 'typechange', 'Grass/Electric/Fairy/Psychic', '[from] ability: ATV');
 		},
 		onSetStatus(status, target, source, effect) {
 			if (!target.isGrounded() || target.isSemiInvulnerable()) return;
@@ -2376,7 +2377,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "ATV",
-		shortDesc: "Mimicry + This Pokemon is considered to be under all terrains.",
+		//shortDesc: "Mimicry + This Pokemon is considered to be under all terrains.",
 	},
 	healaura: {
 		onStart(pokemon) {
@@ -2390,7 +2391,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Heal Aura",
-		shortDesc: "While this Pokemon is active, all healing has 1.33x power.",
+		//shortDesc: "While this Pokemon is active, all healing has 1.33x power.",
 	},
 	dualperformance: {
 		onSwitchOut(pokemon) {
@@ -2413,27 +2414,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Dual Performance",
-		shortDesc: "Serene Grace + This Pokemon changes formes on switch.",
+		//shortDesc: "Serene Grace + This Pokemon changes formes on switch.",
 	},
 	ultragun: {
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category !== "Status" && this.randomChance(3, 10)) {
 				this.add('-activate', pokemon, 'ability: Ultra Gun');
-				this.add('-message', `${pokemon.name} ultra hams ${target.name} with its Ultra Gun!`);
+				this.add('-message', `${pokemon} ultra hams ${target} with its Ultra Gun!`);
 				return 0.1;
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (this.randomChance(3, 10)) {
 				this.debug('Prism Armor neutralize');
-				this.add('-message', `${pokemon.name} Ultra Parried ${move.name}!`);
+				this.add('-message', `${source.name} Ultra Parried ${move.name}!`);
 				return this.chainModify(0.75);
 			}
 		},
 		flags: {},
 		name: "Ultra Gun",
-		shortDesc: "Quick Draw + This Pokémon has a 30% chance to take 0.75x damage from attacks.",
+		//shortDesc: "Quick Draw + This Pokémon has a 30% chance to take 0.75x damage from attacks.",
 	},
 	zoomies: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -2444,7 +2445,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Zoomies",
-		shortDesc: "This Pokemon's contact moves have a 30% chance to gain +1 priority.",
+		//shortDesc: "This Pokemon's contact moves have a 30% chance to gain +1 priority.",
 	},
 	sweatypalms: {
 		onBasePower(basePower, pokemon, target, move) {
@@ -2480,7 +2481,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Sweaty Palms",
-		shortDesc: "Takes half damage from Fire moves. Cannot be burned or poisoned. This Pokémon's contact moves have a 30% chance of doing double damage.",
+		//shortDesc: "Takes half damage from Fire moves. Cannot be burned or poisoned. This Pokémon's contact moves have a 30% chance of doing double damage.",
 	},
 	boilingblood: {
 		onDamage(damage, target, source, effect) {
@@ -2516,7 +2517,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Boiling Blood",
-		shortDesc: "At 1/2 or less of this Pokemon's max HP: +6 Atk, Sp. Atk, Spe, and -6 Def, Sp. Def.",
+		//shortDesc: "At 1/2 or less of this Pokemon's max HP: +6 Atk, Sp. Atk, Spe, and -6 Def, Sp. Def.",
 	},
 	superangrysyrup: {
 		onStart(pokemon) {
@@ -2527,7 +2528,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Superangry Syrup",
-		shortDesc: "Once per battle, increases Atk 12 stages on entry.",
+		//shortDesc: "Once per battle, increases Atk 12 stages on entry.",
 	},
 	footballofruin: {
 		onStart(pokemon) {
@@ -2560,7 +2561,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Football of Ruin",
-		shortDesc: "Active Pokemon without this Ability have the effectiveness of their Type multiplied by 0.75.",
+		//shortDesc: "Active Pokemon without this Ability have the effectiveness of their Type multiplied by 0.75.",
 	},
 	luckycharm: {
 		onModifyCritRatio(critRatio, source) {
@@ -2571,7 +2572,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Lucky Charm",
-		shortDesc: "This Pokemon's critical hit ratio is raised by 1 stage after it is damaged by a move.",
+		//shortDesc: "This Pokemon's critical hit ratio is raised by 1 stage after it is damaged by a move.",
 	},
 	goldenboy: {
 		onDamagePriority: 1,
@@ -2617,7 +2618,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			breakable: 1, notransform: 1,
 		},
 		name: "Golden Boy",
-		shortDesc: "This Pokemon is immune to attacks and status moves but takes 1/8th max HP damage when targeted by either.",
+		//shortDesc: "This Pokemon is immune to attacks and status moves but takes 1/8th max HP damage when targeted by either.",
 	},
 	supersaiyan: {
 		onTryAddVolatile(status, pokemon) {
@@ -2636,7 +2637,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Super Saiyan",
-		shortDesc: "Inner Focus + Moves used by and against this Pokemon activate Intimidate.",
+		//shortDesc: "Inner Focus + Moves used by and against this Pokemon activate Intimidate.",
 	},
 	ancientpyramid: {
 		onStart(pokemon) {
@@ -2663,7 +2664,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Ancient Pyramid', '[fromitem]');
 				} else {
-					this.add('-activate', pokemon, 'ability: Ancient Pyramid');
+					this.add('-activate', pokemon, 'ability: Ancient Pyramid', '[silent]');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'ancientpyramid' + this.effectState.bestStat);
@@ -2715,7 +2716,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Ancient Pyramid",
-		shortDesc: "Sunny Day active or Booster Energy used: highest stat is 0.75x, or 0.67x if Speed. This Pokemon takes x1.3 damage from super-effective moves.",
+		//shortDesc: "Sunny Day active or Booster Energy used: highest stat is 0.75x, or 0.67x if Speed. This Pokemon takes x1.3 damage from super-effective moves.",
 	},
 	sweaty: {
 		onTryHit(target, source, move) {
@@ -2730,13 +2731,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceDamagingHit(damage, target, source, move) {
 			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.add('-message', `${pokemon.name} is Mr Healthy`);
-				this.heal(target.baseMaxhp / 4)
+				this.add('-message', `${source.name} is Mr Healthy`);
+				this.heal(source.baseMaxhp / 4)
 			}
 		},
 		flags: {breakable: 1},
 		name: "Sweaty",
-		shortDesc: "Water Absorb + Using moves with 60 or lower BP heals the user by 1/4 max HP.",
+		//shortDesc: "Water Absorb + Using moves with 60 or lower BP heals the user by 1/4 max HP.",
 	},
 	ultrathief: {
 		onModifyMove(move, pokemon, target) {
@@ -2744,7 +2745,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Ultra Thief",
-		shortDesc: "This Pokemon steals stat boosts when it hits a Pokémon with an attack.",
+		//shortDesc: "This Pokemon steals stat boosts when it hits a Pokémon with an attack.",
 	},
 	debristhatarenottoxic: {
 		onDamagingHit(damage, target, source, move) {
@@ -2757,7 +2758,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Debris That Are Not Toxic",
-		shortDesc: "If this Pokemon is hit by a physical attack, Spikes are set on the opposing side.",
+		//shortDesc: "If this Pokemon is hit by a physical attack, Spikes are set on the opposing side.",
 	},
 	understudy: {
 		onStart(pokemon) {
@@ -2766,7 +2767,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         },
 		flags: {},
 		name: "Understudy",
-		shortDesc: "On switchin, this Pokemon summons Substitute.",
+		//shortDesc: "On switchin, this Pokemon summons Substitute.",
 	},
 	unimpressivenessofruin: {
 		onStart(pokemon) {
@@ -2793,7 +2794,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Unimpressiveness of Ruin",
-		shortDesc: "Pokemon without this ability have 0.75x STAB power. Its own STAB has 2x power instead of 1.5x.",
+		//shortDesc: "Pokemon without this ability have 0.75x STAB power. Its own STAB has 2x power instead of 1.5x.",
 	},
 	honeyrush: {
 		onModifySpe(spe, pokemon) {
@@ -2806,7 +2807,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Honey Rush",
-		shortDesc: "This Pokémon's Speed is doubled under A Lot Of Bees; bee immunity.",
+		//shortDesc: "This Pokémon's Speed is doubled under A Lot Of Bees; bee immunity.",
 	},
 	fatfree: {
 		onSourceModifyAtkPriority: 6,
@@ -2823,7 +2824,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Fat Free",
-		shortDesc: "Fire/Ice/Normal/Fighting/Ghost moves against this Pokemon have a halved attacking stat.",
+		//shortDesc: "Fire/Ice/Normal/Fighting/Ghost moves against this Pokemon have a halved attacking stat.",
 	},
 	vaporsync: {
 		onDamage(damage, target, source, effect) {
@@ -2835,7 +2836,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Vapor Sync",
-		shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
+		//shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
 	},
 	saltthewound: {
 		onSetStatus(status, target, source, effect) {
@@ -2866,6 +2867,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Salt The Wound",
-		shortDesc: "Trapped opponents deal damage to this Pokemon with a halved attacking stat; can't be statused.",
+		//shortDesc: "Trapped opponents deal damage to this Pokemon with a halved attacking stat; can't be statused.",
 	},
 };

@@ -384,7 +384,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Collision Course", "Outrage", "Dragon Claw", "Play Rough", "Encore", "U-Turn"],
+                "movepool": ["Collision Course", "Close Combat", "Wild Charge", "Play Rough", "Encore", "U-Turn"],
                 "teraTypes": ["Fighting", "Dragon", "Fairy"]
             }
         ]
@@ -514,13 +514,8 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Wish", "Play Rough", "Knock Off", "Protect", "Roost", "Thunder Wave", "Perish Song", "Whirlpool", "Encore"],
-                "teraTypes": ["Steel", "Ground"]
-            },
-			{
-                "role": "Setup Sweeper",
-                "movepool": ["Belly Drum", "Extreme Speed", "Knock Off", "Play Rough", "Aqua Jet"],
-                "teraTypes": ["Water", "Dark"]
+                "movepool": ["Wish", "Heal Bell", "Play Rough", "Knock Off", "Protect", "Roost", "Thunder Wave", "Perish Song", "Whirlpool", "Encore"],
+                "teraTypes": ["Steel", "Electric"]
             }
         ]
     },
@@ -539,7 +534,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["First Impression", "Poltergeist", "Spikes", "Rapid Spin", "Strength Sap", "Leech Life", "Knock Off", "Swords Dance"],
+                "movepool": ["First Impression", "Poltergeist", "Spikes", "Rapid Spin", "Strength Sap", "Leech Life", "Swords Dance"],
                 "teraTypes": ["Ghost", "Fairy"]
             }
         ]
