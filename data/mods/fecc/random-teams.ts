@@ -1271,13 +1271,13 @@ export class RandomTeams {
 		//mon hardcodes
 		if (species.id === 'hooporantunbound') return 'Light Ball';
 		if (species.id === 'zacianoh') return 'Rusted Sword';
-		if (species.id === 'parasex') return 'Heavy-Duty Boots';
+		//if (species.id === 'parasex') return 'Heavy-Duty Boots';
 		if (species.id === 'swalos') return 'Starf Berry';
-		if (species.id === 'darkerupt') return 'Rocky Helmet';
+		//if (species.id === 'darkerupt') return 'Rocky Helmet';
 		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		if (species.id === 'coomerjah') return 'Leftovers';
-		if (species.id === 'domphox') return 'Choice Scarf';
-		if (species.id === 'miniluna') return 'shellbell';
+		//if (species.id === 'coomerjah') return 'Leftovers';
+		//if (species.id === 'domphox') return 'Choice Scarf';
+		//if (species.id === 'miniluna') return 'shellbell';
 		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
 		if (species.id === 'basbal' || species.id === 'naclinch') return 'Eviolite';
 		if (species.id === 'exeggumoramora') return 'White Herb';
