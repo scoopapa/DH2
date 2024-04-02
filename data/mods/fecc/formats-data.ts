@@ -43,7 +43,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	zygarb50: {
+	zygarb: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
