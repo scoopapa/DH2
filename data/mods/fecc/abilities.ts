@@ -39,8 +39,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
 				if(pokemon.leveled) return;
-				pokemon.set.level += 20 * fallen;
-				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.set.level}!`);
+				pokemon.level += 20 * fallen;
+				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.level}!`);
 				pokemon.leveled = true;
 			}
 		},
@@ -341,8 +341,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
-				this.add('-message', `${target.name} recycled itself to save the environment!`);
+				this.add('-message', `${pokemon.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
+				pokemon.addVolatile('dynamax');
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
@@ -545,7 +546,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const dances = ["aquastep", "clangoroussoul", "dragondance", "featherdance", "fierydance", "lunardance", "petaldance", "quiverdance", "revelationdance", "swordsdance", "teeterdance", "victorydance"];
 			let target = pokemon;
 			const dance = this.dex.getActiveMove(this.sample(dances));
-			if (dance.target != "self") target = this.sample(pokemon.adjacentFoes());
+			if (dance.target != "self") {
+				if(pokemon.adjacentFoes().length == 0) return;
+				target = this.sample(pokemon.adjacentFoes());
+			}
 			this.add('-message', "!!!RANDOM DANCE PARTY!!!");
 			this.actions.useMove(dance, pokemon, target);
 		},
@@ -667,6 +671,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Peressurout');
 			this.add('-message', `Run.`);
+			pokemon.addVolatile('dynamax');
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
@@ -946,6 +951,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(pokemon) {
 				if (pokemon.hp) {
 					const newMove = this.effectState.move;
+					if(pokemon.adjacentFoes().length == 0) return;
 					const target = this.sample(pokemon.adjacentFoes());
 					this.add('-activate', pokemon, 'ability: Eat Paint');
 					this.actions.useMove(newMove, pokemon, target);
@@ -1068,9 +1074,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//shortDesc: "Intimidate + Protosynthesis",
 	},
 	horrendousskin: {
-		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'Horrendous Skin');
-		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Horrendous Skin');
 		},
@@ -1078,8 +1081,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category == "Status") {
 				const pokemon = this.sample(target.adjacentFoes());
 				this.attrLastMove('[still]');
-				this.add('cant', pokemon, 'ability: Horrendous Skin', move, '[of] ' + source);
 				this.add('-message', `${pokemon.name} is abhorrent! ${target.name} wants to damage it ASAP so it dies and goes away!`);
+				this.add('cant', pokemon, 'ability: Horrendous Skin', move, '[of] ' + source, '[silent]');
 				return false;
 			}
 		},
@@ -1101,6 +1104,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(pokemon) {
 				if (pokemon.hp) {
 					const newMove = this.effectState.move;
+					if(pokemon.adjacentFoes().length == 0) return;
 					const target = this.sample(pokemon.adjacentFoes());
 					this.add('-activate', pokemon, 'ability: Reprise');
 					this.add('-message', `${pokemon.name} does it again!`);
@@ -2007,6 +2011,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.type = 'Ice';
 				move.typeChangerBoosted = this.effect;
 			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['wind']) this.boost({atk: 1}, source, source);
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {

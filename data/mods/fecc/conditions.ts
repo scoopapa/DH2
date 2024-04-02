@@ -43,4 +43,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none', '[silent]');
 		},
 	},
+	dynamax: {
+		inherit: true,
+		duration: null,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Dynamax', '[silent]');
+		},
+		onTryAddVolatile: null,
+		onBeforeSwitchOutPriority: null,
+		onBeforeSwitchOut: null,
+		onSourceModifyDamage: null,
+		onDragOutPriority: null,
+		onDragOut: null,
+		onResidualPriority: null,
+		onResidual: null,
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Dynamax', '[silent]');
+		}
+	},
 };

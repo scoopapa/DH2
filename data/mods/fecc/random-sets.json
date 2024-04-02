@@ -189,7 +189,7 @@
             }
         ]
     },
-	"cremimunki": {
+	"cremiemunki": {
         "level": 100,
         "sets": [
             {
@@ -670,12 +670,12 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Judgment", "Recover", "Calm Mind", "Protect", "Substitute"],
-                "teraTypes": ["Normal"]
+                "teraTypes": ["Stellar"]
             },
 			{
                 "role": "Fast Support",
                 "movepool": ["Judgment", "Recover", "Stealth Rock", "Protect", "Will-o-Wisp", "Thunder Wave"],
-                "teraTypes": ["Normal"]
+                "teraTypes": ["Stellar"]
             }
         ]
     },
@@ -786,6 +786,16 @@
                 "role": "Fast Attacker",
                 "movepool": ["Fleur Cannon", "Astral Barrage", "Aura Sphere", "Nasty Plot"],
                 "teraTypes": ["Fighting", "Ghost", "Fairy"]
+            }
+        ]
+    },
+	"auroriftry": {
+        "level": 100,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Hurricane", "Heat Wave", "Earthquake", "Sucker Punch", "Leaf Blade"],
+                "teraTypes": ["Ice", "Fire", "Ground", "Dark"]
             }
         ]
     },

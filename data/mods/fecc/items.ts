@@ -35,6 +35,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
+			console.log(pokemon.baseSpecies);
 			if (['basbal', 'naclinch', 'glimmgar'].includes(pokemon.baseSpecies.id)) {
 				return this.chainModify(1.5);
 			}
