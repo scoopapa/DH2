@@ -2158,12 +2158,6 @@ export const Formats: FormatList = [
 		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 	},
 	{
-		name: "[Gen 9] Fusion Evolution Corrupt Council 2",
-		mod: 'fecc',
-		desc: `fecc`,
-		ruleset: ['Data Mod', 'Standard Natdex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
-	},
-	{
 		name: "[Gen 9] Fusion Evolution Dondozo",
 		mod: 'dondozo',
 		desc: `dondozo`,
