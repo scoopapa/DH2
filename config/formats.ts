@@ -2421,7 +2421,7 @@ export const Formats: FormatList = [
 			return problems;
 		},
 	},
-	{
+	/*{
 		name: "[Gen 8] Roulettemons The Solomod",
 		desc: `<b>Roulettemons The Solomod</b>: literally roulettemons but a solomod + clean slate micro`,
 		mod: 'roulettemonsthesolomod',
@@ -2433,7 +2433,7 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
-	},
+	},*/
 	{
 		name: "[Gen 3] Sample Team Randbats",
 		team: 'random',
@@ -2480,8 +2480,8 @@ export const Formats: FormatList = [
             let f = false;
             let ff = false;
             for (const set of team) {
-                if(set.species === 'Flutter Mane') f = true;
-                if(set.species === 'Flutter Mane 2') ff = true;
+                if (set.species === 'Flutter Mane') f = true;
+                else if (set.species === 'Flutter Mane 2') ff = true;
                 if(f && ff) return ['Did you think you could bring two Flutter Manes to a game? Are you stupid?'];
                 let template = this.dex.species.get(set.species);
                 if (template.tier !== 'SM') {
