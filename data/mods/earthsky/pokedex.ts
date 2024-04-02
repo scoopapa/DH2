@@ -2352,6 +2352,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	mawile: {
 		inherit: true,
 		abilities: {0: "Hyper Cutter", 1: "Disturbance", H: "Strong Jaw"},
+		eggGroups: ["Monster", "Fairy"],
 		isNonstandard: null,
 	},
 	plusle: {
@@ -2871,6 +2872,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gothitelle: {
 		inherit: true,
 		abilities: {0: "Frisk", 1: "Forewarn", H: "Shadow Tag"},
+	},
+	duosion: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 40, def: 55, spa: 125, spd: 65, spe: 30},
 	},
 	vanillite: {
 		inherit: true,
@@ -3644,6 +3649,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	kleavor: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 130, def: 100, spa: 55, spd: 60, spe: 85},
+		evoType: "trade",
+		evoItem: "Black Augurite",
 	},
 	ursaluna: {
 		num: 901,
@@ -3773,6 +3780,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tadbulb: {
 		inherit: true,
 		abilities: {0: "Illuminate", 1: "Static", H: "Damp"},
+	},
+	shroodle: {
+		inherit: true,
+		abilities: {0: "Unburden", 1: "Poison Touch", H: "Prankster"},
 	},
 	toedscool: {
 		inherit: true,
@@ -4429,6 +4440,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	zygarde: {
 		inherit: true,
 		abilities: {0: "Climate Break", H: "Power Construct"},
+		exclusiveMoves: ["Bind", "Slam", "Glare", "Coil", "Thousand Waves", "Thousand Arrows", "Avalanche"],
 		isNonstandard: null,
 	},
 	zygarde10: {
@@ -4616,6 +4628,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Orange",
 		isNonstandard: null,
 	},
+	sandile: {
+		inherit: true,
+		eggGroups: ["Field", "Monster"],
+	},
+	krokorok: {
+		inherit: true,
+		eggGroups: ["Field", "Monster"],
+	},
+	krookodile: {
+		inherit: true,
+		eggGroups: ["Field", "Monster"],
+	},
 	scrafty: {
 		inherit: true,
 		color: "Orange",
@@ -4714,6 +4738,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	flamigo: {
 		inherit: true,
 		abilities: {0: "Scrappy", 1: "Tangled Feet", H: "Co-Star"},
+	},
+	cyclizar: {
+		inherit: true,
+		eggGroups: ["Field", "Dragon"],
 	},
 	orthworm: {
 		inherit: true,
