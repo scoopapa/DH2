@@ -67,7 +67,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spores', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspores');
-				} else if (pokemon.hasType('Steel') || pokemon.hasType('Electric') || pokemon.hasItem('heavydutyboots')) return;
+				} else if (pokemon.hasType('Steel') || pokemon.hasType('Electric') || pokemon.isGrounded || pokemon.hasItem('heavydutyboots')) return;
 				else {
 					const r = this.random(30);
 					if (r < 11) {
@@ -315,6 +315,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	attract: {
 		inherit: true,
+		onTryImmunity(target, source) {
+			return (source.hasAbility("pansexual")) || (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M');
+		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(pokemon, source, effect) {
@@ -389,6 +392,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-fail', source, 'move: Hyperspace Fury');
 			return null;
+		},
+	},
+	judgment: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			let type = pokemon.getTypes()[0];
+			if (type === "Bird") type = "???";
+			if (type === "Stellar") type = pokemon.getTypes(false, true)[0];
+			move.type = type;
 		},
 	},
 };

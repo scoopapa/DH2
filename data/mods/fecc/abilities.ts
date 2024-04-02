@@ -39,10 +39,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
 				if(pokemon.leveled) return;
+				pokemon.level += 20 * fallen;
 				pokemon.set.level += 20 * fallen;
-				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.set.level}!`);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details, '[silent]');
+				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.level}!`);
 				pokemon.leveled = true;
 			}
+		},
+		onModifyAtk(atk, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['atk'] + pokemon.set.ivs['atk'] + Math.trunc(pokemon.set.evs['atk'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifyDef(def, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['def'] + pokemon.set.ivs['def'] + Math.trunc(pokemon.set.evs['def'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifySpA(spa, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spa'] + pokemon.set.ivs['spa'] + Math.trunc(pokemon.set.evs['spa'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifySpD(spd, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spd'] + pokemon.set.ivs['spd'] + Math.trunc(pokemon.set.evs['spd'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifySpe(spe, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spe'] + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
@@ -341,8 +367,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
-				this.add('-message', `${target.name} recycled itself to save the environment!`);
+				this.add('-message', `${pokemon.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
+				pokemon.addVolatile('dynamax');
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
@@ -545,7 +572,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const dances = ["aquastep", "clangoroussoul", "dragondance", "featherdance", "fierydance", "lunardance", "petaldance", "quiverdance", "revelationdance", "swordsdance", "teeterdance", "victorydance"];
 			let target = pokemon;
 			const dance = this.dex.getActiveMove(this.sample(dances));
-			if (dance.target != "self") target = this.sample(pokemon.adjacentFoes());
+			if (dance.target != "self") {
+				if(pokemon.adjacentFoes().length == 0) return;
+				target = this.sample(pokemon.adjacentFoes());
+			}
 			this.add('-message', "!!!RANDOM DANCE PARTY!!!");
 			this.actions.useMove(dance, pokemon, target);
 		},
@@ -625,26 +655,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.status === 'frz' || pokemon.status === 'slp') {
+			if (pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Coldsleep');
 				pokemon.cureStatus();
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'slp') return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Coldsleep');
-			}
-			return false;
-		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn') {
-				this.add('-immune', target, '[from] ability: Coldsleep');
-				return null;
-			}
-		},
 		onImmunity(type, pokemon) {
-			if (type === 'frz' || type === 'slp') return false;
+			if (type === 'frz') return false;
 		},
 		flags: {},
 		name: "Coldsleep",
@@ -667,6 +684,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Peressurout');
 			this.add('-message', `Run.`);
+			pokemon.addVolatile('dynamax');
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
@@ -946,6 +964,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(pokemon) {
 				if (pokemon.hp) {
 					const newMove = this.effectState.move;
+					if(pokemon.adjacentFoes().length == 0) return;
 					const target = this.sample(pokemon.adjacentFoes());
 					this.add('-activate', pokemon, 'ability: Eat Paint');
 					this.actions.useMove(newMove, pokemon, target);
@@ -1068,9 +1087,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//shortDesc: "Intimidate + Protosynthesis",
 	},
 	horrendousskin: {
-		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'Horrendous Skin');
-		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Horrendous Skin');
 		},
@@ -1078,8 +1094,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category == "Status") {
 				const pokemon = this.sample(target.adjacentFoes());
 				this.attrLastMove('[still]');
-				this.add('cant', pokemon, 'ability: Horrendous Skin', move, '[of] ' + source);
 				this.add('-message', `${pokemon.name} is abhorrent! ${target.name} wants to damage it ASAP so it dies and goes away!`);
+				this.add('cant', pokemon, 'ability: Horrendous Skin', move, '[of] ' + source, '[silent]');
 				return false;
 			}
 		},
@@ -1101,6 +1117,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(pokemon) {
 				if (pokemon.hp) {
 					const newMove = this.effectState.move;
+					if(pokemon.adjacentFoes().length == 0) return;
 					const target = this.sample(pokemon.adjacentFoes());
 					this.add('-activate', pokemon, 'ability: Reprise');
 					this.add('-message', `${pokemon.name} does it again!`);
@@ -1184,7 +1201,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, pokemon, pokemon);
 				pokemon.switchFlag = true;
 				this.add('-activate', pokemon, 'ability: Blown Away');
-				this.add('-message', `${target.name} was blown away!`);
+				this.add('-message', `${pokemon.name} was blown away!`);
 			}
 		},
 		onTryHit(target, source, move) {
@@ -1676,6 +1693,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
 				return 0;
 			};
@@ -1694,7 +1713,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newType1 = this.sample(possibleTypes);
 			const newType2 = this.sample(possibleTypes.filter(type => type != newType1));
 			this.add('-message', `${pokemon.name} is having an identity crisis and is now ${newType1}/${newType2}!`);
-			this.add('-start', pokemon, 'typechange', newType1 + '/' + newType2, '[silent]');
+			const newTypes = [newType1, newType2];
+			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes, '[silent]');
 		},
 		flags: {},
 		name: "Prismatic",
@@ -1953,24 +1973,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 				if (statName === 'atk') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Attack!`);
-					pokemon.storedStats.atk = target.storedStats.atk;
+					this.add('-message', `${source.name} looted ${target.name}'s Attack!`);
+					source.storedStats.atk = target.storedStats.atk;
 				}
 				if (statName === 'def') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Defense!`);
-					pokemon.storedStats.def = target.storedStats.def;
+					this.add('-message', `${source.name} looted ${target.name}'s Defense!`);
+					source.storedStats.def = target.storedStats.def;
 				}
 				if (statName === 'spa') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Special Attack!`);
-					pokemon.storedStats.spa = target.baseSpecies.baseStats.spa;
+					this.add('-message', `${source.name} looted ${target.name}'s Special Attack!`);
+					source.storedStats.spa = target.baseSpecies.baseStats.spa;
 				}
 				if (statName === 'spd') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Special Defense!`);
-					pokemon.storedStats.spd = target.storedStats.spd;
+					this.add('-message', `${source.name} looted ${target.name}'s Special Defense!`);
+					source.storedStats.spd = target.storedStats.spd;
 				}
 				if (statName === 'spe') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Speed!`);
-					pokemon.storedStats.spe = target.storedStats.spe;
+					this.add('-message', `${source.name} looted ${target.name}'s Speed!`);
+					source.storedStats.spe = target.storedStats.spe;
 				}
 			}
 		},
@@ -2004,6 +2024,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.type = 'Ice';
 				move.typeChangerBoosted = this.effect;
 			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['wind']) this.boost({atk: 1}, source, source);
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {

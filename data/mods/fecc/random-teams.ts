@@ -724,7 +724,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1756,11 +1756,11 @@ export class RandomTeams {
 				species = this.dex.species.get('scolislash');
 				teamDetails.scolislash ++;
 			}
-			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 2)) {
+			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 4)) {
 				species = this.dex.species.get('avalluxe');
 				teamDetails.chiruno ++;
 			}
-			else if(teamDetails.avalluxe && teamDetails.avalluxe == 1 && this.randomChance(1, 2)) {
+			else if(teamDetails.avalluxe && teamDetails.avalluxe == 1 && this.randomChance(1, 4)) {
 				species = this.dex.species.get('chiruno');
 				teamDetails.avalluxe ++;
 			}

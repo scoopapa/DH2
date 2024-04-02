@@ -718,6 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Enamorazzle",
 		fusion: ["Enamorus", "Salazzle"],
 		types: ["Fairy", "Fire"],
+		gender: "F",
 		baseStats: {hp: 71, atk: 89, def: 65, spa: 123, spd: 70, spe: 112},
 		abilities: {0: "Pansexual"},
 	},
