@@ -71,11 +71,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				else {
 					const r = this.random(30);
 					if (r < 11) {
-						pokemon.setStatus('slp', pokemon);
+						pokemon.trySetStatus('slp', pokemon);
 					} else if (r < 21) {
-						pokemon.setStatus('par', pokemon);
+						pokemon.trySetStatus('par', pokemon);
 					} else if (r < 30) {
-						pokemon.setStatus('psn', pokemon);
+						pokemon.trySetStatus('psn', pokemon);
 					}
 				}
 			},
