@@ -1676,6 +1676,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
+			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
 				return 0;
 			};
@@ -1694,7 +1695,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newType1 = this.sample(possibleTypes);
 			const newType2 = this.sample(possibleTypes.filter(type => type != newType1));
 			this.add('-message', `${pokemon.name} is having an identity crisis and is now ${newType1}/${newType2}!`);
-			this.add('-start', pokemon, 'typechange', newType1 + '/' + newType2, '[silent]');
+			this.add('-start', pokemon, 'typechange', [newType1, newType2], '[silent]');
 		},
 		flags: {},
 		name: "Prismatic",
@@ -1953,24 +1954,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 				if (statName === 'atk') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Attack!`);
-					pokemon.storedStats.atk = target.storedStats.atk;
+					this.add('-message', `${source.name} looted ${target.name}'s Attack!`);
+					source.storedStats.atk = target.storedStats.atk;
 				}
 				if (statName === 'def') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Defense!`);
-					pokemon.storedStats.def = target.storedStats.def;
+					this.add('-message', `${source.name} looted ${target.name}'s Defense!`);
+					source.storedStats.def = target.storedStats.def;
 				}
 				if (statName === 'spa') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Special Attack!`);
-					pokemon.storedStats.spa = target.baseSpecies.baseStats.spa;
+					this.add('-message', `${source.name} looted ${target.name}'s Special Attack!`);
+					source.storedStats.spa = target.baseSpecies.baseStats.spa;
 				}
 				if (statName === 'spd') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Special Defense!`);
-					pokemon.storedStats.spd = target.storedStats.spd;
+					this.add('-message', `${source.name} looted ${target.name}'s Special Defense!`);
+					source.storedStats.spd = target.storedStats.spd;
 				}
 				if (statName === 'spe') {
-					this.add('-message', `${pokemon.name} looted ${target.name}'s Speed!`);
-					pokemon.storedStats.spe = target.storedStats.spe;
+					this.add('-message', `${source.name} looted ${target.name}'s Speed!`);
+					source.storedStats.spe = target.storedStats.spe;
 				}
 			}
 		},

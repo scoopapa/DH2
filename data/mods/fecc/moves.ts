@@ -67,7 +67,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spores', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspores');
-				} else if (pokemon.hasType('Steel') || pokemon.hasType('Electric') || pokemon.hasItem('heavydutyboots')) return;
+				} else if (pokemon.hasType('Steel') || pokemon.hasType('Electric') || pokemon.isGrounded || pokemon.hasItem('heavydutyboots')) return;
 				else {
 					const r = this.random(30);
 					if (r < 11) {
