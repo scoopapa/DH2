@@ -504,7 +504,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Moonblast", "Play Rough", "Shadow Ball", "U-Turn", "Snadow Sneak", "Poltergeist", "Flamethrower", "Sludge Bomb", "Throat Chop"],
+                "movepool": ["Moonblast", "Play Rough", "Shadow Ball", "U-Turn", "Poltergeist", "Flamethrower", "Sludge Bomb", "Throat Chop"],
                 "teraTypes": ["Fairy", "Ghost", "Fire", "Poison"]
             }
         ]
