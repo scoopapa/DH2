@@ -40,9 +40,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.effectState.fallen = fallen;
 				if(pokemon.leveled) return;
 				pokemon.level += 20 * fallen;
+				pokemon.set.level += 20 * fallen;
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details, '[silent]');
 				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.level}!`);
 				pokemon.leveled = true;
 			}
+		},
+		onModifyAtk(atk, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['atk'] + pokemon.set.ivs['atk'] + Math.trunc(pokemon.set.evs['atk'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifyDef(def, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['def'] + pokemon.set.ivs['def'] + Math.trunc(pokemon.set.evs['def'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifySpA(spa, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spa'] + pokemon.set.ivs['spa'] + Math.trunc(pokemon.set.evs['spa'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifySpD(spd, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spd'] + pokemon.set.ivs['spd'] + Math.trunc(pokemon.set.evs['spd'] / 4)) * pokemon.set.level / 100 + 5);
+		},
+		onModifySpe(spe, pokemon) {
+			return Math.trunc(Math.trunc(2 * pokemon.baseSpecies.baseStats['spe'] + pokemon.set.ivs['spe'] + Math.trunc(pokemon.set.evs['spe'] / 4)) * pokemon.set.level / 100 + 5);
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
