@@ -891,7 +891,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.foes().some(
 				foeActive => foeActive && foeActive.isAdjacent(pokemon) && foeActive.ability === 'noability'
-			) || pokemon.species.id !== 'zoinkazenta') {
+			) || pokemon.species.id !== 'hatterune') {
 				this.effectState.gaveUp = true;
 			}
 		},

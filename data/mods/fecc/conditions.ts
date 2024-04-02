@@ -31,6 +31,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('alotofbees')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
+			if(target.hasAbility('honeyrush')) return;
 			for(const type of target.types) {
 				if(['Bug', 'Ground', 'Rock', 'Steel'].includes(type)) return;
 			}
