@@ -332,7 +332,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	secondphase: {
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp && target.species.id == 'zygarb50') {
+			if (damage >= target.hp && target.species.id == 'zygarb') {
 				this.add('-activate', target, 'ability: Second Phase');
 				this.add('-message', `But ${target.name} refused.`);
 				this.effectState.secondPhase = true;
@@ -340,7 +340,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id == 'zygarb50' && this.effectState.secondPhase) {
+			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
 				this.add('-message', `${target.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
 				this.heal(pokemon.baseMaxhp, pokemon);
