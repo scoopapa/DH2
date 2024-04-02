@@ -2728,7 +2728,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceDamagingHit(damage, target, source, move) {
 			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.add('-message', `${pokemon.name} is Mr Healthy`);
+				this.add('-message', `${target.name} is Mr Healthy`);
 				this.heal(target.baseMaxhp / 4)
 			}
 		},
