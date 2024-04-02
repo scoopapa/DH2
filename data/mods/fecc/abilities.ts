@@ -2728,8 +2728,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceDamagingHit(damage, target, source, move) {
 			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.add('-message', `${target.name} is Mr Healthy`);
-				this.heal(target.baseMaxhp / 4)
+				this.add('-message', `${source.name} is Mr Healthy`);
+				this.heal(source.baseMaxhp / 4)
 			}
 		},
 		flags: {breakable: 1},
