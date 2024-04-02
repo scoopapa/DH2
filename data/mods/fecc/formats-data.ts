@@ -175,7 +175,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	greatland: {
+	landorustusk: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
