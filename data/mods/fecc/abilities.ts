@@ -1526,7 +1526,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.add('-start', target, 'typechange', 'Normal');
+					if(!target.setType('Normal')) return;
+					this.add('-start', target, 'typechange', 'Normal', '[from] ability: Become Average');
 					this.add('-message', `${target.name} became a normie!`);
 				}
 			}
@@ -2326,7 +2327,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	atv: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'ATV');
-			this.add('-start', pokemon, 'typechange', 'Grass/Fairy/Electric/Psychic');
+			let newBaseTypes = ['Grass', 'Electric', 'Fairy', 'Psychic'];
+			if(!pokemon.setType(newBaseTypes)) return;
+			this.add('-start', pokemon, 'typechange', 'Grass/Electric/Fairy/Psychic', '[from] ability: ATV');
 		},
 		onSetStatus(status, target, source, effect) {
 			if (!target.isGrounded() || target.isSemiInvulnerable()) return;
@@ -2418,7 +2421,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category !== "Status" && this.randomChance(3, 10)) {
 				this.add('-activate', pokemon, 'ability: Ultra Gun');
-				this.add('-message', `${pokemon.name} ultra hams ${target.name} with its Ultra Gun!`);
+				this.add('-message', `${pokemon} ultra hams ${target} with its Ultra Gun!`);
 				return 0.1;
 			}
 		},
