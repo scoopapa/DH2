@@ -2661,7 +2661,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Ancient Pyramid', '[fromitem]');
 				} else {
-					this.add('-activate', pokemon, 'ability: Ancient Pyramid');
+					this.add('-activate', pokemon, 'ability: Ancient Pyramid', '[silent]');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'ancientpyramid' + this.effectState.bestStat);
