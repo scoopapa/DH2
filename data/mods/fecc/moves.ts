@@ -366,4 +366,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+	darkvoid: {
+		inherit: true,
+		onTry(source, target, move) {
+			if (source.species.name === 'Darkerupt' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Dark Void');
+			this.hint("Only a Pokemon whose form is Darkerupt can use this move.");
+			return null;
+		},
+	},
 };
