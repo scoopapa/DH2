@@ -539,7 +539,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["First Impression", "Poltergeist", "Spikes", "Rapid Spin", "Strength Sap", "Leech Life", "Knock Off", "Swords Dance"],
+                "movepool": ["First Impression", "Poltergeist", "Spikes", "Rapid Spin", "Strength Sap", "Leech Life", "Swords Dance"],
                 "teraTypes": ["Ghost", "Fairy"]
             }
         ]

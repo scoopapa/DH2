@@ -2188,7 +2188,7 @@ export const Formats: FormatList = [
 		unbanlist: ['Athleetah'],
 	},
 	{
-		name: "[Gen 9] Fusion Evolution Council\'s Choice",
+		name: "[Gen 9] Fusion Evolution Corrupt Council",
 		mod: 'fecc',
 		team: 'random',
 		desc: `fecc`,

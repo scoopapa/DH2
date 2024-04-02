@@ -557,10 +557,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			const abilities = this.dex.abilities.all();
 			const newAbility = this.sample(abilities);
-			const oldAbility = pokemon.setAbility(newAbility.id, pokemon);
-			if (oldAbility) {
+			if (pokemon.setAbility(newAbility.id)) {
 				this.add('-message', `${pokemon.name} is getting into character!`);
-				this.add('-activate', pokemon, `ability: ${oldAbility.name}`, '[of] ' + pokemon);
 				this.add('-activate', pokemon, `ability: ${newAbility.name}`, '[of] ' + pokemon);
 				this.add('-message', `${pokemon.name}'s ability is now ${newAbility.name}!`);
 			}
