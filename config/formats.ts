@@ -2188,6 +2188,13 @@ export const Formats: FormatList = [
 		unbanlist: ['Athleetah'],
 	},
 	{
+		name: "[Gen 9] Fusion Evolution Council\'s Choice",
+		mod: 'fecc',
+		team: 'random',
+		desc: `fecc`,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+	},
+	{
 		name: "[Gen 9] Fusion Evolution Dondozo",
 		mod: 'dondozo',
 		desc: `dondozo`,
