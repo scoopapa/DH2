@@ -2255,6 +2255,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//Speed suppression in the other Paradox abilities
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Serious Showdown');
+			this.add('-message', `${pokemon.name} is locking in...`);
 			this.effectState.unnerved = true;
 		},
 		onStart(pokemon) {
