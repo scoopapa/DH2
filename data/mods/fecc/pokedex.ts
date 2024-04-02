@@ -827,9 +827,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 95, spa: 100, spd: 70, spe: 80},
 		abilities: {0: "Lucky Charm"},
 	},
-	absalutonmega: {
-		name: "Absaluton-Mega",
-		baseSpecies: "Absaluton",
+	absaludonmega: {
+		name: "Absaludon-Mega",
+		baseSpecies: "Absaludon",
 		forme: "Mega",
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 85, atk: 140, def: 95, spa: 140, spd: 70, spe: 120},
