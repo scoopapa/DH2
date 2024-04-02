@@ -315,9 +315,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	attract: {
 		inherit: true,
+		onTryImmunity(target, source) {
+			return (!source.hasAbility("pansexual")) && (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M');
+		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(pokemon, source, effect) {
+				console.log(source + " " + effect);
 				if (effect.name === 'Pansexual' || source.hasAbility("pansexual")) {
 					this.add('-start', pokemon, 'Attract', '[from] ability: Pansexual', '[of] ' + source);
 				}  else if (!source.hasAbility("pansexual") && !(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) {

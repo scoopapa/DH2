@@ -1184,7 +1184,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, pokemon, pokemon);
 				pokemon.switchFlag = true;
 				this.add('-activate', pokemon, 'ability: Blown Away');
-				this.add('-message', `${target.name} was blown away!`);
+				this.add('-message', `${pokemon.name} was blown away!`);
 			}
 		},
 		onTryHit(target, source, move) {
@@ -1676,6 +1676,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
 				return 0;
@@ -1695,7 +1696,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newType1 = this.sample(possibleTypes);
 			const newType2 = this.sample(possibleTypes.filter(type => type != newType1));
 			this.add('-message', `${pokemon.name} is having an identity crisis and is now ${newType1}/${newType2}!`);
-			this.add('-start', pokemon, 'typechange', [newType1, newType2], '[silent]');
+			const newTypes = [newType1, newType2];
+			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes, '[silent]');
 		},
 		flags: {},
 		name: "Prismatic",
