@@ -207,7 +207,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
-	raichudusincarnate: {
+	raichudus: {
 		tier: "FECC",
 		doublesTier: "DOU",
 	},
