@@ -1265,7 +1265,6 @@ export class RandomTeams {
 				if (moves.has('shellsmash')) mega += 'a';
 				else mega += 'b';
 			}
-			console.log(mega);
 			return this.dex.species.get(mega).requiredItems[0];
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';

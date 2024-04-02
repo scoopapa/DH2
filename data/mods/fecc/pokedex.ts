@@ -384,12 +384,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 64, atk: 102, def: 64, spa: 70, spd: 64, spe: 83},
 		abilities: {0: "Weather War"},
 	},
-	Landorus-Tusk: {
+	landorustusk: {
 		name: "Landorus-Tusk",
 		fusion: ['Great Tusk', 'Landorus'],
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 103, atk: 139, def: 111, spa: 91, spd: 67, spe: 89},
-		abilities: {0: "As One OU"},
+		abilities: {0: "As One (OU)"},
 	},
 	bruxyrex: {
 		name: "Bruxyrex",

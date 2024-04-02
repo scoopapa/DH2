@@ -196,9 +196,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// but side.foe already takes care of those)
 			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			if (target) {
-				console.log(target);
 				target.transformInto(pokemon, this.dex.abilities.get('imtosper'));
-			} else console.log("epic target fail");
+			}
 			this.effectState.switchingIn = false;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
@@ -1639,7 +1638,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMove(target, source, move) {
 			if (target.species.baseSpecies !== 'Miniluna' || target.transformed) return;
 			if (move.category === 'Status' || !['Normal', 'Fighting'].includes(move.type)) return;
-			console.log(target.species);
 			const targetForme = target.species.name === 'Miniluna' ? 'Miniluna-Bloodstone' : 'Miniluna';
 			target.formeChange(targetForme);
 		},
