@@ -1721,8 +1721,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'Uber'
 	},
 	necrozmaultra: {
-		tier: 'OU',
-		natDexTier: 'OU'
+		tier: 'Uber',
+		natDexTier: 'Uber'
 	},
 	marshadow: {
 		tier: 'Uber',

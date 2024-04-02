@@ -11076,6 +11076,13 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		},
 	},
 	ironcrown: null,
+	// Other
+	necrozmaultra: {
+		learnset: {
+			lunarray: ["9R"],
+			solarimpact: ["9R"],
+		},
+	},
 	vivillonfancy: null,
 	vivillonpokeball: null,
 	rockruffdusk: null,
