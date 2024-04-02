@@ -719,6 +719,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	riptides: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Zyggizaggi' || pokemon.level < 20 || pokemon.transformed || !pokemon.hp) return;
+			this.add('-message', "Math is my middle name(it isn't really)");
+			this.add(`raw|<img src="https://media.discordapp.net/attachments/823046216471937075/1224519946453778513/unknown.png?ex=661dca11&is=660b5511&hm=a1052fd135e6832c0106f5c5f1f31badffdd5f798a4cfccc5575f0cfe8d53b18&=&format=webp&quality=lossless&width=859&height=1332" height="1332" width="859">`);
 			
 			let changeHP = false;
 			let previousFormeHP = pokemon.species.baseStats.hp;
@@ -2301,7 +2303,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pokemon.hp && !pokemon.item && pokemon.lastItem == 'whiteherb') {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
-					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Herb Gather');
+					this.add('-message', `${pokemon.name} grew the good stuff!`);
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Herb Gather', '[silent]');
 				}
 			}
 		},
@@ -2434,7 +2437,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	zoomies: {
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move.flags['contact'] && this.randomChance(3, 10)) return priority + 1;
+			if (move.flags['contact'] && this.randomChance(3, 10)) {
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|Cumon step it up!!!!!`);
+				return priority + 1;
+			}
 		},
 		flags: {},
 		name: "Zoomies",
@@ -2625,6 +2631,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyTryPrimaryHit(target, source, move) {
 			this.add('-ability', source, 'Intimidate', 'boost');
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|You look strong. Let's fight!`);
 			this.boost({atk: -1}, target, source, null, true);
 		},
 		flags: {breakable: 1},
