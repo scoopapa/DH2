@@ -1232,230 +1232,220 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category !== "Status") {
-				if (!move.secondaries) {
-					move.secondaries = [];
-					move.secondaries.push(
-					//tox
-					{
-						chance: 10,
-						status: 'tox',
-					}, 
-					//boost all stats
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								atk: 1,
-								def: 1,
-								spa: 1,
-								spd: 1,
-								spe: 1,
-							},
-						},
-					},
-					//boost atk
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								atk: 1,
-							},
-						},
-					},
-					//boost def
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								def: 1,
-							},
-						},
-					},
-					//boost def x2
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								def: 2,
-							},
-						},
-					},
-					//boost spa
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								spa: 1,
-							},
-						},
-					},
-					//boost spe
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								spe: 1,
-							},
-						},
-					},
-					//burn
-					{
-						chance: 10,
-						status: 'brn',
-					},
-					//confusion
-					{
-						chance: 10,
-						volatileStatus: 'confusion',
-					},
-					//cure burn
-					{
-						chance: 10,
-						volatileStatus: 'sparklingaria',
-					},
-					//flinch
-					{
-						chance: 10,
-						volatileStatus: 'flinch',
-					},
-					//freeze
-					{
-						chance: 10,
-						status: 'frz',
-					},
-					//lower acc
-					{
-						chance: 10,
+				if (!move.secondaries) move.secondaries = [];
+				move.secondaries.push(
+				//tox
+				{
+					chance: 10,
+					status: 'tox',
+				}, 
+				//boost all stats
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							accuracy: -1,
+							atk: 1,
+							def: 1,
+							spa: 1,
+							spd: 1,
+							spe: 1,
 						},
 					},
-					//lower atk
-					{
-						chance: 10,
+				},
+				//boost atk
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							atk: -1,
+							atk: 1,
 						},
 					},
-					//lower def
-					{
-						chance: 10,
+				},
+				//boost def
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							def: -1,
+							def: 1,
 						},
 					},
-					//lower spa
-					{
-						chance: 10,
+				},
+				//boost def x2
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							spa: -1,
+							def: 2,
 						},
 					},
-					//lower spd
-					{
-						chance: 10,
+				},
+				//boost spa
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							spd: -1,
+							spa: 1,
 						},
 					},
-					//lower spd x2
-					{
-						chance: 10,
+				},
+				//boost spe
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							spd: -2,
+							spe: 1,
 						},
 					},
-					//lower spe
-					{
-						chance: 10,
-						boosts: {
-							spe: -1,
-						},
+				},
+				//burn
+				{
+					chance: 10,
+					status: 'brn',
+				},
+				//confusion
+				{
+					chance: 10,
+					volatileStatus: 'confusion',
+				},
+				//cure burn
+				{
+					chance: 10,
+					volatileStatus: 'sparklingaria',
+				},
+				//flinch
+				{
+					chance: 10,
+					volatileStatus: 'flinch',
+				},
+				//freeze
+				{
+					chance: 10,
+					status: 'frz',
+				},
+				//lower acc
+				{
+					chance: 10,
+					boosts: {
+						accuracy: -1,
 					},
-					//paralysis
-					{
-						chance: 10,
-						status: 'par',
+				},
+				//lower atk
+				{
+					chance: 10,
+					boosts: {
+						atk: -1,
 					},
-					//psn
-					{
-						chance: 10,
-						status: 'psn',
+				},
+				//lower def
+				{
+					chance: 10,
+					boosts: {
+						def: -1,
 					},
-					//psychicnoise
-					{
-						chance: 10,
-						volatileStatus: 'healblock',
+				},
+				//lower spa
+				{
+					chance: 10,
+					boosts: {
+						spa: -1,
 					},
-					//set rocks
-					{
-						chance: 10,
-						onAfterHit(target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('stealthrock');
-								}
+				},
+				//lower spd
+				{
+					chance: 10,
+					boosts: {
+						spd: -1,
+					},
+				},
+				//lower spd x2
+				{
+					chance: 10,
+					boosts: {
+						spd: -2,
+					},
+				},
+				//lower spe
+				{
+					chance: 10,
+					boosts: {
+						spe: -1,
+					},
+				},
+				//paralysis
+				{
+					chance: 10,
+					status: 'par',
+				},
+				//psn
+				{
+					chance: 10,
+					status: 'psn',
+				},
+				//psychicnoise
+				{
+					chance: 10,
+					volatileStatus: 'healblock',
+				},
+				//set rocks
+				{
+					chance: 10,
+					onAfterHit(target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('stealthrock');
 							}
-						},
-						onAfterSubDamage(damage, target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('stealthrock');
-								}
+						}
+					},
+					onAfterSubDamage(damage, target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('stealthrock');
 							}
-						},
+						}
 					},
-					//set spikes
-					{
-						chance: 10,
-						onAfterHit(target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('spikes');
-								}
+				},
+				//set spikes
+				{
+					chance: 10,
+					onAfterHit(target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('spikes');
 							}
-						},
-						onAfterSubDamage(damage, target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('spikes');
-								}
+						}
+					},
+					onAfterSubDamage(damage, target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('spikes');
 							}
-						},
+						}
 					},
-					//slp
-					{
-						chance: 10,
-						status: 'slp',
+				},
+				//slp
+				{
+					chance: 10,
+					status: 'slp',
+				},
+				//syrup
+				{
+					chance: 10,
+					volatileStatus: 'syrupbomb',
+				},
+				//throatchop
+				{
+					chance: 10,
+					onHit(target) {
+						target.addVolatile('throatchop');
 					},
-					//syrup
-					{
-						chance: 10,
-						volatileStatus: 'syrupbomb',
+				},
+				//trapped
+				{
+					chance: 10,
+					onHit(target, source, move) {
+						if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 					},
-					//throatchop
-					{
-						chance: 10,
-						onHit(target) {
-							target.addVolatile('throatchop');
-						},
-					},
-					//trapped
-					{
-						chance: 10,
-						onHit(target, source, move) {
-							if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-						},
-					});
-				}
-				else {
-					delete move.secondaries;
-					// Technically not a secondary effect, but it is negated
-					delete move.self;
-					if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-					// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
-					move.hasSheerForce = true;
-				}
+				});
 			}
 		},
 		onBasePowerPriority: 21,
