@@ -245,7 +245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ['Spidops', 'Eternatus'],
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 157, atk: 97, def: 171, spa: 88, spd: 168, spe: 82},
-		abilities: {0: "Pressurout"},
+		abilities: {0: "Giant Enemy Spider"},
 	},
 	koraisle: {
 		name: "Koraisle",

@@ -64,13 +64,13 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Mighty Cleave", "Knock Off", "Close Combat", "Gunk Shot", "Obstruct", "Parting Shot", "Facade"],
-                "teraTypes": ["Rock", "Dark", "Normal"]
+                "movepool": ["Stone Edge", "Knock Off", "Sacred Sword", "Poison Jab", "Obstruct", "Parting Shot", "Facade"],
+                "teraTypes": ["Normal", "Poison"]
             },
 			{
                 "role": "Setup Sweeper",
-                "movepool": ["Swords Dance", "Mighty Cleave", "Knock Off", "Close Combat", "Gunk Shot", "Obstruct", "Parting Shot", "Facade"],
-                "teraTypes": ["Rock", "Dark", "Normal"]
+                "movepool": ["Swords Dance", "Rock Slide", "Knock Off", "Sacred Sword", "Poison Jab", "Obstruct", "Parting Shot", "Facade"],
+                "teraTypes": ["Normal", "Poison"]
             }
         ]
     },
@@ -219,7 +219,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Icicle Crash", "Substitute", "Swords Dance", "Leech Seed"],
+                "movepool": ["Glacial Lance", "Substitute", "Swords Dance", "Leech Seed"],
                 "teraTypes": ["Water"]
             }
         ]
@@ -1043,9 +1043,9 @@
         "level": 100,
         "sets": [
             {
-                "role": "Fast Attacker",
-                "movepool": ["Shadow Ball", "Focus Blast", "Thunder Wave", "Nasty Plot", "Dazzling Gleam"],
-                "teraTypes": ["Ghost", "Fighting"]
+                "role": "Fast Support",
+                "movepool": ["Curse", "Confuse Ray", "Taunt", "Misty Terrain", "Thunder Wave", "Astonish"],
+                "teraTypes": ["Ghost", "Steel"]
             }
         ]
     },

@@ -369,7 +369,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
 				this.add('-message', `${pokemon.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
-				pokemon.addVolatile('dynamax');
+				//pokemon.addVolatile('dynamax');
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
@@ -680,11 +680,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Toxic Spores",
 		//shortDesc: "If this Pokemon is hit by a physical attack, Dire Spores are set on the opposing side.",
 	},
-	peressurout: {
+	giantenemyspider: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Peressurout');
+			this.add('-ability', pokemon, 'Giant Enemy Spider');
 			this.add('-message', `Run.`);
-			pokemon.addVolatile('dynamax');
+			//pokemon.addVolatile('dynamax');
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
@@ -705,7 +705,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "Peressurout",
+		name: "Giant Enemy Spider",
 		//shortDesc: "Pressure + Stakeout",
 	},
 	goodvibes: {
