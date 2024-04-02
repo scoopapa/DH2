@@ -629,26 +629,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.status === 'frz' || pokemon.status === 'slp') {
+			if (pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Coldsleep');
 				pokemon.cureStatus();
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'slp') return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Coldsleep');
-			}
-			return false;
-		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn') {
-				this.add('-immune', target, '[from] ability: Coldsleep');
-				return null;
-			}
-		},
 		onImmunity(type, pokemon) {
-			if (type === 'frz' || type === 'slp') return false;
+			if (type === 'frz') return false;
 		},
 		flags: {},
 		name: "Coldsleep",
