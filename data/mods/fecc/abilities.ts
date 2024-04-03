@@ -107,7 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	baseballed: {
 		onTryHit(target, source, move) {
-			if ((target.hasType(move.type) || source.hasType(move.type)) && target !== source) {
+			if (target.hasType(move.type) && target !== source) {
 				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/862940088122867722/1223475560882114580/1080726657708593172.png?ex=6619fd68&is=66078868&hm=a2a4709233c25ae27af6ee5d78748ba79c0e47e2e921a07776b47001808a6d54&" height="400" width="400">`);
 				return null;
 			}
@@ -369,7 +369,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
 				this.add('-message', `${pokemon.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
-				pokemon.addVolatile('dynamax');
+				pokemon.addVolatile('fakedynamax');
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
@@ -551,11 +551,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEatItem(item, pokemon) {
 			if(pokemon.ate) return;
 			if (item.isBerry) {
-				this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 				if (this.singleEvent('Eat', item, null, pokemon, null, null)) {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
 					this.runEvent('EatItem', pokemon, null, null, item);
+					pokemon.setItem(pokemon.lastItem);
+					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 				}
 			}
@@ -680,11 +681,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Toxic Spores",
 		//shortDesc: "If this Pokemon is hit by a physical attack, Dire Spores are set on the opposing side.",
 	},
-	peressurout: {
+	giantenemyspider: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Peressurout');
+			this.add('-ability', pokemon, 'Giant Enemy Spider');
 			this.add('-message', `Run.`);
-			pokemon.addVolatile('dynamax');
+			pokemon.addVolatile('fakedynamax');
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
@@ -705,7 +706,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "Peressurout",
+		name: "Giant Enemy Spider",
 		//shortDesc: "Pressure + Stakeout",
 	},
 	goodvibes: {
@@ -1232,230 +1233,243 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category !== "Status") {
-				if (!move.secondaries) {
-					move.secondaries = [];
-					move.secondaries.push(
-					//tox
-					{
-						chance: 10,
-						status: 'tox',
-					}, 
-					//boost all stats
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								atk: 1,
-								def: 1,
-								spa: 1,
-								spd: 1,
-								spe: 1,
-							},
-						},
-					},
-					//boost atk
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								atk: 1,
-							},
-						},
-					},
-					//boost def
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								def: 1,
-							},
-						},
-					},
-					//boost def x2
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								def: 2,
-							},
-						},
-					},
-					//boost spa
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								spa: 1,
-							},
-						},
-					},
-					//boost spe
-					{
-						chance: 10,
-						self: {
-							boosts: {
-								spe: 1,
-							},
-						},
-					},
-					//burn
-					{
-						chance: 10,
-						status: 'brn',
-					},
-					//confusion
-					{
-						chance: 10,
-						volatileStatus: 'confusion',
-					},
-					//cure burn
-					{
-						chance: 10,
-						volatileStatus: 'sparklingaria',
-					},
-					//flinch
-					{
-						chance: 10,
-						volatileStatus: 'flinch',
-					},
-					//freeze
-					{
-						chance: 10,
-						status: 'frz',
-					},
-					//lower acc
-					{
-						chance: 10,
+				if (!move.secondaries) move.secondaries = [];
+				move.secondaries.push(
+				//tox
+				{
+					chance: 10,
+					status: 'tox',
+				}, 
+				//boost all stats
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							accuracy: -1,
+							atk: 1,
+							def: 1,
+							spa: 1,
+							spd: 1,
+							spe: 1,
 						},
 					},
-					//lower atk
-					{
-						chance: 10,
+				},
+				//boost atk
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							atk: -1,
+							atk: 1,
 						},
 					},
-					//lower def
-					{
-						chance: 10,
+				},
+				//boost def
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							def: -1,
+							def: 1,
 						},
 					},
-					//lower spa
-					{
-						chance: 10,
+				},
+				//boost def x2
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							spa: -1,
+							def: 2,
 						},
 					},
-					//lower spd
-					{
-						chance: 10,
+				},
+				//boost spa
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							spd: -1,
+							spa: 1,
 						},
 					},
-					//lower spd x2
-					{
-						chance: 10,
+				},
+				//boost spe
+				{
+					chance: 10,
+					self: {
 						boosts: {
-							spd: -2,
+							spe: 1,
 						},
 					},
-					//lower spe
-					{
-						chance: 10,
-						boosts: {
-							spe: -1,
+				},
+				//burn
+				{
+					chance: 10,
+					status: 'brn',
+				},
+				//confusion
+				{
+					chance: 10,
+					volatileStatus: 'confusion',
+				},
+				//cure burn
+				{
+					chance: 10,
+					volatileStatus: 'sparklingaria',
+				},
+				//eerie spell
+				{
+					chance: 100,
+					onHit(target) {
+						if (!target.hp) return;
+						let move: Move | ActiveMove | null = target.lastMove;
+						if (!move || move.isZ) return;
+						if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+
+						const ppDeducted = target.deductPP(move.id, 3);
+						if (!ppDeducted) return;
+						this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+					},
+				},
+				//flinch
+				{
+					chance: 10,
+					volatileStatus: 'flinch',
+				},
+				//freeze
+				{
+					chance: 10,
+					status: 'frz',
+				},
+				//lower acc
+				{
+					chance: 10,
+					boosts: {
+						accuracy: -1,
+					},
+				},
+				//lower atk
+				{
+					chance: 10,
+					boosts: {
+						atk: -1,
+					},
+				},
+				//lower def
+				{
+					chance: 10,
+					boosts: {
+						def: -1,
+					},
+				},
+				//lower spa
+				{
+					chance: 10,
+					boosts: {
+						spa: -1,
+					},
+				},
+				//lower spd
+				{
+					chance: 10,
+					boosts: {
+						spd: -1,
+					},
+				},
+				//lower spd x2
+				{
+					chance: 10,
+					boosts: {
+						spd: -2,
+					},
+				},
+				//lower spe
+				{
+					chance: 10,
+					boosts: {
+						spe: -1,
+					},
+				},
+				//paralysis
+				{
+					chance: 10,
+					status: 'par',
+				},
+				//psn
+				{
+					chance: 10,
+					status: 'psn',
+				},
+				//psychicnoise
+				{
+					chance: 10,
+					volatileStatus: 'healblock',
+				},
+				//psychicterrain
+				{
+					chance: 100,
+					self: {
+						onHit() {
+							this.field.setTerrain('psychicterrain');
 						},
 					},
-					//paralysis
-					{
-						chance: 10,
-						status: 'par',
-					},
-					//psn
-					{
-						chance: 10,
-						status: 'psn',
-					},
-					//psychicnoise
-					{
-						chance: 10,
-						volatileStatus: 'healblock',
-					},
-					//set rocks
-					{
-						chance: 10,
-						onAfterHit(target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('stealthrock');
-								}
+				},
+				//set rocks
+				{
+					chance: 10,
+					onAfterHit(target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('stealthrock');
 							}
-						},
-						onAfterSubDamage(damage, target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('stealthrock');
-								}
+						}
+					},
+					onAfterSubDamage(damage, target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('stealthrock');
 							}
-						},
+						}
 					},
-					//set spikes
-					{
-						chance: 10,
-						onAfterHit(target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('spikes');
-								}
+				},
+				//set spikes
+				{
+					chance: 10,
+					onAfterHit(target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('spikes');
 							}
-						},
-						onAfterSubDamage(damage, target, source, move) {
-							if (!move.hasSheerForce && source.hp) {
-								for (const side of source.side.foeSidesWithConditions()) {
-									side.addSideCondition('spikes');
-								}
+						}
+					},
+					onAfterSubDamage(damage, target, source, move) {
+						if (!move.hasSheerForce && source.hp) {
+							for (const side of source.side.foeSidesWithConditions()) {
+								side.addSideCondition('spikes');
 							}
-						},
+						}
 					},
-					//slp
-					{
-						chance: 10,
-						status: 'slp',
+				},
+				//slp
+				{
+					chance: 10,
+					status: 'slp',
+				},
+				//syrup
+				{
+					chance: 10,
+					volatileStatus: 'syrupbomb',
+				},
+				//throatchop
+				{
+					chance: 10,
+					onHit(target) {
+						target.addVolatile('throatchop');
 					},
-					//syrup
-					{
-						chance: 10,
-						volatileStatus: 'syrupbomb',
+				},
+				//trapped
+				{
+					chance: 10,
+					onHit(target, source, move) {
+						if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 					},
-					//throatchop
-					{
-						chance: 10,
-						onHit(target) {
-							target.addVolatile('throatchop');
-						},
-					},
-					//trapped
-					{
-						chance: 10,
-						onHit(target, source, move) {
-							if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-						},
-					});
-				}
-				else {
-					delete move.secondaries;
-					// Technically not a secondary effect, but it is negated
-					delete move.self;
-					if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-					// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
-					move.hasSheerForce = true;
-				}
+				});
 			}
 		},
 		onBasePowerPriority: 21,
@@ -1476,7 +1490,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				const newTarget = this.sample(target.adjacentFoes());
-				this.add('-message', `${target.name} becomes the center of attention!`);
+				this.add('-message', `${source.name} becomes the center of attention!`);
 				this.actions.useMove(newMove, newTarget, newTarget);
 				return null;
 			}
@@ -1583,9 +1597,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	beewitch: {
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
+			if (!move || !target || !target.hp || source.switchFlag === true) return;
 			if (target !== source && move.category !== 'Status') {
 				const item = target.takeItem();
+				if(!item) return;
 				const honey = this.dex.items.get('Honey');
 				this.add('-enditem', target, item.name, '[from] ability: Beewitch', '[of] ' + source, "[silent]");
 				this.add('-item', target, honey, '[from] ability: Beewitch', '[of] ' + target, "[silent]");
@@ -1600,9 +1615,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	royalpass: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				source.previousMove = move;
-				const lastMove = (m) => m.id = move.id;
-				source.index = source.moveSlots.findIndex(lastMove);
 				this.add('-start', target, 'ability: Royal Pass');
 				this.add('-message', "The Monarch silences thee.");
 				source.addVolatile("royalpass");
@@ -1610,6 +1622,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
+				const index = source.moves.indexOf(source.lastMove);
 				const kingsshield = {
 					move: "King's Shield",
 					id: "kingsshield",
@@ -1618,12 +1631,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					target: "self",
 					disabled: false,
 					used: false,
+					virtual: true,
 				};
-				pokemon.moveSlots[pokemon.index] = kingsshield;
-			},
-			onSwitchOut(pokemon) {
-				pokemon.moveSlots[pokemon.index] = pokemon.previousMove;
-				pokemon.removeVolatile("royalpass");
+				pokemon.moveSlots[index] = kingsshield;
 			},
 		},
 		flags: {},
@@ -1714,7 +1724,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newType2 = this.sample(possibleTypes.filter(type => type != newType1));
 			this.add('-message', `${pokemon.name} is having an identity crisis and is now ${newType1}/${newType2}!`);
 			const newTypes = [newType1, newType2];
-			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes, '[silent]');
+			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes.join('/'), '[silent]');
 		},
 		flags: {},
 		name: "Prismatic",
@@ -1961,8 +1971,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	ultraalchemist: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				if (!activated) this.add('-ability', pokemon, 'Ultra Alchemist');
-				activated = true;
+				this.add('-ability', source, 'Ultra Alchemist');
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
@@ -2177,7 +2186,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onResidual(pokemon) {
 				for(const target of pokemon.adjacentFoes()){
 					this.add('-message', `${pokemon.name} knows what you are...`);
-					this.damage(target.baseMaxhp / 16, target, pokemon);
+					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			},
 		},
@@ -2407,11 +2416,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Heal Aura');
 			this.add('-message', `${pokemon.name} radiates a healthy aura!`);
 		},
-		onAnyTryHealPriority: 1,
-		onAnyTryHeal(damage, target, source, effect) {
-			console.log("Source effect: " + effect.id + ". Heal amount: " + damage);
-			return this.chainModify([5461, 4096]);
-		},
+		//should be handled in scripts/battle
 		flags: {},
 		name: "Heal Aura",
 		//shortDesc: "While this Pokemon is active, all healing has 1.33x power.",
@@ -2443,8 +2448,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category !== "Status" && this.randomChance(3, 10)) {
+				if(pokemon.adjacentFoes().length == 0) return;
+				const actualTarget = this.sample(pokemon.adjacentFoes());
 				this.add('-activate', pokemon, 'ability: Ultra Gun');
-				this.add('-message', `${pokemon} ultra hams ${target} with its Ultra Gun!`);
+				this.add('-message', `${pokemon.name} ultra hams ${actualTarget.name} with its Ultra Gun!`);
 				return 0.1;
 			}
 		},
@@ -2751,11 +2758,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		onSourceDamagingHit(damage, target, source, move) {
-			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.add('-message', `${source.name} is Mr Healthy`);
-				this.heal(source.baseMaxhp / 4)
+				this.debug('Technician boost');
+				this.add('-message', `${attacker.name} is Mr Healthy`);
+				this.heal(attacker.baseMaxhp / 4)
+				return this.chainModify(1.5);
 			}
 		},
 		flags: {breakable: 1},
@@ -2821,12 +2832,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	honeyrush: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('alotofbugs')) {
+			if (this.field.isWeather('alotofbees')) {
 				return this.chainModify(2);
 			}
 		},
 		onImmunity(type, pokemon) {
-			if (type === 'alotofbugs') return false;
+			if (type === 'alotofbees') return false;
 		},
 		flags: {},
 		name: "Honey Rush",

@@ -724,7 +724,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1260,6 +1260,8 @@ export class RandomTeams {
 			}
 		}
 		if (role === 'Mega') {
+			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
+			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
 				if (moves.has('shellsmash')) mega += 'a';
@@ -1271,19 +1273,18 @@ export class RandomTeams {
 		//mon hardcodes
 		if (species.id === 'hooporantunbound') return 'Light Ball';
 		if (species.id === 'zacianoh') return 'Rusted Sword';
-		//if (species.id === 'parasex') return 'Heavy-Duty Boots';
+		if (species.id === 'shitto') return 'Black Sludge';
 		if (species.id === 'swalos') return 'Starf Berry';
-		//if (species.id === 'darkerupt') return 'Rocky Helmet';
 		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		//if (species.id === 'coomerjah') return 'Leftovers';
-		//if (species.id === 'domphox') return 'Choice Scarf';
-		//if (species.id === 'miniluna') return 'shellbell';
+		if (species.id === 'tipplin') return 'Metronome';
+		if (species.id === 'mimighold') return 'Lum Berry';
 		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || species.id === 'naclinch') return 'Eviolite';
+		if (species.id === 'basbal' || species.id === 'naclinch' || species.id === 'glimmgar') return 'Eviolite';
 		if (species.id === 'exeggumoramora') return 'White Herb';
 		if (species.id === 'rolyklawfy') return 'Focus Sash';
 		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
 		if (species.id === 'gigawrath') return 'Choice Band';
+		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
@@ -1580,16 +1581,6 @@ export class RandomTeams {
 			}
 		}
 
-		//the funny
-		if (species.baseSpecies === 'Kyuwear') {
-			evs.hp = 248;
-			evs.atk = 252;
-			evs.def = 0;
-			evs.spa = 0;
-			evs.spd = 8;
-			evs.spe = 0;
-		}
-
 		// Get level
 		const level = this.getLevel(species, isDoubles);
 
@@ -1635,9 +1626,20 @@ export class RandomTeams {
 			ivs.atk = 0;
 		}
 
-		if (moves.has('gyroball') || moves.has('trickroom')) {
+		if (moves.has('gyroball') || moves.has('trickroom') || species.baseSpecies === 'Bearlamar') {
 			evs.spe = 0;
 			ivs.spe = 0;
+		}
+		
+		//the funny
+		if (species.baseSpecies === 'Kyuwear') {
+			evs.hp = 248;
+			evs.atk = 252;
+			ivs.atk = 31;
+			evs.def = 0;
+			evs.spa = 0;
+			evs.spd = 8;
+			evs.spe = 0;
 		}
 
 		// shuffle moves to add more randomness to camomons
@@ -1647,7 +1649,7 @@ export class RandomTeams {
 			name: species.baseSpecies,
 			species: forme,
 			gender: species.baseSpecies === 'Greninja' ? 'M' : species.gender,
-			shiny: this.randomChance(1, 1024),
+			shiny: this.randomChance(1, 100),
 			level,
 			moves: shuffledMoves,
 			ability,

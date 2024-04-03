@@ -245,7 +245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fusion: ['Spidops', 'Eternatus'],
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 157, atk: 97, def: 171, spa: 88, spd: 168, spe: 82},
-		abilities: {0: "Pressurout"},
+		abilities: {0: "Giant Enemy Spider"},
 	},
 	koraisle: {
 		name: "Koraisle",
@@ -521,7 +521,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	glaceus: {
 		name: "Glaceus",
 		fusion: ['Glalie', 'Arceus'],
-		types: ["Ice", "Normal"],
+		types: ["Normal", "Ice"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Prismatic"},
 	},
@@ -865,6 +865,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 79, atk: 137, def: 97, spa: 137, spd: 97, spe: 159},
 		abilities: {0: "Neuroforce"},
+		requiredItem: "Depleted Ultranecrozium Z",
 	},
 	mrvolcano: {
 		name: "Mr. Volcano",
