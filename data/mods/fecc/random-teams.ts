@@ -724,7 +724,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1261,6 +1261,7 @@ export class RandomTeams {
 		}
 		if (role === 'Mega') {
 			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
+			if (species.id === 'woopquza') break;
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
 				if (moves.has('shellsmash')) mega += 'a';
@@ -1278,13 +1279,14 @@ export class RandomTeams {
 		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
 		//if (species.id === 'coomerjah') return 'Leftovers';
 		//if (species.id === 'domphox') return 'Choice Scarf';
-		//if (species.id === 'miniluna') return 'shellbell';
+		if (species.id === 'mimighold') return 'Lum Berry';
 		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
 		if (species.id === 'basbal' || species.id === 'naclinch') return 'Eviolite';
 		if (species.id === 'exeggumoramora') return 'White Herb';
 		if (species.id === 'rolyklawfy') return 'Focus Sash';
 		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
 		if (species.id === 'gigawrath') return 'Choice Band';
+		if (species.id === 'yvenne') return this.sample('Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots');
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';

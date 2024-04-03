@@ -551,12 +551,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEatItem(item, pokemon) {
 			if(pokemon.ate) return;
 			if (item.isBerry) {
-				this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 				if (this.singleEvent('Eat', item, null, pokemon, null, null)) {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
-					this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 					this.runEvent('EatItem', pokemon, null, null, item);
+					pokemon.setItem(pokemon.lastItem);
+					pokemon.lastItem = '';
+					this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 				}
 			}
 		},
@@ -1489,7 +1490,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				const newTarget = this.sample(target.adjacentFoes());
-				this.add('-message', `${target.name} becomes the center of attention!`);
+				this.add('-message', `${source.name} becomes the center of attention!`);
 				this.actions.useMove(newMove, newTarget, newTarget);
 				return null;
 			}
@@ -2415,9 +2416,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Heal Aura');
 			this.add('-message', `${pokemon.name} radiates a healthy aura!`);
 		},
+		onModifyMove(move, pokemon) {
+			console.log(move);
+			if(move.heal) {
+				move.heal[0] *= 4;
+				move.heal[1] *= 3;
+			}
+		},
+		onFoeModifyMove(move, pokemon) {
+			console.log(move);
+			if(move.heal) {
+				move.heal[0] *= 4;
+				move.heal[1] *= 3;
+			}
+		},
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
-			console.log("Source effect: " + effect.id + ". Heal amount: " + damage);
 			return this.chainModify([5461, 4096]);
 		},
 		onFoeTryHealPriority: 1,

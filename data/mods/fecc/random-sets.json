@@ -954,7 +954,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Parabolic Charge", "Oblivion Wing", "Defog", "U-Turn"],
+                "movepool": ["Parabolic Charge", "Oblivion Wing", "Defog", "U-Turn", "Roost", "Nuzzle", "Super Fang"],
                 "teraTypes": ["Electric", "Flying"]
             }
         ]
