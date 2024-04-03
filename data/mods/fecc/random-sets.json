@@ -144,13 +144,13 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Brave Bird", "Stealth Rock", "Encore", "Knock Off", "Roost", "Healing Wish", "U-Turn", "Will-o-Wisp", "Thunder Wave"],
+                "movepool": ["Hurricane", "Stealth Rock", "Encore", "Knock Off", "Roost", "Healing Wish", "U-Turn", "Will-o-Wisp", "Psychic", "Defog", "Flamethrower"],
                 "teraTypes": ["Ghost", "Steel"]
             },
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Nasty Plot", "Mystical Power", "Psychic Noise", "Psyshock", "Hurricane", "Flamethrower", "Energy Ball", "Roost", "Dazzling Gleam"],
-                "teraTypes": ["Fairy", "Stellar"]
+                "teraTypes": ["Steel", "Psychic", "Fairy", "Stellar"]
             }
         ]
     },
@@ -438,7 +438,7 @@
         "level": 100,
         "sets": [
             {
-                "role": "Bulky Attacker",
+                "role": "Bulky Setup",
                 "movepool": ["Curse", "Drain Punch", "Poison Jab", "Knock Off"],
                 "teraTypes": ["Grass", "Fighting", "Poison", "Dark"]
             }
@@ -679,7 +679,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Tera Starstorm", "Calm Mind", "Rapid Spin", "Earth Power", "Flamethrower"],
+                "movepool": ["Tera Starstorm", "Calm Mind", "Rapid Spin", "Earth Power", "Flamethrower", "Ice Beam", "Grass Knot", "Shadow Ball", "Stealth Rock", "Thunderbolt", "Thunder Wave", "Aura Sphere"],
                 "teraTypes": ["Stellar"]
             }
         ]
@@ -709,7 +709,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bulk Up", "Dual Wingbeat", "Drain Punch", "Earthquake"],
+                "movepool": ["Bulk Up", "Dual Wingbeat", "Drain Punch", "Earthquake", "Roost"],
                 "teraTypes": ["Steel", "Electric", "Ground"]
             }
         ]
@@ -739,8 +739,8 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Recover", "Rapid Spin", "Aurora Veil", "Icicle Crash", "Earthquake"],
-                "teraTypes": ["Water"]
+                "movepool": ["Recover", "Rapid Spin", "Aurora Veil", "Icicle Crash", "Earthquake", "Toxic", "Acid Armor", "Body Press"],
+                "teraTypes": ["Water", "Fighting"]
             }
         ]
     },
@@ -866,6 +866,11 @@
                 "role": "Fast Attacker",
                 "movepool": ["Flamethrower", "Flash Cannon", "Aura Sphere", "U-Turn"],
                 "teraTypes": ["Fire", "Fighting"]
+            },
+			{
+                "role": "Fast Support",
+                "movepool": ["Flamethrower", "Flash Cannon", "Aura Sphere", "U-Turn", "Stealth Rock", "Will-o-Wisp", "Wish", "Protect", "Ruination"],
+                "teraTypes": ["Grass", "Flying"]
             }
         ]
     },
@@ -893,13 +898,13 @@
     	"level": 100,
     	"sets": [
 			{
-				"role": "Bulky Setup",
-				"movepool": ["Calm Mind", "Dragon Pulse", "Thunderbolt", "Thunderclap"],
+				"role": "AV Pivot",
+				"movepool": ["Surf", "Dragon Pulse", "Thunderbolt", "Thunderclap", "Draco Meteor", "Dragon Tail", "Volt Switch"],
 				"teraTypes": ["Electric", "Fairy", "Flying"]
 			},
 			{
-				"role": "Fast Bulky Setup",
-				"movepool": ["Dragon Dance", "Outrage", "Dragon Claw", "Earthquake", "Close Combat", "Iron Head"],
+				"role": "Bulky Attacker",
+				"movepool": ["Volt Switch", "Dragon Hammer", "Earthquake", "Close Combat", "Iron Head", "Supercell Slam", "Dragon Tail", "Poison Jab"],
 				"teraTypes": ["Dragon", "Ground", "Fighting", "Steel"]
 			}
 		]
@@ -1036,6 +1041,11 @@
                 "role": "Fast Support",
                 "movepool": ["Pyro Ball", "Ice Spinner", "Court Change", "U-Turn", "Recover"],
                 "teraTypes": ["Fire", "Ice", "Ground"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Pyro Ball", "Ice Spinner", "Swords Dance", "Recover", "High Jump Kick", "Gunk Shot"],
+                "teraTypes": ["Fire", "Ice", "Fighting"]
             }
         ]
     },

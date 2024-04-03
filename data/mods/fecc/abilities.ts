@@ -383,6 +383,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
+				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/823046216471937075/1225127851917840455/20240403_1347081.jpg?ex=66200039&is=660d8b39&hm=f138c2bac796940ff29ae04430a6286a3d2e9ff2e83ead38bf84bd901c263049&" height="538" width="720">`);
 				this.boost({atk: length}, source);
 			}
 		},
@@ -2185,7 +2186,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onResidual(pokemon) {
 				for(const target of pokemon.adjacentFoes()){
-					this.add('-message', `${pokemon.name} knows what you are...`);
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|I know what you are...`);
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			},
