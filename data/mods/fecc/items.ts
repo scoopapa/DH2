@@ -31,6 +31,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
+	depletedultranecroziumz: {
+		name: "Depleted Ultranecrozium Z",
+		spritenum: 687,
+		itemUser: ["Necromane-Dusk-Mane"],
+		onTakeItem: false,
+		num: -1001,
+		desc: "If held by a Necromane-Dusk-Mane, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
+	},
 	eviolite: {
 		inherit: true,
 		onModifyDefPriority: 2,

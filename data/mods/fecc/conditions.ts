@@ -43,20 +43,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none', '[silent]');
 		},
 	},
-	dynamax: {
+	fakedynamax: {
 		inherit: true,
 		duration: null,
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
 		},
-		onTryAddVolatile: null,
-		onBeforeSwitchOutPriority: null,
-		onBeforeSwitchOut: null,
-		onSourceModifyDamage: null,
-		onDragOutPriority: null,
-		onDragOut: null,
-		onResidualPriority: null,
-		onResidual: null,
+		onBeforeSwitchOutPriority: -1,
+		onBeforeSwitchOut(pokemon) {
+			pokemon.removeVolatile('fakedynamax');
+		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax', '[silent]');
 		}

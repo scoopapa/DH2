@@ -1260,6 +1260,7 @@ export class RandomTeams {
 			}
 		}
 		if (role === 'Mega') {
+			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
 				if (moves.has('shellsmash')) mega += 'a';
@@ -1271,7 +1272,7 @@ export class RandomTeams {
 		//mon hardcodes
 		if (species.id === 'hooporantunbound') return 'Light Ball';
 		if (species.id === 'zacianoh') return 'Rusted Sword';
-		//if (species.id === 'parasex') return 'Heavy-Duty Boots';
+		if (species.id === 'shitto') return 'Black Sludge';
 		if (species.id === 'swalos') return 'Starf Berry';
 		//if (species.id === 'darkerupt') return 'Rocky Helmet';
 		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';

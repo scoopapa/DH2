@@ -369,7 +369,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.species.id == 'zygarb' && this.effectState.secondPhase) {
 				this.add('-message', `${pokemon.name} recycled itself to save the environment!`);
 				pokemon.formeChange('Zygarb-Recycled', this.effect, true);
-				//pokemon.addVolatile('dynamax');
+				pokemon.addVolatile('fakedynamax');
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
@@ -684,7 +684,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Giant Enemy Spider');
 			this.add('-message', `Run.`);
-			//pokemon.addVolatile('dynamax');
+			pokemon.addVolatile('fakedynamax');
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
@@ -1312,6 +1312,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					chance: 10,
 					volatileStatus: 'sparklingaria',
 				},
+				//eerie spell
+				{
+					chance: 100,
+					onHit(target) {
+						if (!target.hp) return;
+						let move: Move | ActiveMove | null = target.lastMove;
+						if (!move || move.isZ) return;
+						if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+
+						const ppDeducted = target.deductPP(move.id, 3);
+						if (!ppDeducted) return;
+						this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+					},
+				},
 				//flinch
 				{
 					chance: 10,
@@ -1385,6 +1399,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				{
 					chance: 10,
 					volatileStatus: 'healblock',
+				},
+				//psychicterrain
+				{
+					chance: 100,
+					self: {
+						onHit() {
+							this.field.setTerrain('psychicterrain');
+						},
+					},
 				},
 				//set rocks
 				{
@@ -1573,9 +1596,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	beewitch: {
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
+			if (!move || !target || !target.hp || source.switchFlag === true) return;
 			if (target !== source && move.category !== 'Status') {
 				const item = target.takeItem();
+				if(!item) return;
 				const honey = this.dex.items.get('Honey');
 				this.add('-enditem', target, item.name, '[from] ability: Beewitch', '[of] ' + source, "[silent]");
 				this.add('-item', target, honey, '[from] ability: Beewitch', '[of] ' + target, "[silent]");
@@ -1590,9 +1614,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	royalpass: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				source.previousMove = move;
-				const lastMove = (m) => m.id = move.id;
-				source.index = source.moveSlots.findIndex(lastMove);
 				this.add('-start', target, 'ability: Royal Pass');
 				this.add('-message', "The Monarch silences thee.");
 				source.addVolatile("royalpass");
@@ -1600,6 +1621,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
+				const index = source.moves.indexOf(source.lastMove);
 				const kingsshield = {
 					move: "King's Shield",
 					id: "kingsshield",
@@ -1608,12 +1630,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					target: "self",
 					disabled: false,
 					used: false,
+					virtual: true,
 				};
-				pokemon.moveSlots[pokemon.index] = kingsshield;
-			},
-			onSwitchOut(pokemon) {
-				pokemon.moveSlots[pokemon.index] = pokemon.previousMove;
-				pokemon.removeVolatile("royalpass");
+				pokemon.moveSlots[index] = kingsshield;
 			},
 		},
 		flags: {},
@@ -1704,7 +1723,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newType2 = this.sample(possibleTypes.filter(type => type != newType1));
 			this.add('-message', `${pokemon.name} is having an identity crisis and is now ${newType1}/${newType2}!`);
 			const newTypes = [newType1, newType2];
-			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes, '[silent]');
+			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes.join('/'), '[silent]');
 		},
 		flags: {},
 		name: "Prismatic",
@@ -2166,7 +2185,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onResidual(pokemon) {
 				for(const target of pokemon.adjacentFoes()){
 					this.add('-message', `${pokemon.name} knows what you are...`);
-					this.damage(target.baseMaxhp / 16, target, pokemon);
+					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			},
 		},
@@ -2396,8 +2415,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Heal Aura');
 			this.add('-message', `${pokemon.name} radiates a healthy aura!`);
 		},
-		onAnyTryHealPriority: 1,
-		onAnyTryHeal(damage, target, source, effect) {
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			console.log("Source effect: " + effect.id + ". Heal amount: " + damage);
+			return this.chainModify([5461, 4096]);
+		},
+		onFoeTryHealPriority: 1,
+		onFoeTryHeal(damage, target, source, effect) {
 			console.log("Source effect: " + effect.id + ". Heal amount: " + damage);
 			return this.chainModify([5461, 4096]);
 		},
@@ -2432,8 +2456,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category !== "Status" && this.randomChance(3, 10)) {
+				if(pokemon.adjacentFoes().length == 0) return;
+				const actualTarget = this.sample(pokemon.adjacentFoes());
 				this.add('-activate', pokemon, 'ability: Ultra Gun');
-				this.add('-message', `${pokemon.name} ultra hams ${target} with its Ultra Gun!`);
+				this.add('-message', `${pokemon.name} ultra hams ${actualTarget.name} with its Ultra Gun!`);
 				return 0.1;
 			}
 		},
@@ -2740,11 +2766,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		onSourceDamagingHit(damage, target, source, move) {
-			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
 				this.add('-message', `${source.name} is Mr Healthy`);
 				this.heal(source.baseMaxhp / 4)
+				return this.chainModify(1.5);
 			}
 		},
 		flags: {breakable: 1},
@@ -2810,12 +2840,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	honeyrush: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('alotofbugs')) {
+			if (this.field.isWeather('alotofbees')) {
 				return this.chainModify(2);
 			}
 		},
 		onImmunity(type, pokemon) {
-			if (type === 'alotofbugs') return false;
+			if (type === 'alotofbees') return false;
 		},
 		flags: {},
 		name: "Honey Rush",

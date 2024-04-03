@@ -279,7 +279,7 @@
         		},
 				{
             		"role": "Bulky Setup",
-            		"movepool": ["Earthquake", "Dragon Ascent", "V-Create", "Extreme Speed", "Dragon Dance", "Recover"],
+            		"movepool": ["Earthquake", "Dragon Ascent", "V-Create", "Extreme Speed", "Recover"],
             		"teraTypes": ["Ground", "Flying", "Fire", "Normal"]
         		}
 			]
@@ -639,7 +639,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Behemoth Blade", "Stone Edge", "Earthquake", "Stealth Rock", "Taunt"],
+                "movepool": ["Behemoth Bash", "Stone Edge", "Earthquake", "Stealth Rock", "Taunt"],
                 "teraTypes": ["Rock", "Steel", "Ground"]
             }
         ]
@@ -699,7 +699,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Earthquake", "Icicle Crash", "Ruination", "Spikes", "Will-o-Wisp", "U-Turn"],
+                "movepool": ["Fissure", "Earthquake", "Icicle Crash", "Ruination", "Spikes", "Will-o-Wisp", "U-Turn"],
                 "teraTypes": ["Water", "Fairy"]
             }
         ]
@@ -1081,7 +1081,12 @@
                 "role": "Fast Attacker",
                 "movepool": ["Shadow Ball", "Flash Cannon", "Earth Power", "Moonlight", "Heat Wave"],
                 "teraTypes": ["Ground", "Fighting", "Poison", "Dark"]
-            }
+            },
+			{
+				"role": "Mega",
+                "movepool": ["Prismatic Laser", "Outrage", "Earth Power", "Stone Edge"],
+                "teraTypes": ["Psychic"]
+			}
         ]
     },
 	"mrvolcano": {
