@@ -653,8 +653,8 @@
                 "teraTypes": ["Normal"]
             },
 			{
-                "role": "Bulky Setup",
-                "movepool": ["Circle Throw", "Bulk Up", "Rest", "Sleep Talk"],
+                "role": "Bulky Support",
+                "movepool": ["Circle Throw", "Toxic", "Bulk Up", "Rest", "Sleep Talk"],
                 "teraTypes": ["Poison"]
             }
         ]
@@ -689,7 +689,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Snipe Shot", "Cross Poison", "Knock Off", "Encore", "U-Turn"],
+                "movepool": ["Snipe Shot", "Cross Poison", "Knock Off", "Encore", "U-Turn", "Nasty Plot", "Swords Dance", "Taunt"],
                 "teraTypes": ["Dark", "Water", "Poison"]
             }
         ]
