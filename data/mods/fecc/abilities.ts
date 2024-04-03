@@ -2416,29 +2416,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Heal Aura');
 			this.add('-message', `${pokemon.name} radiates a healthy aura!`);
 		},
-		onModifyMove(move, pokemon) {
-			console.log(move);
-			if(move.heal) {
-				move.heal[0] *= 4;
-				move.heal[1] *= 3;
-			}
-		},
-		onFoeModifyMove(move, pokemon) {
-			console.log(move);
-			if(move.heal) {
-				move.heal[0] *= 4;
-				move.heal[1] *= 3;
-			}
-		},
-		onTryHealPriority: 1,
-		onTryHeal(damage, target, source, effect) {
-			return this.chainModify([5461, 4096]);
-		},
-		onFoeTryHealPriority: 1,
-		onFoeTryHeal(damage, target, source, effect) {
-			console.log("Source effect: " + effect.id + ". Heal amount: " + damage);
-			return this.chainModify([5461, 4096]);
-		},
+		//should be handled in scripts/battle
 		flags: {},
 		name: "Heal Aura",
 		//shortDesc: "While this Pokemon is active, all healing has 1.33x power.",

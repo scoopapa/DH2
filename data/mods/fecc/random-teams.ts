@@ -1261,7 +1261,7 @@ export class RandomTeams {
 		}
 		if (role === 'Mega') {
 			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
-			if (species.id === 'woopquza') break;
+			if (species.id === 'woopquaza') return this.sample('Life Orb', 'Leftovers');
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
 				if (moves.has('shellsmash')) mega += 'a';
@@ -1275,13 +1275,11 @@ export class RandomTeams {
 		if (species.id === 'zacianoh') return 'Rusted Sword';
 		if (species.id === 'shitto') return 'Black Sludge';
 		if (species.id === 'swalos') return 'Starf Berry';
-		//if (species.id === 'darkerupt') return 'Rocky Helmet';
 		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		//if (species.id === 'coomerjah') return 'Leftovers';
-		//if (species.id === 'domphox') return 'Choice Scarf';
+		if (species.id === 'tipplin') return 'Metronome';
 		if (species.id === 'mimighold') return 'Lum Berry';
 		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || species.id === 'naclinch') return 'Eviolite';
+		if (species.id === 'basbal' || species.id === 'naclinch' || species.id === 'glimmgar') return 'Eviolite';
 		if (species.id === 'exeggumoramora') return 'White Herb';
 		if (species.id === 'rolyklawfy') return 'Focus Sash';
 		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
