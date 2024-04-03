@@ -555,8 +555,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (this.singleEvent('Eat', item, null, pokemon, null, null)) {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
-					this.runEvent('EatItem', pokemon, null, null, item);
 					this.add('-item', pokemon, pokemon.getItem(), '[silent]');
+					this.runEvent('EatItem', pokemon, null, null, item);
 				}
 			}
 		},
@@ -2433,7 +2433,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category !== "Status" && this.randomChance(3, 10)) {
 				this.add('-activate', pokemon, 'ability: Ultra Gun');
-				this.add('-message', `${pokemon} ultra hams ${target} with its Ultra Gun!`);
+				this.add('-message', `${pokemon.name} ultra hams ${target} with its Ultra Gun!`);
 				return 0.1;
 			}
 		},

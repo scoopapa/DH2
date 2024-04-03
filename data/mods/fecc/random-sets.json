@@ -7,11 +7,6 @@
                 "movepool": ["Roost", "Dragon Dance", "Roar", "Toxic"],
                 "teraTypes": ["Steel"]
             },
-            {
-                "role": "Wallbreaker",
-                "movepool": ["Rain Dance"],
-                "teraTypes": ["Steel"]
-            }
         ]
     },
 	"wingwambit": {
@@ -373,9 +368,9 @@
         "level": 100,
         "sets": [
             {
-                "role": "Fast Support",
-                "movepool": ["Eternabeam", "Toxic", "U-Turn", "Knock Off", "Sticky Web"],
-                "teraTypes": ["Dragon", "Ghost", "Steel"]
+                "role": "Bulky Support",
+                "movepool": ["Eternabeam", "Toxic", "U-Turn", "Knock Off", "Sticky Web", "Dragon Tail"],
+                "teraTypes": ["Fairy", "Ghost", "Steel"]
             }
         ]
     },
@@ -824,7 +819,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Stealth Rock", "U-Turn", "Knock Off", "Lunge", "Leech Life", "Rock Slide", "Roost", "Earthquake"],
+                "movepool": ["Stealth Rock", "U-Turn", "Knock Off", "Leech Life", "Rock Slide", "Roost", "Earthquake"],
                 "teraTypes": ["Steel", "Ground"]
             }
         ]
@@ -1036,7 +1031,12 @@
                 "role": "Fast Attacker",
                 "movepool": ["Night Slash", "Draco Meteor", "Sucker Punch", "Superpower", "Iron Head", "Flamethrower", "Stealth Rock"],
                 "teraTypes": ["Fighting", "Dark", "Dragon", "Fire"]
-            }
+            },
+			{
+                "role": "Mega",
+                "movepool": ["Rain Dance", "Electro Shot", "Dark Pulse", "Water Pulse", "Draco Meteor"],
+                "teraTypes": ["Dark"]
+			}
         ]
     },
 	"mimighold": {
