@@ -2764,8 +2764,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
 				this.debug('Technician boost');
-				this.add('-message', `${source.name} is Mr Healthy`);
-				this.heal(source.baseMaxhp / 4)
+				this.add('-message', `${attacker.name} is Mr Healthy`);
+				this.heal(attacker.baseMaxhp / 4)
 				return this.chainModify(1.5);
 			}
 		},

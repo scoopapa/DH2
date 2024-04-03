@@ -1261,7 +1261,7 @@ export class RandomTeams {
 		}
 		if (role === 'Mega') {
 			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
-			if (species.id === 'woopquaza') return this.sample('Life Orb', 'Leftovers');
+			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
 				if (moves.has('shellsmash')) mega += 'a';
@@ -1284,7 +1284,7 @@ export class RandomTeams {
 		if (species.id === 'rolyklawfy') return 'Focus Sash';
 		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
 		if (species.id === 'gigawrath') return 'Choice Band';
-		if (species.id === 'yvenne') return this.sample('Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots');
+		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
