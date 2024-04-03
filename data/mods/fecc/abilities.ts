@@ -2756,9 +2756,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sweaty: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
+				this.add('-message', `${target.name} enjoys a Mr. Sauna`);
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Sweaty');
-					this.add('-message', `${pokemon.name} enjoys a Mr. Sauna`);
 				}
 				return null;
 			}
