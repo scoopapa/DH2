@@ -1580,16 +1580,6 @@ export class RandomTeams {
 			}
 		}
 
-		//the funny
-		if (species.baseSpecies === 'Kyuwear') {
-			evs.hp = 248;
-			evs.atk = 252;
-			evs.def = 0;
-			evs.spa = 0;
-			evs.spd = 8;
-			evs.spe = 0;
-		}
-
 		// Get level
 		const level = this.getLevel(species, isDoubles);
 
@@ -1635,9 +1625,20 @@ export class RandomTeams {
 			ivs.atk = 0;
 		}
 
-		if (moves.has('gyroball') || moves.has('trickroom')) {
+		if (moves.has('gyroball') || moves.has('trickroom') || species.baseSpecies === 'Bearlamar') {
 			evs.spe = 0;
 			ivs.spe = 0;
+		}
+		
+		//the funny
+		if (species.baseSpecies === 'Kyuwear') {
+			evs.hp = 248;
+			evs.atk = 252;
+			ivs.atk = 31;
+			evs.def = 0;
+			evs.spa = 0;
+			evs.spd = 8;
+			evs.spe = 0;
 		}
 
 		// shuffle moves to add more randomness to camomons

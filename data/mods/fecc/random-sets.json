@@ -6,7 +6,7 @@
                 "role": "AV Pivot",
                 "movepool": ["Roost", "Dragon Dance", "Roar", "Toxic"],
                 "teraTypes": ["Steel"]
-            },
+            }
         ]
     },
 	"wingwambit": {
@@ -114,12 +114,12 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Earthquake", "Brave Bird", "Spikes", "Knock Off", "U-Turn"],
+                "movepool": ["Earthquake", "Aerial Ace", "Brave Bird", "Spikes", "Knock Off", "U-Turn"],
                 "teraTypes": ["Ground", "Flying"]
             },
 			{
                 "role": "Setup Sweeper",
-                "movepool": ["Earthquake", "Brave Bird", "Knock Off", "Swords Dance"],
+                "movepool": ["Earthquake", "Aerial Ace", "Brave Bird", "Knock Off", "Swords Dance"],
                 "teraTypes": ["Ground", "Flying"]
             }
         ]
@@ -564,12 +564,12 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Boomburst", "Moonblast", "Calm Mind", "Grassy Glide", "Alluring Voice", "Psychic Noise", "Flip Turn"],
+                "movepool": ["Boomburst", "Moonblast", "Calm Mind", "Psychic Noise", "Surf", "Draining Kiss", "Flip Turn"],
                 "teraTypes": ["Grass", "Water"]
             },
 			{
                 "role": "AV Pivot",
-                "movepool": ["Boomburst", "Moonblast", "Grassy Glide", "Alluring Voice", "Psychic Noise", "Flip Turn"],
+                "movepool": ["Boomburst", "Moonblast", "Grassy Glide", "Psychic Noise", "Flip Turn"],
                 "teraTypes": ["Grass", "Water"]
             }
         ]
@@ -669,7 +669,7 @@
             },
 			{
                 "role": "Fast Support",
-                "movepool": ["Judgment", "Recover", "Stealth Rock", "Protect", "Will-o-Wisp", "Thunder Wave"],
+                "movepool": ["Judgment", "Recover", "Stealth Rock", "Protect", "Will-o-Wisp"],
                 "teraTypes": ["Stellar"]
             }
         ]
@@ -854,7 +854,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Earthquake", "Ice Punch", "Leaf Blade", "Glare", "Synthesis", "Knock Off", "Coil"],
+                "movepool": ["Earthquake", "Ice Punch", "Glare", "Synthesis", "Knock Off", "Coil"],
                 "teraTypes": ["Ice", "Fire", "Poison"]
             }
         ]
@@ -941,6 +941,11 @@
                 "role": "AV Pivot",
                 "movepool": ["Wood Hammer", "Play Rough", "Zen Headbutt", "Rapid Spin", "U-Turn", "Knock Off"],
                 "teraTypes": ["Grass", "Psychic", "Fairy"]
+            },
+			{
+                "role": "Bulky Support",
+                "movepool": ["Wood Hammer", "Play Rough", "Zen Headbutt", "Rapid Spin", "U-Turn", "Knock Off", "Wish", "Protect"],
+                "teraTypes": ["Grass", "Psychic", "Fairy"]
             }
         ]
     },
@@ -959,7 +964,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Boomburst", "Close Combat", "Flip Turn", "Waterfall"],
+                "movepool": ["Boomburst", "Close Combat", "Flip Turn", "Waterfall", "Jet Punch", "Hydro Pump"],
                 "teraTypes": ["Normal", "Fighting", "Water"]
             }
         ]
@@ -970,6 +975,16 @@
             {
                 "role": "AV Pivot",
                 "movepool": ["Photon Geyser", "Shell Side Arm", "Focus Blast", "Knock Off"],
+                "teraTypes": ["Psychic", "Fighting", "Dark"]
+            },
+			{
+                "role": "Bulky Attacker",
+                "movepool": ["Photon Geyser", "Shell Side Arm", "Focus Blast", "Knock Off", "Calm Mind", "Slack Off", "Stealth Rock"],
+                "teraTypes": ["Psychic", "Fighting", "Dark"]
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Photon Geyser", "Shell Side Arm", "Focus Blast", "Knock Off", "Calm Mind", "Slack Off", "Calm Mind"],
                 "teraTypes": ["Psychic", "Fighting", "Dark"]
             }
         ]
@@ -1019,7 +1034,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Pyro Ball", "Ice Spinner", "Court Change", "U-Turn"],
+                "movepool": ["Pyro Ball", "Ice Spinner", "Court Change", "U-Turn", "Recover"],
                 "teraTypes": ["Fire", "Ice", "Ground"]
             }
         ]
