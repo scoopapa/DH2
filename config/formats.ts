@@ -453,6 +453,36 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Fusion Evolution UU",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/fusion-evolution-uu-gen-9-slate-0-drop-slate-discussion-phase.3737223/#post-9994453/">Gen 9 Fusion Evolution UU</a>`,
+		],
+		mod: 'gen9fe',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: ['Altarianite', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Swampertite', 'Mawilite', 'Alakazite', 'Baton Pass', 'Light Clay',
+			'Aero Wake', 'Amigotrio-Alola', 'Amphamence', 'Anoraidon', 'Arbolosion-Hisui', 'Baxgeist-Large', 'Bellikiss', 'Bouffa-Lu', 'Brambleswine', 'Bronze Bonnet',
+			'Celedos', 'Corvizolt', 'Cresserace', 'Crygargonal', 'Decidulax', 'Deciperior-Hisui', 'Deliraidon', 'Deoxyslash-Speed', 'Dragocoal', 'Drampiclus', 'Druddizor',
+			'Empoliary-Hisui', 'Farinape', 'Floatzera', 'Florgerouge', 'Gargamise', 'Garpyuku', 'Great Kleav', 'Icekrai', 'Iron Dirge', 'Iron Legion', 'Iron Matcha',
+			'Iron Meta', 'Iron Mimic', 'Iron Pins', 'Iron Tornado', 'Lelecuno-Galar', 'Meowscorio-Sensu', 'Necrotrik-Dawn-Wings', 'Necrotrik-Ultra', 'Okiferro', 'Primeleo',
+			'Relishadow', 'Revarantis', 'Roaring Sal', 'Rotoghold', 'Samuraiai-Hisui', 'Scream Cormorant', 'Sol Valiant', 'Stargrowth', 'Tapu Titan', 'Tinkovish', 'Toedieleki',
+			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox', 'Zarubok', 'Zoinkazenta',
+			'Muktaria-Alola-Mega', 'Mawlakazam-Mega-X', 'Mawlakazam-Mega-Y', 'Goopert-Hisui-Mega'
+		],
+			//Just slapping "FEOU" in the banlist exclude these mons from the teambuilder... but an error ('Nothing matches "FEOU"') was thrown in dex-formats on the server side
+			//Hence why bans were done manually
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['FEUU', 'FENFE', "FELC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Fusion Evolution UU.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Generation X",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Generation X</a>`,
@@ -471,6 +501,15 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 9] Hidden Gems",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3737861/">Hidden Gems</a>`,
+		],
+		mod: 'hiddengems',
+		ruleset: ['Standard', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
 		name: "[Gen 3] Hoenn Gaiden OU",
@@ -502,7 +541,8 @@ export const Formats: FormatList = [
 		],
      mod: 'masquerade',
 	  ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
-	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock',
+					'Baton Pass', 'Last Respects', 'Shed Tail', 'Cornerstone Mask'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['MSQ'];
@@ -2453,8 +2493,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: "scootopia",
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
-		banlist: ['All Pokemon'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule',],
+		banlist: ['All Pokemon', 'Crystal Heart', 'Wild Heart'],
 		unbanlist: ["Arbrella", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Orchile",
 		"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Platypad", "Lumoth",
 		"Aurorowl", "Carapex", "Dojodo", "Nunopod", "Zeploom", "Brawnkey", "Salamalix", "Cinnastar", 
@@ -3303,6 +3343,14 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 2] VGC 2001",
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Team Preview', 'Picked Team Size = 4'],
+		banlist: [],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 9] White Tusk",
