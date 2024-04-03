@@ -59,7 +59,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Dazzling Gleam", "Fire Blast", "Soft-Boiled", "Thunder Wave", "Grass Knot"],
+                "movepool": ["Dazzling Gleam", "Fire Blast", "Soft-Boiled", "Thunder Wave"],
                 "teraTypes": ["Fire"]
             }
         ]
