@@ -34,7 +34,7 @@
             },
             {
                 "role": "Wallbreaker",
-                "movepool": ["Leaf Storm", "Sludge Bomb", "Synthesis", "Hidden Power Fire"],
+                "movepool": ["Leaf Storm", "Sludge Bomb", "Synthesis", "Extrasensory"],
                 "teraTypes": ["Grass"]
             }
         ]
@@ -124,7 +124,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Hydro Pump", "Air Slash", "Hidden Power Electric", "Rain Dance"],
+                "movepool": ["Hydro Pump", "Air Slash", "Rock Slide", "Rain Dance"],
                 "teraTypes": ["Water"]
             }
         ]
@@ -134,7 +134,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Psychic", "Dazzling Gleam", "Hidden Power Fighting", "Thunder Wave", "Nasty Plot"],
+                "movepool": ["Psychic", "Dazzling Gleam", "Shadow Ball", "Thunder Wave", "Nasty Plot"],
                 "teraTypes": ["Dragon"]
             }
         ]
