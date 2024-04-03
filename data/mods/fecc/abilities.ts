@@ -139,7 +139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon, source, effect) {
 				this.add('-activate', pokemon, 'ability: Goon Drive');
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'goondrive' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'goondrive' + this.effectState.bestStat, '[silent]');
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
