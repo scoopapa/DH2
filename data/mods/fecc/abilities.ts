@@ -1623,7 +1623,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const index = source.moves.indexOf(source.lastMove);
+				const index = pokemon.moves.indexOf(pokemon.lastMove);
 				const kingsshield = {
 					move: "King's Shield",
 					id: "kingsshield",
