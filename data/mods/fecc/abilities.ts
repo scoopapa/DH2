@@ -1951,8 +1951,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	ultraalchemist: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				if (!activated) this.add('-ability', pokemon, 'Ultra Alchemist');
-				activated = true;
+				this.add('-ability', pokemon, 'Ultra Alchemist');
 				let statName = 'atk';
 				let bestStat = 0;
 				let s: StatNameExceptHP;
