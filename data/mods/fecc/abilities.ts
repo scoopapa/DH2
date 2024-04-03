@@ -2323,6 +2323,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onFaint(pokemon) {
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|It's So Joever`);
+		},
 		flags: {},
 		name: "Biden Blast",
 		//shortDesc: "On switch-in, this Pokemon disables adjacent opponents' last move.",
