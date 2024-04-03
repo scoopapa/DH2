@@ -1704,6 +1704,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
+			if (move.category === 'Status') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
