@@ -1175,6 +1175,8 @@ export class RandomTeams {
 			if (species.id === 'hypno') return 'Insomnia';
 			if (species.id === 'staraptor') return 'Reckless';
 			if (species.id === 'arcaninehisui') return 'Rock Head';
+			if (species.id === 'azurill') return 'Thick Fat';
+			if (species.id === 'wynaut') return 'Telepathy';
 			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Anger Shell';
@@ -1304,6 +1306,8 @@ export class RandomTeams {
 			return this.sample(species.requiredItems);
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'toxel') return 'Salac Berry';
+		if (species.id === 'wynaut') return 'Berry Juice';
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
@@ -1549,18 +1553,18 @@ export class RandomTeams {
 		// Default to tier-based levelling
 		const tier = species.tier;
 		const tierScale: Partial<Record<Species['tier'], number>> = {
-			Uber: 76,
-			OU: 80,
-			UUBL: 81,
-			UU: 82,
-			RUBL: 83,
-			RU: 84,
-			NUBL: 85,
-			NU: 86,
-			PUBL: 87,
-			PU: 88, "(PU)": 88, NFE: 88,
+			Uber: 1,
+			OU: 1,
+			UUBL: 1,
+			UU: 1,
+			RUBL: 1,
+			RU: 1,
+			NUBL: 1,
+			NU: 1,
+			PUBL: 1,
+			PU: 1, "(PU)": 1, NFE: 1,
 		};
-		return tierScale[tier] || 80;
+		return tierScale[tier] || 1;
 	}
 
 	getForme(species: Species): string {
