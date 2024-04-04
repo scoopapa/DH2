@@ -671,6 +671,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'giratina').learnset.draconiccurse = ['9L1'];
 
     // draconicfury 
+    this.modData('Learnsets', 'charizard').learnset.draconicfury = ['9L1'];
     this.modData('Learnsets', 'dragonite').learnset.draconicfury = ['9L1'];
     this.modData('Learnsets', 'salamence').learnset.draconicfury = ['9L1'];
     this.modData('Learnsets', 'rayquaza').learnset.draconicfury = ['9L1'];

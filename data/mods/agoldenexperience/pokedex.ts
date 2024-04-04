@@ -1378,6 +1378,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Bulletproof", H: "Soundproof"},
 	},
+	burmy: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1:"Filter", H: "Overcoat"},
+	},
 	wormadam: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 59, def: 90, spa: 79, spd: 116, spe: 36},
@@ -1804,7 +1808,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	zebstrika: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 60, spa: 70, spd: 60, spe: 122},
-		abilities: {0: "Illuminate", 1: "Dodge", H: "Sap Sipper"},
+		abilities: {0: "Illuminate", 1: "Motor Drive", H: "Sap Sipper"},
 	},
 	roggenrola: {
 		inherit: true,
@@ -3183,11 +3187,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	calyrexice: {
 		inherit: true,
 		types: ["Grass", "Ice"],
-		// requiredItem: "Ice Mane",
+		requiredItem: "Ice Mane",
 	},
 	calyrexshadow: {
 		inherit: true,
-		// requiredItem: "Phantom Mane",
+		requiredItem: "Phantom Mane",
 	},
 	wyrdeer: {
 		inherit: true,
@@ -3243,7 +3247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	charcadet: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Scrappy", H: "Flame Body"},
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Flame Body"},
 	},
 	armarouge: {
 		inherit: true,
@@ -3377,7 +3381,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	ironvaliant: {
 		inherit: true,
-		abilities: {0: "Quark Drive", H: "Sharpness"},
+		abilities: {0: "Quark Drive", H: "Trace"},
 	},
 	koraidon: {
 		inherit: true,
