@@ -5189,6 +5189,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "togedemarutotem").learnset.taunt = ["9L1"];
 		this.modData("Learnsets", "togedemarutotem").learnset.snarl = ["9L1"];
 		this.modData("Learnsets", "togedemarutotem").learnset.throatchop = ["9L1"];
+		this.modData("Learnsets", "togedemarutotem").learnset.knockoff = ["9L1"];
 		// Flygon
 		this.modData("Learnsets", "flygon").learnset.lunge = ["9L1"];
 		// Mimikyu-Totem
