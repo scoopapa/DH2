@@ -7681,7 +7681,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Poison Trap', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('poisontrap');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem(['heavydutyboots', 'tengugeta']) || pokemon.hasAbility(['strictdosage'])) {
+				} else if (pokemon.hasType('Steel') || !pokemon.isGrounded || pokemon.hasItem(['heavydutyboots', 'tengugeta']) || pokemon.hasAbility(['strictdosage'])) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
