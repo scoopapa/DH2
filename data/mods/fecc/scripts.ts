@@ -301,7 +301,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && !(source?.hasAbility('codebreaker') && ['tox', 'psn'].includes(status.id))) {
+					!(source?.hasAbility('corrosion') && !(source?.hasAbility('codebreaker')) && ['tox', 'psn'].includes(status.id))) {
 				// the game currently never ignores immunities
 				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 					this.battle.debug('immune to status');
