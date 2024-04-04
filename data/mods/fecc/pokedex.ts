@@ -71,6 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zacianoh: {
 		name: "Zacian-Oh",
+		num: 888,
 		fusion: ['Zacian-Crowned', 'Ho-Oh'],
 		types: ["Fairy", "Fire"],
 		baseStats: {hp: 100, atk: 140, def: 105, spa: 100, spd: 135, spe: 120},
@@ -506,6 +507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zamadactylcrowned: {
 		name: "Zamadactyl-Crowned",
+		num: 889,
 		fusion: ['Zamazenta', 'Aerodactyl'],
 		types: ["Rock", "Steel"],
 		baseStats: {hp: 86, atk: 116, def: 102, spa: 70, spd: 107, spe: 129},
