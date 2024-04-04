@@ -184,25 +184,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	salazzletotem: {
 		inherit: true,
 		types: ["Poison", "Ice"],
-		baseStats: {hp: 89, atk: 101, def: 61, spa: 127, spd: 61, spe: 131},
+		baseStats: {hp: 97, atk: 101, def: 59, spa: 127, spd: 59, spe: 127},
 		abilities: {0: "Totem Trial"},
 	},
 	togedemarutotem: {
 		inherit: true,
 		types: ["Electric", "Dark"],
-		baseStats: {hp: 83, atk: 127, def: 83, spa: 53, spd: 97, spe: 127},
+		baseStats: {hp: 83, atk: 127, def: 83, spa: 67, spd: 97, spe: 113},
 		abilities: {0: "Totem Trial"},
 	},
 	mimikyutotem: {
 		inherit: true,
 		types: ["Ghost", "Electric"],
-		baseStats: {hp: 67, atk: 107, def: 97, spa: 59, spd: 127, spe: 113},
+		baseStats: {hp: 67, atk: 113, def: 97, spa: 59, spd: 127, spe: 107},
 		abilities: {0: "Totem Trial"},
 	},
 	mimikyubustedtotem: {
 		inherit: true,
 		types: ["Ghost", "Electric"],
-		baseStats: {hp: 67, atk: 107, def: 97, spa: 59, spd: 127, spe: 113},
+		baseStats: {hp: 67, atk: 113, def: 97, spa: 59, spd: 127, spe: 107},
 		abilities: {0: "Totem Trial"},
 	},
 	kommoototem: {
