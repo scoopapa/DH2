@@ -548,7 +548,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Stellar",
 		types: ["Normal"],
 		baseStats: {hp: 149, atk: 125, def: 112, spa: 155, spd: 112, spe: 95},
-		abilities: {0: "Terafrom Zero"},
+		abilities: {0: "Teraform Zero"},
 		forceTeraType: "Stellar",
 	},
 	squawkersby: {

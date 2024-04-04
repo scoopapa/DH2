@@ -1316,7 +1316,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				},
 				//eerie spell
 				{
-					chance: 100,
+					chance: 10,
 					onHit(target) {
 						if (!target.hp) return;
 						let move: Move | ActiveMove | null = target.lastMove;
@@ -1404,7 +1404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				},
 				//psychicterrain
 				{
-					chance: 100,
+					chance: 10,
 					self: {
 						onHit() {
 							this.field.setTerrain('psychicterrain');
