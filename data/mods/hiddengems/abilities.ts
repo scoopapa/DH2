@@ -33,4 +33,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Gravity Field",
 		rating: 4,
 	},
+	obstinacy: {
+		desc: "User gains a boost in it's moves the lower its HP gets. Formula: (1.0 - [Current percentage of HP in decimal form]) + 1.0",
+		shortDesc: "User gains a boost in it's moves the lower it's HP gets.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			const obstiancyboost = (1 - attacker.hp / attacker.maxhp) + 1;
+			return this.chainModify(obstiancyboost);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			const obstiancyboost = (1 - attacker.hp / attacker.maxhp) + 1;
+			return this.chainModify(obstiancyboost);
+		},
+		flags: {},
+		name: "Obstinacy",
+		rating: 4,
+	},
 };
