@@ -9465,6 +9465,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "buneary").learnset.doubleedge = ["9L1"];
 		this.modData("Learnsets", "buneary").learnset.tidyup = ["9L1"];
 		this.modData("Learnsets", "buneary").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "buneary").learnset.dustdevil = ["9L1"];
 		// Lopunny
 		this.modData("Learnsets", "lopunny").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "lopunny").learnset.endure = ["9L1"];
