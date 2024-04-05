@@ -290,7 +290,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hasType('Dragon')) return false;
 			if (!target.addType('Dragon')) return false;
 			target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
-			this.add('-start', target, 'typeadd', 'Dragon', '[from] move: Hidden Gem Dragon');
+			this.add('-start', target, 'typeadd', 'Dragon', '[from] move: Hidden Gem Dragon 2');
 		},
 		secondary: null,
 		noSketch: true,
@@ -316,7 +316,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hasType('Ground')) return false;
 			if (!target.addType('Ground')) return false;
 			target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
-			this.add('-start', target, 'typeadd', 'Ground', '[from] move: Hidden Gem Ground');
+			this.add('-start', target, 'typeadd', 'Ground', '[from] move: Hidden Gem Ground 2');
 		},
 		secondary: null,
 		noSketch: true,
