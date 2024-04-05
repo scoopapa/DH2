@@ -225,4 +225,52 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
+	hiddengemdragon: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Dragon",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(target) {
+			if (target.hasType('Dragon')) return false;
+			if (!target.addType('Dragon')) return false;
+			this.add('-start', target, 'typeadd', 'Dragon', '[from] move: Hidden Gem Dragon');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	hiddengemghost: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Ghost",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(target) {
+			if (target.hasType('Ghost')) return false;
+			if (!target.addType('Ghost')) return false;
+			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Hidden Gem Ghost');
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
 };
