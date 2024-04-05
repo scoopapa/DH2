@@ -170,6 +170,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      this.add('-activate', source, 'ability: Gravity Field');
       	this.boost({atk: 1, spe: 1}, source);
 			this.actions.useMove("Hidden Gem Ground 2", source, source);
+			source.addVolatile('grassground');
 		},
 	},
 	rockgem: {
@@ -233,6 +234,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      source.setAbility('intimidate', source, true);
       	this.boost({atk: 1, spd: 1}, source);
 			this.actions.useMove("Hidden Gem Dragon 2", source, source);
+			source.addVolatile('waterdragon');
+		},
+	},
+	waterdragon: {
+		name: 'waterdragon',
+		noCopy: true,
+		onStart(target) {
+	      this.add('-message', `${target.name} is now Water/Dragon!`);
+		},
+	},
+	grassground: {
+		name: 'grassground',
+		noCopy: true,
+		onStart(target) {
+	      this.add('-message', `${target.name} is now Grass/Ground!`);
 		},
 	},
 };
