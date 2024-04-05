@@ -146,6 +146,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.poisonGem) return;
+			this.effectState.poisonGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('magicbounce', source, true);
@@ -160,6 +162,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.groundGem) return;
+			this.effectState.groundGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('gravityfield', source, true);
@@ -174,6 +178,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.rockGem) return;
+			this.effectState.rockGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('sandrush', source, true);
@@ -188,6 +194,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.psychicGem) return;
+			this.effectState.psychicGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('neuroforce', source, true);
@@ -202,6 +210,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.ghostGem) return;
+			this.effectState.ghostGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('obstinacy', source, true);
@@ -216,6 +226,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		affectsFainted: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (this.effectState.dragonGem) return;
+			this.effectState.dragonGem = true;
 			this.add('-anim', source, "Cosmic Power", source);
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('intimidate', source, true);
