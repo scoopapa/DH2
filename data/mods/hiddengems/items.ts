@@ -64,6 +64,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Gyarados"],
 		num: 561,
 		gen: 5,
 		isNonstandard: null,
@@ -168,6 +169,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Snorlax"],
 		num: 560,
 		gen: 5,
 		isNonstandard: null,
@@ -203,6 +205,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Flapple"],
 		num: 555,
 		gen: 5,
 		isNonstandard: null,
@@ -250,11 +253,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Poison' && source.useItem()) {
 				source.addVolatile('gem');
-        		if (source.baseSpecies.baseSpecies === 'Tornadus') {
+        		if (source.baseSpecies.baseSpecies === 'Tornadus' && !['Therian'].includes(source.species.forme)) {
 				  source.addVolatile('poisongem');
         		}
 			}
 		},
+		itemUser: ["Tornadus"],
 		num: 554,
 		gen: 5,
 		isNonstandard: null,
@@ -272,6 +276,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Necrozma"],
 		num: 557,
 		gen: 5,
 		isNonstandard: null,
@@ -289,6 +294,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		}
 			}
 		},
+		itemUser: ["Sandaconda"],
 		num: 559,
 		gen: 5,
 		isNonstandard: null,
@@ -315,7 +321,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type === 'Water' && source.useItem()) {
 				source.addVolatile('gem');
-	        	if (source.baseSpecies.baseSpecies === 'Goodra') {
+	        	if (source.baseSpecies.baseSpecies === 'Goodra' && !['Hisui'].includes(source.species.forme)) {
 				//	this.actions.useMove("Hidden Gem Water", source, source);
 					source.addVolatile('watergem');
         		}
@@ -336,6 +342,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				source.addVolatile('gem');
 			}
 		},
+		itemUser: ["Terapagos", "Terapagos-Terastal"],
 		num: -1000,
 		gen: 9,
 		isNonstandard: null,
