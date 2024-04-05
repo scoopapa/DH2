@@ -169,7 +169,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      source.setAbility('gravityfield', source, true);
 	      this.add('-activate', source, 'ability: Gravity Field');
       	this.boost({atk: 1, spe: 1}, source);
-			this.actions.useMove("Hidden Gem Ground", source, source);
+			this.actions.useMove("Hidden Gem Ground 2", source, source);
 		},
 	},
 	rockgem: {
@@ -232,7 +232,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
 	      source.setAbility('intimidate', source, true);
       	this.boost({atk: 1, spd: 1}, source);
-			this.actions.useMove("Hidden Gem Dragon", source, source);
+			this.actions.useMove("Hidden Gem Dragon 2", source, source);
 		},
 	},
 };
