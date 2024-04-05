@@ -111,5 +111,57 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	hestu: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	twinrova: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	snecko: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	kaguyahouraisan: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	luigi: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	goldenfreddy: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	queen: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	alicemartagoid: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	reva: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	marle: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	marleparasite: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	yuumatoutetsu: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	inaros: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 
 };

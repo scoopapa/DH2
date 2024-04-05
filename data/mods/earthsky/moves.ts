@@ -19,7 +19,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aerate",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		onTryHit(target, source, move){
 			target.side.removeSideCondition('mist');
 			target.side.removeSideCondition('auroraveil');
@@ -193,7 +193,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Chaotic Storm",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		onBasePower(basePower, pokemon){
 			if(['sunnyday', 'desolateland', 'raindance', 'primordialsea'].includes(this.field.effectiveWeather())) return this.chainModify(1.5);
 		},
@@ -935,9 +935,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if(!pokemon.volatiles['slipaway']) return 4;
 		},
 		onPrepareHit(pokemon) { //Regular protection check
+			this.attrLastMove('[still]');
 			if(!pokemon.volatiles['slipaway']){
 				if(this.runEvent('StallMove', pokemon)){
-					this.attrLastMove('[still]');
 					this.add('-anim', pokemon, "Defense Curl");
 					return true;
 				}
@@ -1083,7 +1083,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Beautiful",
 		desc: "At the end of the next turn, the Pokemon at the user's position has 1/2 of the user's maximum HP restored to it, rounded down, and its non-volatile status condition will be cured. Fails if this move is already in effect for the user's position.",
-		shortDesc: "Next turn, 50% of the user's max HP is restored, cures status.",
+		shortDesc: "Next turn, 50% of user's max HP restored, cures status.",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Geomancy");
@@ -3250,6 +3250,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		target: "any",
 	},
+	hypnosis: {
+		inherit: true,
+		ignoreImmunity: false,
+	},
 	iceball: {
 		num: 301,
 		accuracy: 100,
@@ -3875,6 +3879,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	moonblast: {
 		inherit: true,
 		basePower: 90,
+		pp: 10,
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -4815,6 +4820,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	shelter: {
 		inherit: true,
+		pp: 5,
 		onTry(source, target, move) {
 			if (source.volatiles['shelter']) return false;
 		},
@@ -5636,7 +5642,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	torchsong: {
 		inherit: true,
 		basePower: 70,
-		pp: 15,
 	},
 	toxic: {
 		inherit: true,
@@ -5754,9 +5759,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	trumpcard: {
 		num: 376,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 0,
+		onTry(pokemon, target) {
+			if (!pokemon.side.totalFainted) return false;
+		},
 		basePowerCallback(pokemon, target, move) {
-			return 40 * (1 + pokemon.side.totalFainted);
+			return 40 * (pokemon.side.totalFainted);
 		},
 		category: "Special",
 		name: "Trump Card",
