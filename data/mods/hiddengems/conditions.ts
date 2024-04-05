@@ -241,6 +241,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'waterdragon',
 		noCopy: true,
 		onStart(target) {
+			this.add('-start', target, 'waterdragon');
 	      this.add('-message', `${target.name} is now Water/Dragon!`);
 		},
 	},
@@ -248,6 +249,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'grassground',
 		noCopy: true,
 		onStart(target) {
+			this.add('-start', target, 'waterdragon');
 	      this.add('-message', `${target.name} is now Grass/Ground!`);
 		},
 	},
