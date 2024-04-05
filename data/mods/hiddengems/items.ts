@@ -59,6 +59,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Dragon' && source.useItem()) {
 				source.addVolatile('gem');
+	        	if (source.baseSpecies.baseSpecies === 'Gyarados') {
+				  source.addVolatile('dragongem');
+        		}
 			}
 		},
 		num: 561,
@@ -160,6 +163,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Ghost' && source.useItem()) {
 				source.addVolatile('gem');
+	        	if (source.baseSpecies.baseSpecies === 'Snorlax') {
+				  source.addVolatile('ghostgem');
+        		}
 			}
 		},
 		num: 560,
@@ -261,17 +267,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Psychic' && source.useItem()) {
 				source.addVolatile('gem');
-        if (source.baseSpecies.baseSpecies === 'Golduck') {
+        		if (source.baseSpecies.baseSpecies === 'Necrozma') {
 				  source.addVolatile('psychicgem');
-        }
-			/*	if (source.baseSpecies.baseSpecies === 'Golduck') {
-					this.add('-message', `${source.name}'s Hidden Gem activated!`);
-					const targetType = source.types[1];
-					this.add('-start', source, 'typeadd', 'Psychic', '[from] item: Psychic Gem');
-					source.setAbility('goodasgold', source, true);
-					this.add('-activate', source, 'ability: Good as Gold');
-					this.boost({spa: 1, spd: 1, spe: 1}, source);
-				} */
+        		}
 			}
 		},
 		num: 557,
