@@ -182,4 +182,45 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.actions.useMove("Hidden Gem Rock", source, source);
 		},
 	},
+	psychicgem: {
+		name: 'psychicgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('neuroforce', source, true);
+	      this.add('-activate', source, 'ability: Neuroforce');
+      	this.boost({spe: 2}, source);
+			this.actions.useMove("Hidden Gem Dragon", source, source);
+		},
+	},
+	ghostgem: {
+		name: 'ghostgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('obstinacy', source, true);
+	      this.add('-activate', source, 'ability: Obstinacy');
+      	this.boost({atk: 1, def: 1}, source);
+			this.actions.useMove("Hidden Gem Ghost", source, source);
+		},
+	},
+	dragongem: {
+		name: 'dragongem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('intimidate', source, true);
+      	this.boost({atk: 1, spd: 1}, source);
+			this.actions.useMove("Hidden Gem Dragon", source, source);
+		},
+	},
 };
