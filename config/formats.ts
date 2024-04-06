@@ -2018,7 +2018,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: "National Dex",
 		mod: 'dexreversal',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Baton Pass', 'Light Clay', 'King\'s Rock', 'Razor Fang', 'Moody'],
+		banlist: ['Baton Pass', 'Light Clay', 'King\'s Rock', 'Razor Fang', 'Moody', 'Smeargle'],
 	},
 	{
 		name: "[Gen 9] Do Not Use",
