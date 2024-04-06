@@ -3115,6 +3115,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 100, def: 200, spa: 50, spd: 100, spe: 50},
 	},
+	genesectshock: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 100, def: 200, spa: 50, spd: 100, spe: 50},
+	},
+	genesectchill: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 100, def: 200, spa: 50, spd: 100, spe: 50},
+	},
+	genesectdouse: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 100, def: 200, spa: 50, spd: 100, spe: 50},
+	},
+	genesectburn: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 100, def: 200, spa: 50, spd: 100, spe: 50},
+	},
 	chespin: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 135, def: 130, spa: 95, spd: 90, spe: 70},
