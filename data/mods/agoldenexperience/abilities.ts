@@ -2150,30 +2150,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: 177,
 	},
-	parentalbond: {
-		onPrepareHit(source, target, move) {
-			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
-			if (['endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage', 'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst'].includes(move.id)) return;
-			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
-				move.multihit = 2;
-				move.multihitType = 'parentalbond';
-			}
-		},
-		onBasePowerPriority: 7,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
-		},
-		onSourceModifySecondaries(secondaries, target, source, move) {
-			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
-				// hack to prevent accidentally suppressing King's Rock/Razor Fang
-				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
-			}
-		},
-		name: "Parental Bond",
-		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage halved. Doesn't affect fixed damages moves.",
-		rating: 4.5,
-		num: 184,
-	},
 	schooling: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
@@ -2649,5 +2625,40 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			return this.chainModify(0.83);
 		},
 		shortDesc: "Active Pokemon have their Sp. Atk multiplied by 0.83, including this Pokemon.",
+	},
+	withering: {
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 100,
+				boosts: {
+					spe: -1,
+				},
+				ability: this.dex.abilities.get('withering'),
+			});
+		},
+		name: "Withering",
+		shortDesc: "This Pokemon's contact moves lower the target's Speed by one stage.",
+		rating: 2,
+		num: -71,
+	},
+	zerotohero: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'palafin' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Zero to Hero');
+				source.formeChange('Palafin-Hero', this.effect, true);
+			}
+		},
+		flags: {cantsuppress: 1},
+		name: "Zero to Hero",
+		shortDesc: "If this Pokemon is a Palafin in Zero Form, KOing a foe has it change to Hero Form.",
+		rating: 5,
+		num: 278,
 	},
 };

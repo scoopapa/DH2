@@ -752,7 +752,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 		},
-		secondary: null,
+		secondary: {},
 		target: "allAdjacentFoes",
 		type: "Grass",
 	},

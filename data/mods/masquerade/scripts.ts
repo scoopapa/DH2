@@ -10,6 +10,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "aurorus").learnset.diamondglow = ["9L1"];
 		this.modData("Learnsets", "guzzlord").learnset.ultragulp = ["9L1"];
 		this.modData("Learnsets", "whimsicott").learnset.cottonswab = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.morningsun = ["9L1"];
 		delete this.modData('Learnsets', 'excadrill').learnset.swordsdance;
 		delete this.modData('Learnsets', 'excadrill').learnset.honeclaws;
 		delete this.modData('Learnsets', 'drilbur').learnset.swordsdance;

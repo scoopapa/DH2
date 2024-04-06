@@ -18,9 +18,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onOverrideAction(pokemon) {
 				return this.effectState.move;
 			},
-  		onModifyMove(move, pokemon) {
-			  move.target = 'randomNormal';
-		  },
+  			onModifyMove(move, pokemon) {
+				if (['normal', 'any', 'adjacentFoe'].includes(move.target)) {
+					move.target = 'randomNormal';
+				}
+			},
 			onResidualOrder: 13,
 			onResidual(target) {
 				const lockedMoveIndex = target.moves.indexOf(this.effectState.move);

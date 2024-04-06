@@ -140,4 +140,117 @@ export const Conditions: {[k: string]: ConditionData} = {
       	this.boost({atk: 1, spd: 1, accuracy: 1}, source);
 		},
 	},
+	poisongem: {
+		name: 'poisongem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.poisonGem) return;
+			this.effectState.poisonGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('magicbounce', source, true);
+	      this.add('-activate', source, 'ability: Magic Bounce');
+      	this.boost({def: 1, spd: 1, accuracy: 1}, source);
+			this.actions.useMove("Hidden Gem Poison", source, source);
+		},
+	},
+	groundgem: {
+		name: 'groundgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.groundGem) return;
+			this.effectState.groundGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('gravityfield', source, true);
+	      this.add('-activate', source, 'ability: Gravity Field');
+      	this.boost({atk: 1, spe: 1}, source);
+			this.actions.useMove("Hidden Gem Ground 2", source, source);
+			source.addVolatile('grassground');
+		},
+	},
+	rockgem: {
+		name: 'rockgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.rockGem) return;
+			this.effectState.rockGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('sandrush', source, true);
+	      this.add('-activate', source, 'ability: Sand Rush');
+      	this.boost({atk: 2, spd: 1}, source);
+			this.actions.useMove("Hidden Gem Rock", source, source);
+		},
+	},
+	psychicgem: {
+		name: 'psychicgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.psychicGem) return;
+			this.effectState.psychicGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('neuroforce', source, true);
+	      this.add('-activate', source, 'ability: Neuroforce');
+      	this.boost({spe: 2}, source);
+			this.actions.useMove("Hidden Gem Dragon", source, source);
+		},
+	},
+	ghostgem: {
+		name: 'ghostgem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.ghostGem) return;
+			this.effectState.ghostGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('obstinacy', source, true);
+	      this.add('-activate', source, 'ability: Obstinacy');
+      	this.boost({atk: 1, def: 1}, source);
+			this.actions.useMove("Hidden Gem Ghost", source, source);
+		},
+	},
+	dragongem: {
+		name: 'dragongem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.dragonGem) return;
+			this.effectState.dragonGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('intimidate', source, true);
+      	this.boost({atk: 1, spd: 1}, source);
+			this.actions.useMove("Hidden Gem Dragon 2", source, source);
+			source.addVolatile('waterdragon');
+		},
+	},
+	waterdragon: {
+		name: 'waterdragon',
+		noCopy: true,
+		onStart(target) {
+			this.add('-start', target, 'waterdragon');
+	      this.add('-message', `${target.name} is now Water/Dragon!`);
+		},
+	},
+	grassground: {
+		name: 'grassground',
+		noCopy: true,
+		onStart(target) {
+			this.add('-start', target, 'grassground');
+	      this.add('-message', `${target.name} is now Grass/Ground!`);
+		},
+	},
 };
