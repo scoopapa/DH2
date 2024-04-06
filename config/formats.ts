@@ -2017,7 +2017,7 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: "National Dex",
 		mod: 'dexreversal',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Mega Data Mod', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: ['Baton Pass', 'Light Clay', 'King\'s Rock', 'Lax Incense', 'Razor Fang', 'Moody', 'Snow Cloak', 'Sand Veil'],
 	},
 	{
