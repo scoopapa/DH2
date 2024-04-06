@@ -6193,7 +6193,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "emolga").learnset.supercellslam = ["9L1"];
 		this.modData("Learnsets", "emolga").learnset.electroweb = ["9L1"];
 		this.modData("Learnsets", "emolga").learnset.doubleedge = ["9L1"];
-		this.modData("Learnsets", "emolga").learnset.defibrillate = ["9L1"];
 		this.modData("Learnsets", "emolga").learnset.updraft = ["9L1"];
 		this.modData("Learnsets", "emolga").learnset.nightmarch = ["9L1"];
 		// Aerodactyl
@@ -8701,7 +8700,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "manectric").learnset.psychicfangs = ["9L1"];
 		this.modData("Learnsets", "manectric").learnset.supercellslam = ["9L1"];
 		this.modData("Learnsets", "manectric").learnset.electroweb = ["9L1"];
-		this.modData("Learnsets", "manectric").learnset.defibrillate = ["9L1"];
 		this.modData("Learnsets", "manectric").learnset.sparklingspike = ["9L1"];
 		this.modData("Learnsets", "manectric").learnset.nastyplot = ["9L1"];
 		// Baltoy
@@ -10287,6 +10285,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "amaura").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "amaura").learnset.coldshoulder = ["9L1"];
 		this.modData("Learnsets", "amaura").learnset.dragonsroar = ["9L1"];
+		this.modData("Learnsets", "amaura").learnset.thunderbolt = ["9L1"];
 		// Aurorus
 		this.modData("Learnsets", "aurorus").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "aurorus").learnset.endure = ["9L1"];
