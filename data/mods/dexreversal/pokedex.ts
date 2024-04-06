@@ -3203,38 +3203,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
 	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
-	vivillon: {
-		inherit: true,
-		baseStats: {hp: 95, atk: 23, def: 48, spa: 23, spd: 48, spe: 23},
-	},
 	litleo: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 130, def: 60, spa: 75, spd: 60, spe: 75},
@@ -3623,10 +3591,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 68, atk: 65, def: 65, spa: 125, spd: 115, spe: 80},
 	},
-	rockruff: {
-		inherit: true,
-		baseStats: {hp: 68, atk: 65, def: 65, spa: 125, spd: 115, spe: 80},
-	},
 	lycanrocmidday: {
 		inherit: true,
 		baseStats: {hp: 38, atk: 35, def: 35, spa: 65, spd: 55, spe: 50},
@@ -3758,30 +3722,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	miniormeteor: {
 		inherit: true,
 		baseStats: {hp: 40, atk: 5, def: 75, spa: 25, spd: 75, spe: 10},
-	},
-	minior: {
-		inherit: true,
-		baseStats: {hp: 40, atk: 45, def: 35, spa: 65, spd: 55, spe: 70},
-	},
-	minior: {
-		inherit: true,
-		baseStats: {hp: 40, atk: 45, def: 35, spa: 65, spd: 55, spe: 70},
-	},
-	minior: {
-		inherit: true,
-		baseStats: {hp: 40, atk: 45, def: 35, spa: 65, spd: 55, spe: 70},
-	},
-	minior: {
-		inherit: true,
-		baseStats: {hp: 40, atk: 45, def: 35, spa: 65, spd: 55, spe: 70},
-	},
-	minior: {
-		inherit: true,
-		baseStats: {hp: 40, atk: 45, def: 35, spa: 65, spd: 55, spe: 70},
-	},
-	minior: {
-		inherit: true,
-		baseStats: {hp: 40, atk: 45, def: 35, spa: 65, spd: 55, spe: 70},
 	},
 	minior: {
 		inherit: true,
