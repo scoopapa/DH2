@@ -2015,6 +2015,7 @@ export const Formats: FormatList = [
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10062853">Dex Reversal</a>`,
 		],
+		teambuilderFormat: "National Dex",
 		mod: 'dexreversal',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Mega Data Mod', 'Data Mod'],
 		banlist: ['Baton Pass', 'Light Clay', 'King\'s Rock', 'Lax Incense', 'Razor Fang', 'Moody', 'Snow Cloak', 'Sand Veil'],
