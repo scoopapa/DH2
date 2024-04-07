@@ -1076,7 +1076,7 @@
                 "role": "Bulky Support",
                 "movepool": ["Shadow Claw", "Play Rough", "Thunder Wave", "Taunt", "Curse", "Thunder Wave", "Shadow Sneak"],
                 "teraTypes": ["Ghost", "Fairy"]
-            },
+            }
         ]
     },
 	"goku": {
