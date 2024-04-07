@@ -1264,8 +1264,8 @@ export class RandomTeams {
 			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
-				if (moves.has('shellsmash')) mega += 'a';
-				else mega += 'b';
+				if (moves.has('shellsmash')) mega += 'b';
+				else mega += 'a';
 			}
 			return this.dex.species.get(mega).requiredItems[0];
 		}
@@ -1919,6 +1919,7 @@ export class RandomTeams {
 			if (set.ability === 'Drought' || set.ability === 'Orichalcum Pulse' || set.moves.includes('sunnyday')) {
 				teamDetails.sun = 1;
 			}
+			//if (set.role === 'Mega') teamDetails.mega = 1;
 			if (set.ability === 'Sand Stream') teamDetails.sand = 1;
 			if (set.ability === 'Defensive Ice' || set.moves.includes('snowscape') || set.moves.includes('chillyreception')) {
 				teamDetails.snow = 1;

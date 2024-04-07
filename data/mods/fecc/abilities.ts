@@ -107,7 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	baseballed: {
 		onTryHit(target, source, move) {
-			if (target.hasType(move.type) && target !== source) {
+			if (source.hasType(move.type) && target !== source) {
 				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/862940088122867722/1223475560882114580/1080726657708593172.png?ex=6619fd68&is=66078868&hm=a2a4709233c25ae27af6ee5d78748ba79c0e47e2e921a07776b47001808a6d54&" height="400" width="400">`);
 				return null;
 			}
@@ -139,7 +139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon, source, effect) {
 				this.add('-activate', pokemon, 'ability: Goon Drive');
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'goondrive' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'goondrive' + this.effectState.bestStat, '[silent]');
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
@@ -383,6 +383,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
+				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/823046216471937075/1225127851917840455/20240403_1347081.jpg?ex=66200039&is=660d8b39&hm=f138c2bac796940ff29ae04430a6286a3d2e9ff2e83ead38bf84bd901c263049&" height="538" width="720">`);
 				this.boost({atk: length}, source);
 			}
 		},
@@ -1315,7 +1316,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				},
 				//eerie spell
 				{
-					chance: 100,
+					chance: 10,
 					onHit(target) {
 						if (!target.hp) return;
 						let move: Move | ActiveMove | null = target.lastMove;
@@ -1403,7 +1404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				},
 				//psychicterrain
 				{
-					chance: 100,
+					chance: 10,
 					self: {
 						onHit() {
 							this.field.setTerrain('psychicterrain');
@@ -1622,7 +1623,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const index = source.moves.indexOf(source.lastMove);
+				const index = pokemon.moves.indexOf(pokemon.lastMove);
 				const kingsshield = {
 					move: "King's Shield",
 					id: "kingsshield",
@@ -1703,6 +1704,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
+			if (move.category === 'Status') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			move.ignoreImmunity[move.type] = true;
 			move.onEffectiveness = function(typeMod, target, type) {
@@ -2185,7 +2187,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onResidual(pokemon) {
 				for(const target of pokemon.adjacentFoes()){
-					this.add('-message', `${pokemon.name} knows what you are...`);
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|I know what you are...`);
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			},
@@ -2321,6 +2323,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			}
+		},
+		onFaint(pokemon) {
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|It's So Joever`);
 		},
 		flags: {},
 		name: "Biden Blast",
@@ -2751,9 +2756,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sweaty: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
+				this.add('-message', `${target.name} enjoys a Mr. Sauna`);
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Sweaty');
-					this.add('-message', `${pokemon.name} enjoys a Mr. Sauna`);
 				}
 				return null;
 			}
