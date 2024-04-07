@@ -118,8 +118,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
-    this.modData('Learnsets', 'ironvaliant').learnset.sacredsword = ['9L1'];
-    this.modData('Learnsets', 'ironvaliant').learnset.airslash = ['9L1'];
     this.modData('Learnsets', 'wochien').learnset.synthesis = ['9L1'];
     this.modData('Learnsets', 'okidogi').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
@@ -671,6 +669,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'giratina').learnset.draconiccurse = ['9L1'];
 
     // draconicfury 
+    this.modData('Learnsets', 'charizard').learnset.draconicfury = ['9L1'];
     this.modData('Learnsets', 'dragonite').learnset.draconicfury = ['9L1'];
     this.modData('Learnsets', 'salamence').learnset.draconicfury = ['9L1'];
     this.modData('Learnsets', 'rayquaza').learnset.draconicfury = ['9L1'];
