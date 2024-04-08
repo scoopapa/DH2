@@ -261,6 +261,16 @@
 				"role": "Fast Attacker",
 				"movepool": ["Leaf Storm", "Energy Ball", "Psychic", "U-turn"],
 				"teraTypes": ["Grass"]
+			},
+			{
+				"role": "Setup Sweeper",
+				"movepool": ["Giga Drain", "Scald", "Ice Beam", "Nasty Plot", "Recover"],
+				"teraTypes": ["Grass", "Water"]
+			},
+			{
+				"role": "Fast Support",
+				"movepool": ["Giga Drain", "Psychic", "Rapid Spin", "Recover", "Scald", "Ice Beam", "Dazzling Gleam", "U-Turn"],
+				"teraTypes": ["Grass", "Water"]
 			}
     	]
 	},
@@ -429,7 +439,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Recover", "Protect", "Body Slam", "Crunch"],
+                "movepool": ["Recover", "Protect", "Body Slam", "Knock Off", "Stealth Rock"],
                 "teraTypes": ["Fairy", "Ghost", "Dark"]
             }
         ]
@@ -539,7 +549,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Bullet Seed", "Iron Head", "Earth Power", "Supercell Slam", "Moonlight"],
+                "movepool": ["Bullet Seed", "Iron Head", "Earth Power", "Moonlight"],
                 "teraTypes": ["Water", "Fairy"]
             }
         ]

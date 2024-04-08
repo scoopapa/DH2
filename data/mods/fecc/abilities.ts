@@ -559,7 +559,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.runEvent('EatItem', pokemon, null, null, item);
 					console.log(pokemon.item);
 					pokemon.setItem(pokemon.item);
-					this.add('-item', pokemon, pokemon.item, '[silent]');
+					this.add('-item', pokemon, pokemon.item);
 					pokemon.lastItem = '';
 				}
 			}
