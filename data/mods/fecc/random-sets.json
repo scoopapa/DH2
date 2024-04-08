@@ -441,6 +441,11 @@
                 "role": "Bulky Attacker",
                 "movepool": ["Recover", "Protect", "Body Slam", "Knock Off", "Stealth Rock"],
                 "teraTypes": ["Fairy", "Ghost", "Dark"]
+            },
+			{
+                "role": "Tera Blast user",
+                "movepool": ["Tera Blast", "Calm Mind", "Flamethrower", "Recover"],
+                "teraTypes": ["Fairy"]
             }
         ]
     },
