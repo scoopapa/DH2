@@ -556,9 +556,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
 					this.runEvent('EatItem', pokemon, null, null, item);
-					pokemon.setItem(pokemon.lastItem);
+					console.log(pokemon.item);
+					pokemon.setItem(pokemon.item);
+					this.add('-item', pokemon, pokemon.item, '[silent]');
 					pokemon.lastItem = '';
-					this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 				}
 			}
 		},

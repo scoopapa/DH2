@@ -359,11 +359,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(pokemon) {
 			if (!this.boost({def: 2})) return null;
 			pokemon.eatItem(true);
-			if (pokemon.hasAbility('swaloseedlol')) {
+			/*if (pokemon.hasAbility('swaloseedlol')) {
 				pokemon.setItem(pokemon.lastItem);
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Swaloseed-Lol');
-			}
+			}*/
 		},
 	},
 	darkvoid: {
@@ -401,6 +401,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (type === "Bird") type = "???";
 			if (type === "Stellar") type = pokemon.getTypes(false, true)[0];
 			move.type = type;
+		},
+	},
+	terastarstorm: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Teradoof-Stellar') {
+				move.type = 'Stellar';
+				if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+					move.category = 'Physical';
+				}
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.name === 'Teradoof-Stellar') {
+				move.target = 'allAdjacentFoes';
+			}
 		},
 	},
 };

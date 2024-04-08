@@ -245,7 +245,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		canMegaEvo(pokemon: Pokemon) {
 		const species = pokemon.baseSpecies;
 			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
-			console.log(altForme);
+			if(altForme) console.log(altForme);
 			const item = pokemon.getItem();
 			// Mega Rayquaza
 			if (altForme?.isMega && altForme?.requiredMove &&
