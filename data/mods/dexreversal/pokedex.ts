@@ -4770,6 +4770,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 90, def: 40, spa: 40, spd: 80, spe: 75},
 	},
+	poltchageist: {
+		inherit: true,
+		baseStats: {hp: 45, atk: 25, def: 50, spa: 25, spd: 25, spe: 35},
+	},
 	poltchageistartisan: {
 		inherit: true,
 		baseStats: {hp: 45, atk: 25, def: 50, spa: 25, spd: 25, spe: 35},
