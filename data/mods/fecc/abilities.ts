@@ -373,6 +373,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Second Phase",
 		//shortDesc: "Changes to Zygarb-Reclyced at 0 or less HP and fully heals user.",
 	},

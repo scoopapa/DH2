@@ -1634,11 +1634,11 @@ export class RandomTeams {
 		//the funny
 		if (species.baseSpecies === 'Kyuwear') {
 			evs.hp = 248;
-			evs.atk = 252;
+			evs.atk = 8;
 			ivs.atk = 31;
 			evs.def = 0;
 			evs.spa = 0;
-			evs.spd = 8;
+			evs.spd = 252;
 			evs.spe = 0;
 		}
 

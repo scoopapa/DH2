@@ -1,6 +1,6 @@
 {
 	"kyuwear": {
-        "level": 250,
+        "level": 200,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -709,7 +709,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bulk Up", "Dual Wingbeat", "Drain Punch", "Earthquake", "Roost"],
+                "movepool": ["Bulk Up", "Dual Wingbeat", "Drain Punch", "Roost"],
                 "teraTypes": ["Steel", "Electric", "Ground"]
             }
         ]
