@@ -150,7 +150,7 @@
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Nasty Plot", "Mystical Power", "Psychic Noise", "Psyshock", "Hurricane", "Flamethrower", "Energy Ball", "Roost", "Dazzling Gleam"],
-                "teraTypes": ["Steel", "Psychic", "Fairy", "Stellar"]
+                "teraTypes": ["Fire", "Steel", "Psychic", "Fairy", "Stellar"]
             }
         ]
     },
@@ -159,7 +159,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["After You", "Mud-Slap", "Snore", "String Shot", "Struggle Bug", "Final Gambit"],
+                "movepool": ["Toxic", "Stealth Rock", "Infestation", "Final Gambit"],
                 "teraTypes": ["Ghost"]
             }
         ]
@@ -1076,7 +1076,7 @@
                 "role": "Bulky Support",
                 "movepool": ["Shadow Claw", "Play Rough", "Thunder Wave", "Taunt", "Curse", "Thunder Wave", "Shadow Sneak"],
                 "teraTypes": ["Ghost", "Fairy"]
-            },
+            }
         ]
     },
 	"goku": {
