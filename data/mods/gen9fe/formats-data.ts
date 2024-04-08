@@ -638,6 +638,38 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
+	magnegiri: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	celeblim: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	tentazor: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	tentazormega: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	golegonalola: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	maractorustherian: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	necroqueen: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	mrheat: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -709,6 +741,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	kabeepy: {
 		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	tentather: {
+		tier: "FENFE",
+		doublesTier: "DOU",
+	},
+	geopinchalola: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	vibraveleralola: {
+		tier: "FENFE",
 		doublesTier: "DOU",
 	},
 };
