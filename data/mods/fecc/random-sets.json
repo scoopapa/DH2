@@ -928,7 +928,7 @@
                 "teraTypes": ["Grass", "Flying"]
             },
 			{
-                "role": "Bulky Setup",
+                "role": "Setup Sweeper",
                 "movepool": ["Fire Blast", "Flash Cannon", "Nasty Plot", "Thunderbolt"],
                 "teraTypes": ["Grass", "Electric"]
             },
