@@ -4,7 +4,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Scald", "Double-Edge", "Rest", "Sleep Talk"],
+                "movepool": ["Scald", "Knock Off", "Rest", "Sleep Talk"],
                 "teraTypes": ["Water"]
             },
             {
