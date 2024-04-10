@@ -3211,6 +3211,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (attacked > 0) {
 				this.effectState.fallen = attacked > 5 ? 5 : attacked;
 				this.add('-start', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+			} else {
+				this.effectState.fallen = 0;
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
