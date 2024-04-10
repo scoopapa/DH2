@@ -555,7 +555,7 @@
         ]
     },
 	"pechagiri": {
-        "level": 85,
+        "level": 81,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -620,6 +620,16 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Stealth Rock", "Body Slam", "Strength Sap", "Poltergeist"],
+                "teraTypes": ["Ground", "Electric"]
+            },
+			{
+                "role": "Tera Blast user",
+                "movepool": ["Calm Mind", "Strength Sap", "Shadow Ball", "Tera Blast"],
+                "teraTypes": ["Fighting", "Fairy"]
+            },
+			{
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind", "Strength Sap", "Thunderbolt", "Ice Beam"],
                 "teraTypes": ["Ground", "Electric"]
             }
         ]
@@ -1095,7 +1105,7 @@
         ]
     },
 	"tipplin": {
-        "level": 97,
+        "level": 87,
         "sets": [
             {
                 "role": "Fast Attacker",
