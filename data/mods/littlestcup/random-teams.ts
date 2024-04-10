@@ -2439,7 +2439,7 @@ export class RandomTeams {
 			const happiness = this.random(256);
 
 			// Random shininess
-			const shiny = this.randomChance(1, 1024);
+			const shiny = this.randomChance(1, 100);
 
 			const set: PokemonSet = {
 				name: species.baseSpecies,
