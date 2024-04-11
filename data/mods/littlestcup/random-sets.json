@@ -4,7 +4,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Scald", "Double-Edge", "Rest", "Sleep Talk"],
+                "movepool": ["Scald", "Knock Off", "Rest", "Sleep Talk"],
                 "teraTypes": ["Water"]
             },
             {
@@ -159,12 +159,12 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Volt Tackle", "Surf", "Hidden Power Psychic", "Volt Switch"],
+                "movepool": ["Volt Tackle", "Surf", "Signal Beam", "Volt Switch"],
                 "teraTypes": ["Electric"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Thunderbolt", "Surf", "Hidden Power Psychic", "Nasty Plot"],
+                "movepool": ["Thunderbolt", "Surf", "Signal Beam", "Nasty Plot"],
                 "teraTypes": ["Water"]
             }
         ]

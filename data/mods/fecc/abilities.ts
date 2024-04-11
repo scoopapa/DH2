@@ -373,6 +373,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(pokemon.baseMaxhp, pokemon);
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Second Phase",
 		//shortDesc: "Changes to Zygarb-Reclyced at 0 or less HP and fully heals user.",
 	},
@@ -556,9 +557,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.ate = true;
 					this.add('-message', `${pokemon.name} swallowed!`);
 					this.runEvent('EatItem', pokemon, null, null, item);
-					pokemon.setItem(pokemon.lastItem);
+					console.log(pokemon.item);
+					pokemon.setItem(pokemon.item);
+					this.add('-item', pokemon, pokemon.item);
 					pokemon.lastItem = '';
-					this.add('-item', pokemon, pokemon.getItem(), '[silent]');
 				}
 			}
 		},

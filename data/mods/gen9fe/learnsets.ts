@@ -12144,7 +12144,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wrap: ["9L1"],
 		},
 	},
-	geopinchundefined: {
+	geopinchalola: {
 		learnset: {
 			astonish: ["9L1"],
 			bite: ["9L1"],
@@ -12224,7 +12224,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zapcannon: ["9L1"],
 		},
 	},
-	vibravelerundefined: {
+	vibraveleralola: {
 		learnset: {
 			aerialace: ["9L1"],
 			aircutter: ["9L1"],
@@ -12333,7 +12333,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zapcannon: ["9L1"],
 		},
 	},
-	golegonundefined: {
+	golegonalola: {
 		learnset: {
 			aerialace: ["9L1"],
 			agility: ["9L1"],
