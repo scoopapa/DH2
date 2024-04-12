@@ -2760,6 +2760,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			scaleshot: ["9T"],
 			flipturn: ["9T"],
 			seajaws: ["9T"],
+			roguewave: ["9M"],
 		},
 	},
 	mercurino: {
@@ -5778,6 +5779,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			flipturn: ["9M"],
 			suckerpunch: ["9M"],
 			slackoff: ["9M"],
+			roguewave: ["9M"],
+			wavecrash: ["9M"],
 		},
 	},
 	annoyog: {
@@ -5875,7 +5878,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	meltic: {
 		learnset: {
 			flipturn: ["9L1"],
-			wavecrash: ["9L1"],
 			freezedry: ["9L1"],
 		},
 	},

@@ -2227,22 +2227,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "100% chance to raise the user's Speed by 1 stage. Raise crit ratio by 2 stages. Target: 50% -1 Defense.",
 		shortDesc: "100% chance to +1 Speed; +2 crit ratio; -1 Def to target.",
 	},
-	wavecrash: {
-		num: 834,
-		accuracy: 100,
-		basePower: 75,
-		category: "Physical",
-		name: "Wave Crash",
-		shortDesc: "Has 33% recoil. Usually goes first.",
-		pp: 10,
-		priority: 1,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		recoil: [1, 3],
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Cool",
-	},
 	direclaw: {
 		num: 827,
 		accuracy: 100,
@@ -3339,6 +3323,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	axekick: {
 		inherit: true,
 		type: "Dark",
+		shortDesc: "30% confusion. User loses 50% max HP if miss. Ignores the target's ability.",
+		ignoreAbility: true,
 	},
 	ragingbull: {
 		inherit: true,
@@ -3496,9 +3482,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		shortDesc: "Damages the target by 1/8 max HP per turn if target is Water or Steel type.",
 	},
-	malignantchain: {
-		inherit: true,
-		isNonstandard: null,
+	roguewave: {
+		num: -61,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Rogue Wave",
+		shortDesc: "Has 33% recoil. Usually goes first.",
+		pp: 10,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 3],
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
 	},
 
 	// Endless Dream field
