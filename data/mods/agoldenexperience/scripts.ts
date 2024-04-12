@@ -148,7 +148,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'kabutops').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'azumarill').learnset.wavecrash = ['9L1'];
-    this.modData('Learnsets', 'sharpedo').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'walrein').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'carracosta').learnset.wavecrash = ['9L1'];
 
@@ -313,6 +312,17 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'arctovish').learnset.seajaws = ['9L1'];
     this.modData('Learnsets', 'huntail').learnset.seajaws = ['9L1'];
     this.modData('Learnsets', 'relicanth').learnset.seajaws = ['9L1'];
+
+    // roguewave 
+    this.modData('Learnsets', 'basculegion').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'basculegionf').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'floatzel').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'basculin').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'sharpedo').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'azumarill').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'kingdra').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'quaquaval').learnset.roguewave = ['9L1'];
+    this.modData('Learnsets', 'dhelmise').learnset.roguewave = ['9L1'];
 
     // parallelcircuit 
     this.modData('Learnsets', 'ironhands').learnset.parallelcircuit = ['9L1'];
