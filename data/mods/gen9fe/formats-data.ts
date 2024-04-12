@@ -6,7 +6,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	varantis: {
-		tier: "FEOU",
+		tier: "FEUUBL",
 		doublesTier: "NFE",
 		randomBattleMoves: ["ironhead", "leafblade", "gunkshot", "partingshot"],
 		randomBattleLevel: 78,
@@ -651,7 +651,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	tentazormega: {
-		tier: "FEUU",
+		tier: "FEUUBL",
 		doublesTier: "DOU",
 	},
 	golegonalola: {
