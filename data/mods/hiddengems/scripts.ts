@@ -27,5 +27,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "necrozma").learnset.breakingswipe = ["9L1"];
 		this.modData("Learnsets", "necrozma").learnset.dragonclaw = ["9L1"];
 		this.modData("Learnsets", "necrozma").learnset.dragonbreath = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "alcremie").learnset.flashcannon = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.leafstorm = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "whimsicott").learnset.knockoff = ["9L1"];
 	},
 };
