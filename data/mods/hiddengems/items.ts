@@ -45,6 +45,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Dark' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Lycanroc' && ['Midnight'].includes(source.species.forme)) {
+				  source.addVolatile('darkgem');
+        		}
 			}
 		},
 		num: 562,
@@ -95,6 +98,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Fairy' && source.useItem()) {
 				source.addVolatile('gem');
+	        	if (source.baseSpecies.baseSpecies === 'Whimsicott') {
+				  source.addVolatile('fairygem');
+        		}
 			}
 		},
 		num: 715,
@@ -307,6 +313,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Steel' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Alcremie') {
+				  source.addVolatile('steelgem');
+        		}
 			}
 		},
 		num: 563,
