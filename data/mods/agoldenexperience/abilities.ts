@@ -2282,7 +2282,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
 			if (!target) return;
 			if (!action.move.spreadHit && target.hp && target.hp <= target.maxhp / 2) {
-				pokemon.addVolatile('coupdegrass');
+				pokemon.addVolatile('quickdraw');
 			}
 		},
 		condition: {

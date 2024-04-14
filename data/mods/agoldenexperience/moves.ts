@@ -5,6 +5,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Tentacatch",
+		shortDesc: "Traps and damages the target for 4-5 turns. Lowers the target's Atk by 1 stage.",
 		desc: "Traps and damages the target for 4-5 turns. Lowers the target's Atk by 1 stage.",
 		pp: 20,
 		priority: 0,
@@ -997,12 +998,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target) {
-			if (target.getAbility().isPermanent) return;
+			if (target.getAbility().flags['cantsuppress']) return;
 			if (target.newlySwitched || this.queue.willMove(target)) return;
 			target.addVolatile('gastroacid');
 		},
 		onAfterSubDamage(damage, target) {
-			if (target.getAbility().isPermanent) return;
+			if (target.getAbility().flags['cantsuppress']) return;
 			if (target.newlySwitched || this.queue.willMove(target)) return;
 			target.addVolatile('gastroacid');
 		},
@@ -1267,7 +1268,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHitField() {
             let success = false;
             for (const pokemon of this.getAllActive()) {
-                if (pokemon.ability === 'truant' || pokemon.ability === 'contrary' || pokemon.getAbility().isPermanent) continue;
+                if (pokemon.ability === 'truant' || pokemon.ability === 'contrary' || pokemon.getAbility().flags['cantsuppress']) continue;
                 const oldAbility = pokemon.setAbility('contrary');
                 if (oldAbility) this.add('-ability', pokemon, 'Contrary', '[from] move: Contrary');
                 success = true;
