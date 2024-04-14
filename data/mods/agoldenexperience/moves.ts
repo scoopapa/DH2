@@ -2664,21 +2664,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	snipeshot: {
-		num: 745,
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		name: "Snipe Shot",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		inherit: true,
 		willCrit: true,
-		tracksTarget: true,
-		secondary: null,
 		shortDesc: "Always results in a critical hit. Cannot be redirected.",
 		desc: "Always results in a critical hit. Cannot be redirected.",
-		target: "normal",
-		type: "Water",
 	},
 	lightningassault: {
 		num: -45,
@@ -3054,58 +3043,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 	},
 	junglehealing: {
-		num: 816,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Jungle Healing",
-		pp: 10,
-		priority: 0,
-		flags: {heal: 1, bypasssub: 1, allyanim: 1},
+		inherit: true,
 		onHit(pokemon) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
 			return pokemon.cureStatus() || success;
 		},
-		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
-		secondary: null,
-		target: "allies",
-		type: "Grass",
 	},
 	lifedew: {
-		num: 791,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Life Dew",
-		pp: 10,
-		priority: 0,
-		flags: {snatch: 1, heal: 1, bypasssub: 1},
+		inherit: true,
 		onHit(pokemon) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
 			return pokemon.cureStatus() || success;
 		},
-		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
-		secondary: null,
-		target: "allies",
-		type: "Water",
 	},
 	lunarblessing: {
-		num: 849,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Lunar Blessing",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, heal: 1},
+		inherit: true,
 		onHit(pokemon) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
 			return pokemon.cureStatus() || success;
 		},
 		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
-		secondary: null,
-		target: "allies",
-		type: "Psychic",
 	},
 	monkeybusiness: {
 		num: -56,
@@ -3270,7 +3227,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},
 	},
-	//Gen 9
 	grassyglide: {
 		inherit: true,
 		basePower: 70,
@@ -3304,21 +3260,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 	},
 	bleakwindstorm: {
-		num: 846,
-		accuracy: 80,
-		basePower: 100,
-		category: "Special",
-		name: "Bleakwind Storm",
+		inherit: true,
 		shortDesc: "20% chance to freeze foe(s).",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 20,
 			status: 'frz',
 		},
-		target: "allAdjacentFoes",
-		type: "Flying",
 	},
 	axekick: {
 		inherit: true,
@@ -3340,15 +3287,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1},
 	},
 	tidyup: {
-		num: 882,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Tidy Up",
+		inherit: true,
 		shortDesc: "User +1 Atk, Spe, Acc. Clears all substitutes/hazards on user's side.",
-		pp: 10,
-		priority: 0,
-		flags: {},
 		onHit(pokemon) {
 			let success = false;
 			for (const active of this.getAllActive()) {
@@ -3367,9 +3307,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
 			return !!this.boost({atk: 1, spe: 1, accuracy: 1}, pokemon, pokemon, null, false, true) || success;
 		},
-		secondary: null,
-		target: "self",
-		type: "Normal",
 	},
 	hyperdrill: {
 		inherit: true,
@@ -3382,42 +3319,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	lastrespects: {
-		num: 854,
-		accuracy: 100,
-		basePower: 50,
+		inherit: true,
 		basePowerCallback(pokemon, target, move) {
 			return 50 + 15 * pokemon.side.totalFainted + 15 * target.side.totalFainted;
 		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
-		category: "Physical",
-		name: "Last Respects",
 		shortDesc: "+15 power for each time a Pokemon fainted. Special if user's SpA > Atk.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
 	},
 	ragefist: {
-		num: 889,
-		accuracy: 100,
-		basePower: 50,
+		inherit: true,
 		basePowerCallback(pokemon) {
 			return Math.min(200, 50 + 25 * pokemon.timesAttacked);
 		},
-		category: "Physical",
-		name: "Rage Fist",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
 		desc: "Power increases by 25 for each time the user was hit this turn. Max 6 hits.",
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
 	},
 	gigatonhammer: {
 		inherit: true,
