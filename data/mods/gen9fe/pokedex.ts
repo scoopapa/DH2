@@ -1180,7 +1180,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Necroqueen",
 		gender: "F",
 		types: ["Poison", "Psychic"],
-		baseStats: {hp: 97, atk: 101, def: 97, spa: 103, spd: 89, spe: 79}, 
+		baseStats: {hp: 101, atk: 101, def: 97, spa: 103, spd: 89, spe: 79}, 
 		abilities: {0: "Shear Strength"}, 
 		weightkg: 145,
 	 },
