@@ -3778,6 +3778,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			workup: ["7M", "5M"],
 			zenheadbutt: ["7T", "6T"],
 			railwaysmash: ["9L1"],
+			shiftgear: ["9L1"],
 		},
 	},
 	houndourgalar: {
