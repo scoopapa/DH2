@@ -819,7 +819,7 @@
             },
 			{
                 "role": "Bulky Support",
-                "movepool": ["Lunge", "Knock Off", "Foul Play", "Poison Jab", "Toxic", "Haze" "Roost"],
+                "movepool": ["Lunge", "Knock Off", "Foul Play", "Poison Jab", "Toxic", "Haze", "Roost"],
                 "teraTypes": ["Poison"]
             }
         ]
