@@ -240,7 +240,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pikachustarter: {
 		isNonstandard: "LGPE",
-		tier: "RevDex",
+		tier: "Illegal",
 	},
 	pikachugmax: {
 		isNonstandard: "Past",
@@ -1052,7 +1052,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	eeveestarter: {
 		isNonstandard: "LGPE",
-		tier: "RevDex",
+		tier: "Illegal",
 	},
 	eeveegmax: {
 		isNonstandard: "Past",
@@ -3804,7 +3804,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	floetteeternal: {
 		isNonstandard: "Past",
-		tier: "RevDex",
+		tier: "Illegal",
 	},
 	florges: {
 		tier: "RevDex",
