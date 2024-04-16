@@ -2411,6 +2411,74 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
 	},
+	arceusbug: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusdark: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusdragon: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceuselectric: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusfairy: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusfighting: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusfire: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusflying: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusghost: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusgrass: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusground: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusice: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceuspoison: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceuspsychic: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceusrock: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceussteel: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
+	arceuswater: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 85, spa: 40, spd: 50, spe: 40},
+	},
 	victini: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 80, def: 55, spa: 25, spd: 35, spe: 35},
@@ -3716,6 +3784,74 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 85, def: 65, spa: 105, spd: 85, spe: 120},
 	},
 	silvally: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallybug: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallydark: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallydragon: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyelectric: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyfairy: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyfighting: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyfire: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyflying: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyghost: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallygrass: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyground: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyice: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallypoison: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallypsychic: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallyrock: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallysteel: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
+	},
+	silvallywater: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 65, def: 45, spa: 85, spd: 65, spe: 95},
 	},
