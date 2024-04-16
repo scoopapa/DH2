@@ -1195,7 +1195,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	mewtwo: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -1522,7 +1522,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "UUBL",
 	},
 	sneasler: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "(DUU)",
 		natDexTier: "OU",
 	},
@@ -1540,7 +1540,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	ursalunabloodmoon: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -1640,7 +1640,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	smeargle: {
-		tier: "Uber",
+		tier: "Illegal",
 		doublesTier: "DUU",
 		natDexTier: "Uber",
 	},
@@ -1681,12 +1681,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "UU",
 	},
 	lugia: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	hooh: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -2419,7 +2419,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "UU",
 	},
 	kyogre: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -2429,7 +2429,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	groudon: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -2439,7 +2439,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	rayquaza: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -2454,12 +2454,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RUBL",
 	},
 	deoxys: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
 	deoxysattack: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -2819,22 +2819,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	dialga: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	dialgaorigin: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	palkia: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	palkiaorigin: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -2849,12 +2849,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	giratina: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	giratinaorigin: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -2884,12 +2884,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	shayminsky: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "(DUU)",
 		natDexTier: "OU",
 	},
 	arceus: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -3648,17 +3648,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "UU",
 	},
 	reshiram: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	zekrom: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	landorus: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -3673,12 +3673,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "UUBL",
 	},
 	kyuremblack: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	kyuremwhite: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -4549,12 +4549,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RevDex",
 	},
 	solgaleo: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	lunala: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -4599,12 +4599,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	necrozmaduskmane: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	necrozmadawnwings: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -4614,7 +4614,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	magearna: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -5057,12 +5057,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	zacian: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	zaciancrowned: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -5072,29 +5072,29 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	zamazentacrowned: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	eternatus: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	eternatuseternamax: {
 		isNonstandard: "Past",
-		tier: "RevDex",
+		tier: "Illegal",
 	},
 	kubfu: {
 		tier: "RevDex",
 	},
 	urshifu: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	urshifurapidstrike: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -5112,7 +5112,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	regieleki: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -5127,7 +5127,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	spectrier: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "(DUU)",
 		natDexTier: "OU",
 	},
@@ -5137,12 +5137,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	calyrexice: {
-		tier: "Uber",
+		tier: "Illegal",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
 	calyrexshadow: {
-		tier: "AG",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -5240,7 +5240,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RevDex",
 	},
 	espathra: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "(DUU)",
 		natDexTier: "OU",
 	},
@@ -5266,7 +5266,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RevDex",
 	},
 	palafin: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -5333,7 +5333,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RevDex",
 	},
 	baxcalibur: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -5471,7 +5471,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	fluttermane: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -5511,7 +5511,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	ironbundle: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -5526,7 +5526,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "UU",
 	},
 	chienpao: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -5536,17 +5536,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	chiyu: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	koraidon: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "AG",
 	},
 	miraidon: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "AG",
 	},
@@ -5595,7 +5595,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	annihilape: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
@@ -5643,7 +5643,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	ogerponhearthflame: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -5683,7 +5683,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	terapagos: {
-		tier: "Uber",
+		tier: "RevDex",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
