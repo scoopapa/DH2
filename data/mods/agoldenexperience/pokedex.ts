@@ -346,11 +346,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	voltorb: {
 		inherit: true,
+		baseStats: {hp: 40, atk: 55, def: 50, spa: 30, spd: 55, spe: 100},
 		abilities: {0: "Soundproof", 1: "Explosive", H: "Aftermath"},
 	},
 	voltorbhisui: {
 		inherit: true,
-		abilities: {0: "Soundproof", 1: "Deadly Blasts", H: "Aftermath"},
+		abilities: {0: "Soundproof", 1: "Explosive", H: "Aftermath"},
 	},
 	electrode: {
 		inherit: true,
@@ -359,7 +360,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	electrodehisui: {
 		inherit: true,
-		abilities: {0: "Soundproof", 1: "Deadly Blasts", H: "Aftermath"},
+		abilities: {0: "Soundproof", 1: "Explosive", H: "Aftermath"},
 	},
 	exeggcute: {
 		inherit: true,
