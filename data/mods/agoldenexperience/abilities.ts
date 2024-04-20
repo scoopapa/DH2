@@ -834,13 +834,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Inflicts Yawn and Leech Seed on KO.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			console.log('Source: ' + source + ' Target: ' + target + ' Move: ' + move + ' Damage: ' + damage);
 			if (!target.hp) {
-				if (!target.status && target.runStatusImmunity('slp')) {
-					target.addVolatile('yawn');
+				if (!source.status && !source.runStatusImmunity('slp')) {
+					source.addVolatile('yawn');
 				}
-				if (!(target.hasType('Grass'))) {
-					target.addVolatile('leechseed', source);
+				if (!(source.hasType('Grass'))) {
+					source.addVolatile('leechseed', source);
 				}
 			}
 		},
