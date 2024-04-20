@@ -2166,7 +2166,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	genesectdouse: {
 		inherit: true,
 		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 109},
-		abilities: {0: "Hydrophilic"},
+		abilities: {0: "Water Absorb"},
 	},
 	genesectshock: {
 		inherit: true,
@@ -2176,7 +2176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	genesectburn: {
 		inherit: true,
 		baseStats: {hp: 81, atk: 115, def: 110, spa: 115, spd: 110, spe: 99},
-		abilities: {0: "Heatproof"},
+		abilities: {0: "Flash Fire"},
 	},
 	genesectchill: {
 		inherit: true,

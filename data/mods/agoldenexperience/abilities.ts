@@ -834,7 +834,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Inflicts Yawn and Leech Seed on KO.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact'] && !target.hp) {
+			console.log('Source: ' + source + ' Target: ' + target + ' Move: ' + move + ' Damage: ' + damage);
+			if (!target.hp) {
 				if (!target.status && target.runStatusImmunity('slp')) {
 					target.addVolatile('yawn');
 				}
@@ -1343,23 +1344,45 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -61,
 	},
 	hydrophilic: {
-		onModifyAtkPriority: 5,
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Water') {
-				this.debug('Hydrophilic boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
-		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Water') {
-				this.debug('Hydrophilic boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Bubble');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Bubble');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
 		name: "Hydrophilic",
-		desc: "This user's attacking stat is x1.5 when using a Water type move.",
-		shortDesc: "Attacking stat x1.5 when using a Water type move.",
+		desc: "This Pokemon's offensive stat is doubled while using a Water-type attack. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be burned. Gaining this Ability while burned cures it.",
+		shortDesc: "This Pokemon's Water power is 2x; it can't be burned; Fire power against it is halved.",
 		rating: 3.5,
 		num: -62,
 	},
@@ -1385,7 +1408,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Pokemon making contact with this Pokemon have their Ability changed to Mummy.",
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
-			if (sourceAbility.isPermanent || sourceAbility.id === 'virality') {
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'virality') {
 				return;
 			}
 			if (move.flags['contact']) {
@@ -2460,13 +2483,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.3);
 			}
 		},
-	},
-	snowwarning: {
-		inherit: true,
-		onStart(source) {
-			this.field.setWeather('hail');
-		},
-		rating: 4,
 	},
 	protean: {
 		inherit: true,
