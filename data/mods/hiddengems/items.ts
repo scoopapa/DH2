@@ -45,6 +45,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Dark' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Lycanroc' && ['Midnight'].includes(source.species.forme)) {
+				  source.addVolatile('darkgem');
+        		}
 			}
 		},
 		num: 562,
@@ -95,6 +98,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Fairy' && source.useItem()) {
 				source.addVolatile('gem');
+	        	if (source.baseSpecies.baseSpecies === 'Whimsicott') {
+				  source.addVolatile('fairygem');
+        		}
+        		if (source.baseSpecies.baseSpecies === 'Meganium') {
+				  source.addVolatile('grassstartergem');
+        		}
 			}
 		},
 		num: 715,
@@ -147,6 +156,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				source.addVolatile('gem');
         		if (source.baseSpecies.baseSpecies === 'Electivire') {
 				  source.addVolatile('flyinggem');
+        		}
+        		if (source.baseSpecies.baseSpecies === 'Infernape') {
+				  source.addVolatile('firestartergem');
         		}
 			}
 		},
@@ -307,6 +319,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Steel' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Alcremie') {
+				  source.addVolatile('steelgem');
+        		}
+        		if (source.baseSpecies.baseSpecies === 'Blastoise') {
+				  source.addVolatile('waterstartergem');
+        		}
 			}
 		},
 		num: 563,
@@ -340,6 +358,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type !== '???' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Terapagos') {
+				  source.addVolatile('stellargem');
+        		}
 			}
 		},
 		itemUser: ["Terapagos", "Terapagos-Terastal"],

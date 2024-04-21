@@ -346,11 +346,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	voltorb: {
 		inherit: true,
+		baseStats: {hp: 40, atk: 55, def: 50, spa: 30, spd: 55, spe: 100},
 		abilities: {0: "Soundproof", 1: "Explosive", H: "Aftermath"},
 	},
 	voltorbhisui: {
 		inherit: true,
-		abilities: {0: "Soundproof", 1: "Deadly Blasts", H: "Aftermath"},
+		abilities: {0: "Soundproof", 1: "Explosive", H: "Aftermath"},
 	},
 	electrode: {
 		inherit: true,
@@ -359,7 +360,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	electrodehisui: {
 		inherit: true,
-		abilities: {0: "Soundproof", 1: "Deadly Blasts", H: "Aftermath"},
+		abilities: {0: "Soundproof", 1: "Explosive", H: "Aftermath"},
 	},
 	exeggcute: {
 		inherit: true,
@@ -688,7 +689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	politoed: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 75, def: 90, spa: 100, spd: 100, spe: 60},
+		baseStats: {hp: 90, atk: 75, def: 90, spa: 90, spd: 100, spe: 70},
 	},
 	jumpluff: {
 		inherit: true,
@@ -918,8 +919,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 70, atk: 135, def: 75, spa: 120, spd: 85, spe: 145},
 		abilities: {0: "Sharpness"},
 	},
+	torchic: {
+		inherit: true,
+		baseStats: {hp: 45, atk: 60, def: 40, spa: 50, spd: 50, spe: 65},
+		abilities: {0: "Blaze", H: "Striker"},
+	},
+	combusken: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 85, def: 60, spa: 65, spd: 60, spe: 75},
+		abilities: {0: "Blaze", H: "Striker"},
+	},
 	blaziken: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 90, spd: 70, spe: 100},
 		abilities: {0: "Blaze", H: "Striker"},
 	},
 	blazikenmega: {
@@ -1378,6 +1390,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Bulletproof", H: "Soundproof"},
 	},
+	burmy: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1:"Filter", H: "Overcoat"},
+	},
 	wormadam: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 59, def: 90, spa: 79, spd: 116, spe: 36},
@@ -1541,10 +1557,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	mamoswine: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 130, def: 80, spa: 60, spd: 60, spe: 90},
-	},
-	gallade: {
-		inherit: true,
-		abilities: {0: "Steadfast", 1: "Sharpness", H: "Justified"},
 	},
 	gallademega: {
 		inherit: true,
@@ -1804,7 +1816,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	zebstrika: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 60, spa: 70, spd: 60, spe: 122},
-		abilities: {0: "Illuminate", 1: "Dodge", H: "Sap Sipper"},
+		abilities: {0: "Illuminate", 1: "Motor Drive", H: "Sap Sipper"},
 	},
 	roggenrola: {
 		inherit: true,
@@ -2162,7 +2174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	genesectdouse: {
 		inherit: true,
 		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 109},
-		abilities: {0: "Hydrophilic"},
+		abilities: {0: "Water Absorb"},
 	},
 	genesectshock: {
 		inherit: true,
@@ -2172,7 +2184,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	genesectburn: {
 		inherit: true,
 		baseStats: {hp: 81, atk: 115, def: 110, spa: 115, spd: 110, spe: 99},
-		abilities: {0: "Heatproof"},
+		abilities: {0: "Flash Fire"},
 	},
 	genesectchill: {
 		inherit: true,
@@ -2390,7 +2402,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Sinnoh",
         types: ["Ice", "Flying"],
         baseStats: {hp: 40, atk: 30, def: 35, spa: 45, spd: 40, spe: 55},
-        abilities: {0: "Levitate", H: "Fluffy"},
+        abilities: {0: "Levitate", H: "Sonar"},
         heightm: 0.5,
         weightkg: 9,
         evos: ["Noivern-Sinnoh"],
@@ -3183,11 +3195,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	calyrexice: {
 		inherit: true,
 		types: ["Grass", "Ice"],
-		// requiredItem: "Ice Mane",
+		requiredItem: "Ice Mane",
 	},
 	calyrexshadow: {
 		inherit: true,
-		// requiredItem: "Phantom Mane",
+		requiredItem: "Phantom Mane",
 	},
 	wyrdeer: {
 		inherit: true,
@@ -3243,7 +3255,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	charcadet: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Scrappy", H: "Flame Body"},
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Flame Body"},
 	},
 	armarouge: {
 		inherit: true,
@@ -3377,7 +3389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	ironvaliant: {
 		inherit: true,
-		abilities: {0: "Quark Drive", H: "Sharpness"},
+		abilities: {0: "Quark Drive", H: "Trace"},
 	},
 	koraidon: {
 		inherit: true,
