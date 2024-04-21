@@ -35,5 +35,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "whimsicott").learnset.defog = ["9L1"];
 		this.modData("Learnsets", "whimsicott").learnset.healbell = ["9L1"];
 		this.modData("Learnsets", "whimsicott").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.dragondance = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.playrough = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.alluringvoice = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.storedpower = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.psychic = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "meganium").learnset.growth = ["9L1"];
+		this.modData("Learnsets", "infernape").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "blastoise").learnset.moonlight = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.nightshade = ["9L1"];
+		this.modData("Learnsets", "terapagos").learnset.sludgebomb = ["9L1"];
 	},
 };
