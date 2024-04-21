@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
         excludeStandardTiers: true,
-        customTiers: ['FEOU', 'FEUU', 'FENFE', 'FELC'],
+        customTiers: ['FEOU', 'FEUUBL', 'FEUU', 'FENFE', 'FELC'],
 	},
 	actions: {
 		inherit: true,
@@ -43,6 +43,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				case "Chomptry":
 					if (item.name === "Garchompite") {
 						return "Chomptry-Mega";
+					}
+					break;
+				case "Tentazor":
+					if (item.name === "Scizorite") {
+						return "Tentazor-Mega";
 					}
 					break;
 			}
@@ -500,7 +505,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol'])) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
 			if ('magnetrise' in this.volatiles/*) return false;

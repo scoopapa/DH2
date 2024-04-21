@@ -204,11 +204,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Druddizor",
 		itemUser: ["Druddizor"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if ([item.megaEvolves,"Tentazor"].includes(source.baseSpecies.baseSpecies)) return false;
 			return true;
 		},
 		num: 670,
-		desc: "If held by a Druddizor, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Tentazor, this item allows it to Mega Evolve in battle.",
 	},
 	
 	jabocaberry: {
