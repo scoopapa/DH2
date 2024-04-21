@@ -298,4 +298,74 @@ export const Conditions: {[k: string]: ConditionData} = {
       	this.boost({def: 1, spa: 2}, source);
 		},
 	},
+	stellargem: {
+		name: 'stellargem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('terashimmer', source, true);
+	      this.add('-activate', source, 'ability: Tera Shimmer');
+      	this.boost({def: 1, spd: 1}, source);
+		},
+	},
+	firestartergem: {
+		name: 'firestartergem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.firestarterGem) return;
+			this.effectState.firestarterGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('unburden', source, true);
+      	this.boost({def: 1}, source);
+			source.addVolatile('gmaxchistrike');
+			this.actions.useMove("Hidden Gem Flying 2", source, source);
+			source.addVolatile('fireflying');
+		},
+	},
+	fireflying: {
+		name: 'fireflying',
+		noCopy: true,
+		onStart(target) {
+			this.add('-start', target, 'fireflying');
+	      this.add('-message', `${target.name} is now Fire/Flying!`);
+		},
+	},
+	waterstartergem: {
+		name: 'waterstartergem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.waterstarterGem) return;
+			this.effectState.waterstarterGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('dualdish', source, true);
+	      this.add('-activate', source, 'ability: Dual Dish');
+      	this.boost({def: 1, spd: 1}, source);
+			this.actions.useMove("Hidden Gem Steel", source, source);
+		},
+	},
+	grassstartergem: {
+		name: 'grassstartergem',
+		duration: 1,
+		affectsFainted: true,
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (this.effectState.grassstarterGem) return;
+			this.effectState.grassstarterGem = true;
+			this.add('-anim', source, "Cosmic Power", source);
+	      this.add('-message', `${source.name}'s Hidden Gem activated!`);
+	      source.setAbility('oblivious', source, true);
+	      this.add('-activate', source, 'ability: Oblivious');
+      	this.boost({atk: 2, spd: 1}, source);
+			this.actions.useMove("Hidden Gem Fairy", source, source);
+		},
+	},
 };
