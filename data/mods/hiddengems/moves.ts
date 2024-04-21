@@ -395,4 +395,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
+	hiddengemflying2: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hidden Gem Flying 2",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(target) {
+			const targetType = target.types[1]
+			if (target.hasType('Flying')) return false;
+			if (!target.addType('Flying')) return false;
+			target.setType(target.getTypes(true).map(type => type === targetType ? "Flying" : type));
+		},
+		secondary: null,
+		noSketch: true,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
 };
