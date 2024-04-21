@@ -101,7 +101,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	        	if (source.baseSpecies.baseSpecies === 'Whimsicott') {
 				  source.addVolatile('fairygem');
         		}
-        		if (source.baseSpecies.baseSpecies === 'Blastoise') {
+        		if (source.baseSpecies.baseSpecies === 'Meganium') {
 				  source.addVolatile('grassstartergem');
         		}
 			}
@@ -157,7 +157,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		if (source.baseSpecies.baseSpecies === 'Electivire') {
 				  source.addVolatile('flyinggem');
         		}
-        		if (source.baseSpecies.baseSpecies === 'Blastoise') {
+        		if (source.baseSpecies.baseSpecies === 'Infernape') {
 				  source.addVolatile('firestartergem');
         		}
 			}
