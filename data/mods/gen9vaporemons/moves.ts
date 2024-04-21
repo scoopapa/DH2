@@ -1125,7 +1125,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	echochamber: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 	   shortDesc: "1.5x power if a sound move was used last turn.",
 		name: "Echo Chamber",
