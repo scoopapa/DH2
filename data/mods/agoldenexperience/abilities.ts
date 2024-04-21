@@ -2544,7 +2544,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp < target.maxhp && target.hp + damage >= target.maxhp) {
+			if (target.hp < target.maxhp) {
 				this.boost({atk: 1, spa: 1, spe: 1, def: -1, spd: -1}, target, target);
 			}
 		},
