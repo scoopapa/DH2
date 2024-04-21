@@ -1032,7 +1032,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	zamazenta: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	zamazentacrowned: {
