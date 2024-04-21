@@ -101,6 +101,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	        	if (source.baseSpecies.baseSpecies === 'Whimsicott') {
 				  source.addVolatile('fairygem');
         		}
+        		if (source.baseSpecies.baseSpecies === 'Blastoise') {
+				  source.addVolatile('grassstartergem');
+        		}
 			}
 		},
 		num: 715,
@@ -153,6 +156,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				source.addVolatile('gem');
         		if (source.baseSpecies.baseSpecies === 'Electivire') {
 				  source.addVolatile('flyinggem');
+        		}
+        		if (source.baseSpecies.baseSpecies === 'Blastoise') {
+				  source.addVolatile('firestartergem');
         		}
 			}
 		},
@@ -316,6 +322,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         		if (source.baseSpecies.baseSpecies === 'Alcremie') {
 				  source.addVolatile('steelgem');
         		}
+        		if (source.baseSpecies.baseSpecies === 'Blastoise') {
+				  source.addVolatile('waterstartergem');
+        		}
 			}
 		},
 		num: 563,
@@ -349,6 +358,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status' || move.flags['pledgecombo']) return;
 			if (move.type !== '???' && source.useItem()) {
 				source.addVolatile('gem');
+        		if (source.baseSpecies.baseSpecies === 'Terapagos') {
+				  source.addVolatile('stellargem');
+        		}
 			}
 		},
 		itemUser: ["Terapagos", "Terapagos-Terastal"],
