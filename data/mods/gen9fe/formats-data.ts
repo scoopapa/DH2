@@ -670,6 +670,42 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
+	hattepon: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	hatteponwellspring: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	hatteponhearthflame: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	hatteponcornerstone: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	buzzscor: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	sirbundle: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	hydrapao: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	aerodirge: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	aerodirgemega: {
+		tier: "FEUUBL",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
