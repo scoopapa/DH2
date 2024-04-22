@@ -3684,6 +3684,66 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Best Boost",
 		rating: 3.5,
 	},
+	embodyaspectcornerstone: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Cornerstone-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({def: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Cornerstone)",
+		rating: 3.5,
+		num: 304,
+	},
+	embodyaspecthearthflame: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Hearthflame-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({atk: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Hearthflame)",
+		rating: 3.5,
+		num: 303,
+	},
+	embodyaspectteal: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Teal-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({spe: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Teal)",
+		rating: 3.5,
+		num: 301,
+	},
+	embodyaspectwellspring: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Wellspring-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({spd: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Wellspring)",
+		rating: 3.5,
+		num: 302,
+	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
 	innerfocus: {
