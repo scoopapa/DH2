@@ -6,6 +6,31 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	actions: {
 		inherit: true,
+		terastallize(pokemon: Pokemon) {
+			if (pokemon.illusion?.species.baseSpecies === 'Ogerpon') {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+	
+			const type = pokemon.teraType;
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				ally.canTerastallize = null;
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			pokemon.side.addSideCondition('teraused', pokemon);
+			if (pokemon.species.baseSpecies === 'Ogerpon') {
+				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Hattepon') {
+				const tera = pokemon.species.id === 'hattepon' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
+		},
 		canMegaEvo(pokemon) {
 			const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 			const item = pokemon.getItem();
@@ -48,6 +73,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				case "Tentazor":
 					if (item.name === "Scizorite") {
 						return "Tentazor-Mega";
+					}
+					break;
+				case "Aerodirge":
+					if (item.name === "Aerodactylite") {
+						return "Aerodirge-Mega";
 					}
 					break;
 			}
