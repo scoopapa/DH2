@@ -5905,7 +5905,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"zapcannon": [
 				"2M"
-			]
+			],
+			rollingkick: ["2E"],
+			meditate: ["2E"]
 		}
 	},
 	"electrodehisui": {
@@ -26227,7 +26229,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"wrap": [
 				"1L19"
-			]
+			],
+			"icebeam": ["2M"],
 		}
 	},
 	"wugtrio": {
@@ -26367,7 +26370,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"wrap": [
 				"1L19"
-			]
+			],
+			icebeam: ["2M"],
 		}
 	},
 	"wynaut": {
