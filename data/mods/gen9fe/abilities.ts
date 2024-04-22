@@ -3663,7 +3663,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 	},
 	bestboost: {
-	  shortDesc: "This Pokemon's highest stat can't be lowered and rises 1 stage after KOing a foe.",
+	  shortDesc: "(Placeholder) This Pokemon's highest stat can't be lowered and rises 1 stage after KOing a foe.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				const bestStat = source.getBestStat(true, true);
