@@ -284,6 +284,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
+		onStart(pokemon) {
+			pokemon.canTerastallize = null;
+		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (user.baseSpecies.name.startsWith('Hattepon-Hearthflame')) {
@@ -298,13 +301,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Hattepon-Hearthflame"],
 		num: 2408,
 		gen: 9,
-		desc: "Ogerpon-Hearthflame: 1.2x power attacks; Terastallize to gain Embody Aspect.",
+		desc: "Hattepon-Hearthflame: 1.2x power attacks; Terastallize to gain Embody Aspect.",
 	},
 	wellspringmask: {
 		name: "Wellspring Mask",
 		spritenum: 759,
 		fling: {
 			basePower: 60,
+		},
+		onStart(pokemon) {
+			pokemon.canTerastallize = null;
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
