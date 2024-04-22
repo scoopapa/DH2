@@ -659,7 +659,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"toxic": [
 				"1M",
 				"2M"
-			]
+			],
+			rockhead: ["2L1"]
+
 		}
 	},
 	"articunogalar": {
@@ -2270,7 +2272,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1L50"
 			],
 			"hypnosis": [
-				"1L23"
+				"1L23",
+				"2L20"
 			],
 			"icebeam": [
 				"1M",
@@ -9042,7 +9045,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"toxic": [
 				"1M",
 				"2M"
-			]
+			],
+			rockhead: ["2L42"]
 		}
 	},
 	"guardia": {
@@ -16849,7 +16853,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"hypnosis": [
-				"1L23"
+				"1L23",
+				"2L20"
 			],
 			"icebeam": [
 				"1M",
@@ -21387,7 +21392,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"whirlwind": [
 				"2L1"
-			]
+			],
+			"windride": ["2L1"]
 		}
 	},
 	"sirfetchd": {
@@ -24119,7 +24125,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"wrap": [
 				"1L13"
-			]
+			],
+			rapidspin: ["2E"]
 		}
 	},
 	"toedscruel": {
@@ -24269,7 +24276,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"wrap": [
 				"1L13"
-			]
+			],
+			rapidspin: ["2E"]
 		}
 	},
 	"totartle": {
