@@ -44,7 +44,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
-											'faultyphoton', 'firewall']) { 
+											'faultyphoton', 'firewall', 'innovate']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
 							pokemon.addVolatile(quark);
