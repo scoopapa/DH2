@@ -841,7 +841,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1,
 	},
 	madcow: {
-	  shortDesc: "Emergency Exit + Intimidate. Intimidate also activates alongside Emergency Exit.",
+	  shortDesc: "On switch-in, or when this Pokemon is lowered to 50% max HP, the foe's Attack is lowered by 1 stage.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
@@ -871,7 +871,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.boost({atk: -1}, pokemon, target, null, true);
 				}
 			}
-			target.switchFlag = true;
+			target.switchFlag = false;
 		},
 		flags: {},
 		name: "Mad Cow",
