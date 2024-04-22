@@ -140,7 +140,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "Prevents Pok&eacute;mon from Terastallizing",
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
-			  if (pokemon.species.baseSpecies !== 'Ogerpon') {
+			  if (pokemon.species.baseSpecies !== 'Hattepon') {
 				  pokemon.canTerastallize = null;
         }
 			}
