@@ -1244,7 +1244,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 188.1,
 	 },
 	hattepon: {
-		num: 115,
+		num: 116,
 		//fusion: ["Hatterene", "Ogerpon"],
 		name: "Hattepon",
 		baseForme: "Teal",
@@ -1260,7 +1260,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Grass",
 	},
 	hatteponwellspring: {
-		num: 115,
+		num: 116,
 		name: "Hattepon-Wellspring",
 		baseSpecies: "Hattepon",
 		forme: "Wellspring",
@@ -1276,7 +1276,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Water",
 	},
 	hatteponhearthflame: {
-		num: 1017,
+		num: 116,
 		name: "Hattepon-Hearthflame",
 		baseSpecies: "Hattepon",
 		forme: "Hearthflame",
@@ -1292,7 +1292,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Fire",
 	},
 	hatteponcornerstone: {
-		num: 1017,
+		num: 116,
 		name: "Hattepon-Cornerstone",
 		baseSpecies: "Hattepon",
 		forme: "Cornerstone",
@@ -1308,7 +1308,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Rock",
 	},
 	hattepontealtera: {
-		num: 1017,
+		num: 116,
 		name: "Hattepon-Teal-Tera",
 		baseSpecies: "Hattepon",
 		forme: "Teal-Tera",
@@ -1323,7 +1323,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Grass",
 	},
 	hatteponwellspringtera: {
-		num: 1017,
+		num: 116,
 		name: "Hattepon-Wellspring-Tera",
 		baseSpecies: "Hattepon",
 		forme: "Wellspring-Tera",
@@ -1339,7 +1339,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Water",
 	},
 	hatteponhearthflametera: {
-		num: 1017,
+		num: 116,
 		name: "Hattepon-Hearthflame-Tera",
 		baseSpecies: "Hattepon",
 		forme: "Hearthflame-Tera",
@@ -1355,7 +1355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Fire",
 	},
 	hatteponcornerstonetera: {
-		num: 1017,
+		num: 116,
 		name: "Hattepon-Cornerstone-Tera",
 		baseSpecies: "Hattepon",
 		forme: "Cornerstone-Tera",
