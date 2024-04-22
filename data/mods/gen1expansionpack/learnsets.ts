@@ -3234,7 +3234,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			brutalswing: ["1L23"],
 			lowkick: ["1L31"],
 			swordsdance: ["1L39", "1M"],
-			rollingkick: ["1L49"],
+			rollingkick: ["1L49", "2E"],
 			highjumpkick: ["1L55"],
 			bodyslam: ["1M"],
 			razorwind: ["1M"],
@@ -3260,7 +3260,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			headbutt: ["2M"],
-			rollingkick: ["2E"],
 			quickattack: ["2E"],
 		},
 	},
