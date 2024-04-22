@@ -3485,7 +3485,8 @@ export const Formats: FormatList = [
 		mod: 'moderngen3',
 		searchShow: false,
 		ruleset: ['Standard', 'Z-Move Clause'],
-		banlist: ['AG', 'Uber', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush', 'Power Construct', 'Battle Bond'],	
+		banlist: ['AG', 'Uber', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush', 'Power Construct', 'Battle Bond',
+					 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Shed Tail'],	
 	},
 	{
 		name: "[Gen 3] Modern Gen 3 Ubers",
