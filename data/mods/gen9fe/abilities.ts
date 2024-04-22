@@ -3676,7 +3676,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (boost.bestStat && boost.bestStat < 0) {
 				delete boost.bestStat;
 				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "bestStat", "[from] ability: Best Boost", "[of] " + target);
+					this.add("-fail", target, "unboost", bestStat, "[from] ability: Best Boost", "[of] " + target);
 				}
 			}
 		},
