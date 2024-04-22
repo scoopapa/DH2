@@ -3527,6 +3527,163 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Suppressive Fire",
 	},
+	innovate: {
+	  shortDesc: "Scrappy + Quark Drive.",
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Innovate', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Innovate', '[of] ' + target);
+			}
+		},
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('innovate');
+			} else if (!pokemon.volatiles['innovate']?.fromBooster) {
+				pokemon.removeVolatile('innovate');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['innovate'];
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Innovate', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Innovate');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Quark Drive');
+			},
+		},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Innovate",
+		rating: 4,
+	},
+	numbskull: {
+	  shortDesc: "Unaware + Rock Head",
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon) {
+				if (pokemon !== this.activeTarget) return;
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Numbskull",
+		rating: 3,
+	},
+	appleofruin: {
+	  shortDesc: "Pokemon without this ability have their evasion multiplied by 0.75x.",
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Apple of Ruin');
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return this.chainModify([5120, 4096]);
+		},
+		flags: {},
+		name: "Apple of Ruin",
+		rating: 4,
+	},
+	bestboost: {
+	  shortDesc: "This Pokemon's highest stat can't be lowered and rises 1 stage after KOing a foe.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				const bestStat = source.getBestStat(true, true);
+				this.boost({[bestStat]: length}, source);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			const bestStat = target.getBestStat(true, true);
+			if (source && target === source) return;
+			if (boost.bestStat && boost.bestStat < 0) {
+				delete boost.bestStat;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "bestStat", "[from] ability: Best Boost", "[of] " + target);
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Best Boost",
+		rating: 3.5,
+	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
 	innerfocus: {
