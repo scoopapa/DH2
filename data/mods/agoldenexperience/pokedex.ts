@@ -249,7 +249,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	tentacruel: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 70, def: 65, spa: 80, spd: 120, spe: 100},
+		baseStats: {hp: 90, atk: 70, def: 75, spa: 80, spd: 120, spe: 100},
 		abilities: {0: "Corrosion", 1: "Liquid Ooze", H: "Rain Dish"},
 	},
 	golem: {
@@ -2021,6 +2021,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	escavalier: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
+		abilities: {0: "Adaptability", 1: "Shell Armor", H: "Overcoat"},
 	},
 	jellicent: {
 		inherit: true,
@@ -3274,7 +3275,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	toedscruel: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 70, def: 65, spa: 80, spd: 120, spe: 100},
+		baseStats: {hp: 90, atk: 70, def: 75, spa: 80, spd: 120, spe: 100},
 	},
 	klawf: {
 		inherit: true,
