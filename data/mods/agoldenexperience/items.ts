@@ -33,23 +33,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -2,
 		gen: 4,
 	},
-	relicsheet: {
-		name: "Relic Sheet",
-		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
-				pokemon.formeChange('Meloetta-Pirouette');
-			}
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
-			return true;
-		},
-		itemUser: ["Meloetta"],
-		num: -3,
-		gen: 9,
-		desc: "If held by Meloetta: Pirouette Forme on entry.",
-	},
+	// relicsheet: {
+	// 	name: "Relic Sheet",
+	// 	spritenum: 390,
+	// 	onSwitchIn(pokemon) {
+	// 		if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+	// 			pokemon.formeChange('Meloetta-Pirouette');
+	// 		}
+	// 	},
+	// 	onTakeItem(item, source) {
+	// 		if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+	// 		return true;
+	// 	},
+	// 	itemUser: ["Meloetta"],
+	// 	num: -3,
+	// 	gen: 9,
+	// 	desc: "If held by Meloetta: Pirouette Forme on entry.",
+	// },
 	nullifyorb: {
 		name: "Nullify Orb",
 		shortDesc: "Nullify the holder's ability.",
