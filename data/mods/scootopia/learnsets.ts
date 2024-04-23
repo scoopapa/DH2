@@ -3052,6 +3052,7 @@ export const Learnsets = {
 	},
 	dracoil: {
 		learnset: {
+			belch: ["9L1"],
 			outrage: ["9L1"],
 			dragontail: ["9L1"],
 			dragonrush: ["9L1"],
