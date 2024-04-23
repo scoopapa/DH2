@@ -2002,7 +2002,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	medichammega: {
 		isNonstandard: "Past",
-		tier: "RevDex",
+		tier: "Uber",
 		natDexTier: "UUBL",
 	},
 	electrike: {
