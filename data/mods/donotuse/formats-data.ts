@@ -101,12 +101,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["earthquake", "rockslide", "suckerpunch", "swordsdance", "pursuit", "stealthrock", "memento"],
 		//randomBattleLevel: 86
 	},
-	diglettalola: {
+	/*diglettalola: {
 		tier: "DoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "rockslide", "suckerpunch", "swordsdance", "pursuit", "ironhead"],
 		//randomBattleLevel: 82
-	},
+	},*/
 	dreepy: {
 		tier: "DoNU",
 		isNonstandard: null,
@@ -573,6 +573,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 		randomBattleMoves: ["hiddenpowerpsychic"]
 	},
+	capsakid: {
+		tier: "DoNU",
+		isNonstandard: null,
+		//randomBattleMoves:
+	},
+	snorunt: {
+		tier: "DoNU",
+		isNonstandard: null,
+		//randomBattleMoves:
+	},
 
 // Ubers
 	smeargle: {
@@ -750,6 +760,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	golbat: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	scovillain: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	glalie: {
 		tier: "OU",
 		isNonstandard: null,
 	},
