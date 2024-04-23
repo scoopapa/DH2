@@ -171,6 +171,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		gen: 1,
 	},
+	charm: {
+		inherit: true,
+		type: "Fairy",
+		gen: 1
+	},
 	sweetkiss: {
 		inherit: true,
 		category: "Status",
@@ -179,6 +184,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 // Prototype Move restorations begin here.
 	powdersnow: { // copypasted from modern
+		inherit: true,
 		num: 181,
 		accuracy: 100,
 		basePower: 40,
@@ -195,6 +201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 1,
 	},
 	uppercut: { // copypasted from modern
+		inherit: true,
 		num: 182,
 		accuracy: 80,
 		basePower: 55,
@@ -209,5 +216,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		gen: 1,
+		shortDesc: "No additional effect.",
 	},
 };

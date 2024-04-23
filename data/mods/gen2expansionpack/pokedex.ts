@@ -706,6 +706,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		prevo: "Qatu"
 	},
+	golduck: {
+		inherit: true,
+		prevo: "Weirduck"
+	},
 
 	// BETAMONS + EVO LINES UPDATES
 	// Procedurally generated using https://github.com/Rezzo64/JepJsonTransformer

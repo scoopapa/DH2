@@ -2337,10 +2337,12 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			fireblast: ["1M"],
 			skullbash: ["1M"],
 			rest: ["1M"],
+			explosion: ["1M"],
 			substitute: ["1M"],
 			cut: ["1M"],
 			surf: ["1M"],
 			strength: ["1M"],
+			selfdestruct: ["1M"],
 		},
 	},
 	steelix: {
@@ -2830,7 +2832,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			barrier: ["2E"],
 			dizzypunch: ["2E"],
 			karatechop: ["2E"],
-		//	screech: ["2E"],
+			rollingkick: ["2E"],
+			meditate: ["2E"],
 		},
 	},
 	magby: {
@@ -2935,7 +2938,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rockslide: ["1M"],
 			
 			headbutt: ["2M"],
-			icepunch: ["2M"],
+			thunderpunch: ["2M"],
 			barrier: ["2E"],
 			dizzypunch: ["2E"],
 			karatechop: ["2E"],
@@ -3107,6 +3110,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			feintattack: ["1L30"],
 			faketears: ["1L36"],
 			falsesurrender: ["1L52"],
+			psychic: ["1M"],
 		},
 	},
 	leafeon: {
@@ -3230,6 +3234,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			brutalswing: ["1L23"],
 			lowkick: ["1L31"],
 			swordsdance: ["1L39", "1M"],
+			rollingkick: ["1L49", "2E"],
+			highjumpkick: ["1L55"],
 			bodyslam: ["1M"],
 			razorwind: ["1M"],
 			whirlwind: ["1M"],
@@ -3254,7 +3260,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			headbutt: ["2M"],
-			rollingkick: ["2E"],
 			quickattack: ["2E"],
 		},
 	},
@@ -3424,6 +3429,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			fissure: ["1M"],
 			cut: ["1M"],
 			surf: ["1M"],
+			blizzard: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -3434,6 +3440,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			screech: ["2E"],
+			icebeam: ["2M"]
 		},
 		encounters: [
 			{generation: 1, level: 5},
@@ -3456,6 +3463,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			cut: ["1M"],
 			surf: ["1M"],
 			hyperbeam: ["1M"],
+			blizzard: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -3466,6 +3474,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			screech: ["2E"],
+			icebeam: ["2M"]
 		},
 		encounters: [
 			{generation: 1, level: 30},
@@ -4053,6 +4062,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			screech: ["1L32"],
 			slash: ["1L36"],
 			metalsound: ["1L40"],
+			ironhead: ["1L45"],
 			swordsdance: ["1M"],
 			bodyslam: ["1M"],
 			thunderbolt: ["1M"],
