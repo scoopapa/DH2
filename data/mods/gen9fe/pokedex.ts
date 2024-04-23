@@ -1312,7 +1312,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Hattepon-Teal-Tera",
 		baseSpecies: "Hattepon",
 		forme: "Teal-Tera",
-		types: ["Grass"],
+		types: ["Fairy", "Grass"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 105, def: 90, spa: 100, spd: 100, spe: 70},
 		abilities: {0: "Embody Aspect (Teal)"},
