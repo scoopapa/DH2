@@ -2951,7 +2951,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
-		shortDesc: "Either Fighting or Flying-type, whichever is more effective. Heals user by 12.5% of damage dealt.",
+		shortDesc: "Either Grass or Ground-type, whichever is more effective. Heals user by 12.5% of damage dealt.",
 		name: "Nature's Wrath",
 		pp: 10,
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
