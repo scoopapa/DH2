@@ -215,6 +215,25 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'linoonegalar').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'obstagoon').learnset.underdog = ['9L1'];
 
+    // natureswrath 
+    this.modData('Learnsets', 'comfey').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'florges').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'rillaboom').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'serperior').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'abomasnow').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'exeggutor').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'exeggutoralola').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'gogoat').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'sawsbuck').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'shiftry').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'torterra').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'landorus').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'sautropius').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'silvally').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'wochien').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'venusaur').learnset.natureswrath = ['9T'];
+    this.modData('Learnsets', 'trevenant').learnset.natureswrath = ['9T'];
+
     // flamingsphere 
     this.modData('Learnsets', 'charizard').learnset.flamingsphere = ['9T'];
     this.modData('Learnsets', 'magmar').learnset.flamingsphere = ['9T'];
@@ -1131,6 +1150,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'porygonz').learnset.conversionz = ['9L1'];
     this.modData('Learnsets', 'gallade').learnset.sacredsword = ['9L1'];
     this.modData('Learnsets', 'probopass').learnset.bodypress = ['9L1'];
+    this.modData('Learnsets', 'probopass').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'dusknoir').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'rotomheat').learnset.heatwave = ['9L1'];
     this.modData('Learnsets', 'rotomwash').learnset.whirlpool = ['9L1'];

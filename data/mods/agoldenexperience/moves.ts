@@ -2921,6 +2921,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 3],
 		secondary: null,
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wave Crash", target);
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
@@ -2941,6 +2945,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
+	},
+	natureswrath: {
+		num: -64,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "Either Fighting or Flying-type, whichever is more effective. Heals user by 12.5% of damage dealt.",
+		name: "Nature's Wrath",
+		pp: 10,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 8],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Leaf Storm", target);
+		},
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Grass';
+			const type2 = 'Ground';
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
+					move.type = 'Ground';
+				} else if (target.hasType('Flying') || target.hasAbility('eartheater') || target.hasAbility('levitate')) {
+					move.type = 'Grass';
+				} else if (target.hasAbility('sapsipper')) {
+					move.type = 'Ground';
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType('Ground') && !pokemon.hasType('Grass')) {
+						move.type = 'Ground';
+					}
+				}
+			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Nature's Wrath dealt ${move.type}-type damage!`);
+		},
+		priority: 0,
+		secondary: null,
+		target: "any",
+		type: "Grass",
+		zMove: {basePower: 170},
+		contestType: "Tough",
 	},
 
 	// Endless Dream field
