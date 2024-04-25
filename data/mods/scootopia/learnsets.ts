@@ -3052,6 +3052,7 @@ export const Learnsets = {
 	},
 	dracoil: {
 		learnset: {
+			belch: ["9L1"],
 			outrage: ["9L1"],
 			dragontail: ["9L1"],
 			dragonrush: ["9L1"],
@@ -3868,6 +3869,7 @@ export const Learnsets = {
 			rockblast: ["9L1"],
 			smackdown: ["9L1"],
 			rocktomb: ["9L1"],
+			rockpolish: ["9L1"],
 			bodypress: ["9L1"],
 			superpower: ["9L1"],
 			wildcharge: ["9L1"],

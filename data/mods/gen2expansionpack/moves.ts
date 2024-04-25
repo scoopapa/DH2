@@ -36,7 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sheer Cold", target);
+			this.add('-anim', source, "Dragon Ascent", target);
 		},
 	},
 	brightmoss: {
