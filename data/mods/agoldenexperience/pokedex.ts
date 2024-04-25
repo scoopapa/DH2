@@ -2164,7 +2164,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 6.5,
 		color: "White",
 		eggGroups: ["Undiscovered"],
-		battleOnly: "Meloetta",
 	},
 	genesect: {
 		inherit: true,

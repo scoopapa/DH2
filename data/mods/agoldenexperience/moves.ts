@@ -1373,7 +1373,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onAnyAccuracy(accuracy, target, source, move) {
-				if (move.type === 'Fighting' && (target.isGrounded() && !target.isSemiInvulnerable())) {
+				if (move.type === 'Fighting' && source.isGrounded() && !source.isSemiInvulnerable()) {
 					return true;
 				}
 				return accuracy;
@@ -2178,6 +2178,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	snipeshot: {
 		inherit: true,
+		basePower: 60,
 		willCrit: true,
 		shortDesc: "Always results in a critical hit. Cannot be redirected.",
 		desc: "Always results in a critical hit. Cannot be redirected.",
