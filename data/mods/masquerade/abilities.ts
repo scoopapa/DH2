@@ -137,4 +137,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Pure Water",
 		rating: 3.5,
 	},
+	lifedrain: {
+		shortDesc: "This Pokemon's moves heal it for 33% of the damage dealt.",
+		onModifyMove(move, pokemon) {
+			if (!move.drain && move.category !== 'Status') {
+				move.drain = [1, 3];
+			}
+		},
+		flags: {},
+		name: "Life Drain",
+		rating: 3,
+	},
 };

@@ -246,4 +246,65 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 243,
 		shortDesc: "This Pokemon is immune to burn and takes 0.5x damage from Fire and Water moves. Sets Sun if hit by either.",
 	},
+	galewings: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (!this.queue.willMove(target) || move.type !== 'Flying') {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Gale Wings boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Gale Wings",
+		rating: 3,
+		num: 177,
+		shortDesc: "This Pokemon's Flying moves deal 1.3x damage if it moves first.",
+	},
+	myceliummight: {
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category === 'Status' && move.target === 'normal') {
+				return -0.1;
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (move.category === 'Status' && move.target === 'normal') {
+				move.ignoreAbility = true;
+				if (!target.hasType('Grass') && !move.volatileStatus) {
+					move.volatileStatus = 'leechseed';
+				}
+			}
+		},
+		flags: {},
+		name: "Mycelium Might",
+		rating: 3,
+		num: 298,
+		shortDesc: "(Partially functional placeholder) Single-target status moves move last, but ignore abilities and leech the foe.",
+	},
+	icescales: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move' && target.hp >= target.maxhp) {
+				if (effect.effectType === 'Ability') this.add('-activate', target, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Ice Scales",
+		rating: 4,
+		num: 246,
+		shortDesc: "Receives 1/2 damage from special attacks. Full HP: No damage from indirect sources.",
+	},
 };

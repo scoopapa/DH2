@@ -200,6 +200,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lillipup: {
 		tier: "DoNU RU",
 		isNonstandard: null,
+		randomBattleMoves: ["return", "pursuit", "yawn", "roar"],
 	},
 	litwick: {
 		tier: "DoNU",
@@ -243,6 +244,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	milcery: {
 		tier: "DoNU RU",
 		isNonstandard: null,
+		randomBattleMoves: ["acidarmor", "recover", "storedpower", "drainingkiss"],
 	},
 	nacli: {
 		tier: "DoNU",
@@ -252,7 +254,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	nickit: {
 		tier: "DoNU RU",
 		isNonstandard: null,
-		randomBattleMoves: ["snarl", "knockoff", "mudshot", "swift", "nastyplot"]
+		randomBattleMoves: ["snarl", "mudshot", "swift", "nastyplot"]
 	},
 	nidoranf: {
 		tier: "DoNU",
@@ -510,7 +512,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	wimpod: {
 		tier: "DoNU UU",
 		isNonstandard: null,
-		randomBattleMoves: ["spikes", "aquajet", "taunt", "leechlife", "bugbuzz", "scald"]
+		randomBattleMoves: ["spikes", /*"aquajet",*/ "taunt", /*"leechlife",*/ "bugbuzz", "scald"]
 	},
 	wooloo: {
 		tier: "DoNU",

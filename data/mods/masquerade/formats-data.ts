@@ -443,4 +443,140 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	wigglytuff: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffnightballoon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffmoonlight: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	wigglytuffstormcloud: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobat: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatpetalvamp: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatherowing: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	crobatnightkite: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleo: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosunflower: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosuncore: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	solgaleosunfish: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbull: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbullguardian: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	granbullwarden: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ironbundle: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ironbundleshadowspear: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ironbundlevoltchurner: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambit: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambitkusari: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambitpoisonforged: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingambithydramurai: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokix: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokixleechfist: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokixstrider: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	lokixlasersword: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharunt: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharuntbabiri: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharuntlum: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	pecharuntchesto: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerpon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerponhearthflame: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerponwellspring: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	ogerponmournstone: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };

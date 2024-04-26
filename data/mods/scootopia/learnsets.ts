@@ -748,6 +748,7 @@ export const Learnsets = {
 			scald: ["9L1"],
 			chillingwater: ["9L1"],
 			moonblast: ["9L1"],
+			nastyplot: ["9L1"],
 			drainingkiss: ["9L1"],
 			mistyexplosion: ["9L1"],
 			icebeam: ["9L1"],
@@ -3051,6 +3052,7 @@ export const Learnsets = {
 	},
 	dracoil: {
 		learnset: {
+			belch: ["9L1"],
 			outrage: ["9L1"],
 			dragontail: ["9L1"],
 			dragonrush: ["9L1"],

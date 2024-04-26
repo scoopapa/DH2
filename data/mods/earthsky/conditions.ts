@@ -294,10 +294,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onBeforeMove(pokemon, target, move) {
 			if(!pokemon.volatiles['stasis']){
 				if (pokemon.hasAbility('earlybird')) {
-					pokemon.statusData.time--;
+					pokemon.statusState.time--;
 				}
 				pokemon.statusData.time--;
-				if (pokemon.statusData.time <= 0) {
+				if (pokemon.statusState.time <= 0) {
 					pokemon.cureStatus();
 					return;
 				}

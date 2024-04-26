@@ -33,23 +33,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -2,
 		gen: 4,
 	},
-	relicsheet: {
-		name: "Relic Sheet",
-		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
-				pokemon.formeChange('Meloetta-Pirouette');
-			}
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
-			return true;
-		},
-		itemUser: ["Meloetta"],
-		num: -3,
-		gen: 9,
-		desc: "If held by Meloetta: Pirouette Forme on entry.",
-	},
+	// relicsheet: {
+	// 	name: "Relic Sheet",
+	// 	spritenum: 390,
+	// 	onSwitchIn(pokemon) {
+	// 		if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+	// 			pokemon.formeChange('Meloetta-Pirouette');
+	// 		}
+	// 	},
+	// 	onTakeItem(item, source) {
+	// 		if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+	// 		return true;
+	// 	},
+	// 	itemUser: ["Meloetta"],
+	// 	num: -3,
+	// 	gen: 9,
+	// 	desc: "If held by Meloetta: Pirouette Forme on entry.",
+	// },
 	nullifyorb: {
 		name: "Nullify Orb",
 		shortDesc: "Nullify the holder's ability.",
@@ -57,7 +57,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onStart(pokemon) {
-			if (pokemon.getAbility().isPermanent) return;
+			if (pokemon.getAbility().flags['cantsuppress']) return;
 			pokemon.addVolatile('gastroacid');
 		},
 		num: -4,
@@ -697,26 +697,48 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -45,
 		gen: 9,
 	},
-	// icemane: {
-	// 	name: "Ice Mane",
-	// 	spritenum: 715,
-	// 	fling: {
-	// 		basePower: 80,
-	// 	},
-	// 	num: -45,
-	// 	gen: 9,
-	// 	// Hazard Immunity implemented in moves.ts
-	// },
-	// phantommane: {
-	// 	name: "Phantom Mane",
-	// 	spritenum: 663,
-	// 	fling: {
-	// 		basePower: 30,
-	// 	},
-	// 	// protective effect handled in Battle#checkMoveMakesContact
-	// 	num: -46,
-	// 	gen: 9,
-	// },
+	icemane: {
+		name: "Ice Mane",
+		spritenum: 715,
+		fling: {
+			basePower: 80,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.name === 'Calyrex-Ice') || pokemon.baseSpecies.name === 'Calyrex-Ice') {
+				return false;
+			}
+			return true;
+		},
+		onDamage(damage, target, source, effect) {
+			if (source && source.baseSpecies.name === 'Calyrex-Ice' && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb')) {
+				return false;
+			}
+		},
+		itemUser: ["Calyrex-Ice"],
+		desc: "Allows Calyrex to turn into Calyrex-Ice. The holder is immune to entry hazards.",
+		num: -46,
+		gen: 9,
+	},
+	phantommane: {
+		name: "Phantom Mane",
+		spritenum: 663,
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.name === 'Calyrex-Shadow') || pokemon.baseSpecies.name === 'Calyrex-Shadow') {
+				return false;
+			}
+			return true;
+		},
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		itemUser: ["Calyrex-Shadow"],
+		desc: "Allows Calyrex to turn into Calyrex-Shadow. The holder's contact moves are not contact.",
+		num: -47,
+		gen: 9,
+	},
 	// identitycard: { //WIP
 	// 	name: "Identity Card",
 	// 	spritenum: 0, 
@@ -727,7 +749,50 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 			this.add('-block', target, 'item: Identity Card');
 	// 		}
 	// 	},
-	// 	num: -47,
+	// 	num: -48,
 	// 	gen: 9,
 	// },
+	venusauritey: {
+		name: "Venusaurite Y",
+		spritenum: 608,
+		megaStone: "Venusaur-Mega-Y",
+		megaEvolves: "Venusaur",
+		itemUser: ["Venusaur"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -49,
+		gen: 9,
+		desc: "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
+	},
+	blastoisinitex: {
+		name: "Blastoisinite X",
+		spritenum: 583,
+		megaStone: "Blastoise-Mega-X",
+		megaEvolves: "Blastoise",
+		itemUser: ["Blastoise"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -50,
+		gen: 9,
+		desc: "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
+	},
+	bananapeel: {
+		name: "Banana Peel",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Tropius' || pokemon.baseSpecies.name === 'Sautropius') {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			atk: 2,
+		},
+		desc: "Raises holder's Attack by 2 stages if holder is Tropius or Sautropius. Single use.",
+		itemUser: ["Tropius", "Sautropius"],
+		num: -51,
+		gen: 9,
+	},
 }
