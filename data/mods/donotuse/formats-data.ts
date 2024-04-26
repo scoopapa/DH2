@@ -1,6 +1,6 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	applin: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "suckerpunch", "grassyglide", "pounce"],
 		//randomBattleLevel: 94
@@ -12,7 +12,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	azurill: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	bidoof: {
@@ -22,11 +22,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	blipbug: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	bounsweet: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["rapidspin", "gigadrain", "aromatherapy", "dazzlinggleam", "reflect", "lightscreen"],
 		//randomBattleLevel: 88
@@ -44,31 +44,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	bunnelby: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["return", "quickattack", "earthquake", "stoneedge", "uturn", "swordsdance", "spikes"],
 		//randomBattleLevel: 90
 	},
 	burmy: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	cascoon: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	caterpie: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	charcadet: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["fireblast", "clearsmog", "nightshade", "overheat", "willowisp"],
 		//randomBattleLevel: 90
 	},
 	cherubi: {
-		tier: "DoNU",
+		tier: "DoNU UUBL",
 		isNonstandard: null,
 		randomBattleMoves: ["sunnyday", "gigadrain", "weatherball", "growth"],
 		//randomBattleLevel: 84
@@ -80,13 +80,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 86
 	},
 	combee: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["dualwingbeat", "lunge", "bugbuzz", "tailwind", "endeavor"],
 		//randomBattleLevel: 92
 	},
 	cosmog: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	cottonee: {
@@ -96,37 +96,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	diglett: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "rockslide", "suckerpunch", "swordsdance", "pursuit", "stealthrock", "memento"],
 		//randomBattleLevel: 86
 	},
-	/*diglettalola: {
-		tier: "DoNU",
-		isNonstandard: null,
-		randomBattleMoves: ["earthquake", "rockslide", "suckerpunch", "swordsdance", "pursuit", "ironhead"],
-		//randomBattleLevel: 82
-	},*/
 	dreepy: {
-		tier: "DoNU",
+		tier: "DoNU UUBL",
 		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "suckerpunch", "thunderwave", "curse", "confuseray", "dragontail"],
 		//randomBattleLevel: 88
 	},
 	feebas: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["surf", "scald", "icebeam", "waterfall", "mirrorcoat"],
 		//randomBattleLevel: 96
 	},
 	fletchling: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["bravebird", "swordsdance", "flareblitz", "dualwingbeat", "doubleedge", "uturn", "willowisp", "roost"],
 		//randomBattleLevel: 86
 	},
 	fomantis: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["leafstorm", "superpower", "poisonjab", "synthesis"],
 		//randomBattleLevel: 86
@@ -156,17 +150,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 88
 	},
 	hoppip: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["acrobatics", "leechseed", "substitute", "protect"],
 		//randomBattleLevel: 88
 	},
 	igglybuff: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	impidimp: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["lightscreen", "reflect", "partingshot", "thunderwave", "taunt", "darkpulse", "drainingkiss", "nastyplot"],
 		//randomBattleLevel: 84 
@@ -178,7 +172,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 82
 	},
 	kakuna: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	kirlia: {
@@ -188,23 +182,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 86
 	},
 	kricketot: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	lechonk: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["doubleedge", "bodyslam", "playrough", "ironhead", "seedbomb", "yawn", "stuffcheeks"],
 		//randomBattleLevel: 92
 	},
 	ledyba: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["knockoff", "uturn", "roost", "toxic", "reflect", "lightscreen"],
 		//randomBattleLevel: 88
 	},
 	lillipup: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["return", "pursuit", "yawn", "roar"],
 	},
@@ -215,12 +209,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 82
 	},
 	lotad: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["leechseed", "scald", "raindance", "surf", "icebeam", "gigadrain", "energyball"],
 	},
 	magikarp: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	makuhita: {
@@ -229,7 +223,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["knockoff", "facade", "drainpunch", "bulkup", "bulletpunch", "thunderpunch", "poisonjab"],
 	},
 	mareep: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["thunderbolt", "signalbeam", "voltswitch", "healbell", "toxic"],
 	},
@@ -244,11 +238,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["drainpunch", "bulkup", "zenheadbutt", "poisonjab", "closecombat", "calmmind", "focusblast", "psyshock", "recover"]
 	},
 	metapod: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	milcery: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["acidarmor", "recover", "storedpower", "drainingkiss"],
 	},
@@ -258,7 +252,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["recover", "stealthrock", "rockslide", "stoneedge", "earthquake", "irondefense", "curse"]
 	},
 	nickit: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["snarl", "mudshot", "swift", "nastyplot"]
 	},
@@ -272,12 +266,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	nincada: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["bugbuzz", "gigadrain", "shadowball", "hiddenpowerfire"]
 	},
 	noibat: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "hurricane", "airslash", "switcheroo", "roost", "heatwave", "uturn"]
 	},
@@ -287,32 +281,32 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["uturn", "leechlife", "firstimpression", "suckerpunch"]
 	},
 	patrat: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["swordsdance", "return", "crunch", "seedbomb", "aquatail", "zenheadbutt"]
 	},
 	pawmi: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["nuzzle", "wish", "protect", "voltswitch", "fakeout", "thunderbolt"]
 	},
 	petilil: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["energyball", "hiddenpowerfire", "pollenpuff", "healingwish"]
 	},
 	pichu: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["volttackle", "irontail", "doubleedge", "playrough", "voltswitch"]
 	},
 	pidgey: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["defog", "roost", "return", "bravebird", "uturn"]
 	},
 	pidove: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["wish", "protect", "uturn", "defog", "return"]
 	},
@@ -322,12 +316,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["bulletseed", "knockoff", "bravebird", "uturn", "return", "swordsdance"]
 	},
 	poochyena: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["suckerpunch", "healbell", "taunt", "roar", "foulplay", "yawn"]
 	},
 	ralts: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	rattata: {
@@ -341,7 +335,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["doubleedge", "crunch", "pursuit", "uturn", "switcheroo"]
 	},
 	rellor: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["gunkshot", "lunge", "cosmicpower", "recover"]
 	},
@@ -356,26 +350,26 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["stealthrock", "rockslide", "earthquake", "irondefense", "bodypress", "explosion"]
 	},
 	rolycoly: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "spikes", "powergem", "willowisp", "rapidspin"]
 	},
 	rookidee: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["taunt", "uturn", "spite", "roost", "airslash"]
 	},
 	scatterbug: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	seedot: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["swordsdance", "sunnyday", "seedbomb", "suckerpunch", "bodyslam"]
 	},
 	sentret: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["tidyup", "bodyslam", "knockoff", "superfang"]
 	},
@@ -385,65 +379,65 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["poltergeist", "xscissor", "suckerpunch", "shadowsneak", "willowisp", "swordsdance"]
 	},
 	shinx: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["facade", "wildcharge", "psychicfangs", "irontail", "trailblaze", "howl"]
 	},
 	silcoon: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	skitty: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "hypervoice", "thunderbolt", "icebeam", "shadowball"]
 	},
 	skwovet: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["bellydrum", "doubleedge", "trailblaze", "irontail"]
 	},
 	slakoth: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["doubleedge", "hammerarm", "pursuit", "rockslide"]
 	},
 	slugma: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "recover", "lavaplume", "earthpower", "powergem"]
 	},
 	smoliv: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["leechseed", "terablast", "substitute", "protect"]
 	},
 	snom: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["bugbuzz", "icywind", "mirrorcoat", "rest", "sleeptalk"]
 	},
 	spearow: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["focusenergy", "drillpeck", "doubleedge", "drillrun", "quickattack"]
 	},
 	spewpa: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	spinarak: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["stickyweb", "toxicspikes", "megahorn", "honeclaws", "knockoff", "poisonjab", "suckerpunch"]
 	},
 	starly: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["bravebird", "doubleedge", "uturn", "pursuit", "steelwing"]
 	},
 	sunkern: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["sunnyday", "solarbeam", "weatherball", "growth", "encore"]
 	},
@@ -468,26 +462,26 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["facade", "pursuit", "uturn", "bravebird", "boomburst", "hurricane", "heatwave"]
 	},
 	tarountula: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["stickyweb", "toxicspikes", "spikes", "circlethrow", "leechlife"]
 	},
 	togepi: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["wish", "protect", "healbell", "seismictoss", "thunderwave"]
 	},
 	toxel: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	tynamo: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["knockoff", "thunderwave", "chargebeam", "spark", "terablast"]
 	},
 	tyrogue: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["rapidspin", "machpunch", "bulkup", "highjumpkick", "fakeout", "earthquake", "rockslide"]
 	},
@@ -502,21 +496,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["hurricane", "thunder", "thunderbolt", "voltswitch", "roost"]
 	},
 	weedle: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	whismur: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["hypervoice", "icebeam", "whirlwind", "seismictoss", "shadowball", "flamethrower"]
 	},
 	wiglett: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["liquidation", "throatchop", "stompingtantrum", "suckerpunch", "foulplay", "memento"]
 	},
 	wimpod: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["spikes", /*"aquajet",*/ "taunt", /*"leechlife",*/ "bugbuzz", "scald"]
 	},
@@ -531,20 +525,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["stealthrock", "scald", "earthquake", "liquidation", "curse", "recover"]
 	},
 	wooperpaldea: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["toxic", "spikes", "toxicspikes", "earthquake", "poisonjab", "recover"]
 	},
 	wurmple: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	wynaut: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 	},
 	yamper: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["nuzzle", "playrough", "wildcharge", "crunch", "doubleedge", "voltswitch"]
 	},
@@ -559,7 +553,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["partingshot", "knockoff", "bodyslam", "trick", "gunkshot", "taunt"]
 	},
 	zubat: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["taunt", "toxic", "sludgebomb", "roost", "gigadrain", "defog", "nastyplot", "bravebird"]
 	},
@@ -569,12 +563,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["surf", "hydropump", "icebeam", "toxic", "flipturn", "hiddenpowergrass"]
 	},
 	unown: {
-		tier: "DoNU",
+		tier: "DoNU RU",
 		isNonstandard: null,
 		randomBattleMoves: ["hiddenpowerpsychic"]
 	},
 	capsakid: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		//randomBattleMoves:
 	},
@@ -608,6 +602,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zigzagoon: {
 		tier: "DoNU Uber",
 		isNonstandard: null,
+	},
+	diglettalola: {
+		tier: "DoNU Uber",
+		isNonstandard: null,
+		//randomBattleMoves: ["earthquake", "rockslide", "suckerpunch", "swordsdance", "pursuit", "ironhead"],
+		//randomBattleLevel: 82
 	},
 	
 // Needed for Eviolite to work
