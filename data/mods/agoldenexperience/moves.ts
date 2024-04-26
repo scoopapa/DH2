@@ -2889,26 +2889,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "20% chance to lower target's Atk by 1.",
 		desc: "20% chance to lower target's Atk by 1.",
 	},
-	saltcure: {
-		inherit: true,
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Salt Cure');
-			},
-			onResidualOrder: 13,
-			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / 8);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Salt Cure');
-			},
-		},
-		onTryImmunity(target) {
-			return (target.hasType('Water') || target.hasType('Steel'));
-		},
-		shortDesc: "Damages the target by 1/8 max HP per turn if target is Water or Steel type.",
-	},
+	// saltcure: {
+	// 	inherit: true,
+	// 	condition: {
+	// 		noCopy: true,
+	// 		onStart(pokemon) {
+	// 			this.add('-start', pokemon, 'Salt Cure');
+	// 		},
+	// 		onResidualOrder: 13,
+	// 		onResidual(pokemon) {
+	// 			this.damage(pokemon.baseMaxhp / 8);
+	// 		},
+	// 		onEnd(pokemon) {
+	// 			this.add('-end', pokemon, 'Salt Cure');
+	// 		},
+	// 	},
+	// 	onTryImmunity(target) {
+	// 		return (target.hasType('Water') || target.hasType('Steel'));
+	// 	},
+	// 	shortDesc: "Damages the target by 1/8 max HP per turn if target is Water or Steel type.",
+	// },
 	roguewave: {
 		num: -61,
 		accuracy: 100,
