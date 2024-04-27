@@ -2021,7 +2021,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	escavalier: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
-		abilities: {0: "Adaptability", 1: "Shell Armor", H: "Overcoat"},
 	},
 	jellicent: {
 		inherit: true,
@@ -4423,7 +4422,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Florhoper",
 		types: ["Ground", "Fairy"],
 		gender: "N",
-		baseStats: {hp: 100, atk: 70, def: 102, spa: 112, spd: 124, spe: 92},
+		baseStats: {hp: 100, atk: 90, def: 82, spa: 112, spd: 114, spe: 102},
 		abilities: {0: "Cloud Nine"},
 		heightm: 1.70,
 		weightkg: 70,
