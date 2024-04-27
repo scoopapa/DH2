@@ -90,7 +90,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hitmonchan: {
 		inherit: true,
-		baseStats: {hp: 53, atk: 105, def: 79, spa: 72, spd: 72, spd: 76},
+		baseStats: {hp: 53, atk: 105, def: 79, spa: 72, spd: 72, spe: 76},
 	},
 	lickitung: {
 		inherit: true,
