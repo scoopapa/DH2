@@ -212,8 +212,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "muk").learnset.shadowpunch = ["1L1"];
 		// Haunter
 		this.modData("Learnsets", "haunter").learnset.shadowpunch = ["1L1"];
+		this.modData("Learnsets", "haunter").learnset.willowisp = ["1L1"];
+		this.modData("Learnsets", "haunter").learnset.poisongas = ["1L1"];
 		// Gengar
 		this.modData("Learnsets", "gengar").learnset.shadowpunch = ["1L1"];
+		this.modData("Learnsets", "gengar").learnset.willowisp = ["1L1"];
+		this.modData("Learnsets", "gengar").learnset.poisongas = ["1L1"];
+		this.modData("Learnsets", "gastly").learnset.willowisp = ["1L1"];
+		this.modData("Learnsets", "gastly").learnset.poisongas = ["1L1"];
 		// Onix
 		this.modData("Learnsets", "onix").learnset.howl = ["1L1"];
 		this.modData("Learnsets", "onix").learnset.taunt = ["1L1"];
