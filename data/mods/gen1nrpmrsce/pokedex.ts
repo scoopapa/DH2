@@ -112,4 +112,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 96, atk: 48, def: 96, spa: 48, spd: 48, spe: 96},
 	},
+	mrmime: {
+		inherit: true,
+		types: ["Psychic", "Normal"],
+	},
 };
