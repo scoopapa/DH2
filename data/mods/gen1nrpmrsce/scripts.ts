@@ -18,6 +18,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Charizard
 		this.modData("Learnsets", "charizard").learnset.willowisp = ["1L1"];
 		this.modData("Learnsets", "charizard").learnset.dualchop = ["1L1"];
+		this.modData("Learnsets", "charizard").learnset.wingattack = ["1L1"];
 		// Butterfree
 		this.modData("Learnsets", "butterfree").learnset.leechlife = ["1L1"];
 		// Beedrill
