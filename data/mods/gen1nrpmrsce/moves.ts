@@ -265,6 +265,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	drainpunch: {
 		num: 409,
+		viable: true,
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
