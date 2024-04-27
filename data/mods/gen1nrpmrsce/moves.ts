@@ -46,6 +46,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	acid: {
 		inherit: true,
+		viable: true,
 		shortDesc: "100% chance to lower the foe's Special.",
 		basePower: 50,
 		pp: 20,
@@ -60,6 +61,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	charge: {
 		num: 268,
+		viable: true,
 		shortDesc: "Boosts the user's Special by 1 stage.",
 		accuracy: true,
 		basePower: 0,
@@ -97,6 +99,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	dualchop: {
 		num: 530,
+		viable: true,
+		isNonstandard: null,
 		accuracy: 90,
 		basePower: 35,
 		category: "Special",
@@ -133,6 +137,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	howl: {
 		num: 336,
+		viable: true,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -152,6 +157,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	karatechop: {
 		inherit: true,
+		viable: true,
 		basePower: 35,
 		pp: 20,
 		critRatio: 2,
@@ -159,11 +165,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	leechlife: {
 		inherit: true,
+		viable: true,
 		basePower: 40,
 		pp: 10,
 	},
 	rockthrow: {
 		inherit: true,
+		viable: true,
 		shortDesc: "33% chance to lower the foe's Defense by 1 stage.",
 		accuracy: 90,
 		secondary: {
@@ -175,6 +183,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	shadowpunch: {
 		num: 325,
+		viable: true,
 		accuracy: true,
 		basePower: 60,
 		category: "Physical",
@@ -233,10 +242,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	wingattack: {
 		inherit: true,
+		viable: true,
 		basePower: 60,
 	},
 	airslash: {
 		num: 403,
+		viable: true,
 		shortDesc: "High critical hit ratio.",
 		accuracy: 100,
 		basePower: 70,
@@ -270,6 +281,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	eerieimpulse: {
 		num: 598,
+		viable: true,
 		shortDesc: "Lowers the target's Special by 2 stages.",
 		accuracy: 100,
 		basePower: 0,
@@ -298,6 +310,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	infestation: {
 		num: 611,
+		viable: true,
 		shortDesc: "Prevents the target from moving for 2-5 turns.",
 		accuracy: 85,
 		basePower: 15,
@@ -394,6 +407,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	snipeshot: {
 		num: 745,
+		viable: true,
 		shortDesc: "High critical hit ratio.",
 		accuracy: 100,
 		basePower: 70,
