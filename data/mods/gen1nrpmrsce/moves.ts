@@ -160,7 +160,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	leechlife: {
 		inherit: true,
 		basePower: 40,
-		pp: 10,,
+		pp: 10,
 	},
 	rockthrow: {
 		inherit: true,
