@@ -2526,6 +2526,15 @@ export const Formats: FormatList = [
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Kings Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
+		name: "[Gen 1] non-rby player makes rby solomod, chaos ensues",
+		threads: [
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1oeMaST50N7VLLIJnQURaQby2MnQMKNLdQF-oKwnU7K4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen1nrpmrsce',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
+	},
+	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
 		mod: 'patratdex',
