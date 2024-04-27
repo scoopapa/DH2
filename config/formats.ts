@@ -2526,7 +2526,10 @@ export const Formats: FormatList = [
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Kings Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 1] non-rby player makes rby solomod, chaos ensues",
+		name: "[Gen 1] NRPMRSCE",
+		desc: [
+			"<b>It stands for 'non-rby player makes rby solomod, chaos ensues'</b>",
+		],
 		threads: [
       	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1oeMaST50N7VLLIJnQURaQby2MnQMKNLdQF-oKwnU7K4/edit?usp=sharing">Spreadsheet</a>`,
 		],
