@@ -293,6 +293,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Dark"],
 		baseStats: {hp: 90, atk: 113, def: 80, spa: 100, spd: 65, spe: 85},
 		abilities: {0: "Torrent", 1: "Sharpness", H: "Dark Aura"},
+		prevo: null,
 	},
 	kleavor: {
 		inherit: true,
