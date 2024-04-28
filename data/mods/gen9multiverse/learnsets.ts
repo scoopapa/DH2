@@ -3648,6 +3648,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			lightscreen: ["9L1"],
 			magiccoat: ["9L1"],
 			meteorbeam: ["9L1"],
+			meteorbeem: ["9L1"],
 			mirrorcoat: ["9L1"],
 			painsplit: ["9L1"],
 			poisonjab: ["9L1"],
