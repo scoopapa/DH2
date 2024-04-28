@@ -179,6 +179,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			gunkshot: ["9L1"],
 			hyperbeam: ["9L1"],
 			hypnosis: ["9L1"],
+			icebeam: ["9L1"],
 			icepunch: ["9L1"],
 			icywind: ["9L1"],
 			imprison: ["9L1"],
@@ -519,6 +520,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9L1"],
 			wish: ["9L1"],
 			zenheadbutt: ["9L1"],
+			earthpower: ["9L1"],
+			nastyplot: ["9L1"],
 		},
 	},
 	gastly: {
@@ -1012,6 +1015,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["9L1"],
 			thunderpunch: ["9L1"],
 			trailblaze: ["9L1"],
+			knockoff: ["9L1"],
+			stealthrock: ["9L1"],
 		},
 	},
 	donphan: {
@@ -1244,6 +1249,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9L1"],
 			wildcharge: ["9L1"],
 			zapcannon: ["9L1"],
+			voltswitch: ["9L1"],
 		},
 	},
 	hooh: {
@@ -1441,6 +1447,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["9L1"],
 			wonderroom: ["9L1"],
 			zenheadbutt: ["9L1"],
+			mysticalfire: ["9L1"],
 		},
 	},
 	cacturne: {
@@ -1511,6 +1518,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9L1"],
 			woodhammer: ["9L1"],
 			zenheadbutt: ["9L1"],
+			partingshot: ["9L1"],
+			ceaselessedge: ["9L1"],
+			strengthsap: ["9L1"],
 		},
 	},
 	solrock: {
@@ -1614,6 +1624,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["9L1"],
 			wonderroom: ["9L1"],
 			zenheadbutt: ["9L1"],
+			swordsdance: ["9L1"],
+			diamondstorm: ["9L1"],
+			cosmicpower: ["9L1"],
+			magicaltorque: ["9L1"],
 		},
 	},
 	absol: {
@@ -1811,6 +1825,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9L1"],
 			waterpulse: ["9L1"],
 			weatherball: ["9L1"],
+			swordsdance: ["9L1"],
+			headcharge: ["9L1"],
 		},
 	},
 	regirock: {
@@ -2022,6 +2038,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9L1"],
 			voltswitch: ["9L1"],
 			wildcharge: ["9L1"],
+			earthquake: ["9L1"],
+			scorchingsands: ["9L1"],
+			firefang: ["9L1"],
+			thunderfang: ["9L1"],
 		},
 	},
 	floatzel: {
@@ -2082,6 +2102,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L1"],
 			wavecrash: ["9L1"],
 			whirlpool: ["9L1"],
+			closecombat: ["9L1"],
+			psychicfangs: ["9L1"],
 		},
 	},
 	garchomp: {
@@ -2241,6 +2263,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["9L1"],
 			venoshock: ["9L1"],
 			xscissor: ["9L1"],
+			gunkshot: ["9L1"],
 		},
 	},
 	electivire: {
@@ -2332,6 +2355,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9L1"],
 			weatherball: ["9L1"],
 			wildcharge: ["9L1"],
+			closecombat: ["9L1"],
+			drainpunch: ["9L1"],
 		},
 	},
 	yanmega: {
@@ -2539,6 +2564,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9L1"],
 			wrap: ["9L1"],
 			wringout: ["9L1"],
+			glare: ["9L1"],
 		},
 	},
 	whimsicott: {
@@ -2610,6 +2636,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9L1"],
 			uturn: ["9L1"],
 			worryseed: ["9L1"],
+			leechseed: ["9L1"],
+			toxic: ["9L1"],
+			cottonguard: ["9L1"],
 		},
 	},
 	sigilyph: {
@@ -2761,6 +2790,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["9L1"],
 			wonderroom: ["9L1"],
 			zenheadbutt: ["9L1"],
+			moonlight: ["9L1"],
 		},
 	},
 	vanilluxe: {
@@ -2817,6 +2847,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9L1"],
 			waterpulse: ["9L1"],
 			weatherball: ["9L1"],
+			hydropump: ["9L1"],
 		},
 	},
 	escavalier: {
@@ -2890,6 +2921,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9L1"],
 			twineedle: ["9L1"],
 			xscissor: ["9L1"],
+			firstimpression: ["9L1"],
 		},
 	},
 	volcarona: {
@@ -3320,6 +3352,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			terablast: ["9L1"],
 			trailblaze: ["9L1"],
 			weatherball: ["9L1"],
+			nastyplot: ["9L1"],
+			moonlight: ["9L1"],
 		},
 	},
 	goodra: {
@@ -3382,6 +3416,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["9L1"],
 			waterpulse: ["9L1"],
 			weatherball: ["9L1"],
+			recover: ["9L1"],
 		},
 	},
 	volcanion: {
