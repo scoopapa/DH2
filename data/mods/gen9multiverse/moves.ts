@@ -23,12 +23,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	
 	boo: {
 		num: -1,
 		accuracy: 100,
-		basePower: 135,
+		basePower: 175,
 		category: "Physical",
 		shortDesc: "Target's Def halved during damage. User faints.",
 		name: "Boo",
@@ -133,7 +137,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	firestrike: {
 		num: -4,
 		accuracy: 85,
-		basePower: 90,
+		basePower: 110,
 		category: "Physical",
 		shortDesc: "Damages target based on Special Defense, not Def.",
 		overrideDefensiveStat: 'spd',
