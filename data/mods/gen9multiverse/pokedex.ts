@@ -17,7 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	starmie: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 75, def: 95, spa: 110, spd: 95, spe: 115},
+		baseStats: {hp: 60, atk: 75, def: 95, spa: 110, spd: 95, spe: 125},
 		abilities: {0: "Natural Cure", 1: "Analytic", H: "Chromatophore"},
 	},
 	dragonite: {
@@ -28,7 +28,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	magneton: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 60, def: 85, spa: 105, spd: 85, spe: 135},
+		baseStats: {hp: 75, atk: 60, def: 85, spa: 105, spd: 85, spe: 120},
 		abilities: {0: "Analytic"},
 		evos: null,
 	},
@@ -36,7 +36,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Psychic", "Poison"],
 		baseStats: {hp: 100, atk: 73, def: 70, spa: 93, spd: 125, spe: 67},
-		abilities: {0: "Insomnia", H: "Immunity"},
+		abilities: {0: "Toxic Chain", H: "Immunity"},
 	},
 	gastly: {
 		inherit: true,
@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	rapidash: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 110, def: 90, spa: 120, spd: 85, spe: 105},
-		abilities: {0: "Daymare", H: "Flash Fire"},
+		abilities: {0: "Drought", H: "Flash Fire"},
 	},
 	mewtwo: {
 		inherit: true,
@@ -96,13 +96,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gardevoir: {
 		inherit: true,
-		baseStats: {hp: 88, atk: 65, def: 65, spa: 125, spd: 115, spe: 100},
+		baseStats: {hp: 88, atk: 65, def: 85, spa: 125, spd: 115, spe: 100},
 		abilities: {0: "Pixelgreat", H: "Trace"},
 		prevo: null,
 	},
 	cacturne: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 120, def: 85, spa: 115, spd: 80, spe: 90},
+		baseStats: {hp: 75, atk: 130, def: 85, spa: 125, spd: 80, spe: 100},
 		abilities: {0: "Water Absorb", H: "Rough Skin"},
 	},
 	solrock: {
@@ -131,18 +131,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	latias: {
 		inherit: true,
 		types: ["Dragon"],
-		baseStats: {hp: 80, atk: 80, def: 85, spa: 100, spd: 100, spe: 110},
 	},
 	luxray: {
 		inherit: true,
 		types: ["Electric", "Ground"],
-		baseStats: {hp: 80, atk: 110, def: 70, spa: 95, spd: 70, spe: 106},
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 105, spd: 70, spe: 116},
 		abilities: {0: "Intimidate", 1: "Volt Absorb", H: "Lion's Pride"},
 		prevo: null,
 	},
 	floatzel: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 105, def: 65, spa: 85, spd: 60, spe: 120},
+		baseStats: {hp: 85, atk: 125, def: 65, spa: 85, spd: 60, spe: 120},
 	},
 	garchomp: {
 		inherit: true,
@@ -152,13 +151,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	drapion: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 110, def: 110, spa: 60, spd: 75, spe: 95},
+		baseStats: {hp: 85, atk: 125, def: 110, spa: 60, spd: 75, spe: 95},
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Vessel of Ruin"},
 	},
 	electivire: {
 		inherit: true,
 		types: ["Electric", "Fighting"],
-		baseStats: {hp: 85, atk: 110, def: 70, spa: 105, spd: 70, spe: 90},
+		baseStats: {hp: 85, atk: 130, def: 70, spa: 85, spd: 70, spe: 110},
 		abilities: {0: "Motor Drive", 1: "Iron Fist", H: "Neuroforce"},
 	},
 	yanmega: {
@@ -173,11 +172,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	serperior: {
 		inherit: true,
+		baseStats: {hp: 85, atk: 75, def: 95, spa: 75, spd: 95, spe: 113},
 		prevo: null,
 	},
 	whimsicott: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 67, def: 85, spa: 110, spd: 75, spe: 116},
+		baseStats: {hp: 70, atk: 67, def: 85, spa: 110, spd: 75, spe: 136},
 		abilities: {0: "Chlorophyll", H: "Prankster"},
 		prevo: null,
 	},
@@ -188,13 +188,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cofagrigus: {
 		inherit: true,
-		baseStats: {hp: 58, atk: 50, def: 155, spa: 105, spd: 85, spe: 30},
+		baseStats: {hp: 58, atk: 50, def: 155, spa: 105, spd: 105, spe: 30},
 		abilities: {0: "Mummy", H: "Sticky Hold"},
 	},
 	vanilluxe: {
 		inherit: true,
-		baseStats: {hp: 71, atk: 70, def: 85, spa: 125, spd: 95, spe: 89},
+		baseStats: {hp: 71, atk: 70, def: 85, spa: 125, spd: 95, spe: 109},
 		abilities: {0: "Cold Sweat"},
+	},
+	escavalier: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 135, def: 105, spa: 60, spd: 105, spe: 40},
 	},
 	volcarona: {
 		inherit: true,
@@ -208,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pancham: {
 		inherit: true,
 		types: ["Fighting", "Dark"],
-		baseStats: {hp: 90, atk: 100, def: 70, spa: 55, spd: 70, spe: 72},
+		baseStats: {hp: 90, atk: 130, def: 70, spa: 55, spd: 70, spe: 92},
 	},
 	aegislash: {
 		inherit: true,
@@ -222,19 +226,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dragalge: {
 		inherit: true,
-		baseStats: {hp: 79, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
+		baseStats: {hp: 90, atk: 75, def: 90, spa: 104, spd: 123, spe: 44},
 	},
 	sylveon: {
 		inherit: true,
+		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 130, spe: 60},
 		abilities: {0: "Cute Charm", H: "Pixelgreat"},
 	},
 	goodra: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 105, def: 70, spa: 115, spd: 140, spe: 80},
 		abilities: {0: "Sap Sipper", 1: "Gooey", H: "Neuroforce"},
-	},
-	volcanion: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 70, def: 100, spa: 110, spd: 90, spe: 80},
 	},
 };
