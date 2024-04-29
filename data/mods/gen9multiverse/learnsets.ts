@@ -4929,7 +4929,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			icespinner: ["9L1"],
 			irondefense: ["9L1"],
 			ironhead: ["9L1"],
-			knockoff: ["9L1"],
 			megahorn: ["9L1"],
 			metalsound: ["9L1"],
 			mudshot: ["9L1"],
