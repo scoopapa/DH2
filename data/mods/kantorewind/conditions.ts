@@ -13,7 +13,7 @@ export const Conditions: {[k: string]: ConditionData} = {
       	}
 		},
 		onModifySecondaries(secondaries, move, target) {
-			if (target.hasType(move.type))) {
+			if (target.hasType(move.type)) {
 			  this.debug('Same type prevent secondary');
 			  return secondaries.filter(effect => !!(effect.self || effect.dustproof));
       	}
