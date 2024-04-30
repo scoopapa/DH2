@@ -364,7 +364,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ascenshine",
 		types: ["Flying", "Fairy"],
 		baseStats: {hp: 102, atk: 82, def: 82, spa: 112, spd: 73, spe: 70},
-		abilities: {0: "Soul Heart", 1: "Screen Cleaner", H: "Justified"},
+		abilities: {0: "Soul-Heart", 1: "Screen Cleaner", H: "Justified"},
 	},
 	bluffly: {
 		num: 1011,
