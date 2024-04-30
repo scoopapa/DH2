@@ -4,6 +4,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		noCopy: true,
 		onStart(pokemon) {
       	this.add('-start', pokemon, 'Retro Rewind');
+			this.actions.useMove("Retro Rewind Used", source, source);
       	const newspa = pokemon.storedStats.spd;
       	const newspd = pokemon.storedStats.spa;
 			if (pokemon.getStat('spd', false, true) > pokemon.getStat('spa', false, true)) {
@@ -27,12 +28,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				  'razorleaf','razorwind','skyattack','spacialrend','triplearrows'].includes(move.id)) {
 			  move.willCrit = true;
       	}
-		},
-		onAfterMoveSecondary(target, source, move) {
-			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
-			if ((!target.hp || hitSub) && source.volatiles['mustrecharge']) {
-				delete source.volatiles['mustrecharge'];
-			}
 		},
 	},
 };
