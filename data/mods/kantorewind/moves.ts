@@ -37,7 +37,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSwitchIn() {
 				const source = this.effectState.source;
 				 if (!source.fainted) {
-					 source.addVolatile('retrorewind')
+					source.addVolatile('retrorewind')
+					this.add('-start', pokemon, 'Retro Rewind');
 				 }
 			},
 	   },
