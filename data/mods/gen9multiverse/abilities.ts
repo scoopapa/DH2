@@ -279,4 +279,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Lowers the foe(s)'s Defense by 1 stage on switch-in.",
 		num: 303,
 	},
+	shellbreaker: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.shellBreaker) return;
+			if (move.id === 'shellsmash') {
+				this.boost({def: 1, spd: 1}, source, source);
+				this.effectState.shellBreaker = true;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (this.effectState.shellBreaker) return;
+			if (move.type === 'Ground') {
+				this.debug('Shell Breaker weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (this.effectState.shellBreaker) return;
+			if (move.type === 'Ground') {
+				this.debug('Shell Breaker weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		shortDesc: "Halves Ground move damage to the user. Before using Shell Smash, boosts all Def & SpD by 1 stage.",
+		name: "Shell Breaker",
+		rating: 2,
+	},
 };
