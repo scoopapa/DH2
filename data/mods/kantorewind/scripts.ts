@@ -7581,8 +7581,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
+			this.battle.add('-anim', pokemon, "Minimize", pokemon);
 			pokemon.addVolatile('retrorewind');
-			this.add('-message', `${pokemon.name} is harnessing the power of the past!`);
+			this.battle.add('-message', `${pokemon.name} is harnessing the power of the past!`);
 			for (const ally of pokemon.side.pokemon) {
 				ally.canTerastallize = null;
 			}
