@@ -12,12 +12,12 @@ export const Conditions: {[k: string]: ConditionData} = {
         		pokemon.storedStats.spd = newspd;
       	}
 		},
-		onModifySecondaries(secondaries, move, target) {
+		/*onModifySecondaries(secondaries, move, target) {
 			if (target.hasType(move.type)) {
 			  this.debug('Same type prevent secondary');
 			  return secondaries.filter(effect => !!(effect.self || effect.dustproof));
       	}
-		},
+		},*/
 		onModifyMove(move) {
   			if ((move.type === 'Fire' || move.type === 'Water' || move.type === 'Grass' || move.type === 'Electric' || move.type === 'Dark' || move.type === 'Psychic' || move.type === 'Dragon' || move.type === 'Fairy')  && move.category === 'Physical') move.category = 'Special';
 			if ((move.type === 'Normal' || move.type === 'Fighting' || move.type === 'Flying' || move.type === 'Ground' || move.type === 'Rock' || move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Poison' || move.type === 'Steel')  && move.category === 'Special') move.category = 'Physical';
@@ -29,7 +29,8 @@ export const Conditions: {[k: string]: ConditionData} = {
       	}
 		},
 		onAfterMoveSecondary(target, source, move) {
-			if (!target.hp && source.volatiles['mustrecharge']) {
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if ((!target.hp || hitSub) && source.volatiles['mustrecharge']) {
 				delete source.volatiles['mustrecharge'];
 			}
 		},
