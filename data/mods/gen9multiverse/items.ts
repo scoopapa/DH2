@@ -28,4 +28,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Meowth-Alola with Parting Shot, it can use infinite baseball reaction.",
 	},
+	watermemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
