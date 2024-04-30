@@ -4560,7 +4560,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			lightscreen: ["9L1"],
 			lowkick: ["9L1"],
 			lowsweep: ["9L1"],
-			makeitrain: ["9L1"],
 			memento: ["9L1"],
 			metalsound: ["9L1"],
 			nastyplot: ["9L1"],
