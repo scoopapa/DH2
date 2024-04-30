@@ -23,10 +23,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	meteorassault: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	retrorewindused: {
 		shortDesc: "Allows Retro Rewind to be permament.",
 		accuracy: true,
@@ -117,7 +113,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 150,
 		category: "Physical",
-		isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Meteor Assault",
 		pp: 5,
 		priority: 0,
