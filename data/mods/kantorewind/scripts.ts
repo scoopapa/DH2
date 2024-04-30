@@ -5133,7 +5133,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "corsolagalar").learnset.phantomforce = ["9L1"];
 		this.modData("Learnsets", "corsolagalar").learnset.gigaimpact = ["9L1"];
 		this.modData("Learnsets", "corsolagalar").learnset.hyperbeam = ["9L1"];
-		this.modData("Learnsets", "corsolagalar").learnset.trickroom = ["9L1"];
 		this.modData("Learnsets", "corsolagalar").learnset.imprison = ["9L1"];
 		this.modData("Learnsets", "corsolagalar").learnset.haze = ["9L1"];
 		this.modData("Learnsets", "corsolagalar").learnset.toxic = ["9L1"];
