@@ -839,7 +839,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Fleur Cannon", "Astral Barrage", "Aura Sphere", "Nasty Plot"],
+                "movepool": ["Fleur Cannon", "Astral Barrage", "Volt Switch", "Nasty Plot"],
                 "teraTypes": ["Fighting", "Ghost", "Fairy"]
             }
         ]

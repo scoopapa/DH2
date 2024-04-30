@@ -201,8 +201,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			newStatus: string | string[] | Condition | Condition[],
 		) {
 			if (!this.hp) return false;
+			currentStatus = this.battle.dex.conditions.get(currentStatus);
 			newStatus = this.battle.dex.conditions.get(newStatus);
-			
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
 				if (!sourceEffect) sourceEffect = this.battle.effect;
@@ -210,27 +210,25 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!source) source = this;
 
 			if (currentStatus === newStatus.id) {
-				if (this.status.length < 6 && 
-				   !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(currentStatus) &&
-				   !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(newStatus.id)) {
+				if (currentStatus.statusSlots === 1 && 
+				   newStatus.statusSlots === 1) {
 					delete this.status[newStatus.id];
 					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
 				} else if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
+					return false;
 				}
-				return false;
 			} else if (this.status) {
-				if(this.status.length < 6 && 
-				   !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(this.status) &&
-				   !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(newStatus.id)) {
-					newStatus.id = this.status + newStatus.id;
+				if(currentStatus.statusSlots === 1 && 
+				   newStatus.statusSlots === 1) {
+					newStatus = this.battle.dex.conditions.get(this.status + newStatus.id);
 					delete this.status;
 				} else if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
+					return false;
 				}
-				return false;
 			}
 
 			if (!ignoreImmunities && newStatus.id &&
@@ -249,7 +247,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (newStatus.id) {
 				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, newStatus);
 				if (!result) {
-					this.battle.debug('set status [' + newStatus.id + '] interrupted');
+					console.log('set status [' + newStatus.id + '] interrupted');
 					return result;
 				}
 			}
