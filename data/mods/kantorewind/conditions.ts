@@ -4,7 +4,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		noCopy: true,
 		onStart(pokemon) {
       	this.add('-start', pokemon, 'Retro Rewind');
-			this.actions.useMove("Retro Rewind Used", source, source);
+			this.actions.useMove("Retro Rewind Used", pokemon, pokemon);
       	const newspa = pokemon.storedStats.spd;
       	const newspd = pokemon.storedStats.spa;
 			if (pokemon.getStat('spd', false, true) > pokemon.getStat('spa', false, true)) {
