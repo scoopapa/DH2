@@ -3294,6 +3294,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["9L1"],
 			watergun: ["9L1"],
 			waterpulse: ["9L1"],
+			recover: ["9L1"],
 		},
 	},
 	sylveon: {
@@ -3334,6 +3335,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psyshock: ["9L1"],
 			quickattack: ["9L1"],
 			raindance: ["9L1"],
+			healbell: ["9L1"],
 			reflect: ["9L1"],
 			rest: ["9L1"],
 			roar: ["9L1"],
