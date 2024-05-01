@@ -218,20 +218,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Crobat, this item allows it to Mega Evolve in battle.",
 	},
-	magcargonite: {
-		name: "Magcargonite",
-		spritenum: 578,
-		megaStone: "Magcargo-Mega",
-		megaEvolves: "Magcargo",
-		itemUser: ["Magcargo"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -16,
-		gen: 9,
-		desc: "If held by a Magcargo, this item allows it to Mega Evolve in battle.",
-	},
+	// magcargonite: {
+	// 	name: "Magcargonite",
+	// 	spritenum: 578,
+	// 	megaStone: "Magcargo-Mega",
+	// 	megaEvolves: "Magcargo",
+	// 	itemUser: ["Magcargo"],
+	// 	onTakeItem(item, source) {
+	// 		if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+	// 		return true;
+	// 	},
+	// 	num: -16,
+	// 	gen: 9,
+	// 	desc: "If held by a Magcargo, this item allows it to Mega Evolve in battle.",
+	// },
 	volbite: {
 		name: "Volbite",
 		spritenum: 578,

@@ -1286,12 +1286,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	magcargo: {
-		tier: "ZU",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
-	magcargomega: {
-		tier: "RU",
-		doublesTier: "DOU",
+	megacargo: {
+		tier: "UU",
+		doublesTier: "DUU",
 	},
 	swinub: {
 		tier: "LC",
