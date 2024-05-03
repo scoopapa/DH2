@@ -827,4 +827,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "DOU",
 	},
+	watmoo: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
 };

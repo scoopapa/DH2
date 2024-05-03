@@ -1824,4 +1824,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 37,
 		evos: ["Scoliraptor"],
 	 },
+	 watmoo: {
+		num: 1110, 
+		//fusion: ["Wattrel", "Jangmo-o"],
+		name: "Watmo-o", 
+		types: ["Electric", "Dragon"],
+		baseStats: {hp: 45, atk: 50, def: 50, spa: 50, spd: 45, spe: 66}, 
+		abilities: {0: "Rogue"}, 
+		weightkg: 16.7,
+		evos: ["Kilommo-o-Totem"],
+	 },
 };
