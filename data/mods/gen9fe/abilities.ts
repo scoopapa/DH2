@@ -3677,13 +3677,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			const bestStat = (this.effectState.bestStat ||= target.getBestStat(true, true));
-			let i: BoostID;
-			for (i in boost) {
-				if (i === bestStat && boost[i]! < 0) {
-					delete boost[i];
-					if (!(effect as ActiveMove).secondaries) {
-						this.add("-fail", target, "unboost", bestStat, "[from] ability: Best Boost", "[of] " + target);
-					}
+			if (boost[bestStat] && boost[bestStat]! < 0) {
+				delete boost[bestStat];
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", bestStat, "[from] ability: Best Boost", "[of] " + target);
 				}
 			}
 		},
