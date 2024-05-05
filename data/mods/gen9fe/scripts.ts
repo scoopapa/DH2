@@ -26,7 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			if (pokemon.species.baseSpecies === 'Hattepon') {
-				const tera = pokemon.species.id === 'hattepon' ? 'basetera' : 'tera';
+				const tera = pokemon.species.id === 'hattepon' ? 'tealtera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);

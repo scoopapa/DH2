@@ -1329,7 +1329,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		shortDesc: "When held, if the user receives a barrier-piercing attack, FoAtk and SpAtk sharply raise.",
 		isBerry: true,
 		onDamagingHit(damage, target, source, move) {
-			if (target.getMoveHitData(move).typeMod > 0)
+			if (target.getMoveHitData(move).typeMod > 0 && target.useItem())
 				this.boost({atk: 2, spa: 2});
 		},
 	},

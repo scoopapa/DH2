@@ -1963,6 +1963,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.side === this.effectState.target.side) return;
 			if (move.selfSwitch && !move.ignoreAbility) {
 				delete move.selfSwitch;
+				this.add('-message', `${pokemon.name} was restrained by ${this.effectState.target.name}!`);
+				this.add('-message', `${pokemon.name} is competely restricted!`);
 				pokemon.addVolatile('restraint');
 			}
 		},
