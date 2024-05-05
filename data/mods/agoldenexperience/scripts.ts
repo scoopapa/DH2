@@ -1414,8 +1414,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
     delete this.modData('Learnsets', 'gimmighoul').learnset.nastyplot;
     delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
-    delete this.modData('Learnsets', 'pawmot').learnset.revivalblessing;
-    delete this.modData('Learnsets', 'rabsca').learnset.revivalblessing;
     delete this.modData('Learnsets', 'pawniard').learnset.knockoff;
     delete this.modData('Learnsets', 'bisharp').learnset.knockoff;
     delete this.modData('Learnsets', 'kingambit').learnset.knockoff;
