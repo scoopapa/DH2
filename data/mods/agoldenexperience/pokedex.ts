@@ -830,7 +830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	donphan: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Sand Veil"},
+		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Rock Head"},
 	},
 	houndour: {
 		inherit: true,
@@ -3305,7 +3305,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Sturdy"},
+		abilities: {0: "Protosynthesis", H: "Rock Head"},
 	},
 	screamtail: {
 		inherit: true,
@@ -3330,7 +3330,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	irontreads: {
 		inherit: true,
-		abilities: {0: "Quark Drive", H: "Sand Veil"},
+		abilities: {0: "Quark Drive", H: "Sturdy"},
 	},
 	ironbundle: {
 		inherit: true,
