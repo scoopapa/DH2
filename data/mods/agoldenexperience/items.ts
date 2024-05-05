@@ -739,19 +739,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -47,
 		gen: 9,
 	},
-	// identitycard: { //WIP
-	// 	name: "Identity Card",
-	// 	spritenum: 0, 
-	// 	shortDesc: "Holder's typing cannot be changed by any effect.",
-	// 	ignoreKlutz: true,
-	// 	onHit(pokemon) {
-	// 		if (pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type))){
-	// 			this.add('-block', target, 'item: Identity Card');
-	// 		}
-	// 	},
-	// 	num: -48,
-	// 	gen: 9,
-	// },
+	identitycard: { 
+		name: "Identity Card",
+		shortDesc: "Holder's typing cannot be changed by any move. Doesn't work on abilities like Protean or Color Change.",
+		// Edited in moves.ts
+		num: -48,
+		gen: 9,
+	},
 	venusauritey: {
 		name: "Venusaurite Y",
 		spritenum: 608,
