@@ -2866,9 +2866,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		self: {
 			onHit(pokemon) {
-				if (pokemon.hasItem('identitycard')) return;
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
+				if (!pokemon.hasItem('identitycard')) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
+				}
 			},
 		},
 	},
@@ -2876,9 +2877,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		self: {
 			onHit(pokemon) {
-				if (pokemon.hasItem('identitycard')) return;
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
+				if (!pokemon.hasItem('identitycard')) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
+				}
 			},
 		},
 	},
