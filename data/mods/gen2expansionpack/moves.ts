@@ -206,7 +206,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			self: {
 				boosts: {
-					def: 1,
+					atk: 1,
 				},
 			}
 		},
