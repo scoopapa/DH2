@@ -23,12 +23,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	headcharge: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	
 	boo: {
 		num: -1,
 		accuracy: 100,
-		basePower: 135,
+		basePower: 175,
 		category: "Physical",
 		shortDesc: "Target's Def halved during damage. User faints.",
 		name: "Boo",
@@ -133,7 +140,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	firestrike: {
 		num: -4,
 		accuracy: 85,
-		basePower: 90,
+		basePower: 110,
 		category: "Physical",
 		shortDesc: "Damages target based on Special Defense, not Def.",
 		overrideDefensiveStat: 'spd',
@@ -304,5 +311,149 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+	},
+	meteorbeam: {
+		num: -9,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
+		name: "Meteor Beem",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Meteor Beam", target);
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	infinitebaseballreaction: {
+		num: -10,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Foe: -2 Atk & SpA. User: Sets Safeguard, switches, heals switch-in.",
+		name: "infinite baseball reaction",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1},
+		isZ: "meowthofaloliumz",
+		self: {
+			sideCondition: 'safeguard',
+			slotCondition: 'infinitebaseballreaction',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Parting Shot", target);
+		},
+		onHit(target, source, move) {
+			this.add(`raw|<img src="https://cdn.discordapp.com/emojis/1080726657708593172.png?size=96&quality=lossless" height="96" width="96">`);
+		},
+		boosts: {
+			atk: -2,
+			spa: -2,
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					target.heal(target.maxhp);
+					this.add('-heal', target, target.getHealth, '[from] move: infinitebaseballreaction');
+					target.side.removeSlotCondition(target, 'infinitebaseballreaction');
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	strangersteam: {
+		num: -11,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "20% chance to confuse the target.",
+		name: "Stranger Steam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Strange Steam", target);
+		},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	stellarblast: {
+		num: -12,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		shortDesc: "Lowers the user's Atk and SpA by 1. If Enamorus: 1.5x damage.",
+		name: "Stellar Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Draco Meteor", target);
+		},
+		onBasePower(basePower, source, target, move) {
+			if (source.species.baseSpecies === 'Enamorus') {
+				return this.chainModify(1.5);
+			}
+		},
+		self: {
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	shakedown: {
+		num: -13,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		shortDesc: "Lowers the user's Sp. Attack by 1 stage.",
+		name: "Shakedown",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Make It Rain", target);
+		},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fighting",
+		contestType: "Beautiful",
 	},
 };

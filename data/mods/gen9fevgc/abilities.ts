@@ -1849,7 +1849,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyAccuracyPriority: -1,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
 				this.debug('sunbathe - enhancing accuracy');
 				return this.chainModify(2);
 			}
