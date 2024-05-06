@@ -100,6 +100,261 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	noretreat: {
+		num: 748,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "+1 to all stats. Once per switch-in.",
+		name: "No Retreat",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'noretreat',
+		onTry(source, target, move) {
+			if (source.volatiles['noretreat']) return false;
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: No Retreat');
+			},
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+	},
+	spicyextract: {
+		num: 858,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
+		viable: true,
+		name: "Spicy Extract",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Cute",
+	},
+	hyperdrill: {
+		num: 887,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Ignores resistances.",
+		name: "Hyper Drill",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel' || type === 'Rock') return 0;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	destinybond: {
+		num: 194,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Destiny Bond",
+		pp: 5,
+		priority: 0,
+		flags: {bypasssub: 1, noassist: 1, failcopycat: 1},
+		volatileStatus: 'destinybond',
+		onPrepareHit(pokemon) {
+			return !pokemon.removeVolatile('destinybond');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onFaint(target, source, effect) {
+				if (!source || !effect || target.isAlly(source)) return;
+				if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+					this.add('-activate', target, 'move: Destiny Bond');
+					source.faint();
+				}
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('destinybond');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ghost",
+		zMove: {effect: 'redirect'},
+		contestType: "Clever",
+	},
+	terablast: {
+		num: 851,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.terastallized === 'Stellar') {
+				return 100;
+			}
+			return 80;
+		},
+		category: "Special",
+		name: "Tera Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mustpressure: 1},
+		onPrepareHit(target, source, move) {
+			if (source.terastallized) {
+				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
+			}
+		},
+		onModifyType(move, pokemon, target) {
+			if (pokemon.terastallized) {
+				move.type = pokemon.teraType;
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+			if (pokemon.terastallized === 'Stellar' && !target.volatiles['dynamax']) {
+				move.self = {boosts: {atk: -1, spa: -1}};
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	psyblade: {
+		num: 875,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Sets Electric Terrain if no terrains are active.",
+		name: "Psyblade",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		self: {
+			onHit(source) {
+				if (this.field.terrain) return;
+				this.field.setTerrain('electricterrain');
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	tarshot: {
+		num: 749,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "30% chance to burn foe. Negates burn immunity abilities.",
+		name: "Tar Shot",
+		pp: 10,
+		viable: true,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		onHit(target) {
+			if (target.getAbility().flags['cantsuppress']) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			if (target.hasAbility('flashfire') || target.hasAbility('waterbubble') ||
+				target.hasAbility('thermalexchange') || target.hasAbility('waterveil') ||
+				target.hasAbility('thickfat') || target.hasAbility('steamengine') ||
+				target.hasAbility('wellbakedbody') || target.hasAbility('heatproof') ||
+				target.hasAbility('purifyingsalt')) {
+					target.addVolatile('gastroacid');
+			}
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().flags['cantsuppress']) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			if (target.hasAbility('flashfire') || target.hasAbility('waterbubble') ||
+				target.hasAbility('thermalexchange') || target.hasAbility('waterveil') ||
+				target.hasAbility('thickfat') || target.hasAbility('steamengine') ||
+				target.hasAbility('wellbakedbody') || target.hasAbility('heatproof') ||
+				target.hasAbility('purifyingsalt')) {
+					target.addVolatile('gastroacid');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Tar Shot');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	doodle: {
+		num: 867,
+		accuracy: 100,
+		shortDesc: "(Partially functional placeholder) Copies the foe's entire moveset.",
+		basePower: 0,
+		category: "Status",
+		name: "Doodle",
+		viable: true,
+		pp: 10,
+		priority: 0,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onHit(target, source, move) {
+			if (source.transformed || source.volatiles['doodle']) {
+				return false;
+			}
+			for (const moveid in target.moveSlots) {
+				 const copiedmove = target.moveSlots[moveid];
+				 source.moveSlots[moveid] = {
+					  move: copiedmove.name,
+					  id: copiedmove.id,
+					  pp: copiedmove.pp,
+					  maxpp: copiedmove.pp,
+					  target: copiedmove.target,
+					  disabled: false,
+					  used: false,
+					  virtual: true,
+				};
+			}
+			source.addVolatile('doodle');
+			this.add('-start', source, 'Doodle', move.name);
+		},
+		condition: {},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
@@ -1113,4 +1368,204 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	geargrind: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	noxioustorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
+	/*
+	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them
+	heatcrash: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	bonemerang: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	bonerush: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	bulletseed: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	cometpunch: {
+		inherit: true,
+		maxMove: {basePower: 100},
+	},
+	counter: {
+		inherit: true,
+		maxMove: {basePower: 55},
+	},
+	crushgrip: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	doublehit: {
+		inherit: true,
+		maxMove: {basePower: 100},
+	},
+	doublekick: {
+		inherit: true,
+		maxMove: {basePower: 60},
+	},
+	dragondarts: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	dualchop: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	dualwingbeat: {
+		inherit: true,
+		maxMove: {basePower: 80},
+	},
+	electroball: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	endeavor: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	fissure: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	flail: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	frustration: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	return: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	furyswipes: {
+		inherit: true,
+		maxMove: {basePower: 80},
+	},
+	geargrind: {
+		inherit: true,
+		isNonstandard: null,
+		maxMove: {basePower: 110},
+	},
+	grassknot: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	guillotine: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	gyroball: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	heavyslam: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	horndrill: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	iciclespear: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	magnitude: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	naturalgift: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	pinmissile: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	powertrip: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	punishment: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	risingvoltage: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	rockblast: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	scaleshot: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	seismictoss: {
+		inherit: true,
+		maxMove: {basePower: 55},
+	},
+	sheercold: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	spikecannon: {
+		inherit: true,
+		maxMove: {basePower: 100},
+	},
+	storedpower: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	surgingstrikes: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	tailslap: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	terrainpulse: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	tripleaxel: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	trumpcard: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	twineedle: {
+		inherit: true,
+		maxMove: {basePower: 80},
+	},
+	weatherball: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	wringout: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	}, */
 };

@@ -449,13 +449,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Moves', 'razorshell').flags.slicing = 1;
 		this.modData('Moves', 'sacredsword').flags.slicing = 1;
 		this.modData('Moves', 'slash').flags.slicing = 1;
-		this.modData('Moves', 'solarblade').flags.slicing = 1;
+		// this.modData('Moves', 'solarblade').flags.slicing = 1;
 		this.modData('Moves', 'stoneaxe').flags.slicing = 1;
 		this.modData('Moves', 'xscissor').flags.slicing = 1;
 
 		this.modData('Moves', 'aircutter').flags.wind = 1;
 		this.modData('Moves', 'bleakwindstorm').flags.wind = 1;
-		this.modData('Moves', 'blizzard').flags.wind = 1;
+		// this.modData('Moves', 'blizzard').flags.wind = 1;
 		this.modData('Moves', 'fairywind').flags.wind = 1;
 		this.modData('Moves', 'gust').flags.wind = 1;
 		this.modData('Moves', 'heatwave').flags.wind = 1;

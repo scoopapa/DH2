@@ -803,6 +803,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FE",
 		doublesTier: "FE",
 	},
+	samurotthisui: {
+		tier: "FE",
+		doublesTier: "FE",
+	},
 	petilil: {
 		tier: "LC",
 		doublesTier: "LC",

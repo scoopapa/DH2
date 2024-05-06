@@ -5,6 +5,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ["TMFE", "TMNFE", "TMLC"],
 	},
 	init() {
+		for (const i in this.data.FormatsData) {
+			if (i.endsWith('gmax')) this.modData('FormatsData', i).tier = "TMFE";
+		}
 		this.modData("Learnsets", "darmanitangalar").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.icespinner = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.iceshard = ["9L1"];
@@ -28,15 +31,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'fluttermane').learnset.charm;
 		delete this.modData('Learnsets', 'fluttermane').learnset.mistyterrain;
 		this.modData("Learnsets", "palafin").learnset.superpower = ["9L1"];
-		delete this.modData('Learnsets', 'palafin').learnset.bulkup;
 		delete this.modData('Learnsets', 'palafin').learnset.closecombat;
 		this.modData("Learnsets", "ironbundle").learnset.surf = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.defog = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.haze = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.destinybond = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.fakeout = ["9L1"];
+		this.modData("Learnsets", "ironbundle").learnset.discharge = ["9L1"];
 		delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
-		delete this.modData('Learnsets', 'ironbundle').learnset.hydropump;
 		this.modData("Learnsets", "dracovish").learnset.icespinner = ["9L1"];
 		this.modData("Learnsets", "dracovish").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "annihilape").learnset.knockoff = ["9L1"];
@@ -49,6 +51,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "chienpao").learnset.icebeam = ["9L1"];
 		this.modData("Learnsets", "chienpao").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "chiyu").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "chiyu").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "chiyu").learnset.scald = ["9L1"];
 		this.modData("Learnsets", "tinglu").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sludgebomb = ["9L1"];
@@ -66,6 +70,119 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["9L1"];
 		this.modData("Learnsets", "centiskorch").learnset.superpower = ["9L1"];
 		this.modData("Learnsets", "centiskorch").learnset.wildcharge = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.headlongrush = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.bounce = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.bulletseed = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "dudunsparce").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "dudunsparce").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.shoreup = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.icebeam = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.aurasphere = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.snarl = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.sludgewave = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.poisonfang = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.firefang = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.poltergeist = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.shadowsneak = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.ragingfury = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.temperflare = ["9L1"];
+		this.modData("Learnsets", "brutebonnet").learnset.earthquake = ["9L1"];
+		delete this.modData('Learnsets', 'brutebonnet').learnset.bulletseed;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.seedbomb;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.lashout;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.closecombat;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.grassyterrain;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.energyball;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.leafstorm;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.grassknot;
+		delete this.modData('Learnsets', 'brutebonnet').learnset.synthesis;
+		this.modData("Learnsets", "slitherwing").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.ancientpower = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.bulldoze = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.fellstinger = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.finalgambit = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.gyroball = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.pinmissile = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.pounce = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.quiverdance = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.rockslide = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.rocktomb = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.stoneedge = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.strugglebug = ["9L1"];
+		delete this.modData('Learnsets', 'slitherwing').learnset.acrobatics;
+		delete this.modData('Learnsets', 'slitherwing').learnset.highhorsepower;
+		this.modData("Learnsets", "ironjugulis").learnset.aeroblast = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.electroshot = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.bitterblade = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.psychic = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.psychocut = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.flamethrower = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.risingvoltage = ["9L1"];
+		this.modData("Learnsets", "kingler").learnset.meteormash = ["9L1"];
+		this.modData("Learnsets", "kingler").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "drednaw").learnset.stoneaxe = ["9L1"];
+		this.modData("Learnsets", "drednaw").learnset.brickbreak = ["9L1"];
+		this.modData("Learnsets", "drednaw").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "orbeetle").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "orbeetle").learnset.heatwave = ["9L1"];
+		this.modData("Learnsets", "orbeetle").learnset.encore = ["9L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.painsplit = ["9L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.noxioustorque = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "revavroom").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.bounce = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.powerwhip = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "gyarados").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "kilowattrel").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "kilowattrel").learnset.heatwave = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "togekiss").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.aquacutter = ["9L1"];
+		this.modData("Learnsets", "frosmoth").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "frosmoth").learnset.thunder = ["9L1"];
+		this.modData("Learnsets", "frosmoth").learnset.thunderbolt = ["9L1"];
+		this.modData("Learnsets", "staraptor").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "staraptor").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "toedscruel").learnset.synthesis = ["9L1"];
+		this.modData("Learnsets", "toedscruel").learnset.partingshot = ["9L1"];
+		this.modData("Learnsets", "gastrodon").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "gastrodon").learnset.knockoff = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -101,21 +218,24 @@ export const Scripts: ModdedBattleScriptsData = {
 	  		// random factor - also not a modifier
 	  		baseDamage = this.battle.randomizer(baseDamage);
 	  		// STAB
-	  		if (move.forceSTAB || (type !== '???' &&
-	  			(pokemon.hasType(type)))) {
-	  			// The "???" type never gets STAB
-	  			// Not even if you Roost in Gen 4 and somehow manage to use
-	  			// Struggle in the same turn.
-	  			// (On second thought, it might be easier to get a MissingNo.)
-	  			let stab = move.stab || 1.5;
-	  			if (type === pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) {
-	  				// In my defense, the game hardcodes the Adaptability check like this, too.
-	  				stab = stab === 1.75 ? 2.25 : 1.75;
-	  			} else if (pokemon.terastallized && type !== pokemon.terastallized) {
-	  				stab = 1.25;
-	  			}
-	  			baseDamage = this.battle.modify(baseDamage, stab);
-	  		}
+			const isTeraStellar = pokemon.terastallized === 'Stellar';
+			if (move.forceSTAB || (type !== '???' &&
+				(pokemon.hasType(type) || (pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) ||
+					(isTeraStellar && !pokemon.stellarBoostedTypes.includes(type))))) {
+				let stab = (isTeraStellar && !pokemon.getTypes(false, true).includes(type)) ? [4915, 4096] : move.stab || 1.5;
+				if ((type === pokemon.terastallized || (isTeraStellar && !pokemon.stellarBoostedTypes.includes(type))) &&
+					pokemon.getTypes(false, true).includes(type)) {
+					// In my defense, the game hardcodes the Adaptability check like this, too.
+					stab = (stab === 1.75 && !isTeraStellar) ? 2.25 : 1.75;
+				} else if (pokemon.terastallized && type !== pokemon.terastallized && stab === 2) {
+					stab = 1.25;
+				}
+				baseDamage = this.battle.modify(baseDamage, stab);
+				if (isTeraStellar && pokemon.species.name !== 'Terapagos-Stellar' &&
+					!pokemon.stellarBoostedTypes.includes(type)) {
+					pokemon.stellarBoostedTypes.push(type);
+				}
+			}
 	  		// types
 	  		let typeMod = target.runEffectiveness(move);
 	  		typeMod = this.battle.clampIntRange(typeMod, -6, 6);
@@ -179,7 +299,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							(move.name === 'Brave Bird' && pokemon.baseSpecies.baseSpecies === 'Corviknight') ||
 							(move.name === 'Psychic' && pokemon.baseSpecies.baseSpecies === 'Orbeetle') ||
 							(move.name === 'Razor Shell' && pokemon.baseSpecies.baseSpecies === 'Drednaw') || 
-							(move.name === 'Power Gem' && pokemon.baseSpecies.baseSpecies === 'Coalossal') ||
+							(move.name === 'Tar Shot' && pokemon.baseSpecies.baseSpecies === 'Coalossal') ||
 							(move.name === 'Grav Apple' && pokemon.baseSpecies.baseSpecies === 'Flapple') ||
 							(move.name === 'Apple Acid' && pokemon.baseSpecies.baseSpecies === 'Appletun') ||
 							(move.name === 'Sand Tomb' && pokemon.baseSpecies.baseSpecies === 'Sandaconda') ||

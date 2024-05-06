@@ -17,4 +17,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		isNonstandard: null,
 	},
+	meowthofaloliumz: {
+		name: "Meowthofalolium Z",
+		spritenum: 646,
+		onTakeItem: false,
+		zMove: "infinite baseball reaction",
+		zMoveFrom: "Parting Shot",
+		itemUser: ["Meowth-Alola"],
+		num: -1,
+		gen: 9,
+		desc: "If held by a Meowth-Alola with Parting Shot, it can use infinite baseball reaction.",
+	},
+	watermemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };

@@ -197,7 +197,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.formeChange('Starly-Crown', this.effect, true);
 			this.add('-message', `${pokemon.name} changed to Solo Form...`);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Murmuration",
 		rating: 3,
 		num: -6,
@@ -333,7 +333,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Stance Change",
 		rating: 4,
 		num: 176,
@@ -370,7 +370,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return;
 			}
 		},
-		// isPermanent: true, // it actually isn't in canon despite how weird that is
+		// flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1}, // it actually isn't in canon despite how weird that is
 		name: "Hunger Switch",
 		rating: 1,
 		num: 258,

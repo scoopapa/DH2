@@ -119,8 +119,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Natural Cure');
 						break;
 					case 'Grimmsnarl':
-						pokemon.setAbility('tanglinghair', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Tangling Hair');
+						pokemon.setAbility('mistysurge', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Misty Surge');
 						break;
 					case 'Alcremie':
 						pokemon.setAbility('wellbakedbody', pokemon, true);
@@ -149,13 +149,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			this.add('-start', pokemon, 'Dynamax', pokemon.gigantamax ? 'Gmax' : '');
 			if (pokemon.baseSpecies.name === 'Shedinja') return;
-
-			// Changes based on dynamax level, 2 is max (at LVL 10)
-			const ratio = 1.5 + (pokemon.dynamaxLevel * 0.05);
-
-			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio);
-			pokemon.hp = Math.floor(pokemon.hp * ratio);
-			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			if (pokemon.gigantamax) {
+				pokemon.maxhp = Math.floor(pokemon.maxhp * 1.5);
+				pokemon.hp = Math.floor(pokemon.hp * 1.5);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			} else {
+				// Changes based on dynamax level, 2 is max (at LVL 10)
+				const ratio = 1.5 + (pokemon.dynamaxLevel * 0.05);
+				pokemon.maxhp = Math.floor(pokemon.maxhp * ratio);
+				pokemon.hp = Math.floor(pokemon.hp * ratio);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
 			pokemon.clearBoosts();
 			this.add('-clearboost', pokemon);
 		},

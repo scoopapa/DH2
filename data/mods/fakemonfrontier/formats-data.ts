@@ -155,4 +155,88 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	encrave: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	molypoly: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	wizleet: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	ascenshine: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	bluffly: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	nitrophend: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	djinnferno: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	cerebrawl: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	toxatrice: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	stalagtide: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	phantoxin: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	coraking: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	dreadpool: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	pingray: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	caboa: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	serpolt: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	ironsalvo: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	folia: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	snowdown: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	flossilisk: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	maulsoleum: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 };
