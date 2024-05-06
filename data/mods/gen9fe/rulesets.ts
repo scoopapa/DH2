@@ -137,14 +137,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 	terastalclause: {
 		effectType: 'Rule',
 		name: 'Terastal Clause',
-		desc: "Prevents Pok&eacute;mon from Terastallizing",
+		desc: "Prevents Pok&eacute;mon without Terastal forms from Terastallizing",
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
 			  if (pokemon.species.baseSpecies !== 'Hattepon') {
 				  pokemon.canTerastallize = null;
-        }
+				}
 			}
-			this.add('rule', 'Terastal Clause: You cannot Terastallize');
+			this.add('rule', 'Terastal Clause: Only Pok&eacute;mon with Tera forms can Terastallize');
 		},
 	},
 };
