@@ -204,8 +204,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to raise attack by 1 stage.",
 		secondary: {
 			chance: 10,
-			boosts: {
-				atk: 1
+			self: {
+				boosts: {
+					atk: 1,
+				},
 			}
 		},
 		target: "normal",
