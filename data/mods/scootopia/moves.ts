@@ -145,7 +145,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(target) {
 				this.add('-start', target, 'move: Energy Siphon');
 			},
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 				const target = this.getAtSlot(pokemon.volatiles['energysiphon'].sourceSlot);

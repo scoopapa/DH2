@@ -55,10 +55,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "Scoo",
 	},
-	eleqwil: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
 	lumoth: {
 		tier: "Scoo",
 		doublesTier: "Scoo",

@@ -146,7 +146,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nunopod: {
 		num: 1019,
 		name: "Nunopod",
-		types: ["Ground", "Bug"],
+		types: ["Bug", "Ground"],
 		baseStats: {hp: 80, atk: 110, def: 125, spa: 70, spd: 75, spe: 65},
 		abilities: {0: "Earth Eater", H: "Opportunist"},
 		weightkg: 68,
@@ -254,14 +254,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 75, def: 85, spa: 95, spd: 95, spe: 85},
 		abilities: {0: "Regenerator", 1: "Shield Dust", H: "Beads of Ruin"},
 		weightkg: 33,
-	},
-	eleqwil: {
-		num: 999,
-		species: "Eleqwil",
-		types: ["Electric", "Ground"],
-		baseStats: {hp: 78, atk: 101, def: 91, spa: 45, spd: 108, spe: 37},
-		abilities: {0: "Mold Breaker", 1: "Iron Barbs", H: "Bulletproof"},
-		weightkg: 27.3,
 	},
 	roscenti: {
 		num: 1037,
