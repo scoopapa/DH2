@@ -2548,6 +2548,24 @@ export const Formats: FormatList = [
 		"Blunderbusk", "Barracoth", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", 
 		"Faerenheit", "Cellsius", "Kelven", "Salaos", "Morndos", "Pythos", "Corundell", "Quadringo", 
 		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
+	},	
+	{
+		name: "[Gen 9] Scootopia Patch Test",
+		desc: "A test meta for proposed changes to the hit solomod Scootopia!",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/scootopia.3742131/post-10103602">Thread</a>`,
+		],
+		mod: "scootopia",
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule',],
+		banlist: ['All Pokemon', 'Crystal Heart', 'Wild Heart', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil'],
+		unbanlist: ["Arbrella", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Orchile",
+		"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Platypad", "Lumoth",
+		"Aurorowl", "Carapex", "Dojodo", "Nunopod", "Zeploom", "Brawnkey", "Salamalix", "Cinnastar", 
+		"MuabBoa", "Volvolpa", "Harzodia", "Cyllindrake", "Kodokai", "Electangle", "Dolphena", "Soleron",
+		"Soleron-Awakened", "Jaegorm", "Jaegorm-Collective", "Elemadillo", "Axolacred", "Roscenti",
+		"Blunderbusk", "Barracoth", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", 
+		"Faerenheit", "Cellsius", "Kelven", "Salaos", "Morndos", "Pythos", "Corundell", "Quadringo", 
+		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus", "Eleqwil"],
 	},
 	{
         name: "[Gen 9] Spookymod",
@@ -2576,16 +2594,16 @@ export const Formats: FormatList = [
         },
         mod: 'spookymod',
     },
-	{
-		name: "[Gen 9] Super Types OU",
-		desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit#gid=1291687635">Types + Moves Explained</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit#gid=894228879">List of Defensive Type Combos</a>`,
-		],
-		mod: "supertypesou",
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
-	},
+	// {
+		// name: "[Gen 9] Super Types OU",
+		// desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
+		// threads: [
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit#gid=1291687635">Types + Moves Explained</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit#gid=894228879">List of Defensive Type Combos</a>`,
+		// ],
+		// mod: "supertypesou",
+		// ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
+	// },
 	{
 		name: "[Gen 8] The 3-3-1 Typechart",
 		desc: [
