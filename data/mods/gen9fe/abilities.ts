@@ -3723,10 +3723,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Levitate effects. If this Pokemon would be hit by a Ground move, the attacker becomes confused.",
 		onTryHit(target, source, move) {
 			//target should be airborne
-			if (target !== source && move.type === 'Ground' && !(
+			if (target !== source && move.type === 'Ground' && !source.volatiles['confusion'] && !(
 				move.ignoreImmunity && (move.ignoreImmunity === true || move.ignoreImmunity['Ground'])
 			) && target.isGrounded() === null) {
 				source.addVolatile('confusion', target);
+				this.add('-immune', target);
+				return null;
 			}
 		},
 		flags: {breakable: 1},
