@@ -172,7 +172,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		mega: "donphanmega",
 		megaName: "Donphan-Mega",
-		megaTypes: ["Ground", "Flying"],
+		megaType: ["Ground", "Flying"],
 		megaAbility: {0: "Aerilate"},
 		megaStats: {hp: 90, atk: 140, def: 140, spa: 60, spd: 85, spe: 85},
 		megaStone: "Donphanite",
