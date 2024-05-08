@@ -240,7 +240,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	mankey: {tier: "Paldea (NFE)"},
 	primeape: {tier: "Paldea (NFE)"},
-	annihilape: {tier: "Paldea"},
+	annihilape: {tier: "Uber"},
 
 	meditite: {tier: "Paldea (NFE)"},
 	medicham: {tier: "Paldea"},
@@ -400,7 +400,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heracross: {tier: "Paldea"},
 
 	flittle: {tier: "Paldea (NFE)"},
-	espathra: {tier: "Paldea"},
+	espathra: {tier: "Uber"},
 
 	hippopotas: {tier: "Paldea (NFE)"},
 	hippowdon: {tier: "Paldea"},
@@ -440,7 +440,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bombirdier: {tier: "Paldea"},
 
 	finizen: {tier: "Paldea (NFE)"},
-	palafin: {tier: "Paldea"},
+	palafin: {tier: "Uber"},
 
 	varoom: {tier: "Paldea (NFE)"},
 	revavroom: {tier: "Paldea"},
@@ -478,7 +478,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotomfrost: {tier: "Paldea"},
 
 	greavard: {tier: "Paldea (NFE)"},
-	houndstone: {tier: "Paldea"},
+	houndstone: {tier: "Uber"},
 
 	oranguru: {tier: "Paldea"},
 
@@ -582,12 +582,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	greattusk: {tier: "Paldea"},
 	screamtail: {tier: "Paldea"},
 	brutebonnet: {tier: "Paldea"},
-	fluttermane: {tier: "Paldea"},
+	fluttermane: {tier: "Uber"},
 	slitherwing: {tier: "Paldea"},
 	sandyshocks: {tier: "Paldea"},
 
 	irontreads: {tier: "Paldea"},
-	ironbundle: {tier: "Paldea"},
+	ironbundle: {tier: "Uber"},
 	ironhands: {tier: "Paldea"},
 	ironjugulis: {tier: "Paldea"},
 	ironmoth: {tier: "Paldea"},
@@ -603,7 +603,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	wochien: {tier: "Paldea"},
 	chienpao: {tier: "Paldea"},
 	tinglu: {tier: "Paldea"},
-	chiyu: {tier: "Paldea"},
+	chiyu: {tier: "Uber"},
 
 	roaringmoon: {tier: "Paldea (NFE)"},
 	ironvaliant: {tier: "Paldea (NFE)"},
