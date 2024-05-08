@@ -321,7 +321,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 30,
 			status: 'par',
-  },
+		}
+	},
 	toxic: {
 		inherit: true,
 		accuracy: 100,
