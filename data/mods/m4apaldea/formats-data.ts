@@ -368,6 +368,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	bramblin: {tier: "Paldea (NFE)"},
 	brambleghast: {tier: "Paldea"},
+	brambleghastmega: {tier: "Mega"},
 
 	toedscool: {tier: "Paldea (NFE)"},
 	toedscruel: {tier: "Paldea"},
