@@ -3156,6 +3156,7 @@ export const Learnsets = {
 	},
 	eleqwil: {
 		learnset: {
+			slackoff: ["9L1"],
 			earthquake: ["9L1"],
 			earthpower: ["9L1"],
 			bulldoze: ["9L1"],
