@@ -7,6 +7,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "emboar").learnset.drainingtusk = ["9L1"];
 		this.modData("Learnsets", "drifblim").learnset.securelanding = ["9L1"];
 		this.modData("Learnsets", "feraligatr").learnset.splashbite = ["9L1"];
+		this.modData("Learnsets", "swampert").learnset.splashbite = ["9L1"];
+		this.modData("Learnsets", "swampert").learnset.painsplit = ["9L1"];
 		this.modData("Learnsets", "aurorus").learnset.diamondglow = ["9L1"];
 		this.modData("Learnsets", "guzzlord").learnset.ultragulp = ["9L1"];
 		this.modData("Learnsets", "whimsicott").learnset.cottonswab = ["9L1"];
@@ -60,6 +62,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ogerpon").learnset.dragonrush = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.dracometeor = ["9L1"];
 		this.modData("Learnsets", "lokix").learnset.nightslash = ["9L1"];
+		delete this.modData('Learnsets', 'sinistcha').learnset.nastyplot;
+		delete this.modData('Learnsets', 'sinistcha').learnset.calmmind;
 	},
 	actions: {
 		inherit: true,
