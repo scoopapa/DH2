@@ -35,7 +35,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			newMega.creator = pokemon.megaCreator || null;
 			newMega.requiredItem = pokemon.megaStone || null;
-			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega"};
+			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega", doublesTier: "Mega"};
 		}
 	},
 
