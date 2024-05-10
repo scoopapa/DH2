@@ -6025,7 +6025,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "wailord").learnset.roar = ["9L1"];
 		this.modData("Learnsets", "wailord").learnset.muddywater = ["9L1"];
 		// Lapras
-		this.modData("Learnsets", "lapras").learnset.resonanttone = ["9L1"];
+		this.modData("Learnsets", "lapras").learnset.lyricalaurora = ["9L1"];
 		// Exeggcute
 		this.modData("Learnsets", "exeggcute").learnset.flatter = ["9L1"];
 		// Exeggutor
