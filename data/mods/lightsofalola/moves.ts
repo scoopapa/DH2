@@ -724,19 +724,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		contestType: "Tough",
 	},
-	resonanttone: {
+	lyricalaurora: {
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
 		shortDesc: "Sets Aurora Veil, regardless of weather.",
 		viable: true,
-		name: "Resonant Tone",
+		name: "Lyrical Aurora",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Icy Wind", target);
+			this.add('-anim', source, "Perish Song", target);
+			this.add('-anim', source, "Sheer Cold", target);
+			this.add('-anim', source, "Aurora Veil", source);
 		},
 		self: {
 			sideCondition: 'auroraveil',
