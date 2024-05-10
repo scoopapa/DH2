@@ -403,6 +403,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!target.hp && !source.status && source.runStatusImmunity('powder')) {
+				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/860612461556269066/1231829657855201420/20240422_015018.jpg?ex=663861c4&is=6625ecc4&hm=468e3ebd3000969a0e163e9f4a83eea58e660345c74b3b051f86690818b9f728&" height="538" width="720">`);
 				const r = this.random(30);
 				if (r < 11) {
 					source.setStatus('slp', target);
@@ -1582,7 +1583,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 5,
 			onStart(target) {
-				this.add('-start', target, 'ability: Quickstart');
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|Faster than fast, Quicker than quick. I am lightning.\nSpeed. I am speed.`);
+				this.add('-start', target, 'ability: Quickstart', '[silent]');
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
@@ -1866,6 +1868,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//shortDesc: "Vessel of Ruin + Pokemon without this ability can only select 0.75x moves.",
 	},
 	swallowswallow: {
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|I'm Smart`);
+			}
+			else if (target.getMoveHitData(move).typeMod < 0) {
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|I'm Dumb`);
+			}
+		},
 		onTryHit(target, source, move) {
 			if (move.type === 'Flying' && target !== source) {
 				this.add('-immune', target, '[from] ability: Swallow Swallow');

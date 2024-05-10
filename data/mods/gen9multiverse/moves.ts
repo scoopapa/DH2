@@ -27,7 +27,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	
+	headcharge: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	
 	boo: {
 		num: -1,

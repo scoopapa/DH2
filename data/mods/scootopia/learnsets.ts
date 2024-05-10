@@ -817,6 +817,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			followme: ["9L1"],
 		},
 	},
 	crossont: {
@@ -3473,7 +3474,6 @@ export const Learnsets = {
 			flamecharge: ["9L1"],
 			flamethrower: ["9L1"],
 			flash: ["9L1"],
-			followme: ["9L1"],
 			gravity: ["9L1"],
 			healbell: ["9L1"],
 			heatcrash: ["9L1"],

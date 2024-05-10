@@ -706,6 +706,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEUUBL",
 		doublesTier: "DOU",
 	},
+	kilommoototem: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	lunarunt: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	zorosharkhisui: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	zorosharkhisuimega: {
+		tier: "FEUUBL",
+		doublesTier: "DOU",
+	},
+	bombirdus: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	scoliraptor: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -789,6 +813,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	vibraveleralola: {
 		tier: "FENFE",
+		doublesTier: "DOU",
+	},
+	zorvanhahisui: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	starpede: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	whirlavia: {
+		tier: "FENFE",
+		doublesTier: "DOU",
+	},
+	watmoo: {
+		tier: "FELC",
 		doublesTier: "DOU",
 	},
 };

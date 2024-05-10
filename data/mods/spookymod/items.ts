@@ -2,6 +2,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	spellbookmagazine: {
 		name: "Spellbook Magazine",
 		shortDesc: "Lets the user pick up and cast spells.",
+		rating: 3,
 		onTakeItem(item, pokemon, source, move) {
 			return false;
 		},
