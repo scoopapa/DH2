@@ -147,8 +147,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	marowakalolatotem: {
 		inherit: true,
-		types: ["Fire", "Rock"],
-		baseStats: {hp: 89, atk: 83, def: 149, spa: 83, spd: 107, spe: 59},
+		types: ["Fire", "Ground"],
+		baseStats: {hp: 79, atk: 67, def: 149, spa: 107, spd: 107, spe: 61},
 		abilities: {0: "Totem Trial"},
 	},
 	gumshoostotem: {
@@ -159,8 +159,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	vikavolttotem: {
 		inherit: true,
-		types: ["Bug", "Ground"],
-		baseStats: {hp: 89, atk: 79, def: 109, spa: 167, spd: 79, spe: 47},
+		types: ["Bug", "Rock"],
+		baseStats: {hp: 103, atk: 73, def: 89, spa: 179, spd: 79, spe: 47},
 		abilities: {0: "Totem Trial"},
 	},
 	ribombeetotem: {
