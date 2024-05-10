@@ -1003,6 +1003,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	silkblanket: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Protects user's side from hazards for 7 turns (10 with Destiny Knot).",
+    	viable: true,
+		name: "Silk Blanket",
+		pp: 25,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sticky Web", target);
+		},
+		sideCondition: 'silkblanket',
+		condition: {
+			duration: 7,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('destinyknot')) {
+					return 10;
+				}
+				return 7;
+			},
+			// Hazard immunity implemented in the hazard moves themselves
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Silk Blanket');
+				this.add('-message', `A soft blanket was laid across this side fo the field!`);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Silk Blanket');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Bug",
+		zMove: {boost: {spd: 1}},
+		contestType: "Clever",
+	},
 
 // Changed Moves
 	direclaw: {
@@ -1556,6 +1596,187 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.sideConditions['silkblanket']) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.side.sideConditions['silkblanket']) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	stickyweb: {
+		num: 564,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Web",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1},
+		sideCondition: 'stickyweb',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.side.sideConditions['silkblanket']) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Bug",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
+	},
+	toxicspikes: {
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'toxicspikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.side.sideConditions['silkblanket']) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	rapidspin: {
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'silkblanket'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'silkblanket'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+
 
 	// Undexited Moves	
 	snatch: {
@@ -1667,8 +1888,44 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	defog: {
-		inherit: true,
-		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},
+		num: 432,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Defog",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1, wind: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'silkblanket', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'silkblanket',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
 	},
 	multiattack: {
 		inherit: true,
@@ -1682,8 +1939,56 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	mortalspin: {
+		num: 866,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+		name: "Mortal Spin",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'silkblanket'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			status: 'psn',
+		},
+		target: "allAdjacentFoes",
+		type: "Poison",
+	},
 
-// Z-Move
+// Z-Moves
 	"10000000voltthunderbolt": {
 		num: 719,
 		accuracy: true,
@@ -2890,7 +3195,76 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 	},
 	courtchange: {
-		inherit: true,
+		num: 756,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Court Change",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1, metronome: 1},
+		onHitField(target, source) {
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'silkblanket', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			];
+			let success = false;
+			if (this.gameType === "freeforall") {
+				// random integer from 1-3 inclusive
+				const offset = this.random(3) + 1;
+				// the list of all sides in counterclockwise order
+				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
+				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				for (const side of sides) {
+					for (const id in side.sideConditions) {
+						if (!sideConditions.includes(id)) continue;
+						temp[side.n][id] = side.sideConditions[id];
+						delete side.sideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						this.add('-sideend', side, effectName, '[silent]');
+						success = true;
+					}
+				}
+				for (let i = 0; i < 4; i++) {
+					const sourceSideConditions = temp[sides[i].n];
+					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					for (const id in sourceSideConditions) {
+						targetSide.sideConditions[id] = sourceSideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						let layers = sourceSideConditions[id].layers || 1;
+						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+					}
+				}
+			} else {
+				const sourceSideConditions = source.side.sideConditions;
+				const targetSideConditions = source.side.foe.sideConditions;
+				const sourceTemp: typeof sourceSideConditions = {};
+				const targetTemp: typeof targetSideConditions = {};
+				for (const id in sourceSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					sourceTemp[id] = sourceSideConditions[id];
+					delete sourceSideConditions[id];
+					success = true;
+				}
+				for (const id in targetSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					targetTemp[id] = targetSideConditions[id];
+					delete targetSideConditions[id];
+					success = true;
+				}
+				for (const id in sourceTemp) {
+					targetSideConditions[id] = sourceTemp[id];
+				}
+				for (const id in targetTemp) {
+					sourceSideConditions[id] = targetTemp[id];
+				}
+				this.add('-swapsideconditions');
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
 		zMove: {boost: {spe: 1}},
 	},
 	decorate: {
@@ -2919,7 +3293,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	obstruct: {
 		inherit: true,
-		zMove: {boost: {def: 1}},
+		zMove: {boost: {atk: 1}},
 	},
 	shelter: {
 		inherit: true,
@@ -2978,7 +3352,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {atk: 2}},
 	},
 	tidyup: {
-		inherit: true,
+		num: 882,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Tidy Up",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		onHit(pokemon) {
+			let success = false;
+			for (const active of this.getAllActive()) {
+				if (active.removeVolatile('substitute')) success = true;
+			}
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'silkblanket'];
+			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
+			for (const side of sides) {
+				for (const sideCondition of removeAll) {
+					if (side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
+						success = true;
+					}
+				}
+			}
+			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
+			return !!this.boost({atk: 1, spe: 1}, pokemon, pokemon, null, false, true) || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 	},
 };
