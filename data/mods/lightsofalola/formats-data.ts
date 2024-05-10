@@ -172,8 +172,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RU LoA",
 	},
 	vikavolttotem: {
-		tier: "UU LoA",
-		doublesTier: "UU LoA",
+		tier: "RU LoA",
+		doublesTier: "RU LoA",
 	},
 	bonsly: {
 		tier: "LC LoA",
@@ -844,8 +844,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "UU LoA",
 	},
 	marowakalolatotem: {
-		tier: "RU LoA",
-		doublesTier: "RU LoA",
+		tier: "OU LoA",
+		doublesTier: "OU LoA",
 	},
 	kangaskhan: {
 		tier: "NU LoA",
