@@ -161,7 +161,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	breloom: {tier: "Paldea", doublesTier: "Paldea"},
 
 	applin: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	flapple: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	flapple: {tier: "Paldea", doublesTier: "Paldea"},
 	appletun: {tier: "Paldea", doublesTier: "Paldea"},
 
 	spoink: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
@@ -406,7 +406,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heracross: {tier: "Paldea", doublesTier: "Paldea"},
 
 	flittle: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	espathra: {tier: "Uber"},
+	espathra: {tier: "Uber", doublesTier: "Paldea"},
 
 	hippopotas: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	hippowdon: {tier: "Paldea", doublesTier: "Paldea"},
@@ -446,7 +446,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bombirdier: {tier: "Paldea", doublesTier: "Paldea"},
 
 	finizen: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	palafin: {tier: "Uber"},
+	palafin: {tier: "Uber", doublesTier: "Paldea"},
 
 	varoom: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	revavroom: {tier: "Paldea", doublesTier: "Paldea"},
@@ -484,7 +484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotomfrost: {tier: "Paldea", doublesTier: "Paldea"},
 
 	greavard: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	houndstone: {tier: "Uber"},
+	houndstone: {tier: "Uber", doublesTier: "Paldea"},
 
 	oranguru: {tier: "Paldea", doublesTier: "Paldea"},
 
@@ -557,7 +557,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	beartic: {tier: "Paldea", doublesTier: "Paldea"},
 
 	snorunt: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	glalie: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	glalie: {tier: "Paldea", doublesTier: "Paldea"},
 	froslass: {tier: "Paldea", doublesTier: "Paldea"},
 
 	cryogonal: {tier: "Paldea", doublesTier: "Paldea"},
@@ -611,8 +611,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tinglu: {tier: "Paldea", doublesTier: "Paldea"},
 	chiyu: {tier: "Uber", doublesTier: "Paldea"},
 
-	roaringmoon: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	ironvaliant: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	roaringmoon: {tier: "Paldea", doublesTier: "Paldea"},
+	ironvaliant: {tier: "Paldea", doublesTier: "Paldea"},
 
 	koraidon: {tier: "Uber", doublesTier: "Paldea"},
 	miraidon: {tier: "Uber", doublesTier: "Paldea"},
