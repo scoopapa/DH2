@@ -148,7 +148,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	marowakalolatotem: {
 		inherit: true,
 		types: ["Fire", "Ground"],
-		baseStats: {hp: 79, atk: 67, def: 149, spa: 107, spd: 107, spe: 61},
+		baseStats: {hp: 89, atk: 67, def: 149, spa: 97, spd: 107, spe: 61},
 		abilities: {0: "Totem Trial"},
 	},
 	gumshoostotem: {
