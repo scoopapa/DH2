@@ -749,6 +749,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "vikavolttotem").learnset.rocktomb = ["9L1"];
 		this.modData("Learnsets", "vikavolttotem").learnset.quickattack = ["9L1"];
 		this.modData("Learnsets", "vikavolttotem").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "vikavolttotem").learnset.meteorbeam = ["9L1"];
 		// Sudowoodo
 		this.modData("Learnsets", "sudowoodo").learnset.poprocks = ["9L1"];
 		// Abra
