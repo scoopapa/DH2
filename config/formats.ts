@@ -2601,8 +2601,10 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'lightsofalola',
+		bestOfDefault: true,
 		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit One Restricted'],
+		restricted: ['Restricted Legendary', 'Mythical'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
