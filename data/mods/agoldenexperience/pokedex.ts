@@ -1552,7 +1552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	probopass: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 50, def: 145, spa: 90, spd: 150, spe: 30},
-		abilities: {0: "Sturdy", 1: "Magnet Pull", H: "Smart Guard"},
+		abilities: {0: "Levitate", 1: "Magnet Pull", H: "Smart Guard"},
 	},
 	dusknoir: {
 		inherit: true,
