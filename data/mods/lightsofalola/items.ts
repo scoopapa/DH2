@@ -156,7 +156,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
-				this.boost({spd: 1}, target, target);
+				this.boost({def: 1}, target, target);
 			}
 		},
 		onTakeItem(item, source) {
