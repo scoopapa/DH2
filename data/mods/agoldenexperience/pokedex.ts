@@ -3883,7 +3883,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Wizamadol",
 		types: ["Fire", "Psychic"],
 		baseStats: {hp: 65, atk: 45, def: 75, spa: 125, spd: 110, spe: 100},
-		abilities: {0: "Magician", H: "Divination"},
+		abilities: {0: "Magician", 1: "Divination", H: "Ignite"},
 		heightm: 1.83,
 		weightkg: 65,
 		color: "Red",

@@ -2759,6 +2759,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 170},
 		contestType: "Tough",
 	},
+	magicmissile: {
+		num: -65,
+		accuracy: true,
+		basePower: 25,
+		category: "Special",
+		name: "Magic Missile",
+		shortDesc: "Hits 2-5 times in one turn. Does not check accuracy, bypasses immunities, and always hits for at least neutral damages.",
+		desc: "Hits two to five times. This move does not check accuracy, bypasses immunities, and always hits for at least neutral damages.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swift", target);
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Magic Missile damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, pokemon, target) {
+			let type = move.type;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity[type] = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Smart",
+	},
 
 	// Identity Card field
 

@@ -2393,6 +2393,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			icywind: ["9M"],
 			imprison: ["9M"],
 			magicalleaf: ["9M"],
+			magicmissile: ["9L1"],
 			meanlook: ["9L14"],
 			memento: ["9L21"],
 			mistyterrain: ["9M"],
@@ -3558,6 +3559,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			flamingsphere: ["9L69"],
 			detectmagic: ["9L69"],
 			dispelmagic: ["9L69"],
+			magicmissile: ["9L69"],
 		},
 	},
 	mystao: {
