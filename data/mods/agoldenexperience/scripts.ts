@@ -128,7 +128,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'zoroarkhisui').learnset.magicmissile = ['9L1'];
     this.modData('Learnsets', 'delphox').learnset.magicmissile = ['9L1'];
     this.modData('Learnsets', 'drampa').learnset.magicmissile = ['9L1'];
-    this.modData('Learnsets', 'silvally').learnset.magicmissile = ['9L1'];
     this.modData('Learnsets', 'wyrdeer').learnset.magicmissile = ['9L1'];
     this.modData('Learnsets', 'ursalunabloodmoon').learnset.magicmissile = ['9L1'];
 
