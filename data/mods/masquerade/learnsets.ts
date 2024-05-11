@@ -308,6 +308,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderpunch: ["9L1"],
 			torment: ["9L1"],
 			toxic: ["9L1"],
+			bonerush: ["9L1"],
+			icespinner: ["9L1"],
+			iciclecrash: ["9L1"],
+			iciclespear: ["9L1"],
 		},
 	},
 	guzzlord: {
