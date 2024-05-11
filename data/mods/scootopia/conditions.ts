@@ -48,7 +48,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.hasAbility('earlybird')) {
 				pokemon.statusState.time--;
 			}
-			pokemon.statusData.time--;
+			pokemon.statusState.time--;
 			if (pokemon.statusState.time <= 0) {
 				pokemon.cureStatus();
 				return;
