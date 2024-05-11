@@ -472,11 +472,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	kabuto: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Technician"},
+		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Sharpness"},
 	},
 	kabutops: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Technician"},
+		abilities: {0: "Swift Swim", 1: "Battle Armor", H: "Sharpness"},
 	},
 	snorlax: {
 		inherit: true,
