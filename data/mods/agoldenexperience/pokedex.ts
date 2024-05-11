@@ -2021,14 +2021,27 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Plus", 1: "Minus", H: "Technician"},
 	},
+	tynamo: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Luster Swap"},
+	},
+	eelektrik: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Luster Swap"},
+	},
 	eelektross: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 65, def: 90, spa: 125, spd: 90, spe: 50},
+		baseStats: {hp: 85, atk: 115, def: 80, spa: 115, spd: 80, spe: 50},
+		abilities: {0: "Levitate", H: "Luster Swap"},
+	},
+	elgyem: {
+		inherit: true,
+		abilities: {0: "Luster Swap", 1: "Neuroforce", H: "Analytic"},
 	},
 	beheeyem: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 55, def: 95, spa: 125, spd: 95, spe: 30},
-		abilities: {0: "Telepathy", 1: "Neuroforce", H: "Analytic"},
+		abilities: {0: "Luster Swap", 1: "Neuroforce", H: "Analytic"},
 	},
 	litwick: {
 		inherit: true,
@@ -2377,6 +2390,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	noibat: {
 		inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Sonar"},
 		otherFormes: ["Noibat-Sinnoh"],
 		formeOrder: ["Noibat", "Noibat-Sinnoh"],
 	},
@@ -2387,7 +2401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Sinnoh",
         types: ["Ice", "Flying"],
         baseStats: {hp: 40, atk: 30, def: 35, spa: 45, spd: 40, spe: 55},
-        abilities: {0: "Levitate", H: "Sonar"},
+        abilities: {0: "Levitate", 1: "Frisk", H: "Sonar"},
         heightm: 0.5,
         weightkg: 9,
         evos: ["Noivern-Sinnoh"],
@@ -2406,7 +2420,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Sinnoh",
         types: ["Ice", "Dragon"],
 		baseStats: {hp: 85, atk: 70, def: 80, spa: 97, spd: 80, spe: 123},
-        abilities: {0: "Levitate", H: "Sonar"},
+        abilities: {0: "Levitate", 1: "Infiltrator", H: "Sonar"},
         heightm: 1.4,
         weightkg: 89,
 		prevo: "Noibat-Sinnoh",
@@ -2504,7 +2518,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	lurantis: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 105, def: 80, spa: 80, spd: 80, spe: 75},
-		abilities: {0: "Leaf Guard", H: "Contrary"},
 	},
 	morelull: {
 		inherit: true,
@@ -2993,7 +3006,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	eldegoss: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 50, def: 100, spa: 80, spd: 120, spe: 60},
-		abilities: {0: "Cotton Down", 1: "Regenerator", H: "Effect Spore"},
 	},
 	dubwool: {
 		inherit: true,
