@@ -1160,7 +1160,7 @@ export class RandomTeams {
 		if (abilities.has('Guts') && (moves.has('facade') || moves.has('sleeptalk') || species.id === 'gurdurr')) return 'Guts';
 		if (species.id === 'copperajah' && moves.has('heavyslam')) return 'Heavy Metal';
 		if (species.id === 'jumpluff') return 'Infiltrator';
-		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Keen Eye';
+		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Sheer Force';
 		if (species.id === 'reuniclus') return 'Magic Guard';
 		if (species.id === 'smeargle' && !counter.get('technician')) return 'Own Tempo';
 		if (species.id === 'zebstrika') return (moves.has('wildcharge')) ? 'Sap Sipper' : 'Lightning Rod';
@@ -1175,7 +1175,8 @@ export class RandomTeams {
 			if (species.id === 'hypno') return 'Insomnia';
 			if (species.id === 'staraptor') return 'Reckless';
 			if (species.id === 'arcaninehisui') return 'Rock Head';
-			if (species.id === 'azurill') return 'Thick Fat';
+			if (species.id === 'miltank') return 'Scrappy';
+			if (species.id === 'emolga') return 'Thunder Cape';
 			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Anger Shell';
@@ -1305,7 +1306,8 @@ export class RandomTeams {
 			return this.sample(species.requiredItems);
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
-		if (species.id === 'pikachu') return 'Light Ball';
+		if (species.id === 'pikachu') return 'Pikanium Z';
+		if (species.id === 'pikachualola') return 'Pikashunium Z';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
 		if (
@@ -1323,10 +1325,10 @@ export class RandomTeams {
 			(species.id === 'magnezone' && moves.has('bodypress') && !isDoubles)
 		) return 'Choice Scarf';
 		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
-		if (
+		/*if (
 			moves.has('courtchange') ||
 			!isDoubles && (species.id === 'luvdisc' || (species.id === 'terapagos' && !moves.has('rest')))
-		) return 'Heavy-Duty Boots';
+		) return 'Heavy-Duty Boots';*/
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
 			['Cheek Pouch', 'Cud Chew', 'Harvest', 'Ripen'].some(m => ability === m) ||
@@ -1362,6 +1364,33 @@ export class RandomTeams {
 		if (moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
+		if (species.id === 'decidueye' && role === 'Wallbreaker') return 'Decidium Z';
+		if (moves.has('warmup')) return 'Scope Lens';
+		if (species.id === 'incineroar' && role === 'Setup Sweeper') return 'Incinium Z';
+		if (species.id === 'primarina' && role === 'Bulky Setup') return 'Primarium Z';
+		if (species.id === 'toucannon' && role === 'Wallbreaker') return 'Toucannium Z';
+		if (species.id === 'ledian') return 'Punching Glove';
+		if (species.id === 'snorlax') return 'Snorlium Z';
+		if (species.id === 'persianalola') return 'Darkinium Z';
+		if (species.id === 'hypno') return 'Hypnium Z';
+		if (species.id === 'crabominable') return 'Crabominabium Z';
+		if (species.id === 'mismagius' && role === 'Setup Sweeper') return 'Ghostium Z';
+		if (species.id === 'dugtrioalola') return 'Alodugtrium Z';
+		if (species.id === 'delibird') return 'Mysterious Bundle';
+		if (species.id === 'lilligant') return 'Grassium Z';
+		if (species.id === 'lilliganthisui') return 'Fightinium Z';
+		if (species.id === 'luvdisc') return 'Grip Claw';
+		if (species.id === 'wishiwashi') return 'Wishiwashium Z';
+		if (species.id === 'lycanroc' || species.id === 'lycanrocdusk' || species.id === 'lycanrocmidnight') return 'Lycanium Z';
+		if (species.id === 'eevee') return 'Eevium Z';
+		if (species.id === 'taurospaldeaaqua') return 'Taurosium Z';
+		if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
+		if (
+			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' ||
+			species.id === 'lurantistotem' || species.id === 'marowakalolatotem'
+		) { 
+			return 'Strange Souvenir';
+		}
 		if (ability === 'Gluttony') return `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
 		if (
 			moves.has('rest') && !moves.has('sleeptalk') &&
@@ -1369,10 +1398,10 @@ export class RandomTeams {
 		) {
 			return 'Chesto Berry';
 		}
-		if (
+		/* if (
 			species.id !== 'yanmega' &&
 			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
-		) return 'Heavy-Duty Boots';
+		) return 'Heavy-Duty Boots'; /*
 	}
 
 	/** Item generation specific to Random Doubles */
