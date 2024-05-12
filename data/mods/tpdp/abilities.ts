@@ -1975,7 +1975,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.tryTrap();
 			},
 			onStart(target) {
-				this.add('-activate', target, 'restraint');
+				this.add('-activate', target, 'restraint', '[silent]');
 			},
 		},
 	},
