@@ -36,7 +36,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NFE LoA",
 	},
 	primarina: {
-		tier: "UU LoA",
+		tier: "OU LoA",
 		doublesTier: "UU LoA",
 	},
 	pikipek: {
@@ -740,7 +740,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RU LoA",
 	},
 	araquanidtotem: {
-		tier: "RU LoA",
+		tier: "OU LoA",
 		doublesTier: "RU LoA",
 	},
 	fomantis: {
@@ -828,7 +828,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NU LoA",
 	},
 	salazzletotem: {
-		tier: "UU LoA",
+		tier: "OU LoA",
 		doublesTier: "UU LoA",
 	},
 	cubone: {
@@ -884,7 +884,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RU LoA",
 	},
 	comfey: {
-		tier: "UU LoA",
+		tier: "RU LoA",
 		doublesTier: "UU LoA",
 	},
 	pinsir: {
@@ -1220,7 +1220,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NFE LoA",
 	},
 	krookodile: {
-		tier: "RU LoA",
+		tier: "UU LoA",
 		doublesTier: "RU LoA",
 	},
 	trapinch: {
@@ -1268,7 +1268,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NU LoA",
 	},
 	absol: {
-		tier: "RU LoA",
+		tier: "UU LoA",
 		doublesTier: "RU LoA",
 	},
 	snorunt: {
@@ -1696,7 +1696,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NFE LoA",
 	},
 	tyranitar: {
-		tier: "OU LoA",
+		tier: "UU LoA",
 		doublesTier: "OU LoA",
 	},
 	mawile: {
@@ -1992,7 +1992,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Uber LoA",
 	},
 	mew: {
-		tier: "OU LoA",
+		tier: "UU LoA",
 		doublesTier: "OU LoA",
 	},
 	skitty: {
@@ -2028,7 +2028,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NU LoA",
 	},
 	aegislash: {
-		tier: "OU LoA",
+		tier: "UU LoA",
 		doublesTier: "OU LoA",
 	},
 	diancie: {
@@ -2036,7 +2036,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RU LoA",
 	},
 	okidogi: {
-		tier: "RU LoA",
+		tier: "UU LoA",
 		doublesTier: "RU LoA",
 	},
 	munkidori: {
