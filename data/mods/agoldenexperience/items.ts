@@ -781,10 +781,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.useItem();
 			}
 		},
-		boosts: {
-			atk: 2,
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb')) {
+				return false;
+			}
 		},
-		desc: "Raises holder's Attack by 2 stages if holder is Tropius or Sautropius. Single use.",
+		boosts: {
+			atk: 1,
+		},
+		desc: "If holder is Tropius or Sautropius, raises holder's Attack by 1 stage, and on switch-in, this Pokemon avoids all hazards. Single use.",
 		itemUser: ["Tropius", "Sautropius"],
 		num: -51,
 		gen: 9,
