@@ -1,5 +1,5 @@
 {
-	"decidueye": {
+	  "decidueye": {
         "level": 77,
         "sets": [
             {
@@ -14,7 +14,7 @@
             }
         ]
     },
-	"decidueyehisui": {
+	  "decidueyehisui": {
         "level": 77,
         "sets": [
             {
@@ -24,7 +24,7 @@
             }
         ]
     },
-	"incineroar": {
+	  "incineroar": {
         "level": 77,
         "sets": [
             {
@@ -39,7 +39,7 @@
             }
         ]
     },
-	"primarina": {
+	  "primarina": {
         "level": 73,
         "sets": [
             {
@@ -54,7 +54,7 @@
             }
         ]
     },
-	"toucannon": {
+	  "toucannon": {
         "level": 79,
         "sets": [
             {
@@ -69,7 +69,7 @@
             }
         ]
     },
-	"gumshoos": {
+	  "gumshoos": {
         "level": 79,
         "sets": [
             {
@@ -79,7 +79,7 @@
             }
         ]
     },
-	"gumshoostotem": {
+	  "gumshoostotem": {
         "level": 77,
         "sets": [
             {
@@ -89,7 +89,7 @@
             }
         ]
     },
-	"raticatealola": {
+	  "raticatealola": {
         "level": 79,
         "sets": [
             {
@@ -99,7 +99,7 @@
             }
         ]
     },
-	"raticatealolatotem": {
+	  "raticatealolatotem": {
         "level": 73,
         "sets": [
             {
@@ -109,7 +109,7 @@
             }
         ]
     },
-	"raticate": {
+	  "raticate": {
         "level": 79,
         "sets": [
             {
@@ -119,7 +119,7 @@
             }
         ]
     },
-	"butterfree": {
+	  "butterfree": {
         "level": 79,
         "sets": [
             {
@@ -129,7 +129,7 @@
             }
         ]
     },
-	"ledian": {
+	  "ledian": {
         "level": 79,
         "sets": [
             {
@@ -139,7 +139,7 @@
             }
         ]
     },
-	"ariados": {
+	  "ariados": {
         "level": 79,
         "sets": [
             {
@@ -149,7 +149,7 @@
             }
         ]
     },
-	"pikachu": {
+	  "pikachu": {
         "level": 79,
         "sets": [
             {
@@ -159,7 +159,7 @@
             }
         ]
     },
-	"pikachualola": {
+	  "pikachualola": {
         "level": 79,
         "sets": [
             {
@@ -169,7 +169,7 @@
             }
         ]
     },
-	"raichu": {
+	  "raichu": {
         "level": 77,
         "sets": [
             {
@@ -179,7 +179,7 @@
             }
         ]
     },
-	"raichualola": {
+	  "raichualola": {
         "level": 75,
         "sets": [
             {
@@ -189,7 +189,7 @@
             }
         ]
     },
-	"vikavolt": {
+	  "vikavolt": {
         "level": 77,
         "sets": [
             {
@@ -199,7 +199,7 @@
             }
         ]
     },
-	"vikavolttotem": {
+  	"vikavolttotem": {
         "level": 77,
         "sets": [
             {
@@ -209,7 +209,7 @@
             }
         ]
     },
-	"sudowoodo": {
+	  "sudowoodo": {
         "level": 77,
         "sets": [
             {
@@ -219,7 +219,7 @@
             }
         ]
     },
-	"blissey": {
+	  "blissey": {
         "level": 75,
         "sets": [
             {
@@ -234,13 +234,108 @@
             }
         ]
     },
-	"snorlax": {
+	  "snorlax": {
         "level": 77,
         "sets": [
             {
                 "role": "Bulky Setup",
                 "movepool": ["Body Slam", "Heat Crash", "Crunch", "Curse"],
                 "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+    "slowbro": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Calm Mind", "Psychic Noise", "Scald", "Slack Off"],
+                "teraTypes": ["Fairy", "Water"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Body Press", "Fire Blast", "Future Sight", "Scald"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+	  "slowking": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Chilly Reception", "Psychic Noise", "Scald", "Slack Off"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+    "slowbrogalar": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Nasty Plot", "Shell Side Arm", "Fire Blast", "Slack Off"],
+                "teraTypes": ["Fairy", "Water"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Shell Side Arm", "Flamethrower", "Psychic Noise", "Hydro Pump"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "slowkinggalar": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Chilly Reception", "Sludge Bomb", "Psychic Noise", "Slack Off"],
+                "teraTypes": ["Fairy", "Water"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Sludge Bomb", "Flamethrower", "Psychic Noise", "Ice Beam"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Sludge Wave", "Flamethrower", "Psychic", "Trick Room"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+	  "pelipper": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Surf", "Hurricane", "Roost", "U-Turn"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	  "alakazam": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Nasty Plot", "Psychic", "Shadow Ball", "Focus Blast"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	  "persianalola": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Parting Shot", "Foul Play", "Taunt", "Thunder Wave"],
+                "teraTypes": ["Ghost"]
+            }
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Nasty Plot", "Dark Pulse", "Thunderbolt", "Burning Jealousy", "Power Gem"],
+                "teraTypes": ["Fairy", "Fighting"]
             }
         ]
     },
