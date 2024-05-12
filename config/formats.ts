@@ -609,7 +609,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'AG', 'Uber',
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
+			'Baton Pass', 'Last Respects', 'Shed Tail',
 			'King\'s Rock', 'Razor Fang', 'Quick Claw',
 		],
 		onValidateTeam(team, format) {

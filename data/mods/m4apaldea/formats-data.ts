@@ -484,7 +484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotomfrost: {tier: "Paldea", doublesTier: "Paldea"},
 
 	greavard: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	houndstone: {tier: "Uber", doublesTier: "Paldea"},
+	houndstone: {tier: "Paldea", doublesTier: "Paldea"},
 
 	oranguru: {tier: "Paldea", doublesTier: "Paldea"},
 
