@@ -1401,7 +1401,7 @@ export class RandomTeams {
 		/* if (
 			species.id !== 'yanmega' &&
 			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
-		) return 'Heavy-Duty Boots'; /*
+		) return 'Heavy-Duty Boots'; */
 	}
 
 	/** Item generation specific to Random Doubles */
