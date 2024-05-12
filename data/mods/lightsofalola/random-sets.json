@@ -1,0 +1,247 @@
+{
+	"decidueye": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Leaf Blade", "Spirit Shackle", "Shadow Sneak", "Swords Dance"],
+                "teraTypes": ["Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Leaf Blade", "Knock Off", "Roost", "U-Turn"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"decidueyehisui": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Leaf Blade", "Triple Arrows", "Wide Slash", "Warm Up"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"incineroar": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Flare Blitz", "Knock Off", "Will-O-Wisp", "Parting Shot"],
+                "teraTypes": ["Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Flare Blitz", "Darkest Lariat", "Swords Dance", "Close Combat"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"primarina": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Hydro Pump", "Moonblast", "Flip Turn", "Ice Beam"],
+                "teraTypes": ["Water"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind", "Sparkling Aria", "Draining Kiss", "Ice Beam"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"toucannon": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Beak Blast", "Throat Chop", "Gunk Shot", "Roost"],
+                "teraTypes": ["Water"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Brave Bird", "Bullet Seed", "Flame Charge", "Swords Dance"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"gumshoos": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Double-Edge", "Knock Off", "Earthquake", "U-Turn"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"gumshoostotem": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Double-Edge", "Psychic Fangs", "Earthquake", "Trick Room"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"raticatealola": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Double-Edge", "Knock Off", "Sucker Punch", "Swords Dance"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"raticatealolatotem": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Gunk Shot", "Knock Off", "Parting Shot", "Toxic"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"raticate": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Quick Attack", "Knock Off", "Facade", "Jump Kick"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"butterfree": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Quiver Dance", "Hurricane", "Bug Buzz", "Psychic Noise"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"ledian": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Five-Star Fist", "Drain Punch", "Thunder Punch"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"ariados": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Megahorn", "Poison Jab", "Sucker Punch"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"pikachu": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Volt Tackle", "Fake Out", "Knock Off", "Volt Switch"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"pikachualola": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Zippy Zap", "Thunderbolt", "Surf", "Nasty Plot"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"raichu": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Zippy Zap", "Focus Blast", "Surf", "Nasty Plot"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"raichualola": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Zippy Zap", "Focus Blast", "Psychic", "Nasty Plot"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"vikavolt": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Agility", "Thunderbolt", "Bug Buzz", "Energy Ball"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"vikavolttotem": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["U-Turn", "Earth Power", "Bug Buzz", "Power Gem"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"sudowoodo": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Pop Rocks", "Stone Edge", "Earthquake", "Sucker Punch"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"blissey": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Seismic Toss", "Thunder Wave", "Soft-Boiled", "Heal Bell"],
+                "teraTypes": ["Water"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Ice Beam", "Flamethrower", "Soft-Boiled", "Calm Mind"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"snorlax": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Body Slam", "Heat Crash", "Crunch", "Curse"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+}
