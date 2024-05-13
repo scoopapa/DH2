@@ -1347,7 +1347,7 @@ export class RandomTeams {
 		}
 		if (counter.get('Status') && (species.name === 'Latias' || species.name === 'Latios')) return 'Soul Dew';
 		if (species.id === 'scyther' && !isDoubles) return (isLead && !moves.has('uturn')) ? 'Eviolite' : 'Heavy-Duty Boots';
-		if (species.nfe) return 'Eviolite';
+		if (species.nfe && species.id !== 'eevee') return 'Eviolite';
 		if (ability === 'Poison Heal') return 'Toxic Orb';
 		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
 			return (types.includes('Fire') || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
@@ -1383,6 +1383,8 @@ export class RandomTeams {
 		if (species.id === 'lycanroc' || species.id === 'lycanrocdusk' || species.id === 'lycanrocmidnight') return 'Lycanium Z';
 		if (species.id === 'eevee') return 'Eevium Z';
 		if (species.id === 'taurospaldeaaqua') return 'Taurosium Z';
+		if (species.id === 'marowak' || species.id === 'marowakalola') return 'Thick Club';
+		if (species.id === 'clamperl') return 'Deep Sea Tooth';
 		// (use to specify for specific rocks later) if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
 		if (
 			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' ||
