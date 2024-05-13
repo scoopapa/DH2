@@ -12,6 +12,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	aquaring: {
+		num: 392,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Aqua Ring",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		volatileStatus: 'aquaring',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Aqua Ring');
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+	}
 	bind: {
 		inherit: true,
 		basePower: 40,
