@@ -2590,7 +2590,20 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	// Add LoA randbats later
+	{
+		name: "[Gen 9] Lights of Alola Random Battle",
+		desc: [
+			"<b>Lights of Alola</b>: A Gen 9 Solomod based in the Alola Region featuring a number of new Z-Moves, overhauls to Totem Pokemon, and buffs to old Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'lightsofalola',
+		bestOfDefault: true,
+		team: 'random',
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Moves Clause', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Terastal Clause'],
+	},
 	{
 		name: "[Gen 9] Lights of Alola VGC",
 		desc: [
