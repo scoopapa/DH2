@@ -11075,6 +11075,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fezandipiti").learnset.drainingkiss = ["9L1"];
 		// Salamence
 		this.modData('Learnsets', 'salamence').learnset.defog = ["9L1"];
+		// Cottonee
+		this.modData('Learnsets', 'cottonee').learnset.leafstorm = ["9L1"];
+		// Whimsicott
+		this.modData('Learnsets', 'whimsicott').learnset.leafstorm = ["9L1"];
 		// New TMs 
 		this.modData('Learnsets', 'litten').learnset.echoedvoice = ["9L1"];
 		this.modData('Learnsets', 'torracat').learnset.echoedvoice = ["9L1"];
