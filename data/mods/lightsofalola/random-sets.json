@@ -159,16 +159,6 @@
             }
         ]
     },
-	  "pikachualola": {
-        "level": 79,
-        "sets": [
-            {
-                "role": "Setup Sweeper",
-                "movepool": ["Zippy Zap", "Thunderbolt", "Surf", "Nasty Plot"],
-                "teraTypes": ["Ghost"]
-            }
-        ]
-    },
 	  "raichu": {
         "level": 77,
         "sets": [
