@@ -419,5 +419,37 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Stamina", H: "Thick Fat"},
 		weightkg: 1,
 	},
+	yizolt: {
+		num: 48,
+		name: "Yizolt",
+		types: ["Electric", "Fairy"],
+		baseStats: {hp: 75, atk: 95, def: 60, spa: 95, spd: 97, spe: 113},
+		abilities: {0: "Volt Absorb", 1: "Gluttony", H: "First Flight"},
+		weightkg: 42,
+	},
+	dracomizer: {
+		num: 49,
+		name: "Dracomizer",
+		types: ["Dragon", "Fire"],
+		baseStats: {hp: 100, atk: 101, def: 112, spa: 90, spd: 80, spe: 52},
+		abilities: {0: "Sand Rush", 1: "Rough Skin", H: "Solar Power"},
+		weightkg: 287,
+	},
+	swishivish: {
+		num: 50,
+		name: "Swishivish",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 90, atk: 90, def: 100, spa: 55, spd: 65, spe: 100},
+		abilities: {0: "Water Absorb", 1: "Water Veil", H: "Aerilate"},
+		weightkg: 155,
+	},
+	arctobyss: {
+		num: 51,
+		name: "Arctobyss",
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 125, atk: 65, def: 85, spa: 100, spd: 90, spe: 75},
+		abilities: {0: "Cursed Body", 1: "Slush Rush", H: "Permafrost"},
+		weightkg: 200,
+	},
 
 }
