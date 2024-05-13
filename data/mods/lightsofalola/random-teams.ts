@@ -1307,7 +1307,6 @@ export class RandomTeams {
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'pikachu') return 'Pikanium Z';
-		if (species.id === 'pikachualola') return 'Pikashunium Z';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
 		if (
