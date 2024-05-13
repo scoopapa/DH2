@@ -336,6 +336,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gogoat: {tier: "Paldea", doublesTier: "Paldea"},
 
 	tauros: {tier: "Paldea", doublesTier: "Paldea"},
+	taurospaldeacombat: {tier: "Paldea", doublesTier: "Paldea"},
+	taurospaldeablaze: {tier: "Paldea", doublesTier: "Paldea"},
+	taurospaldeaaqua: {tier: "Paldea", doublesTier: "Paldea"},
 
 	litleo: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	pyroar: {tier: "Paldea", doublesTier: "Paldea"},
