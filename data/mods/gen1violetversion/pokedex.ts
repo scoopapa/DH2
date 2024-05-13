@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	golduck: {
 		inherit: true,
 		types: ["Water", "Ghost"],
-		baseStats: {hp:90, atk:82, def:78, spa:80, spd:80, spe:95},
+		baseStats: {hp:80, atk:82, def:78, spa:80, spd:80, spe:95},
 	},
 	hypno: {
 		inherit: true,
@@ -59,7 +59,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	machamp: {
 		inherit: true,
-		baseStats: {hp:900, atk:130, def:80, spa:65, spd:65, spe:55},
+		baseStats: {hp:90, atk:130, def:80, spa:65, spd:65, spe:55},
 	},
 	magmar: {
 		inherit: true,
