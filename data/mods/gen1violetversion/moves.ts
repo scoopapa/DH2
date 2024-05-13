@@ -31,7 +31,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			},
 		},
-	}
+	},
 	bind: {
 		inherit: true,
 		basePower: 40,
