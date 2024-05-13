@@ -1544,6 +1544,191 @@
             }
         ]
     },
+    "silvally": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Swords Dance", "Multi-Attack", "Knock Off", "Explosion"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallybug": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Multi-Attack", "Temper Flare", "Stone Edge"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallydragon": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Draco Meteor", "Flamethrower", "Thunderbolt", "Parting Shot"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallydark": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Swords Dance", "Multi-Attack", "U-Turn", "Psychic Fangs"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyfire": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Multi-Attack", "Stone Edge", "Supercell Slam"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyelectric": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Ice Beam", "Thunderbolt", "Flamethrower", "U-Turn"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyfairy": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Parting Shot", "Multi-Attack", "Knock Off", "Taunt"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyfighting": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Swords Dance", "Multi-Attack", "Stone Edge", "Knock Off"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyflying": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Multi-Attack", "Stomping Tantrum", "Stone Edge"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyghost": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Swords Dance", "Multi-Attack", "Trailblaze", "Temper Flare"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallygrass": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Grass Pledge", "Fire Pledge", "Water Pledge", "Vacuum Wave"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyground": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Multi-Attack", "Supercell Slam", "Stone Edge"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyice": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Multi-Attack", "Stone Edge", "Stomping Tantrum"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Ice Beam", "Thunderbolt", "Flamethrower", "Agility"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallypoison": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Poison Fang", "Parting Shot", "Knock Off", "Multi-Attack"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallypsychic": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Swords Dance", "Multi-Attack", "Knock Off", "Temper Flare"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallyrock": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Swords Dance", "Multi-Attack", "Trailblaze", "Stomping Tantrum"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallysteel": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["U-Turn", "Multi-Attack", "Knock Off", "Thunder Wave"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "silvallywater": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Multi-Attack", "Supercell Slam", "Temper Flare"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
     "pecharunt": {
         "level": 75,
         "sets": [
