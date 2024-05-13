@@ -239,7 +239,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			
 			let moveid = this.sample(moves);
 			if (!moveid) return false;
-			let move = this.dex.getMove(moveid);
+			let move = this.dex.moves.get(moveid);
 			let mimicMove = {
 				move: move.name,
 				id: move.id,
@@ -263,7 +263,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (foe.side.lastMove.id === 'mirrormove') {
 				return false;
 			}
-			this.useMove(foe.side.lastMove.id, pokemon);
+			this.actions.useMove(foe.side.lastMove.id, pokemon);
 		},
 	},
 	poisonsting: {
