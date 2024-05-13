@@ -1384,7 +1384,7 @@ export class RandomTeams {
 		if (species.id === 'lycanroc' || species.id === 'lycanrocdusk' || species.id === 'lycanrocmidnight') return 'Lycanium Z';
 		if (species.id === 'eevee') return 'Eevium Z';
 		if (species.id === 'taurospaldeaaqua') return 'Taurosium Z';
-		if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
+		// (use to specify for specific rocks later) if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
 		if (
 			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' ||
 			species.id === 'lurantistotem' || species.id === 'marowakalolatotem'
