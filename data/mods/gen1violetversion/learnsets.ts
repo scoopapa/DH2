@@ -920,6 +920,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["2L53", "2M"],
 		},
 	},
+	grimer: {
+		learnset: {
+		},
+	},
 	muk: {
 		learnset: {
 			acid: ["1M"],
