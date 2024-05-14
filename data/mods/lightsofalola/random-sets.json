@@ -1729,6 +1729,396 @@
             }
         ]
     },
+    "zygarde": {
+        "level": 71,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Coil", "Thousand Arrows", "Extreme Speed", "Glare"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "zygarde10": {
+        "level": 72,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Land's Wrath", "Thousand Arrows", "Extreme Speed", "Outrage"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "garbodor": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Gunk Shot", "Stomping Tantrum", "Pain Split", "Toxic"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Gunk Shot", "Stomping Tantrum", "Drain Punch", "Seed Bomb"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "skarmory": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Iron Defense", "Brave Bird", "Roost", "Body Press"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "ditto": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Transform"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "clefable": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Moonblast", "Moonlight", "Thunder Wave", "Knock Off"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Moonblast", "Moonlight", "Calm Mind", "Flamethrower"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "minior": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Shell Smash", "Stone Edge", "Earthquake", "Acrobatics"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Shell Smash", "Meteor Beam", "Earth Power", "Dazzling Gleam"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "metagross": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Meteor Mash", "Knock Off", "Bullet Punch", "Psychic Fangs", "Earthquake", "Ice Punch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "porygon2": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Tri Attack", "Ice Beam", "Recover", "Thunder Wave"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "porygonz": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Thunderbolt", "Ice Beam", "Shadow Ball", "Conversion"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Tri Attack", "Ice Beam", "Shadow Ball", "Agility"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "pangoro": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Parting Shot", "Close Combat", "Knock Off", "Gunk Shot"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Close Combat", "Knock Off", "Bullet Punch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "komala": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Facade", "Sucker Punch", "Earthquake", "Swords Dance"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "torkoal": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Lava Plume", "Will-O-Wisp", "Earth Power", "Body Press"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "turtonator": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Shell Smash", "Fire Blast", "Dragon's Roar", "Scorching Sands"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Flamethrower", "Body Press", "Dragon Tail", "Will-O-Wisp"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "togedemaru": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Supercell Slam", "Iron Head", "Ice Spinner", "U-Turn"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Wish", "Spiky Shield", "Iron Head", "U-Turn"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "togedemarutotem": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Supercell Slam", "Knock Off", "Poison Jab", "U-Turn"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "electivire": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Bulk Up", "Supercell Slam", "Ice Punch", "Earthquake"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "golemalola": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Explosion", "Earthquake", "Stone Edge", "Double-Edge"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "golem": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Stone Edge", "Earthquake", "Fire Punch", "Rock Polish"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "krookodile": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Earthquake", "Knock Off", "Close Combat", "Parting Shot"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "flygon": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Earthquake", "Outrage", "Fire Punch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["U-Turn", "Earthquake", "Outrage", "Fire Punch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "garchomp": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Earthquake", "Scale Shot", "Swords Dance", "Fire Fang"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Earthquake", "Draco Meteor", "Fire Blast", "Poison Jab"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "klefki": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Reflect", "Light Screen", "Thunder Wave", "Play Rough"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Calm Mind", "Draining Kiss", "Thunder Wave", "Flash Cannon"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "mimikyu": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Shadow Claw", "Play Rough", "Shadow Sneak"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "mimikyutotem": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Shadow Claw", "Supercell Slam", "Drain Punch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "bruxish": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Wave Crash", "Flip Turn", "Psychic Fangs", "Crunch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "drampa": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Draco Meteor", "Hyper Voice", "Fire Blast", "Thunderbolt"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "AV Pivot",
+                "movepool": ["Dragon's Roar", "Hyper Voice", "Fire Blast", "Psychic Noise"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "absol": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Bad Omen", "Knock Off", "Close Combat", "Wide Slash"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "glalie": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Ice Beam", "Earthquake", "Freeze-Dry", "Explosion"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "froslass": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Triple Axel", "Poltergeist", "Ice Shard", "Trick"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Ice Beam", "Shadow Ball", "Thunderbolt", "Will-O-Wisp"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "weavile": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Triple Axel", "Knock Off", "Ice Shard", "Low Kick", "Swords Dance"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "sneaselhisui": {
+        "level": 82,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Gunk Shot", "Close Combat", "Swords Dance", "Throat Chop"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "sneasler": {
+        "level": 71,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Dire Claw", "Close Combat", "U-Turn", "Switcheroo"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
     "pecharunt": {
         "level": 75,
         "sets": [
