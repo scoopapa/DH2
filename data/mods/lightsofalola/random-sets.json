@@ -1073,7 +1073,7 @@
         "level": 79,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Body Slam", "Body Press", "Bulk Up", "Milk Drink"],
                 "teraTypes": ["Fairy", "Fighting"]
             }
@@ -2540,6 +2540,91 @@
             {
                 "role": "Fast Support",
                 "movepool": ["Glare", "Gunk Shot", "Knock Off", "Parting Shot"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "nihilego": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Meteor Beam", "Sludge Wave", "Thunderbolt", "Grass Knot"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "buzzwole": {
+        "level": 77,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Leech Life", "Close Combat", "Earthquake", "Ice Punch"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "pheromosa": {
+        "level": 71,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Lunge", "Close Combat", "Triple Axel", "U-Turn"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Quiver Dance", "Focus Blast", "Bug Buzz", "Ice Beam"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "xurkitree": {
+        "level": 75,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Tail Glow", "Thunderbolt", "Energy Ball", "Sparkling Spike"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "celesteela": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Heavy Slam", "Flamethrower", "Protect", "Leech Seed"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Rock Polish", "Air Slash", "Meteor Beam", "Fire Blast"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "kartana": {
+        "level": 73,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Leaf Blade", "Smart Strike", "Sacred Sword", "Swords Dance"],
+                "teraTypes": ["Fairy", "Fighting"]
+            }
+        ]
+    },
+    "guzzlord": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Dragon's Roar", "Dark Pulse", "Fire Blast", "Sludge Bomb"],
+                "teraTypes": ["Fairy", "Fighting"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Knock Off", "Earthquake", "Heavy Slam", "Outrage"],
                 "teraTypes": ["Fairy", "Fighting"]
             }
         ]
