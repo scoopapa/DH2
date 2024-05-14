@@ -83,4 +83,88 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Arboliva, this item allows it to Mega Evolve in battle.",
 	},
+	donphanite: {
+		name: "Donphanite",
+		spritenum: 578,
+		megaStone: "Donphan-Mega",
+		megaEvolves: "Donphan",
+		itemUser: ["Donphan"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2007,
+		gen: 8,
+		desc: "If held by a Donphan, this item allows it to Mega Evolve in battle.",
+	},
+	armarouginite: {
+		name: "Armarouginite",
+		spritenum: 578,
+		megaStone: "Armarouge-Mega",
+		megaEvolves: "Armarouge",
+		itemUser: ["Armarouge"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2008,
+		gen: 8,
+		desc: "If held by a Armarouge, this item allows it to Mega Evolve in battle.",
+	},
+	tinkatonite: {
+		name: "Tinkatonite",
+		spritenum: 578,
+		megaStone: "Tinkaton-Mega",
+		megaEvolves: "Tinkaton",
+		itemUser: ["Tinkaton"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2009,
+		gen: 8,
+		desc: "If held by a Tinkaton, this item allows it to Mega Evolve in battle.",
+	},
+	coalossalite: {
+		name: "Coalossalite",
+		spritenum: 578,
+		megaStone: "Coalossal-Mega",
+		megaEvolves: "Coalossal",
+		itemUser: ["Coalossal"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2010,
+		gen: 8,
+		desc: "If held by a Coalossal, this item allows it to Mega Evolve in battle.",
+	},
+	revavroomite: {
+		name: "Revavroomite",
+		spritenum: 578,
+		megaStone: "Revavroom-Mega",
+		megaEvolves: "Revavroom",
+		itemUser: ["Revavroom"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2011,
+		gen: 8,
+		desc: "If held by a Revavroom, this item allows it to Mega Evolve in battle.",
+	},
+	cyclizite: {
+		name: "Cyclizite",
+		spritenum: 578,
+		megaStone: "Cyclizar-Mega",
+		megaEvolves: "Cyclizar",
+		itemUser: ["Cyclizar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2012,
+		gen: 8,
+		desc: "If held by a Cyclizar, this item allows it to Mega Evolve in battle.",
+	},
 };

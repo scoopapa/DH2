@@ -115,6 +115,22 @@ export const Scripts: ModdedBattleScriptsData = {
 
     //    
 
+    // magicmissile 
+    this.modData('Learnsets', 'rayquaza').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'mismagius').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'azelf').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'uxie').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'mesprit').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'dialga').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'palkia').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'giratina').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'arceus').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'zoroarkhisui').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'delphox').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'drampa').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'wyrdeer').learnset.magicmissile = ['9L1'];
+    this.modData('Learnsets', 'ursalunabloodmoon').learnset.magicmissile = ['9L1'];
+
     // hardwareheat 
     this.modData('Learnsets', 'magnezone').learnset.hardwareheat = ['8L1'];
     this.modData('Learnsets', 'magearna').learnset.hardwareheat = ['8L1'];

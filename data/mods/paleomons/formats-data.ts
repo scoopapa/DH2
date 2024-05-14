@@ -187,5 +187,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
+	yizolt: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	dracomizer: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	swishivish: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	arctobyss: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
 
 };

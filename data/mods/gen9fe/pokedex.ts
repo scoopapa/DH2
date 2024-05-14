@@ -1728,7 +1728,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 1029, 
 		//fusion: ["Chimchar", "Girafarig"],
 		name: "Chimcharig", 
-		types: ["Fire", "Fighting"],
+		types: ["Fire", "Psychic"],
 		baseStats: {hp: 65, atk: 75, def: 55, spa: 75, spd: 55, spe: 75}, 
 		abilities: {0: "Fire Drinker"}, 
 		weightkg: 23.8,
