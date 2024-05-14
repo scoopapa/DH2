@@ -1839,7 +1839,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Thunderbolt", "Ice Beam", "Shadow Ball", "Conversion"],
+                "movepool": ["Thunderbolt", "Ice Beam", "Tri Attack", "Conversion"],
                 "teraTypes": ["Fairy", "Fighting"]
             },
             {
