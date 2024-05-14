@@ -1177,6 +1177,7 @@ export class RandomTeams {
 			if (species.id === 'arcaninehisui') return 'Rock Head';
 			if (species.id === 'miltank') return 'Scrappy';
 			if (species.id === 'emolga') return 'Thunder Cape';
+			if (species.id === 'exeggutoralola') return 'Graviseeds';
 			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Anger Shell';
@@ -1394,10 +1395,15 @@ export class RandomTeams {
 		if (species.id === 'golisopod') return 'Golisopium Z';
 		if (species.id === 'zygarde10') return 'Zygardium Z';
 		if (species.id === 'mimikyu' || species.id === 'mimikyutotem') return 'Mimikium Z';
+		if (species.id === 'kommoo') return 'Kommonium Z';
+		if (species.id === 'solgaleo') return 'Solganium Z';
+		if (species.id === 'lunala') return 'Lunalium Z';
+		if (species.id === 'necrozmaduskmane' || species.id === 'necrozmadawnwings') return 'Ultranecrozium Z';
+		if (species.id === 'marshadow') return 'Marshadium Z';
 		// (use to specify for specific rocks later) if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
 		if (
-			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' ||
-			species.id === 'lurantistotem' || species.id === 'marowakalolatotem'
+			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' || species.id === 'lurantistotem' || 
+			species.id === 'marowakalolatotem' || species.id === 'kommoototem'
 		) { 
 			return 'Strange Souvenir';
 		}
