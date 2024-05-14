@@ -43,7 +43,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Copy foe's typing, heal 50%",
 		sideCondition: 'conversion',
 		condition: {
-			     onStart: function (target, source) {
+			     onStart(target, source) {
 			     	source.types = target.types;
 				this.add('-start', source, 'typechange', source.types.join(', '), '[from] move: Conversion', '[of] ' + source);
 				return;
@@ -52,7 +52,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		accuracy: true,
 		target: "normal",
-		onHit: function (target, source) {
+		onHit(target, source) {
 			this.heal(Math.floor(source.maxhp / 2), source, source);
 		},
 	},
@@ -97,12 +97,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return false;
 				}
 			},
-			onDisableMove: function (pokemon) {
-				if (this.effectData.source !== pokemon) return;
-				let moves = pokemon.moveset;
-				for (let i = 0; i < moves.length; i++) {
-					if (moves[i].id === this.effectData.move) {
-						pokemon.disableMove(moves[i].id);
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === this.effectState.move) {
+						pokemon.disableMove(moveSlot.id);
 					}
 				}
 			},
