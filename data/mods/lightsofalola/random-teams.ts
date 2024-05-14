@@ -1310,7 +1310,7 @@ export class RandomTeams {
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
 		if (
-			species.id === 'froslass' || moves.has('populationbomb') ||
+			(species.id === 'froslass' && counter.get('Physical')) || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
 		) return 'Wide Lens';
 		if (moves.has('clangoroussoul') || (species.id === 'toxtricity' && moves.has('shiftgear'))) return 'Throat Spray';
@@ -1335,7 +1335,7 @@ export class RandomTeams {
 		) {
 			return 'Sitrus Berry';
 		}
-		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
+		if (['healingwish', 'switcheroo', 'trick', 'badomen'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
 				role !== 'Wallbreaker' && role !== 'Doubles Wallbreaker' && !counter.get('priority')
@@ -1347,7 +1347,7 @@ export class RandomTeams {
 		}
 		if (counter.get('Status') && (species.name === 'Latias' || species.name === 'Latios')) return 'Soul Dew';
 		if (species.id === 'scyther' && !isDoubles) return (isLead && !moves.has('uturn')) ? 'Eviolite' : 'Heavy-Duty Boots';
-		if (species.nfe && species.id !== 'eevee') return 'Eviolite';
+		if (species.nfe && species.id !== 'eevee' && species.id !== 'clamperl') return 'Eviolite';
 		if (ability === 'Poison Heal') return 'Toxic Orb';
 		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
 			return (types.includes('Fire') || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
@@ -1385,6 +1385,15 @@ export class RandomTeams {
 		if (species.id === 'taurospaldeaaqua') return 'Taurosium Z';
 		if (species.id === 'marowak' || species.id === 'marowakalola') return 'Thick Club';
 		if (species.id === 'clamperl') return 'Deep Sea Tooth';
+		if (species.id === 'magmortar') return 'Magmortium Z';
+		if (species.id === 'electivire') return 'Electivium Z';
+		if (species.id === 'bewear') return 'Bewearium Z';
+		if (species.id === 'tsareena') return 'Tsareenium Z';
+		if (species.id === 'comfey' && role === 'Bulky Setup') return 'Kee Berry';
+		if ((species.id === 'porygonz' && role === 'Setup Sweeper') || species.id === 'castform') return 'Normalium Z';
+		if (species.id === 'golisopod') return 'Golisopium Z';
+		if (species.id === 'zygarde10') return 'Zygardium Z';
+		if (species.id === 'mimikyu' || species.id === 'mimikyutotem') return 'Mimikium Z';
 		// (use to specify for specific rocks later) if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
 		if (
 			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' ||
