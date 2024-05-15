@@ -35,6 +35,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	bind: {
 		inherit: true,
 		basePower: 40,
+		accuracy: 75,
 		pp: 5,
 		type: "Bug",
 		ignoreImmunity: true,
@@ -60,6 +61,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	conversion: { //Typing needs to be retained after switch-out
 		desc: "Copies foe's typing, and heals 50% health.",
 		shortDesc: "Copy foe's typing, heal 50%",
+		name: "Conversion",
 		sideCondition: 'conversion',
 		condition: {
 			     onStart(target, source) {
@@ -68,7 +70,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			     }
 		},
-		pp: 10,
+		pp: 20,
 		accuracy: true,
 		target: "normal",
 		onHit(target, source) {
@@ -78,6 +80,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	clamp: {
 		inherit: true,
 		basePower: 70,
+		accuracy: 75,
 		pp: 5,
 		ignoreImmunity: true,
 		volatileStatus: 'partiallytrapped',
@@ -156,6 +159,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	firespin: {
 		inherit: true,
 		basePower: 30,
+		accuracy: 70,
 		pp: 5,
 		ignoreImmunity: true,
 		volatileStatus: 'partiallytrapped',
@@ -259,7 +263,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'aquaring',
 		condition: {
 			onStart(pokemon) {
-				this.add('-start', pokemon, 'Aqua Ring');
+				this.add('-start', pokemon, 'Meditate');
 			},
 			onResidualOrder: 6,
 			onResidual(pokemon) {
@@ -318,6 +322,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 			this.actions.useMove(foe.side.lastMove.id, pokemon);
+		},
+	},
+	petaldance: {
+		type: "Grass",
+		basePower: 30,
+		accuracy: 85,
+		category: "Special",
+		name: "Petal Dance",
+		pp: 5,
+		ignoreImmunity: true,
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		// FIXME: onBeforeMove(pokemon, target) {target.removeVolatile('mustrecharge')}
+		onHit(target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
 		},
 	},
 	poisonsting: {
@@ -418,6 +449,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	wrap: {
 		inherit: true,
 		basePower: 40,
+		accuracy: 85,
 		pp: 5,
 		ignoreImmunity: true,
 		volatileStatus: 'partiallytrapped',
