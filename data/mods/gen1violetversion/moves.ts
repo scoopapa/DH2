@@ -361,7 +361,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	solarbeam: {
 		inherit: true,
 		basePower: 100,
-		inherit: true,
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile('twoturnmove')) {
 				attacker.removeVolatile('invulnerability');
