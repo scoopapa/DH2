@@ -30,6 +30,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				pokemon.removeVolatile('bide');
 				pokemon.removeVolatile('partialtrappinglock');
 				pokemon.removeVolatile('lockedmove');
+				pokemon.removeVolatile('twoturnmove');
 				return false;
 			}
 		},
