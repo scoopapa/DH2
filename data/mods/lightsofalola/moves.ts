@@ -1779,13 +1779,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	terablast: {
 		num: 851,
 		accuracy: 100,
-		basePower: 70,
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.terastallized === 'Stellar') {
-				return 100;
-			}
-			return move.basePower;
-		},
+		basePower: 100,
 		category: "Special",
 		shortDesc: "Physical if user's Atk > Sp. Atk.",
 		name: "Tera Blast",
