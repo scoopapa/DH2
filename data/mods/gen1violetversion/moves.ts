@@ -37,6 +37,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		pp: 5,
 		type: "Bug",
+		ignoreImmunity: true,
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		// FIXME: onBeforeMove(pokemon, target) {target.removeVolatile('mustrecharge')}
+		onHit(target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
+		},
 	},
 	conversion: { //Typing needs to be retained after switch-out
 		desc: "Copies foe's typing, and heals 50% health.",
@@ -60,6 +79,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 70,
 		pp: 5,
+		ignoreImmunity: true,
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		onHit(target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
+		},
 	},
 	disable: {
 		accuracy: 100,
@@ -120,6 +157,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 30,
 		pp: 5,
+		ignoreImmunity: true,
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		// FIXME: onBeforeMove(pokemon, target) {target.removeVolatile('mustrecharge')}
+		onHit(target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
+		},
 	},
 	glare: {
 		inherit: true,
@@ -282,22 +338,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	rockslide: {
 		inherit: true,
 		basePower: 85,
-  },
+	},
 	skyattack: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
+			if (attacker.removeVolatile('twoturnmove')) {
+				attacker.removeVolatile('invulnerability');
 				return;
 			}
-			this.add('-prepare', attacker, move.name, defender);
-			this.boost({def:1}, attacker, attacker, move);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
+			this.add('-prepare', attacker, move.name);
 			attacker.addVolatile('twoturnmove', defender);
+			this.boost({def:1}, attacker, attacker, move);
 			return null;
 		},
-  },
+	},
 	softboiled: {
 		inherit: true,
 		onHit(target) {
@@ -307,25 +361,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	solarbeam: {
 		inherit: true,
 		basePower: 100,
+		inherit: true,
 		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
+			if (attacker.removeVolatile('twoturnmove')) {
+				attacker.removeVolatile('invulnerability');
 				return;
 			}
-			this.add('-prepare', attacker, move.name, defender);
+			this.add('-prepare', attacker, move.name);
+			attacker.addVolatile('twoturnmove', defender);
 			this.boost({spa:1}, attacker, attacker, move);
 			this.boost({spd:1}, attacker, attacker, move);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.attrLastMove('[still]');
-				this.addMove('-anim', attacker, move.name, defender);
-				return;
-			}
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-  },
+	},
 	submission: {
 		inherit: true,
 		basePower: 100,
@@ -362,31 +410,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 20,
 			status: 'psn',
 		}
-  },
+	},
 	visegrip: {
 		inherit: true,
 		critRatio: 2,
 		type: "Bug",
 	},
-	whirlwind: {
-		desc: "Forces enemy out.",
-		shortDesc: "Forces enemy out.",
-		id: "whirlwind",
-		name: "Whirlwind",
-		isViable: true,
-		forceSwitch: true,
-		onTryHit: function () {},
-		priority: -6,
-		basePower: 50,
-		accuracy: 100,
-		category: "Physical",
-		pp: 5,
-		target: "normal",
-		type: "Flying",
-	},
 	wrap: {
 		inherit: true,
 		basePower: 40,
 		pp: 5,
-  },
+		ignoreImmunity: true,
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		// FIXME: onBeforeMove(pokemon, target) {target.removeVolatile('mustrecharge')}
+		onHit(target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
+		},
+	},
 };
