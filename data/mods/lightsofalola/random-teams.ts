@@ -1178,6 +1178,9 @@ export class RandomTeams {
 			if (species.id === 'miltank') return 'Scrappy';
 			if (species.id === 'emolga') return 'Thunder Cape';
 			if (species.id === 'exeggutoralola') return 'Graviseeds';
+			if (species.id === 'ampharos' || species.id === 'dedenne') return 'Plus';
+			if (species.id === 'manectric') return 'Minus';
+			if (species.id === 'delcatty') return 'Normalize';
 			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Anger Shell';
@@ -1400,6 +1403,10 @@ export class RandomTeams {
 		if (species.id === 'lunala') return 'Lunalium Z';
 		if (species.id === 'necrozmaduskmane' || species.id === 'necrozmadawnwings') return 'Ultranecrozium Z';
 		if (species.id === 'marshadow') return 'Marshadium Z';
+		if (ability === 'Plus' || ability === 'Minus') return 'Collider';
+		if (species.id === 'mew' && role === 'Fast Attacker') return 'Mewnium Z';
+		if (species.id === 'mew' && role === 'Setup Sweeper') return 'Loaded Dice';
+		if (species.id === 'terapagos') return 'Terapagium Z';
 		// (use to specify for specific rocks later) if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
 		if (
 			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' || species.id === 'lurantistotem' || 
