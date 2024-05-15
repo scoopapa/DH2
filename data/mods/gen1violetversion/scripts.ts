@@ -158,8 +158,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (pokemon.volatiles['partialtrappinglock'] && target !== pokemon.volatiles['partialtrappinglock'].locked) {
 				const moveSlot = pokemon.moveSlots.find(ms => ms.id === move.id);
 				if (moveSlot && moveSlot.pp < 0) {
-					moveSlot.pp = 63;
-					this.battle.hint("In Gen 1, if a player is forced to use a move with 0 PP, the move will underflow to have 63 PP.");
+					moveSlot.pp = 0;
 				}
 			}
 			this.useMove(move, pokemon, target, sourceEffect);
