@@ -1350,7 +1350,7 @@ export class RandomTeams {
 		if (species.id === 'scyther' && !isDoubles) return (isLead && !moves.has('uturn')) ? 'Eviolite' : 'Heavy-Duty Boots';
 		if (species.nfe && species.id !== 'eevee' && species.id !== 'clamperl') return 'Eviolite';
 		if (ability === 'Poison Heal') return 'Toxic Orb';
-		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
+		if ((ability === 'Guts' || (moves.has('facade') && ability !== 'Comatose')) && !moves.has('sleeptalk')) {
 			return (types.includes('Fire') || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
 		}
 		if (species.id === 'reuniclus' || (ability === 'Sheer Force' && counter.get('sheerforce'))) return 'Life Orb';
