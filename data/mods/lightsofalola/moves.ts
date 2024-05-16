@@ -648,7 +648,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Light Screen", target);
+			this.add('-anim', source, "Quiver Dance", target);
 		},
 		onHit(target, source) {
 			const move = target.lastMove;
