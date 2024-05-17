@@ -489,7 +489,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Shadow Ball", "Mythical Fire", "Dazzling Gleam", "Nasty Plot"],
+                "movepool": ["Shadow Ball", "Mystical Fire", "Dazzling Gleam", "Nasty Plot"],
                 "teraTypes": ["Ghost"]
             },
             {
