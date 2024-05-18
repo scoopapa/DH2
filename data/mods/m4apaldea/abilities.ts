@@ -111,8 +111,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					this.boost({spe: -1}, target, pokemon, null, true);
 					target.addVolatile('tarslosh');
-					console.log("Volatile has been added. Target has volatiles: " + target.volatiles);
-					console.log("The volatile is present: " + target.volatiles['tarslosh']);
 				}
 			}
 		},
@@ -121,25 +119,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'Tar', '[from] ability: Tar Slosh', '[of] ' + source);
 			},
 			onAnyDamage(damage, target, source, effect) {
-				console.log("Source is: " + source);
-				console.log("Target is: " + target);
-				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectState.target) {
-					if (this.effectState.damage) {
-						if (target.hp <= damage) {
-							this.effectState.damage += target.hp;
-						} else {
-							this.effectState.damage += damage;
-						}
-					} else {
-						if (target.hp <= damage) {
-							this.effectState.damage = target.hp;
-						} else {
-							this.effectState.damage = damage;
-						}
-					}
-					this.effectState.lit = true;
-				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectState.target) {
-					this.effectState.lit = true;
+				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectState.target) {
 					return damage * 2;
 				}
 			},
