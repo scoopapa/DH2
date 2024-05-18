@@ -112,6 +112,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.boost({spe: -1}, target, pokemon, null, true);
 					target.addVolatile('tarsloshed');
 					console.log("Volatile has been added. Target has volatiles: " + target.volatiles);
+					console.log("The volatile is present: " + target.volatiles['tarsloshed']);
 				}
 			}
 		},
