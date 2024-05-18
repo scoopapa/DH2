@@ -115,7 +115,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move, target) {
-			console.log(target.volatiles['tarsloshed']);
+			console.log("Target has volatiles: " + target.volatiles);
 			if (move.type === 'Fire' && target.volatiles['tarsloshed']) {
 				move.basePower *= 2;
 			}
