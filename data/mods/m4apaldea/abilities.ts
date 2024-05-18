@@ -115,13 +115,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move, target) {
+			console.log(target.volatiles['tarsloshed']);
 			if (move.type === 'Fire' && target.volatiles['tarsloshed']) {
 				move.basePower *= 2;
 			}
 			return move;
 		},
 		shortDesc: "On switch-in, lowers the Speed of adjacent foes by 1 stage and makes them weak to Fire moves.",
-		flags: {},
 		name: "Tar Slosh",
 		rating: 3.5,
 		num: -2005,

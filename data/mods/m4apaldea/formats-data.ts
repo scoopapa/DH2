@@ -240,7 +240,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	mankey: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	primeape: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
-	annihilape: {tier: "Uber"},
+	annihilape: {tier: "Uber", doublesTier: "Paldea"},
 
 	meditite: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	medicham: {tier: "Paldea", doublesTier: "Paldea"},
@@ -482,7 +482,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotom: {tier: "Paldea", doublesTier: "Paldea"},
 	rotomwash: {tier: "Paldea", doublesTier: "Paldea"},
 	rotomheat: {tier: "Paldea", doublesTier: "Paldea"},
-	rotommpw: {tier: "Paldea", doublesTier: "Paldea"},
+	rotommow: {tier: "Paldea", doublesTier: "Paldea"},
 	rotomfan: {tier: "Paldea", doublesTier: "Paldea"},
 	rotomfrost: {tier: "Paldea", doublesTier: "Paldea"},
 
