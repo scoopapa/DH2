@@ -312,7 +312,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	meteorbeam: {
+	meteorbeem: {
 		num: -9,
 		accuracy: 100,
 		basePower: 120,
