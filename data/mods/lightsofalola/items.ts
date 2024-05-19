@@ -11,6 +11,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('plus');
 			}
 		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('plus');
+		},
 		num: -1002,
 		gen: 9,
 		rating: 3,
@@ -97,6 +100,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
+		onStart(pokemon) {
+			if (pokemon.hasAbility('totemtrial')) {
+				this.add('-item', pokemon, 'Strange Souvenir');
+			}
+		},
 		itemUser: ["Gumshoos-Totem", "Raticate-Alola-Totem", "Vikavolt-Totem", "Ribombee-Totem", "Lurantis-Totem",
 					  "Marowak-Alola-Totem", "Araquanid-Totem", "Mimikyu-Totem", "Togedemaru-Totem", "Kommo-o-Totem", "Salazzle-Totem"],
    	num: -1004,
@@ -113,6 +121,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.formeChange('Iron Bundle');
 				pokemon.setAbility('quarkdrive');
 				this.add('-message', `${pokemon.name} became a strange Pokemon from the future?!`);
+				this.add('-item', pokemon, 'Mysterious Bundle');
 			}
 		},
 		onTakeItem(item, source) {
