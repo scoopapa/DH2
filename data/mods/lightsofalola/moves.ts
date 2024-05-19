@@ -1970,6 +1970,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	nightmare: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	mortalspin: {
 		num: 866,
 		accuracy: 100,
@@ -2442,7 +2446,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 170,
 		category: "Special",
-		shortDesc: "Replaces the foe's status with Sleep.",
+		shortDesc: "Puts the foe to sleep, even if it already has a different status.",
 		name: "One Good Night's Sleep",
 		pp: 1,
 		priority: 0,
@@ -2459,6 +2463,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				target.cureStatus();
 				target.trySetStatus('slp', source);
 				this.add('-message', `Good night, ${target.name}!`);
+			} else {
+				target.trySetStatus('slp', source);
+				this.add('-message', `Good night, ${target.name}!`);				
 			}
 		},
 		secondary: null,
@@ -2468,7 +2475,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	retrorodeorampage: {
 		accuracy: true,
-		basePower: 200,
+		basePower: 210,
 		category: "Physical",
 		shortDesc: "Causes the user to recharge, unless it KOes the foe.",
 		name: "Retro Rodeo Rampage",
@@ -2516,7 +2523,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isZ: "smeargiumz",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sketch", target);
+			this.add('-anim', source, "Morning Sun", source);
+			this.add('-anim', source, "Moonlight", source);
+			this.add('-anim', source, "Skill Swap", target);
 		},
 		onTryHit(target, pokemon) {
 			this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon, pokemon);
@@ -2534,7 +2543,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 1,
 			onBasePowerPriority: 12,
 			onBasePower(basePower) {
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			},
 		},
 		secondary: null,
