@@ -2645,4 +2645,33 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 5,
 		num: 278,
 	},
+	lusterswap: { // taken from M4A
+		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",
+		shortDesc: "On entry: type changes to match its first move that's super effective against an adjacent opponent.",
+		onStart(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.move);
+				if (move.category === 'Status') continue;
+				const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
+				for (const target of pokemon.side.foe.active) {
+					if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
+					if (
+						this.dex.getImmunity(moveType, target) && this.dex.getEffectiveness(moveType, target) > 0
+					) {
+						this.add('-ability', pokemon, 'Luster Swap');
+						if (!pokemon.setType(moveType)) continue;
+						this.add('-message', `${pokemon.name} changed its type to match its ${move.name}!`);
+						this.add('-start', pokemon, 'typechange', moveType);
+						return;
+					}
+				}
+			}
+			this.add('-ability', pokemon, 'Luster Swap');
+			this.add('-message', `${pokemon.name} can't hit any opponent super effectively!`);
+			return;
+		},
+		name: "Luster Swap",
+		rating: 3,
+		num: -72,
+	},
 };
