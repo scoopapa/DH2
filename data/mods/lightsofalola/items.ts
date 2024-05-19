@@ -9,8 +9,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onUpdate(pokemon) {
 			if (pokemon.hasAbility(['minus', 'plus'])) {
 				pokemon.addVolatile('plus');
-			} else {
-				pokemon.removeVolatile('plus');
 			}
 		},
 		num: -1002,
@@ -944,7 +942,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 641,
 		onTakeItem: false,
 		zMove: "One Good Night's Sleep",
-		zMoveFrom: "Psychic",
+		zMoveFrom: "Psychic Noise",
 		itemUser: ["Hypno"],
 		num: -1008,
 		gen: 9,
