@@ -414,7 +414,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Focus Blast", "Taunt", "Psychic", "Thunder Wave"],
+                "movepool": ["Focus Blast", "Taunt", "Psychic Noise", "Thunder Wave"],
                 "teraTypes": ["Dark"]
             }
         ]
