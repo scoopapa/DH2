@@ -955,7 +955,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Hypno"],
 		num: -1008,
 		gen: 9,
-		desc: "If held by a Hypno with Psychic, it can use One Good Night's Sleep.",
+		desc: "If held by a Hypno with Psychic Noise, it can use One Good Night's Sleep.",
 	},
 	taurosiumz: {
 		name: "Taurosium Z",
