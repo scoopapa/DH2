@@ -83,7 +83,7 @@
         "level": 77,
         "sets": [
             {
-                "role": "Bulky Setup",
+                "role": "Bulky Attacker",
                 "movepool": ["Double-Edge", "Psychic Fangs", "Earthquake", "Trick Room"],
                 "teraTypes": ["Ghost"]
             }
