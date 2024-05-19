@@ -7,6 +7,8 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		// Toucannon
 		this.modData("Learnsets", "toucannon").learnset.spikecannon = ["9L1"];
+		// Drowzee
+		this.modData("Learnsets", "drowzee").learnset.nightmare = ["9L1"];
 		// Gumshoos-Totem
 		this.modData("Learnsets", "gumshoostotem").learnset.bite = ["9L1"];
 		this.modData("Learnsets", "gumshoostotem").learnset.bodyslam = ["9L1"];
