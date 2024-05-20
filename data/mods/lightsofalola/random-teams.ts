@@ -1310,7 +1310,6 @@ export class RandomTeams {
 			return this.sample(species.requiredItems);
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
-		if (species.id === 'pikachuworld') return 'Light Ball';
 		if (species.id === 'pikachu') return 'Pikanium Z';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
