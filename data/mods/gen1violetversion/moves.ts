@@ -112,7 +112,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target, source) {
-			if (!target.moves.length) return false;
+			/**if (!target.moves.length) return false;**/
 			let sideCondition = target.side.sideConditions['disable'];
 			if (sideCondition) {
 				target.side.removeSideCondition('disable');
