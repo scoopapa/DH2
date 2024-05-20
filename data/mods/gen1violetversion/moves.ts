@@ -118,7 +118,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			target.side.addSideCondition('disable', target);
 		},
-		condition: {
+		effect: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart: function (side, target) {
 				let moves = target.moves;
@@ -137,10 +137,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return false;
 				}
 			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
+			onDisableMove: function (pokemon) {
+				if (this.effectData.source !== pokemon) return;
+				let moves = pokemon.moveset;
+				for (let i = 0; i < moves.length; i++) {
+					if (moves[i].id === this.effectData.move) {
+						pokemon.disableMove(moves[i].id);
 					}
 				}
 			},
