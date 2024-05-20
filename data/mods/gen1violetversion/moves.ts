@@ -126,22 +126,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (!moveId) return false;
 				let move = this.getMove(moveId);
 				this.add('-start', target, 'Disable', move.name);
-				this.effectData.move = move.id;
+				this.effectState.move = move.id;
 				return;
 			},
 			onBeforeMovePriority: 7,
 			onBeforeMove: function (attacker, defender, move) {
-				if (this.effectData.source !== attacker) return;
-				if (move.id === this.effectData.move) {
+				if (this.effectState.source !== attacker) return;
+				if (move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove: function (pokemon) {
-				if (this.effectData.source !== pokemon) return;
+				if (this.effectState.source !== pokemon) return;
 				let moves = pokemon.moveset;
 				for (let i = 0; i < moves.length; i++) {
-					if (moves[i].id === this.effectData.move) {
+					if (moves[i].id === this.effectState.move) {
 						pokemon.disableMove(moves[i].id);
 					}
 				}
