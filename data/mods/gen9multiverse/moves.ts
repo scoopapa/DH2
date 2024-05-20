@@ -353,6 +353,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		isZ: "meowthofaloliumz",
+		selfSwitch: true,
 		self: {
 			sideCondition: 'safeguard',
 			slotCondition: 'infinitebaseballreaction',

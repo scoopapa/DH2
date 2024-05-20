@@ -110,18 +110,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-immune', target);
 				} else {
 					this.boost({spe: -1}, target, pokemon, null, true);
-					target.addVolatile('tarsloshed');
+					target.addVolatile('tarslosh');
 				}
 			}
 		},
-		onModifyMove(move, target) {
-			if (move.type === 'Fire' && target.volatiles['tarsloshed']) {
-				move.basePower *= 2;
-			}
-			return move;
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Tar', '[from] ability: Tar Slosh', '[of] ' + source);
+			},
+			onAnyDamage(damage, target, source, effect) {
+				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectState.target) {
+					return damage * 2;
+				}
+			},
 		},
 		shortDesc: "On switch-in, lowers the Speed of adjacent foes by 1 stage and makes them weak to Fire moves.",
-		flags: {},
 		name: "Tar Slosh",
 		rating: 3.5,
 		num: -2005,
