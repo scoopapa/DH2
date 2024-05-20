@@ -118,7 +118,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			target.side.addSideCondition('disable', target);
 		},
-		effect: {
+		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart: function (side, target) {
 				let moves = target.moves;
