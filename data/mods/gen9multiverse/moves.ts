@@ -31,6 +31,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},	
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	
 	boo: {
 		num: -1,
