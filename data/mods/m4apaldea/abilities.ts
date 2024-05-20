@@ -60,11 +60,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: -2002,
 	},
-	aegis: {
+	pavise: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {
 				if (!this.boost({spa: 1})) {
-					this.add('-immune', target, '[from] ability: Aegis');
+					this.add('-immune', target, '[from] ability: Pavise');
 				}
 				return null;
 			}
@@ -75,7 +75,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
 				if (this.effectState.target !== target) {
-					this.add('-activate', this.effectState.target, 'ability: Aegis');
+					this.add('-activate', this.effectState.target, 'ability: Pavise');
 				}
 				return this.effectState.target;
 			}
@@ -83,7 +83,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		desc: "This Pokemon is immune to Dark-type moves and raises its Special Attack by 1 stage when hit by a Dark-type move. If this Pokemon is not the target of a single-target Dark-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
 		shortDesc: "This Pokemon draws Dark moves to itself to raise Sp. Atk by 1; Dark immunity.",
-		name: "Aegis",
+		name: "Pavise",
 		rating: 3,
 		num: -2003,
 	},
@@ -101,7 +101,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	tarslosh: {
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.adjacentFoes()) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Tar Slosh', 'boost');
 					activated = true;
@@ -124,7 +125,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		shortDesc: "On switch-in, lowers the Speed of adjacent foes by 1 stage and makes them weak to Fire moves.",
+		shortDesc: "On switch-in, lowers the Speed of every other Pokemon by 1 stage and makes them weak to Fire moves.",
 		name: "Tar Slosh",
 		rating: 3.5,
 		num: -2005,

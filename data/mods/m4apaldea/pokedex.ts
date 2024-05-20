@@ -183,7 +183,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		mega: "armarougemega",
 		megaName: "Armarouge-Mega",
-		megaAbility: {0: "Aegis"},
+		megaAbility: {0: "Pavise"},
 		megaStats: {hp: 85, atk: 60, def: 145, spa: 145, spd: 95, spe: 95},
 		megaStone: "Armarouginite",
 		movepoolAdditions: ["recover"],
