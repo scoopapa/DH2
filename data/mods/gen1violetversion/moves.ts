@@ -123,9 +123,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart (side, target) {
 				let moves = target.moves;
-				let moveId = moves[this.random(moves.length)];
-				if (!moveId) return false;
-				let move = this.getMove(moveId);
+				const moveId = moves[this.random(moves.length)];
+			/**if (!moveId) return false; **/
+				const move = this.dex.moves.get(moveId);
 				this.add('-start', target, 'Disable', move.name);
 				this.effectState.move = move.id;
 				return;
