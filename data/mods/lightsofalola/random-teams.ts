@@ -1310,11 +1310,12 @@ export class RandomTeams {
 			return this.sample(species.requiredItems);
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'pikachuworld') return 'Light Ball';
 		if (species.id === 'pikachu') return 'Pikanium Z';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
 		if (
-			(species.id === 'froslass' && counter.get('Physical')) || moves.has('populationbomb') ||
+			(species.id === 'froslass' && counter.get('Physical') && !moves.has('trick')) || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
 		) return 'Wide Lens';
 		if (moves.has('clangoroussoul') || (species.id === 'toxtricity' && moves.has('shiftgear'))) return 'Throat Spray';
