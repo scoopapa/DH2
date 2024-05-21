@@ -364,7 +364,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ascenshine",
 		types: ["Flying", "Fairy"],
 		baseStats: {hp: 102, atk: 82, def: 82, spa: 112, spd: 73, spe: 70},
-		abilities: {0: "Soul Heart", 1: "Screen Cleaner", H: "Justified"},
+		abilities: {0: "Soul-Heart", 1: "Screen Cleaner", H: "Justified"},
 	},
 	bluffly: {
 		num: 1011,
@@ -465,21 +465,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Synchronize", 1: "Mimicry", H: "Poison Heal"},
 	},
 	snowdown: {
-		num: 1001,
+		num: 1025,
 		name: "Snowdown",
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 65, atk: 97, def: 90, spa: 48, spd: 105, spe: 115},
 		abilities: {0: "Iron Fist", 1: "Limber", H: "Water Veil"},
 	},
 	flossilisk: {
-		num: 1002,
+		num: 1026,
 		name: "Flossilisk",
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 85, atk: 110, def: 103, spa: 82, spd: 78, spe: 82},
 		abilities: {0: "Pixilate", 1: "Prankster", H: "Cotton Down"},
 	},
 	maulsoleum: {
-		num: 1003,
+		num: 1027,
 		name: "Maulsoleum",
 		types: ["Rock", "Ghost"],
 		baseStats: {hp: 75, atk: 120, def: 97, spa: 85, spd: 71, spe: 92},

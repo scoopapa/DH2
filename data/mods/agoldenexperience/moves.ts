@@ -289,215 +289,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
-	//unused due to deleted Fakemons
-	// galvanismash: {
-	// 	num: -1457,
-	// 	accuracy: 80,
-	// 	basePower: 150,
-	// 	category: "Physical",
-	// 	name: "Galvani-Smash",
-	// 	pp: 5,
-	// 	priority: 0,
-	// 	flags: {contact: 1, protect: 1, mirror: 1},
-	// 	recoil: [1, 2],
-	// 	secondary: null,
-	// 	target: "normal",
-	// 	type: "Electric",
-	// 	contestType: "Tough",
-	// },
-	// nectack: {
-	// 	num: -1228,
-	// 	accuracy: 100,
-	// 	basePower: 60,
-	// 	basePowerCallback(pokemon, target, move) {
-	// 		// You can't get here unless the pursuit succeeds
-	// 		if (target.beingCalledBack) {
-	// 			this.debug('Nectack damage boost');
-	// 			return move.basePower * 2;
-	// 		}
-	// 		return move.basePower;
-	// 	},
-	// 	category: "Physical",
-	// 	name: "Nectack",
-	// 	pp: 20,
-	// 	priority: 0,
-	// 	flags: {contact: 1, protect: 1, mirror: 1, bite: 1},
-	// 	beforeTurnCallback(pokemon) {
-	// 		for (const side of this.sides) {
-	// 			if (side === pokemon.side) continue;
-	// 			side.addSideCondition('nectack', pokemon);
-	// 			const data = side.getSideConditionData('nectack');
-	// 			if (!data.sources) {
-	// 				data.sources = [];
-	// 			}
-	// 			data.sources.push(pokemon);
-	// 		}
-	// 	},
-	// 	onModifyMove(move, source, target) {
-	// 		if (target?.beingCalledBack) move.accuracy = true;
-	// 	},
-	// 	onTryHit(target, pokemon) {
-	// 		target.side.removeSideCondition('nectack');
-	// 	},
-	// 	condition: {
-	// 		duration: 1,
-	// 		onBeforeSwitchOut(pokemon) {
-	// 			this.debug('Nectack start');
-	// 			let alreadyAdded = false;
-	// 			pokemon.removeVolatile('destinybond');
-	// 			for (const source of this.effectState.sources) {
-	// 				if (!this.queue.cancelMove(source) || !source.hp) continue;
-	// 				if (!alreadyAdded) {
-	// 					this.add('-activate', pokemon, 'move: Nectack');
-	// 					alreadyAdded = true;
-	// 				}
-	// 				// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
-	// 				// If it is, then Mega Evolve before moving.
-	// 				if (source.canMegaEvo || source.canUltraBurst) {
-	// 					for (const [actionIndex, action] of this.queue.entries()) {
-	// 						if (action.pokemon === source && action.choice === 'megaEvo') {
-	// 							this.runMegaEvo(source);
-	// 							this.queue.list.splice(actionIndex, 1);
-	// 							break;
-	// 						}
-	// 					}
-	// 				}
-	// 				this.runMove('nectack', source, this.getTargetLoc(pokemon, source));
-	// 			}
-	// 		},
-	// 	},
-	// 	secondary: null,
-	// 	target: "normal",
-	// 	type: "Water",
-	// 	contestType: "Clever",
-	// },
-	// deadlybreeze: {
-	// 	num: -1573,
-	// 	accuracy: 100,
-	// 	basePower: 70,
-	// 	category: "Special",
-	// 	name: "Deadly Breeze",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {protect: 1, mirror: 1},
-	// 	onModifyMove(move) {
-	// 		move.infiltrates = true;
-	// 		delete move.flags['protect'];
-	// 	},
-	// 	onTryHit(target, source, move) {
-	// 		if (target.hasType('Steel')) {
-	// 			return this.chainModify(2);
-	// 		}
-	// 	},
-	// 	secondary: null,
-	// 	target: "normal",
-	// 	type: "Ice",
-	// 	contestType: "Beautiful",
-	// },
-	// overcharge: {
-	// 	num: 682,
-	// 	accuracy: 100,
-	// 	basePower: 130,
-	// 	category: "Special",
-	// 	name: "Overcharge",
-	// 	pp: 5,
-	// 	priority: 0,
-	// 	flags: {protect: 1, mirror: 1, defrost: 1},
-	// 	onTryMove(pokemon, target, move) {
-	// 		if (pokemon.hasType('Electric')) return;
-	// 		this.add('-fail', pokemon, 'move: Overcharge');
-	// 		this.attrLastMove('[still]');
-	// 		return null;
-	// 	},
-	// 	self: {
-	// 		onHit(pokemon) {
-	// 			pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
-	// 			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Overcharge');
-	// 		},
-	// 	},
-	// 	secondary: null,
-	// 	target: "normal",
-	// 	type: "Electric",
-	// 	contestType: "Clever",
-	// },
-	// icebarrier: {
-	// 	num: -1661,
-	// 	accuracy: true,
-	// 	basePower: 0,
-	// 	category: "Status",
-	// 	name: "Ice Barrier",
-	// 	pp: 10,
-	// 	priority: 4,
-	// 	flags: {},
-	// 	stallingMove: true,
-	// 	volatileStatus: 'banefulbunker',
-	// 	onTryHit(target, source, move) {
-	// 		return !!this.queue.willAct() && this.runEvent('StallMove', target);
-	// 	},
-	// 	onHit(pokemon) {
-	// 		pokemon.addVolatile('stall');
-	// 	},
-	// 	condition: {
-	// 		duration: 1,
-	// 		onStart(target) {
-	// 			this.add('-singleturn', target, 'move: Protect');
-	// 		},
-	// 		onTryHitPriority: 3,
-	// 		onTryHit(target, source, move) {
-	// 			if (!move.flags['protect']) {
-	// 				if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
-	// 				return;
-	// 			}
-	// 			if (move.smartTarget) {
-	// 				move.smartTarget = false;
-	// 			} else {
-	// 				this.add('-activate', target, 'move: Protect');
-	// 			}
-	// 			const lockedmove = source.getVolatile('lockedmove');
-	// 			if (lockedmove) {
-	// 				// Outrage counter is reset
-	// 				if (source.volatiles['lockedmove'].duration === 2) {
-	// 					delete source.volatiles['lockedmove'];
-	// 				}
-	// 			}
-	// 			if (move.flags['contact']) {
-	// 				source.trySetStatus('psn', target);
-	// 			}
-	// 			return this.NOT_FAIL;
-	// 		},
-	// 		onHit(target, source, move) {
-	// 			if (move.isZOrMaxPowered && move.flags['contact']) {
-	// 				source.trySetStatus('frz', target);
-	// 			}
-	// 		},
-	// 	},
-	// 	secondary: null,
-	// 	target: "self",
-	// 	type: "Ice",
-	// 	zMove: {boost: {def: 1}},
-	// 	contestType: "Tough",
-	// },
-	// rolledballed: { //removed 
-	// 	num: -13,
-	// 	accuracy: 90,
-	// 	basePower: 35,
-	// 	category: "Physical",
-    // 	shortDesc: "Hits twice. Has a 10% chance to lower the target's Def after each hit.",
-	// 	name: "Rolled Balled",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {protect: 1, mirror: 1},
-	// 	multihit: 2,
-	// 	secondary: {
-	// 		chance: 10,
-	// 		boosts: {
-	// 			def: -1,
-	// 		},
-	// 	},
-	// 	target: "normal",
-	// 	type: "Ice",
-	// 	contestType: "Cool",
-	// },
 	goldenexperience: {
 		num: -13,
 		accuracy: 100,
@@ -1373,7 +1164,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onAnyAccuracy(accuracy, target, source, move) {
-				if (move.type === 'Fighting' && (target.isGrounded() && !target.isSemiInvulnerable())) {
+				if (move.type === 'Fighting' && source.isGrounded() && !source.isSemiInvulnerable()) {
 					return true;
 				}
 				return accuracy;
@@ -1505,6 +1296,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				newType = 'Fighting';
 			}
 
+			if (target.hasItem('identitycard')) return false;
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
 			this.add('-start', target, 'typechange', newType);
 		},
@@ -2178,6 +1970,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	snipeshot: {
 		inherit: true,
+		basePower: 60,
 		willCrit: true,
 		shortDesc: "Always results in a critical hit. Cannot be redirected.",
 		desc: "Always results in a critical hit. Cannot be redirected.",
@@ -2888,26 +2681,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "20% chance to lower target's Atk by 1.",
 		desc: "20% chance to lower target's Atk by 1.",
 	},
-	saltcure: {
-		inherit: true,
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Salt Cure');
-			},
-			onResidualOrder: 13,
-			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / 8);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Salt Cure');
-			},
-		},
-		onTryImmunity(target) {
-			return (target.hasType('Water') || target.hasType('Steel'));
-		},
-		shortDesc: "Damages the target by 1/8 max HP per turn if target is Water or Steel type.",
-	},
 	roguewave: {
 		num: -61,
 		accuracy: 100,
@@ -2920,6 +2693,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 3],
 		secondary: null,
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wave Crash", target);
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
@@ -2941,6 +2718,210 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
 	},
+	natureswrath: {
+		num: -64,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "Either Grass or Ground-type, whichever is more effective. Heals user by 12.5% of damage dealt.",
+		name: "Nature's Wrath",
+		pp: 10,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 8],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Leaf Storm", target);
+		},
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Grass';
+			const type2 = 'Ground';
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
+					move.type = 'Ground';
+				} else if (target.hasType('Flying') || target.hasAbility('eartheater') || target.hasAbility('levitate')) {
+					move.type = 'Grass';
+				} else if (target.hasAbility('sapsipper')) {
+					move.type = 'Ground';
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType('Ground') && !pokemon.hasType('Grass')) {
+						move.type = 'Ground';
+					}
+				}
+			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Nature's Wrath dealt ${move.type}-type damage!`);
+		},
+		priority: 0,
+		secondary: null,
+		target: "any",
+		type: "Grass",
+		zMove: {basePower: 170},
+		contestType: "Tough",
+	},
+	magicmissile: {
+		num: -65,
+		accuracy: true,
+		basePower: 25,
+		category: "Special",
+		name: "Magic Missile",
+		shortDesc: "Hits 2-5 times in one turn. Does not check accuracy, bypasses immunities, and always hits for at least neutral damages.",
+		desc: "Hits two to five times. This move does not check accuracy, bypasses immunities, and always hits for at least neutral damages.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swift", target);
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Magic Missile damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, pokemon, target) {
+			let type = move.type;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity[type] = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Smart",
+	},
+
+	// Identity Card field
+
+	soak: {
+		inherit: true,
+		onHit(target) {
+			if (target.getTypes().join() === 'Water' || !target.setType('Water') || target.hasItem('identitycard')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Water');
+		},
+	},
+	trickortreat: {
+		inherit: true,
+		onHit(target) {
+			if (target.hasType('Ghost')) return false;
+			if (!target.addType('Ghost')) return false;
+			if (target.hasItem('identitycard')) return false;
+			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+
+			if (target.side.active.length === 2 && target.position === 1) {
+				// Curse Glitch
+				const action = this.queue.willMove(target);
+				if (action && action.move.id === 'curse') {
+					action.targetLoc = -1;
+				}
+			}
+		},
+	},
+	conversion: {
+		inherit: true,
+		onHit(target) {
+			const type = this.dex.moves.get(target.moveSlots[0].id).type;
+			if (target.hasType(type) || !target.setType(type) || target.hasItem('identitycard')) return false;
+			this.add('-start', target, 'typechange', type);
+		},
+	},
+	conversion2: {
+		inherit: true,
+		onHit(target, source) {
+			if (!target.lastMoveUsed) {
+				return false;
+			}
+			const possibleTypes = [];
+			const attackType = target.lastMoveUsed.type;
+			for (const type of this.dex.types.names()) {
+				if (source.hasType(type)) continue;
+				const typeCheck = this.dex.types.get(type).damageTaken[attackType];
+				if (typeCheck === 2 || typeCheck === 3) {
+					possibleTypes.push(type);
+				}
+			}
+			if (!possibleTypes.length) {
+				return false;
+			}
+			const randomType = this.sample(possibleTypes);
+
+			if (source.hasItem('identitycard')) return false;
+			if (!source.setType(randomType)) return false;
+			this.add('-start', source, 'typechange', randomType);
+		},
+	},
+	magicpowder: {
+		inherit: true,
+		onHit(target) {
+			if (target.getTypes().join() === 'Psychic' || !target.setType('Psychic') || target.hasItem('identitycard')) return false;
+			this.add('-start', target, 'typechange', 'Psychic');
+		},
+	},
+	reflecttype: {
+		inherit: true,
+		onHit(target, source) {
+			if (source.species && (source.species.num === 493 || source.species.num === 773)) return false;
+			if (source.terastallized) return false;
+			if (source.hasItem('identitycard')) return false;
+			const oldApparentType = source.apparentType;
+			let newBaseTypes = target.getTypes(true).filter(type => type !== '???');
+			if (!newBaseTypes.length) {
+				if (target.addedType) {
+					newBaseTypes = ['Normal'];
+				} else {
+					return false;
+				}
+			}
+			this.add('-start', source, 'typechange', '[from] move: Reflect Type', '[of] ' + target);
+			source.setType(newBaseTypes);
+			source.addedType = target.addedType;
+			source.knownType = target.isAlly(source) && target.knownType;
+			if (!source.knownType) source.apparentType = oldApparentType;
+		},
+	},
+	forestscurse: {
+		inherit: true,
+		onHit(target) {
+			if (target.hasType('Grass')) return false;
+			if (!target.addType('Grass')) return false;
+			if (target.hasItem('identitycard')) return false;
+			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
+		},
+	},
+	doubleshock: {
+		inherit: true,
+		self: {
+			onHit(pokemon) {
+				if (!pokemon.hasItem('identitycard')) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
+				}
+			},
+		},
+	},
+	burnup: {
+		inherit: true,
+		self: {
+			onHit(pokemon) {
+				if (!pokemon.hasItem('identitycard')) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
+				}
+			},
+		},
+	},
+
 
 	// Endless Dream field
 	wakeupslap: {

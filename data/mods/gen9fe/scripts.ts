@@ -7,8 +7,8 @@ export const Scripts: ModdedBattleScriptsData = {
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
-			if (pokemon.illusion?.species.baseSpecies === 'Ogerpon') {
-				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			if (pokemon.illusion && ['Ogerpon', 'Terapagos', 'Hattepon'].includes(pokemon.illusion.species.baseSpecies)) {
+				this.battle.singleEvent('End', this.dex.abilities.get('Rough Image'), pokemon.abilityState, pokemon);
 			}
 	
 			const type = pokemon.teraType;
@@ -21,12 +21,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			pokemon.knownType = true;
 			pokemon.apparentType = type;
 			pokemon.side.addSideCondition('teraused', pokemon);
-			if (pokemon.species.baseSpecies === 'Ogerpon') {
-				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
-				pokemon.formeChange(pokemon.species.id + tera, null, true);
-			}
-			if (pokemon.species.baseSpecies === 'Hattepon') {
-				const tera = pokemon.species.id === 'hattepon' ? 'basetera' : 'tera';
+			if (['Ogerpon','Hattepon'].includes(pokemon.species.baseSpecies)) {
+				const tera = ['ogerpon','hattepon'].includes(pokemon.species.id) ? 'tealtera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
@@ -189,7 +185,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				if (zMove) {
 					if (pokemon.illusion) {
-						this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+						this.battle.singleEvent('End', this.dex.abilities.get('Rough Image'), pokemon.abilityState, pokemon);
 					}
 					this.battle.add('-zpower', pokemon);
 					pokemon.side.zMoveUsed = true;
@@ -535,7 +531,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize'])) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
 			if ('magnetrise' in this.volatiles/*) return false;

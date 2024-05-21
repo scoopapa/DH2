@@ -257,11 +257,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Aero Wake",
 		itemUser: ["Aero Wake"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if ([item.megaEvolves,"Aerodirge"].includes(source.baseSpecies.baseSpecies)) return false;
 			return true;
 		},
 		num: 672,
 		desc: "If held by an Aero Wake, this item allows it to Mega Evolve in battle.",
+	},
+	sharpedonite: {
+		name: "Sharpedonite",
+		spritenum: 619,
+		megaStone: "Zoroshark-Hisui-Mega",
+		megaEvolves: "Zoroshark-Hisui",
+		itemUser: ["Zoroshark-Hisui"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 759,
+		desc: "If held by a Hisuian Zoroshark, this item allows it to Mega Evolve in battle.",
 	},
 	eviolite: {
 		inherit: true,

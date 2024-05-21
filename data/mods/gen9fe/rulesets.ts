@@ -99,7 +99,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (!target.hasAbility('illusion')) return; // making sure the correct information is given when an Illusion breaks
+			if (!target.hasAbility(['illusion','roughimage'])) return; // making sure the correct information is given when an Illusion breaks
 			if (target.isModded) {
 				this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 				if (target.switchedIn)  return;
@@ -137,14 +137,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 	terastalclause: {
 		effectType: 'Rule',
 		name: 'Terastal Clause',
-		desc: "Prevents Pok&eacute;mon from Terastallizing",
+		desc: "Prevents Pok&eacute;mon without Terastal forms from Terastallizing",
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
 			  if (pokemon.species.baseSpecies !== 'Hattepon') {
 				  pokemon.canTerastallize = null;
-        }
+				}
 			}
-			this.add('rule', 'Terastal Clause: You cannot Terastallize');
+			this.add('rule', 'Terastal Clause: Only Pok&eacute;mon with Tera forms can Terastallize');
 		},
 	},
 };

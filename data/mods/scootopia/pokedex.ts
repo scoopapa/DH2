@@ -371,7 +371,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Corundell",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 75, atk: 105, def: 130, spa: 105, spd: 80, spe: 105},
-		abilities: {0: "Protosynthesis"},
+		abilities: {0: "Lightning Rod", H: "Protosynthesis"},
 		weightkg: 137,
 	},
 	quadringo: {

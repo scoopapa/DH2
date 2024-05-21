@@ -287,7 +287,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name) && boost.atk) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrap Rock', '[of] ' + target);
 			} else if (effect.name === 'Fishy Threat' && boost.spe) {
@@ -651,7 +651,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name) && boost.atk) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Primitive', '[of] ' + target);
 			} else if (effect.name === 'Fishy Threat' && boost.spe) {
@@ -2088,7 +2088,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return critRatio + 1;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name) && boost.atk) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Luck', '[of] ' + target);
 			} else if (effect.name === 'Fishy Threat' && boost.spe) {
@@ -2776,7 +2776,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name) && boost.atk) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Feisty Tempo', '[of] ' + target);
 			} else if (effect.name === 'Fishy Threat' && boost.spe) {
@@ -3271,7 +3271,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.boost(boost, pokemon, pokemon);
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name)) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
 				if (boost.atk) {
 					delete boost.atk;
 					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Mood', '[of] ' + target);
@@ -3531,14 +3531,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Scrappy + Quark Drive.",
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
+			if ((move.ignoreImmunity ||= {}) !== true) {
 				move.ignoreImmunity['Fighting'] = true;
 				move.ignoreImmunity['Normal'] = true;
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name)) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
 				if (boost.atk) {
 					delete boost.atk;
 					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Innovate', '[of] ' + target);
@@ -3652,29 +3651,34 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Apple of Ruin');
 		},
-		onSourceModifyAccuracyPriority: -1,
-		onSourceModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			this.debug('compoundeyes - enhancing accuracy');
-			return this.chainModify([5120, 4096]);
+		onAnyModifyAccuracyPriority: -1,
+		onAnyModifyAccuracy(accuracy, target) {
+			if (target.hasAbility('Apple of Ruin')) return;
+			const abilityHolder = this.effectState.target;
+			if (!move.ruinedEva) move.ruinedEva = abilityHolder;
+			else if (move.ruinedEva !== abilityHolder) return;
+			this.debug('Apple of Ruin Evasion drop');
+			return this.chainModify([5448, 4096]);
 		},
 		flags: {},
 		name: "Apple of Ruin",
 		rating: 4,
 	},
 	bestboost: {
-	  shortDesc: "(Placeholder) This Pokemon's highest stat can't be lowered and rises 1 stage after KOing a foe.",
+	  shortDesc: "This Pokemon's highest stat can't be lowered and raises 1 stage after KOing a foe.",
+		onStart(pokemon) {
+			this.effectState.bestStat = pokemon.getBestStat(true, true);
+		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				const bestStat = source.getBestStat(true, true);
-				this.boost({[bestStat]: length}, source);
+				this.boost({[this.effectState.bestStat]: length}, source);
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			const bestStat = target.getBestStat(true, true);
 			if (source && target === source) return;
-			if (boost.bestStat && boost.bestStat < 0) {
-				delete boost.bestStat;
+			const bestStat = (this.effectState.bestStat ||= target.getBestStat(true, true));
+			if (boost[bestStat] && boost[bestStat]! < 0) {
+				delete boost[bestStat];
 				if (!(effect as ActiveMove).secondaries) {
 					this.add("-fail", target, "unboost", bestStat, "[from] ability: Best Boost", "[of] " + target);
 				}
@@ -3684,72 +3688,182 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Best Boost",
 		rating: 3.5,
 	},
-	embodyaspectcornerstone: {
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Hattepon-Cornerstone-Tera' && !this.effectState.embodied) {
-				this.effectState.embodied = true;
-				this.boost({def: 1}, pokemon);
+	rogue: {
+	  shortDesc: "Competitive + Overcoat.",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Competitive/Rogue only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					this.boost({spa: 2}, target, target, null, false, true);
+					return;
+				}
 			}
 		},
-		onSwitchIn() {
-			delete this.effectState.embodied;
+		onImmunity(type, pokemon) {
+			if (['sandstorm','hail','powder'].includes(type)) return false;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
-		name: "Embody Aspect (Cornerstone)",
-		rating: 3.5,
-		num: 304,
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Rogue');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Rogue",
 	},
-	embodyaspecthearthflame: {
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Hattepon-Hearthflame-Tera' && !this.effectState.embodied) {
-				this.effectState.embodied = true;
-				this.boost({atk: 1}, pokemon);
+	unidentifiedflyingobject: {
+		//airborneness in scripts.ts#pokemon
+		shortDesc: "Levitate effects. If this Pokemon would be hit by a Ground move, the attacker becomes confused.",
+		onTryHit(target, source, move) {
+			//target should be airborne
+			if (target !== source && move.type === 'Ground' && !source.volatiles['confusion'] && !(
+				move.ignoreImmunity && (move.ignoreImmunity === true || move.ignoreImmunity['Ground'])
+			) && target.isGrounded() === null) {
+				source.addVolatile('confusion', target);
+				this.add('-immune', target);
+				return null;
 			}
 		},
-		onSwitchIn() {
-			delete this.effectState.embodied;
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
-		name: "Embody Aspect (Hearthflame)",
-		rating: 3.5,
-		num: 303,
+		flags: {breakable: 1},
+		name: "Unidentified Flying Object",
 	},
-	embodyaspectteal: {
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Hattepon-Teal-Tera' && !this.effectState.embodied) {
-				this.effectState.embodied = true;
-				this.boost({spe: 1}, pokemon);
+	roughimage: {
+		shortDesc: "Illusion effects. Breaking the illusion damages the attacker for 12.5% of Max HP.",
+		onBeforeSwitchIn(pokemon) {
+			pokemon.illusion = null;
+			// yes, you can Illusion an active pokemon but only if it's to your right
+			for (let i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				const possibleTarget = pokemon.side.pokemon[i];
+				if (!possibleTarget.fainted) {
+					// If Ogerpon is in the last slot while the Illusion Pokemon is Terastallized
+					// Illusion will not disguise as anything
+					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Hattepon') {
+						pokemon.illusion = possibleTarget;
+					}
+					break;
+				}
 			}
 		},
-		onSwitchIn() {
-			delete this.effectState.embodied;
+		onDamagingHit(damage, target, source, move) {
+			if (target.illusion) {
+				this.singleEvent('End', this.dex.abilities.get('Rough Image'), target.abilityState, target, source, move);
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
-		name: "Embody Aspect (Teal)",
-		rating: 3.5,
-		num: 301,
+		onEnd(pokemon) {
+			if (pokemon.illusion) {
+				this.debug('illusion cleared');
+				pokemon.illusion = null;
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details);
+				this.add('-end', pokemon, 'Illusion');
+				if (this.ruleTable.has('illusionlevelmod')) {
+					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
+				}
+			}
+		},
+		onFaint(pokemon) {
+			pokemon.illusion = null;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Rough Image",
 	},
-	embodyaspectwellspring: {
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Hattepon-Wellspring-Tera' && !this.effectState.embodied) {
-				this.effectState.embodied = true;
-				this.boost({spd: 1}, pokemon);
+	riotpayload: {
+		shortDesc: "Rocky Payload + Defiant",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant/Riot Payload only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					this.boost({atk: 2}, target, target, null, false, true);
+					return;
+				}
 			}
 		},
-		onSwitchIn() {
-			delete this.effectState.embodied;
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Riot Payload boost');
+				return this.chainModify(1.5);
+			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
-		name: "Embody Aspect (Wellspring)",
-		rating: 3.5,
-		num: 302,
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Riot Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Riot Payload",
+	},
+	toxicattitude: {
+		shortDesc: "Intimidate + Poison Point",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Toxic Attitude', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.trySetStatus('psn', target);
+			}
+		},
+		flags: {},
+		name: "Toxic Attitude",
+	},
+	quickwit: {
+		shortDesc: "Speed Boost + Keen Eye",
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Quick Wit", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		flags: {breakable: 1},
+		name: "Quick Wit",
 	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
 	innerfocus: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
-			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm'].includes(effect.name)) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
 				if (boost.atk) {
 					delete boost.atk;
 					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
@@ -3757,6 +3871,42 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (effect.name === 'Fishy Threat' && boost.spe) {
 				delete boost.spe;
 				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Inner Focus', '[of] ' + target);
+			}
+		},
+	},
+	embodyaspectcornerstone: {
+		inherit: true,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Cornerstone-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({def: 1}, pokemon);
+			}
+		},
+	},
+	embodyaspecthearthflame: {
+		inherit: true,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Hearthflame-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({atk: 1}, pokemon);
+			}
+		},
+	},
+	embodyaspectteal: {
+		inherit: true,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Teal-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({spe: 1}, pokemon);
+			}
+		},
+	},
+	embodyaspectwellspring: {
+		inherit: true,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Hattepon-Wellspring-Tera' && !this.effectState.embodied) {
+				this.effectState.embodied = true;
+				this.boost({spd: 1}, pokemon);
 			}
 		},
 	},
