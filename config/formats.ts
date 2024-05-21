@@ -1944,6 +1944,26 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] CommunityUsed 2: Regional Dex",
+		mod: 'communityused2',
+		desc: `A micrometa that combines secret santa with Generation X.`,
+		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause', 'Z-Move Clause'],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10093481">CU2 on Smogon Forums</a>`,
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['CU2 OU', 'CU2 NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in CommunityUsed 2.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Conquest Dex",
 		mod: 'conquestdex',
 		desc: `A metagame based on the pokemon side game pokemon conquest`,
