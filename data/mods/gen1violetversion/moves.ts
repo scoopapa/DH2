@@ -133,14 +133,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.move = move.id;
 				return;
 			},
-			onBeforeMovePriority: 7,
+		/*	onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
 				if (this.effectState.source !== attacker) return;
 				if (move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
-			},
+			},*/
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
