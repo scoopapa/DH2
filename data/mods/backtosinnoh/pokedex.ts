@@ -1,6 +1,6 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	sparktus: {
-		num: 1001,
+		num: -1,
 		name: "Sparktus",
 		types: ["Grass"],
 		baseStats: {hp: 60, atk: 90, def: 65, spa: 70, spd: 70, spe: 50},
@@ -10,7 +10,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Grass", "Field"],
 	},
 	cactamp: {
-		num: 1002,
+		num: -2,
 		name: "Cactamp",
 		types: ["Grass"],
 		baseStats: {hp: 50, atk: 70, def: 50, spa: 50, spd: 50, spe: 40},
@@ -21,7 +21,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Grass", "Field"],
 	},
 	succurent: {
-		num: 1003,
+		num: -3,
 		name: "Succurent",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 90, spd: 100, spe: 70},
@@ -31,7 +31,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Grass", "Field"],
 	},
 	kindlamb: {
-		num: 1004,
+		num: -4,
 		name: "Kindlamb",
 		types: ["Fire"],
 		baseStats: {hp: 47, atk: 45, def: 55, spa: 61, spd: 55, spe: 47},
@@ -41,7 +41,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Field"],
 	},
 	spaark: {
-		num: 1005,
+		num: -5,
 		name: "Spaark",
 		types: ["Fire"],
 		baseStats: {hp: 57, atk: 60, def: 85, spa: 76, spd: 75, spe: 52},
@@ -52,7 +52,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Field"],
 	},
 	inferam: {
-		num: 1006,
+		num: -6,
 		name: "Inferam",
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 82, atk: 75, def: 110, spa: 96, spd: 100, spe: 67},
@@ -62,7 +62,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Field"],
 	},
 	slapole: {
-		num: 1007,
+		num: -7,
 		name: "Slapole",
 		types: ["Water"],
 		baseStats: {hp: 50, atk: 65, def: 50, spa: 55, spd: 40, spe: 50},
@@ -72,7 +72,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Water 1", "Field"],
 	},
 	strikroak: {
-		num: 1008,
+		num: -8,
 		name: "Strikroak",
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 85, def: 70, spa: 60, spd: 60, spe: 60},
@@ -83,7 +83,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Water 1", "Field"],
 	},
 	yamatoad: {
-		num: 1009,
+		num: -9,
 		name: "Yamatoad",
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 100, atk: 120, def: 100, spa: 70, spd: 80, spe: 65},
@@ -91,6 +91,211 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		weightkg: 134,
 		prevo: "Strikroak",
 		eggGroups: ["Water 1", "Field"],
+	},
+	yuckduck: {
+		num: -10,
+		name: "Yuckduck",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 40, atk: 56, def: 20, spa: 30, spd: 33, spe: 66},
+		abilities: {0: "Vital Spirit", 1: "Rain Dish"},
+		weightkg: 10,
+		evos: ["Swanger"],
+		eggGroups: ["Flying", "Field"],
+	},
+	swanger: {
+		num: -11,
+		name: "Swanger",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 50, atk: 71, def: 40, spa: 40, spd: 53, spe: 86},
+		abilities: {0: "Vital Spirit", 1: "Rain Dish"},
+		weightkg: 21,
+		prevo: "Yuckduck",
+		evos: ["Aggreswan"],
+		eggGroups: ["Flying", "Field"],
+	},
+	aggreswan: {
+		num: -12,
+		name: "Aggreswan",
+		types: ["Water", "Flying"],
+		baseStats: {hp: 70, atk: 101, def: 60, spa: 70, spd: 73, spe: 111},
+		abilities: {0: "Vital Spirit", 1: "Water Veil"},
+		weightkg: 51,
+		prevo: "Swanger",
+		eggGroups: ["Flying", "Field"],
+	},
+	capybaby: {
+		num: -13,
+		name: "Capybaby",
+		types: ["Normal"],
+		baseStats: {hp: 80, atk: 31, def: 72, spa: 50, spd: 47, spe: 25},
+		abilities: {0: "Natural Cure", 1: "Oblivious"},
+		weightkg: 60,
+		evos: ["Capyblue"],
+		eggGroups: ["Field"],
+	},
+	capyblue: {
+		num: -14,
+		name: "Capyblue",
+		types: ["Normal", "Water"],
+		baseStats: {hp: 110, atk: 51, def: 102, spa: 80, spd: 67, spe: 30},
+		abilities: {0: "Natural Cure", 1: "Water Veil"},
+		weightkg: 60,
+		prevo: "Capybaby",
+		eggGroups: ["Field"],
+	},
+	kotora: {
+		num: -15,
+		name: "Kotora",
+		types: ["Electric"],
+		baseStats: {hp: 45, atk: 52, def: 42, spa: 48, spd: 41, spe: 50},
+		abilities: {0: "Static", 1: "Run Away"},
+		weightkg: 15,
+		evos: ["Raitora"],
+		eggGroups: ["Field"],
+	},
+	raitora: {
+		num: -16,
+		name: "Raitora",
+		types: ["Electric"],
+		baseStats: {hp: 60, atk: 82, def: 72, spa: 63, spd: 56, spe: 65},
+		abilities: {0: "Static", 1: "Intimidate"},
+		weightkg: 34,
+		prevo: "Kotora",
+		evos: ["Gorotora"],
+		eggGroups: ["Field"],
+	},
+	gorotora: {
+		num: -17,
+		name: "Gorotora",
+		types: ["Electric"],
+		baseStats: {hp: 100, atk: 107, def: 82, spa: 87, spd: 76, spe: 70},
+		abilities: {0: "Static", 1: "Intimidate"},
+		weightkg: 69,
+		prevo: "Raitora",
+		eggGroups: ["Field"],
+	},
+	sableye: {
+		inherit: true,
+		evos: ["Sablenvy"],
+	},
+	sablenvy: {
+		num: -18,
+		name: "Sablenvy",
+		types: ["Dark", "Ghost"],
+		baseStats: {hp: 70, atk: 95, def: 115, spa: 80, spd: 105, spe: 30},
+		abilities: {0: "Confiscate"},
+		weightkg: 160,
+		prevo: "Sableye",
+		eggGroups: ["Human-Like"],
+	},
+	tangela: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Overcoat"},
+		evos: ["Brambela"],
+	},
+	brambela: {
+		num: -19,
+		name: "Brambela",
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 75, atk: 105, def: 115, spa: 55, spd: 55, spe: 100},
+		abilities: {0: "Sand Veil", 1: "Overcoat"},
+		weightkg: 20,
+		prevo: "Tangela",
+		eggGroups: ["Grass"],
+	},
+	murkrow: {
+		inherit: true,
+		abilities: { 0: "Insomnia", 1: "Overcoat"},
+		evos: ["Huginkrow"],
+	},
+	huginkrow: {
+		num: -20,
+		name: "Huginkrow",
+		types: ["Dark", "Psychic"],
+		baseStats: {hp: 70, atk: 105, def: 72, spa: 105, spd: 72, spe: 101},
+		abilities: {0: "Levitate", 1: "Overcoat"},
+		weightkg: 110,
+		prevo: "Murkrow",
+		eggGroups: ["Flying"],
+	},
+	delibird: {
+		inherit: true,
+		evos: ["Elfowl"],
+	},
+	elfowl: {
+		num: -21,
+		name: "Elfowl",
+		types: ["Ice", "Flying"],
+		baseStats: {hp: 75, atk: 85, def: 65, spa: 95, spd: 65, spe: 110},
+		abilities: {0: "Insomnia", 1: "Thick Fat"},
+		weightkg: 51.3,
+		prevo: "Delibird",
+		eggGroups: ["Water 1", "Field"],
+	},
+	hoppip: {
+		inherit: true,
+		abilities: { 0: "Chlorophyll", 1: "Fluffy"},
+	},
+	skiploom: {
+		inherit: true,
+		abilities: { 0: "Chlorophyll", 1: "Fluffy"},
+		evos: ["Jumpluff", "Gyrobloom"],
+	},
+	jumpluff: {
+		inherit: true,
+		abilities: { 0: "Chlorophyll", 1: "Fluffy"},
+	},
+	gyrobloom: {
+		num: -22,
+		name: "Gyrobloom",
+		types: ["Grass", "Steel"],
+		baseStats: {hp: 65, atk: 85, def: 100, spa: 35, spd: 80, spe: 95},
+		abilities: {0: "Levitate"},
+		weightkg: 130,
+		prevo: "Skiploom",
+		eggGroups: ["Fairy", "Grass"],
+	},
+	aipom: {
+		inherit: true,
+		evos: ["Similash"],
+	},
+	similash: {
+		num: -23,
+		name: "Similash",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 85, atk: 110, def: 55, spa: 60, spd: 55, spe: 115},
+		abilities: {0: "Keen Eye", 1: "Pickup"},
+		weightkg: 75,
+		prevo: "Aipom",
+		eggGroups: ["Field"],
+	},
+	sudowoodo: {
+		inherit: true,
+		evos: ["Putrewoodo"],
+	},
+	putrewoodo: {
+		num: -24,
+		name: "Putrewoodo",
+		types: ["Rock", "Ghost"],
+		baseStats: {hp: 80, atk: 120, def: 120, spa: 60, spd: 70, spe: 50},
+		abilities: {0: "Clear Body", 1: "Rock Head"},
+		weightkg: 5,
+		prevo: "Sudowoodo",
+		eggGroups: ["Mineral"],
+	},
+	arbok: {
+		inherit: true,
+		evos: ["Adnocana"],
+	},
+	adnocana: {
+		num: -25,
+		name: "Adnocana",
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 70, atk: 112, def: 80, spa: 70, spd: 79, spe: 94},
+		abilities: {0: "Shed Skin", 1: "Intimidate"},
+		weightkg: 31,
+		prevo: "Arbok",
+		eggGroups: ["Field", "Dragon"],
 	},
 
 	pidgey: {
@@ -221,10 +426,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Keen Eye" },
 	},
-	tangela: {
-		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Overcoat"},
-	},
 	kangaskhan: {
 		inherit: true,
 		abilities: { 0: "Early Bird" },
@@ -277,6 +478,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Confiscate", 1: "Keen Eye"},
 	},
+	spinarak: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Insomnia"},
+	},
+	ariados: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Insomnia"},
+	},
 	cleffa: {
 		inherit: true,
 		abilities: { 0: "Cute Charm" },
@@ -291,19 +500,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	flaaffy: {
 		inherit: true,
-		abilities: {0: "Static", H: "Fluffy"},
-	},
-	hoppip: {
-		inherit: true,
-		abilities: { 0: "Chlorophyll" },
-	},
-	skiploom: {
-		inherit: true,
-		abilities: { 0: "Chlorophyll" },
-	},
-	jumpluff: {
-		inherit: true,
-		abilities: { 0: "Chlorophyll", 1: "Fluffy"},
+		abilities: {0: "Static", 1: "Fluffy"},
 	},
 	politoed: {
 		inherit: true,
@@ -316,10 +513,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	sunflora: {
 		inherit: true,
 		abilities: { 0: "Chlorophyll", 1: "Sunshine" },
-	},
-	murkrow: {
-		inherit: true,
-		abilities: { 0: "Insomnia", 1: "Overcoat"},
 	},
 	pineco: {
 		inherit: true,
@@ -373,6 +566,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Swift Swim" },
 	},
+	houndour: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Flash Fire"},
+	},
+	houndoom: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Flash Fire"},
+	},
 	porygon2: {
 		inherit: true,
 		abilities: { 0: "Trace" },
@@ -403,11 +604,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	poochyena: {
 		inherit: true,
-		abilities: { 0: "Run Away" },
+		abilities: { 0: "Run Away", 1: "Strong Jaw"},
 	},
 	mightyena: {
 		inherit: true,
-		abilities: { 0: "Intimidate" },
+		abilities: { 0: "Intimidate", 1: "Strong Jaw"},
 	},
 	zigzagoon: {
 		inherit: true,
@@ -424,6 +625,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	pelipper: {
 		inherit: true,
 		abilities: {0: "Keen Eye", 1: "Precipitate"},
+	},
+	surskit: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Rain Dish"},
+	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Precipitate"},
 	},
 	shroomish: {
 		inherit: true,
@@ -453,9 +662,21 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Cute Charm", 1: "Fluffy" },
 	},
+	mawile: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Intimidate"},
+	},
 	illumise: {
 		inherit: true,
 		abilities: { 0: "Oblivious" },
+	},
+	carvanha: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Strong Jaw"},
+	},
+	sharpedo: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Strong Jaw"},
 	},
 	numel: {
 		inherit: true,
@@ -475,11 +696,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	swablu: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Fluffy"},
+		abilities: {0: "Natural Cure", 1: "Fluffy"},
 	},
 	altaria: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Fluffy"},
+		abilities: {0: "Natural Cure", 1: "Fluffy"},
+	},
+	seviper: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Strong Jaw"},
 	},
 	solrock: {
 		inherit: true,
@@ -540,6 +765,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	walrein: {
 		inherit: true,
 		abilities: { 0: "Thick Fat" },
+	},
+	huntail: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Strong Jaw"},
 	},
 	shelgon: {
 		inherit: true,

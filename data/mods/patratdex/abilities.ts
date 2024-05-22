@@ -15,6 +15,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
   			if (move.pixilateBoosted) return this.chainModify([0x1333, 0x1000]);
   		},
   		name: "Chitinize",
+		shortDesc: "This Pokemon's Normal-type moves become Bug-type and have 1.2x base power.",
   		rating: 4,
   		num: 9001,
 	},
@@ -60,8 +61,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Decoy",
+		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
 		rating: 3.5,
 		num: 9002,
 	},
@@ -74,6 +76,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return accuracy * 1.3;
 		},
 		name: "Electroreception",
+		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.3.",
 		rating: 3,
 		num: 9003,
 	},
@@ -86,6 +89,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Field Report",
+		shortDesc: "This Pokemon's weather and terrain moves have priority raised by 1.",
 		rating: 4,
 		num: 9004,
 	},
@@ -112,8 +116,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				source.transformed = true;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Hammer Head",
+		shortDesc: "When hit after Drill Run/Dig, attacker takes 1/4 max HP.",
 		rating: 2.5,
 		num: 9005,
 	},
@@ -126,8 +131,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const targetForme = (move.id === 'wheatshield' ? 'Incrownito' : 'Incrownito-Flock');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Hay Veil",
+		shortDesc: "Changes Forme to Flock before attacks and Scarecrow before Wheat Shield.",
 		rating: 4,
 		num: 9006,
 	},
@@ -149,6 +155,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Raingrow",
+		shortDesc: "If Rain Dance is active, it becomes Chunky.",
 		rating: 1,
 		num: 9007,
 	},

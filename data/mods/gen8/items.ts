@@ -242,10 +242,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	prismscale: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	protector: {
 		inherit: true,
 		isNonstandard: null,
@@ -258,9 +254,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	reapercloth: {
+	razorfang: {
 		inherit: true,
-		isNonstandard: null,
+		isNonstandard: "Past",
 	},
 	ribbonsweet: {
 		inherit: true,
@@ -301,10 +297,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	skyplate: {
 		inherit: true,
 		isNonstandard: "Past",
-	},
-	souldew: {
-		inherit: true,
-		isNonstandard: null,
 	},
 	splashplate: {
 		inherit: true,

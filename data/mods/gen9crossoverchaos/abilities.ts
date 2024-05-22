@@ -255,7 +255,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		rating: 2.5,
 		num: -12,
 	},
@@ -277,7 +277,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Frigid Bloodline",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ice moves; Ice immunity.",
 		rating: 3.5,
@@ -313,5 +313,58 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon recovers 1/16 max HP at the end of each turn.",
 		rating: 4,
 		num: -17,
+	},
+	binarysoul: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.species.baseSpecies !== 'Twinrova' || pokemon.terastallized) return;
+			const targetForme = pokemon.species.name === 'Twinrova' ? 'Twinrova-Fire' : 'Twinrova';
+			pokemon.formeChange(targetForme);
+		},
+		// I have no clue what's going on here, all I know is that this is how Morpeko was coded
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Binary Soul",
+		rating: 1,
+		num: -18,
+	},
+	perplexinggaze: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Perplexing Gaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Perplexing Gaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Perplexing Gaze",
+		rating: 3.5,
+		num: -19,
+	},
+	rainbowpuppeteer: {
+		onModifyMove(move) {
+			move.forceSTAB = true;
+		},
+		flags: {},
+		name: "Rainbow Puppeteer",
+		rating: 4,
+		num: -20,
+	},
+	devouringjaw: {
+		onModifyMove(move) {
+			if (move.flags['bite']) { 
+				move.drain ||= [1, 2];
+			}
+		},
+		flags: {},
+		name: "Devouring Jaw",
+		rating: 3,
+		num: -21,
 	},
 };

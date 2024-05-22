@@ -60,4 +60,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -4,
 		gen: 9,
 	},
+	kaguyiumz: {
+		name: "Kaguyium Z",
+		desc: "If held by a Kaguya Houraisan with Giga Drain, it can use Tree-Ocean of Hourai.",
+		spritenum: 635,
+		onTakeItem: false,
+		zMove: "Tree-Ocean of Hourai",
+		zMoveFrom: "Giga Drain",
+		itemUser: ["Kaguya Houraisan"],
+		num: -5,
+		gen: 9,
+	},
+	// unresolved issues with Negative Zone, not implementing
 };

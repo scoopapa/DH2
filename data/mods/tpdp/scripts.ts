@@ -1,138 +1,159 @@
-import {toID} from './dex';
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+function mergeCallback(
+	c1?: (this: Battle, ...args: any[]) => any,
+	c2?: (this: Battle, ...args: any[]) => any,
+): ((this: Battle, ...args: any[]) => any) | undefined {
+	if (!c1) return c2;
+	if (!c2) return c1;
+	return (function (...a) {
+		const ret1 = c1.call(this, ...a);
+		const ret2 = c2.call(this, ...a);
+		return this.actions.combineResults(ret1, ret2);
+	});
+}
+
+export const Scripts: ModdedBattleScriptsData = {
+	gen: 6,
+	inherit: 'gen6',
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
 		customTiers: ['TPDP OU', 'TPDP LC'],
+		
+		//viability
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
+			//const dex = this.dex;
+
+			let abilityid: ID = set ? toID(set.ability) : '' as ID;
+			const itemid: ID = set ? toID(set.item) : '' as ID;
+			
+			const GOOD_WEAK_MOVES = [
+			'plasmaball', 'smashspin', 'infinitescales', 'raid', 'tigerrush', 'icegatling', 'aquacutter', 'aquasonic', 'overtakestrike', 'springfirst', 'overray', 'shadowbomb', 'toxicspiral', 'strikeshot', 'trickster', 'cruciform', 'heavenlyinfluence', 'heavenlyblessing', 'earthlyinfluence', 'earthlyblessing', 'stonethrow', 'airstamp', 'twingears', 'darkarrow', 'twinthrust', 'pursuit', 'unfetteredsoul', 'geyser', 'firesign', 'watersign', 'naturesign', 'electricsign', 'earthsign', 'steelsign', 'soundsign', 'depressingrain', 'negativemist', 'mirrorworld', 'firewall', 'paniccall', 'stelmosfire', 'loveorpain', 'blowfromcalamity', 'killingbite', 'lightningspeed', 'changeling',
+			] as ID[] as readonly ID[];
+			const BAD_STRONG_MOVES = [
+			'deflagration', 'aquarake', 'pulselaser', 'vacuumrupture', 'meteorimpact', 'gensokyotyphoon', 'firmspirit', 'gravityblast', 'blazeoftenmei', 'divinethunder', 'explodingfist', 'glamorpandemic', 'conflagration',
+			] as ID[] as readonly ID[];
+			const GOOD_STATUS_MOVES = [
+			'supernaturalborder', 'magicbarrier', 'firstaid', 'powerspot', 'unconsciousmind', 'innerpower', 'camouflage', 'imposingair', 'battlepreparation', 'offensivetrance', 'backupplan', 'focusedmovement', 'eternalrecord', 'willowisp', 'thermit', 'cloudburst', 'drought', 'foresttherapy', 'thornedivy', 'drainseed', 'graceofmana', 'whitelilydance', 'fairydance', 'whitemist', 'bewitchingpollen', 'minetrap', 'racingearth', 'focusedstance', 'strenuousstance', 'madrushstance', 'stealthtrap', 'windgodsgrace', 'squall', 'perch', 'skanda', 'sharpwind', 'thunderveil', 'fieldbarrier', 'fieldprotect', 'moonsprotection', 'solareclipse', 'sharktrade', 'puppetsgrudge', 'darkpower', 'creepingdarkness', 'callofthedead', 'cursereversal', 'eyeofcalamity', 'poisontrap', 'miasma', 'acidtears', 'continue', 'amnesia', 'honestmanslie', 'projection', 'gorgonseye', 'boutdrunkard', 'wordbreak', 'encourage', 'upbeat', 'atempo', 'booing', 'ruinousvoice', 'bravesong', 'decrescendo', 'phaseinversion', 'forceshield', 'soulcorruption',
+			] as ID[] as readonly ID[];
+			
+			switch (id) {
+				//1 ability
+				case 'falsecourage':
+					return abilityid === 'ontheedge';
+				case 'venomstrike':
+					return abilityid === 'nimble';
+				//speed
+				case 'jinx':
+					return species.baseStats.spe >= 70;
+				case 'impactrebellion':
+					return species.baseStats.spe <= 60;
+				//multiple abilities
+				case 'terrainsuzaku':
+					return ['suteisfire', 'southernexpanse'].includes(abilityid);
+				case 'terraingenbu':
+					return species.baseStats.spe <= 60 || ['genteiswater', 'northernexpanse'].includes(abilityid);
+				case 'terrainseiryu':
+					return ['seiteiswood', 'easternexpanse'].includes(abilityid);
+				case 'terrainbyakko':
+					return ['byakuteismetal', 'westernexpanse'].includes(abilityid);
+				case 'terrainkohyru':
+					return ['kouteisearth', 'centralexpanse'].includes(abilityid);
+				case 'crosschange':
+					return ['wasteful', 'drunkard'].includes(abilityid);
+				case 'mindcontrol':
+					return ['wasteful', 'drunkard'].includes(abilityid);
+				case 'randomshots':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'hornetsflit':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'godstonefrenzy':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'twister':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'darkinnocence':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'shootingarts':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'rushattack':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'rapidthrow':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'rainbowflowers':
+					return ['sanguine', 'flash'].includes(abilityid);
+				case 'densefogbloom':
+					return ['melancholic', 'fogtraveler'].includes(abilityid);
+				case 'deathmatch':
+					return ['indomitable', 'stubborn', 'ontheedge'].includes(abilityid);
+				case 'direstate':
+					return ['indomitable', 'stubborn', 'ontheedge'].includes(abilityid);
+				case 'passingbreeze':
+					return ['sanguine', 'melancholic', 'choleric', 'phlegmatic', 'supine'].includes(abilityid);
+				//not ability
+				case 'raid':
+					return abilityid !== 'charge';
+				case 'risingsun':
+					return abilityid !== 'charge';
+				case 'plasmaball':
+					return abilityid !== 'charge';
+			}
+			
+			let moveData = dex.moves.get(id);
+			if (moveData.flags.charge) return abilityid === 'fasttalker';
+			if (moveData.category === 'Status') {
+				return GOOD_STATUS_MOVES.includes(id);
+			}
+			if (moveData.basePower < 75 && !(abilityid === 'technician' && moveData.basePower <= 60 && moveData.basePower >= 50)) {
+				return GOOD_WEAK_MOVES.includes(id);
+			}
+			return !BAD_STRONG_MOVES.includes(id);
+		}
 	},
+	
 	battle: {
-		findPokemonEventHandlers(pokemon: Pokemon, callbackName: string, getKey?: 'duration') {
-			const handlers: EventListener[] = [];
-
-			let callback;
-			for (const id in pokemon.status) {
-				const statusState = pokemon.status[id];
-				const status = this.dex.conditions.getByID(id as ID);
-				// @ts-ignore - dynamic lookup
-				callback = status[callbackName];
-				if (callback !== undefined || (getKey && statusState[getKey])) {
-					handlers.push(this.resolvePriority({
-						effect: status, callback, state: statusState, end: pokemon.clearStatus, effectHolder: pokemon,
-					}, callbackName));
-				}
-			}
-			for (const id in pokemon.volatiles) {
-				const volatileState = pokemon.volatiles[id];
-				const volatile = this.dex.conditions.getByID(id as ID);
-				// @ts-ignore - dynamic lookup
-				callback = volatile[callbackName];
-				if (callback !== undefined || (getKey && volatileState[getKey])) {
-					handlers.push(this.resolvePriority({
-						effect: volatile, callback, state: volatileState, end: pokemon.removeVolatile, effectHolder: pokemon,
-					}, callbackName));
-				}
-			}
-			const ability = pokemon.getAbility();
-			// @ts-ignore - dynamic lookup
-			callback = ability[callbackName];
-			if (callback !== undefined || (getKey && pokemon.abilityState[getKey])) {
-				handlers.push(this.resolvePriority({
-					effect: ability, callback, state: pokemon.abilityState, end: pokemon.clearAbility, effectHolder: pokemon,
-				}, callbackName));
-			}
-			const item = pokemon.getItem();
-			// @ts-ignore - dynamic lookup
-			callback = item[callbackName];
-			if (callback !== undefined || (getKey && pokemon.itemState[getKey])) {
-				handlers.push(this.resolvePriority({
-					effect: item, callback, state: pokemon.itemState, end: pokemon.clearItem, effectHolder: pokemon,
-				}, callbackName));
-			}
-			const species = pokemon.baseSpecies;
-			// @ts-ignore - dynamic lookup
-			callback = species[callbackName];
-			if (callback !== undefined) {
-				handlers.push(this.resolvePriority({
-					effect: species, callback, state: pokemon.speciesState, end() {}, effectHolder: pokemon,
-				}, callbackName));
-			}
-			const side = pokemon.side;
-			for (const conditionid in side.slotConditions[pokemon.position]) {
-				const slotConditionState = side.slotConditions[pokemon.position][conditionid];
-				const slotCondition = this.dex.conditions.getByID(conditionid as ID);
-				// @ts-ignore - dynamic lookup
-				callback = slotCondition[callbackName];
-				if (callback !== undefined || (getKey && slotConditionState[getKey])) {
-					handlers.push(this.resolvePriority({
-						effect: slotCondition,
-						callback,
-						state: slotConditionState,
-						end: side.removeSlotCondition,
-						endCallArgs: [side, pokemon, slotCondition.id],
-						effectHolder: side,
-					}, callbackName));
-				}
-			}
-
-			return handlers;
-		},
-	},
+        spreadModify(baseStats: StatsTable, set: PokemonSet): StatsTable {
+            const modStats: SparseStatsTable = {atk: 10, def: 10, spa: 10, spd: 10, spe: 10};
+            const tr = this.trunc;
+            let statName: keyof StatsTable;
+            for (statName in modStats) {
+                const stat = baseStats[statName];
+                modStats[statName] = tr(((2 * (stat + set.ivs[statName]) + set.evs[statName]) / 100) * set.level + 5);
+            }
+            if ('hp' in baseStats) {
+                const stat = baseStats['hp'];
+                modStats['hp'] = ((2 * (stat + set.ivs['hp']) + set.evs['hp']) / 100 + 1) * set.level + 10;
+            }
+            return this.natureModify(modStats as StatsTable, set);
+        }
+    },
 	pokemon: {
-		getStatusSlots(): number {
-			let statusSlots = 0;
-			for (const st in this.status) {
-				const s = this.battle.dex.conditions.get(st);
-				console.log(s);
-				if (s.statusSlots) { statusSlots += s.statusSlots; }
-			}
-			console.log(statusSlots);
-			return statusSlots;
+		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
+			return this.setStatus(status, source, sourceEffect);
 		},
 		setStatus(
-			status: string | string[] | Condition | Condition[],
+			status: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
-			ignoreImmunities = false,
-			force = false
+			ignoreImmunities = false
 		) {
-			if (Array.isArray(status)) {
-				for (const s of status) {
-					this.setStatus(s);
-				}
-				return;
-			}
 			if (!this.hp) return false;
-			const statusSlots = this.getStatusSlots();
-			console.log(statusSlots);
 			status = this.battle.dex.conditions.get(status);
-			if (status.statusSlots && statusSlots + status.statusSlots > 2) {
-				if ((sourceEffect as Move)?.status) {
-					this.battle.add('-fail', source);
-					this.battle.attrLastMove('[still]');
-				}
-				return false;
-			}
-
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
 				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
 			if (!source) source = this;
 
-			if (this.status[status.id]) {
-				if (status.stackCondition) {
-					delete this.status[status.id];
-					status = this.battle.dex.conditions.get(status.stackCondition);
-				} else if ((sourceEffect as Move)?.status) {
-					this.battle.add('-fail', source);
-					this.battle.attrLastMove('[still]');
-					return false;
+			if (this.status && this.status.length !== 0) {
+				if(status.id.length !== 0) return this.setStatusTwo(this.status, source, sourceEffect, false, status);
+				else {
+					this.status = status.id;
+					return true;
 				}
 			}
 
 			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+				!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
 				// the game currently never ignores immunities
 				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 					this.battle.debug('immune to status');
@@ -143,6 +164,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 			const prevStatus = this.status;
+			const prevStatusState = this.statusState;
 			if (status.id) {
 				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
 				if (!result) {
@@ -151,21 +173,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 
-			// where it actually sets status
 			this.status = status.id;
-			this.statusData = {id: status.id, target: this};
-
-			if (source) this.statusData.source = source;
-			if (status.duration) this.statusData.duration = status.duration;
+			this.statusState = {id: status.id, target: this};
+			if (source) this.statusState.source = source;
+			if (status.duration) this.statusState.duration = status.duration;
 			if (status.durationCallback) {
-				this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
 
-			if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
+			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
 				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus
 				this.status = prevStatus;
-				this.statusData = prevStatusData;
+				this.statusState = prevStatusState;
 				return false;
 			}
 			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
@@ -173,20 +193,98 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return true;
 		},
+		setStatusTwo(
+			currentStatus: string | Condition,
+			source: Pokemon | null = null,
+			sourceEffect: Effect | null = null,
+			ignoreImmunities = false,
+			newStatus: string | string[] | Condition | Condition[],
+		) {
+			if (!this.hp) return false;
+			currentStatus = this.battle.dex.conditions.get(currentStatus);
+			newStatus = this.battle.dex.conditions.get(newStatus);
+			if (this.battle.event) {
+				if (!source) source = this.battle.event.source;
+				if (!sourceEffect) sourceEffect = this.battle.effect;
+			}
+			if (!source) source = this;
+
+			if (currentStatus === newStatus.id) {
+				if (currentStatus.statusSlots === 1 && 
+				   newStatus.statusSlots === 1) {
+					delete this.status[newStatus.id];
+					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
+				} else if ((sourceEffect as Move)?.status) {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
+					return false;
+				}
+			} else if (this.status) {
+				if(currentStatus.statusSlots === 1 && 
+				   newStatus.statusSlots === 1) {
+					newStatus = this.battle.dex.conditions.get(this.status + newStatus.id);
+					delete this.status;
+				} else if ((sourceEffect as Move)?.status) {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
+					return false;
+				}
+			}
+
+			if (!ignoreImmunities && newStatus.id &&
+					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(newStatus.id))) {
+				// the game currently never ignores immunities
+				if (!this.runStatusImmunity(newStatus.id === 'tox' ? 'psn' : newStatus.id)) {
+					this.battle.debug('immune to status');
+					if ((sourceEffect as Move)?.newStatus) {
+						this.battle.add('-immune', this);
+					}
+					return false;
+				}
+			}
+			const prevStatus = this.status;
+			const prevStatusState = this.statusState;
+			if (newStatus.id) {
+				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, newStatus);
+				if (!result) {
+					console.log('set status [' + newStatus.id + '] interrupted');
+					return result;
+				}
+			}
+			
+			this.status = newStatus.id;
+			this.statusState = {id: newStatus.id, target: this};
+			if (source) this.statusState.source = source;
+			if (newStatus.duration) this.statusState.duration = newStatus.duration;
+			if (newStatus.durationCallback) {
+				this.statusState.duration = newStatus.durationCallback.call(this.battle, this, source, sourceEffect);
+			}
+
+			if (newStatus.id && !this.battle.singleEvent('Start', newStatus, this.statusState, this, source, sourceEffect)) {
+				this.battle.debug('status start [' + newStatus.id + '] interrupted');
+				// cancel the setstatus
+				this.status = prevStatus;
+				this.statusState = prevStatusState;
+				return false;
+			}
+			if (newStatus.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, newStatus)) {
+				return false;
+			}
+			return true;
+		},
+		cureStatus(silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'stp' && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			return true;
+		},
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
-			if (!(type in this.battle.dex.data.TypeChart)) {
-				if (
-					type === 'Void' ||
-					type === 'Nature' ||
-					type === 'Earth' ||
-					type === 'Wind' ||
-					type === 'Light' ||
-					type === 'Nether' ||
-					type === 'Illusion' ||
-					type === 'Sound' ||
-					type === 'Warped' ||
-					type === 'Dream') return true;
+			// Nihilslave: i think tpdp types can be recognized by this?
+			if (!this.battle.dex.types.isName(type)) {
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;
@@ -198,6 +296,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (notImmune) return true;
 			if (!message) return false;
 			if (notImmune === null) {
+				// Nihilslave: here
 				this.battle.add('-immune', this, '[from] ability: Air Cushion');
 			} else {
 				this.battle.add('-immune', this);
@@ -211,24 +310,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return this.battle.trunc(speed, 13);
 		},
+		// todo: for kohryu
 		ignoringAbility() {
+			if (this.battle.gen >= 5 && !this.isActive) return true;
+			if (this.getAbility().isPermanent) return false;
+			if (this.volatiles['gastroacid']) return true;
+	
 			// Check if any active pokemon have the ability Neutralizing Gas
-			let neutralizinggas = false;
+			if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID)) return false;
 			for (const pokemon of this.battle.getAllActive()) {
 				// can't use hasAbility because it would lead to infinite recursion
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
-					!pokemon.abilityData.ending) {
-					neutralizinggas = true;
-					break;
+					!pokemon.transformed && !pokemon.abilityState.ending) {
+					return true;
 				}
 			}
-
-			return !!(
-				(this.battle.gen >= 5 && !this.isActive) ||
-				((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID))) &&
-				!this.getAbility().isPermanent
-				)
-			);
+	
+			return false;
 		},
 		ignoringItem() {
 			return !!((this.battle.gen >= 5 && !this.isActive) ||
@@ -248,7 +346,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon' && item !== 'floatingstone';
-		},
+		},		
 		/*
 		calculateStat(statName: StatNameExceptHP, boost: number, modifier?: number) {
 			statName = toID(statName) as StatNameExceptHP;

@@ -1,51 +1,12 @@
-/*
-
-Ratings and how they work:
-
--1: Detrimental
-	  An ability that severely harms the user.
-	ex. Defeatist, Slow Start
-
- 0: Useless
-	  An ability with no overall benefit in a singles battle.
-	ex. Color Change, Plus
-
- 1: Ineffective
-	  An ability that has minimal effect or is only useful in niche situations.
-	ex. Light Metal, Suction Cups
-
- 2: Useful
-	  An ability that can be generally useful.
-	ex. Flame Body, Overcoat
-
- 3: Effective
-	  An ability with a strong effect on the user or foe.
-	ex. Chlorophyll, Sturdy
-
- 4: Very useful
-	  One of the more popular abilities. It requires minimal support to be effective.
-	ex. Adaptability, Magic Bounce
-
- 5: Essential
-	  The sort of ability that defines metagames.
-	ex. Imposter, Shadow Tag
-
-*/
-
-/*
-	--TODO--
-	Go through each TPDP ability and make sure it's implemented properly
-*/
-
-export const Abilities: {[abilityid: string]: AbilityData} = {
-	// TOUHOU
+export const Abilities: {[k: string]: ModdedAbilityData} = {
 	absorbent: {
 		name: "Absorbent",
 		shortDesc: "When hit by a Light-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Light') {
-				this.add('-immune', target, '[from] ability: Absorbent');
-				this.boost({spa: 1});
+				if(!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Absorbent');
+				}
 				return null;
 			}
 		},
@@ -104,7 +65,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, pokemon, target) {
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
-				if (pokemon.getStat('spe') > target.getStat('spe')) {
+				if (pokemon.getStat('spe') > target.getStat('spe')){
 					this.debug('After Move boost');
 					return this.chainModify(1.3);
 				}
@@ -175,7 +136,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Armor Purge",
 		shortDesc: "When hit by a FoAtk, FoDef decreases and Speed increases.",
 		onDamagingHit(damage, target, source, move) {
-			if (move.category === "Physical") { this.boost({def: -1, atk: 1, spe: 1}); }
+			if (move.category === "Physical")
+				this.boost({def: -1, atk: 1, spe: 1});
 		},
 	},
 	ascertainment: {
@@ -199,23 +161,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 	},
-	astronomy: {
+	astronomy: { 
 		name: "Astronomy",
 		shortDesc: "BU skills have 1.2x power.",
 		onBasePower(relayVar, source, target, move) {
-			if (move.flags.contact) { this.chainModify(1.2); }
+			if (move.flags.contact)
+				this.chainModify(1.2);
 		},
 	},
 	auroragrace: {
 		name: "Aurora Grace",
 		shortDesc: "During aurora, Sp.Def is increased by 50% and some HP is restored at the end of every turn.",
 		onModifySpD(relayVar, target, source, move) {
-			if (this.field.isWeather("aurora")) { this.chainModify(1.5); }
+			if (this.field.isWeather("aurora"))
+				this.chainModify(1.5);
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (this.field.isWeather("aurora")) { this.heal(pokemon.baseMaxhp / 16); }
+			if (this.field.isWeather("aurora"))
+				this.heal(pokemon.baseMaxhp / 16);
 		},
 	},
 	autoheal: {
@@ -224,7 +189,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (!pokemon.status) { this.heal(pokemon.baseMaxhp / 16); }
+			if (!pokemon.status)
+				this.heal(pokemon.baseMaxhp / 16);
 		},
 	},
 	avarice: {
@@ -254,10 +220,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Battle Mania",
 		shortDesc: "Opponents that are Fighting-type cannot flee or swap out.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Fighting')) { pokemon.tryTrap(true); }
+			if (pokemon.hasType('Fighting'))
+				pokemon.tryTrap(true);
 		},
 		onFoeMaybeTrapPokemon(pokemon, source?) {
-			if (pokemon.hasType('Fighting')) { pokemon.maybeTrapped = true; }
+			if (pokemon.hasType('Fighting'))
+				pokemon.maybeTrapped = true;
 		},
 	},
 	benefitoffire: {
@@ -276,62 +244,56 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Bibliophilia",
 		shortDesc: "When Extra Kosuzu is holding a youma scroll, a certain stat is doubled, and typing and ability is changed.",
 		onStart(pokemon) {
-			const youmascrolls = ["youmascrollred", "youmascrollblue", "youmascrollblack", "youmascrollwhite"];
+			const youmascrolls = ["youmascrollred","youmascrollblue","youmascrollblack","youmascrollwhite"];
 			if (!youmascrolls.includes(pokemon.item) || pokemon.species.id !== "extrakosuzu") return;
 
 			this.add('-activate', pokemon, 'ability: Bibliophilia');
 			switch (pokemon.item) {
-			case "youmascrollred":
-				pokemon.formeChange('Extra Kosuzu-Red', this.effect, true);
-				break;
-			case "youmascrollblue":
-				pokemon.formeChange('Extra Kosuzu-Blue', this.effect, true);
-				break;
-			case "youmascrollblack":
-				pokemon.formeChange('Extra Kosuzu-Black', this.effect, true);
-				break;
-			case "youmascrollwhite":
-				pokemon.formeChange('Extra Kosuzu-White', this.effect, true);
-				break;
+				case "youmascrollred":
+					pokemon.formeChange('Extra Kosuzu-Red', this.effect, true);
+					break;
+				case "youmascrollblue":
+					pokemon.formeChange('Extra Kosuzu-Blue', this.effect, true);
+					break;
+				case "youmascrollblack":
+					pokemon.formeChange('Extra Kosuzu-Black', this.effect, true);
+					break;
+				case "youmascrollwhite":
+					pokemon.formeChange('Extra Kosuzu-White', this.effect, true);
+					break;
 			}
-		},
-		onModifyAtk(relayVar, source, target, move) {
-			if (source.forme === "Red") this.chainModify(2);
-		},
-		onModifyDef(relayVar, source, target, move) {
-			if (source.forme === "Blue") this.chainModify(2);
-		},
-		onModifySpA(relayVar, source, target, move) {
-			if (source.forme === "Black") this.chainModify(2);
-		},
-		onModifySpD(relayVar, source, target, move) {
-			if (source.forme === "White") this.chainModify(2);
 		},
 	},
 	boundaryblurrer: {
 		name: "Boundary Blurrer",
 		shortDesc: "During weather effects, FoAtk, FoDef, SpAtk, and SpDef are doubled.",
 		onModifyAtk(relayVar, source, target, move) {
-			if (this.field.weather) { this.chainModify(2); }
+			if (this.field.weather)
+				this.chainModify(2);
 		},
 		onModifyDef(relayVar, source, target, move) {
-			if (this.field.weather) { this.chainModify(2); }
+			if (this.field.weather)
+				this.chainModify(2);
 		},
 		onModifySpA(relayVar, source, target, move) {
-			if (this.field.weather) { this.chainModify(2); }
+			if (this.field.weather)
+				this.chainModify(2);
 		},
 		onModifySpD(relayVar, source, target, move) {
-			if (this.field.weather) { this.chainModify(2); }
+			if (this.field.weather)
+				this.chainModify(2);
 		},
 	},
 	boundarysavior: {
 		name: "Boundary Savior",
 		shortDesc: "During terrain effects, FoDef and SpDef are doubled. Will also recover from ailments at the end of each turn.",
 		onModifyDef(relayVar, source, target, move) {
-			if (this.field.terrain) { this.chainModify(2); }
+			if (this.field.terrain)
+				this.chainModify(2);
 		},
 		onModifySpD(relayVar, source, target, move) {
-			if (this.field.terrain) { this.chainModify(2); }
+			if (this.field.terrain)
+				this.chainModify(2);
 		},
 		onResidual(target, source, effect) {
 			if (this.field.terrain) {
@@ -345,23 +307,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Breather",
 		shortDesc: "During calm, Fo.Def is increased by 50% and some HP is restored at the end of every turn.",
 		onModifyDef(relayVar, source, target, move) {
-			if (this.field.isWeather('calm')) { this.chainModify(1.5); }
+			if (this.field.isWeather('calm'))
+				this.chainModify(1.5);
 		},
 	},
 	brightform: {
 		name: "Bright Form",
 		shortDesc: "Void-type skills are treated as Light-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Light';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Light";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	brutality: {
@@ -392,22 +354,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Byakutei's Metal",
 		shortDesc: "Steel skills are 50% more powerful during Byakko. Fire-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-
-			if (move.type === 'Steel' && this.field.isTerrain('genbu')) { this.chainModify(1.5); }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			
+			if (move.type === 'Steel' && this.field.isTerrain('genbu'))
+				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('genbu') && effect.effectType === "Move" && effect.type === "Fire") { this.chainModify(0.5); }
+			if (this.field.isTerrain('genbu') && effect.effectType === "Move" && effect.type === "Fire")
+				this.chainModify(0.5);
 		},
 	},
 	centralexpanse: {
 		name: "Central Expanse",
 		shortDesc: "During Kohryu, your skills ignore the foe's ability. The user may also use held items and Quick Eye.",
 		onModifyMove(move) {
-			if (this.field.isTerrain("kohryu")) { move.ignoreAbility = true; }
+			if (this.field.isTerrain("kohryu"))
+				move.ignoreAbility = true;
 		},
 		onFoeModifyBoost(boosts, pokemon) {
-			if (!this.field.isTerrain("kohryu")) { return; }
+			if (!this.field.isTerrain("kohryu"))
+				return;
 
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
@@ -447,8 +414,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-			if (move.hasSheerForce) { this.chainModify(1.3); }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			if (move.hasSheerForce)
+				this.chainModify(1.3);
 		},
 	},
 	choleric: {
@@ -462,7 +431,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Cleared Mind",
 		shortDesc: "Immune to Burn and Heavy Burn statuses.",
 		onSetStatus(status, target, source, effect) {
-			if (status.id === "brn" || status.id === "brnheavy") { target.clearStatus(); }
+			if (status.id === "brn" || status.id === "brnheavy")
+				target.clearStatus();
 		},
 	},
 	cloakofdarkness: {
@@ -478,7 +448,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onFoeBasePower(basePower, attacker, defender, move) {
 			if (this.effectState.target !== defender) return;
-			if (move.type === "Light") { this.chainModify(1.25); }
+			if (move.type === "Light")
+				this.chainModify(1.25);
 		},
 		onWeather(target, source, effect) {
 			if (effect.id === 'heavyfog') {
@@ -535,7 +506,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Curiosity",
 		shortDesc: "Support skills receive +1 to their priority.",
 		onModifyPriority(relayVar, source, target, move) {
-			if (move.category === "Status") { return relayVar + 1; }
+			if (move.category === "Status")
+				return relayVar + 1;
 		},
 	},
 	cursereturn: {
@@ -628,15 +600,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Discourager",
 		shortDesc: "Reduces the opponent's FoAtk when hit by a skill that your barrier resists.",
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.category !== "Status" && typeMod < 0) { target?.boostBy({atk: -1}); }
+			if (move && move.category !== "Status" && typeMod < 0)
+				target?.boostBy({atk: -1});
 		},
 	},
 	disjointedblow: {
 		name: "Disjointed Blow",
 		shortDesc: "The power of super effective attacks is increased by 40%.",
 		onModifyDamage(damage, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			
 			if (move && target.getMoveHitData(move).typeMod > 0) {
 				return this.chainModify(1.4);
 			}
@@ -647,7 +621,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Reduces the foe's FoAtk or SpAtk when hit by a skill that your barrier resists.",
 		onEffectiveness(typeMod, target, type, move) {
 			if (move && typeMod < 0) {
-				if (move.category === "Physical") { target?.boostBy({atk: -1}); } else if (move.category === "Special") { target?.boostBy({spa: -1}); }
+				if (move.category === "Physical")
+					target?.boostBy({atk: -1});
+				else if (move.category === "Special")
+					target?.boostBy({spa: -1});
 			}
 		},
 	},
@@ -728,10 +705,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Eastern Expanse",
 		shortDesc: "During Seiryu, same-type skills are 33% stronger.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
 
 			if (this.field.isTerrain('seiryu') && source.hasType(move.type)) {
-				this.chainModify([4, 3]);
+				this.chainModify([4,3]);
 			}
 		},
 		onModifyMove(move) {
@@ -768,8 +746,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by an Electric-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
-				this.add('-immune', target, '[from] ability: Electromagnetic');
-				this.boost({spa: 1});
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Electromagnetic');
+				}
 				return null;
 			}
 		},
@@ -858,14 +837,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Empowered",
 		shortDesc: "EN skills have 1.2x power.",
 		onBasePower(relayVar, source, target, move) {
-			if (!move.flags.contact) { this.chainModify(1.2); }
+			if (!move.flags.contact)
+				this.chainModify(1.2);
 		},
 	},
 	fasttalker: {
 		name: "Fast Talker",
 		shortDesc: "Two-turn skills can be used in one turn but have 0.9x power.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
 			if (move.volatileStatus === "twoturnmove") {
 				this.chainModify(0.9);
 			}
@@ -880,7 +861,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Final Form",
 		shortDesc: "Boosts same-type skills when HP is less than 1/3.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
 
 			if (source.hasType(move.type) && source.hp <= source.baseMaxhp / 3) {
 				this.chainModify(1.5);
@@ -891,7 +873,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "First Hit",
 		shortDesc: "Attack power is boosted by 20% when moving first.",
 		onBasePower(basePower, pokemon, target) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
 
 			let boosted = true;
 			for (const target of this.getAllActive()) {
@@ -930,10 +913,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Lowers increased priority skills to 0 for both sides.",
 		onModifyPriorityPriority: -1,
 		onModifyPriority(relayVar, source, target, move) {
-			if (move.priority > 0) { return 0; }
+			if (move.priority > 0)
+				return 0;
 		},
 		onFoeModifyPriority(relayVar, source, target, move) {
-			if (move.priority > 0) { return 0; }
+			if (move.priority > 0)
+				return 0;
 		},
 	},
 	flawless: {
@@ -970,8 +955,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by a Nature-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Nature') {
-				this.add('-immune', target, '[from] ability: Cloak of Darkness');
-				target.boostBy({spa: 1});
+				if (!target.boostBy({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Cloak of Darkness');
+				}
 				return null;
 			}
 		},
@@ -980,7 +966,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Forward Dash",
 		shortDesc: "The power of spread skills are doubled.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
 
 			if (move.category === "Special") {
 				this.chainModify(2);
@@ -1000,7 +987,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Frail Health",
 		shortDesc: "This Puppet can only be damaged by supereffective moves and indirect damage.",
 		onTryHit(target, source, move) {
-			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle' || move.type === "Dream" || this.field.isTerrain('kohryu')) { return; }
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle' || move.type === "Dream" || this.field.isTerrain('kohryu'))
+				return;
 			this.debug('Frail Health immunity: ' + move.id);
 			if (target.runEffectiveness(move) <= 0) {
 				if (move.smartTarget) {
@@ -1029,7 +1017,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Full Power",
 		shortDesc: "Skills are 20% more powerful, but takes damage every turn.",
 		onModifyDamage(damage, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
 
 			return this.chainModify(1.2);
 		},
@@ -1042,7 +1031,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	gale: {
 		name: "Gale",
 		shortDesc: "When inflicted with an ailment, Speed is boosted 50%. Speed drop from paralysis is ignored.",
-		// Para/Shock negation handled in respective conditions
+		//Para/Shock negation handled in respective conditions
 		onModifySpe(spe, pokemon) {
 			if (pokemon.status) {
 				this.chainModify(1.5);
@@ -1052,74 +1041,76 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	galeform: {
 		name: "Gale Form",
 		shortDesc: "Void-type skills are treated as Wind-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Wind';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Wind";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	generalsform: {
 		name: "General's Form",
 		shortDesc: "Void-type skills are treated as Fighting-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Fighting';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Fighting";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	genteiswater: {
 		name: "Gentei's Water",
 		shortDesc: "Water skills are 50% more powerful during Genbu. Earth-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-
-			if (move.type === 'Water' && this.field.isTerrain('genbu')) { this.chainModify(1.5); }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			
+			if (move.type === 'Water' && this.field.isTerrain('genbu'))
+				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('genbu') && effect.effectType === "Move" && effect.type === "Earth") { this.chainModify(0.5); }
+			if (this.field.isTerrain('genbu') && effect.effectType === "Move" && effect.type === "Earth")
+				this.chainModify(0.5);
 		},
 	},
 	ghostform: {
 		name: "Ghost Form",
 		shortDesc: "Void-type skills are treated as Nether-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Nether';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Nether";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	glamorous: {
 		name: "Glamorous",
 		shortDesc: "Reduces damage of attacks that penetrate your barrier.",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && this.dex.getEffectiveness(effect.type, target) > 0) { this.chainModify(0.75); }
+			if (effect.effectType === "Move" && this.dex.getEffectiveness(effect.type, target) > 0)
+				this.chainModify(0.75);
 		},
 	},
 	goodmanagement: {
 		name: "Good Management",
 		shortDesc: "Stat changes from skills and hold items are doubled.",
-		onBoost(boost, target, source, effect) {
+		onChangeBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
 			let i: BoostID;
 			for (i in boost) {
 				boost[i]! *= 2;
@@ -1142,27 +1133,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Grand Opening",
 		shortDesc: "This Puppet's Light moves have +1 priority.",
 		onModifyPriority(relayVar, source, target, move) {
-			if (move.type === "Light") { return relayVar + 1; }
+			if (move.type === "Light")
+				return relayVar + 1;
 		},
 	},
 	harassment: {
 		name: "Harassment",
 		shortDesc: "When your stats drop, so does the foe. When the foe's stats increase, your stats increase as well.",
 		onBoost(boost, target, source, effect) {
-			const passedBoosts = boost;
+			let passedBoosts = boost;
 			let i: BoostID;
 			for (i in passedBoosts) {
-				if (passedBoosts[i]! > 0) { passedBoosts[i] = 0; }
+				if (passedBoosts[i]! > 0)
+					passedBoosts[i]! = 0;
 			}
 			for (const foe of target.foes()) {
 				foe.boostBy(passedBoosts);
 			}
 		},
 		onFoeBoost(boost, target, source, effect) {
-			const passedBoosts = boost;
+			let passedBoosts = boost;
 			let i: BoostID;
 			for (i in passedBoosts) {
-				if (passedBoosts[i]! < 0) { passedBoosts[i] = 0; }
+				if (passedBoosts[i]! < 0)
+					passedBoosts[i]! = 0;
 			}
 			for (const foe of target.foes()) {
 				foe.boostBy(passedBoosts);
@@ -1171,16 +1165,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	hateincarnate: {
 		name: "Hate Incarnate",
-		shortDesc: "Damage the opponent if fainting is caused by an attack of 70 or more BP.",
-		onFaint(target, source, effect) {
-			if (effect.effectType === "Move" && effect.basePower >= 70) { source.damage(source.baseMaxhp / 8); }
+		shortDesc: "Damages the opponent if fainting is caused by an attack of 70 or more BP.",
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && move.basePower >= 70)
+				source.damage(source.baseMaxhp / 8);
 		},
 	},
 	healingpower: {
 		name: "Healing Power",
 		shortDesc: "Recovers 1/3 of maximum HP when switching out.",
 		onSwitchOut(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 3);
+			if(!pokemon.status.includes('weak')) 
+				pokemon.heal(pokemon.baseMaxhp / 3);
 		},
 	},
 	hobgoblin: {
@@ -1231,21 +1227,24 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Immovable",
 		shortDesc: "Immune to flinching.",
 		onTryAddVolatile(status, target, source, sourceEffect) {
-			if (status.id === "flinch") { return false; }
+			if (status.id === "flinch")
+				return false;
 		},
 	},
 	imposingstance: {
 		name: "Imposing Stance",
 		shortDesc: "Damage is only received from skills.",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType !== "Move") { return false; }
+			if (effect.effectType !== "Move")
+				return false;
 		},
 	},
 	impulsive: {
 		name: "Impulsive",
 		shortDesc: "Skills you're immune to will increase your Speed by one stage.",
 		onImmunity(type, pokemon) {
-			if (this.dex.types.isName(type)) { pokemon.boostBy({spd: 1}); }
+			if (this.dex.types.isName(type))
+				pokemon.boostBy({spd: 1});
 		},
 	},
 	insync: {
@@ -1253,8 +1252,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by an Warped-type skill, damage is nullified and any status ailment is cured.",
 		onTryHit(source, target, move) {
 			if (target !== source && move.type === "Warped") {
-				this.add('-immune', target, '[from] ability: In Sync');
-				source.clearStatus();
+				if (!source.clearStatus()) {
+					this.add('-immune', target, '[from] ability: In Sync');
+				}
 				return null;
 			}
 		},
@@ -1313,16 +1313,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	instantwin: {
 		name: "Instant Win",
 		shortDesc: "Your speed is increased by 50% on the first turn after entering the field.",
-		onStart(pokemon) {
-			this.boost({spe: 1}, pokemon);
-			pokemon.addVolatile('instantwin');
-		},
-		condition: {
-			duration: 1,
-			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Instant Win');
-				this.boost({spe: -1}, pokemon);
-			},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.activeTurns) return this.chainModify(1.5);
 		},
 	},
 	intuition: {
@@ -1368,7 +1360,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Invigorative",
 		shortDesc: "Skills you're immune to will increase your Fo.Atk by one stage.",
 		onImmunity(type, pokemon) {
-			if (this.dex.types.isName(type)) { pokemon.boostBy({atk: 1}); }
+			if (this.dex.types.isName(type))
+				pokemon.boostBy({atk: 1});
 		},
 	},
 	ironresolve: {
@@ -1390,42 +1383,52 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 	},
 	karmicretribution: {
-		name: "Karmic Retribution", // SANS UNDERTALE?????????????
+		name: "Karmic Retribution", //SANS UNDERTALE?????????????
 		shortDesc: "Damage the opponent after receiving an attack of 90 or more BP.",
 		onDamage(damage, target, source, effect) {
 			if (target !== source && effect.effectType === "Move" && effect.basePower >= 90) {
 				this.add('-ability', target, 'Karmic Retribution');
-				source.damage(source.baseMaxhp / 8);
+				source.damage(source.baseMaxhp/8);
 			}
 		},
 	},
 	knownlimits: {
 		name: "Known Limits",
 		shortDesc: "Gives and receives less damage from skills that don't match the user's type.",
-		onDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !source.hasAbility(effect.type)) { this.chainModify(2, 3); }
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (!attacker.types.includes(move.type)) {
+				return this.chainModify(2, 3);
+			}
 		},
-		onFoeDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !source.hasAbility(effect.type)) { this.chainModify(2, 3); }
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (!attacker.types.includes(move.type)) {
+				return this.chainModify(2, 3);
+			}
 		},
 	},
 	kouteisearth: {
 		name: "Koutei's Earth",
 		shortDesc: "Earth skills are 50% more powerful during Kohryu. Nature-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-
-			if (move.type === 'Earth' && this.field.isTerrain('kohryu')) { this.chainModify(1.5); }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			
+			if (move.type === 'Earth' && this.field.isTerrain('kohryu'))
+				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('kohryu') && effect.effectType === "Move" && effect.type === "Nature") { this.chainModify(0.5); }
+			if (this.field.isTerrain('kohryu') && effect.effectType === "Move" && effect.type === "Nature")
+				this.chainModify(0.5);
 		},
 	},
 	lastdefense: {
 		name: "Last Defense",
 		shortDesc: "When inflicted with an ailment, FoDef is boosted by 50%.",
 		onModifyDef(relayVar, target, source, move) {
-			if (source.status) { this.chainModify(1.5); }
+			if (source.status)
+				this.chainModify(1.5);
 		},
 	},
 	lightcurtain: {
@@ -1437,7 +1440,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onTryAddVolatile(status, target, source, sourceEffect) {
-			if (this.field.isWeather('aurora') && status.id === "confusion") { return false; }
+			if (this.field.isWeather('aurora') && status.id === "confusion")
+				return false;
 		},
 	},
 	lucky: {
@@ -1458,7 +1462,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Maintenance",
 		shortDesc: "30% chance to heal from ailments every turn.",
 		onResidual(target, source, effect) {
-			if (this.randomChance(3, 10)) {
+			if (this.randomChance(3,10)) {
 				if (target.clearStatus()) {
 					this.add('-ability', target, 'Maintenance');
 				}
@@ -1470,8 +1474,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by a Fighting-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fighting') {
-				this.add('-immune', target, "[from] ability: Master's Defense");
-				this.boost({atk: 1});
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, "[from] ability: Master's Defense");
+				}
 				return null;
 			}
 		},
@@ -1488,8 +1493,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by a Steel-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Steel') {
-				this.add('-immune', target, "[from] ability: Metallurgy");
-				this.boost({atk: 1});
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, "[from] ability: Metallurgy");
+				}
 				return null;
 			}
 		},
@@ -1497,17 +1503,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	midnightform: {
 		name: "Midnight Form",
 		shortDesc: "Void-type skills are treated as Dark-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Dark';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Dark";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	mindlessdance: {
@@ -1547,13 +1552,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBeforeMove(source, target, move) {
 			if (move.category !== "Status" && source.species.id !== 'extrarikashift') {
 				source.formeChange("Extra Rika-Shift", this.effect);
-			} else if (move.id === "supernaturalborder" && source.species.id !== 'extrarika') {
+			}
+			else if (move.id === "supernaturalborder" && source.species.id !== 'extrarika') {
 				source.formeChange("Extra Rika", this.effect);
 			}
 		},
 	},
 	moody: {
-		name: "Moody", // yeah
+		name: "Moody", //yeah
 		shortDesc: "Every turn one random stat rises sharply and one random stat falls.",
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
@@ -1590,21 +1596,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onFoeFaint(target, source, effect) {
 			this.boost({atk: 1});
 		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		}
 	},
 	naturalform: {
 		name: "Natural Form",
 		shortDesc: "Void-type skills are treated as Nature-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Nature';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Nature";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	negativeaura: {
@@ -1612,8 +1622,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by a Dark-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {
-				this.add('-immune', target, "[from] ability: Negative Aura");
-				this.boost({atk: 1});
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Negative Aura');
+				}
 				return null;
 			}
 		},
@@ -1650,17 +1661,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Northern Expanse",
 		shortDesc: "During Genbu, speed is halved.",
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('genbu')) { this.chainModify(0.5); }
+			if (this.field.isWeather('genbu'))
+				this.chainModify(0.5);
 		},
 	},
 	ontheedge: {
 		name: "On the Edge",
 		shortDesc: "At 1 HP, Speed is tripled and attacks do 30% more damage.",
 		onModifySpe(spe, pokemon) {
-			if (pokemon.hp === 1) { this.chainModify(3); }
+			if (pokemon.hp === 1)
+				this.chainModify(3);
 		},
 		onBasePower(relayVar, source, target, move) {
-			if (source.hp === 1) { this.chainModify(1.3); }
+			if (source.hp === 1)
+				this.chainModify(1.3);
 		},
 	},
 	optimist: {
@@ -1751,7 +1765,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			onEnd(pokemon) {
 				pokemon.setAbility('serious');
 			},
-		},
+		}
 	},
 	poisonbody: {
 		name: "Poison Body",
@@ -1772,10 +1786,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Poison Labyrinth",
 		shortDesc: "Only Poison-type opponents can flee.",
 		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasType('Poison') && !pokemon.hasAbility(['inversetoxin', 'strictdosage'])) { pokemon.tryTrap(true); }
+			if (!pokemon.hasType('Poison') && !pokemon.hasAbility(['inversetoxin', 'strictdosage']))
+				pokemon.tryTrap(true);
 		},
 		onFoeMaybeTrapPokemon(pokemon, source?) {
-			if (!pokemon.hasType('Poison') && !pokemon.hasAbility(['inversetoxin', 'strictdosage'])) { pokemon.maybeTrapped = true; }
+			if (!pokemon.hasType('Poison') && !pokemon.hasAbility(['inversetoxin', 'strictdosage']))
+				pokemon.maybeTrapped = true;
 		},
 	},
 	poisonthorns: {
@@ -1896,24 +1912,28 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Recalibration",
 		shortDesc: "During calm, SpAtk and SpDef are boosted by 50%.",
 		onModifySpA(relayVar, source, target, move) {
-			if (this.field.isWeather('calm')) { this.chainModify(1.5); }
+			if (this.field.isWeather('calm'))
+				this.chainModify(1.5);
 		},
 		onModifySpD(relayVar, source, target, move) {
-			if (this.field.isWeather('calm')) { this.chainModify(1.5); }
+			if (this.field.isWeather('calm'))
+				this.chainModify(1.5);
 		},
 	},
 	reckless: {
 		name: "Reckless",
 		shortDesc: "Damage dealt and recoil received by a recoil move is boosted by 20%.",
 		onBasePower(relayVar, source, target, move) {
-			if (move.recoil) { this.chainModify(1.2); }
+			if (move.recoil)
+				this.chainModify(1.2);
 		},
 	},
 	recoiloffset: {
 		name: "Recoil Offset",
 		shortDesc: "Does not receive recoil damage.",
 		onModifyMove(move, pokemon, target) {
-			if (move.recoil) { delete move.recoil; }
+			if (move.recoil)
+				delete move.recoil;
 		},
 	},
 	reflectguard: {
@@ -1943,6 +1963,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.side === this.effectState.target.side) return;
 			if (move.selfSwitch && !move.ignoreAbility) {
 				delete move.selfSwitch;
+				this.add('-message', `${pokemon.name} was restrained by ${this.effectState.target.name}!`);
+				this.add('-message', `${pokemon.name} is competely restricted!`);
 				pokemon.addVolatile('restraint');
 			}
 		},
@@ -1953,7 +1975,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.tryTrap();
 			},
 			onStart(target) {
-				this.add('-activate', target, 'restraint');
+				this.add('-activate', target, 'restraint', '[silent]');
 			},
 		},
 	},
@@ -1983,7 +2005,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sand Devil",
 		shortDesc: "During dust storm, Speed is doubled. No sand damage is received.",
 		onImmunity(type, pokemon) {
-			if (type === "duststorm") { return false; }
+			if (type === "duststorm")
+				return false;
 		},
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('duststorm')) {
@@ -1995,7 +2018,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sand Force",
 		shortDesc: "During dust storm, Fo.Atk is boosted by 30%. No sand damage is received",
 		onImmunity(type, pokemon) {
-			if (type === "duststorm") { return false; }
+			if (type === "duststorm")
+				return false;
 		},
 		onModifyAtk(atk, pokemon) {
 			if (this.field.isWeather('duststorm')) {
@@ -2007,7 +2031,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sand Mask",
 		shortDesc: "During dust storm, Evasion is increased. No sand damage is received..",
 		onImmunity(type, pokemon) {
-			if (type === "duststorm") { return false; }
+			if (type === "duststorm")
+				return false;
 		},
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy) {
@@ -2048,44 +2073,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				let weatherType = null;
 				let terrainType = null;
 				switch (pokemon.effectiveWeather()) {
-				case 'aurora':
-					weatherType = 'Light';
-					break;
-				case 'calm':
-					weatherType = 'Wind';
-					break;
-				case 'duststorm':
-					weatherType = 'Earth';
-					break;
-				case 'heavyfog':
-					weatherType = 'Dark';
-					break;
-				case 'sunshower':
-					weatherType = 'Warped';
-					break;
+					case 'aurora':
+						weatherType = 'Light';
+						break;
+					case 'calm':
+						weatherType = 'Wind';
+						break;
+					case 'duststorm':
+						weatherType = 'Earth';
+						break;
+					case 'heavyfog':
+						weatherType = 'Dark';
+						break;
+					case 'sunshower':
+						weatherType = 'Warped';
+						break;
 				}
 				switch (this.field.terrain) {
-				case 'byakko':
-					terrainType = 'Steel';
-					break;
-				case 'genbu':
-					terrainType = 'Water';
-					break;
-				case 'kohryu':
-					terrainType = 'Earth';
-					break;
-				case 'seiryu':
-					terrainType = 'Nature';
-					break;
-				case 'suzaku':
-					terrainType = 'Fire';
-					break;
+					case 'byakko':
+						terrainType = 'Steel';
+						break;
+					case 'genbu':
+						terrainType = 'Water';
+						break;
+					case 'kohryu':
+						terrainType = 'Earth';
+						break;
+					case 'seiryu':
+						terrainType = 'Nature';
+						break;
+					case 'suzaku':
+						terrainType = 'Fire';
+						break;
 				}
-
-				const newTypes: string[] = [];
-				if (terrainType) newTypes.push(terrainType);
+				
+				let newTypes:string[] = [];
+				if(terrainType) newTypes.push(terrainType);
 				if (!newTypes.length || pokemon.getTypes().join() === newTypes || !pokemon.setType(newTypes)) return;
-				if (newTypes.length > 1 && newTypes[1] === newTypes[0]) newTypes.pop(); // Ensure monotype during Dust Storm + Kohryu
+				if (newTypes.length > 1 && newTypes[1] === newTypes[0]) newTypes.pop(); //Ensure monotype during Dust Storm + Kohryu
 				this.add('-start', pokemon, 'typechange', newTypes, '[from] ability: Secret Ceremony');
 			},
 			onUpdate(pokemon) {
@@ -2103,12 +2128,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Seitei's Wood",
 		shortDesc: "Nature skills are 50% more powerful during Seiryu. Steel-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-
-			if (move.type === 'Nature' && this.field.isTerrain('seiryu')) { this.chainModify(1.5); }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			
+			if (move.type === 'Nature' && this.field.isTerrain('seiryu'))
+				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('seiryu') && effect.effectType === "Move" && effect.type === "Steel") { this.chainModify(0.5); }
+			if (this.field.isTerrain('seiryu') && effect.effectType === "Move" && effect.type === "Steel")
+				this.chainModify(0.5);
 		},
 	},
 	selfexorcism: {
@@ -2148,7 +2176,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
 			if (!source || !pokemon.isAdjacent(source)) return;
-
+			
 			pokemon.maybeTrapped = true;
 		},
 	},
@@ -2156,7 +2184,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Silent Running",
 		shortDesc: "During Calm, Speed is doubled.",
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('calm')) { this.chainModify(2); }
+			if (this.field.isWeather('calm'))
+				this.chainModify(2);
 		},
 	},
 	sixthsense: {
@@ -2166,7 +2195,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			for (const foe of target.foes()) {
 				for (const move of foe.moves) {
 					if (this.dex.getEffectiveness(this.dex.moves.get(move), target) > 0) {
-						this.add('-move', foe, this.dex.moves.get(move).name, '[from] ability: Sixth Sense', '[of] ' + target, '[identify]');
+						this.add('-activate', foe, 'ability: Sixth Sense', this.dex.moves.get(move).name, '[of] ' + target, '[identify]');
 					}
 				}
 			}
@@ -2195,8 +2224,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by a Wind-type skill, damage is nullified and Speed is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Wind') {
-				this.add('-immune', target, '[from] ability: Smooth Sailing');
-				this.boost({spe: 1});
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Smooth Sailing');
+				}
 				return null;
 			}
 		},
@@ -2216,7 +2246,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Damage the opponent after receiving an attack of 90 or more BP.",
 		onDamage(damage, target, source, effect) {
 			if (target !== source && effect.effectType === "Move" && effect.basePower >= 90) {
-				source.damage(source.baseMaxhp / 8);
+				source.damage(source.baseMaxhp/8);
 			}
 		},
 	},
@@ -2247,8 +2277,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by a Sound-type skill, damage is nullified, FoAtk is raised, and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Sound') {
-				this.add('-immune', target, '[from] ability: Sound Absorb');
-				this.boost({atk: 1, spa: 1});
+				if (!this.boost({atk: 1, spa: 1})) {
+					this.add('-immune', target, '[from] ability: Sound Absorb');
+				}
 				return null;
 			}
 		},
@@ -2287,13 +2318,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	stargazer: {
 		name: "Stargazer",
 		shortDesc: "Weather skills last forever.",
-		// effect in conditions.ts
+		//effect in conditions.ts
 	},
 	stimulative: {
 		name: "Stimulative",
 		shortDesc: "Skills you're immune to will increase your Sp.Atk by one stage.",
 		onImmunity(type, pokemon) {
-			if (this.dex.types.isName(type)) { this.boost({spa: 1}); }
+			if (this.dex.types.isName(type))
+				this.boost({spa: 1});
 		},
 	},
 	stonestacker: {
@@ -2301,7 +2333,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Status skills activate twice.",
 		onModifyMove(move, pokemon, target) {
 			if (move.category === "Status") {
-				if (move.multiaccuracy) { delete move.multiaccuracy; }
+				if (move.multiaccuracy)
+					delete move.multiaccuracy;
 				move.multihit = 2;
 			}
 		},
@@ -2320,23 +2353,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Strategist",
 		shortDesc: "Attacks with a base power of 60 or below are boosted by 50%.",
 		onBasePower(relayVar, source, target, move) {
-			if (move.basePower <= 60) { this.chainModify(1.5); }
+			if (move.basePower <= 60)
+				this.chainModify(1.5);
 		},
 	},
 	streamform: {
 		name: "Stream Form",
 		shortDesc: "Void-type skills are treated as Water-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Water';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Water";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	strictdosage: {
@@ -2360,7 +2393,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 	},
 	stubborn: {
-		name: "Stubborn", // TODO - what are the "certain skills" prevented
+		name: "Stubborn", //TODO - what are the "certain skills" prevented
 		shortDesc: "Cannot be OHKO'd. Neither of you can use certain skills either.",
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
@@ -2405,7 +2438,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAfterMoveSecondary(target, source, move) {
 			if (this.field.isWeather('heavyfog')) {
-				source.damage(source.baseMaxhp / 8);
+				source.damage(source.baseMaxhp/8);
 			}
 		},
 	},
@@ -2413,12 +2446,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sutei's Fire",
 		shortDesc: "Fire skills are 50% more powerful during Suzaku. Water-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu')) { return; }
-
-			if (move.type === 'Fire' && this.field.isTerrain('suzaku')) { this.chainModify(1.5); }
+			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+				return;
+			
+			if (move.type === 'Fire' && this.field.isTerrain('suzaku'))
+				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('suzaku') && effect.effectType === "Move" && effect.type === "Water") { this.chainModify(0.5); }
+			if (this.field.isTerrain('suzaku') && effect.effectType === "Move" && effect.type === "Water")
+				this.chainModify(0.5);
 		},
 	},
 	telescopic: {
@@ -2433,31 +2469,31 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Extra Hecatia's Form changes based on the class of skills used.",
 		onBeforeMove(source, target, move) {
 			switch (move.category) {
-			case "Status":
-				if (source.species.id !== "extrahecatia") {
-					this.add('-activate', source, 'ability: Three Bodies');
-					source.formeChange("Extra Hecatia");
-				}
-				break;
-			case "Physical":
-				if (source.species.id !== "extrahecatiaearth") {
-					this.add('-activate', source, 'ability: Three Bodies');
-					source.formeChange("Extra Hecatia-Earth");
-				}
-				break;
-			case "Special":
-				if (source.species.id !== "extrahecatiamoon") {
-					this.add('-activate', source, 'ability: Three Bodies');
-					source.formeChange("Extra Hecatia-Moon");
-				}
-				break;
+				case "Status":
+					if (source.species.id !== "extrahecatia") {
+						this.add('-activate', source, 'ability: Three Bodies');
+						source.formeChange("Extra Hecatia");
+					}
+					break;
+				case "Physical":
+					if (source.species.id !== "extrahecatiaearth") {
+						this.add('-activate', source, 'ability: Three Bodies');
+						source.formeChange("Extra Hecatia-Earth");
+					}
+					break;
+				case "Special":
+					if (source.species.id !== "extrahecatiamoon") {
+						this.add('-activate', source, 'ability: Three Bodies');
+						source.formeChange("Extra Hecatia-Moon");
+					}
+					break;
 			}
 		},
 	},
 	timegazer: {
 		name: "Timegazer",
 		shortDesc: "Terrain skills last 8 turns.",
-		// Implemented in conditions.ts for each terrain condition
+		//Implemented in conditions.ts for each terrain condition
 	},
 	trueadmin: {
 		name: "True Admin",
@@ -2478,29 +2514,33 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "The power of skills go down by 40%, but you will do an additional attack.",
 		onBasePowerPriority: 7,
 		onBasePower(basePower, pokemon, target, move) {
-			if (!this.field.isTerrain("kohryu")) return this.chainModify(0.6);
+			if(!this.field.isTerrain("kohryu")) return this.chainModify(0.6);
 		},
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct) return;
 			if (['dynamaxcannon', 'endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
 			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
-				if (move.multihit) { // Unline Parental Bond, Two of a Kind adds an additional hit to multihits
+				if (move.multihit) { //Unline Parental Bond, Two of a Kind adds an additional hit to multihits
 					if (typeof move.multihit !== 'number') {
 						for (let i = 0; i < move.multihit.length; i++) {
 							move.multihit[i]++;
 						}
-					} else {
+					}
+					else {
 						move.multihit++;
 					}
-				} else {
+				}
+				else {
 					move.multihit = 2;
 				}
 			}
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'twoofakind' && move.hit < 2) {
-				if (move.recoil) { delete move.recoil; }
-				if (move.secondaries) { delete move.secondaries; }
+				if (move.recoil)
+					delete move.recoil;
+				if (move.secondaries)
+					delete move.secondaries;
 			}
 		},
 	},
@@ -2536,8 +2576,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "When hit by an Illusion-type skill, damage is nullified and any status ailment is cured.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Illusion') {
-				this.add('-immune', target, '[from] ability: Unwavering Heart');
-				target.clearStatus();
+				if(!target.clearStatus()){
+					this.add('-immune', target, '[from] ability: Unwavering Heart');
+				}
 				return null;
 			}
 		},
@@ -2545,17 +2586,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	unyieldingform: {
 		name: "Unyielding Form",
 		shortDesc: "Void-type skills are treated as Steel-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Steel';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Steel";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	uptempo: {
@@ -2572,13 +2612,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	usurpation: {
 		name: "Usurpation",
 		shortDesc: "Inverts the stat changes.",
-		onBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'zpower') return;
+		onChangeBoost(boost, target, source, effect) {
 			let i: BoostID;
 			for (i in boost) {
 				boost[i]! *= -1;
 			}
 		},
+		flags: {breakable: 1},
 	},
 	vanishingact: {
 		name: "Vanishing Act",
@@ -2612,8 +2652,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Disables skills with 50 or less BP.",
 		onTryHitPriority: 30,
 		onTryHit(source, target, move) {
-			if (move.basePower <= 50) {
-				this.add('-immune', target, '[from] ability: Wariness');
+			if (source !== target && move.category !== 'Status' && move.basePower <= 50) {
+				this.add('-immune', source, '[from] ability: Wariness');
 				return false;
 			}
 		},
@@ -2677,7 +2717,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (this.field.isTerrain("byakko")) {
 				if (move.accuracy === 100) {
 					this.chainModify(1.2);
-				} else if (move.accuracy === true) {
+				}
+				else if (move.accuracy === true) {
 					this.chainModify(1.5);
 				}
 			}
@@ -2716,7 +2757,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Yata no Kagami",
 		shortDesc: "Takes half damage when at full HP.",
 		onDamage(damage, target, source, effect) {
-			if (target.hp === target.baseMaxhp) { this.chainModify(0.5); }
+			if (target.hp === target.baseMaxhp)
+				this.chainModify(0.5);
 		},
 	},
 	zen: {

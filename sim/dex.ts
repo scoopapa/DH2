@@ -122,6 +122,7 @@ export class ModdedDex {
 	textCache: TextTableData | null;
 
 	deepClone = Utils.deepClone;
+	deepFreeze = Utils.deepFreeze;
 
 	readonly formats: DexFormats;
 	readonly abilities: DexAbilities;
@@ -228,7 +229,7 @@ export class ModdedDex {
 	 * Also checks immunity to some statuses.
 	 */
 	getImmunity(
-		source: {type: string} | string,
+		source: {type: string, twoType?: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
 		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
@@ -254,7 +255,7 @@ export class ModdedDex {
 	}
 
 	getEffectiveness(
-		source: {type: string} | string,
+		source: {type: string, twoType?: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
 		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
@@ -529,9 +530,9 @@ export class ModdedDex {
 			}
 		}
 		if (parentDex) {
-			for (const dataType of DATA_TYPES) {
+			for (const dataType of DATA_TYPES.concat('Aliases')) {
 				const parentTypedData: DexTable<any> = parentDex.data[dataType];
-				const childTypedData: DexTable<any> = dataCache[dataType] || (dataCache[dataType] = {});
+				const childTypedData: DexTable<any> = (dataCache[dataType] ||= {});
 				for (const entryId in parentTypedData) {
 					if (childTypedData[entryId] === null) {
 						// null means don't inherit
@@ -558,7 +559,6 @@ export class ModdedDex {
 					}
 				}
 			}
-			dataCache['Aliases'] = parentDex.data['Aliases'];
 		}
 
 		// Flag the generation. Required for team validator.

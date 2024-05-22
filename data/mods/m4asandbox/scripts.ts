@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'm4av6',
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['April Fools', 'Tourbanned', 'Mega of the Day!', 'Popular', 'Other Megas', 'Heat!', 'NFE'],
+		customTiers: ['April Fools', 'Mega of the Day!', 'Popular', 'Other Megas', 'Heat!', 'NFE'],
 	},
 	// SANDBOX CONTENT STARTS HERE
 	// MnM4A

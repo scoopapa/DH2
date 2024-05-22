@@ -72,7 +72,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 	},
 	mudbomb: {
-		num: -5,
+		num: 426,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -144,6 +144,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		shortDesc: "Hits two turns after being used.",
+		desc: "This attack hits two turns after being used.",
 		contestType: "Clever",
 	},
 	souldrain: { 
@@ -178,6 +180,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onHit(target, source, side) {
+			let layers = 0;
+			if (target.side.sideConditions['spikes']) {
+				layers += target.side.sideConditions['spikes'].layers;
+			}
+			if (target.side.foe.sideConditions['spikes']) {
+				layers += target.side.foe.sideConditions['spikes'].layers;
+			}
+			if (layers == 0) return false;
+			this.add('-sideend', target.side, 'Spikes', '[from] move: Magnetic Blast', '[of] ' + source);
+			this.add('-sidestart', source.side, 'Spikes');
+			for (let index = 0; index < layers-1; index++) {
+				this.add('-sidestart', target.side, 'Spikes');
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -188,7 +205,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: -10,
 		accuracy: 100,
 		basePower: 60,
-		category: "Physical",
+		category: "Special",
 		name: "Cyclone Scatter",
 		pp: 15,
 		priority: -3,
@@ -225,6 +242,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
+		shortDesc: "-3 priority. Bounces back most status moves.",
+		desc: "-3 priority. Bounces back most status moves.",
 		type: "Flying",
 		contestType: "Tough",
 	},
@@ -263,6 +282,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Special",
 		name: "Defog",
+		shortDesc: "If weather is up, deals double damage. Remove weather.",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -281,6 +301,77 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Flying",
+	},
+	odinswrath: {
+		num: -12,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Odin's Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Physical if user's Atk > Sp. Atk.",
+		desc: "Physical if user's Atk > Sp. Atk.",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	lassograb: {
+		num: -13,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		name: "Lasso Grab",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	trapjaw: {
+		num: -14,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Trap Jaw",
+		pp: 15,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
+	firefight: {
+		num: -15,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Fire Fight",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		basePowerCallback(pokemon, target, move) {
+			if (target.hasType('Fire')) return move.basePower * 1.2;
+			return move.basePower;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
 	},
 
 	absorb: {

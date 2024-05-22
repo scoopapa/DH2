@@ -29,7 +29,7 @@ describe('[Gen 6] Random Battle (slow)', () => {
 						const dexMove = Dex.moves.get(move);
 						assert(dexMove.exists, `${species.name} has invalid move: ${move}`);
 						assert(move === dexMove.id || move.startsWith('hiddenpower'), `${species.name} has misformatted move: ${move}`);
-						assert(validateLearnset(dexMove, {species}, 'anythinggoes', 'gen7'), `${species.name} can't learn ${move}`);
+						assert(validateLearnset(dexMove, {species}, 'anythinggoes', 'gen6'), `${species.name} can't learn ${move}`);
 					}
 					for (let i = 0; i < set.movepool.length - 1; i++) {
 						assert(set.movepool[i + 1] > set.movepool[i], `${species} movepool should be sorted alphabetically`);
@@ -75,7 +75,7 @@ describe('[Gen 6] Random Battle (slow)', () => {
 					// Generate a moveset as the lead, teamDetails is always empty for this
 					const preferredType = preferredTypes ? preferredTypes[j % preferredTypes.length] : '';
 					const movePool = set.movepool.map(m => dex.moves.get(m).id);
-					const moveSet = generator.randomMoveset(types, abilities, {}, species, true, false, movePool, preferredType, role);
+					const moveSet = generator.randomMoveset(types, abilities, {}, species, true, movePool, preferredType, role);
 					for (const move of moveSet) moves.delete(move);
 					if (!moves.size) break;
 					// Generate a moveset for each combination of relevant teamDetails
@@ -86,13 +86,12 @@ describe('[Gen 6] Random Battle (slow)', () => {
 						teamDetails = {defog, stealthRock, stickyWeb};
 						// randomMoveset() deletes moves from the movepool, so recreate it every time
 						const movePool = set.movepool.map(m => dex.moves.get(m).id);
-						const moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, false, movePool, preferredType, role);
+						const moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, movePool, preferredType, role);
 						for (const move of moveSet) moves.delete(move);
 						if (!moves.size) break;
 					}
 					if (!moves.size) break;
 				}
-				if (moves.size) console.log(moves, species);
 				assert(!moves.size, species);
 			}
 		}
