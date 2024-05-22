@@ -1,3 +1,29 @@
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	gen: 9,
+	actions: {
+		inherit: true,
+	   runMove(
+		   moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
+	   	zMove?: string, externalMove?: boolean, maxMove?: string, originalTarget?: Pokemon
+   	) {
+	   	pokemon.activeMoveActions++;
+	   	let target = this.battle.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+	   	let baseMove = this.dex.getActiveMove(moveOrMoveName);
+	   	const pranksterBoosted = baseMove.pranksterBoosted;
+   		if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+	   		const changedMove = this.battle.runEvent('OverrideAction', pokemon, target, baseMove);
+	   		if (changedMove && changedMove !== true) {
+		   		baseMove = this.dex.getActiveMove(changedMove);
+		   		if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+		   		target = this.battle.getRandomTarget(pokemon, baseMove);
+		   	}
+	   	}
+   		let move = baseMove;
+	   	if (zMove) {
+	   		move = this.getActiveZMove(baseMove, pokemon);
+	   	} else if (maxMove) {
+		   	move = this.getActiveMaxMove(baseMove, pokemon);
+	   	}
 
 	   	move.isExternal = externalMove;
 
