@@ -1,9 +1,4 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-  kabutops: {
-    tier: "Paleomons",
-  },
-  omastar: {
-    tier: "Paleomons",export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
   	kabuto: {
 		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
@@ -209,24 +204,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 
-};
-  },
-  aerodactyl: {
-    tier: "Paleomons",
-  },
-  armaldo: {
-    tier: "Paleomons",
-  },
-  cradily: {
-    tier: "Paleomons",
-  },
-	helioliskancient: {
-    tier: "Paleomons",
-  },
-	laprasabyss: {
-    tier: "Paleomons",
-  },
-	meganiumsonic: {
-    tier: "Paleomons",
-  },
 };
