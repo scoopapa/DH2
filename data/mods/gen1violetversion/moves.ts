@@ -59,21 +59,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	conversion: { //Typing needs to be retained after switch-out
-		desc: "Copies foe's typing, and heals 50% health.",
-		shortDesc: "Copy foe's typing, heal 50%",
-		name: "Conversion",
-		sideCondition: 'conversion',
-		condition: {
-			     onStart(target, source) {
-			     	source.types = target.types;
-				this.add('-start', source, 'typechange', source.types.join(', '), '[from] move: Conversion', '[of] ' + source);
-				return;
-			     }
-		},
+		inherit: true,
+		target: "normal",
 		pp: 20,
 		accuracy: true,
-		target: "normal",
 		onHit(target, source) {
+			source.setType(target.getTypes(true));
+			this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
 			this.heal(Math.floor(source.maxhp / 2), source, source);
 		},
 	},
@@ -102,45 +94,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	disable: {
+		num: 50,
 		accuracy: 100,
+		basePower: 0,
 		category: "Status",
-		id: "disable",
-		isViable: true,
 		name: "Disable",
-		sideCondition: 'disable',
-		pp: 5,
+		pp: 20,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onHit(target, source) {
-			/**if (!target.moves.length) return false;**/
-			let activeSideCondition = target.side.sideConditions['disable'];
-			if (activeSideCondition) {
-				target.side.removeSideCondition('disable');
-			}
-			target.side.addSideCondition('disable', target);
+		flags: {protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		volatileStatus: 'disable',
+		onTryHit(target) {
+			// This function should not return if the checks are met. Adding && undefined ensures this happens.
+			return target.moveSlots.some(ms => ms.pp > 0) &&
+				!('disable' in target.volatiles) &&
+				undefined;
 		},
 		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart (side, target) {
+			onStart(pokemon) {
+				// disable can only select moves that have pp > 0, hence the onTryHit modification
 				const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', pokemon, 'Disable', moveSlot.move);
-				
-			/**	let moves = target.moves;
-				const moveId = moves[this.random(moves.length)];
-			/**if (!moveId) return false; 
-				const move = this.dex.moves.get(moveId);**/
-				this.add('-start', target, 'Disable', move.name);
-				this.effectState.move = move.id;
-				return;
+				this.effectState.move = moveSlot.id;
+				// 1-8 turns (which will in effect translate to 0-7 missed turns for the target)
+				this.effectState.time = this.random(1, 9);
 			},
-		/*	onBeforeMovePriority: 7,
-			onBeforeMove(attacker, defender, move) {
-				if (this.effectState.source !== attacker) return;
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Disable');
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				pokemon.volatiles['disable'].time--;
+				if (!pokemon.volatiles['disable'].time) {
+					pokemon.removeVolatile('disable');
+					return;
+				}
+				if (pokemon.volatiles['bide']) move = this.dex.getActiveMove('bide');
 				if (move.id === this.effectState.move) {
-					this.add('cant', attacker, 'Disable', move);
+					this.add('cant', pokemon, 'Disable', move);
+					pokemon.removeVolatile('twoturnmove');
 					return false;
 				}
-			},*/
+			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
@@ -149,7 +143,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-	},
 	dreameater: {
 		inherit: true,
 		category: "Physical",
