@@ -143,6 +143,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+	},
 	dreameater: {
 		inherit: true,
 		category: "Physical",
