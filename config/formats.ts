@@ -2480,23 +2480,6 @@ export const Formats: FormatList = [
 			'Karakasa','Grag','Kimokus','Toknight','Cowpy','Cowork','Barbecow','Hoorel','Baishark','Luviu','Shucklony','Dreamer','Nohtyp']
 	},
 	{
-		name: "[Gen 9] Limited Meta",
-		mod: 'limited',
-		ruleset: ['Standard'],
-		banlist: ['Baton Pass'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['LOU'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Limited.'];
-				}
-			}
-		},
-	},
-	{
 		name: "[Gen 9] Mega Mania",
 		mod: "megamania",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
