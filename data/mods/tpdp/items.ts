@@ -1,27 +1,21 @@
-/*
-	--TODO--
-	Go through each TPDP item and make sure it's implemented properly
-*/
-
-export const Items: {[itemid: string]: ItemData} = {
+export const Items: {[k: string]: ModdedItemData} = {
 	absorber: {
 		name: "Absorber",
+		rating: 3,
 		shortDesc: "This Puppet heals 18% max HP when hit by a not-very-effective skill.",
-		category: 'great',
 		onDamagingHit(damage, target, source, move) {
-			if (target.getMoveHitData(move).typeMod < 0) { this.heal(target.baseMaxhp * 0.18); }
+			if (target.getMoveHitData(move).typeMod < 0)
+				this.heal(target.baseMaxhp * 0.18);
 		},
 	},
 	almightygodstone: {
 		name: "Almighty Godstone",
 		shortDesc: "Lengthens duration of any Weather condition when used by the holder.",
-		category: 'good',
 		// Implemented in conditions.ts
 	},
 	amber: {
 		name: "Amber",
 		shortDesc: "Orange jewelry. Raises the power of Fighting skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -33,7 +27,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	amberhairpin: {
 		name: "Amber Hairpin",
 		shortDesc: "When held, the power of Fighting skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Fighting') {
@@ -44,7 +37,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	amethyst: {
 		name: "Amethyst",
 		shortDesc: "Purple jewelry. Raises the power of Poison skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -56,7 +48,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	amethysthairpin: {
 		name: "Amethyst Hairpin",
 		shortDesc: "When held, the power of Poison skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Poison') {
@@ -66,18 +57,17 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	ancientcoin: { // Useless
 		name: "Ancient Coin",
+		rating: 0,
 		shortDesc: "You can't continue if you only have one! When held, the chances of successful Puppet sealing is increased.",
-		category: 'bad',
 	},
-	ancientlunarsake: {
+	ancientlunarsake: { // Useless
 		name: "Ancient Lunar Sake",
+		rating: 0,
 		shortDesc: "Millennium brewed sake. When held by the first Puppet in your party, Puppet encounters will decrease.",
-		category: 'bad',
 	},
 	antiaquacharm: {
 		name: "Anti-Aqua Charm",
 		shortDesc: "When held, damage dealt from Water-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Water' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -96,7 +86,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antiboltcharm: {
 		name: "Anti-Bolt Charm",
 		shortDesc: "When held, damage dealt from Electric-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Electric' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -115,7 +104,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antidarkcharm: {
 		name: "Anti-Dark Charm",
 		shortDesc: "When held, damage dealt from Dark-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Dark' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -133,11 +121,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	antidotecharm: {
 		name: "Antidote Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Poison.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
-			if (ppokemon.status === 'psn' || pokemon.status === 'tox') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.eatItem();
 			}
 		},
@@ -150,7 +138,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antiearthcharm: {
 		name: "Anti-Earth Charm",
 		shortDesc: "When held, damage dealt from Earth-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Earth' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -169,7 +156,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antifightcharm: {
 		name: "Anti-Fight Charm",
 		shortDesc: "When held, damage dealt from Fighting-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Fighting' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -188,7 +174,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antifirecharm: {
 		name: "Anti-Fire Charm",
 		shortDesc: "When held, damage dealt from Fire-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Fire' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -207,7 +192,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antifloracharm: {
 		name: "Anti-Flora Charm",
 		shortDesc: "When held, damage dealt from Nature-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Nature' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -226,7 +210,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antilightcharm: {
 		name: "Anti-Light Charm",
 		shortDesc: "When held, damage dealt from Light-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Light' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -245,7 +228,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antinecrocharm: {
 		name: "Anti-Necro Charm",
 		shortDesc: "When held, damage dealt from Nether-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Nether' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -264,7 +246,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antisoundcharm: {
 		name: "Anti-Sound Charm",
 		shortDesc: "When held, damage dealt from Sound-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Sound' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -283,7 +264,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antisteelcharm: {
 		name: "Anti-Steel Charm",
 		shortDesc: "When held, damage dealt from Steel-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Steel' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -302,7 +282,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antitoxincharm: {
 		name: "Anti-Toxin Charm",
 		shortDesc: "When held, damage dealt from Poison-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Poison' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -321,7 +300,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antiveilcharm: {
 		name: "Anti-Veil Charm",
 		shortDesc: "When held, damage dealt from Illusion-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Illusion' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -340,7 +318,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antiwarpcharm: {
 		name: "Anti-Warp Charm",
 		shortDesc: "When held, damage dealt from Warped-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Warped' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -359,7 +336,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	antiwindcharm: {
 		name: "Anti-Wind Charm",
 		shortDesc: "When held, damage dealt from Wind-skills will be reduced once.",
-		category: 'good',
 		isBerry: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Wind' && (target.getMoveHitData(move).typeMod > 0 || this.format.mod.endsWith("tpdp"))) {
@@ -378,7 +354,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	awakeningcharm: {
 		name: "Awakening Charm",
 		shortDesc: "When held, it can recover from Stop.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status['stp']) {
@@ -393,8 +368,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	bandage: {
 		name: "Bandage",
+		rating: 1,
 		shortDesc: "If a Puppet holding this uses an absorption skill the recovered amount will be increased.",
-		category: 'poor',
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
@@ -403,15 +378,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 	},
-	bellhairpin: { // Useless
+	bellhairpin: { //Useless
 		name: "Bell Hairpin",
+		rating: 0,
 		shortDesc: "A small, bell-shaped hairpin. When held by the first Puppet in your party, Puppet encounters will increase.",
-		category: 'bad',
 	},
 	binoculars: {
 		name: "Binoculars",
 		shortDesc: "Increases the holder's accuracy.",
-		category: 'good',
 		onModifyAccuracyPriority: 15,
 		onFoeModifyAccuracy(relayVar, target, source, move) {
 			this.chainModify(0.9);
@@ -419,8 +393,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	blackchoker: {
 		name: "Black Choker",
+		rating: 3,
 		shortDesc: "When held, a Puppet can withstand one skill that would otherwise KO them.",
-		category: 'great',
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
@@ -433,8 +407,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	blackring: {
 		name: "Black Ring",
+		rating: 1,
 		shortDesc: "A Puppet holding this has a chance to survive a lethal attack that would otherwise KO it.",
-		category: 'poor',
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
 			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
@@ -443,15 +417,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 	},
-	blindingorb: {
+	blindingorb: { //Useless
 		name: "Blinding Orb",
+		rating: 0,
 		shortDesc: "A Puppet holding this item will always be able to escape from a wild battle.",
-		category: 'bad',
 	},
 	blitzcharm: {
 		name: "Blitz Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's Critical Hit rate.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -466,7 +440,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	blueearrings: {
 		name: "Blue Earrings",
 		shortDesc: "When held, the power of Sp.Atk skills is raised.",
-		category: 'good',
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			return this.chainModify(1.1);
@@ -474,13 +447,35 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	boundarytrance: { // Illegal
 		name: "Boundary Trance",
-		shortDesc: "[Unimplemented] A stone with rainbow and transparent blue halves. Special Puppets holding this will have greatly increased stats.",
-		category: 'bad',
+		shortDesc: "A stone with rainbow and transparent blue halves. Special Puppets holding this will have greatly increased stats.",
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(2);
+		},
 	},
 	bronzemirror: {
 		name: "Bronze Mirror",
+		rating: 1,
 		shortDesc: "When the opposing Puppet's stats are changed the Puppet holding this will reflect the same stat changes.",
-		category: 'poor',
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.fullname?.endsWith('Bronze Mirror')) return;
 			const boostPlus: SparseBoostsTable = {};
@@ -501,11 +496,10 @@ export const Items: {[itemid: string]: ItemData} = {
 	burningstone: {
 		name: "Burning Stone",
 		shortDesc: "Stone that was set ablaze. Puppets holding this will be badly burned.",
-		category: 'good',
 		onResidualOrder: 28,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			pokemon.trySetStatus('brnheavy', pokemon);
+			pokemon.trySetStatus('hvybrn', pokemon);
 		},
 	},
 	capturerope: {
@@ -515,13 +509,12 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.add('-message', `${pokemon.name} has set the sealing thread!`);
 		},
 		onFoeModifyMove(move, pokemon, target) {
-			if (!pokemon.ability.includes('shadowstich', 'poisonlabryinth', 'battlemania', 'adversewind')) move.selfSwitch = false;
+			if(!['shadowstich', 'poisonlabryinth', 'battlemania', 'adversewind'].includes(pokemon.ability)) move.selfSwitch = false;
 		},
 	},
 	championsmedal: {
 		name: "Champion's Medal",
 		shortDesc: "A dignified certificate. When held, skills that connect may cause the opponent to flinch.",
-		category: 'good',
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category !== "Status") {
@@ -538,10 +531,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	choicebelt: {
 		name: "Choice Belt",
+		rating: 3,
 		shortDesc: "Boosts Speed, but you're locked into using the first skill used.",
-		category: 'great',
 		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) { this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']); }
+			if (pokemon.volatiles['choicelock'])
+				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
 			pokemon.removeVolatile('choicelock');
 		},
 		onModifyMove(move, pokemon) {
@@ -555,10 +549,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	choiceearrings: {
 		name: "Choice Earrings",
+		rating: 3,
 		shortDesc: "Boosts the power of Spread Attack skills but you're locked into using the first skill used.",
-		category: 'great',
 		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) { this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']); }
+			if (pokemon.volatiles['choicelock'])
+				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
 			pokemon.removeVolatile('choicelock');
 		},
 		onModifyMove(move, pokemon) {
@@ -572,10 +567,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	choicering: {
 		name: "Choice Ring",
+		rating: 3,
 		shortDesc: "Boosts the power of Focus Attack skills but you're locked into using the first skill used.",
-		category: 'great',
 		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) { this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']); }
+			if (pokemon.volatiles['choicelock'])
+				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
 			pokemon.removeVolatile('choicelock');
 		},
 		onModifyMove(move, pokemon) {
@@ -590,12 +586,11 @@ export const Items: {[itemid: string]: ItemData} = {
 	circularamulet: { // Unimplemented
 		name: "Circular Amulet",
 		shortDesc: "A round amulet. A Puppet holding this will recover HP if it is attacked by its foe. Unimplemented.",
-		category: 'bad',
 	},
 	claritycharm: {
 		name: "Clarity Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from confusion.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.volatiles['confusion']) {
@@ -609,7 +604,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	clearhairpin: {
 		name: "Clear Hairpin",
 		shortDesc: "When held, the power of Illusion skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Illusion') {
@@ -619,8 +613,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	columncharm: {
 		name: "Column Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's FoDef stat.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -634,13 +628,13 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	combathandbook: { // Useless
 		name: "Combat Handbook",
+		rating: 0,
 		shortDesc: "A fighting manual. When held, it increases EXP gained in battle.",
-		category: 'bad',
 	},
 	counterbit: {
 		name: "Counter Bit",
+		rating: 3,
 		shortDesc: "When held, if you receive damage from a BU-skill, damage will be dealt back to the attacker.",
-		category: 'great',
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -651,7 +645,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	couragecharm: {
 		name: "Courage Charm",
 		shortDesc: "When held, it can recover from Weakness.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'weak' || pokemon.status === 'weakheavy') {
@@ -667,15 +660,15 @@ export const Items: {[itemid: string]: ItemData} = {
 	crystalmirror: {
 		name: "Crystal Mirror",
 		shortDesc: "This Puppet's skills bypass immunities while Byakko is active.",
-		category: 'good',
 		onFoeImmunity(type, pokemon) {
-			if (this.field.isTerrain("byakko") && this.dex.types.isName(type)) { return false; }
+			if (this.field.isTerrain("byakko") && this.dex.types.isName(type))
+				return false;
 		},
 	},
 	curingcharm: {
 		name: "Curing Charm",
+		rating: 3,
 		shortDesc: "When held, it can recover from all ailments.",
-		category: 'great',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status || pokemon.volatiles['confusion']) {
@@ -689,16 +682,17 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	curseddoll: {
 		name: "Cursed Doll",
+		rating: 1,
 		shortDesc: "When held skills that wouldn't hit due to type immunity will now work.",
-		category: 'poor',
 		onFoeImmunity(type, pokemon) {
-			if (this.dex.types.get(type)) { return false; }
+			if (this.dex.types.get(type))
+				return false;
 		},
 	},
 	deadlysecrets: {
 		name: "Deadly Secrets",
+		rating: 3,
 		shortDesc: "A book detailing the tricks of battle. Skills will deal more damage if it pierces the barrier.",
-		category: 'great',
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod > 0) {
 				return this.chainModify(1.2);
@@ -708,7 +702,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	diamond: {
 		name: "Diamond",
 		shortDesc: "Clear jewelry. Raises the power of Void skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -720,7 +713,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	diamondhairpin: {
 		name: "Diamond Hairpin",
 		shortDesc: "When held, the power of Void skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Void') {
@@ -731,7 +723,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	dispelcharm: {
 		name: "Dispel Charm",
 		shortDesc: "When held, if the user becomes unable to use skills, the status is healed once.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
@@ -748,21 +739,42 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	dragonamulet: {
 		name: "Dragon Amulet",
+		rating: 3,
 		shortDesc: "A Puppet holding this item is no longer susceptible to critical hits.",
-		category: 'great',
 		onFoeModifyCritRatio(relayVar, source, target, move) {
 			return 0;
 		},
 	},
 	dreamshard: { // Illegal
 		name: "Dream Shard",
-		shortDesc: "[Unimplemented] Mysterious gem that constantly changes color. A special Puppet holding this will have increased stats.",
-		category: 'bad',
+		shortDesc: "Mysterious gem that constantly changes color. A special Puppet holding this will have increased stats.",
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.1);
+		},
 	},
 	echeloncharm: {
 		name: "Echelon Charm",
 		shortDesc: "In a pinch, this will raise the Puppet's Evasion stat.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -777,7 +789,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	emerald: {
 		name: "Emerald",
 		shortDesc: "Dark green jewelry. Raises the power of Nature skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -789,7 +800,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	emeraldhairpin: {
 		name: "Emerald Hairpin",
 		shortDesc: "When held, the power of Nature skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Nature') {
@@ -800,7 +810,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	evictionnotice: {
 		name: "Eviction Notice",
 		shortDesc: "The attacker will switch places with another Puppet in their party after the holder has been attacked.",
-		category: 'good',
 		onAfterMoveSecondary(target, source, move) {
 			if (source && source !== target && source.hp && target.hp && move && move.category !== 'Status') {
 				if (!source.isActive || !this.canSwitch(source.side) || source.forceSwitchFlag || target.forceSwitchFlag) {
@@ -818,7 +827,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	floatingstone: {
 		name: "Floating Stone",
 		shortDesc: "Makes the holder immune to Earth skills but will crumble if hit by a Non-Earth skills.",
-		category: 'good',
 		onStart(target) {
 			if (!target.ignoringItem() && !this.field.getPseudoWeather('gravity')) {
 				this.add('-item', target, 'Floating Stone');
@@ -844,13 +852,12 @@ export const Items: {[itemid: string]: ItemData} = {
 	fluorite: {
 		name: "Fluorite",
 		shortDesc: "Protection moves used by the holder get their duration increased in battle.",
-		category: 'good',
-		// Implemented in moves.ts
+		//Implemented in moves.ts
 	},
 	foodrations: {
 		name: "Food Rations",
+		rating: 3,
 		shortDesc: "A stockpile of food. When held by a Puppet it'll recover 1/16th of their max HP per turn during battle.",
-		category: 'great',
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
@@ -860,45 +867,44 @@ export const Items: {[itemid: string]: ItemData} = {
 	giantbit: {
 		name: "Giant Bit",
 		shortDesc: "When this Puppet is hit by a 100 BP or higher move, the attacker loses 1/8 max HP.",
-		category: 'good',
 		onDamagingHit(damage, target, source, move) {
-			if (move.basePower >= 100) { source.damage(source.baseMaxhp / 8); }
+			if (move.basePower >= 100)
+				source.damage(source.baseMaxhp / 8);
 		},
 	},
 	goldtalisman: {
 		name: "Gold Talisman",
 		shortDesc: "When held, if the user receives a Fo.Atk, Fo.Def is raised.",
-		category: 'good',
 		onAfterBoost(boost, target, source, effect) {
-			if (boost.atk && target.useItem()) { this.boost({def: boost.atk}); }
+			if (boost.atk && target.useItem())
+				this.boost({def: boost.atk});
 		},
 	},
 	goldenhairpin: {
 		name: "Golden Hairpin",
+		rating: 3,
 		shortDesc: "The Puppet holding this will have increased FoDef, but it will not be able to use support skills.",
-		category: 'great',
 		onModifyDefPriority: 15,
 		onModifyDef(relayVar, target, source, move) {
 			this.chainModify(1.5);
 		},
 		onTryMove(source, target, move) {
-			if (move.category === "Status") { return null; }
+			if (move.category === "Status")
+				return null;
 		},
 	},
 	hakureiamulet: { // Useless
 		name: "Hakurei Amulet",
+		rating: 0,
 		shortDesc: "Amulet that holds the gracious power of the Hakurei. When held, EXP and PP gained will increase.",
-		category: 'bad',
 	},
 	halogodstone: {
 		name: "Halo Godstone",
 		shortDesc: "Lengthens duration of the Aurora when used by the holder.",
-		category: 'good',
 	},
 	hastecharm: {
 		name: "Haste Charm",
 		shortDesc: "When held, skills that take two turns to use only take one.",
-		category: 'good',
 		isBerry: true,
 		onBeforeMove(source, target, move) {
 			if (move.volatileStatus === "twoturnmove") {
@@ -909,8 +915,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	healingcharm: {
 		name: "Healing Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover 20 HP.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
@@ -926,14 +932,13 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	heavyarmor: {
 		name: "Heavy Armor",
+		rating: 1,
 		shortDesc: "A Puppet holding this always moves last within its priority bracket.",
-		category: 'poor',
 		onFractionalPriority: -0.1,
 	},
 	hematite: {
 		name: "Hematite",
 		shortDesc: "Gray jewelry. Raises the power of Steel skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -945,7 +950,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	hematitehairpin: {
 		name: "Hematite Hairpin",
 		shortDesc: "When held, the power of Steel skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Steel') {
@@ -955,8 +959,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	hexagoncharm: {
 		name: "Hexagon Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's SpDef stat.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -971,7 +975,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	hopemask: {
 		name: "Hope Mask",
 		shortDesc: "A mask with a hopeful expression. Cannot be flinched while holding this item. This item cannot be disposed.",
-		category: 'good',
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
 		},
@@ -985,29 +988,29 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	ironwillribbon: {
 		name: "Iron Will Ribbon",
+		rating: 1,
 		shortDesc: "If the Puppet holding this only knows 3 skills, the damage received will be reduced.",
-		category: 'poor',
 		onFoeModifyDamage(relayVar, target, source, move) {
-			let moveCount = 0;
+			var moveCount:number = 0;
 			for (const move in target.moveSlots) {
 				if (move) moveCount++;
 			}
-			if (moveCount === 3) { this.chainModify(0.9); }
+			if (moveCount === 3)
+				this.chainModify(0.9);
 		},
 	},
 	izanagiobject: {
 		name: "Izanagi Object",
 		shortDesc: "This Puppet has 1.5x speed while Kohryu is active.",
-		category: 'good',
 		ignoreKlutz: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isTerrain("kohryu")) { this.chainModify(1.5); }
+			if (this.field.isTerrain("kohryu"))
+				this.chainModify(1.5);
 		},
 	},
 	jade: {
 		name: "Jade",
 		shortDesc: "Jade jewelry. Raises the power of Wind skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1019,7 +1022,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	jadehairpin: {
 		name: "Jade Hairpin",
 		shortDesc: "When held, the power of Wind skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Wind') {
@@ -1029,8 +1031,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	jarofpoison: {
 		name: "Jar of Poison",
+		rating: 3,
 		shortDesc: "Will heal 1/16th the Puppet's max HP if it's the Poison type. Otherwise the Puppet takes passive damage every turn.",
-		category: 'great',
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
@@ -1044,15 +1046,14 @@ export const Items: {[itemid: string]: ItemData} = {
 	javelinarts: {
 		name: "Javelin Arts",
 		shortDesc: "A book detailing the tricks of battle. When held, the power of Javelin-type skills will be increased.",
-		category: 'good',
 		onBasePower(relayVar, source, target, move) {
-			if (move.flags.javelin) { this.chainModify(1.2); }
+			if (move.flags.javelin)
+				this.chainModify(1.2);
 		},
 	},
 	lapishairpin: {
 		name: "Lapis Hairpin",
 		shortDesc: "When held, the power of Warped skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Warped') {
@@ -1063,7 +1064,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	lapislazuli: {
 		name: "Lapis Lazuli",
 		shortDesc: "Ultramarine jewelry. Raises the power of Warped skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1074,30 +1074,29 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	largeshield: {
 		name: "Large Shield",
+		rating: 1,
 		shortDesc: "When held, resisted attacks will deal reduced damage, and barrier piercing attacks will deal more damage.",
-		category: 'poor',
 		onSourceModifyDamage(relayVar, source, target, move) {
 			if (move) {
 				switch (target.getMoveHitData(move).typeMod) {
-				case 1:
-					this.chainModify(2);
-					break;
-				case -1:
-					this.chainModify(0.5);
-					break;
+					case 1:
+						this.chainModify(2);
+						break;
+					case -1:
+						this.chainModify(0.5);
+						break;
 				}
 			}
 		},
 	},
 	laylasamulet: { // Useless
 		name: "Layla's Amulet",
+		rating: 0,
 		shortDesc: "Hidden under an old photograph. When held by a Puppet, the item drop rates from battle are doubled.",
-		category: 'bad',
 	},
 	lifecharm: {
 		name: "Life Charm",
 		shortDesc: "When held, a Puppet will restore 25% HP once its health drops below 50% HP.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
@@ -1113,8 +1112,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	lightcharm: {
 		name: "Light Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Darkness.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status['dark']) {
@@ -1130,15 +1129,14 @@ export const Items: {[itemid: string]: ItemData} = {
 	magicring: {
 		name: "Magic Ring",
 		shortDesc: "A mysterious ring. When held the chance of critical hits is more likely.",
-		category: 'good',
 		onModifyCritRatio(relayVar, source, target, move) {
 			return relayVar + 1;
 		},
 	},
 	massagecharm: {
 		name: "Massage Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Paralysis.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'par' || pokemon.status === 'shk') {
@@ -1154,7 +1152,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	morganite: {
 		name: "Morganite",
 		shortDesc: "Peony-colored jewelry. Raises the power of Illusion skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1165,13 +1162,12 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	nativegrace: { // Useless
 		name: "Native Grace",
+		rating: 0,
 		shortDesc: "A charm given by Suwako. If held, EXP and PP gain in battle will be doubled.",
-		category: 'bad',
 	},
 	obsidian: {
 		name: "Obsidian",
 		shortDesc: "Black jewelry. Raises the power of Dark skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1183,7 +1179,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	obsidianhairpin: {
 		name: "Obsidian Hairpin",
 		shortDesc: "When held, the power of Dark skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Dark') {
@@ -1193,8 +1188,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	ointmentcharm: {
 		name: "Ointment Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Burn.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn' || pokemon.status === 'hvybrn') {
@@ -1210,7 +1205,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	onyx: {
 		name: "Onyx",
 		shortDesc: "Striped jewelry. Raises the power of Sound skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1222,7 +1216,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	onyxhairpin: {
 		name: "Onyx Hairpin",
 		shortDesc: "When held, the power of Sound skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Sound') {
@@ -1233,7 +1226,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	opal: {
 		name: "Opal",
 		shortDesc: "Rainbow jewelry. Raises the power of Light skills once.",
-		category: 'good',
 		isBerry: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1245,7 +1237,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	opalhairpin: {
 		name: "Opal Hairpin",
 		shortDesc: "When held, the power of Light skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Light') {
@@ -1256,13 +1247,13 @@ export const Items: {[itemid: string]: ItemData} = {
 	outlookglasses: {
 		name: "Outlook Glasses",
 		shortDesc: "When held, the foe's held item will be identified.",
-		category: 'good',
 		onStart(pokemon) {
 			for (const target of pokemon.foes()) {
 				if (target.item) {
 					this.add('-message', `${pokemon.name} can see the foe's ${target.getItem().name} with their Outlook Glasses!`);
 					this.add('-item', target, target.getItem().name, '[from] item: Outlook Glasses', '[of] ' + pokemon, '[identify]', '[silent]');
-				} else {
+				}
+				else {
 					this.add('-message', `${pokemon.name} can see the foe has no item with their Outlook Glasses!`);
 				}
 			}
@@ -1270,8 +1261,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	pinpointcharm: {
 		name: "Pinpoint Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's Accuracy stat.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -1286,22 +1277,21 @@ export const Items: {[itemid: string]: ItemData} = {
 	puresand: {
 		name: "Pure Sand",
 		shortDesc: "This Puppet has 1.5x accuracy while Genbu is active.",
-		category: 'good',
 		onFoeModifyAccuracy(relayVar, target, source, move) {
-			if (this.field.isTerrain("genbu")) { this.chainModify(0.5); }
+			if (this.field.isTerrain("genbu"))
+				this.chainModify(0.5);
 		},
 	},
 	purifycharm: {
 		name: "Purify Charm",
 		shortDesc: "When held, if the holder's stats are lowered, the lowered stats will be reverted.",
-		category: 'good',
 		isBerry: true,
 		onAfterBoost(boost, target, source, effect) {
-			const revertBoosts: Partial<BoostsTable> = {};
+			const revertBoosts:Partial<BoostsTable> = {};
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					revertBoosts[i] = boost[i]! * -1;
+					revertBoosts[i]! = boost[i]! * -1;
 				}
 			}
 			this.boost(revertBoosts);
@@ -1311,7 +1301,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	quartzhairpin: {
 		name: "Quartz Hairpin",
 		shortDesc: "When held, the power of Earth skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Earth') {
@@ -1321,29 +1310,32 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	radianthairpin: {
 		name: "Radiant Hairpin",
+		rating: 3,
 		shortDesc: "This Puppet's skills gain 1% more power for each percent above 70%.",
-		category: 'great',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			function remap(value: number, low1: number, high1: number, low2: number, high2: number): number {
+			function remap(value:number, low1:number, high1:number, low2:number, high2:number):number {
 				return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 			}
 
-			if (user.hp >= user.maxhp * 0.99) { return this.chainModify(remap(user.hp / user.maxhp, 0.99, 1, 1.2, 1.3)); } else { return this.chainModify(remap(user.hp / user.maxhp, 0, 0.99, 0, 1.2)); }
+			if (user.hp >= user.maxhp * 0.99) 
+				return this.chainModify(remap(user.hp/user.maxhp, 0.99, 1, 1.2, 1.3));
+			else
+				return this.chainModify(remap(user.hp/user.maxhp, 0, 0.99, 0, 1.2));
 		},
 	},
 	rebelliontome: {
 		name: "Rebellion Tome",
 		shortDesc: "When held, if the user receives a barrier-piercing attack, FoAtk and SpAtk sharply raise.",
-		category: 'good',
+		isBerry: true,
 		onDamagingHit(damage, target, source, move) {
-			if (target.getMoveHitData(move).typeMod > 0) { this.boost({atk: 2, spa: 2}); }
+			if (target.getMoveHitData(move).typeMod > 0 && target.useItem())
+				this.boost({atk: 2, spa: 2});
 		},
 	},
 	redring: {
 		name: "Red Ring",
 		shortDesc: "When held, the power of Fo.Atk skills is raised.",
-		category: 'good',
 		onModifyAtkPriority: 1,
 		onModifyAtk(spa, pokemon) {
 			return this.chainModify(1.1);
@@ -1351,8 +1343,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	reflectbit: {
 		name: "Reflect Bit",
+		rating: 3,
 		shortDesc: "When held, if you receive damage from a EN-skill, damage will be dealt back to the attacker.",
-		category: 'great',
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (!this.checkMoveMakesContact(move, source, target)) {
@@ -1362,8 +1354,8 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	reliefcharm: {
 		name: "Relief Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Fear.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.status['fear']) {
@@ -1379,7 +1371,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	repetitivearts: {
 		name: "Repetitive Arts",
 		shortDesc: "A book detailing the tricks of battle. A skill will deal more damage if it is used in repetition.",
-		category: 'good',
 		onStart(pokemon) {
 			pokemon.addVolatile('repetitivearts');
 		},
@@ -1415,10 +1406,9 @@ export const Items: {[itemid: string]: ItemData} = {
 	retreatmanual: {
 		name: "Retreat Manual",
 		shortDesc: "The defender will switch places with another Puppet in their party after the holder has been attacked.",
-		category: 'good',
 		onAfterMoveSecondaryPriority: 2,
 		onAfterMoveSecondary(target, source, move) {
-			if (source && source !== target && target.hp && move && move.category !== 'Status' && !move.isFutureMove) {
+			if (source && source !== target && target.hp && move && move.category !== 'Status' && !move.flags.futuremove) {
 				if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.beingCalledBack || target.isSkyDropped()) return;
 				if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
 				for (const pokemon of this.getAllActive()) {
@@ -1436,15 +1426,14 @@ export const Items: {[itemid: string]: ItemData} = {
 	rosary: {
 		name: "Rosary",
 		shortDesc: "When held by a Puppet, it will be less likely to be hit by an opposing Puppet's skills.",
-		category: 'good',
 		onModifyAccuracy(relayVar, target, source, move) {
 			this.chainModify(0.9);
 		},
 	},
 	rotationcharm: {
 		name: "Rotation Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will sharply raise one random stat.",
-		category: 'poor',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -1471,7 +1460,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	ruby: {
 		name: "Ruby",
 		shortDesc: "Red jewelry. Raises the power of Fire skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1483,7 +1471,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	rubyhairpin: {
 		name: "Ruby Hairpin",
 		shortDesc: "When held, the power of Fire skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Fire') {
@@ -1494,12 +1481,10 @@ export const Items: {[itemid: string]: ItemData} = {
 	sandgodstone: {
 		name: "Sand Godstone",
 		shortDesc: "Lengthens duration of the Dust Storm when used by the holder.",
-		category: 'good',
 	},
 	sapphire: {
 		name: "Sapphire",
 		shortDesc: "Light blue jewelry. Raises the power of Water skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1511,7 +1496,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	sapphirehairpin: {
 		name: "Sapphire Hairpin",
 		shortDesc: "When held, the power of Water skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Water') {
@@ -1522,37 +1506,35 @@ export const Items: {[itemid: string]: ItemData} = {
 	sereingodstone: {
 		name: "Serein Godstone",
 		shortDesc: "Lengthens duration of Sunshower when used by the holder.",
-		category: 'good',
 	},
 	silentgodstone: {
 		name: "Silent Godstone",
 		shortDesc: "Lengthens duration of the Calm when used by the holder.",
-		category: 'good',
 	},
 	silverhairpin: {
 		name: "Silver Hairpin",
+		rating: 3,
 		shortDesc: "The Puppet holding this will have increased SpDef, but it will not be able to use support skills.",
-		category: 'great',
 		onModifyDefPriority: 15,
 		onModifySpD(relayVar, target, source, move) {
 			this.chainModify(1.5);
 		},
 		onTryMove(source, target, move) {
-			if (move.category === "Status") { return null; }
+			if (move.category === "Status")
+				return null;
 		},
 	},
 	silvertalisman: {
 		name: "Silver Talisman",
 		shortDesc: "When held, if the user receives a Sp.Atk, Sp.Def is raised.",
-		category: 'good',
 		onAfterBoost(boost, target, source, effect) {
-			if (boost.spa && target.useItem()) { this.boost({spd: boost.spa}); }
+			if (boost.spa && target.useItem())
+				this.boost({spd: boost.spa});
 		},
 	},
 	skirmishercharm: {
 		name: "Skirmisher Charm",
 		shortDesc: "In a pinch, this will raise the Puppet's Speed stat.",
-		category: 'great',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -1563,25 +1545,25 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat(pokemon) {
 			this.boost({spe: 1});
 		},
+		rating: 3,
 	},
 	smallbit: {
 		name: "Small Bit",
 		shortDesc: "If the holder is hit with a low-power skill the opponent also takes damage.",
-		category: 'good',
 		onDamagingHit(damage, target, source, move) {
-			if (move.basePower <= 70) { source.damage(source.baseMaxhp / 8); }
+			if (move.basePower <= 70)
+				source.damage(source.baseMaxhp / 8);
 		},
 	},
 	spirittorch: {
 		name: "Spirit Torch",
 		shortDesc: "Opposing puppets lose 1/8 max HP at the end of each turn while Suzaku is active.",
-		category: 'good',
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
 			if (this.field.isTerrain("suzaku")) {
 				for (const foe of pokemon.foes()) {
-					foe.damage(foe.baseMaxhp / 8);
+					foe.damage(foe.baseMaxhp/8);
 				}
 			}
 		},
@@ -1589,7 +1571,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	strawdoll: {
 		name: "Straw Doll",
 		shortDesc: "Straw doll that is used for magic. When held a Puppet's skills become stronger.",
-		category: 'great',
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify(1.3);
 		},
@@ -1601,14 +1582,13 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	sturdyrope: {
 		name: "Sturdy Rope",
+		rating: 1,
 		shortDesc: "A sturdy rope that increases the power of binding moves when held.",
-		category: 'poor',
-		// Implemented in conditions.ts
+		//Implemented in conditions.ts
 	},
 	substitutetag: {
 		name: "Substitute Tag",
 		shortDesc: "An amulet with a human carved into it. Allows the holder to switch out even if it would normally be trapped.",
-		category: 'good',
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
 			pokemon.trapped = pokemon.maybeTrapped = false;
@@ -1617,7 +1597,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	sugilite: {
 		name: "Sugilite",
 		shortDesc: "Dark purple jewelry. Raises the power of Nether skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1629,7 +1608,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	sugilitehairpin: {
 		name: "Sugilite Hairpin",
 		shortDesc: "When held, the power of Nether skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Nether') {
@@ -1640,7 +1618,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	telescope: {
 		name: "Telescope",
 		shortDesc: "Increases the holder's accuracy if it moves after the foe.",
-		category: 'good',
 		onFoeModifyAccuracy(relayVar, defender, pokemon, move) {
 			let boosted = true;
 			for (const target of this.getAllActive()) {
@@ -1657,25 +1634,23 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	tengugeta: {
 		name: "Tengu Geta",
+		rating: 3,
 		shortDesc: "Holder is immune to hazards.",
-		category: 'great',
 		// Implemented in moves.ts
 	},
 	thorncharm: {
 		name: "Thorn Charm",
 		shortDesc: "When held, if attacked by a foe with a FoAtk, the attacker will lose 1/8th of their max HP.",
-		category: 'good',
 		isBerry: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === "Physical") {
-				source.damage(source.baseMaxhp / 8);
+				source.damage(source.baseMaxhp/8);
 			}
 		},
 	},
 	tigereye: {
 		name: "Tiger Eye",
 		shortDesc: "Brown jewelry. Raises the power of Earth skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1687,7 +1662,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	topaz: {
 		name: "Topaz",
 		shortDesc: "Yellow jewelry. Raises the power of Electric skills once.",
-		category: 'good',
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
 			if (target === source || move.category === 'Status') return;
@@ -1699,7 +1673,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	topazhairpin: {
 		name: "Topaz Hairpin",
 		shortDesc: "When held, the power of Electric skills is boosted.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Electric') {
@@ -1710,11 +1683,10 @@ export const Items: {[itemid: string]: ItemData} = {
 	tsuzumidrum: {
 		name: "Tsuzumi Drum",
 		shortDesc: "This puppet's skills have 1.3x power if they lack same-type attacks.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			for (const moveSlot of user.moveSlots) {
-				const moveData = this.dex.moves.get(moveSlot.move);
+				var moveData = this.dex.moves.get(moveSlot.move);
 				if (moveData.category !== 'Status' && user.hasType(moveData.type)) {
 					return;
 				}
@@ -1726,12 +1698,10 @@ export const Items: {[itemid: string]: ItemData} = {
 	twilightgodstone: {
 		name: "Twilight Godstone",
 		shortDesc: "Lengthens duration of the Heavy Fog when used by the holder.",
-		category: 'good',
 	},
 	veecharm: {
 		name: "Vee Charm",
 		shortDesc: "In a pinch, this will raise the Puppet's SpAtk stat.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -1746,7 +1716,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	wedgecharm: {
 		name: "Wedge Charm",
 		shortDesc: "In a pinch, this will raise the Puppet's FoAtk stat.",
-		category: 'good',
 		isBerry: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
@@ -1761,7 +1730,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	wolfsbaneroot: {
 		name: "Wolfsbane Root",
 		shortDesc: "A deadly poisonous root. Puppets holding this will be badly poisoned.",
-		category: 'good',
 		onResidualOrder: 28,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
@@ -1770,44 +1738,611 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	woodensword: { // Useless
 		name: "Wooden Sword",
+		rating: 0,
 		shortDesc: "A wooden sword designed for training. A Puppet holding this will increase the amount of PP it earns from battle.",
-		category: 'bad',
 	},
 	yggdrasilseed: {
 		name: "Yggdrasil Seed",
 		shortDesc: "This Puppet deals and takes 50% more damage while Seiryu is active.",
-		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(relayVar, source, target, move) {
-			if (this.field.isTerrain('seiryu')) { this.chainModify(1.5); }
+			if (this.field.isTerrain('seiryu'))
+				this.chainModify(1.5);
 		},
 		onFoeBasePowerPriority: 15,
 		onFoeBasePower(relayVar, source, target, move) {
-			if (this.field.isTerrain('seiryu')) { this.chainModify(1.5); }
+			if (this.field.isTerrain('seiryu'))
+				this.chainModify(1.5);
 		},
 	},
 	youmascrollblack: {
 		name: "Youma Scroll: Black",
 		shortDesc: "A scroll with a black hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific',
-		// Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	youmascrollblue: {
 		name: "Youma Scroll: Blue",
 		shortDesc: "A scroll with a blue hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific',
-		// Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	youmascrollred: {
 		name: "Youma Scroll: Red",
 		shortDesc: "A scroll with a red hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific',
-		// Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	youmascrollwhite: {
 		name: "Youma Scroll: White",
 		shortDesc: "A scroll with a white hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific',
-		// Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
+
+	//removing every vanilla item
+	abilityshield: null,
+	abomasite: null,
+	absolite: null,
+	absorbbulb: null,
+	adamantcrystal: null,
+	adamantorb: null,
+	adrenalineorb: null,
+	aerodactylite: null,
+	aggronite: null,
+	aguavberry: null,
+	airballoon: null,
+	alakazite: null,
+	aloraichiumz: null,
+	altarianite: null,
+	ampharosite: null,
+	apicotberry: null,
+	armorfossil: null,
+	aspearberry: null,
+	assaultvest: null,
+	audinite: null,
+	auspiciousarmor: null,
+	babiriberry: null,
+	banettite: null,
+	beastball: null,
+	beedrillite: null,
+	belueberry: null,
+	berryjuice: null,
+	berrysweet: null,
+	bignugget: null,
+	bigroot: null,
+	bindingband: null,
+	blackbelt: null,
+	blackglasses: null,
+	blacksludge: null,
+	blastoisinite: null,
+	blazikenite: null,
+	blueorb: null,
+	blukberry: null,
+	blunderpolicy: null,
+	boosterenergy: null,
+	bottlecap: null,
+	brightpowder: null,
+	buggem: null,
+	bugmemory: null,
+	buginiumz: null,
+	burndrive: null,
+	cameruptite: null,
+	cellbattery: null,
+	charcoal: null,
+	charizarditex: null,
+	charizarditey: null,
+	chartiberry: null,
+	cheriberry: null,
+	cherishball: null,
+	chestoberry: null,
+	chilanberry: null,
+	chilldrive: null,
+	chippedpot: null,
+	choiceband: null,
+	choicescarf: null,
+	choicespecs: null,
+	chopleberry: null,
+	clawfossil: null,
+	clearamulet: null,
+	cloversweet: null,
+	cobaberry: null,
+	colburberry: null,
+	cornerstonemask: null,
+	cornnberry: null,
+	coverfossil: null,
+	covertcloak: null,
+	crackedpot: null,
+	custapberry: null,
+	damprock: null,
+	darkgem: null,
+	darkmemory: null,
+	darkiniumz: null,
+	dawnstone: null,
+	decidiumz: null,
+	deepseascale: null,
+	deepseatooth: null,
+	destinyknot: null,
+	diancite: null,
+	diveball: null,
+	domefossil: null,
+	dousedrive: null,
+	dracoplate: null,
+	dragonfang: null,
+	dragongem: null,
+	dragonmemory: null,
+	dragonscale: null,
+	dragoniumz: null,
+	dreadplate: null,
+	dreamball: null,
+	dubiousdisc: null,
+	durinberry: null,
+	duskball: null,
+	duskstone: null,
+	earthplate: null,
+	eeviumz: null,
+	ejectbutton: null,
+	ejectpack: null,
+	electirizer: null,
+	electricgem: null,
+	electricmemory: null,
+	electricseed: null,
+	electriumz: null,
+	enigmaberry: null,
+	eviolite: null,
+	expertbelt: null,
+	fairiumz: null,
+	fairyfeather: null,
+	fairygem: null,
+	fairymemory: null,
+	fastball: null,
+	fightinggem: null,
+	fightingmemory: null,
+	fightiniumz: null,
+	figyberry: null,
+	firegem: null,
+	firememory: null,
+	firestone: null,
+	firiumz: null,
+	fistplate: null,
+	flameorb: null,
+	flameplate: null,
+	floatstone: null,
+	flowersweet: null,
+	flyinggem: null,
+	flyingmemory: null,
+	flyiniumz: null,
+	focusband: null,
+	focussash: null,
+	fossilizedbird: null,
+	fossilizeddino: null,
+	fossilizeddrake: null,
+	fossilizedfish: null,
+	friendball: null,
+	fullincense: null,
+	galaricacuff: null,
+	galaricawreath: null,
+	galladite: null,
+	ganlonberry: null,
+	garchompite: null,
+	gardevoirite: null,
+	gengarite: null,
+	ghostgem: null,
+	ghostmemory: null,
+	ghostiumz: null,
+	glalitite: null,
+	goldbottlecap: null,
+	grassgem: null,
+	grassmemory: null,
+	grassiumz: null,
+	grassyseed: null,
+	greatball: null,
+	grepaberry: null,
+	gripclaw: null,
+	griseouscore: null,
+	griseousorb: null,
+	groundgem: null,
+	groundmemory: null,
+	groundiumz: null,
+	gyaradosite: null,
+	habanberry: null,
+	hardstone: null,
+	healball: null,
+	hearthflamemask: null,
+	heatrock: null,
+	heavyball: null,
+	heavydutyboots: null,
+	helixfossil: null,
+	heracronite: null,
+	hondewberry: null,
+	houndoominite: null,
+	iapapaberry: null,
+	icegem: null,
+	icememory: null,
+	icestone: null,
+	icicleplate: null,
+	iciumz: null,
+	icyrock: null,
+	inciniumz: null,
+	insectplate: null,
+	ironball: null,
+	ironplate: null,
+	jabocaberry: null,
+	jawfossil: null,
+	kasibberry: null,
+	kebiaberry: null,
+	keeberry: null,
+	kelpsyberry: null,
+	kangaskhanite: null,
+	kingsrock: null,
+	kommoniumz: null,
+	laggingtail: null,
+	lansatberry: null,
+	latiasite: null,
+	latiosite: null,
+	laxincense: null,
+	leafstone: null,
+	leek: null,
+	leftovers: null,
+	leppaberry: null,
+	levelball: null,
+	liechiberry: null,
+	lifeorb: null,
+	lightball: null,
+	lightclay: null,
+	loadeddice: null,
+	lopunnite: null,
+	loveball: null,
+	lovesweet: null,
+	lucarionite: null,
+	luckypunch: null,
+	lumberry: null,
+	luminousmoss: null,
+	lunaliumz: null,
+	lureball: null,
+	lustrousglobe: null,
+	lustrousorb: null,
+	luxuryball: null,
+	lycaniumz: null,
+	machobrace: null,
+	magmarizer: null,
+	magnet: null,
+	magoberry: null,
+	magostberry: null,
+	mail: null,
+	maliciousarmor: null,
+	manectite: null,
+	marangaberry: null,
+	marshadiumz: null,
+	masterball: null,
+	masterpieceteacup: null,
+	mawilite: null,
+	meadowplate: null,
+	medichamite: null,
+	mentalherb: null,
+	metagrossite: null,
+	metalcoat: null,
+	metalpowder: null,
+	metronome: null,
+	mewniumz: null,
+	mewtwonitex: null,
+	mewtwonitey: null,
+	micleberry: null,
+	mimikiumz: null,
+	mindplate: null,
+	miracleseed: null,
+	mirrorherb: null,
+	mistyseed: null,
+	moonball: null,
+	moonstone: null,
+	muscleband: null,
+	mysticwater: null,
+	nanabberry: null,
+	nestball: null,
+	netball: null,
+	nevermeltice: null,
+	nomelberry: null,
+	normalgem: null,
+	normaliumz: null,
+	occaberry: null,
+	oddincense: null,
+	oldamber: null,
+	oranberry: null,
+	ovalstone: null,
+	pamtreberry: null,
+	parkball: null,
+	passhoberry: null,
+	payapaberry: null,
+	pechaberry: null,
+	persimberry: null,
+	petayaberry: null,
+	pidgeotite: null,
+	pikaniumz: null,
+	pikashuniumz: null,
+	pinapberry: null,
+	pinsirite: null,
+	pixieplate: null,
+	plumefossil: null,
+	poisonbarb: null,
+	poisongem: null,
+	poisonmemory: null,
+	poisoniumz: null,
+	pokeball: null,
+	pomegberry: null,
+	poweranklet: null,
+	powerband: null,
+	powerbelt: null,
+	powerbracer: null,
+	powerherb: null,
+	powerlens: null,
+	powerweight: null,
+	premierball: null,
+	primariumz: null,
+	prismscale: null,
+	protectivepads: null,
+	protector: null,
+	psychicgem: null,
+	psychicmemory: null,
+	psychicseed: null,
+	psychiumz: null,
+	punchingglove: null,
+	qualotberry: null,
+	quickball: null,
+	quickclaw: null,
+	quickpowder: null,
+	rabutaberry: null,
+	rarebone: null,
+	rawstberry: null,
+	razorclaw: null,
+	razorfang: null,
+	razzberry: null,
+	reapercloth: null,
+	redcard: null,
+	redorb: null,
+	repeatball: null,
+	ribbonsweet: null,
+	rindoberry: null,
+	ringtarget: null,
+	rockgem: null,
+	rockincense: null,
+	rockmemory: null,
+	rockiumz: null,
+	rockyhelmet: null,
+	roomservice: null,
+	rootfossil: null,
+	roseincense: null,
+	roseliberry: null,
+	rowapberry: null,
+	rustedshield: null,
+	rustedsword: null,
+	sablenite: null,
+	sachet: null,
+	safariball: null,
+	safetygoggles: null,
+	sailfossil: null,
+	salacberry: null,
+	salamencite: null,
+	sceptilite: null,
+	scizorite: null,
+	scopelens: null,
+	seaincense: null,
+	sharpbeak: null,
+	sharpedonite: null,
+	shedshell: null,
+	shellbell: null,
+	shinystone: null,
+	shockdrive: null,
+	shucaberry: null,
+	silkscarf: null,
+	silverpowder: null,
+	sitrusberry: null,
+	skullfossil: null,
+	skyplate: null,
+	slowbronite: null,
+	smoothrock: null,
+	snorliumz: null,
+	snowball: null,
+	softsand: null,
+	solganiumz: null,
+	souldew: null,
+	spelltag: null,
+	spelonberry: null,
+	splashplate: null,
+	spookyplate: null,
+	sportball: null,
+	starfberry: null,
+	starsweet: null,
+	steelixite: null,
+	steelgem: null,
+	steelmemory: null,
+	steeliumz: null,
+	stick: null,
+	stickybarb: null,
+	stoneplate: null,
+	strangeball: null,
+	strawberrysweet: null,
+	sunstone: null,
+	swampertite: null,
+	sweetapple: null,
+	syrupyapple: null,
+	tamatoberry: null,
+	tangaberry: null,
+	tapuniumz: null,
+	tartapple: null,
+	terrainextender: null,
+	thickclub: null,
+	throatspray: null,
+	thunderstone: null,
+	timerball: null,
+	toxicorb: null,
+	toxicplate: null,
+	tr00: null,
+	tr01: null,
+	tr02: null,
+	tr03: null,
+	tr04: null,
+	tr05: null,
+	tr06: null,
+	tr07: null,
+	tr08: null,
+	tr09: null,
+	tr10: null,
+	tr11: null,
+	tr12: null,
+	tr13: null,
+	tr14: null,
+	tr15: null,
+	tr16: null,
+	tr17: null,
+	tr18: null,
+	tr19: null,
+	tr20: null,
+	tr21: null,
+	tr22: null,
+	tr23: null,
+	tr24: null,
+	tr25: null,
+	tr26: null,
+	tr27: null,
+	tr28: null,
+	tr29: null,
+	tr30: null,
+	tr31: null,
+	tr32: null,
+	tr33: null,
+	tr34: null,
+	tr35: null,
+	tr36: null,
+	tr37: null,
+	tr38: null,
+	tr39: null,
+	tr40: null,
+	tr41: null,
+	tr42: null,
+	tr43: null,
+	tr44: null,
+	tr45: null,
+	tr46: null,
+	tr47: null,
+	tr48: null,
+	tr49: null,
+	tr50: null,
+	tr51: null,
+	tr52: null,
+	tr53: null,
+	tr54: null,
+	tr55: null,
+	tr56: null,
+	tr57: null,
+	tr58: null,
+	tr59: null,
+	tr60: null,
+	tr61: null,
+	tr62: null,
+	tr63: null,
+	tr64: null,
+	tr65: null,
+	tr66: null,
+	tr67: null,
+	tr68: null,
+	tr69: null,
+	tr70: null,
+	tr71: null,
+	tr72: null,
+	tr73: null,
+	tr74: null,
+	tr75: null,
+	tr76: null,
+	tr77: null,
+	tr78: null,
+	tr79: null,
+	tr80: null,
+	tr81: null,
+	tr82: null,
+	tr83: null,
+	tr84: null,
+	tr85: null,
+	tr86: null,
+	tr87: null,
+	tr88: null,
+	tr89: null,
+	tr90: null,
+	tr91: null,
+	tr92: null,
+	tr93: null,
+	tr94: null,
+	tr95: null,
+	tr96: null,
+	tr97: null,
+	tr98: null,
+	tr99: null,
+	twistedspoon: null,
+	tyranitarite: null,
+	ultraball: null,
+	ultranecroziumz: null,
+	unremarkableteacup: null,
+	upgrade: null,
+	utilityumbrella: null,
+	venusaurite: null,
+	wacanberry: null,
+	watergem: null,
+	watermemory: null,
+	waterstone: null,
+	wateriumz: null,
+	watmelberry: null,
+	waveincense: null,
+	weaknesspolicy: null,
+	wellspringmask: null,
+	wepearberry: null,
+	whippeddream: null,
+	whiteherb: null,
+	widelens: null,
+	wikiberry: null,
+	wiseglasses: null,
+	yacheberry: null,
+	zapplate: null,
+	zoomlens: null,
+	berserkgene: null,
+	berry: null,
+	bitterberry: null,
+	burntberry: null,
+	goldberry: null,
+	iceberry: null,
+	mintberry: null,
+	miracleberry: null,
+	mysteryberry: null,
+	pinkbow: null,
+	polkadotbow: null,
+	przcureberry: null,
+	psncureberry: null,
+	crucibellite: null,
+	vilevial: null,
 };

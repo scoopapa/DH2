@@ -217,10 +217,9 @@ export class Battle {
 		this.formatData = {id: format.id};
 		this.gameType = (format.gameType || 'singles');
 		this.field = new Field(this);
-		const isFourPlayer = this.gameType === 'multi' || this.gameType === 'freeforall';
-		this.sides = Array(isFourPlayer ? 4 : 2).fill(null) as any;
+		this.sides = Array(format.playerCount).fill(null) as any;
 		this.activePerHalf = this.gameType === 'triples' ? 3 :
-			(isFourPlayer || this.gameType === 'doubles') ? 2 :
+			(format.playerCount > 2 || this.gameType === 'doubles') ? 2 :
 			1;
 		this.prng = options.prng || new PRNG(options.seed || undefined);
 		this.prngSeed = this.prng.startingSeed.slice() as PRNGSeed;
@@ -779,9 +778,9 @@ export class Battle {
 				// it's changed; call it off
 				continue;
 			}
-			if (effect.effectType === 'Ability' && effect.isBreakable !== false &&
+			if (effect.effectType === 'Ability' && effect.flags['breakable'] &&
 				this.suppressingAbility(effectHolder as Pokemon)) {
-				if (effect.isBreakable) {
+				if (effect.flags['breakable']) {
 					this.debug(eventid + ' handler suppressed by Mold Breaker');
 					continue;
 				}
@@ -2992,6 +2991,53 @@ export class Battle {
 
 		team = this.teamGenerator.getTeam(options);
 		return team as PokemonSet[];
+	}
+
+	showOpenTeamSheets(hideFromSpectators = false) {
+		if (this.turn !== 0) return;
+		for (const side of this.sides) {
+			const team = side.pokemon.map(pokemon => {
+				const set = pokemon.set;
+				const newSet: PokemonSet = {
+					name: '',
+					species: set.species,
+					item: set.item,
+					ability: set.ability,
+					moves: set.moves,
+					nature: '',
+					gender: pokemon.gender,
+					evs: null!,
+					ivs: null!,
+					level: set.level,
+				};
+				if (this.gen === 8) newSet.gigantamax = set.gigantamax;
+				if (this.gen === 9) newSet.teraType = set.teraType;
+				// Only display Hidden Power type if the Pokemon has Hidden Power
+				// This is based on how team sheets were written in past VGC formats
+				if (set.moves.some(m => this.dex.moves.get(m).id === 'hiddenpower')) newSet.hpType = set.hpType;
+				// This is done so the client doesn't flag Zacian/Zamazenta as illusions
+				// when they use their signature move
+				if ((toID(set.species) === 'zacian' && toID(set.item) === 'rustedsword') ||
+					(toID(set.species) === 'zamazenta' && toID(set.item) === 'rustedshield')) {
+					newSet.species = Dex.species.get(set.species + 'crowned').name;
+					const crowned: {[k: string]: string} = {
+						'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
+					};
+					const ironHead = set.moves.map(toID).indexOf('ironhead' as ID);
+					if (ironHead >= 0) {
+						newSet.moves[ironHead] = crowned[newSet.species];
+					}
+				}
+				return newSet;
+			});
+			if (hideFromSpectators) {
+				for (const s of this.sides) {
+					this.addSplit(s.id, ['showteam', side.id, Teams.pack(team)]);
+				}
+			} else {
+				this.add('showteam', side.id, Teams.pack(team));
+			}
+		}
 	}
 
 	setPlayer(slot: SideID, options: PlayerOptions) {

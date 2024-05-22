@@ -388,6 +388,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
+	gorillaimo: {
+		tier: "New",
+		gen: 1,
+	},
 	///d8888b. d88888b  d888b  d888888b  .d88b.  d8b   db  .d8b.  db        db    db  .d8b.  d8888b. d888888b  .d8b.  d8b   db d888888b .d8888. 
 	///88  `8D 88'     88' Y8b   `88'   .8P  Y8. 888o  88 d8' `8b 88        88    88 d8' `8b 88  `8D   `88'   d8' `8b 888o  88 `~~88~~' 88'  YP 
 	///88oobY' 88ooooo 88         88    88    88 88V8o 88 88ooo88 88        Y8    8P 88ooo88 88oobY'    88    88ooo88 88V8o 88    88    `8bo.   
@@ -415,7 +419,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	vulpixalola: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	ninetalesalola: {
@@ -431,11 +435,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	meowthalola: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	meowthgalar: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	persianalola: {
@@ -443,7 +447,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	growlithehisui: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	arcaninehisui: {
@@ -463,7 +467,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	ponytagalar: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	rapidashgalar: {
@@ -483,7 +487,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	grimeralola: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	mukalola: {
@@ -735,7 +739,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vulpix: {
 		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],
 		exclusiveMoves: ["flamethrower", "reflect", "substitute"],
-		tier: "LC",
+		tier: "NFE",
 	},
 	ninetales: {
 		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],

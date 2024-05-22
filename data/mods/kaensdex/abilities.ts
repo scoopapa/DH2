@@ -211,7 +211,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Royal Honey",
 		desc: "Halves the damage from moves super effective on Bug-Type. Heals 1/16 HP each turn.",
 		rating: 3.5,
@@ -268,7 +268,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pokemon.species.id !== 'surivexevirus') pokemon.formeChange('SurivExe-Virus');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Malware",
 		desc: "If SurivExe, at end of turn changes Mode to Virus if < 1/2 max HP.",
 		rating: 0,
@@ -816,7 +816,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Earth Eater",
 		desc: "This Pokemon heals 1/4 of its max HP when hit by Ground moves; Ground immunity.",
 		rating: 3.5,
@@ -859,7 +859,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Well-Baked Body",
 		desc: "This Pokemon's Defense is raised 2 stages if hit by a Fire move; Fire immunity.",
 		rating: 3.5,

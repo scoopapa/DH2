@@ -128,4 +128,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 3,
 	},
+	//April Fools
+	scald: {
+		inherit: true,
+		gen: 3,
+	},
+	banefulbunker: {
+		inherit: true,
+		gen: 3,
+	},
+	toxicspikes: {
+		inherit: true,
+		gen: 3,
+	},
+	gunkshot: {
+		inherit: true,
+		gen: 3,
+	},
 };

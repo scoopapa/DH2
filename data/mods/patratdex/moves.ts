@@ -4,6 +4,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 20,
 		category: "Physical",
+		shortDesc: "Hits 3-6 times in one turn.",
 		name: "Buckshot",
 		pp: 10,
 		priority: 0,
@@ -25,6 +26,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 120,
 		category: "Special",
+		shortDesc: "Cannot be selected until the user eats a Berry.",
 		name: "Citrus Blast",
 		pp: 10,
 		priority: 0,
@@ -50,6 +52,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Raises the user's Special Attack by 2 and Speed by 1.",
 		name: "Hero Signal",
 		pp: 10,
 		priority: 0,
@@ -66,7 +69,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Electric",
 		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Clever",
+		contestType: "Cool",
 	},
 
 	landsweep: {
@@ -74,6 +77,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
+		shortDesc: "Clears terrain and hazards on both sides.",
 		name: "Land Sweep",
 		pp: 5,
 		priority: 0,
@@ -111,7 +115,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		zMove: {boost: {accuracy: 1}},
-		contestType: "Cool",
+		contestType: "Tough",
 	},
 
 	magmamash: {
@@ -119,6 +123,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
 		name: "Magma Mash",
 		pp: 10,
 		priority: 0,
@@ -135,7 +140,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fire",
-		contestType: "Cute",
+		contestType: "Tough",
 	},
 
 	naturesbounty: {
@@ -143,6 +148,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
+		shortDesc: "Sets Grassy Terrain.",
 		name: "Nature's Bounty",
 		pp: 5,
 		priority: 0,
@@ -207,6 +213,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 20,
 		category: "Special",
+		shortDesc: "Hits 3 times. Does not check accuracy.",
 		name: "Tri-Wave Beam",
 		pp: 20,
 		priority: 0,
@@ -220,7 +227,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		maxMove: {basePower: 130},
-		contestType: "Tough",
+		contestType: "Cool",
 	},
 
 	wheatshield: {
@@ -228,6 +235,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Protects from damaging attacks. Contact: -1 Spe.",
 		name: "Wheat Shield",
 		pp: 10,
 		priority: 4,
@@ -282,6 +290,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Cool",
+		contestType: "Clever",
 	},
 };

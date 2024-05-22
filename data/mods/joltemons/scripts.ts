@@ -16,37 +16,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	pokemon: {
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
-			if (!(type in this.battle.dex.data.TypeChart)) {
-				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+			if (!this.battle.dex.types.isName(type)) {
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;
-
-			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
-			let isGrounded;
-			if (type === 'Ground') {
-				isGrounded = this.isGrounded(!negateResult);
-				if (isGrounded === null) {
-					if (message) {
-						if (this.hasAbility('powerofalchemyweezing')) {
-							this.battle.add('-immune', this, '[from] ability: Power of Alchemy (Weezing)');
-						} else if (this.hasAbility('powerofalchemymismagius')) {
-							this.battle.add('-immune', this, '[from] ability: Power of Alchemy (Mismagius)');
-						} else {
-							this.battle.add('-immune', this, '[from] ability: Levitate');
-						}
-					}
-					return false;
-				}
-			}
-			if (!negateResult) return true;
-			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
-				if (message) {
+	
+			const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
+			const notImmune = type === 'Ground' ?
+				this.isGrounded(negateImmunity) :
+				(negateImmunity || this.battle.dex.getImmunity(type, this));
+			if (notImmune) return true;
+			if (message) {
+				if (notImmune === null) {
+					this.battle.add('-immune', this, '[from] ability: ' + this.getAbility().name);
+				} else {
 					this.battle.add('-immune', this);
 				}
-				return false;
 			}
-			return true;
+			return false;
 		},
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;

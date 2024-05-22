@@ -371,6 +371,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	gulpmissile: {
 		inherit: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		rating: 2.5,
 	},
 	guts: {
@@ -440,6 +441,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	illuminate: {
 		inherit: true,
+		onTryBoost() {},
+		onModifyMove() {},
+		flags: {},
 		rating: 0,
 	},
 	illusion: {
@@ -1160,6 +1164,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	wonderguard: {
 		inherit: true,
+		flags: {failroleplay: 1, noreceiver: 1, failskillswap: 1, breakable: 1},
 		rating: 5,
 	},
 	wonderskin: {
