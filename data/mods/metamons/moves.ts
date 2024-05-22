@@ -467,13 +467,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.species.name === 'Tauros-Paldea-Blaze') {
 				move.volatileStatus = 'partiallytrapped';
 			}
-		},
-		onHit(target, source, move) {
-			const foe = source.side.foe;
 			if (source.species.id === 'Tauros-Paldea-Aqua') {
 				move.secondaries.push({
 					chance: 40,
-					foe.addSideCondition('swamp'),
+					sideCondition: 'swamp',
             });
 			}
 	   },
