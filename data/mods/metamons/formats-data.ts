@@ -308,4 +308,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	beartic: {
 		tier: "MetaMons",
 	},
+	taurospaldeacombat: {
+		tier: "MetaMons",
+	},
+	taurospaldeablaze: {
+		tier: "MetaMons",
+	},
+	taurospaldeaaqua: {
+		tier: "MetaMons",
+	},
+	appletun: {
+		tier: "MetaMons",
+	},
+	raticatealola: {
+		tier: "MetaMons",
+	},
 };
