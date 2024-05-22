@@ -1411,7 +1411,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 842,
 		name: "Appletun",
 		types: ["Poison", "Dragon"],
-		baseStats: {hp: 110, atk: 85, def: 80, spa: 100, spd: 80, spe: 30},
+		baseStats: {hp: 110, atk: 85, def: 80, spa: 110, spd: 120, spe: 30},
 		abilities: {0: "Liquid Ooze", 1: "Gluttony", H: "Unaware"},
 		heightm: 0.4,
 		weightkg: 13,
