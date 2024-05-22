@@ -2686,24 +2686,6 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 	},
 	{
-		name: "[Gen 9] UUbers",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710870/">Ubers Metagame Discussion</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3712978/">Ubers Viability Rankings</a>`,
-		],
-
-		mod: 'gen9uubers',
-		ruleset: ['Standard'],
-		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass',
-				//Ubers above 4.52% Usage
-				/*'Miraidon', 'Koraidon', 'Ting-Lu', 'Zacian-Crowned', 'Flutter Mane', 'Kyogre', 'Arceus-Base', 'Skeledirge', 'Groudon', 'Arceus-Ground', 
-				'Ogerpon-Hearthflame', 'Baxcalibur', 'Giratina-Origin', 'Rayquaza', 'Iron Bundle', 'Eternatus', 'Annihilape', 'Chien-Pao', 'Great Tusk', 
-				'Ribombee', 'Calyrex-Ice', 'Regieleki', 'Kingambit', 'Clodsire', 'Arceus-Fairy', 'Landorus-Therian', 'Basculegion-Base', 'Corviknight', 
-				'Mewtwo', 'Glimmora', 'Toxapex', 'Iron Treads', 'Arceus-Ghost', 'Ditto', 'Arceus-Steel', 'Arceus-Water', 'Arceus-Flying', 'Arceus-Electric',*/
-		],
-		teambuilderFormat: 'Uber',
-	},
-	{
 		name: "[Gen 8] VGC by RNG",
 		desc: `VGC by RNG, a solomod inspired by the Gen 8 mod Random Dex, where the dex of legal Pokemon is decided randomly.`,
 		gameType: 'doubles',
