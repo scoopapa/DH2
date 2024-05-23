@@ -195,12 +195,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	dragonhunt: {
 		num: -1007,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			// You can't get here unless the pursuit succeeds
 			if (target.beingCalledBack || target.switchFlag) {
 				this.debug('Dragon Hunt damage boost');
-				return move.basePower * 1.5;
+				return move.basePower * 2;
 			}
 			return move.basePower;
 		},
