@@ -102,7 +102,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
-		volatileStatus: 'disable',
+		sideCondition: 'disable',
 		onTryHit(target) {
 			// This function should not return if the checks are met. Adding && undefined ensures this happens.
 			return target.moveSlots.some(ms => ms.pp > 0) &&
@@ -116,24 +116,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-start', pokemon, 'Disable', moveSlot.move);
 				this.effectState.move = moveSlot.id;
 				// 1-8 turns (which will in effect translate to 0-7 missed turns for the target)
-				this.effectState.time = this.random(1, 9);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Disable');
-			},
-			onBeforeMovePriority: 6,
-			onBeforeMove(pokemon, target, move) {
-				pokemon.volatiles['disable'].time--;
-				if (!pokemon.volatiles['disable'].time) {
-					pokemon.removeVolatile('disable');
-					return;
-				}
-				if (pokemon.volatiles['bide']) move = this.dex.getActiveMove('bide');
-				if (move.id === this.effectState.move) {
-					this.add('cant', pokemon, 'Disable', move);
-					pokemon.removeVolatile('twoturnmove');
-					return false;
-				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -322,33 +307,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.actions.useMove(foe.side.lastMove.id, pokemon);
 		},
 	},
-	petaldance: {
-		type: "Grass",
-		basePower: 30,
-		accuracy: 85,
-		category: "Special",
-		name: "Petal Dance",
-		pp: 5,
-		ignoreImmunity: true,
-		volatileStatus: 'partiallytrapped',
-		self: {
-			volatileStatus: 'partialtrappinglock',
-		},
-		// FIXME: onBeforeMove(pokemon, target) {target.removeVolatile('mustrecharge')}
-		onHit(target, source) {
-			/**
-			 * The duration of the partially trapped must be always renewed to 2
-			 * so target doesn't move on trapper switch out as happens in gen 1.
-			 * However, this won't happen if there's no switch and the trapper is
-			 * about to end its partial trapping.
-			 **/
-			if (target.volatiles['partiallytrapped']) {
-				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
-					target.volatiles['partiallytrapped'].duration = 2;
-				}
-			}
-		},
-	},
 	poisonsting: {
 		inherit: true,
 		basePower: 95,
@@ -429,6 +387,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 100,
 		type: "Ghost",
+		onHit() {},
+		secondary: null,
   },
 	twineedle: {
 		inherit: true,
