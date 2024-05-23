@@ -610,7 +610,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gholdengo: {tier: "Paldea", doublesTier: "Paldea"},
 
 	wochien: {tier: "Paldea", doublesTier: "Paldea"},
-	chienpao: {tier: "Paldea", doublesTier: "Paldea"},
+	chienpao: {tier: "Uber", doublesTier: "Paldea"},
 	tinglu: {tier: "Paldea", doublesTier: "Paldea"},
 	chiyu: {tier: "Uber", doublesTier: "Paldea"},
 
