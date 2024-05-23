@@ -66,9 +66,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			source.setType(target.getTypes(true));
 			source.baseTypes = target.getTypes(true);
-			/**source.apparentType = target.types.join('/');
+			source.apparentType = target.types.join('/');
 			source.addedType = target.addedType || '';
-			source.knownType = true;**/
+			source.knownType = true;
 			this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
 			this.heal(Math.floor(source.maxhp / 2), source, source);
 		},
