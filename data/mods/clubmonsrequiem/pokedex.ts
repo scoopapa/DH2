@@ -61,6 +61,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoCondition: "in Ultra Space",
 		creator: "inkbug",
 	},
+	lapras: {
+		num: 131,
+		name: "Lapras",
+		types: ["Water", "Ice"],
+		baseStats: {hp: 130, atk: 85, def: 80, spa: 85, spd: 95, spe: 60},
+		abilities: {0: "Lightning Rod", 1: "Shell Armor", H: "Hydration"},
+		heightm: 2.5,
+		weightkg: 220,
+		color: "Blue",
+		eggGroups: ["Monster", "Water 1"],
+		canGigantamax: "G-Max Resonance",
+	},
 	snover: {
 		inherit: true,
 		evos: ["Abomasnow", "Skiversnow"],
