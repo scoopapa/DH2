@@ -5,14 +5,17 @@ export const Items: { [itemid: string]: ItemData } = {
 		desc: "If held by Pthormign: recoil is negated.",
 		itemUser: ["Pthormign"],
 		onTakeItem(item, pokemon, source) {
-			if (source && source.baseSpecies.baseSpecies === "Pthormigan") {
+			//dont let it get knocked off
+			/*if (source && source.baseSpecies.baseSpecies === "Pthormign") {
 				return false;
-			}
+			}*/
 			return true;
 		},
-		onModifyMovePriority: 10,
-		onModifyMove(move) {
-			move.recoil = [0, 1000];
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
 		},
 	},
 	fawntifite: {
