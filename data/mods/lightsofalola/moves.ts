@@ -778,7 +778,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.baseSpecies.forme === 'La Reine') {
 				target.addVolatile('powder');
 			} else if (source.baseSpecies.forme === 'Kabuki') {
-				this.damage(target.maxhp / 16, source, source, move);
+				this.damage(target.maxhp / 16, target, source, move);
 			} else if (source.baseSpecies.forme === 'Pharaoh' && target.status === 'slp') {
 				target.addVolatile('nightmare');
 			} else {
