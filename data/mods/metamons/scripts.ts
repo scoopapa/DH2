@@ -675,6 +675,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'taurospaldeacombat').learnset.bodypress;
 		delete this.modData('Learnsets', 'taurospaldeacombat').learnset.surf;
 		delete this.modData('Learnsets', 'taurospaldeacombat').learnset.trailblaze;
+		delete this.modData('Learnsets', 'taurospaldeacombat').learnset.ragingbull;
 
       delete this.modData('Learnsets', 'taurospaldeablaze').learnset.bodypress;
 		delete this.modData('Learnsets', 'taurospaldeablaze').learnset.closecombat;
@@ -685,6 +686,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'taurospaldeablaze').learnset.doublekick;
 		delete this.modData('Learnsets', 'taurospaldeablaze').learnset.earthquake;
 		delete this.modData('Learnsets', 'taurospaldeablaze').learnset.raindance;
+		delete this.modData('Learnsets', 'taurospaldeablaze').learnset.ragingbull;
 
 		delete this.modData('Learnsets', 'taurospaldeaaqua').learnset.closecombat;
 		delete this.modData('Learnsets', 'taurospaldeaaqua').learnset.earthquake;
@@ -698,6 +700,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'taurospaldeaaqua').learnset.lashout;
 		delete this.modData('Learnsets', 'taurospaldeaaqua').learnset.workup;
 		delete this.modData('Learnsets', 'taurospaldeaaqua').learnset.smartstrike;
+		delete this.modData('Learnsets', 'taurospaldeaaqua').learnset.ragingbull;
 
 		delete this.modData('Learnsets', 'appletun').learnset.grassyglide;
 		delete this.modData('Learnsets', 'appletun').learnset.irondefense;
