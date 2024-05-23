@@ -2077,7 +2077,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-
 	},
 	{
 		name: "[Gen 9] Conquest Dex",
