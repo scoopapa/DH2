@@ -451,65 +451,79 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		contestType: "Clever",
 	},
-	ragingbull: {
+	ragingbullcombat: {
 		num: 873,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		name: "Raging Bull",
+		name: "Raging Bull-Combat",
+		shortDesc: "Damage calculated using the foe's Sp. Def.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-      onModifyMove(move, pokemon) {
-         if (pokemon.species.name === 'Tauros-Paldea-Combat') {
-				move.overrideOffensiveStat;
-			}
-			if (pokemon.species.name === 'Tauros-Paldea-Blaze') {
-				move.volatileStatus = 'partiallytrapped';
-			}
-			if (pokemon.species.name !== 'Tauros-Paldea-Aqua') return;
-			move.secondaries = [];
-			if (pokemon.species.name === 'Tauros-Paldea-Aqua') {
-			   move.secondaries.push({
-				   chance: 40,
-			   	sideCondition: 'swamp',
-            });
-			}
-	   },
-		condition: {
-			duration: 4,
-			onSideStart(targetSide) {
-				this.add('-sidestart', targetSide, 'Swamp');
-				this.add('-message', "A swamp emerged from the ground!");
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 9,
-			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'Swamp');
-			},
-			onModifySpe(spe, pokemon) {
-				return this.chainModify(0.25);
-			},
-		},
-		onModifyType(move, pokemon) {
-			switch (pokemon.species.name) {
-			case 'Tauros-Paldea-Combat':
-				move.type = 'Fighting';
-				break;
-			case 'Tauros-Paldea-Blaze':
-				move.type = 'Fire';
-				break;
-			case 'Tauros-Paldea-Aqua':
-				move.type = 'Water';
-				break;
-			}
-		},
+		overrideOffensivePokemon: 'target',
+		overrideOffensiveStat: 'spd',
 	 	onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Outrage", target);
 		},
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Fighting",
+	},
+	ragingbullblaze: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull-Blaze",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+	 	onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Flare Blitz", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	ragingbullaqua: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull-Aqua",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+	 	onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Wave Crash", target);
+		},
+		secondary: {
+			chance: 40,
+			sideCondition: 'swamp',
+		},
+		condition: {
+			duration: 4,
+			onSideStart(targetSide) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+				this.add('-message', `A swamp emerged from the ground!`);
+			},
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(0.25);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 9,
+			onSideEnd(targetSide) {
+				this.add('-sideend', targetSide, 'Swamp');
+			},
+		},
+		target: "normal",
+		type: "Water",
 	},
 };
