@@ -38,7 +38,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	blazingglory: {
 		onAfterMove(target, source, move) {
 			if (target !== source && move.category !== 'Status' && move.totalDamage) {
-				this.damage(source.baseMaxhp / 8, source, target);
+				this.damage(source.baseMaxhp / 16, source, target);
 			}
 		},
 		name: "Blazing Glory",
@@ -51,7 +51,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if ((!stealthRocks)) {
 				this.add('-activate', target, 'ability: Brittle Crystals');
 				side.addSideCondition('stealthrock', target);
-				target.damage(target.baseMaxhp / 8, source);
+				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
 		flags: { breakable: 1 },
@@ -218,7 +218,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['wind']) {
 				this.boost({ spe: 2 }, target, target);
-				this.add('-ability', target, 'ability: Wind Eater');
 			}
 		},
 		flags: { breakable: 1 },
@@ -239,5 +238,72 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Wrecking Ball",
 		shortDesc: "User's moves break through protect and also break screens.",
 
-	}
+	},
+	mountaineer: {
+		inherit: true,
+		isNonstandard: null,
+		shortDesc: "User is immune to Rock-type damage on switch-in."
+	},
+	ouroboros: {
+		onStart(pokemon) {
+			pokemon.addVolatile('ouroboros');
+			this.add('-message', `${pokemon.name} is circling!`);
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectState.lastMove = '';
+				this.effectState.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				this.effectState.hasChoked = false;
+				if (!pokemon.hasAbility('ouroboros')) {
+					pokemon.removeVolatile('ouroboros');
+					return;
+				}
+				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectState.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove']) {
+					if (this.effectState.lastMove !== move.id) {
+						this.effectState.numConsecutive = 1;
+					} else {
+						this.effectState.numConsecutive++;
+					}
+				} else if (this.effectState.lastMove === '') {
+						// on first turn out, do nothing
+				} else {
+					if (move.name != "Devour") {
+						this.effectState.numConsecutive = 0;
+						this.add('-message', `${pokemon.name} choked!`);
+						this.effectState.hasChoked = true;
+						this.damage(target.baseMaxhp / 10, pokemon, pokemon);
+					} else this.debug(`Devour cancelled choke`);
+				}
+				this.effectState.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				if (this.effectState.hasChoked) return this.chainModify([3, 4]);
+
+				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				this.debug(`Current ouroboros boost: ${dmgMod[numConsecutive]}/4096`);
+				return this.chainModify([dmgMod[numConsecutive], 4096]);
+			},
+		},
+		name: "Ouroboros",
+		shortDesc: "Metronome (item). When broken, take damage."
+	},
+	ragnarok: {
+		onResidual(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hp * 2 <= target.baseMaxhp) {
+					//do nothing
+				} else {
+					this.damage(target.baseMaxhp / 8, target, target);
+				}
+			}
+		},
+		name: "Ragnarok",
+		shortDesc: "Damages all active Pokemon above 50% take 12.5%/turn.",
+	},
 };
