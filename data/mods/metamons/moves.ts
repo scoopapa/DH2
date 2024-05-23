@@ -504,24 +504,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Wave Crash", target);
 		},
-/*		secondary: {
-			chance: 40,
-			sideCondition: 'swamp',
-		}, */
-		sideCondition: 'swamp',
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('swamp');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('swamp');
+				}
+			}
+		},
 		condition: {
 			duration: 4,
 			onSideStart(targetSide) {
-				this.add('-sidestart', side, 'move: Swamp');
-				this.add('-message', `A swamp emerged from the ground!`);
-			},
-			onModifySpe(spe, pokemon) {
-				return this.chainModify(0.25);
+				this.add('-sidestart', targetSide, 'Raging Bull-Aqua');
+				this.add('-message', "A swamp emerged from the ground!");
 			},
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 9,
 			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'Swamp');
+				this.add('-sideend', targetSide, 'Raging Bull-Aqua');
+			},
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(0.25);
 			},
 		},
 		target: "normal",
