@@ -1,5 +1,6 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	lytlegai: {
+		num: -1000,
 		name: "Lytlegai",
 		types: ["Steel", "Fairy"],
 		baseStats: { hp: 60, atk: 115, def: 75, spa: 60, spd: 85, spe: 85 },
@@ -7,6 +8,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 30,
 	},
 	calderlauga: {
+		num: -1001,
 		name: "Calderlauga",
 		types: ["Fire", "Bug"],
 		baseStats: { hp: 100, atk: 45, def: 95, spa: 80, spd: 115, spe: 50 },
@@ -14,6 +16,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 150,
 	},
 	furumo: {
+		num: -1002,
 		name: "Furumo",
 		types: ["Water", "Ice"],
 		baseStats: { hp: 85, atk: 105, def: 60, spa: 109, spd: 60, spe: 111 },
@@ -21,6 +24,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 36,
 	},
 	snipythic: {
+		num: -1003,
 		name: "Snipythic",
 		types: ["Ghost", "Flying"],
 		baseStats: { hp: 100, atk: 160, def: 90, spa: 105, spd: 90, spe: 180 },
@@ -28,6 +32,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 40,
 	},
 	hulvine: {
+		num: -1004,
 		name: "Hulvine",
 		types: ["Ghost", "Fire"],
 		baseStats: { hp: 105, atk: 60, def: 80, spa: 105, spd: 65, spe: 30 },
@@ -35,6 +40,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 12.2,
 	},
 	ballaboar: {
+		num: -1005,
 		name: "Ballaboar",
 		types: ["Normal", "Fairy"],
 		baseStats: { hp: 105, atk: 50, def: 80, spa: 115, spd: 80, spe: 80 },
@@ -42,6 +48,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 124.8,
 	},
 	naglrir: {
+		num: -1006,
 		name: "Naglrir",
 		types: ["Water", "Dark"],
 		baseStats: { hp: 142, atk: 89, def: 94, spa: 45, spd: 94, spe: 36 },
@@ -50,6 +57,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		otherFormes: ["Naglrir-Mega"],
 	},
 	naglrirmega: {
+		num: -1006,
 		name: "Naglrir-Mega",
 		baseSpecies: "Naglrir",
 		forme: "Mega",
@@ -60,6 +68,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Naglrite",
 	},
 	pacrabsite: {
+		num: -1007,
 		name: "Pacrabsite",
 		types: ["Psychic", "Water"],
 		baseStats: { hp: 90, atk: 40, def: 90, spa: 90, spd: 110, spe: 40 },
@@ -67,6 +76,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 12.5,
 	},
 	muerekrot: {
+		num: -1008,
 		name: "Muerekrot",
 		types: ["Ghost", "Normal"],
 		baseStats: { hp: 89, atk: 115, def: 87, spa: 71, spd: 87, spe: 101 },
@@ -74,6 +84,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 87.1,
 	},
 	lumigald: {
+		num: -1009,
 		name: "Lumigald",
 		types: ["Ice", "Rock"],
 		baseStats: { hp: 80, atk: 110, def: 85, spa: 60, spd: 60, spe: 115 },
@@ -81,6 +92,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 74,
 	},
 	hafgvindr: {
+		num: -1010,
 		name: "Hafgvindr",
 		types: ["Water"],
 		baseStats: { hp: 165, atk: 98, def: 85, spa: 60, spd: 79, spe: 38 },
@@ -88,6 +100,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 999.9,
 	},
 	balirachnid: {
+		num: -1011,
 		name: "Balirachnid",
 		types: ["Bug", "Steel"],
 		baseStats: { hp: 70, atk: 85, def: 94, spa: 120, spd: 66, spe: 45 },
@@ -95,6 +108,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 36,
 	},
 	kuongakrabbi: {
+		num: -1012,
 		name: "Kuongakrabbi",
 		types: ["Water", "Rock"],
 		baseStats: { hp: 70, atk: 125, def: 115, spa: 75, spd: 70, spe: 30 },
@@ -102,13 +116,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 70,
 	},
 	wyrmdelse: {
+		num: -1013,
 		name: "Wyrmdelse",
 		types: ["Dragon", "Poison"],
 		baseStats: { hp: 80, atk: 115, def: 100, spa: 95, spd: 75, spe: 85 },
-		abilities: { 0: "Ouroboros" },
+		abilities: { 0: "Ouroboros", H: "Run Away"},
 		weightkg: 829,
 	},
 	drakkrab: {
+		num: -1014,
 		name: "Drakkrab",
 		types: ["Rock", "Fighting"],
 		baseStats: { hp: 55, atk: 109, def: 132, spa: 34, spd: 91, spe: 84 },
@@ -116,6 +132,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 20,
 	},
 	skdaver: {
+		num: -1015,
 		name: "Skdaver",
 		types: ["Electric", "Ghost"],
 		baseStats: { hp: 70, atk: 40, def: 50, spa: 99, spd: 85, spe: 91 },
@@ -123,6 +140,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 4.8,
 	},
 	solfreyr: {
+		num: -1016,
 		name: "Solfreyr",
 		types: ["Grass", "Psychic"],
 		baseStats: { hp: 110, atk: 40, def: 65, spa: 130, spd: 80, spe: 40 },
@@ -131,6 +149,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Sunflora",
 	},
 	noirpeck: {
+		num: -1017,
 		name: "Noirpeck",
 		types: ["Flying", "Psychic"],
 		baseStats: { hp: 60, atk: 95, def: 75, spa: 41, spd: 111, spe: 101 },
@@ -138,6 +157,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 27,
 	},
 	miauskog: {
+		num: -1018,
 		name: "Miauskog",
 		types: ["Fairy", "Fire"],
 		baseStats: { hp: 110, atk: 48, def: 104, spa: 91, spd: 115, spe: 32 },
@@ -145,6 +165,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 8.1,
 	},
 	beartunnd: {
+		num: -1019,
 		name: "Beartunnd",
 		types: ["Ice"],
 		baseStats: { hp: 125, atk: 135, def: 102, spa: 46, spd: 92, spe: 50 },
@@ -153,6 +174,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Beartic",
 	},
 	fawntifulmega: {
+		num: -1020,
 		name: "Fawntiful-Mega",
 		baseSpecies: "Fawntiful",
 		forme: "Mega",
@@ -163,6 +185,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Fawntifite",
 	},
 	azumarillnodean: {
+		num: -1021,
 		name: "Azumarill-Nodean",
 		types: ["Water", "Fire"],
 		baseStats: { hp: 100, atk: 50, def: 80, spa: 50, spd: 80, spe: 60 },
@@ -170,6 +193,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 28.5,
 	},
 	alcespen: {
+		num: -1022,
 		name: "Alcespen",
 		types: ["Normal", "Grass"],
 		baseStats: { hp: 100, atk: 122, def: 94, spa: 60, spd: 104, spe: 50 },
@@ -177,6 +201,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 575,
 	},
 	neightmare: {
+		num: -1023,
 		name: "Neightmare",
 		types: ["Ground", "Ghost"],
 		baseStats: { hp: 100, atk: 70, def: 90, spa: 55, spd: 130, spe: 50 },
@@ -184,6 +209,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 999,
 	},
 	pinnsten: {
+		num: -1024,
 		name: "Pinnsten",
 		types: ["rock", "ice"],
 		baseStats: { hp: 91, atk: 100, def: 97, spa: 60, spd: 93, spe: 79 },
@@ -191,6 +217,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 24,
 	},
 	raccatoskr: {
+		num: -1025,
 		name: "Raccatoskr",
 		types: ["Fairy", "Dragon"],
 		baseStats: { hp: 56, atk: 56, def: 137, spa: 95, spd: 127, spe: 56 },
@@ -198,6 +225,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 4.4,
 	},
 	alcremienodean: {
+		num: -1026,
 		name: "Alcremie-Nodean",
 		types: ["Fairy", "Poison"],
 		baseStats: { hp: 75, atk: 50, def: 85, spa: 110, spd: 111, spe: 64 },
@@ -206,6 +234,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Milcery",
 	},
 	charcold: {
+		num: -1027,
 		name: "Charcold",
 		types: ["Water", "Fire"],
 		baseStats: { hp: 85, atk: 105, def: 100, spa: 50, spd: 115, spe: 55 },
@@ -213,6 +242,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 54.4311,
 	},
 	thermovult: {
+		num: -1028,
 		name: "Thermovult",
 		types: ["Electric", "Fire"],
 		baseStats: { hp: 91, atk: 108, def: 103, spa: 66, spd: 111, spe: 55 },
@@ -221,6 +251,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 15.7,
 	},
 	fawntiful: {
+		num: -1020,
 		name: "Fawntiful",
 		types: ["Fairy", "Flying"],
 		baseStats: { hp: 86, atk: 119, def: 63, spa: 59, spd: 90, spe: 105 },
@@ -230,6 +261,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		otherFormes: ["Fawntiful-Mega"],
 	},
 	vepsno: {
+		num: -1029,
 		name: "Vepsno",
 		types: ["Ground", "Ice"],
 		baseStats: { hp: 97, atk: 93, def: 83, spa: 97, spd: 103, spe: 62 },
@@ -238,6 +270,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Snugbug",
 	},
 	vintriol: {
+		num: -1030,
 		name: "Vintriol",
 		types: ["Poison", "Bug"],
 		baseStats: { hp: 112, atk: 128, def: 50, spa: 148, spd: 40, spe: 64 },
@@ -246,6 +279,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Vintree",
 	},
 	polipid: {
+		num: -1031,
 		name: "Polipid",
 		types: ["Bug", "Psychic"],
 		baseStats: { hp: 60, atk: 40, def: 90, spa: 90, spd: 65, spe: 128 },
@@ -255,6 +289,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		otherFormes: ["Polipid-Mega"],
 	},
 	molusket: {
+		num: -1032,
 		name: "Molusket",
 		types: ["Steel", "Fighting"],
 		baseStats: { hp: 70, atk: 75, def: 90, spa: 130, spd: 50, spe: 80 },
@@ -263,6 +298,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Shrimpow",
 	},
 	swilein: {
+		num: -1033,
 		name: "Swilein",
 		types: ["Ground", "Ice"],
 		baseStats: { hp: 110, atk: 100, def: 75, spa: 90, spd: 115, spe: 35 },
@@ -271,6 +307,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 270,
 	},
 	strigpyre: {
+		num: -1034,
 		name: "Strigpyre",
 		types: ["Fire", "Water"],
 		baseStats: { hp: 91, atk: 115, def: 78, spa: 70, spd: 70, spe: 101 },
@@ -279,6 +316,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Chickle",
 	},
 	freelpen: {
+		num: -1035,
 		name: "Freelpen",
 		types: ["Grass", "Flying"],
 		baseStats: { hp: 80, atk: 125, def: 70, spa: 60, spd: 70, spe: 95 },
@@ -287,6 +325,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Amareem",
 	},
 	arbjorn: {
+		num: -1036,
 		name: "Arbjorn",
 		types: ["Grass", "Ground"],
 		baseStats: { hp: 100, atk: 115, def: 100, spa: 80, spd: 80, spe: 60 },
@@ -295,6 +334,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 290,
 	},
 	neifhemming: {
+		num: -1037,
 		name: "Neifhemming",
 		types: ["Water", "Ice"],
 		baseStats: { hp: 80, atk: 65, def: 65, spa: 110, spd: 110, spe: 105 },
@@ -302,6 +342,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 103.8,
 	},
 	lindelidae: {
+		num: -1038,
 		name: "Lindelidae",
 		types: ["Bug", "Dragon"],
 		baseStats: { hp: 80, atk: 125, def: 105, spa: 75, spd: 85, spe: 130 },
@@ -310,13 +351,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Dragylis",
 	},
 	hurstyrhund: {
+		num: -1039,
 		name: "Hurstyrhund ",
 		types: ["Fire", "Dark"],
 		baseStats: { hp: 114, atk: 126, def: 90, spa: 90, spd: 56, spe: 59 },
-		abilities: { 0: "Blaze ", H: "Supreme Overlord" },
+		abilities: { 0: "Blaze", H: "Supreme Overlord" },
 		weightkg: 166,
 	},
 	bicunnin: {
+		num: -1040,
 		name: "Bicunnin",
 		types: ["Flying", "Dark"],
 		baseStats: { hp: 84, atk: 97, def: 65, spa: 82, spd: 75, spe: 112 },
@@ -325,6 +368,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Dissecrow",
 	},
 	bjorniorite: {
+		num: -1041,
 		name: "Bjorniorite",
 		types: ["Rock", "Grass"],
 		baseStats: { hp: 100, atk: 70, def: 70, spa: 120, spd: 100, spe: 30 },
@@ -334,6 +378,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Bjorgnite",
 	},
 	bjornioritemega: {
+		num: -1041,
 		name: "Bjorniorite-Mega",
 		baseSpecies: "Bjorniorite",
 		forme: "Mega",
@@ -344,14 +389,16 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Bjornioritite",
 	},
 	pthormign: {
+		num: -1042,
 		name: "Pthormign",
 		types: ["Fighting", "Electric"],
 		baseStats: { hp: 95, atk: 110, def: 89, spa: 60, spd: 74, spe: 97 },
-		abilities: { 0: "Steadfast ", 1: "Hustle", H: "Reckless" },
+		abilities: { 0: "Steadfast", 1: "Hustle", H: "Reckless" },
 		prevo: "Healogi",
 		weightkg: 40,
 	},
 	gravalley: {
+		num: -1043,
 		name: "Gravalley",
 		types: ["Grass", "Poison"],
 		baseStats: { hp: 80, atk: 70, def: 60, spa: 115, spd: 125, spe: 70 },
@@ -360,14 +407,16 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Toxivalla",
 	},
 	dracolition: {
+		num: -1044,
 		name: "Dracolition",
 		types: ["Fighting", "Steel"],
 		baseStats: { hp: 112, atk: 128, def: 90, spa: 60, spd: 85, spe: 40 },
-		abilities: { 0: "Wrecking Ball", 1: "Intimidate", H: "Dragon s Maw" },
+		abilities: { 0: "Wrecking Ball", 1: "Intimidate", H: "Dragon's Maw" },
 		prevo: "Destructagon",
 		weightkg: 2,
 	},
 	fryce: {
+		num: -1045,
 		name: "Fryce",
 		types: ["Water", "Fire"],
 		baseStats: { hp: 45, atk: 55, def: 50, spa: 25, spd: 80, spe: 60 },
@@ -375,6 +424,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 30,
 	},
 	puerbear: {
+		num: -1046,
 		name: "Puerbear",
 		types: ["Grass"],
 		baseStats: { hp: 75, atk: 90, def: 70, spa: 55, spd: 65, spe: 50 },
@@ -385,6 +435,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 51,
 	},
 	cubzu: {
+		num: -1047,
 		name: "Cubzu",
 		types: ["Grass"],
 		baseStats: { hp: 55, atk: 60, def: 60, spa: 45, spd: 50, spe: 40 },
@@ -394,6 +445,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 9,
 	},
 	sparkkit: {
+		num: -1048,
 		name: "Sparkkit",
 		types: ["Electric"],
 		baseStats: { hp: 54, atk: 65, def: 62, spa: 37, spd: 53, spe: 61 },
@@ -403,6 +455,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 2.2,
 	},
 	ugling: {
+		num: -1049,
 		name: "Ugling",
 		types: ["Fairy"],
 		baseStats: { hp: 56, atk: 50, def: 49, spa: 25, spd: 20, spe: 70 },
@@ -412,6 +465,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Fawntiful"],
 	},
 	dragylis: {
+		num: -1050,
 		name: "Dragylis",
 		types: ["Bug", "Dragon"],
 		baseStats: { hp: 80, atk: 65, def: 125, spa: 25, spd: 95, spe: 30 },
@@ -421,6 +475,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Lindelidae"],
 	},
 	gryrm: {
+		num: -1051,
 		name: "Gryrm",
 		types: ["Bug", "Dragon"],
 		baseStats: { hp: 70, atk: 65, def: 55, spa: 25, spd: 35, spe: 30 },
@@ -430,6 +485,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Dragylis"],
 	},
 	snugbug: {
+		num: -1052,
 		name: "Snugbug",
 		types: ["Ground", "Ice"],
 		baseStats: { hp: 43, atk: 47, def: 33, spa: 57, spd: 54, spe: 22 },
@@ -439,6 +495,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Vepsno"],
 	},
 	bjorgnite: {
+		num: -1053,
 		name: "Bjorgnite",
 		types: ["Rock", "Grass"],
 		baseStats: { hp: 80, atk: 95, def: 90, spa: 30, spd: 85, spe: 40 },
@@ -448,6 +505,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Bjorniorite"],
 	},
 	bjorgneiss: {
+		num: -1054,
 		name: "Bjorgneiss",
 		types: ["Rock"],
 		baseStats: { hp: 35, atk: 55, def: 20, spa: 45, spd: 50, spe: 80 },
@@ -457,6 +515,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Bjorgnite"],
 	},
 	healogi: {
+		num: -1055,
 		name: "Healogi",
 		types: ["Fighting", "Fire"],
 		baseStats: { hp: 65, atk: 75, def: 60, spa: 45, spd: 55, spe: 70 },
@@ -467,6 +526,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 35,
 	},
 	grousy: {
+		num: -1056,
 		name: "Grousy",
 		types: ["Fighting"],
 		baseStats: { hp: 60, atk: 70, def: 55, spa: 40, spd: 45, spe: 65 },
@@ -476,6 +536,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 30,
 	},
 	wilticease: {
+		num: -1057,
 		name: "Wilticease",
 		types: ["Grass", "Ghost"],
 		baseStats: { hp: 35, atk: 40, def: 25, spa: 65, spd: 70, spe: 45 },
@@ -485,6 +546,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Toxivalla"],
 	},
 	toxivalla: {
+		num: -1058,
 		name: "Toxivalla",
 		types: ["Grass", "Poison"],
 		baseStats: { hp: 60, atk: 65, def: 35, spa: 90, spd: 95, spe: 55 },
@@ -494,6 +556,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Gravalley"],
 	},
 	copepond: {
+		num: -1059,
 		name: "Copepond",
 		types: ["Bug"],
 		baseStats: { hp: 30, atk: 15, def: 40, spa: 35, spd: 40, spe: 65 },
@@ -503,6 +566,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 0.2,
 	},
 	crovert: {
+		num: -1060,
 		name: "Crovert",
 		types: ["Flying"],
 		baseStats: { hp: 30, atk: 45, def: 30, spa: 25, spd: 45, spe: 65 },
@@ -512,6 +576,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Dissecrow"],
 	},
 	dissecrow: {
+		num: -1061,
 		name: "Dissecrow",
 		types: ["Flying", "Dark"],
 		baseStats: { hp: 55, atk: 70, def: 47, spa: 53, spd: 73, spe: 77 },
@@ -522,34 +587,38 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Bicunnin"],
 	},
 	shrimpow: {
+		num: -1062,
 		name: "Shrimpow",
 		types: ["Steel", "Fighting"],
 		baseStats: { hp: 60, atk: 60, def: 70, spa: 95, spd: 30, spe: 65 },
-		abilities: { 0: "Shell Armor", 1: "Pressure", H: "Technician" },
+		abilities: { 0: "Shell Armor", 1: "Pressure", H: "Mold Breaker" },
 		weightkg: 5,
 		evoLevel: 39,
 		evos: ["Molusket"],
 	},
 	destructagon: {
+		num: -1063,
 		name: "Destructagon",
 		types: ["Fighting", "Steel"],
 		baseStats: { hp: 90, atk: 100, def: 80, spa: 50, spd: 75, spe: 30 },
-		abilities: { 0: "Heavy Metal", 1: "Intimidate", H: "Dragon s Maw" },
+		abilities: { 0: "Heavy Metal", 1: "Intimidate", H: "Dragon's Maw" },
 		prevo: "Demopprentice",
 		evoLevel: 42,
 		evos: ["Dracolition"],
 		weightkg: 1100,
 	},
 	demopprentice: {
+		num: -1064,
 		name: "Demopprentice",
 		types: ["Fighting", "Steel"],
 		baseStats: { hp: 60, atk: 80, def: 50, spa: 25, spd: 30, spe: 20 },
-		abilities: { 0: "Light Metal", 1: "Hustle", H: "Dragon s Maw" },
+		abilities: { 0: "Light Metal", 1: "Hustle", H: "Dragon's Maw" },
 		evoLevel: 32,
 		evos: ["Destructagon"],
 		weightkg: 600,
 	},
 	gullet: {
+		num: -1065,
 		name: "Gullet",
 		types: ["Ground", "Ice"],
 		baseStats: { hp: 70, atk: 30, def: 60, spa: 30, spd: 90, spe: 50 },
@@ -559,6 +628,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 60,
 	},
 	vintree: {
+		num: -1066,
 		name: "Vintree",
 		types: ["Poison", "Bug"],
 		baseStats: { hp: 57, atk: 61, def: 32, spa: 81, spd: 22, spe: 36 },
@@ -568,6 +638,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Vintriol"],
 	},
 	chickle: {
+		num: -1067,
 		name: "Chickle",
 		types: ["Fire"],
 		baseStats: { hp: 68, atk: 78, def: 54, spa: 40, spd: 46, spe: 71 },
@@ -577,6 +648,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Strigpyre"],
 	},
 	amareem: {
+		num: -1068,
 		name: "Amareem",
 		types: ["Grass", "Flying"],
 		baseStats: { hp: 60, atk: 70, def: 50, spa: 60, spd: 50, spe: 85 },
@@ -587,6 +659,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Freelpen"],
 	},
 	polipidmega: {
+		num: -1031,
 		name: "Polipid-Mega",
 		baseSpecies: "Polipid",
 		forme: "Mega",
@@ -594,7 +667,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: { hp: 60, atk: 99, def: 140, spa: 120, spd: 92, spe: 62 },
 		abilities: { 0: "Analytic" },
 		weightkg: 60.5,
-		requiredItem: "Polipdite",
+		requiredItem: "Polipidite",
 	},
 	beartic: {
 		inherit: true,
