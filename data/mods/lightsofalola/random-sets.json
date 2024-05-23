@@ -714,7 +714,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dance", "Liquidation", "Earthquake", "Tribocharge"],
+                "movepool": ["Dragon Dance", "Wave Crash", "Earthquake", "Tribocharge"],
                 "teraTypes": ["Fairy", "Ghost"]
             }
         ]
