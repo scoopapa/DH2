@@ -37,7 +37,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	primarina: {
 		tier: "OU LoA",
-		doublesTier: "UU LoA",
+		doublesTier: "OU LoA",
 	},
 	pikipek: {
 		tier: "LC LoA",
@@ -741,7 +741,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	araquanidtotem: {
 		tier: "OU LoA",
-		doublesTier: "RU LoA",
+		doublesTier: "OU LoA",
 	},
 	fomantis: {
 		tier: "LC LoA",
@@ -829,7 +829,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	salazzletotem: {
 		tier: "OU LoA",
-		doublesTier: "UU LoA",
+		doublesTier: "OU LoA",
 	},
 	cubone: {
 		tier: "LC LoA",
@@ -885,7 +885,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	comfey: {
 		tier: "RU LoA",
-		doublesTier: "UU LoA",
+		doublesTier: "RU LoA",
 	},
 	pinsir: {
 		tier: "NU LoA",
@@ -1221,7 +1221,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	krookodile: {
 		tier: "UU LoA",
-		doublesTier: "RU LoA",
+		doublesTier: "UU LoA",
 	},
 	trapinch: {
 		tier: "LC LoA",
@@ -1269,7 +1269,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	absol: {
 		tier: "UU LoA",
-		doublesTier: "RU LoA",
+		doublesTier: "UU LoA",
 	},
 	snorunt: {
 		tier: "LC LoA",
@@ -1697,7 +1697,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tyranitar: {
 		tier: "UU LoA",
-		doublesTier: "OU LoA",
+		doublesTier: "UU LoA",
 	},
 	mawile: {
 		tier: "NU LoA",
@@ -1993,7 +1993,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	mew: {
 		tier: "UU LoA",
-		doublesTier: "OU LoA",
+		doublesTier: "UU LoA",
 	},
 	skitty: {
 		tier: "NFE LoA",
@@ -2029,7 +2029,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	aegislash: {
 		tier: "UU LoA",
-		doublesTier: "OU LoA",
+		doublesTier: "UU LoA",
 	},
 	diancie: {
 		tier: "RU LoA",
@@ -2037,7 +2037,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	okidogi: {
 		tier: "UU LoA",
-		doublesTier: "RU LoA",
+		doublesTier: "UU LoA",
 	},
 	munkidori: {
 		tier: "UU LoA",
@@ -2049,7 +2049,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	ogerpon: {
 		tier: "UU LoA",
-		doublesTier: "OU LoA",
+		doublesTier: "UU LoA",
 	},
 	ogerponhearthflame: {
 		tier: "Uber LoA",
@@ -2061,7 +2061,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	ogerponcornerstone: {
 		tier: "UU LoA",
-		doublesTier: "OU LoA",
+		doublesTier: "UU LoA",
 	},
 	terapagos: {
 		tier: "OU LoA",
