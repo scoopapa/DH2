@@ -496,7 +496,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Raging Bull-Aqua",
-		shortDesc: "Traps and damages the target for 4-5 turns.",
+		shortDesc: "Quarters Speed of foes switching in.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -504,14 +504,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Wave Crash", target);
 		},
-		secondary: {
+/*		secondary: {
 			chance: 40,
 			sideCondition: 'swamp',
-		},
+		}, */
+		sideCondition: 'swamp',
 		condition: {
 			duration: 4,
 			onSideStart(targetSide) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
+				this.add('-sidestart', side, 'move: Swamp');
 				this.add('-message', `A swamp emerged from the ground!`);
 			},
 			onModifySpe(spe, pokemon) {
