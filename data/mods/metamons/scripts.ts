@@ -590,6 +590,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "taurospaldeacombat").learnset.geargrind = ["9L1"];
       this.modData("Learnsets", "taurospaldeacombat").learnset.sacredsword = ["9L1"];
       this.modData("Learnsets", "taurospaldeacombat").learnset.crosschop = ["9L1"];
+      this.modData("Learnsets", "taurospaldeacombat").learnset.ragingbullcombat = ["9L1"];
 
 		this.modData("Learnsets", "taurospaldeablaze").learnset.ragingfury = ["9L1"];
       this.modData("Learnsets", "taurospaldeablaze").learnset.knockoff = ["9L1"];
@@ -603,6 +604,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "taurospaldeablaze").learnset.destinybond = ["9L1"];
 		this.modData("Learnsets", "taurospaldeablaze").learnset.taunt = ["9L1"];
 		this.modData("Learnsets", "taurospaldeablaze").learnset.perishsong = ["9L1"];
+      this.modData("Learnsets", "taurospaldeablaze").learnset.ragingbullblaze = ["9L1"];
 
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.headlongrush = ["9L1"];
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.icespinner = ["9L1"];
@@ -619,6 +621,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.grassyterrain = ["9L1"];
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.recycle = ["9L1"];
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.amnesia = ["9L1"];
+      this.modData("Learnsets", "taurospaldeaaqua").learnset.ragingbullaqua = ["9L1"];
 
 		this.modData("Learnsets", "appletun").learnset.acidarmor = ["9L1"];
 		this.modData("Learnsets", "appletun").learnset.clearsmog = ["9L1"];
