@@ -139,9 +139,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if(this.field.pseudoWeather.lotsofreallysmalldragons && move.flags['sound']) return false;
 		},
 		onPrepareHit(source, target, move) {
-			if (!this.field.pseudoWeather.lotsofreallysmalldragons || move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			if (!this.field.pseudoWeather.lotsofreallysmalldragons || move.category === 'Status'| move.flags['noparentalbond'] || move.flags['charge'] ||
 			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
-			move.multihit = 2;
+			if (move.multihit) move.multihit *= 2;
+			else move.multihit = 2;
 			move.multihitType = 'parentalbond';
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
