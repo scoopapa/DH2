@@ -467,8 +467,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.species.name === 'Tauros-Paldea-Blaze') {
 				move.volatileStatus = 'partiallytrapped';
 			}
+			if (!move.secondaries) move.secondaries = [];
          if (pokemon.species.name === 'Tauros-Paldea-Aqua') {
-			   move.secondaries = ({
+			   move.secondaries.push({
 				   chance: 40,
 			   	sideCondition: 'swamp',
             });
