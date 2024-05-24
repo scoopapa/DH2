@@ -115,7 +115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		sideCondition: 'disable',
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onHit: function (target, source) {
+		onHit(target, source) {
 			if (!target.moves.length) return false;
 			target.side.addSideCondition('disable', target);
 		},
@@ -131,7 +131,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			},
 			onBeforeMovePriority: 7,
-			onBeforeMove: function (attacker, defender, move) {
+			onBeforeMove(attacker, defender, move) {
 				if (this.effectState.source !== attacker) return;
 				if (move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
