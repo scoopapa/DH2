@@ -106,6 +106,56 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	disable: {
+		accuracy: 100,
+		category: "Status",
+		id: "disable",
+		isViable: true,
+		name: "Disable",
+		pp: 5,
+		priority: 0,
+		sideCondition: 'disable',
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onHit: function (target, source) {
+			if (!target.moves.length) return false;
+			target.side.addSideCondition('disable', target);
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart (side, target) {
+				let moves = target.moves;
+				let moveId = moves[this.random(moves.length)];
+				if (!moveId) return false;
+				let move = this.getMove(moveId);
+				this.add('-start', target, 'Disable', move.name);
+				this.effectState.move = move.id;
+				return;
+			},
+			onBeforeMovePriority: 7,
+			onBeforeMove: function (attacker, defender, move) {
+				if (this.effectState.source !== attacker) return;
+				if (move.id === this.effectState.move) {
+					this.add('cant', attacker, 'Disable', move);
+					return false;
+				}
+			},
+			onDisableMove(pokemon) {
+				if (this.effectState.source !== pokemon) return;
+				let moves = pokemon.moveset;
+				for (let i = 0; i < moves.length; i++) {
+					if (moves[i].id === this.effectState.move) {
+						pokemon.disableMove(moves[i].id);
+					}
+				}
+			},
+		},
+	},
+	/**
+	
+	
+	
+	
+	
+	disable: {
 		num: 50,
 		accuracy: 100,
 		basePower: 0,
@@ -140,7 +190,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-	},
+	},**/
 	dreameater: {
 		inherit: true,
 		category: "Physical",
