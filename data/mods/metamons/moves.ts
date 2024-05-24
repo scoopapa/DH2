@@ -496,7 +496,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Raging Bull-Aqua",
-		shortDesc: "Quarters Speed of foes switching in.",
+		shortDesc: "40% chance of quartering Speed of foes switching in.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
