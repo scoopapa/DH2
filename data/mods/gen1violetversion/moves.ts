@@ -111,7 +111,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Disable",
-		pp: 20,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
 		sideCondition: 'disable',
@@ -122,20 +122,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				undefined;
 		},
 		condition: {
-			onStart(target) {
+			onStart(pokemon) {
 				// disable can only select moves that have pp > 0, hence the onTryHit modification
-				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
-				this.add('-start', target, 'Disable', moveSlot.move);
+				const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
+				this.add('-start', pokemon, 'Disable', moveSlot.move);
 				this.effectState.move = moveSlot.id;
 				// 1-8 turns (which will in effect translate to 0-7 missed turns for the target)
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Disable');
 			},
-			onDisableMove(target) {
+			onDisableMove(pokemon) {
 				for (const moveSlot of target.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
-						target.disableMove(moveSlot.id);
+						pokemon.disableMove(moveSlot.id);
 					}
 				}
 			},
