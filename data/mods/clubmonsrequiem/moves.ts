@@ -19,6 +19,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	syrupbomb: {
 		num: 903,
+		shortDesc: "Lowers Speed by 2 stages for 3 turns.",
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -86,6 +87,34 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Flying",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
+	},
+	triplearrows: {
+		shortDesc: "100% to lower target's Defense by 1; user's crit ratio +2.",
+		num: -1008,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Triple Arrows",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", source);
+			this.add('-anim', source, "Needle Arm", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		self: {
+			volatileStatus: 'focusenergy',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",//Necessary
 	},
 	migratingwing: {
 		num: 812,
