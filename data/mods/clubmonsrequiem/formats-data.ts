@@ -11,12 +11,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sylveon: {tier: "CM"},
 	aleon: {tier: "CM"},
 
+	absol: {tier: "CM"},
+
+	skrelp: {tier: "CM (NFE)"},
+	dragalge: {tier: "CM"},
+
 	dewpider: {tier: "CM (NFE)"},
 	araquanid: {tier: "CM"},
+
+	solosisneural: {tier: "CM (NFE)"},
+	duosionneural: {tier: "CM (NFE)"},
+	reuniclusneural: {tier: "CM"},
 	
 	snover: {tier: "CM (NFE)"},
 	skiversnow: {tier: "CM"},
 	abomasnow: {tier: "CM"},
+
+	cryogonal: {tier: "CM (NFE)"},
+	pollugonal: {tier: "CM"},
+
+	shelmet: {tier: "CM (NFE)"},
+	accelgor: {tier: "CM"},
+
+	psyduck: {tier: "CM (NFE)"},
+	golduck: {tier: "CM"},
 	
 	applin: {tier: "CM (NFE)"},
 	appletun: {tier: "CM"},
@@ -45,6 +63,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	clauncher: {tier: "CM (NFE)"},
 	clawitzer: {tier: "CM"},
+
+	sableye: {tier: "CM"},
+
+	electrike: {tier: "CM (NFE)"},
+	manectric: {tier: "CM"},
 	
 	baltoy: {tier: "CM (NFE)"},
 	claydol: {tier: "CM"},
@@ -68,6 +91,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	karrablast: {tier: "CM (NFE)"},
 	escavalier: {tier: "CM"},
+
+	goomy: {tier: "CM (NFE)"},
+	sliggoo: {tier: "CM (NFE)"},
+	sliggoohisui: {tier: "CM (NFE)"},
+	goodra: {tier: "CM"},
+	goodrahisui: {tier: "CM"},
 	
 	trapinch: {tier: "CM (NFE)"},
 	vibrava: {tier: "CM (NFE)"},
