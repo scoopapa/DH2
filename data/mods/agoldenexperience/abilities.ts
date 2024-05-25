@@ -879,7 +879,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					delete move.mindBlownRecoil;
 				}
 			}
-		}
+		},
 		onPrepareHit(target, source, move) {
 			if (!this.effectState.target.volatiles['implode']) return;
 			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
