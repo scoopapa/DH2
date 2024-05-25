@@ -329,40 +329,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Ignores recoil and self-KO effects of that move.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
-				this.effectState.target.addVolatile('implode');
-				this.effectState.target.volatiles['implode'].move = move;
-				this.effectState.target.volatiles['implode'].recoil = move.recoil;
-				this.effectState.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
-				delete move.recoil;
-				delete move.mindBlownRecoil;
 				if (move.selfdestruct && move.selfdestruct === 'always') {
-					this.effectState.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 					delete move.selfdestruct;
 				}
+				if (move.recoil) {
+					delete move.recoil;
+				}
+				if (move.mindBlownRecoil) {
+					move.mindBlownRecoil = false;
+				}
 			}
-		},
-		onPrepareHit(target, source, move) {
-			if (!this.effectState.target.volatiles['implode']) return;
-			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
-		},
-		condition: {
-			duration: 1,
-			onAfterMove(source, target, move) {
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon === source) continue;
-				}
-				if (this.effectState.recoil && move.totalDamage) {
-					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
-				}
-				if (this.effectState.mindBlownRecoil) {
-					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
-				}
-				if (this.effectState.selfdestruct) {
-					this.faint(source, source, this.effectState.move);
-				}
-				source.removeVolatile('implode');
-			},
 		},
 		name: "Never Gonna Give You Up",
 		rating: 4,
@@ -851,21 +827,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	explosive: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
 		shortDesc: "Ignores recoil and self-KO effects of its moves.",
-		// onModifyMove(move) {
-		// 	if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
-		// 		console.log("I'm in the loop!");
-		// 		this.effectState.target.addVolatile('implode');
-		// 		this.effectState.target.volatiles['implode'].move = move;
-		// 		this.effectState.target.volatiles['implode'].recoil = move.recoil;
-		// 		this.effectState.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
-		// 		delete move.recoil;
-		// 		delete move.mindBlownRecoil;
-		// 		if (move.selfdestruct && move.selfdestruct === 'always') {
-		// 			this.effectState.target.volatiles['implode'].selfdestruct = move.selfdestruct;
-		// 			delete move.selfdestruct;
-		// 		}
-		// 	}
-		// },
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				if (move.selfdestruct && move.selfdestruct === 'always') {
@@ -879,31 +840,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		// onPrepareHit(target, source, move) {
-		// 	if (!this.effectState.target.volatiles['implode']) return;
-		// 	if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
-		// },
-		// condition: {
-		// 	duration: 1,
-		// 	onAfterMove(source, target, move) {
-		// 		for (const pokemon of this.getAllActive()) {
-		// 			if (pokemon === source) continue;
-		// 			source.removeVolatile('implode');
-		// 			return;
-		// 		}
-		// 		if (this.effectState.recoil && move.totalDamage) {
-		// 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
-		// 			this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
-		// 		}
-		// 		if (this.effectState.mindBlownRecoil) {
-		// 			this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
-		// 		}
-		// 		if (this.effectState.selfdestruct) {
-		// 			this.faint(source, source, this.effectState.move);
-		// 		}
-		// 		source.removeVolatile('implode');
-		// 	},
-		// },
 		name: "Explosive",
 		rating: 4,
 		num: -43,

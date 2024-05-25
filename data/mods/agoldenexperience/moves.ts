@@ -2797,23 +2797,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Smart",
 	},
-	chloroblast: {
-		inherit: true,
-		mindBlownRecoil: true,
-		onModifyMove(move, pokemon, target) {
-			if (pokemon.ability === 'explosive' || pokemon.ability === 'nevergonnagiveyouup') {
-				move.mindBlownRecoil = false;
-			}
-		},
-	},
-	mindblown: {
-		inherit: true,
-		onModifyMove(move, pokemon, target) {
-			if (pokemon.ability === 'explosive' || pokemon.ability === 'nevergonnagiveyouup') {
-				move.mindBlownRecoil = false;
-			}
-		},
-	},
 
 	// Identity Card field
 
