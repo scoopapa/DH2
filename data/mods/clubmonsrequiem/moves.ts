@@ -139,4 +139,56 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Flying",
 	},
+	compost: {
+		num: 282,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Compost",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Quiver Dance', source);
+		},
+		onBasePower(basePower, source, target, move) {
+			const item = source.getItem();
+			if (!item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.item || !source.lastItem) return false;
+			const item = source.lastItem;
+			source.lastItem = '';
+			this.add('-item', source, this.dex.items.get(item), '[from] move: Compost');
+			source.setItem(item);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	shelter: {
+		num: 842,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shelter",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			def: 2,
+		},
+		onHit(damage, target, source, move) {
+			this.field.setTerrain('mistyterrain');
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+	},
 }
