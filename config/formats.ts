@@ -333,7 +333,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Clubmons: Requiem",
 		mod: 'clubmonsrequiem',
 		desc: `A micrometagame focused on accessibility and teambuilder diversity.`,
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod' 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10124271">Clubmons on Smogon Forums</a>`,
 		],
