@@ -873,29 +873,27 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (!this.effectState.target.volatiles['implode']) return;
 			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
 		},
-		// condition: {
-		// 	duration: 1,
-		// 	onAfterMove(source, target, move) {
-		// 		for (const pokemon of this.getAllActive()) {
-		// 			if (pokemon === source) continue;
-		// 			/*if (!pokemon.hp) {
-		// 				source.removeVolatile('implode');
-		// 				return;
-		// 			}*/
-		// 		}
-		// 		if (this.effectState.recoil && move.totalDamage) {
-		// 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
-		// 			this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
-		// 		}
-		// 		if (this.effectState.mindBlownRecoil) {
-		// 			this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
-		// 		}
-		// 		if (this.effectState.selfdestruct) {
-		// 			this.faint(source, source, this.effectState.move);
-		// 		}
-		// 		source.removeVolatile('implode');
-		// 	},
-		// },
+		condition: {
+			duration: 1,
+			onAfterMove(source, target, move) {
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon === source) continue;
+					source.removeVolatile('implode');
+					return;
+				}
+				if (this.effectState.recoil && move.totalDamage) {
+					if (!this.activeMove) throw new Error("Battle.activeMove is null");
+					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
+				}
+				if (this.effectState.mindBlownRecoil) {
+					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
+				}
+				if (this.effectState.selfdestruct) {
+					this.faint(source, source, this.effectState.move);
+				}
+				source.removeVolatile('implode');
+			},
+		},
 		name: "Explosive",
 		rating: 4,
 		num: -43,
