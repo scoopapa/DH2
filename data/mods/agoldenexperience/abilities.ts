@@ -869,7 +869,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				if (move.selfdestruct && move.selfdestruct === 'always') {
-					this.effectState.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 					delete move.selfdestruct;
 				}
 				if (move.recoil) {
@@ -880,10 +879,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		onPrepareHit(target, source, move) {
-			if (!this.effectState.target.volatiles['implode']) return;
-			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
-		},
+		// onPrepareHit(target, source, move) {
+		// 	if (!this.effectState.target.volatiles['implode']) return;
+		// 	if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
+		// },
 		// condition: {
 		// 	duration: 1,
 		// 	onAfterMove(source, target, move) {
