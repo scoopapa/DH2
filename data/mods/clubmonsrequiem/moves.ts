@@ -156,7 +156,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onBasePower(basePower, source, target, move) {
 			const item = source.getItem();
-			if (!item.id) {
+			if (!item) {
 				return this.chainModify(1.5);
 			}
 		},
