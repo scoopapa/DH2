@@ -2797,6 +2797,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Smart",
 	},
+	chloroblast: {
+		inherit: true,
+		mindBlownRecoil: true,
+	},
 
 	// Identity Card field
 
