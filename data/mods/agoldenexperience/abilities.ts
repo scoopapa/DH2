@@ -875,7 +875,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					delete move.recoil;
 				}
 				if (move.mindBlownRecoil) {
-					delete move.mindBlownRecoil;
+					move.mindBlownRecoil = false;
 				}
 			}
 		},
