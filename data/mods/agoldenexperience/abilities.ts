@@ -853,6 +853,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Ignores recoil and self-KO effects of its moves.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
+				console.log("I'm in the loop!");
 				this.effectState.target.addVolatile('implode');
 				this.effectState.target.volatiles['implode'].move = move;
 				this.effectState.target.volatiles['implode'].recoil = move.recoil;
@@ -864,20 +865,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					delete move.selfdestruct;
 				}
 			}
-			console.log("The move is: " + move);
-			console.log("Does it have the recoil? " + move.mindBlownRecoil);
-			console.log("The target is: " + this.effectState.target);
-			console.log("It has the tag: " + this.effectState.target.volatiles['implode']);
 		},
 		onPrepareHit(target, source, move) {
 			if (!this.effectState.target.volatiles['implode']) return;
 			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
-		},
-		onDamage(damage, target, source, effect) {
-			if (effect.id === 'mindBlownRecoil') {
-				if (!this.activeMove) throw new Error("Battle.activeMove is null");
-				if (this.activeMove.id !== 'struggle') return null;
-			}
 		},
 		condition: {
 			duration: 1,
