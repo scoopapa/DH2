@@ -864,6 +864,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					delete move.selfdestruct;
 				}
 			}
+			console.log("The move is: " + move);
+			console.log("Does it have the recoil? " + move.mindBlownRecoil);
 		},
 		onPrepareHit(target, source, move) {
 			if (!this.effectState.target.volatiles['implode']) return;
