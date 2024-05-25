@@ -1305,6 +1305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		damage: null,
 		basePower: 40,
+		accuracy: 100,
 		category: "Special",
 		desc: "Priority +1, Sound move.",
 		shortDesc: "Usually goes first. Sound Move.",
