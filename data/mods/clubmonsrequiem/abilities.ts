@@ -92,4 +92,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		// We do not want Brambleghast to get Infiltrator in Randbats
 		num: 274,
 	},
+	snowwarning: {
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		flags: {},
+		name: "Snow Warning",
+		rating: 4,
+		num: 117,
+	},
 };
