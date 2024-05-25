@@ -866,6 +866,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			console.log("The move is: " + move);
 			console.log("Does it have the recoil? " + move.mindBlownRecoil);
+			console.log("The target is: " + this.effectState.target);
+			console.log("It has the tag: " + this.effectState.target.volatiles['implode']);
 		},
 		onPrepareHit(target, source, move) {
 			if (!this.effectState.target.volatiles['implode']) return;
