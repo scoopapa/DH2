@@ -873,6 +873,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (!this.effectState.target.volatiles['implode']) return;
 			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
 		},
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'mindBlownRecoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
 		condition: {
 			duration: 1,
 			onAfterMove(source, target, move) {
