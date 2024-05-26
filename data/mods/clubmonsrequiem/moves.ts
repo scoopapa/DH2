@@ -1,4 +1,5 @@
 export const Moves: { [moveid: string]: ModdedMoveData } = {
+	
 	waterpulse: {
 		num: 352,
 		accuracy: 100,
