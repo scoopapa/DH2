@@ -52,7 +52,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (pokemon.statusState.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
-			pokemon.lastMove = null;
 			if (move.sleepUsable) {
 				return;
 			}
