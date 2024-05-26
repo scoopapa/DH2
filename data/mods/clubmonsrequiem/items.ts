@@ -11,6 +11,7 @@ export const Items: { [itemid: string]: ItemData } = {
 				this.boost({spa: 1}, target);
 			}
 		},
+		shortDesc: "Raises Special Attack by 1 stage if hit by an Water-type attack.",
 		num: 545,
 		gen: 5,
 	},
@@ -25,6 +26,7 @@ export const Items: { [itemid: string]: ItemData } = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
+		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
 		num: 43,
 		gen: 2,
 		isNonstandard: "Past",
@@ -41,6 +43,7 @@ export const Items: { [itemid: string]: ItemData } = {
 				this.boost({atk: 1}, target);
 			}
 		},
+		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
 		num: 546,
 		gen: 5,
 	},
@@ -97,6 +100,7 @@ export const Items: { [itemid: string]: ItemData } = {
 				this.boost({atk: 1}, target);
 			}
 		},
+		shortDesc: "Raises Attack by 1 stage if hit by an Ice-type attack.",
 		num: 649,
 		gen: 6,
 	},
@@ -116,6 +120,7 @@ export const Items: { [itemid: string]: ItemData } = {
 			}
 			this.effectState.switchingIn = false;
 		},
+		shortDesc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Once per switch-in.",
 		num: 1118,
 		gen: 8,
 	},
