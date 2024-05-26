@@ -196,6 +196,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	staryu: {tier: "CM (NFE)"},
 	starmie: {tier: "CM"},
+
+	tapubulu: {tier: "CM"},
 	
 	fletchling: {tier: "CM (NFE)"},
 	fletchinder: {tier: "CM (NFE)"},
