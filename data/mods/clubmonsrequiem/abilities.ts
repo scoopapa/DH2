@@ -22,8 +22,38 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {breakable: 1},
 		name: "Heatproof",
+		shortDesc: "User is immune to Fire-type moves and burn.",
 		rating: 3.5,
 		num: 18,
+	},
+	fauxliage: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' || move.type === 'Ground' || move.type === 'Electric' || move.type === 'Water') {
+				this.debug('Fauxliage weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' || move.type === 'Ground' || move.type === 'Electric' || move.type === 'Water') {
+				this.debug('Fauxliage weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'powder') return false;
+		},
+		onTryHit(pokemon, source, move) {
+			if (move.flags['powder'] && pokemon !== source && this.dex.getImmunity('powder', pokemon)) {
+				this.add('-activate', pokemon, 'ability: Fauxliage', move.name);
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Fauxliage",
+		shortDesc: "User takes 1/2 damage from Grass-resisted types and is immune to powder/spore moves.",
+		num: 47,
 	},
 	shellarmor: {
 		onDamage(damage, target, source, effect) {
