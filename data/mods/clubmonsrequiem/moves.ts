@@ -19,6 +19,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	syrupbomb: {
 		num: 903,
+		shortDesc: "Lowers Speed by 2 stages for 3 turns.",
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -87,6 +88,34 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
 	},
+	triplearrows: {
+		shortDesc: "100% to lower target's Defense by 1; user's crit ratio +2.",
+		num: -1008,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Triple Arrows",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", source);
+			this.add('-anim', source, "Needle Arm", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		self: {
+			volatileStatus: 'focusenergy',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",//Necessary
+	},
 	migratingwing: {
 		num: 812,
 		accuracy: 100,
@@ -109,5 +138,57 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Flying",
+	},
+	compost: {
+		num: 282,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Compost",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Quiver Dance', source);
+		},
+		onBasePower(basePower, source, target, move) {
+			const item = source.getItem();
+			if (!item) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.item || !source.lastItem) return false;
+			const item = source.lastItem;
+			source.lastItem = '';
+			this.add('-item', source, this.dex.items.get(item), '[from] move: Compost');
+			source.setItem(item);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	shelter: {
+		num: 842,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shelter",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			def: 2,
+		},
+		onHit(damage, target, source, move) {
+			this.field.setTerrain('mistyterrain');
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
 	},
 }
