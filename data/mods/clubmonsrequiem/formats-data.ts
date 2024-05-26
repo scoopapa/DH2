@@ -141,7 +141,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	nihilego: {tier: "CM"},
 	
-	vulpix: {tier: "CM"},
+	vulpix: {tier: "CM (NFE)"},
 	ninetales: {tier: "CM"},
 	
 	noibat: {tier: "CM (NFE)"},
