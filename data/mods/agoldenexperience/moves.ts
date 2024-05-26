@@ -1321,6 +1321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "Cannot be selected the turn after it's used.",
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1, cantusetwice: 1},
+		self: null,
 	},
 	triplekick: {
 		inherit: true,
