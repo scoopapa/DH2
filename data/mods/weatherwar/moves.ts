@@ -58,8 +58,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	upperhand: {
 		inherit: true,
 		onTry(source, target) {
-			console.log(this.field.pseudoWeather.wwe);
-			if (this.field.pseudoWeather.wwe) return true;
+			console.log(this.field.pseudoWeather.colosseum);
+			if (this.field.pseudoWeather.colosseum) return true;
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (!move || move.priority <= 0.1 || move.category === 'Status') {
@@ -67,8 +67,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onModifyMove(move, source, target) {
-			console.log("modify " + this.field.pseudoWeather.wwe);
-			if (this.field.pseudoWeather.wwe) {
+			console.log("modify " + this.field.pseudoWeather.colosseum);
+			if (this.field.pseudoWeather.colosseum) {
 				const action = this.queue.willMove(target);
 				const targetMove = action?.choice === 'move' ? action.move : null;
 				if (!targetMove || targetMove.priority <= 0.1 || targetMove.category === 'Status') {
@@ -298,5 +298,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (this.field.pseudoWeather.flashflood) move.sideCondition = 'waterpledge';
 		},
 	},
-	
 }

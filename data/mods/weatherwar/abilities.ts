@@ -22,6 +22,7 @@ export function getName(name: string): string {
 }
 
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	//setting abilities
 	swarm: {
 		onStart(source) {
 			this.field.addPseudoWeather('theswarm');
@@ -59,7 +60,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	beatdown: {
 		onStart(source) {
-			this.field.addPseudoWeather('wwe');
+			this.field.addPseudoWeather('colosseum');
 		},
 		flags: {},
 		name: "Beatdown",
@@ -148,4 +149,117 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Monsoon",
 	},
+	
+	//abusing abilities
+	hivemind: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Hivemind neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (this.field.pseudoWeather.theswarm && move.category === 'Status' && target !== source) {
+				this.add('-immune', target, '[from] ability: Good as Gold');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Hivemind",
+		shortDesc: "Filter + GaG in The Swarm", 
+	},
+	
+	dracojet: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.spe && boost.spe < 0) {
+				delete boost.spe;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Speed", "[from] ability: Draco Jet", "[of] " + target);
+				}
+			}
+		},
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category !== "Status" && this.field.pseudoWeather.lotsofreallysmalldragons) {
+				this.add('-activate', pokemon, 'ability: Draco Jet');
+				return 0.1;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Draco Jet",
+		shortDesc: "Speed cannot be lowered. Dragon moves move first in LoRSD.", 
+	},
+	shortcircuit: {
+		onDamagingHitOrder: 1,
+		onFaint(pokemon) {
+			if(!pokemon.adjacentFoes()) return;
+			const target = this.sample(pokemon.adjacentFoes());
+			this.damage(target.baseMaxhp / 4, target, pokemon);
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
+			if (!this.field.pseudoWeather.thunderstorm || target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+
+			if (this.randomChance(3, 10)) {
+				target.trySetStatus('par', source);
+			}
+		},
+		flags: {},
+		name: "Short Circuit",
+		shortDesc: "Opponent loses 25% if user faints. 30% paralysis chance in Thunderstorm.", 
+	},
+	darkfantasy: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'ability: Dark Fantasy');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Dark Fantasy');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Dark Fantasy');
+				return null;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([3, 2]);
+		},
+		flags: {breakable: 1},
+		name: "Dark Fantasy",
+		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.5x power in Fable.",
+	},
+	suplex: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.atk && boost.atk < 0) {
+				delete boost.atk;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: Suplex", "[of] " + target);
+				}
+			}
+		},
+		onBasePower(basePower, pokemon, target, move) {
+			if (this.field.pseudoWeather.colosseum) {
+				return this.chainModify(1.5);
+			}
+		},
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category !== "Status" && this.field.pseudoWeather.colosseum) {
+				return 0.1;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Suplex",
+		shortDesc: "Hyper Cutter + attacks move last but have 1.5x power in Colosseum.",
+	},
+	
 }

@@ -221,13 +221,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) {
-				return this.chainModify(0.5);
+				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) {
-				return this.chainModify(0.5);
+				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.5);
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -247,8 +247,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-fieldend', 'Fable');
 		},
 	},
-	wwe: {
-		name: 'WWE',
+	colosseum: {
+		name: 'Colosseum',
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
@@ -260,30 +260,30 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (this.field.pseudoWeather.wwe && pokemon.hp && (!pokemon.lastMove || pokemon.lastMove.category == 'Status')) {
+			if (this.field.pseudoWeather.colosseum && pokemon.hp && (!pokemon.lastMove || pokemon.lastMove.category == 'Status')) {
 				this.boost({def: -1});
 			}
 		},
 		onAfterMoveSecondary(target, source, move) {
-			if (this.field.pseudoWeather.wwe && move.type === 'Fighting' && !this.queue.willMove(target)) {
+			if (this.field.pseudoWeather.colosseum && move.type === 'Fighting' && !this.queue.willMove(target)) {
 				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 			}
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-fieldstart', 'WWE', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-fieldstart', 'Colosseum', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'WWE');
+				this.add('-weather', 'Colosseum');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'WWE', '[upkeep]');
+			this.add('-weather', 'Colosseum', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
-			this.add('-fieldend', 'WWE');
+			this.add('-fieldend', 'Colosseum');
 		},
 	},
 	drought: {
