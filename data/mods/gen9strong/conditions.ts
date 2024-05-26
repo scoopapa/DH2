@@ -52,14 +52,14 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (pokemon.statusState.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
+			if (pokemon.statusState.time <= 0) {
+				pokemon.cureStatus();
+				this.add('cant', pokemon);
+			}
 			if (move.sleepUsable) {
 				return;
 			}
 			return false;
-		},
-		onAfterMoveSelfPriority: 3,
-		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {
