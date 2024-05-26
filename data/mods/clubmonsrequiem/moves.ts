@@ -1,5 +1,4 @@
 export const Moves: { [moveid: string]: ModdedMoveData } = {
-
 	waterpulse: {
 		num: 352,
 		accuracy: 100,
@@ -47,6 +46,51 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Grass",
+	},
+	blackhole: {
+		num: 153,
+		accuracy: 100,
+		basePower: 250,
+		category: "Physical",
+		name: "Black Hole",
+		shortDesc: "User will KO itself upon use.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		selfdestruct: "always",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Black Hole Eclipse', target);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	darkdevour: {
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Dark Devour",
+		shortDesc: "User heals 1/2 of its max HP upon KOing opponent.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Brutal Swing', target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 2, pokemon, pokemon, move);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
 	},
 	defog: {
 		num: 432,
@@ -174,6 +218,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Bug",
 		contestType: "Clever",
 	},
+	electroball: {
+		num: 486,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe'));
+			if (!isFinite(ratio)) ratio = 0;
+			let bp = 40;
+			if (ratio >= 1) bp = 60;
+			if (ratio >= 1.5) bp = 80;
+			if (ratio >= 2) bp = 100;
+			if (ratio >= 3) bp = 120;
+			if (ratio >= 4) bp = 150;
+		},
+		category: "Special",
+		name: "Electro Ball",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},		
 	shelter: {
 		num: 842,
 		accuracy: true,
@@ -193,4 +263,4 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "self",
 		type: "Steel",
 	},
-}
+},
