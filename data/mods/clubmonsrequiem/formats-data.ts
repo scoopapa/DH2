@@ -120,7 +120,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	litten: {tier: "CM (NFE)"},
 	torracat: {tier: "CM (NFE)"},
-	incineroar: {tier: "CM (NFE)"},
+	incineroar: {tier: "CM"},
 	
 	sandile: {tier: "CM (NFE)"},
 	krokorok: {tier: "CM (NFE)"},
@@ -210,7 +210,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tinkatuff: {tier: "CM (NFE)"},
 	tinkaton: {tier: "CM"},
 	
-	uxie: {tier: "CM (NFE)"},
+	uxie: {tier: "CM"},
 	
 	oddish: {tier: "CM (NFE)"},
 	gloom: {tier: "CM (NFE)"},
