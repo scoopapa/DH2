@@ -56,6 +56,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bronzong: {tier: "CM"},
 	
 	buzzwole: {tier: "CM"},
+
+	guzzlord: {tier: "CM"},
+
+	sudowoodo: {tier: "CM"},
 	
 	chespin: {tier: "CM (NFE)"},
 	quilladin: {tier: "CM (NFE)"},
