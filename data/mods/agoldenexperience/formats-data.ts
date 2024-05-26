@@ -4898,7 +4898,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	okidogi: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	munkidori: {
