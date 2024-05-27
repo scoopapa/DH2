@@ -1,262 +1,378 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	aegislash: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	banettemega: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	ceruledge: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	dofagrigus: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	eddyazbear: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	fluttermane: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	fluttermane2: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	gourgeisttiny: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	gourgeist: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	gourgeistlarge: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	gourgeistgigantic: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	houndstone: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	indeedee: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	jableye: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	jobapplication: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	lanturnevil: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	merasmus: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	necturna: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	okestarspirit: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	ppiritomb: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	quagsiredead: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	rotom: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	shedinja: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	trevenant: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	ursalunabloodmoon: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	venomicon: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	venomiconepilogue: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	wunala: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	xorygonz: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	yveltal: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	zoroarkhisui: {
-		tier: "SM",
-		doublesTier: "DOU",
-	},
-	aegislashshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	banettemegashrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	ceruledgeshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	dofagrigusshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	eddyazbearshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	fluttermaneshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	fluttermane2shrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	gourgeisttinyshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	gourgeistshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	gourgeistlargeshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	gourgeistgiganticshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	houndstoneshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	indeedeeshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	jableyeshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	jobapplicationshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	lanturnevilshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	merasmusshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	necturnashrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	okestarspiritshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	ppiritombshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	quagsiredeadshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	rotomshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	shedinjashrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	trevenantshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	ursalunabloodmoonshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	venomiconshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	venomiconepilogueshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	wunalashrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	xorygonzshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	yveltalshrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	zoroarkhisuishrunken: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	gourgeistsmall: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	gourgeistsuper: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
-	trevenantrevenant: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
+	groudon: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	groudonprimal: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	kyogre: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	kyogreprimal: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	rayquaza: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	rayquazamega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	castform: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	bronzong: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	lugia: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	zapdos: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	articuno: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	archaludon: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	dialga: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	dragonair: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	flygon: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	torkoal: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	ninetales: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	charizard: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	charizardmegay: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	pelipper: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	politoed: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	tyranitar: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	tyranitarmega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	hippowdon: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	abomasnow: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	abomasnowmega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	ninetalesalola: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	dragapult: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	electrode: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	clefable: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	blitzle: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	altaria: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	altariamega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	lickilicky: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	golduck: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	drampa: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	venusaur: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	venusaurmega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	sawsbuckspring: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	beedrill: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	beedrillmega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	scizor: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	scizormega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	kleavor: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	heracross: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	heracrossmega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	vespiquen: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	volbeat: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	kingdra: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	excadrill: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	tornadustherian: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	thundurustherian: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	tentacruel: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	toedscruel: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	toxicroak: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	spiritomb: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	cherrim: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	cherrimsunshine: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	garganacl: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	incineroar: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	hawlucha: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	hitmonchan: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	skeledirge: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	mismagius: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	darkrai: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	wochien: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	absol: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	absolmega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	malamar: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	jirachi: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	celebi: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	tapulele: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	manaphy: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	alakazam: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	alakazammega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	kabutops: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	nihilego: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	diancie: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	dianciemega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	arctozolt: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	mamoswine: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	froslass: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	frosmoth: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	chienpao: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	tinglu: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	armaldo: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	golemalola: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	salazzle: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	weezinggalar: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	sableye: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	sableyemega: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	pecharunt: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	wyrdeer: {
+		tier: "CC",
+		doublesTier: "DCC",
+	},
+	lilywhite: {
+		tier: "CC",
+		doublesTier: "DCC",
 	},
 };
