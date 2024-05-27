@@ -25,6 +25,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//setting abilities
 	swarm: {
 		onStart(source) {
+			this.add('-ability', source, 'Swarm');
 			this.field.addPseudoWeather('theswarm');
 		},
 		flags: {},
@@ -33,6 +34,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	blackout: {
 		onStart(source) {
+			this.add('-ability', source, 'Blackout');
 			this.field.addPseudoWeather('twilightzone');
 		},
 		flags: {},
@@ -41,6 +43,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	zergrush: {
 		onStart(source) {
+			this.add('-ability', source, 'Zerg Rush');
 			this.field.addPseudoWeather('lotsofreallysmalldragons');
 		},
 		flags: {},
@@ -49,6 +52,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	squall: {
 		onStart(source) {
+			this.add('-ability', source, 'Squall');
 			this.field.addPseudoWeather('thunderstorm');
 		},
 		flags: {},
@@ -57,6 +61,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fairytale: {
 		onStart(source) {
+			this.add('-ability', source, 'Fable');	
 			this.field.addPseudoWeather('fable');
 		},
 		flags: {},
@@ -65,6 +70,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	beatdown: {
 		onStart(source) {
+			this.add('-ability', source, 'Beatdown');
 			this.field.addPseudoWeather('colosseum');
 		},
 		flags: {},
@@ -73,6 +79,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	solarflare: {
 		onStart(source) {
+			this.add('-ability', source, 'Solar Flare');
 			this.field.addPseudoWeather('drought');
 		},
 		flags: {},
@@ -81,6 +88,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	deltastream: {
 		onStart(source) {
+			this.add('-ability', source, 'Delta Stream');
 			this.field.addPseudoWeather('deltastream');
 		},
 		flags: {},
@@ -89,6 +97,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	delusion: {
 		onStart(source) {
+			this.add('-ability', source, 'Delusion');
 			this.field.addPseudoWeather('thevoices');
 		},
 		flags: {},
@@ -97,6 +106,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	ruin: {
 		onStart(source) {
+			this.add('-ability', source, 'Ruin');
 			this.field.addPseudoWeather('overgrowth');
 		},
 		flags: {},
@@ -105,6 +115,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	sandstream: {
 		onStart(source) {
+			this.add('-ability', source, 'Sand Stream');
 			this.field.addPseudoWeather('duststorm');
 		},
 		flags: {},
@@ -113,6 +124,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	snowwarning: {
 		onStart(source) {
+			this.add('-ability', source, 'Snow Warning');
 			this.field.addPseudoWeather('whiteout');
 		},
 		flags: {},
@@ -121,6 +133,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fingerwaggler: {
 		onStart(source) {
+			this.add('-ability', source, 'Finger Waggler');
 			this.field.addPseudoWeather('metronomebattle');
 		},
 		flags: {},
@@ -129,6 +142,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	shart: {
 		onStart(source) {
+			this.add('-ability', source, 'Shart');
 			this.field.addPseudoWeather('shitstorm');
 		},
 		flags: {},
@@ -137,6 +151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	freaky: {
 		onStart(source) {
+			this.add('-ability', source, 'Freaky');
 			this.field.addPseudoWeather('mindfuck');
 		},
 		flags: {},
@@ -145,6 +160,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	landslide: {
 		onStart(source) {
+			this.add('-ability', source, 'Landslide');
 			this.field.addPseudoWeather('landslide');
 		},
 		flags: {},
@@ -153,6 +169,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	timemachine: {
 		onStart(source) {
+			this.add('-ability', source, 'Time Machine');
 			this.field.addPseudoWeather('timewarp');
 		},
 		flags: {},
@@ -161,6 +178,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	monsoon: {
 		onStart(source) {
+			this.add('-ability', source, 'Monsoon');
 			this.field.addPseudoWeather('flashflood');
 		},
 		flags: {},
@@ -205,6 +223,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	itsspring: {
 		onStart(source) {
+			this.add('-ability', source, 'It\'s Spring!');
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${source.name}|It's spring!`);
 			this.field.addPseudoWeather('overgrowth');
 			this.field.addPseudoWeather('fable');
 		},
@@ -223,7 +243,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryHit(target, source, move) {
 			if (this.field.pseudoWeather.theswarm && move.category === 'Status' && target !== source) {
-				this.add('-immune', target, '[from] ability: Good as Gold');
+				this.add('-immune', target, '[from] ability: Hivemind');
 				return null;
 			}
 		},
@@ -231,7 +251,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Hivemind",
 		shortDesc: "Filter + GaG in The Swarm", 
 	},
-	
+	intangible: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		onDamage(damage, target, source, effect) {
+			if (this.field.pseudoWeather.twilightzone && effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Intangible",
+		shortDesc: "Halved contact damage + Magic Guard in Twilight Zone",
+	},
 	dracojet: {
 		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
@@ -317,7 +352,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category !== "Status" && this.field.pseudoWeather.colosseum) {
-				return 0.1;
+				return -0.1;
 			}
 		},
 		flags: {breakable: 1},
@@ -349,7 +384,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Solar Power",
 		shortDesc: "This Pokemon heals 1/16 max HP per turn. Drought = highest offense 1.3x.",
 	},
-	
+	slipstream: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({spe: 2}, target, target, null, false, true);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.pseudoWeather.deltastream) move.selfSwitch = true;
+		},
+		flags: {},
+		name: "Slipstream",
+		shortDesc: "Speed Defiant + all moves switch in Delta Stream.",
+	},
 	banshee: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['sound']) {
@@ -385,8 +442,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['heal', 'drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			console.log(effect.id);
 			if (heals.includes(effect.id)) {
 				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if(move.flags['heal']) {
+				move.heal = [move.heal[0] * 3, move.heal[1] * 2];
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -449,6 +512,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	duomodreference: {
 		onResidual(pokemon) {
 			if(!this.field.pseudoWeather.metronomebattle) return;
+			this.add('-ability', pokemon, 'Duomod Reference??');
 			let result: number;
 			const pickSide = this.random(2);
 
@@ -513,8 +577,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (result === 5) {
 				this.hint("Roulette Wheel Result 6 - Set hazards on both sides.");
 		    for (const pokemon of this.getAllActive()) {
-					this.useMove("Spikes", pokemon);
-					this.useMove("Stealth Electric", pokemon);
+					this.actions.useMove("Spikes", pokemon);
 		    }
 			} else if (result === 6) {
 				this.hint("Roulette Wheel Result 7 - Set a random weather and terrain.");
@@ -524,18 +587,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
 							if (result2 === 0) {
-								this.useMove("Grassy Terrain", target);
+								this.actions.useMove("Grassy Terrain", target);
 							} else if (result2 === 1) {
-								this.useMove("Electric Terrain", target);
+								this.actions.useMove("Electric Terrain", target);
 							} else {
-								this.useMove("Misty Terrain", target);
+								this.actions.useMove("Misty Terrain", target);
 							}
 							if (result3 === 0) {
-								this.useMove("Sunny Day", target);
+								this.actions.useMove("Sunny Day", target);
 							} else if (result3 === 1) {
-								this.useMove("Rain Dance", target);
+								this.actions.useMove("Rain Dance", target);
 							} else {
-								this.useMove("Sandstorm", target);
+								this.actions.useMove("Sandstorm", target);
 							}
 						}
 					}
@@ -543,18 +606,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
 							if (result2 === 0) {
-								this.useMove("Grassy Terrain", target);
+								this.actions.useMove("Grassy Terrain", target);
 							} else if (result2 === 1) {
-								this.useMove("Electric Terrain", target);
+								this.actions.useMove("Electric Terrain", target);
 							} else {
-								this.useMove("Misty Terrain", target);
+								this.actions.useMove("Misty Terrain", target);
 							}
 							if (result3 === 0) {
-								this.useMove("Sunny Day", target);
+								this.actions.useMove("Sunny Day", target);
 							} else if (result3 === 1) {
-								this.useMove("Rain Dance", target);
+								this.actions.useMove("Rain Dance", target);
 							} else {
-								this.useMove("Sandstorm", target);
+								this.actions.useMove("Sandstorm", target);
 							}
 						}
 					}
@@ -601,20 +664,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (result === 10) {
 				this.hint("Roulette Wheel Result 11 - Make every Pokemon use Conversion 2.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Conversion 2", pokemon);
+					this.actions.useMove("Conversion 2", pokemon);
 				}
 			} else if (result === 11) {
 				this.hint("Roulette Wheel Result 12 - Make one Pokemon Transform into the other.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Transform", target);
+							this.actions.useMove("Transform", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Transform", target);
+							this.actions.useMove("Transform", target);
 						}
 					}
 				}
@@ -623,13 +686,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Heart Swap", target);
+							this.actions.useMove("Heart Swap", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Heart Swap", target);
+							this.actions.useMove("Heart Swap", target);
 						}
 					}
 				}
@@ -641,7 +704,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	        } else if (result === 14) {
 				this.hint("Roulette Wheel Result 15 - heard you guys liked scald");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Scald", pokemon);
+					this.actions.useMove("Scald", pokemon);
 				}
 			} else if (result === 15) {
 				this.hint("Roulette Wheel Result 16 - Attempt to Toxic both Pokemon.");
@@ -655,13 +718,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Court Change", target);
+							this.actions.useMove("Court Change", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Court Change", target);
+							this.actions.useMove("Court Change", target);
 						}
 					}
 				}
@@ -673,20 +736,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	        } else if (result === 18) {
 				this.hint("Roulette Wheel Result 19 - Make both Pokemon use Camouflage.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Camouflage", pokemon);
+					this.actions.useMove("Camouflage", pokemon);
 				}
 			} else if (result === 19) {
 				this.hint("Roulette Wheel Result 20 - Make both Pokemon swap abilities.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Skill Swap", target);
+							this.actions.useMove("Skill Swap", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Skill Swap", target);
+							this.actions.useMove("Skill Swap", target);
 						}
 					}
 				}
@@ -695,13 +758,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Celebrate", target);
+							this.actions.useMove("Celebrate", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Celebrate", target);
+							this.actions.useMove("Celebrate", target);
 						}
 					}
 				}
@@ -710,13 +773,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick Room", target);
+							this.actions.useMove("Trick Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick Room", target);
+							this.actions.useMove("Trick Room", target);
 						}
 					}
 				}
@@ -740,13 +803,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Haze", target);
+							this.actions.useMove("Haze", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Haze", target);
+							this.actions.useMove("Haze", target);
 						}
 					}
 				}
@@ -755,13 +818,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Magic Room", target);
+							this.actions.useMove("Magic Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Magic Room", target);
+							this.actions.useMove("Magic Room", target);
 						}
 					}
 				}
@@ -770,13 +833,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Wonder Room", target);
+							this.actions.useMove("Wonder Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Wonder Room", target);
+							this.actions.useMove("Wonder Room", target);
 						}
 					}
 				}
@@ -785,13 +848,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Pain Split", target);
+							this.actions.useMove("Pain Split", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Pain Split", target);
+							this.actions.useMove("Pain Split", target);
 						}
 					}
 				}
@@ -805,35 +868,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect", target);
-							this.useMove("Light Screen", target);
+							this.actions.useMove("Reflect", target);
+							this.actions.useMove("Light Screen", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect", target);
-							this.useMove("Light Screen", target);
+							this.actions.useMove("Reflect", target);
+							this.actions.useMove("Light Screen", target);
 						}
 					}
 				}
 			} else if (result === 29) {
 				this.hint("Roulette Wheel Result 30 - Starts a status immunity for both sides.");
 				for (const pokemon of this.getAllActive()) {
-	                	this.useMove("Safeguard", pokemon);
+	                	this.actions.useMove("Safeguard", pokemon);
 	        	}
 	        } else if (result === 30) {
 				this.hint("Roulette Wheel Result 31 - Deactivates all abilities that are active within 2 turns.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Neutral Air", target);
+							this.actions.useMove("Neutral Air", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Neutral Air", target);
+							this.actions.useMove("Neutral Air", target);
 						}
 					}
 				}
@@ -860,20 +923,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else if (result === 33) {
 				this.hint("Roulette Wheel Result 34 - Sets up Aqua Ring for both sides.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Aqua Ring", pokemon);
+					this.actions.useMove("Aqua Ring", pokemon);
 				}
 			} else if (result === 34) {
 				this.hint("Roulette Wheel Result 35 - One active Pokemon Defogs.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Defog", target);
+							this.actions.useMove("Defog", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Defog", target);
+							this.actions.useMove("Defog", target);
 						}
 					}
 				}
@@ -882,30 +945,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect Type", target);
+							this.actions.useMove("Reflect Type", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect Type", target);
+							this.actions.useMove("Reflect Type", target);
 						}
 					}
 				}
 			} else if (result === 36) {
 				this.hint("Roulette Wheel Result 37 - glhf");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Sheer Cold", pokemon);
+					this.actions.useMove("Sheer Cold", pokemon);
 				}
 			} else if (result === 37) {
 				this.hint("Roulette Wheel Result 38 - uh oh");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Octolock", pokemon);
+					this.actions.useMove("Octolock", pokemon);
 				}
 			} else if (result === 38) {
 				this.hint("Roulette Wheel Result 39 - Both active Pokemon use Metronome.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Metronome", pokemon);
+					this.actions.useMove("Metronome", pokemon);
 				}
 			} else if (result === 39) {
 				this.hint("Roulette Wheel Result 40 - get ready");
@@ -932,13 +995,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick", target);
+							this.actions.useMove("Trick", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Switcheroo", target);
+							this.actions.useMove("Switcheroo", target);
 						}
 					}
 				}
@@ -947,13 +1010,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Sick Hacks", target);
+							this.actions.useMove("Sick Hacks", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Sick Hacks", target);
+							this.actions.useMove("Sick Hacks", target);
 						}
 					}
 				}
@@ -961,27 +1024,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 				for (const pokemon of this.getAllActive()) {
 					const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
-					this.useMove(frstMove, pokemon);
+					this.actions.useMove(frstMove, pokemon);
 				}
 			} else if (result === 43) {
 				this.hint("Roulette Wheel Result 44 - One active Pokemon gains a higher crit rate.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Focus Energy", target);
+							this.actions.useMove("Focus Energy", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Focus Energy", target);
+							this.actions.useMove("Focus Energy", target);
 						}
 					}
 				}
 			} else if (result === 44) {
 				this.hint("Roulette Wheel Result 45 - One new spin for each active Pokemon!");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Roulette Spin", pokemon);
+					this.actions.useMove("Roulette Spin", pokemon);
 				}
 			} else if (result === 45) {
 				this.hint("Roulette Wheel Result 46 - One active Pokemon becomes way faster than the other.");
@@ -1001,14 +1064,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Vote Out", target);
+							this.actions.useMove("Vote Out", target);
 							return false;
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Vote Out", target);
+							this.actions.useMove("Vote Out", target);
 							return false;
 						}
 					}
@@ -1018,7 +1081,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				for (const pokemon of this.sides[0].active) {
 					for (const target of this.sides[1].active) {
 						if (target.storedStats.spe < pokemon.storedStats.spe) {
-							this.useMove("Flame Runner", pokemon);
+							this.actions.useMove("Flame Runner", pokemon);
 							const oldAbility = target.setAbility('Slow Start');
 							if (oldAbility) {
 								this.add('-ability', target, 'Slow Start', '[from] move: Flame Runner', '[silent]');
@@ -1026,7 +1089,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 								return;
 							}
 						} else if (target.storedStats.spe > pokemon.storedStats.spe) {
-							this.useMove("Flame Runner", target);
+							this.actions.useMove("Flame Runner", target);
 							const oldAbility = pokemon.setAbility('Slow Start');
 							if (oldAbility) {
 								this.add('-ability', pokemon, 'Slow Start', '[from] move: Flame Runner', '[silent]');
@@ -1035,7 +1098,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 							}
 						} else {
 							for (const active of this.getAllActive()) {
-								this.useMove("Flame Runner", active);
+								this.actions.useMove("Flame Runner", active);
 							}
 						}
 					}
@@ -1056,7 +1119,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else {
 				this.hint("Roulette Wheel Result 50 - THE ULTIMATE EFFECT");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Ultranome", pokemon);
+					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
 		},
@@ -1073,7 +1136,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	corrosion: {
 		inherit: true,
+		onModifyMove(move) {
+			if (!this.field.pseudoWeather.shitstorm) return;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
 		onEffectiveness(typeMod, target, type, move) {
+			console.log(type + " " + move.type);
 			if (this.field.pseudoWeather.shitstorm && move.type === 'Poison' && type === 'Steel') return 1;
 		},
 		shortDesc: "Corrosion + Poison hits Steel supereffectively in Shitstorm.",
@@ -1112,7 +1183,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sand Rush",
 		shortDesc: "Immune to hazards + doubled speed in Landslide.",
 	},
-	
+	secondimpact: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			return this.chainModify([4915, 4096]);
+		},
+		//second future move implemented in conditions.ts
+		flags: {},
+		name: "Second Impact",
+		shortDesc: "1.2x power + foresees a second move in Time Warp.",
+	},
 	wetskin: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
@@ -1142,9 +1222,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//other abils
 	cloudnine: {
 		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Cloud Nine');
+			const ids = [];
+			for(const pseudoWeather in this.field.pseudoWeather) {
+				ids.push(pseudoWeather);
+			}
 			for(let i = 0; i < 2; i ++) {
-				if(this.field.pseudoWeather.length == 0) break;
-				const weather = this.sample(this.field.pseudoWeather);
+				if(this.field.pseudoWeather.length == 1) break;
+				const weather = this.sample(ids);
 				this.field.removePseudoWeather(weather);
 			}
 		},
@@ -1154,9 +1239,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	airlock: {
 		onStart(pokemon) {
-			for(let i = 0; i < this.field.pseudoWeather.length; i ++) {
+			this.add('-ability', pokemon, 'Air Lock');
+			const ids = [];
+			for(const pseudoWeather in this.field.pseudoWeather) {
+				ids.push(pseudoWeather);
+			}
+			for(let i = 1; i < ids.length; i ++) {
 				if(this.field.pseudoWeather.length == 0) break;
-				const weather = this.sample(this.field.pseudoWeather);
+				const weather = ids[i];
 				this.field.removePseudoWeather(weather);
 			}
 		},
@@ -1169,8 +1259,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.singleEvent('PseudoWeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onAnyPseudoWeatherChange(target, source, pseudoWeather) {
-			const newTypes = target.getTypes();
-			switch (pseudoWeather) {
+			if(!source.adjacentFoes()) return;
+			const pokemon = this.sample(source.adjacentFoes());
+			const newType = [];
+			//my dishonest reaction
+			for (let i = 0; i < pokemon.types.length; i ++) {
+				newType.push(pokemon.types[i]); 
+			}
+			switch (pseudoWeather.id) {
 				case 'theswarm':
 					newType.push('Bug');
 					break;
@@ -1226,7 +1322,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					newType.push('Water');
 					break;
 			}
-			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes.join('/'));
+			console.log(newType);
+			if(pokemon.setType(newType)) this.add('-start', pokemon, 'typechange', newType.join('/'));
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Forecast",

@@ -279,6 +279,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//weather abusing moves
 	twineedle: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Hits 2 times; 20% to poison; 5 times in The Swarm.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.theswarm) {
 				move.multihit = 5;
@@ -287,6 +289,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	snatch: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Steals certain status moves. Steals <= 60 BP moves in Twilight Zone.",
 		volatileStatus: 'snatch',
 		condition: {
 			duration: 1,
@@ -297,8 +301,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onAnyPrepareHit(source, target, move) {
 				const snatchUser = this.effectState.source;
 				if (snatchUser.isSkyDropped()) return;
-				if (this.field.pseudoWeather.blackout && (!move || move.basePower > 60)) return;
-				if (!this.field.pseudoWeather.blackout && (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch')) {
+				if (this.field.pseudoWeather.twilightzone && (!move || move.basePower > 60)) return;
+				if (!this.field.pseudoWeather.twilightzone && (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch')) {
 					return;
 				}
 				snatchUser.removeVolatile('snatch');
@@ -310,6 +314,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	dragonrage: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Deals 40 damage. 100 damage in LoRSD.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.lotsofreallysmalldragons) {
 				move.damage = 100;
@@ -318,6 +324,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	charge: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "+1 SpD, next Electric move 2x, 25% heal in Thunderstorm.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.thunderstorm) {
 				move.heal = [1, 4];
@@ -326,45 +334,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mistyexplosion: {
 		inherit: true,
-		basePower: 150,
+		isViable: true,
+		shortDesc: "Doesn't faint and 1.5x power in Fable.",
+		basePower: 100,
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.fable) {
+				move.basePower = 150;
 				delete move.selfdestruct;
 			}
 		},
 	},
 	upperhand: {
 		inherit: true,
-		onTry(source, target) {
-			console.log(this.field.pseudoWeather.colosseum);
-			if (this.field.pseudoWeather.colosseum) return true;
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || move.priority <= 0.1 || move.category === 'Status') {
-				return false;
+		isViable: true,
+		shortDesc: "Doesn't fail, doesn't flinch in Colosseum.",
+		onTryHit(target, pokemon, move) {
+			if (this.field.getPseudoWeather('colosseum')) {
+				move.secondaries.chance = 0;
+				return;
 			}
-		},
-		onModifyMove(move, source, target) {
-			console.log("modify " + this.field.pseudoWeather.colosseum);
-			if (this.field.pseudoWeather.colosseum) {
-				const action = this.queue.willMove(target);
-				const targetMove = action?.choice === 'move' ? action.move : null;
-				if (!targetMove || targetMove.priority <= 0.1 || targetMove.category === 'Status') {
-					delete move.secondaries;
-				}			
-			}
-		},
+            const action = this.queue.willMove(target);
+            const targetMove = action?.choice === 'move' ? action.move : null;
+            if (!targetMove || targetMove.priority <= 0.1 || targetMove.category === 'Status') {
+                return false;
+            }
+        },
 	},
 	firepledge: {
 		inherit: true,
-		basePowerCallback: null,
-		onPrepareHit: null,
+		isViable: true,
+		shortDesc: "Sets Sea of Fire if Drought.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.drought) move.sideCondition = 'firepledge';
 		},
 	},
 	tailwind: {
 		inherit: true,
+		shortDesc: "Sets Tailwind for 4 turns, 6 if Delta Stream.",
 		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
@@ -392,20 +398,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	destinybond: {
 		inherit: true,
+		shortDesc: "Can be used consecutively if THE VOICES is active.",
 		onPrepareHit(pokemon) {
 			if(this.field.pseudoWeather.thevoices) pokemon.removeVolatile('destinybond');
 		},
 	},
 	grasspledge: {
 		inherit: true,
-		basePowerCallback: null,
-		onPrepareHit: null,
+		isViable: true,
+		shortDesc: "Sets Swamp if Overgrowth is active.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.overgrowth) move.sideCondition = 'grasspledge';
 		},
 	},
+	spikes: {
+		inherit: true,
+		shortDesc: "Sets twice at a time and deals double damage if Dust Storm is active.",
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = this.field.pseudoWeather.duststorm ? 2 : 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				const additive = this.field.pseudoWeather.duststorm ? 2 : 1;
+				this.effectState.layers += additive;
+				if(this.effectState.layers > 3) this.effectState.layers = 3;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				const denominator = this.field.pseudoWeather.duststorm ? 12 : 24;
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / denominator);
+			},
+		},
+	},
 	sandtomb: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Traps and lowers Defense by 1 if Dust Storm is active.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.duststorm) move.volatileStatus = 'sandtomb';
 		},
@@ -416,7 +449,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
-				this.boost({def: -1}, pokemon, source, this.dex.getActiveMove('sandtomb'));
+				if (this.field.pseudoWeather.duststorm) this.boost({def: -1}, pokemon, pokemon, this.dex.getActiveMove('sandtomb'));
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Sand Tomb', '[silent]');
@@ -425,6 +458,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	iceball: {
 		inherit: true,
+		isViable: true,
+		accuracy: 100,
+		shortDesc: "2x power and doesn't lock in Whiteout.",
 		basePowerCallback(pokemon, target, move) {
 			let bp = move.basePower;
 			const iceballData = pokemon.volatiles['iceball'];
@@ -444,18 +480,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (this.field.pseudoWeather.whiteout) {
 				bp *= 2;
 			}
-			this.debug("BP: " + bp);
 			return bp;
 		},
 		condition: {
 			duration: 1,
-			onLockMove: 'iceball',
+			onLockMove(pokemon) {
+				if (this.field.getPseudoWeather('whiteout')) return;
+				return 'iceball';
+			},
 			onStart() {
 				this.effectState.hitCount = 0;
 				this.effectState.contactHitCount = 0;
 			},
 			onResidual(target) {
-				if (this.field.pseudoWeather.whiteout || (target.lastMove && target.lastMove.id === 'struggle')) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
 					// don't lock
 					delete target.volatiles['iceball'];
 				}
@@ -464,6 +502,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	metronome: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Picks good moves in Metronome battle.",
 		onHit(target, source, effect) {
 			const GOOD_STATUS_MOVES = [
 				'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'banefulbunker', 'batonpass', 'bellydrum', 'bulkup', 'calmmind', 'chillyreception', 'clangoroussoul', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'dragondance', 'encore', 'extremeevoboost', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healingwish', 'healorder', 'heartswap', 'honeclaws', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'maxguard', 'memento', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'protect', 'quiverdance', 'recover', 'reflect', 'reflecttype', 'rest', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'shedtail', 'shellsmash', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'softboiled', 'spikes', 'spikyshield', 'spore', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'tidyup', 'toxic', 'transform', 'trick', 'victorydance', 'whirlwind', 'willowisp', 'wish', 'yawn',
@@ -472,11 +512,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				'accelerock', 'acrobatics', 'aquacutter', 'avalanche', 'barbbarrage', 'bonemerang', 'bouncybubble', 'bulletpunch', 'buzzybuzz', 'ceaselessedge', 'circlethrow', 'clearsmog', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'facade', 'firefang', 'flipturn', 'flowertrick', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'icefang', 'iceshard', 'iciclespear', 'infernalparade', 'jetpunch', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalspin', 'mysticalpower', 'naturesmadness', 'nightshade', 'nuzzle', 'pikapapow', 'populationbomb', 'psychocut', 'psyshieldbash', 'pursuit', 'quickattack', 'ragefist', 'rapidspin', 'return', 'rockblast', 'ruination', 'saltcure', 'scorchingsands', 'seismictoss', 'shadowclaw', 'shadowsneak', 'sizzlyslide', 'skydrop', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailblaze', 'tripleaxel', 'tripledive', 'twinbeam', 'uturn', 'veeveevolley', 'voltswitch', 'watershuriken', 'weatherball',
 			];
 			const moves = this.dex.moves.all().filter(move => (
-				(this.field.pseudoWeather.metronomebattle ? (move.bp >= 75 || GOOD_STATUS_MOVES.includes(move) || GOOD_WEAK_MOVES.includes(move)) : //any viable move
+				(this.field.pseudoWeather.metronomebattle ? (move.basePower >= 75 || GOOD_STATUS_MOVES.includes(move) || GOOD_WEAK_MOVES.includes(move)) : //any viable move
 				((![2, 4].includes(this.gen) || !source.moves.includes(move.id)) &&
 				(!move.isNonstandard || move.isNonstandard === 'Unobtainable') &&
 				move.flags['metronome'])
 			)));
+			console.log(moves);
 			let randomMove = '';
 			if (moves.length) {
 				moves.sort((a, b) => a.num - b.num);
@@ -489,21 +530,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	belch: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Cannot be selected unless it is Shitstorm or the user eats a Berry.",
 		onDisableMove(pokemon) {
 			if (!this.field.pseudoWeather.shitstorm && !pokemon.ateBerry) pokemon.disableMove('belch');
 		},
 	},
 	amnesia: {
 		inherit: true,
+		isViable: true,
+		shortDesc: "Raises SpD by 2, SpA by 2 if Mindfuck.",
 		onModifyMove(move, pokemon) {
-			if (this.field.pseudoWeather.idk) move.boosts = {spa: 2, spd: 2};
+			if (this.field.pseudoWeather.mindfuck) move.boosts = {spa: 2, spd: 2};
 		},
 	},
 	ancientpower: {
 		inherit: true,
-		onModifyMove(move) {
-			if (this.field.pseudoWeather.landslide) move.secondaries.chance = 100;
-		},
+		isViable: true,
+		shortDesc: "10% to raise all stats, 100% in Landslide.",
+		    onModifyMove(move, pokemon) {
+            if (!this.field.pseudoWeather.landslide) return;
+            move.secondaries = [];
+            if (this.field.pseudoWeather.landslide) {
+                move.secondaries.push({
+                    chance: 100,
+                    self: {
+                        boosts: {
+                            atk: 1,
+                            def: 1,
+                            spa: 1,
+                            spd: 1,
+                            spe: 1,
+                        },
+                    },
+                });
+            }
+        },
 	},
 	gyroball: {
 		inherit: true,
@@ -518,6 +580,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hardpress: {
 		inherit: true,
+		isViable: true,
 		basePowerCallback(pokemon, target) {
 			if (this.field.pseudoWeather.timewarp) return 100;
 			const hp = target.hp;
@@ -551,6 +614,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	metalburst: {
 		inherit: true,
+		isViable: true,
 		damageCallback(pokemon) {
 			if (this.field.pseudoWeather.timewarp) return 65535;
 			const lastDamagedBy = pokemon.getLastDamagedBy(true);
@@ -570,8 +634,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	waterpledge: {
 		inherit: true,
-		basePowerCallback: null,
-		onPrepareHit: null,
+		isViable: true,
+		shortDesc: "Sets Rainbow if Flash Flood.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.flashflood) move.sideCondition = 'waterpledge';
 		},
@@ -1481,6 +1545,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 10,
 	},
+	rest: {
+		inherit: true,
+		pp: 10,
+	},
 	roost: {
 		inherit: true,
 		pp: 10,
@@ -1497,5 +1565,91 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 10,
 	},
-	
+	synthesis: {
+		inherit: true,
+		pp: 10,
+	},
+	morningsun: {
+		inherit: true,
+		pp: 10,
+	},
+	moonlight: {
+		inherit: true,
+		pp: 10,
+	},
+	electroshot: {
+		inherit: true,
+		shortDesc: "Charges instantly if Thunderstorm or Flash Flood.",
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (this.field.pseudoWeather.thunderstorm || this.field.pseudoWeather.flashflood) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	solarbeam: {
+		inherit: true,
+		shortDesc: "Charges instantly if Overgrowth or Drought.",
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (this.field.pseudoWeather.overgrowth || this.field.pseudoWeather.drought) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	solarblade: {
+		inherit: true,
+		shortDesc: "Charges instantly if Overgrowth or Drought.",
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (this.field.pseudoWeather.overgrowth || this.field.pseudoWeather.drought) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	growth: {
+		inherit: true,
+		shortDesc: "+2 Atk, +2 SpA in Overgrowth or Drought.",
+		onModifyMove(move, pokemon) {
+			if (this.field.pseudoWeather.overgrowth || this.field.pseudoWeather.drought) move.boosts = {atk: 2, spa: 2};
+		},
+	},
+	auroraveil: {
+		inherit: true,
+		shortDesc: "Fails unless there is Whiteout.",
+		onTry() {
+			return this.field.pseudoWeather.whiteout;
+		},
+	},
 }
