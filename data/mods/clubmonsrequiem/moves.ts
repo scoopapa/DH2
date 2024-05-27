@@ -134,7 +134,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	triplearrows: {
-		shortDesc: "100% to lower target's Defense by 1; user's crit ratio +2.",
+		shortDesc: "Lowers target's Defense by 1; user's crit ratio +2.",
 		num: -1008,
 		accuracy: 100,
 		basePower: 50,
