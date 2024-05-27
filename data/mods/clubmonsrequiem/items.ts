@@ -84,14 +84,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 	throatspray: {
 		inherit: true,
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = false;
+			this.effectState.switchingIn = true;
 		},
 		onAfterMoveSecondarySelf(target, source, move) {
 			if (!this.effectState.switchingIn) return;
 			if (move.flags['sound']) {
 				this.boost({spa: 1});
 			}
-			this.effectState.switchingIn = true;
+			this.effectState.switchingIn = false;
 		},
 		boosts: {},
 		shortDesc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Once per switch-in.",
