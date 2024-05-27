@@ -52,9 +52,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onModifySpe(spe, pokemon) {
@@ -87,9 +86,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onModifyAccuracyPriority: -1,
@@ -130,9 +128,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onTryMove(attacker, defender, move) {
@@ -173,9 +170,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidualOrder: 5,
@@ -212,9 +208,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
@@ -252,9 +247,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidualOrder: 5,
@@ -291,9 +285,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidualOrder: 5,
@@ -331,9 +324,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onEffectivenessPriority: -1,
@@ -369,9 +361,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onTryMovePriority: 1,
@@ -413,9 +404,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidual(pokemon) {
@@ -454,9 +444,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onFieldStart(field, source, effect) {
@@ -484,9 +473,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onModifyTypePriority: -1,
@@ -526,9 +514,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidual(pokemon) {
@@ -569,9 +556,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidualOrder: 28,
@@ -606,22 +592,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-fieldend', 'Shitstorm');
 		},
 	},
-	idk: {
-		name: 'idk',
+	mindfuck: {
+		name: 'mindfuck',
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onModifyAccuracy(accuracy) {
-			if (!this.field.pseudoWeather.idk || typeof accuracy !== 'number') return;
+			if (!this.field.pseudoWeather.mindfuck || typeof accuracy !== 'number') return;
 			return this.chainModify([6840, 4096]);
 		},
 		onDisableMove(pokemon) {
-			if(!this.field.pseudoWeather.idk) return;
+			if(!this.field.pseudoWeather.mindfuck) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (this.dex.moves.get(moveSlot.id).flags['gravity']) {
 					pokemon.disableMove(moveSlot.id);
@@ -631,13 +616,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
 		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (this.field.pseudoWeather.idk && move.flags['gravity'] && !move.isZ) {
+			if (this.field.pseudoWeather.mindfuck && move.flags['gravity'] && !move.isZ) {
 				this.add('cant', pokemon, 'move: Gravity', move);
 				return false;
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if(!this.field.pseudoWeather.idk) return;
+			if(!this.field.pseudoWeather.mindfuck) return;
 			if(move.type === 'Psychic' && move.category === 'Status' && move.target === 'normal') {
 				move.category = "Special";
 				move.basePower = 80;
@@ -656,20 +641,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-fieldstart', 'idk', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-fieldstart', 'Mindfuck', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-fieldstart', 'idk');
+				this.add('-fieldstart', 'Mindfuck');
 			}
 		},
 		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 		// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'idk', '[upkeep]');
+			this.add('-weather', 'Mindfuck', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
-			this.add('-fieldend', 'idk');
+			this.add('-fieldend', 'Mindfuck');
 		},
 	},
 	landslide: {
@@ -677,9 +662,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onModifyDefPriority: 10,
@@ -715,9 +699,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onModifyMove(move, pokemon) {
@@ -786,9 +769,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('therock')) {
-				return 8;
-			}
+			if (source?.hasItem('therock')) return 8;
+			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
 		onResidual(pokemon) {
