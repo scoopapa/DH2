@@ -1,6 +1,11 @@
 export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
-
 	heatproof: {
+		inherit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk() {},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA() {},
+		onDamage() {},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				this.add('-immune', target, '[from] ability: Heatproof');
@@ -20,11 +25,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 			return false;
 		},
-		flags: {breakable: 1},
-		name: "Heatproof",
-		shortDesc: "User is immune to Fire-type moves and burn.",
-		rating: 3.5,
-		num: 18,
+		shortDesc: "This Pokemon cannot be hit by Fire moves or be burned.",
 	},
 	fauxliage: {
 		onSourceModifyAtkPriority: 6,
@@ -56,6 +57,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 47,
 	},
 	shellarmor: {
+		inherit: true,
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
@@ -86,49 +88,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.boost({def: 1}, target, target);
 			}
 		},
-		flags: {},
-		name: "Shell Armor",
-		rating: 2,
-		num: 201,
+		onCriticalHit: null,
+		shortDesc: "This Pokemon's Defense is raised by 1 when it reaches 1/2 or less of its max HP.",
 	},
 	windrider: {
-		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind']) {
-				this.boost({atk: 1}, pokemon, pokemon);
-			}
-		},
-		onTryHit(target, source, move) {
-			if (target !== source && move.flags['wind']) {
-				if (!this.boost({atk: 1}, target, target)) {
-					this.add('-immune', target, '[from] ability: Wind Rider');
-				}
-				return null;
-			}
-		},
-		onAllySideConditionStart(target, source, sideCondition) {
-			const pokemon = this.effectState.target;
-			if (sideCondition.id === 'tailwind') {
-				this.boost({atk: 1}, pokemon, pokemon);
-			}
-		},
+		inherit: true,
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (effect?.id === 'defog') {
 				this.boost({atk: 1}, source);
 			}
 		},
-		flags: {breakable: 1},
-		name: "Wind Rider",
-		rating: 3.5,
-		// We do not want Brambleghast to get Infiltrator in Randbats
-		num: 274,
 	},
 	snowwarning: {
+		inherit: true,
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
-		flags: {},
-		name: "Snow Warning",
-		rating: 4,
-		num: 117,
+		shortDesc: "On switch-in, this Pokemon summons Hail.";
 	},
 };

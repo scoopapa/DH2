@@ -1,51 +1,33 @@
-export const Items: { [itemid: string]: ItemData } = {
-
+export const Items: {[k: string]: ModdedItemData} = {
 	absorbbulb: {
-		name: "Absorb Bulb",
-		spritenum: 2,
-		fling: {
-			basePower: 30,
-		},
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Water') {
 				this.boost({spa: 1}, target);
 			}
 		},
+		boosts: {},
 		shortDesc: "Raises Special Attack by 1 stage if hit by an Water-type attack.",
-		num: 545,
-		gen: 5,
 	},
 	berryjuice: {
-		name: "Berry Juice",
-		spritenum: 22,
-		fling: {
-			basePower: 30,
-		},
+		inherit: true,
 		onResidual(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
+		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
-		num: 43,
-		gen: 2,
-		isNonstandard: "Past",
-		rating: 3,
 	},
 	cellbattery: {
-		name: "Cell Battery",
-		spritenum: 60,
-		fling: {
-			basePower: 30,
-		},
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Electric') {
 				this.boost({atk: 1}, target);
 			}
 		},
+		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
-		num: 546,
-		gen: 5,
 	},
 	metronome: {
 		name: "Metronome",
@@ -90,38 +72,28 @@ export const Items: { [itemid: string]: ItemData } = {
 		gen: 4,
 	},
 	snowball: {
-		name: "Snowball",
-		spritenum: 606,
-		fling: {
-			basePower: 30,
-		},
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Ice') {
 				this.boost({atk: 1}, target);
 			}
 		},
+		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Ice-type attack.",
-		num: 649,
-		gen: 6,
 	},
 	throatspray: {
-		name: "Throat Spray",
-		spritenum: 713,
-		fling: {
-			basePower: 30,
-		},
+		inherit: true,
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
+			this.effectState.switchingIn = false;
 		},
 		onAfterMoveSecondarySelf(target, source, move) {
 			if (!this.effectState.switchingIn) return;
 			if (move.flags['sound']) {
 				this.boost({spa: 1});
 			}
-			this.effectState.switchingIn = false;
+			this.effectState.switchingIn = true;
 		},
+		boosts: {},
 		shortDesc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Once per switch-in.",
-		num: 1118,
-		gen: 8,
 	},
 };
