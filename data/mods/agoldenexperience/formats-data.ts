@@ -3968,7 +3968,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	blacephalon: {
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	zeraora: {
@@ -4942,7 +4942,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	ironboulder: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	ironcrown: {
