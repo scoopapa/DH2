@@ -38,7 +38,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Cool",
-		shortDesc: "10% chance to lower opponent's speed stat. Hits all adjacent targets.",
+		shortDesc: "10% chance to lower opponent's speed stat.",
 
 	},
 	archaicglare: {
@@ -50,14 +50,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
-		onBasePower(basePower, source) {
+		basePowerCallback(pokemon, target, move) {
 			if (this.field.getPseudoWeather('trickroom')) {
-				return this.chainModify(1.5);
+				this.debug('archaic glare TR boost');
+				return move.basePower * 1.5;
 			}
-			if (['sunnyday', 'desolateland'].includes(source.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				this.debug('archaic glare sun boost');
-				return this.chainModify(1.5);
+				return move.basePower * 1.5;
 			}
+
+			return move.basePower;
 		},
 		target: "normal",
 		type: "Psychic",
@@ -82,7 +85,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
-		shortDesc: "If this attack misses, user takes 50% of their max HP as recoil.",
+		shortDesc: "User takes 50% of their max HP as recoil on whiff.",
 	},
 	boilingbash: {
 		num: -1004,
@@ -119,7 +122,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp * (pokemon.hasType(['Water', 'Fire']) ? 0 : (1/8)));
+				this.damage(pokemon.baseMaxhp * (pokemon.hasType(['Water', 'Fire']) ? 0 : (1 / 8)));
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Boiling Deluge');
@@ -131,10 +134,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Fire",
-		shortDesc: "Pokemon hit by this move take 1/8 max HP every turn. Water and Fire types are immune to residual damage.",
+		shortDesc: "Pokemon hit take 1/8 max HP every turn. Water and Fire types are immune.",
 
 	},
-	/*candlelight: {
+	candlelight: {
 		num: -1006,
 		accuracy: true,
 		basePower: 0,
@@ -146,9 +149,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			let success = false;
 			let removals = 0;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ evasion: -1 });
+
 			const removeTarget = [
-				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			const removeAll = [
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
@@ -156,29 +159,30 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Candlelight', '[of] ' + source);
 					success = true;
 					removals++;
 				}
 			}
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Candlelight', '[of] ' + source);
 					success = true;
 					removals++;
 				}
 			}
-			this.field.clearTerrain();
-			source.side.addSlotCondition(source, 'candlelight');
+
+			for (let i = 0; i < removals; i++) {
+				source.side.addSlotCondition(source, 'candlelight');
+			}
+
 			return success;
 		},
 		condition: {
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-					target.heal(target.maxhp);
-					target.clearStatus();
-					this.add('-heal', target, target.getHealth, '[from] move: Healing Wish');
-					target.side.removeSlotCondition(target, 'healingwish');
+				if (!target.fainted) {
+					target.heal(target.baseMaxhp / 24);
+					target.side.removeSlotCondition(target, 'candlelight');
 				}
 			},
 		},
@@ -186,16 +190,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
-	},*/
+		shortDesc: "Removes hazards on both sides.",
+	},
 	dragonhunt: {
 		num: -1007,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			// You can't get here unless the pursuit succeeds
 			if (target.beingCalledBack || target.switchFlag) {
 				this.debug('Dragon Hunt damage boost');
-				return move.basePower * 1.5;
+				return move.basePower * 2;
 			}
 			return move.basePower;
 		},
@@ -252,7 +257,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "Hits opponents as they switch out and gets a 50% power boost.",
+		shortDesc: "Hits opponents on swap out, gets a 50% power boost.",
 
 	},
 	gundown: {
@@ -290,7 +295,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "Light That Burns The Sky",
+		name: "Light That Burn The Sky",
 		pp: 15,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
@@ -332,7 +337,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 1,
 		noPPBoosts: true,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, recharge: 1},
+		flags: { protect: 1, mirror: 1, recharge: 1 },
 		secondary: {
 			chance: 100,
 			status: 'frz',
@@ -353,7 +358,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
-		shortDesc: "100% chance to freeze. User takes 50% of their max HP as recoil and must recharge.",
+		shortDesc: "100% chance to freeze. User takes 50% of max HP as recoil, must recharge.",
 
 	},
 	prominenceshock: {
@@ -385,7 +390,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, mirror: 1 },
 		onHit(target, source, move) {
 			if (target.status === 'psn' || target.status === 'tox') {
-				return !!this.boost({ atk: -1, spa: -1, spe: -1 }, target, source, move);
+				return !!this.boost({ atk: -1, spa: -1 }, target, source, move);
 			}
 			return false;
 		},
@@ -402,6 +407,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
+		ignoreImmunity: { 'Poison': true },
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
@@ -455,5 +461,107 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 		shortDesc: "User gains Charge volatile.",
 
+	},
+	realmsravage: {
+		num: -1017,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target) {
+			const ratio = Math.max(Math.floor(pokemon.hp * 48 / pokemon.maxhp), 1);
+			let bp;
+			if (ratio < 12) {
+				bp = 150;
+			} else if (ratio < 24) {
+				bp = 100;
+			} else if (ratio < 36) {
+				bp = 60;
+			} else {
+				bp = 40;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		category: "Physical",
+		name: "Realm's Ravage",
+		critRatio: 2,
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		shortDesc: "Does more damage the lower the user's HP gets.",
+	},
+	crystallineshelter: {
+		num: -1018,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Crystalline Shelter",
+		pp: 20,
+		priority: 0,
+		flags: { snatch: 1 },
+		volatileStatus: 'crystallineshelter',
+		condition: {
+			onStart(target, source, effect) {
+				this.add('-start', target, 'move: Crystalline Shelter');
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.damage(source.baseMaxhp / 6, source, target);
+				}
+			},
+		},
+		type: "Rock",
+		target: "self",
+		secondary: null,
+		shortDesc: "Gives the user Rocky Helmet effects.",
+	},
+	dustveil: {
+		num: -1019,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Dust Veil",
+		pp: 10,
+		priority: 0,
+		flags: { snatch: 1 },
+		sideCondition: 'dustveil',
+		onTry() {
+			return this.field.isWeather(['sandstorm']);
+		},
+		condition: {
+			duration: 5,
+			onSideStart(side, source) {
+				this.add('-sidestart', side, 'move: Dust Veil');
+			},
+			onModifyAtk(atk, pokemon) {
+				return this.chainModify(1.3);
+			},
+			onModifySpA(spa, pokemon) {
+				return this.chainModify(1.3);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 5,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Dust Veil');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Ground",
+		shortDesc: "Increases damage output of your side by 1.3x.",
+	},
+	devour: {
+		num: -1020,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Devour",
+		pp: 10,
+		flags: { contact: 1, protect: 1, bite: 1, cantusetwice: 1},
+		priority: 0,
+		target: "normal",
+		type: "Dragon",
 	},
 }

@@ -329,40 +329,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Ignores recoil and self-KO effects of that move.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
-				this.effectState.target.addVolatile('implode');
-				this.effectState.target.volatiles['implode'].move = move;
-				this.effectState.target.volatiles['implode'].recoil = move.recoil;
-				this.effectState.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
-				delete move.recoil;
-				delete move.mindBlownRecoil;
 				if (move.selfdestruct && move.selfdestruct === 'always') {
-					this.effectState.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 					delete move.selfdestruct;
 				}
+				if (move.recoil) {
+					delete move.recoil;
+				}
+				if (move.mindBlownRecoil) {
+					move.mindBlownRecoil = false;
+				}
 			}
-		},
-		onPrepareHit(target, source, move) {
-			if (!this.effectState.target.volatiles['implode']) return;
-			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
-		},
-		condition: {
-			duration: 1,
-			onAfterMove(source, target, move) {
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon === source) continue;
-				}
-				if (this.effectState.recoil && move.totalDamage) {
-					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
-				}
-				if (this.effectState.mindBlownRecoil) {
-					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
-				}
-				if (this.effectState.selfdestruct) {
-					this.faint(source, source, this.effectState.move);
-				}
-				source.removeVolatile('implode');
-			},
 		},
 		name: "Never Gonna Give You Up",
 		rating: 4,
@@ -853,44 +829,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Ignores recoil and self-KO effects of its moves.",
 		onModifyMove(move) {
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
-				this.effectState.target.addVolatile('implode');
-				this.effectState.target.volatiles['implode'].move = move;
-				this.effectState.target.volatiles['implode'].recoil = move.recoil;
-				this.effectState.target.volatiles['implode'].mindBlownRecoil = move.mindBlownRecoil;
-				delete move.recoil;
-				delete move.mindBlownRecoil;
 				if (move.selfdestruct && move.selfdestruct === 'always') {
-					this.effectState.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 					delete move.selfdestruct;
 				}
+				if (move.recoil) {
+					delete move.recoil;
+				}
+				if (move.mindBlownRecoil) {
+					move.mindBlownRecoil = false;
+				}
 			}
-		},
-		onPrepareHit(target, source, move) {
-			if (!this.effectState.target.volatiles['implode']) return;
-			if (this.effectState.target.volatiles['implode'].selfdestruct) this.add('-anim', target, "Breakneck Blitz", target);
-		},
-		condition: {
-			duration: 1,
-			onAfterMove(source, target, move) {
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon === source) continue;
-					/*if (!pokemon.hp) {
-						source.removeVolatile('implode');
-						return;
-					}*/
-				}
-				if (this.effectState.recoil && move.totalDamage) {
-					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
-				}
-				if (this.effectState.mindBlownRecoil) {
-					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
-				}
-				if (this.effectState.selfdestruct) {
-					this.faint(source, source, this.effectState.move);
-				}
-				source.removeVolatile('implode');
-			},
 		},
 		name: "Explosive",
 		rating: 4,
@@ -1442,82 +1390,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a Dark-type move. Dark immunity.",
 	},
-	// moody: {// WIP
-	// 	onResidualOrder: 26,
-	// 	onResidualSubOrder: 1,
-	// 	onResidual(pokemon) {
-	// 		let stats: BoostName[] = [];
-	// 		const boost: SparseBoostsTable = {};
-	// 		let statPlus: BoostName;
-	// 		for (statPlus in pokemon.boosts) {
-	// 			if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-	// 			if (pokemon.boosts[statPlus] < 6) {
-	// 				stats.push(statPlus);
-	// 			}
-	// 		}
-	// 		// console.log(statPlus);
-	// 		let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-	// 		if (randomStat) boost[randomStat] = 1;
-	// 		console.log(randomStat);
-	// 		switch (randomStat) {
-	// 			case 'atk':
-	// 				pokemon.addVolatile('MoodAtk');
-	// 				break;
-	// 			case 'def':
-	// 				pokemon.addVolatile('MoodDef');
-	// 				break;
-	// 			case 'spa':
-	// 				pokemon.addVolatile('MoodSpA');
-	// 				break;
-	// 			case 'spd':
-	// 				pokemon.addVolatile('MoodSpD');
-	// 				break;
-	// 			case 'spe':
-	// 				pokemon.addVolatile('MoodSpe');
-	// 				break;
-	// 			default:
-	// 				break;
-	// 		}
-
-	// 		this.boost(boost);
-	// 		console.log(pokemon.volatiles['MoodAtk']);
-	// 		console.log(pokemon.volatiles['MoodDef']);
-	// 		console.log(pokemon.volatiles['MoodSpA']);
-	// 		console.log(pokemon.volatiles['MoodSpD']);
-	// 		console.log(pokemon.volatiles['MoodSpe']);
-	// 	},
-	// 	onEnd(pokemon) {
-	// 		if (pokemon.volatiles['MoodAtk']) {
-	// 			this.boost({ atk: -1 });
-	// 			delete pokemon.volatiles['MoodAtk'];
-	// 			console.log(pokemon.volatiles['MoodAtk']);
-	// 		}
-	// 		if (pokemon.volatiles['MoodDef']) {
-	// 			this.boost({ def: -1 });
-	// 			delete pokemon.volatiles['MoodDef'];
-	// 			console.log(pokemon.volatiles['MoodDef']);
-	// 		}
-	// 		if (pokemon.volatiles['MoodSpA']) {
-	// 			this.boost({ spa: -1 });
-	// 			delete pokemon.volatiles['MoodSpA'];
-	// 			console.log(pokemon.volatiles['MoodSpA']);
-	// 		}
-	// 		if (pokemon.volatiles['MoodSpD']) {
-	// 			this.boost({ spd: -1 });
-	// 			delete pokemon.volatiles['MoodSpD'];
-	// 			console.log(pokemon.volatiles['MoodSpD']);
-	// 		}
-	// 		if (pokemon.volatiles['MoodSpe']) {
-	// 			this.boost({ spe: -1 });
-	// 			delete pokemon.volatiles['MoodSpe'];
-	// 			console.log(pokemon.volatiles['MoodSpe']);
-	// 		}
-	// 	},
-	// 	name: "Moody",
-	// 	shortDesc: "Boosts a random stat (except accuracy/evasion) +1 every turn. The boost resets at the end of the turn.",
-	// 	rating: 5,
-	// 	num: 141,
-	// },
 	colorchange: {
 		onTryHit(target, source, move) {
 			if (!target.hp) return;
