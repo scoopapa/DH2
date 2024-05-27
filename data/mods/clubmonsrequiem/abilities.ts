@@ -104,6 +104,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onStart(source) {
 			this.field.setWeather('hail');
 		},
-		shortDesc: "On switch-in, this Pokemon summons Hail.";
+		shortDesc: "On switch-in, this Pokemon summons Hail.",
 	},
 };
