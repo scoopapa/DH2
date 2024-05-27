@@ -264,4 +264,4 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "self",
 		type: "Steel",
 	},
-},
+};
