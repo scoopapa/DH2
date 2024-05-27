@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-// New Items 
+// New Items
 	collider: {
 		name: "Collider",
 		spritenum: 119,
