@@ -19726,6 +19726,7 @@ banhammers returns June 8th banhammers returns June 8th banhammers returns June 
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "User sleeps 2 turns and restores HP and status. (Gen 2)",
 		name: "Rest",
 		pp: 5,
 		priority: 0,

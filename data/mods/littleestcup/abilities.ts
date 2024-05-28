@@ -80858,6 +80858,7 @@ I had virtually no rehearsal for that.
 		},
 		flags: {},
 		name: "Magic Guard",
+		shortDesc: "This Pokemon can only be stopped and damaged by direct attacks.",
 		rating: 4,
 		num: 98,
 	},
