@@ -216,7 +216,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onAfterHit(target, source) {
 			source.addVolatile('joyride');
 		},
-		condition: {,
+		condition: {
 			onStart(target, source, effect) {
 				if (target.volatiles['dragoncheer']) return false;
 				if (effect?.id === 'zpower') {
