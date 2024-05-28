@@ -96,4 +96,45 @@ export const Items: {[k: string]: ModdedItemData} = {
 		boosts: {},
 		shortDesc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Once per switch-in.",
 	},
+	trickortreatbag: {
+		name: "Trick-or-Treat Bag",
+		spritenum: 385,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (pokemon.hp === pokemon.maxhp) return;
+			let activated = 0;
+			this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name}: Boo!`);
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				let scaredThisGuy = false;
+				for (const moveSlot of ((pokemon.illusion && pokemon.illusion.moveSlots) ? pokemon.illusion.moveSlots : pokemon.moveSlots)) {
+					if (scaredThisGuy === true) continue;
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, target) && this.dex.getEffectiveness(moveType, target) > 0
+					) {
+						scaredThisGuy = true;
+						continue;
+					}
+				}
+				if (scaredThisGuy === true) {
+					this.add('-message', `${target.illusion ? target.illusion.name : target.name}: Eeeek!`);
+					activated++;
+				}
+			}
+			this.add('-message', `...`);
+			if (activated) {
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} got some candy!`);
+				this.heal(pokemon.baseMaxhp * 0.25 * activated);
+			} else {
+				this.add('-message', `It wasn't that scary, so nothing happened.`);
+			}
+		},
+		desc: "On entry, the holder scares the target to restore HP.",
+		num: -7,
+	},
 };
