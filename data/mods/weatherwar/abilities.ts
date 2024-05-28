@@ -1228,7 +1228,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				ids.push(pseudoWeather);
 			}
 			for(let i = 0; i < 2; i ++) {
-				if(this.field.pseudoWeather.length == 1) break;
+				if(this.field.pseudoWeather.length == 0) break;
 				const weather = this.sample(ids);
 				this.field.removePseudoWeather(weather);
 			}
@@ -1244,7 +1244,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for(const pseudoWeather in this.field.pseudoWeather) {
 				ids.push(pseudoWeather);
 			}
-			for(let i = 1; i < ids.length; i ++) {
+			for(let i = 0; i < ids.length; i ++) {
 				if(this.field.pseudoWeather.length == 0) break;
 				const weather = ids[i];
 				this.field.removePseudoWeather(weather);

@@ -517,7 +517,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				(!move.isNonstandard || move.isNonstandard === 'Unobtainable') &&
 				move.flags['metronome'])
 			)));
-			console.log(moves);
 			let randomMove = '';
 			if (moves.length) {
 				moves.sort((a, b) => a.num - b.num);
@@ -1650,6 +1649,84 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Fails unless there is Whiteout.",
 		onTry() {
 			return this.field.pseudoWeather.whiteout;
+		},
+	},
+	weatherball: {
+		inherit: true,
+		basePower: 75,
+		type: '???',
+		shortDesc: "2x in any weather. Gains type effectiveness for each weather.",
+		onEffectiveness(typeMod, target, type, move) {
+			if(this.field.pseudoWeather.length == 0) return;
+			const ids = [];
+			for(const pseudoWeather in this.field.pseudoWeather) {
+				ids.push(pseudoWeather);
+			}
+			for(let i = 1; i < ids.length; i ++) {
+				const weather = ids[i];
+				console.log(weather);
+				switch (weather) {
+					case 'theswarm':
+						typeMod += this.dex.getEffectiveness('Bug', type);
+						break;
+					case 'twilightzone':
+						typeMod += this.dex.getEffectiveness('Dark', type);
+						break;
+					case 'lotsofreallysmalldragons':
+						typeMod += this.dex.getEffectiveness('Dragon', type);
+						break;
+					case 'thunderstorm':
+						typeMod += this.dex.getEffectiveness('Electric', type);
+						break;
+					case 'fable':
+						typeMod += this.dex.getEffectiveness('Fairy', type);
+						break;
+					case 'colosseum':
+						typeMod += this.dex.getEffectiveness('Fighting', type);
+						break;
+					case 'drought':
+						typeMod += this.dex.getEffectiveness('Fire', type);
+						break;
+					case 'deltastream':
+						typeMod += this.dex.getEffectiveness('Flying', type);
+						break;
+					case 'thevoices':
+						typeMod += this.dex.getEffectiveness('Ghost', type);
+						break;
+					case 'overgrowth':
+						typeMod += this.dex.getEffectiveness('Grass', type);
+						break;
+					case 'duststorm':
+						typeMod += this.dex.getEffectiveness('Grass', type);
+						break;
+					case 'whiteout':
+						typeMod += this.dex.getEffectiveness('Ice', type);
+						break;
+					case 'metronomebattle':
+						typeMod += this.dex.getEffectiveness('Normal', type);
+						break;
+					case 'shitstorm':
+						typeMod += this.dex.getEffectiveness('Poison', type);
+						break;
+					case 'mindfuck':
+						typeMod += this.dex.getEffectiveness('Psychic', type);
+						break;
+					case 'landslide':
+						typeMod += this.dex.getEffectiveness('Rock', type);
+						break;
+					case 'timewarp':
+						typeMod += this.dex.getEffectiveness('Steel', type);
+						break;
+					case 'flashflood':
+						typeMod += this.dex.getEffectiveness('Water', type);
+						break;
+				}
+				console.log("typemod: " + typeMod);
+				return typeMod;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if(this.field.pseudoWeather.length > 0) move.basePower *= 2;
 		},
 	},
 }

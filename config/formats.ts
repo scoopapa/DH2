@@ -2741,31 +2741,28 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-        name: "[Gen 9] Weather War",
+        name: "[Gen 9] Climate Change",
         desc: [
-            "jumpscaare",
+            "weather war",
         ],
         threads: [
-            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
+            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Climate Change on Smogon Forums</a>`,
               ],
         ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
         banlist: [],
-		/*
+		
         onValidateTeam(team, format) {
-            /**@type {{[k: string]: true}} 
+            /**@type {{[k: string]: true}} */
             let speciesTable = {};
             let f = false;
             let ff = false;
             for (const set of team) {
-                if (set.species === 'Flutter Mane') f = true;
-                else if (set.species === 'Flutter Mane 2') ff = true;
-                if(f && ff) return ['Did you think you could bring two Flutter Manes to a game? Are you stupid?'];
                 let template = this.dex.species.get(set.species);
-                if (template.tier !== 'SM') {
-                    return [set.species + ' is not usable in Spookymod.'];
+                if (template.tier !== 'CC') {
+                    return [set.species + ' is not usable in Climate Change.'];
                 }
             }
-        },*/
+        },
         mod: 'weatherwar',
     },
 	{

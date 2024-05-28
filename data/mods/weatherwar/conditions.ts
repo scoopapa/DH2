@@ -1,5 +1,6 @@
 import {FS} from '../../../lib';
 import {toID} from '../../../sim/dex-data';
+import {Pokemon} from "../../../sim/pokemon";
 
 // Similar to User.usergroups. Cannot import here due to users.ts requiring Chat
 // This also acts as a cache, meaning ranks will only update when a hotpatch/restart occurs
@@ -61,8 +62,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.chainModify(0.67);
 			}
 		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (this.field.pseudoWeather.twilightzone && move.type === 'Bug' && type === 'Fairy') return 1;
+		onModifyMove(move) {
+			if (move.category === 'Status' || move.type !== 'Bug') return;
+			move.onEffectiveness = function(typeMod, target, type) {
+				if(type === 'Fairy') return 1;
+			};
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
@@ -189,10 +193,30 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			console.log(pokemon);
 			if (this.field.pseudoWeather.thunderstorm && pokemon.hp && this.randomChance(3, 10)) {
 				const newMove = this.dex.getActiveMove('thunder');
-				this.actions.useMove(newMove, pokemon, pokemon);
+				const newSet = {
+					name: 'Mew',
+					species: 'Mew',
+					item: '',
+					ability: 'Static',
+					moves: [ 'Thunder' ],
+					nature: 'Serious',
+					evs: { hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85 },
+					gender: 'N',
+					ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },
+					happiness: 255,
+					hpType: '',
+					pokeball: '',
+					gigantamax: false,
+					dynamaxLevel: 10,
+					teraType: 'Electric',
+					level: 100
+				};
+				const newMon = new Pokemon(newSet, pokemon.side);
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|LTG|You should forfeit... NOW!`);
+				this.add('-anim', pokemon, "Thunder", pokemon);
+				this.actions.useMove(newMove, newMon, pokemon);
 			}
 		},
 		onModifyMove(move, pokemon) {

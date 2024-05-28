@@ -115,7 +115,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 15,
 		species: "Flygon",
 		types: ["Dragon", "Ground"],
-		baseStats: {hp: 80, atk: 100, def: 80, spa: 80, spd: 80, spe: 100},
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 80, spd: 80, spe: 100},
 		abilities: {0: "Sand Stream", 1: "Draco Jet", H: "Levitate"},
 	},
 	torkoal: {
@@ -236,7 +236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Clefable",
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 95, atk: 90, def: 90, spa: 105, spd: 90, spe: 60},
-		abilities: {0: "Finger Waggler", 1: "Fable", H: "Unaware"},
+		abilities: {0: "Finger Waggler", 1: "Fairytale", H: "Unaware"},
 	},
 	blitzle: {
 		inherit: true,
@@ -746,8 +746,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 94,
 		species: "Lily White",
 		types: ["Grass", "Fairy"],
-		baseStats: {hp: 85, atk: 35, def: 55, spa: 120, spd: 85, spe: 90},
-		abilities: {0: "Its Spring"},
+		baseStats: {hp: 85, atk: 35, def: 75, spa: 85, spd: 100, spe: 95},
+		abilities: {0: "It\'s Spring!"},
 	},
 
 	//duomod reference

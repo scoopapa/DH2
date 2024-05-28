@@ -525,6 +525,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "wyrdeer").learnset.metronome = ["9L1"];
 		this.modData("Learnsets", "wyrdeer").learnset.setmetronomebattle = ["9L1"];
 		this.modData("Learnsets", "wyrdeer").learnset.setmindfuck = ["9L1"];
+		
+		//removals
+		// Zapdos
+		delete this.modData('Learnsets', 'zapdos').learnset.ancientpower;
+		// Archaludon
+		delete this.modData('Learnsets', 'duraludon').learnset.metalburst;
+		delete this.modData('Learnsets', 'archaludon').learnset.metalburst;
+		// Dialga
+		delete this.modData('Learnsets', 'dialga').learnset.metalburst;
+		delete this.modData('Learnsets', 'dialga').learnset.ancientpower;
+		// Tyranitar
+		delete this.modData('Learnsets', 'larvitar').learnset.ancientpower;
+		delete this.modData('Learnsets', 'pupitar').learnset.ancientpower;
+		delete this.modData('Learnsets', 'tyranitar').learnset.ancientpower;
+		// Dragapult
+		delete this.modData('Learnsets', 'drakloak').learnset.dragondance;
+		delete this.modData('Learnsets', 'dragapult').learnset.dragondance;
+		// Toedscruel
+		delete this.modData('Learnsets', 'toedscruel').learnset.spore;
+		// Darkrai
+		delete this.modData('Learnsets', 'darkrai').learnset.nastyplot;
+		// Malamar
+		delete this.modData('Learnsets', 'inkay').learnset.storedpower;
+		delete this.modData('Learnsets', 'malamar').learnset.storedpower;
+		// Jirachi
+		delete this.modData('Learnsets', 'jirachi').learnset.ancientpower;
+		// Celebi
+		delete this.modData('Learnsets', 'celebi').learnset.ancientpower;
+		// Diancie
+		delete this.modData('Learnsets', 'diancie').learnset.ancientpower;
+		// Salazzle
+		delete this.modData('Learnsets', 'salazzle').learnset.dragondance;
 	},
 	
 	pokemon: {
