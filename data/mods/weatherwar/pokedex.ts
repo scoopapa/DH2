@@ -107,8 +107,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 14,
 		species: "Dragonair",
 		types: ["Water"],
-		baseStats: {hp: 91, atk: 70, def: 95, spa: 104, spd: 100, spe: 70},
+		baseStats: {hp: 91, atk: 70, def: 105, spa: 104, spd: 100, spe: 70},
 		abilities: {0: "Climate Change"},
+		evos: null,
 	},
 	flygon: {
 		inherit: true,
@@ -245,6 +246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Fire"],
 		baseStats: {hp: 105, atk: 60, def: 92, spa: 105, spd: 92, spe: 76},
 		abilities: {0: "Lightning Rod", 1: "Solar Power", H: "Stamina"},
+		evos: null,
 	},
 	altaria: {
 		inherit: true,
