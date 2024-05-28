@@ -325,10 +325,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	charge: {
 		inherit: true,
 		isViable: true,
-		shortDesc: "+1 SpD, next Electric move 2x, 25% heal in Thunderstorm.",
+		shortDesc: "+1 SpD, next Electric move 2x, 33% heal in Thunderstorm.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.thunderstorm) {
-				move.heal = [1, 4];
+				move.heal = [1, 3];
 			}
 		},
 	},
@@ -1654,7 +1654,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	weatherball: {
 		inherit: true,
 		basePower: 75,
-		type: '???',
+		type: 'Stellar',
 		shortDesc: "2x in any weather. Gains type effectiveness for each weather.",
 		onEffectiveness(typeMod, target, type, move) {
 			if(this.field.pseudoWeather.length == 0) return;

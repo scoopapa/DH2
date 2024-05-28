@@ -2749,13 +2749,11 @@ export const Formats: FormatList = [
             `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Climate Change on Smogon Forums</a>`,
               ],
         ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
-        banlist: [],
+        banlist: ['Sunny Day', 'Rain Dance', 'Sandstorm', 'Hail', 'Snowscape', 'Chilly Reception'],
 		
         onValidateTeam(team, format) {
             /**@type {{[k: string]: true}} */
             let speciesTable = {};
-            let f = false;
-            let ff = false;
             for (const set of team) {
                 let template = this.dex.species.get(set.species);
                 if (template.tier !== 'CC') {
