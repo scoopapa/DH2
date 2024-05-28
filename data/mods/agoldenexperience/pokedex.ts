@@ -3436,6 +3436,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Quark Drive", H: "Justified"},
 	},
+	okidogi: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Scrappy"},
+	},
 	munkidori: {
 		inherit: true,
 		abilities: {0: "Toxic Chain", H: "Psychic Surge"},
