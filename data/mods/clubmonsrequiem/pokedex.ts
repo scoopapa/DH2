@@ -186,6 +186,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	leavanny: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 103, def: 80, spa: 70, spd: 80, spe: 92},
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Technician"},
 	},
 	noibat: {
 		inherit: true,
