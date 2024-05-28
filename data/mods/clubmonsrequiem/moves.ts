@@ -1,4 +1,8 @@
 export const Moves: { [moveid: string]: ModdedMoveData } = {
+	burnup: {
+		inherit: true,
+		category: "Physical",
+	},
 	waterpulse: {
 		inherit: true,
 		basePower: 75,
