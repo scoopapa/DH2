@@ -63,7 +63,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	impsaustor: {
 		learnset: {
-			impostorblade: ["9L1"],
+			knockoff: ["9L1"],
 		}
 	},
 }
