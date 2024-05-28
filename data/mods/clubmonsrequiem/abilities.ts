@@ -57,7 +57,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 47,
 	},
 	shellarmor: {
-		inherit: true,
+		// i want to drop the crit immunity on this so i'm going to drop the inherit
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
@@ -88,8 +88,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.boost({def: 1}, target, target);
 			}
 		},
-		onCriticalHit: null,
-		shortDesc: "This Pokemon's Defense is raised by 1 when it reaches 1/2 or less of its max HP.",
+		shortDesc: "This Pokemon's Defense is raised by 1 when it is directly hit to 1/2 or less of its max HP.",
 	},
 	windrider: {
 		inherit: true,
@@ -105,5 +104,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			this.field.setWeather('hail');
 		},
 		shortDesc: "On switch-in, this Pokemon summons Hail.",
+	},
+	rewind: {
+		onSwitchOut(pokemon) {
+			if (pokemon.item || !pokemon.lastItem) return false;
+			const item = pokemon.lastItem;
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Rewind');
+			pokemon.setItem(item);
+		},
+		name: "Rewind",
+		num: 144,
 	},
 };
