@@ -242,4 +242,43 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Fairy",
 		contestType: "Cute",
 	},
+	echoedvoice: {
+		num: 497,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			if (this.field.pseudoWeather.echoedvoice) {
+				bp = move.basePower * this.field.pseudoWeather.echoedvoice.multiplier;
+			}
+			this.debug('BP: ' + move.basePower);
+			return bp;
+		},
+		category: "Special",
+		name: "Echoed Voice",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		onTry() {
+			this.field.addPseudoWeather('echoedvoice');
+		},
+		condition: {
+			duration: 3,
+			onFieldStart() {
+				this.effectState.multiplier = 1;
+			},
+			onFieldRestart() {
+				if (this.effectState.duration !== 3) {
+					this.effectState.duration = 3;
+					if (this.effectState.multiplier < 5) {
+						this.effectState.multiplier++;
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
 };
