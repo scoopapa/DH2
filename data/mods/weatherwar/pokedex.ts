@@ -486,7 +486,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 61,
 		species: "Hawlucha",
 		types: ["Fighting", "Flying"],
-		baseStats: {hp: 88, atk: 92, def: 95, spa: 74, spd: 63, spe: 118},
+		baseStats: {hp: 88, atk: 112, def: 95, spa: 64, spd: 73, spe: 98},
 		abilities: {0: "Suplex", 1: "Slipstream", H: "Reckless"},
 	},
 	hitmonchan: {
