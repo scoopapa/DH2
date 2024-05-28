@@ -5,7 +5,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	accelgor: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 70, def: 40, spa: 110, spd: 60, spe: 145},
+		baseStats: {hp: 90, atk: 70, def: 50, spa: 100, spd: 60, spe: 145},
 	},
 	clawitzer: {
 		inherit: true,
@@ -30,7 +30,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	escavalier: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
+		baseStats: {hp: 90, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
 	},
 	froslass: {
 		num: 478,
