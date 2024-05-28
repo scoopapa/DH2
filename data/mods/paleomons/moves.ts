@@ -291,7 +291,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'Tauros-Paldea-Aqua':
 				move.type = 'Water';
 				break;
-			}
 			case 'Tauros-Ancestor':
 				move.type = 'Ghost';
 				break;
