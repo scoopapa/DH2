@@ -137,4 +137,25 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "On entry, the holder scares the target to restore HP.",
 		num: -7,
 	},
+	costarmask: {
+		name: "Costar Mask",
+		spritenum: 760,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Costar",
+		itemUser: ["Ogerpon-Costar"],
+		num: 2408,
+		gen: 9,
+	},
 };
