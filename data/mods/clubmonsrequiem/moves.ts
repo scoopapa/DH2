@@ -281,4 +281,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	axonrush: {
+		num: -1004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's and ally's Atk, Def, Spe by 1 in Electric Terrain.",
+		name: "Axon Rush",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onTryHit() {
+			if (!this.field.isTerrain('electricterrain')) return false;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", target);
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "allies",
+		type: "Electric",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
 };
