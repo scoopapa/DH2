@@ -61,7 +61,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Brutal Swing', target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 2, pokemon, pokemon, move);
+			if (!target || target.fainted || target.hp <= 0) move.drain = [100, 100];
 		},
 		secondary: null,
 		target: "normal",
