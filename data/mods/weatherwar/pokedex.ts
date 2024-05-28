@@ -679,7 +679,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Ting-Lu",
 		types: ["Dark", "Ground"],
 		baseStats: {hp: 155, atk: 90, def: 105, spa: 55, spd: 80, spe: 45},
-		abilities: {0: "Dust Storm"},
+		abilities: {0: "Sand Stream"},
 	},
 	armaldo: {
 		inherit: true,
