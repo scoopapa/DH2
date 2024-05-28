@@ -533,7 +533,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.randomChance(1, 10)) {
 				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|Muck this world.`);
 				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|That is my final message`);
-				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|Good bye.`);
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|Goot bye.`);
 				const explosion = this.dex.getActiveMove('explosion');
 				this.actions.useMove(explosion, source, target);
 			}
