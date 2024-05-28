@@ -746,7 +746,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lilywhite: {
 		num: 94,
-		species: "Lily White",
+		name: "Lily White",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 85, atk: 35, def: 75, spa: 85, spd: 100, spe: 95},
 		abilities: {0: "It\'s Spring!"},
@@ -755,7 +755,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//duomod reference
 	impsaustor: {
 		num: 999.5,
-		species: "Impsaustor",
+		name: "Impsaustor",
 		types: ["Dark", "Poison"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 120, def: 80, spa: 80, spd: 120, spe: 100}, // i'm so freaking tired i did this to be funny lmao
