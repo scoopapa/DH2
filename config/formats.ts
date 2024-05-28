@@ -2439,7 +2439,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod', 'Welcome Message', 'Allow Tradeback'],
 		banlist: ['Uber'],
 	},
-		{
+	{
 		name: "[Gen 1] Kanto Expansion Pak Ubers",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9233581">Post in Solomods Megathread</a>`,
@@ -2740,6 +2740,31 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+        name: "[Gen 9] Climate Change",
+        desc: [
+            "weather war",
+        ],
+        threads: [
+            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Climate Change on Smogon Forums</a>`,
+              ],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+        banlist: [],
+		
+        onValidateTeam(team, format) {
+            /**@type {{[k: string]: true}} */
+            let speciesTable = {};
+            let f = false;
+            let ff = false;
+            for (const set of team) {
+                let template = this.dex.species.get(set.species);
+                if (template.tier !== 'CC') {
+                    return [set.species + ' is not usable in Climate Change.'];
+                }
+            }
+        },
+        mod: 'weatherwar',
+    },
 	{
 		name: "[Gen 8] Weedmons",
 		desc: `Weedmons is a SoloMod originally led by The Reptile, whose purpose is primarily to make a fun micrometa based on the	completely arbitrary limitations of the theme of Weed!.`,
