@@ -35,7 +35,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			newMega.creator = pokemon.megaCreator || null;
 			newMega.requiredItem = pokemon.megaStone || null;
-			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega"};
+			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega", doublesTier: "Mega"};
 		}
 	},
 
@@ -60,5 +60,26 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) return null;
 		return item.megaStone;
 	},
+	},
+	pokemon: {
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !(this.hasType('???') && 'roost' in this.volatiles)) return false;
+			if (this.hasAbility('levitate') && !this.battle.suppressingAbility(this)) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			if ('poolfloaties' in this.volatiles) return false;
+			for (const target of this.battle.getAllActive()) {
+				if (target.hasAbility('uplifting')) {
+					return null;
+				}
+			}
+			return item !== 'airballoon';
+		},
 	},
 };

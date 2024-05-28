@@ -20,6 +20,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
 	},
+	galvanize: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([5325, 4096]);
+		},
+		shortDesc: "This Pokemon's Normal-type moves become Electric type and have 1.3x power.",
+	},
 	intrepidsword: {
 		inherit: true,
 		onStart(pokemon) {
@@ -67,6 +74,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.boost(boost, pokemon, pokemon);
 		},
 		shortDesc: "Raises a random stat by 2 and lowers another stat by 1 at the end of each turn.",
+	},
+	parentalbond: {
+		inherit: true,
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage halved.",
 	},
 	pixilate: {
 		inherit: true,

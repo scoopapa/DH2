@@ -165,4 +165,73 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["healbell", "toxic", "wish"],
 		megaCreator: "Seito Chinchou",
 	},
+
+	// slate 3
+
+	donphan: {
+		inherit: true,
+		mega: "donphanmega",
+		megaName: "Donphan-Mega",
+		megaType: ["Ground", "Flying"],
+		megaAbility: {0: "Aerilate"},
+		megaStats: {hp: 90, atk: 140, def: 140, spa: 60, spd: 85, spe: 85},
+		megaStone: "Donphanite",
+		megaCreator: "LordThemberchaud",
+	},
+
+	armarouge: {
+		inherit: true,
+		mega: "armarougemega",
+		megaName: "Armarouge-Mega",
+		megaAbility: {0: "Pavise"},
+		megaStats: {hp: 85, atk: 60, def: 145, spa: 145, spd: 95, spe: 95},
+		megaStone: "Armarouginite",
+		movepoolAdditions: ["recover"],
+		megaCreator: "BlueRay",
+	},
+
+	tinkaton: {
+		inherit: true,
+		mega: "tinkatonmega",
+		megaName: "Tinkaton-Mega",
+		megaAbility: {0: "Uplifting"},
+		megaStats: {hp: 85, atk: 105, def: 127, spa: 70, spd: 115, spe: 104},
+		megaStone: "Tinkatonite",
+		movepoolAdditions: ["uturn"],
+		megaCreator: "Paulluxx",
+	},
+
+	// slate 4
+
+	coalossal: {
+		inherit: true,
+		mega: "coalossalmega",
+		megaName: "Coalossal-Mega",
+		megaAbility: {0: "Tar Slosh"},
+		megaStats: {hp: 110, atk: 80, def: 155, spa: 100, spd: 90, spe: 75},
+		megaStone: "Coalossalite",
+		megaCreator: "jazzmat",
+	},
+
+	revavroom: {
+		inherit: true,
+		mega: "revavroommega",
+		megaName: "Revavroom-Mega",
+		megaAbility: {0: "Luster Swap"},
+		megaStats: {hp: 80, atk: 139, def: 120, spa: 54, spd: 97, spe: 110},
+		megaStone: "Revavroomite",
+		movepoolAdditions: ["spiritbreak", "knockoff", "bodypress", "rapidspin"],
+		megaCreator: "Seito Chinchou",
+	},
+
+	cyclizar: {
+		inherit: true,
+		mega: "cyclizarmega",
+		megaName: "Cyclizar-Mega",
+		megaAbility: {0: "Two-Minded"},
+		megaStats: {hp: 70, atk: 110, def: 95, spa: 110, spd: 95, spe: 121},
+		megaStone: "Cyclizite",
+		movepoolAdditions: ["superpower"],
+		megaCreator: "okispokis",
+	},
 };

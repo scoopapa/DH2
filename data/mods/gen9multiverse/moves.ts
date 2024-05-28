@@ -31,6 +31,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},	
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	
 	boo: {
 		num: -1,
@@ -312,7 +316,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	meteorbeam: {
+	meteorbeem: {
 		num: -9,
 		accuracy: 100,
 		basePower: 120,
@@ -353,6 +357,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		isZ: "meowthofaloliumz",
+		selfSwitch: true,
 		self: {
 			sideCondition: 'safeguard',
 			slotCondition: 'infinitebaseballreaction',

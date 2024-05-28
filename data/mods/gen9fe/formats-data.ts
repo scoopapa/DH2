@@ -36,7 +36,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	zarubok: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["gunkshot", "crunch", "suckerpunch", "swordsdance"],
 		randomBattleLevel: 75,
@@ -92,7 +92,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		requiredItem: "Altarianite",
 	},
 	ironpins: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["swordsdance", "psyblade", "trailblaze", "zingzap"],
 		randomBattleLevel: 75,
@@ -295,7 +295,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	bronzebonnet: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["spore", "synthesis", "heavyslam", "seedbomb"],
 		randomBattleLevel: 75,
@@ -408,13 +408,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	zoinkazenta: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["closecombat", "doubleedge", "crunch", "wildcharge"],
 		randomBattleLevel: 75,
 	},
 	decidulax: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["swordsdance", "roost", "spiritshackle", "bodyslam"],
 		randomBattleLevel: 75,
@@ -502,13 +502,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	okiferro: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["powerwhip", "knockoff", "spikes", "leechseed", "drainpunch", "swordsdance"],
 		randomBattleLevel: 75,
 	},
 	dragocoal: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["flareblitz", "dragontail", "roost", "rapidspin"],
 		randomBattleLevel: 75,
@@ -544,7 +544,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	empoliaryhisui: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["esperwing", "surf", "flipturn", "stealthrock", "calmmind"],
 		randomBattleLevel: 75,
@@ -613,7 +613,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 80,
 	},
 	farinape: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["vacuumwave", "nastyplot", "twinbeam", "thunderbolt"],
 		randomBattleLevel: 75,

@@ -2030,6 +2030,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			icepunch: ["9L1"],
 			icywind: ["9L1"],
 			leafblade: ["9L1"],
+			leafstorm: ["9L1"],
 			magicalleaf: ["9L1"],
 			megadrain: ["9L1"],
 			moonblast: ["9L1"],

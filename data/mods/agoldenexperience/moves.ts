@@ -1305,6 +1305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		damage: null,
 		basePower: 40,
+		accuracy: 100,
 		category: "Special",
 		desc: "Priority +1, Sound move.",
 		shortDesc: "Usually goes first. Sound Move.",
@@ -1318,15 +1319,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	rockwrecker: {
 		inherit: true,
-		basePower: 140,
-		desc: "Lowers the user's Attack by 2 stages.",
-		shortDesc: "Lowers the user's Atk by 2.",
-		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		self: {
-			boosts: {
-				atk: -2,
-			},
-		},
+		shortDesc: "Cannot be selected the turn after it's used.",
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1, cantusetwice: 1},
+		self: null,
 	},
 	triplekick: {
 		inherit: true,
@@ -1456,52 +1451,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 	},
 	freezeshock: {
-		num: 553,
-		accuracy: 90,
-		basePower: 140,
-		category: "Physical",
-		name: "Freeze Shock",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		self: {
-			boosts: {
-				atk: -2,
-			},
+		inherit: true,
+		flags: {protect: 1, mirror: 1, cantusetwice: 1},
+		onTryMove(attacker, defender, move) {
+			return;
 		},
-		secondary: {
-			chance: 30,
-			status: 'par',
-		},
-		desc: "Lowers the user's Attack by 2 stages. Has a 30% chance to paralyze the target.",
-		shortDesc: "Lowers the user's Atk by 2. Has a 30% chance to paralyze the target.",
-		target: "normal",
-		type: "Ice",
-		contestType: "Beautiful",
+		shortDesc: "Cannot be selected the turn after it's used.",
 	},
 	iceburn: {
-		num: 554,
-		accuracy: 90,
-		basePower: 140,
-		category: "Special",
-		name: "Ice Burn",
-		pp: 5,
-		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1},
-		self: {
-			boosts: {
-				spa: -2,
-			},
+		inherit: true,
+		flags: {protect: 1, mirror: 1, cantusetwice: 1},
+		onTryMove(attacker, defender, move) {
+			return;
 		},
-		secondary: {
-			chance: 30,
-			status: 'brn',
-		},
-		desc: "Lowers the user's Special Attack by 2 stages. Has a 30% chance to burn the target.",
-		shortDesc: "Lowers the user's Sp. Atk by 2. Has a 30% chance to burn the target.",
-		target: "normal",
-		type: "Ice",
-		contestType: "Beautiful",
+		shortDesc: "Cannot be selected the turn after it's used.",
 	},
 	relicsong: {
 		inherit: true,
@@ -1638,14 +1601,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Summons Lucky Chant.",
 	},
 	ragingfury: {
-		num: 833,
-		accuracy: 100,
+		inherit: true,
 		basePower: 130,
-		category: "Physical",
-		name: "Raging Fury",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		self: null,
+		onAfterMove(pokemon) {},
 		basePowerCallback(pokemon, target, move) {
 			let bp = move.basePower;
 			if (pokemon.volatiles['ragingfury'] && pokemon.volatiles['ragingfury'].hitCount) {
@@ -1667,11 +1626,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		secondary: null,
-		target: "randomNormal",
-		type: "Fire",
-		contestType: "Cool",
-		shortDesc: "This move lowers in power after each use (5 turns max).",
+		shortDesc: "Lowers in BP after each use (5 turns max).",
+		desc: "This move lowers in power after each use (5 turns max).",
 	},
 	bittermalice: {
 		inherit: true,
@@ -1688,12 +1644,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	shelter: {
-		num: 842,//change
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Shelter",
-		pp: 10,
+		inherit: true,
 		priority: 4,
 		flags: {},
 		stallingMove: true,
@@ -1740,11 +1691,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		secondary: null,
-		target: "self",
-		type: "Steel",
-		zMove: {boost: {def: 1}},
-		contestType: "Tough",
+		boosts: null,
 		shortDesc: "Protects from moves. Contact: resets opponent's stat boosts.",
 	},
 	triplearrows: {
@@ -2759,6 +2706,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 170},
 		contestType: "Tough",
 	},
+	magicmissile: {
+		num: -65,
+		accuracy: true,
+		basePower: 25,
+		category: "Special",
+		name: "Magic Missile",
+		shortDesc: "Hits 2-5 times in one turn. Does not check accuracy, bypasses immunities, and always hits for at least neutral damages.",
+		desc: "Hits two to five times. This move does not check accuracy, bypasses immunities, and always hits for at least neutral damages.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swift", target);
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Magic Missile damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, pokemon, target) {
+			let type = move.type;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity[type] = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Smart",
+	},
 
 	// Identity Card field
 
@@ -2875,6 +2859,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	burnup: {
 		inherit: true,
+		isNonstandard: null,
 		self: {
 			onHit(pokemon) {
 				if (!pokemon.hasItem('identitycard')) {
