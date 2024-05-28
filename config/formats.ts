@@ -505,6 +505,16 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Hide and Seaking",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/hide-and-seaking.3743214/">Hide and Seaking</a>`,
+		],
+		teambuilderFormat: "National Dex",
+		mod: 'littleestcup',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Terastal Clause'],
+		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+	},
+	{
 		name: "[Gen 9] Hidden Gems",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3737861/">Hidden Gems</a>`,
