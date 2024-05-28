@@ -46,11 +46,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	darkdevour: {
 		num: 1004,
-		accuracy: 95,
+		accuracy: 90,
 		basePower: 90,
 		category: "Physical",
 		name: "Dark Devour",
-		shortDesc: "User heals 1/2 of its max HP upon KOing opponent.",
+		shortDesc: "User heals the amount of HP the opponent lost if they fainted.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
