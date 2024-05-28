@@ -43,7 +43,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	growlithe: {tier: "CM (NFE)"},
 	arcanine: {tier: "CM"},
-	arcaninehisui: {tier: "CM"},
 	
 	basculinwhitestriped: {tier: "CM (NFE)"},
 	basculegion: {tier: "CM"},
