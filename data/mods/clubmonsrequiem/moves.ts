@@ -121,7 +121,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 65,
 		category: "Special",
 		name: "Compost",
-		shortDesc: "1.5x power if user has no item. Recycles item if previously used.",
+		shortDesc: "1.5x power if user has no item. Recycles item.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -167,5 +167,79 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(damage, target, source, move) {
 			this.field.setTerrain('mistyterrain');
 		},
+	},
+	haywirecudgel: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Haywire Cudgel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source, move) {
+			if (move.type !== "Normal") {
+				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
+			}
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Ogerpon-Costar':
+				move.type = 'Electric';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	joyride: {
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Joyride",
+		shortDesc: "Crits are boosted in power after use. User crashes if dodged.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Agility', source);
+			this.add('-anim', source, 'Play Rough', target);
+		},
+		onAfterHit(target, source) {
+			source.addVolatile('joyride');
+		},
+		condition: {,
+			onStart(target, source, effect) {
+				if (target.volatiles['dragoncheer']) return false;
+				if (effect?.id === 'zpower') {
+					this.add('-start', target, 'move: Joyride', '[zeffect]');
+				} else if (effect && (['costar', 'imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', target, 'move: Joyride', '[silent]');
+				} else {
+					this.add('-start', target, 'move: Joyride');
+				}
+				this.add('-message', `${target.name) is feeling full of energy!`);
+			},
+			onModifyDamage(damage, source, target, move) {
+				if (target.getMoveHitData(move).crit) {
+					this.debug('Joyride boost');
+					return this.chainModify(1.5);
+				}
+			},
+		},
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Joyride'));
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
 	},
 };
