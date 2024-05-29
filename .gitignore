@@ -73,3 +73,4 @@ pip-log.txt
 *.rdb
 config/chatrooms.json
 logs/errors.txt
+config/chatrooms.json
