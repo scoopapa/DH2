@@ -114,7 +114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		sideCondition: 'disable',
-		target: "normal",
+		target: "foeSide",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target, source) {
 			if (!target.moves.length) return false;
@@ -122,7 +122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
-			onSideStart (targetSide, target) {
+			onSideStart (side, target) {
 				let moves = target.moves;
 				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', target, 'Disable', moveSlot.move);
