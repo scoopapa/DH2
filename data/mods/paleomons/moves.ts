@@ -92,30 +92,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
-	petroglyph: {
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's Special Attack by 1 stage.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-		    this.attrLastMove('[still]');
-		    this.add('-anim', source, "Paleo Wave", target);
-		},
-		secondary: {
-			chance: 50,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Rock",
-	},
 	trashcompactor: {
 		accuracy: true,
 		basePower: 0,
@@ -267,6 +243,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Paleo Wave", target);
+		},
 		secondary: {
 			chance: 50,
 			self: {
