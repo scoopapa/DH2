@@ -122,7 +122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
-			onSideStart (side, target) {
+			onSideStart (targetSide, target) {
 				let moves = target.moves;
 				let moveId = moves[this.random(moves.length)];
 				if (!moveId) return false;
