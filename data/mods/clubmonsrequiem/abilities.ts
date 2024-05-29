@@ -27,6 +27,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		shortDesc: "This Pokemon cannot be hit by Fire moves or be burned.",
 	},
+	witheringgaze: {
+		onAnyTryMove(this, source, target, move) {
+			if (source === this.effectState.target) return;
+			if (move.flags['pivot']) {
+			this.add('-fail', source, 'ability: Withering Gaze', '[of] ' + this.effectState.target);
+			return false;
+			}
+		},
+		name: "Withering Gaze",
+		rating: 3,
+		num: 3000,
+	},
 	fauxliage: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
