@@ -1529,6 +1529,7 @@ export const Learnsets = {
 			hornleech: ["9L1"],
 			haywirecudgel: ["9L30", "9S1", "9S0"],
 			knockoff: ["9M"],
+			joyride: ["9L1"],
 			lashout: ["9M"],
 			leafblade: ["9M"],
 			leafstorm: ["9M"],
