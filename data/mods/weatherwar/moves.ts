@@ -24,6 +24,7 @@ export function getName(name: string): string {
 export const Moves: {[k: string]: ModdedMoveData} = {
 	//weather setting moves
 	settheswarm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -38,6 +39,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 	},
 	settwilightzone: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -52,6 +54,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
 	setlotsofreallysmalldragons: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -66,6 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 	},
 	setthunderstorm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -80,6 +84,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 	},
 	setfable: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -94,6 +99,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 	},
 	setcolosseum: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -108,6 +114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	setdrought: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -122,6 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 	},
 	setdeltastream: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -136,6 +144,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 	},
 	setthevoices: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -150,6 +159,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 	},
 	setovergrowth: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -164,6 +174,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 	},
 	setduststorm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -178,6 +189,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 	},
 	setwhiteout: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -192,6 +204,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 	},
 	setmetronomebattle: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -206,6 +219,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},
 	setshitstorm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -220,6 +234,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 	},
 	setmindfuck: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -234,6 +249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 	},
 	setlandslide: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -248,6 +264,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 	},
 	settimewarp: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -262,6 +279,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	setflashflood: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -280,6 +298,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	twineedle: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		shortDesc: "Hits 2 times; 20% to poison; 5 times in The Swarm.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.theswarm) {
@@ -290,6 +309,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	snatch: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		shortDesc: "Steals certain status moves. Steals <= 60 BP moves in Twilight Zone.",
 		volatileStatus: 'snatch',
 		condition: {
@@ -315,6 +335,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	dragonrage: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		shortDesc: "Deals 40 damage. 100 damage in LoRSD.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.lotsofreallysmalldragons) {
@@ -459,6 +480,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	iceball: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		accuracy: 100,
 		shortDesc: "2x power and doesn't lock in Whiteout.",
 		basePowerCallback(pokemon, target, move) {
