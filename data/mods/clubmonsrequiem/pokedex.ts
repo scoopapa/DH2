@@ -5,7 +5,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	accelgor: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 70, def: 40, spa: 110, spd: 60, spe: 145},
+		baseStats: {hp: 90, atk: 70, def: 50, spa: 100, spd: 60, spe: 145},
 	},
 	clawitzer: {
 		inherit: true,
@@ -30,7 +30,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	escavalier: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
+		baseStats: {hp: 90, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
 	},
 	froslass: {
 		num: 478,
@@ -124,6 +124,46 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
 	},
+	gothitelleallira: {
+		num: 9002,
+		name: "Gothitelle-Allira",
+		types: ["Psychic", "Dark"],
+		baseStats: {hp: 70, atk: 50, def: 110, spa: 105, spd: 100, spe: 55},
+		abilities: {0: "Competitive", 1: "Withering Gaze", H: "Rocky Payload"},
+		heightm: 1.7,
+		weightkg: 50,
+		color: "Green",
+		eggGroups: ["Human-Like"],
+	},
+	stormulex: {
+		num: 9003,
+		name: "Stormulex",
+		types: ["Electric", "Rock"],
+		baseStats: {hp: 91, atk: 129, def: 96, spa: 40, spd: 84, spe: 60},
+		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
+		heightm: 1.7, //idk yet
+		weightkg: 50, //idk yet
+	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Rewind"},
+	},
+	sandyshocks: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Rewind"},
+	},
+	brutebonnet: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Rewind"},
+	},
+	celebi: { 
+		inherit: true,
+		abilities: {0: "Natural Cure", S: "Rewind"},
+	},
+	noivern: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Rewind"},
+	},
 	golduck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 95, spd: 80, spe: 120},
@@ -186,6 +226,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	leavanny: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 103, def: 80, spa: 70, spd: 80, spe: 92},
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Technician"},
 	},
 	noibat: {
 		inherit: true,
@@ -255,5 +296,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Duosion-Neural",
 		evoLevel: 41,
 		creator: "ausma",
+	},
+	ogerpon: {
+		inherit: true,
+		otherFormes: ["Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Costar", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
+		formeOrder: ["Ogerpon", "Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Costar", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
+		// will be unused, but here for costar form
+	},
+	ogerponcostar: {
+		num: 1017,
+		name: "Ogerpon-Costar",
+		baseSpecies: "Ogerpon",
+		forme: "Costar",
+		types: ["Grass", "Electric"],
+		gender: "F",
+		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
+		abilities: {0: "Motor Drive"},
+		heightm: 0.9,
+		weightkg: 23.8,
+		color: "Yellow",
+		eggGroups: ["Undiscovered"],
+		requiredItem: "Costar Mask",
 	},
 };
