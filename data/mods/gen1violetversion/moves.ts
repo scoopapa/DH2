@@ -117,14 +117,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "foeSide",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target, source) {
-			if (!target.moves.length) return false;
-			target.side.addSideCondition('disable', target);
+			if (!source.moves.length) return false;
+			source.side.addSideCondition('disable', target);
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
-			onSideStart (side, source) {
-				let moves = source.moves;
-				const moveSlot = this.sample(source.moveSlots.filter(ms => ms.pp > 0));
+			onSideStart (side, target) {
+				let moves = target.moves;
+				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', source, 'Disable', moveSlot.move);
 				this.effectState.move = moveSlot.id;
 				/**if (!moveId) return false;
