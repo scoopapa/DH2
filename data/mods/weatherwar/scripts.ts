@@ -93,6 +93,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "articuno").learnset.setwhiteout = ["9L1"];
 		// Archaludon
 		this.modData("Learnsets", "archaludon").learnset.autotomize = ["9L1"];
+		this.modData("Learnsets", "archaludon").learnset.charge = ["9L1"];
 		this.modData("Learnsets", "archaludon").learnset.discharge = ["9L1"];
 		this.modData("Learnsets", "archaludon").learnset.voltswitch = ["9L1"];
 		this.modData("Learnsets", "archaludon").learnset.earthpower = ["9L1"];

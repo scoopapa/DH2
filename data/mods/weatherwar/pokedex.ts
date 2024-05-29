@@ -261,7 +261,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Altaria-Mega",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 85, atk: 110, def: 120, spa: 110, spd: 120, spe: 85},
-		abilities: {0: "Fable"},
+		abilities: {0: "Fairytale"},
 	},
 	lickilicky: {
 		inherit: true,
@@ -293,7 +293,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Venusaur",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 80, atk: 82, def: 83, spa: 105, spd: 100, spe: 80},
-		abilities: {0: "Overgrow", H: "Chlorophyll"},
+		abilities: {0: "Overgrow", 1: "Shart", H: "Chlorophyll"},
 	},
 	venusaurmega: {
 		inherit: true,
@@ -534,7 +534,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Absol",
 		types: ["Dark"],
 		baseStats: {hp: 80, atk: 130, def: 75, spa: 95, spd: 75, spe: 75},
-		abilities: {0: "Blackout", 1: "Fable", H: "Adaptability"},
+		abilities: {0: "Blackout", 1: "Fairytale", H: "Adaptability"},
 	},
 	absolmega: {
 		inherit: true,
@@ -574,7 +574,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Tapu Lele",
 		types: ["Psychic", "Fairy"],
 		baseStats: {hp: 70, atk: 85, def: 75, spa: 115, spd: 110, spe: 95},
-		abilities: {0: "Freaky", H: "Fable"},
+		abilities: {0: "Freaky", H: "Fairytale"},
 	},
 	manaphy: {
 		inherit: true,
@@ -622,7 +622,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Diancie",
 		types: ["Rock", "Fairy"],
 		baseStats: {hp: 50, atk: 100, def: 150, spa: 100, spd: 100, spe: 50},
-		abilities: {0: "Landslide", 1: "Duomod Reference??", H: "Fable"},
+		abilities: {0: "Landslide", 1: "Duomod Reference??", H: "Fairytale"},
 	},
 	dianciemega: {
 		inherit: true,
