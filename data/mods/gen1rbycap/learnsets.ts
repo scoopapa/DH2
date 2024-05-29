@@ -60,7 +60,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bodyslam: ["1M"],
 			takedown: ["1M"],
 			doubleedge: ["1M"],
-			submission: ["1M"],
 			dragonrage: ["1M"],
 			earthquake: ["1M"],
 			mimic: ["1M"],
