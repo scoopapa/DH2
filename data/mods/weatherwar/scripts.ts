@@ -325,6 +325,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Tentacruel
 		this.modData("Learnsets", "tentacruel").learnset.waterpledge = ["9L1"];
 		this.modData("Learnsets", "tentacruel").learnset.belch = ["9L1"];
+		this.modData("Learnsets", "tentacruel").learnset.recover = ["9L1"];
 		this.modData("Learnsets", "tentacruel").learnset.setshitstorm = ["9L1"];
 		this.modData("Learnsets", "tentacruel").learnset.setflashflood = ["9L1"];
 		// Toedscruel
@@ -449,6 +450,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "kabutops").learnset.setlandslide = ["9L1"];
 		// Nihilego
 		this.modData("Learnsets", "nihilego").learnset.belch = ["9L1"];
+		this.modData("Learnsets", "nihilego").learnset.energyball = ["9L1"];
+		this.modData("Learnsets", "nihilego").learnset.scorchingsands = ["9L1"];
 		this.modData("Learnsets", "nihilego").learnset.setshitstorm = ["9L1"];
 		this.modData("Learnsets", "nihilego").learnset.setlandslide = ["9L1"];
 		// Diancie

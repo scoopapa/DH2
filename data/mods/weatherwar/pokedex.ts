@@ -68,8 +68,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9,
 		species: "Lugia",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 106, atk: 70, def: 90, spa: 90, spd: 114, spe: 80},
-		abilities: {0: "Sheer Force", H: "Slipstream"},
+		baseStats: {hp: 106, atk: 70, def: 90, spa: 100, spd: 104, spe: 80},
+		abilities: {0: "Delta Stream", 1: "Slipstream", H: "Magic Guard"},
 	},
 	zapdos: {
 		inherit: true,

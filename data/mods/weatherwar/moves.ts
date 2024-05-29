@@ -547,10 +547,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomMove) return false;
 			source.side.lastSelectedMove = this.toID(randomMove);
 			this.actions.useMove(randomMove, target);
+			if(target.hasAbility("duomodreference")) this.actions.useMove(randomMove, target);
 		},
 	},
 	belch: {
 		inherit: true,
+		accuracy: 100,
 		isViable: true,
 		shortDesc: "Cannot be selected unless it is Shitstorm or the user eats a Berry.",
 		onDisableMove(pokemon) {

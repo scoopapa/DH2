@@ -1123,13 +1123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
-			if (move.id === 'metronome') {
-				const newMove = this.dex.getActiveMove('metronome');
-				this.actions.useMove(newMove, target, source);
-			}
-		},
+		//metronome hitting twice handled in moves.ts
 		flags: {},
 		name: "Duomod Reference??",
 		shortDesc: "This Pokemon uses Metronome twice. Spins the Roulette Wheel during Metronome Battle."
