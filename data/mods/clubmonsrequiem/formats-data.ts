@@ -13,6 +13,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	gothitelleallira: {tier: "CM"},
+
+	stormulex: {tier: "CM"},
+
+	ironcrown: {tier: "CM"},
+	brutebonnet: {tier: "CM"},
+	sandyshocks: {tier: "CM"},
+
+	celebi: {tier: "CM"},
+
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
 
