@@ -127,10 +127,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', target, 'Disable', moveSlot.move);
 				this.effectState.move = moveSlot.id;
-				if (!moveId) return false;
+				/**if (!moveId) return false;
 				let move = this.dex.moves.get(moveId);
 				this.add('-start', target, 'Disable', move.name);
-				this.effectState.move = move.id;
+				this.effectState.move = move.id;**/
 				return;
 			},
 			onBeforeMovePriority: 7,
