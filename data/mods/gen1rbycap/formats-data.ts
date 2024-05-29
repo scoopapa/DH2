@@ -2,12 +2,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 // CAPs
 	corupcake: {
 		tier: "OU",
+		gen: 1,
 	},
 	gargoyle: {
 		tier: "OU",
+		gen: 1,
 	},
 	phantom: {
 		tier: "OU",
+		gen: 1,
 	},
 
 // Normal Mons
