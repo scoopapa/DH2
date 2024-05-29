@@ -1301,7 +1301,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ursalunabloodmoon: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	slugma: {
 		inherit: true,
@@ -4341,7 +4341,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	spectrier: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	calyrex: {
 		inherit: true,

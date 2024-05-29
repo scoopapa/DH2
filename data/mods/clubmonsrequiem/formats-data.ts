@@ -56,6 +56,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bronzong: {tier: "CM"},
 	
 	buzzwole: {tier: "CM"},
+
+	guzzlord: {tier: "CM"},
+
+	bonsly: {tier: "CM (NFE)"},
+	sudowoodo: {tier: "CM"},
 	
 	chespin: {tier: "CM (NFE)"},
 	quilladin: {tier: "CM (NFE)"},
@@ -120,7 +125,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	litten: {tier: "CM (NFE)"},
 	torracat: {tier: "CM (NFE)"},
-	incineroar: {tier: "CM (NFE)"},
+	incineroar: {tier: "CM"},
 	
 	sandile: {tier: "CM (NFE)"},
 	krokorok: {tier: "CM (NFE)"},
@@ -138,8 +143,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	vullaby: {tier: "CM (NFE)"},
 	mandibuzz: {tier: "CM"},
-	
-	nihilego: {tier: "CM"},
 	
 	vulpix: {tier: "CM (NFE)"},
 	ninetales: {tier: "CM"},
@@ -196,6 +199,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	staryu: {tier: "CM (NFE)"},
 	starmie: {tier: "CM"},
+
+	tapubulu: {tier: "CM"},
 	
 	fletchling: {tier: "CM (NFE)"},
 	fletchinder: {tier: "CM (NFE)"},
@@ -208,7 +213,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tinkatuff: {tier: "CM (NFE)"},
 	tinkaton: {tier: "CM"},
 	
-	uxie: {tier: "CM (NFE)"},
+	uxie: {tier: "CM"},
 	
 	oddish: {tier: "CM (NFE)"},
 	gloom: {tier: "CM (NFE)"},

@@ -1,32 +1,12 @@
 export const Moves: { [moveid: string]: ModdedMoveData } = {
-
 	waterpulse: {
-		num: 352,
-		accuracy: 100,
+		inherit: true,
 		basePower: 75,
-		category: "Special",
-		name: "Water Pulse",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
-		secondary: {
-			chance: 20,
-			volatileStatus: 'confusion',
-		},
-		target: "any",
-		type: "Water",
-		contestType: "Beautiful",
 	},
 	syrupbomb: {
-		num: 903,
-		shortDesc: "Lowers Speed by 2 stages for 3 turns.",
+		inherit: true,
 		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		name: "Syrup Bomb",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		shortDesc: "Lowers Speed by 2 stages for 3 turns.",
 		condition: {
 			noCopy: true,
 			duration: 4,
@@ -41,68 +21,65 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-end', pokemon, 'Syrup Bomb', '[silent]');
 			},
 		},
-		secondary: {
-			chance: 100,
-			volatileStatus: 'syrupbomb',
-		},
-		target: "normal",
-		type: "Grass",
 	},
-	defog: {
-		num: 432,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Defog",
-		pp: 15,
+	blackhole: {
+		num: 1003,
+		accuracy: 100,
+		basePower: 250,
+		category: "Physical",
+		name: "Black Hole",
+		shortDesc: "User will KO itself upon use.",
+		pp: 5,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, wind: 1, bypasssub: 1, metronome: 1},
-		onHit(target, source, move) {
-			let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
-			const removeTarget = [
-				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
-			const removeAll = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
-			for (const targetCondition of removeTarget) {
-				if (target.side.removeSideCondition(targetCondition)) {
-					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
-					success = true;
-				}
-			}
-			for (const sideCondition of removeAll) {
-				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
-					success = true;
-				}
-			}
-			this.field.clearTerrain();
-			return success;
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		selfdestruct: "always",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Black Hole Eclipse', target);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	darkdevour: {
+		num: 1004,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Dark Devour",
+		shortDesc: "User heals 1/2 of its max HP upon KOing opponent.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Brutal Swing', target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 2, pokemon, pokemon, move);
 		},
 		secondary: null,
 		target: "normal",
-		type: "Flying",
-		zMove: {boost: {accuracy: 1}},
+		type: "Dragon",
 		contestType: "Cool",
 	},
+	defog: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, wind: 1, bypasssub: 1, metronome: 1},
+	},
 	triplearrows: {
-		shortDesc: "100% to lower target's Defense by 1; user's crit ratio +2.",
-		num: -1008,
-		accuracy: 100,
+		inherit: true,
 		basePower: 50,
-		category: "Physical",
-		name: "Triple Arrows",
+		shortDesc: "Lowers target's Defense by 1; user's crit ratio +2.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Acupressure", source);
-			this.add('-anim', source, "Needle Arm", target);
-		},
+		critRatio: null,
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -112,12 +89,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		self: {
 			volatileStatus: 'focusenergy',
 		},
-		target: "normal",
-		type: "Fighting",
 		contestType: "Cool",//Necessary
 	},
 	migratingwing: {
-		num: 812,
+		num: 1002,
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
@@ -141,7 +116,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Flying",
 	},
 	compost: {
-		num: 282,
+		num: 1001,
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
@@ -174,23 +149,23 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Bug",
 		contestType: "Clever",
 	},
-	shelter: {
-		num: 842,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Shelter",
-		pp: 10,
-		priority: 0,
-		flags: {snatch: 1, metronome: 1},
-		boosts: {
-			def: 2,
+	electroball: {
+		inherit: true,
+		basePowerCallback(pokemon, target) {
+			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe') * 10) / 10;
+			if (!isFinite(ratio)) ratio = 0;
+			let bp = 40;
+			if (ratio >= 1) bp = 60;
+			if (ratio >= 1.5) bp = 80;
+			if (ratio >= 2) bp = 100;
+			if (ratio >= 3) bp = 120;
+			if (ratio >= 4) bp = 150;
 		},
+	},		
+	shelter: {
+		inherit: true,
 		onHit(damage, target, source, move) {
 			this.field.setTerrain('mistyterrain');
 		},
-		secondary: null,
-		target: "self",
-		type: "Steel",
 	},
-}
+};
