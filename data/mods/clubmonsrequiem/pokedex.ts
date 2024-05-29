@@ -124,6 +124,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
 	},
+	gothitelleallira: {
+		num: 9002,
+		name: "Gothitelle-Allira",
+		types: ["Psychic", "Dark"],
+		baseStats: {hp: 70, atk: 50, def: 110, spa: 105, spd: 100, spe: 55},
+		abilities: {0: "Competitive", 1: "Withering Gaze", H: "Rocky Payload"},
+		heightm: 1.7,
+		weightkg: 50,
+		color: "Green",
+		eggGroups: ["Human-Like"],
+	},
+	stormulex: {
+		num: 9003,
+		name: "Stormulex",
+		types: ["Electric", "Rock"],
+		baseStats: {hp: 91, atk: 129, def: 96, spa: 40, spd: 84, spe: 60},
+		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
+		heightm: 1.7, //idk yet
+		weightkg: 50, //idk yet
+	},
 	golduck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 95, spd: 80, spe: 120},
