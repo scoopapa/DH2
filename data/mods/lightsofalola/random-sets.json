@@ -2565,7 +2565,7 @@
         ]
     },
     "pheromosa": {
-        "level": 71,
+        "level": 73,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -2573,8 +2573,8 @@
                 "teraTypes": ["Fairy", "Fighting"]
             },
             {
-                "role": "Setup Sweeper",
-                "movepool": ["Quiver Dance", "Focus Blast", "Bug Buzz", "Ice Beam"],
+                "role": "Wallbreaker",
+                "movepool": ["Electroweb", "Focus Blast", "Bug Buzz", "Ice Beam"],
                 "teraTypes": ["Fairy", "Fighting"]
             }
         ]
