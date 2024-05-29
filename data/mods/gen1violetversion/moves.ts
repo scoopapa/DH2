@@ -123,7 +123,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onSideStart (side, source) {
-				let moves = target.moves;
+				let moves = source.moves;
 				const moveSlot = this.sample(source.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', source, 'Disable', moveSlot.move);
 				this.effectState.move = moveSlot.id;
