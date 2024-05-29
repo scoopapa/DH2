@@ -224,4 +224,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 75, def: 60, spa: 75, spd: 60, spe: 103},
 		abilities: {0: "Static", 1: "Thunder Cape", H: "Motor Drive"},
   },
+	pheromosa: {
+		inherit: true,
+		baseStats: {hp: 61, atk: 113, def: 67, spa: 113, spd: 79, spe: 137},
+  },
 };
