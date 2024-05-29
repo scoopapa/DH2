@@ -126,7 +126,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				let moves = target.moves;
 				let moveId = moves[this.random(moves.length)];
 				if (!moveId) return false;
-				let move = this.getMove(moveId);
+				let move = this.dex.moves.get(moveId);
 				this.add('-start', target, 'Disable', move.name);
 				this.effectState.move = move.id;
 				return;
