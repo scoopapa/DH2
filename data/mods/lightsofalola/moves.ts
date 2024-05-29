@@ -1,5 +1,5 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-// New Moves
+// New Moves 
 	chemicalplant: {
 		accuracy: 100,
 		basePower: 55,
