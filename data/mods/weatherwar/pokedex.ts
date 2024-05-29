@@ -107,8 +107,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 14,
 		species: "Dragonair",
 		types: ["Water"],
-		baseStats: {hp: 91, atk: 70, def: 95, spa: 104, spd: 100, spe: 70},
+		baseStats: {hp: 91, atk: 70, def: 105, spa: 104, spd: 100, spe: 70},
 		abilities: {0: "Climate Change"},
+		evos: null,
 	},
 	flygon: {
 		inherit: true,
@@ -245,6 +246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Fire"],
 		baseStats: {hp: 105, atk: 60, def: 92, spa: 105, spd: 92, spe: 76},
 		abilities: {0: "Lightning Rod", 1: "Solar Power", H: "Stamina"},
+		evos: null,
 	},
 	altaria: {
 		inherit: true,
@@ -484,7 +486,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 61,
 		species: "Hawlucha",
 		types: ["Fighting", "Flying"],
-		baseStats: {hp: 88, atk: 92, def: 95, spa: 74, spd: 63, spe: 118},
+		baseStats: {hp: 88, atk: 112, def: 95, spa: 64, spd: 73, spe: 98},
 		abilities: {0: "Suplex", 1: "Slipstream", H: "Reckless"},
 	},
 	hitmonchan: {
@@ -677,7 +679,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Ting-Lu",
 		types: ["Dark", "Ground"],
 		baseStats: {hp: 155, atk: 90, def: 105, spa: 55, spd: 80, spe: 45},
-		abilities: {0: "Dust Storm"},
+		abilities: {0: "Sand Stream"},
 	},
 	armaldo: {
 		inherit: true,
@@ -744,7 +746,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lilywhite: {
 		num: 94,
-		species: "Lily White",
+		name: "Lily White",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 85, atk: 35, def: 75, spa: 85, spd: 100, spe: 95},
 		abilities: {0: "It\'s Spring!"},
@@ -753,7 +755,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//duomod reference
 	impsaustor: {
 		num: 999.5,
-		species: "Impsaustor",
+		name: "Impsaustor",
 		types: ["Dark", "Poison"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 120, def: 80, spa: 80, spd: 120, spe: 100}, // i'm so freaking tired i did this to be funny lmao

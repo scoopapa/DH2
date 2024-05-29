@@ -61,4 +61,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			setfable: ["9L1"],
 		},
 	},
+	impsaustor: {
+		learnset: {
+			knockoff: ["9L1"],
+		}
+	},
 }

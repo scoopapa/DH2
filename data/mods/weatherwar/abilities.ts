@@ -279,7 +279,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
-			if (move.category !== "Status" && this.field.pseudoWeather.lotsofreallysmalldragons) {
+			if (move.category !== "Status" && move.type === 'Dragon' && this.field.pseudoWeather.lotsofreallysmalldragons) {
 				this.add('-activate', pokemon, 'ability: Draco Jet');
 				return 0.1;
 			}

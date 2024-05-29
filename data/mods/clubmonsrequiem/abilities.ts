@@ -27,6 +27,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		shortDesc: "This Pokemon cannot be hit by Fire moves or be burned.",
 	},
+	witheringgaze: {
+		onAnyTryMove(this, source, target, move) {
+			if (source === this.effectState.target) return;
+			if (move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'teleport' || move.id === 'partingshot' || move.id === 'migratingwing' ) {
+				this.add('-fail', source, 'ability: Withering Gaze', '[of] ' + this.effectState.target);
+				return false;
+			}
+		},
+		name: "Withering Gaze",
+		shortDesc: "While active, Pokemon without this ability cannot pivot out.",
+		rating: 3,
+		num: 3000,
+	},
 	fauxliage: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
@@ -54,10 +67,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		flags: {breakable: 1},
 		name: "Fauxliage",
 		shortDesc: "User takes 1/2 damage from Grass-resisted types and is immune to powder/spore moves.",
-		num: 47,
+		num: 1001,
 	},
 	shellarmor: {
-		inherit: true,
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
@@ -88,8 +100,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.boost({def: 1}, target, target);
 			}
 		},
-		onCriticalHit: null,
-		shortDesc: "This Pokemon's Defense is raised by 1 when it reaches 1/2 or less of its max HP.",
+		flags: {},
+		name: "Shell Armor",
+		shortDesc: "This Pokemon's Defense is raised by 1 when it is directly hit to 1/2 or less of its max HP.",
+		rating: 1,
+		num: 75,
 	},
 	windrider: {
 		inherit: true,
@@ -105,5 +120,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			this.field.setWeather('hail');
 		},
 		shortDesc: "On switch-in, this Pokemon summons Hail.",
+	},
+	rewind: {
+		onSwitchOut(pokemon) {
+			if (pokemon.item || !pokemon.lastItem) return false;
+			const item = pokemon.lastItem;
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Rewind');
+			pokemon.setItem(item);
+		},
+		flags: {},
+		name: "Rewind",
+		rating: 2.5,
+		num: 1002,
 	},
 };

@@ -13,6 +13,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	gothitelleallira: {tier: "CM"},
+
+	stormulex: {tier: "CM"},
+
+	ironcrown: {tier: "CM"},
+	brutebonnet: {tier: "CM"},
+	sandyshocks: {tier: "CM"},
+
+	celebi: {tier: "CM"},
+
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
 
@@ -43,7 +53,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	growlithe: {tier: "CM (NFE)"},
 	arcanine: {tier: "CM"},
-	arcaninehisui: {tier: "CM"},
 	
 	basculinwhitestriped: {tier: "CM (NFE)"},
 	basculegion: {tier: "CM"},
@@ -140,6 +149,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lotad: {tier: "CM (NFE)"},
 	lombre: {tier: "CM (NFE)"},
 	ludicolo: {tier: "CM"},
+	
+	ogerponcostar: {tier: "CM"},
 	
 	vullaby: {tier: "CM (NFE)"},
 	mandibuzz: {tier: "CM"},
