@@ -144,6 +144,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 1.7, //idk yet
 		weightkg: 50, //idk yet
 	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Rewind"},
+	},
+	sandyshocks: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Rewind"},
+	},
+	brutebonnet: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Rewind"},
+	},
+	celebi: { 
+		inherit: true,
+		abilities: {0: "Natural Cure", S: "Rewind"},
+	},
+	noivern: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Rewind"},
+	},
 	golduck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 95, spd: 80, spe: 120},
