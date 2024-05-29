@@ -7,6 +7,27 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	lightningswing: {
+		num: 570,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Lightning Swing",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Plasma Fists', target);
+		},
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Clever",
+	},
 	syrupbomb: {
 		inherit: true,
 		accuracy: 100,
