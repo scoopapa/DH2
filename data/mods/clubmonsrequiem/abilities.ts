@@ -129,7 +129,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Rewind');
 			pokemon.setItem(item);
 		},
+		flags: {},
 		name: "Rewind",
+		rating: 2.5,
 		num: 1002,
 	},
 };
