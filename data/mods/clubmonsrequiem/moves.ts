@@ -8,10 +8,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 75,
 	},
 	lightningswing: {
-		num: 570,
+		num: 1005,
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
+		shortDesc: "User recovers 50% of the damage dealt.",
 		name: "Lightning Swing",
 		pp: 20,
 		priority: 0,
@@ -194,9 +195,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 	},
 	haywirecudgel: {
+		num: 1006,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
+		shortDesc: "High Critical hit ratio. Electric if Ogerpon-Costar.",
 		name: "Haywire Cudgel",
 		pp: 10,
 		priority: 0,
@@ -222,6 +225,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Normal",
 	},
 	joyride: {
+		num: 1007,
 		accuracy: 95,
 		basePower: 90,
 		category: "Physical",
