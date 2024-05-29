@@ -36,7 +36,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 5,
 		species: "Rayquaza",
 		types: ["Dragon"],
-		baseStats: {hp: 95, atk: 105, def: 80, spa: 105, spd: 80, spe: 85},
+		baseStats: {hp: 95, atk: 90, def: 110, spa: 90, spd: 110, spe: 55},
 		abilities: {0: "Zerg Rush", 1: "Draco Jet", H: "Air Lock"},
 	},
 	rayquazamega: {
@@ -44,7 +44,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 6,
 		species: "Rayquaza-Mega",
 		types: ["Dragon", "Flying"],
-		baseStats: {hp: 95, atk: 125, def: 100, spa: 125, spd: 100, spe: 105},
+		baseStats: {hp: 95, atk: 105, def: 110, spa: 125, spd: 110, spe: 105},
 		abilities: {0: "Delta Stream"},
 	},
 	castform: {
@@ -53,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Castform",
 		types: ["Normal"],
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "Forecast", H: "Weather Setter"},
+		abilities: {0: "Forecast", 1: "Air Lock", H: "Weather Setter"},
 	},
 	bronzong: {
 		inherit: true,
@@ -92,7 +92,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Archaludon",
 		types: ["Steel", "Electric"],
 		baseStats: {hp: 90, atk: 75, def: 110, spa: 125, spd: 65, spe: 85},
-		abilities: {0: "Second Impact", H: "Short Circuit"},
+		abilities: {0: "Second Impact", 1: "Flare Boost", H: "Short Circuit"},
 	},
 	dialga: {
 		inherit: true,
@@ -237,16 +237,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Clefable",
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 95, atk: 90, def: 90, spa: 105, spd: 90, spe: 60},
-		abilities: {0: "Finger Waggler", 1: "Fairytale", H: "Unaware"},
+		abilities: {0: "Finger Waggler", 1: "Fairytale", H: "Air Lock"},
 	},
-	blitzle: {
+	heliolisk: {
 		inherit: true,
 		num: 31,
-		species: "Blitzle",
+		species: "Heliolisk",
 		types: ["Electric", "Fire"],
-		baseStats: {hp: 105, atk: 60, def: 92, spa: 105, spd: 92, spe: 76},
-		abilities: {0: "Lightning Rod", 1: "Solar Power", H: "Stamina"},
-		evos: null,
+		baseStats: {hp: 72, atk: 55, def: 92, spa: 109, spd: 92, spe: 110},
+		abilities: {0: "Wet Skin", 1: "Solar Power", H: "Sand Force"},
 	},
 	altaria: {
 		inherit: true,
@@ -254,7 +253,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Altaria",
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 85, atk: 60, def: 100, spa: 100, spd: 105, spe: 80},
-		abilities: {0: "Unaware", H: "Cloud Nine"},
+		abilities: {0: "Unaware", H: "Air Lock"},
 	},
 	altariamega: {
 		inherit: true,
@@ -359,7 +358,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Heracross",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 80, atk: 125, def: 75, spa: 40, spd: 95, spe: 85},
-		abilities: {0: "Swarm", H: "Beatdown"},
+		abilities: {0: "Swarm", 1: "Beatdown", H: "Guts"},
 	},
 	heracrossmega: {
 		inherit: true,
