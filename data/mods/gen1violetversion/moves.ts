@@ -123,14 +123,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onSideStart (side, target) {
-				let moves = target.moves;
+			/**	let moves = target.moves;
 				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', target, 'Disable', moveSlot.move);
-				this.effectState.move = moveSlot.id;
+				this.effectState.move = moveSlot.id; **/
 				/**if (!moveId) return false;
 				let move = this.dex.moves.get(moveId);
 				this.add('-start', target, 'Disable', move.name);
 				this.effectState.move = move.id;**/
+			for (const pokemon of target.side.pokemon) {
+				if (pokemon === target) {
+					for (const moveSlot of pokemon.moveSlots) {
+						const moveid = moveSlot.id;
+						const move = this.dex.moves.get(moveid);
+						this.add('-start', target, 'Disable', moveSlot.move);
+						this.effectState.move = moveSlot.id;
+						}
+					}
+				}
 				return;
 			},
 			onBeforeMovePriority: 7,
