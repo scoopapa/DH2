@@ -8,7 +8,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	par: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			// Paralysis occurs after all other Speed modifiers, so evaluate all modifiers up to this point first
 			spe = this.finalModify(spe);
 			if (!pokemon.hasAbility('quickfeet')) {
 				spe = Math.floor(spe * 25 / 100);
@@ -44,6 +43,39 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				this.add('-end', target, 'Nightmare', '[silent]');
 			}
 		},
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.hasAbility('earlybird')) {
+				pokemon.statusState.time--;
+			}
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time > 0) {
+				this.add('cant', pokemon, 'slp');
+			}
+			if (pokemon.statusState.time <= 0) {
+				pokemon.cureStatus();
+				this.add('cant', pokemon);
+			}
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
+		},
+	},
+	frz: {
+		inherit: true,
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['defrost']) return;
+			this.add('cant', pokemon, 'frz');
+			pokemon.lastMove = null;
+			return false;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (move.thawsTarget || move.secondary && move.secondary.status === 'brn') {
+				target.cureStatus();
+			}
+		},
 	},
 	confusion: {
 		inherit: true,
@@ -76,9 +108,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return this.chainModify(1.5);
 		},
 	},
-
-	// weather is implemented here since it's so important to the game
-
 	raindance: {
 		inherit: true,
 		onFieldStart(field, source, effect) {

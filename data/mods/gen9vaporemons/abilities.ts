@@ -3,7 +3,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move' || source.species.id !== 'palafin' || !source.hp || source.transformed || !source.side.foe.pokemonLeft) {
 				return;
-			}
+			} 
 			this.add('-activate', source, 'ability: Zero to Hero');
 			source.formeChange('Palafin-Hero', this.effect, true);
 		},

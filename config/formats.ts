@@ -505,6 +505,16 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Hide and Seaking",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/hide-and-seaking.3743214/">Hide and Seaking</a>`,
+		],
+		teambuilderFormat: "National Dex",
+		mod: 'littleestcup',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Terastal Clause'],
+		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+	},
+	{
 		name: "[Gen 9] Hidden Gems",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3737861/">Hidden Gems</a>`,
@@ -1070,7 +1080,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen9vaporemons',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -2037,6 +2047,29 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+        name: "[Gen 9] Climate Change",
+        desc: [
+            "weather war",
+        ],
+        threads: [
+            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Climate Change on Smogon Forums</a>`,
+              ],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
+        banlist: ['Sunny Day', 'Rain Dance', 'Sandstorm', 'Hail', 'Snowscape', 'Chilly Reception'],
+		
+        onValidateTeam(team, format) {
+            /**@type {{[k: string]: true}} */
+            let speciesTable = {};
+            for (const set of team) {
+                let template = this.dex.species.get(set.species);
+                if (template.tier !== 'CC') {
+                    return [set.species + ' is not usable in Climate Change.'];
+                }
+            }
+        },
+        mod: 'weatherwar',
+    },
 	{
 		name: "[Gen 9] Clubmons: Requiem",
 		mod: 'clubmonsrequiem',

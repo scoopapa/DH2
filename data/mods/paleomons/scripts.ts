@@ -207,5 +207,36 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'aurorus').learnset.rocktomb;
 		delete this.modData('Learnsets', 'aurorus').learnset.stealthrock;
 		delete this.modData('Learnsets', 'aurorus').learnset.stoneedge;
+		
+		// Sigilyph-Ancient
+		this.modData("Learnsets", "sigilyph").learnset.bulldoze = ["9L1"];
+		this.modData("Learnsets", "sigilyph").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "sigilyph").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "sigilyph").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets", "sigilyph").learnset.petroglyph = ["9L1"];
+		this.modData("Learnsets", "sigilyph").learnset.scorchingsands = ["9L1"];
+		// Tauros-Ancestor
+		this.modData("Learnsets", "tauros").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "tauros").learnset.ragingbull = ["9L1"];
+		delete this.modData('Learnsets', 'tauros').learnset.closecombat;
+		delete this.modData('Learnsets', 'tauros').learnset.ironhead;
+		delete this.modData('Learnsets', 'tauros').learnset.outrage;
+		delete this.modData('Learnsets', 'tauros').learnset.smartstrike;
+		delete this.modData('Learnsets', 'tauros').learnset.wildcharge;
+		// Conkeldurr-Conch
+		this.modData("Learnsets", "conkeldurr").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.bubble = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.hypervoice = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.razorshell = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.scorchingsands = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.sparklingaria = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.surf = ["9L1"];
+		this.modData("Learnsets", "conkeldurr").learnset.wavecrash = ["9L1"];
+		delete this.modData('Learnsets', 'conkeldurr').learnset.closecombat;
+		delete this.modData('Learnsets', 'conkeldurr').learnset.coaching;
+		delete this.modData('Learnsets', 'conkeldurr').learnset.drainpunch;
+		delete this.modData('Learnsets', 'conkeldurr').learnset.machpunch;
+		delete this.modData('Learnsets', 'conkeldurr').learnset.poweruppunch;
+
 	},
 };

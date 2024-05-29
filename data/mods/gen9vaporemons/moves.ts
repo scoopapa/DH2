@@ -976,6 +976,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Rekindle Heal",
 		pp: 5,
 		priority: 0,
+    	noSketch: true,
 		flags: {},
 		volatileStatus: 'rekindleheal',
 		condition: {

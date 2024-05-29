@@ -1668,7 +1668,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	archaludon: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	ironcrown: {
 		tier: "OU",
