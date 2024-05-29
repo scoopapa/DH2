@@ -1504,8 +1504,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "RU LoA",
 	},
 	pheromosa: {
-		tier: "Uber LoA",
-		doublesTier: "Uber LoA",
+		tier: "OU LoA",
+		doublesTier: "OU LoA",
 	},
 	xurkitree: {
 		tier: "UU LoA",
