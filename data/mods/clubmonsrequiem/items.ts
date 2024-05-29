@@ -145,7 +145,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
+			if (user.baseSpecies.name.startsWith('Ogerpon-Costar')) {
 				return this.chainModify([4915, 4096]);
 			}
 		},

@@ -251,7 +251,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				} else {
 					this.add('-start', target, 'move: Joyride');
 				}
-				this.add('-message', `${target.name) is feeling full of energy!`);
+				this.add('-message', `${target.name} is feeling full of energy!`);
 			},
 			onModifyDamage(damage, source, target, move) {
 				if (target.getMoveHitData(move).crit) {

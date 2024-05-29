@@ -298,21 +298,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "ausma",
 	},
 	ogerpon: {
-		num: 1017,
-		name: "Ogerpon",
-		baseForme: "Teal",
-		types: ["Grass"],
-		gender: "F",
-		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
-		abilities: {0: "Defiant"},
-		heightm: 1.2,
-		weightkg: 39.8,
-		color: "Green",
-		tags: ["Sub-Legendary"],
-		eggGroups: ["Undiscovered"],
+		inherit: true,
 		otherFormes: ["Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Costar", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
 		formeOrder: ["Ogerpon", "Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Costar", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
-		forceTeraType: "Grass",
 		// will be unused, but here for costar form
 	},
 	ogerponcostar: {

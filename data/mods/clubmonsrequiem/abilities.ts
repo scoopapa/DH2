@@ -36,6 +36,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		name: "Withering Gaze",
+		shortDesc: "While active, Pokemon without this ability cannot pivot out.",
 		rating: 3,
 		num: 3000,
 	},
@@ -66,10 +67,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		flags: {breakable: 1},
 		name: "Fauxliage",
 		shortDesc: "User takes 1/2 damage from Grass-resisted types and is immune to powder/spore moves.",
-		num: 47,
+		num: 1001,
 	},
 	shellarmor: {
-		// i want to drop the crit immunity on this so i'm going to drop the inherit
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
@@ -100,7 +100,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.boost({def: 1}, target, target);
 			}
 		},
+		flags: {},
+		name: "Shell Armor",
 		shortDesc: "This Pokemon's Defense is raised by 1 when it is directly hit to 1/2 or less of its max HP.",
+		rating: 1,
+		num: 75,
 	},
 	windrider: {
 		inherit: true,
@@ -126,6 +130,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			pokemon.setItem(item);
 		},
 		name: "Rewind",
-		num: 144,
+		num: 1002,
 	},
 };
