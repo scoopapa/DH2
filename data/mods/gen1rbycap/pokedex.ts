@@ -9,6 +9,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 189.5,
 		color: "Red",
 		eggGroups: ["Monster"],
+		gen: 1,
 	},
 	gargoyle: {
 		num: 2002,
@@ -20,6 +21,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 138,
 		color: "Gray",
 		eggGroups: ["Human-Like"],
+		gen: 1,
 	},
 	phantom: {
 		num: 2003,
@@ -31,5 +33,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 0.1,
 		color: "Black",
 		eggGroups: ["Field"],
+		gen: 1,
 	},
 };
