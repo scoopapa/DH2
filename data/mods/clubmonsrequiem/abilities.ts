@@ -30,9 +30,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	witheringgaze: {
 		onAnyTryMove(this, source, target, move) {
 			if (source === this.effectState.target) return;
-			if (move.flags['pivot']) {
-			this.add('-fail', source, 'ability: Withering Gaze', '[of] ' + this.effectState.target);
-			return false;
+			if (move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'teleport' || move.id === 'partingshot' || move.id === 'migratingwing' ) {
+				this.add('-fail', source, 'ability: Withering Gaze', '[of] ' + this.effectState.target);
+				return false;
 			}
 		},
 		name: "Withering Gaze",
