@@ -125,7 +125,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSideStart (side, target) {
 				let moves = target.moves;
 				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
-				this.add('-start', source, 'Disable', moveSlot.move);
+				this.add('-start', target, 'Disable', moveSlot.move);
 				this.effectState.move = moveSlot.id;
 				/**if (!moveId) return false;
 				let move = this.dex.moves.get(moveId);
