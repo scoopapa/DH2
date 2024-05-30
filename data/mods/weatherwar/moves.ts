@@ -547,7 +547,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomMove) return false;
 			source.side.lastSelectedMove = this.toID(randomMove);
 			this.actions.useMove(randomMove, target);
-			if(target.hasAbility("duomodreference")) this.actions.useMove(randomMove, target);
+			if((!effect || effect.name !== 'Metronome') && target.hasAbility("duomodreference")) {
+				this.add('-ability', pokemon, 'Duomod Reference??');
+				this.actions.useMove(randomMove, target);
+			}
 		},
 	},
 	belch: {
