@@ -258,26 +258,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	petroglyph: {
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's SpA by 1.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		secondary: {
-			chance: 50,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Rock",
-	},
 	ragingbull: {
 		inherit: true,
 		onModifyType(move, pokemon) {

@@ -72,15 +72,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "cubchoo").learnset.flashcannon = ["9L1"];
 		this.modData("Learnsets", "cubchoo").learnset.ironhead = ["9L1"];
 		this.modData("Learnsets", "cubchoo").learnset.steelbeam = ["9L1"];
-		// Landorus-Therian
-		this.modData("Learnsets", "landorustherian").learnset.bulletpunch = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.irontail = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.meteormash = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.ironhead = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.steelbeam = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.defog = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.voltswitch = ["9L1"];
-		this.modData("Learnsets", "landorustherian").learnset.honeclaws = ["9L1"];
+		// Landorus
+		this.modData("Learnsets", "landorus").learnset.bulletpunch = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.irontail = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.meteormash = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.steelbeam = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.voltswitch = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.honeclaws = ["9L1"];
 		// Dhelmise
 		this.modData("Learnsets", "dhelmise").learnset.aquajet = ["9L1"];
 		this.modData("Learnsets", "dhelmise").learnset.uturn = ["9L1"];
@@ -225,8 +225,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "drapion").learnset.gunkshot = ["9L1"];
 		delete this.modData('Learnsets', 'drapion').learnset.earthquake;
 		delete this.modData('Learnsets', 'drapion').learnset.fellstinger;
-		delete this.modData('Learnsets', 'scorupi').learnset.earthquake;
-		delete this.modData('Learnsets', 'scorupi').learnset.fellstinger;
+		delete this.modData('Learnsets', 'skorupi').learnset.earthquake;
+		delete this.modData('Learnsets', 'skorupi').learnset.fellstinger;
 		// Duraludon
 		this.modData("Learnsets", "duraludon").learnset.focuspunch = ["9L1"];
 		// Sandaconda
