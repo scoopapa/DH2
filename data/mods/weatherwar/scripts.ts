@@ -199,6 +199,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Clefable
 		this.modData("Learnsets", "clefable").learnset.setfable = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.setmetronomebattle = ["9L1"];
+		delete this.modData('Learnsets', 'clefable').learnset.amnesia;
+		delete this.modData('Learnsets', 'clefairy').learnset.amnesia;
+		delete this.modData('Learnsets', 'cleffa').learnset.amnesia;
 		// Heliolisk
 		this.modData("Learnsets", "heliolisk").learnset.firepledge = ["9L1"];
 		this.modData("Learnsets", "heliolisk").learnset.flareblitz = ["9L1"];
@@ -240,9 +243,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "golduck").learnset.trickroom = ["9L1"];
 		this.modData("Learnsets", "golduck").learnset.setmindfuck = ["9L1"];
 		this.modData("Learnsets", "golduck").learnset.setflashflood = ["9L1"];
+		delete this.modData('Learnsets', 'golduck').learnset.amnesia;
+		delete this.modData('Learnsets', 'psyduck').learnset.amnesia;
 		// Drampa
 		this.modData("Learnsets", "drampa").learnset.metronome = ["9L1"];
 		this.modData("Learnsets", "drampa").learnset.coreenforcer = ["9L1"];
+		this.modData("Learnsets", "drampa").learnset.trickroom = ["9L1"];
 		this.modData("Learnsets", "drampa").learnset.setlotsofreallysmalldragons = ["9L1"];
 		this.modData("Learnsets", "drampa").learnset.setmetronomebattle = ["9L1"];
 		// Venusaur
@@ -416,6 +422,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "jirachi").learnset.heavyslam = ["9L1"];
 		this.modData("Learnsets", "jirachi").learnset.setmindfuck = ["9L1"];
 		this.modData("Learnsets", "jirachi").learnset.settimewarp = ["9L1"];
+		delete this.modData('Learnsets', 'jirachi').learnset.amnesia;
 		// Celebi
 		this.modData("Learnsets", "celebi").learnset.heavyslam = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.gyroball = ["9L1"];

@@ -381,7 +381,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 48,
 		species: "Volbeat",
 		types: ["Bug", "Electric"],
-		baseStats: {hp: 95, atk: 47, def: 85, spa: 103, spd: 95, spe: 105},
+		baseStats: {hp: 95, atk: 62, def: 85, spa: 88, spd: 95, spe: 105},
 		abilities: {0: "Swarm", 1: "Duomod Reference??", H: "Weather Setter"},
 	},
 	kingdra: {
@@ -729,8 +729,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Magic Bounce"},
 	},
 	pecharunt: {
+		inherit: true,
 		num: 92,
-		species: "Pecharunt",
+		name: "Pecharunt",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 88, atk: 88, def: 88, spa: 88, spd: 88, spe: 88},
 		abilities: {0: "Poison Puppeteer", 1: "Banshee", H: "Merciless"},
