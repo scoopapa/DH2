@@ -507,6 +507,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "tinglu").learnset.setduststorm = ["9L1"];
 		// Armaldo
 		this.modData("Learnsets", "armaldo").learnset.twineedle = ["9L1"];
+		this.modData("Learnsets", "armaldo").learnset.leechlife = ["9L1"];
+		this.modData("Learnsets", "armaldo").learnset.uturn = ["9L1"];
 		this.modData("Learnsets", "armaldo").learnset.sandtomb = ["9L1"];
 		this.modData("Learnsets", "armaldo").learnset.healorder = ["9L1"];
 		this.modData("Learnsets", "armaldo").learnset.settheswarm = ["9L1"];
