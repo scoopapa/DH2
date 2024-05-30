@@ -131,6 +131,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {},
 		name: "Rewind",
+		shortDesc: "Upon switching out, This Pokemon restores its consumed item.",
 		rating: 2.5,
 		num: 1002,
 	},

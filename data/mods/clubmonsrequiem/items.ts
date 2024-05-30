@@ -155,6 +155,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Ogerpon-Costar",
 		itemUser: ["Ogerpon-Costar"],
+		shortDesc: "If this Pokemon is Ogerpon-Costar, its attacks have 1.2x power.",
 		num: 2408,
 		gen: 9,
 	},
