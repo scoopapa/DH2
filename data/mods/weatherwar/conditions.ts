@@ -34,10 +34,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'frz');
+				this.add('-status', target, 'frz', '[silent]');
 			}
+			this.add('-message', `${target.name} was frostbitten!`);
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
@@ -145,7 +146,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onTryMove(attacker, defender, move) {
-			if(this.field.pseudoWeather.lotsofreallysmalldragons && move.flags['sound']) return false;
+			if(this.field.pseudoWeather.lotsofreallysmalldragons && move.flags['sound']) {
+				this.add('-message', "The Lots of Really Small Dragons are so loud, you can't hear!");
+				return false;
+			}
 		},
 		onPrepareHit(source, target, move) {
 			if (!this.field.pseudoWeather.lotsofreallysmalldragons || move.category === 'Status' || move.type !== 'Dragon' || move.flags['noparentalbond'] || move.flags['charge'] ||
@@ -299,6 +303,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			if (this.field.pseudoWeather.colosseum && pokemon.hp && (!pokemon.lastMove || pokemon.lastMove.category == 'Status')) {
+				this.add('-message', `${pokemon.name} feels pressure from the colosseum!`);
 				this.boost({def: -1});
 			}
 		},
@@ -341,6 +346,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			if (this.field.pseudoWeather.drought && pokemon.hp && pokemon.runEffectiveness('Fire')) {
+				this.add('-message', `${pokemon.name} spontaneously erupted into flames!`);
 				pokemon.trySetStatus('brn', pokemon);
 			}
 		},
@@ -389,7 +395,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source) {
-			if(this.field.pseudoWeather.deltastream) source.side.addSideCondition('tailwind');
+			if(this.field.pseudoWeather.deltastream && target.hasType("Flying")) {
+				this.add('-message', `${target.name} produces its last flap...`);
+				target.side.addSideCondition('tailwind');
+			}
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
@@ -886,6 +895,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			if(this.field.pseudoWeather.flashflood && this.randomChance(1, 4)) {
 				if (this.runEvent('DragOut', pokemon, pokemon)) {
+					this.add('-message', `The flash flood swept! ${pokemon.name} away!`);
 					pokemon.forceSwitchFlag = true;
 				}
 			}

@@ -30,7 +30,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Swarm",
-		shortDesc: "On switchin, this Pokemon sets THE SWARM.",
+		shortDesc: "On switchin, this Pokemon sets The Swarm.",
 	},
 	blackout: {
 		onStart(source) {
@@ -249,7 +249,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Hivemind",
-		shortDesc: "Filter + GaG in The Swarm", 
+		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
 	intangible: {
 		onSourceModifyDamage(damage, source, target, move) {
