@@ -737,9 +737,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		    this.add('-anim', source, "Metronome", target);
 		},
 		onHit(pokemon) {
-			this.useMove("Metronome", pokemon);
-			this.useMove("Metronome", pokemon);
-			this.useMove("Metronome", pokemon);
+			this.actions.useMove("Metronome", pokemon);
+			this.actions.useMove("Metronome", pokemon);
+			this.actions.useMove("Metronome", pokemon);
 		},
 		secondary: null,
 		target: "self",
@@ -849,8 +849,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (result === 5) {
 				this.hint("Roulette Wheel Result 6 - Set hazards on both sides.");
 		    for (const pokemon of this.getAllActive()) {
-					this.useMove("Spikes", pokemon);
-					this.useMove("Stealth Electric", pokemon);
+					this.actions.useMove("Spikes", pokemon);
+					this.actions.useMove("Stealth Electric", pokemon);
 		    }
 			} else if (result === 6) {
 				this.hint("Roulette Wheel Result 7 - Set a random weather and terrain.");
@@ -860,18 +860,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
 							if (result2 === 0) {
-								this.useMove("Grassy Terrain", target);
+								this.actions.useMove("Grassy Terrain", target);
 							} else if (result2 === 1) {
-								this.useMove("Electric Terrain", target);
+								this.actions.useMove("Electric Terrain", target);
 							} else {
-								this.useMove("Misty Terrain", target);
+								this.actions.useMove("Misty Terrain", target);
 							}
 							if (result3 === 0) {
-								this.useMove("Sunny Day", target);
+								this.actions.useMove("Sunny Day", target);
 							} else if (result3 === 1) {
-								this.useMove("Rain Dance", target);
+								this.actions.useMove("Rain Dance", target);
 							} else {
-								this.useMove("Sandstorm", target);
+								this.actions.useMove("Sandstorm", target);
 							}
 						}
 					}
@@ -879,18 +879,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
 							if (result2 === 0) {
-								this.useMove("Grassy Terrain", target);
+								this.actions.useMove("Grassy Terrain", target);
 							} else if (result2 === 1) {
-								this.useMove("Electric Terrain", target);
+								this.actions.useMove("Electric Terrain", target);
 							} else {
-								this.useMove("Misty Terrain", target);
+								this.actions.useMove("Misty Terrain", target);
 							}
 							if (result3 === 0) {
-								this.useMove("Sunny Day", target);
+								this.actions.useMove("Sunny Day", target);
 							} else if (result3 === 1) {
-								this.useMove("Rain Dance", target);
+								this.actions.useMove("Rain Dance", target);
 							} else {
-								this.useMove("Sandstorm", target);
+								this.actions.useMove("Sandstorm", target);
 							}
 						}
 					}
@@ -937,20 +937,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (result === 10) {
 				this.hint("Roulette Wheel Result 11 - Make every Pokemon use Conversion 2.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Conversion 2", pokemon);
+					this.actions.useMove("Conversion 2", pokemon);
 				}
 			} else if (result === 11) {
 				this.hint("Roulette Wheel Result 12 - Make one Pokemon Transform into the other.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Transform", target);
+							this.actions.useMove("Transform", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Transform", target);
+							this.actions.useMove("Transform", target);
 						}
 					}
 				}
@@ -959,13 +959,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Heart Swap", target);
+							this.actions.useMove("Heart Swap", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Heart Swap", target);
+							this.actions.useMove("Heart Swap", target);
 						}
 					}
 				}
@@ -977,7 +977,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	        } else if (result === 14) {
 				this.hint("Roulette Wheel Result 15 - heard you guys liked scald");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Scald", pokemon);
+					this.actions.useMove("Scald", pokemon);
 				}
 			} else if (result === 15) {
 				this.hint("Roulette Wheel Result 16 - Attempt to Toxic both Pokemon.");
@@ -991,13 +991,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Court Change", target);
+							this.actions.useMove("Court Change", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Court Change", target);
+							this.actions.useMove("Court Change", target);
 						}
 					}
 				}
@@ -1009,20 +1009,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	        } else if (result === 18) {
 				this.hint("Roulette Wheel Result 19 - Make both Pokemon use Camouflage.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Camouflage", pokemon);
+					this.actions.useMove("Camouflage", pokemon);
 				}
 			} else if (result === 19) {
 				this.hint("Roulette Wheel Result 20 - Make both Pokemon swap abilities.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Skill Swap", target);
+							this.actions.useMove("Skill Swap", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Skill Swap", target);
+							this.actions.useMove("Skill Swap", target);
 						}
 					}
 				}
@@ -1031,13 +1031,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Celebrate", target);
+							this.actions.useMove("Celebrate", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Celebrate", target);
+							this.actions.useMove("Celebrate", target);
 						}
 					}
 				}
@@ -1046,13 +1046,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick Room", target);
+							this.actions.useMove("Trick Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick Room", target);
+							this.actions.useMove("Trick Room", target);
 						}
 					}
 				}
@@ -1076,13 +1076,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Haze", target);
+							this.actions.useMove("Haze", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Haze", target);
+							this.actions.useMove("Haze", target);
 						}
 					}
 				}
@@ -1091,13 +1091,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Magic Room", target);
+							this.actions.useMove("Magic Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Magic Room", target);
+							this.actions.useMove("Magic Room", target);
 						}
 					}
 				}
@@ -1106,13 +1106,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Wonder Room", target);
+							this.actions.useMove("Wonder Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Wonder Room", target);
+							this.actions.useMove("Wonder Room", target);
 						}
 					}
 				}
@@ -1121,13 +1121,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Pain Split", target);
+							this.actions.useMove("Pain Split", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Pain Split", target);
+							this.actions.useMove("Pain Split", target);
 						}
 					}
 				}
@@ -1141,35 +1141,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect", target);
-							this.useMove("Light Screen", target);
+							this.actions.useMove("Reflect", target);
+							this.actions.useMove("Light Screen", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect", target);
-							this.useMove("Light Screen", target);
+							this.actions.useMove("Reflect", target);
+							this.actions.useMove("Light Screen", target);
 						}
 					}
 				}
 			} else if (result === 29) {
 				this.hint("Roulette Wheel Result 30 - Starts a status immunity for both sides.");
 				for (const pokemon of this.getAllActive()) {
-	                	this.useMove("Safeguard", pokemon);
+	                	this.actions.useMove("Safeguard", pokemon);
 	        	}
 	        } else if (result === 30) {
 				this.hint("Roulette Wheel Result 31 - Deactivates all abilities that are active within 2 turns.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Neutral Air", target);
+							this.actions.useMove("Neutral Air", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Neutral Air", target);
+							this.actions.useMove("Neutral Air", target);
 						}
 					}
 				}
@@ -1196,20 +1196,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (result === 33) {
 				this.hint("Roulette Wheel Result 34 - Sets up Aqua Ring for both sides.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Aqua Ring", pokemon);
+					this.actions.useMove("Aqua Ring", pokemon);
 				}
 			} else if (result === 34) {
 				this.hint("Roulette Wheel Result 35 - One active Pokemon Defogs.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Defog", target);
+							this.actions.useMove("Defog", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Defog", target);
+							this.actions.useMove("Defog", target);
 						}
 					}
 				}
@@ -1218,30 +1218,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect Type", target);
+							this.actions.useMove("Reflect Type", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect Type", target);
+							this.actions.useMove("Reflect Type", target);
 						}
 					}
 				}
 			} else if (result === 36) {
 				this.hint("Roulette Wheel Result 37 - glhf");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Sheer Cold", pokemon);
+					this.actions.useMove("Sheer Cold", pokemon);
 				}
 			} else if (result === 37) {
 				this.hint("Roulette Wheel Result 38 - uh oh");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Octolock", pokemon);
+					this.actions.useMove("Octolock", pokemon);
 				}
 			} else if (result === 38) {
 				this.hint("Roulette Wheel Result 39 - Both active Pokemon use Metronome.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Metronome", pokemon);
+					this.actions.useMove("Metronome", pokemon);
 				}
 			} else if (result === 39) {
 				this.hint("Roulette Wheel Result 40 - get ready");
@@ -1268,13 +1268,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick", target);
+							this.actions.useMove("Trick", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Switcheroo", target);
+							this.actions.useMove("Switcheroo", target);
 						}
 					}
 				}
@@ -1283,13 +1283,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Sick Hacks", target);
+							this.actions.useMove("Sick Hacks", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Sick Hacks", target);
+							this.actions.useMove("Sick Hacks", target);
 						}
 					}
 				}
@@ -1297,27 +1297,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 				for (const pokemon of this.getAllActive()) {
 					const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
-					this.useMove(frstMove, pokemon);
+					this.actions.useMove(frstMove, pokemon);
 				}
 			} else if (result === 43) {
 				this.hint("Roulette Wheel Result 44 - One active Pokemon gains a higher crit rate.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Focus Energy", target);
+							this.actions.useMove("Focus Energy", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Focus Energy", target);
+							this.actions.useMove("Focus Energy", target);
 						}
 					}
 				}
 			} else if (result === 44) {
 				this.hint("Roulette Wheel Result 45 - One new spin for each active Pokemon!");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Roulette Spin", pokemon);
+					this.actions.useMove("Roulette Spin", pokemon);
 				}
 			} else if (result === 45) {
 				this.hint("Roulette Wheel Result 46 - One active Pokemon becomes way faster than the other.");
@@ -1337,14 +1337,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Vote Out", target);
+							this.actions.useMove("Vote Out", target);
 							return false;
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Vote Out", target);
+							this.actions.useMove("Vote Out", target);
 							return false;
 						}
 					}
@@ -1354,7 +1354,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const pokemon of this.sides[0].active) {
 					for (const target of this.sides[1].active) {
 						if (target.storedStats.spe < pokemon.storedStats.spe) {
-							this.useMove("Flame Runner", pokemon);
+							this.actions.useMove("Flame Runner", pokemon);
 							const oldAbility = target.setAbility('Slow Start');
 							if (oldAbility) {
 								this.add('-ability', target, 'Slow Start', '[from] move: Flame Runner', '[silent]');
@@ -1362,7 +1362,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 								return;
 							}
 						} else if (target.storedStats.spe > pokemon.storedStats.spe) {
-							this.useMove("Flame Runner", target);
+							this.actions.useMove("Flame Runner", target);
 							const oldAbility = pokemon.setAbility('Slow Start');
 							if (oldAbility) {
 								this.add('-ability', pokemon, 'Slow Start', '[from] move: Flame Runner', '[silent]');
@@ -1371,7 +1371,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							}
 						} else {
 							for (const active of this.getAllActive()) {
-								this.useMove("Flame Runner", active);
+								this.actions.useMove("Flame Runner", active);
 							}
 						}
 					}
@@ -1392,7 +1392,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else {
 				this.hint("Roulette Wheel Result 50 - THE ULTIMATE EFFECT");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Ultranome", pokemon);
+					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
 		},

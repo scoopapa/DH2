@@ -792,7 +792,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMove(move, pokemon) {
 			if (this.field.pseudoWeather.timewarp && !move.flags['futuremove']) {
-				
 				move.flags['futuremove'] = 1;
 				delete move.flags['protect'];
 				if (move.target === "self" && !pokemon.side.slotConditions[pokemon.position]['selfforesighter']) {
