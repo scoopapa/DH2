@@ -133,7 +133,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-start', target, 'Disable', move.name);
 				this.effectState.move = move.id;**/
 				for (const pokemon of target.side.pokemon) {
-					if (pokemon === target) {
+					if (pokemon.isActive) {
 						for (const moveSlot of target.moveSlots) {
 							const moveid = moveSlot.id;
 							const move = this.dex.moves.get(moveid);
