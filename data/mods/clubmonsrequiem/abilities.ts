@@ -123,7 +123,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	rewind: {
 		onSwitchOut(pokemon) {
-			if (pokemon.item || !pokemon.lastItem) return false;
+			if (pokemon.item || !pokemon.lastItem) return;
 			const item = pokemon.lastItem;
 			pokemon.lastItem = '';
 			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Rewind');
