@@ -231,42 +231,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's Flying-type moves have 1.3x power if the user moves first.",
 	},
 	myceliummight: {
-		onFractionalPriorityPriority: -1,
-		onFractionalPriority(priority, pokemon, target, move) {
-			if (move.category === 'Status' && move.target === 'normal') {
-				return -0.1;
-			}
-		},
+		inherit: true,
 		onModifyMove(move, pokemon, target) {
 			if (move.category === 'Status' && move.target === 'normal') {
 				move.ignoreAbility = true;
+			}
+		},
+		onAfterMove(source, target, move) {
+			if (move.category === 'Status' && move.target === 'normal') {
 				if (!target.hasType('Grass') && !move.volatileStatus) {
-					target.addVolatile('leechseed', source);
+					target.addVolatile('leechseed');
 				}
 			}
 		},
-		flags: {},
-		name: "Mycelium Might",
-		rating: 3,
-		num: 298,
 		shortDesc: "Single-target status moves move last, but ignore abilities and inflict Leech Seed.",
+		rating: 3,
 	},
 	icescales: {
-		onSourceModifyDamage(damage, source, target, move) {
-			if (move.category === 'Special') {
-				return this.chainModify(0.5);
-			}
-		},
+		inherit: true,
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move' && target.hp >= target.maxhp) {
 				if (effect.effectType === 'Ability') this.add('-activate', target, 'ability: ' + effect.name);
 				return false;
 			}
 		},
-		flags: {breakable: 1},
-		name: "Ice Scales",
-		rating: 4,
-		num: 246,
 		shortDesc: "Takes 1/2 damage from special attacks. Full HP: No damage from indirect sources.",
 	},
 };

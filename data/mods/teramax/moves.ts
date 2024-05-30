@@ -322,7 +322,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	doodle: {
 		num: 867,
 		accuracy: 100,
-		shortDesc: "Copies the foe's entire moveset.",
+		shortDesc: "(Partially functional placeholder) Copies the foe's entire moveset.",
 		basePower: 0,
 		category: "Status",
 		name: "Doodle",
@@ -334,19 +334,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || source.volatiles['doodle']) {
 				return false;
 			}
-			this.moveSlots = [];
-			for (const moveSlot of target.moveSlots) {
-				let moveName = moveSlot.move;
-				this.moveSlots.push({
-					move: moveName,
-					id: moveSlot.id,
-					pp: 5,
-					maxpp: moveSlot.maxpp,
-					target: moveSlot.target,
+			for (const moveid in target.moveSlots) {
+				const copiedmove = target.moveSlots[moveid];
+				source.moveSlots[moveid] = {
+					move: copiedmove.name,
+					id: copiedmove.id,
+					pp: copiedmove.pp,
+					maxpp: copiedmove.pp,
+					target: copiedmove.target,
 					disabled: false,
 					used: false,
 					virtual: true,
-				});
+				};
 			}
 			source.addVolatile('doodle');
 			this.add('-start', source, 'Doodle', move.name);
