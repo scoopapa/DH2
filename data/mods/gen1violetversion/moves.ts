@@ -116,9 +116,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'disable',
 		target: "foeSide",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onHit(target, source) {
+	/**	onHit(target, source) {
 			if (!target.moves.length) return false;
-			target.side.addSideCondition('disable', target);
+			/**target.side.addSideCondition('disable', target);
+			this.add('-sidestart', side, 'Spikes');**/
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
