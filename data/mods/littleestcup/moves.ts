@@ -19142,7 +19142,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
 		name: "Supercell Slam",
-		pp: 15,
+		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		self: {
