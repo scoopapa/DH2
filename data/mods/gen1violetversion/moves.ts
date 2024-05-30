@@ -114,7 +114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		sideCondition: 'disable',
-		target: "foeSide",
+		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 	/**	onHit(target, source) {
 			if (!target.moves.length) return false;
