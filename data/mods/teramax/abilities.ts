@@ -1,42 +1,4 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	/*
-	zenmode: {
-		priorityChargeCallback(move, attacker, defender) {
-			attacker.addVolatile('zenmode');
-		},
-		onEnd(pokemon) {
-			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
-			pokemon.transformed = false;
-			delete pokemon.volatiles['zenmode'];
-			if (pokemon.species.baseSpecies === 'Darmanitan' && pokemon.species.battleOnly) {
-				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
-			}
-		},
-		condition: {
-			onStart(move, pokemon) {
-				if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed || move.category === 'Status') {
-					return;
-				}
-				if (move.category === 'Special' && !['Zen', 'Galar-Zen'].includes(attacker.species.forme)) {
-					if (!pokemon.species.name.includes('Galar')) {
-						if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-					} else {
-						if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-					}
-				}
-			},
-			onEnd(pokemon) {
-				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
-					pokemon.formeChange(pokemon.species.battleOnly as string);
-				}
-			},
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Zen Mode",
-		rating: 0,
-		shortDesc: "Changes this Pokemon's form to Zen Mode before using a Special move.",
-		num: 161,
-	}, */
 	zenmode: {
 		onBeforeMovePriority: 9,
 		onBeforeMove(pokemon, target, move) {
@@ -63,7 +25,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
-		shortDesc: "(Partially functional placeholder) Changes this Pokemon's form to Zen Mode before using a Special move.",
+		shortDesc: "(Partially functional placeholder) This Pokemon transforms at the start of the turn if it selects a special move.",
 		rating: 3,
 		num: 161,
 	},
@@ -111,7 +73,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Gorilla Tactics",
 		rating: 4,
 		num: 255,
-		shortDesc: "Attack is 1.5x, but can only select the first move it executes. Holder's Choice items are disabled.",
+		shortDesc: "Pokemon's Atk is 1.5x, but it can only select one move. Choice items are disabled.",
 	},
 	beadsofruin: {
 		onStart(pokemon) {
@@ -135,9 +97,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Power Spot boost');
 			return this.chainModify([5325, 4096]);
 		},
-	   onSwitchOut(pokemon) {
+		onSwitchOut(pokemon) {
 			pokemon.side.addSlotCondition(pokemon, 'powerspot');
-	   },
+		},
 		condition: {
 			duration: 2,
 			onSwitchIn(pokemon) {
@@ -244,7 +206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Steam Engine",
 		rating: 2,
 		num: 243,
-		shortDesc: "This Pokemon is immune to burn and takes 0.5x damage from Fire and Water moves. Sets Sun if hit by either.",
+		shortDesc: "Immune to burn. 0.5x damage from Fire and Water moves. If hit: summons Sun.",
 	},
 	galewings: {
 		onBasePowerPriority: 21,
@@ -266,7 +228,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Gale Wings",
 		rating: 3,
 		num: 177,
-		shortDesc: "This Pokemon's Flying moves deal 1.3x damage if it moves first.",
+		shortDesc: "This Pokemon's Flying-type moves have 1.3x power if the user moves first.",
 	},
 	myceliummight: {
 		onFractionalPriorityPriority: -1,
@@ -279,7 +241,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Status' && move.target === 'normal') {
 				move.ignoreAbility = true;
 				if (!target.hasType('Grass') && !move.volatileStatus) {
-					move.volatileStatus = 'leechseed';
+					target.addVolatile('leechseed', source);
 				}
 			}
 		},
@@ -287,7 +249,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Mycelium Might",
 		rating: 3,
 		num: 298,
-		shortDesc: "(Partially functional placeholder) Single-target status moves move last, but ignore abilities and leech the foe.",
+		shortDesc: "Single-target status moves move last, but ignore abilities and inflict Leech Seed.",
 	},
 	icescales: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -305,6 +267,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Scales",
 		rating: 4,
 		num: 246,
-		shortDesc: "Receives 1/2 damage from special attacks. Full HP: No damage from indirect sources.",
+		shortDesc: "Takes 1/2 damage from special attacks. Full HP: No damage from indirect sources.",
 	},
 };
