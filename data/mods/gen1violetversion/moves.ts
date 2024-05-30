@@ -119,8 +119,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	/**	onHit(target, source) {
 			if (!target.moves.length) return false;
 			/**target.side.addSideCondition('disable', target);
-			this.add('-sidestart', side, 'Spikes');**/
-		},
+			this.add('-sidestart', side, 'Spikes');
+		},**/
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onSideStart (side, target) {
