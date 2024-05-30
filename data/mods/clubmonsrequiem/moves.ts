@@ -87,7 +87,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Brutal Swing', target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) move.drain = [100, 100];
+			if (!target || target.fainted || target.hp <= 0) this.heal(target.lastDamagedBy.damage)
 		},
 		secondary: null,
 		target: "normal",
@@ -186,6 +186,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (ratio >= 2) bp = 100;
 			if (ratio >= 3) bp = 120;
 			if (ratio >= 4) bp = 150;
+			return bp;
 		},
 	},		
 	shelter: {
@@ -210,7 +211,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onPrepareHit(target, source, move) {
 			if (move.type !== "Normal") {
-				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
+				this.attrLastMove('[anim] Ivy Cudgel')
+				this.attrLastMove('[anim] Thunderbolt')
 			}
 		},
 		onModifyType(move, pokemon) {
