@@ -134,7 +134,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.move = move.id;**/
 				for (const moveSlot of target.moveSlots) {
 					const moveid = moveSlot.id;
-					const move = target.dex.moves.get(moveid);
+					const move = this.dex.moves.get(moveid);
 					this.add('-start', target, 'Disable', moveSlot.move);
 					this.effectState.move = moveSlot.id;
 				}
