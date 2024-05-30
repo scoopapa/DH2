@@ -1,7 +1,7 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	ragefist: {
 		num: 889,
-		shortDesc: "+25 power for every time the user is hit. Recoil damage equal to BP.",
+		shortDesc: "+25 BP for each time user was hit. Recoil = BP.",
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon) {
@@ -73,7 +73,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	gravapple: {
 		num: 788,
-		shortDesc: "100% -1 Def. 1.5x power in Gravity. Sets Gravity if resisted.",
+		shortDesc: "-1 Def. Gravity: 1.5x power. Sets Gravity if resisted.",
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -271,7 +271,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "30% chance to burn foe. Negates burn immunity abilities.",
+		shortDesc: "30% chance to burn. Negates certain immunity.",
 		name: "Tar Shot",
 		pp: 10,
 		viable: true,
