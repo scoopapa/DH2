@@ -1181,6 +1181,7 @@ export class RandomTeams {
 			if (species.id === 'ampharos' || species.id === 'dedenne') return 'Plus';
 			if (species.id === 'manectric') return 'Minus';
 			if (species.id === 'delcatty') return 'Normalize';
+			if (species.id === 'mienshao') return 'Regenerator';
 			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Anger Shell';
@@ -1420,6 +1421,13 @@ export class RandomTeams {
 			ability !== 'Natural Cure' && ability !== 'Shed Skin'
 		) {
 			return 'Chesto Berry';
+		}
+		if (
+			species.id === 'gigalith' || species.id === 'carbink' || species.id === 'bastiodon' || 
+			species.id === 'diancie' || species.id === 'corsola' || species.id === 'probopass' && role === 'Bulky Support' ||
+			species.id === 'cradily' || species.id === 'tyranitar' && role === 'Bulky Support'
+		) { 
+			return 'Sandy Supplement';
 		}
 		/* if (
 			species.id !== 'yanmega' &&
