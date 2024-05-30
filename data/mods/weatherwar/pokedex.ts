@@ -88,6 +88,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Cloak", H: "Magic Guard"},
 	},
 	archaludon: {
+		inherit: true,
 		num: 12,
 		name: "Archaludon",
 		types: ["Steel", "Electric"],
@@ -304,11 +305,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ruin"},
 	},
 	sawsbuck: {
+		inherit: true,
 		num: 39,
 		name: "Sawsbuck",
 		types: ["Normal", "Grass"],
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 60, spd: 70, spe: 115},
 		abilities: {0: "Serene Grace", 1: "Solar Power", H: "Chlorophyll"},
+		cosmeticFormes: null,
+		formeOrder: null,
 	},
 	beedrill: {
 		inherit: true,
