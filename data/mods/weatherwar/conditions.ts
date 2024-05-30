@@ -594,7 +594,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const dance = this.dex.getActiveMove('metronome');
 			this.actions.useMove(dance, pokemon);
 		},
-		onFoeEffectiveness(typeMod, target, type, move) {
+		onEffectiveness(typeMod, target, type, move) {
 			if(this.field.pseudoWeather.metronomebattle && move.type === 'Normal') return 0;
 		},
 		onModifyMovePriority: -5,
