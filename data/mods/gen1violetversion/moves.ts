@@ -147,7 +147,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						this.effectState.move = moveSlot.id;
 						}
 					}
-				}**//
+				}**/
 				return;
 			},
 			onBeforeMovePriority: 7,
