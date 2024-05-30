@@ -430,7 +430,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!this.field.pseudoWeather.thevoices) return;
+			if (!this.field.pseudoWeather.thevoices || move.type !== 'Ghost') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Ghost'] = true;

@@ -78,9 +78,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Bronzong
 		this.modData("Learnsets", "bronzong").learnset.recover = ["9L1"];
 		this.modData("Learnsets", "bronzong").learnset.setmindfuck = ["9L1"];
+		this.modData("Learnsets", "bronzong").learnset.heartswap = ["9L1"];
+		this.modData("Learnsets", "bronzong").learnset.powersplit = ["9L1"];
 		this.modData("Learnsets", "bronzong").learnset.settimewarp = ["9L1"];
 		this.modData("Learnsets", "bronzong").learnset.setflashflood = ["9L1"];
 		// Lugia
+		this.modData("Learnsets", "lugia").learnset.heartswap = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.speedswap = ["9L1"];
 		this.modData("Learnsets", "lugia").learnset.setdeltastream = ["9L1"];
 		this.modData("Learnsets", "lugia").learnset.setmindfuck = ["9L1"];
 		this.modData("Learnsets", "lugia").learnset.setflashflood = ["9L1"];
@@ -412,6 +416,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Malamar
 		this.modData("Learnsets", "malamar").learnset.snatch = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.amnesia = ["9L1"];
+		this.modData("Learnsets", "malamar").learnset.heartswap = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.hyperspacefury = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.psychoboost = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.amnesia = ["9L1"];
@@ -419,6 +424,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "malamar").learnset.setblackout = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.setmindfuck = ["9L1"];
 		// Jirachi
+		this.modData("Learnsets", "jirachi").learnset.heartswap = ["9L1"];
 		this.modData("Learnsets", "jirachi").learnset.heavyslam = ["9L1"];
 		this.modData("Learnsets", "jirachi").learnset.setmindfuck = ["9L1"];
 		this.modData("Learnsets", "jirachi").learnset.settimewarp = ["9L1"];
@@ -435,6 +441,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "celebi").learnset.setovergrowth = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.settimewarp = ["9L1"];
 		// Tapu Lele
+		this.modData("Learnsets", "tapulele").learnset.heartswap = ["9L1"];
+		this.modData("Learnsets", "tapulele").learnset.guardsplit = ["9L1"];
+		this.modData("Learnsets", "tapulele").learnset.trick = ["9L1"];
 		this.modData("Learnsets", "tapulele").learnset.mistyexplosion = ["9L1"];
 		this.modData("Learnsets", "tapulele").learnset.setfable = ["9L1"];
 		this.modData("Learnsets", "tapulele").learnset.setmindfuck = ["9L1"];
@@ -552,6 +561,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "pecharunt").learnset.setthevoices = ["9L1"];
 		this.modData("Learnsets", "pecharunt").learnset.setshitstorm = ["9L1"];
 		// Wyrdeer
+		this.modData("Learnsets", "wyrdeer").learnset.heartswap = ["9L1"];
 		this.modData("Learnsets", "wyrdeer").learnset.metronome = ["9L1"];
 		this.modData("Learnsets", "wyrdeer").learnset.setmetronomebattle = ["9L1"];
 		this.modData("Learnsets", "wyrdeer").learnset.setmindfuck = ["9L1"];

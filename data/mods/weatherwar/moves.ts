@@ -1753,4 +1753,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if(this.field.pseudoWeather.length > 0) move.basePower *= 2;
 		},
 	},
+	hyperspacefury: {
+		inherit: true,
+		onTry: null,
+	},
 }
