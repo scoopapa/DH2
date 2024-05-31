@@ -48,6 +48,53 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 		},
 	},
+	rushingtide: {
+		num: 389,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Rushing Tide",
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Waterfall', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	tripledive: {
+		num: 865,
+		accuracy: 95,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Triple Dive damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Triple Dive",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
 	blackhole: {
 		num: 1003,
 		accuracy: 100,
