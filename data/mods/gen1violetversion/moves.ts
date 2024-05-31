@@ -116,47 +116,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'disable',
 		target: "foeSide",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-	/**	onHit(target, source) {
-			if (!target.moves.length) return false;
-			/**target.side.addSideCondition('disable', target);
-			this.add('-sidestart', side, 'Spikes');
-		},**/
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onSideStart (side, target) {
-			/**	let moves = target.moves;
-				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
-				this.add('-start', target, 'Disable', moveSlot.move);
-				this.effectState.move = moveSlot.id; **/
-				/**if (!moveId) return false;
-				let move = this.dex.moves.get(moveId);
-				this.add('-start', target, 'Disable', move.name);
-				this.effectState.move = move.id;**/
-				
-				for (const disableTarget of target.side.pokemon) {
-					if (disableTarget.isActive) {
-						const moveSlot = this.sample(disableTarget.moveSlots.filter(ms => ms.pp > 0));
-						this.add('-start', disableTarget, 'Disable', moveSlot.move)
+				for (const pokemon of target.side.pokemon) {
+					if (pokemon.isActive) {
+						const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
+						this.add('-start', pokemon, 'Disable', moveSlot.move)
 						this.effectState.move = moveSlot.id; 
 					}
 				}
-						
-		/**		for (const moveSlot of target.moveSlots) {
-					const moveid = moveSlot.id;
-					const move = this.dex.moves.get(moveid);
-					this.add('-start', target, 'Disable', moveSlot.move);
-					this.effectState.move = moveSlot.id; 
-				}**/
-		/**	for (const pokemon of target.side.pokemon) {
-				if (pokemon === target) {
-					for (const moveSlot of pokemon.moveSlots) {
-						const moveid = moveSlot.id;
-						const move = this.dex.moves.get(moveid);
-						this.add('-start', target, 'Disable', moveSlot.move);
-						this.effectState.move = moveSlot.id;
-						}
-					}
-				}**/
 					return;
 			},
 			onBeforeMovePriority: 7,
@@ -176,48 +145,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	/**
-	
-	
-	
-	
-	
-	disable: {
-		num: 50,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Disable",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
-		sideCondition: 'disable',
-		onTryHit(target) {
-			// This function should not return if the checks are met. Adding && undefined ensures this happens.
-			return target.moveSlots.some(ms => ms.pp > 0) &&
-				!('disable' in target.volatiles) &&
-				undefined;
-		},
-		condition: {
-			onStart(pokemon) {
-				// disable can only select moves that have pp > 0, hence the onTryHit modification
-				const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
-				this.add('-start', pokemon, 'Disable', moveSlot.move);
-				this.effectState.move = moveSlot.id;
-				// 1-8 turns (which will in effect translate to 0-7 missed turns for the target)
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Disable');
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of target.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
-		},
-	},**/
 	dreameater: {
 		inherit: true,
 		category: "Physical",
