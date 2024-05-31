@@ -239,7 +239,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAfterMove(source, target, move) {
 			if (move.category === 'Status' && move.target === 'normal') {
-				if (!target.hasType('Grass') && !move.volatileStatus) {
+				if (!target.hasType('Grass')) {
 					target.addVolatile('leechseed');
 				}
 			}
