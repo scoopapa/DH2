@@ -13,9 +13,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
-	meowth: {tier: "CM"},
+	amaura: {tier: "CM (NFE)"},
+	aurorus: {tier: "CM"},
+
+	meowth: {tier: "CM (NFE)"},
 	persian: {tier: "CM"},
-	meowthalola: {tier: "CM"},
+	meowthalola: {tier: "CM (NFE)"},
 	persianalola: {tier: "CM"},
 
 	gothitelleallira: {tier: "CM"},
