@@ -29,6 +29,30 @@ export const Items: {[k: string]: ModdedItemData} = {
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
 	},
+	magneticsoles: {
+		name: "Magnetic Soles",
+		spritenum: 715,
+		fling: {
+			basePower: 60,
+		},
+		shortDesc: "If Gravity is active, +1 Speed. Consumable.",
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.getPseudoWeather('gravity')) {
+				pokemon.useItem();
+			}
+		},
+		onAnyPseudoWeatherChange() {
+			const pokemon = this.effectState.target;
+			if (this.field.getPseudoWeather('trickroom')) {
+				pokemon.useItem(pokemon);
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		num: 1122,
+		gen: 8,
+	},
 	metronome: {
 		name: "Metronome",
 		spritenum: 289,
