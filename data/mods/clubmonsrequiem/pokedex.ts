@@ -136,6 +136,16 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Human-Like"],
 		creator: "Jumpheart",
 	},
+	oinkologne: {
+		inherit: true,
+		types: ["Normal", "Fairy"],
+		movepoolAdditions: ["slackoff", "toxic", "aromatherapy"],
+	},
+	oinkolognef: {
+		inherit: true,
+		types: ["Normal", "Fairy"],
+		movepoolAdditions: ["slackoff", "toxic", "aromatherapy"],
+	},
 	stormulex: {
 		num: 9003,
 		name: "Stormulex",
@@ -143,7 +153,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 91, atk: 119, def: 96, spa: 40, spd: 84, spe: 60},
 		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
 		heightm: 1.7, //idk yet
-		weightkg: 50, //idk yet
+		weightkg: 125, //idk yet
 		creator: "BlueRay",
 	},
 	ironconvector: {
@@ -185,6 +195,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Dodrio",
 		forme: "Cyarian",
 		copyData: "Dodrio",
+		
 		types: ["Rock", "Ghost"],
 		baseStats: {hp: 95, atk: 70, def: 80, spa: 97, spd: 80, spe: 113},
 		abilities: {0: "Rock Beak", 1: "Cursed Body", H: "Solid Rock"},
@@ -203,9 +214,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	bombirdier: {
 		inherit: true,
 		abilities: {0: "Territorial", 1: "Keen Eye", H: "Rocky Payload"},
-		movepoolAdditions: ["rockwrecker"},
+		movepoolAdditions: ["rockwrecker"],
 	},
-	o
 	rotom: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 65, def: 87, spa: 105, spd: 87, spe: 126},
