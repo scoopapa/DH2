@@ -133,10 +133,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-start', target, 'Disable', move.name);
 				this.effectState.move = move.id;**/
 				
-				for (const pokemon of target.side.pokemon) {
-					if (pokemon.isActive) {
-						const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
-						this.add('-start', pokemon, 'Disable', moveSlot.move)
+				for (const disableTarget of target.side.pokemon) {
+					if (disableTarget.isActive) {
+						const moveSlot = this.sample(disableTarget.moveSlots.filter(ms => ms.pp > 0));
+						this.add('-start', disableTarget, 'Disable', moveSlot.move)
 						this.effectState.move = moveSlot.id; 
 					}
 				}
