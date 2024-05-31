@@ -193,6 +193,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(damage, target, source, move) {
 			this.field.setTerrain('mistyterrain');
 		},
+		shortDesc: "Raises the Defense by 2. Summons Misty Terrain.",
 	},
 	haywirecudgel: {
 		num: 1006,
