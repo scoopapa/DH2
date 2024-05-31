@@ -77,7 +77,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	tripledive: {
 		num: 865,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (target.beingCalledBack || target.switchFlag) {
