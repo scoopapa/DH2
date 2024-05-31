@@ -30,7 +30,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Swarm",
-		shortDesc: "On switchin, this Pokemon sets THE SWARM.",
+		shortDesc: "On switchin, this Pokemon sets The Swarm.",
 	},
 	blackout: {
 		onStart(source) {
@@ -249,7 +249,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Hivemind",
-		shortDesc: "Filter + GaG in The Swarm", 
+		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
 	intangible: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -1123,13 +1123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
-			if (move.id === 'metronome') {
-				const newMove = this.dex.getActiveMove('metronome');
-				this.actions.useMove(newMove, target, source);
-			}
-		},
+		//metronome hitting twice handled in moves.ts
 		flags: {},
 		name: "Duomod Reference??",
 		shortDesc: "This Pokemon uses Metronome twice. Spins the Roulette Wheel during Metronome Battle."

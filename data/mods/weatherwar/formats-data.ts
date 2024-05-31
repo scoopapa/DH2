@@ -119,7 +119,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	blitzle: {
+	heliolisk: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
