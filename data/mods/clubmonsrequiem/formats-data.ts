@@ -13,11 +13,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	meowth: {tier: "CM"},
+	persian: {tier: "CM"},
+	meowthalola: {tier: "CM"},
+	persianalola: {tier: "CM"},
+
 	gothitelleallira: {tier: "CM"},
 
 	stormulex: {tier: "CM"},
 
-	ironcrown: {tier: "CM"},
 	brutebonnet: {tier: "CM"},
 	sandyshocks: {tier: "CM"},
 
@@ -25,6 +29,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
+
+	wiglett: {tier: "CM (NFE)"},
+	wugtrio: {tier: "CM"},
+
+	tarountula: {tier: "CM (NFE)"},
+	spidops: {tier: "CM"},
+
+	bombirdier: {tier: "CM"},
+
+	squawkabilly: {tier: "CM"},
+
+	klawf: {tier: "CM"},
+
+	ironconvector: {tier: "CM"},
+
+	lechonk: {tier: "CM (NFE)"},
+	oinkologne: {tier: "CM"},
+	oinkolognef: {tier: "CM"},
 
 	dewpider: {tier: "CM (NFE)"},
 	araquanid: {tier: "CM"},
