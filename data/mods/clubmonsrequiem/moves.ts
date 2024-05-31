@@ -82,7 +82,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePowerCallback(pokemon, target, move) {
 			if (target.beingCalledBack || target.switchFlag) {
 				this.debug('Triple Dive damage boost');
-				return move.basePower * 2;
+				return move.basePower * 1.5;
 			}
 			return move.basePower;
 		},
