@@ -40,6 +40,55 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: 3000,
 	},
+	territorial: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (defender.hurtThisTurn) {
+				this.debug('Territorial boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (defender.hurtThisTurn) {
+				this.debug('Territorial boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Territorial",
+		shortDesc: "User deals 1.5x more damage to opponents hurt this turn.",
+		rating: 3.5,
+		num: 276,
+	},
+	rockypayload: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceAccuracy(accuracy, target, source, move) {
+			if (!move.ohko && move.type === 'Rock') {
+				if (typeof accuracy === 'number') {
+					return this.chainModify([4505, 4096]);
+				}
+			}
+		},
+		flags: {},
+		name: "Rocky Payload",
+		shortDesc: "Rock-type moves receive a 1.5x boost in power, and 1.1x more accuracy.",
+		rating: 3.5,
+		num: 276,
+	},
 	rockbeak: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
