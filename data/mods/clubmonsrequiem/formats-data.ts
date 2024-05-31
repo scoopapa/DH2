@@ -30,6 +30,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
 
+	dodriocyrian: {tier: "CM"},
+
 	wiglett: {tier: "CM (NFE)"},
 	wugtrio: {tier: "CM"},
 
