@@ -512,7 +512,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: "National Dex",
 		mod: 'littleestcup',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause', 'Terastal Clause'],
-		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
 	},
 	{
 		name: "[Gen 9] Hidden Gems",
@@ -846,6 +846,15 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 1] RBY CAP",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3737699/">RBY CAP on Smogon Forums</a>`,
+		],
+		mod: 'gen1rbycap',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
 	},
 	{
 		name: "[Gen 9] Roulettemons 2",

@@ -1,7 +1,33 @@
 export const Moves: { [moveid: string]: ModdedMoveData } = {
+	burnup: {
+		inherit: true,
+		category: "Physical",
+	},
 	waterpulse: {
 		inherit: true,
 		basePower: 75,
+	},
+	lightningswing: {
+		num: 1005,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		name: "Lightning Swing",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Plasma Fists', target);
+		},
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Clever",
 	},
 	syrupbomb: {
 		inherit: true,
@@ -46,11 +72,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	darkdevour: {
 		num: 1004,
-		accuracy: 95,
+		accuracy: 90,
 		basePower: 90,
 		category: "Physical",
 		name: "Dark Devour",
-		shortDesc: "User heals 1/2 of its max HP upon KOing opponent.",
+		shortDesc: "User heals the amount of HP the opponent lost if they fainted.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
@@ -61,7 +87,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Brutal Swing', target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 2, pokemon, pokemon, move);
+			if (!target || target.fainted || target.hp <= 0) move.drain = [100, 100];
 		},
 		secondary: null,
 		target: "normal",
@@ -121,7 +147,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 65,
 		category: "Special",
 		name: "Compost",
-		shortDesc: "1.5x power if user has no item. Recycles item if previously used.",
+		shortDesc: "1.5x power if user has no item. Recycles item.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -167,5 +193,150 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(damage, target, source, move) {
 			this.field.setTerrain('mistyterrain');
 		},
+		shortDesc: "Raises the Defense by 2. Summons Misty Terrain.",
+	},
+	haywirecudgel: {
+		num: 1006,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "High Critical hit ratio. Electric if Ogerpon-Costar.",
+		name: "Haywire Cudgel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source, move) {
+			if (move.type !== "Normal") {
+				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
+			}
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Ogerpon-Costar':
+				move.type = 'Electric';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	joyride: {
+		num: 1007,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Joyride",
+		shortDesc: "Crits are boosted in power after use. User crashes if dodged.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Agility', source);
+			this.add('-anim', source, 'Play Rough', target);
+		},
+		onAfterHit(target, source) {
+			source.addVolatile('joyride');
+		},
+		condition: {
+			onStart(target, source, effect) {
+				if (target.volatiles['dragoncheer']) return false;
+				if (effect?.id === 'zpower') {
+					this.add('-start', target, 'move: Joyride', '[zeffect]');
+				} else if (effect && (['costar', 'imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', target, 'move: Joyride', '[silent]');
+				} else {
+					this.add('-start', target, 'move: Joyride');
+				}
+				this.add('-message', `${target.name} is feeling full of energy!`);
+			},
+			onModifyDamage(damage, source, target, move) {
+				if (target.getMoveHitData(move).crit) {
+					this.debug('Joyride boost');
+					return this.chainModify(1.5);
+				}
+			},
+		},
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Joyride'));
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
+	},
+	echoedvoice: {
+		num: 497,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			if (this.field.pseudoWeather.echoedvoice) {
+				bp = move.basePower * this.field.pseudoWeather.echoedvoice.multiplier;
+			}
+			this.debug('BP: ' + move.basePower);
+			return bp;
+		},
+		category: "Special",
+		name: "Echoed Voice",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		onTry() {
+			this.field.addPseudoWeather('echoedvoice');
+		},
+		condition: {
+			duration: 3,
+			onFieldStart() {
+				this.effectState.multiplier = 1;
+			},
+			onFieldRestart() {
+				if (this.effectState.duration !== 3) {
+					this.effectState.duration = 3;
+					if (this.effectState.multiplier < 5) {
+						this.effectState.multiplier++;
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	axonrush: {
+		num: -1004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's and ally's Atk, Def, Spe by 1 in Electric Terrain.",
+		name: "Axon Rush",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		onTryHit() {
+			if (!this.field.isTerrain('electricterrain')) return false;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", target);
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "allies",
+		type: "Electric",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
 	},
 };

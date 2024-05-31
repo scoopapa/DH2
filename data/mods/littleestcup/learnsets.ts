@@ -1,168 +1,3 @@
-/*
-oh? you're looking through the files to find the changes?
-
-
-how lame.
-
-
-you're better than that
-
-
-or maybe you aren't 
-
-
-since you're still here.
-
-
-shame on you, fr 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-still here?
-
-how sad.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-i actually didn't do anything to this file, it's likely already lagging your computer enough.
-
-
-
-
-
-
-
-*/
 export const Learnsets: {[k: string]: LearnsetData} = {
 	missingno: {
 		learnset: {
@@ -1831,7 +1666,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["7T"],
 		},
 	},
-	raticate: { // join us
+	raticate: {
 		learnset: {
 			assurance: ["7L19", "6L29", "5L29", "4L29"],
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
@@ -1926,7 +1761,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 4, level: 13},
 		],
 	},
-	raticatealola: { // join us
+	raticatealola: {
 		learnset: {
 			assurance: ["7L19"],
 			attract: ["7M"],
@@ -2447,7 +2282,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 4, level: 10},
 		],
 	},
-	pichu: { // down smash
+	pichu: {
 		learnset: {
 			attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			bestow: ["7E", "6E", "5E"],
@@ -13320,7 +13155,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metronome: ["9M"],
 			minimize: ["9L21", "8V", "7L21"],
 			moonblast: ["8V"],
-			moonlight: ["9L1"],
 			mudshot: ["9M"],
 			mudslap: ["9M"],
 			painsplit: ["9M", "7T"],
@@ -22441,7 +22275,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			counter: ["9L55", "8L55"],
 			detect: ["9L60", "8L60"],
 			doubleedge: ["9M"],
-			dragondance: ["9M"],
 			drillpeck: ["9L35", "8L35", "8S0", "8S1"],
 			dualwingbeat: ["9M", "8T"],
 			endeavor: ["9M"],
@@ -29343,7 +29176,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 2, level: 15},
 		],
 	},
-	qwilfish: { // this is for real qwilfish fans, let me know if you're a real qwilfish fan
+	qwilfish: {
 		learnset: {
 			acidspray: ["9M", "9E", "8E", "7E", "6E", "5E"],
 			acupressure: ["9L52", "8L60"],
@@ -30339,7 +30172,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			playrough: ["9M", "9L29"],
 			poweruppunch: ["6M"],
 			protect: ["9M", "7M", "7V", "6M", "5M", "4M", "3M"],
-			quickattack: ["9M"],
 			raindance: ["9M", "7M", "6M", "5M", "4M", "3M"],
 			rest: ["9M", "9L41", "7M", "7L47", "7V", "6M", "6L47", "5M", "5L47", "4M", "4L47", "3M", "3L31"],
 			retaliate: ["6M", "5M"],
@@ -33928,7 +33760,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 6, level: 10, gender: "M", isHidden: true, moves: ["scratch", "growl", "focusenergy", "ember"], pokeball: "cherishball"},
 		],
 	},
-	combusken: { // my goat
+	combusken: {
 		learnset: {
 			aerialace: ["9M", "9L20", "8L20", "7M", "6M", "5M", "4M", "3M"],
 			agility: ["9M", "8M"],
@@ -37316,7 +37148,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			shadowball: ["9M", "7M", "6M", "5M", "4M", "3M"],
 			shadowclaw: ["9M", "7M", "6M", "5M", "4M", "4S0"],
 			shockwave: ["7T", "6T", "4M", "3M"],
-			skillswap: ["9M"],
 			slackoff: ["9L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 			sleeptalk: ["9M", "7M", "6M", "5T", "4M", "3T"],
 			smackdown: ["9M", "7M", "6M", "5M"],
@@ -52503,7 +52334,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	rotomwash: {
 		learnset: {
 			hydropump: ["9L1", "8L1", "7R", "6R", "5R", "4R"],
-			recover: ["9L1"],
 		},
 	},
 	rotomfrost: {
@@ -52657,7 +52487,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			extrasensory: ["9L35", "8L35", "7L50", "7S4", "6L50", "6S3", "5L51", "5S2", "4L51"],
 			facade: ["9M", "8M", "7M", "6M", "5M", "4M"],
 			firepunch: ["9M", "8M", "7T", "6T", "5T", "4T"],
-			fishiousrend: ["8L63"],
 			flash: ["6M", "5M", "4M"],
 			flatter: ["9L56", "8L56"],
 			fling: ["9M", "8M", "7M", "6M", "5M", "4M"],
@@ -58178,7 +58007,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			worryseed: ["9E", "8E", "7T", "7E", "6T", "6E", "5T", "5E", "5D"],
 		},
 	},
-	whimsicott: { // MY BOY!!
+	whimsicott: {
 		learnset: {
 			absorb: ["9L1", "8L1"],
 			attract: ["8M", "7M", "6M", "5M"],
@@ -64612,7 +64441,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			meditate: ["7L1", "6L1", "5L1"],
 			megakick: ["8M"],
 			megapunch: ["8M"],
-			noretreat: ["9L40"],
 			payback: ["8M", "7M", "6M", "5M"],
 			poisonjab: ["9M", "8M", "7M", "6M", "5M"],
 			pound: ["9L1", "8L1", "7L1", "6L1", "5L1"],
@@ -80702,7 +80530,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			superpower: ["8M", "7T"],
 			swagger: ["7M"],
 			tackle: ["8L1", "7L1"],
-			teleport: ["8L1"],
 			toxic: ["7M"],
 			wideguard: ["8L10", "7L1"],
 			zenheadbutt: ["8M", "7T"],
@@ -84412,7 +84239,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metronome: ["9M"],
 			mistyexplosion: ["9M", "8T"],
 			mistyterrain: ["9M"],
-			moonblast: ["9L1"],
 			mysticalfire: ["8M"],
 			painsplit: ["9M"],
 			playnice: ["9L1", "8L1"],
@@ -91488,7 +91314,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			swift: ["9M"],
 			takedown: ["9M", "9L21"],
 			terablast: ["9M"],
-			toxic: ["9L1"],
+			toxic: ["9M"],
 			toxicspikes: ["9M"],
 			uturn: ["9M"],
 			venoshock: ["9M"],
@@ -92314,7 +92140,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderwave: ["9M"],
 		},
 	},
-	tinkaton: { // banhammers returns June 8th banhammers returns June 8th banhammers returns June 8th
+	tinkaton: {
 		learnset: {
 			astonish: ["9L1"],
 			babydolleyes: ["9L5"],
