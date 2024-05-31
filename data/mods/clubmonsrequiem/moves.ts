@@ -57,6 +57,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 5,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "Usually moves first. Move fails if target isn't attacking.",
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
@@ -91,6 +92,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "Damages opponent 1.5x if they attempt to switch out.",
 		secondary: null,
 		target: "normal",
 		type: "Water",
