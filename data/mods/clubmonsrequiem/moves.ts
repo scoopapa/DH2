@@ -10,14 +10,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	lightningswing: {
 		num: 1005,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
-		shortDesc: "User recovers 50% of the damage dealt.",
+		shortDesc: "User recovers 2/3 of the damage dealt.",
 		name: "Lightning Swing",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
-		drain: [1, 2],
+		drain: [2, 3],
 		secondary: null,
 		onTryMove() {
 			this.attrLastMove('[still]');
