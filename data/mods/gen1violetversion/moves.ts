@@ -132,12 +132,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				let move = this.dex.moves.get(moveId);
 				this.add('-start', target, 'Disable', move.name);
 				this.effectState.move = move.id;**/
-				for (const moveSlot of target.moveSlots) {
+				
+				for (const pokemon of target.side.pokemon) {
+					if (pokemon.isActive) {
+						const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
+						this.add('-start', pokemon, 'Disable', moveSlot.move)
+						this.effectState.move = moveSlot.id; 
+					}
+				}
+						
+		/**		for (const moveSlot of target.moveSlots) {
 					const moveid = moveSlot.id;
 					const move = this.dex.moves.get(moveid);
 					this.add('-start', target, 'Disable', moveSlot.move);
-					this.effectState.move = moveSlot.id;
-				}
+					this.effectState.move = moveSlot.id; 
+				}**/
 		/**	for (const pokemon of target.side.pokemon) {
 				if (pokemon === target) {
 					for (const moveSlot of pokemon.moveSlots) {
