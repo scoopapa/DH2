@@ -128,7 +128,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 					return;
 			}, **/
-			onStart (side, target) {
+			onHit (target) {
 				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 				this.add('-start', target, 'Disable', moveSlot.move)
 				this.effectState.move = moveSlot.id; 
