@@ -76,27 +76,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Water",
 		contestType: "Clever",
 	},
-	tripledive: {
-		num: 865,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.beingCalledBack || target.switchFlag) {
-				this.debug('Triple Dive damage boost');
-				return move.basePower * 1.5;
-			}
-			return move.basePower;
-		},
-		category: "Physical",
-		name: "Triple Dive",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		shortDesc: "Damages opponent 1.5x if they attempt to switch out.",
-		secondary: null,
-		target: "normal",
-		type: "Water",
-	},
 	blackhole: {
 		num: 1003,
 		accuracy: 100,
