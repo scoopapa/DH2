@@ -123,8 +123,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
+					}
+			}
 			return;
-		}, 
+		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			/**onSideStart (side, target) {
