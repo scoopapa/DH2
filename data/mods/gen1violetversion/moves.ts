@@ -113,7 +113,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Disable",
 		pp: 5,
 		priority: 0,
-		sideCondition: 'disable',
+		//sideCondition: 'disable',
 		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		condition: {
@@ -128,10 +128,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 					return;
 			}, **/
-			onStart (target) {
-						const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
-						this.add('-start', target, 'Disable', moveSlot.move)
-						this.effectState.move = moveSlot.id; 
+			onHit (target) {
+				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
+				this.add('-start', target, 'Disable', moveSlot.move)
+				this.effectState.move = moveSlot.id; 
+				return;
 			}, 
 			onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
