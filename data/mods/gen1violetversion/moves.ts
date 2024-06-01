@@ -113,7 +113,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Disable",
 		pp: 5,
 		priority: 0,
-		//sideCondition: 'disable',
+		sideCondition: 'disable',
 		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		condition: {
