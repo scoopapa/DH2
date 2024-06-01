@@ -271,7 +271,7 @@ export function learnsetUpdate(dex: ModdedDex) {
 	dex.modData('Learnsets', 'lickitung').learnset.doubleslap = ['3L1'];
 	dex.modData('Learnsets', 'chansey').learnset.sweetscent = ['3L1'];
 	dex.modData('Learnsets', 'tangela').learnset.synthesis = ['3L1'];
-	dex.modData('Learnsets', 'kangaskhan').learnset.faintattack = ['3L1'];
+	dex.modData('Learnsets', 'kangaskhan').learnset.feintattack = ['3L1'];
 	dex.modData('Learnsets', 'horsea').learnset.haze = ['3L1'];
 	dex.modData('Learnsets', 'goldeen').learnset.swordsdance = ['3L1'];
 	dex.modData('Learnsets', 'staryu').learnset.twister = ['3L1'];
@@ -348,7 +348,7 @@ export function learnsetUpdate(dex: ModdedDex) {
 	dex.modData('Learnsets', 'elekid').learnset.petaldance = ['3L1'];
 	dex.modData('Learnsets', 'elekid').learnset.dizzypunch = ['3L1'];
 	dex.modData('Learnsets', 'elekid').learnset.pursuit = ['3L1'];
-	dex.modData('Learnsets', 'magby').learnset.faintattack = ['3L1'];
+	dex.modData('Learnsets', 'magby').learnset.feintattack = ['3L1'];
 	dex.modData('Learnsets', 'magby').learnset.dizzypunch = ['3L1'];
 	dex.modData('Learnsets', 'miltank').learnset.megakick = ['3L1'];
 	dex.modData('Learnsets', 'larvitar').learnset.rage = ['3L1'];
