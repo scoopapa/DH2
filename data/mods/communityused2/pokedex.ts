@@ -18,7 +18,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	furumo: {
 		num: -1002,
 		name: "Furumo",
-		types: ["Water", "Ice"],
+		types: ["Fairy", "Ice"],
 		baseStats: { hp: 85, atk: 105, def: 60, spa: 109, spd: 60, spe: 111 },
 		abilities: { 0: "Water Veil", 1: "Pixilate", H: "Refrigerate" },
 		weightkg: 36,
@@ -345,7 +345,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: -1038,
 		name: "Lindelidae",
 		types: ["Bug", "Dragon"],
-		baseStats: { hp: 80, atk: 125, def: 105, spa: 75, spd: 85, spe: 130 },
+		baseStats: { hp: 80, atk: 120, def: 105, spa: 75, spd: 85, spe: 130 },
 		abilities: { 0: "Strong Jaw", 1: "Compound Eyes", H: "Marvel Scale" },
 		weightkg: 95,
 		prevo: "Dragylis",
@@ -668,7 +668,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: { 0: "Analytic" },
 		weightkg: 60.5,
 		requiredItem: "Polipidite",
-	},
+	}, 
 	beartic: {
 		inherit: true,
 		evos: ["Beartunnd"],
