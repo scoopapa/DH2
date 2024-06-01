@@ -335,6 +335,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "volbeat").learnset.settimewarp = ["9L1"];
 		this.modData("Learnsets", "volbeat").learnset.setflashflood = ["9L1"];
 		// Kingdra
+		this.modData("Learnsets", "kingdra").learnset.dragonhammer = ["9L1"];
 		this.modData("Learnsets", "kingdra").learnset.waterpledge = ["9L1"];
 		this.modData("Learnsets", "kingdra").learnset.coreenforcer = ["9L1"];
 		this.modData("Learnsets", "kingdra").learnset.setlotsofreallysmalldragons = ["9L1"];
@@ -361,7 +362,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "tentacruel").learnset.setshitstorm = ["9L1"];
 		this.modData("Learnsets", "tentacruel").learnset.setflashflood = ["9L1"];
 		// Toedscruel
+		this.modData("Learnsets", "toedscruel").learnset.earthquake = ["9L1"];
 		this.modData("Learnsets", "toedscruel").learnset.sandtomb = ["9L1"];
+		this.modData("Learnsets", "toedscruel").learnset.stoneedge = ["9L1"];
+		this.modData("Learnsets", "toedscruel").learnset.rockslide = ["9L1"];
 		this.modData("Learnsets", "toedscruel").learnset.grasspledge = ["9L1"];
 		this.modData("Learnsets", "toedscruel").learnset.synthesis = ["9L1"];
 		this.modData("Learnsets", "toedscruel").learnset.setduststorm = ["9L1"];
@@ -524,6 +528,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "froslass").learnset.scald = ["9L1"];
 		this.modData("Learnsets", "froslass").learnset.iceball = ["9L1"];
 		this.modData("Learnsets", "froslass").learnset.freezedry = ["9L1"];
+		this.modData("Learnsets", "froslass").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "froslass").learnset.setthevoices = ["9L1"];
 		this.modData("Learnsets", "froslass").learnset.setwhiteout = ["9L1"];
 		// Frosmoth

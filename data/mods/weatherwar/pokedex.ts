@@ -85,7 +85,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Articuno",
 		types: ["Ice", "Flying"],
 		baseStats: {hp: 90, atk: 55, def: 100, spa: 95, spd: 125, spe: 85},
-		abilities: {0: "Snow Cloak", H: "Magic Guard"},
+		abilities: {0: "Snow Cloak", 1: "Slipstream", H: "Magic Guard"},
 	},
 	archaludon: {
 		inherit: true,
@@ -101,7 +101,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dialga",
 		types: ["Steel", "Dragon"],
 		baseStats: {hp: 80, atk: 100, def: 80, spa: 120, spd: 100, spe: 70},
-		abilities: {0: "Time Machine", H: "Second Impact"},
+		abilities: {0: "Time Machine", 1: "Second Impact", H: "Stamina"},
 	},
 	dragonair: {
 		inherit: true,
@@ -190,7 +190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Hippowdon",
 		types: ["Ground", "Fighting"],
 		baseStats: {hp: 108, atk: 112, def: 118, spa: 68, spd: 72, spe: 47},
-		abilities: {0: "Sand Stream", H: "Sand Force"},
+		abilities: {0: "Sand Stream", 1: "Sand Force", H: "Contrary"},
 	},
 	abomasnow: {
 		inherit: true,
@@ -214,7 +214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ninetales-Alola",
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 73, atk: 76, def: 75, spa: 106, spd: 100, spe: 100},
-		abilities: {0: "Snow Warning", H: "Slush Rush"},
+		abilities: {0: "Snow Warning", 1: "Fairytale", H: "Regenerator"},
 	},
 	dragapult: {
 		inherit: true,
@@ -352,7 +352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kleavor",
 		types: ["Bug", "Rock"],
 		baseStats: {hp: 70, atk: 135, def: 85, spa: 45, spd: 70, spe: 95},
-		abilities: {0: "Swarm", H: "Landslide"},
+		abilities: {0: "Swarm", 1: "Landslide", H: "Tough Claws"},
 	},
 	heracross: {
 		inherit: true,
@@ -376,7 +376,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Vespiquen",
 		types: ["Bug", "Flying"],
 		baseStats: {hp: 106, atk: 70, def: 102, spa: 110, spd: 102, spe: 40},
-		abilities: {0: "Swarm", H: "Hivemind"},
+		abilities: {0: "Swarm", 1: "Hivemind", H: "Magic Bounce"},
 	},
 	volbeat: {
 		inherit: true,
@@ -392,7 +392,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kingdra",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 75, atk: 95, def: 95, spa: 95, spd: 95, spe: 85},
-		abilities: {0: "Draco Jet", H: "Sniper"},
+		abilities: {0: "Draco Jet", 1: "Wet Skin", H: "Sniper"},
 	},
 	excadrill: {
 		inherit: true,
@@ -408,7 +408,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tornadus-Therian",
 		types: ["Flying"],
 		baseStats: {hp: 79, atk: 100, def: 70, spa: 100, spd: 80, spe: 121},
-		abilities: {0: "Slipstream", H: "Duomod Reference??"},
+		abilities: {0: "Slipstream", 1: "Duomod Reference??", H: "Regenerator"},
 	},
 	thundurustherian: {
 		inherit: true,
@@ -416,7 +416,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Thundurus-Therian",
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 79, atk: 115, def: 70, spa: 115, spd: 70, spe: 101},
-		abilities: {0: "Beatdown", H: "Short Circuit"},
+		abilities: {0: "Beatdown", 1: "Short Circuit", H: "Motor Drive"},
 	},
 	tentacruel: {
 		inherit: true,
@@ -432,7 +432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Toedscruel",
 		types: ["Ground", "Grass"],
 		baseStats: {hp: 80, atk: 95, def: 120, spa: 70, spd: 75, spe: 90},
-		abilities: {0: "Ruin", H: "Mycellium Might"},
+		abilities: {0: "Ruin", 1: "Sand Force", H: "Mycelium Might"},
 	},
 	toxicroak: {
 		inherit: true,
@@ -456,7 +456,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cherrim",
 		types: ["Grass"],
 		baseStats: {hp: 80, atk: 60, def: 120, spa: 97, spd: 88, spe: 85},
-		abilities: {0: "Chlorophyll", H: "Flower Gift"},
+		abilities: {0: "Chlorophyll", 1: "Flower Gift", H: "Regenerator"},
 	},
 	cherrimsunshine: {
 		inherit: true,
@@ -472,7 +472,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Garganacl",
 		types: ["Rock"],
 		baseStats: {hp: 100, atk: 100, def: 130, spa: 45, spd: 90, spe: 35},
-		abilities: {0: "Landslide", H: "Sand Force"},
+		abilities: {0: "Landslide", 1: "Sand Force", H: "Purifying Salt"},
 	},
 	incineroar: {
 		inherit: true,
@@ -512,7 +512,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Mismagius",
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 65, atk: 65, def: 65, spa: 115, spd: 115, spe: 115},
-		abilities: {0: "Banshee", H: "Dark Fantasy"},
+		abilities: {0: "Banshee", 1: "Intangible", H: "Dark Fantasy"},
 	},
 	slowkinggalar: {
 		inherit: true,
@@ -552,7 +552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Malamar",
 		types: ["Dark", "Psychic"],
 		baseStats: {hp: 86, atk: 110, def: 88, spa: 78, spd: 95, spe: 73},
-		abilities: {0: "Freaky", H: "Contrary"},
+		abilities: {0: "Freaky", 1: "Domain Expander", H: "Contrary"},
 	},
 	jirachi: {
 		inherit: true,
@@ -568,7 +568,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Celebi",
 		types: ["Steel", "Grass"],
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
-		abilities: {0: "Time Machine", H: "Ruin"},
+		abilities: {0: "Time Machine", 1: "Ruin", H: "Tinted Lens"},
 	},
 	tapulele: {
 		inherit: true,
@@ -576,7 +576,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tapu Lele",
 		types: ["Psychic", "Fairy"],
 		baseStats: {hp: 70, atk: 85, def: 75, spa: 115, spd: 110, spe: 95},
-		abilities: {0: "Freaky", H: "Fairytale"},
+		abilities: {0: "Freaky", 1: "Fairytale", H: "Compound Eyes"},
 	},
 	manaphy: {
 		inherit: true,
@@ -616,7 +616,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Nihilego",
 		types: ["Rock", "Poison"],
 		baseStats: {hp: 109, atk: 53, def: 71, spa: 103, spd: 113, spe: 101},
-		abilities: {0: "Corrosion", H: "Levitate"},
+		abilities: {0: "Corrosion", 1: Beast Boost, H: "Levitate"},
 	},
 	diancie: {
 		inherit: true,
@@ -640,7 +640,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Arctozolt",
 		types: ["Electric", "Ice"],
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 55},
-		abilities: {0: "Snow Cloak", H: "Short Circuit"},
+		abilities: {0: "Snow Cloak", 1: "Motor Drive", H: "Short Circuit"},
 	},
 	mamoswine: {
 		inherit: true,
@@ -656,7 +656,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Froslass",
 		types: ["Ice", "Ghost"],
 		baseStats: {hp: 80, atk: 100, def: 80, spa: 80, spd: 80, spe: 110},
-		abilities: {0: "Snow Warning", H: "Snow Cloak"},
+		abilities: {0: "Snow Warning", 1: "Snow Cloak", H: "Refrigerate"},
 	},
 	frosmoth: {
 		inherit: true,
@@ -735,8 +735,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 93,
 		name: "Wyrdeer",
 		types: ["Normal", "Psychic"],
-		baseStats: {hp: 103, atk: 75, def: 82, spa: 105, spd: 105, spe: 65},
-		abilities: {0: "Intimidate", 1: "Domain Expander", H: "Unaware"},
+		baseStats: {hp: 103, atk: 75, def: 72, spa: 105, spd: 105, spe: 65},
+		abilities: {0: "Domain Expander", 1: "Fur Coat", H: "Unaware"},
 	},
 	lilywhite: {
 		num: 94,
