@@ -345,7 +345,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: -1038,
 		name: "Lindelidae",
 		types: ["Bug", "Dragon"],
-		baseStats: { hp: 80, atk: 120, def: 105, spa: 75, spd: 85, spe: 130 },
+		baseStats: { hp: 80, atk: 120, def: 105, spa: 80, spd: 85, spe: 130 },
 		abilities: { 0: "Strong Jaw", 1: "Compound Eyes", H: "Marvel Scale" },
 		weightkg: 95,
 		prevo: "Dragylis",
