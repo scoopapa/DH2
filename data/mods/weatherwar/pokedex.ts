@@ -616,7 +616,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Nihilego",
 		types: ["Rock", "Poison"],
 		baseStats: {hp: 109, atk: 53, def: 71, spa: 103, spd: 113, spe: 101},
-		abilities: {0: "Corrosion", 1: Beast Boost, H: "Levitate"},
+		abilities: {0: "Corrosion", 1: "Beast Boost", H: "Levitate"},
 	},
 	diancie: {
 		inherit: true,
