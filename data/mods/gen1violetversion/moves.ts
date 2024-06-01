@@ -120,9 +120,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 			this.add('-start', target, 'Disable', moveSlot.move)
 			this.effectState.move = moveSlot.id; 
-			for (const moveSlot of pokemon.moveSlots) {
+			for (const moveSlot of target.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
+						target.disableMove(moveSlot.id);
 					}
 			}
 			return;
