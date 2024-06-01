@@ -134,19 +134,36 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 50,
 		color: "Green",
 		eggGroups: ["Human-Like"],
+		creator: "Jumpheart",
+	},
+	oinkologne: {
+		inherit: true,
+		types: ["Normal", "Fairy"],
+		movepoolAdditions: ["slackoff", "toxic", "aromatherapy"],
+	},
+	oinkolognef: {
+		inherit: true,
+		types: ["Normal", "Fairy"],
+		movepoolAdditions: ["slackoff", "toxic", "aromatherapy"],
 	},
 	stormulex: {
 		num: 9003,
 		name: "Stormulex",
 		types: ["Electric", "Rock"],
-		baseStats: {hp: 91, atk: 129, def: 96, spa: 40, spd: 84, spe: 60},
+		baseStats: {hp: 91, atk: 119, def: 96, spa: 40, spd: 84, spe: 60},
 		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
 		heightm: 1.7, //idk yet
-		weightkg: 50, //idk yet
+		weightkg: 125, //idk yet
+		creator: "BlueRay",
 	},
-	ironcrown: {
-		inherit: true,
+	ironconvector: {
+		name: "Iron Convector",
+		types: ["Bug", "Ice"],
+		baseStats: {hp: 88, atk: 116, def: 48, spa: 130, spd: 106, spe: 82},
 		abilities: {0: "Quark Drive", H: "Rewind"},
+		heightm: 1.5,
+		weightkg: 55,
+		creator: "ausma",
 	},
 	sandyshocks: {
 		inherit: true,
@@ -156,6 +173,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Protosynthesis", H: "Rewind"},
 	},
+	wugtrio: {
+		inherit: true,
+		abilities: {0: "Gooey", 1: "Stakeout", H: "Sand Veil"},
+		movepoolAdditions: ["wavecrash", "rushingtide"],
+	},
 	celebi: { 
 		inherit: true,
 		abilities: {0: "Natural Cure", S: "Rewind"},
@@ -164,9 +186,35 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Frisk", 1: "Infiltrator", H: "Rewind"},
 	},
+	spidops: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 79, def: 92, spa: 52, spd: 86, spe: 80},
+	},
+	dodriocyarian: {
+		name: "Dodrio-Cyarian",
+		baseSpecies: "Dodrio",
+		forme: "Cyarian",
+		copyData: "Dodrio",
+		
+		types: ["Rock", "Ghost"],
+		baseStats: {hp: 95, atk: 70, def: 80, spa: 97, spd: 80, spe: 113},
+		abilities: {0: "Rock Beak", 1: "Cursed Body", H: "Solid Rock"},
+		movepoolAdditions: ["shadowclaw", "shadowsneak", "phantomforce", "rockslide", "stoneedge", "grudge", "spite", "rocktomb", "stealthrock"],
+		movepoolDeletions: ["drillrun", "knockoff", "pursuit"],
+
+		prevo: "Doduo",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Colossi Productions",
+	},
 	golduck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 95, spd: 80, spe: 120},
+	},
+	bombirdier: {
+		inherit: true,
+		abilities: {0: "Territorial", 1: "Keen Eye", H: "Rocky Payload"},
+		movepoolAdditions: ["rockwrecker"],
 	},
 	rotom: {
 		inherit: true,
