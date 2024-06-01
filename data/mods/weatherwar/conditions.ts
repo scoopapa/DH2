@@ -345,7 +345,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (this.field.pseudoWeather.drought && pokemon.hp && pokemon.runEffectiveness('Fire')) {
+			if (this.field.pseudoWeather.drought && pokemon.hp && !pokemon.status && pokemon.runEffectiveness('Fire')) {
 				this.add('-message', `${pokemon.name} spontaneously erupted into flames!`);
 				pokemon.trySetStatus('brn', pokemon);
 			}
@@ -536,7 +536,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', "The dust storm continues.");
 		},
 		onWeather(target) {
-			this.add('-message', `${target.name} is hurt by the Dust Storm!`);
+			this.add('-message', `${target.name} is hurt by its ${target.ability.name}!`);
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
@@ -713,7 +713,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if(!this.field.pseudoWeather.mindfuck) return;
 			if(move.type === 'Psychic' && move.category === 'Status' && move.target === 'normal') {
 				move.category = "Special";
-				move.basePower = 80;
+				move.basePower = 90;
 			}
 			if (move.flags['gravity'] && !move.isZ) {
 				this.add('cant', pokemon, 'move: Gravity', move);
@@ -734,7 +734,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'Mindfuck', '[silent]');
 			}
 			this.add('-message', "Your mind got fucked!");
-			this.hint("In Mindfuck, the effects of Magic Room, Wonder Room, and Gravity are active, and Psychic status moves with an adjacent target become special with 80 BP.", '[silent]');
+			this.hint("In Mindfuck, the effects of Magic Room, Wonder Room, and Gravity are active, and Psychic status moves with an adjacent target become special with 90 BP.", '[silent]');
 		},
 		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 		// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
