@@ -30,6 +30,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	celebi: {tier: "CM"},
 
+	ironcrown: {tier: "CM"},
+
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
 
