@@ -46,6 +46,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy", "Mineral"],
 	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Rewind"},
+	},
 	goomy: {
 		num: 704,
 		name: "Goomy",
