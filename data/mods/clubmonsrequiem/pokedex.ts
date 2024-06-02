@@ -156,8 +156,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Electric", "Rock"],
 		baseStats: {hp: 91, atk: 119, def: 96, spa: 40, spd: 84, spe: 60},
 		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
-		heightm: 1.7, //idk yet
-		weightkg: 125, //idk yet
+		heightm: 1.7,
+		weightkg: 125,
 		creator: "BlueRay",
 	},
 	ironconvector: {
@@ -201,7 +201,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Dodrio",
 		
 		types: ["Rock", "Ghost"],
-		baseStats: {hp: 95, atk: 70, def: 80, spa: 97, spd: 80, spe: 113},
+		baseStats: {hp: 60, atk: 110, def: 90, spa: 60, spd: 90, spe: 110},
 		abilities: {0: "Rock Beak", 1: "Cursed Body", H: "Solid Rock"},
 		movepoolAdditions: ["shadowclaw", "shadowsneak", "phantomforce", "rockslide", "stoneedge", "grudge", "spite", "rocktomb", "stealthrock"],
 		movepoolDeletions: ["drillrun", "knockoff", "pursuit"],
