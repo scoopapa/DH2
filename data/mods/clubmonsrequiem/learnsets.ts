@@ -744,7 +744,6 @@ export const Learnsets = {
 			spikes: ["9M"],
 			stealthrock:["9M"],
 			substitute: ["9M"],
-			swordsdance: ["9M"],
 			thunderwave: ["9M"],
 			wish: ["9M"],
 			headsmash: ["9M"],
