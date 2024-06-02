@@ -43,7 +43,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onAnyPseudoWeatherChange() {
 			const pokemon = this.effectState.target;
-			if (this.field.getPseudoWeather('trickroom')) {
+			if (this.field.getPseudoWeather('gravity')) {
 				pokemon.useItem(pokemon);
 			}
 		},
