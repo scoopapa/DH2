@@ -34,10 +34,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'frz');
+				this.add('-status', target, 'frz', '[silent]');
 			}
+			this.add('-message', `${target.name} was frostbitten!`);
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
@@ -145,7 +146,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onTryMove(attacker, defender, move) {
-			if(this.field.pseudoWeather.lotsofreallysmalldragons && move.flags['sound']) return false;
+			if(this.field.pseudoWeather.lotsofreallysmalldragons && move.flags['sound']) {
+				this.add('-message', "The Lots of Really Small Dragons are so loud, you can't hear!");
+				return false;
+			}
 		},
 		onPrepareHit(source, target, move) {
 			if (!this.field.pseudoWeather.lotsofreallysmalldragons || move.category === 'Status' || move.type !== 'Dragon' || move.flags['noparentalbond'] || move.flags['charge'] ||
@@ -299,6 +303,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			if (this.field.pseudoWeather.colosseum && pokemon.hp && (!pokemon.lastMove || pokemon.lastMove.category == 'Status')) {
+				this.add('-message', `${pokemon.name} feels pressure from the colosseum!`);
 				this.boost({def: -1});
 			}
 		},
@@ -340,7 +345,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (this.field.pseudoWeather.drought && pokemon.hp && pokemon.runEffectiveness('Fire')) {
+			if (this.field.pseudoWeather.drought && pokemon.hp && !pokemon.status && pokemon.runEffectiveness('Fire')) {
+				this.add('-message', `${pokemon.name} spontaneously erupted into flames!`);
 				pokemon.trySetStatus('brn', pokemon);
 			}
 		},
@@ -389,7 +395,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source) {
-			if(this.field.pseudoWeather.deltastream) source.side.addSideCondition('tailwind');
+			if(this.field.pseudoWeather.deltastream && target.hasType("Flying")) {
+				this.add('-message', `${target.name} produces its last flap...`);
+				target.side.addSideCondition('tailwind');
+			}
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
@@ -430,7 +439,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!this.field.pseudoWeather.thevoices) return;
+			if (!this.field.pseudoWeather.thevoices || move.type !== 'Ghost') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Ghost'] = true;
@@ -527,7 +536,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', "The dust storm continues.");
 		},
 		onWeather(target) {
-			this.add('-message', `${target.name} is hurt by the Dust Storm!`);
+			this.add('-message', `${target.name} is hurt by its ${target.ability.name}!`);
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
@@ -594,7 +603,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			const dance = this.dex.getActiveMove('metronome');
 			this.actions.useMove(dance, pokemon);
 		},
-		onFoeEffectiveness(typeMod, target, type, move) {
+		onEffectiveness(typeMod, target, type, move) {
 			if(this.field.pseudoWeather.metronomebattle && move.type === 'Normal') return 0;
 		},
 		onModifyMovePriority: -5,
@@ -704,7 +713,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if(!this.field.pseudoWeather.mindfuck) return;
 			if(move.type === 'Psychic' && move.category === 'Status' && move.target === 'normal') {
 				move.category = "Special";
-				move.basePower = 80;
+				move.basePower = 90;
 			}
 			if (move.flags['gravity'] && !move.isZ) {
 				this.add('cant', pokemon, 'move: Gravity', move);
@@ -725,7 +734,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'Mindfuck', '[silent]');
 			}
 			this.add('-message', "Your mind got fucked!");
-			this.hint("In Mindfuck, the effects of Magic Room, Wonder Room, and Gravity are active, and Psychic status moves with an adjacent target become special with 80 BP.", '[silent]');
+			this.hint("In Mindfuck, the effects of Magic Room, Wonder Room, and Gravity are active, and Psychic status moves with an adjacent target become special with 90 BP.", '[silent]');
 		},
 		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 		// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
@@ -792,7 +801,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMove(move, pokemon) {
 			if (this.field.pseudoWeather.timewarp && !move.flags['futuremove']) {
-				
 				move.flags['futuremove'] = 1;
 				delete move.flags['protect'];
 				if (move.target === "self" && !pokemon.side.slotConditions[pokemon.position]['selfforesighter']) {
@@ -887,6 +895,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			if(this.field.pseudoWeather.flashflood && this.randomChance(1, 4)) {
 				if (this.runEvent('DragOut', pokemon, pokemon)) {
+					this.add('-message', `The flash flood swept! ${pokemon.name} away!`);
 					pokemon.forceSwitchFlag = true;
 				}
 			}
