@@ -347,10 +347,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isViable: true,
 		shortDesc: "+1 SpD, next Electric move 2x, 33% heal in Thunderstorm.",
-		onModifyMove(move, source, target) {
-			if (this.field.pseudoWeather.thunderstorm) {
-				move.heal = [1, 3];
-			}
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Short Circuit', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+				if (this.field.pseudoWeather.thunderstorm) {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon, effect);
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Short Circuit', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+				if (this.field.pseudoWeather.thunderstorm) {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon, effect);
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Charge', '[silent]');
+			},
 		},
 	},
 	mistyexplosion: {
@@ -1669,6 +1706,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "+2 Atk, +2 SpA in Overgrowth or Drought.",
 		onModifyMove(move, pokemon) {
 			if (this.field.pseudoWeather.overgrowth || this.field.pseudoWeather.drought) move.boosts = {atk: 2, spa: 2};
+		},
+	},
+	blizzard: {
+		inherit: true,
+		shortDesc: "Can't miss in Whiteout.",
+		onModifyMove(move) {
+			if (this.field.pseudoWeather.whiteout) move.accuracy = true;
 		},
 	},
 	auroraveil: {

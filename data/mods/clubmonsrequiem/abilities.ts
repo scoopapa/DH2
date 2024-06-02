@@ -40,6 +40,74 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: 3000,
 	},
+	territorial: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (defender.hurtThisTurn) {
+				this.debug('Territorial boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (defender.hurtThisTurn) {
+				this.debug('Territorial boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Territorial",
+		shortDesc: "User deals 1.5x more damage to opponents hurt this turn.",
+		rating: 3.5,
+		num: 276,
+	},
+	rockypayload: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceAccuracy(accuracy, target, source, move) {
+			if (!move.ohko && move.type === 'Rock') {
+				if (typeof accuracy === 'number') {
+					return this.chainModify([4505, 4096]);
+				}
+			}
+		},
+		flags: {},
+		name: "Rocky Payload",
+		shortDesc: "Rock-type moves receive a 1.5x boost in power, and 1.1x more accuracy.",
+		rating: 3.5,
+		num: 276,
+	},
+	rockbeak: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Flying' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Rock';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Rock Beak",
+		shortDesc: "Flying-type moves become Rock-type, and boosts them by 1.2x.",
+		rating: 4,
+		num: 182,
+	},
 	fauxliage: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
@@ -123,7 +191,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	rewind: {
 		onSwitchOut(pokemon) {
-			if (pokemon.item || !pokemon.lastItem) return false;
+			if (pokemon.item || !pokemon.lastItem) return;
 			const item = pokemon.lastItem;
 			pokemon.lastItem = '';
 			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Rewind');

@@ -35,6 +35,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				spe: -1,
 			},
 		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Surf', target);
+		},
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Cool",
@@ -51,16 +57,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		basePowerCallback(pokemon, target, move) {
+			let boost = 1;
 			if (this.field.getPseudoWeather('trickroom')) {
 				this.debug('archaic glare TR boost');
-				return move.basePower * 1.5;
+				boost = boost + 0.5;
+				//return move.basePower * 1.5;
 			}
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				this.debug('archaic glare sun boost');
-				return move.basePower * 1.5;
+				boost = boost + 0.5;
+				//return move.basePower * 1.5;
 			}
 
-			return move.basePower;
+			return move.basePower * boost;
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Psyshock', target);
 		},
 		target: "normal",
 		type: "Psychic",
@@ -71,7 +86,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	blindingblitz: {
 		num: -1003,
 		accuracy: 90,
-		basePower: 130,
+		basePower: 120,
 		category: "Physical",
 		name: "Blinding Blitz",
 		pp: 15,
@@ -86,6 +101,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Bug",
 		contestType: "Cool",
 		shortDesc: "User takes 50% of their max HP as recoil on whiff.",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'High Jump Kick', target);
+		},
 	},
 	boilingbash: {
 		num: -1004,
@@ -99,6 +120,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: {
 			chance: 30,
 			status: 'brn',
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Flare Blitz', target);
 		},
 		target: "allAdjacent",
 		type: "Fire",
@@ -118,6 +145,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
+				if (pokemon.hasType(['Water', 'Fire'])) {
+					return false;
+				}
 				this.add('-start', pokemon, 'Boiling Deluge');
 			},
 			onResidualOrder: 13,
@@ -131,6 +161,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: {
 			chance: 100,
 			volatileStatus: 'boilingdeluge',
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Flame Burst', target);
 		},
 		target: "normal",
 		type: "Fire",
@@ -209,6 +245,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 20,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Leech Life', target);
+		},
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
 				if (side.hasAlly(pokemon)) continue;
@@ -257,7 +299,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "Hits opponents on swap out, gets a 50% power boost.",
+		shortDesc: "Hits opponents on swap out, gets a x2 power boost.",
 
 	},
 	gundown: {
@@ -269,6 +311,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, distance: 1, metronome: 1, bullet: 1, pulse: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Snipe Shot', target);
+		},
 		secondary: null,
 		target: "any",
 		type: "Fighting",
@@ -283,6 +331,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, bullet: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Flash Cannon', target);
+		},
 		willCrit: true,
 		secondary: null,
 		target: "normal",
@@ -303,6 +357,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			chance: 30,
 			status: 'brn',
 		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Moongeist Beam', target);
+		},
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Tough",
@@ -321,6 +381,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: {
 			chance: 20,
 			status: 'par',
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Crabhammer', target);
 		},
 		target: "normal",
 		type: "Rock",
@@ -345,7 +411,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		self: {
 			volatileStatus: 'mustrecharge',
 		},
-		mindBlownRecoil: true,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Sheer Cold', target);
+		},
+		/*mindBlownRecoil: true,
 		onAfterMove(pokemon, target, move) {
 			if (move.mindBlownRecoil && !move.multihit) {
 				const hpBeforeRecoil = pokemon.hp;
@@ -354,11 +426,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					this.runEvent('EmergencyExit', pokemon, pokemon);
 				}
 			}
-		},
+		},*/
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
-		shortDesc: "100% chance to freeze. User takes 50% of max HP as recoil, must recharge.",
+		shortDesc: "100% chance to freeze. User must recharge.",
 
 	},
 	prominenceshock: {
@@ -372,6 +444,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: { protect: 1, mirror: 1, contact: 1 },
 		self: {
 			volatileStatus: 'mustrecharge',
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Volt Tackle', target);
 		},
 		recoil: [50, 100],
 		target: "normal",
@@ -388,6 +466,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Sludge Bomb', target);
+		},
 		onHit(target, source, move) {
 			if (target.status === 'psn' || target.status === 'tox') {
 				return !!this.boost({ atk: -1, spa: -1 }, target, source, move);
@@ -408,6 +492,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		ignoreImmunity: { 'Poison': true },
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Toxic', target);
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
@@ -417,6 +504,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		onTryMove(source, target, move) {
+			this.attrLastMove('[still]');
 			if (target.hasType('Poison') && source.volatiles['healblock']) {
 				this.attrLastMove('[still]');
 				this.add('cant', source, 'move: Heal Block', move);
@@ -451,6 +539,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Vital Spark",
 		pp: 10,
 		priority: 0,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Shadow Ball', target);
+		},
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		self: {
 			volatileStatus: 'charge',
@@ -487,6 +581,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Outrage', target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -558,6 +658,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 90,
 		category: "Physical",
 		name: "Devour",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Crunch', target);
+		},
 		pp: 10,
 		flags: { contact: 1, protect: 1, bite: 1, cantusetwice: 1},
 		priority: 0,
