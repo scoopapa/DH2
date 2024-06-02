@@ -104,6 +104,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {},
 		name: "Rock Beak",
+		shortDesc: "Flying-type moves become Rock-type, and boosts them by 1.2x.",
 		rating: 4,
 		num: 182,
 	},
