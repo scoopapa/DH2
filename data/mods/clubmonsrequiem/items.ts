@@ -19,6 +19,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
 	},
+	blukberry: {
+		name: "Bluk Berry",
+		spritenum: 44,
+		isBerry: true,
+		naturalGift: {
+			basePower: 90,
+			type: "Fire",
+		},
+		onEat: false,
+		num: 165,
+		gen: 3,
+		rating: 0,
+	},
+	watmelberry: {
+		name: "Watmel Berry",
+		spritenum: 530,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fire",
+		},
+		onEat: false,
+		num: 181,
+		gen: 3,
+		rating: 0,
+	},
 	cellbattery: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
