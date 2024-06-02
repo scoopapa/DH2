@@ -500,7 +500,6 @@ export const Learnsets = {
 			expandingforce: ["9M"],
 			facade: ["9M"],
 			flashcannon: ["9M", "9L42"],
-			focusblast: ["9M"],
 			futuresight: ["9M", "9L63", "9S0"],
 			gigaimpact: ["9M"],
 			gravity: ["9M"],
