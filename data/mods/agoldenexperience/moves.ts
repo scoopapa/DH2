@@ -352,22 +352,16 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				if (this.effectState.stage < 15) {
 					this.effectState.stage++;
 				}
-				// const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
-				for (const target of this.getAllActive()) {
-					console.log("Target is: " + target);
-					if (target === pokemon) continue;
-					console.log(target + " has the volatile Frostbite: " + target.volatiles['frostbite']);
-					if (pokemon.volatiles['frostbite']) {
-						const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
-						console.log("It will deal: " + damage);
-						if (damage) {
-							this.heal(damage, target, pokemon);
-						}
+				const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
+				if (pokemon.volatiles['frostbite']) {
+					const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
+					if (damage) {
+						this.heal(damage, target, pokemon);
 					}
-					if (!target || target.fainted || target.hp <= 0) {
-						this.debug('Nothing to leech into');
-						return;
-					}
+				}
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
 				}
 			},
 		},
