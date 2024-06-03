@@ -353,11 +353,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  		this.effectState.stage++;
 		  	}
 				const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
+				console.log("Target is: " + target);
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
 				}
 				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
+				console.log("It will deal: " + damage);
 				if (damage) {
 					this.heal(damage, target, pokemon);
 				}
