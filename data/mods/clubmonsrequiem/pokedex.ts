@@ -201,7 +201,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Dodrio",
 		
 		types: ["Rock", "Ghost"],
-		baseStats: {hp: 60, atk: 100, def: 75, spa: 60, spd: 75, spe: 100},
+		baseStats: {hp: 60, atk: 100, def: 90, spa: 40, spd: 80, spe: 100},
 		abilities: {0: "Rock Beak", 1: "Cursed Body", H: "Solid Rock"},
 		movepoolAdditions: ["shadowclaw", "shadowsneak", "phantomforce", "rockslide", "stoneedge", "grudge", "spite", "rocktomb", "stealthrock"],
 		movepoolDeletions: ["drillrun", "knockoff", "pursuit"],
