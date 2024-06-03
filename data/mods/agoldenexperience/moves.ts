@@ -357,7 +357,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 					console.log("Target is: " + target);
 					if (target === pokemon) continue;
 					console.log(target + " has the volatile Frostbite: " + target.volatiles['frostbite']);
-					if (target.volatiles['frostbite']) {
+					if (pokemon.volatiles['frostbite']) {
 						const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
 						console.log("It will deal: " + damage);
 						if (damage) {
