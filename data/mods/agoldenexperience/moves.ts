@@ -353,8 +353,9 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 					this.effectState.stage++;
 				}
 				// const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
-				for (const target of pokemon.foes()) {
+				for (const target of this.getAllActive()) {
 					console.log("Target is: " + target);
+					if (target === pokemon) continue;
 					if (target.volatiles['frostbite']) {
 						const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
 						console.log("It will deal: " + damage);
