@@ -352,16 +352,17 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				if (this.effectState.stage < 15) {
 					this.effectState.stage++;
 				}
-				const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
-				if (pokemon.volatiles['frostbite']) {
-					const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
-					if (damage) {
-						this.heal(damage, target, pokemon);
+				for (const target of this.getAllActive()) {
+					if (pokemon.volatiles['frostbite']) {
+						const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
+						if (damage) {
+							this.heal(damage, target, pokemon);
+						}
 					}
-				}
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to leech into');
-					return;
+					if (!target || target.fainted || target.hp <= 0) {
+						this.debug('Nothing to leech into');
+						return;
+					}
 				}
 			},
 		},
