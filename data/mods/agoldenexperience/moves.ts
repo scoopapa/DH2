@@ -352,6 +352,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				if (this.effectState.stage < 15) {
 					this.effectState.stage++;
 				}
+				// const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
 				for (const target of this.getAllActive()) {
 					if (pokemon.volatiles['frostbite']) {
 						const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
