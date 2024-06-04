@@ -23,7 +23,7 @@ export const Conditions: {[k: string]: ConditionData} = {
   			if (this.field.isWeather('hail')) this.eachEvent('Weather');
   		},
   		onWeather(target) {
-        if (this.effectState.palewinds = true;) {
+        if (this.effectState.palewinds = true) {
   			  this.damage(target.baseMaxhp / 8);
   		  } else this.damage(target.baseMaxhp / 16);
       },
