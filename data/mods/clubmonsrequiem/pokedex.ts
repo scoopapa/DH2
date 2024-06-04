@@ -28,6 +28,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoCondition: "A newly-discovered evolution",
 		creator: "Magmajudis",
 	},
+	decidueyehisui: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Natural Cure"},
+	},
 	escavalier: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
