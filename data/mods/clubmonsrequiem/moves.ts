@@ -148,7 +148,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	migratingwing: {
 		num: 1002,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 60,
 		category: "Physical",
 		name: "Migrating Wing",
 		shortDesc: "Pivots user out. +1 priority if under 50%.",
