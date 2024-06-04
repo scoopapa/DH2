@@ -137,6 +137,46 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "User takes 1/2 damage from Grass-resisted types and is immune to powder/spore moves.",
 		num: 1001,
 	},
+	palewinds: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Pale Winds');
+			this.effectState.palewinds = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.palewinds) return;
+			this.effectState.palewinds = true;
+			//hail amplification coded in conditions.ts
+		},
+		onResidual(pokemon) {
+			if (this.field.isWeather(['hail'])) {
+				this.add('-ability', pokemon, 'Pale Winds');
+				this.add('-message', `The winds are howling!`);
+			}
+		},
+		onEnd() {
+			this.effectState.palewinds = false;
+		},
+		flags: {},
+		name: "Pale Winds",
+		rating: 1,
+		num: 127,
+	},
+	condensedsnow: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Condensed Snow neutralize');
+				return this.chainModify(0.75);
+			}
+			if (this.field.isWeather(['hail', 'snow'])) {
+				this.debug('Condensed Snow neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Condensed Snow",
+		rating: 3,
+		num: 111,
+	},
 	shellarmor: {
 		onDamage(damage, target, source, effect) {
 			if (
