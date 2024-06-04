@@ -139,7 +139,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	palewinds: {
 		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'Pale Winds');
 			this.effectState.palewinds = true;
 		},
 		onStart(pokemon) {
