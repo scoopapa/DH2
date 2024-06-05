@@ -23,9 +23,11 @@ export const Conditions: {[k: string]: ConditionData} = {
   			if (this.field.isWeather('hail')) this.eachEvent('Weather');
   		},
   		onWeather(target) {
-        if (this.effectState.palewinds = true) {
-  			  this.damage(target.baseMaxhp / 8);
-  		  } else this.damage(target.baseMaxhp / 16);
+      	let hailChip = 16;
+		 	for (const target of this.getAllActive()) {
+			   if (target.hasAbility('palewinds')) hailChip = 8;
+			}
+			this.damage(target.baseMaxhp / hailChip);
       },
   		onFieldEnd() {
   			this.add('-weather', 'none');
