@@ -378,12 +378,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	hitmonlee: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 120, def: 53, spa: 35, spd: 110, spe: 87},
+		baseStats: {hp: 60, atk: 120, def: 53, spa: 35, spd: 110, spe: 97},
 		abilities: {0: "Striker", 1: "Reckless", H: "Unburden"},
 	},
 	hitmonchan: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 90, def: 110, spa: 35, spd: 110, spe: 70},
+		baseStats: {hp: 60, atk: 105, def: 94, spa: 35, spd: 110, spe: 71},
+		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Inner Focus"},
 	},
 	weezing: {
 		inherit: true,
@@ -4528,7 +4529,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Spyarn",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 90, atk: 99, def: 112, spa: 62, spd: 106, spe: 35},
-		abilities: {0: "Insomnia", H: "Battle Armor"},
+		abilities: {0: "Battle Armor", H: "Stakeout"},
 		heightm: 1.2,
 		weightkg: 50,
 		prevo: "Spidops",

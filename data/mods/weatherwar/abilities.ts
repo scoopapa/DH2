@@ -30,7 +30,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Swarm",
-		shortDesc: "On switchin, this Pokemon sets THE SWARM.",
+		shortDesc: "On switchin, this Pokemon sets The Swarm.",
 	},
 	blackout: {
 		onStart(source) {
@@ -249,7 +249,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Hivemind",
-		shortDesc: "Filter + GaG in The Swarm", 
+		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
 	intangible: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -289,23 +289,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Speed cannot be lowered. Dragon moves move first in LoRSD.", 
 	},
 	shortcircuit: {
-		onDamagingHitOrder: 1,
-		onFaint(pokemon) {
-			if(!pokemon.adjacentFoes()) return;
-			const target = this.sample(pokemon.adjacentFoes());
-			this.damage(target.baseMaxhp / 4, target, pokemon);
-		},
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
-			if (!this.field.pseudoWeather.thunderstorm || target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 
 			if (this.randomChance(3, 10)) {
 				target.trySetStatus('par', source);
 			}
 		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.pseudoWeather.thunderstorm) target.addVolatile('charge');
+		},
 		flags: {},
 		name: "Short Circuit",
-		shortDesc: "Opponent loses 25% if user faints. 30% paralysis chance in Thunderstorm.", 
+		shortDesc: "This Pokemon's moves have 30% chance to pararlyze. Electromorphosis in Thunderstorm.", 
 	},
 	darkfantasy: {
 		onUpdate(pokemon) {
@@ -1123,13 +1121,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
-			if (move.id === 'metronome') {
-				const newMove = this.dex.getActiveMove('metronome');
-				this.actions.useMove(newMove, target, source);
-			}
-		},
+		//metronome hitting twice handled in moves.ts
 		flags: {},
 		name: "Duomod Reference??",
 		shortDesc: "This Pokemon uses Metronome twice. Spins the Roulette Wheel during Metronome Battle."
@@ -1322,7 +1314,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					newType.push('Water');
 					break;
 			}
-			console.log(newType);
+			this.add('-ability', source, 'Forecast');
 			if(pokemon.setType(newType)) this.add('-start', pokemon, 'typechange', newType.join('/'));
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},

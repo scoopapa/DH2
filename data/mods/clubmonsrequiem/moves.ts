@@ -10,14 +10,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	lightningswing: {
 		num: 1005,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
-		shortDesc: "User recovers 50% of the damage dealt.",
+		shortDesc: "User recovers 2/3 of the damage dealt.",
 		name: "Lightning Swing",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
-		drain: [1, 2],
+		drain: [2, 3],
 		secondary: null,
 		onTryMove() {
 			this.attrLastMove('[still]');
@@ -47,6 +47,34 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-end', pokemon, 'Syrup Bomb', '[silent]');
 			},
 		},
+	},
+	rushingtide: {
+		num: 389,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Rushing Tide",
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "Usually moves first. Move fails if target isn't attacking.",
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Waterfall', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
 	},
 	blackhole: {
 		num: 1003,
@@ -87,7 +115,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Brutal Swing', target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) move.drain = [100, 100];
+			if (!target || target.fainted || target.hp <= 0) this.heal(target.lastDamagedBy.damage)
 		},
 		secondary: null,
 		target: "normal",
@@ -186,6 +214,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (ratio >= 2) bp = 100;
 			if (ratio >= 3) bp = 120;
 			if (ratio >= 4) bp = 150;
+			return bp;
 		},
 	},		
 	shelter: {
@@ -193,6 +222,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(damage, target, source, move) {
 			this.field.setTerrain('mistyterrain');
 		},
+		shortDesc: "Raises the Defense by 2. Summons Misty Terrain.",
 	},
 	haywirecudgel: {
 		num: 1006,
@@ -210,7 +240,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onPrepareHit(target, source, move) {
 			if (move.type !== "Normal") {
-				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
+				this.attrLastMove('[anim] Ivy Cudgel')
+				this.attrLastMove('[anim] Thunderbolt')
 			}
 		},
 		onModifyType(move, pokemon) {

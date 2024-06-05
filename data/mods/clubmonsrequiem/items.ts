@@ -19,6 +19,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
 	},
+	blukberry: {
+		name: "Bluk Berry",
+		spritenum: 44,
+		isBerry: true,
+		naturalGift: {
+			basePower: 90,
+			type: "Fire",
+		},
+		onEat: false,
+		num: 165,
+		gen: 3,
+		rating: 0,
+	},
+	watmelberry: {
+		name: "Watmel Berry",
+		spritenum: 530,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fire",
+		},
+		onEat: false,
+		num: 181,
+		gen: 3,
+		rating: 0,
+	},
 	cellbattery: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
@@ -28,6 +54,30 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
+	},
+	magneticsoles: {
+		name: "Magnetic Soles",
+		spritenum: 715,
+		fling: {
+			basePower: 60,
+		},
+		shortDesc: "If Gravity is active, +1 Speed. Consumable.",
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.getPseudoWeather('gravity')) {
+				pokemon.useItem();
+			}
+		},
+		onAnyPseudoWeatherChange() {
+			const pokemon = this.effectState.target;
+			if (this.field.getPseudoWeather('gravity')) {
+				pokemon.useItem(pokemon);
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		num: 1122,
+		gen: 8,
 	},
 	metronome: {
 		name: "Metronome",
@@ -155,6 +205,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Ogerpon-Costar",
 		itemUser: ["Ogerpon-Costar"],
+		shortDesc: "If this Pokemon is Ogerpon-Costar, its attacks have 1.2x power.",
 		num: 2408,
 		gen: 9,
 	},
