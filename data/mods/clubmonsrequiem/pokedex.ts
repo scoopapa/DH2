@@ -11,6 +11,27 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		baseStats: {hp: 71, atk: 73, def: 88, spa: 120, spd: 89, spe: 80},
 	},
+	falinks: {
+		inherit: true,
+		baseForme: "Column",
+		types: ["Fighting", "Steel"],
+		baseStats: {hp: 65, atk: 60, def: 110, spa: 60, spd: 110, spe: 105},
+		abilities: {0: "Stance Change"},
+		otherFormes: ["Falinks-Hammer"],
+		formeOrder: ["Falinks", "Falinks-Hammer"],
+	},
+	falinkshammer: {
+		name: "Falinks-Hammer",
+		baseSpecies: "Falinks",
+		forme: "Hammer",
+		copyData: "Falinks",
+		
+		types: ["Fighting", "Steel"],
+		baseStats: {hp: 65, atk: 140, def: 60, spa: 140, spd: 60, spe: 45},
+		abilities: {0: "Stance Change"},
+		requiredAbility: "Stance Change",
+		battleOnly: "Falinks-Hammer",
+	},
 	avaluggalpine: {
 		name: "Avalugg-Alpine",
 		baseSpecies: "Avalugg",
