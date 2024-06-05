@@ -22,6 +22,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				volatileStatus: 'focusenergy',
 			},
 		},
+		shortDesc: "30% chance to boost crit ratio by 2 stages.",
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
@@ -52,6 +53,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
+		shortDesc: "Sets Stealth Rock on hit. High crit ratio.",
 		type: "Rock",
 	},
 	gravity: {
@@ -391,7 +393,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onPrepareHit(target, source, move) {
 			if (move.type !== "Normal") {
-				this.attrLastMove('[anim] Ivy Cudgel')
 				this.attrLastMove('[anim] Thunderbolt')
 			}
 		},
