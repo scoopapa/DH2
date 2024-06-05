@@ -36,6 +36,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meowthalola: {tier: "CM (NFE)"},
 	persianalola: {tier: "CM"},
 
+	falinks: {tier: "CM"},
+
 	gothitelleallira: {tier: "CM"},
 
 	stormulex: {tier: "CM"},
