@@ -192,7 +192,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onModifyMovePriority: 1,
 		onModifyMove(move, attacker, defender) {
 			if (attacker.species.baseSpecies !== 'Falinks' || attacker.transformed) return;
-			if (move.category === 'Status' && move.id !== ['spikyshield']) return;
+			if (move.category === 'Status' && move.id !== 'spikyshield') return;
 			const targetForme = (move.id === 'spikyshield' ? 'Falinks' : 'Falinks-Hammer');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
