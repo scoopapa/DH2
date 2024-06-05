@@ -78,6 +78,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	newtonsapple: {
 		name: "Newton's Apple",
+		shortDesc: "Extends Gravity by 3 turns.",
 		spritenum: 711,
 		fling: {
 			basePower: 20,
