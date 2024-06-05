@@ -188,6 +188,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 1,
 		num: 127,
 	},
+	stancechange: {
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Falinks' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== ['spikyshield') return;
+			const targetForme = (move.id === 'spikyshield' ? 'Falinks' : 'Falinks-Hammer');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Stance Change",
+		rating: 4,
+		num: 176,
+	},
 	condensedsnow: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
