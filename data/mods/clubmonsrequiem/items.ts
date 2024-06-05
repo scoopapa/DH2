@@ -55,8 +55,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
 	},
-	fueltank: {
-		name: "Fuel Tank",
+	fuelcell: {
+		name: "Fuel Cell",
 		shortDesc: "User will gain an omniboost if they must recharge. Consumable.",
 		spritenum: 272,
 		fling: {
