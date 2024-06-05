@@ -24,8 +24,8 @@ export const Conditions: {[k: string]: ConditionData} = {
   		},
   		onWeather(target) {
       	let hailChip = 16;
-		 	for (const target of this.getAllActive()) {
-			   if (target.hasAbility('palewinds')) hailChip = 8;
+		 	for (const mon of this.getAllActive()) {
+			   if (mon.hasAbility('palewinds')) hailChip = 8;
 			}
 			this.damage(target.baseMaxhp / hailChip);
       },
