@@ -138,22 +138,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 1001,
 	},
 	palewinds: {
-		onPreStart(pokemon) {
-			this.effectState.palewinds = true;
-		},
-		onStart(pokemon) {
-			if (this.effectState.palewinds) return;
-			this.effectState.palewinds = true;
-			//hail amplification coded in conditions.ts
-		},
 		onResidual(pokemon) {
 			if (this.field.isWeather(['hail'])) {
 				this.add('-ability', pokemon, 'Pale Winds');
 				this.add('-message', `The winds are howling!`);
 			}
-		},
-		onEnd() {
-			this.effectState.palewinds = false;
 		},
 		flags: {},
 		name: "Pale Winds",
