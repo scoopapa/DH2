@@ -11,6 +11,50 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		baseStats: {hp: 71, atk: 73, def: 88, spa: 120, spd: 89, spe: 80},
 	},
+	avaluggalpine: {
+		name: "Avalugg-Alpine",
+		baseSpecies: "Avalugg",
+		forme: "Alpine",
+		copyData: "Avalugg",
+		
+		types: ["Ice"],
+		baseStats: {hp: 95, atk: 107, def: 144, spa: 94, spd: 46, spe: 28},
+		abilities: {0: "Pressure", 1: "Ice Body", H: "Sturdy"},
+		movepoolAdditions: ["dragonbreath", "dragonpulse", "withdraw", "iceball", "dragontail", "aircutter"],
+		movepoolDeletions: ["wideguard"],
+
+		prevo: "Bergmite",
+		evos: ["Avalange"],
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+	avalange: {
+		name: "Avalange",
+		types: ["Ice", "Dragon"],
+		baseStats: {hp: 105, atk: 107, def: 124, spa: 114, spd: 66, spe: 84},
+		abilities: {0: "Pressure", 1: "Ice Body", H: "Pale Winds"},
+		movepoolAdditions: ["dragonhammer", "dracometeor", "dragonclaw", "roar", "hurricane", "earthpower", "airslash", "thunderwave"],
+		
+		color: "White",
+		heightm: 2.5,
+		weightkg: 700.7,
+		prevo: "Avalugg-Alpine",
+	},
+	bellibrr: {
+		name: "Bellibrr",
+		copyData: "Bellibolt",
+
+		types: ["Ice"],
+		baseStats: {hp: 119, atk: 74, def: 91, spa: 103, spd: 83, spe: 25},
+		abilities: {0: "Condensed Snow", 1: "Electromorphosis", H: "Comatose"},
+		movepoolAdditions: ["icebeam", "blizzard", "iceball", "icywind", "hail"],
+	
+		prevo: "Tadbulb",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
 	cryogonal: {
 		inherit: true,
 		evos: ["Pollugonal"],
@@ -22,7 +66,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Ice", "Poison"],
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 95, spd: 140, spe: 105},
 		movepoolAdditions: ["sludgebomb", "spikes", "toxicspikes"],
-
+	
 		prevo: "Cryogonal",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
