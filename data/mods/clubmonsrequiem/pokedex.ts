@@ -198,6 +198,16 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Normal", "Fairy"],
 		movepoolAdditions: ["slackoff", "toxic", "aromatherapy"],
 	},
+	cyclonimbus: {
+		num: 9004,
+		name: "Cyclonimbus",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 80, atk: 95, def: 80, spa: 85, spd: 80, spe: 105},
+		abilities: {0: "Prankster", 1: "Clear Body", H: "Forecast"},
+		heightm: 0.4,
+		weightkg: 1,
+		creator: "inkbug",
+	},
 	stormulex: {
 		num: 9003,
 		name: "Stormulex",
