@@ -117,9 +117,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onTryHit(pokemon) {
-			let sideCondition = target.side.sideConditions['disable'];
+			let sideCondition = pokemon.side.sideConditions['disable'];
 			if (sideCondition) {
-				target.side.removeSideCondition('disable');
+				pokemon.side.removeSideCondition('disable');
 			}
 		},
 		condition: {
