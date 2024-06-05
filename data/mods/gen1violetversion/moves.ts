@@ -116,6 +116,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'disable',
 		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		onTryHit(pokemon) {
+			let sideCondition = target.side.sideConditions['disable'];
+			if (sideCondition) {
+				target.side.removeSideCondition('disable');
+			}
+		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			/**onSideStart (side, target) {
