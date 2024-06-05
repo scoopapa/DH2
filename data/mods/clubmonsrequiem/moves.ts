@@ -24,7 +24,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 						return 8;
 					}
 					return 5;
-				},
 			},
 			onFieldStart(target, source) {
 				if (source?.hasAbility('persistent')) {
