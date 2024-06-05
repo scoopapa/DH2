@@ -26,6 +26,34 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Bug",
 		contestType: "Cool",
 	},
+	stoneaxe: {
+		num: 830,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Stone Axe",
+		critRatio: 2,
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Rock",
+	},
 	gravity: {
 		num: 356,
 		accuracy: true,
