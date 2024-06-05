@@ -116,12 +116,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'disable',
 		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onTryHit(pokemon) {
+	/**	onTryHit(pokemon) {
 			let sideCondition = pokemon.side.sideConditions['disable'];
 			if (sideCondition) {
 				pokemon.side.removeSideCondition('disable');
 			}
-		},
+		},**/
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			/**onSideStart (side, target) {
@@ -134,11 +134,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 					return;
 			}, **/
-			onHit (target) {
-				const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
-				this.add('-start', target, 'Disable', moveSlot.move)
-				this.effectState.move = moveSlot.id; 
-				return;
+			onHit (target, move) {
+				if (move.id === 'disable')
+					const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
+					this.add('-start', target, 'Disable', moveSlot.move)
+					this.effectState.move = moveSlot.id; 
+					return;
 			},
 			onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
