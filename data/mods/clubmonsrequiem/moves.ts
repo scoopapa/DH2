@@ -7,6 +7,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	xscissor: {
+		num: 404,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "X-Scissor",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: {
+			chance: 30,
+			self: {
+				volatileStatus: 'focusenergy',
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
 	gravity: {
 		num: 356,
 		accuracy: true,
