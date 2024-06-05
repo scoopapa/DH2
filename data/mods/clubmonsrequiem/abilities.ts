@@ -27,6 +27,39 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		shortDesc: "This Pokemon cannot be hit by Fire moves or be burned.",
 	},
+	forecast: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Cyclonimbus' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'cyclonimbussunny') forme = 'Cyclonimbus-Sunny';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'cyclonimbusrainy') forme = 'Cyclonimbus-Rainy';
+				break;
+			case 'hail':
+			case 'snow':
+				if (pokemon.species.id !== 'cyclonimbussnowy') forme = 'Cyclonimbus-Snowy';
+				break;
+			default:
+				if (pokemon.species.id !== 'cyclonimbus') forme = 'Cyclonimbus';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		name: "Forecast",
+		rating: 2,
+		num: 59,
+	},
 	witheringgaze: {
 		onAnyTryMove(this, source, target, move) {
 			if (source === this.effectState.target) return;
