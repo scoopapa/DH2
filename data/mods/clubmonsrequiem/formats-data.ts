@@ -17,9 +17,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aurorus: {tier: "CM"},
 
 	cyclonimbus: {tier: "CM"},
-	cyclonimbussunny: {tier: "CM"},
-	cyclonimbusrainy: {tier: "CM"},
-	cyclonimbussnowy: {tier: "CM"},
+	cyclonimbussunny: {tier: "Illegal"},
+	cyclonimbusrainy: {tier: "Illegal"},
+	cyclonimbussnowy: {tier: "Illegal"},
 
 	scyther: {tier: "CM"},
 	kleavor: {tier: "CM"},
@@ -30,7 +30,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	avaluggalpine: {tier: "CM"},
 	avalange: {tier: "CM"},
 
-	tadbulb: {tier: "CM"},
+	tadbulb: {tier: "CM (NFE)"},
 	bellibolt: {tier: "CM"},
 	bellibrr: {tier: "CM"},
 
@@ -40,7 +40,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	persianalola: {tier: "CM"},
 
 	falinks: {tier: "CM"},
-	falinkshammer: {tier: "CM"},
+	falinkshammer: {tier: "Illegal"},
 
 	gothitelleallira: {tier: "CM"},
 
