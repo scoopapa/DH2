@@ -153,7 +153,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if pokemon.id === this.effectState.target {
+					if (pokemon.id === this.effectState.target) {
 						if (moveSlot.id === this.effectState.move) {
 							pokemon.disableMove(moveSlot.id);
 						}
