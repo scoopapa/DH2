@@ -24,7 +24,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	scyther: {tier: "CM"},
 	kleavor: {tier: "CM"},
 
-	bergmite: {tier: "CM"},
+	bergmite: {tier: "CM (NFE)"},
 	avalugg: {tier: "CM"},
 	avalugghisui: {tier: "CM"},
 	avaluggalpine: {tier: "CM"},
