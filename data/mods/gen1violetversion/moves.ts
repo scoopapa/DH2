@@ -113,7 +113,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Disable",
 		pp: 5,
 		priority: 0,
-		slotCondition: 'disable',
+		sideCondition: 'disable',
 		target: "normal",
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 	/**	onTryHit(pokemon) {
@@ -151,7 +151,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
+				for (const moveSlot of this.effectState.source.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
