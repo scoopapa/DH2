@@ -51,11 +51,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	avalange: {
 		name: "Avalange",
+		copyData: "Avalugg",
 		types: ["Ice", "Dragon"],
 		baseStats: {hp: 105, atk: 107, def: 124, spa: 114, spd: 66, spe: 84},
 		abilities: {0: "Pressure", 1: "Ice Body", H: "Pale Winds"},
-		movepoolAdditions: ["dragonhammer", "dracometeor", "dragonclaw", "roar", "hurricane", "earthpower", "airslash", "thunderwave"],
-		
+		movepoolAdditions: ["dragonbreath", "dragonpulse", "withdraw", "iceball", "dragontail", "aircutter", "dragonhammer", "dracometeor", "dragonclaw", "roar", "hurricane", "earthpower", "airslash", "thunderwave"],
+		movepoolDeletions: ["wideguard"],
 		color: "White",
 		heightm: 2.5,
 		weightkg: 700.7,
