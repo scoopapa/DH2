@@ -124,7 +124,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},**/
 		onBeforeHit(pokemon) {
 			const targetedPokemon = pokemon
-		}
+		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			/**onSideStart (side, target) {
