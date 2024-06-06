@@ -139,6 +139,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 					this.add('-start', target, 'Disable', moveSlot.move)
 					this.effectState.move = moveSlot.id; 
+					this.effectState.target = target.id;
 					return;
 				}
 			},
@@ -152,8 +153,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
+					if pokemon.id === this.effectState.target {
+						if (moveSlot.id === this.effectState.move) {
+							pokemon.disableMove(moveSlot.id);
+						}
 					}
 				}
 			},
