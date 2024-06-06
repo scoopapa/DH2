@@ -17,6 +17,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aurorus: {tier: "CM"},
 
 	cyclonimbus: {tier: "CM"},
+	cyclonimbussunny: {tier: "CM"},
+	cyclonimbusrainy: {tier: "CM"},
+	cyclonimbussnowy: {tier: "CM"},
 
 	scyther: {tier: "CM"},
 	kleavor: {tier: "CM"},
@@ -37,6 +40,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	persianalola: {tier: "CM"},
 
 	falinks: {tier: "CM"},
+	falinkshammer: {tier: "CM"},
 
 	gothitelleallira: {tier: "CM"},
 
