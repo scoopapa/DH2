@@ -122,6 +122,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.side.removeSideCondition('disable');
 			}
 		},**/
+		onBeforeHit(pokemon) {
+			const targetedPokemon = pokemon
+		}
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			/**onSideStart (side, target) {
@@ -153,7 +156,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (pokemon === this.effectState.target) {
+					if (pokemon === targetedPokemon) {
 						if (moveSlot.id === this.effectState.move) {
 							pokemon.disableMove(moveSlot.id);
 						}
