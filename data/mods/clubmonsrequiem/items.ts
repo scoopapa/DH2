@@ -55,6 +55,36 @@ export const Items: {[k: string]: ModdedItemData} = {
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
 	},
+	fuelcell: {
+		name: "Fuel Cell",
+		shortDesc: "User will gain an omniboost if they must recharge. Consumable.",
+		spritenum: 272,
+		fling: {
+			basePower: 100,
+		},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.volatiles["mustrecharge"]) {	
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		num: 282,
+	},
+	newtonsapple: {
+		name: "Newton's Apple",
+		shortDesc: "Extends Gravity by 3 turns.",
+		spritenum: 711,
+		fling: {
+			basePower: 20,
+		},
+		num: 282,
+	},
 	magneticsoles: {
 		name: "Magnetic Soles",
 		spritenum: 715,

@@ -7,6 +7,144 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	xscissor: {
+		num: 404,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "X-Scissor",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: {
+			chance: 30,
+			self: {
+				volatileStatus: 'focusenergy',
+			},
+		},
+		shortDesc: "30% chance to boost crit ratio by 2 stages.",
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	stoneaxe: {
+		num: 830,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Stone Axe",
+		critRatio: 2,
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		shortDesc: "Sets Stealth Rock on hit. High crit ratio.",
+		type: "Rock",
+	},
+	gravity: {
+		num: 356,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Gravity",
+		pp: 5,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		pseudoWeather: 'gravity',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('newtonsapple')) {
+						return 8;
+					}
+					return 5;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Gravity', '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Gravity');
+				}
+				for (const pokemon of this.getAllActive()) {
+					let applies = false;
+					if (pokemon.removeVolatile('bounce') || pokemon.removeVolatile('fly')) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['skydrop']) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+
+						if (pokemon.volatiles['skydrop'].source) {
+							this.add('-end', pokemon.volatiles['twoturnmove'].source, 'Sky Drop', '[interrupt]');
+						}
+						pokemon.removeVolatile('skydrop');
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['magnetrise']) {
+						applies = true;
+						delete pokemon.volatiles['magnetrise'];
+					}
+					if (pokemon.volatiles['telekinesis']) {
+						applies = true;
+						delete pokemon.volatiles['telekinesis'];
+					}
+					if (applies) this.add('-activate', pokemon, 'move: Gravity');
+				}
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return this.chainModify([6840, 4096]);
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['gravity']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Gravity');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
 	lightningswing: {
 		num: 1005,
 		accuracy: 100,
@@ -28,6 +166,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacent",
 		type: "Electric",
 		contestType: "Clever",
+	},
+	snowscape: {
+		num: 883,
+		isNonstandard: "Unobtainable",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snowscape",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		weather: 'snow',
+		secondary: null,
+		target: "all",
+		type: "Ice",
 	},
 	syrupbomb: {
 		inherit: true,
@@ -148,7 +301,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	migratingwing: {
 		num: 1002,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 60,
 		category: "Physical",
 		name: "Migrating Wing",
 		shortDesc: "Pivots user out. +1 priority if under 50%.",
@@ -240,7 +393,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onPrepareHit(target, source, move) {
 			if (move.type !== "Normal") {
-				this.attrLastMove('[anim] Ivy Cudgel')
 				this.attrLastMove('[anim] Thunderbolt')
 			}
 		},

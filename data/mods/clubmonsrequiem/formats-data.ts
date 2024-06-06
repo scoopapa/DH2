@@ -16,10 +16,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	amaura: {tier: "CM (NFE)"},
 	aurorus: {tier: "CM"},
 
+	cyclonimbus: {tier: "CM"},
+
+	scyther: {tier: "CM"},
+	kleavor: {tier: "CM"},
+
+	bergmite: {tier: "CM"},
+	avalugg: {tier: "CM"},
+	avalugghisui: {tier: "CM"},
+	avaluggalpine: {tier: "CM"},
+	avalange: {tier: "CM"},
+
+	tadbulb: {tier: "CM"},
+	bellibolt: {tier: "CM"},
+	bellibrr: {tier: "CM"},
+
 	meowth: {tier: "CM (NFE)"},
 	persian: {tier: "CM"},
 	meowthalola: {tier: "CM (NFE)"},
 	persianalola: {tier: "CM"},
+
+	falinks: {tier: "CM"},
 
 	gothitelleallira: {tier: "CM"},
 
