@@ -261,7 +261,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	cyclonimbussnowy: {
 		num: 9004,
-		name: "Cyclonimbus-Rainy",
+		name: "Cyclonimbus-Snowy",
 		baseSpecies: "Cyclonimbus",
 		forme: "Snowy",
 		types: ["Flying", "Ice"],
