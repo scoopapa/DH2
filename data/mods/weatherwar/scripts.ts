@@ -192,6 +192,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "abomasnow").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.vacuumwave = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.bulkup = ["9L1"];
+		this.modData("Learnsets", "abomasnow").learnset.secretsword = ["9L1"];
+		this.modData("Learnsets", "abomasnow").learnset.trickroom = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.setcolosseum = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.setovergrowth = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.setwhiteout = ["9L1"];
@@ -349,7 +351,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "tornadus").learnset.bravebird = ["9L1"];
 		this.modData("Learnsets", "tornadus").learnset.setdeltastream = ["9L1"];
 		// Thundurus
-		this.modData("Learnsets", "thundurus").learnset.bravebird = ["9L1"];
+		this.modData("Learnsets", "thundurus").learnset.plasmafists = ["9L1"];
 		this.modData("Learnsets", "thundurus").learnset.thunderouskick = ["9L1"];
 		this.modData("Learnsets", "thundurus").learnset.closecombat = ["9L1"];
 		this.modData("Learnsets", "thundurus").learnset.upperhand = ["9L1"];
@@ -414,7 +416,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "chiyu").learnset.snatch = ["9L1"];
 		this.modData("Learnsets", "chiyu").learnset.firepledge = ["9L1"];
 		this.modData("Learnsets", "chiyu").learnset.setdrought = ["9L1"];
-		this.modData("Learnsets", "chiyu").learnset.setblackout = ["9L1"];
+		this.modData("Learnsets", "chiyu").learnset.settwilightzone = ["9L1"];
 		// Mismagius
 		this.modData("Learnsets", "mismagius").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "mismagius").learnset.alluringvoice = ["9L1"];
@@ -454,7 +456,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "malamar").learnset.psychoboost = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.amnesia = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.recover = ["9L1"];
-		this.modData("Learnsets", "malamar").learnset.setblackout = ["9L1"];
+		this.modData("Learnsets", "malamar").learnset.settwilightzone = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.setmindfuck = ["9L1"];
 		// Jirachi
 		this.modData("Learnsets", "jirachi").learnset.healblock = ["9L1"];
@@ -492,6 +494,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "alakazam").learnset.setmindfuck = ["9L1"];
 		delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
 		// Kabutops
+		this.modData("Learnsets", "kabutops").learnset.mightycleave = ["9L1"];
 		this.modData("Learnsets", "kabutops").learnset.closecombat = ["9L1"];
 		this.modData("Learnsets", "kabutops").learnset.collisioncourse = ["9L1"];
 		this.modData("Learnsets", "kabutops").learnset.crosschop = ["9L1"];

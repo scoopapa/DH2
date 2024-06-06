@@ -62,6 +62,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 69, atk: 110, def: 150, spa: 45, spd: 89, spe: 37},
 		abilities: {0: "Delusion", 1: "Dark Fantasy", H: "Second Impact"},
+		evos: null,
 	},
 	lugia: {
 		inherit: true,
@@ -134,7 +135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ninetales",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 73, atk: 76, def: 100, spa: 81, spd: 100, spe: 100},
-		abilities: {0: "Solar Flare", H: "Delusion"},
+		abilities: {0: "Solar Flare", 1: "Banshee", H: "Delusion"},
 	},
 	charizard: {
 		inherit: true,
