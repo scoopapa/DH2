@@ -66,6 +66,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (source === this.effectState.target) return;
 			if (move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'teleport' || move.id === 'partingshot' || move.id === 'migratingwing' ) {
 				this.add('-fail', source, 'ability: Withering Gaze', '[of] ' + this.effectState.target);
+				this.add('-ability', target, 'Withering Gaze');
 				return false;
 			}
 		},
