@@ -24,13 +24,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Falinks-Hammer",
 		baseSpecies: "Falinks",
 		forme: "Hammer",
-		copyData: "Falinks",
 		
 		types: ["Fighting", "Steel"],
 		baseStats: {hp: 65, atk: 140, def: 60, spa: 140, spd: 60, spe: 45},
 		abilities: {0: "Stance Change"},
 		requiredAbility: "Stance Change",
-		battleOnly: "Falinks-Hammer",
+		battleOnly: "Falinks",
 	},
 	avaluggalpine: {
 		name: "Avalugg-Alpine",
