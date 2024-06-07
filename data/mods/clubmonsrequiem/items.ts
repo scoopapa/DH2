@@ -62,9 +62,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 100,
 		},
-		onTry(source) {
-			if (source.volatiles["mustrecharge"]) {	
-				source.useItem();
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.volatiles["mustrecharge"]) {	
+				pokemon.useItem();
 			}
 		},
 		boosts: {
