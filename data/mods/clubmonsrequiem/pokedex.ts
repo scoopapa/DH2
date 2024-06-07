@@ -14,7 +14,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	falinks: {
 		inherit: true,
 		baseForme: "Column",
-		types: ["Fighting", "Steel"],
+		types: ["Fighting"],
 		baseStats: {hp: 65, atk: 60, def: 110, spa: 60, spd: 110, spe: 105},
 		abilities: {0: "Stance Change"},
 		otherFormes: ["Falinks-Hammer"],
@@ -25,7 +25,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Falinks",
 		forme: "Hammer",
 		
-		types: ["Fighting", "Steel"],
+		types: ["Fighting"],
 		baseStats: {hp: 65, atk: 140, def: 60, spa: 140, spd: 60, spe: 45},
 		abilities: {0: "Stance Change"},
 		requiredAbility: "Stance Change",
