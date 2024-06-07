@@ -62,6 +62,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 100,
 		},
+		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon, target, move) {
 			if (pokemon.volatiles["mustrecharge"]) {	
 				pokemon.useItem();
