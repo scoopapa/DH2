@@ -13,6 +13,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	fennekin: {tier: "CM (NFE)"},
+	braixen: {tier: "CM (NFE)"},
+	delphox: {tier: "CM"},
+	
 	amaura: {tier: "CM (NFE)"},
 	aurorus: {tier: "CM"},
 
