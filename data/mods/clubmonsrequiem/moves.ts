@@ -133,6 +133,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					return false;
 				}
 			},
+			onModifyDamage(damage, source, target, move) {
+				if (move.id === 'gravitonwave') {
+					this.debug('Graviton Wave boost');
+					return this.chainModify(1.5);
+				}
+			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 2,
 			onFieldEnd() {
@@ -143,6 +149,37 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "all",
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	gravitonwave: {
+		num: 1005,
+		accuracy: 90,
+		basePower: 80, //power coded in gravity
+		category: "Special",
+		shortDesc: "Sets Gravity and pivots out. If Gravity active, boosts power instead.",
+		name: "Graviton Wave",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Dark Pulse', target);
+			this.add('-anim', source, 'Psychic', target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!this.field.pseudoWeather['gravity']) {
+				this.field.addPseudoWeather('gravity', pokemon);
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+					pokemon.switchFlag = true;
+				}		
+			}
+		},
+		target: "allAdjacent",
+		type: "Psychic",
 		contestType: "Clever",
 	},
 	lightningswing: {
