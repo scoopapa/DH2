@@ -20,6 +20,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		otherFormes: ["Falinks-Hammer"],
 		formeOrder: ["Falinks", "Falinks-Hammer"],
 	},
+	glaceon: {
+		inherit: true,
+		abilities: {0: "Ice Body", H: "Pale Winds"},
+	},
 	falinkshammer: {
 		name: "Falinks-Hammer",
 		baseSpecies: "Falinks",
