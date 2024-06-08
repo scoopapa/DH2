@@ -248,7 +248,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Psychic", "Rock"],
 		baseStats: {hp: 105, atk: 99, def: 85, spa: 85, spd: 105, spe: 46},
 		abilities: {0: "Levitate", 1: "Pressure", H: "Shell Armor"},
-		movepoolAdditions: ["psyshieldbash", "psychic", "psyshock", "telekinesis", "gravitonwave", "calmmind", "teleport", "cosmicpower", "trick", "trickroom", "meteorbeam", "ancientpower", "chargebeam", "moonblast", "surf"],
+		movepoolAdditions: ["psyshieldbash", "psychic", "psyshock", "telekinesis", "gravitonwave", "calmmind", "teleport", "cosmicpower", "trick", "trickroom", "meteorbeam", "ancientpower", "chargebeam", "moonblast", "surf", "blackhole", "climatecrash"],
 		movepoolDeletions: ["shellsmash"],
 
 		creator: "quagsi",
