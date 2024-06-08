@@ -1,7 +1,7 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	ragefist: {
 		num: 889,
-		shortDesc: "+25 power for every time the user is hit. Recoil damage equal to BP.",
+		shortDesc: "+25 BP for each time user was hit. Recoil = BP.",
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon) {
@@ -73,7 +73,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	gravapple: {
 		num: 788,
-		shortDesc: "100% -1 Def. 1.5x power in Gravity. Sets Gravity if resisted.",
+		shortDesc: "-1 Def. Gravity: 1.5x power. Sets Gravity if resisted.",
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -271,9 +271,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "30% chance to burn foe. Negates burn immunity abilities.",
+		shortDesc: "30% chance to burn. Negates certain immunity.",
 		name: "Tar Shot",
 		pp: 10,
+		viable: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -317,6 +318,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Rock",
+	},
+	doodle: {
+		num: 867,
+		accuracy: 100,
+		shortDesc: "(Partially functional placeholder) Copies the foe's entire moveset.",
+		basePower: 0,
+		category: "Status",
+		name: "Doodle",
+		viable: true,
+		pp: 10,
+		priority: 0,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onHit(target, source, move) {
+			if (source.transformed || source.volatiles['doodle']) {
+				return false;
+			}
+			for (const moveid in target.moveSlots) {
+				const copiedmove = target.moveSlots[moveid];
+				source.moveSlots[moveid] = {
+					move: copiedmove.name,
+					id: copiedmove.id,
+					pp: copiedmove.pp,
+					maxpp: copiedmove.pp,
+					target: copiedmove.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+			}
+			source.addVolatile('doodle');
+			this.add('-start', source, 'Doodle', move.name);
+		},
+		condition: {},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
 	},
 
 // Max and GMax Moves
@@ -1336,6 +1373,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	noxioustorque: {
 		inherit: true,
 		isNonstandard: null,
 	},

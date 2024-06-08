@@ -195,7 +195,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
-					 pokemon.hasItem('mantisclaw')) return;
+					pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				let healAmounts = [0, 3]; // 1/8
 				this.heal(healAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -976,6 +976,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Rekindle Heal",
 		pp: 5,
 		priority: 0,
+    	noSketch: true,
 		flags: {},
 		volatileStatus: 'rekindleheal',
 		condition: {
@@ -1013,13 +1014,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		condition: {
-			duration: 1,
 			onDamagingHit(damage, target, source, move) {
 				if (this.checkMoveMakesContact(move, source, target)) {
 					source.trySetStatus('brn', target);
 					this.add('-message', `${target.name}'s flames burnt its attacker!`);
 					target.removeVolatile('rekindleheal');
 					this.add('-message', `${target.name}'s flames were put out!`);
+					target.removeVolatile('rekindle');
 				}
 			},
 		},
@@ -1125,7 +1126,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	echochamber: {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 	   shortDesc: "1.5x power if a sound move was used last turn.",
 		name: "Echo Chamber",
@@ -1708,7 +1709,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
-					 pokemon.hasItem('mantisclaw')) return;
+					pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				if (pokemon.hasAbility('smelt')) {
 					const fireHazard = this.dex.getActiveMove('Stealth Rock');
@@ -1749,8 +1750,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
-					 pokemon.hasItem('mantisclaw')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || 
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -1787,7 +1788,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('mantisclaw')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('dancingshoes') || 
+							  pokemon.hasAbility('overcoat') || pokemon.hasItem('mantisclaw')) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1817,7 +1819,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('mantisclaw')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('dancingshoes') ||
+					 pokemon.hasAbility('overcoat') || pokemon.hasItem('mantisclaw')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},

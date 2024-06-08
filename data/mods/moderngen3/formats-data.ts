@@ -53,7 +53,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	blastoisemega: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	caterpie: {
 		inherit: true,
@@ -459,7 +459,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	alakazammega: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	machop: {
 		inherit: true,
@@ -654,7 +654,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gengarmega: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	onix: {
 		inherit: true,
@@ -814,7 +814,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kangaskhanmega: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	horsea: {
 		inherit: true,
@@ -2403,7 +2403,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	salamencemega: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	beldum: {
 		inherit: true,
@@ -2803,7 +2803,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lucariomega: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	hippopotas: {
 		inherit: true,
@@ -2978,7 +2978,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shayminsky: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	arceus: {
 		inherit: true,
@@ -3302,13 +3302,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	basculegionf: {
 		inherit: true,
 		isNonstandard: null,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	sandile: {
 		inherit: true,
@@ -4901,7 +4901,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	marshadow: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	poipole: {
 		inherit: true,
@@ -4911,7 +4911,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	naganadel: {
 		inherit: true,
 		gen: 3,
-		tier: "OU",
+		tier: "Uber",
 	},
 	stakataka: {
 		inherit: true,

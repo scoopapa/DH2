@@ -500,7 +500,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Meloetta"],
 		num: -1010,
 		gen: 9,
-		desc: "If held by Meloetta: Pirouette Forme on entry, Sound immunity, +1 Attack when hit by Sound.",
+		desc: "If held by Meloetta: Pirouette Forme on entry, Sound & Hazard immunity, +1 Attack when hit by Sound.",
 	},
 	charizarditeshardx: {
 		name: "Charizardite Shard X",

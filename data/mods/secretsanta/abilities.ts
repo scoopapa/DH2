@@ -12,7 +12,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {breakable: 1},
 		name: "Nightmare Eater",
 		rating: 3.5,
-		num: 10,
+		num: 100001,
 	},
 	poweroftwo: {
 		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.3x",
@@ -32,9 +32,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Power of Two",
 		rating: 2,
-		num: 18.1,
+		num: 100002,
 	},
 	chemicalburn: {
+		shortDesc: "Contact moves lower foe's SpD.",
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -44,7 +45,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Chemical Burn",
 		rating: 2,
-		num: 143,
+		num: 100003,
 	},
 	camoform: {
 		name: "Camoform",
@@ -63,7 +64,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (trickyMoves.includes(move.name));
 			move.category = "Physical";
 			move.basePower = 80;
-		}
+		},
+		num: 100004,
 	},
 	wishingstar: {
 		name: "Wishing Star",
@@ -81,6 +83,84 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	   },
 		rating: 3,
 		shortDesc: "On switch-out, the next Pokemon sent out heals 1/8 of the user's max HP.",
-		num: 131,
+		num: 100005,
+	},
+	// slate 2
+	katabaticwinds: {
+		name: "Katabatic Winds",
+		shortDesc: "If Gravity is active, Flying attacks deal 50% less to this Pokemon.",
+		onDamage(damage, target, source, effect) {
+			if (!effect.effectType || effect.effectType !== "Move") return damage;
+			if (effect.type === "Flying" && this.field.getPseudoWeather('gravity')) {
+				return Math.floor(damage * 0.5);
+			}
+		},
+		flags: {breakable: 1},
+		num: 100006,
+	},
+	prescription: {
+		onUpdate(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (pokemon.hp > target.hp) pokemon.m.prescription = true;
+			else pokemon.m.prescription = false;
+		},
+		onSwitchOut(pokemon) {
+			pokemon.m.prescription = false;
+		},
+		onStart(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (pokemon.hp > target.hp) pokemon.m.prescription = true;
+			else pokemon.m.prescription = false;
+		},
+		onChangeBoost(boost, target, source, effect) {
+			if (!target.m.prescription) return;
+			let i: BoostID;
+			for (i in boost) {
+				boost[i]! *= 2;
+			}
+		},
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			console.log(source.name)
+			console.log(target.name)
+			if (source.m.prescription) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Prescription",
+		shortDesc: "Doubles stat changes and healing if user HP > target HP.",
+		rating: 4,
+		num: 100007,
+	},
+	reallyfat: {
+		shortDesc: "Electric, Fire, and Ice attacks always deal 12.5%, and secondary effects don't activate.",
+		onTryHit(target, source, move) {
+			if (target !== source && ['Electric','Fire','Ice'].includes(move.type)) {
+				if (this.damage(target.baseMaxhp / 8)) {
+					this.add('-immune', target, '[from] ability: Really Fat');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Really Fat",
+		rating: 3.5,
+		num: 100008,
+	},
+	tableflip: {
+		onEffectiveness(typeMod, target, type, move) {
+			typeMod *= -1;
+			if (typeMod === 3) typeMod = 2
+			return typeMod;
+		},
+		onDisableMove(pokemon) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		flags: {},
+		name: "Table Flip",
+		shortDesc: "Reverses type matchups, inflicts Torment on user, overrides Mold Breaker.",
+		rating: 3.5,
+		num: 100009,
 	},
 };

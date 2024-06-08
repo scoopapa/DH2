@@ -73,4 +73,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(target.hasType('Dark')) return this.chainModify(1.5);
 		},
 	},
+	permafrost: {
+		name: "Permafrost",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Permafrost');
+			this.add('-message', `${pokemon.name}'s freezing aura turns water into ice!`);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				this.boost({spd: 1});
+			}
+		},
+		onFoeBeforeMovePriority: 13,
+		onFoeBeforeMove(attacker, defender, move) {
+			attacker.addVolatile('permafrost');
+		},
+		condition: {
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				if (move.type === 'Water') {
+					move.type = 'Ice';
+				}
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('permafrost');
+			},
+		},
+		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpD when hit by Ice.",
+		rating: 4,
+	},
 };

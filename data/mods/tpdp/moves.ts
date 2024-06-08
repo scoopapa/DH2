@@ -1102,7 +1102,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.add('-message', `$The dead call upon ${source.name}...`);
+				this.add('-message', `The dead call upon ${source.name}...`);
 				this.add('-singlemove', pokemon, 'Call of the Dead');
 			},
 			onFaint(target, source, effect) {
@@ -6240,11 +6240,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(target, source, effect) {
-				if (effect?.id === 'shedtail') {
-					this.add('-start', target, 'Magic Barrier', '[from] move: Shed Tail');
-				} else {
-					this.add('-start', target, 'Magic Barrier');
-				}
+				this.add('-start', target, 'Magic Barrier', '[silent]');
+				this.add('-message', `${target.name} created a Magic Barrier!`);
 				this.effectState.hp = Math.floor(target.maxhp / 4);
 				if (target.volatiles['partiallytrapped']) {
 					this.add('-end', target, target.volatiles['partiallytrapped'].sourceEffect, '[partiallytrapped]', '[silent]');
@@ -6288,7 +6285,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.HIT_SUBSTITUTE;
 			},
 			onEnd(target) {
-				this.add('-end', target, 'Magic Barrier');
+				this.add('-end', target, 'Magic Barrier', '[silent]');
+				this.add('-message', `${target.name}'s Magic Barrier broke!`);
 			},
 		},
 	},
@@ -7681,7 +7679,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Poison Trap', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('poisontrap');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem(['heavydutyboots', 'tengugeta']) || pokemon.hasAbility(['strictdosage'])) {
+				} else if (pokemon.hasType('Steel') || !pokemon.isGrounded || pokemon.hasItem(['heavydutyboots', 'tengugeta']) || pokemon.hasAbility(['strictdosage'])) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);

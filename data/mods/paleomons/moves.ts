@@ -92,30 +92,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
-	petroglyph: {
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's Special Attack by 1 stage.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-		    this.attrLastMove('[still]');
-		    this.add('-anim', source, "Paleo Wave", target);
-		},
-		secondary: {
-			chance: 50,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Rock",
-	},
 	trashcompactor: {
 		accuracy: true,
 		basePower: 0,
@@ -145,6 +121,37 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Poison",
+	},
+	boltbeak: {
+		inherit: true,
+		isNonStandard: null,
+		shortDesc: "Power is 1.5x if user moves before the target.",
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
+	},
+	tailsear: {
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) return move.basePower;
+			this.debug('Tail Sear damage boost');
+			return move.basePower * 1.5;
+		},
+		category: "Physical",
+		name: "Tail Sear",
+		shortDesc: "Power is 1.5x if user moves after the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
 	},
 	
 	//vanilla moves affected by other customs
@@ -225,6 +232,49 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
+		},
+	},
+	petroglyph: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Petroglyph",
+		shortDesc: "50% chance to raise the user's SpA by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Paleo Wave", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	ragingbull: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tauros-Paldea-Combat':
+				move.type = 'Fighting';
+				break;
+			case 'Tauros-Paldea-Blaze':
+				move.type = 'Fire';
+				break;
+			case 'Tauros-Paldea-Aqua':
+				move.type = 'Water';
+				break;
+			case 'Tauros-Ancestor':
+				move.type = 'Ghost';
+				break;
+			}
 		},
 	},
 };

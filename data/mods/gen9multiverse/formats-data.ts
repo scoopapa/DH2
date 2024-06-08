@@ -137,4 +137,79 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	volcanion: {
 		tier: "MV",
 	},
+	stakataka: {
+		tier: "MV",
+	},
+	lycanrocdusk: {
+		tier: "MV",
+	},
+	nihilego: {
+		tier: "MV",
+	},
+	silvallywater: {
+		tier: "MV",
+	},
+	meowthalola: {
+		tier: "MV",
+	},
+	turtonator: {
+		tier: "MV",
+	},
+	decidueye: {
+		tier: "MV",
+	},
+	calyrexice: {
+		tier: "MV",
+	},
+	samurotthisui: {
+		tier: "MV",
+	},
+	kleavor: {
+		tier: "MV",
+	},
+	orbeetle: {
+		tier: "MV",
+	},
+	weezinggalar: {
+		tier: "MV",
+	},
+	slowbrogalar: {
+		tier: "MV",
+	},
+	enamorus: {
+		tier: "MV",
+	},
+	gholdengo: {
+		tier: "MV",
+	},
+	sinistcha: {
+		tier: "MV",
+	},
+	ursalunabloodmoon: {
+		tier: "MV",
+	},
+	toedscool: {
+		tier: "MV",
+	},
+	ogerponhearthflame: {
+		tier: "MV",
+	},
+	ogerponhearthflametera: {
+		tier: "illegal",
+	},
+	squawkabilly: {
+		tier: "MV",
+	},
+	squawkabillyblue: {
+		tier: "Illegal",
+	},
+	squawkabillyyellow: {
+		tier: "Illegal",
+	},
+	squawkabillywhite: {
+		tier: "Illegal",
+	},
+	irontreads: {
+		tier: "MV",
+	},
 };

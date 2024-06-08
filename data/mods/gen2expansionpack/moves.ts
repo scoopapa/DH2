@@ -36,7 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sheer Cold", target);
+			this.add('-anim', source, "Dragon Ascent", target);
 		},
 	},
 	brightmoss: {
@@ -204,8 +204,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to raise attack by 1 stage.",
 		secondary: {
 			chance: 10,
-			boosts: {
-				atk: 1
+			self: {
+				boosts: {
+					atk: 1,
+				},
 			}
 		},
 		target: "normal",

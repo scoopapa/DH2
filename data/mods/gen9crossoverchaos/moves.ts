@@ -513,6 +513,130 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},
+	shakalakamaracas: {
+		num: -20,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Shakalaka Maracas",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Grass",
+		contestType: "Cute",
+	},
+	doubledynamite: {
+		num: -21,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Double Dynamite",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyType(move, pokemon) {
+			let type = pokemon.getTypes()[0];
+			if (type === "Bird") type = "???";
+			if (type === "Stellar") type = pokemon.getTypes(false, true)[0];
+			move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	treeoceanofhourai: {
+		num: -22,
+		accuracy: true,
+		basePower: 180,
+		category: "Special",
+		shortDesc: "Drains 75% of damage dealt.",
+		name: "Tree-Ocean of Hourai",
+		pp: 1,
+		priority: 0,
+		flags: {bullet: 1},
+		isZ: "kaguyiumz",
+		drain: [3, 4],
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	poltergust: {
+		num: -23,
+		accuracy: 95,
+		basePower: 110,
+		category: "Special",
+		name: "Poltergust",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "any",
+		type: "Flying",
+		contestType: "Cute",
+	},
+	// Negative Zone has no valid means of use due to using an invalid move as base, not implementing unless this is resolved
+	heavenlysphere: {
+		num: -25,
+		accuracy: true,
+		basePower: 200,
+		category: "Special",
+		shortDesc: "If Marle-Parasite: Electric-type",
+		name: "Heavenly Sphere",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "marliumz",
+		secondary: null,
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Marle-Parasite') {
+				move.type = 'Electric';
+			} else {
+				move.type = 'Flying';
+			}
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Beautiful",
+	},
+	dessication: {
+		num: -20,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Dessication",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+			return target.addVolatile('leechseed', source, move, 'trapper');
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Grass",
+		contestType: "Cute",
+	},
+	
 
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
