@@ -47,6 +47,38 @@ export const Items: {[k: string]: ModdedItemData} = {
 		shortDesc: "If Braixen, x1.5 offenses. If Delphox or Braixen, inflict burn on a super effective move.",
 		rating: 0,
 	},
+	spikedjacket: {
+		name: "Spiked Jacket",
+		spritenum: 213,
+		num: 165,
+		gen: 6,
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const spikes = side.sideConditions['spikes'];
+			if (target.baseSpecies.baseSpecies === 'Quilladin' || target.baseSpecies.baseSpecies === 'Chesnaught') {
+				if (!spikes || spikes.layers < 3)) {
+					if (target.getMoveHitData(move).typeMod > 0) {
+						this.add('-activate', target, 'item: Spiked Jacket');
+						side.addSideCondition('spikes', target);
+					}
+				}
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Quilladin') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Quilladin') {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught or Quilladin, set a layer of Spikes when hit super effectively.",
+		rating: 0,
+	},
 	watmelberry: {
 		name: "Watmel Berry",
 		spritenum: 530,
