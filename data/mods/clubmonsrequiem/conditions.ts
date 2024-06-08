@@ -33,4 +33,22 @@ export const Conditions: {[k: string]: ConditionData} = {
   			this.add('-weather', 'none');
   		},
   },
+mustrecharge: {
+		name: 'mustrecharge',
+		duration: 2,
+		onBeforeMovePriority: 11,
+		onBeforeMove(pokemon) {
+			this.add('cant', pokemon, 'recharge');
+			if (pokemon.hasItem('fuelcell')) {
+				pokemon.useItem();
+			}
+			pokemon.removeVolatile('mustrecharge');
+			pokemon.removeVolatile('truant');
+			return null;
+		},
+		onStart(pokemon) {
+			this.add('-mustrecharge', pokemon);
+		},
+		onLockMove: 'recharge',
+	},
 };
