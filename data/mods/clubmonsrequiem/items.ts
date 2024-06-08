@@ -19,17 +19,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
 	},
-	blukberry: {
-		name: "Bluk Berry",
-		spritenum: 44,
-		isBerry: true,
-		naturalGift: {
-			basePower: 90,
-			type: "Fire",
-		},
-		onEat: false,
+	branchingwand: {
+		name: "Branching Wand",
+		spritenum: 259,
 		num: 165,
-		gen: 3,
+		gen: 6,
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (pokemon.baseSpecies.baseSpecies === 'Braixen' || pokemon.baseSpecies.baseSpecies === 'Delphox') {
+				if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+					target.trySetStatus('brn', source);
+				}
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Braixen') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Braixen') {
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "If Braixen, x1.5 offenses. If Delphox or Braixen, inflict burn on a super effective move.",
 		rating: 0,
 	},
 	watmelberry: {
