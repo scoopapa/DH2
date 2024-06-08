@@ -182,6 +182,75 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
+	climatecrash: {
+		num: 311,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Climate Crash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "Move is 2x stronger under weather and changes its type.",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Stomping Tantrum', target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				this.attrLastMove('[anim] Eruption');
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				this.attrLastMove('[anim] Water Spout');
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				this.attrLastMove('[anim] Meteor Beam');
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				this.attrLastMove('[anim] Sheer Cold');
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+		onHit() {
+			this.field.clearWeather();
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
+	},
 	lightningswing: {
 		num: 1005,
 		accuracy: 100,
