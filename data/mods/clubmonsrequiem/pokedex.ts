@@ -197,6 +197,20 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
 	},
+	torterraunidentified: {
+		name: "Torterra-Unidentified",
+		baseSpecies: "Torterra",
+		forme: "Unidentified",
+		copyData: "Torterra",
+		
+		types: ["Psychic", "Rock"],
+		baseStats: {hp: 105, atk: 99, def: 85, spa: 85, spd: 105, spe: 46},
+		abilities: {0: "Levitate", 1: "Pressure", H: "Shell Armor"},
+		movepoolAdditions: ["psyshieldbash", "psychic", "psyshock", "telekinesis", "gravitonwave", "calmmind", "teleport", "cosmicpower", "trick", "trickroom", "meteorbeam", "ancientpower", "chargebeam", "moonblast", "surf"],
+		movepoolDeletions: ["shellsmash"],
+
+		creator: "quagsi",
+	},
 	gothitelleallira: {
 		num: 9002,
 		name: "Gothitelle-Allira",
