@@ -93,6 +93,48 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoCondition: "A newly-discovered evolution",
 		creator: "Magmajudis",
 	},
+	inkay: {
+		inherit: true,
+		otherFormes: ["Inkay-Alola"],
+		formeOrder: ["Inkay", "Inkay-Alola"],
+	},
+	inkayalola: {
+		name: "Inkay-Alola",
+		baseSpecies: "Inkay",
+		forme: "Alola",
+		copyData: "Inkay",
+
+		types: ["Dark", "Water"],
+		baseStats: {hp: 53, atk: 59, def: 53, spa: 27, spd: 56, spe: 40},
+		abilities: {0: "Keen Eye", 1: "Prankster", H: "Mimicry"},
+		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
+		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
+
+		evos: ["Malamar-Alola"],
+		creator: "Violet",
+	},
+	malamar: {
+		inherit: true,
+		otherFormes: ["Malamar-Alola"],
+		formeOrder: ["Malamar", "Malamar-Alola"],
+	},
+	malamaralola: {
+		name: "Malamar-Alola",
+		baseSpecies: "Malamar",
+		forme: "Alola",
+		copyData: "Malamar",
+
+		types: ["Dark", "Water"],
+		baseStats: {hp: 86, atk: 102, def: 88, spa: 48, spd: 95, spe: 63},
+		abilities: {0: "Keen Eye", 1: "Prankster", H: "Mimicry"},
+		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
+		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
+
+		prevo: "Inkay-Alola",
+		evoLevel: 30,
+		evoCondition: "with the console turned upside-down",
+		creator: "Violet",
+	},
 	decidueyehisui: {
 		inherit: true,
 		abilities: {0: "Overgrow", H: "Natural Cure"},
