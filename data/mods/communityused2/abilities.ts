@@ -261,7 +261,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					pokemon.removeVolatile('ouroboros');
 					return;
 				}
-				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+				if (this.effectState.lastMove === move.id) {
 					this.effectState.numConsecutive++;
 				} else if (pokemon.volatiles['twoturnmove']) {
 					if (this.effectState.lastMove !== move.id) {
@@ -276,7 +276,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						this.effectState.numConsecutive = 0;
 						this.add('-message', `${pokemon.name} choked!`);
 						this.effectState.hasChoked = true;
-						this.damage(target.baseMaxhp / 10, pokemon, pokemon);
+						this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon);
 					} else this.debug(`Devour cancelled choke`);
 				}
 				this.effectState.lastMove = move.id;
