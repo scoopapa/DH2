@@ -13,18 +13,69 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	amaura: {tier: "CM (NFE)"},
+	aurorus: {tier: "CM"},
+
+	cyclonimbus: {tier: "CM"},
+	cyclonimbussunny: {tier: "Illegal"},
+	cyclonimbusrainy: {tier: "Illegal"},
+	cyclonimbussnowy: {tier: "Illegal"},
+
+	scyther: {tier: "CM"},
+	kleavor: {tier: "CM"},
+
+	bergmite: {tier: "CM"},
+	avalugg: {tier: "CM"},
+	avalugghisui: {tier: "CM"},
+	avaluggalpine: {tier: "CM"},
+	avalange: {tier: "CM"},
+
+	tadbulb: {tier: "CM (NFE)"},
+	bellibolt: {tier: "CM"},
+	bellibrr: {tier: "CM"},
+
+	meowth: {tier: "CM (NFE)"},
+	persian: {tier: "CM"},
+	meowthalola: {tier: "CM (NFE)"},
+	persianalola: {tier: "CM"},
+
+	falinks: {tier: "CM"},
+	falinkshammer: {tier: "Illegal"},
+
 	gothitelleallira: {tier: "CM"},
 
 	stormulex: {tier: "CM"},
 
-	ironcrown: {tier: "CM"},
 	brutebonnet: {tier: "CM"},
 	sandyshocks: {tier: "CM"},
 
 	celebi: {tier: "CM"},
 
+	ironcrown: {tier: "CM"},
+
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
+
+	doduo: {tier: "CM (NFE)"},
+	dodriocyarian: {tier: "CM"},
+
+	wiglett: {tier: "CM (NFE)"},
+	wugtrio: {tier: "CM"},
+
+	tarountula: {tier: "CM (NFE)"},
+	spidops: {tier: "CM"},
+
+	bombirdier: {tier: "CM"},
+
+	squawkabilly: {tier: "CM"},
+
+	klawf: {tier: "CM"},
+
+	ironconvector: {tier: "CM"},
+
+	lechonk: {tier: "CM (NFE)"},
+	oinkologne: {tier: "CM"},
+	oinkolognef: {tier: "CM"},
 
 	dewpider: {tier: "CM (NFE)"},
 	araquanid: {tier: "CM"},

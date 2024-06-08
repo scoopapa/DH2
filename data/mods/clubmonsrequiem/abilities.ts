@@ -27,11 +27,46 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		shortDesc: "This Pokemon cannot be hit by Fire moves or be burned.",
 	},
+	forecast: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Cyclonimbus' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'cyclonimbussunny') forme = 'Cyclonimbus-Sunny';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'cyclonimbusrainy') forme = 'Cyclonimbus-Rainy';
+				break;
+			case 'hail':
+			case 'snow':
+				if (pokemon.species.id !== 'cyclonimbussnowy') forme = 'Cyclonimbus-Snowy';
+				break;
+			default:
+				if (pokemon.species.id !== 'cyclonimbus') forme = 'Cyclonimbus';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		name: "Forecast",
+		shortDesc: "If Cyclonimbus, change form in weather.",
+		rating: 2,
+		num: 59,
+	},
 	witheringgaze: {
 		onAnyTryMove(this, source, target, move) {
 			if (source === this.effectState.target) return;
 			if (move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'teleport' || move.id === 'partingshot' || move.id === 'migratingwing' ) {
 				this.add('-fail', source, 'ability: Withering Gaze', '[of] ' + this.effectState.target);
+				this.add('-ability', target, 'Withering Gaze');
 				return false;
 			}
 		},
@@ -39,6 +74,83 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "While active, Pokemon without this ability cannot pivot out.",
 		rating: 3,
 		num: 3000,
+	},
+	territorial: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (defender.hurtThisTurn) {
+				this.debug('Territorial boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (defender.hurtThisTurn) {
+				this.debug('Territorial boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Territorial",
+		shortDesc: "User deals 1.5x more damage to opponents hurt this turn.",
+		rating: 3.5,
+		num: 276,
+	},
+	rockypayload: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Rocky Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceAccuracy(accuracy, target, source, move) {
+			if (!move.ohko && move.type === 'Rock') {
+				if (typeof accuracy === 'number') {
+					return this.chainModify([4505, 4096]);
+				}
+			}
+		},
+		flags: {},
+		name: "Rocky Payload",
+		shortDesc: "Rock-type moves receive a 1.5x boost in power, and 1.1x more accuracy.",
+		rating: 3.5,
+		num: 276,
+	},
+	rockbeak: {
+		/*
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Flying') {
+					!((move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Rock';
+					move.typeChangerBoosted = this.effect;
+				}
+			}
+		}, */
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Flying' && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Rock';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Rock Beak",
+		shortDesc: "Flying-type moves become Rock-type, and boosts them by 1.2x.",
+		rating: 4,
+		num: 182,
 	},
 	fauxliage: {
 		onSourceModifyAtkPriority: 6,
@@ -68,6 +180,56 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Fauxliage",
 		shortDesc: "User takes 1/2 damage from Grass-resisted types and is immune to powder/spore moves.",
 		num: 1001,
+	},
+	palewinds: {
+		onStart(pokemon) {
+    		if (this.field.isWeather('hail')) {
+				this.add('-ability', pokemon, 'Pale Winds');
+				this.add('-message', `The winds are howling!`);
+			}
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+		    if (this.field.isWeather('hail')) {
+		        this.add('-ability', pokemon, 'Pale Winds');
+		        this.add('-message', `The winds are howling!`);
+    		}
+		},
+		flags: {},
+		name: "Pale Winds",
+		shortDesc: "Hail damage is doubled on affected targets.",
+		rating: 1,
+		num: 127,
+	},
+	stancechange: {
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Falinks' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'spikyshield') return;
+			const targetForme = (move.id === 'spikyshield' ? 'Falinks' : 'Falinks-Hammer');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Stance Change",
+		shortDesc: "If Falinks, switch to Hammer when attacking, and Column on Spiky Shield.",
+		rating: 4,
+		num: 176,
+	},
+	condensedsnow: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Condensed Snow neutralize');
+				return this.chainModify(0.75);
+			}
+			if (this.field.isWeather(['hail', 'snow'])) {
+				this.debug('Condensed Snow neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Condensed Snow",
+		shortDesc: "Super effective moves do 0.75x. All moves do 0.75x in Hail.",
+		rating: 3,
+		num: 111,
 	},
 	shellarmor: {
 		onDamage(damage, target, source, effect) {
@@ -123,7 +285,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	rewind: {
 		onSwitchOut(pokemon) {
-			if (pokemon.item || !pokemon.lastItem) return false;
+			if (pokemon.item || !pokemon.lastItem) return;
 			const item = pokemon.lastItem;
 			pokemon.lastItem = '';
 			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Rewind');

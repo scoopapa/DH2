@@ -378,12 +378,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	hitmonlee: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 120, def: 53, spa: 35, spd: 110, spe: 87},
+		baseStats: {hp: 60, atk: 120, def: 53, spa: 35, spd: 110, spe: 97},
 		abilities: {0: "Striker", 1: "Reckless", H: "Unburden"},
 	},
 	hitmonchan: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 90, def: 110, spa: 35, spd: 110, spe: 70},
+		baseStats: {hp: 60, atk: 105, def: 94, spa: 35, spd: 110, spe: 71},
+		abilities: {0: "Strong Will", 1: "Iron Fist", H: "Inner Focus"},
 	},
 	weezing: {
 		inherit: true,
@@ -2171,22 +2172,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	genesectdouse: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 109},
+		baseStats: {hp: 81, atk: 125, def: 105, spa: 125, spd: 105, spe: 109},
 		abilities: {0: "Water Absorb"},
 	},
 	genesectshock: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 115, def: 95, spa: 115, spd: 95, spe: 129},
+		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 129},
 		abilities: {0: "Motor Drive"},
 	},
 	genesectburn: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 115, def: 110, spa: 115, spd: 110, spe: 99},
+		baseStats: {hp: 81, atk: 120, def: 115, spa: 120, spd: 115, spe: 99},
 		abilities: {0: "Flash Fire"},
 	},
 	genesectchill: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 125, def: 95, spa: 125, spd: 95, spe: 109},
+		baseStats: {hp: 81, atk: 135, def: 95, spa: 135, spd: 95, spe: 109},
 		abilities: {0: "Refrigerate"},
 	},
 
@@ -4528,7 +4529,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Spyarn",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 90, atk: 99, def: 112, spa: 62, spd: 106, spe: 35},
-		abilities: {0: "Insomnia", H: "Battle Armor"},
+		abilities: {0: "Battle Armor", H: "Stakeout"},
 		heightm: 1.2,
 		weightkg: 50,
 		prevo: "Spidops",
