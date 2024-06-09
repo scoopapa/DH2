@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		onHit(target, source, move) {
 		//	if (target.species.name === 'Flareon') {
-			source.side.addSideCondition('convertflareon')
+			target.side.addSideCondition('convertflareon')
 		//	}
 		},
 	},
