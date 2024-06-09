@@ -58,29 +58,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-/**	conversion: { //Typing needs to be retained after switch-out
+	conversion: { //Typing needs to be retained after switch-out
 		inherit: true,
-		target: "allySide",
+		target: "normal",
 		pp: 20,
 		accuracy: true,
-		category: "Status",
 		sideCondition: 'conversion',
+		category: "Status",
 		condition: {
-			onHit(target, source) {
-				source.setType(target.getTypes(true));
-				/**source.baseTypes = target.getTypes(true);
-				source.apparentType = target.types.join('/');
-				source.addedType = target.addedType || '';
-				source.knownType = true;**/
-	/**			this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
-				this.heal(Math.floor(source.maxhp / 2), source, source);
-			}
-			onResidual(myside) {
-				for const pokemon of side.active
-					if pokemon and is like... the pokmeon that used this move basically,
-					then change the type or make sure it is of whatever the stored type from onhit is.
+			onHit(target, source, move) {
+				if (move.id === 'conversion') {
+					source.setType(target.getTypes(true));
+					this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
+				}
+			},
 		},
-	}, **/
+	}
 	clamp: {
 		inherit: true,
 		basePower: 70,
