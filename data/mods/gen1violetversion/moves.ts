@@ -65,6 +65,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		sideCondition: 'conversion',
 		category: "Status",
+		onHit() {
+		},
 		condition: {
 			onHit(target, source, move) {
 				if (move.id === 'conversion') {
@@ -117,16 +119,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},**/
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
-			/**onSideStart (side, target) {
-				for (const pokemon of target.side.pokemon) {
-					if (pokemon.isActive) {
-						const moveSlot = this.sample(pokemon.moveSlots.filter(ms => ms.pp > 0));
-						this.add('-start', pokemon, 'Disable', moveSlot.move)
-						this.effectState.move = moveSlot.id; 
-					}
-				}
-					return;
-			}, **/
 			onHit (target, source, move) {
 				if (move.id === 'disable') {
 					const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
