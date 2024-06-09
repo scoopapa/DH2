@@ -56,7 +56,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
 			const spikes = side.sideConditions['spikes'];
 			if (target.baseSpecies.baseSpecies === 'Quilladin' || target.baseSpecies.baseSpecies === 'Chesnaught') {
-				if (!spikes || spikes.layers < 3)) {
+				if (!spikes || spikes.layers < 3) {
 					if (target.getMoveHitData(move).typeMod > 0) {
 						this.add('-activate', target, 'item: Spiked Jacket');
 						side.addSideCondition('spikes', target);
