@@ -149,40 +149,49 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	venusaurgmax: {
 		inherit: true,
 		abilities: {0: "Flower Veil"},
+		weightkg: 999.9,
 	},
 	charizardgmax: {
 		inherit: true,
 		abilities: {0: "Mold Breaker"},
+		weightkg: 999.9,
 	},
 	blastoisegmax: {
 		inherit: true,
 		abilities: {0: "Bulletproof"},
+		weightkg: 999.9,
 	},
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
 		abilities: {0: "Compound Eyes", H: "Magic Guard"},
+		weightkg: 999.9,
 	},
 	butterfreegmax: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
 		abilities: {0: "Magic Bounce"},
+		weightkg: 999.9,
 	},
 	meowthgmax: {
 		inherit: true,
 		abilities: {0: "Limber"},
+		weightkg: 999.9,
 	},
 	pikachugmax: {
 		inherit: true,
 		abilities: {0: "Huge Power"},
+		weightkg: 999.9,
 	},
 	machampgmax: {
 		inherit: true,
 		abilities: {0: "Scrappy"},
+		weightkg: 999.9,
 	},
 	gengargmax: {
 		inherit: true,
 		abilities: {0: "Mummy"},
+		weightkg: 999.9,
 	},
 	kingler: {
 		inherit: true,
@@ -195,42 +204,52 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Steel"],
 		baseStats: {hp: 75, atk: 130, def: 125, spa: 50, spd: 50, spe: 85},
 		abilities: {0: "Anger Shell"},
+		weightkg: 999.9,
 	},
 	laprasgmax: {
 		inherit: true,
 		abilities: {0: "Ice Scales"},
+		weightkg: 999.9,
 	},
 	eeveegmax: {
 		inherit: true,
 		abilities: {0: "Friend Guard"},
+		weightkg: 999.9,
 	},
 	snorlaxgmax: {
 		inherit: true,
 		abilities: {0: "Sap Sipper"},
+		weightkg: 999.9,
 	},
 	garbodorgmax: {
 		inherit: true,
 		abilities: {0: "Toxic Debris"},
+		weightkg: 999.9,
 	},
 	melmetalgmax: {
 		inherit: true,
 		abilities: {0: "Liquid Ooze"},
+		weightkg: 999.9,
 	},
 	rillaboomgmax: {
 		inherit: true,
 		abilities: {0: "Grass Pelt"},
+		weightkg: 999.9,
 	},
 	cinderacegmax: {
 		inherit: true,
 		abilities: {0: "Quick Feet"},
+		weightkg: 999.9,
 	},
 	inteleongmax: {
 		inherit: true,
 		abilities: {0: "Storm Drain"},
+		weightkg: 999.9,
 	},
 	corviknightgmax: {
 		inherit: true,
 		abilities: {0: "Iron Barbs"},
+		weightkg: 999.9,
 	},
 	orbeetle: {
 		inherit: true,
@@ -240,6 +259,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	orbeetlegmax: {
 		inherit: true,
 		abilities: {0: "Magic Guard"},
+		weightkg: 999.9,
 	},
 	drednaw: {
 		inherit: true,
@@ -250,6 +270,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 120, def: 100, spa: 48, spd: 88, spe: 74},
 		abilities: {0: "Solid Rock"},
+		weightkg: 999.9,
 	},
 	coalossal: {
 		inherit: true,
@@ -261,6 +282,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock"],
 		baseStats: {hp: 125, atk: 80, def: 125, spa: 100, spd: 100, spe: 20},
 		abilities: {0: "Earth Eater"},
+		weightkg: 999.9,
 	},
 	flapple: {
 		inherit: true,
@@ -271,6 +293,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
 		abilities: {0: "Tinted Lens"},
+		weightkg: 999.9,
 	},
 	appletun: {
 		inherit: true,
@@ -281,18 +304,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
 		abilities: {0: "Grassy Surge"},
+		weightkg: 999.9,
 	},
 	sandacondagmax: {
 		inherit: true,
 		abilities: {0: "Sand Rush"},
+		weightkg: 999.9,
 	},
 	toxtricitygmax: {
 		inherit: true,
 		abilities: {0: "Electromorphosis"},
+		weightkg: 999.9,
 	},
 	toxtricitylowkeygmax: {
 		inherit: true,
 		abilities: {0: "Electromorphosis"},
+		weightkg: 999.9,
 	},
 	centiskorch: {
 		inherit: true,
@@ -303,10 +330,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 135, def: 85, spa: 75, spd: 100, spe: 65},
 		abilities: {0: "Dry Skin"},
+		weightkg: 999.9,
 	},
 	hatterenegmax: {
 		inherit: true,
 		abilities: {0: "Natural Cure"},
+		weightkg: 999.9,
 	},
 	grimmsnarl: {
 		inherit: true,
@@ -315,7 +344,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	grimmsnarlgmax: {
 		inherit: true,
+		baseStats: {hp: 105, atk: 120, def: 80, spa: 90, spd: 80, spe: 60},
 		abilities: {0: "Misty Surge"},
+		weightkg: 999.9,
 	},
 	alcremie: {
 		inherit: true,
@@ -326,21 +357,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
 		abilities: {0: "Well-Baked Body"},
+		weightkg: 999.9,
 	},
 	copperajahgmax: {
 		inherit: true,
 		abilities: {0: "Stamina"},
+		weightkg: 999.9,
 	},
 	duraludongmax: {
 		inherit: true,
 		abilities: {0: "Pressure"},
+		weightkg: 999.9,
 	},
 	urshifugmax: {
 		inherit: true,
 		abilities: {0: "Inner Focus"},
+		weightkg: 999.9,
 	},
 	urshifurapidstrikegmax: {
 		inherit: true,
 		abilities: {0: "Inner Focus"},
+		weightkg: 999.9,
 	},
 };
