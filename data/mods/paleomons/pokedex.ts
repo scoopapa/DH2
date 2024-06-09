@@ -28,7 +28,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 4,
 		name: "Omastar",
 		types: ["Poison", "Psychic"],
-		baseStats: {hp: 73, atk: 59, def: 127, spa: 89, spd: 113, spe: 53},
+		baseStats: {hp: 73, atk: 59, def: 127, spa: 99, spd: 113, spe: 53},
 		abilities: {0: "Inner Focus", 1: "Synchronize", H: "Regenerator"},
 	},
 	aerodactyl: {
@@ -478,5 +478,28 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 100, atk: 55, def: 65, spa: 95, spd: 115, spe: 75},
 		abilities: {0: "Pure Power", 1: "Punk Rock", H: "Shell Armor"},
 	},
-
+	venopleura: {
+		num: 55,
+		name: "Venopleura",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 80, atk: 100, def: 100, spa: 55, spd: 75, spe: 111},
+		abilities: {0: "Battle Armor", 1: "Poison Touch", H: "Volt Absorb"},
+		weightkg: 50,
+	},
+	servachne: {
+		num: 56,
+		name: "Servachne",
+		types: ["Bug", "Rock"],
+		baseStats: {hp: 67, atk: 111, def: 80, spa: 65, spd: 75, spe: 97},
+		abilities: {0: "Sedimentary", H: "Swift Swim"},
+		weightkg: 45.5,
+	},
+	cardantis: {
+		num: 57,
+		name: "Cardantis",
+		types: ["Normal", "Ghost"],
+		baseStats: {hp: 100, atk: 88, def: 105, spa: 87, spd: 80, spe: 70},
+		abilities: {0: "Sharpness", 1: "Magic Bounce", H: "Misty Surge"},
+		weightkg: 12,
+	},
 }
