@@ -58,24 +58,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	conversion: { //Typing needs to be retained after switch-out
-		inherit: true,
-		target: "normal",
-		pp: 20,
-		accuracy: true,
-		sideCondition: 'conversion',
-		category: "Status",
-		onHit() {
-		},
-		condition: {
-			onHit(target, source, move) {
-				if (move.id === 'conversion') {
-					source.setType(target.getTypes(true));
-					this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
-				}
-			},
-		},
-	},
 	clamp: {
 		inherit: true,
 		basePower: 70,
@@ -100,6 +82,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	conversion: { //Typing needs to be retained after switch-out
+		inherit: true,
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		onHit(target, source, move) {
+			if (target.species.name === 'Flareon') {
+				source.side.addSideCondition('convertflareon')
+			}
+		},
+	},
+	convertflareon: {
+		target: "allySide",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertflareon',
+		onSomething()
+
+		// aerodactyl, alakazam, 
+
+		
 	disable: {
 		accuracy: 100,
 		category: "Status",
