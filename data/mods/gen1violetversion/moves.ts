@@ -89,9 +89,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		onHit(target, source, move) {
-		//	if (target.species.name === 'Flareon') {
+			if (target.species.name === 'Flareon') {
 			source.side.addSideCondition('convertflareon')
-		//	}
+			}
 		},
 	},
 	convertflareon: {
@@ -103,7 +103,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onUpdate(pokemon) {
 				if (pokemon.species.baseSpecies === 'Porygon') {
-				this.add('-start', pokemon, 'typechange', ['Fire','Flying']);
+				this.add('-start', pokemon, 'typechange', 'Fire');
+				this.add('-start', pokemon, 'typeadd', 'Flying');
 				pokemon.setType(['Fire','Flying']);
 				}
 			},
