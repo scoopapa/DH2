@@ -100,11 +100,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		sideCondition: 'convertflareon',
-		onSomething()
-
+		target: "allySide",
+		condition: {
+			onUpdate(pokemon) {
+				if (pokemon.species.baseSpecies === 'Porygon') {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				}
+			},
+		},
+	},
 		// aerodactyl, alakazam, 
-
-		
 	disable: {
 		accuracy: 100,
 		category: "Status",
