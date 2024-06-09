@@ -101,11 +101,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		sideCondition: 'convertflareon',
 		condition: {
-			onAfterHit(pokemon) {
-				if (pokemon.species.baseSpecies === 'Porygon') {
-				this.add('-start', pokemon, 'typechange', 'Fire');
-				this.add('-start', pokemon, 'typeadd', 'Flying');
-				pokemon.setType(['Fire','Flying']);
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Fire') && pokemon.hasType('Flying')) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Fire');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Fire','Flying']);
+					}
 				}
 			},
 		},
