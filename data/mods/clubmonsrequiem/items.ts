@@ -26,7 +26,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 6,
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (pokemon.baseSpecies.baseSpecies === 'Braixen' || pokemon.baseSpecies.baseSpecies === 'Delphox') {
+			if (source.baseSpecies.baseSpecies === 'Braixen' || source.baseSpecies.baseSpecies === 'Delphox') {
 				if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
 					target.trySetStatus('brn', source);
 				}
