@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		onHit(target, source, move) {
 		//	if (target.species.name === 'Flareon') {
-			target.side.addSideCondition('convertflareon')
+			source.side.addSideCondition('convertflareon')
 		//	}
 		},
 	},
@@ -101,9 +101,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		sideCondition: 'convertflareon',
 		condition: {
-			onSideStart(target, source) {
+			onUpdate(pokemon) {
 				//if (target.species.baseSpecies === 'Porygon') {
-				this.add('-start', source, 'typechange', 'Fire');
+				this.add('-start', pokemon, 'typechange', 'Fire');
 				//source.setType(source.getTypes(true).map(type => type === "Fire" ? "???" : type));
 			//	}
 			},
