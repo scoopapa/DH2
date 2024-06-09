@@ -2747,6 +2747,22 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		maxMove: { basePower: 130 },
 		contestType: "Smart",
 	},
+	chatter: {
+		inherit: true,
+		basePower: 80,
+		isNonstandard: null,
+		pp: 10,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		desc: "Has a 100% chance to raise the user's Special Attack by 1 stage.",
+		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
+	},
 
 	// Identity Card field
 
