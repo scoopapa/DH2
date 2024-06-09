@@ -104,6 +104,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onUpdate(pokemon) {
 				//if (target.species.baseSpecies === 'Porygon') {
 				this.add('-start', pokemon, 'typechange', 'Fire');
+				get types from opkedex flareon or something?
 				pokemon.setType('Fire', 'Flying');
 			//	}
 			},
