@@ -100,7 +100,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		sideCondition: 'convertflareon',
-		target: "allySide",
 		condition: {
 			onUpdate(pokemon) {
 				if (pokemon.species.baseSpecies === 'Porygon') {
