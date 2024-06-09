@@ -2590,6 +2590,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	greninja: {
 		tier: "UU",
 	},
+	greninjabond: {
+		isNonstandard: "Unobtainable",
+		tier: "Illegal",
+	},
 	greninjaash: {
 		isNonstandard: "Unobtainable",
 		tier: "Illegal",
