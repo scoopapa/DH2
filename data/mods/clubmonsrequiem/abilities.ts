@@ -127,7 +127,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
       flags: {},
       name: "Magician",
-		shortDesc: "On entry, the opponent's item is swapped with that of the previous Pokemon.",
+		shortDesc: "On entry, the opponent's item is swapped with that of the previous Pokemon if the user has full HP.",
       rating: 5, // god-tier
       num: 170,
    },
@@ -148,7 +148,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {},
 		name: "Territorial",
-		shortDesc: "User deals 1.5x more damage to opponents hurt this turn.",
+		shortDesc: "User deals 1.5x more damage to opponents already hurt this turn.",
 		rating: 3.5,
 		num: 276,
 	},
@@ -241,6 +241,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		        this.add('-message', `The winds are howling!`);
     		}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
 		flags: {},
 		name: "Pale Winds",
 		shortDesc: "Hail damage is doubled on affected targets.",
@@ -274,7 +277,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {breakable: 1},
 		name: "Condensed Snow",
-		shortDesc: "Super effective moves do 0.75x. All moves do 0.75x in Hail.",
+		shortDesc: "Super effective moves do 0.75x. All moves do 0.75x in Hail. These multipliers stack.",
 		rating: 3,
 		num: 111,
 	},
