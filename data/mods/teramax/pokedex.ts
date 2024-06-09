@@ -83,7 +83,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	screamtail: {
 		inherit: true,
-		types: ["Fairy", "Dark"],
+		types: ["Fairy", "Poison"],
 	},
 	brutebonnet: {
 		inherit: true,
@@ -100,7 +100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ironthorns: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 80, def: 100, spa: 124, spd: 84, spe: 82},
+		baseStats: {hp: 100, atk: 60, def: 110, spa: 124, spd: 84, spe: 92},
 	},
 	revavroom: {
 		inherit: true,
@@ -144,6 +144,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 126, atk: 103, def: 68, spa: 92, spd: 82, spe: 39},
 	},
+	ironleaves: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 130, def: 88, spa: 60, spd: 108, spe: 114},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
@@ -158,7 +162,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	blastoisegmax: {
 		inherit: true,
-		abilities: {0: "Bulletproof"},
+		abilities: {0: "Stamina"},
 		weightkg: 999.9,
 	},
 	butterfree: {
@@ -286,12 +290,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	flapple: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
+		baseStats: {hp: 70, atk: 110, def: 95, spa: 80, spd: 67, spe: 88},
 		abilities: {0: "Ripen", 1: "Gluttony", H: "Hustle"},
 	},
 	flapplegmax: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
+		baseStats: {hp: 70, atk: 110, def: 95, spa: 80, spd: 67, spe: 88},
 		abilities: {0: "Tinted Lens"},
 		weightkg: 999.9,
 	},
@@ -303,7 +307,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	appletungmax: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
-		abilities: {0: "Grassy Surge"},
+		abilities: {0: "Marvel Scale"},
 		weightkg: 999.9,
 	},
 	sandacondagmax: {
@@ -361,7 +365,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	copperajahgmax: {
 		inherit: true,
-		abilities: {0: "Stamina"},
+		abilities: {0: "Bulletproof"},
 		weightkg: 999.9,
 	},
 	duraludongmax: {
