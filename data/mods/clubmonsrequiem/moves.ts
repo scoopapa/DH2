@@ -133,6 +133,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					return false;
 				}
 			},
+			onModifyDamage(damage, source, target, move) {
+				if (move.id === 'gravitonwave') {
+					this.debug('Graviton Wave boost');
+					return this.chainModify(1.5);
+				}
+			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 2,
 			onFieldEnd() {
@@ -144,6 +150,106 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
+	},
+	gravitonwave: {
+		num: 1005,
+		accuracy: 90,
+		basePower: 80, //power coded in gravity
+		category: "Special",
+		shortDesc: "Sets Gravity and pivots out. If Gravity active, boosts power instead.",
+		name: "Graviton Wave",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
+		secondary: null,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Dark Pulse', target);
+			this.add('-anim', source, 'Psychic', target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!this.field.pseudoWeather['gravity']) {
+				this.field.addPseudoWeather('gravity', pokemon);
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+					pokemon.switchFlag = true;
+				}		
+			}
+		},
+		target: "allAdjacent",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	climatecrash: {
+		num: 311,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Climate Crash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "Move is 2x stronger under weather and changes its type.",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Stomping Tantrum', target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				this.attrLastMove('[anim] Eruption');
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				this.attrLastMove('[anim] Water Spout');
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				this.attrLastMove('[anim] Meteor Beam');
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				this.attrLastMove('[anim] Sheer Cold');
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+		onHit() {
+			this.field.clearWeather();
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
 	},
 	lightningswing: {
 		num: 1005,

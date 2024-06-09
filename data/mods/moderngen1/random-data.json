@@ -1995,11 +1995,11 @@
 },
     "lycanroc": {
         "level": 82,
-        "moves": ["stoneedge", "drillrun", "accelrock", "closecombat"]
+        "moves": ["stoneedge", "drillrun", "accelerock", "closecombat"]
 },
     "lycanrocdusk": {
         "level": 82,
-        "moves": ["stoneedge", "drillrun", "accelrock", "closecombat"]
+        "moves": ["stoneedge", "drillrun", "accelerock", "closecombat"]
 },
     "lycanrocmidnight": {
         "level": 86,
@@ -2404,7 +2404,8 @@
 },
     "zacian": {
         "level": 72,
-        "moves": ["swordsdance", "moonblast", "closecombat", "steelbeam"]
+        "exclusiveMoves": ["swordsdance", "moonblast", "closecombat"],
+        "moves": ["steelbeam", "quickattack"]
 },
     "zamazenta": {
         "level": 76,
@@ -2777,7 +2778,7 @@
         "moves": ["thunderwave"],
         "essentialMoves": ["closecombat", "moonblast"],
         "exclusiveMoves": ["icepunch", "swordsdance"],
-        "comboMoves": ["swordsdance", "agility"]
+        "comboMoves": ["swordsdance", "agility", "closecombat", "moonblast"]
 },
     "koraidon": {
         "level": 74,
