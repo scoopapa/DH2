@@ -104,7 +104,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onUpdate(pokemon) {
 				//if (target.species.baseSpecies === 'Porygon') {
 				this.add('-start', pokemon, 'typechange', 'Fire');
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				pokemon.setType('Fire');
 			//	}
 			},
 		},
