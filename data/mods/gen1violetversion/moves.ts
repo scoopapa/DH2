@@ -95,7 +95,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	convertflareon: {
-		target: "allySide",
+		target: "normal",
 		pp: 20,
 		accuracy: true,
 		category: "Status",
