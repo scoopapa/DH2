@@ -182,8 +182,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onDragOutPriority: 2,
 		onDragOut(pokemon) {
-			this.add('-block', pokemon, 'Dynamax');
-			return null;
+			if (!pokemon.gigantamax) {
+				this.add('-block', pokemon, 'Dynamax');
+				return null;
+			}
 		},
 		onResidualPriority: -100,
 		onResidual(pokemon) {
