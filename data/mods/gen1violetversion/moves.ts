@@ -73,7 +73,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-	}
+	},
 	clamp: {
 		inherit: true,
 		basePower: 70,
