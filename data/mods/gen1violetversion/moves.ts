@@ -89,9 +89,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		onHit(target, source, move) {
-			if (target.species.name === 'Flareon') {
-				source.side.addSideCondition('convertflareon')
-			}
+		//	if (target.species.name === 'Flareon') {
+			source.side.addSideCondition('convertflareon')
+		//	}
 		},
 	},
 	convertflareon: {
