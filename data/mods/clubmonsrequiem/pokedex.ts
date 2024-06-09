@@ -14,18 +14,22 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	falinks: {
 		inherit: true,
 		baseForme: "Column",
-		types: ["Fighting", "Steel"],
+		types: ["Fighting"],
 		baseStats: {hp: 65, atk: 60, def: 110, spa: 60, spd: 110, spe: 105},
 		abilities: {0: "Stance Change"},
 		otherFormes: ["Falinks-Hammer"],
 		formeOrder: ["Falinks", "Falinks-Hammer"],
+	},
+	glaceon: {
+		inherit: true,
+		abilities: {0: "Ice Body", H: "Pale Winds"},
 	},
 	falinkshammer: {
 		name: "Falinks-Hammer",
 		baseSpecies: "Falinks",
 		forme: "Hammer",
 		
-		types: ["Fighting", "Steel"],
+		types: ["Fighting"],
 		baseStats: {hp: 65, atk: 140, def: 60, spa: 140, spd: 60, spe: 45},
 		abilities: {0: "Stance Change"},
 		requiredAbility: "Stance Change",
@@ -92,6 +96,48 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		creator: "Magmajudis",
+	},
+	inkay: {
+		inherit: true,
+		otherFormes: ["Inkay-Alola"],
+		formeOrder: ["Inkay", "Inkay-Alola"],
+	},
+	inkayalola: {
+		name: "Inkay-Alola",
+		baseSpecies: "Inkay",
+		forme: "Alola",
+		copyData: "Inkay",
+
+		types: ["Dark", "Water"],
+		baseStats: {hp: 53, atk: 59, def: 53, spa: 27, spd: 56, spe: 40},
+		abilities: {0: "Keen Eye", 1: "Prankster", H: "Mimicry"},
+		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
+		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
+
+		evos: ["Malamar-Alola"],
+		creator: "Violet",
+	},
+	malamar: {
+		inherit: true,
+		otherFormes: ["Malamar-Alola"],
+		formeOrder: ["Malamar", "Malamar-Alola"],
+	},
+	malamaralola: {
+		name: "Malamar-Alola",
+		baseSpecies: "Malamar",
+		forme: "Alola",
+		copyData: "Malamar",
+
+		types: ["Dark", "Water"],
+		baseStats: {hp: 86, atk: 102, def: 88, spa: 48, spd: 95, spe: 63},
+		abilities: {0: "Keen Eye", 1: "Prankster", H: "Mimicry"},
+		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
+		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
+
+		prevo: "Inkay-Alola",
+		evoLevel: 30,
+		evoCondition: "with the console turned upside-down",
+		creator: "Violet",
 	},
 	decidueyehisui: {
 		inherit: true,
@@ -197,6 +243,20 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
 	},
+	torterraunidentified: {
+		name: "Torterra-Unidentified",
+		baseSpecies: "Torterra",
+		forme: "Unidentified",
+		copyData: "Torterra",
+		
+		types: ["Psychic", "Rock"],
+		baseStats: {hp: 105, atk: 99, def: 85, spa: 85, spd: 105, spe: 46},
+		abilities: {0: "Levitate", 1: "Pressure", H: "Shell Armor"},
+		movepoolAdditions: ["psyshieldbash", "psychic", "psyshock", "telekinesis", "gravitonwave", "calmmind", "teleport", "cosmicpower", "trick", "trickroom", "meteorbeam", "ancientpower", "chargebeam", "moonblast", "surf", "blackhole", "climatecrash"],
+		movepoolDeletions: ["shellsmash"],
+
+		creator: "quagsi",
+	},
 	gothitelleallira: {
 		num: 9002,
 		name: "Gothitelle-Allira",
@@ -261,7 +321,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	cyclonimbussnowy: {
 		num: 9004,
-		name: "Cyclonimbus-Rainy",
+		name: "Cyclonimbus-Snowy",
 		baseSpecies: "Cyclonimbus",
 		forme: "Snowy",
 		types: ["Flying", "Ice"],

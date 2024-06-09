@@ -13,8 +13,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	fennekin: {tier: "CM (NFE)"},
+	braixen: {tier: "CM (NFE)"},
+	delphox: {tier: "CM"},
+	
 	amaura: {tier: "CM (NFE)"},
 	aurorus: {tier: "CM"},
+
+	torterraunidenfitied: {tier: "CM"},
+
+	inkayalola: {tier: "CM"},
+	malamaralola: {tier: "CM"},
 
 	cyclonimbus: {tier: "CM"},
 	cyclonimbussunny: {tier: "Illegal"},
@@ -24,7 +33,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	scyther: {tier: "CM"},
 	kleavor: {tier: "CM"},
 
-	bergmite: {tier: "CM"},
+	bergmite: {tier: "CM (NFE)"},
 	avalugg: {tier: "CM"},
 	avalugghisui: {tier: "CM"},
 	avaluggalpine: {tier: "CM"},
