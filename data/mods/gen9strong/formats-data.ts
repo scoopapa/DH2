@@ -4301,7 +4301,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zamazenta: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	zamazentacrowned: {
 		inherit: true,
