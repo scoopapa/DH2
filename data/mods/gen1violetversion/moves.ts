@@ -103,8 +103,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onSideStart(side, target, source) {
 				//if (target.species.baseSpecies === 'Porygon') {
-				this.add('-start', target, 'typechange', 'Fire');
-				target.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				this.add('-start', source, 'typechange', 'Fire');
+				source.setType(source.getTypes(true).map(type => type === "Fire" ? "???" : type));
 			//	}
 			},
 		},
