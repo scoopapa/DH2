@@ -290,12 +290,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	flapple: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 110, def: 95, spa: 80, spd: 67, spe: 88},
+		baseStats: {hp: 70, atk: 110, def: 95, spa: 80, spd: 77, spe: 88},
 		abilities: {0: "Ripen", 1: "Gluttony", H: "Hustle"},
 	},
 	flapplegmax: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 110, def: 95, spa: 80, spd: 67, spe: 88},
+		baseStats: {hp: 70, atk: 110, def: 95, spa: 80, spd: 77, spe: 88},
 		abilities: {0: "Tinted Lens"},
 		weightkg: 999.9,
 	},
