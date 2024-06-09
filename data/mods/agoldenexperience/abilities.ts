@@ -2561,4 +2561,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: -72,
 	},
+	cacophony: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Cacophony boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['sound']) {
+				this.debug('Cacophony weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
+		shortDesc: "This Pokemon receives 1/2 damage from sound moves. Its own have 1.3x power.",
+		name: "Cacophony",
+		rating: 3.5,
+		num: -73,
+	},
 };

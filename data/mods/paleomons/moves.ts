@@ -122,19 +122,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Poison",
 	},
-	boltbeak: {
-		inherit: true,
-		isNonStandard: null,
-		shortDesc: "Power is 1.5x if user moves before the target.",
-		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Bolt Beak damage boost');
-				return move.basePower * 1.5;
-			}
-			this.debug('Bolt Beak NOT boosted');
-			return move.basePower;
-		},
-	},
 	tailsear: {
 		accuracy: 100,
 		basePower: 85,
@@ -152,6 +139,49 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
+	},
+	petroglyph: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Petroglyph",
+		shortDesc: "50% chance to raise the user's SpA by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Paleo Wave", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	
+	//edited vanilla moves
+	fishiousrend: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	boltbeak: {
+		inherit: true,
+		isNonstandard: null,
+		shortDesc: "Power is 1.5x if user moves before the target.",
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
 	},
 	
 	//vanilla moves affected by other customs
@@ -233,30 +263,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
-	},
-	petroglyph: {
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's SpA by 1.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-		    this.attrLastMove('[still]');
-		    this.add('-anim', source, "Paleo Wave", target);
-		},
-		secondary: {
-			chance: 50,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Rock",
 	},
 	ragingbull: {
 		inherit: true,

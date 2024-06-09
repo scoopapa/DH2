@@ -13,13 +13,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	fennekin: {tier: "CM (NFE)"},
+	braixen: {tier: "CM (NFE)"},
+	delphox: {tier: "CM"},
+	
 	amaura: {tier: "CM (NFE)"},
 	aurorus: {tier: "CM"},
+
+	torterraunidenfitied: {tier: "CM"},
+
+	inkayalola: {tier: "CM"},
+	malamaralola: {tier: "CM"},
+
+	cyclonimbus: {tier: "CM"},
+	cyclonimbussunny: {tier: "Illegal"},
+	cyclonimbusrainy: {tier: "Illegal"},
+	cyclonimbussnowy: {tier: "Illegal"},
+
+	scyther: {tier: "CM"},
+	kleavor: {tier: "CM"},
+
+	bergmite: {tier: "CM (NFE)"},
+	avalugg: {tier: "CM"},
+	avalugghisui: {tier: "CM"},
+	avaluggalpine: {tier: "CM"},
+	avalange: {tier: "CM"},
+
+	tadbulb: {tier: "CM (NFE)"},
+	bellibolt: {tier: "CM"},
+	bellibrr: {tier: "CM"},
 
 	meowth: {tier: "CM (NFE)"},
 	persian: {tier: "CM"},
 	meowthalola: {tier: "CM (NFE)"},
 	persianalola: {tier: "CM"},
+
+	falinks: {tier: "CM"},
+	falinkshammer: {tier: "Illegal"},
 
 	gothitelleallira: {tier: "CM"},
 

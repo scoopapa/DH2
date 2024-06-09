@@ -19,17 +19,64 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
 	},
-	blukberry: {
-		name: "Bluk Berry",
-		spritenum: 44,
-		isBerry: true,
-		naturalGift: {
-			basePower: 90,
-			type: "Fire",
-		},
-		onEat: false,
+	branchingwand: {
+		name: "Branching Wand",
+		spritenum: 259,
 		num: 165,
-		gen: 3,
+		gen: 6,
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (pokemon.baseSpecies.baseSpecies === 'Braixen' || pokemon.baseSpecies.baseSpecies === 'Delphox') {
+				if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+					target.trySetStatus('brn', source);
+				}
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Braixen') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Braixen') {
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "If Braixen, x1.5 offenses. If Delphox or Braixen, inflict burn on a super effective move.",
+		rating: 0,
+	},
+	spikedjacket: {
+		name: "Spiked Jacket",
+		spritenum: 213,
+		num: 165,
+		gen: 6,
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const spikes = side.sideConditions['spikes'];
+			if (target.baseSpecies.baseSpecies === 'Quilladin' || target.baseSpecies.baseSpecies === 'Chesnaught') {
+				if (!spikes || spikes.layers < 3) {
+					if (target.getMoveHitData(move).typeMod > 0) {
+						this.add('-activate', target, 'item: Spiked Jacket');
+						side.addSideCondition('spikes', target);
+					}
+				}
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Quilladin') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Quilladin') {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught or Quilladin, set a layer of Spikes when hit super effectively.",
 		rating: 0,
 	},
 	watmelberry: {
@@ -54,6 +101,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
+	},
+	fuelcell: {
+		name: "Fuel Cell",
+		shortDesc: "User will gain an omniboost if they must recharge. Consumable.",
+		spritenum: 272,
+		fling: {
+			basePower: 100,
+		},
+		//activation coded in conditions.ts
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		num: 282,
+	},
+	newtonsapple: {
+		name: "Newton's Apple",
+		shortDesc: "Extends Gravity by 3 turns.",
+		spritenum: 711,
+		fling: {
+			basePower: 20,
+		},
+		num: 282,
 	},
 	magneticsoles: {
 		name: "Magnetic Soles",

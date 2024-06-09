@@ -966,9 +966,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Speed Boost", H: "Dodge"},
 	},
+	whismur: {
+		inherit: true,
+		baseStats: {hp: 64, atk: 30, def: 23, spa: 72, spd: 23, spe: 28},
+		abilities: {0: "Soundproof", 1: "Cacophony", H: "Rattled"},
+	},
+	loudred: {
+		inherit: true,
+		baseStats: {hp: 84, atk: 50, def: 43, spa: 92, spd: 43, spe: 48},
+		abilities: {0: "Soundproof", 1: "Cacophony", H: "Scrappy"},
+	},
 	exploud: {
 		inherit: true,
 		baseStats: {hp: 104, atk: 70, def: 63, spa: 112, spd: 73, spe: 68},
+		abilities: {0: "Soundproof", 1: "Cacophony", H: "Scrappy"},
 	},
 	hariyama: {
 		inherit: true,
@@ -1463,6 +1474,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	chatot: {
 		inherit: true,
 		baseStats: {hp: 86, atk: 65, def: 75, spa: 92, spd: 72, spe: 101},
+		abilities: {0: "Keen Eye", 1: "Cacophony", H: "Big Pecks"},
 	},
 	lucario: {
 		inherit: true,
@@ -2172,22 +2184,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	genesectdouse: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 109},
+		baseStats: {hp: 81, atk: 125, def: 105, spa: 125, spd: 105, spe: 109},
 		abilities: {0: "Water Absorb"},
 	},
 	genesectshock: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 115, def: 95, spa: 115, spd: 95, spe: 129},
+		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 129},
 		abilities: {0: "Motor Drive"},
 	},
 	genesectburn: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 115, def: 110, spa: 115, spd: 110, spe: 99},
+		baseStats: {hp: 81, atk: 120, def: 115, spa: 120, spd: 115, spe: 99},
 		abilities: {0: "Flash Fire"},
 	},
 	genesectchill: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 125, def: 95, spa: 125, spd: 95, spe: 109},
+		baseStats: {hp: 81, atk: 135, def: 95, spa: 135, spd: 95, spe: 109},
 		abilities: {0: "Refrigerate"},
 	},
 
@@ -2560,7 +2572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	tsareena: {
 		inherit: true,
-		abilities: {0: "Striker", 1: "Queenly Majesty", H: "Sweet Veil"},
+		abilities: {0: "Leaf Guard", 1: "Queenly Majesty", H: "Striker"},
 	},
 	comfey: {
 		inherit: true,
@@ -2615,7 +2627,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Bug Memory",
 		changesFrom: "Silvally",
 	},
 	silvallydark: {
@@ -2631,7 +2642,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Dark Memory",
 		changesFrom: "Silvally",
 	},
 	silvallydragon: {
@@ -2647,7 +2657,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Dragon Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyelectric: {
@@ -2663,7 +2672,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Electric Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyfairy: {
@@ -2679,7 +2687,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Fairy Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyfighting: {
@@ -2695,7 +2702,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Fighting Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyfire: {
@@ -2711,7 +2717,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Fire Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyflying: {
@@ -2727,7 +2732,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Flying Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyghost: {
@@ -2743,7 +2747,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Ghost Memory",
 		changesFrom: "Silvally",
 	},
 	silvallygrass: {
@@ -2759,7 +2762,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Grass Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyground: {
@@ -2775,7 +2777,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Ground Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyice: {
@@ -2791,7 +2792,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Ice Memory",
 		changesFrom: "Silvally",
 	},
 	silvallypoison: {
@@ -2807,7 +2807,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Poison Memory",
 		changesFrom: "Silvally",
 	},
 	silvallypsychic: {
@@ -2823,7 +2822,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Psychic Memory",
 		changesFrom: "Silvally",
 	},
 	silvallyrock: {
@@ -2839,7 +2837,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Rock Memory",
 		changesFrom: "Silvally",
 	},
 	silvallysteel: {
@@ -2855,7 +2852,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Steel Memory",
 		changesFrom: "Silvally",
 	},
 	silvallywater: {
@@ -2871,7 +2867,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		//requiredItem: "Water Memory",
 		changesFrom: "Silvally",
 	},
 	minior: {
