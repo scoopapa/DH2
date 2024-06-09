@@ -101,7 +101,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		sideCondition: 'convertflareon',
 		condition: {
-			onUpdate(pokemon) {
+			onAfterHit(pokemon) {
 				if (pokemon.species.baseSpecies === 'Porygon') {
 				this.add('-start', pokemon, 'typechange', 'Fire');
 				this.add('-start', pokemon, 'typeadd', 'Flying');
