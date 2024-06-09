@@ -102,4 +102,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpD when hit by Ice.",
 		rating: 4,
 	},
+	sedimentary: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('Sedimentary boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('Sedimentary boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Sedimentary",
+		shortDesc: "This Pokemon's Bug-type moves have 1.5x power in Rain.",
+	},
 };
