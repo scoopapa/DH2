@@ -251,12 +251,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "Sets Electric Terrain if no terrains are active.",
+		shortDesc: "Sets Electric Terrain if no terrains are active. 1.5x power in Electric Terrain",
 		name: "Psyblade",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: null,
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('electricterrain')) {
+				this.debug('psyblade electric terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
 		self: {
 			onHit(source) {
 				if (this.field.terrain) return;
