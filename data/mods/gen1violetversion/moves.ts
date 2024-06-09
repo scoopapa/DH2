@@ -101,7 +101,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		sideCondition: 'convertflareon',
 		condition: {
-			onSideStart(side, target, source) {
+			onHit(side, target, source) {
 				//if (target.species.baseSpecies === 'Porygon') {
 				this.add('-start', source, 'typechange', 'Fire');
 				//source.setType(source.getTypes(true).map(type => type === "Fire" ? "???" : type));
