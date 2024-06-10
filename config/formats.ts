@@ -2771,6 +2771,13 @@ export const Formats: FormatList = [
 		// ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
 	// },
 	{
+		name: "[Gen 2] Tera Crystal",
+		desc: ["<b>Tera Crystal</b>- A Gen 2 solomod where the Gen 9 mechanic of Terastallization is added to the game."],
+		mod: 'gen2teracrystal',
+		ruleset: ['Standard', 'Data Mod', 'Can Terastal'],
+		banlist: ['Uber'],
+	},
+	{
 		name: "[Gen 8] The 3-3-1 Typechart",
 		desc: [
 			"<b>The 3-3-1 Typechart</b>: A solomod that gives every type 3 weaknesses, 3 resistances, and 1 immunity.",
