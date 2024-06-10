@@ -22478,6 +22478,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1},
 		name: "Wonder Guard",
+		shortDesc: "This Pokemon can only be damaged by supereffective moves and indirect damage. Shedinja's HP isn't hardcoded.",
 		rating: 5,
 		num: 25,
 	},

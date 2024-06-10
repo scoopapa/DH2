@@ -90,9 +90,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tatsugiri").learnset.aurasphere = ["9L1"];
 		this.modData("Learnsets", "screamtail").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "screamtail").learnset.nastyplot = ["9L1"];
-		this.modData("Learnsets", "screamtail").learnset.snarl = ["9L1"];
 		this.modData("Learnsets", "screamtail").learnset.taunt = ["9L1"];
 		this.modData("Learnsets", "screamtail").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.poisonjab = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "screamtail").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "brutebonnet").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "brutebonnet").learnset.gunkshot = ["9L1"];
 		this.modData("Learnsets", "brutebonnet").learnset.sludgebomb = ["9L1"];
@@ -143,10 +148,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ironleaves").learnset.bitterblade = ["9L1"];
 		this.modData("Learnsets", "ironleaves").learnset.psychic = ["9L1"];
 		this.modData("Learnsets", "ironleaves").learnset.psychocut = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.hornleech = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.powerwhip = ["9L1"];
 		this.modData("Learnsets", "ironthorns").learnset.flamethrower = ["9L1"];
 		this.modData("Learnsets", "ironthorns").learnset.risingvoltage = ["9L1"];
 		this.modData("Learnsets", "kingler").learnset.meteormash = ["9L1"];
-		this.modData("Learnsets", "kingler").learnset.closecombat = ["9L1"];
 		this.modData("Learnsets", "coalossal").learnset.sludgebomb = ["9L1"];
 		this.modData("Learnsets", "drednaw").learnset.stoneaxe = ["9L1"];
 		this.modData("Learnsets", "drednaw").learnset.brickbreak = ["9L1"];
@@ -183,6 +189,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "toedscruel").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "gastrodon").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "gastrodon").learnset.knockoff = ["9L1"];
+		delete this.modData('Learnsets', 'darumakagalar').learnset.freezedry;
+		delete this.modData('Learnsets', 'kingler').learnset.brickbreak;
+		delete this.modData('Learnsets', 'kingler').learnset.rocksmash;
+		delete this.modData('Learnsets', 'kingler').learnset.superpower;
+		delete this.modData('Learnsets', 'kingler').learnset.hammerarm;
+		delete this.modData('Learnsets', 'krabby').learnset.brickbreak;
+		delete this.modData('Learnsets', 'krabby').learnset.rocksmash;
+		delete this.modData('Learnsets', 'krabby').learnset.superpower;
+		delete this.modData('Learnsets', 'krabby').learnset.hammerarm;
 	},
 	actions: {
 		inherit: true,

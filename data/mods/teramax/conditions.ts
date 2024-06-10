@@ -19,8 +19,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Mold Breaker');
 						break;
 					case 'Blastoise':
-						pokemon.setAbility('bulletproof', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Bulletproof');
+						pokemon.setAbility('stamina', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Stamina');
 						break;
 					case 'Butterfree':
 						pokemon.setAbility('magicbounce', pokemon, true);
@@ -95,8 +95,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Earth Eater');
 						break;
 					case 'Appletun':
-						pokemon.setAbility('grassysurge', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Grassy Surge');
+						pokemon.setAbility('marvelscale', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Marvel Scale');
 						break;
 					case 'Flapple':
 						pokemon.setAbility('tintedlens', pokemon, true);
@@ -127,8 +127,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Well-Baked Body');
 						break;
 					case 'Copperajah':
-						pokemon.setAbility('stamina', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Stamina');
+						pokemon.setAbility('bulletproof', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Bulletproof');
 						break;
 					case 'Duraludon':
 						pokemon.setAbility('pressure', pokemon, true);
@@ -182,8 +182,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onDragOutPriority: 2,
 		onDragOut(pokemon) {
-			this.add('-block', pokemon, 'Dynamax');
-			return null;
+			if (!pokemon.gigantamax) {
+				this.add('-block', pokemon, 'Dynamax');
+				return null;
+			}
 		},
 		onResidualPriority: -100,
 		onResidual(pokemon) {

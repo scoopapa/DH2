@@ -47641,7 +47641,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "-1 evasion; clears terrain and hazards on both sides. OHKOs Flying-types.",
+		shortDesc: "-1 evasion; clears terrain and hazards. OHKOs Flying-types.",
 		name: "Defog",
 		pp: 15,
 		priority: 0,
@@ -105359,13 +105359,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Clever",
 	},
-	sketch: {
+	skatch: {
 		num: 166,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Uses the last move used in battle. Usually goes first.",
-		name: "Sketch",
+		name: "Skatch",
 		pp: 20,
 		priority: 1,
 		flags: {
