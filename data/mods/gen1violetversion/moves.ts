@@ -162,7 +162,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.id === 'disable') {
 					const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 					this.effectState.move = moveSlot.id; 
-					target.timesAttacked = 500; 
+					for (const pokemon of target.side.pokemon) {	
+						pokemon.timesAttacked = 0
+					}
+					target.timesAttacked = 500
 					if (moveSlot.id === this.effectState.move) {
 						this.add('-start', target, 'Disable', moveSlot.move)
 					}
