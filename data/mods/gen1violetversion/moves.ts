@@ -89,8 +89,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		onHit(target, source, move) {
-			if (target.species.name === 'Moltres') {
-			source.side.addSideCondition('convertmoltres')
+			source.side.removeSideCondition('convertmoltres')
+			source.side.addSideCondition('convertaerodactyl')
+			switch (target.species.name) {
+				case 'Moltres':
+					source.side.addSideCondition('convertmoltres')
+					break;
+				case 'Aerodactyl':
+					source.side.addSideCondition('convertaerodactyl')
+					break;
 			}
 		},
 	},
@@ -107,6 +114,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-start', pokemon, 'typechange', 'Fire');
 					this.add('-start', pokemon, 'typeadd', 'Flying');
 					pokemon.setType(['Fire','Flying']);
+					}
+				}
+			},
+		},
+	},
+	convertaerodactyl: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertaerodactyl',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Rock');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Rock','Flying']);
 					}
 				}
 			},
