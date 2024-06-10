@@ -222,7 +222,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || source.volatiles['doodle']) {
 				return false;
 			}
-			for (const moveid in target.moveSlots) {
+			if (move.isZ || move.isMax) return false;
 				const copiedmove1 = target.moveSlots[0];
 				const copiedmove2 = target.moveSlots[1];
 				const copiedmove3 = target.moveSlots[2];
@@ -267,7 +267,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					used: false,
 					virtual: true,
 				};
-			}
 			source.addVolatile('doodle');
 			this.add('-start', source, 'Doodle', move.name);
 		},
