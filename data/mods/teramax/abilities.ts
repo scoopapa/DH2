@@ -1,11 +1,12 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zenmode: {
-		onBeforeMovePriority: 9,
-		onBeforeMove(pokemon, target, move) {
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
 			if (move.category === 'Special' && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				this.add('-activate', pokemon, 'ability: Zen Mode');
 				pokemon.addVolatile('zenmode');
 			}
 		},
@@ -25,7 +26,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
-		shortDesc: "(Partially functional placeholder) This Pokemon transforms at the start of the turn if it selects a special move.",
+		shortDesc: "This Pokemon transforms at the start of the turn if it selects a special move.",
 		rating: 3,
 		num: 161,
 	},

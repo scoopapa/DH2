@@ -26,7 +26,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 6,
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (pokemon.baseSpecies.baseSpecies === 'Braixen' || pokemon.baseSpecies.baseSpecies === 'Delphox') {
+			if (source.baseSpecies.baseSpecies === 'Braixen' || source.baseSpecies.baseSpecies === 'Delphox') {
 				if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
 					target.trySetStatus('brn', source);
 				}
@@ -45,6 +45,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "If Braixen, x1.5 offenses. If Delphox or Braixen, inflict burn on a super effective move.",
+		itemUser: ["Braixen", "Delphox"],
 		rating: 0,
 	},
 	spikedjacket: {
@@ -76,7 +77,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught or Quilladin, set a layer of Spikes when hit super effectively.",
+		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught/Quilladin: +layer of Spikes when hit for SE damage.",
+		itemUser: ["Quilladin", "Chesnaught"],
 		rating: 0,
 	},
 	watmelberry: {

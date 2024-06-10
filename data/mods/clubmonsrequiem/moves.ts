@@ -594,6 +594,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 		},
+		shortDesc: "Power increases when used on consecutive turns. Power resets if not used for more than 1 turn.",
 		secondary: null,
 		target: "normal",
 		type: "Normal",

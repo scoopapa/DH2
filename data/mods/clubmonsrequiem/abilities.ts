@@ -77,55 +77,57 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	magician: {
    	onStart(pokemon, move) {
-      	const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
-         if (!target || !pokemon.m.previousPartner) return;
-         const previousPartner = pokemon.m.previousPartner;
-
-         const yourItem = target.takeItem(pokemon);
-         const myItem = previousPartner.takeItem();
-         if (target.item || previousPartner.item || (!yourItem && !myItem)) {
-         	if (yourItem) target.item = yourItem.id;
-            if (myItem) previousPartner.item = myItem.id;
-            return;
-         } // from Trick: canceling out if either item can't be swapped
-         if (
-            (myItem && !this.singleEvent('TakeItem', myItem, previousPartner.itemState, target, previousPartner, move, myItem)) ||
-            (yourItem && !this.singleEvent('TakeItem', yourItem, target.itemState, previousPartner, target, move, yourItem))
-         ) {
-            if (yourItem) target.item = yourItem.id;
-            if (myItem) previousPartner.item = myItem.id;
-                return;
-         }
-			if (!myItem.id && !yourItem.id) {
-				return;
-			} else {
-				this.add('-ability', pokemon, 'Magician');
-				this.add('-activate', previousPartner, 'move: Trick', '[of] ' + target); // I don't know exactly what this display looks like but I think it should still be Trick
-			}
-			if (myItem) {
-				if (!myItem.id && !yourItem.id) return;
-				if (!yourItem.id) {
-					this.add('-message', `${target.name} was magically given ${previousPartner.name}'s ${myItem}!`);
-				} else if (!myItem.id) {
-					this.add('-message', `${previousPartner.name} was magically given ${target.name}'s ${yourItem}!`);
+			if (pokemon.hp === pokemon.maxhp) {
+	      	const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+	         if (!target || !pokemon.m.previousPartner) return;
+	         const previousPartner = pokemon.m.previousPartner;
+	
+	         const yourItem = target.takeItem(pokemon);
+	         const myItem = previousPartner.takeItem();
+	         if (target.item || previousPartner.item || (!yourItem && !myItem)) {
+	         	if (yourItem) target.item = yourItem.id;
+	            if (myItem) previousPartner.item = myItem.id;
+	            return;
+	         } // from Trick: canceling out if either item can't be swapped
+	         if (
+	            (myItem && !this.singleEvent('TakeItem', myItem, previousPartner.itemState, target, previousPartner, move, myItem)) ||
+	            (yourItem && !this.singleEvent('TakeItem', yourItem, target.itemState, previousPartner, target, move, yourItem))
+	         ) {
+	            if (yourItem) target.item = yourItem.id;
+	            if (myItem) previousPartner.item = myItem.id;
+	                return;
+	         }
+				if (!myItem.id && !yourItem.id) {
+					return;
 				} else {
-					this.add('-message', `${previousPartner.name} was magically given ${target.name}'s ${yourItem}, and ${target.name} received ${previousPartner.name}'s ${myItem}!`);
+					this.add('-ability', pokemon, 'Magician');
+					this.add('-activate', previousPartner, 'move: Trick', '[of] ' + target); // I don't know exactly what this display looks like but I think it should still be Trick
 				}
-				this.add('-item', pokemon, yourItem, '[silent]', '[from] ability: Magician', '[of] ' + target);
-				this.add('-enditem', target, yourItem, '[silent]', '[from] ability: Magician', '[of] ' + pokemon);
-				target.setItem(myItem);
+				if (myItem) {
+					if (!myItem.id && !yourItem.id) return;
+					if (!yourItem.id) {
+						this.add('-message', `${target.name} was magically given ${previousPartner.name}'s ${myItem}!`);
+					} else if (!myItem.id) {
+						this.add('-message', `${previousPartner.name} was magically given ${target.name}'s ${yourItem}!`);
+					} else {
+						this.add('-message', `${previousPartner.name} was magically given ${target.name}'s ${yourItem}, and ${target.name} received ${previousPartner.name}'s ${myItem}!`);
+					}
+					this.add('-item', pokemon, yourItem, '[silent]', '[from] ability: Magician', '[of] ' + target);
+					this.add('-enditem', target, yourItem, '[silent]', '[from] ability: Magician', '[of] ' + pokemon);
+					target.setItem(myItem);
+				}
+	
+	         if (yourItem) {
+	            previousPartner.item = yourItem; // not safe to use setItem for Pokémon not on the field
+	            this.add('-item', previousPartner, yourItem, '[silent]', '[from] ability: Magician', '[of] ' + pokemon);
+	         } else {
+	            this.add('-enditem', previousPartner, myItem, '[silent]', '[from] ability: Magician', '[of] ' + pokemon);
+	         }
 			}
-
-         if (yourItem) {
-            previousPartner.item = yourItem; // not safe to use setItem for Pokémon not on the field
-            this.add('-item', previousPartner, yourItem, '[silent]', '[from] ability: Magician', '[of] ' + pokemon);
-         } else {
-            this.add('-enditem', previousPartner, myItem, '[silent]', '[from] ability: Magician', '[of] ' + pokemon);
-         }
 		},
       flags: {},
       name: "Magician",
-		shortDesc: "On entry, the opponent's item is swapped with that of the previous Pokemon.",
+		shortDesc: "On entry, the opponent's item is swapped with that of the previous Pokemon if the user has full HP.",
       rating: 5, // god-tier
       num: 170,
    },
@@ -146,7 +148,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {},
 		name: "Territorial",
-		shortDesc: "User deals 1.5x more damage to opponents hurt this turn.",
+		shortDesc: "User deals 1.5x more damage to opponents already hurt this turn.",
 		rating: 3.5,
 		num: 276,
 	},
@@ -248,6 +250,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		        this.add('-message', `The winds are howling!`);
     		}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
 		flags: {},
 		name: "Pale Winds",
 		shortDesc: "Hail damage is doubled on affected targets.",
@@ -281,7 +286,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: {breakable: 1},
 		name: "Condensed Snow",
-		shortDesc: "Super effective moves do 0.75x. All moves do 0.75x in Hail.",
+		shortDesc: "Super effective moves do 0.75x. All moves do 0.75x in Hail. These multipliers stack.",
 		rating: 3,
 		num: 111,
 	},

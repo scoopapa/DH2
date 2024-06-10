@@ -1,17 +1,11 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	ragefist: {
-		num: 889,
-		shortDesc: "+25 BP for each time user was hit. Recoil = BP.",
-		accuracy: 100,
-		basePower: 50,
+		inherit: true,
 		basePowerCallback(pokemon) {
 			return Math.min(350, 50 + 25 * pokemon.timesAttacked);
 		},
-		category: "Physical",
-		name: "Rage Fist",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and does not reset upon switching out or fainting. Each hit of a multi-hit attack is counted, but confusion damage is not counted. After attacking, this Pokemon takes damage, depending on the Basepower of the move.",
+		shortDesc: "+25 BP for each time user was hit. Recoil = BP.",
 		self: {
 			onHit(pokemon) {
 				let bp = Math.min(350, 50 + 25 * pokemon.timesAttacked);
@@ -19,20 +13,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-message', `Rage Fist currently has a BP of ${bp}!`);
 			},
 		},
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
 	},
 	decorate: {
-		num: 777,
+		inherit: true,
+		desc: "The user swaps all its stat stage changes with the target.",
 		shortDesc: "Swaps all stat changes with target.",
-		isNonstandard: null,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Decorate",
 		pp: 10,
-		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1, allyanim: 1},
 		onHit(target, source) {
 			const targetBoosts: SparseBoostsTable = {};
@@ -46,71 +32,38 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			source.setBoost(targetBoosts);
 			this.add('-swapboost', source, target, '[from] move: Decorate');
 		},
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		zMove: {effect: 'crit2'},
-		contestType: "Clever",
+		boosts: null,
 	},
 	appleacid: {
-		num: 787,
-		shortDesc: "20% poison chance. Recovers 50% dmg dealt.",
+		inherit: true,
 		accuracy: 90,
 		basePower: 80,
-		category: "Special",
-		name: "Apple Acid",
+		desc: "Has a 20% chance to poison the target. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "20% poison chance. Recovers 50% dmg dealt.",
 		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
-		thawsTarget: true,
 		secondary: {
 			chance: 20,
 			status: 'psn',
 		},
 		target: "allAdjacentFoes",
-		type: "Grass",
 	},
 	gravapple: {
-		num: 788,
+		inherit: true,
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Power is multiplied by 1.5 during Gravity's effect. If this move is resisted, it sets Gravity.",
 		shortDesc: "-1 Def. Gravity: 1.5x power. Sets Gravity if resisted.",
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		name: "Grav Apple",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onBasePower(basePower) {
-			if (this.field.getPseudoWeather('gravity')) {
-				return this.chainModify(1.5);
-			}
-		},
 		onHit(target, source, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
 				this.field.addPseudoWeather('gravity', source, source.move);
 			}
 		},
-		secondary: {
-			chance: 100,
-			boosts: {
-				def: -1,
-			},
-		},
-		target: "normal",
-		type: "Grass",
 	},
 	noretreat: {
-		num: 748,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		inherit: true,
+		desc: "Once per switch-in, raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage. Fails if the user has already used this move.",
 		shortDesc: "+1 to all stats. Once per switch-in.",
-		name: "No Retreat",
-		pp: 5,
-		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'noretreat',
 		onTry(source, target, move) {
 			if (source.volatiles['noretreat']) return false;
 		},
@@ -126,20 +79,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			spd: 1,
 			spe: 1,
 		},
-		secondary: null,
-		target: "self",
-		type: "Fighting",
 	},
 	spicyextract: {
-		num: 858,
+		inherit: true,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
 		shortDesc: "100% chance to lower the target's Defense by 1.",
 		viable: true,
-		name: "Spicy Extract",
-		pp: 15,
-		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
 			chance: 100,
@@ -147,41 +95,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				def: -1,
 			},
 		},
-		target: "normal",
-		type: "Grass",
-		contestType: "Cute",
+		boosts: null,
 	},
 	hyperdrill: {
-		num: 887,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
+		inherit: true,
+		desc: "The user ignores the resistances to this move.",
 		shortDesc: "Ignores resistances.",
-		name: "Hyper Drill",
-		pp: 5,
-		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel' || type === 'Rock') return 0;
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Clever",
 	},
 	destinybond: {
-		num: 194,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Destiny Bond",
-		pp: 5,
-		priority: 0,
-		flags: {bypasssub: 1, noassist: 1, failcopycat: 1},
-		volatileStatus: 'destinybond',
-		onPrepareHit(pokemon) {
-			return !pokemon.removeVolatile('destinybond');
-		},
+		inherit: true,
 		condition: {
 			onStart(pokemon) {
 				this.add('-singlemove', pokemon, 'Destiny Bond');
@@ -203,37 +129,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.removeVolatile('destinybond');
 			},
 		},
-		secondary: null,
-		target: "self",
-		type: "Ghost",
-		zMove: {effect: 'redirect'},
-		contestType: "Clever",
 	},
 	terablast: {
-		num: 851,
-		accuracy: 100,
-		basePower: 80,
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.terastallized === 'Stellar') {
-				return 100;
-			}
-			return 80;
-		},
-		category: "Special",
-		name: "Tera Blast",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, mustpressure: 1},
-		onPrepareHit(target, source, move) {
-			if (source.terastallized) {
-				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
-			}
-		},
-		onModifyType(move, pokemon, target) {
-			if (pokemon.terastallized) {
-				move.type = pokemon.teraType;
-			}
-		},
+		inherit: true,
+		desc: "If the user is Terastallized, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes, and this move's type becomes the same as the user's Tera Type. In addition, if the user's Tera Type is Stellar, this move has 100 power, is super effective against Terastallized targets and neutral against other targets, and lowers the user's Attack and Special Attack by 1 stage, unless the target is Dynamax or Gigantamax.",
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 				move.category = 'Physical';
@@ -242,41 +141,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.self = {boosts: {atk: -1, spa: -1}};
 			}
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
 	},
 	psyblade: {
-		num: 875,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		shortDesc: "Sets Electric Terrain if no terrains are active. 1.5x power in Electric Terrain",
-		name: "Psyblade",
-		pp: 15,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		secondary: null,
-		onBasePower(basePower, source) {
-			if (this.field.isTerrain('electricterrain')) {
-				this.debug('psyblade electric terrain boost');
-				return this.chainModify(1.5);
-			}
-		},
+		inherit: true,
+		desc: "If the current terrain is Electric Terrain, this move's power is multiplied by 1.5. If there is no terrain active, this move will set Electric Terrain.",
+		shortDesc: "No terrain: +Electric Terrain. 1.5x power in terrain.",
 		self: {
 			onHit(source) {
 				if (this.field.terrain) return;
 				this.field.setTerrain('electricterrain');
 			},
 		},
-		target: "normal",
-		type: "Psychic",
 	},
 	tarshot: {
 		num: 749,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		desc: "Has a 30% chance to burn the target. This move nullifies all abilities that mitigate the effects of Fire-type damage or the burn status (Flash Fire, Water Bubble, Thermal Exchange, Water Veil, Thick Fat, Steam Engine, Well-Baked Body, Heatproof, Purifying Salt).",
 		shortDesc: "30% chance to burn. Negates certain immunity.",
 		name: "Tar Shot",
 		pp: 10,
@@ -340,6 +222,51 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || source.volatiles['doodle']) {
 				return false;
 			}
+			/*if (move.isZ || move.isMax) return false;
+			const copiedmove1 = target.moveSlots[0];
+			const copiedmove2 = target.moveSlots[1];
+			const copiedmove3 = target.moveSlots[2];
+			const copiedmove4 = target.moveSlots[3];
+			source.moveSlots[0] = {
+				move: copiedmove1.name,
+				id: copiedmove1.id,
+				pp: copiedmove1.pp,
+				maxpp: copiedmove1.pp,
+				target: copiedmove1.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[1] = {
+				move: copiedmove2.name,
+				id: copiedmove2.id,
+				pp: copiedmove2.pp,
+				maxpp: copiedmove2.pp,
+				target: copiedmove2.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[2] = {
+				move: copiedmove3.name,
+				id: copiedmove3.id,
+				pp: copiedmove3.pp,
+				maxpp: copiedmove3.pp,
+				target: copiedmove3.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[3] = {
+				move: copiedmove4.name,
+				id: copiedmove4.id,
+				pp: copiedmove4.pp,
+				maxpp: copiedmove4.pp,
+				target: copiedmove4.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};*/
 			for (const moveid in target.moveSlots) {
 				const copiedmove = target.moveSlots[moveid];
 				source.moveSlots[moveid] = {
@@ -362,9 +289,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},
 	grassknot: {
-		num: 447,
-		accuracy: 100,
-		basePower: 0,
+		inherit: true,
+		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
 		basePowerCallback(pokemon, target) {
 			const targetWeight = target.getWeight();
 			let bp;
@@ -386,22 +312,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.debug('BP: ' + bp);
 			return bp;
 		},
-		category: "Special",
-		name: "Grass Knot",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
-		secondary: null,
-		target: "normal",
-		type: "Grass",
-		zMove: {basePower: 160},
-		maxMove: {basePower: 130},
-		contestType: "Cute",
+		onTryHit() {},
 	},
 	lowkick: {
-		num: 67,
-		accuracy: 100,
-		basePower: 0,
+		inherit: true,
+		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
 		basePowerCallback(pokemon, target) {
 			const targetWeight = target.getWeight();
 			let bp;
@@ -423,21 +338,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.debug('BP: ' + bp);
 			return bp;
 		},
-		category: "Physical",
-		name: "Low Kick",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-		zMove: {basePower: 160},
-		contestType: "Tough",
+		onTryHit() {},
 	},
 	heatcrash: {
-		num: 535,
-		accuracy: 100,
-		basePower: 0,
+		inherit: true,
+		desc: "The power of this move depends on (user's weight / target's weight), rounded down. Power is equal to 120 if the result is 5 or more, 100 if 4, 80 if 3, 60 if 2, and 40 if 1 or less or if the target is Dynamax or Gigantamax. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
 		basePowerCallback(pokemon, target) {
 			const targetWeight = target.getWeight();
 			const pokemonWeight = pokemon.getWeight();
@@ -458,22 +363,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.debug('BP: ' + bp);
 			return bp;
 		},
-		category: "Physical",
-		name: "Heat Crash",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-		zMove: {basePower: 160},
-		maxMove: {basePower: 130},
-		contestType: "Tough",
+		onTryHit() {},
 	},
 	heavyslam: {
-		num: 484,
-		accuracy: 100,
-		basePower: 0,
+		inherit: true,
+		desc: "The power of this move depends on (user's weight / target's weight), rounded down. Power is equal to 120 if the result is 5 or more, 100 if 4, 80 if 3, 60 if 2, and 40 if 1 or less or if the target is Dynamax or Gigantamax. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
 		basePowerCallback(pokemon, target) {
 			const targetWeight = target.getWeight();
 			const pokemonWeight = pokemon.getWeight();
@@ -494,17 +388,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.debug('BP: ' + bp);
 			return bp;
 		},
-		category: "Physical",
-		name: "Heavy Slam",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
-		secondary: null,
-		target: "normal",
-		type: "Steel",
-		zMove: {basePower: 160},
-		maxMove: {basePower: 130},
-		contestType: "Tough",
+		onTryHit() {},
 	},
 
 // Max and GMax Moves
