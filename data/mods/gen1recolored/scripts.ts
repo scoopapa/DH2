@@ -59,9 +59,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'nidoking').learnset.primalcry = ["1L1"];
 		this.modData('Learnsets', 'nidoqueen').learnset.primalcry = ["1L1"];
 		// Other
-		this.modData('Learnsets', 'softboiled').learnset.exeggutor = ["1L1"];
-		this.modData('Learnsets', 'softboiled').learnset.arbok = ["1L1"];
-		this.modData('Learnsets', 'recover').learnset.vaporeon = ["1L1"];
-		this.modData('Learnsets', 'recover').learnset.muk = ["1L1"];
+		this.modData('Learnsets', 'exeggutor').learnset.softboiled = ["1L1"];
+		this.modData('Learnsets', 'arbok').learnset.softboiled = ["1L1"];
+		this.modData('Learnsets', 'vaporeon').learnset.recover = ["1L1"];
+		this.modData('Learnsets', 'muk').learnset.recover = ["1L1"];
 	},
 };
