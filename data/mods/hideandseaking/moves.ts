@@ -11870,12 +11870,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		isNonstandard: "Past",
+		shortDesc: "Raises user’s Sp. Atk and accuracy by 2 stages.",
 		name: "Meditate",
 		pp: 40,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		boosts: {
-			atk: 1,
+			spa: 2,
+			accuracy: 2,
 		},
 		secondary: null,
 		target: "self",
@@ -13894,13 +13896,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
+		shortDesc: "User steals and eats the target's item.",
 		name: "Pluck",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1, metronome: 1},
 		onHit(target, source) {
 			const item = target.getItem();
-			if (source.hp && item.isBerry && target.takeItem(source)) {
+			if (source.hp && target.takeItem(source)) {
 				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Pluck', '[of] ' + source);
 				if (this.singleEvent('Eat', item, null, source, null, null)) {
 					this.runEvent('EatItem', source, null, null, item);
