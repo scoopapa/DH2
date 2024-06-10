@@ -31,6 +31,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ninetales").learnset.nightshade = ["1L1"];
 		// Seadra
 		this.modData("Learnsets", "seadra").learnset.flamethrower = ["1L1"];
+		delete this.modData('Learnsets', 'seadra').learnset.icebeam;
+		delete this.modData('Learnsets', 'seadra').learnset.blizzard;
+		this.modData("Learnsets", "seadra").learnset.fireblast = ["1L1"];
+		delete this.modData('Learnsets', 'horsea').learnset.icebeam;
+		delete this.modData('Learnsets', 'horsea').learnset.blizzard;
 		// Charizard
 		this.modData("Learnsets", "charizard").learnset.razorwind = ["1L1"];
 		// Primal Cry
