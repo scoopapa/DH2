@@ -222,51 +222,64 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || source.volatiles['doodle']) {
 				return false;
 			}
-			if (move.isZ || move.isMax) return false;
-				const copiedmove1 = target.moveSlots[0];
-				const copiedmove2 = target.moveSlots[1];
-				const copiedmove3 = target.moveSlots[2];
-				const copiedmove4 = target.moveSlots[3];
-				source.moveSlots[0] = {
-					move: copiedmove1.name,
-					id: copiedmove1.id,
-					pp: copiedmove1.pp,
-					maxpp: copiedmove1.pp,
-					target: copiedmove1.target,
+			/*if (move.isZ || move.isMax) return false;
+			const copiedmove1 = target.moveSlots[0];
+			const copiedmove2 = target.moveSlots[1];
+			const copiedmove3 = target.moveSlots[2];
+			const copiedmove4 = target.moveSlots[3];
+			source.moveSlots[0] = {
+				move: copiedmove1.name,
+				id: copiedmove1.id,
+				pp: copiedmove1.pp,
+				maxpp: copiedmove1.pp,
+				target: copiedmove1.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[1] = {
+				move: copiedmove2.name,
+				id: copiedmove2.id,
+				pp: copiedmove2.pp,
+				maxpp: copiedmove2.pp,
+				target: copiedmove2.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[2] = {
+				move: copiedmove3.name,
+				id: copiedmove3.id,
+				pp: copiedmove3.pp,
+				maxpp: copiedmove3.pp,
+				target: copiedmove3.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			source.moveSlots[3] = {
+				move: copiedmove4.name,
+				id: copiedmove4.id,
+				pp: copiedmove4.pp,
+				maxpp: copiedmove4.pp,
+				target: copiedmove4.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};*/
+			for (const moveid in target.moveSlots) {
+				const copiedmove = target.moveSlots[moveid];
+				source.moveSlots[moveid] = {
+					move: copiedmove.name,
+					id: copiedmove.id,
+					pp: copiedmove.pp,
+					maxpp: copiedmove.pp,
+					target: copiedmove.target,
 					disabled: false,
 					used: false,
 					virtual: true,
 				};
-				source.moveSlots[1] = {
-					move: copiedmove2.name,
-					id: copiedmove2.id,
-					pp: copiedmove2.pp,
-					maxpp: copiedmove2.pp,
-					target: copiedmove2.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
-				source.moveSlots[2] = {
-					move: copiedmove3.name,
-					id: copiedmove3.id,
-					pp: copiedmove3.pp,
-					maxpp: copiedmove3.pp,
-					target: copiedmove3.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
-				source.moveSlots[3] = {
-					move: copiedmove4.name,
-					id: copiedmove4.id,
-					pp: copiedmove4.pp,
-					maxpp: copiedmove4.pp,
-					target: copiedmove4.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
+			}
 			source.addVolatile('doodle');
 			this.add('-start', source, 'Doodle', move.name);
 		},
