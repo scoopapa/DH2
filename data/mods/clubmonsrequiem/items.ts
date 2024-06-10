@@ -45,6 +45,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "If Braixen, x1.5 offenses. If Delphox or Braixen, inflict burn on a super effective move.",
+		itemUser: ["Braixen", "Delphox"],
 		rating: 0,
 	},
 	spikedjacket: {
@@ -76,7 +77,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught or Quilladin, set a layer of Spikes when hit super effectively.",
+		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught/Quilladin: +layer of Spikes when hit for SE damage.",
+		itemUser: ["Quilladin", "Chesnaught"],
 		rating: 0,
 	},
 	watmelberry: {
