@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		onHit(target, source, move) {
 			source.side.removeSideCondition('convertmoltres')
-			source.side.addSideCondition('convertaerodactyl')
+			source.side.removeSideCondition('convertaerodactyl')
 			switch (target.species.name) {
 				case 'Moltres':
 					source.side.addSideCondition('convertmoltres')
