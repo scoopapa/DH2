@@ -190,7 +190,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "gastrodon").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "gastrodon").learnset.knockoff = ["9L1"];
 		delete this.modData('Learnsets', 'darmanitangalar').learnset.freezedry;
-		delete this.modData('Learnsets', 'darmanitangalar').learnset.freezedry;
+		delete this.modData('Learnsets', 'darumakagalar').learnset.freezedry;
 		delete this.modData('Learnsets', 'kingler').learnset.brickbreak;
 		delete this.modData('Learnsets', 'kingler').learnset.rocksmash;
 		delete this.modData('Learnsets', 'kingler').learnset.superpower;
