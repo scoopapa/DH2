@@ -20,9 +20,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	amaura: {tier: "CM (NFE)"},
 	aurorus: {tier: "CM"},
 
-	torterraunidenfitied: {tier: "CM"},
+	torterraunidentified: {tier: "CM"},
 
-	inkayalola: {tier: "CM"},
+	inkayalola: {tier: "CM (NFE)"},
 	malamaralola: {tier: "CM"},
 
 	cyclonimbus: {tier: "CM"},
