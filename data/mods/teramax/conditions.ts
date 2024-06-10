@@ -186,6 +186,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-block', pokemon, 'Dynamax');
 				return null;
 			}
+			if (pokemon.gigantamax) {
+				pokemon.removeVolatile('dynamax');
+			}
 		},
 		onResidualPriority: -100,
 		onResidual(pokemon) {

@@ -2663,6 +2663,15 @@ export const Formats: FormatList = [
 			return problems;
 		},
 	},
+	{
+		name: "[Gen 1] RBY Recolored",
+		threads: [
+      	`&bullet; <a href="https://docs.google.com/document/d/1KqmnxRzM_v8FOWBM98axtIwA-LWeFEs1CUu2NFIdXwY/edit?usp=sharing">Document</a>`,
+		],
+		mod: 'gen1recolored',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
+	},
 	/*{
 		name: "[Gen 8] Roulettemons The Solomod",
 		desc: `<b>Roulettemons The Solomod</b>: literally roulettemons but a solomod + clean slate micro`,
@@ -2761,6 +2770,13 @@ export const Formats: FormatList = [
 		// mod: "supertypesou",
 		// ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
 	// },
+	{
+		name: "[Gen 2] Tera Crystal",
+		desc: ["<b>Tera Crystal</b>- A Gen 2 solomod where the Gen 9 mechanic of Terastallization is added to the game."],
+		mod: 'gen2teracrystal',
+		ruleset: ['Standard', 'Data Mod', 'Can Terastal'],
+		banlist: ['Uber'],
+	},
 	{
 		name: "[Gen 8] The 3-3-1 Typechart",
 		desc: [

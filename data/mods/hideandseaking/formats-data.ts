@@ -1633,7 +1633,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	shedinja: {
 		inherit: true,
-		tier: "AG",
+		tier: "OU",
 	},
 	whismur: {
 		inherit: true,
@@ -3993,7 +3993,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	melmetal: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	grookey: {
 		inherit: true,
@@ -4329,7 +4329,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regieleki: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	regidrago: {
 		inherit: true,
@@ -4449,7 +4449,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	espathra: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	wiglett: {
 		inherit: true,
@@ -4861,7 +4861,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	terapagos: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	terapagosstellar: {
 		inherit: true,
