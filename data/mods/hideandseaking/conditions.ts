@@ -227,7 +227,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(pokemon, source) {
 			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
-			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 4 : 8;
 		},
 		onResidualOrder: 13,
 		onResidual(pokemon) {

@@ -496,6 +496,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 30,
 		},
 		// implemented in statuses
+		shortDesc: "Holder's partial-trapping moves deal 1/4 max HP per turn instead of 1/8.",
 		num: 544,
 		gen: 5,
 		rating: 1,

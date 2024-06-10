@@ -962,6 +962,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamage(damage, target, source, effect) {
 			if (effect?.effectType === 'Move' && ['mimikyu', 'mimikyutotem'].includes(target.species.id)) {
 				this.add('-activate', target, 'ability: Disguise');
+				this.damage(source.baseMaxhp / 8, source, target);
 				this.effectState.busted = true;
 				return 0;
 			}
@@ -993,13 +994,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
 			breakable: 1, notransform: 1,
 		},
+		shortDesc: "(Mimikyu only) The first hit it takes is blocked, and the attacker takes 1/8 HP damage instead.",
 		name: "Disguise",
 		rating: 3.5,
 		num: 209,
@@ -1911,7 +1912,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	iceface: {
 		onStart(pokemon) {
-			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+			if (this.field.isWeather(['hail']) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -1951,7 +1952,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+			if (this.field.isWeather(['hail']) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -1961,6 +1962,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
 			breakable: 1, notransform: 1,
 		},
+		shortDesc: "If Eiscue, the first physical hit it takes deals 0 damage. Effect is restored in Hail.",
 		name: "Ice Face",
 		rating: 3,
 		num: 248,
@@ -4718,21 +4720,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 33,
 	},
 	symbiosis: {
-		onAllyAfterUseItem(item, pokemon) {
-			if (pokemon.switchFlag) return;
-			const source = this.effectState.target;
-			const myItem = source.takeItem();
-			if (!myItem) return;
-			if (
-				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
-				!pokemon.setItem(myItem)
-			) {
-				source.item = myItem.id;
-				return;
+		onStart(pokemon) {
+			if (!this.field.setTerrain('mistyterrain') && this.field.isTerrain('mistyterrain')) {
+				this.add('-activate', pokemon, 'ability: Symbiosis');
 			}
-			this.add('-activate', source, 'ability: Symbiosis', myItem, '[of] ' + pokemon);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (this.field.isTerrain('mistyterrain')) {
+				this.debug('Symbiosis boost');
+				return this.chainModify([5461, 4096]);
+			}
 		},
 		flags: {},
+		shortDesc: "On switch-in, summons Misty Terrain. During Misty Terrain, Sp. Attack is 1.3333x.",
 		name: "Symbiosis",
 		rating: 0,
 		num: 180,
@@ -5434,6 +5435,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 193,
 	},
 	windpower: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (move.flags['wind']) {
+				source.addVolatile('charge');
+			}
+		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['wind']) {
@@ -5447,6 +5454,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		flags: {},
+		shortDesc: "This Pokemon gains the charge effect when a wind move is used or Tailwind begins.",
 		name: "Wind Power",
 		rating: 1,
 		num: 277,

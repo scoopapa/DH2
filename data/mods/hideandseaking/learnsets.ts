@@ -93399,6 +93399,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			slash: ["9L14"],
 			sleeptalk: ["9M"],
 			solarblade: ["9M"],
+			stealthrock: ["9M"],
 			stoneedge: ["9M", "9L84"],
 			substitute: ["9M"],
 			swordsdance: ["9M", "9L63", "9S0"],
