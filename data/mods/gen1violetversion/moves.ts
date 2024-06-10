@@ -89,17 +89,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		onHit(target, source, move) {
-			if (target.species.name === 'Flareon') {
-			source.side.addSideCondition('convertflareon')
+			if (target.species.name === 'Moltres') {
+			source.side.addSideCondition('convertmoltres')
 			}
 		},
 	},
-	convertflareon: {
+	convertmoltres: {
 		target: "normal",
 		pp: 20,
 		accuracy: true,
 		category: "Status",
-		sideCondition: 'convertflareon',
+		sideCondition: 'convertmoltres',
 		condition: {
 			onUpdate(pokemon) {
 				if (!(pokemon.hasType('Fire') && pokemon.hasType('Flying'))) {
@@ -112,7 +112,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-		// aerodactyl, alakazam, 
+		// aerodactyl, alakazam, arbok, articuno, beedrill, blastoise, butterfree, chansey, charizard, cloyster, dragonite, dugtrio, electabuzz, electrode, exeggutor, flareon, gengar, golbat, golduck, golem, gyarados, 
+	// hypno, jynx, kabutops, machamp, magmar, magneton, mew, muk, nidoqueen, ninetales, parasect, pidgeot, pinsir, poliwrath, porygon, slowbro, snorlax, starmie, tangela, tauros, vileplume, zapdos
 	disable: {
 		accuracy: 100,
 		category: "Status",
@@ -136,7 +137,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.id === 'disable') {
 					const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 					this.effectState.move = moveSlot.id; 
-				/**	this.effectState.target = target; **/
+					this.effectState.target = target; 
 					if (moveSlot.id === this.effectState.move) {
 						this.add('-start', target, 'Disable', moveSlot.move)
 					}
@@ -153,10 +154,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
+					if (pokemon === this.effectstate.target) {
+						if (moveSlot.id === this.effectState.move) {
+							pokemon.disableMove(moveSlot.id);
 						}
 					}
+				}
 			},
 		},
 	},
