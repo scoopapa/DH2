@@ -33,5 +33,25 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "seadra").learnset.flamethrower = ["1L1"];
 		// Charizard
 		this.modData("Learnsets", "charizard").learnset.razorwind = ["1L1"];
+		// Primal Cry
+		this.modData('Learnsets', 'articuno').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'zapdos').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'moltres').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'dodrio').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'pidgeot').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'fearow').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'farfetchd').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'aerodactyl').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'rhydon').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'lapras').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'dragonite').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'venusaur').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'blastoise').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'charizard').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'marowak').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'kangaskhan').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'machamp').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'nidoking').learnset.primalcry = ["1L1"];
+		this.modData('Learnsets', 'nidoqueen').learnset.primalcry = ["1L1"];
 	},
 };
