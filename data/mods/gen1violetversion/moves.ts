@@ -162,7 +162,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.id === 'disable') {
 					const moveSlot = this.sample(target.moveSlots.filter(ms => ms.pp > 0));
 					this.effectState.move = moveSlot.id; 
-					this.effectState.target = target.species.id; 
+					target.timesAttacked = 500; 
 					if (moveSlot.id === this.effectState.move) {
 						this.add('-start', target, 'Disable', moveSlot.move)
 					}
@@ -178,7 +178,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onDisableMove(pokemon) {
-				if (pokemon.species.baseSpecies === 'Butterfree') {
+				if (pokemon.timesAttacked >= 500) {
 					for (const moveSlot of pokemon.moveSlots) {
 						if (moveSlot.id === this.effectState.move) {
 							pokemon.disableMove(moveSlot.id);
