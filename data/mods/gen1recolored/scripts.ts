@@ -63,5 +63,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'arbok').learnset.softboiled = ["1L1"];
 		this.modData('Learnsets', 'vaporeon').learnset.recover = ["1L1"];
 		this.modData('Learnsets', 'muk').learnset.recover = ["1L1"];
+		this.modData('Learnsets', 'muk').learnset.nastygoo = ["1L1"];
+		delete this.modData('Learnsets', 'muk').learnset.explosion;
+		delete this.modData('Learnsets', 'grimer').learnset.explosion;
 	},
 };
