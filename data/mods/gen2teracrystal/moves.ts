@@ -34,7 +34,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.terastallized === 'Normal' || pokemon.terastallized === 'Fighting' || pokemon.terastallized === 'Flying' ||
 				  pokemon.terastallized === 'Ground' || pokemon.terastallized === 'Rock' || pokemon.terastallized === 'Bug' ||
 				  pokemon.terastallized === 'Ghost' || pokemon.terastallized === 'Poison' || pokemon.terastallized === 'Steel') {
-        		move.category = 'Physical';
 				move.type = pokemon.teraType;
       	}
 			if (pokemon.terastallized === 'Stellar') {
