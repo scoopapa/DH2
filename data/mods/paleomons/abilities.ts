@@ -12,6 +12,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(target) {
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
 				this.add('-start', target, 'First Flight', '[silent]');
+				this.add('-message', `${target.name} has flown for the first time!`);
 			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
@@ -21,6 +22,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(target) {
 				this.add('-end', target, 'First Flight', '[silent]');
+				this.add('-message', `${target.name} crash-landed!`);
 			},
 		},
 	},
@@ -106,14 +108,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sedimentary: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
 				this.debug('Sedimentary boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
 				this.debug('Sedimentary boost');
 				return this.chainModify(1.5);
 			}
