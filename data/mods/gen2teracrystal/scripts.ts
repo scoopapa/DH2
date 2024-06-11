@@ -468,7 +468,7 @@ export const Scripts: ModdedBattleScriptsData = {
       
 			// Tera
 			if (source.terastallized === 'Stellar') {
-        if (!pokemon.stellarBoostedTypes.includes(type)) {
+        if (!source.stellarBoostedTypes.includes(type)) {
 			    if (type !== '???' && source.hasType(type)) {
 					  damage *= 1.333;
           } else {
