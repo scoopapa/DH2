@@ -25,9 +25,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},*/
 		onModifyMove(move, pokemon) {
-  		/*if (pokemon.terastallized === 'Fire' || pokemon.terastallized === 'Water' || pokemon.terastallized === 'Grass' ||
+  			if (pokemon.terastallized === 'Fire' || pokemon.terastallized === 'Water' || pokemon.terastallized === 'Grass' ||
 			  pokemon.terastallized === 'Electric' || pokemon.terastallized === 'Dark' || pokemon.terastallized === 'Psychic' ||
-			  pokemon.terastallized === 'Dragon') { 
+			  pokemon.terastallized === 'Dragon' || pokemon.terastallized === 'Ice') { 
         		move.category = 'Special';
 				move.type = pokemon.teraType;
       	}
@@ -36,11 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				  pokemon.terastallized === 'Ghost' || pokemon.terastallized === 'Poison' || pokemon.terastallized === 'Steel') {
         		move.category = 'Physical';
 				move.type = pokemon.teraType;
-      	}*/
-			if (pokemon.terastallized === 'Ice') {
-				move.category = 'Special';
-				move.type = 'Ice';
-			}
+      	}
 			if (pokemon.terastallized === 'Stellar') {
 	  			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
 	  				move.category = 'Special';
