@@ -17,7 +17,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (type === 'Ground') return false;
 			},
 			onDamagingHit(damage, target, source, move) {
-				source.removeVolatile('firstflight');
+				target.removeVolatile('firstflight');
 			},
 			onEnd(target) {
 				this.add('-end', target, 'First Flight', '[silent]');
@@ -67,6 +67,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	nightwatch: {
+		name: "Night Watch",
 		shortDesc: "This Pokemon's attacks have 1.5x power against Dark types.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
