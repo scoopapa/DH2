@@ -19,26 +19,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
 			}
 		},
-		onModifyType(move, pokemon, target) {
+		/*onModifyType(move, pokemon, target) {
 			if (pokemon.terastallized) {
 				move.type = pokemon.teraType;
 			}
-		},
+		},*/
 		onModifyMove(move, pokemon) {
   		if (pokemon.terastallized === 'Fire' || pokemon.terastallized === 'Water' || pokemon.terastallized === 'Grass' ||
 			  pokemon.terastallized === 'Electric' || pokemon.terastallized === 'Dark' || pokemon.terastallized === 'Psychic' ||
 			  pokemon.terastallized === 'Dragon') { 
         		move.category = 'Special';
+				move.type = pokemon.teraType;
       	}
 			if (pokemon.terastallized === 'Normal' || pokemon.terastallized === 'Fighting' || pokemon.terastallized === 'Flying' ||
 				  pokemon.terastallized === 'Ground' || pokemon.terastallized === 'Rock' || pokemon.terastallized === 'Bug' ||
 				  pokemon.terastallized === 'Ghost' || pokemon.terastallized === 'Poison' || pokemon.terastallized === 'Steel') {
         		move.category = 'Physical';
+				move.type = pokemon.teraType;
       	}
 			if (pokemon.terastallized === 'Stellar') {
-  			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
-  				move.category = 'Special';
-  			}
+	  			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
+	  				move.category = 'Special';
+					move.type = pokemon.teraType;
+	  			}
 				move.self = {boosts: {atk: -1, spa: -1}};
 			}
 		},
