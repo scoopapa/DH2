@@ -1505,7 +1505,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Calm Mind", "Scald", "Substitute", "Thunderbolt"],
+                "movepool": ["Calm Mind", "Scald", "Substitute", "Thunderbolt", "Aura Sphere", "Signal Beam"],
                 "teraTypes": ["Water"]
             },
             {
@@ -2584,8 +2584,13 @@
         "level": 79,
         "sets": [
             {
-                "role": "Fast Attacker",
-                "movepool": ["Ice Shard", "Knock Off", "Low Kick", "Swords Dance", "Triple Axel"],
+                "role": "Setup Sweeper",
+                "movepool": ["Ice Shard", "Knock Off", "False Surrender", "Swords Dance", "Triple Axel"],
+                "teraTypes": ["Dark", "Fighting", "Ice"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Ice Shard", "Knock Off", "False Surrender", "Ceaseless Edge", "Triple Axel", "Brick Break"],
                 "teraTypes": ["Dark", "Fighting", "Ice"]
             }
         ]
@@ -6234,8 +6239,8 @@
         "level": 78,
         "sets": [
             {
-                "role": "Fast Attacker",
-                "movepool": ["Dark Pulse", "Earth Power", "Fire Blast", "Hurricane", "Hydro Pump", "U-turn"],
+                "role": "Wallbreaker",
+                "movepool": ["Dark Pulse", "Earth Power", "Flamethrower", "Hurricane", "U-turn"],
                 "teraTypes": ["Dark", "Flying", "Ground"]
             }
         ]
@@ -6549,18 +6554,18 @@
         "level": 83,
         "sets": [
             {
-                "role": "AV Pivot",
-                "movepool": ["Dragon Tail", "Earth Power", "Fickle Beam", "Leaf Storm"],
+                "role": "Bulky Support",
+                "movepool": ["Dragon Rage", "Earth Power", "Shelter", "Rollout", "Giga Drain"],
                 "teraTypes": ["Steel"]
             },
             {
-                "role": "Bulky Setup",
-                "movepool": ["Earth Power", "Fickle Beam", "Giga Drain", "Nasty Plot", "Recover"],
+                "role": "Setup Sweeper",
+                "movepool": ["Earth Power", "Dragon Rage", "Giga Drain", "Nasty Plot", "Draco Meteor"],
                 "teraTypes": ["Steel"]
             },
             {
                 "role": "Wallbreaker",
-                "movepool": ["Draco Meteor", "Earth Power", "Fickle Beam", "Leaf Storm"],
+                "movepool": ["Draco Meteor", "Earth Power", "Dragon Rage", "Leaf Storm"],
                 "teraTypes": ["Dragon"]
             }
         ]
