@@ -1635,7 +1635,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Crunch", "Play Rough", "Poison Fang", "Sucker Punch", "Taunt", "Throat Chop"],
+                "movepool": ["False Surrender", "Play Rough", "Poison Fang", "Sucker Punch", "Taunt", "Ceaseless Edge"],
                 "teraTypes": ["Fairy", "Poison"]
             }
         ]
@@ -6171,7 +6171,7 @@
         ]
     },
     "fluttermane": {
-        "level": 74,
+        "level": 69,
         "sets": [
             {
                 "role": "Fast Attacker",
