@@ -5,7 +5,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Groudon",
 		types: ["Ground"],
 		baseStats: {hp: 100, atk: 120, def: 120, spa: 70, spd: 70, spe: 70},
-		abilities: {0: "Sand Stream", H: "Solar Power"},
+		abilities: {0: "Sand Stream", 1: "Solar Power", H: "Earth Eater"},
 	},
 	groudonprimal: {
 		inherit: true,
@@ -21,7 +21,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kyogre",
 		types: ["Water"],
 		baseStats: {hp: 100, atk: 70, def: 70, spa: 120, spd: 120, spe: 70},
-		abilities: {0: "Monsoon", H: "Snow Cloak"},
+		abilities: {0: "Monsoon", 1: "Snow Cloak", H: "Volt Absorb"},
 	},
 	kyogreprimal: {
 		inherit: true,
@@ -127,7 +127,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Torkoal",
 		types: ["Fire", "Poison"],
 		baseStats: {hp: 70, atk: 85, def: 140, spa: 85, spd: 100, spe: 20},
-		abilities: {0: "Solar Flare", 1: "Solar Power", H: "Corrosion"},
+		abilities: {0: "Solar Flare", 1: "Solar Power", H: "Water Absorb"},
 	},
 	ninetales: {
 		inherit: true,
@@ -142,7 +142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 18,
 		name: "Charizard",
 		types: ["Fire", "Dragon"],
-		baseStats: {hp: 78, atk: 114, def: 78, spa: 95, spd: 85, spe: 80},
+		baseStats: {hp: 78, atk: 114, def: 78, spa: 85, spd: 85, spe: 90},
 		abilities: {0: "Blaze", 1: "Solar Power", H: "Draco Jet"},
 	},
 	charizardmegay: {
@@ -215,7 +215,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ninetales-Alola",
 		types: ["Ice", "Fairy"],
 		baseStats: {hp: 73, atk: 76, def: 75, spa: 106, spd: 100, spe: 100},
-		abilities: {0: "Snow Warning", 1: "Fairytale", H: "Regenerator"},
+		abilities: {0: "Snow Warning", 1: "Fairytale", H: "Quick Feet"},
 	},
 	dragapult: {
 		inherit: true,
@@ -223,7 +223,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dragapult",
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 88, atk: 100, def: 85, spa: 100, spd: 85, spe: 142},
-		abilities: {0: "Zerg Rush", 1: "Infiltrator", H: "Clear Body"},
+		abilities: {0: "Zerg Rush", 1: "No Guard", H: "Clear Body"},
 	},
 	electrode: {
 		inherit: true,
@@ -231,7 +231,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Electrode",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 80, atk: 50, def: 80, spa: 90, spd: 80, spe: 150},
-		abilities: {0: "Squall", 1: "Lightning Rod", H: "Aftermath"},
+		abilities: {0: "Squall", 1: "Short Circuit", H: "Lightning Rod"},
 	},
 	clefable: {
 		inherit: true,
@@ -310,8 +310,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 39,
 		name: "Sawsbuck",
 		types: ["Normal", "Grass"],
-		baseStats: {hp: 80, atk: 120, def: 70, spa: 60, spd: 70, spe: 115},
-		abilities: {0: "Serene Grace", 1: "Solar Power", H: "Chlorophyll"},
+		baseStats: {hp: 75, atk: 105, def: 75, spa: 85, spd: 75, spe: 115},
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Serene Grace"},
 		cosmeticFormes: null,
 		formeOrder: null,
 	},
@@ -321,7 +321,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Beedrill",
 		types: ["Bug", "Poison"],
 		baseStats: {hp: 85, atk: 110, def: 55, spa: 40, spd: 85, spe: 125},
-		abilities: {0: "Swarm", H: "Shart"},
+		abilities: {0: "Swarm", 1: "Shart", H: "Protean"},
 	},
 	beedrillmega: {
 		inherit: true,
@@ -441,7 +441,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Toxicroak",
 		types: ["Poison", "Fighting"],
 		baseStats: {hp: 83, atk: 116, def: 85, spa: 66, spd: 85, spe: 95},
-		abilities: {0: "Shart", 1: "Wet Skin", H: "Beatdown"},
+		abilities: {0: "Beatdown", 1: "Wet Skin", H: "Defiant"},
 	},
 	spiritomb: {
 		inherit: true,
@@ -489,7 +489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Hawlucha",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 88, atk: 112, def: 95, spa: 64, spd: 73, spe: 98},
-		abilities: {0: "Suplex", 1: "Slipstream", H: "Reckless"},
+		abilities: {0: "Suplex", 1: "Slipstream", H: "Wind Rider"},
 	},
 	hitmonchan: {
 		inherit: true,
@@ -536,8 +536,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 67,
 		name: "Absol",
 		types: ["Dark"],
-		baseStats: {hp: 80, atk: 130, def: 75, spa: 95, spd: 75, spe: 75},
-		abilities: {0: "Blackout", 1: "Fairytale", H: "Adaptability"},
+		baseStats: {hp: 80, atk: 100, def: 75, spa: 95, spd: 75, spe: 105},
+		abilities: {0: "Blackout", 1: "Fairytale", H: "Competitive"},
 	},
 	absolmega: {
 		inherit: true,
@@ -576,8 +576,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 72,
 		name: "Tapu Lele",
 		types: ["Psychic", "Fairy"],
-		baseStats: {hp: 70, atk: 85, def: 75, spa: 115, spd: 110, spe: 95},
-		abilities: {0: "Freaky", 1: "Fairytale", H: "Compound Eyes"},
+		baseStats: {hp: 70, atk: 85, def: 85, spa: 115, spd: 110, spe: 85},
+		abilities: {0: "Freaky", 1: "Fairytale", H: "Merciless"},
 	},
 	manaphy: {
 		inherit: true,
@@ -609,7 +609,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kabutops",
 		types: ["Rock", "Fighting"],
 		baseStats: {hp: 90, atk: 115, def: 115, spa: 65, spd: 65, spe: 80},
-		abilities: {0: "Sand Rush", 1: "Mold Breaker", H: "Sharpness"},
+		abilities: {0: "Sand Rush", 1: "Sharpness", H: "Mold Breaker"},
 	},
 	nihilego: {
 		inherit: true,
@@ -617,7 +617,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Nihilego",
 		types: ["Rock", "Poison"],
 		baseStats: {hp: 109, atk: 53, def: 71, spa: 103, spd: 113, spe: 101},
-		abilities: {0: "Corrosion", 1: "Beast Boost", H: "Levitate"},
+		abilities: {0: "Beast Boost", 1: "Corrosion", H: "Levitate"},
 	},
 	diancie: {
 		inherit: true,
@@ -641,7 +641,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Arctozolt",
 		types: ["Electric", "Ice"],
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 55},
-		abilities: {0: "Snow Cloak", 1: "Motor Drive", H: "Short Circuit"},
+		abilities: {0: "Snow Cloak", 1: "Short Circuit", H: "Motor Drive"},
 	},
 	mamoswine: {
 		inherit: true,
@@ -649,7 +649,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Mamoswine",
 		types: ["Ice", "Ground"],
 		baseStats: {hp: 110, atk: 130, def: 80, spa: 70, spd: 60, spe: 80},
-		abilities: {0: "Snow Cloak", 1: "Mold Breaker", H: "Sand Force"},
+		abilities: {0: "Snow Cloak", 1: "Sand Force", H: "Mold Breaker"},
 	},
 	froslass: {
 		inherit: true,
@@ -663,7 +663,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 83,
 		name: "Frosmoth",
-		types: ["Ice", "Bug"],
+		types: ["Bug", "Ice"],
 		baseStats: {hp: 70, atk: 80, def: 60, spa: 125, spd: 90, spe: 75},
 		abilities: {0: "Swarm", 1: "Hivemind", H: "Snow Cloak"},
 	},
@@ -689,7 +689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Armaldo",
 		types: ["Bug", "Ground"],
 		baseStats: {hp: 95, atk: 105, def: 120, spa: 70, spd: 80, spe: 45},
-		abilities: {0: "Swarm", 1: "Mold Breaker", H: "Hivemind"},
+		abilities: {0: "Swarm", 1: "Hivemind", H: "Mold Breaker"},
 	},
 	golemalola: {
 		inherit: true,
@@ -697,7 +697,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Golem-Alola",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 80, atk: 45, def: 130, spa: 130, spd: 65, spe: 75},
-		abilities: {0: "Sand Rush", 1: "Magnet Pull", H: "Duomod Reference??"},
+		abilities: {0: "Sand Rush", 1: "Duomod Reference??", H: "Magnet Pull"},
 	},
 	weezinggalar: {
 		inherit: true,

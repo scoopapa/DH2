@@ -183,23 +183,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 	},
+	shadowbone: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	//vanilla moves affected by other customs
-	stealthrock: {
-		inherit: true,
-		sideCondition: 'stealthrock',
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('firstflight')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
-	},
 	toxicspikes: {
 		inherit: true,
 		sideCondition: 'toxicspikes',
