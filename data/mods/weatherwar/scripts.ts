@@ -279,6 +279,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "venusaur").learnset.setshitstorm = ["9L1"];
 		// Sawsbuck
 		this.modData("Learnsets", "sawsbuck").learnset.sleeppowder = ["9L1"];
+		this.modData("Learnsets", "sawsbuck").learnset.crushclaw = ["9L1"];
+		this.modData("Learnsets", "sawsbuck").learnset.gravapple = ["9L1"];
 		this.modData("Learnsets", "sawsbuck").learnset.grasspledge = ["9L1"];
 		this.modData("Learnsets", "sawsbuck").learnset.extremespeed = ["9L1"];
 		this.modData("Learnsets", "sawsbuck").learnset.boomburst = ["9L1"];

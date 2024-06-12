@@ -1818,4 +1818,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (this.field.pseudoWeather.deltastream) move.accuracy = true;
 		},
 	},
+	crushclaw: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+	},
 }

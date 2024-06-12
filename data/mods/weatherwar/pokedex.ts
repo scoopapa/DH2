@@ -311,7 +311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sawsbuck",
 		types: ["Normal", "Grass"],
 		baseStats: {hp: 75, atk: 105, def: 75, spa: 85, spd: 75, spe: 115},
-		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Thick Fat"},
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Serene Grace"},
 		cosmeticFormes: null,
 		formeOrder: null,
 	},
