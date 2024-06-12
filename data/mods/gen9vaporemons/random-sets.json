@@ -2265,7 +2265,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dark Pulse", "Focus Blast", "Nasty Plot", "Psycho Boost"],
+                "movepool": ["Shadow Ball", "Focus Blast", "Nasty Plot", "Thunderbolt", "Superpower", "Knock Off", "Signal Beam"],
                 "teraTypes": ["Dark", "Fighting", "Psychic"]
             }
         ]
@@ -3515,12 +3515,12 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bulk Up", "Drain Punch", "Knock Off", "Rest"],
+                "movepool": ["Bulk Up", "Drain Punch", "Choke", "Rest"],
                 "teraTypes": ["Poison"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Close Combat", "Dragon Dance", "Knock Off", "Poison Jab"],
+                "movepool": ["Storm Throw", "Dragon Dance", "False Surrender", "Poison Jab", "Knock Off", "Drain Punch"],
                 "teraTypes": ["Poison"]
             }
         ]
