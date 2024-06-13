@@ -37,8 +37,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			blizzard: ["9L1"],
 			surf: ["9L1"],
 			hydropump: ["9L1"],
-			darkpulse: ["9L1"],
-			snarl: ["9L1"],
 		},
 	},
 	wendora: {
