@@ -755,7 +755,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-		canMegaEvo(pokemon) {
+		/*canMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return null;
 
 			const item = pokemon.getItem();
@@ -834,7 +834,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			species.requiredItem = formeChangeSpecies.requiredItem;
 			species.isMega = true;
 			return species;
-		},
+		},*/
 	},
 	pokemon: { 
 		ignoringItem() {
