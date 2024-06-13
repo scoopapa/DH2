@@ -694,8 +694,13 @@
         "level": 81,
         "sets": [
             {
+                "role": "Bulky Setup",
+                "movepool": ["Bulk Up", "Body Press", "Raging Fury", "Rekindle"],
+                "teraTypes": ["Water"]
+            },
+            {
                 "role": "Fast Bulky Setup",
-                "movepool": ["Bulk Up", "Close Combat", "Raging Bull", "Substitute"],
+                "movepool": ["Bulk Up", "Close Combat", "Raging Fury", "Trailblaze"],
                 "teraTypes": ["Water"]
             },
             {
@@ -1175,7 +1180,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Foul Play", "Protect", "Toxic", "Wish"],
+                "movepool": ["Knock Off", "Protect", "Toxic", "Wish", "Round", "Foul Play"],
                 "teraTypes": ["Poison"]
             }
         ]
@@ -1500,7 +1505,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Heal Bell", "Seismic Toss", "Soft-Boiled", "Stealth Rock", "Thunder Wave"],
+                "movepool": ["Heal Bell", "Seismic Toss", "Round", "Soft-Boiled", "Stealth Rock", "Thunder Wave"],
                 "teraTypes": ["Fairy", "Ghost", "Poison", "Steel"]
             }
         ]
@@ -2714,8 +2719,8 @@
         "level": 94,
         "sets": [
             {
-                "role": "Bulky Support",
-                "movepool": ["Calm Mind", "Freeze-Dry", "Protect", "Wish", "Yawn"],
+                "role": "Fast Attacker",
+                "movepool": ["Frost Breath", "Freeze-Dry", "Earth Power", "Round"],
                 "teraTypes": ["Water"]
             }
         ]
