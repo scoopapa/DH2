@@ -814,7 +814,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onUpdate(pokemon) {
 				if (!(pokemon.hasType('Bug'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
-					this.add('-start', pokemon, 'typeadd', 'Bug');
+					this.add('-start', pokemon, 'typechange', 'Bug');
 					pokemon.setType('Bug');
 					}
 				}
@@ -866,7 +866,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onUpdate(pokemon) {
 				if (!(pokemon.hasType('Water') && pokemon.hasType('Psychic'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
-					this.add('-start', pokemon, 'typeadd', 'Water');
+					this.add('-start', pokemon, 'typechange', 'Water');
 					this.add('-start', pokemon, 'typeadd', 'Psychic');
 					pokemon.setType(['Water','Psychic']);
 					}
