@@ -261,7 +261,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertmoltres',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Fire') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.getTypes().join === 'Fire,Flying')) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Fire');
 					this.add('-start', pokemon, 'typeadd', 'Flying');
@@ -544,7 +544,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertaerodactyl',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Fire'))) {
+				if (!(pokemon.getTypes().join() === 'Fire')) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Fire');
 					pokemon.setType('Fire');
@@ -1167,8 +1167,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
   },
 	recover: {
-		//inherit gen 2 behavior (just heals 50% without ever failing)
-		inherit: true,
+		num: 105,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Recover",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
 	},
 	rockslide: {
 		inherit: true,
@@ -1188,7 +1200,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	softboiled: {
-		inherit: true,
+		num: 105,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Soft-Boiled",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
 	},
 	solarbeam: {
 		inherit: true,
