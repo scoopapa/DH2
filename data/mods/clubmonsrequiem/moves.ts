@@ -172,11 +172,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!this.field.pseudoWeather['gravity']) {
 				this.field.addPseudoWeather('gravity', pokemon);
-				for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
-					pokemon.switchFlag = true;
-				}		
-			}
+				if (pokemon.switchFlag === true) return;
+				pokemon.switchFlag = true;
+			}		
 		},
 		target: "allAdjacent",
 		type: "Psychic",
@@ -197,27 +195,24 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Stomping Tantrum', target);
+			this.add('-anim', source, 'Rock Wrecker', target);
 		},
 		onModifyType(move, pokemon) {
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.type = 'Fire';
-				this.attrLastMove('[anim] Eruption');
 				break;
 			case 'raindance':
 			case 'primordialsea':
 				move.type = 'Water';
-				this.attrLastMove('[anim] Water Spout');
 				break;
 			case 'sandstorm':
 				move.type = 'Rock';
-				this.attrLastMove('[anim] Meteor Beam');
 				break;
 			case 'hail':
 			case 'snow':
 				move.type = 'Ice';
-				this.attrLastMove('[anim] Sheer Cold');
 				break;
 			}
 		},
