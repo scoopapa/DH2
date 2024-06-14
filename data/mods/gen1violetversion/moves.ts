@@ -1167,10 +1167,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
   },
 	recover: {
+		//inherit gen 2 behavior (just heals 50% without ever failing)
 		inherit: true,
-		onHit(target) {
-			this.heal(Math.floor(target.maxhp / 2), target, target);
-		},
 	},
 	rockslide: {
 		inherit: true,
@@ -1191,9 +1189,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	softboiled: {
 		inherit: true,
-		onHit(target) {
-			this.heal(Math.floor(target.maxhp / 2), target, target);
-		},
 	},
 	solarbeam: {
 		inherit: true,
