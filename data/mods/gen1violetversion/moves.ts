@@ -88,7 +88,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		accuracy: true,
 		category: "Status",
-		heal: [1,2]
+		heal: [1,2],
 		onHit(target, source, move) {
 // bad solution incoming
 			source.side.removeSideCondition('convertmoltres')
