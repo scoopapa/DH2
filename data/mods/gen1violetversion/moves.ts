@@ -89,8 +89,45 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		category: "Status",
 		onHit(target, source, move) {
+// bad solution incoming
 			source.side.removeSideCondition('convertmoltres')
-			source.side.removeSideCondition('convertaerodactyl')
+			source.side.removeSideCondition('convertalakazam')
+			source.side.removeSideCondition('convertarbok')
+			source.side.removeSideCondition('convertarticuno')
+			source.side.removeSideCondition('convertbeedrill')
+			source.side.removeSideCondition('convertblastoise')
+			source.side.removeSideCondition('convertbutterfree')
+			source.side.removeSideCondition('convertchansey')
+			source.side.removeSideCondition('convertcharizard')
+			source.side.removeSideCondition('convertcloyster')
+			source.side.removeSideCondition('convertdragonite')
+			source.side.removeSideCondition('convertdugtrio')
+			source.side.removeSideCondition('convertelectabuzz')
+			source.side.removeSideCondition('convertelectrode')
+			source.side.removeSideCondition('convertexeggutor')
+			source.side.removeSideCondition('convertflareon')
+			source.side.removeSideCondition('convertgengar')
+			source.side.removeSideCondition('convertgolbat')
+			source.side.removeSideCondition('convertgolduck')
+			source.side.removeSideCondition('convertgolem')
+			source.side.removeSideCondition('convertgyarados')
+			source.side.removeSideCondition('convertjynx')
+			source.side.removeSideCondition('convertkabutops')
+			source.side.removeSideCondition('convertmachamp')
+			source.side.removeSideCondition('convertmagmar')
+			source.side.removeSideCondition('convertmagneton')
+			source.side.removeSideCondition('convertnidoqueen')
+			source.side.removeSideCondition('convertninetales')
+			source.side.removeSideCondition('convertparasect')
+			source.side.removeSideCondition('convertpidgeot')
+			source.side.removeSideCondition('convertpinsir')
+			source.side.removeSideCondition('convertpoliwrath')
+			source.side.removeSideCondition('convertporygon')
+			source.side.removeSideCondition('convertslowbro')
+			source.side.removeSideCondition('converttangela')
+			source.side.removeSideCondition('convertvileplume')
+			source.side.removeSideCondition('convertzapdos')
+				
 			//very bad solution incoming
 			switch (target.species.name) {
 				case 'Moltres':
@@ -260,7 +297,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertalakazam',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Psychic'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Psychic');
 					pokemon.setType('Psychic');
@@ -277,7 +314,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertarbok',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Poison'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Rock');
 					pokemon.setType('Poison');
@@ -366,7 +403,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertchansey',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Normal'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Normal');
 					pokemon.setType('Normal');
@@ -437,7 +474,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertdugtrio',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Ground'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Ground');
 					pokemon.setType('Ground');
@@ -472,7 +509,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertelectrode',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Electric'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Electric');
 					pokemon.setType('Electric');
@@ -507,7 +544,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertaerodactyl',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Fire'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Fire');
 					pokemon.setType('Fire');
@@ -650,7 +687,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertmachamp',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Fighting') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Fighting'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Fighting');
 					pokemon.setType('Fighting');
@@ -775,7 +812,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertpinsir',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Bug'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typeadd', 'Bug');
 					pokemon.setType('Bug');
@@ -810,7 +847,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'convertporygon',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Ghost) && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Ghost'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Ghost');
 					pokemon.setType('Ghost');
@@ -845,7 +882,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'converttangela',
 		condition: {
 			onUpdate(pokemon) {
-				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+				if (!(pokemon.hasType('Grass'))) {
 					if (pokemon.species.baseSpecies === 'Porygon') {
 					this.add('-start', pokemon, 'typechange', 'Grass');
 					pokemon.setType('Grass');
