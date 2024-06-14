@@ -163,7 +163,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					source.side.addSideCondition('convertchansey')
 					break;
 				case 'Charizard':
-					source.side.addSideCondition(convertcharizard')
+					source.side.addSideCondition('convertcharizard')
 					break;
 				case 'Cloyster':
 					source.side.addSideCondition('convertcloyster')
