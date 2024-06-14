@@ -51,11 +51,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hypno: {
 		inherit: true,
-		baseStats: {hp:85, atk:113, def:70, spa:115, spd:115, spe:67},
+		baseStats: {hp:85, atk:103, def:70, spa:115, spd:115, spe:67},
 	},
 	kabutops: {
 		inherit: true,
-		baseStats: {hp:70, atk:115, def:135, spa:70, spd:70, spe:80},
+		baseStats: {hp:60, atk:115, def:135, spa:70, spd:70, spe:80},
 	},
 	machamp: {
 		inherit: true,
