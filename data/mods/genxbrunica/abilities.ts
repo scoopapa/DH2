@@ -38,7 +38,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onTerrainChange(pokemon) {
 			//Probably a buggy means of implementing this but should nix a possible feedback loop when it clears terrain on switch-out
 			const strongTerrains = ['guardianofnature'];
-			if (!strongTerrains.includes(this.field.terrain) && !pokemon.beingCalledBack) this.field.setTerrain('guardianofnature');
+			const terrain = this.field.terrain;
+			//Strong terrains can override Nature Field, and of course Nature Field shouldn't try to overwrite itself.
+			//Terrains set by other mons are instantly overridden
+			//Even if it's a terrain clear or a terrain set by this mon, if the mon stays in it won't stick. 
+			if (!strongTerrains.includes(terrain) && ((this.field.terrainState.source !== pokemon && terrain) || !(pokemon.beingCalledBack || pokemon.switchFlag))) this.field.setTerrain('guardianofnature');
 		},
 		onEnd(pokemon) {
 			if (this.field.terrainState.source !== pokemon) return;
@@ -54,6 +58,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Guardian of Nature",
 		condition: {
 			duration: 0,
+			onTryHitPriority: 4,
+			//Negate use of terrain moves to replace the terrain
+			onTryHit(target, source, effect) {
+				if (effect && effect.id.endsWith('terrain') && this.dex.moves.get(effect.id)) return false;
+			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
 				if (defender.isGrounded() && !defender.isSemiInvulnerable()) {
@@ -97,8 +106,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
+		shortDesc: "x1.5 Defense on Grassy Terrain; x2 Defense on Nature Field",
 		onModifyDef(pokemon) {
-			if (this.field.isTerrain(['grassyterrain','guardianofnature'])) return this.chainModify(1.5);
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+			if (this.field.isTerrain('guardianofnature')) return this.chainModify(2);
 		},
 	},
 	//from desvega
@@ -114,7 +125,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	poisonsurge: {
 		name: "Poison Surge",
-		shortDesc: "On switchin, this Pokemon sets Poison Terrain.",
+		shortDesc: "On switch-in, this Pokemon sets Poison Terrain.",
 		onStart(source) {
 			this.field.setTerrain('poisonterrain');
 		},
@@ -131,7 +142,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Snow Coat",
-		shortDesc: "The Pokemon heals 25% of its max HP when hit by an Ice-type move; Ice immunity.",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ice moves; Ice immunity.",
 	},
 	sludgerush: {
 		onModifySpe(spe) {
@@ -141,7 +152,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Sludge Rush",
-		shortDesc: "The Pokémon's Speed is doubled if Poison Terrain is active.",
+		shortDesc: "If Poison Terrain is active, this Pokemon's Speed is doubled.",
 	},
 	railgunner: {
 		onBasePowerPriority: 19,
@@ -152,21 +163,22 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Railgunner",
-		shortDesc: "This Pokemon's beam moves have 1.3x power.",
+		shortDesc: "This Pokemon's Beam moves have 1.3x power.",
 	},
 	powerlock: {
 		name: "Power Lock",
-		shortDesc: "Pokemon without this ability lose 1/8 max HP at the end of each turn if they have a positive stat boost. If they boost their own stats, they take 1/4 max HP instead.",
+		shortDesc: "Pokemon without this ability cannot boost and lose 25% of Max HP instead. They also lose 1/8 max HP as residual chip if they already had positive stat boosts.",
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
-				if (target.positiveBoosts() > 0 && !target.hasAbility('Power Lock'))
+				if (target.positiveBoosts() > 0 && !target.hasAbility('powerlock'))
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 			}
 		},
-		onFoeAfterBoost(boost, target, source, effect) {
+		onAnyAfterBoost(boost, target, source, effect) {
+			if (target.hasAbility('powerlock')) return;
 			const pokemon = this.effectState.target;
 			let activated = false;
 			let i: BoostID;
@@ -176,7 +188,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					activated = true;
 				}
 			}
-			if (activated) this.damage(target.baseMaxhp / 4, target, source);
+			if (activated) this.damage(target.baseMaxhp / 4, target, pokemon);
 		},
 		flags: {},
 	},
@@ -215,7 +227,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Gulp Cannon",
-		shortDesc: "Cramorant-Desvega/Toxirant: When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Sp. Defense or poison.",
+		shortDesc: "Cramorant-Desvega line: When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Sp. Defense or poison.",
 	},
 	tacticalmonarch: {
 		onStart(pokemon) {
@@ -278,7 +290,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {},
 		name: "Tactical Monarch",
-		shortDesc: "On switchin, or when the opponent switches in, switches out if the opponent has a supereffective move. Once per battle.",
+		shortDesc: "On switch-in, or when an opponent switches in, switches out if the opponent has a supereffective move. Once per battle.",
 	},
 	bombardier: {
 		shortDesc: "This Pokemon's ball and bomb moves have 1.5x power.",
@@ -355,11 +367,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
-		shortDesc: "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat, immune to hazards.",
+		shortDesc: "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat; immune to hazards.",
 	},
 	suctioncups: {
 		inherit: true,
-		shortDesc: "Cannot be forcibly switched out; Allies are protected from moves that switch the user out.",
+		shortDesc: "Cannot be forcibly switched out; Allies are protected from opposing self-switch moves.",
 		onFoeTryMove(target, source, move) {
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 				return;
