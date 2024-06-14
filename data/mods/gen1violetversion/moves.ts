@@ -91,12 +91,127 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source, move) {
 			source.side.removeSideCondition('convertmoltres')
 			source.side.removeSideCondition('convertaerodactyl')
+			//very bad solution incoming
 			switch (target.species.name) {
 				case 'Moltres':
 					source.side.addSideCondition('convertmoltres')
 					break;
 				case 'Aerodactyl':
 					source.side.addSideCondition('convertaerodactyl')
+					break;
+				case 'Alakazam':
+				case 'Hypno':
+				case 'Mew':
+					source.side.addSideCondition('convertalakazam')
+					break;
+				case 'Arbok':
+				case 'Muk':
+					source.side.addSideCondition('convertarbok')
+					break;
+				case 'Articuno':
+					source.side.addSideCondition('convertarticuno')
+					break;
+				case 'Beedrill':
+					source.side.addSideCondition('convertbeedrill')
+					break;
+				case 'Blastoise':
+					source.side.addSideCondition('convertblastoise')
+					break;
+				case 'Butterfree':
+					source.side.addSideCondition('convertbutterfree')
+					break;
+				case 'Chansey':
+				case 'Snorlax':
+				case 'Tauros':
+					source.side.addSideCondition('convertchansey')
+					break;
+				case 'Charizard':
+					source.side.addSideCondition(convertcharizard')
+					break;
+				case 'Cloyster':
+					source.side.addSideCondition('convertcloyster')
+					break;
+				case 'Dragonite':
+					source.side.addSideCondition('convertdragonite')
+					break;
+				case 'Dugtrio':
+					source.side.addSideCondition('convertdugtrio')
+					break;
+				case 'Electabuzz':
+					source.side.addSideCondition('convertelectabuzz')
+					break;
+				case 'Electrode':
+					source.side.addSideCondition('convertelectrode')
+					break;
+				case 'Exeggutor':
+					source.side.addSideCondition('convertexeggutor')
+					break;
+				case 'Flareon':
+					source.side.addSideCondition('convertflareon')
+					break;
+				case 'Gengar':
+					source.side.addSideCondition('convertgengar')
+					break;
+				case 'Golbat':
+					source.side.addSideCondition('convertgolbat')
+					break;
+				case 'Golduck':
+					source.side.addSideCondition('convertgolduck')
+					break;
+				case 'Golem':
+					source.side.addSideCondition('convertgolem')
+					break;
+				case 'Gyarados':
+					source.side.addSideCondition('convertgyarados')
+					break;
+				case 'Jynx':
+					source.side.addSideCondition('convertjynx')
+					break;
+				case 'Kabutops':
+					source.side.addSideCondition('convertkabutops')
+					break;
+				case 'Machamp':
+					source.side.addSideCondition('convertmachamp')
+					break;
+				case 'Magmar':
+					source.side.addSideCondition('convertmagmar')
+					break;
+				case 'Magneton':
+					source.side.addSideCondition('convertmagneton')
+					break;
+				case 'Nidoqueen':
+					source.side.addSideCondition('convertnidoqueen')
+					break;
+				case 'Ninetales':
+					source.side.addSideCondition('convertninetales')
+					break;
+				case 'Parasect':
+					source.side.addSideCondition('convertparasect')
+					break;
+				case 'Pidgeot':
+					source.side.addSideCondition('convertpidgeot')
+					break;
+				case 'Pinsir':
+					source.side.addSideCondition('convertpinsir')
+					break;
+				case 'Poliwrath':
+					source.side.addSideCondition('convertpoliwrath')
+					break;
+				case 'Porygon':
+					source.side.addSideCondition('convertporygon')
+					break;
+				case 'Slowbro':
+				case 'Starmie':
+					source.side.addSideCondition('convertslowbro')
+					break;
+				case 'Tangela':
+					source.side.addSideCondition('converttangela')
+					break;
+				case 'Vileplume':
+					source.side.addSideCondition('convertvileplume')
+					break;
+				case 'Zapdos':
+					source.side.addSideCondition('convertzapdos')
 					break;
 			}
 		},
@@ -137,8 +252,644 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-		// aerodactyl, alakazam, arbok, articuno, beedrill, blastoise, butterfree, chansey, charizard, cloyster, dragonite, dugtrio, electabuzz, electrode, exeggutor, flareon, gengar, golbat, golduck, golem, gyarados, 
-	// hypno, jynx, kabutops, machamp, magmar, magneton, mew, muk, nidoqueen, ninetales, parasect, pidgeot, pinsir, poliwrath, porygon, slowbro, snorlax, starmie, tangela, tauros, vileplume, zapdos
+	convertalakazam: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertalakazam',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Psychic');
+					pokemon.setType('Psychic');
+					}
+				}
+			},
+		},
+	},
+	convertarbok: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertarbok',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Rock');
+					pokemon.setType('Poison');
+					}
+				}
+			},
+		},
+	},
+	convertarticuno: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertarticuno',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Ice') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Ice');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Ice','Flying']);
+					}
+				}
+			},
+		},
+	},
+	convertbeedrill: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertbeedrill',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Bug') && pokemon.hasType('Poison'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Bug');
+					this.add('-start', pokemon, 'typeadd', 'Poison');
+					pokemon.setType(['Bug','Poison']);
+					}
+				}
+			},
+		},
+	},
+	convertblastoise: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertblastoise',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Water') && pokemon.hasType('Ground'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Water');
+					this.add('-start', pokemon, 'typeadd', 'Ground');
+					pokemon.setType(['Water','Ground']);
+					}
+				}
+			},
+		},
+	},
+	convertbutterfree: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertbutterfree',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Bug') && pokemon.hasType('Psychic'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Bug');
+					this.add('-start', pokemon, 'typeadd', 'Psychic');
+					pokemon.setType(['Bug','Psychic']);
+					}
+				}
+			},
+		},
+	},
+	convertchansey: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertchansey',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Normal');
+					pokemon.setType('Normal');
+					}
+				}
+			},
+		},
+	},
+	convertcharizard: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertcharizard',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Fire') && pokemon.hasType('Dragon'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Fire');
+					this.add('-start', pokemon, 'typeadd', 'Dragon');
+					pokemon.setType(['Fire','Dragon']);
+					}
+				}
+			},
+		},
+	},
+	convertcloyster: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertcloyster',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Water') && pokemon.hasType('Ice'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Water');
+					this.add('-start', pokemon, 'typeadd', 'Ice');
+					pokemon.setType(['Water','Ice']);
+					}
+				}
+			},
+		},
+	},
+	convertdragonite: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertdragonite',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Dragon') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Dragon');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Dragon','Flying']);
+					}
+				}
+			},
+		},
+	},
+	convertdugtrio: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertdugtrio',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Ground');
+					pokemon.setType('Ground');
+					}
+				}
+			},
+		},
+	},
+	convertelectabuzz: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertelectabuzz',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Electric') && pokemon.hasType('Fighting'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Electric');
+					this.add('-start', pokemon, 'typeadd', 'Fighting');
+					pokemon.setType(['Electric','Fighting']);
+					}
+				}
+			},
+		},
+	},
+	convertelectrode: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertelectrode',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Electric');
+					pokemon.setType('Electric');
+					}
+				}
+			},
+		},
+	},
+	convertexeggutor: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertexeggutor',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Grass') && pokemon.hasType('Psychic'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Grass');
+					this.add('-start', pokemon, 'typeadd', 'Psychic');
+					pokemon.setType(['Grass','Psychic']);
+					}
+				}
+			},
+		},
+	},
+	convertflareon: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertaerodactyl',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Fire');
+					pokemon.setType('Fire');
+					}
+				}
+			},
+		},
+	},
+	convertgengar: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertgengar',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Ghost') && pokemon.hasType('Poison'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Ghost');
+					this.add('-start', pokemon, 'typeadd', 'Poison');
+					pokemon.setType(['Ghost','Poison']);
+					}
+				}
+			},
+		},
+	},
+	convertgolbat: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertgolbat',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Poison') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Poison');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Poison','Flying']);
+					}
+				}
+			},
+		},
+	},
+	convertgolduck: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertgolduck',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Water') && pokemon.hasType('Ghost'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Water');
+					this.add('-start', pokemon, 'typeadd', 'Ghost');
+					pokemon.setType(['Water','Ghost']);
+					}
+				}
+			},
+		},
+	},
+	convertgolem: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertgolem',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Ground'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Rock');
+					this.add('-start', pokemon, 'typeadd', 'Ground');
+					pokemon.setType(['Rock','Ground']);
+					}
+				}
+			},
+		},
+	},
+	convertgyarados: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertgyarados',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Water') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Water');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Water','Flying']);
+					}
+				}
+			},
+		},
+	},
+	convertjynx: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertjynx',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Ice') && pokemon.hasType('Psychic'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Ice');
+					this.add('-start', pokemon, 'typeadd', 'Psychic');
+					pokemon.setType(['Ice','Psychic']);
+					}
+				}
+			},
+		},
+	},
+	convertkabutops: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertkabutops',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Water'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Rock');
+					this.add('-start', pokemon, 'typeadd', 'Water');
+					pokemon.setType(['Rock','Water']);
+					}
+				}
+			},
+		},
+	},
+	convertmachamp: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertmachamp',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Fighting') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Fighting');
+					pokemon.setType('Fighting');
+					}
+				}
+			},
+		},
+	},
+	convertmagmar: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertmagmar',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Fire') && pokemon.hasType('Fighting'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Fire');
+					this.add('-start', pokemon, 'typeadd', 'Fighting');
+					pokemon.setType(['Fire','Fighting']);
+					}
+				}
+			},
+		},
+	},
+	convertmagneton: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertmagneton',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Electric') && pokemon.hasType('Rock'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Electric');
+					this.add('-start', pokemon, 'typeadd', 'Rock');
+					pokemon.setType(['Electric','Rock']);
+					}
+				}
+			},
+		},
+	},
+	convertnidoqueen: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertnidoqueen',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Ground') && pokemon.hasType('Poison'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Ground');
+					this.add('-start', pokemon, 'typeadd', 'Poison');
+					pokemon.setType(['Ground','Poison']);
+					}
+				}
+			},
+		},
+	},
+	convertninetales: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertninetales',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Fire') && pokemon.hasType('Psychic'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Fire');
+					this.add('-start', pokemon, 'typeadd', 'Psychic');
+					pokemon.setType(['Fire','Psychic']);
+					}
+				}
+			},
+		},
+	},
+	convertparasect: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertparasect',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Bug') && pokemon.hasType('Grass'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Bug');
+					this.add('-start', pokemon, 'typeadd', 'Grass');
+					pokemon.setType(['Bug','Grass']);
+					}
+				}
+			},
+		},
+	},
+	convertpidgeot: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertpidgeot',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Normal') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Normal');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Normal','Flying']);
+					}
+				}
+			},
+		},
+	},
+	convertpinsir: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertpinsir',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typeadd', 'Bug');
+					pokemon.setType('Bug');
+					}
+				}
+			},
+		},
+	},
+	convertpoliwrath: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertpoliwrath',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Water') && pokemon.hasType('Fighting'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Water');
+					this.add('-start', pokemon, 'typeadd', 'Fighting');
+					pokemon.setType(['Water','Fighting']);
+					}
+				}
+			},
+		},
+	},
+	convertporygon: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertporygon',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Ghost) && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Ghost');
+					pokemon.setType('Ghost');
+					}
+				}
+			},
+		},
+	},
+	convertslowbro: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertslowbro',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Water') && pokemon.hasType('Psychic'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typeadd', 'Water');
+					this.add('-start', pokemon, 'typeadd', 'Psychic');
+					pokemon.setType(['Water','Psychic']);
+					}
+				}
+			},
+		},
+	},
+	converttangela: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'converttangela',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Rock') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Grass');
+					pokemon.setType('Grass');
+					}
+				}
+			},
+		},
+	},
+	convertvileplume: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertvileplume',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Grass') && pokemon.hasType('Poison'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Grass');
+					this.add('-start', pokemon, 'typeadd', 'Poison');
+					pokemon.setType(['Grass','Poison']);
+					}
+				}
+			},
+		},
+	},
+	convertzapdos: {
+		target: "normal",
+		pp: 20,
+		accuracy: true,
+		category: "Status",
+		sideCondition: 'convertzapdos',
+		condition: {
+			onUpdate(pokemon) {
+				if (!(pokemon.hasType('Electric') && pokemon.hasType('Flying'))) {
+					if (pokemon.species.baseSpecies === 'Porygon') {
+					this.add('-start', pokemon, 'typechange', 'Electric');
+					this.add('-start', pokemon, 'typeadd', 'Flying');
+					pokemon.setType(['Electric','Flying']);
+					}
+				}
+			},
+		},
+	},
 	disable: {
 		accuracy: 100,
 		category: "Status",
