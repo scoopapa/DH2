@@ -8,7 +8,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Fails unless it is the user's first turn on the field.",
 		shortDesc: "100% chance to lower the target's Defense by 1. First turn out only.",
 		pp: 5,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Darkest Lariat", target);
@@ -37,7 +37,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Usually goes first. Power triples if the target's HP is 50% or less.",
 		pp: 5,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
 			if (target.hp * 2 <= target.maxhp) {
 				return this.chainModify(3);
@@ -60,7 +60,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Heals the user by 50% of its max HP and raises its Attack and Sp. Atk by 1.",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, metronome: 1},
+		flags: {snatch: 1, heal: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Synthesis", target);
@@ -82,15 +82,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 			let success;
 			if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
 				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
+				if (this.field.isTerrain('guardianofnature')) success = target.cureStatus() || success;
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
-			}
-			if (success && !target.isAlly(source)) {
-				target.staleness = 'external';
 			}
 			if (!success) {
 				this.add('-fail', target, 'heal');
 				return this.NOT_FAIL;
+			}
+			if (!target.isAlly(source)) {
+				target.staleness = 'external';
 			}
 			return success;
 		},
@@ -98,8 +99,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	grassyglide: {
 		inherit: true,
 		onModifyPriority(priority, source, target, move) {
-			if (this.field.isTerrain(['grassyterrain','guardianofnature']) && source.isGrounded()) {
-				return priority + 1;
+			if (source.isGrounded()) {
+				if (this.field.isTerrain('guardianofnature')) return priority + 2;
+				if (this.field.isTerrain('grassyterrain')) return priority + 1;
 			}
 		},
 	},
@@ -510,11 +512,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 	rototiller: {
 		inherit: true,
 		isNonstandard: null,
-		desc: "Raises the Attack and Special Attack of all grounded Grass-type Pokemon on the field by 2 stages if Grassy Terrain is active or 1 stage if not.",
-		shortDesc: "Raises Atk/Sp. Atk of grounded Grass types by 1, 2 if Grassy Terrain.",
+		desc: "Raises the Attack and Special Attack of all grounded Grass-type Pokemon on the field by 2 stages if Grassy Terrain or Nature Field is active or 1 stage if not. On Nature Field, this move also inflicts Leech Seed on all grounded Pokemon that are neither Grass-type nor behind substitutes.",
+		shortDesc: "Raises Atk/Sp. Atk of grounded Grass types by 1, 2 if Grassy Terrain; Seeds grounded non-Grass-types on Nature Field.",
 		onHitField(target, source) {
 			const targets: Pokemon[] = [];
 			let anyAirborne = false;
+			const nonGrass: Pokemon[] = [];
 			for (const pokemon of this.getAllActive()) {
 				if (!pokemon.runImmunity('Ground')) {
 					this.add('-immune', pokemon);
@@ -524,10 +527,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hasType('Grass')) {
 					// This move affects every grounded Grass-type Pokemon in play.
 					targets.push(pokemon);
+				} else if (pokemon !== source && !pokemon.volatiles['substitute']) {
+					nonGrass.push(pokemon);
 				}
 			}
-			if (!targets.length && !anyAirborne) return false; // Fails when there are no grounded Grass types or airborne Pokemon
-			const boost = this.field.isTerrain(['grassyterrain','guardianofnature']) ? 2 : 1;
+			const isNatureField = this.field.isTerrain('guardianofnature');
+			if (!targets.length && !anyAirborne && (!nonGrass.length || !isNatureField)) return false; // Fails when there are no grounded Grass types or airborne Pokemon
+			let boost = 2;
+			if (isNatureField) {
+				for (const pokemon of nonGrass) {
+					pokemon.addVolatile('leechseed');
+				}
+			} else if (!this.field.isTerrain('grassyterrain')) {
+				boost = 1;
+			}
 			for (const pokemon of targets) {
 				this.boost({atk: boost, spa: boost}, pokemon, source);
 			}
@@ -1149,19 +1162,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	naturepower: {
 		inherit: true,
+		desc: "This move calls another move for use based on the battle terrain. Tri Attack on the regular Wi-Fi terrain, Thunderbolt during Electric Terrain, Moonblast during Misty Terrain, Energy Ball during Grassy Terrain, Chloroblast during Nature Field, Psychic during Psychic Terrain, and Sludge Wave during Poison Terrain.",
 		isNonstandard: null,
 		onTryHit(target, pokemon) {
-			let move = 'triattack';
-			if (this.field.isTerrain('electricterrain')) {
-				move = 'thunderbolt';
-			} else if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
-				move = 'energyball';
-			} else if (this.field.isTerrain('mistyterrain')) {
-				move = 'moonblast';
-			} else if (this.field.isTerrain('psychicterrain')) {
-				move = 'psychic';
-			} else if (this.field.isTerrain('poisonterrain')) {
-				move = 'sludgewave';
+			let move;
+			switch (this.field.terrain) {
+				case 'electricterrain':
+					move = 'thunderbolt';
+					break;
+				case 'grassyterrain':
+					move = 'energyball';
+					break;
+				case 'mistyterrain':
+					move = 'moonblast';
+					break;
+				case 'psychicterrain':
+					move = 'psychic';
+					break;
+				case 'poisonterrain':
+					move = 'sludgewave';
+					break;
+				case 'guardianofnature':
+					move = 'chloroblast';
+					break;
+				default:
+					move = 'triattack';
+					break;
 			}
 			this.actions.useMove(move, pokemon, target);
 			return null;
@@ -1169,25 +1195,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	terrainpulse: {
 		inherit: true,
+		desc: "Power doubles if the user is grounded and a terrain is active, and this move's type changes to match. Electric type during Electric Terrain, Grass type during Grassy Terrain or Nature Field, Fairy type during Misty Terrain, Psychic type during Psychic Terrain, and Poison type during Poison Terrain.",
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
 			switch (this.field.terrain) {
-			case 'electricterrain':
-				move.type = 'Electric';
-				break;
-			case 'grassyterrain':
-			case 'guardianofnature':
-				move.type = 'Grass';
-				break;
-			case 'mistyterrain':
-				move.type = 'Fairy';
-				break;
-			case 'psychicterrain':
-				move.type = 'Psychic';
-				break;
-			case 'poisonterrain':
-				move.type = 'Poison';
-				break;
+				case 'electricterrain':
+					move.type = 'Electric';
+					break;
+				case 'grassyterrain':
+				case 'guardianofnature':
+					move.type = 'Grass';
+					break;
+				case 'mistyterrain':
+					move.type = 'Fairy';
+					break;
+				case 'psychicterrain':
+					move.type = 'Psychic';
+					break;
+				case 'poisonterrain':
+					move.type = 'Poison';
+					break;
 			}
 		},
 	},
@@ -1223,18 +1250,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 		onModifyMove(move, pokemon) {
-			if (this.field.isTerrain('')) return;
+			if (this.field.isTerrain(['','electricterrain'])) return;
 			move.secondaries = [];
-			if (this.field.isTerrain('electricterrain')) {
+			/*if (this.field.isTerrain('electricterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'par',
 				});
-			} else if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
+			} else */if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'slp',
 				});
+				if (this.field.isTerrain('guardianofnature')) move.critRatio++;
 			} else if (this.field.isTerrain('mistyterrain')) {
 				move.secondaries.push({
 					chance: 30,
@@ -1262,21 +1290,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 	camouflage: {
 		inherit: true,
 		isNonstandard: null,
-		desc: "The user's type changes based on the battle terrain. Normal type on the regular Wi-Fi terrain, Electric type during Electric Terrain, Fairy type during Misty Terrain, Grass type during Grassy Terrain, Psychic type during Psychic Terrain, and Poison type during Poison Terrain. Fails if the user's type cannot be changed or if the user is already purely that type.",
+		desc: "The user's type changes based on the battle terrain. Normal type on the regular Wi-Fi terrain, Electric type during Electric Terrain, Fairy type during Misty Terrain, Grass type during Grassy Terrain or Nature Field, Psychic type during Psychic Terrain, and Poison type during Poison Terrain. Fails if the user's type cannot be changed or if the user is already purely that type.",
 		onHit(target) {
-			let newType = 'Normal';
-			if (this.field.isTerrain('electricterrain')) {
-				newType = 'Electric';
-			} else if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
-				newType = 'Grass';
-			} else if (this.field.isTerrain('mistyterrain')) {
-				newType = 'Fairy';
-			} else if (this.field.isTerrain('psychicterrain')) {
-				newType = 'Psychic';
-			} else if (this.field.isTerrain('poisonterrain')) {
-				newType = 'Poison';
+			let newType;
+			switch (this.field.terrain) {
+				case 'electricterrain':
+					newType = 'Electric';
+					break;
+				case 'grassyterrain':
+				case 'guardianofnature':
+					newType = 'Grass';
+					break;
+				case 'mistyterrain':
+					newType = 'Fairy';
+					break;
+				case 'psychicterrain':
+					newType = 'Psychic';
+					break;
+				case 'poisonterrain':
+					newType = 'Poison';
+					break;
+				default:
+					newType = 'Normal';
+					break;
 			}
-
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
 			this.add('-start', target, 'typechange', newType);
 		},
