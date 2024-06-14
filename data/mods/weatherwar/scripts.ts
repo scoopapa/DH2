@@ -186,6 +186,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "hippowdon").learnset.setduststorm = ["9L1"];
 		this.modData("Learnsets", "hippowdon").learnset.setcolosseum = ["9L1"];
 		// Abomasnow
+		this.modData("Learnsets", "abomasnow").learnset.grasspledge = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.sleeppowder = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.iceball = ["9L1"];
 		this.modData("Learnsets", "abomasnow").learnset.closecombat = ["9L1"];
@@ -445,6 +446,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'slowkinggalar').learnset.amnesia;
 		delete this.modData('Learnsets', 'slowpokegalar').learnset.amnesia;
 		// Wo-Chien
+		this.modData("Learnsets", "wochien").learnset.grasspledge = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sleeppowder = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.snatch = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.settwilightzone = ["9L1"];
@@ -476,6 +478,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "jirachi").learnset.settimewarp = ["9L1"];
 		delete this.modData('Learnsets', 'jirachi').learnset.amnesia;
 		// Celebi
+		this.modData("Learnsets", "celebi").learnset.grasspledge = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.sleeppowder = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.heavyslam = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.gyroball = ["9L1"];
