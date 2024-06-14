@@ -306,6 +306,7 @@ export const Learnsets = {
 	woolora: {
 		learnset: {
 			moonblast: ["9L1"],
+			wildcharge:["9L1"],
 			healingwish: ["9L1"],
 			drainingkiss: ["9L1"],
 			mistyexplosion: ["9L1"],
@@ -432,6 +433,7 @@ export const Learnsets = {
 	},
 	orchile: {
 		learnset: {
+			sleeppowder: ["9L1"],
 			sludgebomb: ["9L1"],
 			clearsmog: ["9L1"],
 			gigadrain: ["9L1"],
@@ -577,6 +579,7 @@ export const Learnsets = {
 			thief: ["9L1"],
 			throatchop: ["9L1"],
 			uproar: ["9L1"],
+			wildcharge:["9L1"],
 			workup: ["9L1"],
 			fireblast: ["9L1"],
 			flamethrower: ["9L1"],
@@ -651,6 +654,7 @@ export const Learnsets = {
 			throatchop: ["9L1"],
 			uproar: ["9L1"],
 			uturn: ["9L1"],
+			wildcharge:["9L1"],
 			willowisp: ["9L1"],
 			workup: ["9L1"],
 			crystalbeam: ["9L1"],
@@ -1246,6 +1250,8 @@ export const Learnsets = {
 	},
 	carapex: {
 		learnset: {
+			acrobatics: ["9L1"],
+			tailwind: ["9L1"],
 			megahorn: ["9L1"],
 			uturn: ["9L1"],
 			dualwingbeat: ["9L1"],
@@ -1622,6 +1628,7 @@ export const Learnsets = {
 	},
 	salamalix: {
 		learnset: {
+			accelerock: ["9L1"],
 			stoneedge: ["9L1"],
 			rockslide: ["9L1"],
 			rockblast: ["9L1"],
@@ -1701,6 +1708,7 @@ export const Learnsets = {
 		learnset: {
 			sludgebomb: ["9L1"],
 			sludgewave: ["9L1"],
+			focusblast: ["9L1"],
 			clearsmog: ["9L1"],
 			poisonjab: ["9L1"],
 			powergem: ["9L1"],
@@ -2690,7 +2698,6 @@ export const Learnsets = {
 			feralshriek: ["9L1"],
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
-			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
 		},
 	},
@@ -3463,6 +3470,7 @@ export const Learnsets = {
 	faerenheit: {
 		learnset: {
 			acrobatics: ["9L1"],
+			lavaplume: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
 			burnup: ["9L1"],
@@ -3517,6 +3525,7 @@ export const Learnsets = {
 			morningsun: ["9L1"],
 			crystaltail: ["9L1"],
 			crystalbeam: ["9L1"],
+			crystalcage: ["9L1"],
 			crystalburst: ["9L1"],
 			crystalhealing: ["9L1"],
 			crystalfortification: ["9L1"],
@@ -3663,6 +3672,8 @@ export const Learnsets = {
 	},
 	salaos: {
 		learnset: {
+			aurasphere: ["9L1"],
+			focusblast: ["9L1"],
 			fierywrath: ["9L1"],
 			suckerpunch: ["9L1"],
 			crunch: ["9L1"],
@@ -3734,6 +3745,9 @@ export const Learnsets = {
 	},
 	morndos: {
 		learnset: {
+			aurasphere: ["9L1"],
+			focusblast: ["9L1"],
+			tailwind: ["9L1"],
 			bravebird: ["9L1"],
 			dualwingbeat: ["9L1"],
 			acrobatics: ["9L1"],
@@ -3801,6 +3815,7 @@ export const Learnsets = {
 	},
 	pythos: {
 		learnset: {
+			aurasphere: ["9L1"],
 			crunch: ["9L1"],
 			knockoff: ["9L1"],
 			suckerpunch: ["9L1"],
@@ -4164,6 +4179,12 @@ export const Learnsets = {
 	flocura: {
 		learnset: {
 			allyswitch: ["9L1"],
+			leafstorm: ["9L1"],
+			focusblast: ["9L1"],
+			aurasphere: ["9L1"],
+			seedbomb: ["9L1"],
+			bulletseed: ["9L1"],
+			psychocut: ["9L1"],
 			leechseed: ["9L1"],
 			earthpower: ["9L1"],
 			guardswap: ["9L1"],
