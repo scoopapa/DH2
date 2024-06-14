@@ -88,9 +88,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		accuracy: true,
 		category: "Status",
-		heal: [1,2],
 		onHit(target, source, move) {
 // bad solution incoming
+			this.heal(Math.floor(target.maxhp / 2), source, source);
+			
 			source.side.removeSideCondition('convertmoltres')
 			source.side.removeSideCondition('convertalakazam')
 			source.side.removeSideCondition('convertarbok')
