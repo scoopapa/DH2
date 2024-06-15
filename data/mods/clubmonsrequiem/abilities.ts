@@ -80,22 +80,23 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (!target.hasType('Ice')) return;
 			if (effect && effect.id === 'stealthrock') {
 				return false;
+				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', target, 'typechange', target.getTypes().join('/'));
 			}
-			target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
-			this.add('-start', target, 'typechange', target.getTypes().join('/'));
 		},
 		onTryHit(target, source, move) {
 			if (!target.hasType('Ice')) return;
 			if (move.type === 'Rock') {
 				this.add('-immune', target, '[from] ability: Thermal Expansion');
+				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', target, 'typechange', target.getTypes().join('/'));
 				return null;
 			}
-			target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
-			this.add('-start', target, 'typechange', target.getTypes().join('/'));
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (target.hasType('Ice')) return;
+			if (!target.addType('Ice')) return false;
 			if (effect.id === 'hail') {
 				this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Thermal Expansion');
 			}
