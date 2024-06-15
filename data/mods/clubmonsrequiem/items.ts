@@ -137,20 +137,63 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		shortDesc: "If Gravity is active, +1 Speed. Consumable.",
+		shortDesc: "If Gravity is active, boost highest stat. 1.5x for Speed, 1.3x for rest.",
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.getPseudoWeather('gravity')) {
-				pokemon.useItem();
+			if (this.field.getPseudoWeather('gravity')) {
+				pokemon.addVolatile('magneticsoles');
 			}
 		},
-		onAnyPseudoWeatherChange() {
+		onAnyPseudoWeatherChange(pokemon) {
 			const pokemon = this.effectState.target;
 			if (this.field.getPseudoWeather('gravity')) {
-				pokemon.useItem(pokemon);
+				pokemon.addVolatile('magneticsoles');
+			} else if (!pokemon.volatiles['magneticsoles']) {
+				pokemon.removeVolatile('magneticsoles');
 			}
 		},
-		boosts: {
-			spe: 1,
+		onEnd(pokemon) {
+			delete pokemon.volatiles['magneticsoles'];
+			this.add('-end', pokemon, 'Magnetic Soles', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'item: Magnetic Soles');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'magneticsoles' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Magnetic Soles');
+			},
 		},
 		num: -3,
 		gen: 8,
