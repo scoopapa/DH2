@@ -79,9 +79,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamage(damage, target, source, effect) {
 			if (!target.hasType('Ice')) return;
 			if (effect && effect.id === 'stealthrock') {
-				return false;
 				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
 				this.add('-start', target, 'typechange', target.getTypes().join('/'));
+				return false;
 			}
 		},
 		onTryHit(target, source, move) {
