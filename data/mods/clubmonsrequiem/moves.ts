@@ -23,7 +23,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Seed Flare', target);
 		},
 		onAfterMoveSecondary(target, source, move) {
-			switch (pokemon.effectiveWeather()) {
+			switch (source.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
