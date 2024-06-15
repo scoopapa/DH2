@@ -25,6 +25,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	inkayalola: {tier: "CM (NFE)"},
 	malamaralola: {tier: "CM"},
 
+	petaledpyre: {tier: "CM"},
+
+	sneezibia: {tier: "CM"},
+
+	porygreen: {tier: "CM (NFE)"},
+	porygreen2: {tier: "CM (NFE)"},
+	porygreenz: {tier: "CM"},
+
+	kricketot: {tier: "CM (NFE)"},
+	kricketune: {tier: "CM (NFE)"},
+	krickoncerto: {tier: "CM"},
+
 	cyclonimbus: {tier: "CM"},
 	cyclonimbussunny: {tier: "Illegal"},
 	cyclonimbusrainy: {tier: "Illegal"},
@@ -36,7 +48,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bergmite: {tier: "CM (NFE)"},
 	avalugg: {tier: "CM"},
 	avalugghisui: {tier: "CM"},
-	avaluggalpine: {tier: "CM"},
+	avaluggalpine: {tier: "CM (NFE)"},
 	avalange: {tier: "CM"},
 
 	tadbulb: {tier: "CM (NFE)"},
