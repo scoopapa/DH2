@@ -34,7 +34,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'firedragon',
 		noCopy: true,
 		onStart(target) {
-			this.add('-start', target, 'firedragon');
+			this.add('-start', target, 'Fire/Dragon');
 	      this.add('-message', `${target.name} is now Fire/Dragon!`);
 		},
 	},
