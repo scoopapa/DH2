@@ -61,6 +61,7 @@ export const Learnsets = {
 			feralshred: ["9L1"],
 			feralpower: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	krachiten: {
@@ -138,6 +139,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	scalaron: {
@@ -208,6 +210,7 @@ export const Learnsets = {
 			feralbreath: ["9L1"],
 			feralhealing: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	rantler: {
@@ -595,6 +598,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	cindoe: {
@@ -668,6 +672,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	cobracotta: {
@@ -756,6 +761,7 @@ export const Learnsets = {
 			feralbreath: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	minillow: {
@@ -1100,6 +1106,7 @@ export const Learnsets = {
 			feralhealing: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	lumoth: {
@@ -1474,6 +1481,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	zeploom: {
@@ -1541,6 +1549,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	brawnkey: {
@@ -1774,6 +1783,7 @@ export const Learnsets = {
 			crystalshard: ["9L1"],
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
+			feralhealing: ["9L1"],
 			feralresilience: ["9L1"],
 			mortalspin: ["9L1"],
 		},
@@ -1915,7 +1925,6 @@ export const Learnsets = {
 			feralshriek: ["9L1"],
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
-			feralhealing: ["9L1"],
 			feralresilience: ["9L1"],
 		},
 	},
@@ -1990,6 +1999,7 @@ export const Learnsets = {
 			feralrush: ["9L1"],
 			feralshriek: ["9L1"],
 			feralpower: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	cyllindrake: {
@@ -2151,6 +2161,7 @@ export const Learnsets = {
 			feralshriek: ["9L1"],
 			feralpower: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	electangle: {
@@ -2226,6 +2237,7 @@ export const Learnsets = {
 			feralrush: ["9L1"],
 			feralpower: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	dolphena: {
@@ -2644,7 +2656,7 @@ export const Learnsets = {
 			electroball: ["9L1"],
 			flashcannon: ["9L1"],
 			steelbeam: ["9L1"],
-			earthpower: ["9L1"],
+			// earthpower: ["9L1"],
 			energyball: ["9L1"],
 			wildcharge: ["9L1"],
 			zingzap: ["9L1"],
@@ -2768,6 +2780,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	roscenti: {
@@ -2833,6 +2846,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	blunderbusk: {
@@ -2911,6 +2925,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	barracoth: {
@@ -2998,6 +3013,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	jamborai: {
@@ -3069,6 +3085,7 @@ export const Learnsets = {
 			crystalhealing: ["9L1"],
 			crystalfortification: ["9L1"],
 			feralpower: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	dracoil: {
@@ -3250,6 +3267,7 @@ export const Learnsets = {
 			feralshriek: ["9L1"],
 			feralpower: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	noxtrice: {
@@ -3426,6 +3444,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	avastar: {
@@ -3534,6 +3553,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	cellsius: {
@@ -3741,13 +3761,13 @@ export const Learnsets = {
 			feralbreath: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	morndos: {
 		learnset: {
 			aurasphere: ["9L1"],
 			focusblast: ["9L1"],
-			tailwind: ["9L1"],
 			bravebird: ["9L1"],
 			dualwingbeat: ["9L1"],
 			acrobatics: ["9L1"],
@@ -3811,6 +3831,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	pythos: {
@@ -3882,6 +3903,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralbreath: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	corundell: {
@@ -3958,6 +3980,7 @@ export const Learnsets = {
 			feralrush: ["9L1"],
 			feralpower: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	quadringo: {
@@ -4042,6 +4065,7 @@ export const Learnsets = {
 			feralbreath: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	saphor: {
@@ -4253,6 +4277,7 @@ export const Learnsets = {
 			feralpower: ["9L1"],
 			feralresilience: ["9L1"],
 			feralspray: ["9L1"],
+			feralhealing: ["9L1"],
 		},
 	},
 	flocuranexus: {
