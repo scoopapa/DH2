@@ -8,6 +8,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Special Attack by 1 stage if hit by an Water-type attack.",
+		rating: 3,
 	},
 	berryjuice: {
 		inherit: true,
@@ -18,12 +19,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
+		rating: 3,
 	},
 	branchingwand: {
 		name: "Branching Wand",
 		spritenum: 259,
-		num: 165,
-		gen: 6,
+		num: -4,
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (source.baseSpecies.baseSpecies === 'Braixen' || source.baseSpecies.baseSpecies === 'Delphox') {
@@ -51,8 +52,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	spikedjacket: {
 		name: "Spiked Jacket",
 		spritenum: 213,
-		num: 165,
-		gen: 6,
+		num: -5,
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
 			const spikes = side.sideConditions['spikes'];
@@ -103,6 +103,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
+		rating: 3,
 	},
 	fuelcell: {
 		name: "Fuel Cell",
@@ -119,7 +120,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 			spd: 1,
 			spe: 1,
 		},
-		num: 282,
+		num: -1,
+		rating: 3,
 	},
 	newtonsapple: {
 		name: "Newton's Apple",
@@ -128,7 +130,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		num: 282,
+		num: -2,
+		rating: 3,
 	},
 	magneticsoles: {
 		name: "Magnetic Soles",
@@ -136,23 +139,67 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		shortDesc: "If Gravity is active, +1 Speed. Consumable.",
+		shortDesc: "If Gravity is active, boost highest stat. 1.5x for Speed, 1.3x for rest.",
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.getPseudoWeather('gravity')) {
-				pokemon.useItem();
+			if (this.field.getPseudoWeather('gravity')) {
+				pokemon.addVolatile('magneticsoles');
 			}
 		},
 		onAnyPseudoWeatherChange() {
 			const pokemon = this.effectState.target;
 			if (this.field.getPseudoWeather('gravity')) {
-				pokemon.useItem(pokemon);
+				pokemon.addVolatile('magneticsoles');
+			} else if (!this.field.getPseudoWeather('gravity')) {
+				pokemon.removeVolatile('magneticsoles');
 			}
 		},
-		boosts: {
-			spe: 1,
+		onEnd(pokemon) {
+			delete pokemon.volatiles['magneticsoles'];
+			this.add('-end', pokemon, 'Magnetic Soles', '[silent]');
 		},
-		num: 1122,
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'item: Magnetic Soles');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'magneticsoles' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringItem()) return;
+				this.debug('Magnetic Soles spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Magnetic Soles');
+			},
+		},
+		num: -3,
 		gen: 8,
+		rating: 3,
 	},
 	metronome: {
 		name: "Metronome",
@@ -205,6 +252,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Ice-type attack.",
+		rating: 3,
 	},
 	throatspray: {
 		inherit: true,
@@ -261,6 +309,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		desc: "On entry, the holder scares the target to restore HP.",
 		num: -7,
+		rating: 3,
 	},
 	costarmask: {
 		name: "Costar Mask",
