@@ -79,7 +79,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamage(damage, target, source, effect) {
 			if (!target.hasType('Ice')) return;
 			if (effect && effect.id === 'stealthrock') {
-				target.setType(target.getTypes(true).map(type => type !== "Ice");
+				target.setType(target.getTypes(true).map(type => type !== "Ice"));
 				this.add('-start', target, 'typechange', target.getTypes().join('/'));
 				return false;
 			}
@@ -88,7 +88,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (!target.hasType('Ice')) return;
 			if (move.type === 'Rock') {
 				this.add('-immune', target, '[from] ability: Thermal Expansion');
-				target.setType(target.getTypes(true).map(type => type !== "Ice");
+				target.setType(target.getTypes(true).map(type => type !== "Ice"));
 				this.add('-start', target, 'typechange', target.getTypes().join('/'));
 				return null;
 			}
