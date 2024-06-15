@@ -187,7 +187,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1024,
 		name: "MuabBoa",
 		types: ["Ground", "Fighting"],
-		baseStats: {hp: 65, atk: 110, def: 75, spa: 55, spd: 65, spe: 120},
+		baseStats: {hp: 65, atk: 100, def: 75, spa: 55, spd: 65, spe: 120},
 		abilities: {0: "Anticipation", 1: "Sand Rush", H: "Inner Focus"},
 		weightkg: 25,
 	},
