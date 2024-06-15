@@ -482,7 +482,7 @@ export const Formats: FormatList = [
 		},
 	},
 	/*{
-	name: "[Gen 9] Generation X (Brunica)",
+	name: "[Gen 9] Generation X: Brunica",
 		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Brunica, the mod's second region in Generation 9 after Desvega and fourth overall."],
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
@@ -507,7 +507,7 @@ export const Formats: FormatList = [
 		},
 	},*/
 	{
-	name: "[Gen 9] Generation X (Desvega)",
+	name: "[Gen 9] Generation X: Desvega",
 		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with both brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Desvega, the mod's first region in Generation 9 and third region overall, as the successor to Loria from Generation 8."],
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
