@@ -7,6 +7,41 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		itemUser: ["Lutakon-Awakened"],
 	},
+	//Vanilla tems that interact with Brunician customs
+	
+	grassyseed: {
+		inherit: true,
+		desc: "If the terrain is Grassy Terrain or Nature Field, raises holder's Defense by 1 stage. Single use.",
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
+				pokemon.useItem();
+			}
+		},
+	},
+	mistyseed: {
+		inherit: true,
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('mistyterrain') && !this.getAllActive().some(target => !target.hasAbility('guardianofnature'))) {
+				pokemon.useItem();
+			}
+		},
+	},
+	psychicseed: {
+		inherit: true,
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('psychicterrain') && !this.getAllActive().some(target => !target.hasAbility('guardianofnature'))) {
+				pokemon.useItem();
+			}
+		},
+	},
+	electricseed: {
+		inherit: true,
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain') && !this.getAllActive().some(target => !target.hasAbility('guardianofnature'))) {
+				pokemon.useItem();
+			}
+		},
+	},
 	//Standard Items (returning from Desvega)
 	thunderorb: {
 		name: "Thunder Orb",
@@ -65,7 +100,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTerrainChange(pokemon) {
-			if (this.field.isTerrain('poisonterrain') && pokemon.useItem()) {
+			if (this.field.isTerrain('poisonterrain') && !this.getAllActive().some(target => !target.hasAbility('guardianofnature')) && pokemon.useItem()) {
 				if (pokemon.getStat('def', false, true) > pokemon.getStat('spd', false, true)) {
 					this.boost({spd: 1}, pokemon);
 				} else {
