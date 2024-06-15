@@ -8,6 +8,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Special Attack by 1 stage if hit by an Water-type attack.",
+		rating: 3,
 	},
 	berryjuice: {
 		inherit: true,
@@ -18,12 +19,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onUpdate() {},
 		shortDesc: "User will heal 1/8 of its max HP whenever they fall under half HP.",
+		rating: 3,
 	},
 	branchingwand: {
 		name: "Branching Wand",
 		spritenum: 259,
-		num: 165,
-		gen: 6,
+		num: -4,
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (source.baseSpecies.baseSpecies === 'Braixen' || source.baseSpecies.baseSpecies === 'Delphox') {
@@ -45,13 +46,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "If Braixen, x1.5 offenses. If Delphox or Braixen, inflict burn on a super effective move.",
-		rating: 0,
+		rating: 3,
 	},
 	spikedjacket: {
 		name: "Spiked Jacket",
 		spritenum: 213,
-		num: 165,
-		gen: 6,
+		num: -5,
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
 			const spikes = side.sideConditions['spikes'];
@@ -77,7 +77,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "If Quilladin, x2 Defenses. If Chesnaught or Quilladin, set a layer of Spikes when hit super effectively.",
-		rating: 0,
+		rating: 3,
 	},
 	watmelberry: {
 		name: "Watmel Berry",
@@ -101,6 +101,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Electric-type attack.",
+		rating: 3,
 	},
 	fuelcell: {
 		name: "Fuel Cell",
@@ -117,7 +118,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 			spd: 1,
 			spe: 1,
 		},
-		num: 282,
+		num: -1,
+		rating: 3,
 	},
 	newtonsapple: {
 		name: "Newton's Apple",
@@ -126,7 +128,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 20,
 		},
-		num: 282,
+		num: -2,
+		rating: 3,
 	},
 	magneticsoles: {
 		name: "Magnetic Soles",
@@ -149,8 +152,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		boosts: {
 			spe: 1,
 		},
-		num: 1122,
+		num: -3,
 		gen: 8,
+		rating: 3,
 	},
 	metronome: {
 		name: "Metronome",
@@ -203,6 +207,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		boosts: {},
 		shortDesc: "Raises Attack by 1 stage if hit by an Ice-type attack.",
+		rating: 3,
 	},
 	throatspray: {
 		inherit: true,
@@ -259,6 +264,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		desc: "On entry, the holder scares the target to restore HP.",
 		num: -7,
+		rating: 3,
 	},
 	costarmask: {
 		name: "Costar Mask",
