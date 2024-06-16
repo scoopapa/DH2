@@ -1249,6 +1249,7 @@ export const Learnsets = {
 	tailslap: ["9L1"],
 	trailblaze: ["9L1"],
 	tripleaxel: ["9L1"],
+		stealthrock: ["9L1"],
 	}
 	},
 	raccatoskr: {
