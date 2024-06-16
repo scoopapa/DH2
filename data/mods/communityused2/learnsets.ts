@@ -105,7 +105,7 @@ export const Learnsets = {
 	recover: ["9L1"],
 	scald: ["9L1"],
 	spiderweb: ["9L1"],
-	uturn: ["9L1"],
+	//uturn: ["9L1"],
 	watergun: ["9L1"],
 	weatherball: ["9L1"],
 	willowisp: ["9L1"],
@@ -1305,7 +1305,7 @@ export const Learnsets = {
 	alcremienodean: {
 	learnset: {
 	acid: ["9L1"],
-	acidarmor: ["9L1"],
+	//acidarmor: ["9L1"],
 	acidspray: ["9L1"],
 	alluringvoice: ["9L1"],
 	aromaticmist: ["9L1"],
@@ -1606,7 +1606,7 @@ export const Learnsets = {
 		skittersmack: ["9L1"],
 	meteorbeam: ["9L1"],
 			yawn: ["9L1"],
-			earthpower: ["9L1"],
+			//earthpower: ["9L1"],
 	}
 	},
 	vintriol: {
@@ -2512,7 +2512,7 @@ export const Learnsets = {
 	firespin: ["9L1"],
 	flail: ["9L1"],
 	flameburst: ["9L1"],
-	flareblitz: ["9L1"],
+	//flareblitz: ["9L1"],
 	focusblast: ["9L1"],
 	focuspunch: ["9L1"],
 	followme: ["9L1"],
@@ -2571,7 +2571,7 @@ export const Learnsets = {
 	toxic: ["9L1"],
 	upperhand: ["9L1"],
 	voltswitch: ["9L1"],
-	volttackle: ["9L1"],
+	//volttackle: ["9L1"],
 	wildcharge: ["9L1"],
 			willowisp: ["9L1"],
 	prominenceshock: ["9L1"],
@@ -3152,7 +3152,7 @@ export const Learnsets = {
 	firespin: ["9L1"],
 	flail: ["9L1"],
 	flameburst: ["9L1"],
-	flareblitz: ["9L1"],
+	//flareblitz: ["9L1"],
 	frustration: ["9L1"],
 	hammerarm: ["9L1"],
 	incinerate: ["9L1"],
