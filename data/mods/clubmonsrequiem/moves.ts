@@ -76,7 +76,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	coldrush: {
 		num: 248,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 80,
 		category: "Physical",
 		name: "Cold Rush",
 		pp: 10,
@@ -97,7 +97,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					id: 'coldrush',
 					name: "Cold Rush",
 					accuracy: 100,
-					basePower: 120,
+					basePower: 80,
 					category: "Physical",
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
