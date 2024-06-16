@@ -3127,7 +3127,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bulldoze: ["9M"],
 			chargebeam: ["9M"],
 			confide: ["9M"],
-			confuseray: ["9M"]
+			confuseray: ["9M"],
 			crunch: ["9L32"],
 			darkpulse: ["9M"],
 			defog: ["9M"],
@@ -4742,7 +4742,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			rocksmash: ["9M"],
 			rocktomb: ["9M"],
 			round: ["9M"],
-			safeguard: ["9M"]
+			safeguard: ["9M"],
 			scaryface: ["9M"],
 			shadowball: ["9M"],
 			shadowclaw: ["9M"],
