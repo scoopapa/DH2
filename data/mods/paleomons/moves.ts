@@ -140,6 +140,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
+	frigidfin: {
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) return move.basePower;
+			this.debug('Tail Sear damage boost');
+			return move.basePower * 1.5;
+		},
+		category: "Special",
+		name: "Frigid Fin",
+		shortDesc: "Power is 1.5x if user moves after the target.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
 	petroglyph: {
 		accuracy: 100,
 		basePower: 80,
@@ -169,6 +187,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 	fishiousrend: {
 		inherit: true,
 		isNonstandard: null,
+		shortDesc: "Power is 1.5x if user moves before the target.",
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
 	},
 	boltbeak: {
 		inherit: true,

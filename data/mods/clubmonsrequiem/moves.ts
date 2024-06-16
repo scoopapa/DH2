@@ -7,6 +7,120 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	cultivate: {
+		num: 404,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Cultivate",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Seed Flare', target);
+		},
+		onAfterMoveSecondary(target, source, move) {
+			switch (source.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
+					this.add('-fail', target);
+					return null;
+				}
+				this.add('-start', target, 'typechange', 'Water');
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				this.field.addPseudoWeather('mudsport', source);
+				break;
+			case 'sandstorm':
+				target.addVolatile('smackdown', source, move);
+				break;
+			case 'hail':
+			case 'snow':
+				let success = false;
+				if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+				const removeTarget = [
+					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				const removeAll = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const targetCondition of removeTarget) {
+					if (target.side.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Cultivate', '[of] ' + source);
+						success = true;
+					}
+				}
+				for (const sideCondition of removeAll) {
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Cultivate', '[of] ' + source);
+						success = true;
+					}
+				}
+				this.field.clearTerrain();
+				return success;
+				break;
+			}
+		},			
+		secondary: null,
+		shortDesc: "Secondary effect depends on the active weather.",
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	coldrush: {
+		num: 248,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Cold Rush",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onTry(source, target) {
+			this.add('-anim', source, 'Future Sight', target);
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'coldrush',
+				source: source,
+				moveData: {
+					id: 'coldrush',
+					name: "Cold Rush",
+					accuracy: 100,
+					basePower: 80,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					onAfterMoveSecondary() {
+						this.field.setWeather('hail');
+					},
+					onPrepareHit(target, source) {
+						this.add('-anim', source, 'Doom Desire', target);
+					},
+					effectType: 'Move',
+					type: 'Ice',
+				},
+			});
+			this.add('-start', source, 'move: Cold Rush');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Hits after 2 turns and sets Hail.",
+		type: "Ice",
+		contestType: "Clever",
+	},
 	xscissor: {
 		num: 404,
 		accuracy: 100,
