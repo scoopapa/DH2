@@ -23,7 +23,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, 'Seed Flare', target);
 		},
 		onAfterMoveSecondary(target, source, move) {
-			switch (pokemon.effectiveWeather()) {
+			switch (source.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
@@ -76,7 +76,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	coldrush: {
 		num: 248,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 80,
 		category: "Physical",
 		name: "Cold Rush",
 		pp: 10,
@@ -86,22 +86,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
-		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Seed Flare', target);
-		},
 		onTry(source, target) {
 			this.add('-anim', source, 'Future Sight', target);
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
-				move: 'futuresight',
+				move: 'coldrush',
 				source: source,
 				moveData: {
 					id: 'coldrush',
 					name: "Cold Rush",
 					accuracy: 100,
-					basePower: 120,
-					category: "Special",
+					basePower: 80,
+					category: "Physical",
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
 					ignoreImmunity: false,
@@ -120,6 +117,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		secondary: null,
 		target: "normal",
+		shortDesc: "Hits after 2 turns and sets Hail.",
 		type: "Ice",
 		contestType: "Clever",
 	},

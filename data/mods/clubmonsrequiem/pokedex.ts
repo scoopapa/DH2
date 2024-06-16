@@ -87,7 +87,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 65, atk: 70, def: 55, spa: 75, spd: 60, spe: 70},
 		abilities: {0: "Seed Sower", 1: "Wind Power", H: "Air Lock"},
-		movepoolAdditions: ["autotomize", "calmmind", "cultivate", "flashcannon", "grassyterrain", "inrain", "leechseed", "metalburst", "mirrorshot", "petalblizzard", "rototiller", "steelbeam", "terrainpulse", "voltswitch", "weatherball"],
+		movepoolAdditions: ["autotomize", "calmmind", "cultivate", "flashcannon", "grassyterrain", "ingrain", "leechseed", "metalburst", "mirrorshot", "petalblizzard", "rototiller", "steelbeam", "terrainpulse", "voltswitch", "weatherball"],
 		movepoolDeletions: ["barrier", "curse", "darkpulse", "dreameater", "embargo", "foulplay", "hiddenpower", "nightmare", "teleport", "thief", "toxic", "recover"],
 	},
 	porygreen2: {
@@ -108,7 +108,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 85, atk: 60, def: 90, spa: 115, spd: 95, spe: 90},
 		abilities: {0: "Seed Sower", 1: "Wind Power", H: "Air Lock"},
 		movepoolAdditions: ["calmmind", "voltswitch", "recover"],
-		movepoolDeletions: ["barrier", "curse", "darkpulse", "dreameater", "embargo", "foulplay", "hiddenpower", "nightmare", "teleport", "thief", "toxic"],
+		movepoolDeletions: ["barrier", "curse", "darkpulse", "dreameater", "embargo", "foulplay", "hiddenpower", "nightmare", "teleport", "thief", "toxic", "nastyplot"],
 		prevo: "Porygreen2",
 	},
 	krickoncerto: {

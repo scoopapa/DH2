@@ -145,17 +145,27 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.addVolatile('magneticsoles');
 			}
 		},
+		onResidual(pokemon) {
+			if (!this.field.pseudoWeather['gravity']) {
+				pokemon.removeVolatile('magneticsoles');
+				delete pokemon.volatiles['magneticsoles'];
+			}
+		},
+		onAnyPseudoWeatherChange() {
+			const pokemon = this.effectState.target;
+			if (this.field.pseudoWeather['gravity']) {
+				pokemon.addVolatile('magneticsoles');
+			} else pokemon.removeVolatile('magneticsoles');
+		},
 		onAnyPseudoWeatherChange() {
 			const pokemon = this.effectState.target;
 			if (this.field.getPseudoWeather('gravity')) {
 				pokemon.addVolatile('magneticsoles');
-			} else if (!this.field.getPseudoWeather('gravity')) {
-				pokemon.removeVolatile('magneticsoles');
-			}
+			} else pokemon.removeVolatile('magneticsoles');
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['magneticsoles'];
-			this.add('-end', pokemon, 'Magnetic Soles', '[silent]');
+			this.add('-end', pokemon, 'Magnetic Soles');
 		},
 		condition: {
 			noCopy: true,
@@ -195,6 +205,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Magnetic Soles');
+				delete pokemon.volatiles['magneticsoles'];
 			},
 		},
 		num: -3,
