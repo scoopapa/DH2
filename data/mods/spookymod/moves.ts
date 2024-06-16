@@ -128,7 +128,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	ragefist: {
-		shortDesc: "+1 power for each time user was hit. Max 300 hits. Deals 1 damage to itself.",
+		shortDesc: "+1 power per time hit, max 300. 1 damage recoil.",
 		inherit: true,
 		pp: 187.5,
 		basePowerCallback(pokemon) {
