@@ -89,6 +89,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Seed Sower", 1: "Wind Power", H: "Air Lock"},
 		movepoolAdditions: ["autotomize", "calmmind", "cultivate", "flashcannon", "grassyterrain", "ingrain", "leechseed", "metalburst", "mirrorshot", "petalblizzard", "rototiller", "steelbeam", "terrainpulse", "voltswitch", "weatherball"],
 		movepoolDeletions: ["barrier", "curse", "darkpulse", "dreameater", "embargo", "foulplay", "hiddenpower", "nightmare", "teleport", "thief", "toxic", "recover"],
+		evos: ["Porygreen2", "Porygreen-Z"],	
 	},
 	porygreen2: {
 		name: "Porygreen2",
@@ -99,6 +100,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Seed Sower", 1: "Wind Power", H: "Air Lock"},
 		movepoolDeletions: ["barrier", "curse", "darkpulse", "dreameater", "embargo", "foulplay", "hiddenpower", "nightmare", "teleport", "thief", "toxic", "recover"],
 		prevo: "Porygreen",
+		evos: ["Porygreen-Z"],	
 	},
 	porygreenz: {
 		name: "Porygreen-Z",
