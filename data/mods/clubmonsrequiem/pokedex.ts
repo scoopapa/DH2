@@ -83,6 +83,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	porygreen: {
 		name: "Porygreen",
 		copyData: "Porygon",
+		gender: "N",
 
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 65, atk: 70, def: 55, spa: 75, spd: 60, spe: 70},
@@ -94,6 +95,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	porygreen2: {
 		name: "Porygreen2",
 		copyData: "Porygon2",
+		gender: "N",
 		
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 85, atk: 90, def: 75, spa: 95, spd: 80, spe: 90},
@@ -105,6 +107,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	porygreenz: {
 		name: "Porygreen-Z",
 		copyData: "Porygon-Z",
+		gender: "N",
 		
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 85, atk: 60, def: 90, spa: 115, spd: 95, spe: 90},
