@@ -2581,6 +2581,14 @@ export const Formats: FormatList = [
 			'Karakasa','Grag','Kimokus','Toknight','Cowpy','Cowork','Barbecow','Hoorel','Baishark','Luviu','Shucklony','Dreamer','Nohtyp']
 	},
 	{
+		name: "[Gen 9] Monster Hunter",
+		threads: [],
+		mod: 'monsterhunter',
+		searchShow: false,
+		ruleset: ['Sleep Clause Mod', 'Species Clause'],
+		banlist: [],
+	},
+	{
 		name: "[Gen 9] Mega Mania",
 		mod: "megamania",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
