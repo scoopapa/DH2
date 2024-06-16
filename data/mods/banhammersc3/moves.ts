@@ -39,4 +39,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	stickyweb: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	glare: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	focusblast: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 };
