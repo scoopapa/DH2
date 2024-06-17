@@ -274,8 +274,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (!this.effectState.switchingIn) return;
 			if (move.flags['sound']) {
 				this.boost({spa: 1});
+				this.effectState.switchingIn = false;
 			}
-			this.effectState.switchingIn = false;
 		},
 		boosts: {},
 		shortDesc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Once per switch-in.",
