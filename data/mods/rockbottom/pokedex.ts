@@ -3,7 +3,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 71, def: 70, spa: 40, spd: 70, spe: 72},
 		abilities: {0: "Gluttony", 1: "Adaptability", H: "Thick Fat"},
-    prevo: null,
+    	prevo: null,
 	},
 	dragonair: {
 		inherit: true,
