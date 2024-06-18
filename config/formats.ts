@@ -3964,4 +3964,25 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
 	},
+	{
+		name: "[Gen 9] Rock Bottom VGC",
+		threads: [
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/170WmahuITbnjMe_rM4CWWFzENXBdh8O4JUMtkmzTiKE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'rockbottomvgc',
+		gameType: 'doubles',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Limit One Restricted'],
+		restricted: ['Restricted Legendary'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RBV'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in [Gen 9] Rock Bottom VGC.'];
+				}
+			}
+		},
+	},
 ];
