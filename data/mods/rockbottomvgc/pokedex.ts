@@ -40,7 +40,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	monferno: {
 		inherit: true,
-		baseStats: {hp: 59, atk: 83, def: 42, spa: 73, spd: 42, spe: 96},
+		baseStats: {hp: 59, atk: 83, def: 47, spa: 73, spd: 47, spe: 96},
 	},
 	seviper: {
 		inherit: true,
