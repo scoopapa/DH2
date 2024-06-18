@@ -1385,7 +1385,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			fling: ["9L1"],
 			focusblast: ["9L1"],
 			focuspunch: ["9L1"],
-			followme: ["9L1"],
 			forcepalm: ["9L1"],
 			foresight: ["9L1"],
 			frustration: ["9L1"],
