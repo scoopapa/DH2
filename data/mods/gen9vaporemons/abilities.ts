@@ -1356,7 +1356,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			attacker.addVolatile('permafrost');
 		},
 		condition: {
-			onModifyTypePriority: -1,
+			onModifyTypePriority: -2,
 			onModifyType(move, pokemon) {
 				if (move.type === 'Water') {
 					move.type = 'Ice';

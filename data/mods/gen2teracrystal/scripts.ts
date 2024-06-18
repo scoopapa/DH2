@@ -708,7 +708,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// STAB damage bonus, the "???" type never gets STAB
-			if (type !== '???' && source.hasType(type)) {
+			if (type !== '???' && (source.getTypes(false, true).includes(type) || source.hasType(type))) {
 				damage += Math.floor(damage / 2);
 			}
       

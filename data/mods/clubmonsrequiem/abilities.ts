@@ -75,6 +75,38 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: 3000,
 	},
+	thermalexpansion: {
+		onDamage(damage, target, source, effect) {
+			if (!target.hasType('Ice')) return;
+			if (effect && effect.id === 'stealthrock') {
+				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', target, 'typechange', target.getTypes().join('/'));
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!target.hasType('Ice')) return;
+			if (move.type === 'Rock') {
+				this.add('-immune', target, '[from] ability: Thermal Expansion');
+				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', target, 'typechange', target.getTypes().join('/'));
+				return null;
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (target.hasType('Ice')) return;
+			if (!target.addType('Ice')) return false;
+			if (effect.id === 'hail') {
+				this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Thermal Expansion');
+			}
+		},
+		flags: {},
+		name: "Thermal Expansion",
+		shortDesc: "If user is Ice-type, immunity to Stealth Rock and Rock-type moves. On immunity, lose Ice-type. Regain in Hail or switch.",
+		rating: 4,
+		num: 182,
+	},
 	magician: {
    	onStart(pokemon, move) {
 			if (pokemon.hp === pokemon.maxhp) {

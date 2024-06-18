@@ -92,14 +92,15 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/banhammers-cycle-2-week-2-second-roomtour-6-17.3711488/">Banhammers on Smogon Forums</a>`,
          `&bullet; <a href="https://docs.google.com/spreadsheets/d/1prtFrCj_mdOpFtKPpsCH6S3CsO12tEgTIWaQJOEnUcY/edit?usp=sharing">Spreadsheet</a>`,			
 		],
-		mod: 'banhammers',
+		mod: 'banhammersc3',
 		ruleset: ['Standard', 'Sleep Moves Clause', 'Data Mod', '!Sleep Clause Mod'],
 		banlist: [
 			'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass',
 			'Last Respects', 'Shed Tail', 'Barraskewda', 'Cinderace', 'Clodsire', 'Dragapult', 'Enamorus-Base', 'Gholdengo', 'Gliscor', 'Hatterene',
 			'Iron Treads', 'Kingambit', 'Ogerpon-Wellspring', 'Pelipper', 'Rillaboom', 'Walking Wake', 'Zamazenta', 'Earth Power', 'Flip Turn',
 			'Freeze-Dry', 'Ice Beam', 'Knock Off', 'Spikes', 'Taunt', 'Thunder Wave', 'Toxic', 'Volt Switch', 'Booster Energy', 'Light Clay',
-			'Protosynthesis',
+			'Protosynthesis', 'Clefable', 'Corviknight', 'Darkrai', 'Dragonite', 'Maushold', 'Primarina', 'Samurott-Hisui', 'Slowking-Galar',
+			'Weavile', 'Focus Blast', 'Glare', 'Sticky Web', 'Unaware', 'Quark Drive',
 		],
     },
 	{
@@ -481,10 +482,36 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{
-		name: "[Gen 9] Generation X",
+	/*{
+	name: "[Gen 9] Generation X: Brunica",
+		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Brunica, the mod's second region in Generation 9 after Desvega and fourth overall."],
 		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Generation X</a>`,
+			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
+			`<a href="https://www.smogon.com/forums/threads/3722319/post-10114743">Announcement of Generation X's fourth iteration</a>`,
+		],
+		mod: 'genxdesvega',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}* /
+			let speciesTable = {};
+			let allowedTiers = ['Brunica OU', 'Brunica NFE', "Brunica LC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier === 'Brunica Uber') {
+					return [set.species + ' is banned in Generation X\'s Brunica format.'];
+				}
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not available in Generation X\'s Brunica format.'];
+				}
+			}
+		},
+	},*/
+	{
+	name: "[Gen 9] Generation X: Desvega",
+		desc: ["<b>Generation X</b>: A pet mod that aims to develop new regions with both brand-new Pokemon and select realmons, including ones that are absent from Scarlet and Violet. This format is based in Desvega, the mod's first region in Generation 9 and third region overall, as the successor to Loria from Generation 8."],
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
 		],
 		mod: 'genxdesvega',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
@@ -495,8 +522,11 @@ export const Formats: FormatList = [
 			let allowedTiers = ['Desvega OU', 'Desvega NFE', "Desvega LC"];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
+				if (template.tier === 'Desvega Uber') {
+					return [set.species + ' is banned in Generation X\'s Desvega format.'];
+				}
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Generation X.'];
+					return [set.species + ' is not available in Generation X\'s Desvega format.'];
 				}
 			}
 		},
@@ -805,7 +835,8 @@ export const Formats: FormatList = [
 			'&bullet; <a href="https://www.smogon.com/forums/threads/paleomons-slate-1-winners.3727753/">Paleomons</a>',
 		//	'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
 		],
-		mod: 'paleomons', 
+		mod: 'paleomons',
+		teambuilderFormat: "National Dex",
 	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod', '!! Min Source Gen = 8'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
@@ -1109,7 +1140,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen9vaporemons',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard', 'Damp Rock'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -2085,7 +2116,7 @@ export const Formats: FormatList = [
             `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Climate Change on Smogon Forums</a>`,
               ],
         ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause'],
-        banlist: ['Sunny Day', 'Rain Dance', 'Sandstorm', 'Hail', 'Snowscape', 'Chilly Reception'],
+        banlist: ['Sunny Day', 'Rain Dance', 'Sandstorm', 'Hail', 'Snowscape', 'Chilly Reception', 'Charizardite X'],
 		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {
             /**@type {{[k: string]: true}} */
@@ -2672,6 +2703,29 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
 	},
+	{
+		name: "[Gen 9] Rock Bottom",
+		desc: [
+			"<b>Rock Bottom</b>: A micrometa with an extremely low powerlevel and typically common strong tools being thinly distributed.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10151175">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1BySngRBKJhUiq0-hynrDp2HVNqzWjL-8RaL8mQIyCqA/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'rockbottom',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RB'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in [Gen 9] Rock Bottom.'];
+				}
+			}
+		},
+	},
 	/*{
 		name: "[Gen 8] Roulettemons The Solomod",
 		desc: `<b>Roulettemons The Solomod</b>: literally roulettemons but a solomod + clean slate micro`,
@@ -2716,14 +2770,14 @@ export const Formats: FormatList = [
 		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
 	},	
 	{
-		name: "[Gen 9] Scootopia Patch Test",
+		name: "[Gen 9] Scootopia Ubers",
 		desc: "A test meta for proposed changes to the hit solomod Scootopia!",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/scootopia.3742131/post-10103602">Thread</a>`,
 		],
-		mod: "scootopiatest",
+		mod: "scootopia",
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule',],
-		banlist: ['All Pokemon', 'Crystal Heart', 'Wild Heart', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil'],
+		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 'Snow Cloak', 'Sand Veil'],
 		unbanlist: ["Arbrella", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Orchile",
 		"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Platypad", "Lumoth",
 		"Aurorowl", "Carapex", "Dojodo", "Nunopod", "Zeploom", "Brawnkey", "Salamalix", "Cinnastar", 
@@ -2731,7 +2785,7 @@ export const Formats: FormatList = [
 		"Soleron-Awakened", "Jaegorm", "Jaegorm-Collective", "Elemadillo", "Axolacred", "Roscenti",
 		"Blunderbusk", "Barracoth", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", 
 		"Faerenheit", "Cellsius", "Kelven", "Salaos", "Morndos", "Pythos", "Corundell", "Quadringo", 
-		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus", "Eleqwil"],
+		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
 	},
 	{
         name: "[Gen 9] Spookymod",
@@ -3132,7 +3186,7 @@ export const Formats: FormatList = [
 		mod: 'gen9vaporemons',
 		teambuilderFormat: 'UU',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Dancing Shoes', 'Fling + Segin Star Shard'],
+		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Dancing Shoes', 'Fling + Segin Star Shard', 'Damp Rock'],
 	},
 	
 	///////////////////////////////////////////////////////////////

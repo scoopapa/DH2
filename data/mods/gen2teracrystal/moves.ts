@@ -19,24 +19,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
 			}
 		},
-		onModifyType(move, pokemon, target) {
+		/*onModifyType(move, pokemon, target) {
 			if (pokemon.terastallized) {
 				move.type = pokemon.teraType;
 			}
-		},
+		},*/
 		onModifyMove(move, pokemon) {
-  		if ((move.type === 'Fire' || move.type === 'Water' || move.type === 'Grass' || move.type === 'Electric' || move.type === 'Dark' ||
-           move.type === 'Psychic' || move.type === 'Dragon') && pokemon.terastallized) { 
-        move.category = 'Special';
-      }
-			if ((move.type === 'Normal' || move.type === 'Fighting' || move.type === 'Flying' || move.type === 'Ground' || move.type === 'Rock' ||
-           move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Poison' || move.type === 'Steel') && pokemon.terastallized) {
-        move.category = 'Physical';
-      }
+  			if (pokemon.terastallized === 'Fire' || pokemon.terastallized === 'Water' || pokemon.terastallized === 'Grass' ||
+			  pokemon.terastallized === 'Electric' || pokemon.terastallized === 'Dark' || pokemon.terastallized === 'Psychic' ||
+			  pokemon.terastallized === 'Dragon' || pokemon.terastallized === 'Ice') { 
+        		move.category = 'Special';
+				move.type = pokemon.teraType;
+      	}
+			if (pokemon.terastallized === 'Normal' || pokemon.terastallized === 'Fighting' || pokemon.terastallized === 'Flying' ||
+				  pokemon.terastallized === 'Ground' || pokemon.terastallized === 'Rock' || pokemon.terastallized === 'Bug' ||
+				  pokemon.terastallized === 'Ghost' || pokemon.terastallized === 'Poison' || pokemon.terastallized === 'Steel') {
+				move.type = pokemon.teraType;
+      	}
 			if (pokemon.terastallized === 'Stellar') {
-  			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
-  				move.category = 'Special';
-  			}
+	  			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) {
+	  				move.category = 'Special';
+					move.type = pokemon.teraType;
+	  			}
 				move.self = {boosts: {atk: -1, spa: -1}};
 			}
 		},

@@ -93,6 +93,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Roost", target);
+		},
 		onHit(target) {
 			if (target.hp === target.maxhp) return false;
 			// Fail when health is 255 or 511 less than max, unless it is divisible by 256
