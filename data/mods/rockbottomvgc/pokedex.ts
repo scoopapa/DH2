@@ -36,6 +36,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	hypno: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 73, def: 70, spa: 73, spd: 105, spe: 67},
+		prevo: null,
 	},
 	monferno: {
 		inherit: true,
@@ -45,9 +46,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 73, atk: 95, def: 60, spa: 90, spd: 65, spe: 75},
 	},
-	glalie: {
+	swoobat: {
 		inherit: true,
 		abilities: {0: "Unaware", H: "Klutz"},
+		prevo: null,
 	},
 	vibrava: {
 		inherit: true,
