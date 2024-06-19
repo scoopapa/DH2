@@ -3885,11 +3885,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tapukoko: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tapulele: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tapubulu: {
 		inherit: true,
@@ -4005,7 +4005,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rillaboom: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	scorbunny: {
 		inherit: true,
@@ -4265,7 +4265,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arctozolt: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	dracovish: {
 		inherit: true,
