@@ -491,7 +491,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["toxicspikes", "spikes", "poisonjab", "protect"]
 	},
 	wattrel: {
-		tier: "DoNU",
+		tier: "DoNU Uber",
 		isNonstandard: null,
 		randomBattleMoves: ["hurricane", "thunder", "thunderbolt", "voltswitch", "roost"]
 	},
