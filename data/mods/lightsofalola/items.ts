@@ -713,11 +713,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([4915, 4096]);
 			}
 		},
-		onModifySTAB(stab, source, target, move) {
-			if (source.baseSpecies.name.startsWith('Terapagos-Stellar')) {
-				return 1;
-			}
-		},
 		itemUser: ["Terapagos", "Terapagos-Terastal", "Terapagos-Stellar"],
 		gen: 9,
 		desc: "Allows Terapagos to Tera Burst into Terapagos-Stellar.",
