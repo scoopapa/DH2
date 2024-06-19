@@ -296,6 +296,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "magmar").learnset.karatechop = ["1L1"];
 		this.modData("Learnsets", "magmar").learnset.taunt = ["1L1"];
 		this.modData("Learnsets", "magmar").learnset.overheat = ["1L1"];
+		this.modData("Learnsets", "magmar").learnset.willowisp = ["1L1"];
 		// Pinsir
 		this.modData("Learnsets", "pinsir").learnset.leechlife = ["1L1"];
 		this.modData("Learnsets", "pinsir").learnset.stompingtantrum = ["1L1"];
