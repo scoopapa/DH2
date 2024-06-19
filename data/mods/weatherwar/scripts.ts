@@ -666,7 +666,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		ignoringAbility() {
 			if (this.battle.gen >= 5 && !this.isActive) return true;
 
-			const evilAbilities = ['intimidate', 'defiant', 'angerpoint', 'unnerve', 'moody', 'infiltrator', 'pickpocket', 'darkaura', 'merciless', 'berserk', 'swordofruin', 'tabletsofruin', 'vesselofruin', 'beadsofruin', 'poisonpuppeteer', 'shadowtag', 'toxicchain', 'corrosion'];
+			const evilAbilities = ['intimidate', 'defiant', 'angerpoint', 'unnerve', 'moody', 'infiltrator', 'pickpocket', 'darkaura', 'merciless', 'berserk', 'swordofruin', 'tabletsofruin', 'vesselofruin', 'beadsofruin', 'poisonpuppeteer', 'shadowtag', 'toxicchain', 'corrosion', 'ambush', 'banshee', 'corrosion'];
 			
 			// Certain Abilities won't activate while Transformed, even if they ordinarily couldn't be suppressed (e.g. Disguise)
 			if (this.getAbility().flags['notransform'] && this.transformed) return true;

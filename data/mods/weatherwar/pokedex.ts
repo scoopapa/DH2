@@ -175,7 +175,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Tyranitar",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 100, atk: 134, def: 110, spa: 95, spd: 100, spe: 61},
-		abilities: {0: "Blackout", 1: "Sand Force", H: "Intimidate"},
+		abilities: {0: "Blackout", 1: "Sand Force", H: "Ambush"},
 	},
 	tyranitarmega: {
 		inherit: true,
@@ -223,7 +223,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dragapult",
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 88, atk: 100, def: 85, spa: 100, spd: 85, spe: 142},
-		abilities: {0: "Zerg Rush", 1: "No Guard", H: "Clear Body"},
+		abilities: {0: "Zerg Rush", 1: "Ambush", H: "Clear Body"},
 	},
 	electrode: {
 		inherit: true,
@@ -449,7 +449,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Spiritomb",
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 73, atk: 108, def: 108, spa: 108, spd: 108, spe: 25},
-		abilities: {0: "Delusion", 1: "Intangible", H: "Blackout"},
+		abilities: {0: "Delusion", 1: "Ambush", H: "Blackout"},
 	},
 	cherrim: {
 		inherit: true,
@@ -513,7 +513,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Mismagius",
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 65, atk: 65, def: 65, spa: 115, spd: 115, spe: 115},
-		abilities: {0: "Banshee", 1: "Intangible", H: "Dark Fantasy"},
+		abilities: {0: "Banshee", 1: "Ambush", H: "Dark Fantasy"},
 	},
 	slowkinggalar: {
 		inherit: true,
@@ -536,8 +536,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 67,
 		name: "Absol",
 		types: ["Dark"],
-		baseStats: {hp: 80, atk: 100, def: 75, spa: 95, spd: 75, spe: 105},
-		abilities: {0: "Blackout", 1: "Fairytale", H: "Competitive"},
+		baseStats: {hp: 80, atk: 120, def: 75, spa: 55, spd: 75, spe: 125},
+		abilities: {0: "Blackout", 1: "Fairytale", H: "Ambush"},
 	},
 	absolmega: {
 		inherit: true,

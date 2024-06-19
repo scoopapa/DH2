@@ -251,21 +251,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Hivemind",
 		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
-	intangible: {
-		onSourceModifyDamage(damage, source, target, move) {
-			let mod = 1;
-			if (move.flags['contact']) mod /= 2;
-			return this.chainModify(mod);
+	ambush: {
+		onModifyMove(move) {
+			move.accuracy = true;
 		},
-		onDamage(damage, target, source, effect) {
-			if (this.field.pseudoWeather.twilightzone && effect.effectType !== 'Move') {
-				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
-				return false;
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (this.field.pseudoWeather.twilightzone && !defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (this.field.pseudoWeather.twilightzone && !defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(1.5);
 			}
 		},
 		flags: {breakable: 1},
-		name: "Intangible",
-		shortDesc: "Halved contact damage + Magic Guard in Twilight Zone",
+		name: "Ambush",
+		shortDesc: "Moves can't miss + 1.5x power Stakeout in Twilight Zone",
 	},
 	dracojet: {
 		onTryBoost(boost, target, source, effect) {
