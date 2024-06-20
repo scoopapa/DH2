@@ -182,7 +182,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 23,
 		name: "Tyranitar-Mega",
 		types: ["Rock", "Ground"],
-		baseStats: {hp: 100, atk: 164, def: 150, spa: 95, spd: 120, spe: 71},
+		baseStats: {hp: 100, atk: 164, def: 150, spa: 115, spd: 120, spe: 51},
 		abilities: {0: "Landslide"},
 	},
 	hippowdon: {
