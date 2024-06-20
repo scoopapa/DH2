@@ -7,6 +7,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
