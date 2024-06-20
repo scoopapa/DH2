@@ -408,7 +408,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Doesn't fail, doesn't flinch in Colosseum.",
 		onTryHit(target, pokemon, move) {
 			if (this.field.getPseudoWeather('colosseum')) {
-				move.secondaries.chance = 0;
+				delete move.secondaries;
 				return;
 			}
             const action = this.queue.willMove(target);

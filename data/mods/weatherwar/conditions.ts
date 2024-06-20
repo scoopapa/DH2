@@ -395,6 +395,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source) {
+			console.log('faint');
 			if(this.field.pseudoWeather.deltastream && target.hasType("Flying")) {
 				this.add('-message', `${target.name} produces its last flap...`);
 				target.side.addSideCondition('tailwind');
