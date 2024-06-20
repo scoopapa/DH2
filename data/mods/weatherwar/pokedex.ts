@@ -182,7 +182,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 23,
 		name: "Tyranitar-Mega",
 		types: ["Rock", "Ground"],
-		baseStats: {hp: 100, atk: 164, def: 150, spa: 95, spd: 120, spe: 71},
+		baseStats: {hp: 100, atk: 164, def: 150, spa: 115, spd: 120, spe: 51},
 		abilities: {0: "Landslide"},
 	},
 	hippowdon: {
@@ -254,7 +254,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 32,
 		name: "Altaria",
 		types: ["Dragon", "Flying"],
-		baseStats: {hp: 85, atk: 60, def: 100, spa: 100, spd: 105, spe: 80},
+		baseStats: {hp: 85, atk: 80, def: 100, spa: 80, spd: 105, spe: 80},
 		abilities: {0: "Air Lock", 1: "Draco Jet", H: "Unaware"},
 	},
 	altariamega: {
@@ -368,7 +368,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 46,
 		name: "Heracross-Mega",
 		types: ["Bug", "Fighting"],
-		baseStats: {hp: 80, atk: 185, def: 125, spa: 40, spd: 125, spe: 45},
+		baseStats: {hp: 80, atk: 155, def: 135, spa: 50, spd: 135, spe: 45},
 		abilities: {0: "Suplex"},
 	},
 	vespiquen: {
@@ -400,7 +400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 50,
 		name: "Excadrill",
 		types: ["Ground", "Steel"],
-		baseStats: {hp: 110, atk: 135, def: 60, spa: 50, spd: 87, spe: 88},
+		baseStats: {hp: 110, atk: 115, def: 60, spa: 70, spd: 87, spe: 88},
 		abilities: {0: "Sand Rush", 1: "Sand Force", H: "Mold Breaker"},
 	},
 	tornadustherian: {

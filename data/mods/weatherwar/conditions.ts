@@ -393,11 +393,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return 0;
 			}
 		},
-		onAnyFaintPriority: 1,
-		onAnyFaint(target, source) {
-			if(this.field.pseudoWeather.deltastream && target.hasType("Flying")) {
-				this.add('-message', `${target.name} produces its last flap...`);
-				target.side.addSideCondition('tailwind');
+		onFaint(pokemon) {
+			if(this.field.pseudoWeather.deltastream && pokemon.hasType("Flying")) {
+				this.add('-message', `${pokemon.name} produces its last flap...`);
+				pokemon.side.addSideCondition('tailwind');
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -407,7 +406,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-weather', 'Delta Stream');
 			}
-			this.hint("In Delta Stream, Ice, Electric, and Rock moves have halved power against Flying-types and When a Flying Pokemon dies, it sets Tailwind for 2 turns.");
+			this.hint("In Delta Stream, Ice, Electric, and Rock moves have halved power against Flying-types and when a Flying Pokemon dies, it sets Tailwind for 2 turns.");
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
