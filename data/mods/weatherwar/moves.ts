@@ -1807,7 +1807,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hurricane: {
 		inherit: true,
-		shortDesc: "30% chance to confuse target. Can't miss in Delta Stream.",
+		shortDesc: "30% chance to confuse target. Delta Stream: can't miss.",
 		onModifyMove(move, pokemon, target) {
 			if (this.field.pseudoWeather.deltastream) move.accuracy = true;
 		},
