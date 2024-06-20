@@ -435,6 +435,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (this.field.pseudoWeather.deltastream) {
 					return 6;
 				}
+				if (!effect) return 2;
 				return 4;
 			},
 			onSideStart(side, source) {
