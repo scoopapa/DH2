@@ -254,7 +254,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 32,
 		name: "Altaria",
 		types: ["Dragon", "Flying"],
-		baseStats: {hp: 85, atk: 60, def: 100, spa: 100, spd: 105, spe: 80},
+		baseStats: {hp: 85, atk: 80, def: 100, spa: 80, spd: 105, spe: 80},
 		abilities: {0: "Air Lock", 1: "Draco Jet", H: "Unaware"},
 	},
 	altariamega: {
