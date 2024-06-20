@@ -368,7 +368,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 46,
 		name: "Heracross-Mega",
 		types: ["Bug", "Fighting"],
-		baseStats: {hp: 80, atk: 185, def: 125, spa: 40, spd: 125, spe: 45},
+		baseStats: {hp: 80, atk: 155, def: 135, spa: 50, spd: 135, spe: 45},
 		abilities: {0: "Suplex"},
 	},
 	vespiquen: {
