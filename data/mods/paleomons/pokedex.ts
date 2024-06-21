@@ -52,7 +52,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 7,
 		name: "Cradily",
 		types: ["Grass", "Water"],
-		baseStats: {hp: 76, atk: 88, def: 103, spa: 98, spd: 113, spe: 47},
+		baseStats: {hp: 76, atk: 88, def: 103, spa: 108, spd: 113, spe: 47},
 		abilities: {0: "Storm Drain", 1: "Solid Rock", H: "Poison Heal"},
 	},
 	anorith: {
@@ -182,7 +182,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 22,
 		name: "Bastiodon",
 		types: ["Rock", "Fairy"],
-		baseStats: {hp: 60, atk: 52, def: 148, spa: 107, spd: 138, spe: 30},
+		baseStats: {hp: 70, atk: 52, def: 148, spa: 107, spd: 138, spe: 30},
 		abilities: {0: "Solid Rock", H: "Magic Bounce"},
 	},
 	archen: {
@@ -198,7 +198,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 24,
 		name: "Archeops",
 		types: ["Rock", "Fighting"],
-		baseStats: {hp: 85, atk: 130, def: 85, spa: 92, spd: 65, spe: 110},
+		baseStats: {hp: 85, atk: 120, def: 85, spa: 92, spd: 65, spe: 110},
 		abilities: {0: "First Flight"},
 	},
 	tirtouga: {
@@ -342,7 +342,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Ancient-Small",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 65, atk: 100, def: 82, spa: 67, spd: 65, spe: 115},
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Fairy Aura"},
 	},
 	gourgeistancientlarge: {
 		num: 40,
@@ -362,7 +362,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Ancient-Super",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 95, atk: 67, def: 112, spa: 100, spd: 65, spe: 55},
-		abilities: {0: "Fairy Aura"},
+		abilities: {0: "Magic Guard"},
 	},
 	zubatancient: {
 		num: 42,
@@ -415,7 +415,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 47,
 		name: "Shivertherium",
 		types: ["Ice", "Steel"],
-		baseStats: {hp: 105, atk: 115, def: 105, spa: 65, spd: 60, spe: 70},
+		baseStats: {hp: 105, atk: 115, def: 105, spa: 65, spd: 60, spe: 80},
 		abilities: {0: "Stamina", H: "Thick Fat"},
 		weightkg: 1,
 	},
@@ -499,7 +499,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Cardantis",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 100, atk: 88, def: 105, spa: 87, spd: 80, spe: 70},
-		abilities: {0: "Sharpness", 1: "Magic Bounce", H: "Misty Surge"},
+		abilities: {0: "Sharpness", H: "Misty Surge"},
 		weightkg: 12,
 	},
 }
