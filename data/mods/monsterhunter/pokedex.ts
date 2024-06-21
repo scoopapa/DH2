@@ -272,7 +272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field"],
 	},
- 	aurorasomna: {
+ 	auroracanth: {
 		num: 22,
 		name: "Aurora Somnacanth",
 		types: ["Dark", "Ice"],
