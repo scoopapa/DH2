@@ -136,6 +136,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dragonair").learnset.settimewarp = ["9L1"];
 		this.modData("Learnsets", "dragonair").learnset.setflashflood = ["9L1"];
 		// Flygon
+		this.modData("Learnsets", "flygon").learnset.sandsearstorm = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.dragonrage = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.setlotsofreallysmalldragons = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.setduststorm = ["9L1"];

@@ -118,7 +118,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 15,
 		name: "Flygon",
 		types: ["Dragon", "Ground"],
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 80, spd: 80, spe: 100},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 110, spd: 80, spe: 100},
 		abilities: {0: "Sand Stream", 1: "Draco Jet", H: "Levitate"},
 	},
 	torkoal: {

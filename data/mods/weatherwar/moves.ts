@@ -1841,4 +1841,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (this.field.pseudoWeather.fable) move.basePower = 130;
 		},
 	},
+	sandsearstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower burn. Dust Storm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.duststorm) move.basePower = 130;
+		},
+	},
 }
