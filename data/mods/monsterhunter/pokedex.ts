@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
   	greatbaggi: {
 		num: 5,
-		name: "Great Baggie",
+		name: "Great Baggi",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 70, atk: 50, def: 100, spa: 90, spd: 114, spe: 50},
 		abilities: {0: "Ice Body", 1: "Vital Spirit", H: "Comatose"},
@@ -196,7 +196,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	daimyo: {
 		num: 16,
-		name: "Daimyo Hermitaur",
+		name: "Daimyo-Hermitaur",
 		types: ["Water"],
 		baseStats: {hp: 78, atk: 98, def: 112, spa: 78, spd: 102, spe: 52},
 		abilities: {0: "Shell Armor", 1: "Sturdy", H: "Weak Armor"},
@@ -274,7 +274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	auroracanth: {
 		num: 22,
-		name: "Aurora Somnacanth",
+		name: "Auroracanth",
 		types: ["Dark", "Ice"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 65, spa: 128, spd: 95, spe: 122},
@@ -425,7 +425,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	shogun: {
 		num: 31,
-		name: "Shogun Ceanataur",
+		name: "Shogun-Ceanataur",
 		types: ["Water"],
 		baseStats: {hp: 60, atk: 140, def: 92, spa: 42, spd: 88, spe: 104},
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Snarpness"},
@@ -499,7 +499,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	gore: {
 		num: 35,
-		name: "Gore Magala",
+		name: "Gore-Magala",
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 102, atk: 96, def: 50, spa: 127, spd: 108, spe: 98},
 		abilities: {0: "Infiltrator", 1: "Overcoat"},
@@ -569,7 +569,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	pyre: {
 		num: 42,
-		name: "Pyre Rakna-Kadaki",
+		name: "Pyre-Rakna-Kadaki",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 100, atk: 78, def: 112, spa: 112, spd: 112, spe: 60},
 		abilities: {0: "Blaze", 1: "Mummy", H: "Disguise"},
@@ -624,8 +624,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	kushala: {
 		num: 47,
-		name: "Kushala",
-		types: ["Ice"],
+		name: "Kushala-Daora",
+		types: ["Dragon", "Steel"],
 		baseStats: {hp: 95, atk: 85, def: 105, spa: 127, spd: 130, spe: 73},
 		abilities: {0: "Filter", 1: "Full Metal Body"},
 		heightm: 3.2,
@@ -709,7 +709,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	shagaru: {
 		num: 52,
-		name: "Shagaru Magala",
+		name: "Shagaru-Magala",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 107, atk: 82, def: 92, spa: 132, spd: 122, spe: 95},
 		abilities: {0: "Magic Bounce", 1: "Pixilate", H: "Misty Surge"},
@@ -720,7 +720,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	chaotic: {
 		num: 53,
-		name: "Chaotic Gore Magala",
+		name: "Chaotic-Gore",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 85, atk: 125, def: 95, spa: 130, spd: 105, spe: 80},
 		abilities: {0: "Dark Aura", 1: "Fairy Aura", H: "Contrary"},
@@ -751,9 +751,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Water 1"],
 	},
- 	lucent: {
+ 	lucentnargacuga: {
 		num: 56,
-		name: "Lucent Nargacuga",
+		name: "Lucent-Nargacuga",
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 88, atk: 116, def: 102, spa: 92, spd: 90, spe: 112},
 		abilities: {0: "Clear Body", 1: "Tinted Lens"},
