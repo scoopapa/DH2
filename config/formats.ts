@@ -2333,7 +2333,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Monster Hunter",
 		threads: [],
 		mod: 'monsterhunter',
-		ruleset: [],
+		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
 	 },
 	 {
