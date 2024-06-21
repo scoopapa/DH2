@@ -65,6 +65,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "archen").learnset.highjumpkick = ["9L1"];
 		this.modData("Learnsets", "archen").learnset.machpunch = ["9L1"];
 		this.modData("Learnsets", "archen").learnset.superpower = ["9L1"];
+		delete this.modData('Learnsets', 'archen').learnset.headsmash;
 		delete this.modData('Learnsets', 'archen').learnset.pluck;
 		delete this.modData('Learnsets', 'archen').learnset.roost;
 		// Archeops
@@ -79,6 +80,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "archeops").learnset.highjumpkick = ["9L1"];
 		this.modData("Learnsets", "archeops").learnset.machpunch = ["9L1"];
 		this.modData("Learnsets", "archeops").learnset.superpower = ["9L1"];
+		delete this.modData('Learnsets', 'archeops').learnset.headsmash;
 		delete this.modData('Learnsets', 'archeops').learnset.fly;
 		delete this.modData('Learnsets', 'archeops').learnset.pluck;
 		delete this.modData('Learnsets', 'archeops').learnset.roost;
@@ -190,6 +192,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "aurorus").learnset.dragonpulse = ["9L1"];
 		this.modData("Learnsets", "aurorus").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "aurorus").learnset.ominouswind = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.hex = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.phantomforce = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.shadowsneak = ["9L1"];
 		this.modData("Learnsets", "aurorus").learnset.recover = ["9L1"];
 		delete this.modData('Learnsets', 'aurorus').learnset.ancientpower;
 		delete this.modData('Learnsets', 'aurorus').learnset.aurorabeam;

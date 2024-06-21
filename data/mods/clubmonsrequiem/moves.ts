@@ -7,6 +7,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
@@ -498,6 +502,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		shortDesc: "Lowers target's Defense by 1; user's crit ratio +2.",
+		name: "Triple Arrows",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
