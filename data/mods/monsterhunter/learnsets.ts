@@ -3840,7 +3840,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["9M"],
 			},
 		},
-	bazel: {
+		bazelgeuse: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],

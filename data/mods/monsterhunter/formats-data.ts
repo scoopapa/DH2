@@ -128,7 +128,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tigrex: {
 		tier: "OU",
 	},
-	bazel: {
+	bazelgeuse: {
 		tier: "OU",
 	},
 	chameleos: {

@@ -600,7 +600,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Monster", "Dragon"],
 	},
- 	bazel: {
+ 	bazelgeuse: {
 		num: 45,
 		name: "Bazelgeuse",
 		types: ["Flying", "Fire"],
