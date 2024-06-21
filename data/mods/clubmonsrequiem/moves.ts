@@ -7,6 +7,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
@@ -17,7 +21,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryMove() {
-			this.attrLastMove('[still]');
+			this.attrLastMove('[still]');f
 		},
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Seed Flare', target);
@@ -498,6 +502,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		shortDesc: "Lowers target's Defense by 1; user's crit ratio +2.",
+		name: "Triple Arrows",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
