@@ -4520,7 +4520,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9M"],
 			},
 		},
-	lucent: {
+	lucentnargacuga: {
 		learnset: {
 			acidspray: ["9M"],
 			assurance: ["9L10"],

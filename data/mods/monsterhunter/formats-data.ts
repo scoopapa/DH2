@@ -161,7 +161,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	violetmizutsune: {
 		tier: "OU",
 	},
-	lucent: {
+	lucentnargacuga: {
 		tier: "OU",
 	},
 	ibushi: {

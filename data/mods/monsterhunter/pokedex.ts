@@ -751,9 +751,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Water 1"],
 	},
- 	lucent: {
+ 	lucentnargacuga: {
 		num: 56,
-		name: "Lucent-Nargacuga",
+		name: "Lucent Nargacuga",
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 88, atk: 116, def: 102, spa: 92, spd: 90, spe: 112},
 		abilities: {0: "Clear Body", 1: "Tinted Lens"},
