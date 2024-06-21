@@ -3883,7 +3883,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			protect: ["9M"],
 			psychup: ["9M"],
 			rest: ["9M"],
-			"return": ["9M"],
 			rockblast: ["9M", "9L1"],
 			rocksmash: ["9L1"],
 			roost: ["9L21", "9M"],
