@@ -194,9 +194,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field", "Human-Like"],
 	},
- 	daimyo: {
+ 	daimyohermitaur: {
 		num: 16,
-		name: "Daimyo-Hermitaur",
+		name: "Daimyo Hermitaur",
 		types: ["Water"],
 		baseStats: {hp: 78, atk: 98, def: 112, spa: 78, spd: 102, spe: 52},
 		abilities: {0: "Shell Armor", 1: "Sturdy", H: "Weak Armor"},
@@ -423,9 +423,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying", "Dragon"],
 		requiredItem: "Rathanite",
 	},
- 	shogun: {
+ 	shogunceanataur: {
 		num: 31,
-		name: "Shogun-Ceanataur",
+		name: "Shogun Ceanataur",
 		types: ["Water"],
 		baseStats: {hp: 60, atk: 140, def: 92, spa: 42, spd: 88, spe: 104},
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Snarpness"},
@@ -497,9 +497,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Dragon", "Grass"],
 	},
- 	gore: {
+ 	goremagala: {
 		num: 35,
-		name: "Gore-Magala",
+		name: "Gore Magala",
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 102, atk: 96, def: 50, spa: 127, spd: 108, spe: 98},
 		abilities: {0: "Infiltrator", 1: "Overcoat"},
@@ -556,7 +556,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Monster"],
 		requiredItem: "Magnamalite",
 	},
-  	rakna: {
+  	raknakadaki: {
 		num: 41,
 		name: "Rakna-Kadaki",
 		types: ["Bug", "Ghost"],
@@ -567,9 +567,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Bug"],
 	},
- 	pyre: {
+ 	pyrekadaki: {
 		num: 42,
-		name: "Pyre-Rakna-Kadaki",
+		name: "Pyre-Kadaki",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 100, atk: 78, def: 112, spa: 112, spd: 112, spe: 60},
 		abilities: {0: "Blaze", 1: "Mummy", H: "Disguise"},
@@ -622,9 +622,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Monster", "Dragon"],
 	},
- 	kushala: {
+ 	kushaladaora: {
 		num: 47,
-		name: "Kushala",
+		name: "Kushala Daora",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 95, atk: 85, def: 105, spa: 127, spd: 130, spe: 73},
 		abilities: {0: "Filter", 1: "Full Metal Body"},
@@ -707,9 +707,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredItem: "Rajanite",
 	},
- 	shagaru: {
+ 	shagarumagala: {
 		num: 52,
-		name: "Shagaru-Magala",
+		name: "Shagaru Magala",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 107, atk: 82, def: 92, spa: 132, spd: 122, spe: 95},
 		abilities: {0: "Magic Bounce", 1: "Pixilate", H: "Misty Surge"},
@@ -718,9 +718,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 	},
- 	chaotic: {
+ 	chaoticgore: {
 		num: 53,
-		name: "Chaotic-Gore",
+		name: "Chaotic Gore",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 85, atk: 125, def: 95, spa: 130, spd: 105, spe: 80},
 		abilities: {0: "Dark Aura", 1: "Fairy Aura", H: "Contrary"},
@@ -829,7 +829,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Gaismagorm",
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 135, atk: 106, def: 117, spa: 103, spd: 114, spe: 60},
-		abilities: {0: "Sheer Force", 1: "Berserker", H: "Regenerator"},
+		abilities: {0: "Sheer Force", 1: "Berserk", H: "Regenerator"},
 		heightm: 8.0,
 		weightkg: 888.0,
 		color: "Black",

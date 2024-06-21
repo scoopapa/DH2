@@ -1335,7 +1335,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["9M"],
 			},
 		},
-	daimyo: {
+	daimyohermitaur: {
 		learnset: {
 			agility: ["9M"],
 			allyswitch: ["9M"],
@@ -2819,7 +2819,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			venoshock: ["9M"],
 			},
 		},
-	shogun: {
+	shogunceanataur: {
 		learnset: {
 			aquajet: ["9L15"],
 			aquatail: ["9T"],
@@ -3114,7 +3114,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			worryseed: ["9L1"],
 			},
 		},
-	gore: {
+	goremagala: {
 		learnset: {
 			acrobatics: ["9M"],
 			assurance: ["9L16"],
@@ -3512,7 +3512,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["9M"],
 			},
 		},
-	rakna: {
+	raknakadaki: {
 		learnset: {
 			absorb: ["9L1"],
 			acidspray: ["9M"],
@@ -3597,7 +3597,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			xscissor: ["9M"],
 			},
 		},
-	pyre: {
+	pyrekadaki: {
 		learnset: {
 			absorb: ["9L1"],
 			amnesia: ["9M"],
@@ -3950,7 +3950,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			withdraw: ["9L8"],
 			},
 		},
-	kushala: {
+	kushaladaora: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9M"],
@@ -4228,7 +4228,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zapcannon: ["9L77"],
 			},
 		},
-	shagaru: {
+	shagarumagala: {
 		learnset: {
 			aurorabeam: ["9L10"],
 			block: ["9M"],
@@ -4292,7 +4292,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9M"],
 			},
 		},
-	chaotic: {
+	chaoticgore: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],

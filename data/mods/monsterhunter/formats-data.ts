@@ -44,7 +44,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bishaten: {
 		tier: "OU",
 	},
-	daimyo: {
+	daimyohermitaur: {
 		tier: "OU",
 	},
 	jyuratodus: {
@@ -92,7 +92,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rathian: {
 		tier: "OU",
 	},
-	shogun: {
+	shogunceanataur: {
 		tier: "OU",
 	},
 	zinogre: {
@@ -104,7 +104,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	espinas: {
 		tier: "OU",
 	},
-	gore: {
+	goremagala: {
 		tier: "OU",
 	},
 	lunagaron: {
@@ -116,10 +116,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	magnamalo: {
 		tier: "OU",
 	},
-	rakna: {
+	raknakadaki: {
 		tier: "OU",
 	},
-	pyre: {
+	pyrekadaki: {
 		tier: "OU",
 	},
 	seregios: {
@@ -134,7 +134,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chameleos: {
 		tier: "OU",
 	},
-	kushala: {
+	kushaladaora: {
 		tier: "OU",
 	},
 	teostra: {
@@ -149,10 +149,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rajang: {
 		tier: "OU",
 	},
-	shagaru: {
+	shagarumagala: {
 		tier: "OU",
 	},
-	chaotic: {
+	chaoticgore: {
 		tier: "OU",
 	},
 	velkhana: {
