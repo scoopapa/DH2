@@ -625,7 +625,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
  	kushala: {
 		num: 47,
 		name: "Kushala Daora",
-		types: [""],
+		types: ["Ice"],
 		baseStats: {hp: 95, atk: 85, def: 105, spa: 127, spd: 130, spe: 73},
 		abilities: {0: "Filter", 1: "Full Metal Body"},
 		heightm: 3.2,
