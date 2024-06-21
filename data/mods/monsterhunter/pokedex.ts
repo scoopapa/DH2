@@ -624,7 +624,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
  	kushala: {
 		num: 47,
-		name: "Kushala-Daora",
+		name: "Kushala",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 95, atk: 85, def: 105, spa: 127, spd: 130, spe: 73},
 		abilities: {0: "Filter", 1: "Full Metal Body"},
@@ -751,7 +751,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Water 1"],
 	},
- 	lucentnargacuga: {
+ 	lucent: {
 		num: 56,
 		name: "Lucent-Nargacuga",
 		types: ["Steel", "Poison"],
