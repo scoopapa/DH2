@@ -142,5 +142,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 			num: 1009,
 			gen: 9,
+	},
+		bazelnite: {
+			name: "Bazelnite",
+			spritenum: 591,
+			megaStone: "Seething Bazelgeuse",
+			megaEvolves: "Bazelgeuse",
+			itemUser: ["Bazelgeuse"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1010,
+			gen: 9,
 	}	
 };
