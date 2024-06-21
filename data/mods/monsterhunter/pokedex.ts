@@ -630,7 +630,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Filter", 1: "Full Metal Body"},
 		heightm: 3.2,
 		weightkg: 200.4,
-		color: "Grey",
+		color: "Gray",
 		eggGroups: ["Dragon"],
 	},
  	teostra: {
