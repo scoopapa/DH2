@@ -252,10 +252,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
 	ambush: {
-		onModifyMove(move) {
-			move.accuracy = true;
-		},
 		onBeforeTurn(pokemon) {
+			if (!this.field.pseudoWeather.twilightzone) return;
 			for (const side of this.sides) {
 				if (side.hasAlly(pokemon)) continue;
 				side.addSideCondition('ambush', pokemon);
@@ -267,6 +265,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBasePower(relayVar, source, target, move) {
+			if (!this.field.pseudoWeather.twilightzone) return;
 			// You can't get here unless the pursuit succeeds
 			if (target.beingCalledBack || target.switchFlag) {
 				this.debug('Pursuit damage boost');
@@ -275,10 +274,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return move.basePower;
 		},
 		onModifyMove(move, source, target) {
-			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+			move.accuracy = true;
+			if (this.field.pseudoWeather.twilightzone && (target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
 		},
 		onTryHit(source, target) {
-			target.side.removeSideCondition('ambush');
+			if (this.field.pseudoWeather.twilightzone) target.side.removeSideCondition('ambush');
 		},
 		condition: {
 			duration: 1,
