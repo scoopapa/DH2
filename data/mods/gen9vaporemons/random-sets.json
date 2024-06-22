@@ -494,13 +494,13 @@
         "level": 79,
         "sets": [
             {
-                "role": "Fast Attacker",
-                "movepool": ["Drill Run", "Icicle Spear", "Rock Blast", "Shell Smash"],
+                "role": "Bulky Attacker",
+                "movepool": ["Life Dew", "Shelter", "Frost Breath", "Surf", "Spikes"],
                 "teraTypes": ["Ground"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Hydro Pump", "Icicle Spear", "Rock Blast", "Shell Smash"],
+                "movepool": ["Hydro Pump", "Icicle Spear", "Rock Blast", "Shell Smash", "Pin Missile"],
                 "teraTypes": ["Ice", "Rock"]
             }
         ]
@@ -739,9 +739,9 @@
                 "teraTypes": ["Ground"]
             },
             {
-                "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Earthquake", "Tera Blast", "Waterfall"],
-                "teraTypes": ["Flying"]
+                "role": "Wallbreaker",
+                "movepool": ["Dragon Dance", "Psychic Fangs", "Taunt", "Temper Flare", "Waterfall", "Substitute"],
+                "teraTypes": ["Ground"]
             }
         ]
     },
