@@ -2338,7 +2338,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MOU','MEGAM'];
+			let allowedTiers = ['MOU', 'MEGAM'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -2352,11 +2352,14 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
-		banlist: [],
+		banlist: [
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamlite', 'Malzenite', 
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite'
+		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MOU'];
+			let allowedTiers = ['MOU', 'MEGAM'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
