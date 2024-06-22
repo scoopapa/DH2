@@ -833,7 +833,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Valstrax",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 95, atk: 102, def: 104, spa: 122, spd: 92, spe: 140},
-		abilities: {0: "Dragon’s Maw", 1: "Mold Breaker"},
+		abilities: {0: "Dragon's Maw", 1: "Mold Breaker"},
 		heightm: 2.5,
 		weightkg: 50.0,
 		color: "Red",
