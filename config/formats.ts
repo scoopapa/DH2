@@ -2335,8 +2335,18 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
-	 },
-	 {
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MOU','MEGAM'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter.'];
+				}
+			}
+		},
+	},
 		name: "[Gen 8] Evolution Project",
 		desc: [
 			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
