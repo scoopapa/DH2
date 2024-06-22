@@ -1,182 +1,182 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aknosom: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	arzuros: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	barroth: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	basarios: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	greatbaggi: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	greatizuchi: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	greatwroggi: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	kuluyaku: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	khezu: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	lagombi: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	royalludroth: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	tetranadon: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	anjanath: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	barioth: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	bishaten: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	daimyohermitaur: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	jyuratodus: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	pukeipukei: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	somnacanth: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	tobikadachi: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	volvidon: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	gossharag: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	auroracanth: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	almudron: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	orangaten: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	diablos: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	garangolm: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	mizutsune: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	nargacuga: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	rathalos: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	rathian: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	shogunceanataur: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	zinogre: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	astalos: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	espinas: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	goremagala: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	lunagaron: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	magmadron: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	magnamalo: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	raknakadaki: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	pyrekadaki: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	seregios: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	tigrex: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	bazelgeuse: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	chameleos: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	kushaladaora: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	teostra: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	flamingespinas: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	malzeno: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	rajang: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	shagarumagala: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	chaoticgore: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	velkhana: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	violetmizutsune: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	lucentnargacuga: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	ibushi: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	narwa: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	amatsu: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	valstrax: {
-		tier: "OU",
+		tier: "MOU",
 	},
 	gaismagorm: {
-		tier: "OU",
+		tier: "MOU",
 	},
 };
