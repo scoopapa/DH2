@@ -428,7 +428,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Shogun Ceanataur",
 		types: ["Water"],
 		baseStats: {hp: 60, atk: 140, def: 92, spa: 42, spd: 88, spe: 104},
-		abilities: {0: "Battle Armor", 1: "Sniper", H: "Snarpness"},
+		abilities: {0: "Battle Armor", 1: "Sniper", H: "Sharpness"},
 		heightm: 1.3,
 		weightkg: 60.0,
 		color: "Blue",
