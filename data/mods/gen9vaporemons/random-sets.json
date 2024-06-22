@@ -1079,6 +1079,11 @@
                 "teraTypes": ["Water"]
             },
             {
+                "role": "AV Pivot",
+                "movepool": ["Aqua Jet", "Peekaboo", "Knock Off", "Liquidation", "Rollout"],
+                "teraTypes": ["Water"]
+            },
+            {
                 "role": "Bulky Setup",
                 "movepool": ["Aqua Jet", "Belly Drum", "Liquidation", "Play Rough"],
                 "teraTypes": ["Water"]
@@ -1409,8 +1414,13 @@
         "level": 86,
         "sets": [
             {
-                "role": "Fast Attacker",
+                "role": "Setup Sweeper",
                 "movepool": ["Dark Pulse", "Fire Blast", "Nasty Plot", "Sludge Bomb", "Sucker Punch"],
+                "teraTypes": ["Dark", "Fire", "Poison"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Dark Pulse", "Fire Blast", "Snatch", "Ceaseless Edge", "Sludge Bomb"],
                 "teraTypes": ["Dark", "Fire", "Poison"]
             }
         ]
@@ -5495,7 +5505,12 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Crunch", "Facade", "Headlong Rush", "Swords Dance", "Throat Chop", "Trailblaze"],
+                "movepool": ["Chisel", "Facade", "Headlong Rush", "Swords Dance", "Throat Chop", "Trailblaze"],
+                "teraTypes": ["Normal"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Chisel", "Rage", "Earthquake", "Bulk Up", "Trailblaze"],
                 "teraTypes": ["Normal"]
             }
         ]
