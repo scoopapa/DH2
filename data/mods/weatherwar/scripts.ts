@@ -136,6 +136,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dragonair").learnset.settimewarp = ["9L1"];
 		this.modData("Learnsets", "dragonair").learnset.setflashflood = ["9L1"];
 		// Flygon
+		this.modData("Learnsets", "flygon").learnset.sandsearstorm = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.dragonrage = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.setlotsofreallysmalldragons = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.setduststorm = ["9L1"];
@@ -490,16 +491,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "celebi").learnset.metalsound = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.setovergrowth = ["9L1"];
 		this.modData("Learnsets", "celebi").learnset.settimewarp = ["9L1"];
-		// Tapu Lele
-		this.modData("Learnsets", "tapulele").learnset.thunderwave = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.healblock = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.heartswap = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.fleurcannon = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.guardsplit = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.trick = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.mistyexplosion = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.setfable = ["9L1"];
-		this.modData("Learnsets", "tapulele").learnset.setmindfuck = ["9L1"];
+		// Enamorus
+		this.modData("Learnsets", "enamorus").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.healblock = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.heartswap = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.fleurcannon = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.guardsplit = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.trick = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.mistyexplosion = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.setfable = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.setmindfuck = ["9L1"];
 		// Manaphy
 		this.modData("Learnsets", "manaphy").learnset.mistyexplosion = ["9L1"];
 		this.modData("Learnsets", "manaphy").learnset.setfable = ["9L1"];

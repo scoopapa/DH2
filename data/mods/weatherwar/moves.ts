@@ -1814,14 +1814,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	bleakwindstorm: {
 		inherit: true,
-		shortDesc: "30% to lower Speed by 1. Delta Stream: can't miss.",
+		accuracy: 85,
+		shortDesc: "30% to lower Speed by 1. Delta Stream: 1.3x power.",
 		onModifyMove(move, pokemon, target) {
-			if (this.field.pseudoWeather.deltastream) move.accuracy = true;
+			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
 		},
 	},
 	crushclaw: {
 		inherit: true,
 		basePower: 80,
 		accuracy: 100,
+	},
+	wildboltstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% change to paralyze. Thunderstorm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
+		},
+	},
+	springtidestorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower Attack by 1. Fable: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.fable) move.basePower = 130;
+		},
+	},
+	sandsearstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower burn. Dust Storm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.duststorm) move.basePower = 130;
+		},
 	},
 }
