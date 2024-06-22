@@ -2329,7 +2329,14 @@ export const Formats: FormatList = [
 	 	ruleset: [ 'Earth & Sky',],
 	 	banlist: ['Baton Pass'],
 	 },
-	{
+	 {
+		name: "[Gen 9] Monster Hunter",
+		threads: [],
+		mod: 'monsterhunter',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [],
+	 },
+	 {
 		name: "[Gen 8] Evolution Project",
 		desc: [
 			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
