@@ -22,7 +22,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Redhelm Arzuros"],
 	},
- 	redhelm: {
+ 	redhelmarzuros: {
 		num: 2,
 		name: "Redhelm Arzuros",
 		baseSpecies: "Arzuros",
@@ -125,7 +125,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],		
 		otherFormes: ["Snowbaron Lagombi"],
 	},
- 	snowbaron: {
+ 	snowbaronlagombi: {
 		num: 10,
 		name: "Snowbaron Lagombi",
 		baseSpecies: "Lagombi",
@@ -341,7 +341,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Dragon"],
 		otherFormes: ["Soulseer Mizutsune"],
 	},
- 	soulseer: {
+ 	soulseermizutsune: {
 		num: 27,
 		name: "Soulseer Mizutsune",
 		baseSpecies: "Mizutsune",
@@ -380,7 +380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying", "Dragon"],
 		otherFormes: ["Dreadking Rathalos"],
 	},
- 	dreadking: {
+ 	dreadkingrathalos: {
 		num: 30,
 		name: "Dreadking Rathalos",
 		baseSpecies: "Rathalos",
@@ -408,7 +408,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying", "Dragon"],
 		otherFormes: ["Dreadqueen Rathian"],
 	},
- 	dreadqueen: {
+ 	dreadqueenrathian: {
 		num: 30,
 		name: "Dreadqueen Rathian",
 		baseSpecies: "Rathian",
@@ -446,7 +446,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Thunderlord Zinogre"],
 	},
- 	thunderlord: {
+ 	thunderlordzinogre: {
 		num: 32,
 		name: "Thunderlord Zinogre",
 		baseSpecies: "Zinogre",
@@ -472,7 +472,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Boltreaver Astalos"],
 	},
- 	boltreaver: {
+ 	boltreaverastalos: {
 		num: 33,
 		name: "Boltreaver Astalos",
 		baseSpecies: "Astalos",
@@ -542,7 +542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Monster"],
 		otherFormes: ["Scorned Magnamalo"],
 	},
- 	scorned: {
+ 	scornedmagnamalo: {
 		num: 40,
 		name: "Scorned Magnamalo",
 		baseSpecies: "Magnamalo",
@@ -682,7 +682,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Primordial Malzeno"],
 	},
- 	primordial: {
+ 	primordialmalzeno: {
 		num: 50,
 		name: "Primordial Malzeno",
 		baseSpecies: "Malzeno",
@@ -708,7 +708,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Furious Rajang"],
 	},
- 	furious: {
+ 	furiousrajang: {
 		num: 51,
 		name: "Furious Rajang",
 		baseSpecies: "Rajang",
@@ -802,7 +802,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Dragon"],
 		otherFormes: ["Allmother Narwa"],
 	},
- 	allmother: {
+ 	allmothernarwa: {
 		num: 58,
 		name: "Allmother Narwa",
 		baseSpecies: "Narwa",

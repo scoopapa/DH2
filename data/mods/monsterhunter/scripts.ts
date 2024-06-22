@@ -1,3 +1,8 @@
-export const Scripts: ModdedBattleScriptsData = {
-    gen: 9,
-}
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	gen: 9,
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['MOU'],
+		customDoublesTiers: ['MOU'],
+	},
+};
