@@ -155,5 +155,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 			num: 1010,
 			gen: 9,
+		},
+		valstraxite: {
+			name: "Valstraxite",
+			spritenum: 605,
+			megaStone: "Crimson Glow Valstrax",
+			megaEvolves: "Valstrax",
+			itemUser: ["Valstrax"],
+			onTakeItem(item, source) {
+				if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+				return true;
+			},
+			num: 1011,
+			gen: 9,
 	}	
 };
