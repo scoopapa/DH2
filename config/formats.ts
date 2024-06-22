@@ -2346,7 +2346,8 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
+	 },
+	 {
 		name: "[Gen 8] Evolution Project",
 		desc: [
 			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
