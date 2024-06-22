@@ -180,42 +180,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MOU",
 	},
 	redhelmarzuros: {
-		tier: "MOU",
+		tier: "MEGAOU",
 	},
 	snowbaronlagombi: {
-		tier: "MOU",
+		tier: "MEGAOU",
 	},
 	allmothernarwa: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	primordialmalzeno: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	scornedmagnamalo: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	boltreaverastalos: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	soulseermizutsune: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	furiousrajang: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	dreadqueenrathian: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	dreadkingrathalos: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	thunderlordzinogre: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	seethingbazelgeuse: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 	crimsonglowvalstrax: {
-		tier: "MEGAM",
+		tier: "MEGAAG",
 	},
 };
