@@ -2330,7 +2330,7 @@ export const Formats: FormatList = [
 	 	banlist: ['Baton Pass'],
 	 },
 	 {
-		name: "[Gen 9] Monster Hunter",
+		name: "[Gen 9] Monster Hunter AG",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
@@ -2342,7 +2342,25 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter.'];
+					return [set.species + ' is not legal in Monster Hunter AG.'];
+				}
+			}
+		},
+	 },
+	 {
+		name: "[Gen 9] Monster Hunter OU",
+		threads: [],
+		mod: 'monsterhunter',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MOU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter OU.'];
 				}
 			}
 		},
