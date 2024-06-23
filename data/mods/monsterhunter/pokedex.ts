@@ -421,7 +421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 110.5,
 		color: "Green",
 		eggGroups: ["Flying", "Dragon"],
-		requiredItem: "Rathanite",
+		requiredItem: "Rathianite",
 	},
  	shogunceanataur: {
 		num: 31,
