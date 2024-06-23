@@ -259,21 +259,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		shortDesc: "Raises Attack by 1 stage if hit by an Ice-type attack.",
 		rating: 3,
 	},
-	throatspray: {
-		inherit: true,
-		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
-		},
-		onAfterMoveSecondarySelf(target, source, move) {
-			if (!this.effectState.switchingIn) return;
-			if (move.flags['sound']) {
-				this.boost({spa: 1});
-				this.effectState.switchingIn = false;
-			}
-		},
-		boosts: {},
-		shortDesc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Once per switch-in.",
-	},
 	trickortreatbag: {
 		name: "Trick-or-Treat Bag",
 		spritenum: 385,
