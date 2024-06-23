@@ -2319,7 +2319,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		facade: ["9L1"],
 		fireblast: ["9L1"],
 		flamecharge: ["9L1"],
-		flamethrower: ["9L1
+		flamethrower: ["9L1"],
 		flareblitz: ["9L1"],
 		flashcannon: ["9L1"],
 		focusenergy: ["9L1"],
