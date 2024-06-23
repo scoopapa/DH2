@@ -79,4 +79,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	dracometeor: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 };
