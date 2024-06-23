@@ -2114,7 +2114,7 @@ export const Learnsets = {
 	},
 	neifhemming: {
 	learnset: {
-	riverwave: ["91L"],
+	riverwave: ["9L1"],
 	acrobatics: ["9L1"],
 	acupressure: ["9L1"],
 	aerialace: ["9L1"],
