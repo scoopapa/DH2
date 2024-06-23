@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 8,
 		name: "Doublade",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 69, atk: 110, def: 150, spa: 45, spd: 89, spe: 37},
+		baseStats: {hp: 69, atk: 100, def: 150, spa: 55, spd: 89, spe: 37},
 		abilities: {0: "Delusion", 1: "Dark Fantasy", H: "Second Impact"},
 		evos: null,
 	},
@@ -536,7 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 67,
 		name: "Absol",
 		types: ["Dark"],
-		baseStats: {hp: 80, atk: 120, def: 75, spa: 55, spd: 75, spe: 125},
+		baseStats: {hp: 80, atk: 120, def: 65, spa: 55, spd: 65, spe: 125},
 		abilities: {0: "Blackout", 1: "Fairytale", H: "Ambush"},
 	},
 	absolmega: {
@@ -544,7 +544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 68,
 		name: "Absol-Mega",
 		types: ["Dark", "Fairy"],
-		baseStats: {hp: 80, atk: 150, def: 75, spa: 135, spd: 75, spe: 115},
+		baseStats: {hp: 80, atk: 130, def: 75, spa: 125, spd: 75, spe: 125},
 		abilities: {0: "Dark Fantasy"},
 	},
 	malamar: {
@@ -601,7 +601,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 75,
 		name: "Alakazam-Mega",
 		types: ["Psychic"],
-		baseStats: {hp: 55, atk: 50, def: 65, spa: 175, spd: 105, spe: 150},
+		baseStats: {hp: 55, atk: 60, def: 75, spa: 155, spd: 105, spe: 150},
 		abilities: {0: "Domain Expander"},
 	},
 	kabutops: {
@@ -673,7 +673,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 84,
 		name: "Chien-Pao",
 		types: ["Dark", "Ice"],
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 70, spd: 65, spe: 125},
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 70, spd: 95, spe: 95},
 		abilities: {0: "Snow Warning"},
 	},
 	tinglu: {

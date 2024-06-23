@@ -260,13 +260,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) {
-				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.5);
+				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.75);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) {
-				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.5);
+				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.75);
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -277,7 +277,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-weather', 'Fable', '[silent]');
 			}
 			this.add('-message', "A fable started!");
-			this.hint("In Fable, \"evil\" abilities are suppressed and Dark, Ghost, Poison, Dragon moves have halved power.")
+			this.hint("In Fable, \"evil\" abilities are suppressed and Dark, Ghost, Poison, Dragon moves have 0.75x power.")
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
@@ -476,7 +476,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onResidual(pokemon) {
-			if(this.field.pseudoWeather.overgrowth && !pokemon.hasType('Grass')) pokemon.addVolatile('leechseed');
+			if(pokemon.adjacentFoes().length == 0) return;
+			const target = this.sample(pokemon.adjacentFoes());
+			if(this.field.pseudoWeather.overgrowth && !pokemon.hasType('Grass')) pokemon.addVolatile('leechseed', target);
 		},
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.overgrowth && move.flags['powder']) {
@@ -527,16 +529,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'Dust Storm', '[silent]');
 			}
 			this.add('-message', "A dust storm kicked up!");
-			this.hint("In Dust Storm, all non-Ground/Rock/Steel Pokemon lose 1/16 max HP at the end of each turn and Spikes sets itself in two layers at a time and deals double damage.");
+			this.hint("In Dust Storm, all non-Ground/Rock/Steel Pokemon lose 1/16 max HP at the end of each turn for each weather present; and Spikes sets itself in two layers at a time and deals double damage.");
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-weather', 'Dust Storm', '[upkeep]');
+			this.eachEvent('Weather');
 			this.add('-message', "The dust storm continues.");
 		},
 		onWeather(target) {
-			this.add('-message', `${target.name} is hurt by its ${target.ability.name}!`);
-			this.damage(target.baseMaxhp / 16);
+			const immuneTypes = ['Ground', 'Rock', 'Steel'];
+			if (!immuneTypes.some(r => target.baseSpecies.types.includes(r))) {
+				this.add('-message', `${target.name} is hurt by its ${target.set.ability}!`);
+				this.damage(target.baseMaxhp / 16);
+			}
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Dust Storm', '[silent]');

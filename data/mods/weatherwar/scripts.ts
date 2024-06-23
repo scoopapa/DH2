@@ -138,6 +138,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Flygon
 		this.modData("Learnsets", "flygon").learnset.sandsearstorm = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.dragonrage = ["9L1"];
+		this.modData("Learnsets", "flygon").learnset.clangingscales = ["9L1"];
+		this.modData("Learnsets", "flygon").learnset.coreenforcer = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.setlotsofreallysmalldragons = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.setduststorm = ["9L1"];
 		// Torkoal
@@ -450,6 +452,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "wochien").learnset.grasspledge = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sleeppowder = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.snatch = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.settwilightzone = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.setovergrowth = ["9L1"];
 		// Absol
@@ -461,6 +464,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "absol").learnset.settwilightzone = ["9L1"];
 		this.modData("Learnsets", "absol").learnset.setfable = ["9L1"];
 		// Malamar
+		this.modData("Learnsets", "malamar").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.snatch = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.amnesia = ["9L1"];
 		this.modData("Learnsets", "malamar").learnset.heartswap = ["9L1"];
@@ -537,6 +541,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "diancie").learnset.setshitstorm = ["9L1"];
 		// Arctozolt
 		this.modData("Learnsets", "arctozolt").learnset.iceball = ["9L1"];
+		this.modData("Learnsets", "arctozolt").learnset.jetpunch = ["9L1"];
 		this.modData("Learnsets", "arctozolt").learnset.rockpolish = ["9L1"];
 		this.modData("Learnsets", "arctozolt").learnset.setthunderstorm = ["9L1"];
 		this.modData("Learnsets", "arctozolt").learnset.setwhiteout = ["9L1"];
@@ -651,6 +656,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'celebi').learnset.ancientpower;
 		// Diancie
 		delete this.modData('Learnsets', 'diancie').learnset.ancientpower;
+		// Chien-Pao
+		delete this.modData('Learnsets', 'chienpao').learnset.suckerpunch;
 		// Salazzle
 		delete this.modData('Learnsets', 'salazzle').learnset.dragondance;
 	},
