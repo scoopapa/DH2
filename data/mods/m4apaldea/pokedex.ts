@@ -234,4 +234,38 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["superpower"],
 		megaCreator: "okispokis",
 	},
+
+	// slate 5
+
+	pawmot: {
+		inherit: true,
+		mega: "pawmotmega",
+		megaName: "Pawmot-Mega",
+		megaAbility: {0: "Fluffy"},
+		megaStats: {hp: 70, atk: 135, def: 110, spa: 85, spd: 70, spe: 120},
+		megaStone: "Pawmite",
+		movepoolAdditions: ["healbell"],
+		megaCreator: "okispokis",
+	},
+
+	grafaiai: {
+		inherit: true,
+		mega: "grafaiaimega",
+		megaName: "Grafaiai-Mega",
+		megaAbility: {0: "Color Spray"},
+		megaStats: {hp: 63, atk: 125, def: 75, spa: 90, spd: 102, spe: 130},
+		megaStone: "Grafaiaite",
+		movepoolAdditions: ["quickattack", "shadowsneak", "playrough"],
+		megaCreator: "jazzmat",
+	},
+
+	cetitan: {
+		inherit: true,
+		mega: "cetitanmega",
+		megaName: "Cetitan-Mega",
+		megaAbility: {0: "Mold Breaker"},
+		megaStats: {hp: 170, atk: 163, def: 100, spa: 45, spd: 55, spe: 88},
+		megaStone: "Cetitanite",
+		megaCreator: "DrPumpkinz",
+	},
 };
