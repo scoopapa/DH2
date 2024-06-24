@@ -2,7 +2,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	audinomega: {
 		inherit: true,
 		types: ["Normal", "Electric"],
-		baseStats: {hp: 103, atk: 60, def: 130, spa: 100, spd: 97, spe: 55},
+		baseStats: {hp: 103, atk: 60, def: 120, spa: 110, spd: 97, spe: 55},
 		abilities: {0: "Regenerator"},
 	},	
 	houndoommega: {
@@ -15,7 +15,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Fighting", "Steel"],
 		baseStats: {hp: 70, atk: 125, def: 70, spa: 140, spd: 105, spe: 115},
-		abilities: {0: "Limber"},
+		abilities: {0: "Lightning Rod"},
 	},	
 	banettemega: {
 		inherit: true,
@@ -45,7 +45,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 78, atk: 109, def: 103, spa: 134, spd: 110, spe: 100},
-		abilities: {0: "Delta Stream"},
+		abilities: {0: "Dragon's Gale"},
 	},	
 	alakazammega: {
 		inherit: true,
@@ -75,7 +75,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Steel", "Ground"],
 		baseStats: {hp: 75, atk: 135, def: 210, spa: 55, spd: 105, spe: 30},
-		abilities: {0: "Heatproof"},
+		abilities: {0: "Flash Fire"},
 		weightkg: 999.9,
 	},	
 	altariamega: {
@@ -162,7 +162,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gyaradosmega: {
 		inherit: true,
 		types: ["Water", "Flying"],
-		baseStats: {hp: 95, atk: 145, def: 109, spa: 70, spd: 130, spe: 91},
+		baseStats: {hp: 95, atk: 130, def: 109, spa: 85, spd: 130, spe: 91},
 		abilities: {0: "Aerilate"},
 	},	
 	heracrossmega: {
@@ -208,7 +208,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tyranitarmega: {
 		inherit: true,
 		types: ["Rock", "Electric"],
-		baseStats: {hp: 100, atk: 164, def: 120, spa: 90, spd: 144, spe: 82},
+		baseStats: {hp: 100, atk: 144, def: 120, spa: 110, spd: 144, spe: 82},
 		abilities: {0: "Electric Surge"},
 	},
 	latiasmega: {
