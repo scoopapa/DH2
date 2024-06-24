@@ -3,7 +3,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move' || source.species.id !== 'palafin' || !source.hp || source.transformed || !source.side.foe.pokemonLeft) {
 				return;
-			}
+			} 
 			this.add('-activate', source, 'ability: Zero to Hero');
 			source.formeChange('Palafin-Hero', this.effect, true);
 		},
@@ -1356,7 +1356,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			attacker.addVolatile('permafrost');
 		},
 		condition: {
-			onModifyTypePriority: -1,
+			onModifyTypePriority: -2,
 			onModifyType(move, pokemon) {
 				if (move.type === 'Water') {
 					move.type = 'Ice';

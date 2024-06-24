@@ -31,6 +31,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},	
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	
 	boo: {
 		num: -1,
@@ -46,24 +50,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Chilly Reception", target);
 			this.add('-anim', source, "Explosion", target);
-		},
-		onModifyMove(move, pokemon, target) {
-			if (!target) return;
-			target.addVolatile('boo');
-			if (!target.volatiles['substitute']) {
-				if (target.removeVolatile('substitute')) {
-					this.hint("The user does not faint if it breaks a substitute.");
-				} else {
-					move.selfdestruct = 'always';
-				}
-			}
-		},
-		condition: {
-			duration: 1,
-			onModifyDefPriority: 6,
-			onModifyDef(def) {
-				return this.chainModify(0.5);
-			}
 		},
 		secondary: null,
 		target: "allAdjacent",
@@ -82,24 +68,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Explosion", target);
-		},
-		onModifyMove(move, pokemon, target) {
-			if (!target) return;
-			target.addVolatile('kaboom');
-			if (!target.volatiles['substitute']) {
-				if (target.removeVolatile('substitute')) {
-					this.hint("The user does not faint if it breaks a substitute.");
-				} else {
-					move.selfdestruct = 'always';
-				}
-			}
-		},
-		condition: {
-			duration: 1,
-			onModifyDefPriority: 6,
-			onModifyDef(def) {
-				return this.chainModify(0.5);
-			}
 		},
 		secondary: null,
 		target: "allAdjacent",
@@ -312,7 +280,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	meteorbeam: {
+	meteorbeem: {
 		num: -9,
 		accuracy: 100,
 		basePower: 120,
@@ -353,6 +321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1},
 		isZ: "meowthofaloliumz",
+		selfSwitch: true,
 		self: {
 			sideCondition: 'safeguard',
 			slotCondition: 'infinitebaseballreaction',

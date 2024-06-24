@@ -120,7 +120,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			frustration: ["9L1"],
 			headbutt: ["9L1"],
 			hiddenpower: ["9L1"],
-			highjumpkick: ["9L1"],
 			hyperbeam: ["9L1"],
 			icepunch: ["9L1"],
 			karatechop: ["9L1"],

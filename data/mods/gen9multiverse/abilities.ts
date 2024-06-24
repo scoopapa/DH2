@@ -206,7 +206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: -11,
 	},
 	insurance: {
-		onTryHit(pokemon, target, move) {
+		onTryHit(source, target, move) {
 			if (target !== source && move.type === 'Flying') {
 				this.add('-immune', pokemon, '[from] ability: Insurance');
 				this.add('-message', `Coins scattered everywhere!`);
@@ -255,7 +255,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Lunar Gift",
 		rating: 3.5,
-		shortDesc: "If at full health, the next attack that lands on the user will be not very effective. Once per switch-in.",
+		shortDesc: "Once per switch, attacks taken have 0.5x effectiveness unless naturally immune.",
 		num: -13,
 	},
 	embodyaspecthearthflame: {
@@ -304,7 +304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {breakable: 1},
-		shortDesc: "Halves Ground move damage to the user. Before using Shell Smash, boosts all Def & SpD by 1 stage.",
+		shortDesc: "Takes 1/2 from Ground moves. Before using Shell Smash, +1 Def & + 1 SpD.",
 		name: "Shell Breaker",
 		rating: 2,
 	},

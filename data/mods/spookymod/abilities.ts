@@ -84,7 +84,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			delete this.effectState.cursed;
 		},
 		name: "Cursed Body",
-		shortDesc: "When this Pokemon is damaged by an attack, it takes 75% damage and that attack is disabled. Once per switchin.",
+		shortDesc: "When attacked, takes 75% damage and disables the move. Once per switch in.",
 	},
 	dummy: {
         onStart(pokemon) {
@@ -370,7 +370,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Pulp Up",
-		shortDesc: "When this Pokemon is damaged by an attack, it gains 1 Stockpile. This Pokemon's Normal-type moves become Fire-type.",
+		shortDesc: "This Pokemon gains 1 Stockpile upon damage. Normal-type moves become Fire-type.",
 	},
 	wandrush: {
 		onStart(source) {
@@ -391,7 +391,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'sandstorm') return false;
 		},
 		name: "Wand Rush",
-		shortDesc: "On switchin, sets Sandstorm. This Pokemon's Speed is doubled and Special Attack is 1.5x in Sandstorm; immunity to Sandstorm.",
+		shortDesc: "On switchin, sets Sandstorm. Sandstorm: Speed 2x, Sp. Atk 1.5x; immunity to sand.",
 	},
 	revive: {
 		shortDesc: "When this Pokemon has 0 HP, it switches out and is revived to 1/2 max HP. Once per battle.",

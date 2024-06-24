@@ -928,7 +928,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	inteleon: {
-		tier: "UU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	greedent: {
@@ -1662,13 +1662,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	ragingbolt: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	gougingfire: {
 		tier: "OU",
 	},
 	archaludon: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	ironcrown: {
 		tier: "OU",
