@@ -118,7 +118,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 15,
 		name: "Flygon",
 		types: ["Dragon", "Ground"],
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 80, spd: 80, spe: 100},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 110, spd: 80, spe: 100},
 		abilities: {0: "Sand Stream", 1: "Draco Jet", H: "Levitate"},
 	},
 	torkoal: {
@@ -571,13 +571,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
 		abilities: {0: "Time Machine", 1: "Ruin", H: "Tinted Lens"},
 	},
-	tapulele: {
+	enamorus: {
 		inherit: true,
 		num: 72,
-		name: "Tapu Lele",
-		types: ["Psychic", "Fairy"],
-		baseStats: {hp: 70, atk: 85, def: 85, spa: 115, spd: 110, spe: 85},
-		abilities: {0: "Freaky", 1: "Fairytale", H: "Merciless"},
+		name: "Enamorus",
+		gender: "F",
+		types: ["Fairy", "Psychic"],
+		baseStats: {hp: 74, atk: 95, def: 80, spa: 115, spd: 80, spe: 106},
+		abilities: {0: "Fairytale", 1: "Freaky", H: "Merciless"},
 	},
 	manaphy: {
 		inherit: true,
@@ -743,6 +744,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 94,
 		name: "Lily White",
 		types: ["Grass", "Fairy"],
+		gender: "F",
 		baseStats: {hp: 85, atk: 35, def: 75, spa: 100, spd: 85, spe: 90},
 		abilities: {0: "It\'s Spring!"},
 	},

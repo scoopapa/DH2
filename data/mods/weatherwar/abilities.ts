@@ -252,26 +252,66 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
 	ambush: {
-		onModifyMove(move) {
+		onBeforeTurn(pokemon) {
+			if (!this.field.pseudoWeather.twilightzone) return;
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('ambush', pokemon);
+				const data = side.getSideConditionData('ambush');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onBasePower(relayVar, source, target, move) {
+			if (!this.field.pseudoWeather.twilightzone) return;
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onModifyMove(move, source, target) {
 			move.accuracy = true;
+			if (this.field.pseudoWeather.twilightzone && (target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender) {
-			if (this.field.pseudoWeather.twilightzone && !defender.activeTurns) {
-				this.debug('Stakeout boost');
-				return this.chainModify(1.5);
-			}
+		onTryHit(source, target) {
+			if (this.field.pseudoWeather.twilightzone) target.side.removeSideCondition('ambush');
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender) {
-			if (this.field.pseudoWeather.twilightzone && !defender.activeTurns) {
-				this.debug('Stakeout boost');
-				return this.chainModify(1.5);
-			}
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				const move = this.queue.willMove(pokemon.foes()[0]);
+				const moveName = move && move.moveid ? move.moveid.toString() : "";
+				this.debug('Ambush start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon.foes()[0], 'ability: Ambush');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove(moveName, source, source.getLocOf(pokemon));
+				}
+			},
 		},
 		flags: {breakable: 1},
 		name: "Ambush",
-		shortDesc: "Moves can't miss + 1.5x power Stakeout in Twilight Zone",
+		shortDesc: "Moves can't miss + all moves Pursuit in Twilight Zone",
 	},
 	dracojet: {
 		onTryBoost(boost, target, source, effect) {

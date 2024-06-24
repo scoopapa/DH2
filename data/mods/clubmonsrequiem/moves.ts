@@ -9,7 +9,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	hiddenpower: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	cultivate: {
 		num: 404,

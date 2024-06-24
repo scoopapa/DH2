@@ -300,7 +300,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Ancient-Small",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 44, atk: 66, def: 70, spa: 44, spd: 55, spe: 56},
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Fairy Aura"},
 	},
 	pumpkabooancientlarge: {
 		num: 36,
@@ -320,7 +320,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Ancient-Super",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 59, atk: 66, def: 70, spa: 44, spd: 55, spe: 41},
-		abilities: {0: "Fairy Aura"},
+		abilities: {0: "Magic Guard"},
 	},
 	gourgeistancient: {
 		num: 38,
