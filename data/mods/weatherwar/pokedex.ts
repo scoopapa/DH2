@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 8,
 		name: "Doublade",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 69, atk: 110, def: 150, spa: 45, spd: 89, spe: 37},
+		baseStats: {hp: 69, atk: 100, def: 150, spa: 55, spd: 89, spe: 37},
 		abilities: {0: "Delusion", 1: "Dark Fantasy", H: "Second Impact"},
 		evos: null,
 	},
@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9,
 		name: "Lugia",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 106, atk: 70, def: 90, spa: 100, spd: 104, spe: 80},
+		baseStats: {hp: 106, atk: 50, def: 90, spa: 110, spd: 114, spe: 80},
 		abilities: {0: "Delta Stream", 1: "Slipstream", H: "Magic Guard"},
 	},
 	zapdos: {
@@ -166,7 +166,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 21,
 		name: "Politoed",
 		types: ["Water", "Normal"],
-		baseStats: {hp: 90, atk: 75, def: 95, spa: 90, spd: 130, spe: 50},
+		baseStats: {hp: 90, atk: 105, def: 75, spa: 80, spd: 130, spe: 50},
 		abilities: {0: "Monsoon", 1: "Duomod Reference??", H: "Finger Waggler"},
 	},
 	tyranitar: {
@@ -536,7 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 67,
 		name: "Absol",
 		types: ["Dark"],
-		baseStats: {hp: 80, atk: 120, def: 75, spa: 55, spd: 75, spe: 125},
+		baseStats: {hp: 80, atk: 120, def: 65, spa: 55, spd: 65, spe: 125},
 		abilities: {0: "Blackout", 1: "Fairytale", H: "Ambush"},
 	},
 	absolmega: {
@@ -544,7 +544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 68,
 		name: "Absol-Mega",
 		types: ["Dark", "Fairy"],
-		baseStats: {hp: 80, atk: 150, def: 75, spa: 135, spd: 75, spe: 115},
+		baseStats: {hp: 80, atk: 130, def: 75, spa: 125, spd: 75, spe: 125},
 		abilities: {0: "Dark Fantasy"},
 	},
 	malamar: {
@@ -568,7 +568,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 71,
 		name: "Celebi",
 		types: ["Steel", "Grass"],
-		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "Time Machine", 1: "Ruin", H: "Tinted Lens"},
 	},
 	enamorus: {
@@ -601,7 +601,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 75,
 		name: "Alakazam-Mega",
 		types: ["Psychic"],
-		baseStats: {hp: 55, atk: 50, def: 65, spa: 175, spd: 105, spe: 150},
+		baseStats: {hp: 55, atk: 60, def: 75, spa: 155, spd: 105, spe: 150},
 		abilities: {0: "Domain Expander"},
 	},
 	kabutops: {
@@ -673,7 +673,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 84,
 		name: "Chien-Pao",
 		types: ["Dark", "Ice"],
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 70, spd: 65, spe: 125},
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 70, spd: 95, spe: 95},
 		abilities: {0: "Snow Warning"},
 	},
 	tinglu: {

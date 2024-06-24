@@ -1631,14 +1631,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	synthesis: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
 		pp: 10,
 	},
 	morningsun: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
 		pp: 10,
 	},
 	moonlight: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
 		pp: 10,
 	},
 	electroshot: {
@@ -1825,10 +1828,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 	},
+	razorshell: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+	},
 	wildboltstorm: {
 		inherit: true,
 		accuracy: 85,
-		shortDesc: "30% change to paralyze. Thunderstorm: 1.3x power.",
+		shortDesc: "30% chance to paralyze. Thunderstorm: 1.3x power.",
 		onModifyMove(move, pokemon, target) {
 			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
 		},
@@ -1844,7 +1852,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	sandsearstorm: {
 		inherit: true,
 		accuracy: 85,
-		shortDesc: "30% to lower burn. Dust Storm: 1.3x power.",
+		shortDesc: "30% chance to burn. Dust Storm: 1.3x power.",
 		onModifyMove(move, pokemon, target) {
 			if (this.field.pseudoWeather.duststorm) move.basePower = 130;
 		},

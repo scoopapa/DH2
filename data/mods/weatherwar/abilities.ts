@@ -264,15 +264,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				data.sources.push(pokemon);
 			}
 		},
-		onBasePower(relayVar, source, target, move) {
-			if (!this.field.pseudoWeather.twilightzone) return;
-			// You can't get here unless the pursuit succeeds
-			if (target.beingCalledBack || target.switchFlag) {
-				this.debug('Pursuit damage boost');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
 		onModifyMove(move, source, target) {
 			move.accuracy = true;
 			if (this.field.pseudoWeather.twilightzone && (target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
@@ -373,11 +364,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([3, 2]);
+			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([5, 4]);
 		},
 		flags: {breakable: 1},
 		name: "Dark Fantasy",
-		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.5x power in Fable.",
+		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.25x power in Fable.",
 	},
 	suplex: {
 		onTryBoost(boost, target, source, effect) {
