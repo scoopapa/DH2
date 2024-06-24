@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9,
 		name: "Lugia",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 106, atk: 50, def: 100, spa: 110, spd: 104, spe: 80},
+		baseStats: {hp: 106, atk: 50, def: 90, spa: 110, spd: 114, spe: 80},
 		abilities: {0: "Delta Stream", 1: "Slipstream", H: "Magic Guard"},
 	},
 	zapdos: {
@@ -166,7 +166,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 21,
 		name: "Politoed",
 		types: ["Water", "Normal"],
-		baseStats: {hp: 90, atk: 75, def: 95, spa: 90, spd: 130, spe: 50},
+		baseStats: {hp: 90, atk: 105, def: 75, spa: 80, spd: 130, spe: 50},
 		abilities: {0: "Monsoon", 1: "Duomod Reference??", H: "Finger Waggler"},
 	},
 	tyranitar: {

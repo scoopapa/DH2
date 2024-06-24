@@ -22,6 +22,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "kyogre").learnset.setflashflood = ["9L1"];
 		this.modData("Learnsets", "kyogre").learnset.setwhiteout = ["9L1"];
 		// Rayquaza
+		this.modData("Learnsets", "rayquaza").learnset.willowisp = ["9L1"];
 		this.modData("Learnsets", "rayquaza").learnset.dragonrage = ["9L1"];
 		this.modData("Learnsets", "rayquaza").learnset.coreenforcer = ["9L1"];
 		this.modData("Learnsets", "rayquaza").learnset.roost = ["9L1"];
@@ -175,6 +176,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "pelipper").learnset.setdeltastream = ["9L1"];
 		this.modData("Learnsets", "pelipper").learnset.setflashflood = ["9L1"];
 		// Politoed
+		this.modData("Learnsets", "politoed").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "politoed").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "politoed").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "politoed").learnset.swordsdance = ["9L1"];
 		this.modData("Learnsets", "politoed").learnset.waterpledge = ["9L1"];
 		this.modData("Learnsets", "politoed").learnset.recover = ["9L1"];
 		this.modData("Learnsets", "politoed").learnset.setmetronomebattle = ["9L1"];
@@ -222,6 +227,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "electrode").learnset.setthunderstorm = ["9L1"];
 		this.modData("Learnsets", "electrode").learnset.setmetronomebattle = ["9L1"];
 		// Clefable
+		this.modData("Learnsets", "clefable").learnset.bloodmoon = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.setfable = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.setmetronomebattle = ["9L1"];
 		delete this.modData('Learnsets', 'clefable').learnset.amnesia;
@@ -255,6 +261,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lickilicky").learnset.partingshot = ["9L1"];
 		this.modData("Learnsets", "lickilicky").learnset.setmetronomebattle = ["9L1"];
 		// Golduck
+		this.modData("Learnsets", "golduck").learnset.bouncybubble = ["9L1"];
 		this.modData("Learnsets", "golduck").learnset.mysticalpower = ["9L1"];
 		this.modData("Learnsets", "golduck").learnset.storedpower = ["9L1"];
 		this.modData("Learnsets", "golduck").learnset.cosmicpower = ["9L1"];
