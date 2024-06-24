@@ -276,17 +276,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 759,
 		desc: "If held by a Hisuian Zoroshark, this item allows it to Mega Evolve in battle.",
 	},
+	cameruptite: {
+		name: "Cameruptite",
+		spritenum: 625,
+		megaStone: "Wo-Rupt-Mega",
+		megaEvolves: "Wo-Rupt",
+		itemUser: ["Wo-Rupt"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 767,
+		desc: "If held by a Wo-Rupt, this item allows it to Mega Evolve in battle.",
+	},
 	eviolite: {
 		inherit: true,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.num === 215) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.baseSpecies === 'Sneasel') {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.num === 215) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.baseSpecies === 'Sneasel') {
 				return this.chainModify(1.5);
 			}
 		},
