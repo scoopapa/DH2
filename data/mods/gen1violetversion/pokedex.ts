@@ -55,7 +55,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kabutops: {
 		inherit: true,
-		baseStats: {hp:60, atk:115, def:135, spa:70, spd:70, spe:80},
+		baseStats: {hp:60, atk:115, def:125, spa:70, spd:70, spe:80},
 	},
 	machamp: {
 		inherit: true,
