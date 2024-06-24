@@ -1201,7 +1201,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		desc: "If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side.",
-		shortDesc: "-1 evasion; clears terrain and hazards on both sides.",
 		shortDesc: "Clears terrain and hazards from both sides of the field.",
 		name: "G-Max Wind Rage",
 		pp: 5,
