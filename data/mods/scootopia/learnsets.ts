@@ -214,7 +214,6 @@ export const Learnsets = {
 			feralbreath: ["9L1"],
 			feralhealing: ["9L1"],
 			feralresilience: ["9L1"],
-			feralhealing: ["9L1"],
 		},
 	},
 	rantler: {
@@ -1123,7 +1122,6 @@ export const Learnsets = {
 			feralhealing: ["9L1"],
 			feralspray: ["9L1"],
 			feralresilience: ["9L1"],
-			feralhealing: ["9L1"],
 		},
 	},
 	lumoth: {

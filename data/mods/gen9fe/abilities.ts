@@ -3858,6 +3858,86 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Quick Wit",
 	},
+	stonesofruin: {
+		shortDesc: "Pokemon without this ability have x0.75 Attack and deal x0.75 with super-effective hits.",
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Stones of Ruin');
+		},
+		onAnyModifyAtk(atk, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			if (source.hasAbility(['Tablets of Ruin','Stones of Ruin'])) return;
+			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
+			else if (move.ruinedAtk !== abilityHolder) return;
+			this.debug('Tablets of Ruin Atk drop');
+			return this.chainModify(0.75);
+		},
+		onAnyModifyDamage(damage, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			if (source.hasAbility('Stones of Ruin') || target.getMoveHitData(move).typeMod <= 0) return;
+			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
+			else if (move.ruinedAtk !== abilityHolder) return;
+			this.debug('Stones of Ruin neutralize');
+			return this.chainModify(0.75);
+		},
+		flags: {},
+		name: "Stones of Ruin",
+	},
+	unstoppable: {
+		shortDesc: "Adaptability + Aroma Veil.",
+		onModifySTAB(stab, source, target, move) {
+			if (move.forceSTAB || source.hasType(move.type)) {
+				return stab === 2 ? 2.25 : 2;
+			}
+		},
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+				if (effect.effectType === 'Move') {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Unstoppable",
+	},
+	saltedlobster: {
+		shortDesc: "Adaptability + Purifying Salt.",
+		onModifySTAB(stab, source, target, move) {
+			if (move.forceSTAB || source.hasType(move.type)) {
+				return stab === 2 ? 2.25 : 2;
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Salted Lobster');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Salted Lobster');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Purifying Salt weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Purifying Salt weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Salted Lobster",
+	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
 	innerfocus: {

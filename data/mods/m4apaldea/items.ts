@@ -167,4 +167,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Cyclizar, this item allows it to Mega Evolve in battle.",
 	},
+	pawmite: {
+		name: "Pawmite",
+		spritenum: 578,
+		megaStone: "Pawmot-Mega",
+		megaEvolves: "Pawmot",
+		itemUser: ["Pawmot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2012,
+		gen: 8,
+		desc: "If held by a Pawmot, this item allows it to Mega Evolve in battle.",
+	},
+	grafaiaite: {
+		name: "Grafaiaite",
+		spritenum: 578,
+		megaStone: "Grafaiai-Mega",
+		megaEvolves: "Grafaiai",
+		itemUser: ["Grafaiai"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2012,
+		gen: 8,
+		desc: "If held by a Grafaiai, this item allows it to Mega Evolve in battle.",
+	},
+	cetitanite: {
+		name: "Cetitanite",
+		spritenum: 578,
+		megaStone: "Cetitan-Mega",
+		megaEvolves: "Cetitan",
+		itemUser: ["Cetitan"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2012,
+		gen: 8,
+		desc: "If held by a Cetitan, this item allows it to Mega Evolve in battle.",
+	},
 };

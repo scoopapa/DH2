@@ -3268,6 +3268,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sandstorm: ["9L1"],
 			shadowball: ["9L1"],
 			shadowbone: ["9L1"],
+			shadowsneak: ["9L1"],
 			smartstrike: ["9L1"],
 			spite: ["9L1"],
 			stompingtantrum: ["9L1"],

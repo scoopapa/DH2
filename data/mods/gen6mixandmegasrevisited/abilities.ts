@@ -109,7 +109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Bug Zapper",
-    shortDesc: "This Pokemon is immune to Bug-type moves and traps the foe it hit by one.",
+    	shortDesc: "This Pokemon is immune to Bug-type moves and traps the foe it hit by one.",
 		rating: 5,
 	},
 	exoskeleton: {
@@ -118,13 +118,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
-				return damage / 2;
-			}
-		},
 		name: "Exoskeleton",
-    shortDesc: "This Pokemon takes halved damage from hazards and physical moves.",
+    	shortDesc: "This Pokemon takes halved damage from physical moves; Hazard immunity.",
 		rating: 4,
 	},
 	icescales: {
@@ -232,7 +227,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Intoxicate",
 		rating: 4,
 		shortDesc: "This Pokemon's Normal-type moves become Poison-type and have 1.3x power.",
-	},	
+	},
+	dragonsgale: {
+		onStart(source) {
+			this.field.setWeather('deltastream');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('dragonsgale')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
+				return damage / 2;
+			}
+		},
+		flags: {},
+		name: "Dragon's Gale",
+		shortDesc: "On switch-in, sets Delta Stream. User takes halved damage from hazards.",
+		rating: 5,
+	},
 
 // for ngas
 	galewings: {

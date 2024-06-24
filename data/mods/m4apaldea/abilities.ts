@@ -191,4 +191,35 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -2007,
 	},
+	colorspray: {
+		desc: "The first damaging move used against a target since it has switched in turns the target into that type.",
+		shortDesc: "Turns a target into the type of the first damaging move used against it.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (!target.hp) return;
+			if (this.effectState.colorspray) return;
+			const type = move.type;
+			if (
+				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
+				type !== '???' && !target.hasType(type)
+			) {
+				if (!target.setType(type)) return false;
+				this.effectState.colorspray = true;
+				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
+
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
+				}
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.colorspray;
+		},
+		name: "Color Spray",
+		rating: 4,
+		num: -2008,
+	},
 };

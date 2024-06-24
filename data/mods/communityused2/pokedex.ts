@@ -18,7 +18,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	furumo: {
 		num: -1002,
 		name: "Furumo",
-		types: ["Fairy", "Ice"],
+		types: ["Ice", "Fairy"],
 		baseStats: { hp: 85, atk: 105, def: 60, spa: 109, spd: 60, spe: 111 },
 		abilities: { 0: "Water Veil", 1: "Pixilate", H: "Refrigerate" },
 		weightkg: 36,
@@ -281,7 +281,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	polipid: {
 		num: -1031,
 		name: "Polipid",
-		types: ["Bug", "Psychic"],
+		types: ["Psychic", "Bug"],
 		baseStats: { hp: 60, atk: 40, def: 90, spa: 90, spd: 65, spe: 128 },
 		abilities: { 0: "Thick Fat", 1: "Hydration", H: "Marvel Scale" },
 		weightkg: 0.3,
