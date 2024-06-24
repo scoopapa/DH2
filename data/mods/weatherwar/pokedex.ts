@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9,
 		name: "Lugia",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 106, atk: 70, def: 90, spa: 100, spd: 104, spe: 80},
+		baseStats: {hp: 106, atk: 50, def: 100, spa: 110, spd: 104, spe: 80},
 		abilities: {0: "Delta Stream", 1: "Slipstream", H: "Magic Guard"},
 	},
 	zapdos: {
@@ -568,7 +568,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 71,
 		name: "Celebi",
 		types: ["Steel", "Grass"],
-		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "Time Machine", 1: "Ruin", H: "Tinted Lens"},
 	},
 	enamorus: {
