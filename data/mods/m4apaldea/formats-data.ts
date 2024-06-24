@@ -78,7 +78,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	buizel: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	floatzel: {tier: "Paldea", doublesTier: "Paldea"},
 
-	wooper: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	wooperpaldea: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	clodsire: {tier: "Paldea", doublesTier: "Paldea"},
 
 	psyduck: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
@@ -335,7 +335,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skiddo: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	gogoat: {tier: "Paldea", doublesTier: "Paldea"},
 
-	tauros: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeacombat: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeablaze: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeaaqua: {tier: "Paldea", doublesTier: "Paldea"},
