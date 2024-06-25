@@ -1622,12 +1622,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				this.add('-start', target, 'ability: Royal Pass');
 				this.add('-message', "The Monarch silences thee.");
-				target.addVolatile("royalpass");
+				source.addVolatile("royalpass");
 			}
 		},
 		condition: {
 			onStart(pokemon) {
-				const index = pokemon.moves.indexOf(pokemon.lastMove);
+				const index = pokemon.moves.indexOf(pokemon.lastMove.id);
 				const kingsshield = {
 					move: "King's Shield",
 					id: "kingsshield",
