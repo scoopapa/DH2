@@ -336,7 +336,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						this.battle.boost({spe: 2}, pokemon);
 					}
 					if (target.hasAbility('swallowswallow')) {
-						this.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|@${pokemon.name}, sorry, your vote did not follow the format - try again`);
+						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|@${pokemon.name}, sorry, your vote did not follow the format - try again`);
 					}
 					hitResults[i] = false;
 					continue;
