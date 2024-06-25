@@ -11184,6 +11184,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			magicroom: ["1L1"],
 			megahorn: ["1L1"],
 			mistyterrain: ["1L1"],
+			morningsun: ["1L1"],
 			mysticalfire: ["1L1"],
 			payday: ["1L1"],
 			playrough: ["1L1"],
