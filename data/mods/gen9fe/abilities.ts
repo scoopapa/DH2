@@ -2814,12 +2814,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Honey Moon",
 	},
 	aircontrol: {
-		shortDesc: "Levitate effects + Ignores type-based immunities to Ground",
+		shortDesc: "Levitate + Mind's Eye",
+		// airborneness implemented in scripts.ts
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Air Control", "[of] " + target);
+				}
+			}
+		},
 		onModifyMovePriority: -5,
-		onModifyMove(move, attacker, defender) {
-			if (!defender.hasType('Flying')) return; //Type-based immunities were specified, not ability-based. 
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
 			if ((move.ignoreImmunity ||= {}) !== true) {
-				move.ignoreImmunity['Ground'] = true;
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
 			}
 		},
 		flags: {breakable: 1},
