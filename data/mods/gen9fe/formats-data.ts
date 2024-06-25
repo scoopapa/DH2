@@ -741,8 +741,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	woruptmega: {
-		tier: "FEUUBL",
-		requiredItem: "Sharpedonite",
+		tier: "FEUU",
+		requiredItem: "Cameruptite",
 		doublesTier: "DOU",
 	},
 	aromalge: {
