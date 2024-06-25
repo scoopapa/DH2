@@ -4452,7 +4452,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9M"],
 			},
 		},
-	violet: {
+	violetmizutsune: {
 		learnset: {
 			blastburn: ["9M"],
 			bodyslam: ["9M"],
