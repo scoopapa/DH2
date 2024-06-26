@@ -279,6 +279,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return null;
 		},
+		canUltraBurst(pokemon) {
+			if (pokemon.baseSpecies.name === 'Necro Mane-Dusk Mane' && pokemon.getItem().id === 'depletedultranecroziumz') {
+				return "Necro Mane-Ultra";
+			}
+			/*if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+				pokemon.getItem().id === 'ultranecroziumz') {
+				return "Necrozma-Ultra";
+			}*/
+			return null;
+		},
 		hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
 			const hitResults = [];
 			for (const [i, target] of targets.entries()) {
