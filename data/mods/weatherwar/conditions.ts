@@ -345,7 +345,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (this.field.pseudoWeather.drought && pokemon.hp && !pokemon.status && pokemon.runEffectiveness('Fire')) {
+			if (this.field.pseudoWeather.drought && pokemon.hp && !pokemon.status && pokemon.runEffectiveness('Fire') > 0) {
 				this.add('-message', `${pokemon.name} spontaneously erupted into flames!`);
 				pokemon.trySetStatus('brn', pokemon);
 			}
@@ -426,8 +426,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
-		onBeforeMovePriority: 9,
-		onBeforeMove(pokemon, target, move) {
+		onAfterMoveSecondary(target, source, move) {
 			if (this.field.pseudoWeather.thevoices && move.id !== 'boomburst' && this.randomChance(3, 10)) {
 				this.add('-message', `${pokemon.name} hears the voices...`);
 				const newMove = this.dex.getActiveMove('boomburst');
