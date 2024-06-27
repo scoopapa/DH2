@@ -2942,7 +2942,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 	},
 	heatproofdrive: {
-	  shortDesc: "Heatproof + Quark Drive.",
+	  shortDesc: "Heatproof + Quark Drive",
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
@@ -3700,7 +3700,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 	},
 	rogue: {
-	  shortDesc: "Competitive + Overcoat.",
+	  shortDesc: "Competitive + Overcoat",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) {
 				if (effect.id === 'stickyweb') {
@@ -3874,6 +3874,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Stones of Ruin');
+			this.add('-message', `${pokemon.name}'s Stones of Ruin weakened the Attack of all surrounding Pokémon and the power of their super-effective moves!`);
 		},
 		onAnyModifyAtk(atk, source, target, move) {
 			const abilityHolder = this.effectState.target;
@@ -3895,7 +3896,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Stones of Ruin",
 	},
 	unstoppable: {
-		shortDesc: "Adaptability + Aroma Veil.",
+		shortDesc: "Adaptability + Aroma Veil",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
 				return stab === 2 ? 2.25 : 2;
@@ -3914,7 +3915,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Unstoppable",
 	},
 	saltedlobster: {
-		shortDesc: "Adaptability + Purifying Salt.",
+		shortDesc: "Adaptability + Purifying Salt",
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
 				return stab === 2 ? 2.25 : 2;
