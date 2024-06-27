@@ -3249,13 +3249,6 @@ export const Formats: FormatList = [
 		// name: "officialsmogonformats",
 	},
 	{
-		name: "[Gen 9] Showcase",
-
-		mod: 'showcase',
-		ruleset: ['Standard'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
-	},
-	{
 		name: "[Gen 9] OU",
 
 		mod: 'gen9',
