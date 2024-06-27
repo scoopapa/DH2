@@ -348,7 +348,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Water", "Fairy"],
 		genderRatio: {M: 0.875, F: 0.125},
-		baseStats: {hp: 95, atk: 112, def: 80, spa: 147, spd: 136, spe: 100},
+		baseStats: {hp: 88, atk: 121, def: 90, spa: 144, spd: 129, spe: 128},
 		abilities: {0: "No Guard"},
 		heightm: 3.3,
 		weightkg: 70.3,
