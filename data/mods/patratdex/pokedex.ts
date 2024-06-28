@@ -1477,7 +1477,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		types: ["Bug", "Dark"],
 		gender: "N",
 		baseStats: {hp: 90, atk: 115, def: 95, spa: 88, spd: 88, spe: 94},
-		abilities: {0: "Frisk", H: "Quick Feet"},
+		abilities: {0: "Technician", H: "Quick Feet"},
 		weightkg: 80,
 	},
 	grimgaster: {
@@ -1486,7 +1486,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		types: ["Ghost", "Dragon"],
 		gender: "N",
 		baseStats: {hp: 97, atk: 125, def: 90, spa: 100, spd: 90, spe: 68},
-		abilities: {0: "Big Pecks", H: "Wandering Spirit"},
+		abilities: {0: "Intimidate", H: "Wandering Spirit"},
 		weightkg: 160,
 	},
 	groliath: {
