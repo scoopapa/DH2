@@ -502,7 +502,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Generation X\'s Brunica format.'];
+					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
 				}
 			}
 		},
@@ -527,7 +527,7 @@ export const Formats: FormatList = [
 					return [set.species + ' is banned in Generation X\'s Brunica format.'];
 				}
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Generation X\'s Brunica format.'];
+					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
 				}
 			}
 		},
@@ -549,7 +549,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Generation X\'s Desvega format.'];
+					return [set.species + ' is not available in Generation X\'s Desvega formats.'];
 				}
 			}
 		},
@@ -570,7 +570,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not available in Generation X\'s Desvega format.'];
+					return [set.species + ' is not available in Generation X\'s Desvega formats.'];
 				}
 			}
 		},

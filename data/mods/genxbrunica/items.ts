@@ -7,6 +7,207 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		itemUser: ["Lutakon-Awakened"],
 	},
+	
+	//Type Balms
+	normalbalm: {
+		name: "Normal Balm",
+		desc: "Gains Normal type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Normal') && pokemon.addType('Normal')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	firebalm: {
+		name: "Fire Balm",
+		desc: "Gains Fire type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Fire') && pokemon.addType('Fire')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	waterbalm: {
+		name: "Water Balm",
+		desc: "Gains Water type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Water') && pokemon.addType('Water')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	electricbalm: {
+		name: "Electric Balm",
+		desc: "Gains Electric type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Electric') && pokemon.addType('Electric')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	grassbalm: {
+		name: "Grass Balm",
+		desc: "Gains Grass type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Grass') && pokemon.addType('Grass')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	icebalm: {
+		name: "Ice Balm",
+		desc: "Gains Ice type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Ice') && pokemon.addType('Ice')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	fightingbalm: {
+		name: "Fighting Balm",
+		desc: "Gains Fighting type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Fighting') && pokemon.addType('Fighting')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	poisonbalm: {
+		name: "Poison Balm",
+		desc: "Gains Poison type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Poison') && pokemon.addType('Poison')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	groundbalm: {
+		name: "Ground Balm",
+		desc: "Gains Ground type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Ground') && pokemon.addType('Ground')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	flyingbalm: {
+		name: "Flying Balm",
+		desc: "Gains Flying type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Flying') && pokemon.addType('Flying')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	psychicbalm: {
+		name: "Psychic Balm",
+		desc: "Gains Psychic type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Psychic') && pokemon.addType('Psychic')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	bugbalm: {
+		name: "Bug Balm",
+		desc: "Gains Bug type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Bug') && pokemon.addType('Bug')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	rockbalm: {
+		name: "Rock Balm",
+		desc: "Gains Rock type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Rock') && pokemon.addType('Rock')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	ghostbalm: {
+		name: "Ghost Balm",
+		desc: "Gains Ghost type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Ghost') && pokemon.addType('Ghost')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	dragon: {
+		name: "Dragon Balm",
+		desc: "Gains Dragon type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Dragon') && pokemon.addType('Dragon')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	darkbalm: {
+		name: "Dark Balm",
+		desc: "Gains Dark type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Dark') && pokemon.addType('Dark')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	steelbalm: {
+		name: "Steel Balm",
+		desc: "Gains Steel type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Steel') && pokemon.addType('Steel')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	fairybalm: {
+		name: "Fairy Balm",
+		desc: "Gains Fairy type on entry; unlocks certain Balm moves on certain Pokemon.",
+		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.useItem() && !pokemon.hasType('Fairy') && pokemon.addType('Fairy')) {
+				pokemon.addVolatile('typebalm');
+			}
+		},
+		onTakeItem: false,
+	},
+	
 	//Vanilla tems that interact with Brunician customs
 	
 	grassyseed: {

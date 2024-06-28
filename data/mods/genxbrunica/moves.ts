@@ -74,6 +74,78 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Grass",
 	},
+	magneticupdraft: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Magnetic Updraft",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, wind: 1},
+		desc: "Power is equal to 1.5 times the base move's power. For 3 turns, the target cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the target is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the target is under any of their effects. Fails if the target is already under this effect or the effects of Ingrain, Smack Down, Thousand Arrows, or Leaping Onrush. The target is immune to this effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
+		shortDesc: "x1.5 power of base move. For 3 turns, target floats but moves can't miss it.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wildbolt Storm", target);
+		},
+		volatileStatus: 'telekinesis',
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Flying",
+	},
+	leapingonrush: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Leaping Onrush",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move hits a target under the effect of Bounce, Fly, Magnet Rise, or Telekinesis, the effect ends. If the target is a Flying type that has not used Roost this turn or a Pokemon with the Levitate Ability, it loses its immunity to Ground-type attacks and the Arena Trap Ability as long as it remains active. During the effect, Magnet Rise fails for the target and Telekinesis fails against the target.",
+		shortDesc: "x1.5 power of base move. Removes the target's Ground immunity.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
+		},
+		volatileStatus: 'smackdown',
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Fighting",
+	},
+	cupricdeluge: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Cupric Deluge",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "x1.5 power of base move. Foes: Steel hazard.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thousand Waves", target);
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('gmaxsteelsurge');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('gmaxsteelsurge');
+				}
+			}
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Steel",
+	},
+	
+	//Balm Moves
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
