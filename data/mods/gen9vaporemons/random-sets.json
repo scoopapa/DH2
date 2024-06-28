@@ -125,7 +125,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Earthquake", "Ice Shard", "Knock Off", "Rapid Spin", "Swords Dance", "Triple Axel"],
+                "movepool": ["Earthquake", "Shrapnel Shot", "Knock Off", "Rapid Spin", "Swords Dance", "Triple Axel"],
                 "teraTypes": ["Ground"]
             }
         ]
@@ -374,8 +374,8 @@
         "level": 87,
         "sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Earthquake", "Explosion", "Rock Polish", "Stealth Rock", "Stone Edge"],
+                "role": "Wallbreaker",
+                "movepool": ["Earthquake", "Explosion", "Accelerock", "Stone Edge"],
                 "teraTypes": ["Grass", "Ground", "Steel"]
             }
         ]
@@ -839,13 +839,18 @@
         "level": 82,
         "sets": [
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Body Slam", "Curse", "Rest", "Sleep Talk"],
+                "role": "Wallbreaker",
+                "movepool": ["Last Resort", "Sleep Talk"],
+                "teraTypes": ["Fairy", "Poison"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Rage", "Rollout", "Tidy Up", "Earthquake", "Slack Off"],
                 "teraTypes": ["Fairy", "Poison"]
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Body Slam", "Crunch", "Curse", "Earthquake", "Rest"],
+                "movepool": ["Rage", "Crunch", "Curse", "Earthquake", "Slack Off"],
                 "teraTypes": ["Ground", "Poison"]
             }
         ]
@@ -1555,7 +1560,7 @@
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["Calm Mind", "Scald", "Shadow Ball", "Thunderbolt", "Volt Switch"],
+                "movepool": ["Scald", "Signal Beam", "Thunderbolt", "Volt Switch"],
                 "teraTypes": ["Electric", "Water"]
             }
         ]
@@ -2694,8 +2699,13 @@
         "level": 83,
         "sets": [
             {
+                "role": "Bulky Attacker",
+                "movepool": ["Earthquake", "Ice Punch", "Rollout", "Accelerock", "Stone Axe"],
+                "teraTypes": ["Ground", "Rock"]
+            },
+            {
                 "role": "Bulky Setup",
-                "movepool": ["Earthquake", "Ice Punch", "Megahorn", "Rock Polish", "Stone Edge"],
+                "movepool": ["Earthquake", "Ice Punch", "Megahorn", "Rock Polish", "Chisel"],
                 "teraTypes": ["Ground", "Rock"]
             }
         ]
@@ -2865,7 +2875,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Nasty Plot", "Shadow Ball", "Thunderbolt", "Trick", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Nasty Plot", "Shadow Ball", "Software Crash", "Trick", "Volt Switch", "Will-O-Wisp"],
                 "teraTypes": ["Electric", "Ghost"]
             }
         ]
@@ -2875,7 +2885,12 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Hydro Pump", "Nasty Plot", "Pain Split", "Thunderbolt", "Trick", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Hydro Pump", "Pain Split", "Volt Switch", "Will-O-Wisp", "Software Crash", "Trick"],
+                "teraTypes": ["Electric", "Water"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Wash Away", "Pain Split", "Volt Switch", "Will-O-Wisp"],
                 "teraTypes": ["Electric", "Water"]
             }
         ]
@@ -2885,7 +2900,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Nasty Plot", "Overheat", "Pain Split", "Thunderbolt", "Trick", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Nasty Plot", "Overheat", "Pain Split", "Software Crash", "Trick", "Volt Switch", "Will-O-Wisp", "Lava Plume"],
                 "teraTypes": ["Electric", "Fire"]
             }
         ]
@@ -2895,7 +2910,12 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Blizzard", "Nasty Plot", "Thunderbolt", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Blizzard", "Freeze-Dry", "Software Crash", "Volt Switch", "Trick"],
+                "teraTypes": ["Electric"]
+            },
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Blizzard", "Freeze-Dry", "Software Crash", "Nasty Plot"],
                 "teraTypes": ["Electric"]
             }
         ]
@@ -2905,7 +2925,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Air Slash", "Nasty Plot", "Thunderbolt", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Wind Breaker", "Nasty Plot", "Software Crash", "Pain Split"],
                 "teraTypes": ["Electric"]
             }
         ]
@@ -2915,7 +2935,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Leaf Storm", "Nasty Plot", "Thunderbolt", "Trick", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Leaf Storm", "Nasty Plot", "Software Crash", "Rest", "Pain Split"],
                 "teraTypes": ["Electric", "Grass"]
             }
         ]
@@ -2925,7 +2945,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Encore", "Knock Off", "Light Screen", "Psychic", "Psychic Noise", "Reflect", "Stealth Rock", "Thunder Wave", "U-turn", "Yawn"],
+                "movepool": ["Healing Stones", "Encore", "Psychic Noise", "Stealth Rock", "Thunder Wave", "U-turn", "Knock Off"],
                 "teraTypes": ["Dark", "Electric", "Steel"]
             }
         ]
@@ -2935,7 +2955,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Dazzling Gleam", "Energy Ball", "Healing Wish", "Ice Beam", "Nasty Plot", "Psychic", "Thunderbolt", "U-turn"],
+                "movepool": ["Shadow Ball", "Nasty Plot", "Psycho Boost", "Ice Beam"],
                 "teraTypes": ["Electric", "Fairy", "Psychic"]
             },
             {
@@ -2944,8 +2964,8 @@
                 "teraTypes": ["Dark", "Electric", "Steel"]
             },
             {
-                "role": "Bulky Attacker",
-                "movepool": ["Drain Punch", "Ice Beam", "Knock Off", "Psychic Noise", "Thunder Wave", "Thunderbolt", "U-turn"],
+                "role": "AV Pivot",
+                "movepool": ["Drain Punch", "Ice Beam", "Knock Off", "Psychic Noise", "Thunderbolt", "U-turn"],
                 "teraTypes": ["Dark", "Fighting"]
             }
         ]
@@ -4945,17 +4965,17 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Aura Sphere", "Flash Cannon", "Fleur Cannon", "Pain Split", "Spikes", "Thunder Wave", "Volt Switch"],
+                "movepool": ["Aura Sphere", "Flash Cannon", "Fleur Cannon", "Pain Split", "Trick Room", "Volt Switch"],
                 "teraTypes": ["Fairy", "Fighting", "Water"]
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Calm Mind", "Flash Cannon", "Fleur Cannon", "Shift Gear"],
+                "movepool": ["Calm Mind", "Thunderbolt", "Ice Beam", "Pain Split"],
                 "teraTypes": ["Fairy", "Flying", "Steel", "Water"]
             },
             {
-                "role": "Tera Blast user",
-                "movepool": ["Fleur Cannon", "Iron Head", "Shift Gear", "Tera Blast"],
+                "role": "AV Pivot",
+                "movepool": ["Fleur Cannon", "Ice Beam", "Rollout", "Thunderbolt", "Focus Blast"],
                 "teraTypes": ["Ground"]
             }
         ]
@@ -5154,13 +5174,13 @@
                 "teraTypes": ["Poison", "Steel"]
             },
             {
-                "role": "Fast Bulky Setup",
-                "movepool": ["Bulk Up", "Crunch", "Rest", "Spirit Break", "Sucker Punch", "Throat Chop", "Thunder Wave"],
+                "role": "Bulky Setup",
+                "movepool": ["Bulk Up", "Spirit Break", "Sucker Punch", "False Surrender", "Drain Punch"],
                 "teraTypes": ["Dark", "Poison", "Steel"]
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Parting Shot", "Spirit Break", "Sucker Punch", "Taunt", "Thunder Wave"],
+                "movepool": ["Parting Shot", "Spirit Break", "Sucker Punch", "Taunt", "Thunder Wave", "False Surrender"],
                 "teraTypes": ["Poison", "Steel"]
             }
         ]
@@ -5870,7 +5890,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Hurricane", "Roost", "Thunder Wave", "Thunderbolt", "U-turn"],
+                "movepool": ["Hurricane", "Electroweb", "Thunderbolt", "U-turn"],
                 "teraTypes": ["Electric", "Flying"]
             }
         ]
@@ -5880,8 +5900,8 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Crunch", "Fire Fang", "Play Rough", "Psychic Fangs", "Wild Charge"],
-                "teraTypes": ["Dark", "Fairy"]
+                "movepool": ["False Surrender", "Retaliate", "Play Rough", "Psychic Fangs", "Wild Charge"],
+                "teraTypes": ["Normal"]
             }
         ]
     },
@@ -5909,13 +5929,13 @@
         "level": 88,
         "sets": [
             {
-                "role": "Fast Support",
-                "movepool": ["Poltergeist", "Power Whip", "Rapid Spin", "Spikes", "Strength Sap"],
+                "role": "Fast Attacker",
+                "movepool": ["Poltergeist", "Power Whip", "Rapid Spin", "Swords Dance", "Choke"],
                 "teraTypes": ["Fairy", "Steel", "Water"]
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Leech Seed", "Poltergeist", "Power Whip", "Substitute"],
+                "movepool": ["Rapid Spin", "Choke", "Power Whip", "Rollout"],
                 "teraTypes": ["Fairy", "Steel", "Water"]
             }
         ]
@@ -5981,16 +6001,16 @@
         ]
     },
     "espathra": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Dazzling Gleam", "Lumina Crash", "Shadow Ball", "U-turn"],
+                "movepool": ["Signal Beam", "Lumina Crash", "Shadow Ball", "U-turn", "Psycho Boost"],
                 "teraTypes": ["Fairy", "Ghost", "Psychic"]
             },
             {
                 "role": "Fast Bulky Setup",
-                "movepool": ["Calm Mind", "Dazzling Gleam", "Protect", "Roost", "Stored Power", "Substitute"],
+                "movepool": ["Calm Mind", "Signal Beam", "Protect", "Roost", "Stored Power", "Substitute"],
                 "teraTypes": ["Fairy"]
             }
         ]
@@ -6000,18 +6020,18 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Encore", "Gigaton Hammer", "Knock Off", "Play Rough", "Stealth Rock", "Thunder Wave"],
+                "movepool": ["Encore", "Gigaton Hammer", "Knock Off", "Rebuild", "Stealth Rock", "Thunder Wave"],
                 "teraTypes": ["Water"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Gigaton Hammer", "Knock Off", "Play Rough", "Swords Dance"],
+                "movepool": ["Gigaton Hammer", "Knock Off", "Play Rough", "Swords Dance", "Rebuild"],
                 "teraTypes": ["Steel"]
             }
         ]
     },
     "wugtrio": {
-        "level": 91,
+        "level": 92,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -6025,13 +6045,8 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Brave Bird", "Knock Off", "Roost", "Stone Edge", "Sucker Punch", "U-turn"],
+                "movepool": ["Brave Bird", "Knock Off", "Accelerock", "Stone Edge", "Sucker Punch"],
                 "teraTypes": ["Rock"]
-            },
-            {
-                "role": "Bulky Support",
-                "movepool": ["Brave Bird", "Knock Off", "Roost", "Stealth Rock", "Sucker Punch", "U-turn"],
-                "teraTypes": ["Dark", "Steel"]
             },
             {
                 "role": "Setup Sweeper",
@@ -6040,7 +6055,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Brave Bird", "Knock Off", "Roost", "Stealth Rock", "Sucker Punch", "U-turn"],
+                "movepool": ["Brave Bird", "Knock Off", "Roost", "Stealth Rock", "Defog", "U-turn", "Stone Edge"],
                 "teraTypes": ["Dark", "Steel"]
             }
         ]
@@ -6080,12 +6095,12 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Body Press", "Coil", "Iron Tail", "Rest"],
+                "movepool": ["Body Press", "Coil", "Wave Crash", "Recover", "Heavy Slam"],
                 "teraTypes": ["Electric", "Fighting"]
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Body Press", "Iron Head", "Rest", "Shed Tail", "Spikes", "Stealth Rock"],
+                "movepool": ["Wave Crash", "Heavy Slam", "Recover", "Toxic", "Spikes", "Stealth Rock"],
                 "teraTypes": ["Electric", "Poison"]
             }
         ]
@@ -6330,7 +6345,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dance", "Earthquake", "Iron Head", "Knock Off", "Outrage", "Roost"],
+                "movepool": ["Dragon Dance", "Psychic Fangs", "Iron Head", "Knock Off", "Outrage", "Roost", "Brick Break"],
                 "teraTypes": ["Dark", "Dragon", "Ground", "Steel"]
             },
             {
@@ -6395,7 +6410,7 @@
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Drain Punch", "Ice Punch", "Swords Dance", "Thunder Punch", "Wild Charge"],
+                "movepool": ["Drain Punch", "Ice Punch", "Swords Dance", "Thunder Punch", "Parry"],
                 "teraTypes": ["Fighting", "Flying", "Steel"]
             }
         ]
@@ -6414,13 +6429,13 @@
         "level": 83,
         "sets": [
             {
-                "role": "Fast Support",
-                "movepool": ["Earthquake", "Spikes", "Stealth Rock", "Stone Edge", "Thunder Punch", "Volt Switch"],
+                "role": "Fast Attacker",
+                "movepool": ["Earthquake", "Dragon Dance", "Chain Lightning", "Chisel", "Wild Charge", "Ice Punch"],
                 "teraTypes": ["Grass", "Water"]
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Dragon Dance", "Earthquake", "Ice Punch", "Stone Edge", "Wild Charge"],
+                "movepool": ["Swords Dance", "Earthquake", "Chisel", "Chain Lightning"],
                 "teraTypes": ["Grass", "Ground", "Rock"]
             }
         ]
@@ -6444,6 +6459,11 @@
                 "teraTypes": ["Dark", "Fighting"]
             },
             {
+                "role": "Fast Bulky Setup",
+                "movepool": ["Calm Mind", "Encore", "Moonblast", "Psychic", "Thunderbolt"],
+                "teraTypes": ["Fairy"]
+            },
+            {
                 "role": "Fast Attacker",
                 "movepool": ["Calm Mind", "Close Combat", "Moonblast", "Psychic"],
                 "teraTypes": ["Fairy", "Fighting"]
@@ -6455,7 +6475,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Close Combat", "Leaf Blade", "Megahorn", "Psyblade", "Swords Dance"],
+                "movepool": ["Close Combat", "Leaf Blade", "Megahorn", "Psyblade", "Swords Dance", "Cutting Remark"],
                 "teraTypes": ["Fighting"]
             }
         ]
@@ -6670,7 +6690,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Horn Leech", "Ivy Cudgel", "Knock Off", "Power Whip", "Stomping Tantrum", "Swords Dance"],
+                "movepool": ["Horn Leech", "Ivy Cudgel", "Knock Off", "Power Whip", "Jungle Healing", "Swords Dance"],
                 "teraTypes": ["Fire"]
             }
         ]
