@@ -477,14 +477,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['heal', 'drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
-			console.log(effect.id);
+			console.log(effect);
 			if (heals.includes(effect.id)) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifyMove(move, pokemon) {
 			if(move.flags['heal']) {
-				move.heal = [move.heal[0] * 3, move.heal[1] * 2];
+				console.log(move);
+				//move.heal = [move.heal[0] * 3, move.heal[1] * 2];
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -1157,6 +1158,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
+			if (pokemon.metronomeUsed) delete pokemon.metronomeUsed;
 		},
 		//metronome hitting twice handled in moves.ts
 		flags: {},
@@ -1173,7 +1175,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			console.log(type + " " + move.type);
 			if (this.field.pseudoWeather.shitstorm && move.type === 'Poison' && type === 'Steel') return 1;
 		},
 		shortDesc: "Corrosion + Poison hits Steel supereffectively in Shitstorm.",

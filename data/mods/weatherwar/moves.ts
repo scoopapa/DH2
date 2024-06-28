@@ -585,9 +585,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomMove) return false;
 			source.side.lastSelectedMove = this.toID(randomMove);
 			this.actions.useMove(randomMove, target);
-			if((!effect || effect.name !== 'Metronome') && target.hasAbility("duomodreference")) {
-				this.add('-ability', pokemon, 'Duomod Reference??');
-				this.actions.useMove(randomMove, target);
+			if (!target.metronomeUsed && target.hasAbility("duomodreference")) {
+				this.add('-ability', target, 'Duomod Reference??');
+				target.metronomeUsed = true;
+				this.actions.useMove(this.dex.getActiveMove('metronome'), target);
 			}
 		},
 	},
@@ -1632,16 +1633,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	synthesis: {
 		inherit: true,
 		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
 		pp: 10,
 	},
 	morningsun: {
 		inherit: true,
 		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
 		pp: 10,
 	},
 	moonlight: {
 		inherit: true,
 		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
 		pp: 10,
 	},
 	electroshot: {
