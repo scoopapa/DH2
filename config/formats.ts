@@ -2619,6 +2619,42 @@ export const Formats: FormatList = [
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Kings Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
+		name: "[Gen 9] Monotyped - OU",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Enforce Same Tera Type'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Zen Mode', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects'],
+		teambuilderFormat: 'National Dex',
+	},
+	{
+		name: "[Gen 9] Monotyped - Uber",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Enforce Same Tera Type'],
+		banlist: ['AG', 'Moody', 'Zen Mode', 'Baton Pass'],
+		teambuilderFormat: 'National Dex Uber',
+	},
+	{
+		name: "[Gen 9] Monotyped - LC",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Little Cup'],
+		banlist: ['NFE', 'Moody', 'Baton Pass'],
+		teambuilderFormat: 'National Dex LC',
+	},
+	{
+		name: "[Gen 9] Monotyped - Monotype",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Same Type Clause', 'Enforce Same Tera Type'],
+		banlist: [
+				'Arena Trap', 'Moody', 'Zen Mode', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 
+				'Baton Pass', 'Arceus', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Espathra', 'Groudon', 
+				'Kyogre', 'Palafin', 'Spectrier', 'Xerneas', 'Zacian', 'Zamazenta',
+		],
+		teambuilderFormat: 'National Dex',
+	},
+	{
 		name: "[Gen 9] Monster Hunter AG",
 		threads: [],
 		mod: 'monsterhunter',

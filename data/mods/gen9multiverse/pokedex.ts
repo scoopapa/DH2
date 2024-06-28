@@ -57,13 +57,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lanturn: {
 		inherit: true,
-		baseStats: {hp: 125, atk: 58, def: 63, spa: 86, spd: 86, spe: 67},
+		baseStats: {hp: 125, atk: 58, def: 70, spa: 96, spd: 72, spe: 67},
 		abilities: {0: "Compound Eyes", 1: "Volt Absorb", H: "Water Absorb"},
 		prevo: null,
 	},
 	quagsire: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 105, def: 85, spa: 65, spd: 85, spe: 35},
+		baseStats: {hp: 105, atk: 105, def: 95, spa: 65, spd: 85, spe: 35},
 		abilities: {0: "Water Absorb"},
 		prevo: null,
 	},
@@ -260,7 +260,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water"],
 		baseStats: {hp: 125, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
+		abilities: {0: "Filter"},
 		requiredItem: null,
 	},
 	meowthalola: {
@@ -365,7 +365,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	squawkabilly: {
 		inherit: true,
 		types: ["Flying"],
-		baseStats: {hp: 82, atk: 113, def: 86, spa: 45, spd: 86, spe: 93},
+		baseStats: {hp: 92, atk: 123, def: 86, spa: 45, spd: 86, spe: 93},
 		abilities: {0: "Intimidate"},
 	},
 	irontreads: {
