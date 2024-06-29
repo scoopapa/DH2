@@ -22003,6 +22003,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	zingzap: {
 		num: 716,
 		accuracy: 100,
+		shortDesc: "30% chance to make the target flinch.",
 		basePower: 80,
 		category: "Physical",
 		name: "Zing Zap",
