@@ -264,15 +264,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				data.sources.push(pokemon);
 			}
 		},
-		onBasePower(relayVar, source, target, move) {
-			if (!this.field.pseudoWeather.twilightzone) return;
-			// You can't get here unless the pursuit succeeds
-			if (target.beingCalledBack || target.switchFlag) {
-				this.debug('Pursuit damage boost');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
 		onModifyMove(move, source, target) {
 			move.accuracy = true;
 			if (this.field.pseudoWeather.twilightzone && (target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
@@ -373,11 +364,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([3, 2]);
+			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([5, 4]);
 		},
 		flags: {breakable: 1},
 		name: "Dark Fantasy",
-		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.5x power in Fable.",
+		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.25x power in Fable.",
 	},
 	suplex: {
 		onTryBoost(boost, target, source, effect) {
@@ -486,14 +477,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['heal', 'drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
-			console.log(effect.id);
+			console.log(effect);
 			if (heals.includes(effect.id)) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifyMove(move, pokemon) {
 			if(move.flags['heal']) {
-				move.heal = [move.heal[0] * 3, move.heal[1] * 2];
+				console.log(move);
+				//move.heal = [move.heal[0] * 3, move.heal[1] * 2];
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -1166,6 +1158,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
+			if (pokemon.metronomeUsed) delete pokemon.metronomeUsed;
 		},
 		//metronome hitting twice handled in moves.ts
 		flags: {},
@@ -1182,7 +1175,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			console.log(type + " " + move.type);
 			if (this.field.pseudoWeather.shitstorm && move.type === 'Poison' && type === 'Steel') return 1;
 		},
 		shortDesc: "Corrosion + Poison hits Steel supereffectively in Shitstorm.",

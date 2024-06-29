@@ -22005,6 +22005,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		shortDesc: "30% chance to make the target flinch.",
 		name: "Zing Zap",
 		pp: 10,
 		priority: 0,

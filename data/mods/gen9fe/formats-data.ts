@@ -652,6 +652,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tentazormega: {
 		tier: "FEUUBL",
+		requiredItem: "Scizorite",
 		doublesTier: "DOU",
 	},
 	golegonalola: {
@@ -676,14 +677,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	hatteponwellspring: {
 		tier: "FEUU",
+		requiredItem: "Wellspring Mask",
 		doublesTier: "DOU",
 	},
 	hatteponhearthflame: {
 		tier: "FEUU",
+		requiredItem: "Hearthflame Mask",
 		doublesTier: "DOU",
 	},
 	hatteponcornerstone: {
 		tier: "FEUU",
+		requiredItem: "Cornerstone Mask",
 		doublesTier: "DOU",
 	},
 	buzzscor: {
@@ -704,6 +708,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	aerodirgemega: {
 		tier: "FEUUBL",
+		requiredItem: "Aerodactylite",
 		doublesTier: "DOU",
 	},
 	kilommoototem: {
@@ -720,6 +725,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	zorosharkhisuimega: {
 		tier: "FEUUBL",
+		requiredItem: "Sharpedonite",
 		doublesTier: "DOU",
 	},
 	bombirdus: {
@@ -727,6 +733,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	scoliraptor: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	worupt: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	woruptmega: {
+		tier: "FEUU",
+		requiredItem: "Cameruptite",
+		doublesTier: "DOU",
+	},
+	aromalge: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	crawnacl: {
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
@@ -828,6 +851,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	watmoo: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	spritkelp: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	naclphish: {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
