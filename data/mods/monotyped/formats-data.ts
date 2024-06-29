@@ -1287,7 +1287,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	aipom: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	ambipom: {
 		inherit: true,
