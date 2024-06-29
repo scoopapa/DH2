@@ -803,7 +803,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tangela: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	tangrowth: {
 		inherit: true,
@@ -1377,7 +1377,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dunsparce: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	dudunsparce: {
 		inherit: true,
@@ -1559,7 +1559,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stantler: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	wyrdeer: {
 		inherit: true,
@@ -4365,7 +4365,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	typenull: {
 		inherit: true,
-		tier: "LC",
+		tier: "NFE",
 	},
 	silvally: {
 		inherit: true,
