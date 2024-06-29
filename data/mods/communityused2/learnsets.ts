@@ -599,7 +599,8 @@ export const Learnsets = {
 	taunt: ["9L1"],
 	thunderpunch: ["9L1"],
 	tripleaxel: ["9L1"],
-	uturn: ["9L1"],
+			uturn: ["9L1"],
+			knockoff: ["9L1"],
 	}
 	},
 	hafgvindr: {
@@ -647,7 +648,9 @@ export const Learnsets = {
 	thrash: ["9L1"],
 	toxic: ["9L1"],
 	watergun: ["9L1"],
-	zenheadbutt: ["9L1"],
+			zenheadbutt: ["9L1"],
+			curse: ["9L1"],
+
 	}
 	},
 	balirachnid: {
@@ -2020,7 +2023,13 @@ export const Learnsets = {
 	sunnyday: ["9L1"],
 	swordsdance: ["9L1"],
 	waterfall: ["9L1"],
-	wingattack: ["9L1"],
+			wingattack: ["9L1"],
+			defog: ["9L1"],
+			dualwingbeat: ["9L1"],
+			steelwing: ["9L1"],
+			uturn: ["9L1"],
+			wavecrash: ["9L1"],
+			woodhammer: ["9L1"],
 	}
 	},
 	arbjorn: {
@@ -2646,7 +2655,10 @@ export const Learnsets = {
 	venoshock: ["9L1"],
 	vinewhip: ["9L1"],
 	willowisp: ["9L1"],
-	workup: ["9L1"],
+			workup: ["9L1"],
+			leafstorm: ["9L1"],
+			energyball: ["9L1"],
+
 	}},
 	dracolition: {
 	learnset: {

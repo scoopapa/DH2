@@ -193,40 +193,69 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
+				if ((targetCondition === 'spikes' || targetCondition === 'toxicspikes') && target.side.getSideCondition(targetCondition)) {
+					removals += target.side.sideConditions[targetCondition].layers;
+				}
+				else if (target.side.getSideCondition(targetCondition)) {
+					removals++;
+				}
+
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
 					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Candlelight', '[of] ' + source);
 					success = true;
-					removals++;
 				}
 			}
 			for (const sideCondition of removeAll) {
+				if ((sideCondition === 'spikes' || sideCondition === 'toxicspikes') && source.side.getSideCondition(sideCondition)) {
+					removals += source.side.sideConditions[sideCondition].layers;
+				}
+				else if (source.side.getSideCondition(sideCondition)) {
+					removals++;
+				}
+
 				if (source.side.removeSideCondition(sideCondition)) {
 					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Candlelight', '[of] ' + source);
 					success = true;
-					removals++;
 				}
 			}
 
+			this.add('-message', `${source.name} cleared ${removals} hazards!`);
+
 			for (let i = 0; i < removals; i++) {
-				source.side.addSlotCondition(source, 'candlelight');
+				source.side.addSideCondition('candlelight');
+				
 			}
 
 			return success;
 		},
 		condition: {
-			onSwap(target) {
-				if (!target.fainted) {
-					target.heal(target.baseMaxhp / 24);
-					target.side.removeSlotCondition(target, 'candlelight');
-				}
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Candlelight');
+				this.effectState.layers = 1;
+				//this.add('-message', `The candle started burning!`);
 			},
+			onSideRestart(side) {
+				this.effectState.layers++;
+				//this.add('-message', `The candle burns brighter!`);
+			},
+			onEntryHazard(pokemon) {
+				this.heal(this.effectState.layers * (pokemon.maxhp / 16));
+				pokemon.side.removeSideCondition('candlelight');
+				this.add('-message', `The candle went out!`);
+			},
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Moonlight', target);
 		},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
-		shortDesc: "Removes hazards on both sides.",
+		shortDesc: "Removes all hazards. Next swap-in heals 1/16 per removed.",
 	},
 	dragonhunt: {
 		num: -1007,
@@ -305,12 +334,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	gundown: {
 		num: -1008,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Special",
 		name: "Gun Down",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, distance: 1, metronome: 1, bullet: 1, pulse: 1 },
+		ignoreImmunity: { 'Fighting': true },
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -321,6 +351,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "any",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "Ignores Ghost-type immunity.",
 	},
 	huntershot: {
 		num: -1009,
@@ -337,11 +368,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Flash Cannon', target);
 		},
+		self: {
+			volatileStatus: 'focusenergy',
+		},
 		willCrit: true,
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		shortDesc: "This move always crits.",
+		shortDesc: "This move always crits. Sets Focus Energy.",
 
 	},
 	lightthatburnthesky: {
@@ -669,5 +703,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
+	},
+	defog: {
+		inherit: true,
+		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1, wind: 1 },
 	},
 }
