@@ -1,7 +1,7 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	//new mons
 	
-	//(Feathfir is 1458, picking up where Virulope (1457) left off)
+	//(The last dex number in Desvega went to Virulope, which sits at 1457, so Feathfir will pick up from there)
 	feathfir: {
 		num: 1458,
 		name: "Feathfir",
@@ -24,6 +24,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 20,
 		prevo: "Feathfir",
+		evoLevel: 18,
 		evos: ["Photalohm"],
 		eggGroups: ["Grass", "Flying"],
 	},
@@ -37,6 +38,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.7,
 		weightkg: 60,
 		prevo: "Avilament",
+		evoLevel: 35,
 		eggGroups: ["Grass", "Flying"],
 	},
 	mousinder: {
@@ -61,6 +63,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 35,
 		prevo: "Mousinder",
+		evoLevel: 18,
 		evos: ["Smeltusk"],
 		eggGroups: ["Field"],
 	},
@@ -74,6 +77,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.5,
 		weightkg: 85,
 		prevo: "Gerblaze",
+		evoLevel: 35,
 		eggGroups: ["Field"],
 	},
 	lochitten: {
@@ -98,6 +102,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 25,
 		prevo: "Lochitten",
+		evoLevel: 18,
 		evos: ["Panthoard"],
 		eggGroups: ["Field"],
 	},
@@ -111,6 +116,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 80,
 		prevo: "Tidalynx",
+		evoLevel: 35,
 		eggGroups: ["Field"],
 	},
 
