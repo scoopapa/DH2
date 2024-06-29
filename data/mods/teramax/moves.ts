@@ -4,7 +4,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon) {
 			return Math.min(350, 50 + 25 * pokemon.timesAttacked);
 		},
-		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and does not reset upon switching out or fainting. Each hit of a multi-hit attack is counted, but confusion damage is not counted. After attacking, this Pokemon takes damage, depending on the Basepower of the move.",
+		desc: "Power is equal to 50+(X*25), where X is the total number of times the user has been hit by a damaging attack during the battle, even if the user did not lose HP from the attack. X cannot be greater than 6 and does not reset upon switching out or fainting. Each hit of a multi-hit attack is counted, but confusion damage is not counted. After attacking, this Pokemon takes damage, depending on the Basepower of the move.",
 		shortDesc: "+25 BP for each time user was hit. Recoil = BP.",
 		self: {
 			onHit(pokemon) {
@@ -398,6 +398,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the opposing side either falls asleep, becomes poisoned, or becomes paralyzed, even if they have a substitute.",
+		shortDesc: "20% chance to sleep, poison, or paralyze target.",
 		name: "G-Max Befuddle",
 		pp: 5,
 		priority: 0,
@@ -430,6 +432,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the user gains the Aqua Ring effect, healing it by 1/8 of its maximum HP, rounded down.",
+		shortDesc: "This Pokemon gains the Aqua Ring effect.",
 		name: "G-Max Cannonade",
 		pp: 5,
 		priority: 0,
@@ -437,22 +441,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isMax: "Blastoise",
 		self: {
 			volatileStatus: 'aquaring',
-		},
-		condition: {
-			duration: 4,
-			onSideStart(targetSide) {
-				this.add('-sidestart', targetSide, 'G-Max Cannonade');
-			},
-			onResidualOrder: 5,
-			onResidualSubOrder: 1,
-			onResidual(target) {
-				if (!target.hasType('Water')) this.damage(target.baseMaxhp / 6, target);
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 11,
-			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'G-Max Cannonade');
-			},
 		},
 		secondary: null,
 		target: "adjacentFoe",
@@ -465,6 +453,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the opposing side is prevented from switching for four or five turns (seven turns if the user is holding Grip Claw), even if they have a substitute. Causes damage equal to 1/8 of their maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. They can still switch out if they are holding Shed Shell or use Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends for a target if it leaves the field, or if it uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 		name: "G-Max Centiferno",
 		pp: 5,
 		priority: 0,
@@ -488,6 +478,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the user's side has their critical hit ratio raised by 1 stage, even if they have a substitute.",
+		shortDesc: "Raises the user's side critical hit ratio by 1.",
 		name: "G-Max Chi Strike",
 		pp: 5,
 		priority: 0,
@@ -530,6 +522,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the target becomes infatuated, even if they have a substitute. This effect does not happen if the target is already infatuated.",
+		shortDesc: "The target gets infatuated, regardless of gender.",
 		name: "G-Max Cuddle",
 		pp: 5,
 		priority: 0,
@@ -553,6 +547,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the opposing side loses 2 PP from its last move used, even if they have a substitute.",
+		shortDesc: "Lowers the PP of the target's last move by 2.",
 		name: "G-Max Depletion",
 		pp: 5,
 		priority: 0,
@@ -585,6 +581,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 150,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "This move and its effects ignore the Abilities of other Pokemon.",
+		shortDesc: "Ignores the Abilities of other Pokemon.",
 		name: "G-Max Drum Solo",
 		pp: 5,
 		priority: 0,
@@ -602,6 +600,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the user's side restores 1/6 of its current maximum HP, even if they have a substitute.",
+		shortDesc: "Heals the user's side by 1/6 of their max HP.",
 		name: "G-Max Finale",
 		pp: 5,
 		priority: 0,
@@ -625,6 +625,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 150,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "This move and its effects ignore the Abilities of other Pokemon.",
+		shortDesc: "Ignores the Abilities of other Pokemon.",
 		name: "G-Max Fireball",
 		pp: 5,
 		priority: 0,
@@ -642,6 +644,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the Speed of target is lowered by 1 stages, even if they have a substitute.",
+		shortDesc: "Lowers the target's speed by 1.",
 		name: "G-Max Foam Burst",
 		pp: 5,
 		priority: 0,
@@ -665,6 +669,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
 		name: "G-Max Gold Rush",
 		pp: 5,
 		priority: 0,
@@ -682,6 +688,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the effect of Gravity begins.",
+		shortDesc: "This move summons Gravity for 5 turns upon use.",
 		name: "G-Max Gravitas",
 		pp: 5,
 		priority: 0,
@@ -700,6 +708,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 150,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "This move and its effects ignore the Abilities of other Pokemon.",
+		shortDesc: "Ignores the Abilities of other Pokemon.",
 		name: "G-Max Hydrosnipe",
 		pp: 5,
 		priority: 0,
@@ -717,6 +727,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the target becomes badly poisoned, even if they have a substitute.",
+		shortDesc: "Badly poisons the target.",
 		name: "G-Max Malodor",
 		pp: 5,
 		priority: 0,
@@ -739,6 +751,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 150,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the effect of Torment begins for each Pokemon on the opposing side, even if they have a substitute.",
+		shortDesc: "This move summons Torment on the foe.",
 		name: "G-Max Meltdown",
 		pp: 5,
 		priority: 0,
@@ -762,6 +776,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "This move bypasses all protection effects, including Max Guard.",
+		shortDesc: "Bypasses protection, including Max Guard.",
 		name: "G-Max One Blow",
 		pp: 5,
 		priority: 0,
@@ -778,6 +794,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 45,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "Hits 3 times. This move bypasses all protection effects, including Max Guard.",
+		shortDesc: "Hits 3 times. Bypasses protection, including Max Guard.",
 		name: "G-Max Rapid Flow",
 		pp: 5,
 		priority: 0,
@@ -795,6 +813,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the user restores its Sitrus Berry, even if they have a substitute.",
+		shortDesc: "Restores user's Sitrus Berry.",
 		name: "G-Max Replenish",
 		pp: 5,
 		priority: 0,
@@ -826,6 +846,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "This move's type effectiveness against Water is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Super effective against Water.",
 		name: "G-Max Resonance",
 		pp: 5,
 		priority: 0,
@@ -845,6 +867,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the opposing side is prevented from switching for four or five turns (seven turns if the user is holding Grip Claw), even if they have a substitute. Causes damage equal to 1/8 of their maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. They can still switch out if they are holding Shed Shell or use Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends for a target if it leaves the field, or if it uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 		name: "G-Max Sandblast",
 		pp: 5,
 		priority: 0,
@@ -868,6 +892,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the effects of Light Screen begin.",
+		shortDesc: "This move summons Light Screen for 5 turns upon use.",
 		name: "G-Max Smite",
 		pp: 5,
 		priority: 0,
@@ -887,6 +913,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the effects of Reflect begin.",
+		shortDesc: "This move summons Reflect for 5 turns upon use.",
 		name: "G-Max Snooze",
 		pp: 5,
 		priority: 0,
@@ -906,6 +934,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. A maximum of three layers may be set, and opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/4 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Sets a layer of Spikes on the opposing side.",
 		name: "G-Max Steelsurge",
 		pp: 5,
 		priority: 0,
@@ -916,22 +946,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const side of source.side.foeSidesWithConditions()) {
 					side.addSideCondition('spikes');
 				}
-			},
-		},
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: G-Max Steelsurge');
-			},
-			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
-				// Ice Face and Disguise correctly get typed damage from Stealth Rock
-				// because Stealth Rock bypasses Substitute.
-				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
-				// so we're going to test the damage of a Steel-type Stealth Rock instead.
-				const steelHazard = this.dex.getActiveMove('Stealth Rock');
-				steelHazard.type = 'Steel';
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
 		},
 		secondary: null,
@@ -945,6 +959,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Sets Stealth Rock on the target's side.",
 		name: "G-Max Stonesurge",
 		pp: 5,
 		priority: 0,
@@ -968,6 +984,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the target becomes poisoned or paralyzed, even if they have a substitute.",
+		shortDesc: "Inflicts either poison or paralysis on target.",
 		name: "G-Max Stun Shock",
 		pp: 10,
 		priority: 0,
@@ -996,6 +1014,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, each Pokemon on the user's side has its status condition cured, even if they have a substitute.",
+		shortDesc: "Cures the user's party of all status conditions.",
 		name: "G-Max Sweetness",
 		pp: 10,
 		priority: 0,
@@ -1023,6 +1043,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the target loses its held item, even if they have a substitute. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield respectively. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+		shortDesc: "Removes adjacent Pokemon's held items.",
 		name: "G-Max Tartness",
 		pp: 10,
 		priority: 0,
@@ -1051,6 +1073,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, prevents the target from switching out, even if they have a substitute. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
+		shortDesc: "Prevents the target from switching out.",
 		name: "G-Max Terror",
 		pp: 10,
 		priority: 0,
@@ -1074,6 +1098,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, it inflicts the target with Leech Seed, even if they have a substitute.",
+		shortDesc: "This move summons Leech Seed on the foe.",
 		name: "G-Max Vine Lash",
 		pp: 5,
 		priority: 0,
@@ -1088,22 +1114,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		condition: {
-			duration: 4,
-			onSideStart(targetSide) {
-				this.add('-sidestart', targetSide, 'G-Max Vine Lash');
-			},
-			onResidualOrder: 5,
-			onResidualSubOrder: 1,
-			onResidual(target) {
-				if (!target.hasType('Grass')) this.damage(target.baseMaxhp / 6, target);
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 11,
-			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'G-Max Vine Lash');
-			},
-		},
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Grass",
@@ -1115,6 +1125,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the effectiveness of Fire-type moves against the target is doubled against it, even if they have a substitute.",
+		shortDesc: "Effectivness of Fire moves becomes greater.",
 		name: "G-Max Volcalith",
 		pp: 10,
 		priority: 0,
@@ -1125,22 +1137,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const pokemon of source.foes()) {
 					pokemon.addVolatile('tarshot');
 				}
-			},
-		},
-		condition: {
-			duration: 4,
-			onSideStart(targetSide) {
-				this.add('-sidestart', targetSide, 'G-Max Volcalith');
-			},
-			onResidualOrder: 5,
-			onResidualSubOrder: 1,
-			onResidual(target) {
-				if (!target.hasType('Rock')) this.damage(target.baseMaxhp / 6, target);
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 11,
-			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'G-Max Volcalith');
 			},
 		},
 		secondary: null,
@@ -1154,6 +1150,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 150,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the target becomes paralyzed, even if they have a substitute.",
+		shortDesc: "Paralyzes the target.",
 		name: "G-Max Volt Crash",
 		pp: 5,
 		priority: 0,
@@ -1177,6 +1175,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the target becomes burned, even if they have a substitute.",
+		shortDesc: "Burns the target.",
 		name: "G-Max Wildfire",
 		pp: 5,
 		priority: 0,
@@ -1187,22 +1187,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const pokemon of source.foes()) {
 					pokemon.trySetStatus('brn', source);
 				}
-			},
-		},
-		condition: {
-			duration: 4,
-			onSideStart(targetSide) {
-				this.add('-sidestart', targetSide, 'G-Max Wildfire');
-			},
-			onResidualOrder: 5,
-			onResidualSubOrder: 1,
-			onResidual(target) {
-				if (!target.hasType('Fire')) this.damage(target.baseMaxhp / 6, target);
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 11,
-			onSideEnd(targetSide) {
-				this.add('-sideend', targetSide, 'G-Max Wildfire');
 			},
 		},
 		secondary: null,
@@ -1216,6 +1200,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
+		desc: "If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side.",
+		shortDesc: "Clears terrain and hazards from both sides of the field.",
 		name: "G-Max Wind Rage",
 		pp: 5,
 		priority: 0,
@@ -1256,6 +1242,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		isNonstandard: "Past",
+		desc: "Power is equal to the base move's Max Move power. If this move is successful, the effect of Snow begins. This effect does not happen if the user is not Dynamaxed. If this move is used as a base move, it deals damage with a power of 0.",
+		shortDesc: "Base move affects power. Starts Snow.",
 		name: "Max Hailstorm",
 		pp: 10,
 		priority: 0,

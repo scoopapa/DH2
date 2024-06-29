@@ -7,6 +7,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
@@ -495,9 +499,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, wind: 1, bypasssub: 1, metronome: 1},
 	},
 	triplearrows: {
-		inherit: true,
+		accuracy: 100,
 		basePower: 50,
 		shortDesc: "Lowers target's Defense by 1; user's crit ratio +2.",
+		name: "Triple Arrows",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -511,7 +516,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		self: {
 			volatileStatus: 'focusenergy',
 		},
-		contestType: "Cool",//Necessary
+		contestType: "Cool", //Necessary
+		type: "Fighting",
+		target: "normal",
 	},
 	migratingwing: {
 		num: 1002,

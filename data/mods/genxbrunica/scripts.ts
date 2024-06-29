@@ -4,7 +4,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['Brunica OU', 'Brunica Uber', 'Brunica NFE', 'Brunica LC'],
+		customTiers: ['Brunica Uber', 'Brunica OU', 'Brunica NFE', 'Brunica LC'],
 	},	
 	init() {
 		//Free dexited movesets
@@ -650,6 +650,329 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return false;
 	},
 	actions: {	
+		getActiveBalmMove(baseMove: Move, balmMove: Move) {
+			if (typeof baseMove === 'string') baseMove = this.dex.getActiveMove(baseMove);
+			if (baseMove.name === 'struggle') return baseMove;
+			if (typeof balmMove === 'string') balmMove = this.dex.getActiveMove(balmMove);
+			if (baseMove.category !== balmMove.category && [balmMove.category, baseMove.category].includes('Status')) return baseMove;
+			//This function assumes that either both moves passed are damaging or both are status.
+			if (balmMove.category !== 'Status') {
+				balmMove.category = baseMove.category;
+				balmMove.basePower = baseMove.basePower*1.5;
+			}
+			return balmMove;
+		},
+		runMove(
+			moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
+			zMove?: string, externalMove?: boolean, maxMove?: string, originalTarget?: Pokemon
+		) {
+			pokemon.activeMoveActions++;
+			let target = this.battle.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+			let baseMove = this.dex.getActiveMove(moveOrMoveName);
+			const pranksterBoosted = baseMove.pranksterBoosted;
+			if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+				const changedMove = this.battle.runEvent('OverrideAction', pokemon, target, baseMove);
+				if (changedMove && changedMove !== true) {
+					baseMove = this.dex.getActiveMove(changedMove);
+					if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+					target = this.battle.getRandomTarget(pokemon, baseMove);
+				}
+			}
+			let move = baseMove;
+			let balmMove = null;
+			if (zMove) {
+				move = this.getActiveZMove(baseMove, pokemon);
+			} else if (maxMove) {
+				move = this.getActiveMaxMove(baseMove, pokemon);
+			} else if (pokemon.volatiles['typebalm']?.balmMove) {
+				console.log("Balm move found???");
+				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
+				if (
+					balmMoveData.type === pokemon.addedType //Check if used the right balm
+					&& balmMoveData.type === move.type //Check if type matches
+					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
+				) {
+					console.log("WE'RE USING THIS BALM MOVE INSTEAD");
+					move = this.getActiveBalmMove(move, balmMoveData);
+					balmMove = pokemon.volatiles['typebalm'].balmMove;
+				}
+			}
+
+			move.isExternal = externalMove;
+
+			this.battle.setActiveMove(move, pokemon, target);
+
+			/* if (pokemon.moveThisTurn) {
+				// THIS IS PURELY A SANITY CHECK
+				// DO NOT TAKE ADVANTAGE OF THIS TO PREVENT A POKEMON FROM MOVING;
+				// USE this.queue.cancelMove INSTEAD
+				this.battle.debug('' + pokemon.id + ' INCONSISTENT STATE, ALREADY MOVED: ' + pokemon.moveThisTurn);
+				this.battle.clearActiveMove(true);
+				return;
+			} */
+			const willTryMove = this.battle.runEvent('BeforeMove', pokemon, target, move);
+			if (!willTryMove) {
+				this.battle.runEvent('MoveAborted', pokemon, target, move);
+				this.battle.clearActiveMove(true);
+				// The event 'BeforeMove' could have returned false or null
+				// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
+				// null indicates the opposite, as the Pokemon didn't have an option to choose anything
+				pokemon.moveThisTurnResult = willTryMove;
+				return;
+			}
+
+			// Used exclusively for a hint later
+			if (move.flags['cantusetwice'] && pokemon.lastMove?.id === move.id) {
+				pokemon.addVolatile(move.id);
+			}
+
+			if (move.beforeMoveCallback && move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
+				this.battle.clearActiveMove(true);
+				pokemon.moveThisTurnResult = false;
+				return;
+			}
+			pokemon.lastDamage = 0;
+			let lockedMove;
+			if (!externalMove) {
+				lockedMove = this.battle.runEvent('LockMove', pokemon);
+				if (lockedMove === true) lockedMove = false;
+				if (lockedMove) {
+					sourceEffect = this.dex.conditions.get('lockedmove');	
+				} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+					this.battle.add('cant', pokemon, 'nopp', move);
+					this.battle.clearActiveMove(true);
+					pokemon.moveThisTurnResult = false;
+					return;
+				}
+				pokemon.moveUsed(move, targetLoc);
+			}
+
+			// Dancer Petal Dance hack
+			// TODO: implement properly
+			const noLock = externalMove && !pokemon.volatiles['lockedmove'];
+
+			if (zMove) {
+				if (pokemon.illusion) {
+					this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+				}
+				this.battle.add('-zpower', pokemon);
+				pokemon.side.zMoveUsed = true;
+			}
+
+			const oldActiveMove = move;
+
+			const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove, balmMove);
+			this.battle.lastSuccessfulMoveThisTurn = moveDidSomething ? this.battle.activeMove && this.battle.activeMove.id : null;
+			if (this.battle.activeMove) move = this.battle.activeMove;
+			this.battle.singleEvent('AfterMove', move, null, pokemon, target, move);
+			this.battle.runEvent('AfterMove', pokemon, target, move);
+			if (move.flags['cantusetwice'] && pokemon.removeVolatile(move.id)) {
+				this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
+			}
+
+			// Dancer's activation order is completely different from any other event, so it's handled separately
+			if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
+				const dancers = this.battle.getAllActive().filter(currentPoke =>
+					pokemon !== currentPoke && currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()
+				);
+				// Dancer activates in order of lowest speed stat to highest
+				// Note that the speed stat used is after any volatile replacements like Speed Swap,
+				// but before any multipliers like Agility or Choice Scarf
+				// Ties go to whichever Pokemon has had the ability for the least amount of time
+				dancers.sort(
+					(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+				);
+				const targetOf1stDance = this.battle.activeTarget!;
+				for (const dancer of dancers) {
+					if (this.battle.faintMessages()) break;
+					if (dancer.fainted) continue;
+					this.battle.add('-activate', dancer, 'ability: Dancer');
+					const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
+						targetOf1stDance :
+						pokemon;
+					this.runMove(move.id, dancer, dancer.getLocOf(dancersTarget), this.dex.abilities.get('dancer'), undefined, true);
+				}
+			}
+			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+			this.battle.faintMessages();
+			this.battle.checkWin();
+
+			/*if (this.battle.gen <= 4) {
+				// In gen 4, the outermost move is considered the last move for Copycat
+				this.battle.activeMove = oldActiveMove;
+			}*/
+		},
+		useMove(
+			move: Move | string, pokemon: Pokemon, target?: Pokemon | null,
+			sourceEffect?: Effect | null, zMove?: string, maxMove?: string, balmMove?: string
+		) {
+			pokemon.moveThisTurnResult = undefined;
+			const oldMoveResult: boolean | null | undefined = pokemon.moveThisTurnResult;
+			const moveResult = this.useMoveInner(move, pokemon, target, sourceEffect, zMove, maxMove, balmMove);
+			if (oldMoveResult === pokemon.moveThisTurnResult) pokemon.moveThisTurnResult = moveResult;
+			return moveResult;
+		},
+		useMoveInner(
+			moveOrMoveName: Move | string, pokemon: Pokemon, target?: Pokemon | null,
+			sourceEffect?: Effect | null, zMove?: string, maxMove?: string, balmMove?: string
+		) {
+			if (!sourceEffect && this.battle.effect.id) sourceEffect = this.battle.effect;
+			if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
+			
+			let move = this.dex.getActiveMove(moveOrMoveName);
+			pokemon.lastMoveUsed = move;
+			if (balmMove) {
+				move = this.getActiveBalmMove(move, balmMove);
+			} else if (zMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isZ)) {
+				if (move.id === 'weatherball' && zMove) {
+					// Z-Weather Ball only changes types if it's used directly,
+					// not if it's called by Z-Sleep Talk or something.
+					this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+					if (move.type !== 'Normal') sourceEffect = move;
+				}
+				move = this.getActiveZMove(move, pokemon);
+			} else if (maxMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isMax)) {
+				if (maxMove && move.category !== 'Status') {
+					// Max move outcome is dependent on the move type after type modifications from ability and the move itself
+					this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+					this.battle.runEvent('ModifyType', pokemon, target, move, move);
+				}
+				move = this.getActiveMaxMove(move, pokemon);
+			}
+
+			if (this.battle.activeMove) {
+				move.priority = this.battle.activeMove.priority;
+				if (!move.hasBounced) move.pranksterBoosted = this.battle.activeMove.pranksterBoosted;
+			}
+			const baseTarget = move.target;
+			let targetRelayVar = this.battle.runEvent('ModifyTarget', pokemon, target, move, {target}, true);
+			if (targetRelayVar.target !== undefined) target = targetRelayVar.target;
+			if (target === undefined) target = this.battle.getRandomTarget(pokemon, move);
+			if (move.target === 'self' || move.target === 'allies') {
+				target = pokemon;
+			}
+			if (sourceEffect) {
+				move.sourceEffect = sourceEffect.id;
+				move.ignoreAbility = (sourceEffect as ActiveMove).ignoreAbility;
+			}
+			let moveResult = false;
+
+			this.battle.setActiveMove(move, pokemon, target);
+
+			this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+			this.battle.singleEvent('ModifyMove', move, null, pokemon, target, move, move);
+			if (baseTarget !== move.target) {
+				// Target changed in ModifyMove, so we must adjust it here
+				// Adjust before the next event so the correct target is passed to the
+				// event
+				target = this.battle.getRandomTarget(pokemon, move);
+			}
+			move = this.battle.runEvent('ModifyType', pokemon, target, move, move);
+			move = this.battle.runEvent('ModifyMove', pokemon, target, move, move);
+			if (baseTarget !== move.target) {
+				// Adjust again
+				target = this.battle.getRandomTarget(pokemon, move);
+			}
+			if (!move || pokemon.fainted) {
+				return false;
+			}
+
+			let attrs = '';
+
+			let movename = move.name;
+			if (move.id === 'hiddenpower') movename = 'Hidden Power';
+			if (sourceEffect) attrs += `|[from]${sourceEffect.fullname}`;
+			if (zMove && move.isZ === true) {
+				attrs = '|[anim]' + movename + attrs;
+				movename = 'Z-' + movename;
+			}
+			this.battle.addMove('move', pokemon, movename, target + attrs);
+
+			if (zMove) this.runZPower(move, pokemon);
+
+			if (!target) {
+				this.battle.attrLastMove('[notarget]');
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail' /*: '-notarget', pokemon*/);
+				return false;
+			}
+
+			const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
+			if (targets.length) {
+				target = targets[targets.length - 1]; // in case of redirection
+			}
+
+			const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
+			if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
+				let extraPP = 0;
+				for (const source of pressureTargets) {
+					const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
+					if (ppDrop !== true) {
+						extraPP += ppDrop || 0;
+					}
+				}
+				if (extraPP > 0) {
+					pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+				}
+			}
+
+			if (!this.battle.singleEvent('TryMove', move, null, pokemon, target, move) ||
+				!this.battle.runEvent('TryMove', pokemon, target, move)) {
+				move.mindBlownRecoil = false;
+				return false;
+			}
+
+			this.battle.singleEvent('UseMoveMessage', move, null, pokemon, target, move);
+
+			if (move.ignoreImmunity === undefined) {
+				move.ignoreImmunity = (move.category === 'Status');
+			}
+
+			if (/*this.battle.gen !== 4 &&*/ move.selfdestruct === 'always') {
+				this.battle.faint(pokemon, pokemon, move);
+			}
+
+			let damage: number | false | undefined | '' = false;
+			if (move.target === 'all' || move.target === 'foeSide' || move.target === 'allySide' || move.target === 'allyTeam') {
+				damage = this.tryMoveHit(targets, pokemon, move);
+				if (damage === this.battle.NOT_FAIL) pokemon.moveThisTurnResult = null;
+				if (damage || damage === 0 || damage === undefined) moveResult = true;
+			} else if (targets.length) {
+				/*if (this.battle.gen === 4 && move.selfdestruct === 'always') {
+					this.battle.faint(pokemon, pokemon, move);
+				}*/
+				moveResult = this.trySpreadMoveHit(targets, pokemon, move);
+			} else {
+				this.battle.attrLastMove('[notarget]');
+				this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
+				return false;
+			}
+			if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
+			if (!pokemon.hp) {
+				this.battle.faint(pokemon, pokemon, move);
+			}
+
+			if (!moveResult) {
+				this.battle.singleEvent('MoveFail', move, null, target, pokemon, move);
+				return false;
+			}
+
+			if (
+				!move.negateSecondary &&
+				!(move.hasSheerForce && pokemon.hasAbility('sheerforce')) &&
+				!move.flags['futuremove']
+			) {
+				const originalHp = pokemon.hp;
+				this.battle.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
+				this.battle.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
+				if (pokemon && pokemon !== target && move.category !== 'Status'/*) {
+					if (*/ && pokemon.hp <= pokemon.maxhp * .5 && originalHp > pokemon.maxhp * .5) {
+						this.battle.runEvent('EmergencyExit', pokemon, pokemon);
+					//}
+				}
+			}
+
+			return true;
+		},
 		modifyDamage(
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
@@ -837,6 +1160,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},*/
 	},
 	pokemon: { 
+		addType(newType: string) {
+			if (this.volatiles['typebalm'] || this.terastallized) return false;
+			this.addedType = newType;
+			return true;
+		},
 		ignoringItem() {
 			return !!(
 				this.itemState.knockedOff || // Gen 3-4

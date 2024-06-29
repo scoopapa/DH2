@@ -7,4 +7,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	heavydutyboots: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 };
