@@ -529,7 +529,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rapidashgalar: {
 		inherit: true,
-		tier: "OU",
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	slowpoke: {
 		inherit: true,
