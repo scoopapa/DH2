@@ -3681,7 +3681,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			bubble: ["1L1"],
 			leer: ["1L1"],
-			vicegrip: ["1L7"],
+			visegrip: ["1L7"],
 			guillotine: ["1L14"],
 			stomp: ["1L21"],
 			thunderbolt: ["1L28"],
@@ -3719,7 +3719,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			bubble: ["1L1"],
 			leer: ["1L1"],
-			vicegrip: ["1L7"],
+			visegrip: ["1L7"],
 			guillotine: ["1L14"],
 			stomp: ["1L21"],
 			thunderbolt: ["1L28"],
@@ -3990,7 +3990,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rockthrow: ["1L7"],
 			jumpkick: ["1L14"],
 			doublekick: ["1L21"],
-			hijumpkick: ["1L28"],
+			highjumpkick: ["1L28"],
 			meditate: ["1L35"],
 			rollingkick: ["1L42", "1M"],
 			bodyslam: ["1M"],
@@ -4821,7 +4821,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pinsir: {
 		learnset: {
-			vicegrip: ["1L1"],
+			visegrip: ["1L1"],
 			seismictoss: ["1L1"],
 			guillotine: ["1L7"],
 			focusenergy: ["1L14"],
