@@ -11,10 +11,10 @@ export const Rulesets: {[k: string]: ModdedFormatsData} = {
 		name: 'Welcome Message',
 		desc: 'https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A',
 		onBegin() {
-			this.add('-message', "Welcome to RBY Expansion Pack!");
-			this.add('-message', "This is a Solomod that adds things like scrapped content and crossgen evos to RBY OU.");
-			this.add('-message', "For more information, please check this spreadsheet - ");
-			this.add('-message', "https://docs.google.com/spreadsheets/d/1AVXdy6hSW_TtPr0HSGW9JT4m0bstLlPXnH3ccl-rQ20/edit?usp=sharing");
+			this.add('-message', "Welcome to RBY Moonside!");
+			this.add('-message', "For more information, please check this spreadsheet - -!");
+			this.add('-message', "oh whoops wheres that spreadsheet...? oh well just wing it. And remember:");
+			this.add('-message', "Fuzzy Pickle!");
 		},
 	},
 };
