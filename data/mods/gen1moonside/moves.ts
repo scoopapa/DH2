@@ -1020,7 +1020,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	deflect: { // NEED HELP FOR THIS ONE HOLY
 		num: -8,
-		basePower: 100,
+		basePower: 10,
 		accuracy: 100,
 		pp: 5,
 		category: "Physical",

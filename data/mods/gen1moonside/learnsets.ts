@@ -3114,7 +3114,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			leer: ["1L14"],
 			eggbomb: ["1L21"],
 			explosion: ["1L28"],
-			flamethower: ["1L35"],
+			flamethrower: ["1L35"],
 			fireblast: ["1L42", "1M"],
 			cheepshot: ["1M"],
 			corrosivespray: ["1M"],

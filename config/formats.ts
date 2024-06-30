@@ -2739,6 +2739,17 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 1] Moonside",
+		desc: `<b>[Gen 1] Moonside</b>: Welcome to the otherside of RBY.`,
+		threads: [
+			 `&bullet; Fuzzy Pickles!`,
+		],
+		mod: 'gen1moonside',
+		ruleset: ['Data Mod'],
+		banlist: [],
+		unbanlist: ['Mewtwo', 'Mew'],
+  },
+	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
 		mod: 'patratdex',
