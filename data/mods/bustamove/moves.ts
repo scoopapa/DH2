@@ -74,21 +74,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	armthrust: {
-		num: 292,
-		accuracy: 100,
-		basePower: 15,
-		category: "Physical",
-		name: "Arm Thrust",
-		pp: 20,
-		priority: 1,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		multihit: [2, 5],
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
-	},
 	aurorabeam: {
 		num: 62,
 		accuracy: 100,
@@ -1172,7 +1157,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Ice Ball",
 		pp: 20,
 		priority: 0,
-		flags: {bullet: 1, contact: 1, protect: 1, mirror: 1, bullet: 1},
+		flags: {bullet: 1, contact: 1, protect: 1, mirror: 1},
 		secondary: {
 			chance: 100,
 			self: {
@@ -1623,7 +1608,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
-		shortDesc: "Clears the opponents hazards.",
 		inherit: true,
 		isNonstandard: null,
 		gen: 8,

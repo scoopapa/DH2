@@ -119,7 +119,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	arcticblast: {
@@ -170,9 +170,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		type: "Summer",
-		shortDesc: "Restores 33% of the user's max health. Restores an additional 33% and raises the user's attack one stage for each Sea type on the field. Each Sea type on the field loses 33% max health.",
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
 		target: "all",
 		secondary: null,
 	},
@@ -191,10 +188,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			this.heal(source.baseMaxhp - source.hp, source, source);
 			source.cureStatus();
 			source.addVolatile('mustrecharge');
@@ -254,7 +253,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	barefruit: {
@@ -339,7 +338,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		unviable: true,
+		viable: false,
 		target: "normal",
 		secondary: null,
 	},
@@ -537,7 +536,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	borealis: {
@@ -622,7 +621,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	bramblewhip: {
@@ -664,7 +663,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	brazenbash: {
@@ -730,7 +729,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, punch: 1, protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	cascade: {
@@ -801,12 +800,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Spring",
 		shortDesc: "Heals the user by 50% of its max HP. Resets the user's lowered stat changes.",
 		onHit(target, source, move) {
-			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 		},
 		priority: 0,
 		heal: [1, 2],
@@ -832,7 +832,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	ciderpress: {
@@ -1089,7 +1089,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 20,
 			status: 'slp',
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	curseblade: {
@@ -1122,7 +1122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	cycloneshield: {
@@ -1309,7 +1309,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, heal: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	demonparade: {
@@ -1366,7 +1366,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spe: -1,
 			},
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	divebomb: {
@@ -1437,7 +1437,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	drainingroots: {
@@ -1496,7 +1496,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	earthbump: {
@@ -1514,7 +1514,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	earthquake: {
@@ -1597,7 +1597,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		shortDesc: "The user is protected from most opposing moves. Fails if used in succession. If this move fails to block a move, the user looses 1/16 of their max hp.",
 		onPrepareHit(pokemon, source, move) {
-			const usedLastTurn = false;
+			let usedLastTurn = false;
 			if (pokemon.lastMove.id !== "energyfield") {
 				usedLastTurn = true;
 				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon);
@@ -1689,7 +1689,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	enlighten: {
@@ -1754,7 +1754,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	erupt: {
@@ -1807,7 +1807,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	extremereboot: {
@@ -1903,8 +1903,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			status: "frz",
 		},
 		target: "normal",
-		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	floralbreeze: {
@@ -2019,7 +2018,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	geothermalarm: {
@@ -2050,7 +2049,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			status: "psn",
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	getserious: {
@@ -2080,7 +2079,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	ghostlyhowl: {
@@ -2137,7 +2136,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				},
 			},
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	gloomfangs: {
@@ -2153,7 +2152,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		critRatio: 2,
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	goldrush: {
@@ -2175,7 +2174,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	golemthrow: {
@@ -2356,7 +2355,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	harvestation: {
@@ -2510,7 +2509,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	hitodama: {
@@ -2539,7 +2538,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "allAdjacentFoes",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	holyretreat: {
@@ -2577,7 +2576,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	horde: {
@@ -2608,7 +2607,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	hotshower: {
@@ -2622,17 +2621,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source, move) {
 			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			source.cureStatus();
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	hyperbeam: {
@@ -2889,7 +2890,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				def: -1,
 			},
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	leavesdown: {
@@ -2959,7 +2960,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	lullaby: {
@@ -3043,7 +3044,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	mightygale: {
@@ -3086,7 +3087,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	mindshield: {
@@ -3104,7 +3105,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	miscalculation: {
@@ -3195,7 +3196,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	moonblade: {
@@ -3265,7 +3266,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	nightynight: {
@@ -3369,7 +3370,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	oceantide: {
@@ -3447,7 +3448,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			status: "fer",
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	petrify: {
@@ -3512,10 +3513,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	polarnight: {
@@ -3600,7 +3600,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, sound: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	pricklybush: {
@@ -3645,8 +3645,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allySide",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
 	},
 	// Coded and Tested
 	pumpkinfield: {
@@ -3724,7 +3722,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "all",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	purification: {
@@ -3849,7 +3847,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "all",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	rampage: {
@@ -3886,7 +3884,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	rapidfire: {
@@ -3902,7 +3900,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	reap: {
@@ -3960,7 +3958,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	refreshingbreeze: {
@@ -3979,7 +3977,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	refurbish: {
@@ -4065,7 +4063,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	restart: {
@@ -4081,17 +4079,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			let b: BoostName;
 			const negBoosts = {};
+			let didBoost = false;
 			for (b in pokemon.boosts) {
 				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, pokemon);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
 		target: "self",
-		secondary: null,
 	},
 	// Coded
 	restrain: {
@@ -4144,7 +4142,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "all",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	ricefield: {
@@ -4559,7 +4557,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	seiken: {
@@ -4627,7 +4625,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "allAdjacentFoes",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	sereneslice: {
@@ -4880,8 +4878,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
-		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	snowkick: {
@@ -4943,7 +4940,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	snowfall: {
@@ -4959,7 +4956,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		target: "all",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	soil: {
@@ -4979,7 +4976,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	solarboost: {
@@ -5112,7 +5109,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	speedingstar: {
@@ -5164,7 +5161,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	springdance: {
@@ -5209,7 +5206,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	squall: {
@@ -5241,7 +5238,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	starfall: {
@@ -5501,7 +5498,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	summerdaze: { // Chance of missing 3: .1%, The accuracy is 99.9% so if the move hits, you got at least 1 hit.
@@ -5544,7 +5541,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			status: 'brn',
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	sunkiss: {
@@ -5715,7 +5712,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	systemcrash: {
@@ -5751,7 +5748,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		boosts: {spe: -1},
 		self: {boosts: {spe: 1}},
-		unviable: true,
+		viable: false,
 	},
 	// Low Priority
 	takecover: {
@@ -5766,7 +5763,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	tantalize: {
@@ -5825,7 +5822,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	tearingtornado: {
@@ -5948,7 +5945,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			status: 'fer',
 		},
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	tidalwave: {
@@ -6301,7 +6298,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
-		unviable: true,
+		viable: false,
 	},
 	// Not Fully Implemented (will pull vanilla moves)
 	universefate: {
@@ -6336,7 +6333,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	upgrade: {
@@ -6399,10 +6396,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			source.cureStatus();
 			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas',
 				'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut',
@@ -6417,7 +6416,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		target: "self",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 	// Coded
 	violenttoss: {
@@ -6657,6 +6656,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
-		unviable: true,
+		viable: false,
 	},
 };

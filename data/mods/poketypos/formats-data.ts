@@ -167,4 +167,40 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Poketypos",
 		doublesTier: "Poketypos",
 	},
+	inswimeroar: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	nalulele: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	kimmono: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	gravlord: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	mespring: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	cragmortar: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	boodra: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	faeraora: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	sinistcha: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
 };

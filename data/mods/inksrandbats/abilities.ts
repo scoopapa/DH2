@@ -56,7 +56,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange('Castform-Snowy', this.effect, true);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Ice Face",
 		rating: 3,
 		num: 248,
@@ -127,19 +127,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 81,
 	},
 
-	icebody: { // Doesn't activate on level 0 hail
-		onWeather(target, source, effect) {
-			if (effect.id === 'hail' && (this.field.weatherData.layers !== 0)) {
-				this.heal(target.baseMaxhp / 16);
-			}
-		},
-		onImmunity(type, pokemon) {
-			if (type === 'hail') return false;
-		},
-		name: "Ice Body",
-		rating: 1,
-		num: 115,
-	},
+	// icebody: { // Doesn't activate on level 0 hail
+		// onWeather(target, source, effect) {
+			// if (effect.id === 'hail' && (this.field.weatherData.layers !== 0)) {
+				// this.heal(target.baseMaxhp / 16);
+			// }
+		// },
+		// onImmunity(type, pokemon) {
+			// if (type === 'hail') return false;
+		// },
+		// name: "Ice Body",
+		// rating: 1,
+		// num: 115,
+	// },
 
 	flurryrush: { // Doesn't activate on level 0 hail
 		onModifySpe(spe, pokemon) {

@@ -95,7 +95,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.type = this.runEvent('Memory', pokemon, null, move, 'Normal');
 			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 			move.category = specialTypes.includes(move.type) ? 'Special' : 'Physical';
-		}
+		},
 	},
 	recover: {
 		inherit: true,
@@ -125,6 +125,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 3,
 	},
 	healorder: {
+		inherit: true,
+		gen: 3,
+	},
+	//April Fools
+	scald: {
+		inherit: true,
+		gen: 3,
+	},
+	banefulbunker: {
+		inherit: true,
+		gen: 3,
+	},
+	toxicspikes: {
+		inherit: true,
+		gen: 3,
+	},
+	gunkshot: {
 		inherit: true,
 		gen: 3,
 	},

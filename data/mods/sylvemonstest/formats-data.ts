@@ -910,10 +910,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["thunderclap", "doublekick", "flamecharge", "voltswitch"],
 		tier: "NU",
 	},
-	blaziken: {
-		randomBattleMoves: ["blazekick", "doublekick", "hottag", "earthquake", "swordsdance", "knockoff"],
-		tier: "NU",
-	},
 	beedrill: {
 		randomBattleMoves: ["twineedle", "uturn", "toxicspikes", "poisonjab", "roost", "tailwind"],
 		tier: "PU",
@@ -1366,10 +1362,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	deoxysattack: {
 		randomBattleMoves: ["sludgebomb", "focusblast", "teleport", "psychoboost", "extremespeed", "hiddenpowerfire"],
-		tier: "Uber",
-	},
-	deoxysspeed: {
-		randomBattleMoves: ["spikes", "stealthrock", "taunt", "teleport", "knockoff"],
 		tier: "Uber",
 	},
 	hypno: {

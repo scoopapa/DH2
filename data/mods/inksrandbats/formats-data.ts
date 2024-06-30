@@ -2606,10 +2606,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
-	chingling: {
-		isNonstandard: "Past",
-		tier: "Illegal",
-	},
+	// chingling: {
+		// isNonstandard: "Past",
+		// tier: "Illegal",
+	// },
 
 	absolmega: {
 		isNonstandard: "Past",
@@ -3535,9 +3535,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	druddigon: {
 		isNonstandard: "Custom",
 		tier: "Illegal",
-	},
-	golett: {
-		tier: "LC",
 	},
 
 	pawniard: {

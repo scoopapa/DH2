@@ -62,7 +62,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					type: 'Flying',
 				},
 			});
-			this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} called for help!`);
+			if (source.species.baseSpecies === 'Starly') this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} called for help!`);
+			else this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} prepared a flurry of attacks!`);
 			return null;
 		},
 		condition: {
@@ -79,7 +80,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return;
 				}
 
-				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				if (data.source.species.baseSpecies === 'Starly') this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				else this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is weathering a flurry of attacks!`);
 				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -96,7 +98,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (data.source.isActive) {
 					this.add('-anim', data.source, "Sky Attack", data.target);
 				}
-				this.trySpreadMoveHit([data.target], data.source, hitMove);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
 			onEnd(target) {
 				// unlike a future move, Flurry activates each turn
@@ -108,7 +110,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return;
 				}
 
-				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				if (data.source.species.baseSpecies === 'Starly') this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				else this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is weathering a flurry of attacks!`);
 				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -125,8 +128,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (data.source.isActive) {
 					this.add('-anim', data.source, "Sky Attack", data.target);
 				}
-				this.trySpreadMoveHit([data.target], data.source, hitMove);
-				this.add('-message', `The flurry of Starly dispersed!`);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);//??
+				if (data.source.species.baseSpecies === 'Starly') this.add('-message', `The flurry of Starly dispersed!`);
+				else this.add('-message', `The flurry of attacks subsided!`);
 			},
 		},
 		secondary: null,
@@ -186,6 +190,124 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
+	mineraldrain: {
+		num: -1005,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Mineral Drain",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+	},
+	clatteringblades: {
+		num: -1006,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Clattering Blades",
+		shortDesc: "Critical hit if hailing; hits foes.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow'])) move.willCrit = true;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Bug",
+		contestType: "Cool"
+	},
+	shaveoff: {
+		num: -1007,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shave Off",
+		shortDesc: "User restores 1/2 its max HP; 2/3 in Hail.",
+		pp: 10,//gen 8
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (this.field.isWeather(['hail', 'snow'])) {
+				factor = 0.667;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	tripleneedle: {
+		shortDesc: "100% to lower target's Defense by 1; user's crit ratio +2.",
+		num: -1008,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Triple Needle",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", source);
+			this.add('-anim', source, "Needle Arm", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		self: {
+			volatileStatus: 'focusenergy',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",//Necessary
+	},
+	myceliate: {
+		shortDesc: "Power doubles if the target has a status ailment.",
+		num: -1009,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spore", target);
+			this.add('-anim', source, "Frenzy Plant", target);
+		},
+		category: "Physical",
+		name: "Myceliate",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {basePower: 160},
+		contestType: "Clever",
+	},
 
 	// restored official moves
 
@@ -194,5 +316,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		isNonstandard: null,
+	},
+	
+	// modified official moves 
+	
+	chillyreception: {
+		inherit: true,
+		weather: 'hail', // Gen 8 baby! Snow isnt real and cant hurt me!
 	},
 };

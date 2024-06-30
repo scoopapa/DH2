@@ -98,6 +98,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
+	watersport: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Water Sport', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Water Sport');
+				}
+			},
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Fire') {
+					this.debug('water sport weaken');
+					return this.chainModify([1352, 4096]);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 3,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Water Sport');
+			},
+		},
+	},
 	behemothbash: {
 		num: 782,
 		accuracy: 100,
@@ -340,7 +365,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	primordialfrost: {
-		num: 1001,
+		num: -1,
 		accuracy: 90,
 		basePower: 130,
 		category: "Special",
@@ -364,7 +389,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	desolatemagma: {
-		num: 1002,
+		num: -2,
 		accuracy: 85,
 		basePower: 110,
 		category: "Special",
@@ -375,25 +400,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		self: {
 			onHit(source) {
-				source.side.foe.addSideCondition('desolatemagma');
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('desolatemagma');
+				}
 			},
 		},
 		condition: {
 			duration: 4,
-			onStart(targetSide) {
+			onSideStart(targetSide) {
 				this.add('-sidestart', targetSide, 'Desolate Magma');
 			},
 			onResidualOrder: 5,
-			onResidualSubOrder: 1.1,
-			onResidual(targetSide) {
-				for (const pokemon of targetSide.active) {
-					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
-				}
+			onResidualSubOrder: 1,
+			onResidual(target) {
+				if (!target.hasType('Rock')) this.damage(target.baseMaxhp / 16, target);
 			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 11,
 			onSideEnd(targetSide) {
-				for (const pokemon of targetSide.active) {
-					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
-				}
 				this.add('-sideend', targetSide, 'Desolate Magma');
 			},
 		},
@@ -407,7 +431,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	snowstorm: {
-		num: 1003,
+		num: -3,
 		accuracy: 75,
 		basePower: 100,
 		category: "Special",
@@ -477,7 +501,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	eggbomb: {
-		num: 1004,
+		num: -4,
 		accuracy: 90,
 		basePower: 100,
 		category: "Special",
@@ -591,7 +615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},*/
 	gathermaterials: {
-		num: 1005,
+		num: -5,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -612,7 +636,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	coralcrash: {
-		num: 1006,
+		num: -6,
 		accuracy: 90,
 		basePower: 110,
 		category: "Physical",
@@ -662,14 +686,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Beautiful",
 	},
 	rockyslash: {
-		num: 1007,
+		num: -7,
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			return move.basePower + 20 * pokemon.boosts['atk'];
 		},
 		category: "Physical",
-		shortDesc: "+ 20 power for each of the user's Attack boosts.",
+		shortDesc: "+20 power for each of the user's Attack boosts.",
 		name: "Rocky Slash",
 		pp: 10,
 		priority: 0,
@@ -683,7 +707,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	boilingvortex: {
-		num: 1008,
+		num: -8,
 		accuracy: 95,
 		basePower: 95,
 		category: "Special",
@@ -706,7 +730,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	seethingsauna: {
-		num: 1009,
+		num: -9,
 		accuracy: 95,
 		basePower: 95,
 		category: "Special",

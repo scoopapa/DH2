@@ -532,5 +532,184 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "hi",
 		doublesTier: "hi",
 	},
-
+	expl0r3rex3: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	aparism: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	averse: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	bardisco: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	bonnetform: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	chalquine: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	champimimus: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	chinchimra: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	crushave: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	driveel: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	drukrackoon: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	dynamantis: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	electhog: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	elyctron: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	grrilla: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	heacluster: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	helmekh: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	ironaspis: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	ironrebel: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	jerboulda: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	luxsectus: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	majestapis: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	matryocha: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	molarbear: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	moriwarty: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	notfly: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	obbyplex: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	offendage: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	onionwings: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	pestispine: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	plasmelion: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	polarpants: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	potatron: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	rockick: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	rodendrain: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	serprizius: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	shadellisk: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	skullpion: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	stringle: {
+		tier: "Banned",
+		doublesTier: "Banned",
+	},
+	terralauri: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	twirlava: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	velocipastor: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	wellowish: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	wyvking: {
+		tier: "C",
+		doublesTier: "C",
+	},
+	cucurbella: {
+		tier: "C",
+		doublesTier: "C",
+	},
 };

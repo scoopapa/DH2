@@ -20301,11 +20301,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
       karatechop: [ '1E' ],
       leer: [ '1L1', '1S1', '1S0' ],
       lightscreen: [ '1L17' ],
-
-
-
-
-
       meditate: [ '1E' ],
       mudslap: [ '2M' ],
       protect: [ '2M' ],

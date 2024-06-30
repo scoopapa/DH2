@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-/* eslint-disable */
 	bulbasaur: {
 		learnset: {
 			amnesia: ["8M", "7E", "6E", "5E", "4E"],
@@ -14412,11 +14411,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			spitup: ["8E", "7E", "6E", "5E"],
 			stockpile: ["8E", "7E", "6E", "5E"],
 			substitute: ["8M", "8V", "7M", "7V", "6M", "5M", "4M", "3T"],
-
-
-
-
-
 			sunnyday: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			swagger: ["7M", "7V", "6M", "5M", "4M", "3T"],
 			swallow: ["8E", "7E", "6E", "5E"],
@@ -15906,8 +15900,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			poisonjab: ["8M", "8V", "7M", "6M", "5M", "4M"],
 			protect: ["8M", "8V", "7M", "7V", "6M", "5M", "4M", "3M"],
 			psybeam: ["8E", "7E", "7V", "6E", "5E", "5D", "4E", "3E"],
-
-
 			quickattack: ["8V"],
 			rage: ["7V"],
 			raindance: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
@@ -60190,7 +60182,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 6, level: 100, isHidden: true, moves: ["hydrocannon", "gunkshot", "matblock", "happyhour"], pokeball: "cherishball"},
 		],
 	},
-	greninjaash: {
+	greninjabond: {
 		learnset: {
 			acrobatics: ["7M"],
 			aerialace: ["7M", "7S0"],

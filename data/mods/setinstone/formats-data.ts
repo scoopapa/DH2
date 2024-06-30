@@ -10,13 +10,46 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	voltergeist: {
 		tier: "SS",
-		doublesTier: "DOU",
 	},
 	calamander: {
 		tier: "SS",
-		doublesTier: "DOU",
 	},
 	lavahava: {
+		tier: "SS",
+	},
+	wrestlspur: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	dirtle: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	blunderbass: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	skadraugr: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	mystar: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	bacgnomia: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	smashicle: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	nervana: {
+		tier: "SS",
+		doublesTier: "DOU",
+	},
+	nerocable: {
 		tier: "SS",
 		doublesTier: "DOU",
 	},

@@ -579,20 +579,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Sets Jagged Splinters",
 	},
 
-	rollout: {
-		inherit: true,
-		self: {
-			volatileStatus: 'fixated',
-		},
-	},
-
-	iceball: {
-		inherit: true,
-		self: {
-			volatileStatus: 'fixated,',
-		},
-	},
-
 	bellydrum: {
 		inherit: true,
 		onHit(target) {

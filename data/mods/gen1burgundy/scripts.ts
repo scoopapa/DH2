@@ -12,6 +12,59 @@ export const Scripts: ModdedBattleScriptsData = {
 			(this.data.Pokedex[i] as any).gender = 'N';
 			(this.data.Pokedex[i] as any).eggGroups = null;
 		}
+		this.modData('Learnsets', 'flareon').learnset.jumpkick = ['1L1'];
+		this.modData('Learnsets', 'flareon').learnset.thunder = ['1L1'];
+		this.modData('Learnsets', 'dewgong').learnset.reflect = ['1L1'];
+		this.modData('Learnsets', 'dewgong').learnset.amnesia = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.blizzard = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.icebeam = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.surf = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.bubblebeam = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.acidarmor = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.watergun = ['1L1'];
+		this.modData('Learnsets', 'aerodactyl').learnset.rockslide = ['1L1'];
+		this.modData('Learnsets', 'machamp').learnset.glare = ['1L1'];
+		this.modData('Learnsets', 'beedrill').learnset.earthquake = ['1L1'];
+		delete this.modData('Learnsets', 'onix').learnset.earthquake;
+		delete this.modData('Learnsets', 'onix').learnset.dig;
+		delete this.modData('Learnsets', 'onix').learnset.fissure;
+		this.modData('Learnsets', 'charmander').learnset.blastburn = ['1L1'];
+		this.modData('Learnsets', 'charmeleon').learnset.blastburn = ['1L1'];
+		this.modData('Learnsets', 'charizard').learnset.blastburn = ['1L1'];
+		this.modData('Learnsets', 'squirtle').learnset.hydrocannon = ['1L1'];
+		this.modData('Learnsets', 'wartortle').learnset.hydrocannon = ['1L1'];
+		this.modData('Learnsets', 'blastoise').learnset.hydrocannon = ['1L1'];
+		this.modData('Learnsets', 'bulbasaur').learnset.frenzyplant = ['1L1'];
+		this.modData('Learnsets', 'ivysaur').learnset.frenzyplant = ['1L1'];
+		this.modData('Learnsets', 'venusaur').learnset.frenzyplant = ['1L1'];
+		this.modData('Learnsets', 'dratini').learnset.dracometeor = ['1L1'];
+		this.modData('Learnsets', 'dragonair').learnset.dracometeor = ['1L1'];
+		this.modData('Learnsets', 'dragonite').learnset.dracometeor = ['1L1'];
+		this.modData('Learnsets', 'mew').learnset.dracometeor = ['1L1'];
+		this.modData('Learnsets', 'machop').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'machoke').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'machamp').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'mankey').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'primeape').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'poliwrath').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'pinsir').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'grimer').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'muk').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'venomoth').learnset.quiverdance = ['1L1'];
+		this.modData('Learnsets', 'ninetales').learnset.willowisp = ['1L1'];
+		this.modData('Learnsets', 'ninetales').learnset.nightshade = ['1L1'];
+		this.modData('Learnsets', 'kingdra').learnset.dracometeor = ['1L1'];
+		this.modData('Learnsets', 'kingdra').learnset.dragonbreath = ['1L1'];
+		this.modData('Learnsets', 'paras').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'tangela').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'bulbasaur').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'bellsprout').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'exeggcute').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'venomoth').learnset.sludge = ['1L1'];
+		this.modData('Learnsets', 'venomoth').learnset.recover = ['1L1'];
+	},
+	teambuilderConfig: {
+		rbyTradebacks: true,
 	},
 	// Gen 1 stores the last damage dealt by a move in the battle.
 	// This is used for the move Counter.
@@ -858,57 +911,5 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// And we are done.
 		return Math.floor(damage);
-	},
-	init() {
-		this.modData('Learnsets', 'flareon').learnset.jumpkick = ['1L1'];
-		this.modData('Learnsets', 'flareon').learnset.thunder = ['1L1'];
-		this.modData('Learnsets', 'dewgong').learnset.reflect = ['1L1'];
-		this.modData('Learnsets', 'dewgong').learnset.amnesia = ['1L1'];
-		this.modData('Learnsets', 'onix').learnset.blizzard = ['1L1'];
-		this.modData('Learnsets', 'onix').learnset.icebeam = ['1L1'];
-		this.modData('Learnsets', 'onix').learnset.surf = ['1L1'];
-		this.modData('Learnsets', 'onix').learnset.bubblebeam = ['1L1'];
-		this.modData('Learnsets', 'onix').learnset.acidarmor = ['1L1'];
-		this.modData('Learnsets', 'onix').learnset.watergun = ['1L1'];
-		this.modData('Learnsets', 'aerodactyl').learnset.rockslide = ['1L1'];
-		this.modData('Learnsets', 'machamp').learnset.glare = ['1L1'];
-		this.modData('Learnsets', 'beedrill').learnset.earthquake = ['1L1'];
-		delete this.modData('Learnsets', 'onix').learnset.earthquake;
-		delete this.modData('Learnsets', 'onix').learnset.dig;
-		delete this.modData('Learnsets', 'onix').learnset.fissure;
-		this.modData('Learnsets', 'charmander').learnset.blastburn = ['1L1'];
-		this.modData('Learnsets', 'charmeleon').learnset.blastburn = ['1L1'];
-		this.modData('Learnsets', 'charizard').learnset.blastburn = ['1L1'];
-		this.modData('Learnsets', 'squirtle').learnset.hydrocannon = ['1L1'];
-		this.modData('Learnsets', 'wartortle').learnset.hydrocannon = ['1L1'];
-		this.modData('Learnsets', 'blastoise').learnset.hydrocannon = ['1L1'];
-		this.modData('Learnsets', 'bulbasaur').learnset.frenzyplant = ['1L1'];
-		this.modData('Learnsets', 'ivysaur').learnset.frenzyplant = ['1L1'];
-		this.modData('Learnsets', 'venusaur').learnset.frenzyplant = ['1L1'];
-		this.modData('Learnsets', 'dratini').learnset.dracometeor = ['1L1'];
-		this.modData('Learnsets', 'dragonair').learnset.dracometeor = ['1L1'];
-		this.modData('Learnsets', 'dragonite').learnset.dracometeor = ['1L1'];
-		this.modData('Learnsets', 'mew').learnset.dracometeor = ['1L1'];
-		this.modData('Learnsets', 'machop').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'machoke').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'machamp').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'mankey').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'primeape').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'poliwrath').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'pinsir').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'grimer').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'muk').learnset.focuspunch = ['1L1'];
-		this.modData('Learnsets', 'venomoth').learnset.quiverdance = ['1L1'];
-		this.modData('Learnsets', 'ninetales').learnset.willowisp = ['1L1'];
-		this.modData('Learnsets', 'ninetales').learnset.nightshade = ['1L1'];
-		this.modData('Learnsets', 'kingdra').learnset.dracometeor = ['1L1'];
-		this.modData('Learnsets', 'kingdra').learnset.dragonbreath = ['1L1'];
-		this.modData('Learnsets', 'paras').learnset.junglehealing = ['1L1'];
-		this.modData('Learnsets', 'tangela').learnset.junglehealing = ['1L1'];
-		this.modData('Learnsets', 'bulbasaur').learnset.junglehealing = ['1L1'];
-		this.modData('Learnsets', 'bellsprout').learnset.junglehealing = ['1L1'];
-		this.modData('Learnsets', 'exeggcute').learnset.junglehealing = ['1L1'];
-		this.modData('Learnsets', 'venomoth').learnset.sludge = ['1L1'];
-		this.modData('Learnsets', 'venomoth').learnset.recover = ['1L1'];
 	},
 };

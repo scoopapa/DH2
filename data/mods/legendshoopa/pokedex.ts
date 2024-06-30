@@ -326,8 +326,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 34,
 
 		prevo: "Tranquill",
-		otherFormes: ["Dovinity-F"],
-		formeOrder: ["Dovinity", "Dovinity-F"],
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		otherFormes: ["Dovinity-F"],
@@ -439,8 +437,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 2.4,
 		weightkg: 50.3,
 
-		otherFormes: ["Abyssylar-F"],
-		formeOrder: ["Abyssylar", "Abyssylar-F"],
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		otherFormes: ["Abyssylar-F"],

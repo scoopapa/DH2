@@ -5992,12 +5992,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["8M"],
 			rest: ["8M"],
 			scald: ["8M"],
-
-
-
-
-
-
 			skillswap: ["8M"],
 			sleeptalk: ["8M"],
 			substitute: ["8M"],
@@ -8970,7 +8964,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			teleport: ["8L1"],
 			thief: ["8M"],
 			thunderwave: ["8M"],
-
 			trickroom: ["8M"],
 			uturn: ["8M"],
 			wish: ["8L48"],

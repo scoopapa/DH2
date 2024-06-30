@@ -1,5 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	inherit: 'gen9',
+	gen: 9,
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
@@ -76,13 +76,78 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "grafaiai").learnset.skyattack = ["9L1"];
 		
 		//iron jugulis
-		this.modData("Learnsets", "grafaiai").learnset.dracometeor = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.dragonpulse = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.dragondance = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.roost = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.toxic = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.defog = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.nastyplot = ["9L1"];
-		this.modData("Learnsets", "grafaiai").learnset.dragontail = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.dragonpulse = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.dragondance = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "ironjugulis").learnset.dragontail = ["9L1"];
+		
+		//omastar
+		this.modData("Learnsets", "omastar").learnset.bugbuzz = ["9L1"];
+		
+		//cyclizar
+		this.modData("Learnsets", "cyclizar").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "cyclizar").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "cyclizar").learnset.howl = ["9L1"];
+		this.modData("Learnsets", "cyclizar").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "cyclizar").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "cyclizar").learnset.hypervoice = ["9L1"];
+		
+		//zangoose
+		this.modData("Learnsets", "zangoose").learnset.playrough = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.moonlight = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.sludgewave = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.partingshot = ["9L1"];
+		
+		//overqwil
+		this.modData("Learnsets", "overqwil").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "overqwil").learnset.irondefense = ["9L1"];
+		this.modData("Learnsets", "overqwil").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "overqwil").learnset.recover = ["9L1"];
+		
+		// Magcargo
+		this.modData("Learnsets", "magcargo").learnset.magmastorm = ["9L1"];
+		this.modData("Learnsets", "magcargo").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "magcargo").learnset.gigadrain = ["9L1"];
+		this.modData("Learnsets", "magcargo").learnset.energyball = ["9L1"];
+		// Iron Thorns
+		this.modData("Learnsets", "ironthorns").learnset.zingzap = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.focuspunch = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.hammerarm = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.circlethrow = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.counter = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.seismictoss = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.bulkup = ["9L1"];
+		
+		// Regieleki
+		this.modData("Learnsets", "regieleki").learnset.aeroblast = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.bravebird = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.flashcannon = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.steelbeam = ["9L1"];
+		// Hatterene
+		this.modData("Learnsets", "hatterene").learnset.outrage = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dragonclaw = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.breakingswipe = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dragontail = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dragonpulse = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.moonblast = ["9L1"];
+		// Furret
+		this.modData("Learnsets", "furret").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "furret").learnset.headlongrush = ["9L1"];
+		this.modData("Learnsets", "furret").learnset.lightsaunter = ["9L1"];
+
 	},
 };

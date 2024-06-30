@@ -86,7 +86,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Shockproof",
 		shortDesc: "This Pokemon takes halved damage from Electric-type moves; paralysis immunity.",
 		rating: 2,
@@ -143,10 +143,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMove(move) {
 			if (move.category === 'Status') {
 				move.ignoreAbility = true;
-			}
-		},
-		onModifyMove(move) {
-			if (move.category === 'Status') {
 				move.ignoreVolatiles = true;
 			}
 		},
@@ -164,7 +160,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	  name: "Holy Grail",
 	},
 	faultyphoton: {
@@ -256,7 +252,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-end', pokemon, 'Faulty Photon');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Faulty Photon",
 		rating: 3,
 	},
@@ -286,7 +282,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) ||
 			pokemon.species.id !== 'zoinkazenta') {
 				this.effectState.gaveUp = true;
@@ -295,7 +291,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);

@@ -164,6 +164,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect?.id === 'lockedmove') {
 				this.add('-start', target, 'confusion', '[fatigue]');
+			} else if (sourceEffect?.effectType === 'Ability') {
+				this.add('-start', target, 'confusion', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
 				this.add('-start', target, 'confusion');
 			}
@@ -391,9 +393,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if (data.source.hasAbility('normalize') && this.gen >= 6) {
 				data.moveData.type = 'Normal';
-			}
-			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
-				data.moveData.stab = 2;
 			}
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 

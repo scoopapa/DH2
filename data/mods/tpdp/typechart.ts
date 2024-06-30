@@ -1,5 +1,5 @@
-export const TypeChart: {[k: string]: ModdedTypeData} = {
-	Void: {
+export const TypeChart: {[k: string]: ModdedTypeData | null} = {
+	void: {
 		damageTaken: {
 			Void: 0,
 			Fire: 0,
@@ -17,12 +17,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 3,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Fire: {
+	fire: {
 		damageTaken: {
 			brn: 3,
 			hvybrn: 3,
@@ -42,12 +42,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Water: {
+	water: {
 		damageTaken: {
 			Void: 0,
 			Fire: 2,
@@ -65,12 +65,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Nature: {
+	nature: {
 		damageTaken: {
 			Void: 0,
 			Fire: 1,
@@ -88,12 +88,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Earth: {
+	earth: {
 		damageTaken: {
 			duststorm: 3,
 			Void: 0,
@@ -112,12 +112,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Steel: {
+	steel: {
 		damageTaken: {
 			duststorm: 3,
 			psn: 3,
@@ -138,12 +138,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 2,
 			Sound: 0,
 			Warped: 1,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Wind: {
+	wind: {
 		damageTaken: {
 			spikes: 3,
 			Void: 0,
@@ -162,12 +162,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 2,
 			Warped: 1,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Electric: {
+	electric: {
 		damageTaken: {
 			par: 3,
 			shk: 3,
@@ -187,12 +187,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Light: {
+	light: {
 		damageTaken: {
 			Void: 2,
 			Fire: 0,
@@ -210,12 +210,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 1,
 			Sound: 2,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Dark: {
+	dark: {
 		damageTaken: {
 			stickyweb: 3,
 			Void: 2,
@@ -234,12 +234,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 2,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Nether: {
+	nether: {
 		damageTaken: {
 			trapped: 3,
 			Void: 0,
@@ -258,12 +258,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 2,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Poison: {
+	poison: {
 		damageTaken: {
 			psn: 3,
 			tox: 3,
@@ -283,12 +283,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 2,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Fighting: {
+	fighting: {
 		damageTaken: {
 			Void: 0,
 			Fire: 0,
@@ -306,12 +306,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 1,
 			Warped: 2,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Illusion: {
+	illusion: {
 		damageTaken: {
 			Void: 3,
 			Fire: 0,
@@ -329,12 +329,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 1,
 			Sound: 1,
 			Warped: 1,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Sound: {
+	sound: {
 		damageTaken: {
 			Void: 0,
 			Fire: 0,
@@ -352,12 +352,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 2,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Warped: {
+	warped: {
 		damageTaken: {
 			Void: 0,
 			Fire: 0,
@@ -375,12 +375,12 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 1,
 			Warped: 2,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
+		HPdvs: {}
 	},
-	Dream: {
+	dream: {
 		damageTaken: {
 			stp: 3,
 			Void: 0,
@@ -399,9 +399,9 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Illusion: 0,
 			Sound: 0,
 			Warped: 0,
-			Dream: 0,
+			Dream: 0
 		},
 		HPivs: {},
-		HPdvs: {},
-	},
+		HPdvs: {}
+	}
 };

@@ -59,7 +59,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.multihit = 3;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Battle Bond",
 		rating: 4,
 		num: 210,
@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Blood Scent', 'boost');
 					activated = true;

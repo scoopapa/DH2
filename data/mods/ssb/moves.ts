@@ -375,54 +375,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 	},
 
-	// Andrew
-	whammerjammer: {
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		desc: "If this move is successful, the user switches out and all field conditions (entry hazards, terrains, weathers, screens, etc.) are removed from both sides.",
-		shortDesc: "Removes field conditions, switches out.",
-		name: "Whammer Jammer",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onTryMove() {
-			this.attrLastMove('[still]');
-		},
-		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Shadow Ball', target);
-		},
-		onHit(target, source, move) {
-			const removeAll = [
-				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes',
-				'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-			];
-			const silentRemove = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist'];
-			for (const sideCondition of removeAll) {
-				if (target.side.removeSideCondition(sideCondition)) {
-					if (!silentRemove.includes(sideCondition)) {
-						this.add('-sideend', target.side, this.dex.conditions.get(sideCondition).name, '[from] move: Whammer Jammer', '[of] ' + source);
-					}
-				}
-				if (source.side.removeSideCondition(sideCondition)) {
-					if (!silentRemove.includes(sideCondition)) {
-						this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Whammer Jammer', '[of] ' + source);
-					}
-				}
-			}
-			this.field.clearWeather();
-			this.field.clearTerrain();
-			for (const clear in this.field.pseudoWeather) {
-				if (clear.endsWith('mod') || clear.endsWith('clause')) continue;
-				this.field.removePseudoWeather(clear);
-			}
-		},
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
-		type: "Ghost",
-	},
-
 	// Annika
 	datacorruption: {
 		accuracy: true,
@@ -3087,7 +3039,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 	},
 
-	// Nol
+	// Theia
 	madhacks: {
 		accuracy: true,
 		basePower: 0,
@@ -3710,48 +3662,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Psychic",
-	},
-
-	// Rach
-	spindawheel: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "The user uses a random hazard-setting move; burns, badly poisons, or paralyzes the target; and then switches out.",
-		shortDesc: "Sets random hazard; brn/tox/par; switches.",
-		name: "Spinda Wheel",
-		gen: 8,
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, protect: 1},
-		onTryMove() {
-			this.attrLastMove('[still]');
-		},
-		onPrepareHit(target, source) {
-			target.m.spindaHazard = this.sample(['Sticky Web', 'Stealth Rock', 'Spikes', 'Toxic Spikes', 'G-Max Steelsurge']);
-			target.m.spindaStatus = this.sample(['Thunder Wave', 'Toxic', 'Will-O-Wisp']);
-			if (target.m.spindaHazard) {
-				this.add('-anim', source, target.m.spindaHazard, target);
-			}
-			if (target.m.spindaStatus) {
-				this.add('-anim', source, target.m.spindaStatus, target);
-			}
-		},
-		onHit(target, source, move) {
-			if (target) {
-				if (target.m.spindaHazard) {
-					target.side.addSideCondition(target.m.spindaHazard);
-				}
-				if (target.m.spindaStatus) {
-					const s = target.m.spindaStatus;
-					target.trySetStatus(s === 'Toxic' ? 'tox' : s === 'Thunder Wave' ? 'par' : 'brn');
-				}
-			}
-		},
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
-		type: "Normal",
 	},
 
 	// Rage

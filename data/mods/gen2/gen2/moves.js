@@ -83,7 +83,7 @@ const BattleMovedex = {
 						return false;
 					}
 					if (!target.isActive) target = this.resolveTarget(pokemon, this.moves.get('pound'));
-					if (!this.isAdjacent(pokemon, target)) {
+					if (!pokemon.isAdjacent(target)) {
 						this.add('-miss', pokemon, target);
 						return false;
 					}

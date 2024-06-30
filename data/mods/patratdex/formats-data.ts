@@ -604,6 +604,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Ubers",
 	},
 	bombardeer: {
+		tier: "Patratdex Ubers",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	hilarilla: {
+		tier: "Patratdex OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	skurmishell: {
+		tier: "Patratdex OU",
+		doublesTier: "Patratdex Doubles OU",
+	},
+	lutinsnoot: {
 		tier: "Patratdex OU",
 		doublesTier: "Patratdex Doubles OU",
 	},

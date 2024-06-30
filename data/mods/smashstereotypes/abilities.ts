@@ -28,14 +28,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.setTerrain('electricterrain');
 
 			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) {
 				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -67,7 +67,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.baseAbility = 'sandstream';
 			}
 		},
-		isPermanent: null,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "RKS System",
 		shortDesc: "If Silvally-Rock, changes to Sand Stream.",
 		rating: 4,
@@ -113,13 +113,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	justifiedsylve: {
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Dark') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Dark')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -260,6 +260,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1},
 		name: "Wonder Guard",
 		shortDesc: "This Pokemon can only be damaged by supereffective moves and status effects.",
 		rating: 5,
@@ -338,7 +339,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
 					activated = true;
@@ -417,7 +418,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				source.formeChange(forme, effect);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Gunk Missile",
 		shortDesc: "When hit after Sludge Wave/Gunk Shot, attacker takes 1/4 max HP and -1 Sp. Def. or poisons.",
 		rating: 2.5,
@@ -569,7 +570,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Ice Face",
 		shortDesc: "If Escavalier-Eiscue, the first physical hit it takes deals 0 damage. This effect is restored in Hail.",
 		rating: 3,
@@ -638,7 +639,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Debilitate', 'boost');
 					activated = true;
@@ -848,7 +849,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move.multihit = 3;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Retribution",
 		shortDesc: "When this Pokemon has a stat raised or lowered (including self-inflicted changes), it transforms into Super form. Boltarang: 25 power, hits 3x.",
 		rating: 4,
@@ -862,7 +863,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const targetForme = (move.id === 'foragerspoise' ? 'Aegislash-Ancient' : 'Aegislash-Ancient-Hunter');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Tactics Change",
 		shortDesc: "If Aegislash-Ancient, changes Forme to Ancient-Hunter before attacks and Ancient before King's Shield.",
 		rating: 5,
@@ -958,7 +959,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) ||
 			pokemon.species.id !== 'yaciancrowned' && pokemon.species.id !== 'porygrigus' && pokemon.species.id !== 'porymask' && pokemon.species.id !== 'hatterune' && pokemon.species.id !== 'hatamaskgalar') {
 				this.effectState.gaveUp = true;
@@ -967,7 +968,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);

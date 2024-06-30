@@ -1,0 +1,2855 @@
+{
+    "venusaur": {
+        "level": 88,
+        "moves": ["razorleaf", "sludgebomb", "earthquake", "synthesis"]
+    },
+    "charizard": {
+        "level": 88,
+        "moves": ["fireblast", "acrobatics", "earthquake", "flamecharge"]
+    },
+    "blastoise": {
+        "level": 80,
+        "moves": ["shellsmash", "hydrocannon", "blizzard", "hyperbeam"]
+    },
+    "butterfree": {
+        "level": 92,
+        "moves": ["psychic", "quiverdance", "stunspore", "roost"]
+    },
+    "beedrill": {
+        "level": 94,
+        "moves": ["uturn", "drillrun", "sludgebomb", "agility"]
+    },
+    "pidgeot": {
+        "level": 88,
+        "moves": ["bravebird", "return", "uturn", "heatwave"]
+    },
+    "raticate": {
+        "level": 90,
+        "moves": ["return", "uturn", "thunderwave", "superfang"]
+    },
+    "raticatealola": {
+        "level": 92,
+        "moves": ["return", "uturn", "superfang", "shadowclaw"]
+    },
+    "fearow": {
+        "level": 90,
+        "moves": ["aircutter", "drillrun", "return", "uturn"]
+    },
+    "arbok": {
+        "level": 90,
+        "moves": ["sludgewave", "earthquake", "coil", "glare"]
+    },
+    "raichu": {
+        "level": 88,
+        "moves": ["surf", "voltswitch", "thunderwave", "grassknot"]
+    },
+    "raichualola": {
+        "level": 86,
+        "moves": ["surf", "voltswitch", "thunderwave", "psychic"]
+    },
+    "sandslash": {
+        "level": 84,
+        "moves": ["drillrun", "stoneedge", "agility", "superfang"]
+    },
+    "sandslashalola": {
+        "level": 88,
+        "moves": ["steelbeam", "drillrun", "superfang", "mirrorcoat"]
+    },
+    "nidoqueen": {
+        "level": 86,
+        "moves": ["drillrun", "stoneedge", "fireblast", "superfang"]
+    },
+    "nidoking": {
+        "level": 86,
+        "moves": ["drillrun", "stoneedge", "fireblast", "superfang"]
+    },
+    "clefable": {
+        "level": 86,
+        "moves": ["bodyslam", "aromatherapy", "batonpass", "softboiled"],
+        "comboMoves": ["amnesia", "softboiled", "storedpower", "fireblast"]
+    },
+    "ninetales": {
+        "level": 88,
+        "moves": ["fireblast", "energyball", "faketears", "batonpass"]
+    },
+    "ninetalesalola": {
+        "level": 86,
+        "moves": ["blizzard", "moonblast", "healbell", "batonpass"]
+    },
+    "wigglytuff": {
+        "level": 92,
+        "moves": ["thunderwave", "healbell", "batonpass", "seismictoss"]
+    },
+    "vileplume": {
+        "level": 90,
+        "moves": ["stunspore", "aromatherapy", "strengthsap", "petalblizzard"]
+    },
+    "parasect": {
+        "level": 94,
+        "moves": ["bodyslam", "aromatherapy", "synthesis", "xscissor"]
+    },
+    "venomoth": {
+        "level": 92,
+        "moves": ["psychic", "quiverdance", "stunspore", "roost"]
+    },
+    "dugtrio": {
+        "level": 90,
+        "moves": ["earthquake", "stoneedge", "slash", "finalgambit"]
+    },
+    "dugtrioalola": {
+        "level": 88,
+        "moves": ["earthquake", "stoneedge", "steelbeam", "finalgambit"]
+    },
+    "persian": {
+        "level": 86,
+        "moves": ["slash", "shadowclaw", "thunderwave", "uturn"]
+    },
+    "persianalola": {
+        "level": 88,
+        "moves": ["amnesia", "darkpulse", "thunderbolt", "thunderwave"]
+    },
+    "golduck": {
+        "level": 86,
+        "moves": ["amnesia", "blizzard", "trailblaze"],
+        "exclusiveMoves": ["hydropump", "surf"]
+    },
+    "arcanine": {
+        "level": 88,
+        "moves": ["fireblast", "wildcharge", "extremespeed", "morningsun"]
+    },
+    "arcaninehisui": {
+        "level": 84,
+        "moves": ["stoneedge", "fireblast", "extremespeed", "flamecharge"]
+    },
+    "poliwrath": {
+        "level": 90,
+        "moves": ["bulkup", "closecombat", "earthquake", "batonpass"]
+    },
+    "alakazam": {
+        "level": 82, 
+        "moves": ["psychocut", "firepunch", "recover"],
+        "exclusiveMoves": ["thunderwave", "psychoshift"]
+    },
+    "machamp": {
+        "level": 88,
+        "moves": ["closecombat", "earthquake", "stoneedge", "vacuumwave"]
+    },
+    "victreebel": {
+        "level": 88,
+        "moves": ["leafblade", "stunspore", "strengthsap", "lunge"]
+    },
+    "tentacruel": {
+        "level": 86,
+        "moves": ["hydropump", "blizzard", "flipturn", "acupressure"]
+    },
+    "golem": {
+        "level": 88,
+        "moves": ["earthquake", "stoneedge", "explosion", "rockpolish"]
+    },
+    "golemalola": {
+        "level": 88,
+        "moves": ["stoneedge", "voltswitch", "thunderwave", "explosion"]
+    },
+    "rapidash": {
+        "level": 88,
+        "moves": ["fireblast", "drillrun", "wildcharge", "morningsun"]
+    },
+    "rapidashgalar": {
+        "level": 84,
+        "moves": ["dazzlinggleam", "drillrun", "batonpass", "morningsun"]
+    },
+    "slowbro": {
+        "level": 80,
+        "moves": ["amnesia", "thunderwave", "slackoff", "surf"]
+    },
+    "slowbrogalar": {
+        "level": 84,
+        "moves": ["amnesia", "storedpower", "fireblast", "slackoff"]
+    },
+    "farfetchd": {
+        "level": 94,
+        "moves": ["swordsdance", "acrobatics", "closecombat", "firstimpression"]
+    },
+    "dodrio": {
+        "level": 88,
+        "moves": ["acrobatics", "drillrun", "acupressure"],
+        "exclusiveMoves": ["bodyslam", "return"]
+    },
+    "dewgong": {
+        "level": 88,
+        "moves": ["blizzard", "drillrun", "flipturn"],
+        "exclusiveMoves": ["hydropump", "surf"]
+    },
+    "muk": {
+        "level": 90,
+        "moves": ["sludgewave", "fireblast", "focusblast", "explosion"]
+    },
+    "mukalola": {
+        "level": 86,
+        "moves": ["sludgewave", "fireblast", "stoneedge", "explosion"]
+    },
+    "cloyster": {
+        "level": 76,
+        "moves": ["shellsmash", "blizzard", "explosion", "hydropump"]
+    },
+    "gengar": {
+        "level": 88,
+        "moves": ["psychic", "firepunch", "destinybond", "thunderwave"]
+    },
+    "hypno": {
+        "level": 90,
+        "moves": ["psychic", "thunderwave", "firepunch", "calmmind"]
+    },
+    "kingler": {
+        "level": 92,
+        "moves": ["crabhammer", "superpower", "highhorsepower", "agility"]
+    },
+    "electrode": {
+        "level": 88,
+        "moves": ["voltswitch", "thunderwave", "magiccoat", "explosion"]
+    },
+    "electrodehisui": {
+        "level": 80,
+        "moves": ["voltswitch", "thunderwave", "chloroblast"],
+        "exclusiveMoves": ["stunspore", "explosion", "electroball"]
+    },
+    "exeggutor": {
+        "level": 90,
+        "moves": ["leafstorm", "psychocut", "stunspore", "explosion"]
+    },
+    "exeggutoralola": {
+        "level": 88,
+        "moves": ["powerwhip", "dracometeor", "flamethrower", "stunspore"]
+    },
+    "marowak": {
+        "level": 90,
+        "moves": ["earthquake", "stoneedge", "bodyslam", "substitute"]
+    },
+    "marowakalola": {
+        "level": 92,
+        "moves": ["earthquake", "stoneedge", "fireblast", "painsplit"]
+    },
+    "hitmonchan": {
+        "level": 94,
+        "moves": ["closecombat", "earthquake", "stoneedge", "batonpass"]
+    },
+    "hitmonlee": {
+        "level": 94,
+        "moves": ["closecombat", "earthquake", "stoneedge", "batonpass"]
+    },
+    "weezing": {
+        "level": 88,
+        "moves": ["explosion", "fireblast", "sludgewave", "thunderbolt"]
+    },
+    "weezinggalar": {
+        "level": 86,
+        "moves": ["explosion", "fireblast", "sludgewave", "aromatherapy"]
+    },
+    "chansey": {
+        "level": 80,
+        "moves": ["blizzard", "thunderbolt", "softboiled", "thunderwave"]
+    },
+    "kangaskhan": {
+        "level": 90,
+        "moves": ["bodyslam", "shadowclaw", "earthquake", "gigaimpact"]
+    },
+    "seaking": {
+        "level": 90,
+        "moves": ["blizzard", "drillrun", "flipturn"],
+        "exclusiveMoves": ["hydropump", "surf"]
+    },
+    "starmie": {
+        "level": 80,
+        "moves": ["psychocut", "flipturn", "recover", "thunderwave"]
+    },
+    "mrmime": {
+        "level": 90,
+        "moves": ["psychic", "firepunch", "thunderbolt", "thunderwave"]
+    },
+    "mrmimegalar": {
+        "level": 90,
+        "moves": ["blizzard", "psychic", "batonpass", "thunderwave"]
+    },
+    "scyther": {
+        "level": 88,
+        "moves": ["acrobatics", "closecombat", "uturn", "swordsdance"]
+    },
+    "jynx": {
+        "level": 90,
+        "moves": ["blizzard", "psychocut", "healbell", "seismictoss"]
+    },
+    "pinsir": {
+        "level": 88,
+        "moves": ["xscissor", "closecombat", "stoneedge", "bodyslam"]
+    },
+    "tauros": {
+        "level": 84,
+        "moves": ["fireblast", "blizzard", "stoneedge"],
+        "essentialMoves": ["bodyslam", "hyperbeam"]
+    },
+    "taurospaldeaaqua": {
+        "level": 86,
+        "moves": ["closecombat", "drillrun", "trailblaze", "stoneedge"]
+    },
+    "taurospaldeablaze": {
+        "level": 86,
+        "moves": ["closecombat", "drillrun", "trailblaze", "stoneedge"]
+    },
+    "taurospaldeacombat": {
+        "level": 86,
+        "moves": ["closecombat", "drillrun", "trailblaze", "stoneedge"]
+    },
+    "gyarados": {
+        "level": 82,
+        "moves": ["dragondance", "hurricane", "earthquake", "fireblast"]
+    },
+    "lapras": {
+        "level": 86,
+        "moves": ["surf", "hydropump", "healbell"],
+        "essentialMoves": ["blizzard", "thunderbolt"]
+    },
+    "vaporeon": {
+        "level": 84,
+        "moves": ["blizzard", "healbell", "flipturn"],
+        "exclusiveMoves": ["hydropump", "surf"]
+    },
+    "jolteon": {
+        "level": 86,
+        "moves": ["healbell", "voltswitch", "thunderwave", "trailblaze"]
+    },
+    "flareon": {
+        "level": 90,
+        "moves": ["fireblast", "superpower", "alluringvoice", "batonpass"]
+    },
+    "omastar": {
+        "level": 76,
+        "moves": ["shellsmash", "hydropump", "blizzard"],
+        "exclusiveMoves": ["surf", "reflecttype"]
+    },
+    "kabutops": {
+        "level": 88,
+        "moves": ["stoneedge", "superpower", "flipturn", "hydropump"]
+    },
+    "aerodactyl": {
+        "level": 82,
+        "moves": ["stoneedge", "fireblast", "roost"],
+        "exclusiveMoves": ["aircutter", "hurricane"]
+    },
+    "snorlax": {
+        "level": 84,
+        "moves": ["bodyslam", "earthquake", "fireblast", "selfdestruct"]
+    },
+    "articuno": {
+        "level": 84,
+        "moves": ["blizzard", "roost", "uturn", "healbell"]
+    },
+    "articunogalar": {
+        "level": 86,
+        "moves": ["recover", "uturn", "calmmind"],
+        "exclusiveMoves": ["freezingglare", "psychic"]
+    },
+    "zapdos": {
+        "level": 82,
+        "moves": ["voltswitch", "heatwave", "thunderwave", "roost"]
+    },
+    "zapdosgalar": {
+        "level": 84,
+        "moves": ["closecombat", "acrobatics", "blazekick", "uturn"]
+    },
+    "moltres": {
+        "level": 84,
+        "moves": ["fireblast", "uturn", "roost", "acrobatics"]
+    },
+    "moltresgalar": {
+        "level": 86,
+        "moves": ["acrobatics", "fierywrath", "uturn", "taunt"]
+    },
+    "dragonite": {
+        "level": 82,
+        "moves": ["dragondance", "hurricane", "earthquake", "fireblast"]
+    },
+    "mewtwo": {
+        "level": 68,
+        "moves": ["stoneedge", "fireblast"],
+        "essentialMoves": ["psychocut", "recover", "thunderwave"],
+        "comboMoves": ["amnesia", "storedpower", "fireblast", "agility"]
+    },
+    "mew": {
+        "level": 74,
+        "moves": ["bugbuzz", "fireblast", "roost"],
+        "essentialMoves": ["amnesia", "storedpower", "dragondance"]
+    },
+    "meganium": {
+        "level": 90,
+        "moves": ["bodyslam", "earthquake", "magiccoat"],
+        "essentialMoves": ["leafstorm", "synthesis", "aromatherapy"]
+    },
+    "typhlosion": {
+        "level": 86,
+        "moves": ["wildcharge", "blastburn", "earthquake", "fireblast"]
+},
+    "typhlosionhisui": {
+        "level": 86,
+        "moves": ["fireblast", "infernalparade", "wildcharge", "bodyslam"]
+    },
+    "feraligatr": {
+        "level": 86,
+        "moves": ["hydropump", "blizzard", "focuspunch", "flipturn"]
+    },
+    "furret": {
+        "level": 88,
+        "moves": ["focusblast", "uturn", "playrough"],
+	"essentialMoves": ["tidyup", "return"]
+ },
+    "noctowl": {
+        "level": 90,
+        "moves": ["psychic", "bodyslam", "nastyplot"],
+	"essentialMoves": ["heatwave", "roost"]
+ },
+    "ledian": {
+        "level": 96,
+        "moves": ["focusblast", "brickbreak"],
+	"essentialMoves": ["swordsdance", "bugbuzz", "acrobatics"]
+ },
+    "ariados": {
+        "level": 90,
+        "moves": ["megahorn", "sludgewave", "shadowsneak", "agility"]
+ },
+    "crobat": {
+        "level": 82,
+        "moves": ["acrobatics", "heatwave", "superfang", "uturn"],
+	"essentialMoves": ["crosspoison"]
+ },
+    "lanturn": {
+        "level": 84,
+        "moves": ["healbell", "flipturn"],
+	"essentialMoves": ["voltswitch", "thunderwave"],
+	"exclusiveMoves": ["surf", "hydropump"]
+ },
+    "xatu": {
+        "level": 86,
+        "moves": ["roost", "uturn", "thunderwave"],
+	"essentialMoves": ["psychic", "heatwave"]
+ },
+    "ampharos": {
+        "level": 86,
+        "moves": ["firepunch", "trailblaze"],
+	"essentialMoves": ["thunderbolt", "thunderwave", "healbell"]
+},
+    "bellossom": {
+        "level": 86,
+        "moves": ["quiverdance", "strengthsap", "petalblizzard", "tripleaxel"]
+},
+    "azumarill": {
+        "level": 94,
+        "moves": ["grassknot", "aquajet", "trailblaze"],
+	"exclusiveMoves": ["surf", "hydropump"],
+	"essentialMoves": ["blizzard", "amnesia"]
+},
+    "sudowoodo": {
+        "level": 86,
+        "moves": ["stoneedge", "earthquake", "explosion", "curse"]
+},
+    "politoed": {
+        "level": 86,
+        "moves": ["surf", "bubblebeam", "psychic"],
+	"essentialMoves": ["hydropump", "blizzard", "amnesia"]
+},
+    "jumpluff": {
+        "level": 90,
+        "moves": ["acrobatics", "leafstorm", "uturn", "strengthsap"]
+},
+    "sunflora": {
+        "level": 94,
+        "moves": ["leafstorm", "earthpower", "sludgebomb", "synthesis"]
+},
+    "quagsire": {
+        "level": 84,
+        "moves": ["hydropump", "surf"],
+	"essentialMoves": ["recover", "blizzard", "amnesia"]
+},
+    "espeon": {
+         "level": 84,
+         "moves": ["psychic", "thunderwave", "healbell", "morningsun"]
+},
+    "umbreon": {
+	"level": 86,
+	"moves": ["foulplay", "thunderwave", "healbell", "moonlight"]
+},
+    "slowking": {
+	"level": 82,
+	"essentialMoves": ["amnesia", "thunderwave", "slackoff"],
+	"exclusiveMoves": ["surf", "storedpower"]
+},
+    "slowkinggalar": {
+	"level": 84,
+	"essentialMoves": ["amnesia", "thunderwave", "slackoff", "storedpower"]
+},
+    "forretress": {
+	"level": 86,
+	"essentialMoves": ["voltswitch", "steelbeam", "thunderwave"],
+	"exclusiveMoves": ["earthquake", "drillrun", "painsplit"]
+},
+    "steelix": {
+	"level": 84,
+	"essentialMoves": ["earthquake", "steelbeam", "explosion", "dragondance"]
+},
+    "granbull": {
+	"level": 88,
+	"essentialMoves": ["thunderwave", "closecombat", "hyperbeam"],
+	"exclusiveMoves": ["stoneedge", "bulkup"]
+},
+    "qwilfish": {
+	"level": 90,
+	"essentialMoves": ["thunderwave", "sludgewave", "explosion"],
+	"exclusiveMoves": ["flipturn", "blizzard"]
+},
+    "scizor": {
+	"level": 84,
+	"essentialMoves": ["uturn", "steelbeam", "closecombat"],
+	"exclusiveMoves": ["agility", "roost"]
+},
+    "shuckle": {
+	"level": 100,
+	"essentialMoves": ["curse", "rest", "rockslide", "earthquake"]
+},
+    "heracross": {
+	"level": 84,
+	"essentialMoves": ["closecombat", "megahorn", "stoneedge", "trailblaze"]
+},
+    "magcargo": {
+	"level": 90,
+	"essentialMoves": ["shellsmash", "fireblast", "explosion"],
+	"exclusiveMoves": ["earthquake", "amnesia"]
+},
+    "corsola": {
+	"level": 90,
+	"essentialMoves": ["amnesia", "recover", "blizzard", "surf"]
+},
+    "corsolagalar": {
+	"level": 88,
+	"essentialMoves": ["amnesia", "strengthsap", "blizzard", "surf"]
+},
+    "octillery": {
+	"level": 86,
+	"essentialMoves": ["thunderwave", "blizzard", "energyball"],
+	"exclusiveMoves": ["surf", "hydropump"]
+},
+    "delibird": {
+	"level": 96,
+	"essentialMoves": ["blizzard", "agility", "destiny bond"],
+	"exclusiveMoves": ["acrobatics", "drillrun"]
+},
+    "mantine": {
+	"level": 86,
+	"essentialMoves": ["amnesia", "blizzard", "roost"],
+	"exclusiveMoves": ["surf", "hydropump"]
+},
+    "skarmory": {
+	"level": 82,
+	"essentialMoves": ["drillrun", "agility", "roost"],
+	"exclusiveMoves": ["bravebird", "steelbeam"]
+},
+    "houndoom":{
+	"level": 86,
+	"essentialMoves": ["fireblast", "darkpulse", "flamecharge", "nastyplot"]
+},
+    "kingdra": {
+	"level": 86,
+	"moves": ["wavecrash", "hydropump"],
+	"essentialMoves": ["dracometeor", "flipturn", "agility"]
+},
+    "donphan": {
+	"level": 86,
+	"essentialMoves": ["earthquake", "stoneedge", "rockpolish"],
+	"exclusiveMoves": ["smack down", "headsmash"]
+},
+    "porygon2": {
+	"level": 84,
+	"essentialMoves": ["thunder wave", "blizzard", "recover"],
+	"exclusiveMoves": ["charge beam", "hyper beam", "thunderbolt"]
+},
+    "smeargle": {
+	"level": 90,
+	"moves": ["meteorassault", "mindblown", "lastrespects"],
+	"essentialMoves": ["shellsmash", "populationbomb"],
+	"comboMoves": ["victorydance", "strengthsap", "populationbomb", "steelbeam"]
+},
+    "hitmontop": {
+	"level": 88,
+	"essentialMoves": ["agility", "closecombat", "stoneedge", "drillrun"]
+},
+    "miltank": {
+	"level": 86,
+	"essentialMoves": ["thunderwave", "healbell", "milkdrink", "seismictoss"]
+},
+    "blissey": {
+	"level": 84,
+	"moves": ["seismictoss", "icebeam"],
+	"essentialMoves": ["thunderwave", "healbell", "softboiled"]
+},
+    "raikou": {
+	"level": 82,
+	"moves": ["voltswitch", "trailblaze", "scald", "thunderwave"]
+},
+    "entei": {
+	"level": 82,
+	"moves": ["sacredfire", "stoneedge", "protect", "extremespeed"]
+},
+    "suicine": {
+	"level": 86,
+	"essentialMoves": ["calm mind", "blizzard", "trailblaze"],
+	"exclusiveMoves": ["surf", "hydropump"]
+},
+    "tyranitar": {
+	"level": 82,
+	"essentialMoves": ["rockpolish", "stoneedge", "blizzard", "fireblast"]
+},
+    "ho-oh": {
+	"level": 76,
+	"essentialMoves": ["thunderwave", "recover", "bravebird", "fireblast"]
+},
+    "lugia": {
+	"level": 76,
+	"essentialMoves": ["thunderwave", "recover", "blizzard"],
+	"exclusiveMoves": ["acrobatics", "psychoboost"]
+},
+    "celebi": {
+	"level": 80,
+	"essentialMoves": ["thunderwave", "recover", "leafblade"],
+	"exclusiveMoves": ["healbell", "uturn"]
+},
+    "sceptile": {
+        "level": 82,
+        "moves": ["rockslide", "dragonpulse", "thunderpunch", "acrobatics"],
+	"exclusiveMoves": ["leafblade", "leafstorm"],
+	"essentialMoves": ["shedtail"]
+},
+    "blaziken": {
+        "level": 84,
+        "moves": ["blazekick", "closecombat", "stoneedge", "agility"]
+},
+    "swampert": {
+        "level": 82,
+        "moves": ["earthquake", "stoneedge", "blizzard", "hydropump"],
+	"essentialMoves": ["flipturn"]
+},
+    "mightyena": {
+        "level": 94,
+        "moves": ["crunch", "playrough", "bodyslam"],
+	"essentialMoves": ["superfang", "healbell"]
+},
+    "linoone": {
+        "level": 86,
+        "moves": ["gunkshot", "shadowball", "playrough"],
+	"essentialMoves": ["bellydrum", "extremespeed", "stompingtantrum"]
+},
+    "beautifly": {
+        "level": 96,
+        "moves": ["quiverdance", "psychic", "energyball", "roost"]
+},
+    "dustox": {
+        "level": 98,
+        "moves": ["quiverdance", "psychic", "energyball", "roost"]
+},
+    "ludicolo": {
+        "level": 84,
+        "moves": ["blizzard", "razorleaf", "synthesis"],
+	"exclusiveMoves": ["hydropump", "surf"]
+},
+    "shiftry": {
+        "level": 88,
+        "moves": ["heatwave", "nastyplot"],
+	"exclusiveMoves": ["suckerpunch", "darkpulse"],
+	"essentialMoves": ["leafstorm"],
+	"comboMoves": ["heatwave", "explosion"]
+},
+    "swellow": {
+        "level": 82,
+        "moves": ["heatwave", "uturn", "counter"],
+	"essentialMoves": ["boomburst", "bravebird"]
+},
+    "pelipper": {
+        "level": 92,
+        "moves": ["agility", "uturn"],
+	"essentialMoves": ["blizzard", "roost"],
+	"exclusiveMoves": ["hydropump", "surf"]
+},
+    "gardevoir": {
+        "level": 86,
+        "moves": ["healbell", "destinybond", "firepunch"],
+	"essentialMoves": ["psychic", "thunderwave"]
+},
+    "masquerain": {
+        "level": 90,
+        "moves": ["quiverdance", "blizzard", "hydropump", "roost"]
+},
+    "breloom": {
+        "level": 86,
+        "moves": ["closecombat", "gunkshot", "stoneedge", "leafstorm"]
+},
+    "slaking": {
+        "level": 74,
+        "moves": ["bodyslam", "bulkup"],
+	"essentialMoves": ["earthquake", "slackoff"],
+	"comboMoves": ["thunderwave", "slash"]
+},
+    "ninjask": {
+        "level": 80,
+	"essentialMoves": ["acrobatics", "uturn", "finalgambit", "swordsdance"]
+},
+    "exploud": {
+        "level": 88,
+	"essentialMoves": ["boomburst", "fireblast", "blizzard", "bodyslam"]
+},
+    "hariyama": {
+        "level": 86,
+        "moves": ["closecombat", "earthquake", "heavyslam", "stoneedge"]
+},
+    "delcatty": {
+        "level": 90,
+        "moves": ["return", "blizzard", "thunderwave", "healbell"]
+},
+    "sableye": {
+        "level": 94,
+        "moves": ["shadowclaw", "nightshade", "thunderwave", "recover"]
+},
+    "mawile": {
+        "level": 90,
+        "moves": ["steelbeam", "fireblast", "stoneedge"],
+        "exclusiveMoves": ["batonpass", "metalburst"]
+},
+    "aggron": {
+        "level": 84,
+        "moves": ["steelbeam", "stoneedge", "rockpolish"],
+        "exclusiveMoves": ["magnetrise", "earthquake"]
+},
+    "medicham": {
+        "level": 92,
+        "moves": ["closecombat", "psychocut", "signalbeam", "recover"]
+},
+    "manectric": {
+        "level": 86,
+        "moves": ["voltswitch", "overheat", "icefang", "thunderwave"]
+},
+    "plusle": {
+        "level": 92,
+        "moves": ["voltswitch", "grassknot", "superfang", "thunderwave"]
+},
+    "minun": {
+        "level": 94,
+        "moves": ["voltswitch", "grassknot", "superfang", "thunderwave"]
+},
+    "volbeat": {
+        "level": 96,
+        "moves": ["uturn", "thunderwave", "roost", "seismictoss"]
+},
+    "illumise": {
+        "level": 96,
+        "moves": ["uturn", "roost", "seismictoss"],
+        "essentialMoves": ["thunderwave", "aromatherapy"]
+},
+    "swalot": {
+        "level": 88,
+        "moves": ["thunderwave", "explosion", "swordsdance"],
+        "essentialMoves": ["sludgewave", "earthquake"],
+        "comboMoves": ["amnesia", "icebeam", "firepunch", "painsplit"]
+},
+    "sharpedo": {
+        "level": 88,
+        "moves": ["flipturn", "destinybond", "superfang"],
+        "essentialMoves": ["blizzard"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "wailord": {
+        "level": 90,
+        "moves": ["amnesia", "blizzard", "rest"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "camerupt": {
+        "level": 90,
+        "moves": ["earthquake", "fireblast", "stoneedge", "explosion"]
+},
+    "torkoal": {
+        "level": 86,
+        "moves": ["shellsmash", "fireblast", "explosion"],
+        "exclusiveMoves": ["earthquake", "stoneedge"]
+},
+    "grumpig": {
+        "level": 88,
+        "moves": ["psychic", "firepunch", "thunderwave", "healbell"]
+},
+    "spinda": {
+        "level": 100,
+        "moves": ["bodyslam", "superpower", "psychocut", "psychoshift"]
+},
+    "flygon": {
+        "level": 84,
+        "moves": ["stoneedge", "fireblast", "firstimpression", "uturn"],
+        "essentialMoves": ["earthquake", "dracometeor"]
+},
+    "cacturne": {
+        "level": 88,
+        "moves": ["superpower", "nastyplot", "destinybond"],
+        "essentialMoves": ["leafstorm", "suckerpunch"]
+},
+    "altaria": {
+        "level": 86,
+        "moves": ["roost", "acrobatics", "healbell"],
+        "essentialMoves": ["dracometeor", "fireblast"]
+},
+    "zangoose": {
+        "level": 86,
+        "essentialMoves": ["slash", "closecombat", "shadowclaw", "thunderwave"]
+},
+    "seviper": {
+        "level": 92,
+        "moves": ["gunkshot", "earthquake", "coil", "trailblaze"]
+},
+    "lunatone": {
+        "level": 92,
+        "moves": ["stoneedge", "psychic", "blizzard", "explosion"]
+},
+    "solrock": {
+        "level": 88,
+        "moves": ["stoneedge", "earthquake", "explosion", "rockpolish"]
+},
+    "whiscash": {
+        "level": 86,
+        "moves": ["blizzard", "amnesia", "earthquake"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "crawdaunt": {
+        "level": 88,
+        "moves": ["suckerpunch", "nightslash", "superpower"],
+        "essentialMoves": ["crabhammer", "blizzard"]
+},
+    "claydol": {
+        "level": 84,
+        "moves": ["drillrun", "psychic", "stoneedge", "explosion"]
+},
+    "cradily": {
+        "level": 88,
+        "moves": ["stoneedge", "powerwhip", "earthquake", "recover"]
+},
+    "armaldo": {
+        "level": 88,
+        "moves": ["liquidation", "xscissor", "rockpolish"],
+        "essentialMoves": ["stoneedge", "superpower"]
+},
+    "milotic": {
+        "level": 82,
+        "moves": ["blizzard", "flipturn"],
+        "essentialMoves": ["recover"],
+        "exclusiveMoves": ["hydropump", "surf"],
+        "comboMoves": ["dragondance", "coil", "irontail", "recover"]
+},
+    "castform": {
+        "level": 98,
+        "moves": ["blizzard", "fireblast", "thunderbolt", "thunderwave"],
+        "exclusiveMoves": ["return", "bodyslam"]
+},
+    "kecleon": {
+        "level": 88,
+        "moves": ["fireblast", "shadowclaw"],
+        "essentialMoves": ["recover", "thunderwave"],
+        "exclusiveMoves": ["return", "bodyslam"]
+},
+    "banette": {
+        "level": 90,
+        "moves": ["gunkshot", "shadowclaw", "destinybond", "thunderwave"]
+},
+    "tropius": {
+        "level": 90,
+        "moves": ["dragondance", "hurricane", "earthquake", "roost"]
+},
+    "chimecho": {
+        "level": 88,
+        "moves": ["psychic", "grassknot", "healbell", "thunderwave"]
+},
+    "absol": {
+        "level": 90,
+        "moves": ["superpower", "fireblast", "blizzard", "thunderwave"],
+        "exclusiveMoves": ["darkpulse", "suckerpunch"]
+},
+    "glalie": {
+        "level": 88,
+        "moves": ["blizzard", "earthquake", "explosion", "superfang"]
+},
+    "walrein": {
+        "level": 88,
+        "moves": ["blizzard", "hydropump", "icywind", "superfang"]
+},
+    "huntail": {
+        "level": 82,
+        "moves": ["blizzard", "hydropump", "shellsmash", "hyperbeam"]
+},
+    "gorebyss": {
+        "level": 74,
+        "moves": ["blizzard", "hydropump", "shellsmash", "amnesia"]
+},
+    "relicanth": {
+        "level": 88,
+        "moves": ["stoneedge", "hydropump", "earthquake", "rockpolish"]
+},
+    "luvdisc": {
+        "level": 100,
+        "moves": ["endeavor", "agility", "aquajet"],
+        "essentialMoves": ["blizzard", "flipturn"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "salamence": {
+        "level": 80,
+        "moves": ["dragondance", "hurricane", "earthquake", "fireblast"]
+},
+    "metagross": {
+        "level": 82,
+        "moves": ["steelbeam", "psychocut", "earthquake", "explosion"]
+},
+    "regirock": {
+        "level": 82,
+        "moves": ["stoneedge", "earthquake", "explosion", "thunderwave"]
+},
+    "regice": {
+        "level": 80,
+        "moves": ["blizzard", "thunderbolt", "amnesia", "rockpolish"]
+},
+    "registeel": {
+        "level": 86,
+        "moves": ["steelbeam", "superpower", "earthquake", "thunderwave"]
+},
+    "latias": {
+        "level": 82,
+        "moves": ["dracometeor", "psychocut", "recover"],
+        "exclusiveMoves": ["thunderwave", "psychoshift", "psychoshift"]
+},
+    "latios": {
+        "level": 80,
+        "moves": ["dracometeor", "psychocut", "flipturn"],
+        "exclusiveMoves": ["thunderwave", "thunderwave", "psychoshift", "recover"]
+},
+    "kyogre": {
+        "level": 74,
+        "moves": ["blizzard", "thunderbolt", "thunderwave"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "groudon": {
+        "level": 74,
+        "moves": ["stoneedge", "thunderwave", "rockpolish"],
+        "exclusiveMoves": ["earthquake", "precipiceblades"]
+},
+    "rayquaza": {
+        "level": 70,
+        "moves": ["dragonascent", "earthquake", "dragondance"],
+        "exclusiveMoves": ["dracometeor", "vcreate"]
+},
+    "jirachi": {
+        "level": 82,
+        "moves": ["steelbeam", "firepunch", "thunderwave", "uturn"],
+        "comboMoves": ["amnesia", "irondefense", "storedpower", "firepunch"]
+},
+    "deoxys": {
+        "level": 74,
+        "moves": ["signalbeam", "thunderwave"],
+        "essentialMoves": ["psychoboost"],
+        "exclusiveMoves": ["superpower", "firepunch"],
+        "comboMoves": ["amnesia", "storedpower", "firepunch"]
+},
+    "deoxysattack": {
+        "level": 72,
+        "moves": ["psychoboost", "superpower", "signalbeam", "thunderwave"]
+},
+    "deoxysdefense": {
+        "level": 80,
+        "moves": ["amnesia", "agility", "storedpower", "recover"]
+},
+    "deoxysspeed": {
+        "level": 72,
+        "moves": ["psychoboost", "superpower", "thunderwave"],
+        "exclusiveMoves": ["signalbeam", "psychoshift"]
+},
+    "torterra": {
+        "level": 80,
+        "moves": ["shellsmash", "headlongrush", "stoneedge", "frenzyplant"]
+},
+    "infernape": {
+        "level": 82,
+        "moves": ["blazekick", "closecombat", "stoneedge", "uturn"]
+},
+    "empoleon": {
+        "level": 80,
+        "moves": ["hydropump", "blizzard", "flipturn", "roost"],
+        "essentialMoves": ["flipturn", "roost"],
+        "comboMoves": ["swordsdance", "steelbeam"]
+},
+    "staraptor": {
+        "level": 84,
+        "moves": ["acrobatics", "closecombat", "uturn"],
+        "exclusiveMoves": ["hyperbeam", "return"]
+},
+    "bibarel": {
+        "level": 92,
+        "moves": ["return", "hydropump", "superfang", "thunderwave"]
+},
+    "kricketune": {
+        "level": 98,
+        "moves": ["brickbreak", "batonpass", "healbell"],
+        "exclusiveMoves": ["lunge", "bugbuzz"]
+},
+    "luxray": {
+        "level": 90,
+        "moves": ["voltswitch", "superpower", "thunderwave"],
+        "exclusiveMoves": ["icefang", "trailblaze"]
+},
+    "roserade": {
+        "level": 88,
+        "moves": ["aromatherapy", "stunspore", "extrasensory"],
+        "exclusiveMoves": ["leafstorm", "powerwhip"]
+},
+    "rampardos": {
+        "level": 82,
+        "moves": ["stoneedge", "fireblast", "blizzard", "rockpolish"]
+},
+    "bastiodon": {
+        "level": 90,
+        "moves": ["steelbeam", "bodypress", "bodyslam", "metalburst"]
+},
+    "wormadam": {
+        "level": 94,
+        "moves": ["quiverdance", "leafstorm", "psychic", "synthesis"]
+},
+    "wormadamsandy": {
+        "level": 98,
+        "moves": ["earthquake", "rockblast", "bugbuzz", "endeavor"]
+},
+    "wormadamtrash": {
+        "level": 96,
+        "moves": ["ironhead", "gunkshot", "bugbuzz", "metalburst"]
+},
+    "mothim": {
+        "level": 98,
+        "moves": ["acrobatics", "uturn", "psychic", "roost"]
+},
+    "vespiquen": {
+        "level": 86,
+        "moves": ["acrobatics", "attackorder", "roost"],
+        "exclusiveMoves": ["aromatherapy", "uturn"]
+},
+    "pachirisu": {
+        "level": 88,
+        "moves": ["voltswitch", "thunderwave", "superfang"],
+        "exclusiveMoves": ["grassknot", "seedbomb"]
+},
+    "floatzel": {
+        "level": 86,
+        "moves": ["blizzard", "flipturn", "hyperbeam"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "cherrim": {
+        "level": 96,
+        "moves": ["petalblizzard", "pollenpuff", "synthesis", "aromatherapy"]
+},
+    "gastrodon": {
+        "level": 80,
+        "moves": ["blizzard", "substitute", "bodyslam"],
+        "essentialMoves": ["surf", "recover", "amnesia"]
+},
+    "ambipom": {
+        "level": 86,
+        "moves": ["return", "shadowclaw", "uturn", "thunderwave"]
+},
+    "drifblim": {
+        "level": 84,
+        "moves": ["acrobatics", "temperflare", "strengthsap", "thunderwave"]
+},
+    "lopunny": {
+        "level": 86,
+        "moves": ["thunderwave", "uturn", "healbell"],
+        "essentialMoves": ["closecombat", "return"]
+},
+    "mismagius": {
+        "level": 88,
+        "moves": ["thunderwave", "healbell", "destinybond", "nightshade"]
+},
+    "honchkrow": {
+        "level": 84,
+        "moves": ["thunderwave", "uturn", "heatwave"],
+        "exclusiveMoves": ["nightslash", "acrobatics"]
+},
+    "purugly": {
+        "level": 86,
+        "moves": ["bodyslam", "hyperbeam", "uturn", "superfang"]
+},
+    "skuntank": {
+        "level": 86,
+        "moves": ["sludgewave", "fireblast", "suckerpunch", "explosion"]
+},
+    "bronzong": {
+        "level": 84,
+        "moves": ["psychic", "earthquake", "bodyslam", "explosion"],
+        "essentialMoves": ["steelbeam"]
+},
+    "chatot": {
+        "level": 90,
+        "moves": ["boomburst", "aircutter", "heatwave", "uturn"]
+},
+    "spiritomb": {
+        "level": 88,
+        "moves": ["bodyslam", "nightshade", "destinybond", "suckerpunch"]
+},
+    "garchomp": {
+        "level": 80,
+        "moves": ["earthquake", "stoneedge", "fireblast", "dracometeor"]
+},
+    "lucario": {
+        "level": 84,
+        "moves": ["swordsdance", "steelbeam", "closecombat", "extremespeed"]
+},
+    "hippowdon": {
+        "level": 82,
+        "moves": ["earthquake", "stoneedge", "bodyslam", "slackoff"]
+},
+    "drapion": {
+        "level": 88,
+        "moves": ["sludgebomb", "earthquake", "nightslash", "aquatail"]
+},
+    "toxicroak": {
+        "level": 86,
+        "moves": ["superfang", "bulletpunch", "swordsdance", "batonpass"],
+        "essentialMoves": ["sludgewave", "closecombat"]
+},
+    "carnivine": {
+        "level": 88,
+        "moves": ["powerwhip", "synthesis", "stunspore"],
+        "exclusiveMoves": ["sludgebomb", "acidspray"]
+},
+    "lumineon": {
+        "level": 90,
+        "moves": ["blizzard", "flipturn", "uturn"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "abomasnow": {
+        "level": 90,
+        "moves": ["blizzard", "leafstorm", "earthquake", "synthesis"]
+},
+    "weavile": {
+        "level": 84,
+        "moves": ["swordsdance", "reversal", "hyperbeam", "endure"]
+},
+    "magnezone": {
+        "level": 86,
+        "moves": ["steelbeam", "voltswitch", "thunderwave", "explosion"]
+},
+    "lickilicky": {
+        "level": 82,
+        "moves": ["earthquake", "fireblast"],
+        "essentialMoves": ["explosion", "healbell"],
+        "exclusiveMoves": ["bodyslam", "hyperbeam"],
+        "comboMoves": ["swordsdance", "explosion", "hyperbeam", "earthquake"]
+},
+    "rhyperior": {
+        "level": 82,
+        "moves": ["bodyslam", "hyperbeam"],
+        "essentialMoves": ["stoneedge", "rockpolish"],
+        "exclusiveMoves": ["earthquake", "drillrun"]
+},
+    "tangrowth": {
+        "level": 84,
+        "moves": ["amnesia", "powerwhip", "stunspore", "synthesis"]
+},
+    "electivire": {
+        "level": 86,
+        "moves": ["voltswitch", "flamethrower", "icepunch", "thunderwave"]
+},
+    "magmortar": {
+        "level": 86,
+        "moves": ["acidspray", "bodyslam", "taunt"],
+        "essentialMoves": ["fireblast", "thunderbolt"]
+},
+    "togekiss": {
+        "level": 84,
+        "moves": ["psychic", "healbell", "thunderwave"],
+        "essentialMoves": ["roost", "fireblast"],
+        "exclusiveMoves": ["healbell", "healbell", "thunderwave", "thunderwave", "psychoshift"],
+        "comboMoves": ["amnesia", "storedpower"]
+},
+    "yanmega": {
+        "level": 90,
+        "moves": ["aircutter", "uturn", "psychic", "roost"]
+},
+    "leafeon": {
+        "level": 86,
+        "moves": ["leafblade", "bodyslam", "healbell", "synthesis"]
+},
+    "glaceon": {
+        "level": 86,
+        "moves": ["blizzard", "trailblaze", "mirrorcoat", "healbell"]
+},
+    "gliscor": {
+        "level": 80,
+        "moves": ["earthquake", "stoneedge", "roost", "uturn"]
+},
+    "mamoswine": {
+        "level": 84,
+        "moves": ["trailblaze", "iceshard"],
+        "essentialMoves": ["earthquake", "stoneedge", "blizzard"]
+},
+    "porygonz": {
+        "level": 86,
+        "moves": ["blizzard", "thunderbolt", "hyperbeam", "thunderwave"]
+},
+    "gallade": {
+        "level": 86,
+        "moves": ["closecombat", "stoneedge", "destinybond", "thunderwave"]
+},
+    "probopass": {
+        "level": 88,
+        "moves": ["earthquake", "explosion", "thunderwave"],
+        "exclusiveMoves": ["steelbeam", "stoneedge"]
+},
+    "dusknoir": {
+        "level": 90,
+        "moves": ["shadowball", "focusblast", "bodyslam", "destinybond"]
+},
+    "froslass": {
+        "level": 82,
+        "moves": ["blizzard", "thunderwave", "destinybond"],
+        "exclusiveMoves": ["willowisp", "taunt"]
+},
+    "rotom": {
+        "level": 90,
+        "moves": ["voltswitch", "nightshade", "thunderwave", "willowisp"]
+},
+    "rotomfan": {
+        "level": 86,
+        "moves": ["voltswitch", "nightshade", "thunderwave", "willowisp"]
+},
+    "rotomfrost": {
+        "level": 84,
+        "moves": ["voltswitch", "blizzard", "thunderwave", "willowisp"]
+},
+    "rotomheat": {
+        "level": 84,
+        "moves": ["voltswitch", "overheat", "thunderwave", "willowisp"]
+},
+    "rotommow": {
+        "level": 84,
+        "moves": ["voltswitch", "leafstorm", "thunderwave", "willowisp"]
+},
+    "rotomwash": {
+        "level": 84,
+        "moves": ["voltswitch", "hydropump", "thunderwave", "willowisp"]
+},
+    "uxie": {
+        "level": 84,
+        "moves": ["psychocut", "healbell", "uturn", "thunderwave"],
+        "comboMoves": ["storedpower", "firepunch", "thunderwave", "amnesia"]
+},
+    "mesprit": {
+        "level": 86,
+        "moves": ["psychocut", "blizzard", "uturn", "thunderwave"]
+},
+    "azelf": {
+        "level": 80,
+        "moves": ["psychocut", "fireblast", "uturn"],
+        "exclusiveMoves": ["explosion", "thunderwave"]
+},
+    "dialga": {
+        "level": 74,
+        "moves": ["dracometeor", "fireblast", "steelbeam", "thunderwave"]
+},
+    "palkia": {
+        "level": 70,
+        "moves": ["spacialrend", "fireblast", "hydropump", "thunderwave"]
+},
+    "heatran": {
+        "level": 82,
+        "moves": ["stoneedge", "flamecharge", "explosion"],
+        "essentialMoves": ["fireblast", "steelbeam"]
+},
+    "regigigas": {
+        "level": 76,
+        "moves": ["earthquake", "stoneedge", "thunderwave"],
+        "exclusiveMoves": ["bodyslam", "return", "hyperbeam"]
+},
+    "giratina": {
+        "level": 80,
+        "moves": ["earthquake", "thunderwave"],
+        "essentialMoves": ["dracometeor"],
+        "exclusiveMoves": ["stoneedge", "stoneedge", "willowisp", "shadowclaw"],
+        "comboMoves": ["thunderbolt", "calmmind", "rest", "dracometeor"]
+},
+    "cresselia": {
+        "level": 82,
+        "moves": ["storedpower", "calmmind", "psychoshift", "moonlight"]
+},
+    "phione": {
+        "level": 88,
+        "moves": ["energyball", "healbell"],
+        "essentialMoves": ["takeheart", "blizzard"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "manaphy": {
+        "level": 82,
+        "moves": ["energyball", "healbell"],
+        "essentialMoves": ["takeheart", "blizzard"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "darkrai": {
+        "level": 76,
+        "moves": ["spacialrend", "blizzard", "thunderwave"],
+        "exclusiveMoves": ["focusblast", "sludgebomb", "suckerpunch"]
+},
+    "shaymin": {
+        "level": 84,
+        "moves": ["seedflare", "synthesis", "aromatherapy"],
+        "exclusiveMoves": ["earthpower", "dazzlinggleam"]
+},
+    "shayminsky": {
+        "level": 84,
+        "moves": ["earthpower", "synthesis", "aromatherapy"],
+        "essentialMoves": ["seedflare"],
+        "exclusiveMoves": ["earthpower", "dazzlinggleam"]
+},
+    "arceus": {
+        "level": 70,
+        "essentialMoves": ["spacialrend", "recover", "thunderwave"],
+        "exclusiveMoves": ["fireblast", "earthquake", "stoneedge"],
+        "comboMoves": ["swordsdance", "extremespeed", "earthquake", "recover"]
+},
+    "victini": {
+        "level": 80,
+        "moves": ["blazekick", "uturn", "thunderwave"],
+        "exclusiveMoves": ["glaciate", "boltstrike", "finalgambit"]
+},
+    "serperior": {
+        "level": 86,
+        "moves": ["synthesis", "aromatherapy", "dragonpulse", "aquatail"],
+        "essentialMoves": ["leafblade", "glare"]
+},
+    "emboar": {
+        "level": 86,
+        "moves": ["closecombat", "fireblast", "stoneedge"],
+        "exclusiveMoves": ["trailblaze", "flamecharge"]
+},
+    "samurott": {
+        "level": 84,
+        "moves": ["aquacutter", "blizzard", "drillrun", "flipturn"]
+},
+    "samurotthisui": {
+        "level": 82,
+        "moves": ["aquacutter", "blizzard", "flipturn"],
+	"exclusiveMoves": ["nightslash", "suckerpunch"]
+},
+    "watchog": {
+        "level": 88,
+        "moves": ["return", "stompingtantrum", "superfang", "thunderwave"]
+},
+    "stoutland": {
+        "level": 86,
+        "moves": ["return", "superpower", "shadowball", "thunderwave"]
+},
+    "liepard": {
+        "level": 90,
+        "moves": ["psychocut", "gunkshot", "uturn", "thunderwave"]
+},
+    "simisage": {
+        "level": 90,
+        "moves": ["leafstorm", "superpower", "gunkshot", "synthesis"]
+},
+    "simisear": {
+        "level": 90,
+        "moves": ["fireblast", "superpower", "grassknot", "flamecharge"]
+},
+    "simipour": {
+        "level": 90,
+        "moves": ["blizzard", "grassknot", "nastyplot"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "musharna": {
+        "level": 84,
+        "moves": ["amnesia", "storedpower", "moonlight", "thunderwave"]
+},
+    "unfezant": {
+        "level": 88,
+        "moves": ["bravebird", "hyperbeam", "heatwave", "uturn"]
+},
+    "zebstrika": {
+        "level": 88,
+        "moves": ["voltswitch", "thunderwave", "overheat", "trailblaze"]
+},
+    "gigalith": {
+        "level": 88,
+        "moves": ["superpower", "earthquake"],
+        "essentialMoves": ["stoneedge", "explosion"],
+        "comboMoves": ["bodypress", "irondefense"]
+},
+    "swoobat": {
+        "level": 86,
+        "moves": ["roost", "thunderwave"],
+        "essentialMoves": ["amnesia", "storedpower", "heatwave"]
+},
+    "excadrill": {
+        "level": 82,
+        "moves": ["swordsdance", "substitute"],
+        "essentialMoves": ["drillrun", "steelbeam", "rockslide"]
+},
+    "audino": {
+        "level": 86,
+        "moves": ["amnesia", "fireblast", "blizzard", "thunderwave"]
+},
+    "conkeldurr": {
+        "level": 86,
+        "moves": ["closecombat", "earthquake", "stoneedge", "machpunch"]
+},
+    "seismitoad": {
+        "level": 86,
+        "moves": ["earthquake", "icepunch", "powerwhip"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "throh": {
+        "level": 86,
+        "moves": ["closecombat", "earthquake", "stoneedge"],
+        "exclusiveMoves": ["painsplit", "bodyslam"]
+},
+    "sawk": {
+        "level": 86,
+        "moves": ["closecombat", "earthquake", "stoneedge", "bulkup"]
+},
+    "leavanny": {
+        "level": 88,
+        "moves": ["leafblade", "healbell", "synthesis"],
+        "exclusiveMoves": ["lunge", "bugbuzz"]
+},
+    "scolipede": {
+        "level": 86,
+        "moves": ["megahorn", "sludgebomb", "swordsdance"],
+        "exclusiveMoves": ["superpower", "earthquake"]
+},
+    "whimsicott": {
+        "level": 86,
+        "moves": ["razorleaf", "stunspore", "uturn", "synthesis"]
+},
+    "lilligant": {
+        "level": 88,
+        "moves": ["leafblade", "synthesis"],
+        "essentialMoves": ["stunspore", "aromatherapy"],
+        "comboMoves": ["energyball", "quiverdance", "synthesis"]
+},
+    "lilliganthisui": {
+        "level": 84,
+        "moves": ["victorydance", "closecombat", "acrobatics", "synthesis"]
+},
+    "basculin": {
+        "level": 88,
+        "moves": ["blizzard", "flipturn", "superpower"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "krookodile": {
+        "level": 88,
+        "moves": ["earthquake", "stoneedge", "honeclaws", "focusblast"]
+},
+    "darmanitan": {
+        "level": 86,
+        "moves": ["earthquake", "stoneedge", "uturn"],
+	"exclusiveMoves": ["flamecharge", "superpower"]
+},
+    "darmanitangalar": {
+        "level": 86,
+        "moves": ["earthquake", "stoneedge", "uturn", "superpower"]
+},
+    "maractus": {
+        "level": 88,
+        "moves": ["leafstorm", "drainpunch", "acupressure", "synthesis"]
+},
+    "crustle": {
+        "level": 84,
+        "moves": ["shellsmash", "rockwrecker", "earthquake", "xscissor"]
+},
+    "scrafty": {
+        "level": 86,
+        "moves": ["dragondance", "closecombat", "stoneedge", "superfang"]
+},
+    "sigilyph": {
+        "level": 86,
+        "moves": ["psychocut", "heatwave", "roost", "thunderwave"]
+},
+    "cofagrigus": {
+        "level": 88,
+        "moves": ["bodypress", "irondefense", "painsplit"],
+	"exclusiveMoves": ["shadowclaw", "nightshade"]
+},
+    "carracosta": {
+        "level": 86,
+        "moves": ["shellsmash", "stoneedge", "hydropump", "blizzard"]
+},
+    "archeops": {
+        "level": 80,
+        "moves": ["stoneedge", "acrobatics", "uturn"],
+	"exclusiveMoves": ["earthquake", "heatwave"]
+},
+    "garbodor": {
+        "level": 90,
+        "moves": ["sludgewave", "stompingtantrum", "explosion", "painsplit"]
+},
+    "zoroark": {
+        "level": 88,
+	"moves": ["darkpulse", "suckerpunch", "nastyplot", "uturn"],
+        "essentialMoves": ["flamethrower"]
+},
+    "zoroarkhisui": {
+        "level": 84,
+	"moves": ["swordsdance", "bittermalice", "hyperbeam", "focusblast"]
+},
+    "cinccino": {
+        "level": 88,
+        "moves": ["return", "superfang", "thunderwave", "uturn"]
+},
+    "gothitelle": {
+        "level": 88,
+        "moves": ["psychic", "thunderbolt", "thunderwave", "healbell"]
+},
+    "reuniclus": {
+        "level": 82,
+        "moves": ["storedpower", "recover", "calmmind"],
+	"exclusiveMoves": ["irondefense", "thunderwave"]
+},
+    "swanna": {
+        "level": 88,
+        "moves": ["hydropump", "blizzard", "flipturn", "acrobatics"]
+},
+    "vanilluxe": {
+        "level": 86,
+        "moves": ["blizzard", "iceshard", "explosion"],
+	"exclusiveMoves": ["magiccoat", "substitute"]
+},
+    "sawsbuck": {
+        "level": 88,
+        "moves": ["thunderwave", "aromatherapy", "synthesis"],
+	"essentialMoves": ["highhorsepower"],
+	"exclusiveMoves": ["return", "bodyslam"]
+},
+    "emolga": {
+        "level": 88,
+        "moves": ["acrobatics", "energyball", "thunderwave"],
+	"exclusiveMoves": ["voltswitch", "uturn"]
+},
+    "escavalier": {
+        "level": 86,
+        "moves": ["megahorn", "steelbeam", "closecombat", "drillrun"]
+},
+    "amoonguss": {
+        "level": 92,
+        "moves": ["stunspore", "synthesis", "stompingtantrum", "energyball"]
+},
+    "jellicent": {
+        "level": 86,
+        "moves": ["blizzard", "strengthsap", "destinybond"],
+	"exclusiveMoves": ["hydropump", "surf"]
+},
+    "alolamola": {
+        "level": 94,
+        "moves": ["blizzard", "flipturn", "refresh"],
+	"exclusiveMoves": ["hydropump", "surf"]
+},
+    "galvantula": {
+        "level": 90,
+        "moves": ["voltswitch", "energyball", "thunderwave"],
+	"exclusiveMoves": ["bugbuzz", "lunge"]
+},
+    "ferrothorn": {
+        "level": 84,
+        "moves": ["steelbeam", "swordsdance", "explosion", "thunderwave"]
+},
+    "klinklang": {
+        "level": 86,
+        "moves": ["steelbeam", "shiftgear", "thunderwave"],
+        "exclusiveMoves": ["voltswitch", "magnetrise"]
+},
+    "eelektross": {
+        "level": 86,
+        "moves": ["voltswitch", "thunderwave", "liquidation", "flamethrower"]
+},
+    "beheeyem": {
+        "level": 88,
+        "moves": ["psychic", "thunderbolt", "thunderwave", "destinybond"]
+},
+    "chandelure": {
+        "level": 86,
+        "moves": ["fireblast", "energyball", "trailblaze", "painsplit"]
+},
+    "haxorus": {
+        "level": 84,
+        "moves": ["swordsdance", "earthquake", "closecombat", "firstimpression"],
+        "comboMoves": ["dragondance", "reversal", "earthquake", "endure"]
+},
+    "beartic": {
+        "level": 90,
+        "moves": ["blizzard", "closecombat", "earthquake", "trailblaze"]
+},
+    "cryogonal": {
+        "level": 88,
+        "moves": ["explosion", "recover", "reflect"],
+        "exclusiveMoves": ["icebeam", "blizzard"]
+},
+    "accelgor": {
+        "level": 82,
+        "moves": ["uturn", "focusblast", "sludgebomb", "finalgambit"]
+},
+    "stunfisk": {
+        "level": 84,
+        "moves": ["earthquake", "thunderbolt", "painsplit", "thunderwave"]
+},
+    "stunfiskgalar": {
+        "level": 84,
+        "moves": ["earthquake", "steelbeam", "painsplit", "thunderwave"]
+},
+    "mienshao": {
+        "level": 84,
+        "moves": ["closecombat", "stoneedge", "blazekick", "uturn"]
+},
+    "druddigon": {
+        "level": 86,
+        "moves": ["dracometeor", "superpower", "gunkshot", "glare"]
+},
+    "golurk": {
+        "level": 84,
+        "moves": ["earthquake", "closecombat", "stoneedge", "bodyslam"]
+},
+    "bouffalant": {
+        "level": 86,
+        "moves": ["bodyslam", "gigaimpact", "closecombat", "stoneedge"]
+},
+    "braviary": {
+        "level": 86,
+        "moves": ["slash", "acrobatics", "closecombat", "uturn"]
+},
+    "braviaryhisui": {
+        "level": 82,
+        "moves": ["esperwing", "heatwave", "uturn"],
+	"exclusiveMoves": ["roost", "superpower"]
+},
+    "mandibuzz": {
+        "level": 84,
+        "moves": ["acrobatics", "heatwave", "roost", "uturn"]
+},
+    "heatmor": {
+        "level": 88,
+        "moves": ["fireblast", "thunderpunch", "superpower", "bodyslam"]
+},
+    "durant": {
+        "level": 82,
+        "moves": ["steelbeam", "firstimpression", "stoneedge", "thunderwave"]
+},
+    "hydreigon": {
+        "level": 84,
+        "moves": ["dracometeor", "fireblast", "uturn", "thunderwave"]
+},
+    "volcarona": {
+        "level": 82,
+        "moves": ["quiverdance", "fireblast", "wildcharge"],
+        "exclusiveMoves": ["gigadrain", "roost"]
+},
+    "cobalion": {
+        "level": 82,
+        "moves": ["steelbeam", "closecombat", "voltswitch", "thunderwave"]
+},
+    "terrakion": {
+        "level": 82,
+        "moves": ["stoneedge", "closecombat", "substitute", "rockpolish"]
+},
+    "virizion": {
+        "level": 82,
+        "moves": ["stoneedge", "closecombat", "leafblade", "synthesis"]
+},
+    "tornadus": {
+        "level": 84,
+        "moves": ["acrobatics", "superpower", "heatwave", "uturn"]
+},
+    "tornadustherian": {
+        "level": 84,
+        "moves": ["bulkup", "acrobatics", "sludgewave", "focusblast"]
+},
+    "thundurus": {
+        "level": 82,
+        "moves": ["superpower", "uturn", "thunderwave", "thunderwave", "thunderwave"],
+        "essentialMoves": ["voltswitch", "acrobatics", "grassknot"]
+},
+    "thundurustherian": {
+        "level": 84,
+        "moves": ["voltswitch", "acrobatics", "grassknot", "thunderwave"]
+},
+    "reshiram": {
+        "level": 74,
+        "moves": ["dracometeor", "blueflare", "stoneedge", "roost"]
+},
+    "zekrom": {
+        "level": 74,
+        "moves": ["dracometeor", "boltstrike", "roost"],
+        "exclusiveMoves": ["earthpower", "stoneedge"]
+},
+    "landorustherian": {
+        "level": 80,
+        "moves": ["earthquake", "stoneedge", "rockpolish"],
+        "exclusiveMoves": ["explosion", "uturn"]
+},
+    "landorus": {
+        "level": 82,
+        "moves": ["earthquake", "stoneedge", "explosion", "rockpolish"]
+},
+    "kyurem": {
+        "level": 80,
+        "moves": ["dracometeor", "roost"],
+        "essentialMoves": ["blizzard", "stoneedge"],
+        "comboMoves": ["dragondance", "earthpower"]
+},
+    "kyuremblack": {
+        "level": 76,
+        "moves": ["roost"],
+        "essentialMoves": ["blizzard", "stoneedge", "fusionbolt"],
+        "comboMoves": ["dragondance", "earthpower", "blizzard"]
+},
+    "kyuremwhite": {
+        "level": 74,
+        "essentialMoves": ["blizzard", "dracometeor", "fusionflare", "roost"]
+},
+    "keldeo": {
+        "level": 82,
+        "moves": ["hydropump", "surf"],
+        "essentialMoves": ["blizzard", "flipturn", "closecombat"]
+},
+    "meloetta": {
+        "level": 84,
+        "moves": ["healbell", "firepunch"],
+        "essentialMoves": ["psychic", "thunderwave", "uturn"],
+        "comboMoves": ["relicsong", "closecombat", "stoneedge"]
+},
+    "genesect": {
+        "level": 80,
+        "moves": ["shiftgear", "thunderwave"],
+        "essentialMoves": ["steelbeam", "uturn", "blazekick"]
+},
+    "chesnaught": {
+        "level": 84,
+        "moves": ["stoneedge", "synthesis", "superfang"],
+        "exclusiveMoves": ["bodypress", "closecombat"]
+},
+    "delphox": {
+        "level": 86,
+        "moves": ["fireblast", "psychic", "grassknot", "magiccoat"]
+},
+    "greninja": {
+        "level": 82,
+        "moves": ["hydropump", "blizzard", "nightslash", "uturn"]
+},
+    "diggersby": {
+        "level": 92,
+        "moves": ["bodyslam", "earthquake", "superfang", "uturn"]
+},
+    "talonflame": {
+        "level": 84,
+        "moves": ["acrobatics", "fireblast", "roost", "uturn"]
+},
+    "vivillion": {
+        "level": 92,
+        "moves": ["aromatherapy", "stunspore", "roost", "uturn"]
+},
+    "pyroar": {
+        "level": 88,
+        "moves": ["fireblast", "bodyslam", "wildcharge", "willowisp"]
+},
+    "florges": {
+        "level": 86,
+        "moves": ["synthesis", "aromatherapy", "batonpass"],
+        "exclusiveMoves": ["moonblast", "secretpower"]
+},
+    "gogoat": {
+        "level": 86,
+        "moves": ["bodyslam", "milkdrink", "superpower", "leafblade"]
+},
+    "pangoro": {
+        "level": 86,
+        "moves": ["closecombat", "earthquake", "stoneedge", "partingshot"]
+},
+    "furfrou": {
+        "level": 90,
+        "moves": ["return", "surf", "thunderwave", "uturn"]
+},
+    "meowstic": {
+        "level": 86,
+        "moves": ["psychic", "healbell", "thunderwave"],
+        "exclusiveMoves": ["thunderbolt", "batonpass"]
+},
+    "doublade": {
+        "level": 86,
+        "moves": ["shadowclaw", "shadowsneak", "swordsdance", "destinybond"],
+        "essentialMoves": ["steelbeam", "closecombat"]
+},
+    "aegislash": {
+        "level": 90,
+        "moves": ["closecombat", "destinybond"],
+        "essentialMoves": ["swordsdance", "steelbeam"],
+        "comboMoves": ["kingsshield", "toxic"]
+},
+    "aromatisse": {
+        "level": 88,
+        "moves": ["aromatherapy", "moonblast", "thunderbolt", "magiccoat"]
+},
+    "slurpuff": {
+        "level": 86,
+        "moves": ["bellydrum", "drainingkiss", "dazzlinggleam", "drainpunch"], 
+        "comboMoves": ["amnesia", "flamethower", "surf", "thunderbolt"]
+},
+    "malamar": {
+        "level": 88,
+        "moves": ["psychocut", "nightslash", "flamethrower", "destinybond"]
+},
+    "barbaracle": {
+        "level": 86,
+        "moves": ["stoneedge", "earthquake", "focusblast", "shellsmash"]
+},
+    "dragalge": {
+        "level": 86,
+        "moves": ["dracometeor", "sludgewave", "thunderbolt", "flipturn"]
+},
+    "clawitzer": {
+        "level": 82,
+        "moves": ["crabhammer", "blizzard", "aquajet"],
+        "exclusiveMoves": ["flipturn", "uturn"]
+},
+    "heliolisk": {
+        "level": 84,
+        "moves": ["voltswitch", "surf", "grassknot", "thunderwave"]
+},
+    "tyrantrum": {
+        "level": 84,
+        "moves": ["dragondance", "stoneedge", "earthquake", "closecombat"]
+},
+    "aurorus": {
+        "level": 88,
+        "moves": ["blizzard", "stoneedge", "thunderbolt", "thunderwave"]
+},
+    "sylveon": {
+        "level": 88,
+        "moves": ["moonblast", "mysticalfire", "batonpass", "healbell"]
+},
+    "hawlucha": {
+        "level": 82,
+        "moves": ["closecombat", "acrobatics", "stoneedge", "uturn"]
+},
+    "dedenne": {
+        "level": 88,
+        "moves": ["voltswitch", "grassknot", "thunderwave", "superfang"]
+},
+    "carbink": {
+        "level": 88,
+        "moves": ["stoneedge", "moonblast", "bodypress", "explosion"]
+},
+    "goodra": {
+        "level": 82,
+        "moves": ["dracometeor", "fireblast", "blizzard", "thunderbolt"]
+},
+    "goodrahisui": {
+        "level": 80,
+        "moves": ["dracometeor", "steelbeam", "fireblast"],
+	"exclusiveMoves": ["blizzard", "thunderbolt"]
+},
+    "klefki": {
+        "level": 86,
+        "moves": ["dazzlinggleam", "steelbeam", "thunderwave", "magnetrise"]
+},
+    "trevenant": {
+        "level": 88,
+        "moves": ["shadowclaw", "earthquake", "xscissor", "destinybond"]
+},
+    "gourgeist": {
+        "level": 88,
+        "moves": ["shadowball", "powerwhip", "fireblast"],
+        "exclusiveMoves": ["explosion", "destinybond"]
+},
+    "gourgeistlarge": {
+        "level": 88,
+        "moves": ["shadowball", "powerwhip", "fireblast"],
+        "exclusiveMoves": ["explosion", "destinybond"]
+},
+    "gourgeistsuper": {
+        "level": 88,
+        "moves": ["shadowball", "moonblast", "fireblast"],
+        "exclusiveMoves": ["explosion", "destinybond", "synthesis"]
+},
+    "gourgeistsmall": {
+        "level": 88,
+        "moves": ["shadowball", "powerwhip", "fireblast"],
+        "exclusiveMoves": ["destinybond", "painsplit"]
+},
+    "avalugg": {
+        "level": 86,
+        "moves": ["irondefense", "bodypress", "bodyslam", "recover"]
+},
+    "avalugghisui": {
+        "level": 86,
+        "moves": ["rockpolish", "stoneedge", "earthquake", "recover"]
+},
+    "noivern": {
+        "level": 82,
+        "moves": ["dracometeor", "flamethrower", "uturn"],
+        "exclusiveMoves": ["superfang", "acrobatics"]
+},
+    "xerneas": {
+        "level": 76,
+        "moves": ["moonblast", "closecombat", "aromatherapy", "thunderwave"]
+},
+    "yveltal": {
+        "level": 80,
+        "moves": ["acrobatics", "oblivionwing", "oblivionwing"],
+        "essentialMoves": ["roost", "honeclaws"],
+        "exclusiveMoves": ["heatwave", "focusblast"],
+        "comboMoves": ["acrobatics", "heatwave", "roost", "uturn"]
+},
+    "zygarde": {
+        "level": 80,
+        "moves": ["thousandarrows", "stoneedge", "glare"],
+        "exclusiveMoves": ["dragondance", "coil"]
+},
+    "zygarde10%": {
+        "level": 84,
+        "moves": ["thousandarrows", "stoneedge", "extremespeed", "glare"]
+},
+    "diancie": {
+        "level": 82,
+        "moves": ["moonblast", "healbell"],
+	"essentialMoves": ["stoneedge"],
+	"exclusiveMoves": ["bodypress", "batonpass"],
+	"comboMoves": ["amnesia", "rockpolish", "storedpower", "stoneedge"]
+},
+    "hoopa": {
+        "level": 84,
+        "moves": ["psychic", "firepunch", "destinybond", "thunderwave"]
+},
+    "hoopaunbound": {
+        "level": 84,
+        "moves": ["firepunch", "focusblast", "hyperspacefury", "destinybond"],
+	"essentialMoves": ["psychic", "thunderwave"],
+	"exclusiveMoves": ["firepunch", "focusblast"]
+},
+    "volcanion": {
+        "level": 84,
+        "moves": ["fireblast", "steameruption", "wildcharge", "explosion"]
+},
+    "decidueye": {
+        "level": 84,
+        "moves": ["leafblade", "shadowclaw", "roost", "uturn"]
+},
+    "decidueyehisui": {
+        "level": 84,
+        "moves": ["triplearrows", "shadowclaw", "uturn"],
+	"exclusiveMoves": ["leafblade", "trailblaze"]
+},
+    "incineroar": {
+        "level": 84,
+        "moves": ["blazekick", "earthquake", "thunderpunch"],
+	"exclusiveMoves": ["partingshot", "uturn"]
+},
+    "primarina": {
+        "level": 84,
+	"moves": ["moonblast", "energyball"],
+        "essentialMoves": ["blizzard", "flipturn"],
+	"exclusiveMoves": ["hydropump", "surf"],
+	"comboMoves": ["amnesia", "energyball", "hydropump", "blizzard"]
+},
+    "toucannon": {
+        "level": 88,
+        "moves": ["boomburst", "acrobatics", "overheat", "uturn"]
+},
+    "gumshoos": {
+        "level": 90,
+        "moves": ["bodyslam", "hyperbeam", "superfang", "uturn"]
+},
+    "vikavolt": {
+        "level": 88,
+        "moves": ["voltswitch", "thunderwave", "roost", "energyball"]
+},
+    "crabominable": {
+        "level": 88,
+        "moves": ["closecombat", "stoneedge", "blizzard", "crabhammer"]
+},
+    "oricorio": {
+        "level": 90,
+        "moves": ["acrobatics", "uturn", "roost", "mirrormove"]
+},
+    "oricoriopau": {
+        "level": 90,
+        "moves": ["acrobatics", "uturn", "roost", "mirrormove"]
+},
+    "oricoriopompom": {
+        "level": 90,
+        "moves": ["acrobatics", "uturn", "roost", "mirrormove"]
+},
+    "oricoriosensu": {
+        "level": 90,
+        "moves": ["acrobatics", "uturn", "roost", "mirrormove"]
+},
+    "ribombee": {
+        "level": 88,
+        "moves": ["moonblast", "uturn", "aromatherapy", "stunspore"]
+},
+    "lycanroc": {
+        "level": 82,
+        "moves": ["stoneedge", "drillrun", "accelerock", "closecombat"]
+},
+    "lycanrocdusk": {
+        "level": 82,
+        "moves": ["stoneedge", "drillrun", "accelerock", "closecombat"]
+},
+    "lycanrocmidnight": {
+        "level": 86,
+        "moves": ["stoneedge", "earthpower", "trailblaze", "closecombat"]
+},
+    "toxapex": {
+        "level": 86,
+        "moves": ["icebeam", "magiccoat", "banefulbunker"],
+	"essentialMoves": ["surf", "recover"]
+},
+    "mudsdale": {
+        "level": 86,
+        "moves": ["earthquake", "stoneedge", "closecombat", "curse"]
+},
+    "araquanid": {
+        "level": 88,
+        "moves": ["hydropump", "blizzard", "lunge"],
+	"exclusiveMoves": ["bodyslam", "magiccoat"]
+},
+    "lurantis": {
+        "level": 88,
+        "moves": ["superpower", "synthesis", "aromatherapy"],
+	"exclusiveMoves": ["leafblade", "leafstorm"]
+},
+    "shiinotic": {
+        "level": 88,
+        "moves": ["energyball", "amnesia", "thunderwave", "strengthsap"]
+},
+    "salazzle": {
+        "level": 86,
+        "moves": ["fireblast", "thunderwave", "dragonpulse", "sludgewave"]
+},
+    "bewear": {
+        "level": 86,
+        "moves": ["bodyslam", "hyperbeam", "closecombat", "shadowclaw"]
+},
+    "tsareena": {
+        "level": 86,
+        "moves": ["highjumpkick", "dazzlinggleam", "synthesis", "aromatherapy"]
+},
+    "comfey": {
+        "level": 88,
+        "moves": ["alluringvoice", "uturn", "synthesis", "aromatherapy"]
+},
+    "oranguru": {
+        "level": 88,
+        "moves": ["psychic", "earthquake", "thunderbolt", "painsplit"]
+},
+    "passimian": {
+        "level": 86,
+        "moves": ["closecombat", "earthquake", "gunkshot", "uturn"]
+},
+    "golisopod": {
+        "level": 80,
+        "moves": ["swordsdance", "firstimpression", "closecombat"],
+	"exclusiveMoves": ["drillrun", "blizzard"]
+},
+    "palossand": {
+        "level": 84,
+        "moves": ["earthquake", "nightshade", "bodyslam", "recover"]
+},
+    "pyukumuku": {
+        "level": 100,
+	"moves": ["screech", "soak", "mirrorcoat"],
+        "essentialMoves": ["batonpass", "recover", "bide"]
+},
+    "silvally": {
+        "level": 84,
+        "moves": ["return", "flamethrower"],
+	"essentialMoves": ["explosion", "thunderwave"],
+	"exclusiveMoves": ["partingshot", "uturn"]
+},
+    "minior": {
+        "level": 84,
+        "moves": ["stoneedge", "acrobatics", "earthquake", "uturn"]
+},
+    "komala": {
+        "level": 86,
+        "moves": ["superpower", "superfang", "uturn"],
+	"exclusiveMoves": ["bodyslam", "hyperbeam"]
+},
+    "turtonator": {
+        "level": 82,
+        "moves": ["shellsmash", "fireblast", "earthquake"],
+	"exclusiveMoves": ["dragonpulse", "dracometeor"]
+},
+    "togedemaru": {
+        "level": 88,
+        "moves": ["steelbeam", "thunderwave", "voltswitch", "superfang"]
+},
+    "mimikyu": {
+        "level": 86,
+        "moves": ["shadowclaw", "dazzlinggleam", "painsplit", "thunderwave"]
+},
+    "bruxish": {
+        "level": 88,
+        "moves": ["superfang", "flipturn", "psychic"],
+	"exclusiveMoves": ["hydropump", "surf"]
+},
+    "drampa": {
+        "level": 84,
+        "moves": ["dracometeor", "fireblast", "roost", "glare"]
+},
+    "dhelmise": {
+        "level": 86,
+        "moves": ["shadowball", "earthquake", "swordsdance", "synthesis"]
+},
+    "kommoo": {
+        "level": 82,
+        "moves": ["clangoroussoul", "closecombat", "clangingscales", "poisonjab"],
+	"comboMoves": ["dragondance", "reversal", "earthquake", "endure"]
+},
+    "tapukoko": {
+        "level": 80,
+        "essentialMoves": ["dazzlinggleam", "voltswitch", "thunderwave"],
+	"exclusiveMoves": ["naturesmadness", "grassknot"]
+},
+    "tapulele": {
+        "level": 84,
+        "moves": ["moonblast", "psychocut", "naturesmadness", "aromatherapy"]
+},
+    "tapubulu": {
+        "level": 84,
+	"essentialMoves": ["dazzlinggleam", "closecombat", "synthesis"],
+	"exclusiveMoves": ["stoneedge", "naturesmadness", "swordsdance"]
+},
+    "tapufini": {
+        "level": 84,
+	"essentialMoves": ["hydropump", "blizzard", "naturesmadness"],
+	"exclusiveMoves": ["grassknot", "moonblast"]
+},
+    "solgaleo": {
+        "level": 74,
+        "moves": ["steelbeam", "closecombat", "thunderwave", "morningsun"]
+},
+    "lunala": {
+        "level": 74,
+        "moves": ["psychocut", "heatwave", "roost", "thunderwave"] 
+},
+    "nihilego": {
+        "level": 86,
+        "moves": ["thunderwave", "acidspray", "grassknot", "psychic"]
+},
+    "buzzwole": {
+        "level": 84,
+        "moves": ["closecombat", "stoneedge", "earthquake", "roost"]
+},
+    "pheromosa": {
+        "level": 72,
+        "moves": ["closecombat", "uturn", "drillrun", "blizzard"]
+},
+    "xurkitree": {
+        "level": 84,
+        "moves": ["voltswitch", "thunderwave", "powerwhip", "dazzlinggleam"]
+},
+    "celesteela": {
+        "level": 82,
+        "moves": ["steelbeam", "acrobatics", "fireblast"],
+	"exclusiveMoves": ["stoneedge", "explosion"]
+},
+    "kartana": {
+        "level": 80,
+        "moves": ["sacredsword", "sacredsword", "vacuumwave", "swordsdance", "swordsdance"],
+	"essentialMoves": ["steelbeam", "synthesis"]
+},
+    "guzzlord": {
+        "level": 84,
+        "moves": ["amnesia", "dracometeor", "darkpulse", "fireblast"]
+},
+    "necrozma": {
+        "level": 82,
+        "moves": ["calmmind", "psychic", "heatwave", "moonlight"],
+	"comboMoves": ["dragondance", "photongeyser", "earthquake", "moonlight"]
+},
+    "necrozmaduskmane": {
+        "level": 74,
+        "moves": ["morningsun", "swordsdance", "ironhead", "thunderwave"],
+	"comboMoves": ["dragondance", "photongeyser", "earthquake", "morningsun"]
+},
+    "necrozmadawnwings": {
+        "level": 74,
+        "moves": ["cosmicpower", "storedpower", "morningsun", "chargebeam"]
+},
+    "magearna": {
+        "level": 80,
+	"moves": ["steelbeam", "healbell", "painsplit", "aurasphere"],
+        "essentialMoves": ["shiftgear", "fleurcannon"]
+},
+    "marshadow": {
+        "level": 76,
+        "moves": ["shadowclaw", "closecombat", "stoneedge"],
+	"exclusiveMoves": ["copycat", "shadowsneak"]
+},
+    "naganadel": {
+        "level": 76,
+        "moves": ["dracometeor", "fireblast", "sludgewave", "uturn"]
+},
+    "stakataka": {
+        "level": 84,
+        "moves": ["steelbeam", "stoneedge", "bodypress"],
+	"exclusiveMoves": ["bodyslam", "irondefense", "magiccoat"]
+},
+    "blacephalon": {
+        "level": 82,
+        "moves": ["shadowclaw", "mindblown", "flamecharge", "explosion"] 
+},
+    "zeraora": {
+        "level": 80,
+        "moves": ["voltswitch", "blazekick", "thunderwave"],
+	"exclusiveMoves": ["closecombat", "playrough"] 
+},
+    "melmetal": {
+        "level": 80,
+        "moves": ["doubleironbash", "earthquake", "thunderwave"],
+	"exclusiveMoves": ["superpower", "bodyslam"] 
+},
+    "rillaboom": {
+        "level": 88,
+        "moves": ["boomburst", "earthquake", "leafstorm", "uturn"] 
+},
+    "cinderace": {
+        "level": 86,
+        "moves": ["blazekick", "acrobatics", "superfang", "uturn"]
+},
+    "inteleon": {
+        "level": 78,
+        "moves": ["snipeshot", "flipturn", "aquajet", "blizzard"]
+},
+    "greedent": {
+        "level": 88,
+        "moves": ["swordsdance", "hyperbeam", "earthquake", "superfang"]
+},
+    "corviknight": {
+        "level": 80,
+        "moves": ["steelbeam", "roost", "uturn"],
+	"exclusiveMoves": ["bulkup", "bodyslam"]
+},
+    "orbeetle": {
+        "level": 88,
+        "moves": ["psychic", "energyball", "calmmind", "recover"]
+},
+    "thievul": {
+        "level": 90,
+        "moves": ["nastyplot", "grassknot", "firefang"],
+	"exclusiveMoves": ["darkpulse", "suckerpunch"]
+},
+    "eldegoss": {
+        "level": 90,
+        "moves": ["energyball", "aromatherapy", "stunspore", "synthesis"]
+},
+    "dubwool": {
+        "level": 88,
+        "moves": ["bodyslam", "bodypress", "cottonguard", "thunderwave"]
+},
+    "drednaw": {
+        "level": 84,
+        "moves": ["shellsmash", "headsmash", "earthquake", "hydropump"]
+},
+    "boltund": {
+        "level": 88,
+        "moves": ["voltswitch", "thunderwave", "icefang", "hyperbeam"]
+},
+    "coalossal": {
+        "level": 88,
+        "moves": ["stoneedge", "fireblast", "earthquake", "explosion"]
+},
+    "flapple": {
+        "level": 88,
+        "moves": ["dracometeor", "leafstorm", "uturn", "acrobatics"]
+},
+    "appletun": {
+        "level": 86,
+        "moves": ["amnesia", "dracometeor", "appleacid", "recover"]
+},
+    "sandaconda": {
+        "level": 80,
+        "moves": ["drillrun", "stoneedge", "glare"],
+	"exclusiveMoves": ["hurricane", "substitute"]
+},
+    "cramorant": {
+        "level": 88,
+        "moves": ["hydropump", "blizzard", "acrobatics", "roost"]
+},
+    "barraskewda": {
+        "level": 84,
+        "moves": ["hydropump", "blizzard", "flipturn", "drillrun"]
+},
+    "toxtricity": {
+        "level": 86,
+        "moves": ["voltswitch", "sludgewave", "thunderwave", "boomburst"]
+},
+    "centiskorch": {
+        "level": 88,
+        "moves": ["fireblast", "powerwhip", "scald"],
+	"exclusiveMoves": ["lunge", "bugbuzz"]
+},
+    "grapploct": {
+        "level": 86,
+        "moves": ["bodyslam", "closecombat", "octolock", "substitute"]
+},
+    "polteageist": {
+        "level": 84,
+        "moves": ["shellsmash", "storedpower", "explosion", "strengthsap"]
+},
+    "hatterene": {
+        "level": 86,
+        "moves": ["thunderwave", "mysticalfire", "aromatherapy"],
+	"exclusiveMoves": ["psychic", "psychocut"]
+},
+    "grimmsnarl": {
+        "level": 84,
+        "moves": ["thunderwave", "partingshot", "superpower"],
+	"exclusiveMoves": ["spiritbreak", "playrough"]
+},
+    "obstagoon": {
+        "level": 84,
+        "moves": ["thunderwave", "bodyslam", "closecombat"],
+	"exclusiveMoves": ["shadowclaw", "partingshot"]
+},
+    "perrserker": {
+        "level": 86,
+        "moves": ["steelbeam", "closecombat", "uturn", "swordsdance"]
+},
+    "cursola": {
+        "level": 86,
+        "moves": ["amnesia", "blizzard", "strengthsap"],
+	"exclusiveMoves": ["hydropump", "surf"]
+},
+    "sirfetchd": {
+        "level": 82,
+        "moves": ["swordsdance", "firstimpression", "meteorassault"],
+	"exclusiveMoves": ["poisonjab", "bravebird"]
+},
+    "mrrime": {
+        "level": 86,
+        "moves": ["blizzard", "psychic", "slackoff", "thunderwave"]
+},
+    "runerigus": {
+        "level": 86,
+        "moves": ["earthquake", "stoneedge", "shadowclaw", "destinybond"]
+},
+    "alcremie": {
+        "level": 88,
+        "moves": ["calmmind", "mysticalfire", "psychic", "recover"]
+},
+    "falinks": {
+        "level": 82,
+        "moves": ["noretreat", "closecombat", "megahorn", "poisonjab"]
+},
+    "pincurchin": {
+        "level": 88,
+        "moves": ["thunderbolt", "thunderwave", "hydropump", "recover"]
+},
+    "frosmoth": {
+        "level": 88,
+        "moves": ["blizzard", "gigadrain", "quiverdance", "stunspore"]
+},
+    "stonjourner": {
+        "level": 84,
+        "moves": ["stoneedge", "earthquake", "superpower", "rockpolish"]
+},
+    "eiscue": {
+        "level": 88,
+        "moves": ["blizzard", "hydropump", "flipturn", "amnesia"]
+},
+    "indeedee": {
+        "level": 88,
+        "moves": ["psychic", "mysticalfire", "futuresight", "aromatherapy"]
+},
+    "indeedeef": {
+        "level": 88,
+        "moves": ["psychic", "mysticalfire", "calmmind", "aromatherapy"]
+},
+    "morpeko": {
+        "level": 88,
+        "moves": ["voltswitch", "thunderwave", "superfang"],
+	"exclusiveMoves": ["seedbomb", "icefang"]
+},
+    "copperajah": {
+        "level": 86,
+        "moves": ["steelbeam", "earthquake", "stoneedge", "superpower"]
+},
+    "dracozolt": {
+        "level": 84,
+        "moves": ["boltbeak", "dracometeor", "fireblast", "thunderwave"]
+},
+    "arctozolt": {
+        "level": 86,
+        "moves": ["boltbeak", "blizzard", "substitute", "thunderwave"]
+},
+    "dracovish": {
+        "level": 86,
+        "moves": ["fishiousrend", "dracometeor", "stoneedge", "superfang"]
+},
+    "arctovish": {
+        "level": 88,
+        "moves": ["fishiousrend", "blizzard", "stoneedge", "superfang"]
+},
+    "dragapult": {
+        "level": 76,
+        "moves": ["dracometeor", "fireblast", "uturn", "thunderwave"]
+},
+    "zacian": {
+        "level": 72,
+        "exclusiveMoves": ["swordsdance", "moonblast", "closecombat"],
+        "moves": ["steelbeam", "quickattack"]
+},
+    "zamazenta": {
+        "level": 76,
+        "moves": ["swordsdance", "stoneedge", "closecombat", "steelbeam"]
+},
+    "eternatus": {
+        "level": 74,
+        "moves": ["dracometeor", "fireblast", "agility", "recover"]
+},
+    "urshifu": {
+        "level": 84,
+        "moves": ["closecombat", "wickedblow", "stoneedge", "uturn"]
+},
+    "urshifurapidstrike": {
+        "level": 84,
+        "moves": ["closecombat", "surgingstrikes", "stoneedge", "uturn"]
+},
+    "zarude": {
+        "level": 86,
+        "moves": ["closecombat", "powerwhip", "uturn", "synthesis"]
+},
+    "regieleki": {
+        "level": 82,
+        "moves": ["acrobatics", "voltswitch", "thunderwave", "explosion"]
+},
+    "regidrago": {
+        "level": 86,
+        "moves": ["dracometeor", "earthpower", "explosion"],
+        "exclusiveMoves": ["dragonbreath", "dragondance"]
+},
+    "glastrier": {
+        "level": 86,
+        "moves": ["closecombat", "megahorn", "highhorsepower", "blizzard"]
+},
+    "spectrier": {
+        "level": 86,
+        "moves": ["psychocut", "nightshade", "willowisp"],
+        "exclusiveMoves": ["taunt", "substitute"]
+},
+    "calyrex": {
+        "level": 90,
+        "moves": ["aromatherapy", "leafstorm", "psychic", "batonpass"]
+},
+    "calyrexice": {
+        "level": 78,
+        "moves": ["closecombat", "highhorsepower", "aromatherapy"],
+        "essentialMoves": ["glaciallance"],
+        "exclusiveMoves": ["aromatherapy", "agility", "batonpass"]
+},
+    "calyrexshadow": {
+        "level": 76,
+        "moves": ["aromatherapy", "psychocut", "leafstorm"],
+        "exclusiveMoves": ["willowisp", "batonpass"]
+},
+    "wyrdeer": {
+        "level": 86,
+        "moves": ["return", "psychic", "earthquake", "thunderwave"]
+},
+    "kleavor": {
+        "level": 86,
+        "moves": ["stoneedge", "closecombat", "uturn", "agility"]
+},
+    "ursaluna": {
+        "level": 80,
+        "moves": ["slash", "stoneedge"],
+        "essentialMoves": ["headlongrush", "bodyslam"],
+        "comboMoves": ["swordsdance", "hyperbeam"]
+},
+    "ursalunabloodmoon": {
+        "level": 82,
+        "moves": ["moonlight", "calmmind", "avalanche"],
+        "exclusiveMoves": ["firepunch", "thunderpunch"]
+},
+    "basculegion": {
+        "level": 80,
+        "moves": ["lastrespects", "hydropump", "blizzard", "agility"]
+},
+    "basculegionf": {
+        "level": 82,
+        "moves": ["lastrespects", "hydropump", "blizzard", "agility"]
+},
+    "sneasler": {
+        "level": 80,
+        "moves": ["closecombat", "direclaw", "uturn"],
+        "exclusiveMoves": ["swordsdance", "shadowclaw", "acrobatics"]
+},
+    "overqwil": {
+        "level": 88,
+        "moves": ["sludgewave", "hydropump", "destinybond", "painsplit"]
+},
+    "enamorus": {
+        "level": 84,
+        "moves": ["moonblast", "superpower", "earthpower", "mysticalfire"]
+},
+    "enamorustherian": {
+        "level": 86,
+        "moves": ["moonblast", "superpower", "earthpower", "agility"]
+},
+    "meowscarada": {
+        "level": 84,
+        "moves": ["flowertrick", "aurasphere", "suckerpunch", "uturn"]
+},
+    "skeledirge": {
+        "level": 84,
+        "moves": ["torchsong", "seedbomb", "slackoff"],
+        "exclusiveMoves": ["shadowclaw", "flamecharge"]
+},
+    "quaquaval": {
+        "level": 84,
+        "moves": ["closecombat", "aquacutter", "roost"],
+        "exclusiveMoves": ["flipturn", "uturn"]
+},
+    "oinkologne": {
+        "level": 90,
+        "moves": ["bodyslam", "hyperbeam", "superfang"],
+        "exclusiveMoves": ["highhorsepower", "earthpower"]
+},
+    "oinkolognef": {
+        "level": 90,
+        "moves": ["bodyslam", "hyperbeam", "superfang"],
+        "exclusiveMoves": ["highhorsepower", "earthpower"]
+},
+    "spidops": {
+        "level": 94,
+        "moves": ["firstimpression", "brickbreak", "uturn", "shadowclaw"]
+},
+    "lokix": {
+        "level": 86,
+        "moves": ["firstimpression", "axekick", "uturn", "swordsdance"]
+},
+    "pawmot": {
+        "level": 86,
+        "moves": ["closecombat", "voltswitch", "thunderwave", "icepunch"]
+},
+    "maushold": {
+        "level": 84,
+        "moves": ["shadowclaw", "uturn", "superfang"],
+        "essentialMoves": ["populationbomb", "thunderwave"]
+},
+    "dachsbun": {
+        "level": 90,
+        "moves": ["stompingtantrum", "batonpass", "bodyslam"],
+        "exclusiveMoves": ["playrough", "alluringvoice"]   
+},
+    "arboliva": {
+        "level": 88,
+        "moves": ["earthpower", "growth", "hyperbeam"],
+        "essentialMoves": ["synthesis"],
+        "exclusiveMoves": ["leafstorm", "petalblizzard"]
+},
+    "squawkabilly": {
+        "level": 90,
+        "moves": ["hurricane", "heatwave", "finalgambit", "uturn"]
+},
+    "garganacl": {
+        "level": 80,
+        "moves": ["saltcure", "protect", "recover"],
+        "exclusiveMoves": ["stoneedge", "earthquake"]
+},
+    "armarouge": {
+        "level": 86,
+        "moves": ["psychic", "flamecharge", "destinybond"],
+        "exclusiveMoves": ["armorcannon", "fireblast"]
+},
+    "ceruledge": {
+        "level": 88,
+        "moves": ["shadowclaw", "shadowsneak", "closecombat", "swordsdance"]
+},
+    "bellibolt": {
+        "level": 86,
+        "moves": ["voltswitch", "thunderwave", "muddywater", "slackoff"]
+},
+    "kilowattrel": {
+        "level": 86,
+        "moves": ["voltswitch", "thunderwave", "acrobatics", "uturn"]
+},
+    "mabosstiff": {
+        "level": 92,
+        "moves": ["bodyslam", "playrough", "painsplit", "comeuppance"]
+},
+    "grafaiai": {
+        "level": 86,
+        "moves": ["sludgewave", "slash", "superfang", "uturn"]
+},
+    "brambleghast": {
+        "level": 88,
+        "moves": ["curse", "strengthsap", "protect", "shadowball"]
+},
+    "toedscruel": {
+        "level": 88,
+        "moves": ["earthpower", "sludgebomb", "stunspore"],
+        "essentialMoves": ["petalblizzard", "powerwhip"]
+},
+    "klawf": {
+        "level": 88,
+        "moves": ["stoneedge", "earthpower", "bodyslam", "bulldoze"]
+},
+    "scovillain": {
+        "level": 88,
+        "moves": ["fireblast", "leafstorm", "superfang", "trailblaze"]
+},
+    "rabsca": {
+        "level": 88,
+        "moves": ["psychic", "energyball", "recover", "calmmind"]
+},
+    "espathra": {
+        "level": 88,
+        "moves": ["luminacrash", "uturn", "roost", "energyball"]
+},
+    "tinkaton": {
+        "level": 86,
+        "moves": ["swordsdance", "steelbeam", "brickbreak", "thunderwave"]
+},
+    "wugtrio": {
+        "level": 94,
+        "moves": ["hydropump", "blizzard", "earthpower", "finalgambit"]
+},
+    "bombirdier": {
+        "level": 84,
+        "moves": ["acrobatics", "drillrun", "stoneedge", "uturn"]
+},
+    "palafin": {
+        "level": 94,
+        "moves": ["hydropump", "blizzard", "flipturn", "grassknot"]
+},
+    "revaroom": {
+        "level": 84,
+        "moves": ["shiftgear", "steelbeam", "sludgewave", "highhorsepower"]
+},
+    "cyclizar": {
+        "level": 84,
+        "moves": ["dracometeor", "overheat", "shedtail"],
+        "exclusiveMoves": ["bodyslam", "uturn"]
+},
+    "orthworm": {
+        "level": 84,
+        "moves": ["steelbeam", "earthquake", "metalburst", "shedtail"]
+},
+    "glimmora": {
+        "level": 88,
+        "moves": ["stoneedge", "mortalspin", "spikyshield", "explosion"]
+},
+    "houndstone": {
+        "level": 84,
+        "moves": ["lastrespects", "bodypress", "nightshade", "shadowsneak"]
+},
+    "flamigo": {
+        "level": 86,
+        "moves": ["acrobatics", "closecombat", "uturn", "roost"]
+},
+    "cetitan": {
+        "level": 90,
+        "moves": ["earthquake", "superpower", "amnesia", "blizzard"]
+},
+    "veluza": {
+        "level": 86,
+        "moves": ["filletaway", "storedpower", "hydropump", "blizzard"]
+},
+    "dondozo": {
+        "level": 88,
+        "moves": ["curse", "earthquake", "bodypress", "rest"]
+},
+    "tatsugiri": {
+        "level": 84,
+        "moves": ["dracometeor", "dragonpulse", "nastyplot"],
+        "exclusiveMoves": ["hydropump", "surf"]
+},
+    "annihilape": {
+        "level": 84,
+        "moves": ["closecombat", "stoneedge", "shadowclaw", "uturn"]
+},
+    "clodsire": {
+        "level": 86,
+        "moves": ["curse", "earthquake", "sludgewave", "recover"]
+},
+    "farigiraf": {
+        "level": 82,
+        "moves": ["amnesia", "storedpower", "agility", "thunderbolt"]
+},
+    "dudunsparce": {
+        "level": 82,
+        "moves": ["coil", "boomburst", "roost"],
+        "exclusiveMoves": ["fireblast", "drillrun"]
+},
+    "kingambit": {
+        "level": 84,
+        "moves": ["steelbeam", "stoneedge", "focusblast", "thunderwave"]
+},
+    "greattusk": {
+        "level": 82,
+        "moves": ["headlongrush", "closecombat", "stoneedge", "bodyslam"]
+},
+    "screamtail": {
+        "level": 80,
+        "moves": ["amnesia", "storedpower", "fireblast", "thunderwave"]
+},
+    "brutebonnet": {
+        "level": 86,
+        "moves": ["closecombat", "leafstorm", "stunspore", "synthesis"]
+},
+    "fluttermane": {
+        "level": 84,
+        "moves": ["moonblast", "mysticalfire", "energyball", "painsplit", "thunderwave"],
+        "essentialMoves": ["thunderbolt"]
+},
+    "slitherwing": {
+        "level": 84,
+        "moves": ["uturn", "stunspore", "morningsun"],
+        "essentialMoves": ["firstimpression", "closecombat"]
+},
+    "sandyshocks": {
+        "level": 84,
+        "moves": ["voltswitch", "thunderwave", "earthquake"],
+        "exclusiveMoves": ["mirrorcoat", "bodyslam"]
+},
+    "irontreads": {
+        "level": 80,
+        "moves": ["steelbeam", "earthquake", "stoneedge", "voltswitch"]
+},
+    "ironbundle": {
+        "level": 76,
+        "moves": ["hydropump", "blizzard", "flipturn", "uturn"]
+},
+    "ironhands": {
+        "level": 84,
+        "moves": ["closecombat", "earthquake", "voltswitch", "bodyslam"]
+},
+    "ironjugulis": {
+        "level": 86,
+        "moves": ["acrobatics", "fireblast", "uturn", "dragonbreath"]
+},
+    "ironmoth": {
+        "level": 86,
+        "moves": ["fireblast", "discharge", "uturn", "morningsun"]
+},
+    "ironthorns": {
+        "level": 84,
+        "moves": ["stoneedge", "blizzard", "voltswitch", "thunderwave"]
+},
+    "baxcalibur": {
+        "level": 86,
+        "moves": ["dragondance", "earthquake", "blizzard", "dracometeor"]
+},
+    "gholdengo": {
+        "level": 80,
+        "moves": ["nightshade", "thunderbolt", "recover", "thunderwave"]
+},
+    "wochien": {
+        "level": 86,
+        "moves": ["ruination", "stunspore", "powerwhip", "bodypress"]
+},
+    "chienpao": {
+        "level": 82,
+        "moves": ["ruination", "blizzard", "recover", "nightslash"]
+},
+    "tinglu": {
+        "level": 82,
+        "moves": ["ruination", "earthquake", "stoneedge", "bodyslam"]
+},
+    "chiyu": {
+        "level": 84,
+        "moves": ["fireblast", "darkpulse", "nastyplot", "flamecharge"]
+},
+    "roaringmoon": {
+        "level": 80,
+        "moves": ["stoneedge", "earthquake", "uturn", "dracometeor"]
+},
+    "ironvaliant": {
+        "level": 76,
+        "moves": ["thunderwave"],
+        "essentialMoves": ["closecombat", "moonblast"],
+        "exclusiveMoves": ["icepunch", "swordsdance"],
+        "comboMoves": ["swordsdance", "agility", "closecombat", "moonblast"]
+},
+    "koraidon": {
+        "level": 74,
+        "moves": ["closecombat", "shadowclaw", "dracometeor", "uturn"]
+},
+    "miraidon": {
+        "level": 74,
+        "moves": ["dracometeor", "overheat", "voltswitch", "thunderwave"]
+},
+    "walkingwake": {
+        "level": 80,
+        "moves": ["agility"],
+        "essentialMoves": ["dracometeor", "hydropump"],
+        "exclusiveMoves": ["flamethrower", "flipturn"],
+        "comboMoves": ["aquajet", "flipturn"]
+},
+    "ironleaves": {
+        "level": 86,
+        "moves": ["closecombat", "megahorn", "swordsdance", "leafstorm"]
+},
+    "sinistcha": {
+        "level": 86,
+        "moves": ["matchagotcha", "calmmind", "strengthsap", "stunspore"]
+},
+    "okidogi": {
+        "level": 86,
+        "moves": ["closecombat", "sludgewave", "bodyslam", "bulkup"]
+},
+    "munkidori": {
+        "level": 86,
+        "moves": ["psychic", "nightshade", "uturn", "acidspray"]
+},
+    "fezandipiti": {
+        "level": 84,
+        "moves": ["swordsdance", "moonblast", "roost", "uturn"]
+},
+    "ogerpon": {
+        "level": 84,
+        "moves": ["ivycudgel", "superpower", "playrough", "uturn"]
+},
+    "archaludon": {
+        "level": 82,
+        "moves": ["steelbeam", "earthquake", "dracometeor", "thunderwave"]
+},
+    "hydrapple": {
+        "level": 84,
+        "moves": ["dracometeor", "leafstorm", "earthquake", "recover"]
+},
+    "gougingfire": {
+        "level": 84,
+        "moves": ["dracometeor", "fireblast", "burningbulwark", "morningsun"]
+},
+    "ragingbolt": {
+        "level": 82,
+        "moves": ["dracometeor", "voltswitch", "thunderclap", "thunderwave"]
+},
+    "ironboulder": {
+        "level": 80,
+        "moves": ["swordsdance", "mightycleave", "closecombat", "earthquake"]
+},
+    "ironcrown": {
+        "level": 84,
+        "moves": ["psychocut", "steelbeam", "voltswitch"],
+        "exclusiveMoves": ["agility", "bodyslam"]
+},
+    "terapagos": {
+        "level": 94,
+        "moves": ["terastarstorm", "stoneedge", "flamethrower", "rockpolish"]
+},
+    "pecharunt": {
+        "level": 80,
+        "moves": ["malignantchain", "destinybond", "partingshot", "recover"]
+    }
+}

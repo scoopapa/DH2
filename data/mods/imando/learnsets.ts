@@ -26162,8 +26162,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			frustration: ["7M", "7V", "6M", "5M", "4M", "3M"],
 			gigadrain: ["7T", "7V", "6T", "5T", "5D", "4M", "3M"],
 			headbutt: ["7V", "4T"],
-
-
 			hiddenpower: ["7M", "7V", "6M", "5M", "4M", "3M"],
 			hypnosis: ["7L38", "6L38", "5L38", "4L38", "3L23"],
 			leechlife: ["7E", "7V", "6E", "5E", "4E", "3E"],

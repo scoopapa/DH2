@@ -1,9 +1,9 @@
 export const Items: {[k: string]: ModdedItemData} = {
-	"safetysocks": {
+	/*"safetysocks": {
 		id: "safetysocks",
 		name: "Safety Socks",
 		desc: "Holder is unaffected by Hazards.",
-	},
+	},*/
 	"reversecore": {
 		id: "reversecore",
 		name: "Reverse Core",
@@ -19,7 +19,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 			this.add('-item', target, 'Reverse Core');
 			this.add('-message', `${target.name} is cloaked in a mysterious power!`);
 		},
-		onModifyMovePriority: -5,
 		onEffectiveness(typeMod, target, type, move) {
 			if (move && this.dex.getImmunity(move, type) === false) return 1;
 			return typeMod * -1;

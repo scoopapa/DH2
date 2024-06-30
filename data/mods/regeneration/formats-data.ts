@@ -656,8 +656,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "ReGeneration",
 	},
 	mewtwo: {
-		tier: "ReGeneration",
-		doublesTier: "ReGeneration",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	mewtwomegax: {
 		isNonstandard: "Past",

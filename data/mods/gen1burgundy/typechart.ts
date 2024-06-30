@@ -224,9 +224,6 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Rock: 1,
 			Steel: 1,
 			Water: 0,
-			Steel: 0,
-			Dark: 0,
-			Fairy: 0,
 		},
 	},
 	normal: {

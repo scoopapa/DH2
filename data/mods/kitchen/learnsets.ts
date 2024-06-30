@@ -1,11 +1,5 @@
 export const Learnsets: {[k: string]: LearnsetData} = {
 
-	pogguest: {
-		learnset: {
-			tackle: ["9L1"],
-		},
-	},
-	
 	athleetah: {
 		learnset: {
         acrobatics: ["9M"],

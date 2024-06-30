@@ -31,10 +31,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Terrain Pulse", target);
-		},
 		onModifyType(move, pokemon) {
 			if (pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
@@ -42,6 +38,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			move.type = item.naturalGift.type;
 		},
 		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Terrain Pulse", target);
 			if (pokemon.ignoringItem()) return false;
 			const item = pokemon.getItem();
 			if (!item.naturalGift) return false;

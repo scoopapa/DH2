@@ -11,8 +11,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 		},
-		num: 275,
-		gen: 4,
 		gen: 8,
 	},
 	calmingsalt: {

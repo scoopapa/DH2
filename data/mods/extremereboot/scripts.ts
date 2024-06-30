@@ -1,9 +1,4 @@
 export const Scripts: ModdedBattleScriptsData = {
-	teambuilderConfig: {
-		// for micrometas to only show custom tiers
-		// excludeStandardTiers: true,
-		// only to specify the order of custom tiers
-	},
 	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) { // used for
 		pokemon.activeMoveActions++;
 		let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);

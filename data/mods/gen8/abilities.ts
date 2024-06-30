@@ -371,6 +371,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	gulpmissile: {
 		inherit: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		rating: 2.5,
 	},
 	guts: {
@@ -387,6 +388,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	heatproof: {
 		inherit: true,
+		onSourceModifyAtk() {},
+		onSourceModifySpA() {},
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Heatproof BP weaken');
+				return this.chainModify(0.5);
+			}
+		},
 		rating: 2,
 	},
 	heavymetal: {
@@ -431,6 +441,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	illuminate: {
 		inherit: true,
+		onTryBoost() {},
+		onModifyMove() {},
+		flags: {},
 		rating: 0,
 	},
 	illusion: {
@@ -579,7 +592,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	mirrorarmor: {
 		inherit: true,
-		rating: 2,
+		rating: 2.5,
 	},
 	mistysurge: {
 		inherit: true,
@@ -1151,6 +1164,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	wonderguard: {
 		inherit: true,
+		flags: {failroleplay: 1, noreceiver: 1, failskillswap: 1, breakable: 1},
 		rating: 5,
 	},
 	wonderskin: {
