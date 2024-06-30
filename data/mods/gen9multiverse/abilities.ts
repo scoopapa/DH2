@@ -132,7 +132,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	coldsweat: {
 		onStart(pokemon) {
-			let weather = 'snow';
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -142,15 +141,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						weather = 'raindance';
+						this.field.setWeather('raindance');
 						return;
-					}
+					} else {
+						this.field.setWeather('snow');
+						return;
+					} 
 				}
 			}
-			this.field.setWeather(weather, pokemon);
 		},
 		onAnySwitchIn(pokemon) {
-			if (pokemon === this.effectState.target) return;
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -160,7 +160,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.field.setWeather('raindance', pokemon);
+						this.field.setWeather('raindance');
 						return;
 					}
 				}
