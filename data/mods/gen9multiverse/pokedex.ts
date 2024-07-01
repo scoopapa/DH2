@@ -347,7 +347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Ground", "Normal"],
 		baseStats: {hp: 113, atk: 70, def: 100, spa: 125, spd: 65, spe: 52},
-		abilities: {0: "Minds Eye", H: "Lunar Gift"},
+		abilities: {0: "Mind's Eye", H: "Lunar Gift"},
 	},
 	toedscool: {
 		inherit: true,
