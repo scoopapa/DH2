@@ -208,7 +208,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	insurance: {
 		onTryHit(source, target, move) {
 			if (target !== source && move.type === 'Flying') {
-				this.add('-immune', pokemon, '[from] ability: Insurance');
+				this.add('-immune', source, '[from] ability: Insurance');
+				this.add('-anim', source, "Payday", source);
 				this.add('-message', `Coins scattered everywhere!`);
 				return null;
 			}
