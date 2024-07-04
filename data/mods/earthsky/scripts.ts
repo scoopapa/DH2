@@ -9295,6 +9295,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','hakamoo').learnset.earthquake;
 		// Kommo-o
 		this.modData('Learnsets','kommoo').learnset.dizzypunch = ["9D"];
+		this.modData('Learnsets','kommoo').learnset.warriorssoul = ["9L75"];
+		this.modData('Learnsets','kommoo').learnset.closecombat = ["9L83"];
 		this.modData('Learnsets','kommoo').learnset.flash = ["9M"];
 		this.modData('Learnsets','kommoo').learnset.fullcollide = ["9M"];
 		this.modData('Learnsets','kommoo').learnset.retaliate = ["9M"];
@@ -9556,7 +9558,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','thwackey').learnset.rocksmash = ["9M"];
 		this.modData('Learnsets','thwackey').learnset.strength = ["9M"];
 		// Rillaboom
-		this.modData('Learnsets','rillaboom').learnset.dizzypunch = ["9D"];
+		this.modData('Learnsets','rillaboom').learnset.ivycudgel = ["9D"];
 		this.modData('Learnsets','rillaboom').learnset.chipaway = ["9M"];
 		this.modData('Learnsets','rillaboom').learnset.dualchop = ["9M"];
 		this.modData('Learnsets','rillaboom').learnset.echoedvoice = ["9M"];
@@ -12640,6 +12642,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','ogerponcornerstone').learnset.highjumpkick;
 		// Archaludon
 		this.modData('Learnsets','archaludon').learnset.cuttinglaser = ["9D"];
+		this.modData('Learnsets','archaludon').learnset.zapcannon = ["9L0"];
 		this.modData('Learnsets','archaludon').learnset.crushclaw = ["9L30"];
 		this.modData('Learnsets','archaludon').learnset.metalburst = ["9L42"];
 		this.modData('Learnsets','archaludon').learnset.hardpress = ["9L60"];
@@ -13296,6 +13299,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','hemogoblin').learnset.moonlight;
 		delete this.modData('Learnsets','hemogoblin').learnset.thunder;
 		delete this.modData('Learnsets','hemogoblin').learnset.wrap;
-		
 	},
 };
