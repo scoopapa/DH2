@@ -2619,7 +2619,7 @@ export const Formats: FormatList = [
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Kings Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 9] Mono-Typed - OU",
+		name: "[Gen 9] Single Typed - OU",
 
 		mod: 'monotyped',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
@@ -2627,7 +2627,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 	},
 	{
-		name: "[Gen 9] Mono-Typed - Uber",
+		name: "[Gen 9] Single Typed - Uber",
 
 		mod: 'monotyped',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
@@ -2635,7 +2635,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex Uber',
 	},
 	{
-		name: "[Gen 9] Mono-Typed - LC",
+		name: "[Gen 9] Single Typed - LC",
 
 		mod: 'monotyped',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Little Cup'],
@@ -2643,7 +2643,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex LC',
 	},
 	{
-		name: "[Gen 9] Mono-Typed - Monotype",
+		name: "[Gen 9] Single Typed - Monotype",
 
 		mod: 'monotyped',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Same Type Clause', 'Terastal Clause'],

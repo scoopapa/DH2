@@ -168,7 +168,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Commander",
 		rating: 3,
 		num: 279,
-		shortDesc: "This Pokemon deals 20% more damage to slower foes, 30% more if the foe is Water or Dragon-type.",
+		shortDesc: "Slower Pokemon take 20% more damage. 30% if also Water or Dragon.",
 	},
 	steamengine: {
 		onUpdate(pokemon) {
