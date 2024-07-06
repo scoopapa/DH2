@@ -53,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	blastoise: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 88, def: 100, spa: 85, spd: 85, spe: 62},
+		baseStats: {hp: 90, atk: 88, def: 100, spa: 85, spd: 85, spe: 62},
 		prevo: "Caterpie",
 		evoLevel: 36,
 	},
@@ -65,7 +65,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	metapod: {
 		inherit: true,
 		types: ["Rock"],
-		baseStats: {hp: 40, atk: 20, def: 255, spa: 15, spd: 15, spe: 25},
+		baseStats: {hp: 40, atk: 20, def: 155, spa: 15, spd: 15, spe: 25},
 	},
 	butterfree: {
 		inherit: true,
@@ -80,12 +80,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	kakuna: {
 		inherit: true,
 		types: ["Psychic"],
-		baseStats: {hp: 25, atk: 5, def: 10, spa: 255, spd: 255, spe: 22},
+		baseStats: {hp: 25, atk: 5, def: 10, spa: 155, spd: 155, spe: 22},
 	},
 	beedrill: {
 		inherit: true,
 		types: ["Psychic", "Bug"],
-		baseStats: {hp: 65, atk: 45, def: 40, spa: 85, spd: 85, spe: 75},
+		baseStats: {hp: 65, atk: 45, def: 40, spa: 85, spd: 85, spe: 80},
 	},
 	pidgey: {
 		inherit: true,
@@ -436,7 +436,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cloyster: {
 		inherit: true,
 		types: ["Ground", "Psychic"],
-		baseStats: {hp: 31, atk: 75, def: 199, spa: 105, spd: 105, spe: 30},
+		baseStats: {hp: 31, atk: 75, def: 149, spa: 105, spd: 105, spe: 55},
 	},
 	gastly: {
 		inherit: true,
@@ -620,7 +620,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gyarados: {
 		inherit: true,
 		types: ["Water", "Ground"],
-		baseStats: {hp: 95, atk: 125, def: 79, spa: 100, spd: 100, spe: 81},
+		baseStats: {hp: 95, atk: 125, def: 79, spa: 100, spd: 100, spe: 71},
 	},
 	lapras: {
 		inherit: true,
@@ -684,7 +684,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	articuno: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 85, def: 100, spa: 115, spd: 115, spe: 85},
+		baseStats: {hp: 85, atk: 85, def: 100, spa: 115, spd: 115, spe: 85},
 	},
 	zapdos: {
 		inherit: true,
@@ -692,7 +692,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	moltres: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 100, def: 90, spa: 115, spd: 115, spe: 90},
+		baseStats: {hp: 80, atk: 100, def: 85, spa: 115, spd: 115, spe: 90},
 	},
 	dratini: {
 		inherit: true,
@@ -707,7 +707,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	dragonite: {
 		inherit: true,
 		types: ["Water", "Flying"],
-		baseStats: {hp: 91, atk: 100, def: 95, spa: 114, spd: 114, spe: 80},
+		baseStats: {hp: 91, atk: 100, def: 85, spa: 114, spd: 114, spe: 80},
 	},
 	mewtwo: {
 		inherit: true,
