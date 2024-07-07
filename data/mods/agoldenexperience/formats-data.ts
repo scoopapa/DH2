@@ -860,7 +860,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	gyarados: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	gyaradosmega: {
@@ -1013,7 +1013,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	mew: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	chikorita: {
@@ -1131,7 +1131,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	ampharosmega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	azurill: {
@@ -1772,11 +1772,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	cacturnemegayday: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	cacturnemegaynight: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	swablu: {
@@ -2633,7 +2633,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	conkeldurr: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	tympole: {
@@ -2689,7 +2689,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	lilliganthisui: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	basculin: {
@@ -3177,7 +3177,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	delphoxmega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	froakie: {
@@ -4512,7 +4512,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	spyarn: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	nymble: {
@@ -4950,7 +4950,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	terapagos: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	pecharunt: {
@@ -5226,7 +5226,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	parafgufa: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	infarmatem: {

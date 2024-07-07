@@ -7,7 +7,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Brazen Brawn",
-		shortDesc: "Moves with less than 100% accuracy have 1.3x power.",
+		shortDesc: "This Pokemon's moves have 1.3x power if they have less than 100% accuracy.",
 		rating: 3,
 		num: -1,
 	},
@@ -23,7 +23,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Chromatophore",
-		shortDesc: "On switch-in, copies opponent's typing.",
+		shortDesc: "On switch-in, this Pokemon copies the opponent's typing.",
 		rating: 2.5,
 		num: -2,
 	},
@@ -126,13 +126,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Divine Idol",
-		shortDesc: "Halves damage taken from Ghost- or Dark-type moves.",
+		shortDesc: "This Pokemon receives 1/2 damage from Ghost- or Dark-type attacks.",
 		rating: 4,
 		num: -8,
 	},
 	coldsweat: {
 		onStart(pokemon) {
-			let weather = 'snow';
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -142,15 +141,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						weather = 'raindance';
+						this.field.setWeather('raindance');
 						return;
-					}
+					} else {
+						this.field.setWeather('snow');
+						return;
+					} 
 				}
 			}
-			this.field.setWeather(weather, pokemon);
 		},
 		onAnySwitchIn(pokemon) {
-			if (pokemon === this.effectState.target) return;
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -160,14 +160,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.field.setWeather('raindance', pokemon);
+						this.field.setWeather('raindance');
 						return;
 					}
 				}
 			}
 		},
 		name: "Cold Sweat",
-		shortDesc: "Summons Snow upon entry. Rain if opponent has a SE or OHKO move.",
+		shortDesc: "Upon entry, summons Snow. Summons Rain if opponent has SE or OHKO move.",
 		rating: 4,
 		num: -9,
 	},
@@ -208,7 +208,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	insurance: {
 		onTryHit(source, target, move) {
 			if (target !== source && move.type === 'Flying') {
-				this.add('-immune', pokemon, '[from] ability: Insurance');
+				this.add('-immune', source, '[from] ability: Insurance');
+				this.add('-anim', source, "Payday", source);
 				this.add('-message', `Coins scattered everywhere!`);
 				return null;
 			}
@@ -216,24 +217,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Insurance",
 		rating: 3,
-		shortDesc: "This Pokemon is immune to Flying-type moves.",
+		shortDesc: "This Pokemon gains an immunity to Flying-type moves.",
 		num: -12,
 	},
 	hospitality: {
 		name: "Hospitality",
-	   onSwitchOut(pokemon) {
+		onSwitchOut(pokemon) {
 			pokemon.side.addSlotCondition(pokemon, 'hospitality');
-	   },
-	   condition: {
+		},
+		condition: {
 			onSwitchIn(target) {
-				 if (!target.fainted) {
+				if (!target.fainted) {
 					target.addVolatile('aquaring');
 					target.side.removeSlotCondition(target, 'hospitality');
-				 }
+				}
 			},
-	   },
+		},
 		rating: 3,
-		shortDesc: "On switch out, the next Pokemon sent out gains the Aqua Ring effect.",
+		shortDesc: "When switching out, the next incoming ally gains the effects of Aqua Ring.",
 		num: 299,
 	},
 	lunargift: {
@@ -276,7 +277,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Embody Aspect (Hearthflame)",
 		rating: 3.5,
-		shortDesc: "Lowers the foe(s)'s Defense by 1 stage on switch-in.",
+		shortDesc: "On switch-in, this Pokemon lowers the Defense of opponents by 1 stage.",
 		num: 303,
 	},
 	shellbreaker: {

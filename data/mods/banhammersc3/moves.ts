@@ -83,4 +83,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	bellydrum: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	nastyplot: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	calmmind: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 };

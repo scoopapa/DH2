@@ -57,7 +57,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lanturn: {
 		inherit: true,
-		baseStats: {hp: 125, atk: 58, def: 70, spa: 96, spd: 72, spe: 67},
+		baseStats: {hp: 125, atk: 58, def: 70, spa: 96, spd: 92, spe: 67},
 		abilities: {0: "Compound Eyes", 1: "Volt Absorb", H: "Water Absorb"},
 		prevo: null,
 	},
@@ -347,7 +347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Ground", "Normal"],
 		baseStats: {hp: 113, atk: 70, def: 100, spa: 125, spd: 65, spe: 52},
-		abilities: {0: "Minds Eye", H: "Lunar Gift"},
+		abilities: {0: "Mind's Eye", H: "Lunar Gift"},
 	},
 	toedscool: {
 		inherit: true,

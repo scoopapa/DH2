@@ -11,4 +11,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	leftovers: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	focussash: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	lifeorb: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 };
