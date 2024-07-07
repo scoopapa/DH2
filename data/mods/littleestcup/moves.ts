@@ -47371,7 +47371,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
-		shortDesc: "Steals the target's.",
+		shortDesc: "Steals the target's item.",
 		name: "Covet",
 		pp: 25,
 		priority: 0,
