@@ -71759,7 +71759,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "Has a 30% chance this move's power is doubled.",
+		shortDesc: "50% chance to raise the user's SpA by 1.",
 		name: "Fiery Dance",
 		pp: 10,
 		priority: 0,
