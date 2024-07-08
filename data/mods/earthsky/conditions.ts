@@ -39,11 +39,11 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost'] || (pokemon.volatiles['nointerrupt']?.ignore.includes('frz'))) return;
-			if (this.randomChance(pokemon.statusData.time, 4)) {
+			if (this.randomChance(pokemon.statusState.time, 4)) {
 				pokemon.cureStatus();
 				return;
 			} else if(!pokemon.volatiles['stasis']){
-				pokemon.statusData.time++;
+				pokemon.statusState.time++;
 			}
 			this.add('cant', pokemon, 'frz');
 			return false;
@@ -296,7 +296,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				if (pokemon.hasAbility('earlybird')) {
 					pokemon.statusState.time--;
 				}
-				pokemon.statusData.time--;
+				pokemon.statusState.time--;
 				if (pokemon.statusState.time <= 0) {
 					pokemon.cureStatus();
 					return;

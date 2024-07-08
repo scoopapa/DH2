@@ -3305,6 +3305,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	cutecharm: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('attract', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cute Charm",
+		rating: 0.5,
+		num: 56,
+	},
 	dazzling: {
 		onFoeTryMove(source, target, move) {
 			if (move.target === 'foeSide' || (move.target === 'all' &&  move.id !== 'perishsong')) {
@@ -3322,6 +3335,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {breakable: 1},
 		rating: 2.5,
 		num: 219,
+	},
+	effectspore: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
+	flamebody: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
 	},
 	fullmetalbody: {
 		onChangeBoost(boost, target, source, effect) {
@@ -3352,6 +3396,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 230,
 	},
+	gooey: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Gooey');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		flags: {},
+		name: "Gooey",
+		rating: 2,
+		num: 183,
+	},
 	imposter: {
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
@@ -3374,6 +3430,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 150,
         flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+	},
+	ironbarbs: {
+		onHitOrder: 1,
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Iron Barbs",
+		rating: 2.5,
+		num: 160,
+	},
+	mummy: {
+		onHit(target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'mummy') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('mummy', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: Mummy', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		flags: {},
+		name: "Mummy",
+		rating: 2,
+		num: 152,
 	},
 	neutralizinggas: {
 		inherit: true,
@@ -3437,6 +3523,46 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		desc: "When an opposing Pokemon has a stat stage raised, this Pokemon copies the effect, unless the opponent has the Own Tempo Ability or was already copying the boost through Opportunist or a held Mirror Herb.",
 	},
+	poisonpoint: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	poisontouch: {
+		onSourceHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.randomChance(3, 10)) {
+					target.trySetStatus('psn', source);
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Touch",
+		rating: 2,
+		num: 143,
+	},
+	roughskin: {
+		onHitOrder: 1,
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Rough Skin",
+		rating: 2.5,
+		num: 24,
+	},
 	scrappy: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
@@ -3466,6 +3592,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {breakable: 1},
 		rating: 3.5,
 		num: 231,
+	},
+	static: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Static",
+		rating: 2,
+		num: 9,
 	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
@@ -3514,6 +3653,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		rating: 2.5,
 		num: 36,
+	},
+	wanderingspirit: {
+		onHit(target, source, move) {
+			if (source.getAbility().flags['failskillswap']) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, source.ability);
+				if (!targetCanBeSet) return targetCanBeSet;
+				const sourceAbility = source.setAbility('wanderingspirit', target);
+				if (!sourceAbility) return;
+				if (target.isAlly(source)) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+				} else {
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+				}
+				target.setAbility(sourceAbility);
+			}
+		},
+		flags: {},
+		name: "Wandering Spirit",
+		rating: 2.5,
+		num: 254,
 	},
 	zenmode: {
 		inherit: true,
