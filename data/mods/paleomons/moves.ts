@@ -355,4 +355,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
