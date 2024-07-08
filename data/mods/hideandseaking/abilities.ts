@@ -3352,8 +3352,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
-			return 1;
+			return 2;
 		},
+		shortDesc: "If this Pokemon is the target of a foe's move, that move loses two additional PP.",
 		flags: {},
 		name: "Pressure",
 		rating: 2.5,
@@ -4304,20 +4305,36 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	solarpower: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
+			return this.chainModify(1.5);
 		},
-		onWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
-			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-				this.damage(target.baseMaxhp / 8, target, target);
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+		},
+		onStart(source) {
+			this.field.setWeather('sunnyday');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'sunnyday' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('solarpower')) {
+					this.field.weatherState.source = target;
+					return;
+				}
 			}
+			this.field.clearWeather();
 		},
 		flags: {},
 		name: "Solar Power",
 		rating: 2,
 		num: 94,
+		shortDesc: "Sunny Day is active; this Pokemon's SpA is 1.5x; loses 1/8 max HP per turn.",
 	},
 	solidrock: {
 		onSourceModifyDamage(damage, source, target, move) {
