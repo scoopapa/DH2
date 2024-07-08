@@ -223,7 +223,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			if(target.hasType('Ghost')) {
 				this.debug("BP doubled against Ghost");
-				return this.chainModify(2);
+				return move.basePower * 2;
 			}
 			return move.basePower;
 		},
