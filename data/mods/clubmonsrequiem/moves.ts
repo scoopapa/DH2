@@ -11,6 +11,70 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
+	hiddenpowerfighting: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerfire: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowergrass: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerwater: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerelectric: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerice: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerpoison: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerground: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerpsychic: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerdark: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerbug: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerghost: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerdragon: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowersteel: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerflying: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerrock: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
