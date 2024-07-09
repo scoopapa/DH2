@@ -202,7 +202,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	"mothball": {
+	"cricketball": {
 		learnset: {
 			acrobatics: ["9L1"],
 			aircutter: ["9L1"],
@@ -227,8 +227,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			sludgebomb: ["9L1"],
 			stickyweb: ["9L1"],
+			stunspore: ["9L1"],
 			substitute: ["9L1"],
 			takedown: ["9L1"],
+			taunt: ["9L1"],
 			thunder: ["9L1"],
 			thunderbolt: ["9L1"],
 			uturn: ["9L1"],
@@ -239,7 +241,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	"watermelon": {
 		learnset: {
 			bodypress: ["9L1"],
-			calmmind: ["9L1"],
 			doubleedge: ["9L1"],
 			energyball: ["9L1"],
 			facade: ["9L1"],
@@ -264,7 +265,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["9L1"],
 		},
 	},
-	"orange": {
+	"cabbage": {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9L1"],
@@ -417,7 +418,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	"confettiball": {
+	"gumball": {
 		learnset: {
 			calmmind: ["9L1"],
 			dazzlinggleam: ["9L1"],
