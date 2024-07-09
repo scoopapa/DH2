@@ -21,7 +21,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
 					  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
 					  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
-					  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
+					  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream', 'roomservice'].includes(item.id)) {
 							target.trySetStatus('tox', source);
 							this.add('-message', `${target.name}'s item rotted and poisoned it!`);
 					}
