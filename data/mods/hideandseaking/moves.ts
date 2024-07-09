@@ -10114,14 +10114,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
-		shortDesc: "30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target finch.",
 		name: "Icicle Crash",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'flinch',
+			onHit(target) {
+				target.addVolatile('iciclecrash');
+			},
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-message', `The target finched! It will become Finchinator!`);
+				pokemon.formeChange('Garchomp');
+				// pokemon.setAbility('roughskin');
+			},
+			onEnd(pokemon) {
+				if (['Garchomp'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
 		},
 		target: "normal",
 		type: "Ice",
@@ -11646,7 +11660,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Def, Sp. Def of allies with Plus/Minus by 1.",
+		shortDesc: "For 5 turns, the user has immunity to Ground.",
 		name: "Magnet Rise",
 		pp: 10,
 		priority: 0,
@@ -11685,7 +11699,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Physical",
-		shortDesc: "For 5 turns, the user has immunity to Ground.",
+		shortDesc: "Hits adjacent Pokemon. Power varies; 2x on Dig.",
 		isNonstandard: "Past",
 		name: "Magnitude",
 		pp: 30,
@@ -14512,7 +14526,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 75,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Poisons the foe.",
+		shortDesc: "Poisons the target.",
 		name: "Poison Powder",
 		pp: 35,
 		priority: 0,
@@ -15419,18 +15433,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Cures target's status; heals user 1/2 max HP if so.",
+		shortDesc: "Cures target's status; heals user 1/2 max HP.",
 		isNonstandard: "Past",
 		name: "Purify",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, heal: 1, metronome: 1},
 		onHit(target, source) {
-			if (!target.cureStatus()) {
-				this.add('-fail', source);
-				this.attrLastMove('[still]');
-				return this.NOT_FAIL;
-			}
+			target.cureStatus();
 			this.heal(Math.ceil(source.maxhp * 0.5), source);
 		},
 		secondary: null,
@@ -16279,7 +16289,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		shortDesc: "Revives a fainted Pokemon to 50% HP.",
+		shortDesc: "2x power if target is grounded in Electric Terrain.",
 		name: "Rising Voltage",
 		pp: 20,
 		priority: 0,
@@ -20824,7 +20834,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
-		shortDesc: "If the user has no item, it steals the target's.",
+		shortDesc: "If the user has no item, it steels the target's.",
 		name: "Thief",
 		pp: 25,
 		priority: 0,
@@ -20833,17 +20843,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (source.item || source.volatiles['gem']) {
 				return;
 			}
-			const yourItem = target.takeItem(source);
-			if (!yourItem) {
-				return;
-			}
-			if (!this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem) ||
-				!source.setItem(yourItem)) {
-				target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
-				return;
-			}
-			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Thief', '[of] ' + source);
-			this.add('-item', source, yourItem, '[from] move: Thief', '[of] ' + target);
+			target.setItem('ironball');
+			this.add('-item', target, target.getItem(), '[from] move: Thief');
 		},
 		secondary: null,
 		target: "normal",
@@ -21645,7 +21646,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
+		shortDesc: "100% chance to lower the target's Attack by 1.",
 		name: "Trop Kick",
 		pp: 15,
 		priority: 0,

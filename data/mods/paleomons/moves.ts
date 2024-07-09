@@ -182,6 +182,62 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	ivoryslash: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Ivory Slash",
+		shortDesc: "Raises the user's crit rate by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: null,
+		self: {
+			volatileStatus: 'ivoryslash',
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.effectState.counter = 1;
+				this.add('-start', pokemon, `Crit Rate: ${this.effectState.counter}`, '[silent]');
+				this.add('-message', `${pokemon.name} became more likely to land critical hits!`);
+			},
+			onRestart(pokemon, source, effect) {
+				if(this.effectState.counter < 3) {
+					this.add('-end', pokemon, `Crit Rate: ${this.effectState.counter}`, '[silent]');
+					this.effectState.counter ++;
+					this.add('-start', pokemon, `Crit Rate: ${this.effectState.counter}`, '[silent]');
+					this.add('-message', `${pokemon.name} became more likely to land critical hits!`);
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + this.effectState.counter;
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	soulwind: {
+		accuracy: 100,
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if(target.hasType('Ghost')) {
+				this.debug("BP doubled against Ghost");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Soul Wind",
+		shortDesc: "Deals double damage to Ghost-types.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
 	
 	//edited vanilla moves
 	fishiousrend: {
@@ -298,5 +354,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			}
 		},
+	},
+
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };
