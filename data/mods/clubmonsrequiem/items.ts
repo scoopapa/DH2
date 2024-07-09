@@ -274,7 +274,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				let scaredThisGuy = false;
 				for (const moveSlot of ((pokemon.illusion && pokemon.illusion.moveSlots) ? pokemon.illusion.moveSlots : pokemon.moveSlots)) {
 					if (scaredThisGuy === true) continue;
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (

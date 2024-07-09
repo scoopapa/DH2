@@ -12,7 +12,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aleon: {tier: "CM"},
 
 	absol: {tier: "CM"},
-	absolmega: {tier: "CM"},
 
 	fennekin: {tier: "CM (NFE)"},
 	braixen: {tier: "CM (NFE)"},
@@ -128,10 +127,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	growlithe: {tier: "CM (NFE)"},
 	arcanine: {tier: "CM"},
 	
-	basculinwhitestriped: {tier: "CM (NFE)"},
-	basculegion: {tier: "CM"},
-	basculegionf: {tier: "CM"},
-	
 	chansey: {tier: "CM (NFE)"},
 	blissey: {tier: "CM"},
 	
@@ -153,7 +148,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	clawitzer: {tier: "CM"},
 
 	sableye: {tier: "CM"},
-	sableyemega: {tier: "CM"},
 
 	electrike: {tier: "CM (NFE)"},
 	manectric: {tier: "CM"},
@@ -184,9 +178,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	goomy: {tier: "CM (NFE)"},
 	sliggoo: {tier: "CM (NFE)"},
-	sliggoohisui: {tier: "CM (NFE)"},
-	goodra: {tier: "CM"},
-	goodrahisui: {tier: "CM"},
+	goodra: {tier: "CM"},	
 	
 	trapinch: {tier: "CM (NFE)"},
 	vibrava: {tier: "CM (NFE)"},
