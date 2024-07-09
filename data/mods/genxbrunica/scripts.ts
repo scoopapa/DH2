@@ -685,14 +685,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (maxMove) {
 				move = this.getActiveMaxMove(baseMove, pokemon);
 			} else if (pokemon.volatiles['typebalm']?.balmMove) {
-				console.log("Balm move found???");
 				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
 				if (
 					balmMoveData.type === pokemon.addedType //Check if used the right balm
 					&& balmMoveData.type === move.type //Check if type matches
 					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
 				) {
-					console.log("WE'RE USING THIS BALM MOVE INSTEAD");
 					move = this.getActiveBalmMove(move, balmMoveData);
 					balmMove = pokemon.volatiles['typebalm'].balmMove;
 				}

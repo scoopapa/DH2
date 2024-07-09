@@ -128,7 +128,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (this.field.isWeather('snow')) {
+			if (this.field.isWeather('snow') && !pokemon.side.getSideCondition('auroraveil')) {
+				this.add('-ability', pokemon, 'Frost Cloak');
 				pokemon.side.addSideCondition('auroraveil');
 			}
 		},

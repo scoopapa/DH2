@@ -105,6 +105,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -136,6 +140,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Blade Runner",
 		desc: "Has a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smart Strike", target);
+		},
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
@@ -151,6 +159,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Bully Bash",
 		desc: "Has a 20% chance to make the target flinch.",
 		shortDesc: "20% chance to make the target flinch.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Rush", target);
+		},
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -169,6 +181,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Outcry",
 		desc: "No additional effect.",
 		shortDesc: "No additional effect. Hits foe(s).",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Snarl", target);
+		},
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
