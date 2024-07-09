@@ -290,7 +290,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Water",
 	},
-	cloneexpress: {
+	//There was a miscount, Clone Express is archived
+	/*cloneexpress: {
 		accuracy: true,
 		basePower: 1,
 		category: "Physical",
@@ -314,7 +315,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "adjacentFoe",
 		type: "Ghost",
-	},
+	},*/
 	
 	
 	//Interacting with new Brunician mechanics

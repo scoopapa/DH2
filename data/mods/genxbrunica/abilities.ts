@@ -103,7 +103,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 		},
 	},
-	cloninggenes: {
+	//Cloning Genes being archived, there was a miscount
+	/*cloninggenes: {
 		// activation in conditions.ts#twoturnmove
 		name: "Cloning Genes",
 		flags: {},
@@ -120,7 +121,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.removeVolatile('cloninggenes');
 			},
 		}
-	},
+	},*/
 	frostcloak: {
 		name: "Frost Cloak",
 		shortDesc: "Sets up Aurora Veil under snow.",

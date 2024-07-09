@@ -43,11 +43,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
-	ferrustle: {
+	mustelive: {
 		tier: "Brunica LC",
 		doublesTier: "DOU",
 	},
-	mustelone: {
+	carcajab: {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},

@@ -22,6 +22,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 	},
+	//There was an error so this edit to accommodate for Cloning Genes is being archived
+	/*
 	twoturnmove: {
 		// Cloning Genes
 		inherit: true,
@@ -51,7 +53,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			// Run side-effects normally associated with hitting (e.g., Protean, Libero)
 			this.runEvent('PrepareHit', attacker, defender, effect);
 		},
-	},
+	},*/
 	typebalm: {
 		//This is here to track whether a mon has used a Type Balm this switch-in
 		duration: 0,
@@ -62,7 +64,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Photalohm': 'Magnetic Updraft',
 				'Smeltusk': 'Leaping Onrush',
 				'Panthoard': 'Cupric Deluge',
-				'Mustelone': 'Clone Express',
+				//'Mustelone': 'Clone Express',
 				'Froskua': 'Dive Bomb'
 			};
 			const species = target.baseSpecies.baseSpecies;
