@@ -39,9 +39,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unburden", 1: "Adaptability", H: "Aerilate"},
 		weightkg: 3,
 	},
-	"cricketball": {
+	"mothball": {
 		num: 6,
-		name: "Cricketball",
+		name: "Mothball",
 		types: ["Bug"],
 		baseStats: {hp: 50, atk: 80, def: 80, spa: 130, spd: 100, spe: 160},
 		abilities: {0: "Rattled", 1: "Sniper", H: "Sheer Force"},
