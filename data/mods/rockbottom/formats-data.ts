@@ -53,4 +53,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lumineon: {
 		tier: "RB",
 	},
+	honedge: {
+		tier: "RB",
+	},
+	palpitoad: {
+		tier: "RB",
+	},
 };
