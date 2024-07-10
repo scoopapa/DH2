@@ -101,7 +101,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lumineon: {
 		inherit: true,
-		baseStats: {hp: 69, atk: 69, def: 76, spa: 69, spd: 86, spe: 92},
+		baseStats: {hp: 69, atk: 69, def: 61, spa: 69, spd: 86, spe: 92},
 		abilities: {0: "Swift Swim", H: "Water Veil"},
 		prevo: null,
 	},
