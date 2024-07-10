@@ -886,6 +886,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	carcajab: {
 		learnset: {
+			metalclaw: ["9L0"],
 			scratch: ["9L1"],
 			leer: ["9L1"],
 			bite: ["9L7"],
