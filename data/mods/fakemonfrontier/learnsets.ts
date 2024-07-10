@@ -1338,6 +1338,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			beatup: ["9L1"],
 			bulletseed: ["9L1"],
+			banefulbunker: ["9L1"],
 			curse: ["9L1"],
 			gigadrain: ["9L1"],
 			gunkshot: ["9L1"],
