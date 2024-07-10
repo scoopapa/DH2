@@ -1168,6 +1168,26 @@
             }
         ]
     },
+	"toxicroak": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Bullet Punch", "Sucker Punch", "Vacuum Wave", "Cross Poison"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+	"croagunk": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Sludge Wave", "Drain Punch", "Chilling Water", "Earthquake"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
