@@ -569,6 +569,206 @@
             }
         ]
     },
+	"cobalion": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Retaliate", "Aura Sphere", "Volt Switch", "Smart Strike"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"virizion": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Grass Knot", "Double Kick", "Air Slash", "Zen Headbutt"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"terrakion": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Megahorn", "Focus Blast", "Earth Power", "Rock Tomb"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+	"keldeo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Sacred Sword", "Swords Dance", "Aqua Jet", "Aerial Ace"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+	"poochyena": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Crunch", "Play Rough", "Trailblaze", "Howl"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+	"mightyena": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Foul Play", "Poison Fang", "Heal Bell", "Protect"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+	"dratini": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Dragon Dance", "Outrage", "Aqua Tail", "Rest"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"dragonair": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Extreme Speed", "Dragon Rush", "Double-Edge", "Iron Head"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"dragonite": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Dragon Tail", "Air Slash", "Icy Wind", "Rock Slide"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+	"tynamo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Spark", "Knock Off", "Tera Blast", "Thunder Wave"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+	"eelektrik": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Acid Spray", "Volt Switch", "Thunderbolt", "Giga Drain"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+	"eelektross": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Coil", "Thunder Fang", "Body Press", "Dragon Claw"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+	"munna": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Psychic", "Moonblast", "Moonlight", "Thunder Wave"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+	"musharna": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Psyshock", "Shock Wave", "Hyper Beam", "Trick Room"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"delibird": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Ice Spinner", "Brave Bird", "Future Sight", "Baton Pass"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+	"pawmi": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Thunder", "Play Rough", "Super Fang", "Baton Pass"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+	"pawmo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Thunder Punch", "Focus Punch", "Knock Off", "Substitute"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+	"pawmot": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Brick Break", "Discharge", "Thief", "Revival Blessing"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+	"skarmory": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Metal Claw", "Dual Wingbeat", "Assurance"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"ditto": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Transform"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
