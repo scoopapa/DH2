@@ -74,6 +74,127 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Grass",
 	},
+	gemdevour: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Gem Devour",
+		desc: "This move's type effectiveness against Rock is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Super effective on Rock.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, bite: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Bite", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Rock') return 1;
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	overcharge: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Overcharge",
+		desc: "This attack charges on the first turn and executes on the second. If the user is hit by a damaging move while charging, the attacker is paralyzed.",
+		shortDesc: "Charges turn 1. Hits turn 2. Paralyzes attackers while charging.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			onHit(target, source, move) {
+				if (target.volatiles['twoturnmove']) {
+					source.trySetStatus('par', target);
+				} else {
+					target.removeVolatile('overcharge');
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+	},
+	bladerunner: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Blade Runner",
+		desc: "Has a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smart Strike", target);
+		},
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	bullybash: {
+		accuracy: 80,
+		basePower: 100,
+		category: "Physical",
+		name: "Bully Bash",
+		desc: "Has a 20% chance to make the target flinch.",
+		shortDesc: "20% chance to make the target flinch.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Rush", target);
+		},
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	outcry: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Outcry",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect. Hits foe(s).",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Snarl", target);
+		},
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dark",
+	},
+	
+	
+	//Balm Moves
 	magneticupdraft: {
 		accuracy: true,
 		basePower: 1,
@@ -105,7 +226,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "x1.5 power of base move. Removes the target's Ground immunity.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Close Combat", target);
+			this.add('-anim', source, "Headlong Rush", target);
 		},
 		volatileStatus: 'smackdown',
 		secondary: null,
@@ -144,8 +265,58 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Steel",
 	},
+	divebomb: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Dive Bomb",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. After the move lands, it the target to become a Water type unless the target is an Arceus or a Silvally, the target is already purely Water type, the target is Terastallized, or the target is using a Type Balm.",
+		shortDesc: "x1.5 power of base move. Changes the target's type to Water.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wave Crash", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				if (target.getTypes().join() !== 'Water' && target.setType('Water')) {
+					this.add('-start', target, 'typechange', 'Water');
+				}
+			},
+		},
+		target: "adjacentFoe",
+		type: "Water",
+	},
+	//There was a miscount, Clone Express is archived
+	/*cloneexpress: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Clone Express",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to confuse the target if it has a non-volatile status condition.",
+		shortDesc: "x1.5 power of base move. 100% to confuse statused target.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Population Bomb", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target.status) {
+					target.addVolatile('confusion', source, move);
+				}
+			},
+		},
+		target: "adjacentFoe",
+		type: "Ghost",
+	},*/
 	
-	//Balm Moves
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
