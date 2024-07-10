@@ -1,0 +1,592 @@
+{
+	"snivy": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Leaf Storm", "Tera Blast", "Synthesis", "Wring Out"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+	"servine": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Energy Ball", "Knock Off", "Nature Power", "Leech Seed"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+	"serperior": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Grassy Glide", "Aqua Tail", "Coil", "Grassy Terrain"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+	"torchic": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Flare Blitz", "Overheat", "Rock Slide", "Protect"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+	"combusken": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Blaze Kick", "Low Kick", "Thunder Punch", "Hone Claws"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+	"blaziken": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Temper Flare", "Vacuum Wave", "Crush Claw", "Sunny Day"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+	"totodile": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Liquidation", "Ice Punch", "Flip Turn", "Dragon Dance"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+	"croconaw": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Scald", "Icy Wind", "Trailblaze", "Spite"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+	"feraligatr": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Water Pledge", "Shadow Claw", "Metal Claw", "Rain Dance"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"minccino": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Tail Slap", "Knock Off", "Aqua Tail", "Tidy Up"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+	"cinccino": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Double Slap", "Endeavor", "Gunk Shot", "Thunder Wave"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"okidogi": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Poison Fang", "Focus Blast", "Outrage", "Howl"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+	"munkidori": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Clear Smog", "Psychic Noise", "Poltergeist", "Fake Out"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"fezandipiti": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Cross Poison", "Dazzling Gleam", "Dual Wingbeat", "Light Screen"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+	"pecharunt": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Hex", "Venoshock", "Poison Gas", "Fake Tears"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+	"smeargle": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Population Bomb", "Rage Fist", "Bonemerang", "Shift Gear"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"pansear": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Overheat", "Grass Knot", "Acrobatics", "Substitute"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+	"simisear": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Fire Punch", "Brick Break", "Fire Spin", "Taunt"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+	"nymble": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["First Impression", "U-Turn", "Leech Life", "Bug Buzz"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+	"lokix": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Thief", "Skitter Smack", "Bounce", "Taunt"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+	"doduo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Thrash", "Drill Peck", "Substitute", "Swords Dance"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"dodrio": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Fly", "Rest", "Tri Attack", "Stomping Tantrum"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+	"riolu": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["High Jump Kick", "Shadow Claw", "Copycat", "Bulk Up"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"lucario": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Aura Sphere", "Metal Claw", "Water Pulse", "Circle Throw"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+	"eevee": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Double-Edge", "Iron Tail", "Quick Attack", "Curse"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"vaporeon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Brine", "Alluring Voice", "Quick Attack", "Baby-Doll Eyes"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+	"jolteon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Electro Ball", "Shadow Ball", "Quick Attack", "Thunder Wave"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+	"flareon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Lava Plume", "Superpower", "Quick Attack", "Roar"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"espeon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Psychic Fangs", "Grass Knot", "Quick Attack", "Tickle"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+	"umbreon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Assurance", "Psychic", "Quick Attack", "Psych Up"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"leafeon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Bullet Seed", "Weather Ball", "Quick Attack", "Sunny Day"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+	"glaceon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Freeze-Dry", "Chilling Water", "Quick Attack", "Protect"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+	"sylveon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Draining Kiss", "Tera Blast", "Quick Attack", "Misty Terrain"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+	"ralts": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Psychic", "Alluring Voice", "Mystical Fire", "Trick Room"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"kirlia": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Expanding Force", "Dazzling Gleam", "Dream Eater", "Hypnosis"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"gardevoir": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Draining Kiss", "Aura Sphere", "Pain Split", "Healing Wish"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+	"gallade": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Psycho Cut", "Power-Up Punch", "Wish", "Protect"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+	"buizel": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Wave Crash", "Ice Beam", "Aqua Ring", "Agility"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+	"floatzel": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Brine", "Ice Fang", "Crunch", "Aqua Jet"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"marshadow": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Hex", "Force Palm", "Sucker Punch", "Will-O-Wisp"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"absol": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Night Slash", "Psycho Cut", "Quick Attack", "Wish"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"cranidos": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Head Smash", "Endeavor", "Zen Headbutt", "Stomping Tantrum"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"rampardos": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Ancient Power", "Earth Power", "Secret Power", "Superpower"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+	"shieldon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stone Edge", "Flash Cannon", "Metal Sound", "Screech"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+	"bastiodon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Meteor Beam", "Flash Cannon", "Ice Beam", "Rock Polish"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+	"dracovish": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Dragon Rush", "Protect", "Super Fang", "Whirlpool"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+	"dracozolt": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Breaking Swipe", "Rising Voltage", "Ancient Power", "Brutal Swing"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+	"arctovish": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Dive", "Brine", "Ice Fang", "Snowscape"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+	"arctozolt": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Icicle Spear", "Electro Ball", "Charge", "Stomping Tantrum"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+	"aerodactyl": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Hurricane", "Iron Tail", "Rock Tomb", "Hone Claws"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+	"pansage": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Energy Ball", "Gunk Shot", "Acrobatics", "Grass Whistle"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+	"simisage": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Magical Leaf", "Dig", "Spiky Shield", "Leech Seed"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+	"panpour": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Hydro Pump", "Ice Beam", "Acrobatics", "Nasty Plot"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"simipour": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Waterfall", "Rock Tomb", "Torment", "Taunt"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+	"zangoose": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Slash", "Flail", "Throat Chop", "Endure"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+	"seviper": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Poison Fang", "Ice Fang", "Fire Fang", "Psychic Fangs"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+	"genesect": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Fury Cutter", "Metal Claw", "Charge Beam", "Struggle Bug"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+	"morelull": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Spore", "Moonblast", "Giga Drain", "Strength Sap"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+	"shiinotic": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Dazzling Gleam", "Mega Drain", "Pollen Puff", "Sleep Talk"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    }
+}
