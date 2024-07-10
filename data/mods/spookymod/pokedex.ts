@@ -38,7 +38,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dofagrigus",
 		types: ["Ghost"],
 		baseStats: {hp: 70, atk: 55, def: 145, spa: 95, spd: 105, spe: 30},
-		abilities: {0: "Dummy", H: "Filter"},
+		abilities: {0: "Dummy"},
 	},
 	eddyazbear: {
 		num: 5,
