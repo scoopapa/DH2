@@ -1709,7 +1709,7 @@ export class RandomTeams {
 			name: species.baseSpecies,
 			species: forme,
 			gender: species.baseSpecies === 'Greninja' ? 'M' : species.gender,
-			shiny: this.randomChance(1, 100),
+			shiny: this.randomChance(1, 77),
 			level,
 			moves: shuffledMoves,
 			ability,
