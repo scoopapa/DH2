@@ -1885,6 +1885,7 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'pikachusinnoh').learnset.hiddenpower;
     delete this.modData('Learnsets', 'pikachuunova').learnset.hiddenpower;
     delete this.modData('Learnsets', 'pikachuworld').learnset.hiddenpower;
+    delete this.modData('Learnsets', 'pikachucosplay').learnset.hiddenpower;
     delete this.modData('Learnsets', 'pikachurockstar').learnset.hiddenpower;
     delete this.modData('Learnsets', 'pikachubelle').learnset.hiddenpower;
     delete this.modData('Learnsets', 'pikachupopstar').learnset.hiddenpower;
