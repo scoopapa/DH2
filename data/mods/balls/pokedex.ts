@@ -39,9 +39,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unburden", 1: "Adaptability", H: "Aerilate"},
 		weightkg: 3,
 	},
-	"mothball": {
+	"cricketball": {
 		num: 6,
-		name: "Mothball",
+		name: "Cricketball",
 		types: ["Bug"],
 		baseStats: {hp: 50, atk: 80, def: 80, spa: 130, spd: 100, spe: 160},
 		abilities: {0: "Rattled", 1: "Sniper", H: "Sheer Force"},
@@ -55,9 +55,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Drizzle", 1: "Water Absorb", H: "Unaware"},
 		weightkg: 25,
 	},
-	"orange": {
+	"cabbage": {
 		num: 8,
-		name: "Orange",
+		name: "Cabbage",
 		types: ["Grass"],
 		baseStats: {hp: 120, atk: 60, def: 80, spa: 130, spd: 150, spe: 60},
 		abilities: {0: "Grassy Surge", 1: "Ripen", H: "Natural Cure"},
@@ -67,7 +67,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9,
 		name: "Plasmaball",
 		types: ["Electric"],
-		baseStats: {hp: 80, atk: 50, def: 140, spa: 145, spd: 130, spe: 55},
+		baseStats: {hp: 80, atk: 65, def: 140, spa: 130, spd: 130, spe: 55},
 		abilities: {0: "Electric Surge", 1: "Static", H: "Electromorphosis"},
 		weightkg: 34,
 	},
@@ -95,9 +95,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Simple", 1: "Sturdy", H: "Illusion"},
 		weightkg: 3,
 	},
-	"confettiball": {
+	"gumball": {
 		num: 13,
-		name: "Confettiball",
+		name: "Gumball",
 		types: ["Fairy"],
 		baseStats: {hp: 70, atk: 60, def: 50, spa: 170, spd: 150, spe: 100},
 		abilities: {0: "Misty Surge", 1: "Aftermath", H: "Prankster"},
