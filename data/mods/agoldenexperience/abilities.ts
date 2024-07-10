@@ -2582,4 +2582,32 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		num: -73,
 	},
+	happygolucky: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			const newAtk = atk * (1 + Math.floor(pokemon.happiness / 25));
+			return newAtk;
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			const newDef = def * (1 + Math.floor(pokemon.happiness / 25));
+			return newDef;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			const newSpA = spa * (1 + Math.floor(pokemon.happiness / 25));
+			return newSpA;
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			const newSpD = spd * (1 + Math.floor(pokemon.happiness / 25));
+			return newSpD;
+		},
+		flags: {},
+		name: "Happy-Go-Lucky",
+		desc: "This Pokemon's Attack, Defense, Special Attack, and Special Defense get a boost depending on the happiness of the Pokemon (maximum 10%).",
+		shortDesc: "Boosts Attack, Defense, Special Attack, and Special Defense by 1% per 25 happiness.",
+		rating: 4,
+		num: -74,
+	},
 };
