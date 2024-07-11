@@ -68,7 +68,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowforce: {
 		num: 467,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 100,
 		category: "Physical",
 		name: "Shadow Force",
 		shortDesc: "Hits two turns after use.",
@@ -86,7 +86,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					id: 'shadowforce',
 					name: "Shadow Force",
 					accuracy: 100,
-					basePower: 70,
+					basePower: 100,
 					category: "Special",
 					priority: 0,
 					flags: {allyanim: 1, futuremove: 1},
