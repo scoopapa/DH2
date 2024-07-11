@@ -1662,7 +1662,7 @@ export class RandomTeams {
 		}
 
 		// IV Nerf to NFEs (-8 to all stats)
-		if ((species.nfe && species.prevo) || species.id === 'smeargle') {
+		if ((species.nfe && species.prevo && species.id !== 'kirlia') || species.id === 'smeargle') {
 			ivs.hp = 15;
 			ivs.atk = 15;
 			ivs.def = 15;
