@@ -64,7 +64,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Liquidation", "Ice Punch", "Flip Turn", "Dragon Dance"],
+                "movepool": ["Liquidation", "Ice Punch", "Hydro Cannon", "Dragon Dance"],
                 "teraTypes": ["Ice"]
             }
         ]
@@ -374,7 +374,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Wave Crash", "Ice Beam", "Aqua Ring", "Agility"],
+                "movepool": ["Wave Crash", "Ice Beam", "Aqua Ring", "Flip Turn"],
                 "teraTypes": ["Dragon"]
             }
         ]
