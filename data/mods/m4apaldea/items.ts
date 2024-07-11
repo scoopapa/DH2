@@ -237,7 +237,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Noctowl, this item allows it to Mega Evolve in battle.",
 	},
-	hatterinite: {
+	hatterenite: {
 		name: "Hatterenite",
 		spritenum: 578,
 		megaStone: "Hatterene-Mega",
