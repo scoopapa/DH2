@@ -4127,4 +4127,30 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+		name: "[Gen 9] Stadium YB 3v3 Random Battle",
+		desc: [
+			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
+		],
+		mod: 'stadiumyb',
+		team: 'random',
+		bestOfDefault: true,
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 3', 'Max Team Size = 6'],
+	},
+	{
+		name: "[Gen 9] Stadium YB 6v6 Random Battle",
+		desc: [
+			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
+		],
+		mod: 'stadiumyb',
+		team: 'random',
+		bestOfDefault: true,
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 6', 'Max Team Size = 12'],
+	},
 ];
