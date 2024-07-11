@@ -1651,6 +1651,26 @@ export class RandomTeams {
 		// Get level
 		const level = this.getLevel(species, isDoubles);
 
+		// IV Nerf to FEs (-16 to all stats)
+		if (species.prevo && !species.evos && species.id !== 'smeargle' && species.id !== 'ditto') {
+			ivs.hp = 0;
+			ivs.atk = 0;
+			ivs.def = 0;
+			ivs.spa = 0;
+			ivs.spd = 0;
+			ivs.spe = 0;
+		}
+
+		// IV Nerf to NFEs (-8 to all stats)
+		if ((species.prevo && species.evos) || species.id === 'smeargle') {
+			ivs.hp = 15;
+			ivs.atk = 15;
+			ivs.def = 15;
+			ivs.spa = 15;
+			ivs.spd = 15;
+			ivs.spe = 15;
+		}
+
 		// Prepare optimal HP
 		const srImmunity = ability === 'Magic Guard' || item === 'Heavy-Duty Boots';
 		let srWeakness = srImmunity ? 0 : this.dex.getEffectiveness('Rock', species);
