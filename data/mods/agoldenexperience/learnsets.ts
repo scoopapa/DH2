@@ -2397,8 +2397,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			meanlook: ["9L14"],
 			memento: ["9L21"],
 			mistyterrain: ["9M"],
-			moonblast: ["9L84"],
-			mysticalfire: ["9L49", "9S0"],
 			nightshade: ["9M"],
 			painsplit: ["9L77"],
 			perishsong: ["9L91"],
