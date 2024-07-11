@@ -1327,9 +1327,8 @@ export class RandomTeams {
 		if (species.id === 'doduo') return 'Bright Powder';
 		if (
 			species.id === 'dodrio' || species.id === 'glaceon' || species.id === 'gallade' || 
-			species.id === 'buizel' || species.id === 'arctovish' || species.id === 'mightyena' || 
-			species.id === 'eelektrik' || species.id === 'alomomola' || species.id === 'cramorant' || 
-			species.id === 'yamaskgalar'
+			species.id === 'arctovish' || species.id === 'mightyena' || species.id === 'eelektrik' ||
+			species.id === 'alomomola' || species.id === 'cramorant' || species.id === 'yamaskgalar'
 		) return 'Leftovers';
 		if (species.id === 'lucario') return 'Occa Berry';
 		if (species.id === 'vaporeon' || species.id === 'mrrime') return 'Throat Spray';
@@ -1375,6 +1374,7 @@ export class RandomTeams {
 		if (species.id === 'chimecho') return 'Aguav Berry';
 		if (species.id === 'sneasel') return 'Black Glasses';
 		if (species.id === 'sneaselhisui') return 'Big Nugget';
+		if (species.id === 'buizel') return 'Shell Bell';
 	}
 
 	/** Item generation specific to Random Doubles */
