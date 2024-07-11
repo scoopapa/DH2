@@ -1188,6 +1188,66 @@
             }
         ]
     },
+  "chingling": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Psychic Noise", "Baton Pass", "Future Sight", "Dazzling Gleam"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "chimecho": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Psybeam", "Recover", "Snarl", "Synchronoise"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+  "sneasel": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Beat Up", "Snatch", "Icicle Crash", "Surf"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+  "sneaselhisui": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Thief", "Fling", "Poison Jab", "Low Kick"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+  "weavile": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Ice Punch", "Bite", "Counter", "X-Scissor"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+  "sneasler": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Substitute", "Poison Tail", "Low Sweep", "Night Slash"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
