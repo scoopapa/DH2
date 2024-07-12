@@ -1401,6 +1401,7 @@ export class RandomTeams {
 		if (species.id === 'flamigo') return 'Covert Cloak';
 		if (species.id === 'togetic') return 'Quick Claw';
 		if (species.id === 'falinks') return 'Shed Shell';
+		if (species.id === 'dragonite') return 'Enigma Berry';
 	}
 
 	/** Item generation specific to Random Doubles */
