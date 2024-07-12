@@ -619,4 +619,33 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	koraidon: {tier: "Uber", doublesTier: "Paldea"},
 	miraidon: {tier: "Uber", doublesTier: "Paldea"},
 
+	// DLC1
+
+	cutiefly: {tier: "Paldea", doublesTier: "Paldea"},
+	ribombee: {tier: "Paldea", doublesTier: "Paldea"},
+
+	vulpix: {tier: "Paldea", doublesTier: "Paldea"},
+	ninetales: {tier: "Paldea", doublesTier: "Paldea"},
+
+	hoothoot: {tier: "Paldea", doublesTier: "Paldea"},
+	noctowl: {tier: "Paldea", doublesTier: "Paldea"},
+
+	poltageist: {tier: "Paldea", doublesTier: "Paldea"},
+	sinistcha: {tier: "Paldea", doublesTier: "Paldea"},
+
+	basculinwhite: {tier: "Paldea", doublesTier: "Paldea"},
+	basculegion: {tier: "Paldea", doublesTier: "Paldea"},
+	basculegionf: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ursalunabloodmoon: {tier: "Uber", doublesTier: "Paldea"},
+
+	okidogi: {tier: "Paldea", doublesTier: "Paldea"},
+	fezandipiti: {tier: "Paldea", doublesTier: "Paldea"},
+	munkidori: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ogerpon: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponhearthflame: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponcornerstone: {tier: "Uber", doublesTier: "Paldea"},
+
 };
