@@ -509,6 +509,70 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 
 // Wave 2
+	dreepy: {
+		inherit: true,
+		abilities: {0: "Clear Body"},
+	},
+	drakloak: {
+		inherit: true,
+		abilities: {0: "Cursed Body"},
+	},
+	dragapult: {
+		inherit: true,
+		abilities: {0: "Infiltrator"},
+	},
+	zekrom: {
+		inherit: true,
+		abilities: {0: "Teravolt"},
+	},
+	reshiram: {
+		inherit: true,
+		abilities: {0: "Turboblaze"},
+	},
+	kyurem: {
+		inherit: true,
+		abilities: {0: "Pressure"},
+	},
+	kyuremblack: {
+		inherit: true,
+		abilities: {0: "Teravolt"},
+	},
+	kyuremwhite: {
+		inherit: true,
+		abilities: {0: "Turboblaze"},
+	},
+	audino: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
+	magby: {
+		inherit: true,
+		abilities: {0: "Flame Body"},
+	},
+	magmar: {
+		inherit: true,
+		abilities: {0: "Vital Spirit"},
+	},
+	magmortar: {
+		inherit: true,
+		abilities: {0: "Flame Body"},
+	},
+	elekid: {
+		inherit: true,
+		abilities: {0: "Static"},
+	},
+	electabuzz: {
+		inherit: true,
+		abilities: {0: "Vital Spirit"},
+	},
+	electivire: {
+		inherit: true,
+		abilities: {0: "Motor Drive"},
+	},
+	spiritomb: {
+		inherit: true,
+		abilities: {0: "Pressure"},
+	},
 	corphish: {
 		inherit: true,
 		abilities: {0: "Adaptability"},
