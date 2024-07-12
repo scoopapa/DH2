@@ -1489,6 +1489,156 @@
             }
         ]
     },
+  "zygarde10": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Extreme Speed", "Land's Wrath", "Core Enforcer", "Camouflage"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+  "fidough": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Play Rough", "Stomping Tantrum", "Yawn", "Endeavor"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+  "dachsbun": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Alluring Voice", "Psychic Fangs", "Copycat", "Baton Pass"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+  "skitty": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Double-Edge", "Thunder Wave", "Thunder Wave", "Foresight"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+  "delcatty": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Steup",
+                "movepool": ["Cosmic Power", "Secret Power", "Wake-Up Slap", "Assist"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "oddish": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Leaf Storm", "Sludge Bomb", "Moonblast", "Stun Spore"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "gloom": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Bullet Seed", "Pollen Puff", "Sleep Powder", "Strength Sap"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+  "vileplume": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Petal Blizzard", "Drain Punch", "Venoshock", "Swords Dance"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+  "bellossom": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Triple Axel", "Baton Pass", "Ingrain"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+  "flamigo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Low Kick", "Dual Wingbeat", "U-turn", "Tailwind"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+  "veluza": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Surf", "Psycho Cut", "Final Gambit", "Recover"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "falinks": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["No Retreat", "Body Press", "Smart Strike", "Screech"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+  "togepi": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Play Rough", "Aerial Ace", "Double-Edge", "Trick"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+  "togetic": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Metronome", "Dazzling Gleam", "Fly", "Silver Wind"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "togekiss": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Draining Kiss", "Mirror Move", "Air Cutter", "Heal Bell"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
