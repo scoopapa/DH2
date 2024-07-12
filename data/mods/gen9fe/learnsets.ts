@@ -14542,7 +14542,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			swagger: ["9L1"],
 		},
 	},
-	spritzkelp: {
+	spritkelp: {
 		learnset: {
 			afteryou: ["9L1"],
 			allyswitch: ["9L1"],
