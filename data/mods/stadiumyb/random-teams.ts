@@ -1292,7 +1292,7 @@ export class RandomTeams {
 			species.id === 'snivy' || species.id === 'totodile' || species.id === 'espeon' || 
 			species.id === 'ralts' || species.id === 'floatzel' || species.id === 'rampardos' || 
 			species.id === 'poochyena' || species.id === 'tynamo' || species.id === 'karrablast' || 
-			species.id === 'toxicroak'
+			species.id === 'toxicroak' || species.id === 'trapinch'
 		) return 'Life Orb';
 		if (
 			species.id === 'servine' || species.id === 'riolu' || species.id === 'eevee' || 
@@ -1306,9 +1306,9 @@ export class RandomTeams {
 		if (species.id === 'smeargle' || species.id === 'delibird' || species.id === 'mrmimegalar') return 'Wide Lens';
 		if (
 			species.id === 'torchic' || species.id === 'croconaw' || species.id === 'aerodactyl' || 
-			species.id === 'virizion' || species.id === 'croagunk'
+			species.id === 'virizion' || species.id === 'croagunk' || species.id === 'elekid'
 		) return 'Expert Belt';
-		if (species.id === 'combusken' || species.id === 'tyranitar') return 'Expert Belt';
+		if (species.id === 'combusken' || species.id === 'tyranitar'|| species.id === 'electivire') return 'Air Balloon';
 		if (species.id === 'blaziken') return 'Charcoal';
 		if (species.id === 'feraligatr') return 'Mystic Water';
 		if (species.id === 'minccino') return 'Loaded Dice';
@@ -1322,8 +1322,11 @@ export class RandomTeams {
 		if (species.id === 'pecharunt') return 'Black Sludge';
 		if (species.id === 'sneasler' || species.id === 'pansear') return 'Lansat Berry';
 		if (species.id === 'simisear') return 'Binding Band';
-		if (species.id === 'nymble') return 'Silver Powder';
-		if (species.id === 'lokix' || species.id === 'bastiodon' || species.id === 'emolga') return 'Power Herb';
+		if (species.id === 'nymble' || species.id === 'cutiefly') return 'Silver Powder';
+		if (
+			species.id === 'lokix' || species.id === 'bastiodon' || species.id === 'emolga' ||
+			species.id === 'drakloak'
+		) return 'Power Herb';
 		if (species.id === 'doduo') return 'Bright Powder';
 		if (
 			species.id === 'dodrio' || species.id === 'glaceon' || species.id === 'gallade' || 
@@ -1332,10 +1335,10 @@ export class RandomTeams {
 		) return 'Leftovers';
 		if (species.id === 'lucario') return 'Occa Berry';
 		if (species.id === 'vaporeon' || species.id === 'mrrime') return 'Throat Spray';
-		if (species.id === 'jolteon' || species.id === 'larvitar') return 'Flame Orb';
+		if (species.id === 'jolteon' || species.id === 'larvitar' || species.id === 'magmortar') return 'Flame Orb';
 		if (
 			species.id === 'flareon' || species.id === 'marshadow' || species.id === 'escavalier' || 
-			species.id === 'sandslash' || species.id === 'cofagrigus'
+			species.id === 'sandslash' || species.id === 'cofagrigus' || species.id === 'magby'
 		) return 'Sitrus Berry';
 		if (species.id === 'umbreon') return 'Tanga Berry';
 		if (species.id === 'leafeon') return 'Heat Rock';
@@ -1343,7 +1346,10 @@ export class RandomTeams {
 		if (species.id === 'kirlia' || species.id === 'pansage') return 'Blunder Policy';
 		if (species.id === 'gardevoir') return 'Big Root';
 		if (species.id === 'absol') return 'Scope Lens';
-		if (species.id === 'cranidos' || species.id === 'arctozolt' || species.id === 'yamask') return 'Rocky Helmet';
+		if (
+			species.id === 'cranidos' || species.id === 'arctozolt' || species.id === 'yamask' ||
+			species.id === 'ribombee'
+		) return 'Rocky Helmet';
 		if (species.id === 'dracovish') return 'Grip Claw';
 		if (species.id === 'simisage') return 'Wiki Berry';
 		if (species.id === 'simipour' || species.id === 'keldeo' || species.id === 'zangoose') return 'Liechi Berry';
@@ -1352,7 +1358,7 @@ export class RandomTeams {
 		if (species.id === 'terrakion') return 'Zoom Lens';
 		if (species.id === 'dragonair' || species.id === 'meowthgalar') return 'Choice Band';
 		if (species.id === 'frosmoth' || species.id === 'eelektross') return 'Maranga Berry';
-		if (species.id === 'musharna') return 'Wise Glasses';
+		if (species.id === 'musharna' || species.id === 'vibrava') return 'Wise Glasses';
 		if (species.id === 'pawmo') return 'Punching Glove';
 		if (species.id === 'pawmot') return 'Eject Button';
 		if (species.id === 'skarmory') return 'Kee Berry';
@@ -1366,15 +1372,28 @@ export class RandomTeams {
 		if (species.id === 'snom' || species.id === 'shiinotic' || species.id === 'luvdisc') return 'Choice Specs';
 		if (species.id === 'bonsly') return 'Custap Berry';
 		if (species.id === 'sudowoodo') return 'Muscle Band';
-		if (species.id === 'capsakid') return 'Eject Pack';
+		if (species.id === 'capsakid' || species.id === 'dreepy') return 'Eject Pack';
 		if (species.id === 'scovillain') return 'Mirror Herb';
 		if (species.id === 'sandslashalola') return 'Light Clay';
 		if (species.id === 'carnivine') return 'Watmel Berry';
-		if (species.id === 'parasect') return 'Lum Berry';
+		if (species.id === 'parasect' || species.id === 'dragapult') return 'Lum Berry';
 		if (species.id === 'chimecho') return 'Aguav Berry';
 		if (species.id === 'sneasel') return 'Black Glasses';
 		if (species.id === 'sneaselhisui') return 'Big Nugget';
 		if (species.id === 'buizel') return 'Shell Bell';
+		if (species.id === 'zekrom') return 'Electirizer';
+		if (species.id === 'reshiram') return 'Magmarizer';
+		if (species.id === 'kyurem') return 'Haban Berry';
+		if (species.id === 'kyuremblack') return 'TR86';
+		if (species.id === 'kyuremwhite') return 'Safety Goggles';
+		if (species.id === 'audino') return 'Protective Pads';
+		if (species.id === 'magmar') return 'Luminous Moss';
+		if (species.id === 'electabuzz') return 'Clear Amulet';
+		if (species.id === 'spiritomb') return 'Odd Incense';
+		if (species.id === 'corphish') return 'Splash Plate';
+		if (species.id === 'crawdaunt') return 'Wacan Berry';
+		if (species.id === 'flygon') return 'Snowball';
+		if (species.id === 'sigilyph') return 'Sticky Barb';
 	}
 
 	/** Item generation specific to Random Doubles */
