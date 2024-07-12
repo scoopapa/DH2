@@ -646,6 +646,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ogerpon: {tier: "Paldea", doublesTier: "Paldea"},
 	ogerponhearthflame: {tier: "Paldea", doublesTier: "Paldea"},
 	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
-	ogerponcornerstone: {tier: "Uber", doublesTier: "Paldea"},
+	ogerponcornerstone: {tier: "Paldea", doublesTier: "Paldea"},
 
 };
