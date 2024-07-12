@@ -1314,7 +1314,7 @@ export class RandomTeams {
 		if (species.id === 'minccino' || species.id === 'gloom') return 'Loaded Dice';
 		if (
 			species.id === 'cinccino' || species.id === 'panpour' || species.id === 'meowthalola' || 
-			species.id === 'mrmime' || species.id === 'weavile'
+			species.id === 'mrmime' || species.id === 'weavile' || species.id === 'flittle'
 		) return 'Focus Sash';
 		if (species.id === 'okidogi') return 'Coba Berry';
 		if (species.id === 'munkidori') return 'Colbur Berry';
@@ -1402,6 +1402,8 @@ export class RandomTeams {
 		if (species.id === 'togetic') return 'Quick Claw';
 		if (species.id === 'falinks') return 'Shed Shell';
 		if (species.id === 'dragonite') return 'Enigma Berry';
+		if (species.id === 'espathra') return 'Ring Target';
+
 	}
 
 	/** Item generation specific to Random Doubles */
