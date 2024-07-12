@@ -223,6 +223,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'move: Ultrasleep');
 			},
 		},
+		shortDesc: "This move is not supposed to be used at all.",
 		secondary: null,
 		target: "all",
 		type: "Psychic",
