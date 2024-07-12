@@ -605,4 +605,128 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Magic Guard"},
 	},
+	zygarde10: {
+		inherit: true,
+		abilities: {0: "Aura Break"},
+	},
+	fidough: {
+		inherit: true,
+		abilities: {0: "Own Tempo"},
+	},
+	dachsbun: {
+		inherit: true,
+		abilities: {0: "Well-Baked Body"},
+	},
+	skitty: {
+		inherit: true,
+		abilities: {0: "Normalize"},
+	},
+	delcatty: {
+		inherit: true,
+		abilities: {0: "Wonder Skin"},
+	},
+	oddish: {
+		inherit: true,
+		abilities: {0: "Chlorophyll"},
+	},
+	gloom: {
+		inherit: true,
+		abilities: {0: "Stench"},
+	},
+	vileplume: {
+		inherit: true,
+		abilities: {0: "Effect Spore"},
+	},
+	bellossom: {
+		inherit: true,
+		abilities: {0: "Chlorophyll"},
+	},
+	flamigo: {
+		inherit: true,
+		abilities: {0: "Scrappy"},
+	},
+	veluza: {
+		inherit: true,
+		abilities: {0: "Mold Breaker"},
+	},
+	falinks: {
+		inherit: true,
+		abilities: {0: "Battle Armor"},
+	},
+	togepi: {
+		inherit: true,
+		abilities: {0: "Hustle"},
+	},
+	togetic: {
+		inherit: true,
+		abilities: {0: "Serene Grace"},
+	},
+	togekiss: {
+		inherit: true,
+		abilities: {0: "Super Luck"},
+	},
+
+/*
+Leaving the restricted's sets here
+  	"terapagos": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Take Down", "Ice Spinner", "Water Pulse", "Weather Ball"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+  "zekrom": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Dragon Breath", "Thunder Fang", "Haze", "Noble Roar"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+  "reshiram": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Breaking Swipe", "Incinerate", "Mist", "Scary Face"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "kyurem": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Dragon Rage", "Glaciate", "Signal Beam", "Roar"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+  "kyuremblack": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Dragon Breath", "Icy Wind", "Aerial Ace", "Fling"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+  "kyuremwhite": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Dragon Tail", "Ice Fang", "Shadow Claw", "Echoed Voice"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+*/
 };
