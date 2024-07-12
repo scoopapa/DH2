@@ -1652,7 +1652,10 @@ export class RandomTeams {
 		const level = this.getLevel(species, isDoubles);
 
 		// IV Nerf to FEs (-16 to all stats)
-		if (!species.nfe && species.id !== 'smeargle' && species.id !== 'ditto') {
+		if (
+			!species.nfe && species.id !== 'smeargle' && species.id !== 'ditto' && 
+			 species.id !== 'luvdisc' && species.id !== 'delibird'
+		) {
 			ivs.hp = 0;
 			ivs.atk = 0;
 			ivs.def = 0;
@@ -1662,7 +1665,10 @@ export class RandomTeams {
 		}
 
 		// IV Nerf to NFEs (-8 to all stats)
-		if ((species.nfe && species.prevo && species.id !== 'kirlia') || species.id === 'smeargle') {
+		if (
+			(species.nfe && species.prevo && species.id !== 'kirlia') || species.id === 'smeargle' ||
+			 species.id !== 'luvdisc' || species.id !== 'delibird'
+			) {
 			ivs.hp = 15;
 			ivs.atk = 15;
 			ivs.def = 15;
