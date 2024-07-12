@@ -56,7 +56,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Toxic Chain"},
 	},
 	pecharunt: {
-		num: 1015,
+		inherit: true,
 		abilities: {0: "Poison Puppeteer"},
 	},
 	smeargle: {
@@ -129,7 +129,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sylveon: {
 		inherit: true,
-		abilities: {0: "Pixilate"},
+		abilities: {0: "Cute Charm"},
 	},
 	ralts: {
 		inherit: true,
@@ -332,7 +332,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Steely Spirit"},
 	},
 	terapagos: {
-		num: 1084,
+		inherit: true,
 		abilities: {0: "Tera Shift"},
 	},
 	larvitar: {
