@@ -665,6 +665,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Super Luck"},
 	},
+	flittle: {
+		inherit: true,
+		abilities: {0: "Speed Boost"},
+	},
+	espathra: {
+		inherit: true,
+		abilities: {0: "Opportunist"},
+	},
 
 /*
 Leaving the restricted's sets here
