@@ -2945,6 +2945,19 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
+	sleeptalk: {
+		inherit: true,
+		onTry(source) {
+			let usable = false;
+			for (const opponent of source.adjacentFoes()) {
+				if (opponent.hasAbility('endlessdream')) {
+					usable = true;
+					break;
+				}
+			}
+			return source.status === 'slp' || source.hasAbility('comatose') || usable;
+		},
+	},
 	ultrasleep: { //this move is only for Endless Dream ability
 		num: -9999,
 		accuracy: true,
