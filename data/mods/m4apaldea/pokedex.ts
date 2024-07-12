@@ -268,4 +268,38 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Cetitanite",
 		megaCreator: "DrPumpkinz",
 	},
+
+	// slate 5
+
+	ninetales: {
+		inherit: true,
+		mega: "ninetalesmega",
+		megaName: "Ninetales-Mega",
+		megaAbility: {0: "Wandering Spirit"},
+		megaStats: {hp: 73, atk: 76, def: 105, spa: 101, spd: 130, spe: 120},
+		megaStone: "Ninetalinite",
+		megaCreator: "DrPumpkinz",
+	},
+
+	noctowl: {
+		inherit: true,
+		mega: "noctowlmega",
+		megaName: "Noctowl-Mega",
+		megaType: ["Psychic", "Flying"],
+		megaAbility: {0: "Endless Dream"},
+		megaStats: {hp: 100, atk: 50, def: 70, spa: 126, spd: 116, spe: 90},
+		megaStone: "Noctowlite",
+		movepoolAdditions: ["focusblast", "uturn"],
+		megaCreator: "Lysion and Mushroom-Flower",
+	},
+
+	hatterene: {
+		inherit: true,
+		mega: "hatterenemega",
+		megaName: "Hatterene-Mega",
+		megaAbility: {0: "Hair Trigger"},
+		megaStats: {hp: 57, atk: 105, def: 115, spa: 156, spd: 138, spe: 39},
+		megaStone: "Hatterenite",
+		megaCreator: "okispokis",
+	},
 };
