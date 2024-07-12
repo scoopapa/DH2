@@ -1579,6 +1579,26 @@
             }
         ]
     },
+  "flittle": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Calm Mind", "Stored Power", "Tera Blast", "Hypnosis"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+  "espathra": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Lumina Crash", "U-turn", "Hex", "Trick"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
