@@ -1348,7 +1348,7 @@ export class RandomTeams {
 		if (species.id === 'absol' || species.id === 'togekiss') return 'Scope Lens';
 		if (
 			species.id === 'cranidos' || species.id === 'arctozolt' || species.id === 'yamask' ||
-			species.id === 'ribombee'
+			species.id === 'ribombee' || species.id === 'veluza'
 		) return 'Rocky Helmet';
 		if (species.id === 'dracovish') return 'Grip Claw';
 		if (species.id === 'simisage') return 'Wiki Berry';
@@ -1400,6 +1400,7 @@ export class RandomTeams {
 		if (species.id === 'vileplume') return 'Red Card';
 		if (species.id === 'flamigo') return 'Covert Cloak';
 		if (species.id === 'togetic') return 'Quick Claw';
+		if (species.id === 'falinks') return 'Shed Shell';
 	}
 
 	/** Item generation specific to Random Doubles */
