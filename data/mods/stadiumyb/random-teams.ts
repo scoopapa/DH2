@@ -1683,6 +1683,20 @@ export class RandomTeams {
 			ivs.spe = 0;
 		}
 
+		// EV Nerf to Box Legends (-26 to all stats in total)
+		if (
+			species.id === 'zekrom' || species.id === 'reshiram' || species.id === 'kyuremwhite' ||
+			species.id === 'kyurem' || species.id === 'kyuremblack' || species.id === 'terapagos' ||
+			species.id === 'xerneas' || species.id === 'yveltal' || species.id === 'zygarde'
+		) {
+			evs.hp = 0;
+			evs.atk = 0;
+			evs.def = 0;
+			evs.spa = 0;
+			evs.spd = 0;
+			evs.spe = 0;
+		}
+
 		// IV Nerf to NFEs (-8 to all stats)
 		if (
 			(species.nfe && species.prevo && species.id !== 'kirlia') || species.id === 'smeargle' ||
