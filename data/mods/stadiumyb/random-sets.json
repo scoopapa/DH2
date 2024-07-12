@@ -829,16 +829,6 @@
             }
         ]
     },
-  	"terapagos": {
-        "level": 50,
-        "sets": [
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["Take Down", "Ice Spinner", "Water Pulse", "Weather Ball"],
-                "teraTypes": ["Stellar"]
-            }
-        ]
-    },
   	"larvitar": {
         "level": 50,
         "sets": [
@@ -1276,56 +1266,6 @@
                 "role": "Fast Support",
                 "movepool": ["Night Shade", "Breaking Swipe", "Quick Attack", "Disable"],
                 "teraTypes": ["Ice"]
-            }
-        ]
-    },
-  "zekrom": {
-        "level": 50,
-        "sets": [
-            {
-                "role": "Bulky Support",
-                "movepool": ["Dragon Breath", "Thunder Fang", "Haze", "Noble Roar"],
-                "teraTypes": ["Fire"]
-            }
-        ]
-    },
-  "reshiram": {
-        "level": 50,
-        "sets": [
-            {
-                "role": "Bulky Support",
-                "movepool": ["Breaking Swipe", "Incinerate", "Mist", "Scary Face"],
-                "teraTypes": ["Electric"]
-            }
-        ]
-    },
-  "kyurem": {
-        "level": 50,
-        "sets": [
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["Dragon Rage", "Glaciate", "Signal Beam", "Roar"],
-                "teraTypes": ["Dragon"]
-            }
-        ]
-    },
-  "kyuremblack": {
-        "level": 50,
-        "sets": [
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["Dragon Breath", "Icy Wind", "Aerial Ace", "Fling"],
-                "teraTypes": ["Flying"]
-            }
-        ]
-    },
-  "kyuremwhite": {
-        "level": 50,
-        "sets": [
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["Dragon Tail", "Ice Fang", "Shadow Claw", "Echoed Voice"],
-                "teraTypes": ["Grass"]
             }
         ]
     },
