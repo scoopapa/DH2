@@ -601,4 +601,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate"},
 	},
+	sigilyph: {
+		inherit: true,
+		abilities: {0: "Magic Guard"},
+	},
 };
