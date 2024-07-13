@@ -701,7 +701,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Rocky Payload"},
 	},
-
+	slugma: {
+		inherit: true,
+		abilities: {0: "Flame Body"},
+	},
+	magcargo: {
+		inherit: true,
+		abilities: {0: "Magma Armor"},
+	},
 
 /*
 Leaving the restricted's sets here
