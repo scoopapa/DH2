@@ -1669,6 +1669,26 @@
             }
         ]
     },
+  "slugma": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Pain Split", "Fire Blast", "Earth Power", "Will-O-Wisp"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+  "magcargo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Shell Smash", "Flare Blitz", "Ancient Power", "High Horsepower"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
