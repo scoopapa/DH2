@@ -1299,7 +1299,8 @@ export class RandomTeams {
 			species.id === 'shieldon' || species.id === 'dratini' || species.id === 'munna' || 
 			species.id === 'pupitar' || species.id === 'shelmet' || species.id === 'mimejr' || 
 			species.id === 'sandshrew' || species.id === 'sandshrewalola' || species.id === 'morelull' ||
-			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough'
+			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough' ||
+			species.id === 'applin'
 		) return 'Eviolite';
 		if (species.id === 'serperior') return 'Miracle Seed';
 		if (species.id === 'pawmi') return 'Magnet';
@@ -1403,7 +1404,10 @@ export class RandomTeams {
 		if (species.id === 'falinks') return 'Shed Shell';
 		if (species.id === 'dragonite') return 'Enigma Berry';
 		if (species.id === 'espathra') return 'Ring Target';
-
+		if (species.id === 'bombirdier' || species.id === 'flapple') return 'Starf Berry';
+		if (species.id === 'hydrapple') return 'Rowap Berry';
+		if (species.id === 'dipplin') return 'Salac Berry';
+		if (species.id === 'appletun') return 'Mago Berry';
 	}
 
 	/** Item generation specific to Random Doubles */
