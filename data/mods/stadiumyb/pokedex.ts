@@ -677,6 +677,31 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sap Sipper"},
 	},
+	applin: {
+		inherit: true,
+		abilities: {0: "Bulletproof"},
+	},
+	flapple: {
+		inherit: true,
+		abilities: {0: "Ripen"},
+	},
+	appletun: {
+		inherit: true,
+		abilities: {0: "Ripen"},
+	},
+	dipplin: {
+		inherit: true,
+		abilities: {0: "Gluttony"},
+	},
+	hydrapple: {
+		inherit: true,
+		abilities: {0: "Supersweet Syrup"},
+	},
+	bombirdier: {
+		inherit: true,
+		abilities: {0: "Rocky Payload"},
+	},
+
 
 /*
 Leaving the restricted's sets here
