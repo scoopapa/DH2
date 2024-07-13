@@ -653,7 +653,7 @@
         "level": 50,
         "sets": [
             {
-                "role": "AV Pivot",
+                "role": "Bulky Attacker",
                 "movepool": ["Dragon Tail", "Air Slash", "Icy Wind", "Rock Slide"],
                 "teraTypes": ["Steel"]
             }
