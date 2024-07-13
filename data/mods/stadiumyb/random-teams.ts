@@ -1300,7 +1300,7 @@ export class RandomTeams {
 			species.id === 'pupitar' || species.id === 'shelmet' || species.id === 'mimejr' || 
 			species.id === 'sandshrew' || species.id === 'sandshrewalola' || species.id === 'morelull' ||
 			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough' ||
-			species.id === 'applin'
+			species.id === 'applin' || species.id === 'slugma'
 		) return 'Eviolite';
 		if (species.id === 'serperior') return 'Miracle Seed';
 		if (species.id === 'pawmi') return 'Magnet';
@@ -1369,7 +1369,7 @@ export class RandomTeams {
 		if (species.id === 'perrserker') return 'Metal Coat';
 		if (species.id === 'terapagos') return 'Normal Gem';
 		if (species.id === 'orthworm') return 'Mental Herb';
-		if (species.id === 'accelgor') return 'White Herb';
+		if (species.id === 'accelgor' || species.id === 'magcargo') return 'White Herb';
 		if (species.id === 'snom' || species.id === 'shiinotic' || species.id === 'luvdisc') return 'Choice Specs';
 		if (species.id === 'bonsly') return 'Custap Berry';
 		if (species.id === 'sudowoodo') return 'Muscle Band';
