@@ -1365,7 +1365,7 @@
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Mud Sport", "Bubble Beam", "Snarl", "Sludge Bomb"],
-                "teraTypes": ["Stellar"]
+                "teraTypes": ["Poison"]
             }
         ]
     },
@@ -1596,6 +1596,16 @@
                 "role": "Fast Support",
                 "movepool": ["Lumina Crash", "U-turn", "Hex", "Trick"],
                 "teraTypes": ["Bug"]
+            }
+        ]
+    },
+  "bouffalant": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Rage", "Headbutt", "Zen Headbutt", "Iron Head"],
+                "teraTypes": ["Stellar"]
             }
         ]
     },
