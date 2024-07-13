@@ -1609,6 +1609,66 @@
             }
         ]
     },
+  "applin": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Defense Curl", "Rollout", "Grassy Glide", "Draco Meteor"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+  "flapple": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Endure", "Seed Bomb", "Dragon Pulse", "Recycle"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "appletun": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["High Horsepower", "Recycle", "Grass Knot", "Dragon Tail"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+  "dipplin": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Growth", "Recover", "Syrup Bomb", "Dragon Pulse"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+  "hydrapple": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Power Whip", "Gyro Ball", "Dragon Breath", "Curse"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+  "bombirdier": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Hone Claws", "Power Trip", "Acrobatics", "Rock Slide"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
