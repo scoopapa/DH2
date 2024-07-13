@@ -673,6 +673,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Opportunist"},
 	},
+	bouffalant: {
+		inherit: true,
+		abilities: {0: "Sap Sipper"},
+	},
 
 /*
 Leaving the restricted's sets here
