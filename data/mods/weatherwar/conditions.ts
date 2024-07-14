@@ -428,9 +428,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onAfterMoveSecondary(target, source, move) {
 			if (this.field.pseudoWeather.thevoices && move.id !== 'boomburst' && this.randomChance(3, 10)) {
-				this.add('-message', `${pokemon.name} hears the voices...`);
+				this.add('-message', `${source.name} hears the voices...`);
 				const newMove = this.dex.getActiveMove('boomburst');
-				this.actions.useMove(newMove, pokemon, target);
+				this.actions.useMove(newMove, source, target);
 				this.attrLastMove('[still]');
 				return null;
 			}
