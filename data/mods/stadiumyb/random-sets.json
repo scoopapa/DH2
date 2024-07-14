@@ -1689,6 +1689,76 @@
             }
         ]
     },
+  "finizen": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Boomburst", "Acrobatics", "Hydro Pump", "Encore"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+  "palafin": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Haze", "Surf", "Hard Press", "Aqua Jet"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+  "klawf": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Endure", "Endeavor", "Rock Blast", "Knock Off"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+  "cetoddle": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Blizzard", "Icicle Crash", "Play Rough", "Liquidation"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+  "cetitan": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Ice Punch", "Knock Off", "Bounce", "Yawn"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+  "venonat": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Sleep Powder", "Lunge", "Sludge Bomb", "Morning Sun"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+  "venomoth": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Tera Blast", "U-turn", "Poison Fang", "Signal Beam"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
