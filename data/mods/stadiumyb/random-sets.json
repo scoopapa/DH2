@@ -1743,8 +1743,8 @@
         "level": 50,
         "sets": [
             {
-                "role": "Bulky Support",
-                "movepool": ["Sleep Powder", "Lunge", "Sludge Bomb", "Morning Sun"],
+                "role": "Bulky Attacker",
+                "movepool": ["Psywave", "Lunge", "Sludge Bomb", "Morning Sun"],
                 "teraTypes": ["Psychic"]
             }
         ]
