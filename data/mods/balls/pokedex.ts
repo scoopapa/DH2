@@ -84,7 +84,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Crystalball",
 		types: ["Psychic"],
 		baseStats: {hp: 100, atk: 50, def: 100, spa: 165, spd: 135, spe: 50},
-		abilities: {0: "Sychronize", 1: "Forewarn", H: "Analytic"},
+		abilities: {0: "Synchronize", 1: "Forewarn", H: "Analytic"},
 		weightkg: 21,
 	},
 	"8ball": {
