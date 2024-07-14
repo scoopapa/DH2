@@ -2553,7 +2553,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Ribombee",
 		forme: "Mega",
 		types: ["Bug", "Fairy"],
-		baseStats: {hp: 60, atk: 70, def: 85, spa: 105, spd: 130, spe: 109},
+		baseStats: {hp: 60, atk: 75, def: 85, spa: 105, spd: 130, spe: 109},
 		abilities: {0: "Fluffy"},
 		heightm: 0.2,
 		weightkg: 0.5,
