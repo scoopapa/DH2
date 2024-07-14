@@ -3663,7 +3663,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Apple of Ruin');
 		},
 		onAnyModifyAccuracyPriority: -1,
-		onAnyModifyAccuracy(accuracy, target) {
+		onAnyModifyAccuracy(accuracy, target, source, move) {
 			if (target.hasAbility('Apple of Ruin')) return;
 			const abilityHolder = this.effectState.target;
 			if (!move.ruinedEva) move.ruinedEva = abilityHolder;

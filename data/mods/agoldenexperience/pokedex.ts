@@ -108,6 +108,40 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Field", "Dragon"],
 		requiredItem: "Arbokinite",
 	},
+	pikachurockstar: {
+		inherit: true,
+		types: ["Electric", "Steel"],
+		baseStats: {hp: 35, atk: 65, def: 90, spa: 50, spd: 90, spe: 100},
+		abilities: {0: "Heavy Metal", H: "Hard Rock"},
+	},
+	pikachubelle: {
+		inherit: true,
+		types: ["Electric", "Ice"],
+		baseStats: {hp: 35, atk: 85, def: 60, spa: 70, spd: 70, spe: 110},
+		abilities: {0: "Snow Cloak", H: "Queenly Majesty"},
+	},
+	pikachupopstar: {
+		inherit: true,
+		types: ["Electric", "Fairy"],
+		baseStats: {hp: 35, atk: 55, def: 60, spa: 90, spd: 60, spe: 130},
+		abilities: {0: "Dazzling", H: "Cute Charm"},
+	},
+	pikachuphd: {
+		inherit: true,
+		types: ["Electric", "Psychic"],
+		baseStats: {hp: 35, atk: 55, def: 60, spa: 90, spd: 70, spe: 120},
+		abilities: {0: "Synchronize", H: "Neuroforce"},
+	},
+	pikachulibre: {
+		inherit: true,
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 35, atk: 95, def: 50, spa: 90, spd: 60, spe: 100},
+		abilities: {0: "Mold Breaker", H: "Scrappy"},
+	},
+	pikachustarter: {
+		inherit: true,
+		abilities: {0: "Adaptability"},
+	},
 	raichu: {
 		inherit: true,
 		types: ["Electric", "Fighting"],
@@ -451,6 +485,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 130, atk: 95, def: 80, spa: 65, spd: 95, spe: 70},
 		abilities: {0: "Water Absorb", 1: "Shell Armor", H: "Refrigerate"},
 	},
+	eeveestarter: {
+		inherit: true,
+		abilities: {0: "Protean"},
+	},
 	vaporeon: {
 		inherit: true,
 		abilities: {0: "Water Absorb", 1: "Water Veil", H: "Hydration"},
@@ -657,6 +695,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 90, atk: 30, def: 15, spa: 48, spd: 20, spe: 15},
 		abilities: {0: "Sheer Force", 1: "Competitive", H: "Friend Guard"},
+	},
+	togepi: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Happy-Go-Lucky", H: "Super Luck"},
+	},
+	togetic: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Happy-Go-Lucky", H: "Super Luck"},
 	},
 	xatu: {
 		inherit: true,
@@ -1541,6 +1587,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	magmortar: {
 		inherit: true,
 		abilities: {0: "Deadly Blasts", 1: "Flame Body", H: "Neutralizing Gas"},
+	},
+	togekiss: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Happy-Go-Lucky", H: "Super Luck"},
 	},
 	yanmega: {
 		inherit: true,
@@ -2503,7 +2553,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Ribombee",
 		forme: "Mega",
 		types: ["Bug", "Fairy"],
-		baseStats: {hp: 60, atk: 70, def: 85, spa: 105, spd: 130, spe: 109},
+		baseStats: {hp: 60, atk: 75, def: 85, spa: 105, spd: 130, spe: 109},
 		abilities: {0: "Fluffy"},
 		heightm: 0.2,
 		weightkg: 0.5,

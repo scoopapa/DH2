@@ -1604,6 +1604,30 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "This move summons Lucky Chant for 5 turns upon use.",
 		shortDesc: "Summons Lucky Chant.",
 	},
+	veeveevolley: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pikapapow: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	splishysplash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	zippyzap: {
+		inherit: true,
+		isNonstandard: null,
+		secondary: {
+			chance: 100,
+			boosts: {
+				evasion: -1,
+			},
+		},
+		shortDesc: "100% chance to lower the target's evasion by 1.",
+		desc: "100% chance to lower the target's evasion by 1.",
+	},
 	ragingfury: {
 		inherit: true,
 		basePower: 130,
@@ -2919,6 +2943,19 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			onResidual(pokemon) {
 				this.damage(pokemon.baseMaxhp / 4);
 			},
+		},
+	},
+	sleeptalk: {
+		inherit: true,
+		onTry(source) {
+			let usable = false;
+			for (const opponent of source.adjacentFoes()) {
+				if (opponent.hasAbility('endlessdream')) {
+					usable = true;
+					break;
+				}
+			}
+			return source.status === 'slp' || source.hasAbility('comatose') || usable;
 		},
 	},
 	ultrasleep: { //this move is only for Endless Dream ability

@@ -38,7 +38,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dofagrigus",
 		types: ["Ghost"],
 		baseStats: {hp: 70, atk: 55, def: 145, spa: 95, spd: 105, spe: 30},
-		abilities: {0: "Dummy", H: "Filter"},
+		abilities: {0: "Dummy"},
 	},
 	eddyazbear: {
 		num: 5,
@@ -98,7 +98,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	houndstone: {
 		num: 12,
 		name: "Houndstone",
-		types: ["Ghost", "Fighting"],
+		types: ["Ghost", "Fighting", "Normal"],
 		baseStats: {hp: 82, atk: 91, def: 140, spa: 50, spd: 97, spe: 70},
 		abilities: {0: "Jumpscare", 1: "Undead", H: "Fluffy"},
 	},

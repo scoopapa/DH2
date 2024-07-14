@@ -156,28 +156,28 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	pikachucosplay: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "PU",
+		doublesTier: "(DUU)",
 	},
 	pikachurockstar: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	pikachubelle: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	pikachupopstar: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	pikachuphd: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	pikachulibre: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	pikachuoriginal: {
 		tier: "ZU",
@@ -208,8 +208,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	pikachustarter: {
-		isNonstandard: "LGPE",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	pikachugmax: {
 		isNonstandard: "Past",
@@ -883,8 +883,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	eeveestarter: {
-		isNonstandard: "LGPE",
-		tier: "Illegal",
+		tier: "RU",
+		doublesTier: "(DUU)",
 	},
 	eeveegmax: {
 		isNonstandard: "Past",

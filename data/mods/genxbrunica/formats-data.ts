@@ -35,6 +35,70 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	spikatye: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	shankupine: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mustelive: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	carcajab: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mimagg: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	falsalys: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	thrumbug: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	jadarva: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	agrimrald: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	blabberjay: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	flatterjay: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	sparajay: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	frostern: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	froskua: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	anageshi: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	harihoru: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 	akulut: {
 		tier: "Brunica Uber",

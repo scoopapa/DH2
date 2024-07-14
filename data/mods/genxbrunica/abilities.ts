@@ -103,6 +103,53 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 		},
 	},
+	//Cloning Genes being archived, there was a miscount
+	/*cloninggenes: {
+		// activation in conditions.ts#twoturnmove
+		name: "Cloning Genes",
+		flags: {},
+		shortDesc: "Sets up Substitute when targeted by a two-turn move.",
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.hasAbility('cloninggenes') && !pokemon.volatiles['substitute'] 
+				&& pokemon.hp > pokemon.maxhp * 0.25 && pokemon.maxhp > 1) {
+					this.add('-ability', pokemon, 'Cloning Genes');
+					this.directDamage(pokemon.maxhp * 0.25, pokemon, pokemon);
+					pokemon.addVolatile('substitute');
+					this.add('-message', `${pokemon.name} set up a substitute in response to its opponent charging a move!`);
+				}
+				pokemon.removeVolatile('cloninggenes');
+			},
+		}
+	},*/
+	frostcloak: {
+		name: "Frost Cloak",
+		shortDesc: "Sets up Aurora Veil under snow.",
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (this.field.isWeather('snow') && !pokemon.side.getSideCondition('auroraveil')) {
+				this.add('-ability', pokemon, 'Frost Cloak');
+				pokemon.side.addSideCondition('auroraveil');
+			}
+		},
+		flags: {},
+	},
+	ampup: {
+		name: "Amp Up",
+		shortDesc: "Charged moves have x1.3 power and ignore immunities.",
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['charge']) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyMove(move) {
+			if (move.flags['charge']) move.ignoreImmunity = true;
+		},
+		flags: {},
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
