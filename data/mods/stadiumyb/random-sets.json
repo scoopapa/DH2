@@ -1759,6 +1759,26 @@
             }
         ]
     },
+  "mienfoo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Jump Kick", "U-turn", "Poison Jab", "Stone Edge"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+  "mienshao": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Role Play", "Aura Sphere", "Vacuum Wave", "Grass Knot"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
