@@ -709,6 +709,35 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Magma Armor"},
 	},
+	finizen: {
+		inherit: true,
+		abilities: {0: "Water Veil"},
+	},
+	palafin: {
+		inherit: true,
+		abilities: {0: "Zero to Hero"},
+	},
+	klawf: {
+		inherit: true,
+		abilities: {0: "Anger Shell"},
+	},
+	cetoddle: {
+		inherit: true,
+		abilities: {0: "Sheer Force"},
+	},
+	cetitan: {
+		inherit: true,
+		abilities: {0: "Thick Fat"},
+	},
+	venonat: {
+		inherit: true,
+		abilities: {0: "Compound Eyes"},
+	},
+	venomoth: {
+		inherit: true,
+		abilities: {0: "Tinted Lens"},
+	},
+
 
 /*
 Leaving the restricted's sets here
