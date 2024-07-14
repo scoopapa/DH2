@@ -129,7 +129,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sylveon: {
 		inherit: true,
-		abilities: {0: "Cute Charm"},
+		abilities: {0: "Pixilate"},
 	},
 	ralts: {
 		inherit: true,
