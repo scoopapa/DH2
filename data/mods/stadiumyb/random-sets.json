@@ -1763,7 +1763,7 @@
         "level": 50,
         "sets": [
             {
-                "role": "Fast Support",
+                "role": "AV Pivot",
                 "movepool": ["Jump Kick", "U-turn", "Poison Jab", "Stone Edge"],
                 "teraTypes": ["Flying"]
             }
