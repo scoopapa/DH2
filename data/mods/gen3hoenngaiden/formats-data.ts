@@ -2565,8 +2565,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	//April Fools
-	toxapex: {
-		rank: "New",
-		tier: "OU"
-	},
+	// toxapex: {
+	// 	rank: "New",
+	// 	tier: "OU"
+	// },
 };
