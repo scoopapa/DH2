@@ -1320,7 +1320,6 @@ export class RandomTeams {
 		if (species.id === 'okidogi') return 'Coba Berry';
 		if (species.id === 'munkidori') return 'Colbur Berry';
 		if (species.id === 'fezandipiti') return 'Babiri Berry';
-		if (species.id === 'pecharunt') return 'Black Sludge';
 		if (species.id === 'sneasler' || species.id === 'pansear') return 'Lansat Berry';
 		if (species.id === 'simisear') return 'Binding Band';
 		if (species.id === 'nymble' || species.id === 'cutiefly') return 'Silver Powder';
@@ -1399,7 +1398,7 @@ export class RandomTeams {
 		if (species.id === 'dachsbun') return 'Pixie Plate';
 		if (species.id === 'delcatty') return 'Lax Incense';
 		if (species.id === 'vileplume') return 'Red Card';
-		if (species.id === 'flamigo') return 'Covert Cloak';
+		if (species.id === 'flamigo' || species.id === 'pecharunt') return 'Covert Cloak';
 		if (species.id === 'togetic') return 'Quick Claw';
 		if (species.id === 'falinks') return 'Shed Shell';
 		if (species.id === 'dragonite') return 'Enigma Berry';
