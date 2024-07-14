@@ -737,7 +737,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Tinted Lens"},
 	},
-
+	mienfoo: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
+	mienshao: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
 
 /*
 Leaving the restricted's sets here
