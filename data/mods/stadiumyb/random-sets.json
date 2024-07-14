@@ -324,7 +324,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Draining Kiss", "Tera Blast", "Quick Attack", "Misty Terrain"],
+                "movepool": ["Draining Kiss", "Trump Card", "Quick Attack", "Misty Terrain"],
                 "teraTypes": ["Ice"]
             }
         ]
