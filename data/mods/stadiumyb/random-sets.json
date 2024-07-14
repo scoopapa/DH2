@@ -1624,7 +1624,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Endure", "Seed Bomb", "Dragon Pulse", "Recycle"],
+                "movepool": ["Endure", "Seed Bomb", "Dragon Pulse", "Sucker Punch"],
                 "teraTypes": ["Electric"]
             }
         ]
