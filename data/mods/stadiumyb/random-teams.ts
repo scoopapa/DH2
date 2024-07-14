@@ -1301,8 +1301,7 @@ export class RandomTeams {
 			species.id === 'pupitar' || species.id === 'shelmet' || species.id === 'mimejr' || 
 			species.id === 'sandshrew' || species.id === 'sandshrewalola' || species.id === 'morelull' ||
 			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough' ||
-			species.id === 'applin' || species.id === 'slugma' || species.id === 'venonat' ||
-			species.id === 'mienfoo'
+			species.id === 'applin' || species.id === 'slugma' || species.id === 'venonat'
 		) return 'Eviolite';
 		if (species.id === 'serperior') return 'Miracle Seed';
 		if (species.id === 'pawmi') return 'Magnet';
