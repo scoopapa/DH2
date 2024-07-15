@@ -1340,8 +1340,8 @@ export class RandomTeams {
 		if (species.id === 'vaporeon' || species.id === 'mrrime' || species.id === 'finizen') return 'Throat Spray';
 		if (species.id === 'jolteon' || species.id === 'larvitar' || species.id === 'magmortar') return 'Flame Orb';
 		if (
-			species.id === 'flareon' || species.id === 'marshadow' || species.id === 'escavalier' || 
-			species.id === 'sandslash' || species.id === 'cofagrigus' || species.id === 'magby'
+			species.id === 'flareon' || species.id === 'magby' || species.id === 'escavalier' || 
+			species.id === 'sandslash' || species.id === 'cofagrigus'
 		) return 'Sitrus Berry';
 		if (species.id === 'umbreon') return 'Tanga Berry';
 		if (species.id === 'leafeon' || species.id === 'aegislash') return 'Heat Rock';
@@ -1382,7 +1382,7 @@ export class RandomTeams {
 		if (species.id === 'scovillain' || species.id === 'unfezant') return 'Mirror Herb';
 		if (species.id === 'sandslashalola') return 'Light Clay';
 		if (species.id === 'carnivine') return 'Watmel Berry';
-		if (species.id === 'parasect' || species.id === 'dragapult') return 'Lum Berry';
+		if (species.id === 'parasect' || species.id === 'dragapult' || species.id === 'marshadow') return 'Lum Berry';
 		if (species.id === 'chimecho') return 'Aguav Berry';
 		if (species.id === 'sneasel') return 'Black Glasses';
 		if (species.id === 'sneaselhisui') return 'Big Nugget';
