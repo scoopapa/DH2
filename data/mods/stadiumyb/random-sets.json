@@ -1779,6 +1779,106 @@
             }
         ]
     },
+  "honedge": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Swords Dance", "Shadow Claw", "Gyro Ball", "Close Combat"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "doublade": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Head Smash", "Shadow Sneak", "Iron Head", "Destiny Bond"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+  "aegislash": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Sunny Day", "King's Shield", "Solar Blade", "Shadow Ball"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+  "sizzlipede": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Coil", "Leech Life", "Fire Lash", "Power Whip"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+  "centiskorch": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Scald", "Heat Wave", "Bug Bite", "Thunder Fang"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+  "dondozo": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Order Up", "Surf", "Soak", "Scary Face"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+  "tatsugiri": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Memento", "Lunge", "Dragon Pulse", "Water Pulse"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+  "pidove": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Dual Wingbeat", "Steel Wing", "Attract", "Heat Wave"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+  "tranquil": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Wish", "Secret Power", "Detect", "Fly"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "unfezant": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Hurricane", "Work Up", "Night Slash", "Quick Attack"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
