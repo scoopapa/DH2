@@ -290,6 +290,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Water",
 	},
+	muddevourment: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Mud Devourment",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
+		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Earth Power", target);
+		},
+		onAfterHit(target, source) {
+			if (source.hp && !this.field.isTerrain('poisonterrain')) {
+				this.field.clearTerrain();
+			}
+		},
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp && !this.field.isTerrain('poisonterrain')) {
+				this.field.clearTerrain();
+			}
+		},
+		target: "adjacentFoe",
+		type: "Ground",
+	},
 	//There was a miscount, Clone Express is archived
 	/*cloneexpress: {
 		accuracy: true,
@@ -346,6 +373,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (this.field.isTerrain('guardianofnature')) return priority + 2;
 				if (this.field.isTerrain('grassyterrain')) return priority + 1;
 			}
+		},
+	},
+	minimize: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onRestart: () => null,
+			onSourceModifyDamage(damage, source, target, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'bullybash',//'maliciousmoonsault',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return this.chainModify(2);
+				}
+			},
+			onAccuracy(accuracy, target, source, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'bullybash',//'maliciousmoonsault',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return true;
+				}
+				return accuracy;
+			},
 		},
 	},
 	//Returning moves from Desvega
