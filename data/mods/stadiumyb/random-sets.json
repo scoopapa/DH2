@@ -573,8 +573,8 @@
         "level": 50,
         "sets": [
             {
-                "role": "AV Pivot",
-                "movepool": ["Retaliate", "Aura Sphere", "Volt Switch", "Smart Strike"],
+                "role": "Fast Attacker",
+                "movepool": ["Retaliate", "Brick Break", "Volt Switch", "Smart Strike"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -584,8 +584,8 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Grass Knot", "Double Kick", "Air Slash", "Zen Headbutt"],
-                "teraTypes": ["Psychic"]
+                "movepool": ["Grass Knot", "Aura Sphere", "Air Slash", "X-Scissor"],
+                "teraTypes": ["Bug"]
             }
         ]
     },
@@ -593,9 +593,9 @@
         "level": 50,
         "sets": [
             {
-                "role": "Wallbreaker",
-                "movepool": ["Megahorn", "Focus Blast", "Earth Power", "Rock Tomb"],
-                "teraTypes": ["Bug"]
+                "role": "Fast Support",
+                "movepool": ["Taunt", "Double Kick", "Block", "Rock Tomb"],
+                "teraTypes": ["Psychic"]
             }
         ]
     },
