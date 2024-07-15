@@ -1357,7 +1357,7 @@ export class RandomTeams {
 		if (species.id === 'simipour' || species.id === 'keldeo' || species.id === 'zangoose') return 'Liechi Berry';
 		if (species.id === 'seviper') return 'Razor Fang';
 		if (species.id === 'genesect') return 'Metronome';
-		if (species.id === 'terrakion') return 'Zoom Lens';
+		if (species.id === 'terrakion') return 'Figy Berry';
 		if (species.id === 'dragonair' || species.id === 'meowthgalar' || species.id === 'togepi') return 'Choice Band';
 		if (species.id === 'frosmoth' || species.id === 'eelektross') return 'Maranga Berry';
 		if (species.id === 'musharna' || species.id === 'vibrava' || species.id === 'mienshao') return 'Wise Glasses';
@@ -1368,7 +1368,7 @@ export class RandomTeams {
 		if (species.id === 'meowth' || species.id === 'skitty') return 'Silk Scarf';
 		if (species.id === 'persian' || species.id === 'paras') return 'Razor Claw';
 		if (species.id === 'perrserker') return 'Metal Coat';
-		if (species.id === 'terapagos') return 'Normal Gem';
+		if (species.id === 'terapagos' || species.id === 'cobalion') return 'Normal Gem';
 		if (species.id === 'orthworm') return 'Mental Herb';
 		if (species.id === 'accelgor' || species.id === 'magcargo') return 'White Herb';
 		if (species.id === 'snom' || species.id === 'shiinotic' || species.id === 'luvdisc') return 'Choice Specs';
