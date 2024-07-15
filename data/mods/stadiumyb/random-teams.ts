@@ -1293,7 +1293,7 @@ export class RandomTeams {
 			species.id === 'ralts' || species.id === 'floatzel' || species.id === 'rampardos' || 
 			species.id === 'poochyena' || species.id === 'tynamo' || species.id === 'karrablast' || 
 			species.id === 'toxicroak' || species.id === 'trapinch' || species.id === 'cetoddle' ||
-			species.id === 'venomoth'
+			species.id === 'venomoth' || species.id === 'pidove'
 		) return 'Life Orb';
 		if (
 			species.id === 'servine' || species.id === 'riolu' || species.id === 'eevee' || 
@@ -1301,7 +1301,8 @@ export class RandomTeams {
 			species.id === 'pupitar' || species.id === 'shelmet' || species.id === 'mimejr' || 
 			species.id === 'sandshrew' || species.id === 'sandshrewalola' || species.id === 'morelull' ||
 			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough' ||
-			species.id === 'applin' || species.id === 'slugma' || species.id === 'venonat'
+			species.id === 'applin' || species.id === 'slugma' || species.id === 'venonat' ||
+			species.id === 'tranquill' || species.id === 'sizzlipede'
 		) return 'Eviolite';
 		if (species.id === 'serperior') return 'Miracle Seed';
 		if (species.id === 'pawmi') return 'Magnet';
@@ -1343,7 +1344,7 @@ export class RandomTeams {
 			species.id === 'sandslash' || species.id === 'cofagrigus' || species.id === 'magby'
 		) return 'Sitrus Berry';
 		if (species.id === 'umbreon') return 'Tanga Berry';
-		if (species.id === 'leafeon') return 'Heat Rock';
+		if (species.id === 'leafeon' || species.id === 'aegislash') return 'Heat Rock';
 		if (species.id === 'sylveon') return 'Fairy Feather';
 		if (species.id === 'kirlia' || species.id === 'pansage') return 'Blunder Policy';
 		if (species.id === 'gardevoir' || species.id === 'bellossom') return 'Big Root';
@@ -1358,13 +1359,16 @@ export class RandomTeams {
 		if (species.id === 'seviper') return 'Razor Fang';
 		if (species.id === 'genesect') return 'Metronome';
 		if (species.id === 'terrakion') return 'Figy Berry';
-		if (species.id === 'dragonair' || species.id === 'meowthgalar' || species.id === 'togepi') return 'Choice Band';
+		if (
+			species.id === 'dragonair' || species.id === 'meowthgalar' || species.id === 'togepi' ||
+			species.id === 'doublade'
+		) return 'Choice Band';
 		if (species.id === 'frosmoth' || species.id === 'eelektross') return 'Maranga Berry';
 		if (species.id === 'musharna' || species.id === 'vibrava' || species.id === 'mienshao') return 'Wise Glasses';
 		if (species.id === 'pawmo') return 'Punching Glove';
 		if (species.id === 'pawmot' || species.id === 'palafin') return 'Eject Button';
 		if (species.id === 'skarmory') return 'Kee Berry';
-		if (species.id === 'ditto' || species.id === 'persianalola') return 'Choice Scarf';
+		if (species.id === 'ditto' || species.id === 'persianalola' || species.id === 'tatsugiri') return 'Choice Scarf';
 		if (species.id === 'meowth' || species.id === 'skitty') return 'Silk Scarf';
 		if (species.id === 'persian' || species.id === 'paras') return 'Razor Claw';
 		if (species.id === 'perrserker') return 'Metal Coat';
@@ -1375,7 +1379,7 @@ export class RandomTeams {
 		if (species.id === 'bonsly') return 'Custap Berry';
 		if (species.id === 'sudowoodo') return 'Muscle Band';
 		if (species.id === 'capsakid' || species.id === 'dreepy') return 'Eject Pack';
-		if (species.id === 'scovillain') return 'Mirror Herb';
+		if (species.id === 'scovillain' || species.id === 'unfezant') return 'Mirror Herb';
 		if (species.id === 'sandslashalola') return 'Light Clay';
 		if (species.id === 'carnivine') return 'Watmel Berry';
 		if (species.id === 'parasect' || species.id === 'dragapult') return 'Lum Berry';
@@ -1409,6 +1413,8 @@ export class RandomTeams {
 		if (species.id === 'hydrapple') return 'Rowap Berry';
 		if (species.id === 'dipplin') return 'Salac Berry';
 		if (species.id === 'appletun') return 'Mago Berry';
+		if (species.id === 'honedge') return 'Spell Tag';
+		if (species.id === 'dondozo') return 'Dragon Fang';
 	}
 
 	/** Item generation specific to Random Doubles */
