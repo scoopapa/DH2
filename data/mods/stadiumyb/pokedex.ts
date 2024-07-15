@@ -731,7 +731,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	venonat: {
 		inherit: true,
-		abilities: {0: "Compound Eyes"},
+		abilities: {0: "Tinted Lens"},
 	},
 	venomoth: {
 		inherit: true,
