@@ -1264,7 +1264,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Night Shade", "Breaking Swipe", "Quick Attack", "Disable"],
+                "movepool": ["Night Shade", "Dragon Tail", "Take Down", "Disable"],
                 "teraTypes": ["Ice"]
             }
         ]
@@ -1285,7 +1285,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Belly Drum", "Flare Blitz", "Mach Punch", "Belch"],
-                "teraTypes": ["Poison"]
+                "teraTypes": ["Fighting"]
             }
         ]
     },
