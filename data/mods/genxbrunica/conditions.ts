@@ -65,7 +65,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Smeltusk': 'Leaping Onrush',
 				'Panthoard': 'Cupric Deluge',
 				//'Mustelone': 'Clone Express',
-				'Froskua': 'Dive Bomb'
+				'Froskua': 'Dive Bomb',
+				'Muk': 'Mud Devourment',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
