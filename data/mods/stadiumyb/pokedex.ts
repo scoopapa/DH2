@@ -745,6 +745,46 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Regenerator"},
 	},
+	honedge: {
+		inherit: true,
+		abilities: {0: "No Guard"},
+	},
+	doublade: {
+		inherit: true,
+		abilities: {0: "No Guard"},
+	},
+	aegislash: {
+		inherit: true,
+		abilities: {0: "Stance Change"},
+	},
+	sizzlipede: {
+		inherit: true,
+		abilities: {0: "Flash Fire"},
+	},
+	centiskorch: {
+		inherit: true,
+		abilities: {0: "Flame Body"},
+	},
+	dondozo: {
+		inherit: true,
+		abilities: {0: "Unaware"},
+	},
+	tatsugiri: {
+		inherit: true,
+		abilities: {0: "Storm Drain"},
+	},
+	pidove: {
+		inherit: true,
+		abilities: {0: "Rivalry"},
+	},
+	tranquill: {
+		inherit: true,
+		abilities: {0: "Big Pecks"},
+	},
+	unfezant: {
+		inherit: true,
+		abilities: {0: "Super Luck"},
+	},
 
 /*
 Leaving the restricted's sets here
