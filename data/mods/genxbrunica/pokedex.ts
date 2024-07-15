@@ -386,6 +386,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 40.5,
 		otherFormes: ["Tsunamey-Surfing"],
 		formeOrder: ["Tsunamey", "Tsunamey-Surfing"],
+		eggGroups: ["Water 1", "Water 3"],
 	},
 	tsunameysurfing: {
 		num: 1280,
@@ -399,6 +400,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 40.5,
 		requiredAbility: "Surfs Up",
 		battleOnly: "Tsunamey",
+		eggGroups: ["Water 1", "Water 3"],
 	},
 	erythrope: {
 		num: 1281,
@@ -408,6 +410,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Long Reach", 1: "Strong Jaw", H: "Illuminate"},
 		heightm: 4,
 		weightkg: 9.6,
+		eggGroups: ["Water 1", "Dragon"],
 	},
 	rascoon: {
 		num: 1236,
@@ -418,6 +421,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 16.8,
 		evos: ["Maskoon"],
+		eggGroups: ["Field"],
 	},
 	maskoon: {
 		num: 1237,
@@ -428,6 +432,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.4,
 		weightkg: 41,
 		prevo: "Rascoon",
+		eggGroups: ["Field"],
 	},
 	wapitini: {
 		num: 1381,
