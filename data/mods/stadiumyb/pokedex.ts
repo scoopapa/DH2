@@ -789,7 +789,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Synchronize"},
 	},
-	beeheeyem: {
+	beheeyem: {
 		inherit: true,
 		abilities: {0: "Analytic"},
 	},
