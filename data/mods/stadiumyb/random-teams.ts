@@ -1293,7 +1293,8 @@ export class RandomTeams {
 			species.id === 'ralts' || species.id === 'floatzel' || species.id === 'rampardos' || 
 			species.id === 'poochyena' || species.id === 'tynamo' || species.id === 'karrablast' || 
 			species.id === 'toxicroak' || species.id === 'trapinch' || species.id === 'cetoddle' ||
-			species.id === 'venomoth' || species.id === 'pidove' || species.id === 'furfrou'
+			species.id === 'venomoth' || species.id === 'pidove' || species.id === 'furfrou' ||
+			species.id === 'pawmi'
 		) return 'Life Orb';
 		if (
 			species.id === 'servine' || species.id === 'riolu' || species.id === 'eevee' || 
@@ -1305,7 +1306,6 @@ export class RandomTeams {
 			species.id === 'tranquill' || species.id === 'sizzlipede' || species.id === 'charcadet'
 		) return 'Eviolite';
 		if (species.id === 'serperior') return 'Miracle Seed';
-		if (species.id === 'pawmi') return 'Magnet';
 		if (species.id === 'smeargle' || species.id === 'delibird' || species.id === 'mrmimegalar') return 'Wide Lens';
 		if (
 			species.id === 'torchic' || species.id === 'croconaw' || species.id === 'aerodactyl' || 
