@@ -1879,6 +1879,106 @@
             }
         ]
     },
+  "elgyem": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Agility", "Meteor Beam", "Psychic", "Dark Pulse"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+  "beheeyem": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Steel Wing", "Zen Headbutt", "Rock Slide", "Teleport"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    },
+  "charcadet": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Night Shade", "Fire Blast", "Tera Blast", "Will-O-Wisp"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+  "armarouge": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Endure", "Mystical Fire", "Psybeam", "Taunt"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+  "ceruledge": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Overheat", "Shadow Sneak", "Shadow Ball", "Flame Charge"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+  "gligar": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Hone Claws", "Earthquake", "Sky Uppercut", "Wing Attack"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+  "gliscor": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Power Trick", "Bulldoze", "Feint", "Aerial Ace"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+  "yanma": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Bug Buzz", "Detect", "Air Slash", "Ancient Power"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+  "yanmega": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Roost", "Lunge", "Air Cutter", "Whirlwind"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+  "furfrou": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Odor Sleuth", "Last Resort"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
