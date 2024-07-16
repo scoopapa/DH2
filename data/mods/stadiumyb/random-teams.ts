@@ -1385,7 +1385,7 @@ export class RandomTeams {
 		if (species.id === 'scovillain' || species.id === 'unfezant') return 'Mirror Herb';
 		if (species.id === 'sandslashalola') return 'Light Clay';
 		if (species.id === 'carnivine') return 'Watmel Berry';
-		if (species.id === 'parasect' || species.id === 'dragapult' || species.id === 'marshadow') return 'Lum Berry';
+		if (species.id === 'parasect' || species.id === 'dragapult') return 'Lum Berry';
 		if (species.id === 'chimecho') return 'Aguav Berry';
 		if (species.id === 'sneasel') return 'Black Glasses';
 		if (species.id === 'sneaselhisui') return 'Big Nugget';
@@ -1397,7 +1397,7 @@ export class RandomTeams {
 		if (species.id === 'kyuremwhite') return 'Safety Goggles';
 		if (species.id === 'audino' || species.id === 'gliscor') return 'Protective Pads';
 		if (species.id === 'magmar') return 'Luminous Moss';
-		if (species.id === 'electabuzz') return 'Clear Amulet';
+		if (species.id === 'electabuzz' || species.id === 'marshadow') return 'Clear Amulet';
 		if (species.id === 'spiritomb') return 'Odd Incense';
 		if (species.id === 'corphish') return 'Splash Plate';
 		if (species.id === 'crawdaunt') return 'Wacan Berry';
