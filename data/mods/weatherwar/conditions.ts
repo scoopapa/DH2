@@ -81,9 +81,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The Swarm persists...");
 			this.add('-weather', 'The Swarm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The Swarm persists...");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'The Swarm', '[silent]');
@@ -127,9 +127,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "You're in the Twilight Zone.");
 			this.add('-weather', 'Twilight Zone', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "You're in the Twilight Zone.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Twilight Zone', '[silent]');
@@ -238,9 +238,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The thunder storms.");
 			this.add('-weather', 'Thunderstorm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The thunder storms.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Thunderstorm', '[silent]');
@@ -281,9 +281,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "A fable continues.");
 			this.add('-weather', 'Fable', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "A fable continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Fable', '[silent]');
@@ -324,9 +324,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The colosseum persists.");
 			this.add('-weather', 'Colosseum', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The colosseum persists.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Colosseum', '[silent]');
@@ -368,9 +368,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The drought continues.");
 			this.add('-weather', 'Drought', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The drought continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Drought', '[silent]');
@@ -456,9 +456,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "You still hear THE VOICES...");
 			this.add('-weather', 'THE VOICES', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "You still hear THE VOICES...");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'THE VOICES', '[silent]');
@@ -502,9 +502,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The overgrowth continues.");
 			this.add('-weather', 'Overgrowth', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The overgrowth continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Overgrowth', '[silent]');
@@ -532,9 +532,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The dust storm continues.");
 			this.add('-weather', 'Dust Storm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The dust storm continues.");
 		},
 		onWeather(target) {
 			const immuneTypes = ['Ground', 'Rock', 'Steel'];
@@ -584,9 +584,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The whiteout continues.");
 			this.add('-weather', 'Whiteout', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The whiteout continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Whiteout', '[silent]');
@@ -630,9 +630,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The metronome battle continues.");
 			this.add('-weather', 'Metronome Battle', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The metronome battle continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Metronome Battle', '[silent]');
@@ -675,9 +675,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The shitstorm keeps brewing.");
 			this.add('-weather', 'Shitstorm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The shitstorm keeps brewing.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Shitstorm', '[silent]');
@@ -744,9 +744,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "Your mind is fucked.");
 			this.add('-weather', 'Mindfuck', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "Your mind is fucked.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Mindfuck', '[silent]');
@@ -785,9 +785,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The landslide continues.");
 			this.add('-weather', 'Landslide', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The landslide continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Landslide', '[silent]');
@@ -876,9 +876,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "Time is warping.");
 			this.add('-weather', 'Time Warp', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "Time is warping.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Time Warp', '[silent]');
@@ -919,8 +919,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Flash Flood', '[upkeep]');
 			this.add('-message', "The flash flood continues.");
+			this.add('-weather', 'Flash Flood', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {

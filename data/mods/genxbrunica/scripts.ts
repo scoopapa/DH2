@@ -107,13 +107,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "minun").learnset.minusion = ["9L1"];
 		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
-		
+		*/
 		//bidoof line
 		delete this.modData("Learnsets", "bidoof").learnset.sunnyday;
 		delete this.modData("Learnsets", "bibarel").learnset.sunnyday;
 		this.modData("Learnsets", "bibarel").learnset.wavecrash = ["9L70"];
 		this.modData("Learnsets", "bibarel").learnset.shocktail = ["9M"];
-		
+		/*
 		//stunfisk
 		this.modData("Learnsets", "stunfisk").learnset.sparkingleap = ["9L1","8L1"];
 		
@@ -349,6 +349,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				console.log(pokemon + " was not assigned to a base species!");
 			}
 		}*/
+		//Distribution for returning mons to Brunica on Slate 5
+		this.modData("Learnsets", "wingull").learnset.airdive = ["9L1"];
+		this.modData("Learnsets", "pelipper").learnset.airdive = ["9L1"];
+		this.modData("Learnsets", "grimer").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "grimer").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "muk").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "muk").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.darkestlariat = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.brutalswing = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.meteormash = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.steelbeam = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.victorydance = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.circlethrow = ["9L1"];
 		
 	},
 	runAction(action) {
