@@ -724,7 +724,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Thunder", "Play Rough", "Super Fang", "Baton Pass"],
+                "movepool": ["Thunder", "Play Rough", "Mach Punch", "Baton Pass"],
                 "teraTypes": ["Electric"]
             }
         ]
