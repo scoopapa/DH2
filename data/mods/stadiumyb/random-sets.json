@@ -804,7 +804,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Punishment", "Parting Shot", "Skitter Smack", "Switcheroo"],
+                "movepool": ["Punishment", "Parting Shot", "Play Rough", "Switcheroo"],
                 "teraTypes": ["Fairy"]
             }
         ]
