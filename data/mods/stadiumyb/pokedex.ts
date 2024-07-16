@@ -785,6 +785,47 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Super Luck"},
 	},
+	elgyem: {
+		inherit: true,
+		abilities: {0: "Synchronize"},
+	},
+	beeheeyem: {
+		inherit: true,
+		abilities: {0: "Analytic"},
+	},
+	charcadet: {
+		inherit: true,
+		abilities: {0: "Flash Fire"},
+	},
+	armarouge: {
+		inherit: true,
+		abilities: {0: "Weak Armor"},
+	},
+	ceruledge: {
+		inherit: true,
+		abilities: {0: "Flash Fire"},
+	},
+	gligar: {
+		inherit: true,
+		abilities: {0: "Immunity"},
+	},
+	gliscor: {
+		inherit: true,
+		abilities: {0: "Poison Heal"},
+	},
+	yanma: {
+		inherit: true,
+		abilities: {0: "Speed Boost"},
+	},
+	yanmega: {
+		inherit: true,
+		abilities: {0: "Tinted Lens"},
+	},
+	furfrou: {
+		inherit: true,
+		abilities: {0: "Fur Coat"},
+	},
+
 
 /*
 Leaving the restricted's sets here
