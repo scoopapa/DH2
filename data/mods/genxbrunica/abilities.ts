@@ -103,25 +103,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 		},
 	},
-	//Cloning Genes being archived, there was a miscount
-	/*cloninggenes: {
+	cloninggenes: {
 		// activation in conditions.ts#twoturnmove
 		name: "Cloning Genes",
 		flags: {},
 		shortDesc: "Sets up Substitute when targeted by a two-turn move.",
 		condition: {
 			onStart(pokemon) {
-				if (pokemon.hasAbility('cloninggenes') && !pokemon.volatiles['substitute'] 
-				&& pokemon.hp > pokemon.maxhp * 0.25 && pokemon.maxhp > 1) {
+				const threshold = pokemon.maxhp * 0.25;
+				if (!pokemon.volatiles['substitute'] && pokemon.hp > threshold
+					&& pokemon.maxhp > 1 && pokemon.hasAbility('cloninggenes')) {
 					this.add('-ability', pokemon, 'Cloning Genes');
-					this.directDamage(pokemon.maxhp * 0.25, pokemon, pokemon);
+					this.directDamage(threshold, pokemon, pokemon);
 					pokemon.addVolatile('substitute');
 					this.add('-message', `${pokemon.name} set up a substitute in response to its opponent charging a move!`);
 				}
 				pokemon.removeVolatile('cloninggenes');
 			},
 		}
-	},*/
+	},
 	frostcloak: {
 		name: "Frost Cloak",
 		shortDesc: "Sets up Aurora Veil under snow.",
@@ -149,6 +149,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.flags['charge']) move.ignoreImmunity = true;
 		},
 		flags: {},
+	},
+	ballfetch: {
+		inherit: true,
+		//implemented in scripts.ts; only listed here to adjust the text
+		desc: "After another Pokemon uses a ballistic move, this Pokemon uses the same move. The copied move is subject to all effects that can prevent a move from being executed. A move used through this Ability cannot be copied again by other Pokemon with this Ability.",
+		shortDesc: "After another Pokemon uses a ballistic move, this Pokemon uses the same move.",
 	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
@@ -204,7 +210,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	railgunner: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.id.endsWith('beam')) {
+			const moveid = move.id;
+			if (moveid.endsWith('beam') || [
+				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon', 'doomdesire', 'psybolt'
+				].includes(moveid)) {
 				return this.chainModify([5325, 4096]);
 			}
 		},

@@ -192,6 +192,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 	},
+	psybolt: {
+		accuracy: 70,
+		basePower: 110,
+		category: "Special",
+		name: "Psy Bolt",
+		desc: "Has a 30% chance to confuse the target. If the terrain is Psychic Terrain, this move does not check accuracy.",
+		shortDesc: "30% chance to confuse target. Can't miss in Psychic Terrain.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (this.field.isTerrain('psychicterrain')) {
+				move.accuracy = true;
+			}
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'confusion',
+		},
+		target: "any",
+		type: "Psychic",
+	},
 	
 	
 	//Balm Moves
@@ -203,7 +229,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, wind: 1},
-		desc: "Power is equal to 1.5 times the base move's power. For 3 turns, the target cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the target is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the target is under any of their effects. Fails if the target is already under this effect or the effects of Ingrain, Smack Down, Thousand Arrows, or Leaping Onrush. The target is immune to this effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
+		desc: "Power is equal to 1.5 times the base move's power. For 3 turns, the target cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the target is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the target is under any of their effects. Fails if the target is already under this effect or the effects of Ingrain, Smack Down, Thousand Arrows, or Leaping Onrush. The target is immune to this added effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
 		shortDesc: "x1.5 power of base move. For 3 turns, target floats but moves can't miss it.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -298,27 +324,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
-		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain.",
+		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain. Does not end the effects of Nature Field",
+		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain or Nature Field.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Earth Power", target);
 		},
 		onAfterHit(target, source) {
-			if (source.hp && !this.field.isTerrain('poisonterrain')) {
+			if (source.hp && !this.field.isTerrain(['poisonterrain', 'guardianofnature'])) {
 				this.field.clearTerrain();
 			}
 		},
 		onAfterSubDamage(damage, target, source) {
-			if (source.hp && !this.field.isTerrain('poisonterrain')) {
+			if (source.hp && !this.field.isTerrain(['poisonterrain', 'guardianofnature'])) {
 				this.field.clearTerrain();
 			}
 		},
 		target: "adjacentFoe",
 		type: "Ground",
 	},
-	//There was a miscount, Clone Express is archived
-	/*cloneexpress: {
+	cloneexpress: {
 		accuracy: true,
 		basePower: 1,
 		category: "Physical",
@@ -330,7 +355,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "x1.5 power of base move. 100% to confuse statused target.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Population Bomb", target);
+			this.add('-anim', source, "Spectral Thief", target);
 		},
 		secondary: {
 			chance: 100,
@@ -342,7 +367,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "adjacentFoe",
 		type: "Ghost",
-	},*/
+	},
+	adulteration: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Adulteration",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Causes the target's Ability to be rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, Zero to Hero, or Surf's Up, this move fails, and receiving the effect through Baton Pass ends the effect immediately.",
+		shortDesc: "x1.5 power of base move. Nullifies the target's Ability.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Wave", target);
+		},
+		onHit(target) {
+			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
+		},
+		target: "adjacentFoe",
+		type: "Poison",
+	},
 	
 	
 	//Interacting with new Brunician mechanics

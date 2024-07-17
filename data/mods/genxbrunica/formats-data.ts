@@ -255,6 +255,47 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	ferrustle: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	mustelone: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	sugacer: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	saccharup: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	syruptitious: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	hawkward: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	hawkular: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	qimmiqua: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	splabrashor: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	newflowake: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+
 
 	akulut: {
 		tier: "Brunica Uber",
