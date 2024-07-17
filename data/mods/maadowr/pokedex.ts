@@ -369,6 +369,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 50, atk: 85, def: 45, spa: 85, spd: 45, spe: 35},
 		category: "Cactus",
 		abilities: {0: "Sand Veil", H: "Water Absorb"},
+		movepoolAdditions: ["assurance", "brine"],
 		heightm: 0.4,
 		weightkg: 51.3,
 		color: "Green",
@@ -423,6 +424,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Bug", "Grass"],
 		baseStats: {hp: 35, atk: 70, def: 55, spa: 45, spd: 55, spe: 25},
 		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Damp"},
+		movepoolAdditions: ["earthpower"],
 		category: "Mushroom",
 		heightm: 0.3,
 		weightkg: 5.4,
@@ -438,6 +440,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Bug", "Grass"],
 		baseStats: {hp: 60, atk: 95, def: 80, spa: 60, spd: 80, spe: 30},
 		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Damp"},
+		movepoolAdditions: ["earthpower"],
 		category: "Mushroom",
 		heightm: 1.0,
 		weightkg: 29.5,
@@ -464,6 +467,62 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Parasect",
 		evoType: "levelExtra",
 		evoCondition: "with a special mushroom item",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	pinsirmaadowr: {
+		num: -19,
+		name: "Pinsir-Ma'adowr",
+		
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 65, atk: 125, def: 100, spa: 55, spd: 70, spe: 85},
+		abilities: {0: "Natural Cure", 1: "Mold Breaker", H: "Filter"},
+		category: "Stag Beetle",
+		heightm: 1.5,
+		weightkg: 55.0,
+		color: "Green",
+		eggGroups: ["Bug"],
+
+		evos: ["Kabujatsu"],
+		creator: "BlueRay",
+	},
+	kabujatsu: {
+		num: -20,
+		name: "Kabujatsu",
+
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 105, atk: 135, def: 115, spa: 45, spd: 85, spe: 65},
+		abilities: {0: "Natural Cure", 1: "Mold Breaker", H: "Filter"},
+		category: "Chest Armor",
+		heightm: 1.9,
+		weightkg: 105.0,
+		color: "Green",
+		eggGroups: ["Bug"],
+
+		prevo: "Pinsir-Ma'adowr",
+		evoType: "levelExtra",
+		evoCondition: "re-enact a performence and defeat four Ma'adowrian Pinsir",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	goldenorbweaver: {
+		num: -21,
+		name: "Golden Orb Weaver",
+
+		types: ["Bug", "Rock"],
+		gender: "N",
+		baseStats: {hp: 49, atk: 77, def: 98, spa: 112, spd: 98, spe: 126},
+		abilities: {0: "Reconfiguration"},
+		category: "Golden Spider",
+		heightm: 0.1,
+		weightkg: 6.0,
+		color: "Yellow",
+		eggGroups: ["Undiscovered"],
+
 		creator: "BlueRay",
 	},
 	// end
