@@ -343,5 +343,77 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
-	
+	organtica: {
+		num: -17,
+		name: "Organtica",
+
+		types: ["Grass"],
+		baseStats: {hp: 35, atk: 35, def: 77, spa: 125, spd: 127, spe: 141},
+		abilities: {0: "Leaf Guard", 1: Immunity, H: "Solar Power"},
+		category: "Plankton",
+		heightm: 0.1,
+		weightkg: 0.1,
+		color: "Green",
+		eggGroups: ["Grass", "Water 3"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	cacnea: {
+		num: 331,
+		name: "Cacnea",
+		
+		types: ["Grass"],
+		baseStats: {hp: 50, atk: 85, def: 45, spa: 85, spd: 45, spe: 35},
+		category: "Cactus",
+		abilities: {0: "Sand Veil", H: "Water Absorb"},
+		heightm: 0.4,
+		weightkg: 51.3,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+
+		evos: ["Cacturne"],
+	},
+	cacturne: {
+		num: 332,
+		name: "Cacturne",
+		
+		types: ["Grass", "Dark"],
+		baseStats: {hp: 70, atk: 115, def: 60, spa: 115, spd: 60, spe: 55},
+		category: "Scarecrow",
+		abilities: {0: "Sand Veil", H: "Water Absorb"},
+		movepoolAdditions: ["brine"],
+		heightm: 1.3,
+		weightkg: 77.4,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+		otherFormes: ["Cacturne-Mega"],
+		formeOrder: ["Cacturne", "Cacturne-Mega"],
+
+		prevo: "Cacnea",
+		evoLevel: 32,
+	},
+	cacturnemega: {
+		num: 332,
+		name: "Cacturne-Mega",
+		
+		baseSpecies: "Cacturne",
+		forme: "Mega",
+		types: ["Grass", "Dark"],
+		baseStats: {hp: 70, atk: 115, def: 115, spa: 115, spd: 105, spe: 55},
+		category: "Scarecrow",
+		abilities: {0: "Coup de Grass"},
+		heightm: 1.3,
+		weightkg: 77.4,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+		requiredItem: "Cacturnite",
+		
+		creator: "Hematite",
+	},
+	// end
+
+	// start
 };
