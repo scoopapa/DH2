@@ -155,7 +155,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Doublade-Ma'adowr"],
 		creator: "BlueRay",
 	},
-	doublademaadwor: {
+	doublademaadowr: {
 		num: -8,
 		name: "Doublade-Ma'adowr",
 		types: ["Grass"],
@@ -194,7 +194,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 		
 	},
-	aegislashblademaadwor: {
+	aegislashblademaadowr: {
 		num: -9,
 		name: "Aegislash-Blade-Ma'adowr",
 		
@@ -211,6 +211,43 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredAbility: "Stance Change",
 		battleOnly: "Aegislash-Ma'adowr",
 
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	shelldure: {
+		num: -10,
+		name: "Shelldure",
+
+		types: ["Grass", "Ice"],
+		baseStats: {hp: 30, atk: 65, def: 100, spa: 45, spd: 25, spe: 40},
+		abilities: {0: "Effect Spore", 1: "Sturdy", H: "Weak Armor"},
+		category: "Mushroom Sculpture",
+		heightm: 0.7,
+		weightkg: 6.9,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		evos: ["Cloysture"],
+		creator: "BlueRay",
+	},
+	cloysture: {
+		num: -11,
+		name: "Cloysture",
+
+		types: ["Grass", "Ice"],
+		baseStats: {hp: 50, atk: 95, def: 180, spa: 85, spd: 45, spe: 70},
+		abilities: {0: "Effect Spore", 1: "Sturdy", H: "Weak Armor"},
+		category: "Mushroom Sculpture",
+		heightm: 1.5,
+		weightkg: 132.5,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		prevo: "Shelldure",
+		evoType: "useItem",
+		evoItem: "Leaf Stone",
 		creator: "BlueRay",
 	},
 	// end
