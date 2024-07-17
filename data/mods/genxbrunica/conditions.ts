@@ -23,7 +23,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	//There was an error so this edit to accommodate for Cloning Genes is being archived
-	/*
+	
 	twoturnmove: {
 		// Cloning Genes
 		inherit: true,
@@ -53,20 +53,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			// Run side-effects normally associated with hitting (e.g., Protean, Libero)
 			this.runEvent('PrepareHit', attacker, defender, effect);
 		},
-	},*/
+	},
 	typebalm: {
 		//This is here to track whether a mon has used a Type Balm this switch-in
 		duration: 0,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'typechange', target.getTypes(false, true).join('/'), '[silent]');
-			this.add('-message', `${target.name} used the ` + target.addedType + ' Balm to gain the ' + target.addedType + ' type!');
+			this.add('-message', `${target.name} gained the ${target.addedType} type from the Type Balm!`);
 			const balmMoveList = {
 				'Photalohm': 'Magnetic Updraft',
 				'Smeltusk': 'Leaping Onrush',
 				'Panthoard': 'Cupric Deluge',
-				//'Mustelone': 'Clone Express',
+				'Mustelone': 'Clone Express',
 				'Froskua': 'Dive Bomb',
 				'Muk': 'Mud Devourment',
+				'Muk-Alola': 'Mud Devourment',
+				'Syruptitious': 'Adulteration',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 

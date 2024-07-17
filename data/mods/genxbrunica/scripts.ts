@@ -11,10 +11,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		const undexitedMons = [];
 		for (const pokemon in this.data.FormatsData) {
-			//We will skip mons absent from Desvega and custom formes that lack tiers
+			//We will skip mons absent from Brunica and custom formes that lack tiers
 			const tierData = this.modData("FormatsData",pokemon);
 			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Brunica')) {
-				//console.log(pokemon + " is not in the Desvegan Regional Pokedex. I think this is everything.");
+				//console.log(pokemon + " is not in the Brunician Regional Pokedex. I think this is everything.");
 				continue;
 			}
 			const mon = this.modData("Pokedex",pokemon);
@@ -40,6 +40,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			//This will exclude inherited movesets and the mons that were in SV, as none of the mons specified to lack Tera Blast are in Desvega
 			if (learnset.terablast /* || ['magikarp','ditto','smeargle','cosmog','cosmoem','terapagos'].includes(pokemon)*/) {
 				//console.log(pokemon + " was present in Scarlet and Violet. Skipping...");
+				
+				//Also freeing these moves for realmons
+				learnset.hiddenpower = ["9M"];
+				learnset.snore = ["9M"];
+				learnset.naturalgift = ["9M"];
+				learnset.frustration = ["9M"];
+				learnset['return'] = ["9M"];
+				learnset.takedown = ["9M"];
 				continue;
 			}
 			
@@ -70,6 +78,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset[move].push("9L1");
 			}
 		}
+		
+		//Lorian move additions
+		this.modData("Learnsets", "spearow").learnset.payday = ["9L1","8L1"];
+		this.modData("Learnsets", "fearow").learnset.payday = ["9L1","8L1"];
 		
 		/*//oddish line
 		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
@@ -337,7 +349,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		/*for (const pokemon in this.data.FormatsData) {
 			const tierData = this.modData("FormatsData",pokemon);
-			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Desvega')) {
+			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Brunica')) {
 				break;
 			}
 			const mon = this.modData("Pokedex",pokemon);
@@ -356,12 +368,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "grimer").learnset.toxicshock = ["9L1"];
 		this.modData("Learnsets", "muk").learnset.poisonterrain = ["9L1"];
 		this.modData("Learnsets", "muk").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "tyrogue").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.stormthrow = ["9L1"];
 		this.modData("Learnsets", "hitmonlee").learnset.darkestlariat = ["9L1"];
 		this.modData("Learnsets", "hitmonlee").learnset.brutalswing = ["9L1"];
 		this.modData("Learnsets", "hitmonlee").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.stormthrow = ["9L1"];
 		this.modData("Learnsets", "hitmonchan").learnset.meteormash = ["9L1"];
 		this.modData("Learnsets", "hitmonchan").learnset.ironhead = ["9L1"];
 		this.modData("Learnsets", "hitmonchan").learnset.steelbeam = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.stormthrow = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.victorydance = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.circlethrow = ["9L1"];
@@ -785,26 +801,40 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			// Dancer's activation order is completely different from any other event, so it's handled separately
-			if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
-				const dancers = this.battle.getAllActive().filter(currentPoke =>
-					pokemon !== currentPoke && currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()
+			if ((move.flags['dance'] || move.flags['bullet']) && moveDidSomething && !move.isExternal) {
+				const active = this.battle.getAllActive().filter(currentPoke =>
+					pokemon !== currentPoke && !currentPoke.isSemiInvulnerable() && currentPoke.hasAbility(['dancer','ballfetch'])
 				);
-				// Dancer activates in order of lowest speed stat to highest
-				// Note that the speed stat used is after any volatile replacements like Speed Swap,
-				// but before any multipliers like Agility or Choice Scarf
-				// Ties go to whichever Pokemon has had the ability for the least amount of time
-				dancers.sort(
-					(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
-				);
-				const targetOf1stDance = this.battle.activeTarget!;
-				for (const dancer of dancers) {
-					if (this.battle.faintMessages()) break;
-					if (dancer.fainted) continue;
-					this.battle.add('-activate', dancer, 'ability: Dancer');
-					const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
-						targetOf1stDance :
-						pokemon;
-					this.runMove(move.id, dancer, dancer.getLocOf(dancersTarget), this.dex.abilities.get('dancer'), undefined, true);
+				if (active.length) {
+					const dancers = [];
+					if (move.flags['dance']) {
+						for (const currentPoke of active.filter(currentPoke => currentPoke.hasAbility('dancer'))) {
+							dancers.push(currentPoke);
+						}
+					}
+					if (move.flags['bullet']) {
+						for (const currentPoke of active.filter(currentPoke => currentPoke.hasAbility('ballfetch'))) {
+							dancers.push(currentPoke);
+						}
+					}
+					// Dancer activates in order of lowest speed stat to highest
+					// Note that the speed stat used is after any volatile replacements like Speed Swap,
+					// but before any multipliers like Agility or Choice Scarf
+					// Ties go to whichever Pokemon has had the ability for the least amount of time
+					dancers.sort(
+						(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+					);
+					const targetOf1stDance = this.battle.activeTarget!;
+					for (const dancer of dancers) {
+						if (this.battle.faintMessages()) break;
+						if (dancer.fainted) continue;
+						this.battle.add('-activate', dancer, 'ability: ' + (move.flags['dance'] ? 'Dancer' : 'Ball Fetch'));
+						const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
+							targetOf1stDance :
+							pokemon;
+						this.runMove(move.id, dancer, dancer.getLocOf(dancersTarget), this.dex.abilities.get(
+						move.flags['dance'] ? 'dancer' : 'ballfetch'), undefined, true);
+					}
 				}
 			}
 			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
