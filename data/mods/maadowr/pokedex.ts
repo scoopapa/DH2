@@ -251,4 +251,41 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	// end
+
+	// start
+	paradisica0: {
+		num: -12,
+		name: "Paradisica-0",
+
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 53, atk: 57, def: 45, spa: 42, spd: 45, spe: 53},
+		abilities: {0: "Flame Body", H: "Seed Sower"},
+		category: "Flower Bird",
+		heightm: 0.4,
+		weightkg: 3.6,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		evos: ["Paradisica"],
+		creator: "BlueRay",
+	},
+	paradisica: {
+		num: -13,
+		name: "Paradisica",
+
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 103, atk: 97, def: 71, spa: 52, spd: 71, spe: 93},
+		abilities: {0: "Flame Body", H: "Seed Sower"},
+		category: "Flower Bird",
+		heightm: 1.4,
+		weightkg: 38.6,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		prevo: "Paradisica-0",
+		evoLevel: 32,
+		creator: "BlueRay",
+	},
+	// end
+	
 };
