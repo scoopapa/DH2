@@ -49,7 +49,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1,
 	},
 	puyomastery: {
-		shortDesc: "Boosts Water attacks by 1.5x",
+		shortDesc: "This Pokemon's Water moves have 1.5x power.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Water') {

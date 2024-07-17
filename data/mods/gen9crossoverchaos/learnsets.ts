@@ -2303,6 +2303,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	goldenfreddy: {
 		learnset: {
 			shadowclaw: ["9L1"],
+			poltergeist: ["9L1"],
+			shadowsneak: ["9L1"],
 			revenge: ["9L1"],
 			playrough: ["9L1"],
 			crunch: ["9L1"],

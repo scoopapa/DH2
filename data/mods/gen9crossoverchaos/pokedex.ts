@@ -324,7 +324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Luigi",
 		types: ["Normal", "Flying"],
 		gender: "M",
-		baseStats: {hp: 87, atk: 99, def: 78, spa: 109, spd: 93, spe: 107},
+		baseStats: {hp: 87, atk: 99, def: 78, spa: 109, spd: 93, spe: 94},
 		abilities: {0: "Rattled", 1: "Limber", H: "Wimp Out"},
 		heightm: 1.7,
 		weightkg: 62,

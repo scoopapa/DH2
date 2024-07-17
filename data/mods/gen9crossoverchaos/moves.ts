@@ -585,6 +585,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Special",
 		name: "Poltergust",
+		shortDesc: "20% chance to make the target flinch.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
