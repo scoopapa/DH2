@@ -527,6 +527,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	// end
+
+	// start
 	dragantis0: {
 		num: -22,
 		name: "Dragantis-0",
@@ -579,6 +581,116 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Bug", "Dragon"],
 		requiredItem: "Dragantistite",
 		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	cropcircleartist: {
+		num: -24,
+		name: "Crop Circle Artist",
+
+		types: ["Bug", "Ground"],
+		gender: "N",
+		baseStats: {hp: 75, atk: 128, def: 95, spa: 63, spd: 95, spe: 114},
+		abilities: {0: "Masquerade", H: "Overcoat"},
+		category: "Crop Circle",
+		heightm: 1.2,
+		weightkg: 20.5,
+		color: "Yellow",
+		tags: ["Extraterrestrial"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	combee: {
+		num: 415,
+		name: "Combee",
+
+		types: ["Bug", "Flying"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 30, atk: 30, def: 42, spa: 30, spd: 42, spe: 70},
+		abilities: {0: "Honey Gather", 1: "Early Bird", H: "Hustle"},
+		category: "Tiny Bee",
+		heightm: 0.3,
+		weightkg: 5.5,
+		color: "Yellow",
+		eggGroups: ["Bug"],
+
+		evos: ["Vespiquen"],
+	},
+	vespiquen: {
+		num: 416,
+		name: "Vespiquen",
+
+		types: ["Bug", "Flying"],
+		gender: "F",
+		baseStats: {hp: 70, atk: 80, def: 102, spa: 80, spd: 102, spe: 40},
+		abilities: {0: "Pressure", 1: "Queenly Majesty", H: "Unnerve"},
+		movepoolAdditions: ["heatwave", "nastyplot"],
+		category: "Beehive",
+		heightm: 1.2,
+		weightkg: 38.5,
+		color: "Yellow",
+		eggGroups: ["Bug"],
+
+		evos: ["Oonabee"],
+		prevo: "Combee",
+		evoLevel: 21,
+	},
+	oonabee: {
+		num: -25,
+		name: "Oonabee",
+
+		types: ["Bug", "Fairy"],
+		gender: "F",
+		baseStats: {hp: 90, atk: 100, def: 107, spa: 100, spd: 107, spe: 50},
+		abilities: {0: "Pressure", 1: "Flash Fire", H: "Flare Boost"},
+		category: "One True Monarch",
+		heightm: 2.0,
+		weightkg: 72.5,
+		color: "Yellow",
+		eggGroups: ["Bug"],
+
+		prevo: "vespiquen",
+		evoType: "levelExtra",
+		evoCondition: "must be revived during a battle",
+		creator: "BlueRay",
+	},
+	// end
+	durant: {
+		num: 632,
+		name: "Durant",
+
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 58, atk: 109, def: 112, spa: 48, spd: 48, spe: 109},
+		abilities: {0: "Swarm", 1: "Hustle", H: "Truant"},
+		category: "Iron Ant",
+		heightm: 0.3,
+		weightkg: 33.0,
+		color: "Gray",
+		eggGroups: ["Bug"],
+
+		evos: ["Aurulant"],
+	},
+	aurulant: {
+		num: -26,
+		name: "Aurulant",
+
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 83, atk: 124, def: 127, spa: 58, spd: 58, spe: 94},
+		abilities: {0: "Earth Eater", 1: "Good as Gold", H: "Truant"},
+		category: "Golden Ant",
+		heightm: 1.3,
+		weightkg: 99.0,
+		color: "Gray",
+		eggGroups: ["Bug"],
+
+		prevo: "Durant",
+		evoCondition: "must defeat Hydrapple",
 		creator: "BlueRay",
 	},
 	// end
