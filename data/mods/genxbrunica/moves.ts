@@ -324,19 +324,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1},
-		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
-		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain.",
+		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain. Does not end the effects of Nature Field",
+		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain or Nature Field.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Earth Power", target);
 		},
 		onAfterHit(target, source) {
-			if (source.hp && !this.field.isTerrain('poisonterrain')) {
+			if (source.hp && !this.field.isTerrain(['poisonterrain', 'guardianofnature'])) {
 				this.field.clearTerrain();
 			}
 		},
 		onAfterSubDamage(damage, target, source) {
-			if (source.hp && !this.field.isTerrain('poisonterrain')) {
+			if (source.hp && !this.field.isTerrain(['poisonterrain', 'guardianofnature'])) {
 				this.field.clearTerrain();
 			}
 		},

@@ -328,6 +328,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 0.5,
 		evos: ["Saccharup"],
+		eggGroups: ["Grass"],
 	},
 	saccharup: {
 		num: 1486,
@@ -340,6 +341,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Sugacer",
 		evoLevel: 21,
 		evos: ["Syruptitious"],
+		eggGroups: ["Grass"],
 	},
 	syruptitious: {
 		num: 1487,
@@ -351,6 +353,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 43.1,
 		evoLevel: 34,
 		prevo: "Saccharup",
+		eggGroups: ["Grass"],
 	},
 	hawkward: {
 		num: 1488,
@@ -361,6 +364,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 9.1,
 		evos: ["Hawkular"],
+		eggGroups: ["Flying"],
 	},
 	hawkular: {
 		num: 1489,
@@ -372,6 +376,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 20.4,
 		prevo: "Hawkward",
 		evoLevel: 30,
+		eggGroups: ["Flying"],
 	},
 	qimmiqua: {
 		num: 1490,
