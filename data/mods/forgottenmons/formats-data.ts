@@ -389,12 +389,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	castform: {	
 		tier: "Forgottenmons",
 	},	
-	castformsunny: {	
-	},	
-	castformrainy: {	
-	},	
-	castformsnowy: {	
-	},	
 	kecleon: {	
 		tier: "Forgottenmons",
 	},	
@@ -448,8 +442,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},	
 	cherrim: {	
 		tier: "Forgottenmons",
-	},	
-	cherrimsunshine: {	
 	},	
 	buneary: {	
 		tier: "Forgottenmons LC",
@@ -583,12 +575,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	darmanitan: {	
 		tier: "Forgottenmons",
 	},	
-	darmanitanzen: {	
-	},	
 	darmanitangalar: {	
 		tier: "Forgottenmons Ubers",
-	},	
-	darmanitangalarzen: {	
 	},	
 	maractus: {	
 		tier: "Forgottenmons",
@@ -740,8 +728,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aegislash: {	
 		tier: "Forgottenmons",
 	},	
-	aegislashblade: {	
-	},	
 	spritzee: {	
 		tier: "Forgottenmons LC",
 	},	
@@ -781,20 +767,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pumpkaboo: {	
 		tier: "Forgottenmons LC",
 	},	
-	pumpkaboosmall: {	
+	pumpkaboosmall: {
+		tier: "Forgottenmons LC",
 	},	
-	pumpkaboolarge: {	
+	pumpkaboolarge: {
+		tier: "Forgottenmons LC",
 	},	
-	pumpkaboosuper: {	
+	pumpkaboosuper: {
+		tier: "Forgottenmons LC",
 	},	
 	gourgeist: {	
 		tier: "Forgottenmons",
 	},	
-	gourgeistsmall: {	
+	gourgeistsmall: {
+		tier: "Forgottenmons",
 	},	
-	gourgeistlarge: {	
+	gourgeistlarge: {
+		tier: "Forgottenmons",
 	},	
-	gourgeistsuper: {	
+	gourgeistsuper: {
+		tier: "Forgottenmons",
 	},	
 	xerneas: {	
 		tier: "Forgottenmons Ubers",
@@ -817,8 +809,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},	
 	wishiwashi: {	
 		tier: "Forgottenmons",
-	},	
-	wishiwashischool: {	
 	},	
 	morelull: {	
 		tier: "Forgottenmons LC",
