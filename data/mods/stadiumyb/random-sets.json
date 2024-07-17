@@ -1004,7 +1004,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Spicy Extract", "Razor Leaf", "Fire Fang", "Lash Out"],
+                "movepool": ["Spicy Extract", "Trailblaze", "Temper Flare", "Lash Out"],
                 "teraTypes": ["Ground"]
             }
         ]
