@@ -184,7 +184,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 1.7,
 		weightkg: 53,
 		color: "Green",
-		eggGroups: ["Mineral"],
+		eggGroups: ["Grass"],
 		otherFormes: ["Aegislash-Blade-Ma'adowr"],
 		formeOrder: ["Aegislash-Ma'adowr", "Aegislash-Blade-Ma'adowr"],
 
