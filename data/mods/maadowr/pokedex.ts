@@ -521,8 +521,64 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 0.1,
 		weightkg: 6.0,
 		color: "Yellow",
+		tags: ["Ancient"],
 		eggGroups: ["Undiscovered"],
 
+		creator: "BlueRay",
+	},
+	// end
+	dragantis0: {
+		num: -22,
+		name: "Dragantis-0",
+		
+		types: ["Bug"],
+		baseStats: {hp: 40, atk: 50, def: 30, spa: 15, spd: 30, spe: 105},
+		category: "Mantis",
+		abilities: {0: "Compound Eyes", H: "Agitation"},
+		heightm: 0.6,
+		weightkg: 3.0,
+		color: "Green",
+		eggGroups: ["Bug", "Dragon"],
+
+		evos: ["Dragantis"],
+		creator: "BlueRay",
+	},
+	dragantis: {
+		num: -23,
+		name: "Dragantis",
+		
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 70, atk: 100, def: 85, spa: 45, spd: 85, spe: 135},
+		category: "Mantis",
+		abilities: {0: "Compound Eyes", H: "Agitation"},
+		heightm: 1.8,
+		weightkg: 39.0,
+		color: "Green",
+		eggGroups: ["Bug", "Dragon"],
+		otherFormes: ["Dragantis-Mega"],
+		formeOrder: ["Dragantis", "Dragantis-Mega"],
+
+		prevo: "Dragantis-0",
+		evoType: "trade",
+		evoItem: "Dragon Scale",
+		creator: "BlueRay",
+	},
+	dragantismega: {
+		num: -23,
+		name: "Dragantis-Mega",
+		
+		baseSpecies: "Dragantis",
+		forme: "Mega",
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 70, atk: 120, def: 105, spa: 65, spd: 105, spe: 155},
+		category: "Mantis",
+		abilities: {0: "Technician"},
+		heightm: 2.4,
+		weightkg: 48.0,
+		color: "Green",
+		eggGroups: ["Bug", "Dragon"],
+		requiredItem: "Dragantistite",
+		
 		creator: "BlueRay",
 	},
 	// end
