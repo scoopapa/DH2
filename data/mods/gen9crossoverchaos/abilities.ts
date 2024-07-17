@@ -324,7 +324,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// I have no clue what's going on here, all I know is that this is how Morpeko was coded
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Binary Soul",
-		shortDesc: "If Twinrova, it changes between Fire and Ice at the end of each turn."
+		shortDesc: "If Twinrova, it changes between Fire and Ice at the end of each turn.",
 		rating: 1,
 		num: -18,
 	},
