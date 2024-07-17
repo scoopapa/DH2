@@ -1590,7 +1590,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			stoneaxe: ["9L1"],
 			beatup: ["9L1"],
 			knockoff: ["9L1"],
-			jawlock: ["9L1"],
 			lashout: ["9L1"],
 			suckerpunch: ["9L1"],
 			dualchop: ["9L1"],
@@ -1610,7 +1609,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			firepunch: ["9L1"],
 			thunderpunch: ["9L1"],
 			icepunch: ["9L1"],
-			axekick: ["9L1"],
 			crosschop: ["9L1"],
 			snarl: ["9L1"],
 			dragonpulse: ["9L1"],
@@ -1620,12 +1618,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			roar: ["9L1"],
 			taunt: ["9L1"],
-			dragondance: ["9L1"],
 			partingshot: ["9L1"],
 			torment: ["9L1"],
 			endure: ["9L1"],
 			bulkup: ["9L1"],
-			glare: ["9L1"],
 			growl: ["9L1"],
 			meanlook: ["9L1"],
 			healpulse: ["9L1"],
@@ -1824,6 +1820,14 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	jackfrost: {
 		learnset: {
+			taunt: ["9L1"],
+			chillyreception: ["9L1"],
+			bittermalice: ["9L1"],
+			mist: ["9L1"],
+			counter: ["9L1"],
+			ominouswind: ["9L1"],
+			meanlook: ["9L1"],
+			tickle: ["9L1"],
 			iceshard: ["9L1"],
 			icepunch: ["9L1"],
 			avalanche: ["9L1"],
@@ -1919,6 +1923,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	matka: {
 		learnset: {
+			infestation: ["9L1"],
 			acid: ["9L1"],
 			clearsmog: ["9L1"],
 			gunkshot: ["9L1"],
@@ -2174,6 +2179,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	kaguyahouraisan: {
 		learnset: {
+			meteorbeam: ["9L1"],
 			gigadrain: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
@@ -2654,8 +2660,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sandattack: ["9L1"],
 		},
 	},
-			
-
 };
 
 
