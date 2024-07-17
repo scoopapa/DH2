@@ -99,6 +99,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: -6,
 		name: "Immanicus",
 
+		baseForme: "Standard",
 		types: ["Grass", "Psychic"],
 		gender: N,
 		baseStats: {hp: 100, atk: 75, def: 100, spa: 75, spd: 100, spe: 60},
@@ -108,9 +109,31 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 251.3,
 		color: "Green",
 		eggGroups: ["Grass", "Human-like"],
+		otherFormes: ["Immanicus-Zen"],
+		formeOrder: ["Immanicus", "Immanicus-Zen"],
 
 		prevo: "Immanicham",
 		evoType: "other",
+		creator: "BlueRay",
+	},
+	immanicuszen: {
+		num: -6,
+		name: "Immanicus-Zen",
+
+		baseSpecies: "Immanicus",
+		forme: "Zen",
+		types: ["Grass", "Psychic"],
+		gender: N,
+		baseStats: {hp: 100, atk: 150, def: 25, spa: 150, spd: 25, spe: 120},
+		abilities: {0: "Zen Mode"},
+		category: "Wooden Statue",
+		heightm: 5.3,
+		weightkg: 251.3,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+		requiredAbility: "Zen Mode",
+		battleOnly: "Immanicus",
+
 		creator: "BlueRay",
 	},
 	// end
