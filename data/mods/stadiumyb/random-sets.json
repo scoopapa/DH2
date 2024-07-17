@@ -1794,7 +1794,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Head Smash", "Shadow Sneak", "Iron Head", "Destiny Bond"],
+                "movepool": ["Rock Slide", "Shadow Sneak", "Iron Head", "Destiny Bond"],
                 "teraTypes": ["Rock"]
             }
         ]
