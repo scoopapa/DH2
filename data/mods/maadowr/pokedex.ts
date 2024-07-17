@@ -287,5 +287,61 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	// end
+
+	// start
+	rolycolymaadowr: {
+		num: -14,
+		name: "Rolycoly-Ma'adowr",
+		
+		types: ["Grass"],
+		baseStats: {hp: 30, atk: 40, def: 50, spa: 40, spd: 50, spe: 30},
+		abilities: {0: "Wood Stove", 1: "Flame Body", H: "Well-Baked Body"},
+		category: "Charcoal",
+		heightm: 0.3,
+		weightkg: 12.0,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		evos: ["Carkol-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	carkolmaadowr: {
+		num: -15,
+		name: "Carkol-Ma'adowr",
+		
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 80, atk: 60, def: 90, spa: 60, spd: 70, spe: 50},
+		abilities: {0: "Wood Stove", 1: "Flame Body", H: "Well-Baked Body"},
+		category: "Charcoal",
+		heightm: 1.1,
+		weightkg: 78.0,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		evos: ["Coalossal-Ma'adowr"],
+		prevo: "Rolycoly-Ma'adowr",
+		evoLevel: 18,
+		creator: "BlueRay",
+	},
+	coalossalmaadowr: {
+		num: -16,
+		name: "Coalossal-Ma'adowr",
+	
+		types: [Grass", "Fire"],
+		baseStats: {hp: 110, atk: 80, def: 120, spa: 80, spd: 90, spe: 30},
+		abilities: {0: "Wood Stove", 1: "Flame Body", H: "Well-Baked Body"},
+		category: "Charcoal",
+		heightm: 2.8,
+		weightkg: 310.5,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		prevo: "Carkol-Ma'adowr",
+		evoLevel: 34,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 	
 };
