@@ -397,6 +397,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 16,
 		prevo: "Qimmiqua",
+		evoType: "levelHold",
+		evoItem: "Covert Cloak",
 	},
 	newflowake: {
 		num: 1492,
@@ -407,6 +409,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 61,
 		prevo: "Qimmiqua",
+		evoType: "levelHold",
+		evoItem: "Reaper Cloth",
 	},
 
 	
@@ -458,7 +462,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 100, atk: 150, def: 150, spa: 150, spd: 150, spe: 70},
 		abilities: {0: "Guardian of Nature"},
 		heightm: 10,
-		weightkg: 999.9,
+		weightkg: 840,
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Awakening Seed",
 		changesFrom: "Lutakon",
