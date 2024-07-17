@@ -324,6 +324,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// I have no clue what's going on here, all I know is that this is how Morpeko was coded
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Binary Soul",
+		shortDesc: "If Twinrova, it changes between Fire and Ice at the end of each turn."
 		rating: 1,
 		num: -18,
 	},
@@ -344,6 +345,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Perplexing Gaze",
+		shortDesc: "This Pokemon's Psychic moves have 1.5x power.",
 		rating: 3.5,
 		num: -19,
 	},
@@ -353,6 +355,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Rainbow Puppeteer",
+		shortDesc: "This Pokemon's moves have STAB.",
 		rating: 4,
 		num: -20,
 	},
@@ -364,6 +367,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Devouring Jaw",
+		shortDesc: "This Pokemon's biting moves heal it for 50% of the damage dealt.",
 		rating: 3,
 		num: -21,
 	},

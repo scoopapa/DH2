@@ -547,6 +547,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Double Dynamite",
+		shortDesc: "Type varies based on the user's primary type.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -869,5 +870,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'curse'},
 		contestType: "Tough",
+	},
+	bouncybubble: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };
