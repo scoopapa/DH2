@@ -1,4 +1,7 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
+	
+	// start
+	
 	chantyrus0: {
 		num: -1,
 		name: "Chantyrus-0",
@@ -53,4 +56,62 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 36,
 		creator: "BlueRay",
 	},
+	// end
+
+	// start
+	immanitite: {
+		num: -4,
+		name: "Immanitite",
+
+		types: ["Grass", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 56, atk: 35, def: 42, spa: 71, spd: 42, spe: 64},
+		abilities: {0: "Pure Power", H: "Anticipation"},
+		category: "Wooden Statue",
+		heightm: 0.6,
+		weightkg: 11.2,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+
+		evos: ["Immanicham"],
+		creator: "BlueRay",
+	},
+	immanicham: {
+		num: -5,
+		name: "Immanicham",
+
+		types: ["Grass", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 60, atk: 60, def: 75, spa: 60, spd: 75, spe: 80},
+		abilities: {0: "Pure Power", H: "Anticipation"},
+		category: "Wooden Statue",
+		heightm: 1.3,
+		weightkg: 31.5,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+
+		evos: ["Immanicus"],
+		prevo: "Immanitite",
+		evoLevel: 37,
+		creator: "BlueRay",
+	},
+	immanicus: {
+		num: -6,
+		name: "Immanicus",
+
+		types: ["Grass", "Psychic"],
+		gender: N,
+		baseStats: {hp: 100, atk: 75, def: 100, spa: 75, spd: 100, spe: 60},
+		abilities: {0: "Pure Power", H: "Zen Mode"},
+		category: "Wooden Statue",
+		heightm: 5.3,
+		weightkg: 251.3,
+		color: "Green",
+		eggGroups: ["Grass", "Human-like"],
+
+		prevo: "Immanicham",
+		evoType: "other",
+		creator: "BlueRay",
+	},
+	// end
 };
