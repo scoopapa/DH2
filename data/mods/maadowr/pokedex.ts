@@ -384,7 +384,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 70, atk: 115, def: 60, spa: 115, spd: 60, spe: 55},
 		category: "Scarecrow",
 		abilities: {0: "Sand Veil", H: "Water Absorb"},
-		movepoolAdditions: ["brine"],
+		movepoolAdditions: ["assurance", "brine"],
 		heightm: 1.3,
 		weightkg: 77.4,
 		color: "Green",
@@ -412,6 +412,59 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Cacturnite",
 		
 		creator: "Hematite",
+	},
+	// end
+
+	// start
+	paras: {
+		num: 46,
+		name: "Paras",
+
+		types: ["Bug", "Grass"],
+		baseStats: {hp: 35, atk: 70, def: 55, spa: 45, spd: 55, spe: 25},
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Damp"},
+		category: "Mushroom",
+		heightm: 0.3,
+		weightkg: 5.4,
+		color: "Green",
+		eggGroups: ["Bug", "Grass"],
+
+		evos: ["Parasect"],
+	},
+	parasect: {
+		num: 47,
+		name: "Parasect",
+
+		types: ["Bug", "Grass"],
+		baseStats: {hp: 60, atk: 95, def: 80, spa: 60, spd: 80, spe: 30},
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Damp"},
+		category: "Mushroom",
+		heightm: 1.0,
+		weightkg: 29.5,
+		color: "Green",
+		eggGroups: ["Bug", "Grass"],
+
+		evos: ["Parascent"],
+		prevo: "Paras",
+		evoLevel: 24,
+	},
+	parascent: {
+		num: -18,
+		name: "Parascent",
+
+		types: ["Bug", "Grass"],
+		baseStats: {hp: 95, atk: 115, def: 95, spa: 85, spd: 95, spe: 30},
+		abilities: {0: "Effect Spore", 1: "Inoculum", H: "Aroma Veil"},
+		category: "Mushroom",
+		heightm: 2.0,
+		weightkg: 91.3,
+		color: "Green",
+		eggGroups: ["Bug", "Grass"],
+
+		prevo: "Parasect",
+		evoType: "levelExtra",
+		evoCondition: "with a special mushroom item",
+		creator: "BlueRay",
 	},
 	// end
 
