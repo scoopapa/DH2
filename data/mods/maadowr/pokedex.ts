@@ -137,4 +137,81 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	// end
+
+	// start
+	honedgemaadowr: {
+		num: -7,
+		name: "Honedge-Ma'adowr",
+		
+		types: ["Grass"],
+		baseStats: {hp: 55, atk: 80, def: 100, spa: 25, spd: 37, spe: 28},
+		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		category: "Wooden Sword",
+		heightm: 0.8,
+		weightkg: 2,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		evos: ["Doublade-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	doublademaadwor: {
+		num: -8,
+		name: "Doublade-Ma'adowr",
+		types: ["Grass"],
+		baseStats: {hp: 69, atk: 110, def: 150, spa: 35, spd: 49, spe: 35},
+		abilities: {0: "Intrepid Sword, H: "Friend Guard"},
+		category: "Wooden Sword",
+		heightm: 0.8,
+		weightkg: 4.5,
+		color: "Green",
+		eggGroups: ["Grass"],
+
+		evos: ["Aegislash-Ma'adowr"],
+		prevo: "Honedge-Ma'adowr",
+		evoLevel: 35,
+		creator: "BlueRay",
+	},
+	aegislashmaadowr: {
+		num: -9,
+		name: "Aegislash-Ma'adowr",
+		
+		baseForme: "Shield",
+		types: [Grass", "Steel"],
+		baseStats: {hp: 70, atk: 45, def: 140, spa: 45, spd: 140, spe: 60},
+		abilities: {0: "Stance Change"},
+		category: "Imperial Insignia",
+		heightm: 1.7,
+		weightkg: 53,
+		color: "Green",
+		eggGroups: ["Mineral"],
+		otherFormes: ["Aegislash-Blade-Ma'adowr"],
+		formeOrder: ["Aegislash-Ma'adowr", "Aegislash-Blade-Ma'adowr"],
+
+		prevo: "Doublade-Ma'adowr",
+		evoType: "useItem",
+		evoItem: "Dawn Stone",
+		creator: "BlueRay",
+		
+	},
+	aegislashblademaadwor: {
+		num: -9,
+		name: "Aegislash-Blade-Ma'adowr",
+		
+		baseSpecies: "Aegislash-Ma'adowr",
+		forme: "Blade",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 70, atk: 140, def: 45, spa: 140, spd: 45, spe: 60},
+		abilities: {0: "Stance Change"},
+		category: "Imperial Insignia",
+		heightm: 1.7,
+		weightkg: 53,
+		color: "Green",
+		eggGroups: ["Grass"],
+		requiredAbility: "Stance Change",
+		battleOnly: "Aegislash-Ma'adowr",
+
+		creator: "BlueRay",
+	},
+	// end
 };
