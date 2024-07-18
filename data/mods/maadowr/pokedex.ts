@@ -2070,4 +2070,40 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	binaclemaadowr: {
+		num: -64,
+		name: "Binacle-Ma'adowr",
+		
+		types: ["Rock", "Dark"],
+		baseStats: {hp: 53, atk: 52, def: 67, spa: 34, spd: 56, spe: 50},
+		abilities: {0: "Toxic Boost", 1: "Sniper", H: "Poison Touch"},
+		category: "Two-Handed",
+		heightm: 0.5,
+		weightkg: 31.5,
+		color: "White",
+		eggGroups: ["Water 3"],
+
+		evos: ["Barbaracle-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	barbaraclemaadowr: {
+		num: -65,
+		name: "Barbaracle-Ma'adowr",
+		
+		types: ["Rock", "Dark"],
+		baseStats: {hp: 82, atk: 105, def: 115, spa: 44, spd: 86, spe: 68},
+		abilities: {0: "Toxic Boost", 1: "Sniper", H: "Poison Touch"},
+		category: "Collective",
+		heightm: 1.3,
+		weightkg: 96.0,
+		color: "White",
+		eggGroups: ["Water 3"],
+
+		prevo: "Binacle-Ma'adowr",
+		evoLevel: 39,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
