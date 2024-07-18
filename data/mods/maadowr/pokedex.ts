@@ -1314,4 +1314,75 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	shinx: {
+		num: 403,
+		name: "Shinx",
+
+		types: ["Electric"],
+		baseStats: {hp: 45, atk: 65, def: 34, spa: 40, spd: 34, spe: 45},
+		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
+		category: "Flash",
+		heightm: 0.5,
+		weightkg: 9.5,
+		color: "Yellow",
+		eggGroups: ["Field"],
+
+		evos: ["Luxio"],
+	},
+	luxio: {
+		num: 404,
+		name: "Luxio",
+
+		types: ["Electric"],
+		baseStats: {hp: 60, atk: 85, def: 49, spa: 60, spd: 49, spe: 60},
+		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
+		category: "Spark",
+		heightm: 0.9,
+		weightkg: 30.5,
+		color: "Yellow",
+		eggGroups: ["Field"],
+
+		evos: ["Luxray"],
+		prevo: "Luxio",
+		evoLevel: 15,
+	},
+	luxray: {
+		num: 405,
+		name: "Luxray",
+
+		types: ["Electric"],
+		baseStats: {hp: 80, atk: 120, def: 79, spa: 95, spd: 79, spe: 70},
+		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
+		category: "Gleam Eyes",
+		heightm: 1.4,
+		weightkg: 42.0,
+		color: "Yellow",
+		eggGroups: ["Mineral"],
+		otherFormes: ["Luxray-Mega"],
+		formeOrder: ["Luxray", "Luxray-Mega"],
+
+		prevo: "Luxio",
+		evoLevel: 30,
+	},
+	luxraymega: {
+		num: 405,
+		name: "Luxray-Mega",
+		
+		baseSpecies: "Luxray",
+		forme: "Mega",
+		types: ["Electric", "Psychic"],
+		baseStats: {hp: 80, atk: 160, def: 94, spa: 95, spd: 94, spe: 100},
+		category: "Gleam Eyes",
+		abilities: {0: "Dazzling"},
+		heightm: 1.8,
+		weightkg: 56.5,
+		color: "Yellow",
+		eggGroups: ["Field"],
+		requiredItem: "Luxrite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
