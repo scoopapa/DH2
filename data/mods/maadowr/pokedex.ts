@@ -2106,4 +2106,136 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	monelisk: {
+		num: -66,
+		name: "Monelisk",
+		
+		types: ["Rock", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 52, atk: 44, def: 160, spa: 96, spd: 100, spe: 48},
+		category: "Monolith",
+		abilities: {0: "Solar Power", H: "Fairy Aura"},
+		heightm: 3.8,
+		weightkg: 240.0,
+		color: "Black",
+		eggGroups: ["Mineral"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	magistama: {
+		num: -67,
+		name: "Magistama",
+		
+		types: ["Rock", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 70, atk: 80, def: 116, spa: 88, spd: 87, spe: 59},
+		category: "Imperial Insignia",
+		abilities: {0: "Bulletproof", 1: "Weak Armor", H: "Friend Guard"},
+		heightm: 0.4,
+		weightkg: 0.4,
+		color: "Green",
+		eggGroups: ["Mineral"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	horizonoc: {
+		num: -68,
+		name: "Horizonoc",
+
+		types: ["Rock", "Flying"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 56, def: 88, spa: 136, spd: 88, spe: 112},
+		abilities: {0: "Sharpness", H: "Magic Bounce"},
+		category: "Winged Sun Disk",
+		heightm: 2.7,
+		weightkg: 100.0,
+		color: "Yellow",
+		tags: ["Sub Legendary"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	oroboroc: {
+		num: -69,
+		name: "Oroboroc",
+
+		types: ["Rock", "Fire"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 136, def: 108, spa: 56, spd: 92, spe: 88},
+		abilities: {0: "Multiscale", H: "Dry Skin"},
+		category: "Diadem",
+		heightm: 6.5,
+		weightkg: 300.0,
+		color: "Yellow",
+		tags: ["Sub Legendary"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	hieroturoc: {
+		num: -70,
+		name: "Hieroturoc",
+
+		types: ["Rock", "Grass"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 112, def: 96, spa: 112, spd: 96, spe: 64},
+		abilities: {0: "Flower Gift", H: "Regenerator"},
+		category: "Rebirth",
+		heightm: 2.3,
+		weightkg: 200.0,
+		color: "Yellow",
+		tags: ["Sub Legendary"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	vulpixmaadowr: {
+		num: -71,
+		name: "Vulpix-Ma'adowr",
+		
+		types: ["Rock"],
+		baseStats: {hp: 38, atk: 41, def: 40, spa: 50, spd: 65, spe: 65},
+		abilities: {0: "Sand Veil", H: "Sand Stream"},
+		category: "Cursed Statue",
+		heightm: 0.6,
+		weightkg: 19.9,
+		color: "White",
+		eggGroups: ["Mineral"],
+
+		evos: ["Ninetales-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	ninetalesmaadowr: {
+		num: -72,
+		name: "Ninetales-Ma'adowr",
+		
+		types: ["Rock", "Fairy"],
+		baseStats: {hp: 73, atk: 67, def: 75, spa: 81, spd: 100, spe: 109},
+		abilities: {0: "Sand Veil", H: "Sand Stream"},
+		category: "Cursed Statue",
+		heightm: 1.1,
+		weightkg: 69.9,
+		color: "White",
+		eggGroups: ["Mineral"],
+
+		prevo: "Vulpix-Ma'adowr",
+		evoType: "useItem",
+		evoItem: "Moon Stone",
+		creator: "BlueRay",
+	},
 };
