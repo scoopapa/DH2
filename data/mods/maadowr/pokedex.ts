@@ -2864,4 +2864,62 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	ufogekiss: {
+		num: -99,
+		name: "Ufogekiss",
+
+		types: ["Dark", "Flying"],
+		gender: "N",
+		baseStats: {hp: 85, atk: 120, def: 115, spa: 50, spd: 115, spe: 85},
+		abilities: {0: "Hustle", H: "Telepathy"},
+		category: "UFO",
+		heightm: 1.5,
+		weightkg: 38.0,
+		color: "Black",
+		tags: ["Extraterrestrial"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	flaringdrone: {
+		num: -100,
+		name: "Flaring Drone",
+
+		types: ["Fairy", "Fire"],
+		gender: "N",
+		baseStats: {hp: 63, atk: 112, def: 105, spa: 126, spd: 105, spe: 49},
+		abilities: {0: "Reconfiguration"},
+		category: "Drone",
+		heightm: 0.8,
+		weightkg: 26.0,
+		color: "Black",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	prayingvisitor: {
+		num: -101,
+		name: "Praying Visitor",
+
+		types: ["Fairy", "Grass"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 70, def: 119, spa: 119, spd: 88, spe: 104},
+		abilities: {0: "Natural Cure", H: "Rewind"},
+		category: "Time Travel",
+		heightm: 0.6,
+		weightkg: 5.0,
+		color: "Pink",
+		tags: ["Extraterrestrial", "Mythical"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
 };
