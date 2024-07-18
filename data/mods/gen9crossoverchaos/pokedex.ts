@@ -306,7 +306,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Snecko",
 		types: ["Dragon", "Poison"],
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 85, spd: 90, spe: 90},
-		abilities: {0: "Contrary", 1: "Intimidate", H: "Perplexing Glare"},
+		abilities: {0: "Contrary", 1: "Intimidate", H: "Perplexing Gaze"},
 		weightkg: 90, 
 	},
 	kaguyahouraisan: {
