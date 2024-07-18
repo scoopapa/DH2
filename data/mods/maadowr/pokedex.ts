@@ -854,4 +854,155 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	litleo: {
+		num: 667,
+		name: "Litleo",
+		
+		types: ["Fire", "Normal"],
+		genderRatio: {M: 0.125, F: 0.875},
+		baseStats: {hp: 62, atk: 50, def: 58, spa: 73, spd: 54, spe: 72},
+		category: "Lion Cub",
+		abilities: {0: "Rivalry", 1: "Unnerve", H: "Moxie"},
+		heightm: 0.6,
+		weightkg: 13.5,
+		color: "Brown",
+		eggGroups: ["Field"],
+
+		evos: ["Pyroar"],
+	},
+   pyroar: {
+		num: 668,
+		name: "Pyroar",
+		
+		types: ["Fire", "Normal"],
+		genderRatio: {M: 0.125, F: 0.875},
+		baseStats: {hp: 86, atk: 68, def: 72, spa: 109, spd: 66, spe: 106},
+		category: "Royal",
+		abilities: {0: "Rivalry", 1: "Unnerve", H: "Moxie"},
+		heightm: 1.5,
+		weightkg: 81.5,
+		color: "Brown",
+		eggGroups: ["Field"],
+		otherFormes: ["Pyroar-Mega"],
+		formeOrder: ["Pyroar", "Pyroar-Mega"],
+
+		prevo: "Litleo",
+		evoLevel: 35,
+	},
+	pyroarmega: {
+		num: 668,
+		name: "Pyroar-Mega",
+		
+		baseSpecies: "Pyroar",
+		forme: "Mega",
+		types: ["Fire", "Normal"],
+		genderRatio: {M: 0.125, F: 0.875},
+		baseStats: {hp: 86, atk: 78, def: 112, spa: 129, spd: 91, spe: 111},
+		category: "Royal",
+		abilities: {0: "Adaptability"},
+		heightm: 1.5,
+		weightkg: 81.5,
+		color: "Brown",
+		eggGroups: ["Field"],
+		requiredItem: "Pyroarite",
+		
+		creator: "DrPumpkinz",
+	},
+	//  end
+
+	// start
+		equinoque0: {
+		num: -33,
+		name: "Equinoque-0",
+
+		types: ["Water", "Rock"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 70, atk: 72, def: 48, spa: 30, spd: 38, spe: 52},
+		abilities: {0: "Torrent", H: "Sap Sipper"},
+		category: "Horse Statue",
+		heightm: 1.0,
+		weightkg: 100.0,
+		color: "Blue",
+		eggGroups: ["Field", "Mineral"],
+
+		evos: ["Equinoque-1"],
+		creator: "BlueRay",
+	},
+	equinoque1: {
+		num: -34,
+		name: "Equinoque-1",
+
+		types: ["Water", "Rock"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 85, atk: 92, def: 73, spa: 40, spd: 53, spe: 77},
+		abilities: {0: "Torrent", H: "Sap Sipper"},
+		category: "Horse Statue",
+		heightm: 1.5,
+		weightkg: 150.0,
+		color: "Blue",
+		eggGroups: ["Field", "Mineral"],
+
+		evos: ["Equinoque"],
+		prevo: "Equinoque-0",
+		evoLevel: 17,
+		creator: "BlueRay",
+	},
+	equinoque: {
+		num: -35,
+		name: "Equinoque",
+
+		types: ["Water", "Rock"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 100, atk: 112, def: 93, spa: 60, spd: 73, spe: 92},
+		abilities: {0: "Torrent", H: "Sap Sipper"},
+		category: "Horse Statue",
+		heightm: 2.0,
+		weightkg: 250.0,
+		color: "Blue",
+		eggGroups: ["Field", "Mineral"],
+
+		prevo: "Equinoque-1",
+		evoLevel: 36,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	shelldermaadowr: {
+		num: -36,
+		name: "Shellder-Ma'adowr",
+		
+		types: ["Water", "Poison"],
+		baseStats: {hp: 30, atk: 65, def: 100, spa: 45, spd: 25, spe: 40},
+		abilities: {0: "Poison Point", 1: "Merciless", H: "Overcoat"},
+		category: "Bivalve",
+		heightm: 0.7,
+		weightkg: 6.9,
+		color: "Purple",
+		eggGroups: ["Water 3"],
+
+		evos: ["Cloyster-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	cloystermaadowr: {
+		num: -37,
+		name: "Cloyster-Ma'adowr",
+		
+		types: ["Water", "Poison"],
+		baseStats: {hp: 50, atk: 95, def: 180, spa: 85, spd: 45, spe: 70},
+		abilities: {0: "Poison Point", 1: "Merciless", H: "Overcoat"},
+		category: "Bivalve",
+		heightm: 1.5,
+		weightkg: 132.5,
+		color: "Purple",
+		eggGroups: ["Water 3"],
+
+		prevo: "Shellder-Ma'adowr",
+		evoType: "useItem",
+		evoItem: "Water Stone",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
