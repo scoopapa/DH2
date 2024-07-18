@@ -1357,7 +1357,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 1.4,
 		weightkg: 42.0,
 		color: "Yellow",
-		eggGroups: ["Mineral"],
+		eggGroups: ["Field"],
 		otherFormes: ["Luxray-Mega"],
 		formeOrder: ["Luxray", "Luxray-Mega"],
 
@@ -1379,6 +1379,154 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Luxrite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	luminousvessel: {
+		num: -51,
+		name: "Luminous Vessel",
+
+		types: ["Psychic", "Poison"],
+		gender: "N",
+		baseStats: {hp: 80, atk: 74, def: 78, spa: 102, spd: 138, spe: 98},
+		abilities: {0: "Clear Body", H: "Water Bubble"},
+		category: "USO",
+		heightm: 1.6,
+		weightkg: 55.0,
+		color: "Purple",
+		tags: ["Extraterrestrial"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	toweringeye: {
+		num: -52,
+		name: "Towering Eye",
+
+		types: ["Psychic", "Dark"],
+		gender: "N",
+		baseStats: {hp: 84, atk: 105, def: 84, spa: 105, spd: 84, spe: 98},
+		abilities: {0: "Reconfiguration"},
+		category: "Big Eye",
+		heightm: 10.1,
+		weightkg: 101.0,
+		color: "Black",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	yamask: {
+		num: 562,
+		name: "Yamask",
+		
+		types: ["Ghost"],
+		baseStats: {hp: 38, atk: 30, def: 85, spa: 55, spd: 65, spe: 30},
+		category: "Spirit",
+		abilities: {0: "Mummy"},
+		heightm: 0.5,
+		weightkg: 1.5,
+		color: "Black",
+		eggGroups: ["Mineral", "Amorphous"],
+
+		evos: ["Cofagrigus"],
+	},
+	cofagrigus: {
+		num: 563,
+		name: "Cofagrigus",
+		
+		types: ["Ghost"],
+		baseStats: {hp: 58, atk: 50, def: 145, spa: 95, spd: 105, spe: 30},
+		category: "Coffin",
+		abilities: {0: "Mummy"},
+		heightm: 1.7,
+		weightkg: 76.5,
+		color: "Yellow",
+		eggGroups: ["Mineral", "Amorphous"],
+		otherFormes: ["Cofagrigus-Mega"],
+		formeOrder: ["Cofagrigus", "Cofagrigus-Mega"],
+
+		prevo: "Yamask",
+		evoLevel: 34,
+	},
+	cofagrigusmega: {
+		num: 563,
+		name: "Cofagrigus-Mega",
+		
+		baseSpecies: "Cofagrigus",
+		forme: "Mega",
+		types: ["Ghost"],
+		baseStats: {hp: 58, atk: 50, def: 185, spa: 135, spd: 125, spe: 30},
+		category: "Coffin",
+		abilities: {0: "Good as Gold"},
+		heightm: 1.7,
+		weightkg: 76.5,
+		color: "Yellow",
+		eggGroups: ["Mineral", "Amorphous"],
+		requiredItem: "Cofagrigusite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	drifloon: {
+		num: 425,
+		name: "Drifloon",
+		
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 90, atk: 50, def: 34, spa: 60, spd: 44, spe: 70},
+		category: "Balloon",
+		abilities: {0: "Aftermath", 1: "Unburden", H: "Flare Boost"},
+		heightm: 0.4,
+		weightkg: 1.2,
+		color: "Purple",
+		eggGroups: ["Amorphous"],
+
+		evos: ["Drifblim"],
+	},
+	drifblim: {
+		num: 426,
+		name: "Drifblim",
+		
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 150, atk: 80, def: 44, spa: 90, spd: 54, spe: 80},
+		category: "Blimp",
+		abilities: {0: "Aftermath", 1: "Unburden", H: "Flare Boost"},
+		heightm: 1.2,
+		weightkg: 15.0,
+		color: "Purple",
+		eggGroups: ["Amorphous"],
+		otherFormes: ["Drifblim-Mega"],
+		formeOrder: ["Drifblim", "Drifblim-Mega"],
+
+		prevo: "Drifloon",
+		evoLevel: 29,
+	},
+	drifblimmega: {
+		num: 426,
+		name: "Drifblim-Mega",
+		
+		baseSpecies: "Drifblim",
+		forme: "Mega",
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 150, atk: 80, def: 44, spa: 145, spd: 89, spe: 90},
+		category: "Blimp",
+		abilities: {0: "Neutralizing Gas"},
+		heightm: 1.2,
+		weightkg: 15.0,
+		color: "Purple",
+		eggGroups: ["Amorphous"],
+		requiredItem: "Drifblimite",
 		
 		creator: "BlueRay",
 	},
