@@ -2224,7 +2224,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Chlling Water", "Lunge", "Rain Dance", "Safeguard"],
+                "movepool": ["Chilling Water", "Lunge", "Rain Dance", "Safeguard"],
                 "teraTypes": ["Dragon"]
             }
         ]
