@@ -1533,4 +1533,116 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	skorupi: {
+		num: 451,
+		name: "Skorupi",
+		
+		types: ["Poison", "Bug"],
+		baseStats: {hp: 40, atk: 50, def: 90, spa: 30, spd: 55, spe: 65},
+		category: "Scorpion",
+		abilities: {0: "Battle Armor", 1: "Sniper", H: "Keen Eye"},
+		movepoolAdditions: ["recover"],
+		heightm: 0.8,
+		weightkg: 12.0,
+		color: "Purple",
+		eggGroups: ["Bug", "Water 3"],
+
+		evos: ["Drapion"],
+	},
+	drapion: {
+		num: 452,
+		name: "Drapion",
+		
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 70, atk: 90, def: 110, spa: 60, spd: 75, spe: 95},
+		category: "Ogre Scorpion",
+		abilities: {0: "Battle Armor", 1: "Sniper", H: "Keen Eye"},
+		movepoolAdditions: ["recover"],
+		heightm: 1.3,
+		weightkg: 61.5,
+		color: "Purple",
+		eggGroups: ["Bug", "Water 3"],
+		otherFormes: ["Drapion-Mega"],
+		formeOrder: ["Drapion", "Drapion-Mega"],
+
+		prevo: "Skorupi",
+		evoLevel: 40,
+	},
+	drapionmega: {
+		num: 452,
+		name: "Drapion-Mega",
+		
+		baseSpecies: "Drapion",
+		forme: "Mega",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 70, atk: 130, def: 150, spa: 60, spd: 105, spe: 85},
+		category: "Ogre Scorpion",
+		abilities: {0: "Steelbreaker"},
+		heightm: 1.6,
+		weightkg: 91.5,
+		color: "Purple",
+		eggGroups: ["Bug", "Water 3"],
+		requiredItem: "Drapionite",
+		
+		creator: "Hematite",
+	},
+	// end
+
+	// start
+		skrelp: {
+		num: 690,
+		name: "Skrelp",
+		
+		types: ["Poison", "Water"],
+		baseStats: {hp: 50, atk: 60, def: 60, spa: 60, spd: 60, spe: 30},
+		category: "Mock Kelp",
+		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Adaptability"},
+		movepoolAdditions: ["acidspray", "acidicterrain", "gastroacid", "oilspill", "roost", "terrainpulse"],
+		heightm: 0.5,
+		weightkg: 7.3,
+		color: "Purple",
+		eggGroups: ["Water 1", "Dragon"],
+
+		evos: ["Dragalge"],
+	},
+	dragalge: {
+		num: 691,
+		name: "Dragalge",
+		
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 65, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
+		category: "Mock Kelp",
+		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Adaptability"},
+		movepoolAdditions: ["acidspray", "acidicterrain", "gastroacid", "oilspill", "roost", "terrainpulse"],
+		heightm: 1.8,
+		weightkg: 81.5,
+		color: "Purple",
+		eggGroups: ["Water 1", "Dragon"],
+		otherFormes: ["Dragalge-Mega"],
+		formeOrder: ["Dragalge", "Dragalge-Mega"],
+
+		prevo: "Skrelp",
+		evoLevel: 48,
+	},
+	dragalgemega: {
+		num: 691,
+		name: "Dragalge-Mega",
+		
+		baseSpecies: "Dragalge",
+		forme: "Mega",
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 65, atk: 95, def: 90, spa: 147, spd: 153, spe: 44},
+		category: "Mock Kelp",
+		abilities: {0: "Acidic Surge"},
+		heightm: 2.7,
+		weightkg: 121.5,
+		color: "Brown",
+		eggGroups: ["Water 1", "Dragon"],
+		requiredItem: "Dragalgite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
