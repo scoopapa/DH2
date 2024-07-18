@@ -518,7 +518,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Surf's Up"},
 		heightm: 0.9,
 		weightkg: 40.5,
-		requiredAbility: "Surfs Up",
+		requiredAbility: "Surf's Up",
 		battleOnly: "Tsunamey",
 		eggGroups: ["Water 1", "Water 3"],
 	},
