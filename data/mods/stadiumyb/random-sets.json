@@ -2185,7 +2185,7 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["Leech Seed", "Encore", "Substitute", "Moonblast"],
-                "teraTypes": ["Dark"]
+                "teraTypes": ["Stellar"]
             }
         ]
     },
