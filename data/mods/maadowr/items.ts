@@ -107,4 +107,29 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// end
 
 	// start
+	sundiadem: {
+		name: "Sun Diadem",
+		spritenum: 242,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if user.baseSpecies.num === -1069 && (move && move.type === 'Fire') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: -1006,
+		desc: "Oroboroc's Fire moves do 20% more damage.",	
+	},
+	// end
+
+	// start
+	sunring: {
+		name: "Sun Ring",
+		spritenum: 242,
+		fling: {
+			basePower: 60,
+		},
+		
 };
