@@ -327,7 +327,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: -16,
 		name: "Coalossal-Ma'adowr",
 	
-		types: [Grass", "Fire"],
+		types: ["Grass", "Fire"],
 		baseStats: {hp: 110, atk: 80, def: 120, spa: 80, spd: 90, spe: 30},
 		abilities: {0: "Wood Stove", 1: "Flame Body", H: "Well-Baked Body"},
 		category: "Charcoal",
@@ -1600,7 +1600,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		movepoolAdditions: ["acidspray", "acidicterrain", "gastroacid", "oilspill", "roost", "terrainpulse"],
 		heightm: 0.5,
 		weightkg: 7.3,
-		color: "Purple",
+		color: "Brown",
 		eggGroups: ["Water 1", "Dragon"],
 
 		evos: ["Dragalge"],
@@ -1616,7 +1616,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		movepoolAdditions: ["acidspray", "acidicterrain", "gastroacid", "oilspill", "roost", "terrainpulse"],
 		heightm: 1.8,
 		weightkg: 81.5,
-		color: "Purple",
+		color: "Brown",
 		eggGroups: ["Water 1", "Dragon"],
 		otherFormes: ["Dragalge-Mega"],
 		formeOrder: ["Dragalge", "Dragalge-Mega"],
@@ -1640,6 +1640,124 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Water 1", "Dragon"],
 		requiredItem: "Dragalgite",
 		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	eevee: {
+		num: 133,
+		name: "Eevee",
+		
+		types: ["Normal"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 55, atk: 55, def: 50, spa: 45, spd: 65, spe: 55},
+		abilities: {0: "Run Away", 1: "Adaptability", H: "Anticipation"},
+		category: "Evolution",
+		heightm: 0.3,
+		weightkg: 6.5,
+		color: "Brown",
+		eggGroups: ["Field"],
+
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Umbreon-Ma'adowr"],
+	},
+	umbreon: {
+		num: 197,
+		name: "Umbreon",
+		
+		types: ["Dark"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65},
+		abilities: {0: "Synchronize", 1: "Telepathy", H: "Inner Focus"},
+		category: "Moonlight",
+		heightm: 0.3,
+		weightkg: 1.0,
+		color: "Black",
+		eggGroups: ["Field"],
+		otherFormes: ["Umbreon-Ma'adowr"],
+		formeOrder: ["Umbreon", "Umbreon-Ma'adowr"],
+	
+		prevo: "Eevee",
+		evoType: "levelFriendship",
+		evoCondition: "at night",
+		creator: "BlueRay",
+	},
+	umbreonmaadowr: {
+		num: -53,
+		name: "Umbreon-Ma'adowr",
+		
+		types: ["Poison"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65},
+		abilities: {0: "Poison Point", 1: "Telepathy", H: "Corrosion"},
+		category: "Moonlight",
+		heightm: 0.3,
+		weightkg: 1.0,
+		color: "Black",
+		eggGroups: ["Field"],
+	
+		prevo: "Eevee",
+		evoType: "levelFriendship",
+		evoCondition: "at night in Acidic Terrain",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	porygonmaadowr: {
+		num: -54,
+		name: "Porygon-Ma'adowr",
+		
+		types: ["Poison", "Bug"],
+		gender: "N",
+		baseStats: {hp: 65, atk: 50, def: 75, spa: 85, spd: 75, spe: 45},
+		abilities: {0: "Electric Surge", 1: "Trace", H: "Malware"},
+		category: "Virus",
+		heightm: 0.8,
+		weightkg: 36.5,
+		color: "Purple",
+		eggGroups: ["Mineral"],
+
+		evos: ["Porygon2-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	porygon2maadowr: {
+		num: -55,
+		name: "Porygon2-Ma'adowr",
+		
+		types: ["Poison", "Bug"],
+		gender: "N",
+		baseStats: {hp: 85, atk: 60, def: 100, spa: 105, spd: 95, spe: 70},
+		abilities: {0: "Electric Surge", 1: "Trace", H: "Malware"},
+		category: "Virus",
+		heightm: 0.6,
+		weightkg: 32.5,
+		color: "Purple",
+		eggGroups: ["Mineral"],
+
+		evos: ["Porygon-Z-Ma'adowr"],
+		prevo: "Porygon-Ma'adowr",
+		evoType: "trade",
+		evoItem: "Up-Grade",
+		creator: "BlueRay",
+	},
+	porygonzmaadowr: {
+		num: -56,
+		name: "Porygon-Z-Ma'adowr",
+	
+		types: ["Poison", "Bug"],
+		gender: "N",
+		baseStats: {hp: 85, atk: 145, def: 100, spa: 80, spd: 5, spe: 120},
+		abilities: {0: "Download", 1: "Adaptability", H: "Malware"},
+		category: "Virus",
+		heightm: 0.9,
+		weightkg: 34.0,
+		color: "Purple",
+		eggGroups: ["Mineral"],
+
+		prevo: "Porygon2-Ma'adowr",
+		evoType: "trade",
+		evoItem: "Dubious Disc",
 		creator: "BlueRay",
 	},
 	// end
