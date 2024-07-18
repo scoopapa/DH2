@@ -1962,4 +1962,112 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	staryumaadowr: {
+		num: -62,
+		name: "Staryu-Ma'adowr",
+		
+		types: ["Rock"],
+		baseStats: {hp: 30, atk: 45, def: 55, spa: 70, spd: 55, spe: 85},
+		abilities: {0: "Dazzling", 1: "Natural Cure", H: "Analytic"},
+		category: "Star Shape",
+		heightm: 0.8,
+		weightkg: 34.5,
+		color: "Brown",
+		eggGroups: ["Water 3"],
+
+		evos: ["Starmie-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	starmiemaadowr: {
+		num: -63,
+		name: "Starmie-Ma'adowr",
+		
+		types: ["Rock", "Ground"],
+		baseStats: {hp: 60, atk: 75, def: 85, spa: 100, spd: 85, spe: 115},
+		abilities: {0: "Dazzling", 1: "Natural Cure", H: "Analytic"},
+		category: "Mysterious",
+		heightm: 1.1,
+		weightkg: 80.0,
+		color: "Brown",
+		eggGroups: ["Water 3"],
+
+		prevo: "Staryu-Ma'adowr",
+		evoType: "levelExtra",
+		evoItem: "Soft Sand",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	roggenrola: {
+		num: 524,
+		name: "Roggenrola",
+
+		types: ["Rock"],
+		baseStats: {hp: 55, atk: 75, def: 85, spa: 25, spd: 25, spe: 15},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Sand Force"},
+		category: "Mantle",
+		heightm: 0.4,
+		weightkg: 18.0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+
+		evos: ["Boldore"],
+	},
+	boldore: {
+		num: 525,
+		name: "Boldore",
+
+		types: ["Rock"],
+		baseStats: {hp: 70, atk: 105, def: 105, spa: 50, spd: 40, spe: 20},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Sand Force"},
+		category: "Ore",
+		heightm: 0.9,
+		weightkg: 102.0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+
+		evos: ["Gigalith"],
+		prevo: "Roggenrola",
+		evoLevel: 25,
+	},
+	gigalith: {
+		num: 526,
+		name: "Gigalith",
+
+		types: ["Gigalith"],
+		baseStats: {hp: 80, atk: 135, def: 130, spa: 60, spd: 80, spe: 25},
+		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Sand Force"},
+		category: "Compressed",
+		heightm: 1.7,
+		weightkg: 260.0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+		otherFormes: ["Gigalith-Mega"],
+		formeOrder: ["Gigalith", "Gigalith-Mega"],
+
+		prevo: "Boldore",
+		evoType: "trade",
+	},
+	gigalithmega: {
+		num: 526,
+		name: "Gigalith-Mega",
+		
+		baseSpecies: "Gigalith",
+		forme: "Mega",
+		types: ["Rock"],
+		baseStats: {hp: 85, atk: 135, def: 160, spa: 100, spd: 110, spe: 25},
+		category: "Compressed",
+		abilities: {0: "Solar Core"},
+		heightm: 2.0,
+		weightkg: 336.0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+		requiredItem: "Gigalith",
+		
+		creator: "ink",
+	},
+	// end
+
+	// start
 };
