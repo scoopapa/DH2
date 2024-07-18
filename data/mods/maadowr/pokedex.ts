@@ -1177,4 +1177,141 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	mummifiedseasnake: {
+		num: -45,
+		name: "Mummified Sea Snake",
+
+		types: ["Electric", "Poison"],
+		gender: "N",
+		baseStats: {hp: 91, atk: 119, def: 84, spa: 112, spd: 84, spe: 70},
+		abilities: {0: "Reconfiguration"},
+		category: "Wrapped Eel",
+		heightm: 1.8,
+		weightkg: 33.0,
+		color: "Yellow",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	trouvary0: {
+		num: -46,
+		name: "Trouvary-0",
+
+		types: ["Electric", "Ground"],
+		baseStats: {hp: 70, atk: 65, def: 50, spa: 25, spd: 50, spe: 60},
+		abilities: {0: "Frisk", 1: "Static", H: "Contrary"},
+		category: "Timid Mouse",
+		heightm: 0.8,
+		weightkg: 50.0,
+		color: "Yellow",
+		eggGroups: ["Field"],
+
+		evos: ["Trouvary"],
+		creator: "BlueRay",
+	},
+	trouvary: {
+		num: -47,
+		name: "Trouvary",
+
+		types: ["Electric", "Ground"],
+		baseStats: {hp: 110, atk: 105, def: 70, spa: 45, spd: 70, spe: 90},
+		abilities: {0: "Trace", 1: "Static", H: "Contrary"},
+		category: "Timid Mouse",
+		heightm: 1.4,
+		weightkg: 88.0,
+		color: "Yellow",
+		eggGroups: ["Field"],
+
+		prevo: "Trouvary-0",
+		evoType: "useItem",
+		evoItem: "Thunder Stone",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start	
+	stormulex0: {
+		num: -48,
+		name: "Stormulex-0",
+		
+		types: ["Electric", "Rock"],
+		gender: "N",
+		baseStats: {hp: 61, atk: 89, def: 76, spa: 30, spd: 64, spe: 40},
+		category: "Bolt Axe",
+		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
+		heightm: 0.7,
+		weightkg: 75.0,
+		color: "Yellow",
+		eggGroups: ["Mineral"],
+
+		evos: ["Stormulex"],
+		creator: "BlueRay",
+	},
+	stormulex: {
+		num: -49,
+		name: "Stormulex",
+		
+		types: ["Electric", "Rock"],
+		gender: "N",
+		baseStats: {hp: 91, atk: 129, def: 96, spa: 40, spd: 84, spe: 60},
+		category: "Bolt Axe",
+		abilities: {0: "Volt Absorb", 1: "Natural Cure", H: "Triage"},
+		heightm: 1.7,
+		weightkg: 125.0,
+		color: "Yellow",
+		eggGroups: ["Mineral"],
+		otherFormes: ["Stormulex-Mega"],
+		formeOrder: ["Stormulex", "Stormulex-Mega"],
+
+		prevo: "Stormulex-0",
+		evoType: "useItem",
+		evoItem: "Thunder Stone",
+		creator: "BlueRay",
+	},
+	stormulexmega: {
+		num: -49,
+		name: "Stormulex-Mega",
+		
+		baseSpecies: "Stormulex",
+		forme: "Mega",
+		types: ["Electric", "Rock"],
+		gender: "N",
+		baseStats: {hp: 91, atk: 149, def: 146, spa: 40, spd: 99, spe: 75},
+		category: "Bolt Axe",
+		abilities: {0: "Grassy Surge"},
+		heightm: 1.7,
+		weightkg: 125.0,
+		color: "Yellow",
+		eggGroups: ["Mineral"],
+		requiredItem: "Stormulexite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+   lostzone: {
+		num: -50,
+		name: "Lost Zone",
+
+		types: ["Electric", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 120, atk: 150, def: 84, spa: 72, spd: 98, spe: 46},
+		abilities: {0: "Levitate", H: "Analytic"},
+		category: "Magnet Area",
+		heightm: 1.2,
+		weightkg: 90.0,
+		color: "Gray",
+		tags: ["Extraterrestrial"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
