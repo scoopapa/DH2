@@ -2637,7 +2637,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	inaros: {
 		learnset: {
-			dessication: ["9L1"],
+			desiccation: ["9L1"],
 			stealthrock: ["9L1"],
 			rockslide: ["9L1"],
 			stoneedge: ["9L1"],

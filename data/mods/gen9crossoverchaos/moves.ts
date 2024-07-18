@@ -625,12 +625,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Beautiful",
 	},
-	dessication: {
+	desiccation: {
 		num: -20,
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
-		name: "Dessication",
+		name: "Desiccation",
+		shortDesc: "Applies Leech Seed on the target.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
