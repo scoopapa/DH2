@@ -334,8 +334,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		defensiveCategory: "Special",
-		shortDesc: "Damages target based on Sp. Def, not Defense.",
+		defensiveCategory: "Physical",
+		shortDesc: "Special if user's SpA is higher.",
 		name: "Rude Buster",
 		pp: 10,
 		priority: 0,
@@ -343,6 +343,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
  		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Punishment", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
 		secondary: null,
 		target: "normal",
@@ -393,7 +396,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	icebreak: {
 		num: -15,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 80,
 		category: "Special",
 		shortDesc: "2x power against resists.",
 		name: "Ice Break",
@@ -519,6 +522,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Physical",
 		name: "Shakalaka Maracas",
+		shortDesc: "Sets up a layer of Spikes on the opposing side.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -621,12 +625,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Beautiful",
 	},
-	dessication: {
+	desiccation: {
 		num: -20,
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
-		name: "Dessication",
+		name: "Desiccation",
+		shortDesc: "Applies Leech Seed on the target.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -635,7 +640,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
-		type: "Grass",
+		type: "Rock",
 		contestType: "Cute",
 	},
 	dollswar: {
@@ -647,6 +652,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Photon Geyser", target);
+		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
@@ -675,6 +684,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		stallingMove: true,
 		volatileStatus: 'dollsphalanx',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+		  this.add('-anim', source, "Spiky Shield", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -730,6 +741,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Prismatic Laser", target);
+		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
