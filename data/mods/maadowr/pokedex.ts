@@ -1005,4 +1005,117 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	kenuterra: {
+		num: -38,
+		name: "Kenuterra",
+
+		types: ["Water", "Ground"],
+		gender: "N",
+		baseStats: {hp: 132, atk: 156, def: 88, spa: 92, spd: 104, spe: 108},
+		abilities: {0: "Cultivation"},
+		category: "Ram Potter",
+		heightm: 4.0,
+		weightkg: 800.0,
+		color: "Yellow",
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	anquiterra: {
+		num: -39,
+		name: "Anquiterra",
+
+		types: ["Water", "Grass"],
+		gender: "N",
+		baseStats: {hp: 132, atk: 92, def: 104, spa: 156, spd: 88, spe: 108},
+		abilities: {0: "Cultivation"},
+		category: "Life Bringer",
+		heightm: 4.0,
+		weightkg: 800.0,
+		color: "Yellow",
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	vaheelia0: {
+		num: -40,
+		name: "Vaheelia-0",
+
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 59, atk: 90, def: 50, spa: 20, spd: 50, spe: 71},
+		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Ice Body"},
+		category: "Devour",
+		heightm: 0.6,
+		weightkg: 15.3,
+		color: "White",
+		eggGroups: ["Field", "Amorphous"],
+
+		evos: ["Vaheelia"],
+		creator: "BlueRay",
+	},
+	vaheelia: {
+		num: -41,
+		name: "Vaheelia",
+
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 99, atk: 130, def: 50, spa: 40, spd: 70, spe: 111},
+		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Ice Body"},
+		category: "Devour",
+		heightm: 1.8,
+		weightkg: 142.0,
+		color: "White",
+		eggGroups: ["Field", "Amorphous"],
+
+		prevo: "Vaheelia-0",
+		evoType: "useItem",
+		evoItem: "Ice Stone",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	grillantic0: {
+		num: -42,
+		name: "Grillantic-0",
+
+		types: ["Ice", "Fire"],
+		baseStats: {hp: 35, atk: 35, def: 82, spa: 72, spd: 35, spe: 86},
+		abilities: {0: "Flash Fire", 1: "Flare Boost", H: "Technician"},
+		category: "Krill",
+		heightm: 0.5,
+		weightkg: 8.3,
+		color: "White",
+		eggGroups: ["Water 1", "Water 3"],
+
+		evos: ["Grillantic"],
+		creator: "BlueRay",
+	},
+	grillantic: {
+		num: -43,
+		name: "Grillantic",
+
+		types: ["Ice", "Fire"],
+		baseStats: {hp: 71, atk: 44, def: 85, spa: 118, spd: 69, spe: 113},
+		abilities: {0: "Flash Fire", 1: "Flare Boost", H: "Technician"},
+		category: "Krill",
+		heightm: 1.3,
+		weightkg: 35.3,
+		color: "White",
+		eggGroups: ["Water 1", "Water 3"],
+
+		prevo: "Grillantic-0",
+		evoLevel: 37,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
