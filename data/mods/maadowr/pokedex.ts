@@ -656,11 +656,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Bug"],
 
 		prevo: "vespiquen",
-		evoType: "levelExtra",
+		evoType: "other",
 		evoCondition: "must be revived during a battle",
 		creator: "BlueRay",
 	},
 	// end
+
+	// start
 	durant: {
 		num: 632,
 		name: "Durant",
@@ -690,7 +692,70 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Bug"],
 
 		prevo: "Durant",
+		evoType: "other",
 		evoCondition: "must defeat Hydrapple",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	arastinith: {
+		num: -27,
+		name: "Arastinith",
+
+		baseForme: "Shuttle",
+		types: ["Bug", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 115, atk: 90, def: 145, spa: 90, spd: 145, spe: 115},
+		abilities: {0: "Interference"},
+		category: "Weaver of Destiny",
+		heightm: 13.8,
+		weightkg: 777.7,
+		color: "Yellow",
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
+		otherFormes: ["Arastinith-Protector"],
+		formeOrder: ["Arastinith", "Arastinith-Protector"],
+
+		creator: "BlueRay",
+	},
+	arastinithprotector: {
+		num: -27,
+		name: "Arastinith-Protector",
+
+		baseSpecies: "Arastinith",
+		types: ["Bug", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 115, atk: 145, def: 90, spa: 145, spd: 90, spe: 115},
+		abilities: {0: "Interference"},
+		category: "Weaver of Destiny",
+		heightm: 13.8,
+		weightkg: 777.7,
+		color: "Yellow",
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
+		changesFrom: "Arastinith",
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	cicadillo: {
+		num: -28,
+		name: "Cicadillo",
+
+		types: ["Bug", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 87, atk: 83, def: 85, spa: 123, spd: 85, spe: 137},
+		abilities: {0: "Buzz"},
+		category: "Muse",
+		heightm: 0.5,
+		weightkg: 10.0,
+		color: "Green",
+		tags: ["Mythical"],
+		eggGroups: ["Undiscovered"],
+
 		creator: "BlueRay",
 	},
 	// end
