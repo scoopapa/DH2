@@ -518,6 +518,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
+		shortDesc: "Sets a layer of Spikes on the opposing side.",
 		name: "Shakalaka Maracas",
 		pp: 15,
 		priority: 0,
