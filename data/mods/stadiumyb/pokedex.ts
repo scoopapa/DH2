@@ -825,6 +825,127 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Fur Coat"},
 	},
+	cottonee: {
+		inherit: true,
+		abilities: {0: "Prankster"},
+	},
+	whimsicott: {
+		inherit: true,
+		abilities: {0: "Prankster"},
+	},
+	tangela: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
+	tangrowth: {
+		inherit: true,
+		abilities: {0: "Regenerator"},
+	},
+	shroomish: {
+		inherit: true,
+		abilities: {0: "Poison Heal"},
+	},
+	breloom: {
+		inherit: true,
+		abilities: {0: "Technician"},
+	},
+	shinx: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	luxio: {
+		inherit: true,
+		abilities: {0: "Guts"},
+	},
+	luxray: {
+		inherit: true,
+		abilities: {0: "Guts"},
+	},
+	porygon: {
+		inherit: true,
+		abilities: {0: "Download"},
+	},
+	porygon2: {
+		inherit: true,
+		abilities: {0: "Trace"},
+	},
+	porygonz: {
+		inherit: true,
+		abilities: {0: "Adaptability"},
+	},
+	deerling: {
+		inherit: true,
+		abilities: {0: "Serene Grace"},
+	},
+	sawsbuck: {
+		inherit: true,
+		abilities: {0: "Sap Sipper"},
+	},
+	rockruff: {
+		inherit: true,
+		abilities: {0: "Own Tempo"},
+	},
+	lycanroc: {
+		inherit: true,
+		abilities: {0: "Sand Rush"},
+	},
+	lycanrocmidnight: {
+		inherit: true,
+		abilities: {0: "No Guard"},
+	},
+	lycanrocdusk: {
+		inherit: true,
+		abilities: {0: "Tough Claws"},
+	},
+	shroodle: {
+		inherit: true,
+		abilities: {0: "Prankster"},
+	},
+	grafaiai: {
+		inherit: true,
+		abilities: {0: "Poison Touch"},
+	},
+	sandile: {
+		inherit: true,
+		abilities: {0: "Moxie"},
+	},
+	krokorok: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	krookodile: {
+		inherit: true,
+		abilities: {0: "Moxie"},
+	},
+	dewpider: {
+		inherit: true,
+		abilities: {0: "Water Bubble"},
+	},
+	araquanid: {
+		inherit: true,
+		abilities: {0: "Water Bubble"},
+	},
+	dhelmise: {
+		inherit: true,
+		abilities: {0: "Steelworker"},
+	},
+	indeedee: {
+		inherit: true,
+		abilities: {0: "Psychic Surge"},
+	},
+	indeedeef: {
+		inherit: true,
+		abilities: {0: "Psychic Surge"},
+	},
+	bramblin: {
+		inherit: true,
+		abilities: {0: "Wind Rider"},
+	},
+	brambleghast: {
+		inherit: true,
+		abilities: {0: "Wind Rider"},
+	},
+
 
 
 /*
