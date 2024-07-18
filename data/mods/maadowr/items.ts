@@ -85,4 +85,26 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// end
 
 	// start
+	sunamulet: {
+		name: "Sun Amulet",
+		spritenum: 242,
+		fling: {
+			basePower: 60,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+			this.heal(baseSpecies.num === -1070.baseMaxhp / 8);
+	      } else {
+			this.heal(baseSpecies.num === -1070.baseMaxhp / 16);
+			},
+		},
+		itemUser: ["Hieroturoc"],
+		num: -1005,
+		desc: "Hieroturoc recovers 1/16 of its HP, 1/8 in Sun.",
+	},
+	// end
+
+	// start
 };
