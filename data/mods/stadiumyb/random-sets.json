@@ -2184,7 +2184,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Leech Seed", "Encore", "Substitute", "Moonblast"],
+                "movepool": ["Earthquake", "Crunch", "Stone Edge", "Aqua Tail"],
                 "teraTypes": ["Stellar"]
             }
         ]
