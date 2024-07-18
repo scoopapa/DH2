@@ -2361,4 +2361,153 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	sizzlipedemaadowr: {
+		num: -74,
+		name: "Sizzlipede-Ma'adowr",
+		
+		types: ["Ground", "Bug"],
+		baseStats: {hp: 50, atk: 65, def: 45, spa: 50, spd: 50, spe: 45},
+		abilities: {0: "Flash Fire", 1: "Poison Heal", H: "Sand Spit"},
+		category: "Sand Devourer",
+		heightm: 0.7,
+		weightkg: 1.0,
+		color: "Brown",
+		eggGroups: ["Bug"],
+
+		evos: ["Centiskorch-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	centiskorchmaadowr: {
+		num: -75,
+		name: "Centiskorch-Ma'adowr",
+		
+		types: ["Ground", "Bug"],
+		baseStats: {hp: 100, atk: 115, def: 65, spa: 90, spd: 90, spe: 65},
+		abilities: {0: "Flash Fire", 1: "Poison Heal", H: "Sand Spit"},
+		category: "Sand Devourer",
+		heightm: 3.0,
+		weightkg: 120.0,
+		color: "Brown",
+		eggGroups: ["Bug"],
+
+		prevo: "Sizzlipede-Ma'adowr",
+		evoLevel: 28,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	pincurchinmaadowr: {
+		num: -76,
+		name: "Pincurchin-Ma'adowr",
+		
+		types: ["Ground"],
+		baseStats: {hp: 48, atk: 101, def: 95, spa: 91, spd: 85, spe: 15},
+		category: "Sea Urchin",
+		abilities: {0: "Lightning Rod", H: "Acidic Surge"},
+		heightm: 0.3,
+		weightkg: 1.0,
+		color: "Brown",
+		eggGroups: ["Water 1", "Amorphous"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	solgantica: {
+		num: -77,
+		name: "Solgantica",
+
+		types: ["Ground"],
+		baseStats: {hp: 35, atk: 35, def: 141, spa: 125, spd: 127, spe: 77},
+		abilities: {0: "Unburden", 1: Immunity, H: "Chlorophyll"},
+		category: "Plankton",
+		heightm: 0.1,
+		weightkg: 0.1,
+		color: "Brown",
+		eggGroups: ["Water 3", "Mineral"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	slumberingguardian: {
+		num: -78,
+		name: "Slumbering Guardian",
+
+		types: ["Ground", "Grass"],
+		gender: "N",
+		baseStats: {hp: 98, atk: 126, def: 91, spa: 77, spd: 91, spe: 77},
+		abilities: {0: "Reconfiguration"},
+		category: "Slumber",
+		heightm: 2.8,
+		weightkg: 330.0,
+		color: "Green",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	pastura0: {
+		num: -79,
+		name: "Pastura-0",
+		
+		types: ["Ground", "Fairy"],
+		baseStats: {hp: 55, atk: 80, def: 70, spa: 60, spd: 35, spe: 50},
+		category: "Horizon",
+		abilities: {0: "Immunity", 1: "Flame Body", H: "Early Bird"},
+		heightm: 0.9,
+		weightkg: 25.3.,
+		color: "Yellow",
+		eggGroups: ["Field"],
+
+		evos: ["Pastura"],
+		creator: "BlueRay",
+	},
+	pastura: {
+		num: -80,
+		name: "Pastura",
+		
+		types: ["Ground", "Fairy"],
+		baseStats: {hp: 90, atk: 120, def: 105, spa: 90, spd: 65, spe: 85},
+		category: "Horizon",
+		abilities: {0: "Immunity", 1: "Flame Body", H: "Drought"},
+		heightm: 2.1,
+		weightkg: 175.0,
+		color: "Green",
+		eggGroups: ["Field"],
+		otherFormes: ["Pastura-Mega"],
+		formeOrder: ["Pastura", "Pastura-Mega"],
+
+		prevo: "Pastura-0",
+		evoType: "useItem",
+		evoItem: "Sun Stone",
+		creator: "BlueRay",
+	},
+	pasturamega: {
+		num: -80,
+		name: "Pastura-Mega",
+		
+		baseSpecies: "Pastura",
+		forme: "Mega",
+		types: ["Ground", "Fairy"],
+		baseStats: {hp: 90, atk: 150, def: 115, spa: 120, spd: 75, spe: 105},
+		category: "Horizon",
+		abilities: {0: "Friend Guard"},
+		heightm: 2.1,
+		weightkg: 175.0,
+		color: "Brown",
+		eggGroups: ["Field"],
+		requiredItem: "Pasturite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
