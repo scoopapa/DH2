@@ -1118,4 +1118,63 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	callouswarden: {
+		num: -44,
+		name: "Callous Warden",
+
+		types: ["Ice", "Steel"],
+		gender: "N",
+		baseStats: {hp: 84, atk: 56, def: 56, spa: 112, spd: 140, spe: 112},
+		abilities: {0: "Reconfiguration"},
+		category: "Warden",
+		heightm: 1.1,
+		weightkg: 184.0,
+		color: "Blue",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	cryogonal: {
+		num: 615,
+		name: "Cryogonal",
+		
+		types: ["Ice"],
+		gender: "N",
+		baseStats: {hp: 80, atk: 50, def: 50, spa: 95, spd: 135, spe: 105},
+		category: "Crystallizing",
+		abilities: {0: "Levitate"},
+		heightm: 1.1,
+		weightkg: 148.0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+		otherFormes: ["Cryogonal-Mega"],
+		formeOrder: ["Cryogonal", "Cryogonal-Mega"],
+
+	},
+	cryogonalmega: {
+		num: 615,
+		name: "Cryogonal-Mega",
+		
+		baseSpecies: "Cryogonal",
+		forme: "Mega",
+		types: ["Ice"],
+		gender: "N",
+		baseStats: {hp: 80, atk: 50, def: 50, spa: 125, spd: 165, spe: 145},
+		category: "Crystallizing",
+		abilities: {0: "Permafrost"},
+		heightm: 1.1,
+		weightkg: 148.0,
+		color: "Blue",
+		eggGroups: ["Mineral"],
+		requiredItem: "Cryogonalite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
