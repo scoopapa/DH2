@@ -693,7 +693,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		prevo: "Durant",
 		evoType: "other",
-		evoCondition: "must defeat Hydrapple",
+		evoCondition: "must defeat Gholdengo",
 		creator: "BlueRay",
 	},
 	// end
@@ -757,6 +757,99 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Undiscovered"],
 
 		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	sneezibia0: {
+		num: -29,
+		name: "Sneezibia-0",
+
+		types: ["Fire", "Ice"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 63, atk: 61, def: 69, spa: 33, spd: 46, spe: 38},
+		abilities: {0: "Blaze", H: "Thermal Expansion"},
+		category: "Sneezing Salamander",
+		heightm: 0.4,
+		weightkg: 19.0,
+		color: "Red",
+		eggGroups: ["Monster", "Dragon"],
+
+		evos: ["Sneezibia-1"],
+		creator: "BlueRay",
+	},
+	sneezibia1: {
+		num: -30,
+		name: "Sneezibia-1",
+
+		types: ["Fire", "Ice"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 78, atk: 86, def: 89, spa: 53, spd: 61, spe: 53},
+		abilities: {0: "Blaze", H: "Thermal Expansion"},
+		category: "Sneezing Salamander",
+		heightm: 1.0,
+		weightkg: 50.0,
+		color: "Red",
+		eggGroups: ["Monster", "Dragon"],
+
+		evos: ["Sneezibia"],
+		prevo: "Sneezibia-0",
+		evoLevel: 17,
+		creator: "BlueRay",
+	},
+	sneezibia: {
+		num: -31,
+		name: "Sneezibia",
+
+		types: ["Fire", "Ice"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 93, atk: 116, def: 119, spa: 63, spd: 76, spe: 63},
+		abilities: {0: "Blaze", H: "Thermal Expansion"},
+		category: "Sneezing Salamander",
+		heightm: 1.6,
+		weightkg: 177.6,
+		color: "Red",
+		eggGroups: ["Monster", "Dragon"],
+
+		prevo: "Sneezibia-1",
+		evoLevel: 36,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	heatmor: {
+		num: 631,
+		name: "Heatmor",
+
+		types: ["Fire"],
+		baseStats: {hp: 85, atk: 97, def: 66, spa: 105, spd: 66, spe: 65},
+		abilities: {0: "Gluttony", 1: "Flash Fire", H: "White Smoke"},
+		category: "Anteater",
+		heightm: 1.4,
+		weightkg: 58.0,
+		color: "Red",
+		eggGroups: ["Field"],
+
+		evos: ["Gourmant"],
+	},
+	gourmant: {
+		num: -32,
+		name: "Gourmant",
+
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 115, atk: 127, def: 71, spa: 115, spd: 71, spe: 45},
+		abilities: {0: "Gluttony", 1: "Flash Fire", H: "White Smoke"},
+		category: "Anteater",
+		heightm: 1.4,
+		weightkg: 58.0,
+		color: "Red",
+		eggGroups: ["Field"],
+
+		prevo: "Heatmor",
+		evoType: "other",
+		evoCondition: "must defeat Hydrapple",
+		creator: "quagsi",
 	},
 	// end
 
