@@ -848,6 +848,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	olympia: {
 		learnset: {
+			axekick: ["9L1"],
+			hammerarm: ["9L1"],
+			jumpkick: ["9L1"],
+			spikes: ["9L1"],
 			closecombat: ["9L1"],
 			machpunch: ["9L1"],
 			diamondstorm: ["9L1"],
@@ -1691,6 +1695,19 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	wrigglenightbugaltered: {
 		learnset: {
+			amnesia: ["9L1"],
+			attackorder: ["9L1"],
+			axekick: ["9L1"],
+			blazekick: ["9L1"],
+			flash: ["9L1"],
+			highjumpkick: ["9L1"],
+			megakick: ["9L1"],
+			moonlight: ["9L1"],
+			rage: ["9L1"],
+			shockkick: ["9L1"],
+			shockwave: ["9L1"],
+			spotlight: ["9L1"],
+			thunderouskick: ["9L1"],
 			centipedeassault: ["9L1"],
 			agility: ["9L1"],
 			autotomize: ["9L1"],
@@ -2091,6 +2108,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	twinrova: {
 		learnset: {
+			doublehit: ["9L1"],
+			sandtomb: ["9L1"],
+			charm: ["9L1"],
+			twinbeam: ["9L1"],
 			doubledynamite: ["9L1"],
 			fireblast: ["9L1"],
 			flamethrower: ["9L1"],
@@ -2132,7 +2153,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			willowisp: ["9L1"],
 			facade: ["9L1"],
 			mirrorshot: ["9L1"],
-			lusterpurge: ["9L1"],
 			flashcannon: ["9L1"],
 		},
 	},
