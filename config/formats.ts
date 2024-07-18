@@ -507,9 +507,9 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/3722319/post-10114743">Announcement of Generation X's fourth iteration</a>`,
 		],
 		mod: 'genxbrunica',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: [],
-		unbanlist: ['Last Respects', 'Shed Tail', 'Bright Powder', 'Razor Fang', 'Arena Trap', 'Moody', 'Sand Veil', 'Snow Warning', 'Grassy Cloak', 'Shadow Tag'], //Uber unbans
+		unbanlist: ['Last Respects', 'Shed Tail', 'Bright Powder', 'Razor Fang', 'Arena Trap', 'Moody', 'Shadow Tag'], //Uber unbans
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -539,7 +539,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (template.tier === 'Brunica Uber') {
-					return [set.species + ' is banned in Generation X\'s Brunica format.'];
+					return [set.species + ' is banned in Generation X\'s OU format for Brunica.'];
 				}
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
@@ -554,9 +554,9 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/3722319/">Gen 9 Generation X</a>`,
 		],
 		mod: 'genxdesvega',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: [],
-		unbanlist: ['Last Respects', 'Shed Tail', 'Bright Powder', 'Razor Fang', 'Arena Trap', 'Moody', 'Sand Veil', 'Snow Warning', 'Grassy Cloak', 'Shadow Tag'], //Uber unbans
+		unbanlist: ['Last Respects', 'Shed Tail', 'Bright Powder', 'Razor Fang', 'Arena Trap', 'Moody', 'Shadow Tag'], //Uber unbans
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -584,6 +584,9 @@ export const Formats: FormatList = [
 			let allowedTiers = ['Desvega OU', 'Desvega NFE', "Desvega LC"];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
+				if (template.tier === 'Brunica Uber') {
+					return [set.species + ' is banned in Generation X\'s OU format for Desvega.'];
+				}
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not available in Generation X\'s Desvega formats.'];
 				}

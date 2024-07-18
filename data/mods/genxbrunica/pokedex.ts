@@ -387,6 +387,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 4.1,
 		evos: ["Splabrashor", "Newflowake"],
+		eggGroups: ["Field", "Water 1"],
 	},
 	splabrashor: {
 		num: 1491,
@@ -399,6 +400,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Qimmiqua",
 		evoType: "levelHold",
 		evoItem: "Covert Cloak",
+		eggGroups: ["Field", "Water 1"],
 	},
 	newflowake: {
 		num: 1492,
@@ -411,6 +413,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Qimmiqua",
 		evoType: "levelHold",
 		evoItem: "Reaper Cloth",
+		eggGroups: ["Field", "Water 1"],
 	},
 
 	
@@ -515,7 +518,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Surf's Up"},
 		heightm: 0.9,
 		weightkg: 40.5,
-		requiredAbility: "Surfs Up",
+		requiredAbility: "Surf's Up",
 		battleOnly: "Tsunamey",
 		eggGroups: ["Water 1", "Water 3"],
 	},
