@@ -1763,4 +1763,203 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	mantykemaadowr: {
+		num: -57,
+		name: "Mantyke-Ma'adowr",
+		
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 45, atk: 20, def: 50, spa: 60, spd: 120, spe: 50},
+		abilities: {0: "Water Absorb", 1: "Swift Swim", H: "Poison Point"},
+		category: "Kite",
+		heightm: 1.0,
+		weightkg: 65.0,
+		color: "Brown",
+		eggGroups: ["Water 1"],
+
+		evos: ["Mantine-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	mantinemaadowr: {
+		num: -58,
+		name: "Mantine-Ma'adowr",
+		
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 85, atk: 30, def: 70, spa: 90, spd: 140, spe: 70},
+		abilities: {0: "Water Absorb", 1: "Swift Swim", H: "Poison Point"},
+		category: "Kite",
+		heightm: 2.1,
+		weightkg: 220.0,
+		color: "Brown",
+		eggGroups: ["Water 1"],
+
+		prevo: "Mantyke-Ma'adowr",
+		evoType: "levelExtra",
+		evoCondition: "with a Remoraid in party",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	ekans: {
+		num: 23,
+		name: "Ekans",
+
+		types: ["Poison"],
+		baseStats: {hp: 35, atk: 60, def: 44, spa: 40, spd: 54, spe: 55},
+		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Unnerve"},
+		category: "Snake",
+		heightm: 2.0,
+		weightkg: 6.9,
+		color: "Purple",
+		eggGroups: ["Field", "Dragon"],
+
+		evos: ["Arbok"],
+	},
+	arbok: {
+		num: 24,
+		name: "Arbok",
+
+		types: ["Poison"],
+		baseStats: {hp: 60, atk: 95, def: 69, spa: 65, spd: 79, spe: 80},
+		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Unnerve"},
+		category: "Cobra",
+		heightm: 3.5,
+		weightkg: 65.0,
+		color: "Purple",
+		eggGroups: ["Field", "Dragon"],
+
+		evos: ["Orasundra"],
+		prevo: "Ekans",
+		evoLevel: 22,
+	},
+	orasundra: {
+		num: -59,
+		name: "Orasundra",
+
+		types: ["Poison", "Psychic"],
+		baseStats: {hp: 100, atk: 120, def: 85, spa: 90, spd: 95, spe: 60},
+		abilities: {0: "Intimidate", 1: "Poison Spit", H: "Rattled"},
+		category: "Messenger",
+		heightm: 4.5,
+		weightkg: 100.0,
+		color: "Purple",
+		eggGroups: ["Field", "Dragon"],
+
+		prevo: "Arbok",
+		evoType: "other",
+		evoCondition: "at level 50 in Sun",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	gravessor: {
+		num: -60,
+		name: "Gravessor",
+		
+		types: ["Poison", "Steel"],
+		gender: "N",
+		baseStats: {hp: 95, atk: 99, def: 95, spa: 40, spd: 95, spe: 70},
+		category: "Iron Dragon Ship",
+		abilities: {0: "Levitate", 1: "Gravitas", H: "Unburden"},
+		heightm: 8.6,
+		weightkg: 248.0,
+		color: "Gray",
+		eggGroups: ["Mineral", "Dragon"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	cursinhcor: {
+		num: -61,
+		name: "Cursinhcor",
+		
+		types: ["Poison", "Grass"],
+		gender: "N",
+		baseStats: {hp: 95, atk: 99, def: 95, spa: 40, spd: 95, spe: 70},
+		category: "Wooden Dragon Ship",
+		abilities: {0: "Levitate", 1: "Ill Wind", H: "Swift Swim"},
+		heightm: 8.6,
+		weightkg: 248.0,
+		color: "Brown",
+		eggGroups: ["Grass", "Dragon"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	zubat: {
+		num: 41,
+		name: "Zubat",
+
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 40, atk: 45, def: 35, spa: 30, spd: 40, spe: 55},
+		abilities: {0: "Inner Focus", H: "Infiltrator"},
+		category: "Bat",
+		heightm: 0.8,
+		weightkg: 7.5,
+		color: "Purple",
+		eggGroups: ["Flying"],
+
+		evos: ["Golbat"],
+	},
+	golbat: {
+		num: 42,
+		name: "Golbat",
+
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 75, atk: 80, def: 70, spa: 65, spd: 75, spe: 90},
+		abilities: {0: "Inner Focus", H: "Infiltrator"},
+		category: "Bat",
+		heightm: 1.6,
+		weightkg: 55.0,
+		color: "Purple",
+		eggGroups: ["Flying"],
+
+		evos: ["Crobat"],
+		prevo: "Zubat",
+		evoLevel: 22,
+	},
+	crobat: {
+		num: 169,
+		name: "Crobat",
+
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 80, atk: 90, def: 80, spa: 70, spd: 80, spe: 130},
+		abilities: {0: "Inner Focus", H: "Infiltrator"},
+		category: "Bat",
+		heightm: 1.8,
+		weightkg: 75.0,
+		color: "Purple",
+		eggGroups: ["Flying"],
+		otherFormes: ["Crobat-Mega"],
+		formeOrder: ["Crobat", "Crobat-Mega"],
+
+		prevo: "Golbat",
+		evoType: "levelFriendship",
+	},
+	crobatmega: {
+		num: 169,
+		name: "Crobat-Mega",
+		
+		baseSpecies: "Crobat",
+		forme: "Mega",
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 80, atk: 120, def: 95, spa: 90, spd: 95, spe: 150},
+		category: "Bat",
+		abilities: {0: "Vampirism"},
+		heightm: 2.0,
+		weightkg: 82.5,
+		color: "Purple",
+		eggGroups: ["Flying"],
+		requiredItem: "Crobatite",
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
