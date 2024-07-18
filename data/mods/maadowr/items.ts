@@ -35,7 +35,39 @@ acidicseed: {
 				this.debug('Ancient Armor neutralize');
 				return this.chainModify(0.75);
 			},
+	},
 		num: -1002,
 		desc: "User receives 25% less damage from a super effective move.",
 	},
+	// end
+
+	// start
+	delirioushoney: {
+		name: "Delirious Honey",
+		spritenum: 448,
+		fling: {
+			basePower: 10,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 4);
+		},
+onResidualOrder: 28,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('tox', pokemon);
+		},
+		num: -1003,
+			desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status",
+	},
+			// end
+
+			// start
 };
