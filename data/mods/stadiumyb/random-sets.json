@@ -1214,7 +1214,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Thief", "Fling", "Poison Jab", "Low Kick"],
+                "movepool": ["Bulk Up", "Fling", "Poison Jab", "Low Kick"],
                 "teraTypes": ["Dark"]
             }
         ]
