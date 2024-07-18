@@ -1979,6 +1979,306 @@
             }
         ]
     },
+  "cottonee": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Leech Seed", "Encore", "Substitute", "Moonblast"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+  "whimsicott": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Nature Power", "Misty Terrain", "Giga Drain", "Cotton Guard"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "tangela": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Giga Drain", "Morning Sun", "Knock Off", "Infestation"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+  "tangrowth": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Swords Dance", "Sleep Powder", "Seed Bomb", "Wake-Up Slap"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+  "shroomish": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Seed Bomb", "Drain Punch", "Synthesis", "Spore"],
+                "teraTypes": ["Ghost"]
+            }
+        ]
+    },
+  "breloom": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Leaf Storm", "Vacuum Wave", "Aerial Ace", "Rock Smash"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "shinx": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Wild Charge", "Snarl", "Thunder Wave", "Baby-Doll Eyes"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+  "luxio": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Wild Charge", "Volt Switch", "Crunch", "Facade"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+  "luxray": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Ice Fang", "Spark", "Rest", "Sleep Talk"],
+                "teraTypes": ["Ice"]
+            }
+        ]
+    },
+  "porygon": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Tera Blast", "Trick Room", "Shadow Ball", "Teleport"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "porygon2": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Conversion 2", "Pain Split", "Foul Play", "Discharge"],
+                "teraTypes": ["Psychic"]
+            }
+        ]
+    },
+  "porygonz": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Swift", "Shock Wave", "Skull Bash", "Recycle"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+  "deerling": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Headbutt", "Agility", "Bullet Seed", "Jump Kick"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+  "sawsbuck": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Horn Leech", "Smart Strike", "Baton Pass", "Worry Seed"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+  "rockruff": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Stone Edge", "Sucker Punch", "Swords Dance", "Psychic Fangs"],
+                "teraTypes": ["Stellar"]
+            }
+        ]
+    },
+  "lycanroc": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Rock Tomb", "Endeavor", "Fire Fang", "Charm"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
+  "lycanrocmidnight": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Rock Blast", "Iron Defense", "Shadow Claw", "Rock Climb"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+  "lycanrocdusk": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Crush Claw", "Accelerock", "Thunder Fang", "Counter"],
+                "teraTypes": ["Rock"]
+            }
+        ]
+    },
+  "shroodle": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Toxic", "Encore", "Foul Play", "Gunk Shot"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+  "grafaiai": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Fury Swipes", "Poison Jab", "Low Kick", "Psych Up"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
+  "sandile": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Leech Seed", "Encore", "Substitute", "Moonblast"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+  "krokorok": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stomping Tantrum", "Knock Off", "Sand Tomb", "Protect"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+  "krookodile": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Bulldoze", "Fling", "Thief", "Aerial Ace"],
+                "teraTypes": ["Dark"]
+            }
+        ]
+    },
+  "dewpider": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Leech Life", "Liquidation", "Rest", "Sleep Talk"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+  "araquanid": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Chlling Water", "Lunge", "Rain Dance", "Safeguard"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+  "dhelmise": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Anchor Shot", "Grassy Glide", "Brine", "Steel Roller"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+  "indeedee": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Psybeam", "Draining Kiss", "Body Slam", "Play Nice"],
+                "teraTypes": ["Fairy"]
+            }
+        ]
+    },
+  "indeedeef": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Psybeam", "Magical Leaf", "Facade", "Psycho Shift"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+  "bramblin": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Leaf Storm", "Poltergeist", "Power Whip", "Pounce"],
+                "teraTypes": ["Bug"]
+            }
+        ]
+    },
+  "brambleghast": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Support",
+                "movepool": ["Leech Seed", "Phantom Force", "Giga Drain", "Strength Sap"],
+                "teraTypes": ["Fire"]
+            }
+        ]
+    },
 	"morelull": {
         "level": 50,
         "sets": [
