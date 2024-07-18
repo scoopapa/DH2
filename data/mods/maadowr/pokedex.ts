@@ -2807,4 +2807,61 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	maudior: {
+		num: -96,
+		name: "Maudior",
+		
+		types: ["Steel", "Fairy"],
+		gender: "N",
+		baseStats: {hp: 54, atk: 45, def: 117, spa: 90, spd: 117, spe: 54},
+		category: "Cursed Gold Rind",
+		abilities: {0: "Cursed Body"},
+		heightm: 0.2,
+		weightkg: 0.1,
+		color: "Yellow",
+		eggGroups: ["Mineral"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	mechatauro: {
+		num: -97,
+		name: "Mechatauro",
+		
+		types: ["Steel", "Fire"],
+		gender: "N",
+		baseStats: {hp: 115, atk: 110, def: 115, spa: 40, spd: 55, spe: 55},
+		category: "Mecha Bull",
+		abilities: {0: "Bulletproof", H: "Amp Up"},
+		heightm: 2.1,
+		weightkg: 206.4,
+		color: "Brown",
+		eggGroups: ["Mineral"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	miraplex: {
+		num: -98,
+		name: "Miraplex",
+		
+		types: ["Steel", "Psychic"],
+		gender: "N",
+		baseStats: {hp: 70, atk: 45, def: 45, spa: 140, spd: 140, spe: 60},
+		category: "Imperial Insignia",
+		abilities: {0: "Magic Bounce"},
+		heightm: 1.9,
+		weightkg: 45.0,
+		color: "Gray",
+		eggGroups: ["Mineral"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
