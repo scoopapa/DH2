@@ -2510,4 +2510,188 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	grapplin0: {
+		num: -81,
+		name: "Grapplin-0",
+
+		types: ["Fighting"],
+		baseStats: {hp: 56, atk: 79, def: 66, spa: 43, spd: 46, spe: 52},
+		abilities: {0: "Levitate", 1: "Intimidate", H: "Early Bird"},
+		category: "Griffin",
+		heightm: 0.5,
+		weightkg: 10.5,
+		color: "Brown",
+		eggGroups: ["Monster", "Flying"],
+
+		evos: ["Grapplin"],
+		creator: "BlueRay",
+	},
+	grapplin: {
+		num: -82,
+		name: "Grapplin",
+
+		types: ["Fighting", "Fairy"],
+		baseStats: {hp: 86, atk: 119, def: 106, spa: 58, spd: 66, spe: 72},
+		abilities: {0: "Levitate", 1: "Intimidate", H: "Early Bird"},
+		category: "Griffin",
+		heightm: 1.5,
+		weightkg: 41.0,
+		color: "Brown",
+		eggGroups: ["Monster", "Flying"],
+
+		prevo: "Grapplin-0",
+		evoType: "useItem",
+		evoItem: "Dawn Stone",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	snommaadowr: {
+		num: -83,
+		name: "Snom-Ma'adowr",
+		
+		types: ["Normal", "Bug"],
+		baseStats: {hp: 30, atk: 15, def: 40, spa: 45, spd: 30, spe: 25},
+		abilities: {0: "Shield Dust", 1: "Fur Coat", H: "Scale Shift"},
+		category: "Mimicry",
+		heightm: 0.3,
+		weightkg: 3.8,
+		color: "White",
+		eggGroups: ["Bug"],
+
+		evos: ["Frosmoth-Ma'adowr"],
+		creator: "BlueRay",
+	},
+	frosmothmaadowr: {
+		num: -84,
+		name: "Frosmoth-Ma'adowr",
+		
+		types: ["Normal", "Bug"],
+		baseStats: {hp: 70, atk: 45, def: 70, spa: 125, spd: 90, spe: 75},
+		abilities: {0: "Shield Dust", 1: "Fur Coat", H: "Scale Shift"},
+		category: "Mimicry",
+		heightm: 1.3,
+		weightkg: 42.0,
+		color: "White",
+		eggGroups: ["Bug"],
+
+		prevo: "Snom-Ma'adowr",
+		evoType: "levelFriendship",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	lurkingshadow: {
+		num: -85,
+		name: "Lurking Shadow",
+
+		types: ["Normal", "Fighting"],
+		gender: "N",
+		baseStats: {hp: 49, atk: 105, def: 91, spa: 98, spd: 84, spe: 133},
+		abilities: {0: "Reconfiguration"},
+		category: "Catty",
+		heightm: 0.5,
+		weightkg: 3.9,
+		color: "White",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	changelingdoll: {
+		num: -86,
+		name: "Changeling Doll",
+
+		types: ["Normal", "Fairy"],
+		gender: "N",
+		baseStats: {hp: 40, atk: 98, def: 138, spa: 70, spd: 158, spe: 66},
+		abilities: {0: "Magic Guard", H: "Prankster"},
+		category: "Doll",
+		heightm: 0.3,
+		weightkg: 3.0,
+		color: "Pink",
+		tags: ["Extraterrestrial"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	nottingrat0: {
+		num: -87,
+		name: "Nottingrat-0",
+
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 55, atk: 51, def: 35, spa: 40, spd: 45, spe: 57},
+		abilities: {0: "Rattled"},
+		category: "Street Rat",
+		heightm: 0.3,
+		weightkg: 4.0,
+		color: "White",
+		eggGroups: ["Field"],
+
+		evos: ["Nottingrat"],
+		creator: "BlueRay",
+	},
+	nottingrat: {
+		num: -88,
+		name: "Nottingrat",
+
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 95, atk: 91, def: 65, spa: 60, spd: 75, spe: 87},
+		abilities: {0: "Parental Bond"},
+		category: "Knotted Rat",
+		heightm: 0.9,
+		weightkg: 44.0,
+		color: "White",
+		eggGroups: ["Field"],
+
+		prevo: "Nottingrat-0",
+		evoLevel: 23,
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	kecleon: {
+		num: 352,
+		name: "Kecleon",
+
+		types: ["Normal"],
+		baseStats: {hp: 60, atk: 90, def: 70, spa: 60, spd: 120, spe: 40},
+		abilities: {0: "Colour Change", 1: "Stakeout", H: "Protean"},
+		category: "Colour Swap",
+		heightm: 1.0,
+		weightkg: 22.0,
+		color: "Green",
+		eggGroups: ["Field"],
+
+		evos: ["Chokiro"],
+	},
+	chokiro: {
+		num: -89,
+		name: "Chokiro",
+
+		types: ["Normal", "Dark"],
+		baseStats: {hp: 75, atk: 105, def: 80, spa: 70, spd: 130, spe: 60},
+		abilities: {0: "Colour Change", 1: "Stakeout", H: "Protean"},
+		category: "Colour Swap",
+		heightm: 1.4,
+		weightkg: 31.0,
+		color: "Green",
+		eggGroups: ["Field"],
+
+		prevo: "Kecleon",
+		evoType: "levelFriendship",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
