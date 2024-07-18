@@ -65,7 +65,27 @@ onResidualOrder: 28,
 			pokemon.trySetStatus('tox', pokemon);
 		},
 		num: -1003,
-			desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status",
+			desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status.",
+	},
+			// end
+
+			// start
+			poisonsack: {
+		name: "Poison Sack",
+		spritenum: 34,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Poison') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			atk: 1,
+		},
+		num: -1004,
+			desc: "User has its Atk raised by 1 stage if it got hit by a Poison move.",
 	},
 			// end
 
