@@ -2694,4 +2694,117 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	sensoryoverloader: {
+		num: -90,
+		name: "Sensory Overloader",
+
+		types: ["Flying", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 77, atk: 77, def: 91, spa: 105, spd: 91, spe: 119},
+		abilities: {0: "Reconfiguration"},
+		category: "Sensor",
+		heightm: 1.3,
+		weightkg: 45.0,
+		color: "White",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	ibliss: {
+		num: -91,
+		name: "Ibliss",
+		
+		types: ["Flying"],
+		baseStats: {hp: 130, atk: 93, def: 100, spa: 43, spd: 75, spe: 76},
+		category: "Wisdom",
+		abilities: {0: "Stall"},
+		heightm: 1.2,
+		weightkg: 42.0,
+		color: "White",
+		eggGroups: ["Flying"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	gurglingdragon: {
+		num: -92,
+		name: "Gurgling Dragon",
+
+		types: ["Dragon", "Water"],
+		gender: "N",
+		baseStats: {hp: 91, atk: 126, def: 91, spa: 98, spd: 91, spe: 63},
+		abilities: {0: "Reconfiguration"},
+		category: "Gargoyle",
+		heightm: 1.6,
+		weightkg: 139.0,
+		color: "Gray",
+		tags: ["Ancient"],
+		eggGroups: ["Undiscovered"],
+
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
+	craftenir0: {
+		num: -93,
+		name: "Craftenir-0",
+
+		types: ["Dragon", "Fairy"],
+		baseStats: {hp: 35, atk: 60, def: 44, spa: 40, spd: 54, spe: 55},
+		abilities: {0: "Sticky Hold", 1: "Steelworker", H: "Chain Link"},
+		category: "Greed",
+		heightm: 0.9,
+		weightkg: 67.2,
+		color: "Yellow",
+		eggGroups: ["Monster", "Dragon"],
+
+		evos: ["Craftenir-1"],
+		creator: "BlueRay",
+	},
+	craftenir1: {
+		num: -94,
+		name: "Craftenir-1",
+
+		types: ["Dragon", "Fairy"],
+		baseStats: {hp: 60, atk: 95, def: 69, spa: 65, spd: 79, spe: 80},
+		abilities: {0: "Sticky Hold", 1: "Steelworker", H: "Chain Link"},
+		category: "Greed",
+		heightm: 1.2,
+		weightkg: 103.4,
+		color: "Yellow",
+		eggGroups: ["Monster", "Dragon"],
+
+		evos: ["Craftenir"],
+		prevo: "Craftenir-0",
+		evoLevel: 40,
+		creator: "BlueRay",
+	},
+	craftenir: {
+		num: -95,
+		name: "Craftenir",
+
+		types: ["Dragon", "Fairy"],
+		baseStats: {hp: 84, atk: 138, def: 91, spa: 90, spd: 101, spe: 96},
+		abilities: {0: "Sticky Hold", 1: "Steelworker", H: "Chain Link"},
+		category: "Greed",
+		heightm: 1.5,
+		weightkg: 201.7,
+		color: "Yellow",
+		eggGroups: ["Monster", "Dragon"],
+
+		prevo: "Craftenir-1",
+		evoLevel: 50,
+		evoItem: "Metal Coat",
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
