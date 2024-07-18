@@ -1,5 +1,5 @@
 export const Items: {[k: string]: ModdedItemData} = {
-acidicseed: {
+	acidicseed: {
 		name: "Acidic Seed",
 		spritenum: 666,
 		fling: {
@@ -35,7 +35,7 @@ acidicseed: {
 				this.debug('Ancient Armor neutralize');
 				return this.chainModify(0.75);
 			},
-	},
+	   },
 		num: -1002,
 		desc: "User receives 25% less damage from a super effective move.",
 	},
@@ -57,20 +57,15 @@ acidicseed: {
 			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp / 4);
-		},
-onResidualOrder: 28,
-		onResidualSubOrder: 3,
-		onResidual(pokemon) {
-			pokemon.trySetStatus('tox', pokemon);
+			this.heal(pokemon.baseMaxhp / 4) && pokemon.trySetStatus('tox', pokemon);
 		},
 		num: -1003,
-			desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status.",
+		desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status.",
 	},
-			// end
+	// end
 
-			// start
-			poisonsack: {
+	// start
+	poisonsack: {
 		name: "Poison Sack",
 		spritenum: 34,
 		fling: {
@@ -85,9 +80,9 @@ onResidualOrder: 28,
 			atk: 1,
 		},
 		num: -1004,
-			desc: "User has its Atk raised by 1 stage if it got hit by a Poison move.",
+		desc: "User has its Atk raised by 1 stage if it got hit by a Poison move.",
 	},
-			// end
+	// end
 
-			// start
+	// start
 };
