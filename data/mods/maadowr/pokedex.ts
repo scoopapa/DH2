@@ -3,7 +3,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	
 	chantyrus0: {
-		num: -1,
+		num: -1001,
 		name: "Chantyrus-0",
 
 		types: ["Grass", "Flying"],
@@ -20,7 +20,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	chantyrus1: {
-		num: -2,
+		num: -1002,
 		name: "Chantyrus-1",
 
 		types: ["Grass", "Flying"],
@@ -39,7 +39,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	chantyrus: {
-		num: -3,
+		num: -1003,
 		name: "Chantyrus",
 
 		types: ["Grass", "Flying"],
@@ -60,7 +60,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	immanitite: {
-		num: -4,
+		num: -1004,
 		name: "Immanitite",
 
 		types: ["Grass", "Psychic"],
@@ -77,7 +77,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	immanicham: {
-		num: -5,
+		num: -1005,
 		name: "Immanicham",
 
 		types: ["Grass", "Psychic"],
@@ -96,7 +96,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	immanicus: {
-		num: -6,
+		num: -1006,
 		name: "Immanicus",
 
 		baseForme: "Standard",
@@ -117,7 +117,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	immanicuszen: {
-		num: -6,
+		num: -1006,
 		name: "Immanicus-Zen",
 
 		baseSpecies: "Immanicus",
@@ -140,7 +140,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	honedgemaadowr: {
-		num: -7,
+		num: -1007,
 		name: "Honedge-Ma'adowr",
 		
 		types: ["Grass"],
@@ -156,7 +156,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	doublademaadowr: {
-		num: -8,
+		num: -1008,
 		name: "Doublade-Ma'adowr",
 		types: ["Grass"],
 		baseStats: {hp: 69, atk: 110, def: 150, spa: 35, spd: 49, spe: 35},
@@ -173,7 +173,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	aegislashmaadowr: {
-		num: -9,
+		num: -1009,
 		name: "Aegislash-Ma'adowr",
 		
 		baseForme: "Shield",
@@ -195,7 +195,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		
 	},
 	aegislashblademaadowr: {
-		num: -9,
+		num: -1009,
 		name: "Aegislash-Blade-Ma'adowr",
 		
 		baseSpecies: "Aegislash-Ma'adowr",
@@ -217,7 +217,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	shelldure: {
-		num: -10,
+		num: -1010,
 		name: "Shelldure",
 
 		types: ["Grass", "Ice"],
@@ -233,7 +233,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	cloysture: {
-		num: -11,
+		num: -1011,
 		name: "Cloysture",
 
 		types: ["Grass", "Ice"],
@@ -254,7 +254,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	paradisica0: {
-		num: -12,
+		num: -1012,
 		name: "Paradisica-0",
 
 		types: ["Grass", "Fire"],
@@ -270,7 +270,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	paradisica: {
-		num: -13,
+		num: -1013,
 		name: "Paradisica",
 
 		types: ["Grass", "Fire"],
@@ -290,7 +290,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	rolycolymaadowr: {
-		num: -14,
+		num: -1014,
 		name: "Rolycoly-Ma'adowr",
 		
 		types: ["Grass"],
@@ -306,7 +306,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	carkolmaadowr: {
-		num: -15,
+		num: -1015,
 		name: "Carkol-Ma'adowr",
 		
 		types: ["Grass", "Fire"],
@@ -324,7 +324,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	coalossalmaadowr: {
-		num: -16,
+		num: -1016,
 		name: "Coalossal-Ma'adowr",
 	
 		types: ["Grass", "Fire"],
@@ -344,7 +344,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	organtica: {
-		num: -17,
+		num: -1017,
 		name: "Organtica",
 
 		types: ["Grass"],
@@ -452,7 +452,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 24,
 	},
 	parascent: {
-		num: -18,
+		num: -1018,
 		name: "Parascent",
 
 		types: ["Bug", "Grass"],
@@ -473,7 +473,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	pinsirmaadowr: {
-		num: -19,
+		num: -1019,
 		name: "Pinsir-Ma'adowr",
 		
 		types: ["Bug", "Ground"],
@@ -489,7 +489,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	kabujatsu: {
-		num: -20,
+		num: -1020,
 		name: "Kabujatsu",
 
 		types: ["Bug", "Ground"],
@@ -510,7 +510,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	goldenorbweaver: {
-		num: -21,
+		num: -1021,
 		name: "Golden Orb Weaver",
 
 		types: ["Bug", "Rock"],
@@ -530,7 +530,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	dragantis0: {
-		num: -22,
+		num: -1022,
 		name: "Dragantis-0",
 		
 		types: ["Bug"],
@@ -546,7 +546,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	dragantis: {
-		num: -23,
+		num: -1023,
 		name: "Dragantis",
 		
 		types: ["Bug", "Dragon"],
@@ -566,7 +566,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	dragantismega: {
-		num: -23,
+		num: -1023,
 		name: "Dragantis-Mega",
 		
 		baseSpecies: "Dragantis",
@@ -587,7 +587,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	cropcircleartist: {
-		num: -24,
+		num: -1024,
 		name: "Crop Circle Artist",
 
 		types: ["Bug", "Ground"],
@@ -642,7 +642,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 21,
 	},
 	oonabee: {
-		num: -25,
+		num: -1025,
 		name: "Oonabee",
 
 		types: ["Bug", "Fairy"],
@@ -679,7 +679,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Aurulant"],
 	},
 	aurulant: {
-		num: -26,
+		num: -1026,
 		name: "Aurulant",
 
 		types: ["Bug", "Steel"],
@@ -700,7 +700,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	arastinith: {
-		num: -27,
+		num: -1027,
 		name: "Arastinith",
 
 		baseForme: "Shuttle",
@@ -720,7 +720,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	arastinithprotector: {
-		num: -27,
+		num: -1027,
 		name: "Arastinith-Protector",
 
 		baseSpecies: "Arastinith",
@@ -742,7 +742,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	cicadillo: {
-		num: -28,
+		num: -1028,
 		name: "Cicadillo",
 
 		types: ["Bug", "Psychic"],
@@ -762,7 +762,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	sneezibia0: {
-		num: -29,
+		num: -1029,
 		name: "Sneezibia-0",
 
 		types: ["Fire", "Ice"],
@@ -779,7 +779,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	sneezibia1: {
-		num: -30,
+		num: -1030,
 		name: "Sneezibia-1",
 
 		types: ["Fire", "Ice"],
@@ -798,7 +798,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	sneezibia: {
-		num: -31,
+		num: -1031,
 		name: "Sneezibia",
 
 		types: ["Fire", "Ice"],
@@ -834,7 +834,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Gourmant"],
 	},
 	gourmant: {
-		num: -32,
+		num: -1032,
 		name: "Gourmant",
 
 		types: ["Fire", "Dark"],
@@ -912,7 +912,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 		equinoque0: {
-		num: -33,
+		num: -1033,
 		name: "Equinoque-0",
 
 		types: ["Water", "Rock"],
@@ -929,7 +929,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	equinoque1: {
-		num: -34,
+		num: -1034,
 		name: "Equinoque-1",
 
 		types: ["Water", "Rock"],
@@ -948,7 +948,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	equinoque: {
-		num: -35,
+		num: -1035,
 		name: "Equinoque",
 
 		types: ["Water", "Rock"],
@@ -969,7 +969,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	shelldermaadowr: {
-		num: -36,
+		num: -1036,
 		name: "Shellder-Ma'adowr",
 		
 		types: ["Water", "Poison"],
@@ -985,7 +985,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	cloystermaadowr: {
-		num: -37,
+		num: -1037,
 		name: "Cloyster-Ma'adowr",
 		
 		types: ["Water", "Poison"],
@@ -1006,7 +1006,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	kenuterra: {
-		num: -38,
+		num: -1038,
 		name: "Kenuterra",
 
 		types: ["Water", "Ground"],
@@ -1026,7 +1026,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	anquiterra: {
-		num: -39,
+		num: -1039,
 		name: "Anquiterra",
 
 		types: ["Water", "Grass"],
@@ -1046,7 +1046,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	vaheelia0: {
-		num: -40,
+		num: -1040,
 		name: "Vaheelia-0",
 
 		types: ["Ice", "Ghost"],
@@ -1062,7 +1062,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	vaheelia: {
-		num: -41,
+		num: -1041,
 		name: "Vaheelia",
 
 		types: ["Ice", "Ghost"],
@@ -1083,7 +1083,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	grillantic0: {
-		num: -42,
+		num: -1042,
 		name: "Grillantic-0",
 
 		types: ["Ice", "Fire"],
@@ -1099,7 +1099,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	grillantic: {
-		num: -43,
+		num: -1043,
 		name: "Grillantic",
 
 		types: ["Ice", "Fire"],
@@ -1119,7 +1119,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	callouswarden: {
-		num: -44,
+		num: -1044,
 		name: "Callous Warden",
 
 		types: ["Ice", "Steel"],
@@ -1178,7 +1178,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	mummifiedseasnake: {
-		num: -45,
+		num: -1045,
 		name: "Mummified Sea Snake",
 
 		types: ["Electric", "Poison"],
@@ -1198,7 +1198,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	trouvary0: {
-		num: -46,
+		num: -1046,
 		name: "Trouvary-0",
 
 		types: ["Electric", "Ground"],
@@ -1214,7 +1214,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	trouvary: {
-		num: -47,
+		num: -1047,
 		name: "Trouvary",
 
 		types: ["Electric", "Ground"],
@@ -1235,7 +1235,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start	
 	stormulex0: {
-		num: -48,
+		num: -1048,
 		name: "Stormulex-0",
 		
 		types: ["Electric", "Rock"],
@@ -1252,7 +1252,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	stormulex: {
-		num: -49,
+		num: -1049,
 		name: "Stormulex",
 		
 		types: ["Electric", "Rock"],
@@ -1273,7 +1273,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	stormulexmega: {
-		num: -49,
+		num: -1049,
 		name: "Stormulex-Mega",
 		
 		baseSpecies: "Stormulex",
@@ -1295,7 +1295,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
    lostzone: {
-		num: -50,
+		num: -1050,
 		name: "Lost Zone",
 
 		types: ["Electric", "Ghost"],
@@ -1386,7 +1386,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	luminousvessel: {
-		num: -51,
+		num: -1051,
 		name: "Luminous Vessel",
 
 		types: ["Psychic", "Poison"],
@@ -1406,7 +1406,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	toweringeye: {
-		num: -52,
+		num: -1052,
 		name: "Towering Eye",
 
 		types: ["Psychic", "Dark"],
@@ -1683,7 +1683,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	umbreonmaadowr: {
-		num: -53,
+		num: -1053,
 		name: "Umbreon-Ma'adowr",
 		
 		types: ["Poison"],
@@ -1705,7 +1705,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	porygonmaadowr: {
-		num: -54,
+		num: -1054,
 		name: "Porygon-Ma'adowr",
 		
 		types: ["Poison", "Bug"],
@@ -1722,7 +1722,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	porygon2maadowr: {
-		num: -55,
+		num: -1055,
 		name: "Porygon2-Ma'adowr",
 		
 		types: ["Poison", "Bug"],
@@ -1742,7 +1742,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	porygonzmaadowr: {
-		num: -56,
+		num: -1056,
 		name: "Porygon-Z-Ma'adowr",
 	
 		types: ["Poison", "Bug"],
@@ -1764,7 +1764,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	mantykemaadowr: {
-		num: -57,
+		num: -1057,
 		name: "Mantyke-Ma'adowr",
 		
 		types: ["Poison", "Flying"],
@@ -1780,7 +1780,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	mantinemaadowr: {
-		num: -58,
+		num: -1058,
 		name: "Mantine-Ma'adowr",
 		
 		types: ["Poison", "Flying"],
@@ -1833,7 +1833,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoLevel: 22,
 	},
 	orasundra: {
-		num: -59,
+		num: -1059,
 		name: "Orasundra",
 
 		types: ["Poison", "Psychic"],
@@ -1854,7 +1854,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	gravessor: {
-		num: -60,
+		num: -1060,
 		name: "Gravessor",
 		
 		types: ["Poison", "Steel"],
@@ -1873,7 +1873,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	cursinhcor: {
-		num: -61,
+		num: -1061,
 		name: "Cursinhcor",
 		
 		types: ["Poison", "Grass"],
@@ -1963,7 +1963,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	staryumaadowr: {
-		num: -62,
+		num: -1062,
 		name: "Staryu-Ma'adowr",
 		
 		types: ["Rock"],
@@ -1979,7 +1979,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	starmiemaadowr: {
-		num: -63,
+		num: -1063,
 		name: "Starmie-Ma'adowr",
 		
 		types: ["Rock", "Ground"],
@@ -2071,7 +2071,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	binaclemaadowr: {
-		num: -64,
+		num: -1064,
 		name: "Binacle-Ma'adowr",
 		
 		types: ["Rock", "Dark"],
@@ -2087,7 +2087,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	barbaraclemaadowr: {
-		num: -65,
+		num: -1065,
 		name: "Barbaracle-Ma'adowr",
 		
 		types: ["Rock", "Dark"],
@@ -2107,7 +2107,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	monelisk: {
-		num: -66,
+		num: -1066,
 		name: "Monelisk",
 		
 		types: ["Rock", "Psychic"],
@@ -2126,7 +2126,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	magistama: {
-		num: -67,
+		num: -1067,
 		name: "Magistama",
 		
 		types: ["Rock", "Ghost"],
@@ -2145,7 +2145,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	horizonoc: {
-		num: -68,
+		num: -1068,
 		name: "Horizonoc",
 
 		types: ["Rock", "Flying"],
@@ -2165,7 +2165,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	oroboroc: {
-		num: -69,
+		num: -1069,
 		name: "Oroboroc",
 
 		types: ["Rock", "Fire"],
@@ -2185,7 +2185,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	hieroturoc: {
-		num: -70,
+		num: -1070,
 		name: "Hieroturoc",
 
 		types: ["Rock", "Grass"],
@@ -2205,7 +2205,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	vulpixmaadowr: {
-		num: -71,
+		num: -1071,
 		name: "Vulpix-Ma'adowr",
 		
 		types: ["Rock"],
@@ -2221,7 +2221,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	ninetalesmaadowr: {
-		num: -72,
+		num: -1072,
 		name: "Ninetales-Ma'adowr",
 		
 		types: ["Rock", "Fairy"],
@@ -2321,7 +2321,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	garvaluna: {
-		num: -73,
+		num: -1073,
 		name: "Garvaluna",
 		
 		types: ["Rock", "Fairy"],
@@ -2341,7 +2341,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	garvalunabloodmoon: {
-		num: -73,
+		num: -1073,
 		name: "Garvaluna-Bloodmoon",
 		
 		baseSpecies: "Garvaluna",
@@ -2362,7 +2362,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	sizzlipedemaadowr: {
-		num: -74,
+		num: -1074,
 		name: "Sizzlipede-Ma'adowr",
 		
 		types: ["Ground", "Bug"],
@@ -2378,7 +2378,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	centiskorchmaadowr: {
-		num: -75,
+		num: -1075,
 		name: "Centiskorch-Ma'adowr",
 		
 		types: ["Ground", "Bug"],
@@ -2398,7 +2398,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	pincurchinmaadowr: {
-		num: -76,
+		num: -1076,
 		name: "Pincurchin-Ma'adowr",
 		
 		types: ["Ground"],
@@ -2416,7 +2416,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	solgantica: {
-		num: -77,
+		num: -1077,
 		name: "Solgantica",
 
 		types: ["Ground"],
@@ -2434,7 +2434,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	slumberingguardian: {
-		num: -78,
+		num: -1078,
 		name: "Slumbering Guardian",
 
 		types: ["Ground", "Grass"],
@@ -2454,7 +2454,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	pastura0: {
-		num: -79,
+		num: -1079,
 		name: "Pastura-0",
 		
 		types: ["Ground", "Fairy"],
@@ -2470,7 +2470,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	pastura: {
-		num: -80,
+		num: -1080,
 		name: "Pastura",
 		
 		types: ["Ground", "Fairy"],
@@ -2490,7 +2490,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	pasturamega: {
-		num: -80,
+		num: -1080,
 		name: "Pastura-Mega",
 		
 		baseSpecies: "Pastura",
@@ -2511,7 +2511,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	grapplin0: {
-		num: -81,
+		num: -1081,
 		name: "Grapplin-0",
 
 		types: ["Fighting"],
@@ -2527,7 +2527,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	grapplin: {
-		num: -82,
+		num: -1082,
 		name: "Grapplin",
 
 		types: ["Fighting", "Fairy"],
@@ -2548,7 +2548,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	snommaadowr: {
-		num: -83,
+		num: -1083,
 		name: "Snom-Ma'adowr",
 		
 		types: ["Normal", "Bug"],
@@ -2564,7 +2564,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	frosmothmaadowr: {
-		num: -84,
+		num: -1084,
 		name: "Frosmoth-Ma'adowr",
 		
 		types: ["Normal", "Bug"],
@@ -2584,7 +2584,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	lurkingshadow: {
-		num: -85,
+		num: -1085,
 		name: "Lurking Shadow",
 
 		types: ["Normal", "Fighting"],
@@ -2604,7 +2604,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	changelingdoll: {
-		num: -86,
+		num: -1086,
 		name: "Changeling Doll",
 
 		types: ["Normal", "Fairy"],
@@ -2624,7 +2624,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	nottingrat0: {
-		num: -87,
+		num: -1087,
 		name: "Nottingrat-0",
 
 		types: ["Normal", "Poison"],
@@ -2640,7 +2640,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	nottingrat: {
-		num: -88,
+		num: -1088,
 		name: "Nottingrat",
 
 		types: ["Normal", "Poison"],
@@ -2675,7 +2675,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evos: ["Chokiro"],
 	},
 	chokiro: {
-		num: -89,
+		num: -1089,
 		name: "Chokiro",
 
 		types: ["Normal", "Dark"],
@@ -2695,7 +2695,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	sensoryoverloader: {
-		num: -90,
+		num: -1090,
 		name: "Sensory Overloader",
 
 		types: ["Flying", "Ghost"],
@@ -2715,7 +2715,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	ibliss: {
-		num: -91,
+		num: -1091,
 		name: "Ibliss",
 		
 		types: ["Flying"],
@@ -2733,7 +2733,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	gurglingdragon: {
-		num: -92,
+		num: -1092,
 		name: "Gurgling Dragon",
 
 		types: ["Dragon", "Water"],
@@ -2753,7 +2753,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	craftenir0: {
-		num: -93,
+		num: -1093,
 		name: "Craftenir-0",
 
 		types: ["Dragon", "Fairy"],
@@ -2769,7 +2769,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	craftenir1: {
-		num: -94,
+		num: -1094,
 		name: "Craftenir-1",
 
 		types: ["Dragon", "Fairy"],
@@ -2787,7 +2787,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	craftenir: {
-		num: -95,
+		num: -1095,
 		name: "Craftenir",
 
 		types: ["Dragon", "Fairy"],
@@ -2808,7 +2808,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	maudior: {
-		num: -96,
+		num: -1096,
 		name: "Maudior",
 		
 		types: ["Steel", "Fairy"],
@@ -2827,7 +2827,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	mechatauro: {
-		num: -97,
+		num: -1097,
 		name: "Mechatauro",
 		
 		types: ["Steel", "Fire"],
@@ -2846,7 +2846,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	miraplex: {
-		num: -98,
+		num: -1098,
 		name: "Miraplex",
 		
 		types: ["Steel", "Psychic"],
@@ -2865,7 +2865,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	ufogekiss: {
-		num: -99,
+		num: -1099,
 		name: "Ufogekiss",
 
 		types: ["Dark", "Flying"],
@@ -2885,7 +2885,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	flaringdrone: {
-		num: -100,
+		num: -1100,
 		name: "Flaring Drone",
 
 		types: ["Fairy", "Fire"],
@@ -2905,7 +2905,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// start
 	prayingvisitor: {
-		num: -101,
+		num: -1101,
 		name: "Praying Visitor",
 
 		types: ["Fairy", "Grass"],
