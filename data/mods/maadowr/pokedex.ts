@@ -2238,4 +2238,127 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoItem: "Moon Stone",
 		creator: "BlueRay",
 	},
+	// end
+
+	// start
+	rockruff: {
+		num: 744,
+		name: "Rockruff",
+		
+		baseForme: "Midday",
+		types: ["Rock"],
+		baseStats: {hp: 45, atk: 65, def: 40, spa: 30, spd: 40, spe: 60},
+		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "Steadfast", S: "Own Tempo"},
+		category: "Puppy",
+		heightm: 0.5,
+		weightkg: 9.2,
+		color: "Brown",
+		eggGroups: ["Field"],
+		
+		evos: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
+		formeOrder: ["Rockruff", "Rockruff"], // TODO: Rockruff-Dusk
+	},
+	lycanroc: {
+		num: 745,
+		name: "Lycanroc",
+		
+		baseForme: "Midday",
+		types: ["Rock"],
+		baseStats: {hp: 75, atk: 115, def: 65, spa: 55, spd: 65, spe: 112},
+		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Steadfast"},
+		category: "Wolf",
+		heightm: 0.8,
+		weightkg: 25,
+		color: "Brown",
+		eggGroups: ["Field"],
+		
+		prevo: "Rockruff",
+		evoLevel: 25,
+		evoCondition: "during the day",
+		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
+		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
+	},
+	lycanrocmidnight: {
+		num: 745,
+		name: "Lycanroc-Midnight",
+		
+		baseSpecies: "Lycanroc",
+		forme: "Midnight",
+		types: ["Rock"],
+		baseStats: {hp: 85, atk: 115, def: 75, spa: 55, spd: 75, spe: 82},
+		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "No Guard"},
+		category: "Wolf",
+		heightm: 1.1,
+		weightkg: 25,
+		color: "Red",
+		eggGroups: ["Field"],
+
+		evos:  ["Garvaluna"],
+		prevo: "Rockruff",
+		evoLevel: 25,
+		evoCondition: "at night",
+	},
+	lycanrocdusk: {
+		num: 745,
+		name: "Lycanroc-Dusk",
+		
+		baseSpecies: "Lycanroc",
+		forme: "Dusk",
+		types: ["Rock"],
+		baseStats: {hp: 75, atk: 117, def: 65, spa: 55, spd: 65, spe: 110},
+		abilities: {0: "Tough Claws"},
+		category: "Wolf",
+		heightm: 0.8,
+		weightkg: 25,
+		color: "Brown",
+		eggGroups: ["Field"],
+		
+		prevo: "Rockruff",
+		evoLevel: 25,
+		evoCondition: "from a special Rockruff",
+	},
+	// end
+
+	// start
+	garvaluna: {
+		num: -73,
+		name: "Garvaluna",
+		
+		types: ["Rock", "Fairy"],
+		baseStats: {hp: 105, atk: 135, def: 90, spa: 35, spd: 90, spe: 95},
+		abilities: {0: "Rattled", 1: "Vital Spirit", H: "Dark Aura"},
+		category: "Werewolf",
+		heightm: 1.8,
+		weightkg: 47.5,
+		color: "Red",
+		eggGroups: ["Field"],
+
+		prevo: "Lycanroc-Midnight",
+		evoLevel: 50,
+		evoCondition: "at 23:59",
+		otherFormes: ["Garvaluna-Bloodmoon"],
+		formeOrder: ["Garvaluna", "Garvaluna-Bloodmoon"],
+		creator: "BlueRay",
+	},
+	garvalunabloodmoon: {
+		num: -73,
+		name: "Garvaluna-Bloodmoon",
+		
+		baseSpecies: "Garvaluna",
+		forme: "Bloodmoon",
+		types: ["Rock", "Fairy"],
+		gender: "F",
+		baseStats: {hp: 125, atk: 50, def: 105, spa: 120, spd: 80, spe: 75},
+		abilities: {0: "Berserk"},
+		category: "Werewolf",
+		heightm: 2.2,
+		weightkg: 75.0,
+		color: "Red",
+		eggGroups: ["Field"],
+		
+		creator: "BlueRay",
+	},
+	// end
+
+	// start
 };
