@@ -640,7 +640,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
-		type: "Grass",
+		type: "Rock",
 		contestType: "Cute",
 	},
 	dollswar: {
