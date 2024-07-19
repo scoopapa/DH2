@@ -1145,7 +1145,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Swords Dance", "X-Scissor", "Seed Bomb", "Cross Poison"],
-                "teraTypes": ["Poison"]
+                "teraTypes": ["Fire"]
             }
         ]
     },
@@ -1155,7 +1155,7 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Spore", "Leech Life", "Brick Break", "Leech Seed"],
-                "teraTypes": ["Fire"]
+                "teraTypes": ["Poison"]
             }
         ]
     },
