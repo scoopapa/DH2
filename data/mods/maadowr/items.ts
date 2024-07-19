@@ -142,4 +142,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if ((effect as Move)?.status) && (target.species.num === -1068) {
 				this.add('-block', target, '[from] item: Sun Ring');
 			}
-		};
+		},
+		itemUser: ["Horizonoc"],
+		num: -1007,
+		desc: "Horizonoc is immune to status conditions. This effect extends to the ally in Sun.",
+		},
+		// end
+
+		// start
+	};
