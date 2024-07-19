@@ -131,5 +131,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		
-};
+		onAllySetStatus(status, target, source, effect) {
+				if ((effect as Move)?.status) && effectHolder = basespecies.num === -1068 && (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'item: Sun Ring', '[of] ' + effectHolder);
+				}
+				return null;
+			},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) && (target.species.num === -1068) {
+				this.add('-block', target, '[from] item: Sun Ring');
+			}
+		};
