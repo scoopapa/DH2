@@ -1314,7 +1314,7 @@ export class RandomTeams {
 		if (
 			species.id === 'torchic' || species.id === 'croconaw' || species.id === 'aerodactyl' || 
 			species.id === 'virizion' || species.id === 'croagunk' || species.id === 'elekid' ||
-			species.id === 'rockruff' || species.id === 'sandile'
+			species.id === 'rockruff'
 		) return 'Expert Belt';
 		if (species.id === 'combusken' || species.id === 'tyranitar'|| species.id === 'electivire') return 'Air Balloon';
 		if (species.id === 'blaziken') return 'Charcoal';
@@ -1443,6 +1443,7 @@ export class RandomTeams {
 		if (species.id === 'krookodile') return 'Rare Bone';
 		if (species.id === 'dewpider') return 'Mystic Water';
 		if (species.id === 'shroomish') return 'Toxic Orb';
+		if (species.id === 'sandile') return 'Soft Sand';
 	}
 
 	/** Item generation specific to Random Doubles */
