@@ -526,5 +526,59 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// end
 
 	// start
-			
+	vampirism: {
+		onSourceDamagingHit(damage, target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'vampirism') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('vampirism', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: Vampirism', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		flags: {},
+		name: "Vampirism",
+		rating: 3,
+		num: -24,
+	},
+	// end
+
+	// start
+	woodstove: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Wood Stove');
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Wood Stove Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Wood Stove SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Magma Armor');
+				pokemon.cureStatus();
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'frz') return false;
+		},
+		flags: {},
+		name: "Wood Stove",
+		rating: 2,
+		num: -25,
+	},
+	// end
 };
