@@ -369,7 +369,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	poisonspit: {
-			onDamagingHit(damage, target, source, move) {
+		onDamagingHit(damage, target, source, move) {
 			this.field.setTerrain('acidicterrain');
 		},
 		flags: {},
@@ -377,4 +377,154 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 2,
 		num: -16,
 	},
+	// end
+
+	// start
+	reconfiguration: {
+		onStart(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			const bestStat = target.getBestStat(true, true);
+				this.boost({[bestStat]: length}, source);
+			}
+		},
+		flags: {},
+		name: "Reconfiguration",
+		rating: 3,
+		num: -17,
+	},
+	// end
+
+	// start: currently, it only affects the user, rather than the ally as well
+	rewind: {
+		onDamage(damage, target, source, effect) {
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+			) {
+				this.effectState.checkedRewind = false;
+			} else {
+				this.effectState.checkedRewind = true;
+			}
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedRewind;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedRewind = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.actions.useMove('Recycle', pokemon);
+			}
+		},
+		flags: {},
+		name: "Rewind",
+		rating: 4,
+		num: -18,
+	},
+	// end
+
+	// start
+	scaleshift: {
+		shortDesc: "In a double battle, the Pokémon copies its partner's first type.",
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted) return; // should activate *after* Data Mod
+			let newtype = null;
+			for (const ally of pokemon.side.active) {
+				if (
+					ally !== pokemon && !ally.hasAbility('scaleshift') && ally.types[0] !== pokemon.baseSpecies.types[0] &&
+					ally.types[0] !== pokemon.baseSpecies.types[1]
+				) {
+					newtype = ally.types[0];
+				}
+			}
+			if (newtype) {
+				const typecombo = [newtype, pokemon.baseSpecies.types[1]];
+				if (pokemon.getTypes().join() === typecombo.join() || !pokemon.setType(typecombo)) return;
+				this.add('-ability', pokemon, 'Scale Shift');
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+			} else {
+				if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
+				this.add('-ability', pokemon, 'Scale Shift');
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+			}
+		},
+		onEnd(pokemon) {
+			if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
+			this.add('-ability', pokemon, 'Scale Shift');
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+		},
+		name: "Scale Shift",
+		rating: 3,
+		num: -19,
+	},
+	// end
+
+	// start
+	solarcore: {
+		shortDesc: "During intense sunlight, this Pokémon can skip the charging turn of its moves.",
+		onChargeMove(pokemon, target, move) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				this.debug('Solar Core - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		name: "Solar Core",
+		rating: 2,
+		num: -20,
+	},
+	// end
+
+	// start
+	steelbreaker: {
+		shortDesc: "This Pokémon's attacks are critical hits if the target is a Steel-type Pokémon.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.hasType('Steel')) return 5;
+		},
+		name: "Steelbreaker",
+		rating: 3,
+		num: -21,
+	},
+	// end
+
+	// start
+	tempestuous: {
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
+		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (!pokemon.side.faintedLastTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		onStart(pokemon) {
+			if (!pokemon.side.faintedThisTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		name: "Tempestuous",
+		rating: 3,
+		num: -22,
+	},
+	// end
+
+	// start
+	// thermal expansion
+
+	// end
+
+	// start
+			
 };
