@@ -78,9 +78,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset[move].push("9L1");
 			}
 		}
-		//Brazdan move additions
+		//Shuppet line
 		this.modData("Learnsets", "shuppet").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "banette").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "banette").learnset.drainpunch = ["9L1","8L1"];
 		
 		//Lorian move additions
 		this.modData("Learnsets", "spearow").learnset.payday = ["9L1","8L1"];
