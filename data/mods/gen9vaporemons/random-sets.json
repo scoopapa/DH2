@@ -1814,7 +1814,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Bullet Punch", "Close Combat", "Facade", "Headlong Rush", "Knock Off"],
+                "movepool": ["Bullet Punch", "Close Combat", "Lash Out", "Headlong Rush"],
                 "teraTypes": ["Normal"]
             },
             {
@@ -5859,7 +5859,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Brave Bird", "Facade", "Protect", "Quick Attack", "U-turn"],
+                "movepool": ["Brave Bird", "Facade", "Protect", "Quick Attack", "U-turn", "Lash Out"],
                 "teraTypes": ["Normal"]
             }
         ]
@@ -5879,7 +5879,7 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Brave Bird", "Facade", "Protect", "Quick Attack", "U-turn"],
+                "movepool": ["Brave Bird", "Facade", "Protect", "Quick Attack", "U-turn", "Lash Out"],
                 "teraTypes": ["Normal"]
             }
         ]
