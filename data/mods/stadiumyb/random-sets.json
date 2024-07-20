@@ -1834,7 +1834,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Order Up", "Surf", "Soak", "Scary Face"],
+                "movepool": ["Order Up", "Waterfall", "Rain Dance", "Scary Face"],
                 "teraTypes": ["Dragon"]
             }
         ]
