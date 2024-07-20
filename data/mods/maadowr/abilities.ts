@@ -100,6 +100,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.boost({spe: 2});
 			}
 		}
+		name: "Amp Up",
+	   rating: 2,
+	   num: -4,
 	},
 	// end
 
@@ -112,10 +115,124 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				pokemon.addVolatile('torment', source, effect);
 			}
 		}
-	}		
+	   name: "Buzz",
+		rating: 3,
+		num: -5,
+	},		
 	// end
 
 	// start
-
+   chainlink: {
+		shortDesc: "In a double battle, the Pokémon steals its partner's Steel type.",
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted) return; // should activate *after* Data Mod
+			if (!pokemon.hasType('Steel')) {
+				for (const ally of pokemon.allies()) {
+					if (ally.hasAbility('chainlink')) continue; // don't bounce back and forth indefinitely
+					if (ally.hasType('Steel') && pokemon.addType('Steel')) {
+						this.add('-ability', pokemon, 'Chain Link');
+						this.add('-message', `${pokemon.name} stole its partner's armor!`);
+						this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Ability: Chain Link');
+						ally.addVolatile('chainlink');
+					}
+				}
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.hasType('Steel')) return;
+			// doesn't happen twice if the ally has already returned the armor
+			for (const ally of pokemon.allies()) {
+				ally.removeVolatile('chainlink');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
+			onSwitchOut(pokemon) { // it seems like volatiles may not run onEnd on their own the way Abilities do
+				pokemon.removeVolatile('chainlink');
+			},
+			onFaint(pokemon) {
+				pokemon.removeVolatile('chainlink');
+			},
+			onEnd(pokemon) {
+				for (const ally of pokemon.allies()) { // revert Chain Link user's type first
+					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
+						let types = ally.baseSpecies.types;
+						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
+						this.add('-ability', ally, 'Chain Link');
+						this.add('-message', `${ally.name} returned its partner's armor!`);
+						this.add('-start', ally, 'typechange', ally.types.join('/'));
+						types = pokemon.baseSpecies.types;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+					}
+				}
+			},
+		},
+		name: "Chain Link",
+		rating: 3,
+		num: -6,
+	},
 	// end
+
+	// start
+	coupdegrass: {
+		desc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
+		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/2 or less HP.",
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
+			if (!target) return;
+			if (!action.move.spreadHit && target.hp && target.hp <= target.maxhp / 2) {
+				pokemon.addVolatile('coupdegrass');
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				const action = this.queue.willMove(pokemon);
+				if (action) {
+					this.add('-ability', pokemon, 'Coup de Grass');
+					this.add('-message', `${pokemon.name} prepared to move immediately!`);
+				}
+			},
+			onModifyPriority(priority) {
+				return priority + 0.1;
+			},
+		},
+		name: "Coup de Grass",
+		rating: 3,
+		num: -7,
+	},
+	// end
+
+	// start: currently, only heals user rather than ally as well
+	cultivation: {
+			onTerrainChange(target, source) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('acidicterrain')) {
+				this.heal(target.baseMaxhp / 16);
+			}
+		}
+		name: "Cultivation",
+		rating: 2,
+		num: -8,
+	},
+	// end
+
+	// start
+	gravitas: {
+		shortDesc: "On switch-in, this Pokémon summons Gravity.",
+		onStart(source) {
+			this.field.addPseudoWeather('gravity');
+		},
+		name: "Gravitas",
+		rating: 4,
+		num: -9,
+	},
+	// end
+
+	// start
 };
