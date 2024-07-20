@@ -368,4 +368,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// end
 
 	// start
+	poisonspit: {
+			onDamagingHit(damage, target, source, move) {
+			this.field.setTerrain('acidicterrain');
+		},
+		flags: {},
+		name: "Poison Spit",
+		rating: 2,
+		num: -16,
+	},
 };
