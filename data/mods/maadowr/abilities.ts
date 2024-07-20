@@ -296,4 +296,76 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -12,
 	},
 	// end
+	// malware
+	// start
+	masquerade: {
+		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
+		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp || pokemon.volatiles['masquerade']) return;
+			pokemon.addVolatile('masquerade');
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (!pokemon.side.pokemon[i]) continue;
+				const additionalBannedAbilities = [
+					'noability', 'flowergift', 'forecast', 'hugepower', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas',
+					'powerofalchemy', 'purepower', 'receiver', 'trace', 'wonderguard',
+				];
+				if (
+					pokemon.side.pokemon[i].fainted ||
+					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
+				) {
+					continue;
+				}
+				break;
+			}
+			if (!pokemon.side.pokemon[i] || pokemon === pokemon.side.pokemon[i]) {
+				this.effectState.gaveUp = true;
+				return;
+			}
+			const masquerade = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Masquerade');
+			pokemon.setAbility(masquerade.ability);
+			this.hint(`${pokemon.name} inherited ${this.dex.abilities.get(pokemon.ability).name} from ${masquerade.name}!`);
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name, '[silent]');
+		},
+		condition: {
+			onDamagingHit(damage, target, source, move) {
+				this.effectState.busted = true;
+			},
+			onFaint(pokemon) {
+				this.effectState.busted = true;
+			},
+			onUpdate(pokemon) {
+				if (pokemon.hasAbility('masquerade')) return;
+				if (this.effectState.busted) {
+					this.add('-ability', pokemon, 'Masquerade');
+					this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
+					pokemon.setAbility('masquerade');
+				}
+			},
+		},
+		name: "Masquerade",
+		rating: 3,
+		num: -14,
+	},
+	// end
+
+	// start
+	permafrost: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Permafrost boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Permafrost",
+		rating: 3.5,
+		num: -15,
+	},
+	// end
+
+	// start
 };
