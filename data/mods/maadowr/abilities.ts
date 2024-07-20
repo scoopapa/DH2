@@ -92,4 +92,30 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// end
 
 	// start
+   ampup: {
+		desc: "When this Pokémon's move misses, raises its Speed by 1 stage.",
+		shortDesc: "Raises user's Speed by 1 stage if its move misses.",
+		onModifySpe(spe, pokemon) {
+			if Pokemon.moveThisTurnResult = false {
+				this.boost({spe: 2});
+			}
+		}
+	},
+	// end
+
+	// start
+   buzz: {
+		desc: "When this Pokémon uses a Sound move, the target(s) will be inflicted with a Torment effect.",
+		shortDesc: "Inflicts Torment effect if the Pokémon uses a Sound move.",
+		onHit(source, target, move) {
+			if (move.flags['sound']) {
+				pokemon.addVolatile('torment', source, effect);
+			}
+		}
+	}		
+	// end
+
+	// start
+
+	// end
 };
