@@ -235,4 +235,65 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// end
 
 	// start
+	illwind: {
+		shortDes: "Sets Tailwind when user replaces a fainted ally.",
+		onAfterMega(pokemon) {
+			if (!pokemon.side.faintedLastTurn) return;
+			this.field.addPseudoWeather('tailwind');
+	   },
+		onStart(pokemon) {
+			if (!pokemon.side.faintedThisTurn) return;
+			this.field.addPseudoWeather('tailwind');
+		},
+		name: "Ill Wind",
+		rating: 5,
+		num: -10,
+	},
+	// end
+
+	// start
+	inoculum: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Inoculum');
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Inoculum Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Inoculum SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		flags: {},
+		name: "Inoculum",
+		rating: 2,
+		num: -11,
+	},
+	// end
+
+	// start
+	interference: {
+   	onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				source.addVolatile('torment', this.effectState.target);
+			}
+		}
+		flags: {},
+		name: "Interference",
+		rating: 3,
+		num: -12,
+	},
+	// end
 };
