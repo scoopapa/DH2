@@ -1353,6 +1353,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Electric"],
 		baseStats: {hp: 80, atk: 120, def: 79, spa: 95, spd: 79, spe: 70},
 		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
+		movepoolAdditions: ["futuresight", "thunderousroar"],
 		category: "Gleam Eyes",
 		heightm: 1.4,
 		weightkg: 42.0,
@@ -2038,6 +2039,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Gigalith"],
 		baseStats: {hp: 80, atk: 135, def: 130, spa: 60, spd: 80, spe: 25},
 		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Sand Force"},
+		movepoolAdditions: ["recover", "timecompressor"],
 		category: "Compressed",
 		heightm: 1.7,
 		weightkg: 260.0,
@@ -3018,4 +3020,64 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Cute Charm", 1: "Wonder Skin", H: "Pixilate"},
 	},
 	// end
+
+	// start
+	eelektross: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Surge Surfer"},
+		movepoolAdditions: ["shortcircuit"],
+	},
+	// end
+
+	// start
+	lucario: {
+		inherit: true,
+		abilities: {0: "Aura Break", 1: "Inner Focus", H: "Justified"},
+	},
+	// end
+
+	// start
+	metagross: {
+		inherit: true,
+		movepoolDeletions: ["heavyslam", "psychicfangs", "steelroller"],
+	},
+	// end
+
+	// start
+	musharna: {
+		inherit: true,
+		abilities: {0: "Comatose", 1: "Synchronize", H: "Telepathy"},
+	},
+	// end
+
+	// start
+	purugly: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 102, def: 64, spa: 64, spd: 59, spe: 112},
+	},
+	// end
+
+	// start
+	slaking: {
+		inherit: true,
+		movepoolAdditions: ["fakeout", "feint"],
+	},
+	// end
+
+	// start
+	tentacool: {
+		inherit: true,
+		movepoolAdditions: ["strengthsap"],
+	},
+	tentacruel: {
+		inherit: true,
+		movepoolAdditions: ["strengthsap"],
+	},
+	// end
+
+	// start
+	yanmega: {
+		inherit: true,
+		movepoolAdditions: ["hurricane"],
+	},
 };
