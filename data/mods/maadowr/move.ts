@@ -232,4 +232,182 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
+	frostbite: {
+		num: -10,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Causes 1/8 residual damage to the target every turn.",
+		name: "Frost Bite",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bite: 1},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Frost Bite');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 8);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Frost Bite');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'frostbite',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	gigavolt: {
+		num: -11,
+		accuracy: 100,
+		basePower: 140,
+		category: "Physical",
+		shortDesc: "Causes paralysis if user gets interrupted.",
+		name: "Giga Volt",
+		pp: 5,
+		priority: -3,
+		flags: {contact: 1, protect: 1, punch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('gigavolt');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['gigavolt']?.lostFocus) {
+				source.trySetStatus('par', target);
+				this.add('cant', pokemon, 'Giga Volt', 'Giga Volt');
+				return true;
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Giga Volt');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					this.effectState.lostFocus = true;
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	// golddigger
+	// end
+
+	// start
+	honeydew: {
+		num: -13,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Honey Dew",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return boost({atk: 1, spa: 1}) if (pokemon.hasType('Bug')); || success;
+		},
+		secondary: null,
+		target: "allies",
+		type: "Bug",
+	},
+   // end
+
+	// start
+	icechain: {
+		num: -14,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Ice Chain",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	hasamiwaza: {
+		num: -15,
+		accuracy: 100,
+		basePower: 140,
+		category: "Physical",
+		shortDesc: "Causes Intimidate if user gets interrupted.",
+		name: "Hasami-waza",
+		pp: 5,
+		priority: -3,
+		flags: {contact: 1, protect: 1, punch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('hasamiwaza');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['hasamiwaza']?.lostFocus) {
+				this.add('-ability', pokemon, 'Intimidate', 'boost');
+				this.add('cant', pokemon, 'Hasami-waza', 'Hasami-waza');
+				return true;
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Hasami-waza');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					this.effectState.lostFocus = true;
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	lightningswing: {
+		num: -16,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Lightning Swing",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
 };
