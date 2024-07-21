@@ -135,7 +135,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	queen: {
+	queendr: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
