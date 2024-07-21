@@ -746,52 +746,50 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		terrain: 'acidicterrain',
 		condition: {
 			duration: 5,
-		durationCallback(source, effect) {
-			if (source?.hasItem('terrainextender')) {
-				return 8;
-			}
-			return 5;
-		},
-		onBasePowerPriority: 6,
-		onBasePower(basePower, attacker, defender, move) {
-			if (this.getAllActive().some(x => x.hasAbility('downtoearth'))) return;
-			if (move.type === 'Poison' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-				this.debug('acidic terrain boost');
-				return this.chainModify([5325, 4096]);
-			}
-		},
-		onModifyMovePriority: -5,
-		onModifyMove(move, source, target) {
-			if (this.getAllActive().some(x => x.hasAbility('downtoearth'))) return;
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Poison'] = true;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Poison') {
-				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !this.dex.getImmunity('Poison', target)) {
-					this.add('-immune', target);
-					this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
-					return null;
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
 				}
-			}
-		},
-		onFieldStart(field, source, effect) {
-			if (effect?.effectType === 'Ability') {
-				this.add('-fieldstart', 'move: Acidic Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
-				this.add('-message', "Poison-type moves used by grounded Pokémon will have their power increased.");
-				this.add('-message', "Grounded Steel-type Pokémon will also lose their immunity to Poison-type moves.");
-			} else {
-				this.add('-fieldstart', 'move: Acidic Terrain');
-			}
-		},
-		onFieldResidualOrder: 27,
-		onFieldResidualSubOrder: 7,
-		onFieldEnd() {
-			this.add('-fieldend', 'move: Acidic Terrain');
-		},
- 	},
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Poison' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('acidic terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onModifyMovePriority: -5,
+			onModifyMove(move, source, target) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Poison'] = true;
+				}
+			},
+			onTryHit(target, source, move) {
+				if (move.type === 'Poison') {
+					if ((!target.isGrounded() || target.isSemiInvulnerable()) && !this.dex.getImmunity('Poison', target)) {
+						this.add('-immune', target);
+						this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
+						return null;
+					}
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Acidic Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+					this.add('-message', "Poison-type moves used by grounded Pokémon will have their power increased.");
+					this.add('-message', "Grounded Steel-type Pokémon will also lose their immunity to Poison-type moves.");
+				} else {
+					this.add('-fieldstart', 'move: Acidic Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Acidic Terrain');
+			},
+ 		},
 		secondary: null,
 		target: "all",
 		type: "Poison",
@@ -935,6 +933,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.debug('BP doubled in Terrain');
 			}
 		},
+	},
+	// end
+
+	// start
+	waterpulse: {
+		inherit: true,
+		basePower: 75,
 	},
 	// end
 
