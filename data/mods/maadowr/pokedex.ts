@@ -2922,4 +2922,100 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "BlueRay",
 	},
 	// end
+
+	// start
+	dewpider: {
+		inherit: true,
+		movepoolAdditions: ["lifedew"],
+	},
+	araquanid: {
+		inherit: true,
+		movepoolAdditions: ["lifedew"],
+	},
+	araquanidtotem: {
+		inherit: true,
+		movepoolAdditions: ["lifedew"],
+	},
+	// end
+
+	// start
+	bronzor: {
+		inherit: true,
+		movepoolAdditions: ["healbell", "rapidspin"],
+	},
+	bronzong: {
+		inherit: true,
+		movepoolAdditions: ["healbell", "rapidspin"],
+	},
+	// end
+
+	// start
+	carbink: {
+		inherit: true,
+		movepoolAdditions: ["timecompressor"],
+	},
+	// end
+
+	// start
+	litwick: {
+		inherit: true,
+		movepoolAdditions: ["torchsong"],
+	},
+	lampent: {
+		inherit: true,
+		movepoolAdditions: ["torchsong"],
+	},
+	chandelure: {
+		inherit: true,
+		movepoolAdditions: ["torchsong"],
+	},
+	// end
+
+	// start
+	baltoy: {
+		inherit: true,
+		movepoolAdditions: ["shoreup"],
+	},
+	claydol: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 70, def: 105, spa: 70, spd: 120, spe: 75},
+		movepoolAdditions: ["shoreup"],
+	},
+	// end
+
+	// start
+	flareon: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Guts"},
+		movepoolAdditions: ["burnup"],
+	},
+	jolteon: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", 1: "Tempestuous", H: "Quick Feet"},
+	},
+	vaporeon: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Misty Surge", H: "Hydration"},
+	},
+	espeon: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Solar Power", H: "Magic Bounce"},
+	},
+	umbreon: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Keen Eye", H: "Inner Focus"},
+	},
+	glaceon: {
+		inherit: true,
+		abilities: {0: "Snow Cloak", 1: "Clear Body", H: "Ice Body"},
+	},
+	leafeon: {
+		inherit: true,
+		abilities: {0: "Leaf Guard", 1: "Sharpness", H: "Chlorophyll"},
+	},
+	sylveon: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Wonder Skin", H: "Pixilate"},
+	},
+	// end
 };
