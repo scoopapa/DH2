@@ -481,5 +481,117 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
-			
+	sandpit: {
+		num: -21,
+		accuracy: 90,
+		basePower: 85,
+		category: "Physical",
+		name: "Sand Pit",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryImmunity(target) {
+			return this.dex.getImmunity('trapped', target);
+		},
+		volatileStatus: 'sandpit',
+		condition: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'move: Sandpit', '[of] ' + source);
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				const source = this.effectState.source;
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+					delete pokemon.volatiles['sandpit'];
+					this.add('-end', pokemon, 'Sandpit', '[partiallytrapped]', '[silent]');
+					return;
+				}
+				this.boost({spe: -1}, pokemon, source, this.dex.getActiveMove('sandpit'));
+			},
+			onTrapPokemon(pokemon) {
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	sensorycues: {
+		num: -22,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target) {
+			return 50 + 50 * target.negativeBoosts();
+		},
+		category: "Special",
+		name: "Sensory Cues",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	// end
+
+	// start
+	shortcircuit: {
+		num: -23,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Recovers half of the damage done to the target, 2/3 in Electric Terrain.",
+		name: "Circuit Short",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, bite: 1},
+		drain: [1, 2] if (!this.field.isTerrain('electricterrain')),
+		drain: [2, 3] if (this.field.isTerrain('electricterrain')),
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	// end
+
+	// start
+	soothingsong: {
+		num: -24,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Soothing Song",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		volatileStatus: 'torment',
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	// end
+
+	// start
+	subdued: {
+		num: -25,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Subdued",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'torment',
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	// end
 };
