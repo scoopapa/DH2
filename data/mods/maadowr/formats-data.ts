@@ -314,4 +314,236 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	cicadillo: {
 		tier: "MD",
 	},
+   flareon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	torkoal: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	litleo: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	pyroar: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	charcadet: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	armarouge: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	ceruledge: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	heatmor: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gourmant: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sneezibia0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	sneezibia1: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	sneezibia: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	vaporeon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	lapras: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	tentacool: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	tentacruel: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	magikarp: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gyarados: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	shelldermaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	cloystermaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	slowpoke: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	slowbro: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	slowking: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	poliwag: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	poliwhirl: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	poliwrath: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	politoed: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	horsea: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	seadra: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	kingdra: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	chinchou: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	lanturn: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	dragantis0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	remoraid: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	octillery: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	wingull: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	pelipper: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	lotad: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	lombre: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	ludicolo: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	relicanth: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	feebas: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	milotic: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	shellos: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gastrodon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	alomomola: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	clauncher: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	clawitzer: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	pyukumuku: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	dewpider: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	araquanid: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	veluza: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	equinoque0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	equinoque1: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	equinoque: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	kenuterra: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	anquiterra: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	glaceon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 };
