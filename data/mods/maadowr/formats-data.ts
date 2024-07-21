@@ -23,6 +23,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+  cacturnemega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
   snover: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
@@ -31,6 +35,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+  abomasnowmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},	
   leafeon: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -152,6 +160,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "M",
 	},
   heracross: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+  heracrossmega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -299,6 +311,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	dragantismega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	goldenorbweaver: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -327,6 +343,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	pyroar: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	pyroarmega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -386,6 +406,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	gyaradosmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	shelldermaadowr: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
@@ -399,6 +423,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	slowbro: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	slowbromega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -441,10 +469,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lanturn: {
 		tier: "MD",
 		doublesTier: "MD",
-	},
-	dragantis0: {
-		tier: "MD NFE",
-		doublesTier: "MD NFE",
 	},
 	remoraid: {
 		tier: "MD NFE",
@@ -582,6 +606,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	cryogonalmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	vaheelia0: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
@@ -626,6 +654,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	manectricmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	rotom: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -659,6 +691,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	luxray: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	luxraymega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -718,6 +754,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	stormulexmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	mummifiedseasnake: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -742,7 +782,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	gardevoirmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	gallade: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gallademega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -814,6 +862,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	gengarmega: {
+		tier: "MD Ubers",
+		doublesTier: "MD",
+	},
 	spiritomb: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -826,11 +878,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	drifblimmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	yamask: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
 	},
 	cofagrigus: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	cofagrigusmega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -915,6 +975,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	gigalith: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gigalithmega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -1070,6 +1134,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	pasturamega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	solgantica: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -1084,6 +1152,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	lucario: {
 		tier: "MD",
+		doublesTier: "MD",
+	},
+	lucariomega: {
+		tier: "MD Ubers",
 		doublesTier: "MD",
 	},
 	timburr: {
@@ -1111,6 +1183,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	kangaskhan: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	kangaskhanmega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -1242,6 +1318,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	garchompmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	druddigon: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -1306,6 +1386,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	mawilemega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	beldum: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
@@ -1316,6 +1400,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	metagross: {
 		tier: "MD",
+		doublesTier: "MD",
+	},
+	metagrossmega: {
+		tier: "MD Ubers",
 		doublesTier: "MD",
 	},
 	bronzor: {
@@ -1370,6 +1458,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	crobatmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	umbreonmaadowr: {
 		tier: "MD",
 		doublesTier: "MD",
@@ -1410,11 +1502,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	drapionmega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	skrelp: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
 	},
 	dragalge: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+   dragalgemega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -1458,7 +1558,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	houndoommega: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	sableye: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sableyemega: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
