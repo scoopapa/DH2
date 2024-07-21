@@ -990,5 +990,373 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	phanpy: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	donphan: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	baltoy: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	claydol: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	hippopotas: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	hippowdon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gligar: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gliscor: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sandile: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	krokorok: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	krookodile: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	golett: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	golurk: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	drilbur: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	excadrill: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	sizzlipedemaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	centiskorch: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	pincurchinmaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	pastura0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	pastura: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	solgantica: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	slumberingguardian: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	riolu: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	lucario: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	timburr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gurdurr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	conkeldurr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	grapplin0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	grapplin: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	ditto: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	kangaskhan: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rattata: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	raticate: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	eevee: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	smeargle: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	slakoth: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	vigoroth: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	slaking: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	glameow: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	purugly: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	drampa: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	snommaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	frosmothmaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	girafarig: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	farigiraf: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	dunsparce: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	dudunsparce: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	tandemaus: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	maushold: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	nottingrat0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	nottingrat: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	lurkingshadow: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	changelingdoll: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	kecleon: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	chokiro: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	noibat: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	noivern: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	flamigo: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sensoryoverloader: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	ibliss: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gible: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gabite: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+   garchomp: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	druddigon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	jangmoo: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	hakamoo: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	kommoo: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	dreepy: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	drakloak: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	dragapult: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	frigibax: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	arctibax: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	baxcalibur: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	craftenir0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	craftenir1: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	craftenir: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gurglingdragon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	skarmory: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	mawile: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	beldum: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	metang: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	metagross: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	bronzor: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	bronzong: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	klink: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	klang: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	klinklang: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+   klefki: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gholdengo: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	maudior: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	mechatauro: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	miraplex: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 	
 };
