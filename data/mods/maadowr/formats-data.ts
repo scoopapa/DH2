@@ -546,4 +546,188 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	swinub: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	piloswine: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	mamoswine: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	cubchoo: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	beartic: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	vanillite: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	vanillish: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	vanilluxe: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	cryogonal: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	vaheelia0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+   vaheelia: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	grillantic0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	vaheelia: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	callouswarden: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	jolteon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	pichu: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	pikachu: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	raichu: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	electrike: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	manectric: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rotom: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rotomwash: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rotomheat: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rotommow: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rotomfrost: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rotomfan: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	shinx: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	luxio: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	luxray: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	magnemite: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	magneton: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	maggnezone: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	tynamo: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	eelektrik: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	eelektross: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	blitzle: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	zebstrika: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	helioptile: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	heliolisk: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	trouvary0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	trouvary: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+   stormulex0: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	stormulex: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	mummifiedseasnake: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	lostzone: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	espeon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 };
