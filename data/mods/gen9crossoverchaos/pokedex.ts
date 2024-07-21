@@ -336,7 +336,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Cursed Body", H: "Supreme Overlord"},
 		weightkg: 0.1,
 	},
-	queen: {
+	queendr: {
 		num: 31,
 		name: "Queen",
 		types: ["Steel", "Electric"],
