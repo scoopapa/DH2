@@ -410,4 +410,76 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
+	lunardust: {
+		num: -17,
+		accuracy: 95,
+		basePower: 95,
+		category: "Physical",
+		name: "Lunar Dust",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
+		},
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	prismaticlaser: {
+		num: -18,
+		accuracy: 90,
+		basePower: 120,
+		category: "Special",
+		name: "Lunar Storm",
+		pp: 10,
+		priority: 0,
+		flags: {recharge: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	// end
+
+   // start
+	motioncap: {
+		num: -19,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Motion Cap",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, bypasssub: 1},
+		stealsBoosts: true,
+		// Boost stealing implemented in scripts.js
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	// end
+
+	// start
+	// recalibration
+	// end
+
+	// start
+			
 };
