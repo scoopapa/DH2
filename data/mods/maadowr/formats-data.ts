@@ -730,4 +730,265 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	ralts: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	kirlia: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gardevoir: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gallade: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gothita: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gothorita: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gothitelle: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	somniam: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	musharna: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	elgyem: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	beheeyem: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sigilyph: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	indeedee: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	indeedeef: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	flittle: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	espathra: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	toweringeye: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	luminousvessel: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gastly: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	haunter: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gengar: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	spiritomb: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	drifloon: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	drifblim: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	yamask: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	cofagrigus: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	litwick: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	lampent: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	chandelure: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	dhelmise: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	mimikyu: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gimmighoul: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	sylveon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	tinkatink: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	tinkatuff: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	tinkaton: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	flaringdrone: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	prayingvisitor: {
+		tier: "MD NFE",
+		doublesTier: "Illegal",
+	},
+	staryumaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	starmiemaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	vulpixmaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	ninetalesmaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	nosepass: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	probopass: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	roggenrola: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	boldore: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	gigalith: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	carbink: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	binaclemaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	barbaraclemaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	stonjourner: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	glimmet: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	glimmora: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	monelisk: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	magistama: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	horizonoc: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	oroboroc: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	hieroturoc: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	rockruff: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	rockruffdusk: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	lycanroc: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	lycanrocmidnight: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	lycanrocdusk: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	garvaluna: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	garvalunabloodmoon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	
 };
