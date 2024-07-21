@@ -1,3 +1,3 @@
 export const Aliases: {[alias: string]: string} = {
-	queen: null,
+	queen: "Queen",
 };
