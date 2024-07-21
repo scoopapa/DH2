@@ -2907,7 +2907,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			liquidation: ["9L1"],
 			iciclecrash: ["9L1"],
 			iciclespear: ["9L1"],
-			heatcrash999: ["9L1"],
+			heatcrash: ["9L1"],
 			heavyslam: ["9L1"],
 			woodhammer: ["9L1"],
 			dragontail: ["9L1"],
