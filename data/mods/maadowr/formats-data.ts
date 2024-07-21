@@ -1358,5 +1358,148 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
-	
+	zubat: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	golbat: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	crobat: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	umbreonmaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	mantykemaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	mantinemaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	porygonmaadowr: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	porygon2maadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	porygonzmaadowr: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	croagunk: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	toxicroak: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	skorupi: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	drapion: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	skrelp: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	dragalge: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	salandit: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	salazzle: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	ekans: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	arbok: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	orasundra: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	gravessor: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	cursinhcor: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	umbreon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	houndoor: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	houndoom: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sableye: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	sneasel: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	weavile: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	vullaby: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	mandibuzz: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	purrloin: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	liepard: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	deino: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+   zweilous: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	hydreigon: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
+	ufogekiss: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
 };
