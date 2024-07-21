@@ -1699,7 +1699,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			attackorder: ["9L1"],
 			axekick: ["9L1"],
 			blazekick: ["9L1"],
-			flash: ["9L1"],
 			highjumpkick: ["9L1"],
 			megakick: ["9L1"],
 			moonlight: ["9L1"],
