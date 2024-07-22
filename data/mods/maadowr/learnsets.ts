@@ -2695,4 +2695,52 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	mummifiedseasnake: {
+		learnset: {
+			acidarmor: ["9M"],
+			acidicterrain: ["9M"],
+			acidspray: ["9M"],
+			ancientpower: ["9M"],
+			auroraveil: ["9M"],
+			bodypress: ["9M"],
+			charge: ["9M"],
+			coil: ["9M"],
+			crunch: ["9M"],
+			discharge: ["9M"],
+			dragondance: ["9M"],
+			dragonpulse: ["9M"],
+			electricterrain: ["9M"],
+			facade: ["9M"],
+			gigadrain: ["9M"],
+			gunkshot: ["9M"],
+			hyperbeam: ["9M"],
+			magnetrise: ["9M"],
+			paraboliccharge: ["9M"],
+			protect: ["9M"],
+			rest: ["9M"],
+			risingvoltage: ["9M"],
+			scaleshot: ["9M"],
+		   sleeptalk: ["9M"],
+			sludgebomb: ["9M"],
+			sludgewave: ["9M"],
+			snore: ["9M"],
+			substitute: ["9M"],
+			superfang: ["9M"],
+			terrainpulse: ["9M"],
+			thunderfang: ["9M"],
+			thunderwave: ["9M"],
+		   torment: ["9M"],
+			toxic: ["9M"],
+			venomdrench: ["9M"],
+			venoshock: ["9M"],
+			voltomator: ["9M"],
+			voltswitch: ["9M"],
+			wrap: ["9M"],
+			wringout: ["9M"],
+			zapcannon: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
