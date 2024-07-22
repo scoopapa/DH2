@@ -685,6 +685,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 83, atk: 124, def: 127, spa: 58, spd: 58, spe: 94},
 		abilities: {0: "Earth Eater", 1: "Good as Gold", H: "Truant"},
+		movepoolAdditions: ["acidspray", "bodypress", "honeydew"],
 		category: "Golden Ant",
 		heightm: 1.3,
 		weightkg: 99.0,
