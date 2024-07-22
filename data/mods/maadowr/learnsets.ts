@@ -1784,4 +1784,42 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	cicadillo: {
+		learnset: {
+			alluringvoice: ["9M"],
+			ancientpower: ["9M"],
+			bugbuzz: ["9M"],
+			calmmind: ["9M"],
+			echoedvoice: ["9M"],
+			endeavor: ["9M"],
+			expandingforce: ["9M"],
+			healbell: ["9M"],
+			helpinghand: ["9M"],
+			hex: ["9M"],
+			hypervoice: ["9M"],
+			infestation: ["9M"],
+			lifedew: ["9M"],
+			lunge: ["9M"],
+			painsplit: ["9M"],
+			perishsong: ["9M"],
+			pounce: ["9M"],
+			protect: ["9M"],
+			psychic: ["9M"],
+			psychicnoise: ["9M"],
+			psychicterrain: ["9M"],
+			psywave: ["9M"],
+		   screech: ["9M"],
+			skittersmack: ["9M"],
+			sleeptalk: ["9M"],
+			snore: ["9M"],
+			sparklingaria: ["9M"],
+		   storedpower: ["9M"],
+			strugglebug: ["9M"],
+			substitute: ["9M"],
+			willowisp: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
