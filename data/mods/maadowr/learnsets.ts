@@ -2109,8 +2109,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			waterfall: ["9M"],
 			waterpledge: ["9M"],
 			wavecrash: ["9M"],
-		}
-	}
+		},
+	},
 	equinoque1: {
 		learnset: {
 			airslash: ["9M"],
@@ -2154,8 +2154,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			waterfall: ["9M"],
 			waterpledge: ["9M"],
 			wavecrash: ["9M"],
-		}
-	}
+		},
+	},
 	equinoque: {
 		learnset: {
 			airslash: ["9M"],
@@ -2200,8 +2200,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			waterfall: ["9M"],
 			waterpledge: ["9M"],
 			wavecrash: ["9M"],
-		}
-	}
+		},
+	},
 	// end
 
 	// start
@@ -2381,6 +2381,103 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			weatherball: ["9M"],
 			whirlpool: ["9M"],
 			withdraw: ["9M"],
+		},
+	},
+	// end
+
+	// start
+	kenuterra: {
+		learnset: {
+			agility: ["9M"],
+			ancientpower: ["9M"],
+			aquajet: ["9M"],
+			aquaring: ["9M"],
+			assurance: ["9M"],
+			bodypress: ["9M"],
+			bulkup: ["9M"],
+			cosmicpower: ["9M"],
+			doubleedge: ["9M"],
+			earthpower: ["9M"],
+			earthquake: ["9M"],
+			defog: ["9M"],
+			facade: ["9M"],
+			focusenergy: ["9M"],
+			gigaimpact: ["9M"],
+			grassyglide: ["9M"],
+			grassyterrain: ["9M"],
+			headsmash: ["9M"],
+			heavyslam: ["9M"],
+			highhorsepower: ["9M"],
+			hornleech: ["9M"],
+			ironhead: ["9M"],
+			lifedew: ["9M"],
+			liquidation: ["9M"],
+			megahorn: ["9M"],
+			morningsun: ["9M"],
+			muddywater: ["9M"],
+			payback: ["9M"],
+			protect: ["9M"],
+			quickattack: ["9M"],
+			raindance: ["9M"],
+			rest: ["9M"],
+		   reversal: ["9M"],
+			rockslide: ["9M"],
+			rocktomb: ["9M"],
+			rototiller: ["9M"],
+			sandstorm: ["9M"],
+		   sleeptalk: ["9M"],
+			snore: ["9M"],
+			stompingtantrum: ["9M"],
+			substitute: ["9M"],
+			sunnyday: ["9M"],
+			superpower: ["9M"],
+			surf: ["9M"],
+			terraform: ["9M"],
+			trailblaze: ["9M"],
+			wavecrash: ["9M"],
+			zenheadbutt: ["9M"],
+		},
+	},
+	// end
+
+	// start
+	anquiterra: {
+		learnset: {
+			aloevera: ["9M"],
+			ancientpower: ["9M"],
+			aquaring: ["9M"],
+			aromatherapy: ["9M"],
+			bounce: ["9M"],
+			cosmicpower: ["9M"],
+			energyball: ["9M"],
+			facade: ["9M"],
+			flipturn: ["9M"],
+			gigadrain: ["9M"],
+			grassknot: ["9M"],
+			grassyterrain: ["9M"],
+			growth: ["9M"],
+			hydropump: ["9M"],
+			hyperbeam: ["9M"],
+			hypervoice: ["9M"],
+			leechseed: ["9M"],
+			lifedew: ["9M"],
+			liquidation: ["9M"],
+			morningsun: ["9M"],
+			muddywater: ["9M"],
+			naturepower: ["9M"],
+			protect: ["9M"],
+			raindance: ["9M"],
+			rest: ["9M"],
+			rototiller: ["9M"],
+			safeguard: ["9M"],
+		   sleeptalk: ["9M"],
+			snore: ["9M"],
+			solarbeam: ["9M"],
+			substitute: ["9M"],
+			sunnyday: ["9M"],
+			surf: ["9M"],
+			synthesis: ["9M"],
+			terrainpulse: ["9M"],
 		},
 	},
 	// end
