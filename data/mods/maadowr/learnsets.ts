@@ -1435,4 +1435,37 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	goldenorbweaver: {
+		learnset: {
+			bugbuzz: ["9M"],
+			disable: ["9M"],
+			electricterrain: ["9M"],
+			electroball: ["9M"],
+			electroweb: ["9M"],
+			entanglement: ["9M"],
+			hyperbeam: ["9M"],
+			meteorbeam: ["9M"],
+			nuzzle: ["9M"],
+			pounce: ["9M"],
+			powergem: ["9M"],
+			protect: ["9M"],
+			rest: ["9M"],
+			skittersmack: ["9M"],
+			sleeptalk: ["9M"],
+			snore: ["9M"],
+			speedswap: ["9M"],
+			stealthrock: ["9M"],
+			stickyweb: ["9M"],
+			stringshot: ["9M"],
+			substitute: ["9M"],
+			terrainpulse: ["9M"],
+			thunder: ["9M"],
+			thunderbolt: ["9M"],
+			thunderwave: ["9M"],
+			weatherball: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
