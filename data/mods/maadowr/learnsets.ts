@@ -1558,4 +1558,52 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	cropcircleartist: {
+		learnset: {
+			aerialace: ["9M"],
+			ancientpower: ["9M"],
+			bugbuzz: ["9M"],
+			calmmind: ["9M"],
+			camouflage: ["9M"],
+			cosmicpower: ["9M"],
+			cuttingedge: ["9M"],
+			disable: ["9M"],
+			earthpower: ["9M"],
+			electroweb: ["9M"],
+			entrainment: ["9M"],
+			expandingforce: ["9M"],
+			grassyglide: ["9M"],
+			grassyterrain: ["9M"],
+			healbell: ["9M"],
+			healpulse: ["9M"],
+			helpinghand: ["9M"],
+			leafblade: ["9M"],
+			lunge: ["9M"],
+			meteorbeam: ["9M"],
+			pounce: ["9M"],
+			protect: ["9M"],
+			psychocut: ["9M"],
+			psychic: ["9M"],
+			psywave: ["9M"],
+			razorleaf: ["9M"],
+			skittersmack: ["9M"],
+			slash: ["9M"],
+			sleeptalk: ["9M"],
+			snore: ["9M"],
+			solarblade: ["9M"],
+			stealthrock: ["9M"],
+			stickyweb: ["9M"],
+			stringshot: ["9M"],
+			strugglebug: ["9M"],
+			substitute: ["9M"],
+			swordsdance: ["9M"],
+			synthesis: ["9M"],
+			teleport: ["9M"],
+			wildcharge: ["9M"],
+			xscissor: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
