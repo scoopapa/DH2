@@ -2381,7 +2381,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			autotomize: ["9L1"],
 		},
 	},
-	queendr: {
+	queendeltarune: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L1"],
