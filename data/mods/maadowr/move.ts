@@ -323,11 +323,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
 		onHit(pokemon) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			return boost({atk: 1, spa: 1}) if (pokemon.hasType('Bug')); || success;
+			return boost({atk: 1, spa: 1}) if (pokemon.hasType('Bug')) || success;
 		},
 		secondary: null,
 		target: "allies",
 		type: "Bug",
+		contestType: "Cool",
 	},
    // end
 
