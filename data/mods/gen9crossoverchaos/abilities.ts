@@ -463,7 +463,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.debug('Smirk trigger');
 				target.addVolatile('laserfocus');
 			}
-		}
+		},
 		name: "Smirk",
 		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
 		rating: 3,
