@@ -5749,5 +5749,39 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
-	
+	prayingvisitor: {
+		learnset: {
+			agility: ["9M"],
+			ancientpower: ["9M"],
+			calmmind: ["9M"],
+			cosmicpower: ["9M"],
+			dazzlinggleam: ["9M"],
+			drainingkiss: ["9M"],
+			earthpower: ["9M"],
+			energyball: ["9M"],
+			gigadrain: ["9M"],
+			grassyterrain: ["9M"],
+			healbell: ["9M"],
+			hyperbeam: ["9M"],
+			leafstorm: ["9M"],
+			leechseed: ["9M"],
+			lightscreen: ["9M"],
+			meteorbeam: ["9M"],
+			mistyterrain: ["9M"],
+			moonblast: ["9M"],
+			pollenpuff: ["9M"],
+			protect: ["9M"],
+			psychic: ["9M"],
+			psychicterrain: ["9M"],
+			rest: ["9M"],
+			safeguard: ["9M"],
+		   sleeptalk: ["9M"],
+			snore: ["9M"],
+			substitute: ["9M"],
+			synthesis: ["9M"],
+			teleport: ["9M"],
+			trickroom: ["9M"],
+		},
+	},
+	// end
 };
