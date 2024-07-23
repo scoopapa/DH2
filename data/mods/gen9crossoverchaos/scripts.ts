@@ -122,6 +122,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
+		if (move.useSourceSpeedAsOffensive) attackStat = speedStat;
 
 		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
 		let attack;
