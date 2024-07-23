@@ -945,6 +945,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Wind Rider"},
 	},
+	varoom: {
+		inherit: true,
+		abilities: {0: "Overcoat"},
+	},
+	revavroom: {
+		inherit: true,
+		abilities: {0: "Filter"},
+	},
+	cryogonal: {
+		inherit: true,
+		abilities: {0: "Levitate"},
+	},
 
 
 
