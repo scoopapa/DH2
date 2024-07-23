@@ -1692,6 +1692,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65},
 		abilities: {0: "Poison Point", 1: "Telepathy", H: "Corrosion"},
+		movepoolAdditions: ["acidarmor", "acidspray", "acidicterrain", "corrosivegas", "gastroacid", "gunkshot", "haze", "oilspill", "poisongas", "sludgebomb", "sludgewave", "spikes", "toxicspikes", "venomdrench", "venoshock"],
+		movepoolDeletions: ["assurance", "darkpulse", "bite", "lashout", "payback", "pursuit", "suckerpunch", "snarl"],
 		category: "Moonlight",
 		heightm: 0.3,
 		weightkg: 1.0,
