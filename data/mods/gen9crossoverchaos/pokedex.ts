@@ -336,9 +336,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Cursed Body", H: "Supreme Overlord"},
 		weightkg: 0.1,
 	},
-	queendr: {
+	queendeltarune: {
 		num: 31,
-		name: "Queendr",
+		name: "Queen-Deltarune",
 		types: ["Steel", "Electric"],
 		gender: "F",
 		baseStats: {hp: 96, atk: 92, def: 78, spa: 112, spd: 132, spe: 60},
