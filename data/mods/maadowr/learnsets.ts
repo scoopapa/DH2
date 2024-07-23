@@ -5593,4 +5593,43 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	miraplex: {
+		learnset: {
+			ancientpower: ["9M"],
+			barrier: ["9M"],
+			block: ["9M"],
+			burnup: ["9M"],
+			dazzlinggleam: ["9M"],
+			doomdesire: ["9M"],
+			flash: ["9M"],
+			flashcannon: ["9M"],
+			futuresight: ["9M"],
+			hyperbeam: ["9M"],
+			imprison: ["9M"],
+			lightscreen: ["9M"],
+			magicroom: ["9M"],
+			mirrorcoat: ["9M"],
+			painsplit: ["9M"],
+			protect: ["9M"],
+			psybeam: ["9M"],
+			psychicterrain: ["9M"],
+			reflect: ["9M"],
+			rest: ["9M"],
+			safeguard: ["9M"],
+			signalbeam: ["9M"],
+			solarbeam: ["9M"],
+			steelbeam: ["9M"],
+			substitute: ["9M"],
+			sunnyday: ["9M"],
+			teleport: ["9M"],
+			topsyturvy: ["9M"],
+			trickroom: ["9M"],
+			wish: ["9M"],
+			wondergleam: ["9M"],
+		},
+	},
+	// end
+
+	// start
+	
 };
