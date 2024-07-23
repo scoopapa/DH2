@@ -1304,7 +1304,7 @@ export class RandomTeams {
 			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough' ||
 			species.id === 'applin' || species.id === 'slugma' || species.id === 'venonat' ||
 			species.id === 'tranquill' || species.id === 'sizzlipede' || species.id === 'charcadet' ||
-			species.id === 'shinx'
+			species.id === 'shinx' || species.id === 'varoom'
 		) return 'Eviolite';
 		if (species.id === 'serperior') return 'Miracle Seed';
 		if (
@@ -1332,7 +1332,7 @@ export class RandomTeams {
 		if (species.id === 'munkidori') return 'Colbur Berry';
 		if (species.id === 'fezandipiti') return 'Babiri Berry';
 		if (species.id === 'sneasler' || species.id === 'pansear' || species.id === 'klawf') return 'Lansat Berry';
-		if (species.id === 'simisear' || species.id === 'tangela') return 'Binding Band';
+		if (species.id === 'simisear') return 'Binding Band';
 		if (species.id === 'nymble' || species.id === 'cutiefly') return 'Silver Powder';
 		if (
 			species.id === 'lokix' || species.id === 'bastiodon' || species.id === 'emolga' ||
@@ -1401,7 +1401,7 @@ export class RandomTeams {
 		if (species.id === 'scovillain' || species.id === 'unfezant') return 'Mirror Herb';
 		if (species.id === 'sandslashalola') return 'Light Clay';
 		if (species.id === 'carnivine') return 'Watmel Berry';
-		if (species.id === 'parasect' || species.id === 'dragapult' || species.id === 'tangrowth') return 'Lum Berry';
+		if (species.id === 'parasect' || species.id === 'dragapult' || species.id === 'revavroom') return 'Lum Berry';
 		if (species.id === 'chimecho') return 'Aguav Berry';
 		if (species.id === 'sneasel') return 'Black Glasses';
 		if (species.id === 'sneaselhisui') return 'Big Nugget';
@@ -1444,6 +1444,7 @@ export class RandomTeams {
 		if (species.id === 'dewpider') return 'Mystic Water';
 		if (species.id === 'shroomish') return 'Toxic Orb';
 		if (species.id === 'sandile') return 'Soft Sand';
+		if (species.id === 'cryogonal') return 'Ganlon Berry';
 	}
 
 	/** Item generation specific to Random Doubles */
