@@ -2335,6 +2335,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock", "Fairy"],
 		baseStats: {hp: 105, atk: 135, def: 90, spa: 35, spd: 90, spe: 95},
 		abilities: {0: "Rattled", 1: "Vital Spirit", H: "Dark Aura"},
+		movepoolAdditions: ["lunardust", "moonblast", "moonlight", "powertrip", "punishment", "spikes", "spiritbreak"],
 		category: "Werewolf",
 		heightm: 1.8,
 		weightkg: 47.5,
