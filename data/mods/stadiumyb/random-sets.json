@@ -144,7 +144,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Hex", "Venoshock", "Poison Gas", "Fake Tears"],
+                "movepool": ["Hex", "Venoshock", "Poison Gas", "Imprison"],
                 "teraTypes": ["Poison"]
             }
         ]
