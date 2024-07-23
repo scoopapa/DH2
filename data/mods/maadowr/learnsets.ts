@@ -5546,4 +5546,51 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	mechatauro: {
+		learnset: {
+			ancientpower: ["9M"],
+			burnup: ["9M"],
+			coil: ["9M"],
+			confide: ["9M"],
+			curse: ["9M"],
+			doubleteam: ["9M"],
+			earthquake: ["9M"],
+			endure: ["9M"],
+			facade: ["9M"],
+			firespin: ["9M"],
+			flareblitz: ["9M"],
+			harden: ["9M"],
+			headsmash: ["9M"],
+			heatcrash: ["9M"],
+			heatwave: ["9M"],
+			heavyslam: ["9M"],
+			inferno: ["9M"],
+			irondefense: ["9M"],
+			ironhead: ["9M"],
+			irontail: ["9M"],
+			megahorn: ["9M"],
+		   payback: ["9M"],
+			protect: ["9M"],
+			recycle: ["9M"],
+			rest: ["9M"],
+			rockslide: ["9M"],
+			rocktomb: ["9M"],
+			sleeptalk: ["9M"],
+			snore: ["9M"],
+			stealthrock: ["9M"],
+			steelroller: ["9M"],
+			stompingtantrum: ["9M"],
+			stoneedge: ["9M"],
+			substitute: ["9M"],
+			sunnyday: ["9M"],
+			superpower: ["9M"],
+			swagger: ["9M"],
+		   temperflare: ["9M"],
+			torment: ["9M"],
+			willowisp: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
