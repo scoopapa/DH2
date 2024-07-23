@@ -467,6 +467,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Smirk",
 		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
 		rating: 3,
-		num: -24,
+		num: -25,
 	},
 };
