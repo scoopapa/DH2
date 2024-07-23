@@ -564,7 +564,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Fury Cutter", "Metal Claw", "Charge Beam", "Struggle Bug"],
+                "movepool": ["Fury Cutter", "Metal Claw", "Shock Wave", "Struggle Bug"],
                 "teraTypes": ["Bug"]
             }
         ]
