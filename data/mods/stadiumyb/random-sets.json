@@ -394,7 +394,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Hex", "Force Palm", "Sucker Punch", "Will-O-Wisp"],
+                "movepool": ["Hex", "Force Palm", "Sucker Punch", "Snatch"],
                 "teraTypes": ["Ghost"]
             }
         ]
@@ -1574,7 +1574,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Draining Kiss", "Mirror Move", "Air Cutter", "Heal Bell"],
+                "movepool": ["Fairy Wind", "Mirror Move", "Air Cutter", "Heal Bell"],
                 "teraTypes": ["Fighting"]
             }
         ]
@@ -1944,7 +1944,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Power Trick", "Bulldoze", "Feint", "Aerial Ace"],
+                "movepool": ["Power Trick", "Bulldoze", "Thunder Fang", "Aerial Ace"],
                 "teraTypes": ["Water"]
             }
         ]
