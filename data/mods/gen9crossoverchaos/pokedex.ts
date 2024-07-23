@@ -336,7 +336,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Cursed Body", H: "Supreme Overlord"},
 		weightkg: 0.1,
 	},
-	queen: {
+	queendr: {
 		num: 31,
 		name: "Queen",
 		types: ["Steel", "Electric"],
@@ -456,4 +456,32 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sharpness", H: "Motor Drive"},
 		weightkg: 437,
 	},
+	aversa: {
+		num: 43,
+		species: "Aversa",
+		types: ["Dark", "Flying"],
+		gender: "F",
+		baseStats: {hp: 85, atk: 70, def: 70, spa: 120, spd: 80, spe: 120},
+		abilities: {0: "Shadowgift", H: "Galeforce"},
+		weightkg: 40.8,
+	},
+	bagpipe: {
+		num: 44,
+		species: "Bagpipe",
+		types: ["Dragon", "Fighting"],
+		gender: "F",
+		baseStats: {hp: 100, atk: 115, def: 88, spa: 77, spd: 50, spe: 110},
+		abilities: {0: "Super Luck", H: "Stalwart"},
+		weightkg: 54.4,
+	},
+	flynn: {
+		num: 45,
+		species: "Flynn",
+		types: ["Normal", "Fighting"],
+		gender: "M",
+		baseStats: {hp: 90, atk: 95, def: 95, spa: 95, spd: 95, spe: 110},
+		abilities: {0: "Smirk", H: "Adaptability"},
+		weightkg: 68,
+	},
+
 };
