@@ -839,7 +839,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	espathra: {
-		tier: "MD",
+		tier: "MD Ubers",
 		doublesTier: "MD",
 	},
 	toweringeye: {
