@@ -458,7 +458,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	aversa: {
 		num: 43,
-		species: "Aversa",
+		name: "Aversa",
 		types: ["Dark", "Flying"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 70, def: 70, spa: 120, spd: 80, spe: 120},
@@ -467,7 +467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	bagpipe: {
 		num: 44,
-		species: "Bagpipe",
+		name: "Bagpipe",
 		types: ["Dragon", "Fighting"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 115, def: 88, spa: 77, spd: 50, spe: 110},
@@ -476,7 +476,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	flynn: {
 		num: 45,
-		species: "Flynn",
+		name: "Flynn",
 		types: ["Normal", "Fighting"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 95, def: 95, spa: 95, spd: 95, spe: 110},
