@@ -3075,7 +3075,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			rest: ["9L1"],
 		},
-			aversa: {
+	},
+	aversa: {
 		learnset: {
 			nosferatu: ["9L1"],
 			waste: ["9L1"],
@@ -3216,9 +3217,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 };
-
-
-
 
 
 
