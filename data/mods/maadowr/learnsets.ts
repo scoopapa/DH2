@@ -5509,4 +5509,41 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	// start
+	maudior: {
+		learnset: {
+			ancientpower: ["9M"],
+			astonish: ["9M"],
+			calmmind: ["9M"],
+			curse: ["9M"],
+			dazzlinggleam: ["9M"],
+			destinybond: ["9M"],
+			extrasensory: ["9M"],
+			flash: ["9M"],
+			flashcannon: ["9M"],
+			guardswap: ["9M"],
+			helpinghand: ["9M"],
+			hex: ["9M"],
+			hypnosis: ["9M"],
+			imprison: ["9M"],
+			irondefense: ["9M"],
+			meanlook: ["9M"],
+			metalsound: ["9M"],
+			painsplit: ["9M"],
+			powerswap: ["9M"],
+			protect: ["9M"],
+			psychic: ["9M"],
+			purify: ["9M"],
+			rest: ["9M"],
+			sleeptalk: ["9M"],
+			spite: ["9M"],
+			steelbeam: ["9M"],
+			substitute: ["9M"],
+			torment: ["9M"],
+			willowisp: ["9M"],
+			wish: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
