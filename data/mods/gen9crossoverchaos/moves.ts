@@ -852,7 +852,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 75,
 		basePower: 120,
 		category: "Special",
-		name: "Waste",
+		name: "Goetia",
 		shortDesc: "No additional effect.",
 		pp: 10,
 		priority: 0,
