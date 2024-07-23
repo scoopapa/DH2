@@ -342,7 +342,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
  		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
-		  this.add('-anim', source, "Punishment", target);
+		  this.add('-anim', source, "Dark Pulse", target);
+		  this.add('-anim', source, "Air Slash", target);
 		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
@@ -480,6 +481,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Whirlpool", target);
+		  this.add('-anim', source, "Giga Drain", target);
 		},
 		onHit(pokemon, source, target) {
 			this.add('-heal', pokemon, pokemon.getHealth, '[from] move: Life Soup');
@@ -526,6 +528,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Voice", target);
+			this.add('-anim', source, "Needle Arm", target);
+		},
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
@@ -555,6 +562,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			let type = source.getTypes()[0];
+			if (type == "Fire") this.add('-anim', source, "Flamethrower", target);
+			if (type == "Ice") this.add('-anim', source, "Ice Beam", target);
+			this.add('-anim', source, "Psychic", target);
+		},
 		onModifyType(move, pokemon) {
 			let type = pokemon.getTypes()[0];
 			if (type === "Bird") type = "???";
@@ -576,6 +590,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 1,
 		priority: 0,
 		flags: {bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Surf", target);
+			this.add('-anim', source, "Muddy Water", target);
+			this.add('-anim', source, "Giga Drain", target);
+		},
 		isZ: "kaguyiumz",
 		drain: [3, 4],
 		secondary: null,
@@ -593,6 +613,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aeroblast", target);
+		},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -612,6 +636,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 1,
 		priority: 0,
 		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aura Sphere", target);
+		},
 		isZ: "marliumz",
 		secondary: null,
 		onModifyType(move, pokemon) {
@@ -635,6 +663,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Salt Cure", target);
+		},
 		onHit(target, source, move) {
 			return target.addVolatile('leechseed', source, move, 'trapper');
 		},
@@ -768,6 +800,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		name: "Charged Cannon DiVE",
 		shortDesc: "Deals additional half damage to the target's ally.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -785,6 +821,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bullet: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Metal Burst", target);
+			this.add('-anim', source, "Bullet Seed", target);
+		},
 		multihit: [2, 5],
 		secondary: {
 			chance: 10,
@@ -806,6 +847,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1, sound: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Voice", target);
+			this.add('-anim', source, "Astral Barrage", target);
+		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (move.type !== 'Normal') return;
 			if (!target.runImmunity('Ghost')) {
@@ -827,6 +873,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Shadow Ball", target);
+			this.add('-anim', source, "Giga Drain", target);
+		},
 		drain: [1, 2],
 		target: "normal",
 		type: "Dark",
@@ -842,6 +893,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
 		multihit: 2,
 		target: "normal",
 		type: "Dark",
@@ -857,6 +912,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Black Hole Eclipse", target);
+			this.add('-anim', source, "Thunder", target);
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Beautiful",
@@ -871,6 +931,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scale Shot", target);
+		},
 		multihit: 3,
 		secondary: {
 			chance: 10,
@@ -896,6 +960,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sacred Sword", target);
+		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (typeMod < 0) {
 				return 0;
