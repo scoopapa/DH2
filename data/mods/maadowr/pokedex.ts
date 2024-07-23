@@ -2071,7 +2071,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 336.0,
 		color: "Blue",
 		eggGroups: ["Mineral"],
-		requiredItem: "Gigalith",
+		requiredItem: "Gigalithite",
 		
 		creator: "ink",
 	},
