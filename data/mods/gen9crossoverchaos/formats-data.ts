@@ -199,5 +199,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
+	pit: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	pitmega: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	devil: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	kingboo: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
 
 };
