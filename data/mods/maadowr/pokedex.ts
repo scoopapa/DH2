@@ -3186,11 +3186,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	yanma: {
 		inherit: true,
 		movepoolAdditions: ["hurricane"],
-		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+		movepoolDeletions: ["frustration", "hiddenpower", "pursuit", "return", "toxic"],
 	},
 	yanmega: {
 		inherit: true,
 		movepoolAdditions: ["hurricane"],
-		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+		movepoolDeletions: ["frustration", "hiddenpower", "pursuit", "return", "toxic"],
 	},
 };
