@@ -4221,6 +4221,10 @@ export const Formats: FormatList = [
 			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
 			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 3', 'Max Team Size = 6',
 		],
+		onSwitchIn(pokemon) {
+			const speed = pokemon.getStat('spe', false, true);
+			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
+		},
 	},
 	{
 		name: "[Gen 9] Stadium YB 6v6 Random Battle",
@@ -4237,5 +4241,9 @@ export const Formats: FormatList = [
 			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
 			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 6', 'Max Team Size = 12',
 		],
+		onSwitchIn(pokemon) {
+			const speed = pokemon.getStat('spe', false, true);
+			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
+		},
 	},
 ];
