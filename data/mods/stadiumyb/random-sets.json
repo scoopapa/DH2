@@ -1999,23 +1999,33 @@
             }
         ]
     },
-  "tangela": {
+  "varoom": {
         "level": 50,
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Giga Drain", "Morning Sun", "Knock Off", "Infestation"],
-                "teraTypes": ["Rock"]
+                "movepool": ["Gunk Shot", "Spin Out", "Toxic", "Parting Shot"],
+                "teraTypes": ["Dragon"]
             }
         ]
     },
-  "tangrowth": {
+  "revavroom": {
+        "level": 50,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Poison Jab", "Overheat", "Heavy Slam", "Taunt"],
+                "teraTypes": ["Flying"]
+            }
+        ]
+    },
+  "cryogonal": {
         "level": 50,
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Swords Dance", "Sleep Powder", "Seed Bomb", "Wake-Up Slap"],
-                "teraTypes": ["Fighting"]
+                "movepool": ["Poison Jab", "Acid Armor", "Frost Breath", "Recover"],
+                "teraTypes": ["Poison"]
             }
         ]
     },
