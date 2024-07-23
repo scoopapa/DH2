@@ -2690,6 +2690,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 75, atk: 105, def: 80, spa: 70, spd: 130, spe: 60},
 		abilities: {0: "Colour Change", 1: "Stakeout", H: "Protean"},
+		movepoolAdditions: ["colourmegone"],
 		category: "Colour Swap",
 		heightm: 1.4,
 		weightkg: 31.0,
