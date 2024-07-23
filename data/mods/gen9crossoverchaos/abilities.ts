@@ -295,7 +295,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Ghost') {
-				this.debug('Curse Weaver Boost boost');
+				this.debug('Curse Weaver boost');
 				return this.chainModify(1.5);
 			}
 		},
@@ -414,5 +414,59 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -22,
 	},
-	
+	shadowgift: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadowgift boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadowgift boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Shadowgift",
+		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack.",
+		rating: 3.5,
+		num: -23,
+	},
+	galeforce: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.addVolatile('galeforce');
+			}
+		},
+		condition: {
+			onModifyPriority(priority, pokemon, target, move) {
+				pokemon.removeVolatile('galeforce')
+				return priority + 1;
+			},
+		},
+		name: "Galeforce",
+		shortDesc: "If this Pokemon attacks and KO's a target, next move used has +1 priority.",
+		rating: 3,
+		num: -24,
+	},
+	smirk: {
+		onFoeDamagingHit(damage, target, source, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Smirk trigger');
+				source.addVolatile('laserfocus');
+			}
+		},
+		onAfterMove(pokemon, target, move) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.debug('Smirk trigger');
+				target.addVolatile('laserfocus');
+			}
+		}
+		name: "Smirk",
+		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
+		rating: 3,
+		num: -24,
+	},
 };
