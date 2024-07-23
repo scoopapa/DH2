@@ -370,6 +370,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Cactus",
 		abilities: {0: "Sand Veil", H: "Water Absorb"},
 		movepoolAdditions: ["assurance", "brine"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		heightm: 0.4,
 		weightkg: 51.3,
 		color: "Green",
@@ -386,6 +387,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Scarecrow",
 		abilities: {0: "Sand Veil", H: "Water Absorb"},
 		movepoolAdditions: ["assurance", "brine"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		heightm: 1.3,
 		weightkg: 77.4,
 		color: "Green",
@@ -425,6 +427,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 35, atk: 70, def: 55, spa: 45, spd: 55, spe: 25},
 		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Damp"},
 		movepoolAdditions: ["earthpower"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Mushroom",
 		heightm: 0.3,
 		weightkg: 5.4,
@@ -441,6 +444,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 60, atk: 95, def: 80, spa: 60, spd: 80, spe: 30},
 		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Damp"},
 		movepoolAdditions: ["earthpower"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Mushroom",
 		heightm: 1.0,
 		weightkg: 29.5,
@@ -614,6 +618,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 30, atk: 30, def: 42, spa: 30, spd: 42, spe: 70},
 		abilities: {0: "Honey Gather", 1: "Early Bird", H: "Hustle"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Tiny Bee",
 		heightm: 0.3,
 		weightkg: 5.5,
@@ -631,6 +636,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 70, atk: 80, def: 102, spa: 80, spd: 102, spe: 40},
 		abilities: {0: "Pressure", 1: "Queenly Majesty", H: "Unnerve"},
 		movepoolAdditions: ["heatwave", "nastyplot"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Beehive",
 		heightm: 1.2,
 		weightkg: 38.5,
@@ -670,6 +676,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 58, atk: 109, def: 112, spa: 48, spd: 48, spe: 109},
 		abilities: {0: "Swarm", 1: "Hustle", H: "Truant"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Iron Ant",
 		heightm: 0.3,
 		weightkg: 33.0,
@@ -826,6 +833,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Fire"],
 		baseStats: {hp: 85, atk: 97, def: 66, spa: 105, spd: 66, spe: 65},
 		abilities: {0: "Gluttony", 1: "Flash Fire", H: "White Smoke"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Anteater",
 		heightm: 1.4,
 		weightkg: 58.0,
@@ -864,6 +872,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 62, atk: 50, def: 58, spa: 73, spd: 54, spe: 72},
 		category: "Lion Cub",
 		abilities: {0: "Rivalry", 1: "Unnerve", H: "Moxie"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		heightm: 0.6,
 		weightkg: 13.5,
 		color: "Brown",
@@ -880,6 +889,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 86, atk: 68, def: 72, spa: 109, spd: 66, spe: 106},
 		category: "Royal",
 		abilities: {0: "Rivalry", 1: "Unnerve", H: "Moxie"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		heightm: 1.5,
 		weightkg: 81.5,
 		color: "Brown",
@@ -1148,6 +1158,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 80, atk: 50, def: 50, spa: 95, spd: 135, spe: 105},
 		category: "Crystallizing",
 		abilities: {0: "Levitate"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		heightm: 1.1,
 		weightkg: 148.0,
 		color: "Blue",
@@ -1322,6 +1333,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Electric"],
 		baseStats: {hp: 45, atk: 65, def: 34, spa: 40, spd: 34, spe: 45},
 		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Flash",
 		heightm: 0.5,
 		weightkg: 9.5,
@@ -1337,6 +1349,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Electric"],
 		baseStats: {hp: 60, atk: 85, def: 49, spa: 60, spd: 49, spe: 60},
 		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Spark",
 		heightm: 0.9,
 		weightkg: 30.5,
@@ -1355,6 +1368,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 80, atk: 120, def: 79, spa: 95, spd: 79, spe: 70},
 		abilities: {0: "Rivalry", 1: "Intimidate", H: "Guts"},
 		movepoolAdditions: ["futuresight", "thunderousroar"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Gleam Eyes",
 		heightm: 1.4,
 		weightkg: 42.0,
@@ -1435,6 +1449,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 38, atk: 30, def: 85, spa: 55, spd: 65, spe: 30},
 		category: "Spirit",
 		abilities: {0: "Mummy"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 0.5,
 		weightkg: 1.5,
 		color: "Black",
@@ -1450,6 +1465,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 58, atk: 50, def: 145, spa: 95, spd: 105, spe: 30},
 		category: "Coffin",
 		abilities: {0: "Mummy"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 1.7,
 		weightkg: 76.5,
 		color: "Yellow",
@@ -1489,6 +1505,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 90, atk: 50, def: 34, spa: 60, spd: 44, spe: 70},
 		category: "Balloon",
 		abilities: {0: "Aftermath", 1: "Unburden", H: "Flare Boost"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 0.4,
 		weightkg: 1.2,
 		color: "Purple",
@@ -1504,6 +1521,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 150, atk: 80, def: 44, spa: 90, spd: 54, spe: 80},
 		category: "Blimp",
 		abilities: {0: "Aftermath", 1: "Unburden", H: "Flare Boost"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 1.2,
 		weightkg: 15.0,
 		color: "Purple",
@@ -1544,6 +1562,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Scorpion",
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Keen Eye"},
 		movepoolAdditions: ["recover"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 0.8,
 		weightkg: 12.0,
 		color: "Purple",
@@ -1560,6 +1579,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Ogre Scorpion",
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Keen Eye"},
 		movepoolAdditions: ["recover"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 1.3,
 		weightkg: 61.5,
 		color: "Purple",
@@ -1600,6 +1620,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Mock Kelp",
 		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Adaptability"},
 		movepoolAdditions: ["acidspray", "acidicterrain", "gastroacid", "oilspill", "roost", "terrainpulse"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 0.5,
 		weightkg: 7.3,
 		color: "Brown",
@@ -1616,6 +1637,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Mock Kelp",
 		abilities: {0: "Poison Point", 1: "Poison Touch", H: "Adaptability"},
 		movepoolAdditions: ["acidspray", "acidicterrain", "gastroacid", "oilspill", "roost", "terrainpulse"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		heightm: 1.8,
 		weightkg: 81.5,
 		color: "Brown",
@@ -1812,6 +1834,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 35, atk: 60, def: 44, spa: 40, spd: 54, spe: 55},
 		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Unnerve"},
 		moveAdditions: ["acidicterrain"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Snake",
 		heightm: 2.0,
 		weightkg: 6.9,
@@ -1828,6 +1851,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 60, atk: 95, def: 69, spa: 65, spd: 79, spe: 80},
 		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Unnerve"},
 		moveAdditions: ["acidicterrain"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Cobra",
 		heightm: 3.5,
 		weightkg: 65.0,
@@ -1905,6 +1929,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 40, atk: 45, def: 35, spa: 30, spd: 40, spe: 55},
 		abilities: {0: "Inner Focus", H: "Infiltrator"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Bat",
 		heightm: 0.8,
 		weightkg: 7.5,
@@ -1920,6 +1945,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 75, atk: 80, def: 70, spa: 65, spd: 75, spe: 90},
 		abilities: {0: "Inner Focus", H: "Infiltrator"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Bat",
 		heightm: 1.6,
 		weightkg: 55.0,
@@ -1937,6 +1963,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 80, atk: 90, def: 80, spa: 70, spd: 80, spe: 130},
 		abilities: {0: "Inner Focus", H: "Infiltrator"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Bat",
 		heightm: 1.8,
 		weightkg: 75.0,
@@ -2013,6 +2040,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock"],
 		baseStats: {hp: 55, atk: 75, def: 85, spa: 25, spd: 25, spe: 15},
 		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Sand Force"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Mantle",
 		heightm: 0.4,
 		weightkg: 18.0,
@@ -2028,6 +2056,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock"],
 		baseStats: {hp: 70, atk: 105, def: 105, spa: 50, spd: 40, spe: 20},
 		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Sand Force"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Ore",
 		heightm: 0.9,
 		weightkg: 102.0,
@@ -2046,6 +2075,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 80, atk: 135, def: 130, spa: 60, spd: 80, spe: 25},
 		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Sand Force"},
 		movepoolAdditions: ["recover", "timecompressor"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 		category: "Compressed",
 		heightm: 1.7,
 		weightkg: 260.0,
@@ -2257,6 +2287,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock"],
 		baseStats: {hp: 45, atk: 65, def: 40, spa: 30, spd: 40, spe: 60},
 		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "Steadfast", S: "Own Tempo"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Puppy",
 		heightm: 0.5,
 		weightkg: 9.2,
@@ -2274,6 +2305,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock"],
 		baseStats: {hp: 75, atk: 115, def: 65, spa: 55, spd: 65, spe: 112},
 		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Steadfast"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Wolf",
 		heightm: 0.8,
 		weightkg: 25,
@@ -2295,6 +2327,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock"],
 		baseStats: {hp: 85, atk: 115, def: 75, spa: 55, spd: 75, spe: 82},
 		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "No Guard"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Wolf",
 		heightm: 1.1,
 		weightkg: 25,
@@ -2315,6 +2348,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Rock"],
 		baseStats: {hp: 75, atk: 117, def: 65, spa: 55, spd: 65, spe: 110},
 		abilities: {0: "Tough Claws"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Wolf",
 		heightm: 0.8,
 		weightkg: 25,
@@ -2675,6 +2709,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Normal"],
 		baseStats: {hp: 60, atk: 90, def: 70, spa: 60, spd: 120, spe: 40},
 		abilities: {0: "Colour Change", 1: "Stakeout", H: "Protean"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 		category: "Colour Swap",
 		heightm: 1.0,
 		weightkg: 22.0,
@@ -2937,14 +2972,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	dewpider: {
 		inherit: true,
 		movepoolAdditions: ["lifedew"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	araquanid: {
 		inherit: true,
 		movepoolAdditions: ["lifedew"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	araquanidtotem: {
 		inherit: true,
 		movepoolAdditions: ["lifedew"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	// end
 
@@ -2952,10 +2990,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	bronzor: {
 		inherit: true,
 		movepoolAdditions: ["healbell", "rapidspin"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	bronzong: {
 		inherit: true,
 		movepoolAdditions: ["healbell", "rapidspin"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	// end
 
@@ -2963,6 +3003,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	carbink: {
 		inherit: true,
 		movepoolAdditions: ["timecompressor"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
@@ -2970,14 +3011,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	litwick: {
 		inherit: true,
 		movepoolAdditions: ["torchsong"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	lampent: {
 		inherit: true,
 		movepoolAdditions: ["torchsong"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	chandelure: {
 		inherit: true,
 		movepoolAdditions: ["torchsong"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	// end
 
@@ -2985,69 +3029,100 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	baltoy: {
 		inherit: true,
 		movepoolAdditions: ["shoreup"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	claydol: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 70, def: 105, spa: 70, spd: 120, spe: 75},
 		movepoolAdditions: ["shoreup"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
 	// start
+   eevee: {
+		inherit: true,
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
 	flareon: {
 		inherit: true,
 		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Guts"},
 		movepoolAdditions: ["burnup"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	jolteon: {
 		inherit: true,
 		abilities: {0: "Volt Absorb", 1: "Tempestuous", H: "Quick Feet"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	vaporeon: {
 		inherit: true,
 		abilities: {0: "Water Absorb", 1: "Misty Surge", H: "Hydration"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	espeon: {
 		inherit: true,
 		abilities: {0: "Synchronize", 1: "Solar Power", H: "Magic Bounce"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	umbreon: {
 		inherit: true,
 		abilities: {0: "Synchronize", 1: "Keen Eye", H: "Inner Focus"},
+		movepoolDeletions: ["frustration", "hiddenpower", "pursuit", "return"],
 	},
 	glaceon: {
 		inherit: true,
 		abilities: {0: "Snow Cloak", 1: "Clear Body", H: "Ice Body"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	leafeon: {
 		inherit: true,
 		abilities: {0: "Leaf Guard", 1: "Sharpness", H: "Chlorophyll"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	sylveon: {
 		inherit: true,
 		abilities: {0: "Cute Charm", 1: "Wonder Skin", H: "Pixilate"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
 	// start
+	eelektrik: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Surge Surfer"},
+		movepoolAdditions: ["shortcircuit"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
+	},
 	eelektross: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Surge Surfer"},
 		movepoolAdditions: ["shortcircuit"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	// end
 
 	// start
+	riolu: {
+		inherit: true,
+		abilities: {0: "Aura Break", 1: "Inner Focus", H: "Justified"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
 	lucario: {
 		inherit: true,
 		abilities: {0: "Aura Break", 1: "Inner Focus", H: "Justified"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
 	// start
+	metang: {
+		inherit: true,
+		movepoolDeletions: ["frustration", "heavyslam", "hiddenpower", "pursuit", "return", "steelroller", "toxic"],
+	},
 	metagross: {
 		inherit: true,
-		movepoolDeletions: ["heavyslam", "psychicfangs", "steelroller"],
+		movepoolDeletions: ["frustration", "heavyslam", "hiddenpower", "psychicfangs", "pursuit", "return", "steelroller", "toxic"],
 	},
 	// end
 
@@ -3055,20 +3130,42 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	musharna: {
 		inherit: true,
 		abilities: {0: "Comatose", 1: "Synchronize", H: "Telepathy"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
+	musharna: {
+		inherit: true,
+		abilities: {0: "Comatose", 1: "Synchronize", H: "Telepathy"},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
 	// start
+	glameow: {
+		inherit: true,
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
 	purugly: {
 		inherit: true,
 		baseStats: {hp: 71, atk: 102, def: 64, spa: 64, spd: 59, spe: 112},
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
 	// start
+	slakoth: {
+		inherit: true,
+		movepoolAdditions: ["fakeout", "feint"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
+	vigoroth: {
+		inherit: true,
+		movepoolAdditions: ["fakeout", "feint"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
 	slaking: {
 		inherit: true,
 		movepoolAdditions: ["fakeout", "feint"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 	// end
 
@@ -3076,16 +3173,24 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	tentacool: {
 		inherit: true,
 		movepoolAdditions: ["strengthsap"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	tentacruel: {
 		inherit: true,
 		movepoolAdditions: ["strengthsap"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	// end
 
 	// start
+	yanma: {
+		inherit: true,
+		movepoolAdditions: ["hurricane"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
 	yanmega: {
 		inherit: true,
 		movepoolAdditions: ["hurricane"],
+		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	},
 };
