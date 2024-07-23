@@ -164,7 +164,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DCC OU",
 	},
    divearmorx: {
-		tier: "unintroduced (Ubers)",
+		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
 	irene: {
