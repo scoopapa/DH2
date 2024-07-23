@@ -3362,6 +3362,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			smog: ["9M"],
 			snore: ["9M"],
 			spikes: ["9M"],
+			steelbeam: ["9M"],
 			steelwing: ["9M"],
 			substitute: ["9M"],
 			swordsdance: ["9M"],
