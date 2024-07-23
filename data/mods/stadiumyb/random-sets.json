@@ -1204,7 +1204,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Beat Up", "Snatch", "Icicle Crash", "Surf"],
+                "movepool": ["Beat Up", "Punishment", "Icicle Crash", "Surf"],
                 "teraTypes": ["Poison"]
             }
         ]
