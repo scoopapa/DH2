@@ -1153,7 +1153,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			lightscreen: ["9M"],
 			naturepower: ["9M"],
 			protect: ["9M"],
-			protect: ["9M"],
 			raindance: ["9M"],
 			safeguard: ["9M"],
 			snowscape: ["9M"],
@@ -4453,4 +4452,36 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// end
 
 	//  start
+	solgantica: {
+		learnset: {
+		   acidicterrain: ["9M"],
+			acidspray: ["9M"],
+			afteryou: ["9M"],
+			ancientpower: ["9M"],
+			energyball: ["9M"],
+			growth: ["9M"],
+			hydropump: ["9M"],
+			hyperbeam: ["9M"],
+			lightscreen: ["9M"],
+			naturepower: ["9M"],
+			oilspill: ["9M"],
+			painsplit: ["9M"],
+			protect: ["9M"],
+			raindance: ["9M"],
+			safeguard: ["9M"],
+			sandstorm: ["9M"],
+			sandtomb: ["9M"],
+			sludgebomb: ["9M"],
+			sludgewave: ["9M"],
+			solarbeam: ["9M"],
+			substitute: ["9M"],
+			sunnyday: ["9M"],
+			synthesis: ["9M"],
+			terrainpulse: ["9M"],
+			weatherball: ["9M"],
+		},
+	},
+	// end
+
+	// start
 };
