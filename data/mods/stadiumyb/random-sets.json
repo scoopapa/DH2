@@ -2014,7 +2014,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Poison Jab", "Overheat", "Heavy Slam", "Taunt"],
+                "movepool": ["Poison Jab", "Overheat", "Flash Cannon", "Taunt"],
                 "teraTypes": ["Flying"]
             }
         ]
