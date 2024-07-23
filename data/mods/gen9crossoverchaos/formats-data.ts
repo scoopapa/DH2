@@ -187,5 +187,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
+		aversa: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	bagpipe: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	flynn: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
 
 };
