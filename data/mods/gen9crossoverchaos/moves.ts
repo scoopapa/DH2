@@ -29,7 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 1.",
+		shortDesc: "Lowers the user's Attack by 1. ",
 		name: "Dedede Hammer Throw",
 		pp: 10,
 		priority: 0,
