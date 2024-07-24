@@ -1,7 +1,7 @@
 export const Items: {[k: string]: ModdedItemData} = {
 	cacturnite: {
 		name: "Cacturnite",
-		//spritenum: 586,
+		spritenum: 613,
 		megaStone: "Cacturne-Mega",
 		megaEvolves: "Cacturne",
 		itemUser: ["Cacturne"],
@@ -18,7 +18,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	dragantistite: {
 		name: "Dragantistite",
-		//spritenum: 586,
+		spritenum: 613,
 		megaStone: "Dragantis-Mega",
 		megaEvolves: "Dragantis",
 		itemUser: ["Dragantis"],
@@ -35,7 +35,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	pyroarite: {
 		name: "Pyroarite",
-		//spritenum: 586,
+		spritenum: 625,
 		megaStone: "Pyroar-Mega",
 		megaEvolves: "Pyroar",
 		itemUser: ["Pyroar"],
@@ -52,7 +52,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	cryogonalite: {
 		name: "Cryogonalite",
-		//spritenum: 586,
+		spritenum: 575,
 		megaStone: "Cryogonal-Mega",
 		megaEvolves: "Cryogonal",
 		itemUser: ["Cryogonal"],
@@ -69,7 +69,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	luxrite: {
 		name: "Luxrite",
-		//spritenum: 586,
+		spritenum: 596,
 		megaStone: "Luxray-Mega",
 		megaEvolves: "Luxray",
 		itemUser: ["Luxray"],
@@ -86,7 +86,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	stormulexite: {
 		name: "Stormulexite",
-		//spritenum: 586,
+		spritenum: 596,
 		megaStone: "Stormulex-Mega",
 		megaEvolves: "Stormulex",
 		itemUser: ["Stormulex"],
@@ -103,7 +103,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	drifblimite: {
 		name: "Drifblimite",
-		//spritenum: 586,
+		spritenum: 588,
 		megaStone: "Drifblim-Mega",
 		megaEvolves: "Drifblim",
 		itemUser: ["Drifblim"],
@@ -120,7 +120,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	cofagrigusite: {
 		name: "Cofagrigusite",
-		//spritenum: 586,
+		spritenum: 588,
 		megaStone: "Cofagrigus-Mega",
 		megaEvolves: "Cofagrigus",
 		itemUser: ["Cofagrigus"],
@@ -137,7 +137,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	gigalithite: {
 		name: "Gigalithite",
-		//spritenum: 586,
+		spritenum: 607,
 		megaStone: "Gigalith-Mega",
 		megaEvolves: "Gigalith",
 		itemUser: ["Gigalith"],
@@ -154,7 +154,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	pasturite: {
 		name: "Pasturite",
-		//spritenum: 586,
+		spritenum: 589,
 		megaStone: "Pastura-Mega",
 		megaEvolves: "Pastura",
 		itemUser: ["Pastura"],
@@ -171,7 +171,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	crobatite: {
 		name: "Crobatite",
-		//spritenum: 586,
+		spritenum: 588,
 		megaStone: "Crobat-Mega",
 		megaEvolves: "Crobat",
 		itemUser: ["Crobat"],
@@ -188,7 +188,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	drapionite: {
 		name: "Drapionite",
-		//spritenum: 586,
+		spritenum: 588,
 		megaStone: "Drapion-Mega",
 		megaEvolves: "Drapion",
 		itemUser: ["Drapion"],
@@ -205,7 +205,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	dragalgite: {
 		name: "Dragalgite",
-		//spritenum: 586,
+		spritenum: 588,
 		megaStone: "Dragalge-Mega",
 		megaEvolves: "Dragalge",
 		itemUser: ["Dragalge"],
@@ -309,7 +309,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	// end
 
-	// start: where is the mistake here?
+	// start
 	ancientarmor: {
 		name: "Ancient Armor",
 		spritenum: 581,
