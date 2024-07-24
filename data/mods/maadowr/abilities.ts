@@ -1,5 +1,6 @@
 export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
   absorption: {
+	  shortDesc: "Increases user's base Def or SpD in terrain.",
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain') || this.field.isTerrain('electricterrain')) return this.chainModify(1.5);
@@ -94,8 +95,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
    ampup: {
-		desc: "When this Pokémon's move misses, raises its Speed by 1 stage.",
-		shortDesc: "Raises user's Speed by 1 stage if its move misses.",
+		desc: "When this Pokémon's move misses, raises its Speed by 2 stages.",
+		shortDesc: "Raises user's Speed by 2 stages if its move misses.",
 		onModifySpe(spe, pokemon) {
 			if Pokemon.moveThisTurnResult = false {
 				this.boost({spe: 2});
@@ -216,6 +217,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: currently, only heals user rather than ally as well
 	cultivation: {
+		shortDesc: "User recovers 1/16 of its HP, 1/8 in terrain.",
 			onTerrainChange(target, source) {
 			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('acidicterrain')) {
 				this.heal(target.baseMaxhp / 16);
@@ -293,6 +295,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	interference: {
+		shortDesc: "If user gets hurt by a contact move, inflicts Torment on the attacker.",
    	onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				source.addVolatile('torment', this.effectState.target);
@@ -307,7 +310,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	
 	// start
 	malware: {
-		desc: "On switch-in, this Pokémon poisons every Pokémon on the field. Poison inflicted through this Ability does half as much damage as normal poison.",
+		desc: "On switch-in, this Pokémon poisons every Pokémon on the field. Poison deals half as much damage as normal poison.",
 		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
@@ -385,6 +388,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	permafrost: {
+		shortDesc: "Boosts Ice moves by 50% on user's side.",
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Ice') {
@@ -401,6 +405,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	poisonspit: {
+		shortDesc: "Sets Acidic Terrain when hurt.",
 		onDamagingHit(damage, target, source, move) {
 			this.field.setTerrain('acidicterrain');
 		},
@@ -413,6 +418,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	reconfiguration: {
+		shortDesc: "Boosts user's stat depending on target's best stat.",
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position]) {
 				totalatk += target.getStat('atk', false, true);
@@ -455,6 +461,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: currently, it only affects the user, rather than the ally as well
 	rewind: {
+		shortDesc: "Recovers item when hit by a move causing its HP to get to 50% or below.",
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
@@ -584,11 +591,44 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	// thermal expansion
+	thermalexpansion: {
+		onDamage(damage, target, source, effect) {
+			if (!target.hasType('Ice')) return;
+			if (effect && effect.id === 'stealthrock') {
+				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', target, 'typechange', target.getTypes().join('/'));
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (!target.hasType('Ice')) return;
+			if (move.type === 'Rock') {
+				this.add('-immune', target, '[from] ability: Thermal Expansion');
+				target.setType(target.getTypes(true).map(type => type === "Ice" ? "???" : type));
+				this.add('-start', target, 'typechange', target.getTypes().join('/'));
+				return null;
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (target.hasType('Ice')) return;
+			if (!target.addType('Ice')) return false;
+			if (effect.id === 'snow') {
+				this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Thermal Expansion');
+			}
+		},
+		flags: {},
+		name: "Thermal Expansion",
+		shortDesc: "If user is Ice-type, immunity to Stealth Rock and Rock-type moves. On immunity, lose Ice-type. Regain in Hail or switch.",
+		rating: 4,
+		num: -23,
+	},
 
 	// end
 
 	// start
 	vampirism: {
+		shortDesc: "Replaces target's ability with Vampirism if user made contact.",
 		onSourceDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
 			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'vampirism') {
@@ -610,6 +650,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	woodstove: {
+		shortDesc: "50% less damage from Fire moves dealt to user's side. Also, less Burn damage.",
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Wood Stove');
