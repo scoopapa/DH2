@@ -1984,7 +1984,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Leech Seed", "Encore", "Substitute", "Moonblast"],
+                "movepool": ["Leech Seed", "Encore", "Substitute", "Dazzling Gleam"],
                 "teraTypes": ["Dark"]
             }
         ]
