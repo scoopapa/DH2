@@ -27,7 +27,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	"orange": {
+	"cabbage": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
@@ -47,7 +47,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	"confettiball": {
+	"gumball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},

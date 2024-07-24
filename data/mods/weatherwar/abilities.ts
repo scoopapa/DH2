@@ -30,7 +30,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Swarm",
-		shortDesc: "On switchin, this Pokemon sets THE SWARM.",
+		shortDesc: "On switchin, this Pokemon sets The Swarm.",
 	},
 	blackout: {
 		onStart(source) {
@@ -249,23 +249,60 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Hivemind",
-		shortDesc: "Filter + GaG in The Swarm", 
+		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
-	intangible: {
-		onSourceModifyDamage(damage, source, target, move) {
-			let mod = 1;
-			if (move.flags['contact']) mod /= 2;
-			return this.chainModify(mod);
-		},
-		onDamage(damage, target, source, effect) {
-			if (this.field.pseudoWeather.twilightzone && effect.effectType !== 'Move') {
-				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
-				return false;
+	ambush: {
+		onBeforeTurn(pokemon) {
+			if (!this.field.pseudoWeather.twilightzone) return;
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('ambush', pokemon);
+				const data = side.getSideConditionData('ambush');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
 			}
 		},
+		onModifyMove(move, source, target) {
+			move.accuracy = true;
+			if (this.field.pseudoWeather.twilightzone && (target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
+		},
+		onTryHit(source, target) {
+			if (this.field.pseudoWeather.twilightzone) target.side.removeSideCondition('ambush');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				const move = this.queue.willMove(pokemon.foes()[0]);
+				const moveName = move && move.moveid ? move.moveid.toString() : "";
+				this.debug('Ambush start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon.foes()[0], 'ability: Ambush');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove(moveName, source, source.getLocOf(pokemon));
+				}
+			},
+		},
 		flags: {breakable: 1},
-		name: "Intangible",
-		shortDesc: "Halved contact damage + Magic Guard in Twilight Zone",
+		name: "Ambush",
+		shortDesc: "Moves can't miss + all moves Pursuit in Twilight Zone",
 	},
 	dracojet: {
 		onTryBoost(boost, target, source, effect) {
@@ -279,7 +316,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
-			if (move.category !== "Status" && this.field.pseudoWeather.lotsofreallysmalldragons) {
+			if (move.category !== "Status" && move.type === 'Dragon' && this.field.pseudoWeather.lotsofreallysmalldragons) {
 				this.add('-activate', pokemon, 'ability: Draco Jet');
 				return 0.1;
 			}
@@ -289,23 +326,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Speed cannot be lowered. Dragon moves move first in LoRSD.", 
 	},
 	shortcircuit: {
-		onDamagingHitOrder: 1,
-		onFaint(pokemon) {
-			if(!pokemon.adjacentFoes()) return;
-			const target = this.sample(pokemon.adjacentFoes());
-			this.damage(target.baseMaxhp / 4, target, pokemon);
-		},
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
-			if (!this.field.pseudoWeather.thunderstorm || target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 
 			if (this.randomChance(3, 10)) {
 				target.trySetStatus('par', source);
 			}
 		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.pseudoWeather.thunderstorm) target.addVolatile('charge');
+		},
 		flags: {},
 		name: "Short Circuit",
-		shortDesc: "Opponent loses 25% if user faints. 30% paralysis chance in Thunderstorm.", 
+		shortDesc: "This Pokemon's moves have 30% chance to pararlyze. Electromorphosis in Thunderstorm.", 
 	},
 	darkfantasy: {
 		onUpdate(pokemon) {
@@ -329,11 +364,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([3, 2]);
+			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([5, 4]);
 		},
 		flags: {breakable: 1},
 		name: "Dark Fantasy",
-		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.5x power in Fable.",
+		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.25x power in Fable.",
 	},
 	suplex: {
 		onTryBoost(boost, target, source, effect) {
@@ -442,14 +477,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['heal', 'drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
-			console.log(effect.id);
+			console.log(effect);
 			if (heals.includes(effect.id)) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifyMove(move, pokemon) {
 			if(move.flags['heal']) {
-				move.heal = [move.heal[0] * 3, move.heal[1] * 2];
+				console.log(move);
+				//move.heal = [move.heal[0] * 3, move.heal[1] * 2];
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -1122,14 +1158,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
+			if (pokemon.metronomeUsed) delete pokemon.metronomeUsed;
 		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
-			if (move.id === 'metronome') {
-				const newMove = this.dex.getActiveMove('metronome');
-				this.actions.useMove(newMove, target, source);
-			}
-		},
+		//metronome hitting twice handled in moves.ts
 		flags: {},
 		name: "Duomod Reference??",
 		shortDesc: "This Pokemon uses Metronome twice. Spins the Roulette Wheel during Metronome Battle."
@@ -1144,7 +1175,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			console.log(type + " " + move.type);
 			if (this.field.pseudoWeather.shitstorm && move.type === 'Poison' && type === 'Steel') return 1;
 		},
 		shortDesc: "Corrosion + Poison hits Steel supereffectively in Shitstorm.",
@@ -1322,7 +1352,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					newType.push('Water');
 					break;
 			}
-			console.log(newType);
+			this.add('-ability', source, 'Forecast');
 			if(pokemon.setType(newType)) this.add('-start', pokemon, 'typechange', newType.join('/'));
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},

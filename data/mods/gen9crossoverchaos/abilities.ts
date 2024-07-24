@@ -49,7 +49,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1,
 	},
 	puyomastery: {
-		shortDesc: "Boosts Water attacks by 1.5x",
+		shortDesc: "This Pokemon's Water moves have 1.5x power.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Water') {
@@ -295,7 +295,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Ghost') {
-				this.debug('Curse Weaver Boost boost');
+				this.debug('Curse Weaver boost');
 				return this.chainModify(1.5);
 			}
 		},
@@ -324,6 +324,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// I have no clue what's going on here, all I know is that this is how Morpeko was coded
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Binary Soul",
+		shortDesc: "If Twinrova, it changes between Fire and Ice at the end of each turn.",
 		rating: 1,
 		num: -18,
 	},
@@ -344,6 +345,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Perplexing Gaze",
+		shortDesc: "This Pokemon's Psychic moves have 1.5x power.",
 		rating: 3.5,
 		num: -19,
 	},
@@ -353,6 +355,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Rainbow Puppeteer",
+		shortDesc: "This Pokemon's moves have STAB.",
 		rating: 4,
 		num: -20,
 	},
@@ -364,7 +367,106 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Devouring Jaw",
+		shortDesc: "This Pokemon's biting moves heal it for 50% of the damage dealt.",
 		rating: 3,
 		num: -21,
+	},
+	divearmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('DiVE Armor neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+			) {
+				this.effectState.checkedBerserk = false;
+			} else {
+				this.effectState.checkedBerserk = true;
+			}
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedBerserk;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedBerserk = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp < target.maxhp / 4 && target.hp + damage >= target.maxhp / 4) {
+				const bestStat = target.getBestStat(true, true);
+				this.boost({[bestStat]: 1}, target, target);
+			}
+		},
+		name: "DiVE Armor",
+		shortDesc: "Recieves 3/4 damage from SE attacks; highest stat raised by 1 when hp below 25%.",
+		rating: 3,
+		num: -22,
+	},
+	shadowgift: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadowgift boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadowgift boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Shadowgift",
+		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack.",
+		rating: 3.5,
+		num: -23,
+	},
+	galeforce: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.addVolatile('galeforce');
+			}
+		},
+		condition: {
+			onModifyPriority(priority, pokemon, target, move) {
+				pokemon.removeVolatile('galeforce')
+				return priority + 1;
+			},
+		},
+		name: "Galeforce",
+		shortDesc: "If this Pokemon attacks and KO's a target, next move used has +1 priority.",
+		rating: 3,
+		num: -24,
+	},
+	smirk: {
+		onFoeDamagingHit(damage, target, source, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Smirk trigger');
+				source.addVolatile('laserfocus');
+			}
+		},
+		onAfterMove(pokemon, target, move) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.debug('Smirk trigger');
+				target.addVolatile('laserfocus');
+			}
+		},
+		name: "Smirk",
+		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
+		rating: 3,
+		num: -25,
 	},
 };

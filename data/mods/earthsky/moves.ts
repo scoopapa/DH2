@@ -3740,6 +3740,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	milkdrink: {
 		inherit: true,
 		pp: 10,
+		target: 'adjacentAllyOrSelf',
+		desc: "The target restores 1/2 of its maximum HP, rounded half up.",
+		shortDesc: "Heals user or ally by 50% of its max HP.",
 	},
 	mindreader: {
 		num: 170,

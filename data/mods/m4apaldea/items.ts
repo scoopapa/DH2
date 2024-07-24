@@ -167,4 +167,88 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Cyclizar, this item allows it to Mega Evolve in battle.",
 	},
+	pawmite: {
+		name: "Pawmite",
+		spritenum: 578,
+		megaStone: "Pawmot-Mega",
+		megaEvolves: "Pawmot",
+		itemUser: ["Pawmot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2013,
+		gen: 8,
+		desc: "If held by a Pawmot, this item allows it to Mega Evolve in battle.",
+	},
+	grafaiaite: {
+		name: "Grafaiaite",
+		spritenum: 578,
+		megaStone: "Grafaiai-Mega",
+		megaEvolves: "Grafaiai",
+		itemUser: ["Grafaiai"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2014,
+		gen: 8,
+		desc: "If held by a Grafaiai, this item allows it to Mega Evolve in battle.",
+	},
+	cetitanite: {
+		name: "Cetitanite",
+		spritenum: 578,
+		megaStone: "Cetitan-Mega",
+		megaEvolves: "Cetitan",
+		itemUser: ["Cetitan"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2015,
+		gen: 8,
+		desc: "If held by a Cetitan, this item allows it to Mega Evolve in battle.",
+	},
+	ninetalinite: {
+		name: "Ninetalinite",
+		spritenum: 578,
+		megaStone: "Ninetales-Mega",
+		megaEvolves: "Ninetales",
+		itemUser: ["Ninetales"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2016,
+		gen: 8,
+		desc: "If held by a Ninetales, this item allows it to Mega Evolve in battle.",
+	},
+	noctowlite: {
+		name: "Noctowlite",
+		spritenum: 578,
+		megaStone: "Noctowl-Mega",
+		megaEvolves: "Noctowl",
+		itemUser: ["Noctowl"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2017,
+		gen: 8,
+		desc: "If held by a Noctowl, this item allows it to Mega Evolve in battle.",
+	},
+	hatterenite: {
+		name: "Hatterenite",
+		spritenum: 578,
+		megaStone: "Hatterene-Mega",
+		megaEvolves: "Hatterene",
+		itemUser: ["Hatterene"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2018,
+		gen: 8,
+		desc: "If held by a Hatterene, this item allows it to Mega Evolve in battle.",
+	},
 };

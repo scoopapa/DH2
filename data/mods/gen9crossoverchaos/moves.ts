@@ -29,7 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 1.",
+		shortDesc: "Lowers the user's Attack by 1. ",
 		name: "Dedede Hammer Throw",
 		pp: 10,
 		priority: 0,
@@ -147,7 +147,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psystrike", target);
+			this.add('-anim', pokemon, "Psystrike", target);
 			if (pokemon.ignoringItem()) return false;
 			const item = pokemon.getItem();
 			if (!item.naturalGift) return false;
@@ -334,8 +334,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		defensiveCategory: "Special",
-		shortDesc: "Damages target based on Sp. Def, not Defense.",
+		defensiveCategory: "Physical",
+		shortDesc: "Special if user's SpA is higher.",
 		name: "Rude Buster",
 		pp: 10,
 		priority: 0,
@@ -343,6 +343,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
  		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Punishment", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
 		secondary: null,
 		target: "normal",
@@ -393,7 +396,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	icebreak: {
 		num: -15,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 80,
 		category: "Special",
 		shortDesc: "2x power against resists.",
 		name: "Ice Break",
@@ -519,6 +522,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Physical",
 		name: "Shakalaka Maracas",
+		shortDesc: "Sets up a layer of Spikes on the opposing side.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -547,6 +551,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Double Dynamite",
+		shortDesc: "Type varies based on the user's primary type.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -584,6 +589,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Special",
 		name: "Poltergust",
+		shortDesc: "20% chance to make the target flinch.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
@@ -619,12 +625,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Beautiful",
 	},
-	dessication: {
+	desiccation: {
 		num: -20,
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
-		name: "Dessication",
+		name: "Desiccation",
+		shortDesc: "Applies Leech Seed on the target.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -633,10 +640,271 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
-		type: "Grass",
+		type: "Rock",
 		contestType: "Cute",
 	},
-	
+	dollswar: {
+		num: -21,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Doll\'s War",
+		shortDesc: "Special if user's SpA is higher. 50% chance to raise Defense by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Photon Geyser", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
+		ignoreAbility: true,
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	dollsphalanx: {
+		num: -22,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Doll\'s Phalanx",
+		shortDesc: "Protects from moves. Contact: loses 1/8 max HP.",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'dollsphalanx',
+		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+		  this.add('-anim', source, "Spiky Shield", target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
+	},
+	artfulsacrifice: {
+		num: -23,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Artful Sacrifice",
+		shortDesc: "Special if user's SpA is higher. 30% chance to burn the target.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Prismatic Laser", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
+		ignoreAbility: true,
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+ 	// No need for this effect to be coded, given mod isn't a doubles format
+	chargedcannondive: {
+		num: -24,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Charged Cannon DiVE",
+		shortDesc: "Deals additional half damage to the target's ally.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+	},
+	bulletburst: {
+		num: -25,
+		accuracy: 85,
+		basePower: 25,
+		category: "Physical",
+		name: "Bullet Burst",
+		shortDesc: "Hits 2 to 5 times. 10% chance to lower the target's Defense by 1 stage.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1, metronome: 1},
+		multihit: [2, 5],
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	redtruth: {
+		num: -26,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Red Truth",
+		shortDesc: "Bypasses Ghost Immunity. If immunity is bypassed, then neutral effectiveness.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1, sound: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Normal') return;
+			if (!target.runImmunity('Ghost')) {
+				if (target.hasType('Normal')) return 0;
+			}
+		},
+		ignoreImmunity: {'Normal': true},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
+	nosferatu: {
+		num: -27,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Nosferatu",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	waste: {
+		num: -28,
+		accuracy: 85,
+		basePower: 50,
+		category: "Special",
+		name: "Waste",
+		shortDesc: "Hits twice.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: 2,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	goetia: {
+		num: -29,
+		accuracy: 75,
+		basePower: 120,
+		category: "Special",
+		name: "Waste",
+		shortDesc: "No additional effect.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	breechburst: {
+		num: -30,
+		accuracy: 95,
+		basePower: 30,
+		category: "Physical",
+		name: "Breech Burst",
+		shortDesc: "Hits 3 times. 10% chance to give user -1 Spe, +1 Atk, and +1 Def.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					atk: 1,
+					def: 1,
+					spd: -1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	godslayersword: {
+		num: -31,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Godslayer Sword",
+		shortDesc: "If not very effective: hits for neutral effectiveness.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (typeMod < 0) {
+				return 0;
+			}
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
 
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
@@ -869,5 +1137,62 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'curse'},
 		contestType: "Tough",
+	},
+	bouncybubble: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	protect: {
+		num: 182,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Protect",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'protect',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (target.hasAbility('smirk')) {
+					target.addVolatile('laserfocus')
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 };

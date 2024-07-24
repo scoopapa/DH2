@@ -62,7 +62,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			return false;
 		},
 	},
-	frz: {
+	/*frz: {
 		inherit: true,
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -76,7 +76,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				target.cureStatus();
 			}
 		},
-	},
+	},*/
 	confusion: {
 		inherit: true,
 		onBeforeMovePriority: 3,

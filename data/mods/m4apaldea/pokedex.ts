@@ -234,4 +234,72 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["superpower"],
 		megaCreator: "okispokis",
 	},
+
+	// slate 5
+
+	pawmot: {
+		inherit: true,
+		mega: "pawmotmega",
+		megaName: "Pawmot-Mega",
+		megaAbility: {0: "Fluffy"},
+		megaStats: {hp: 70, atk: 135, def: 110, spa: 85, spd: 70, spe: 120},
+		megaStone: "Pawmite",
+		movepoolAdditions: ["healbell"],
+		megaCreator: "okispokis",
+	},
+
+	grafaiai: {
+		inherit: true,
+		mega: "grafaiaimega",
+		megaName: "Grafaiai-Mega",
+		megaAbility: {0: "Color Spray"},
+		megaStats: {hp: 63, atk: 125, def: 75, spa: 90, spd: 102, spe: 130},
+		megaStone: "Grafaiaite",
+		movepoolAdditions: ["quickattack", "shadowsneak", "playrough"],
+		megaCreator: "jazzmat",
+	},
+
+	cetitan: {
+		inherit: true,
+		mega: "cetitanmega",
+		megaName: "Cetitan-Mega",
+		megaAbility: {0: "Mold Breaker"},
+		megaStats: {hp: 170, atk: 163, def: 100, spa: 45, spd: 55, spe: 88},
+		megaStone: "Cetitanite",
+		megaCreator: "DrPumpkinz",
+	},
+
+	// slate 5
+
+	ninetales: {
+		inherit: true,
+		mega: "ninetalesmega",
+		megaName: "Ninetales-Mega",
+		megaAbility: {0: "Wandering Spirit"},
+		megaStats: {hp: 73, atk: 76, def: 105, spa: 101, spd: 130, spe: 120},
+		megaStone: "Ninetalinite",
+		megaCreator: "DrPumpkinz",
+	},
+
+	noctowl: {
+		inherit: true,
+		mega: "noctowlmega",
+		megaName: "Noctowl-Mega",
+		megaType: ["Psychic", "Flying"],
+		megaAbility: {0: "Endless Dream"},
+		megaStats: {hp: 100, atk: 50, def: 70, spa: 126, spd: 116, spe: 90},
+		megaStone: "Noctowlite",
+		movepoolAdditions: ["focusblast", "uturn"],
+		megaCreator: "Lysion and Mushroom-Flower",
+	},
+
+	hatterene: {
+		inherit: true,
+		mega: "hatterenemega",
+		megaName: "Hatterene-Mega",
+		megaAbility: {0: "Hair Trigger"},
+		megaStats: {hp: 57, atk: 105, def: 115, spa: 156, spd: 138, spe: 39},
+		megaStone: "Hatterenite",
+		megaCreator: "okispokis",
+	},
 };

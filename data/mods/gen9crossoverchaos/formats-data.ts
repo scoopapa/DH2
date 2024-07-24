@@ -135,7 +135,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	queen: {
+	queendr: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
@@ -162,6 +162,42 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	inaros: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
+	},
+   divearmorx: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	irene: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	beatrice: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	azhdaha: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	sisyphusprime: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	madwheel: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+		aversa: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	bagpipe: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	flynn: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
 	},
 
 };

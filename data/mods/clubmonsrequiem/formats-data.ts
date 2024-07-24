@@ -13,8 +13,90 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	absol: {tier: "CM"},
 
+	fennekin: {tier: "CM (NFE)"},
+	braixen: {tier: "CM (NFE)"},
+	delphox: {tier: "CM"},
+	
+	amaura: {tier: "CM (NFE)"},
+	aurorus: {tier: "CM"},
+
+	torterraunidentified: {tier: "CM"},
+
+	inkayalola: {tier: "CM (NFE)"},
+	malamaralola: {tier: "CM"},
+
+	petaledpyre: {tier: "CM"},
+
+	sneezibia: {tier: "CM"},
+
+	porygreen: {tier: "CM (NFE)"},
+	porygreen2: {tier: "CM (NFE)"},
+	porygreenz: {tier: "CM"},
+
+	kricketot: {tier: "CM (NFE)"},
+	kricketune: {tier: "CM (NFE)"},
+	krickoncerto: {tier: "CM"},
+
+	cyclonimbus: {tier: "CM"},
+	cyclonimbussunny: {tier: "Illegal"},
+	cyclonimbusrainy: {tier: "Illegal"},
+	cyclonimbussnowy: {tier: "Illegal"},
+
+	scyther: {tier: "CM"},
+	kleavor: {tier: "CM"},
+
+	bergmite: {tier: "CM (NFE)"},
+	avalugg: {tier: "CM"},
+	avalugghisui: {tier: "CM"},
+	avaluggalpine: {tier: "CM (NFE)"},
+	avalange: {tier: "CM"},
+
+	tadbulb: {tier: "CM (NFE)"},
+	bellibolt: {tier: "CM"},
+	bellibrr: {tier: "CM"},
+
+	meowth: {tier: "CM (NFE)"},
+	persian: {tier: "CM"},
+	meowthalola: {tier: "CM (NFE)"},
+	persianalola: {tier: "CM"},
+
+	falinks: {tier: "CM"},
+	falinkshammer: {tier: "Illegal"},
+
+	gothitelleallira: {tier: "CM"},
+
+	stormulex: {tier: "CM"},
+
+	brutebonnet: {tier: "CM"},
+	sandyshocks: {tier: "CM"},
+
+	celebi: {tier: "CM"},
+
+	ironcrown: {tier: "CM"},
+
 	skrelp: {tier: "CM (NFE)"},
 	dragalge: {tier: "CM"},
+
+	doduo: {tier: "CM (NFE)"},
+	dodriocyarian: {tier: "CM"},
+
+	wiglett: {tier: "CM (NFE)"},
+	wugtrio: {tier: "CM"},
+
+	tarountula: {tier: "CM (NFE)"},
+	spidops: {tier: "CM"},
+
+	bombirdier: {tier: "CM"},
+
+	squawkabilly: {tier: "CM"},
+
+	klawf: {tier: "CM"},
+
+	ironconvector: {tier: "CM"},
+
+	lechonk: {tier: "CM (NFE)"},
+	oinkologne: {tier: "CM"},
+	oinkolognef: {tier: "CM"},
 
 	dewpider: {tier: "CM (NFE)"},
 	araquanid: {tier: "CM"},
@@ -26,6 +108,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	snover: {tier: "CM (NFE)"},
 	skiversnow: {tier: "CM"},
 	abomasnow: {tier: "CM"},
+	abomasnowmega: {tier: "CM"},
 
 	cryogonal: {tier: "CM (NFE)"},
 	pollugonal: {tier: "CM"},
@@ -43,11 +126,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	growlithe: {tier: "CM (NFE)"},
 	arcanine: {tier: "CM"},
-	arcaninehisui: {tier: "CM"},
-	
-	basculinwhitestriped: {tier: "CM (NFE)"},
-	basculegion: {tier: "CM"},
-	basculegionf: {tier: "CM"},
 	
 	chansey: {tier: "CM (NFE)"},
 	blissey: {tier: "CM"},
@@ -73,6 +151,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	electrike: {tier: "CM (NFE)"},
 	manectric: {tier: "CM"},
+	manectricmega: {tier: "CM"},
 	
 	baltoy: {tier: "CM (NFE)"},
 	claydol: {tier: "CM"},
@@ -99,9 +178,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	goomy: {tier: "CM (NFE)"},
 	sliggoo: {tier: "CM (NFE)"},
-	sliggoohisui: {tier: "CM (NFE)"},
-	goodra: {tier: "CM"},
-	goodrahisui: {tier: "CM"},
+	goodra: {tier: "CM"},	
 	
 	trapinch: {tier: "CM (NFE)"},
 	vibrava: {tier: "CM (NFE)"},
@@ -109,6 +186,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	snorunt: {tier: "CM (NFE)"},
 	glalie: {tier: "CM"},
+	glaliemega: {tier: "CM"},
 	froslass: {tier: "CM"},
 	
 	shroodle: {tier: "CM (NFE)"},
@@ -140,6 +218,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lotad: {tier: "CM (NFE)"},
 	lombre: {tier: "CM (NFE)"},
 	ludicolo: {tier: "CM"},
+	
+	ogerponcostar: {tier: "CM"},
 	
 	vullaby: {tier: "CM (NFE)"},
 	mandibuzz: {tier: "CM"},

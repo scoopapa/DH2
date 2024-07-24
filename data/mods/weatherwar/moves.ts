@@ -24,6 +24,7 @@ export function getName(name: string): string {
 export const Moves: {[k: string]: ModdedMoveData} = {
 	//weather setting moves
 	settheswarm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -38,6 +39,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Bug",
 	},
 	settwilightzone: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -52,6 +54,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
 	setlotsofreallysmalldragons: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -66,6 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 	},
 	setthunderstorm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -80,6 +84,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 	},
 	setfable: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -94,6 +99,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 	},
 	setcolosseum: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -108,6 +114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	setdrought: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -122,6 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 	},
 	setdeltastream: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -136,6 +144,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 	},
 	setthevoices: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -150,6 +159,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 	},
 	setovergrowth: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -164,6 +174,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 	},
 	setduststorm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -178,6 +189,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 	},
 	setwhiteout: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -192,6 +204,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 	},
 	setmetronomebattle: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -206,6 +219,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},
 	setshitstorm: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -220,6 +234,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 	},
 	setmindfuck: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -234,6 +249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 	},
 	setlandslide: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -248,6 +264,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 	},
 	settimewarp: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -262,6 +279,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	setflashflood: {
+		isViable: false,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -280,6 +298,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	twineedle: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		shortDesc: "Hits 2 times; 20% to poison; 5 times in The Swarm.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.theswarm) {
@@ -290,6 +309,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	snatch: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		shortDesc: "Steals certain status moves. Steals <= 60 BP moves in Twilight Zone.",
 		volatileStatus: 'snatch',
 		condition: {
@@ -315,6 +335,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	dragonrage: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		shortDesc: "Deals 40 damage. 100 damage in LoRSD.",
 		onModifyMove(move, source, target) {
 			if (this.field.pseudoWeather.lotsofreallysmalldragons) {
@@ -326,10 +347,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isViable: true,
 		shortDesc: "+1 SpD, next Electric move 2x, 33% heal in Thunderstorm.",
-		onModifyMove(move, source, target) {
-			if (this.field.pseudoWeather.thunderstorm) {
-				move.heal = [1, 3];
-			}
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Short Circuit', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+				if (this.field.pseudoWeather.thunderstorm) {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon, effect);
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Short Circuit', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+				if (this.field.pseudoWeather.thunderstorm) {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon, effect);
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Charge', '[silent]');
+			},
 		},
 	},
 	mistyexplosion: {
@@ -350,7 +408,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Doesn't fail, doesn't flinch in Colosseum.",
 		onTryHit(target, pokemon, move) {
 			if (this.field.getPseudoWeather('colosseum')) {
-				move.secondaries.chance = 0;
+				delete move.secondaries;
 				return;
 			}
             const action = this.queue.willMove(target);
@@ -377,6 +435,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (this.field.pseudoWeather.deltastream) {
 					return 6;
 				}
+				if (!effect) return 2;
 				return 4;
 			},
 			onSideStart(side, source) {
@@ -459,6 +518,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	iceball: {
 		inherit: true,
 		isViable: true,
+		isNonstandard: null,
 		accuracy: 100,
 		shortDesc: "2x power and doesn't lock in Whiteout.",
 		basePowerCallback(pokemon, target, move) {
@@ -512,7 +572,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				'accelerock', 'acrobatics', 'aquacutter', 'avalanche', 'barbbarrage', 'bonemerang', 'bouncybubble', 'bulletpunch', 'buzzybuzz', 'ceaselessedge', 'circlethrow', 'clearsmog', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'facade', 'firefang', 'flipturn', 'flowertrick', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'icefang', 'iceshard', 'iciclespear', 'infernalparade', 'jetpunch', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalspin', 'mysticalpower', 'naturesmadness', 'nightshade', 'nuzzle', 'pikapapow', 'populationbomb', 'psychocut', 'psyshieldbash', 'pursuit', 'quickattack', 'ragefist', 'rapidspin', 'return', 'rockblast', 'ruination', 'saltcure', 'scorchingsands', 'seismictoss', 'shadowclaw', 'shadowsneak', 'sizzlyslide', 'skydrop', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailblaze', 'tripleaxel', 'tripledive', 'twinbeam', 'uturn', 'veeveevolley', 'voltswitch', 'watershuriken', 'weatherball',
 			];
 			const moves = this.dex.moves.all().filter(move => (
-				(this.field.pseudoWeather.metronomebattle ? (move.basePower >= 75 || GOOD_STATUS_MOVES.includes(move) || GOOD_WEAK_MOVES.includes(move)) : //any viable move
+				(this.field.pseudoWeather.metronomebattle ? ((move.basePower >= 75 && !move.flags['charge']) || GOOD_STATUS_MOVES.includes(move) || GOOD_WEAK_MOVES.includes(move)) : //any viable move
 				((![2, 4].includes(this.gen) || !source.moves.includes(move.id)) &&
 				(!move.isNonstandard || move.isNonstandard === 'Unobtainable') &&
 				move.flags['metronome'])
@@ -525,10 +585,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomMove) return false;
 			source.side.lastSelectedMove = this.toID(randomMove);
 			this.actions.useMove(randomMove, target);
+			if (!target.metronomeUsed && target.hasAbility("duomodreference")) {
+				this.add('-ability', target, 'Duomod Reference??');
+				target.metronomeUsed = true;
+				this.actions.useMove(this.dex.getActiveMove('metronome'), target);
+			}
 		},
 	},
 	belch: {
 		inherit: true,
+		accuracy: 100,
 		isViable: true,
 		shortDesc: "Cannot be selected unless it is Shitstorm or the user eats a Berry.",
 		onDisableMove(pokemon) {
@@ -713,9 +779,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		    this.add('-anim', source, "Metronome", target);
 		},
 		onHit(pokemon) {
-			this.useMove("Metronome", pokemon);
-			this.useMove("Metronome", pokemon);
-			this.useMove("Metronome", pokemon);
+			this.actions.useMove("Metronome", pokemon);
+			this.actions.useMove("Metronome", pokemon);
+			this.actions.useMove("Metronome", pokemon);
 		},
 		secondary: null,
 		target: "self",
@@ -825,8 +891,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (result === 5) {
 				this.hint("Roulette Wheel Result 6 - Set hazards on both sides.");
 		    for (const pokemon of this.getAllActive()) {
-					this.useMove("Spikes", pokemon);
-					this.useMove("Stealth Electric", pokemon);
+					this.actions.useMove("Spikes", pokemon);
+					this.actions.useMove("Stealth Electric", pokemon);
 		    }
 			} else if (result === 6) {
 				this.hint("Roulette Wheel Result 7 - Set a random weather and terrain.");
@@ -836,18 +902,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
 							if (result2 === 0) {
-								this.useMove("Grassy Terrain", target);
+								this.actions.useMove("Grassy Terrain", target);
 							} else if (result2 === 1) {
-								this.useMove("Electric Terrain", target);
+								this.actions.useMove("Electric Terrain", target);
 							} else {
-								this.useMove("Misty Terrain", target);
+								this.actions.useMove("Misty Terrain", target);
 							}
 							if (result3 === 0) {
-								this.useMove("Sunny Day", target);
+								this.actions.useMove("Sunny Day", target);
 							} else if (result3 === 1) {
-								this.useMove("Rain Dance", target);
+								this.actions.useMove("Rain Dance", target);
 							} else {
-								this.useMove("Sandstorm", target);
+								this.actions.useMove("Sandstorm", target);
 							}
 						}
 					}
@@ -855,18 +921,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
 							if (result2 === 0) {
-								this.useMove("Grassy Terrain", target);
+								this.actions.useMove("Grassy Terrain", target);
 							} else if (result2 === 1) {
-								this.useMove("Electric Terrain", target);
+								this.actions.useMove("Electric Terrain", target);
 							} else {
-								this.useMove("Misty Terrain", target);
+								this.actions.useMove("Misty Terrain", target);
 							}
 							if (result3 === 0) {
-								this.useMove("Sunny Day", target);
+								this.actions.useMove("Sunny Day", target);
 							} else if (result3 === 1) {
-								this.useMove("Rain Dance", target);
+								this.actions.useMove("Rain Dance", target);
 							} else {
-								this.useMove("Sandstorm", target);
+								this.actions.useMove("Sandstorm", target);
 							}
 						}
 					}
@@ -913,20 +979,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (result === 10) {
 				this.hint("Roulette Wheel Result 11 - Make every Pokemon use Conversion 2.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Conversion 2", pokemon);
+					this.actions.useMove("Conversion 2", pokemon);
 				}
 			} else if (result === 11) {
 				this.hint("Roulette Wheel Result 12 - Make one Pokemon Transform into the other.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Transform", target);
+							this.actions.useMove("Transform", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Transform", target);
+							this.actions.useMove("Transform", target);
 						}
 					}
 				}
@@ -935,13 +1001,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Heart Swap", target);
+							this.actions.useMove("Heart Swap", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Heart Swap", target);
+							this.actions.useMove("Heart Swap", target);
 						}
 					}
 				}
@@ -953,7 +1019,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	        } else if (result === 14) {
 				this.hint("Roulette Wheel Result 15 - heard you guys liked scald");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Scald", pokemon);
+					this.actions.useMove("Scald", pokemon);
 				}
 			} else if (result === 15) {
 				this.hint("Roulette Wheel Result 16 - Attempt to Toxic both Pokemon.");
@@ -967,13 +1033,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Court Change", target);
+							this.actions.useMove("Court Change", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Court Change", target);
+							this.actions.useMove("Court Change", target);
 						}
 					}
 				}
@@ -985,20 +1051,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	        } else if (result === 18) {
 				this.hint("Roulette Wheel Result 19 - Make both Pokemon use Camouflage.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Camouflage", pokemon);
+					this.actions.useMove("Camouflage", pokemon);
 				}
 			} else if (result === 19) {
 				this.hint("Roulette Wheel Result 20 - Make both Pokemon swap abilities.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Skill Swap", target);
+							this.actions.useMove("Skill Swap", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Skill Swap", target);
+							this.actions.useMove("Skill Swap", target);
 						}
 					}
 				}
@@ -1007,13 +1073,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Celebrate", target);
+							this.actions.useMove("Celebrate", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Celebrate", target);
+							this.actions.useMove("Celebrate", target);
 						}
 					}
 				}
@@ -1022,13 +1088,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick Room", target);
+							this.actions.useMove("Trick Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick Room", target);
+							this.actions.useMove("Trick Room", target);
 						}
 					}
 				}
@@ -1052,13 +1118,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Haze", target);
+							this.actions.useMove("Haze", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Haze", target);
+							this.actions.useMove("Haze", target);
 						}
 					}
 				}
@@ -1067,13 +1133,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Magic Room", target);
+							this.actions.useMove("Magic Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Magic Room", target);
+							this.actions.useMove("Magic Room", target);
 						}
 					}
 				}
@@ -1082,13 +1148,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Wonder Room", target);
+							this.actions.useMove("Wonder Room", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Wonder Room", target);
+							this.actions.useMove("Wonder Room", target);
 						}
 					}
 				}
@@ -1097,13 +1163,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Pain Split", target);
+							this.actions.useMove("Pain Split", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Pain Split", target);
+							this.actions.useMove("Pain Split", target);
 						}
 					}
 				}
@@ -1117,35 +1183,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect", target);
-							this.useMove("Light Screen", target);
+							this.actions.useMove("Reflect", target);
+							this.actions.useMove("Light Screen", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect", target);
-							this.useMove("Light Screen", target);
+							this.actions.useMove("Reflect", target);
+							this.actions.useMove("Light Screen", target);
 						}
 					}
 				}
 			} else if (result === 29) {
 				this.hint("Roulette Wheel Result 30 - Starts a status immunity for both sides.");
 				for (const pokemon of this.getAllActive()) {
-	                	this.useMove("Safeguard", pokemon);
+	                	this.actions.useMove("Safeguard", pokemon);
 	        	}
 	        } else if (result === 30) {
 				this.hint("Roulette Wheel Result 31 - Deactivates all abilities that are active within 2 turns.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Neutral Air", target);
+							this.actions.useMove("Neutral Air", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Neutral Air", target);
+							this.actions.useMove("Neutral Air", target);
 						}
 					}
 				}
@@ -1172,20 +1238,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (result === 33) {
 				this.hint("Roulette Wheel Result 34 - Sets up Aqua Ring for both sides.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Aqua Ring", pokemon);
+					this.actions.useMove("Aqua Ring", pokemon);
 				}
 			} else if (result === 34) {
 				this.hint("Roulette Wheel Result 35 - One active Pokemon Defogs.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Defog", target);
+							this.actions.useMove("Defog", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Defog", target);
+							this.actions.useMove("Defog", target);
 						}
 					}
 				}
@@ -1194,30 +1260,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect Type", target);
+							this.actions.useMove("Reflect Type", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Reflect Type", target);
+							this.actions.useMove("Reflect Type", target);
 						}
 					}
 				}
 			} else if (result === 36) {
 				this.hint("Roulette Wheel Result 37 - glhf");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Sheer Cold", pokemon);
+					this.actions.useMove("Sheer Cold", pokemon);
 				}
 			} else if (result === 37) {
 				this.hint("Roulette Wheel Result 38 - uh oh");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Octolock", pokemon);
+					this.actions.useMove("Octolock", pokemon);
 				}
 			} else if (result === 38) {
 				this.hint("Roulette Wheel Result 39 - Both active Pokemon use Metronome.");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Metronome", pokemon);
+					this.actions.useMove("Metronome", pokemon);
 				}
 			} else if (result === 39) {
 				this.hint("Roulette Wheel Result 40 - get ready");
@@ -1244,13 +1310,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Trick", target);
+							this.actions.useMove("Trick", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Switcheroo", target);
+							this.actions.useMove("Switcheroo", target);
 						}
 					}
 				}
@@ -1259,13 +1325,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Sick Hacks", target);
+							this.actions.useMove("Sick Hacks", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Sick Hacks", target);
+							this.actions.useMove("Sick Hacks", target);
 						}
 					}
 				}
@@ -1273,27 +1339,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 				for (const pokemon of this.getAllActive()) {
 					const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
-					this.useMove(frstMove, pokemon);
+					this.actions.useMove(frstMove, pokemon);
 				}
 			} else if (result === 43) {
 				this.hint("Roulette Wheel Result 44 - One active Pokemon gains a higher crit rate.");
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Focus Energy", target);
+							this.actions.useMove("Focus Energy", target);
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Focus Energy", target);
+							this.actions.useMove("Focus Energy", target);
 						}
 					}
 				}
 			} else if (result === 44) {
 				this.hint("Roulette Wheel Result 45 - One new spin for each active Pokemon!");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Roulette Spin", pokemon);
+					this.actions.useMove("Roulette Spin", pokemon);
 				}
 			} else if (result === 45) {
 				this.hint("Roulette Wheel Result 46 - One active Pokemon becomes way faster than the other.");
@@ -1313,14 +1379,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pickSide === 0) {
 					for (const target of this.sides[0].pokemon) {
 						if (target.isActive) {
-							this.useMove("Vote Out", target);
+							this.actions.useMove("Vote Out", target);
 							return false;
 						}
 					}
 				} else if (pickSide === 1) {
 					for (const target of this.sides[1].pokemon) {
 						if (target.isActive) {
-							this.useMove("Vote Out", target);
+							this.actions.useMove("Vote Out", target);
 							return false;
 						}
 					}
@@ -1330,7 +1396,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				for (const pokemon of this.sides[0].active) {
 					for (const target of this.sides[1].active) {
 						if (target.storedStats.spe < pokemon.storedStats.spe) {
-							this.useMove("Flame Runner", pokemon);
+							this.actions.useMove("Flame Runner", pokemon);
 							const oldAbility = target.setAbility('Slow Start');
 							if (oldAbility) {
 								this.add('-ability', target, 'Slow Start', '[from] move: Flame Runner', '[silent]');
@@ -1338,7 +1404,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 								return;
 							}
 						} else if (target.storedStats.spe > pokemon.storedStats.spe) {
-							this.useMove("Flame Runner", target);
+							this.actions.useMove("Flame Runner", target);
 							const oldAbility = pokemon.setAbility('Slow Start');
 							if (oldAbility) {
 								this.add('-ability', pokemon, 'Slow Start', '[from] move: Flame Runner', '[silent]');
@@ -1347,7 +1413,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							}
 						} else {
 							for (const active of this.getAllActive()) {
-								this.useMove("Flame Runner", active);
+								this.actions.useMove("Flame Runner", active);
 							}
 						}
 					}
@@ -1368,7 +1434,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else {
 				this.hint("Roulette Wheel Result 50 - THE ULTIMATE EFFECT");
 				for (const pokemon of this.getAllActive()) {
-					this.useMove("Ultranome", pokemon);
+					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
 		},
@@ -1566,14 +1632,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	synthesis: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
 		pp: 10,
 	},
 	morningsun: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
 		pp: 10,
 	},
 	moonlight: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
 		pp: 10,
 	},
 	electroshot: {
@@ -1642,6 +1714,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "+2 Atk, +2 SpA in Overgrowth or Drought.",
 		onModifyMove(move, pokemon) {
 			if (this.field.pseudoWeather.overgrowth || this.field.pseudoWeather.drought) move.boosts = {atk: 2, spa: 2};
+		},
+	},
+	blizzard: {
+		inherit: true,
+		shortDesc: "Can't miss in Whiteout.",
+		onModifyMove(move) {
+			if (this.field.pseudoWeather.whiteout) move.accuracy = true;
 		},
 	},
 	auroraveil: {
@@ -1727,6 +1806,59 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon) {
 			if(this.field.pseudoWeather.length > 0) move.basePower *= 2;
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry: null,
+	},
+	hurricane: {
+		inherit: true,
+		shortDesc: "30% chance to confuse target. Delta Stream: can't miss.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.accuracy = true;
+		},
+	},
+	bleakwindstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower Speed by 1. Delta Stream: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
+		},
+	},
+	crushclaw: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+	},
+	razorshell: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+	},
+	wildboltstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% chance to paralyze. Thunderstorm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
+		},
+	},
+	springtidestorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower Attack by 1. Fable: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.fable) move.basePower = 130;
+		},
+	},
+	sandsearstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% chance to burn. Dust Storm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.duststorm) move.basePower = 130;
 		},
 	},
 }

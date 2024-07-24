@@ -33,7 +33,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	poltergeist: {
 		inherit: true,
-		shortDesc: "Fails if the target has no held item. Removes the target's item.",
+		shortDesc: "Fails if target has no item. Removes target's item.",
 		basePower: 100,
 		accuracy: 100,
 		onAfterHit(target, source) {
@@ -68,7 +68,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowforce: {
 		num: 467,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 100,
 		category: "Physical",
 		name: "Shadow Force",
 		shortDesc: "Hits two turns after use.",
@@ -86,7 +86,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					id: 'shadowforce',
 					name: "Shadow Force",
 					accuracy: 100,
-					basePower: 70,
+					basePower: 100,
 					category: "Special",
 					priority: 0,
 					flags: {allyanim: 1, futuremove: 1},
@@ -110,7 +110,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowbone: {
 		inherit: true,
 		isNonstandard: null,
-		shortDesc: "Uses the user's Defense in calculation. Lowers the user's Defense by 1.",
+		shortDesc: "Uses the user's Defense in calculation. User: -1 Def.",
 		overrideOffensiveStat: 'def',
 		self: {
 			boosts: {
@@ -120,7 +120,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 	},
 	spectralthief: {
-		shortDesc: "Fails if the target has no stat boosts. Steals the target's stat boosts before attacking.",
+		shortDesc: "Fails if no stat boosts. Steals the target's stat boosts.",
 		inherit: true,
 		isNonstandard: null,
 		onTry(source) {
@@ -128,7 +128,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	},
 	ragefist: {
-		shortDesc: "+1 power for each time user was hit. Max 300 hits. Deals 1 damage to itself.",
+		shortDesc: "+1 power per time hit, max 300. 1 damage recoil.",
 		inherit: true,
 		pp: 187.5,
 		basePowerCallback(pokemon) {
@@ -150,9 +150,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	lastrespects: {
 		inherit: true,
 		basePower: 60,
-		basePowerCallback: null,
-		shortDesc: "+1 priority for each ally fainted.",
-		priority: -3,
+		basePowerCallback(pokemon, target, move) {
+			return 60 + 5 * pokemon.side.totalFainted;
+		},
+		shortDesc: "+1 priority and +5 BP for each ally fainted.",
+		priority: -1,
 		onModifyPriority(priority, source, target, move) {
 			return priority + source.side.totalFainted;
 		},
@@ -270,7 +272,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	nightshade: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, heal: 1},
-		shortDesc: "Does damage equal to the user's level. Heals damage equal to the user's level.",
+		shortDesc: "Deals and heals damage equal to the user's level.",
 		onHit(target, pokemon) {
 			this.heal(pokemon.level, pokemon)
 		}
@@ -297,7 +299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	infernalparade: {
 		inherit: true,
-		shortDesc: "Combines Fire in its effectiveness. 30% chance to burn the target.",
+		shortDesc: "Added Fire effectiveness. 30% chance to burn the target.",
 		basePowerCallback: null,
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Fire', type);
@@ -306,7 +308,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	ominouswind: {
 		inherit: true,
 		isNonstandard: null,
-		shortDesc: "Forces the target out into a random ally. Doubles in power if the user was hit.",
+		shortDesc: "Forces the target out. 2x power if the user was hit.",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			const damagedByTarget = pokemon.attackedBy.some(
@@ -350,7 +352,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Spite",
-		shortDesc: "If the user moves first, it uses the move the opponent was about to use and then disables that move.",
+		shortDesc: "Copies, disables a foe's move. User must be faster.",
 		pp: 20,
 		priority: 0,
 		flags: {
@@ -439,7 +441,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	confuseray: {
 		inherit: true,
 		priority: 1,
-		shortDesc: "Fails if the opponent is using an attack. May cause the opponent to disobey.",
+		shortDesc: "Fails if target attacks. May cause target to disobey.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1},
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
@@ -490,10 +492,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	wordsdance: {
 		accuracy: 100,
-		basePower: 50,
-		category: "Special",
+		basePower: 0,
+		category: "Status",
 		name: "Words Dance",
-		shortDesc: "Says a bunch of words to confuse the target. Hits Ghost-types neutrally. 50% chance to lower the target's Defense by 1.",
+		shortDesc: "Confuses the target and lowers its Def/SpD by 2.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1, sound: 1},
@@ -511,12 +513,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-message', this.sample(messages));
 		},
 		volatileStatus: 'confusion',
-		secondary: {
-			chance: 50,
-			boosts: {
-				def: -1,
-			},
+		boosts: {
+			def: -2,
+			spd: -2,
 		},
+		secondary: null,
 		target: "normal",
 		type: "Normal",
 	},
@@ -524,7 +525,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "Combines Grass in its effectiveness. 20% chance to set Leech Seed.",
+		shortDesc: "Combines Grass in its effectiveness. Sets Leech Seed.",
 		name: "Runch",
 		pp: 10,
 		priority: 0,
@@ -536,23 +537,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Grass', type);
 		},
-		secondary: {
-			chance: 20,
-			onHit(target, source) {
-				if (target.hasType('Grass')) return null;
-				target.addVolatile('leechseed', source);
-			},
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
 		},
+		secondary: null,
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
 	},
 	ualchop: {
 		accuracy: 90,
-		basePower: 50,
+		basePower: 40,
 		category: "Physical",
 		name: "Ual Chop",
-		shortDesc: "Hits twice. Combines Ground in its effectiveness.",
+		shortDesc: "Hits twice. 30% chance to lower target's highest offense.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -561,10 +560,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Dual Chop", target);
 		},
 		multihit: 2,
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Ground', type);
+		secondary: {
+			chance: 30,
+			onHit(target, source, move) {
+				if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
+					return !!this.boost({atk: -1}, target, source, move);
+				}
+				else return !!this.boost({spa: -1}, target, source, move);
+			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Dragon",
 		maxMove: {basePower: 130},
@@ -766,7 +770,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "User recovers 100 HP and doubles evasion for one turn, but is forced to attack for that turn.",
+		shortDesc: "Heals 100 HP; taunted, doubled evasion for one turn.",
 		name: "Stealth",
 		pp: 0.625,
 		priority: 0,

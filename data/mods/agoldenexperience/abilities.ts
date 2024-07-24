@@ -1523,34 +1523,64 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 23,
 	},
 	sandveil: {
-		desc: "If Sandstorm is active, this Pokemon's defense is multiplied by 1.3. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "If Sandstorm is active, this Pokemon's defense is 1.3x; immunity to Sandstorm.",
-		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
+		inherit: true,
+		onSetStatus(status, target, source, effect) {
+			if (this.field.isWeather('sandstorm')) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Sand Veil');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && this.field.isWeather('sandstorm')) {
+				this.add('-immune', target, '[from] ability: Sand Veil');
+				return null;
+			}
 		},
 		onModifyDef(def, pokemon) {
 			if (this.field.isWeather('sandstorm')) {
 				return this.chainModify(1.3);
 			}
 		},
-		name: "Sand Veil",
-		rating: 3,
-		num: 146,
+		onModifyAccuracy(accuracy) {},
+		desc: "If Sandstorm is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If Sandstorm is active, this Pokemon's Def is 1.3x; cannot be statused and Rest will fail for it.",
 	},
 	snowcloak: {
-		desc: "If Hail is active, this Pokemon's defense is multiplied by 1.3. This Pokemon takes no damage from Hail.",
-		shortDesc: "If Hail is active, this Pokemon's defense is 1.3x; immunity to Hail.",
-		onImmunity(type, pokemon) {
-			if (type === 'hail') return false;
+		inherit: true,
+		onSetStatus(status, target, source, effect) {
+			if (this.field.isWeather(['hail', 'snow'])) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Snow Cloak');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && this.field.isWeather(['hail', 'snow'])) {
+				this.add('-immune', target, '[from] ability: Snow Cloak');
+				return null;
+			}
 		},
 		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isWeather(['hail', 'snow'])) {
 				return this.chainModify(1.3);
 			}
 		},
-		name: "Snow Cloak",
-		rating: 3,
-		num: 146,
+		onModifyAccuracy(accuracy) {},
+		desc: "If Snow is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If Snow is active, this Pokemon's Def is 1.3x; cannot be statused and Rest will fail for it.",
+	},
+	leafguard: {
+		inherit: true,
+		onModifyDef(def, pokemon) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+				return this.chainModify(1.3);
+			}
+		},
+		desc: "If Sunny Day is active, this Pokemon's Defense is multiplied by 1.3, and it cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Def is 1.3x; cannot be statused and Rest will fail for it.",
 	},
 	immunity: {
 		onUpdate(pokemon) {
@@ -1888,21 +1918,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: 35,
 	},
-	leafguard: {
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (pokemon.status && ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				this.debug('leafguard');
-				this.add('-activate', pokemon, 'ability: Leaf Guard');
-				pokemon.cureStatus();
-			}
-		},
-		name: "Leaf Guard",
-		shortDesc: "At the end of the turn, if Sunny Day is active, this Pokemon's status is cured.",
-		rating: 0.5,
-		num: 102,
-	},
 	honeygather: {
 		name: "Honey Gather",
 		shortDesc: "At the end of each turn, if this Pokemon has no item, it gets Honey. If it has honey, it heals 1/8 of its HP.",
@@ -2144,7 +2159,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (!action) return;
 			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
 			if (!target) return;
-			if (!action.move.spreadHit && target.hp && target.hp <= target.maxhp / 2) {
+			if (action.move.target != 'allAdjacentFoes' && action.move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2) {
 				pokemon.addVolatile('quickdraw');
 			}
 		},
@@ -2545,5 +2560,54 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Luster Swap",
 		rating: 3,
 		num: -72,
+	},
+	cacophony: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Cacophony boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['sound']) {
+				this.debug('Cacophony weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
+		shortDesc: "This Pokemon receives 1/2 damage from sound moves. Its own have 1.3x power.",
+		name: "Cacophony",
+		rating: 3.5,
+		num: -73,
+	},
+	happygolucky: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			const newAtk = atk * (1 + Math.floor(pokemon.happiness / 25));
+			return newAtk;
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			const newDef = def * (1 + Math.floor(pokemon.happiness / 25));
+			return newDef;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			const newSpA = spa * (1 + Math.floor(pokemon.happiness / 25));
+			return newSpA;
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			const newSpD = spd * (1 + Math.floor(pokemon.happiness / 25));
+			return newSpD;
+		},
+		flags: {},
+		name: "Happy-Go-Lucky",
+		desc: "This Pokemon's Attack, Defense, Special Attack, and Special Defense get a boost depending on the happiness of the Pokemon (maximum 10%).",
+		shortDesc: "Boosts Attack, Defense, Special Attack, and Special Defense by 1% per 25 happiness.",
+		rating: 4,
+		num: -74,
 	},
 };

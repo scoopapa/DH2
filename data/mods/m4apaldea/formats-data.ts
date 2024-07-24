@@ -78,7 +78,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	buizel: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	floatzel: {tier: "Paldea", doublesTier: "Paldea"},
 
-	wooper: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	wooperpaldea: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	clodsire: {tier: "Paldea", doublesTier: "Paldea"},
 
 	psyduck: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
@@ -335,7 +335,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skiddo: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	gogoat: {tier: "Paldea", doublesTier: "Paldea"},
 
-	tauros: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeacombat: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeablaze: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeaaqua: {tier: "Paldea", doublesTier: "Paldea"},
@@ -619,5 +618,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	koraidon: {tier: "Uber", doublesTier: "Paldea"},
 	miraidon: {tier: "Uber", doublesTier: "Paldea"},
+
+	// DLC1
+
+	cutiefly: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	ribombee: {tier: "Paldea", doublesTier: "Paldea"},
+
+	vulpix: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	ninetales: {tier: "Paldea", doublesTier: "Paldea"},
+
+	hoothoot: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	noctowl: {tier: "Paldea", doublesTier: "Paldea"},
+
+	poltageist: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	sinistcha: {tier: "Paldea", doublesTier: "Paldea"},
+
+	basculinwhite: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	basculegion: {tier: "Paldea", doublesTier: "Paldea"},
+	basculegionf: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ursalunabloodmoon: {tier: "Uber", doublesTier: "Paldea"},
+
+	okidogi: {tier: "Paldea", doublesTier: "Paldea"},
+	fezandipiti: {tier: "Paldea", doublesTier: "Paldea"},
+	munkidori: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ogerpon: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponhearthflame: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponcornerstone: {tier: "Paldea", doublesTier: "Paldea"},
 
 };

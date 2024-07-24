@@ -191,4 +191,85 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -2007,
 	},
+	colorspray: {
+		desc: "The first damaging move used against a target since it has switched in turns the target into that type.",
+		shortDesc: "Turns a target into the type of the first damaging move used against it.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (!target.hp) return;
+			if (this.effectState.colorspray) return;
+			const type = move.type;
+			if (
+				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
+				type !== '???' && !target.hasType(type)
+			) {
+				if (!target.setType(type)) return false;
+				this.effectState.colorspray = true;
+				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
+
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
+				}
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.colorspray;
+		},
+		name: "Color Spray",
+		rating: 4,
+		num: -2008,
+	},
+	endlessdream: {
+		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
+		shortDesc: "All Pokemon are under Comatose effect.",
+		onStart(source) {
+			if (this.field.getPseudoWeather('ultrasleep')) {
+				this.add('-ability', source, 'Endless Dream');
+				this.hint("All Pokemon are under Comatose effect!");
+				this.field.pseudoWeather.ultrasleep.source = source;
+				this.field.pseudoWeather.ultrasleep.duration = 0;
+			} else {
+				this.add('-ability', source, 'Endless Dream');
+				this.field.addPseudoWeather('ultrasleep');
+				this.hint("All Pokemon are under Comatose effect!");
+				this.field.pseudoWeather.ultrasleep.duration = 0;
+			}
+		},
+		onAnyTryMove(target, source, move) {
+			if (['ultrasleep'].includes(move.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onResidualOrder: 21,
+		onResidualSubOrder: 2,
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('endlessdream')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('ultrasleep');
+		},
+		name: "Endless Dream",
+		rating: 3,
+		num: -22,
+	},
+	hairtrigger: {
+		onModifyPriority(priority, source) {
+			if (!(source.activeMoveActions > 1)) {
+				return priority + 0.1;
+			}
+		},
+		desc: "The user moves first in their priority bracket on the first turn after switching in.",
+		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
+		name: "Hair Trigger",
+		rating: 5,
+		num: -23,
+	},
 };

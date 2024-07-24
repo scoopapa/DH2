@@ -18,7 +18,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			mimic: ["9L1"],
 			mindblown: ["9L1"],
 			nastyplot: ["9L1"],
-			noretret: ["9L1"],
+			noretreat: ["9L1"],
 			protect: ["9L1"],
 			pyroball: ["9L1"],
 			rest: ["9L1"],
@@ -60,6 +60,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			overheat: ["9L1"],
 			painsplit: ["9L1"],
 			protect: ["9L1"],
+			pyroball: ["9L1"],
 			rapidspin: ["9L1"],
 			rest: ["9L1"],
 			rockblast: ["9L1"],
@@ -144,6 +145,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			machpunch: ["9L1"],
 			noretreat: ["9L1"],
 			protect: ["9L1"],
+			pyroball: ["9L1"],
 			quickattack: ["9L1"],
 			rest: ["9L1"],
 			revenge: ["9L1"],
@@ -225,8 +227,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 			sludgebomb: ["9L1"],
 			stickyweb: ["9L1"],
+			stunspore: ["9L1"],
 			substitute: ["9L1"],
 			takedown: ["9L1"],
+			taunt: ["9L1"],
 			thunder: ["9L1"],
 			thunderbolt: ["9L1"],
 			uturn: ["9L1"],
@@ -237,7 +241,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	"watermelon": {
 		learnset: {
 			bodypress: ["9L1"],
-			calmmind: ["9L1"],
 			doubleedge: ["9L1"],
 			energyball: ["9L1"],
 			facade: ["9L1"],
@@ -262,7 +265,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["9L1"],
 		},
 	},
-	"orange": {
+	"cabbage": {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9L1"],
@@ -331,8 +334,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			freezedry: ["9L1"],
 			headbutt: ["9L1"],
 			hydropump: ["9L1"],
+			hypervoice: ["9L1"],
 			iceball: ["9L1"],
 			icebeam: ["9L1"],
+			iceshard: ["9L1"],
 			iciclecrash: ["9L1"],
 			iciclespear: ["9L1"],
 			icywind: ["9L1"],
@@ -414,7 +419,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	"confettiball": {
+	"gumball": {
 		learnset: {
 			calmmind: ["9L1"],
 			dazzlinggleam: ["9L1"],
@@ -484,7 +489,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			bulldoze: ["9L1"],
 			curse: ["9L1"],
 			darkpulse: ["9L1"],
-			destinybound: ["9L1"],
+			destinybond: ["9L1"],
 			doubleedge: ["9L1"],
 			earthquake: ["9L1"],
 			facade: ["9L1"],
@@ -563,7 +568,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			acid: ["9L1"],
 			acidspray: ["9L1"],
 			barbbarrage: ["9L1"],
-			corrosion: ["9L1"],
+			corrosivegas: ["9L1"],
 			darkpulse: ["9L1"],
 			energyball: ["9L1"],
 			facade: ["9L1"],

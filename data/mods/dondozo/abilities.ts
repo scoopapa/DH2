@@ -135,7 +135,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	notpayingattentiontodondozoatallsorry: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'not paying attention to dondozo at all, sorry');
-			this.add('-message', '${pokemon.name} is ignoring Dondozo!');
+			this.add('-message', `${pokemon.name} is ignoring Dondozo!`);
 		},
 		onModifyMove(move, attacker, defender) {
 			if(defender.hasAbility(['imterrifiedofdondozo',
