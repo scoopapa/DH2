@@ -1331,7 +1331,7 @@ export class RandomTeams {
 		if (species.id === 'okidogi') return 'Coba Berry';
 		if (species.id === 'munkidori') return 'Colbur Berry';
 		if (species.id === 'fezandipiti') return 'Babiri Berry';
-		if (species.id === 'sneasler' || species.id === 'pansear' || species.id === 'klawf') return 'Lansat Berry';
+		if (species.id === 'sneasler' || species.id === 'pansear') return 'Lansat Berry';
 		if (species.id === 'simisear') return 'Binding Band';
 		if (species.id === 'nymble' || species.id === 'cutiefly') return 'Silver Powder';
 		if (
@@ -1430,7 +1430,7 @@ export class RandomTeams {
 		if (species.id === 'espathra') return 'Ring Target';
 		if (species.id === 'bombirdier' || species.id === 'flapple') return 'Starf Berry';
 		if (species.id === 'hydrapple') return 'Rowap Berry';
-		if (species.id === 'dipplin') return 'Salac Berry';
+		if (species.id === 'dipplin' || species.id === 'klawf') return 'Salac Berry';
 		if (species.id === 'appletun') return 'Mago Berry';
 		if (species.id === 'honedge') return 'Spell Tag';
 		if (species.id === 'dondozo') return 'Dragon Fang';
