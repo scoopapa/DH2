@@ -74,8 +74,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {allyanim: 1, metronome: 1, futuremove: 1},
 		ignoreImmunity: true,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
 		onTry(source, target) {
-      this.field.setWeather('snow');
+			this.add('-anim', source, 'Future Sight', target);
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
@@ -90,6 +93,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
 					ignoreImmunity: false,
+					onAfterMoveSecondary() {
+						this.field.setWeather('snow');
+					},
+					onPrepareHit(target, source) {
+						this.add('-anim', source, 'Doom Desire', target);
+					},
 					effectType: 'Move',
 					type: 'Ice',
 				},
@@ -1126,6 +1135,89 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	waterpulse: {
 		inherit: true,
 		basePower: 75,
+	},
+	// end
+
+	// start: list of unattainable moves
+	return: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	frustration: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	pursuit: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpower: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerfighting: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerfire: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowergrass: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerwater: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerelectric: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerice: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerpoison: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerground: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerpsychic: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerdark: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerbug: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerghost: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerdragon: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowersteel: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerflying: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	hiddenpowerrock: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
 	},
 	// end
 };
