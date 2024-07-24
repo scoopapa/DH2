@@ -1079,9 +1079,5 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		basePower: 75,
 	},
-	tackle: {
-		inherit: true,
-		basePower: 60,
-	},
 	// end
 };
