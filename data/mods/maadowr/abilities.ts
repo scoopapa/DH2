@@ -284,7 +284,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return damage / 2;
 			}
 		},
-		flags: {breakable: 1},
+		flags: {},
 		name: "Inoculum",
 		rating: 2,
 		num: -11,
@@ -614,7 +614,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onImmunity(type, pokemon) {
 			if (type === 'frz') return false;
 		},
-		flags: {breakable: 1},
+		flags: {},
 		name: "Wood Stove",
 		rating: 2,
 		num: -25,
