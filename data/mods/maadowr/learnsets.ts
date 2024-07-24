@@ -3886,6 +3886,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			confide: ["9M"],
 			curse: ["9M"],
 			doubleteam: ["9M"],
+			eyeofthesun: ["9M"],
 			endure: ["9M"],
 			facade: ["9M"],
 			flash: ["9M"],
