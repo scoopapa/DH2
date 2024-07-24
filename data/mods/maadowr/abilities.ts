@@ -312,7 +312,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onStart(source) {
 			if (this.field.getPseudoWeather('minorpoison')) {
 				this.add('-ability', source, 'Malware');
-				this.hint("All Pokemon are midly poisoned!");
+				this.hint("All Pokemon are mildly poisoned!");
 				this.field.pseudoWeather.minorpoison.source = source;
 				this.field.pseudoWeather.minorpoison.duration = 0;
 			} else {
