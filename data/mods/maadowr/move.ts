@@ -1137,6 +1137,22 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 75,
 	},
 	// end
+   // start:
+	electroball: {
+		inherit: true,
+		basePowerCallback(pokemon, target) {
+			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe') * 10) / 10;
+			if (!isFinite(ratio)) ratio = 0;
+			let bp = 40;
+			if (ratio >= 1) bp = 60;
+			if (ratio >= 1.5) bp = 80;
+			if (ratio >= 2) bp = 100;
+			if (ratio >= 3) bp = 120;
+			if (ratio >= 4) bp = 150;
+			return bp;
+		},
+	},		
+	// end
 
 	// start: list of unattainable moves
 	return: {
