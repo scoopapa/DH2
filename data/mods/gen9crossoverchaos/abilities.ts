@@ -452,6 +452,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -24,
 	},
 	smirk: {
+		// On protect effect handled in moves.ts
 		onFoeDamagingHit(damage, target, source, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Smirk trigger');
