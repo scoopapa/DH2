@@ -3172,13 +3172,35 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	tentacool: {
 		inherit: true,
-		movepoolAdditions: ["strengthsap"],
+		movepoolAdditions: ["oilspill", "strengthsap"],
 		movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	},
 	tentacruel: {
 		inherit: true,
-		movepoolAdditions: ["strengthsap"],
+		movepoolAdditions: ["oilspill", "strengthsap"],
 		movepoolDeletions: ["frustration", "hiddenpower", "return"],
+	},
+	// end
+
+	// start
+	croagunk: {
+		inherit: true,
+		movepoolAdditions: ["oilspill"],
+	},
+	toxicroak: {
+		inherit: true,
+		movepoolAdditions: ["oilspill"],
+	},
+	// end
+
+	// start
+	salandit: {
+		inherit: true,
+		movepoolAdditions: ["oilspill"],
+	},
+	salazzle: {
+		inherit: true,
+		movepoolAdditions: ["oilspill"],
 	},
 	// end
 
