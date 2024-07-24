@@ -405,7 +405,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.boost({def: 1});
 			}
 			if (totaldef && totaldef > (totalatk)) {
-				this.boost({atk: 1});
+				this.boost({def: 1});
 			}
 			if (totalspa && totalspa >= (totalspd || totalspe)) {
 				this.boost({spa: 1});
@@ -499,6 +499,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			this.add('-ability', pokemon, 'Scale Shift');
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 		},
+		flags: {},
 		name: "Scale Shift",
 		rating: 3,
 		num: -19,
@@ -516,6 +517,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return false; // skip charge turn
 			}
 		},
+		flags: {},
 		name: "Solar Core",
 		rating: 2,
 		num: -20,
@@ -528,6 +530,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && target.hasType('Steel')) return 5;
 		},
+		flags: {},
 		name: "Steelbreaker",
 		rating: 3,
 		num: -21,
@@ -611,7 +614,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onImmunity(type, pokemon) {
 			if (type === 'frz') return false;
 		},
-		flags: {},
+		flags: {breakable: 1},
 		name: "Wood Stove",
 		rating: 2,
 		num: -25,
