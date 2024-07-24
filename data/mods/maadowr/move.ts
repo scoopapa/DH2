@@ -725,7 +725,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (type === {'Psychic', 'Steel', 'Dark'}) return 1;
-			if (type === {'Poison', 'Fighting'}) return 2;
 		},
 		secondary: null,
 		target: "normal",
