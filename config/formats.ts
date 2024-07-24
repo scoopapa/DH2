@@ -2559,7 +2559,7 @@ export const Formats: FormatList = [
 								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Last Respects'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Pursuit', 'Return'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -2594,6 +2594,7 @@ export const Formats: FormatList = [
 		      ],
 		gameType: 'doubles',
 		ruleset: ['Picked Team Size = 4', 'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod'],
+		banlist: ['Frustration', 'Hail', 'Hidden Power', 'Pursuit', 'Return'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
