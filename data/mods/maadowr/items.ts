@@ -334,32 +334,40 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if user.baseSpecies.num === -1069 && (move && move.type === 'Fire') {
-				return this.chainModify([4915, 4096]);
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add('-fail', target, 'unboost', '[from] item: Sun Diadem', '[of] ' + target);
 			}
 		},
 		num: -1006,
-		desc: "Oroboroc's Fire moves do 20% more damage.",	
+		desc: "Oroboroc can't have its stats lowered by an opponent. If Sun is active, item works like Mirror Armor.",	
 	},
 	// end
 
 	// start
 	sunring: {
 		name: "Sun Ring",
-		spritenum: 242,
+		spritenum: 410,
 		fling: {
 			basePower: 60,
 		},
 		onAllySetStatus(status, target, source, effect) {
 				if ((effect as Move)?.status) && effectHolder = basespecies.num === -1068 && (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-					const effectHolder = this.effectState.target;
+	            const effectHolder = this.effectState.target;const effectHolder = this.effectState.target;
 					this.add('-block', target, 'item: Sun Ring', '[of] ' + effectHolder);
 				}
 				return null;
 			},
-		onSetStatus(status, target, source, effect) {
+      onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) && (target.species.num === -1068) {
 				this.add('-block', target, '[from] item: Sun Ring');
 			}
@@ -367,8 +375,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		itemUser: ["Horizonoc"],
 		num: -1007,
 		desc: "Horizonoc is immune to status conditions. This effect extends to the ally in Sun.",
-		},
-		// end
+	},
+	// end
 
 
 };
