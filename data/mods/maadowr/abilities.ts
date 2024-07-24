@@ -85,6 +85,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
 			}
 		},
+		flags: {},
 		name: "Agitation",
 		rating: 4,
 		num: -3,
@@ -99,7 +100,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if Pokemon.moveThisTurnResult = false {
 				this.boost({spe: 2});
 			}
-		}
+		},
+		flags: {},
 		name: "Amp Up",
 	   rating: 2,
 	   num: -4,
@@ -114,7 +116,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (move.flags['sound']) {
 				pokemon.addVolatile('torment', source, effect);
 			}
-		}
+		},
+		flags: {},
 	   name: "Buzz",
 		rating: 3,
 		num: -5,
@@ -171,6 +174,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 		},
+		flags: {},
 		name: "Chain Link",
 		rating: 3,
 		num: -6,
@@ -203,6 +207,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return priority + 0.1;
 			},
 		},
+		flags: {},
 		name: "Coup de Grass",
 		rating: 3,
 		num: -7,
@@ -215,7 +220,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('acidicterrain')) {
 				this.heal(target.baseMaxhp / 16);
 			}
-		}
+		},
+		flags: {},
 		name: "Cultivation",
 		rating: 2,
 		num: -8,
@@ -228,6 +234,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onStart(source) {
 			this.field.addPseudoWeather('gravity');
 		},
+		flags: {},
 		name: "Gravitas",
 		rating: 4,
 		num: -9,
@@ -245,6 +252,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (!pokemon.side.faintedThisTurn) return;
 			this.field.addPseudoWeather('tailwind');
 		},
+		flags: {},
 		name: "Ill Wind",
 		rating: 5,
 		num: -10,
@@ -276,7 +284,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				return damage / 2;
 			}
 		},
-		flags: {},
+		flags: {breakable: 1},
 		name: "Inoculum",
 		rating: 2,
 		num: -11,
@@ -345,6 +353,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 		},
+		flags: {},
 		name: "Masquerade",
 		rating: 3,
 		num: -14,
@@ -382,9 +391,36 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// start
 	reconfiguration: {
 		onStart(pokemon) {
-			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
-			const bestStat = target.getBestStat(true, true);
-				this.boost({[bestStat]: length}, source);
+			for (const target of pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position]) {
+				totalatk += target.getStat('atk', false, true);
+				totaldef += target.getStat('def', false, true);
+				totalspa += target.getStat('spa', false, true);
+				totalspd += target.getStat('spd', false, true);
+				totalspe += target.getStat('spe', false, true);
+			}
+			if (totalatk && totalatk >= (totaldef || totalspa || totalspd || totalspe)) {
+				this.boost({atk: 1});
+			}
+			if (totaldef && totaldef >= (totalspa || totalspd || totalspe)) {
+				this.boost({def: 1});
+			}
+			if (totaldef && totaldef > (totalatk)) {
+				this.boost({atk: 1});
+			}
+			if (totalspa && totalspa >= (totalspd || totalspe)) {
+				this.boost({spa: 1});
+			}
+			if (totalspa && totalspa > (totalatk || totaldef)) {
+				this.boost({spa: 1});
+			}
+			if (totalspd && totalspd >= (totalspe)) {
+				this.boost({spd: 1});
+			}
+			if (totalspd && totalspd > (totalatk || totaldef || totalspa)) {
+				this.boost({spd: 1});
+			}
+			if (totalspe && totalspe > (totalatk || totaldef || totalspa || totalspd)) {
+				this.boost({spe: 1});
 			}
 		},
 		flags: {},
