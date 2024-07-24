@@ -1155,15 +1155,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start: list of unattainable moves
-	return: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
 	frustration: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
+	hail: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
 	pursuit: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	return: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
