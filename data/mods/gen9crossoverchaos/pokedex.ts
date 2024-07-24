@@ -485,7 +485,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pit: {
 		num: 46,
-		species: "Pit",
+		name: "Pit",
 		types: ["Flying", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 75, atk: 100, def: 75, spa: 100, spd: 75, spe: 100},
@@ -496,7 +496,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pitmega: {
 		num: 46,
-		species: "Pit-Mega",
+		name: "Pit-Mega",
 		baseSpecies: "Pit",
 		forme: "Mega",
 		types: ["Steel", "Fairy"],
@@ -508,7 +508,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	devil: {
 		num: 47,
-		species: "Devil",
+		name: "Devil",
 		types: ["Dark", "Fire"],
 		gender: "M",
 		baseStats: {hp: 96, atk: 127, def: 100, spa: 127, spd: 146, spe: 70},
@@ -517,7 +517,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kingboo: {
 		num: 48,
-		species: "King Boo",
+		name: "King Boo",
 		types: ["Ghost", "Dark"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 100, def: 80, spa: 120, spd: 80, spe: 60},
