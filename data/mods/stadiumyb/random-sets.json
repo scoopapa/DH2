@@ -1914,7 +1914,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Endure", "Mystical Fire", "Psybeam", "Taunt"],
+                "movepool": ["Wide Guard", "Mystical Fire", "Psybeam", "Taunt"],
                 "teraTypes": ["Psychic"]
             }
         ]
