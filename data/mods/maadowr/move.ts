@@ -857,6 +857,50 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
+	// start: damage info in conditions.ts
+	eyeofthesun: {
+		num: -35,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "For 5 turns, Pkm on the user's side take 25% less damage from supereffective moves. If Sun is active, effect extends to 8 turns.",
+		name: "Eye of the Sun",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'eyeofthesun',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (this.field.isWeather('sunnyday', 'desolateland')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target)) {
+					if (target.getMoveHitData(move).typeMod > 0) {
+					this.debug('Eye of the Sun neutralize');
+					return this.chainModify(0.75);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Eye of the Sun');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Eye of the Sun');
+			},
+		},		
+		secondary: null,
+		target: "allySide",
+		type: "Flying",
+		contestType: "Clever",
+	},
+	// end
+
 	// start
 	camouflage: {
 		inherit: true,
