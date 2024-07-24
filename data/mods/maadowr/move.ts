@@ -401,6 +401,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
+		shortDesc: "Recovers 1/2 of the damage dealt to the target(s).",
 		name: "Lightning Swing",
 		pp: 10,
 		priority: 0,
