@@ -245,7 +245,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	poochyena: {
 		inherit: true,
-		abilities: {0: "Quick Feet"},
+		abilities: {0: "Rattled"},
 	},
 	mightyena: {
 		inherit: true,
