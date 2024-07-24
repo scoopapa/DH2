@@ -286,7 +286,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "If the terrain is Acidic Terrain, raises holder's Sp. Def by 1 stage. Single use.",
 	},
 	// end
-
+	
 	// start
 	sunamulet: {
 		name: "Sun Amulet",
@@ -301,7 +301,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			this.heal(baseSpecies.num === -1070.baseMaxhp / 8);
 	      } else {
 			this.heal(baseSpecies.num === -1070.baseMaxhp / 16);
-			},
+			}
 		},
 		itemUser: ["Hieroturoc"],
 		num: -1005,
@@ -320,7 +320,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Ancient Armor neutralize');
 				return this.chainModify(0.75);
-			},
+			}
 	   },
 		num: -1002,
 		desc: "User receives 25% less damage from a super effective move.",
@@ -328,21 +328,21 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// end
 
 	// start
-//	sundiadem: {
-	//	name: "Sun Diadem",
-	//	spritenum: 141,
-	//	fling: {
-	//		basePower: 60,
-	//	},
-	//	onBasePowerPriority: 15,
-	//	onBasePower(basePower, user, target, move) {
-	//		if user.baseSpecies.num === -1069 && (move && move.type === 'Fire') {
-	//			return this.chainModify([4915, 4096]);
-	//		}
-	//	},
-	//	num: -1006,
-	//	desc: "Oroboroc's Fire moves do 20% more damage.",	
-//	},
+	sundiadem: {
+		name: "Sun Diadem",
+		spritenum: 141,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if user.baseSpecies.num === -1069 && (move && move.type === 'Fire') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: -1006,
+		desc: "Oroboroc's Fire moves do 20% more damage.",	
+	},
 	// end
 
 	// start
