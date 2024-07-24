@@ -95,4 +95,29 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
   // end
+
+  // start
+  psn: {
+		name: 'psn',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				if (sourceEffect.name === 'Malware') {
+					this.effectState.type = 'malware';
+				}
+				this.add('-status', target, 'psn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'psn');
+			}
+		},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			if (this.effectState.type === 'malware') {
+				this.damage(pokemon.baseMaxhp / 16);
+			} else {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
+	},
+	// end
 };
