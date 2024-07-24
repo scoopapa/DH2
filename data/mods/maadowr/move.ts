@@ -778,24 +778,24 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
-	wondergleam: {
-		num: -31,
-		accuracy: 100,
-		basePower: 70,
-		category: "Special",
-		shortDesc: "Damage dependent on reverted type chart effectiveness in Psychic terrain.",
-		name: "Wonder Gleam",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+//	wondergleam: {
+//		num: -31,
+//		accuracy: 100,
+//		basePower: 70,
+//		category: "Special",
+//		shortDesc: "Damage dependent on reverted type chart effectiveness in Psychic terrain.",
+//		name: "Wonder Gleam",
+//		pp: 10,
+//		priority: 0,
+//		flags: {protect: 1, mirror: 1, metronome: 1},
 //		onEffectiveness(typeMod, target, type) {
 //			if (type === {'Psychic', 'Steel', 'Dark'}) return 1;
 //		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Clever",
-	},
+//		secondary: null,
+//		target: "normal",
+//		type: "Psychic",
+//		contestType: "Clever",
+//	},
 	// end
 
    // start
@@ -914,7 +914,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "For 5 turns, Pkm on the user's side take 25% less damage from supereffective moves. If Sun is active, effect extends to 6 turns.",
+		shortDesc: "For 5 turns, Pkm on the user's side take 25% less damage from supereffective moves. If Sun is active, effect extends to 8 turns.",
 		name: "Eye of the Sun",
 		pp: 5,
 		priority: 0,
@@ -950,6 +950,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Flying",
 		contestType: "Clever",
 	},
+	// end
+
+	// start
+//	reboot: {
+//		num: -36,
+
 	// end
 
 	// start
