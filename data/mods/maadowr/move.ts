@@ -105,7 +105,33 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
   // end
 
   // start
-  // colourmegone to be coded
+  colourmegone: {
+	  num: -4,
+	  accuracy: 100,
+	  basePower: 60,
+	  category: "Physical",
+	  shortDesc: "User's primary type changes to an ally's primary type.",
+	  name: "Colour Me Gone",
+	  pp: 10,
+	  priority: 1,
+	  flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+	  secondary: null,
+	  onPrepareHit(source, target, move) {
+		  let newtype = null;
+			for (const ally of pokemon.side.active) {
+				if (
+					ally.types[0] !== pokemon.baseSpecies.types[0] &&
+					ally.types[0] !== pokemon.baseSpecies.types[1]
+				) {
+					newtype = ally.types[0];
+				}
+			}
+		},
+	   target: "normal",
+		type: "Normal",
+	   contestType: "Cool",
+	},
+	  
   // end
 
   // start
@@ -863,7 +889,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "For 5 turns, Pkm on the user's side take 25% less damage from supereffective moves. If Sun is active, effect extends to 8 turns.",
+		shortDesc: "For 5 turns, Pkm on the user's side take 25% less damage from supereffective moves. If Sun is active, effect extends to 6 turns.",
 		name: "Eye of the Sun",
 		pp: 5,
 		priority: 0,
