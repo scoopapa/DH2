@@ -297,7 +297,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				source.addVolatile('torment', this.effectState.target);
 			}
-		}
+		},
 		flags: {},
 		name: "Interference",
 		rating: 3,
