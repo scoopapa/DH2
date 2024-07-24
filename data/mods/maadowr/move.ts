@@ -472,19 +472,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	lunardust: {
 		num: -17,
 		accuracy: 90,
-		basePower: 125,
+		basePower: 120,
 		category: "Physical",
-		shortDesc: "Clears terrain and lowers user's Atk and Def by 1 stage.",
+		shortDesc: "Clears terrain and can't be used twice.",
 		name: "Lunar Dust",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		self: {
-			boosts: {
-				atk: -1,
-				def: -1,
-			},
-		},
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		onAfterHit(target, source) {
 			if (source.hp) {
 				this.field.clearTerrain();
