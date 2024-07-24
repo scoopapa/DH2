@@ -327,29 +327,22 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	// end
 
-	// start
+	// start: currently only affects user's Oroboroc.
 	sundiadem: {
 		name: "Sun Diadem",
 		spritenum: 141,
 		fling: {
 			basePower: 60,
 		},
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add('-fail', target, 'unboost', '[from] item: Sun Diadem', '[of] ' + target);
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Item') this.add('-activate', source, 'item: ' + effect.name);
+				return false;
 			}
 		},
+		itemUser: ["Oroboroc"],
 		num: -1006,
-		desc: "Oroboroc can't have its stats lowered by an opponent. If Sun is active, item works like Mirror Armor.",	
+		desc: "Oroboroc doesn't take indirect damage. Extends to ally in Sun.",	
 	},
 	// end
 
