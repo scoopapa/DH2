@@ -535,7 +535,53 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
-	// recalibration
+	recalibration: {
+		num: -20,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Recalibration",
+		pp: 10,
+		priority: 0,
+		flags: {bypasssub: 1, allyanim: 1, metronome: 1},
+		onHit(target, source) {
+			for (const pokemon of this.getAllActive()) {
+				totalatk += target.getStat('atk', false, true);
+				totaldef += target.getStat('def', false, true);
+				totalspa += target.getStat('spa', false, true);
+				totalspd += target.getStat('spd', false, true);
+				totalspe += target.getStat('spe', false, true);
+			}
+			if (totalatk && totalatk >= (totaldef || totalspa || totalspd || totalspe)) {
+				this.boost({atk: 1, accuracy: 1});
+			}
+			if (totaldef && totaldef >= (totalspa || totalspd || totalspe)) {
+				this.boost({def: 1, accuracy: 1});
+			}
+			if (totaldef && totaldef > (totalatk)) {
+				this.boost({def: 1, accuracy: 1});
+			}
+			if (totalspa && totalspa >= (totalspd || totalspe)) {
+				this.boost({spa: 1, accuracy: 1});
+			}
+			if (totalspa && totalspa > (totalatk || totaldef)) {
+				this.boost({spa: 1, accuracy: 1});
+			}
+			if (totalspd && totalspd >= (totalspe)) {
+				this.boost({spd: 1, accuracy: 1});
+			}
+			if (totalspd && totalspd > (totalatk || totaldef || totalspa)) {
+				this.boost({spd: 1, accuracy: 1});
+			}
+			if (totalspe && totalspe > (totalatk || totaldef || totalspa || totalspd)) {
+				this.boost({spe: 1, accuracy: 1});
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
 	// end
 
 	// start
