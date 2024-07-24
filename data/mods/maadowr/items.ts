@@ -220,6 +220,49 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// end
 
 	// start
+	poisonsack: {
+		name: "Poison Sack",
+		spritenum: 34,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Poison') {
+				target.useItem();
+			}
+		},
+		boosts: {
+			atk: 1,
+		},
+		num: -1004,
+		desc: "User has its Atk raised by 1 stage if it got hit by a Poison move.",
+	},
+	// end
+
+	// start 
+	delirioushoney: {
+		name: "Delirious Honey",
+		spritenum: 448,
+		fling: {
+			basePower: 10,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 4) && pokemon.trySetStatus('tox', pokemon);
+		},
+		num: -1003,
+		desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status.",
+	},
+	// end
+
+	// start
 	acidicseed: {
 		name: "Acidic Seed",
 		spritenum: 666,
@@ -245,67 +288,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// end
 
 	// start
-	ancientarmor: {
-		name: "Ancient Armor",
-		spritenum: 581,
-		fling: {
-			basePower: 80,
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod > 0) {
-				this.debug('Ancient Armor neutralize');
-				return this.chainModify(0.75);
-			},
-	   },
-		num: -1002,
-		desc: "User receives 25% less damage from a super effective move.",
-	},
-	// end
-
-	// start
-	delirioushoney: {
-		name: "Delirious Honey",
-		spritenum: 448,
-		fling: {
-			basePower: 10,
-		},
-		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.eatItem();
-			}
-		},
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp / 4) && pokemon.trySetStatus('tox', pokemon);
-		},
-		num: -1003,
-		desc: "Heals 25% of the user's HP if its HP is at 50% or below. User is inflicted with Toxic status.",
-	},
-	// end
-
-	// start
-	poisonsack: {
-		name: "Poison Sack",
-		spritenum: 34,
-		fling: {
-			basePower: 30,
-		},
-		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Poison') {
-				target.useItem();
-			}
-		},
-		boosts: {
-			atk: 1,
-		},
-		num: -1004,
-		desc: "User has its Atk raised by 1 stage if it got hit by a Poison move.",
-	},
-	// end
-
-	// start
 	sunamulet: {
 		name: "Sun Amulet",
 		spritenum: 242,
@@ -327,22 +309,40 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	// end
 
-	// start
-	sundiadem: {
-		name: "Sun Diadem",
-		spritenum: 242,
+	// start: where is the mistake here?
+	ancientarmor: {
+		name: "Ancient Armor",
+		spritenum: 581,
 		fling: {
-			basePower: 60,
+			basePower: 80,
 		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if user.baseSpecies.num === -1069 && (move && move.type === 'Fire') {
-				return this.chainModify([4915, 4096]);
-			}
-		},
-		num: -1006,
-		desc: "Oroboroc's Fire moves do 20% more damage.",	
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Ancient Armor neutralize');
+				return this.chainModify(0.75);
+			},
+	   },
+		num: -1002,
+		desc: "User receives 25% less damage from a super effective move.",
 	},
+	// end
+
+	// start
+//	sundiadem: {
+	//	name: "Sun Diadem",
+	//	spritenum: 242,
+	//	fling: {
+	//		basePower: 60,
+	//	},
+	//	onBasePowerPriority: 15,
+	//	onBasePower(basePower, user, target, move) {
+	//		if user.baseSpecies.num === -1069 && (move && move.type === 'Fire') {
+	//			return this.chainModify([4915, 4096]);
+	//		}
+	//	},
+	//	num: -1006,
+	//	desc: "Oroboroc's Fire moves do 20% more damage.",	
+//	},
 	// end
 
 	// start
@@ -370,5 +370,5 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		// end
 
-		// start
-	};
+
+};
