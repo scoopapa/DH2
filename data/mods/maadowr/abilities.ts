@@ -304,7 +304,48 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -12,
 	},
 	// end
-	// malware
+	
+	// start
+	malware: {
+		desc: "While this Pokemon is active, every other Pokemon is treated as if it's inflicted with the Poison status. No effect on Pokémon immune to Poison status or already afflicted with another status condition.",
+		shortDesc: "All other Pokemon are poisoned. They loose 1/16 of their HP, instead of 1/8.",
+		onStart(source) {
+			if (this.field.getPseudoWeather('minorpoison')) {
+				this.add('-ability', source, 'Malware');
+				this.hint("All Pokemon are midly poisoned!");
+				this.field.pseudoWeather.minorpoison.source = source;
+				this.field.pseudoWeather.minorpoison.duration = 0;
+			} else {
+				this.add('-ability', source, 'Malware');
+				this.field.addPseudoWeather('minorpoison');
+				this.hint("All Pokemon are mildly poisoned!");
+				this.field.pseudoWeather.minorpoison.duration = 0;
+			}
+		},
+		onAnyTryMove(target, source, move) {
+			if (['minorpoison'].includes(move.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Malware', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onResidualOrder: 21,
+		onResidualSubOrder: 2,
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('malware')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('minorpoison');
+		},
+		name: "Malware",
+		rating: 5,
+		num: -13,
+	},
+	// end
+	
 	// start
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
