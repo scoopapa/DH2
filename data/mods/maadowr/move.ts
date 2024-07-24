@@ -335,7 +335,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
-	// golddigger
+	golddigger: {
+		num: -12,
+		accuracy: 100,
+		basePower: 10,
+		category: "Physical",
+		shortDesc: "Removes target's Steel-type.",
+		name: "Golddigger",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onSourceHit(target, source, move) {
+			if (target.hasType('Steel')) {
+				target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Clever",
+	},
 	// end
 
 	// start
@@ -443,14 +462,20 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// start
 	lunardust: {
 		num: -17,
-		accuracy: 95,
-		basePower: 95,
+		accuracy: 90,
+		basePower: 125,
 		category: "Physical",
-		shortDesc: "Clears terrain.",
+		shortDesc: "Clears terrain and lowers user's Atk and Def by 1 stage.",
 		name: "Lunar Dust",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				atk: -1,
+				def: -1,
+			},
+		},
 		onAfterHit(target, source) {
 			if (source.hp) {
 				this.field.clearTerrain();
@@ -476,7 +501,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		category: "Special",
 		shortDesc: "Recovers 50% of the damage dealt to the targets and needs to recharge afterwards.",
 		name: "Lunar Storm",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
 		drain: [1, 2],
