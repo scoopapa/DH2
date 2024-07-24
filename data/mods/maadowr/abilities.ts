@@ -307,41 +307,23 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	
 	// start
 	malware: {
-		desc: "While this Pokemon is active, every other Pokemon is treated as if it's inflicted with the Poison status. No effect on Pokémon immune to Poison status or already afflicted with another status condition.",
-		shortDesc: "All other Pokemon are poisoned. They loose 1/16 of their HP, instead of 1/8.",
-		onStart(source) {
-			if (this.field.getPseudoWeather('minorpoison')) {
-				this.add('-ability', source, 'Malware');
-				this.hint("All Pokemon are mildly poisoned!");
-				this.field.pseudoWeather.minorpoison.source = source;
-				this.field.pseudoWeather.minorpoison.duration = 0;
-			} else {
-				this.add('-ability', source, 'Malware');
-				this.field.addPseudoWeather('minorpoison');
-				this.hint("All Pokemon are mildly poisoned!");
-				this.field.pseudoWeather.minorpoison.duration = 0;
-			}
-		},
-		onAnyTryMove(target, source, move) {
-			if (['minorpoison'].includes(move.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Malware', move, '[of] ' + target);
-				return false;
-			}
-		},
-		onResidualOrder: 21,
-		onResidualSubOrder: 2,
-		onEnd(pokemon) {
+		desc: "On switch-in, this Pokémon poisons every Pokémon on the field. Poison inflicted through this Ability does half as much damage as normal poison.",
+		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
+		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('malware')) {
-					return;
+				if (!target || !target.isAdjacent(pokemon) || target.status) continue;
+				if (!target.runStatusImmunity('psn')) {
+					this.add('-ability', pokemon, 'Malware');
+					this.add('-immune', target);
+				} else {
+					if (target.setStatus('psn', pokemon)) {
+						this.hint(`Poison inflicted through Malware is only half as damaging as normal poison.`);
+					}
 				}
 			}
-			this.field.removePseudoWeather('minorpoison');
 		},
 		name: "Malware",
-		rating: 5,
+		rating: 4,
 		num: -13,
 	},
 	// end
