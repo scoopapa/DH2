@@ -973,6 +973,77 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
+	guardianorbiters: {
+		num: -32,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Guardian Orbiters",
+		shortDesc: "Special attacks targeting the user's side get reflected for the rest of the turn.",
+		pp: 20,
+		priority: 4,
+		flags: {metronome: 1},
+		volatileStatus: 'guardianorbiters',
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				this.add('-singleturn', target, 'move: Guardian Orbiters');
+				if (effect?.effectType === 'Move') {
+					this.effectState.pranksterBoosted = effect.pranksterBoosted;
+				}
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.category === 'Special') {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.isAlly(source) || move.hasBounced || !move.category === 'Special') {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, this.effectState.target, source);
+				return null;
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		zMove: {boost: {spd: 2}},
+		contestType: "Clever",
+	},
+	finalstrike: {
+		num: -33,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Final Strike",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Judgement", target);
+			this.add('-anim', source, "Light of Ruin", target);
+		},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
