@@ -822,6 +822,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
+	incandescentflame: {
+		num: -34,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Incandescent Flame",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			status: 'brn' if (this.field.isWeather('raindance', 'desolateland')),
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	// end
+
+	// start
 	camouflage: {
 		inherit: true,
 		onHit(target) {
