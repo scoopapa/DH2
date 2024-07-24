@@ -3940,6 +3940,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			harden: ["9M"],
 			heatwave: ["9M"],
 			hyperbeam: ["9M"],
+			incandescentflame: ["9M"],
 			irondefense: ["9M"],
 			irontail: ["9M"],
 			meteorbeam: ["9M"],
