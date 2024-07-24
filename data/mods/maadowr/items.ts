@@ -242,7 +242,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start 
 	delirioushoney: {
 		name: "Delirious Honey",
-		spritenum: 448,
+		spritenum: 22,
 		fling: {
 			basePower: 10,
 		},
@@ -290,7 +290,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 	sunamulet: {
 		name: "Sun Amulet",
-		spritenum: 242,
+		spritenum: 747,
 		fling: {
 			basePower: 60,
 		},
@@ -330,7 +330,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// start
 //	sundiadem: {
 	//	name: "Sun Diadem",
-	//	spritenum: 242,
+	//	spritenum: 141,
 	//	fling: {
 	//		basePower: 60,
 	//	},
