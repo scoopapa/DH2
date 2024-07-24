@@ -941,10 +941,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// start: damage info in conditions.ts
 	incandescentflame: {
 		num: -34,
-		accuracy: 100,
-		basePower: 85,
+		accuracy: 95,
+		basePower: 90,
 		category: "Physical",
-		shortDesc: "Burns and suffers no power loss in Rain. 50% more damage in Sun.",
+		shortDesc: "Burns and suffers no power loss in Rain.",
 		name: "Incandescent Flame",
 		pp: 10,
 		priority: 0,
