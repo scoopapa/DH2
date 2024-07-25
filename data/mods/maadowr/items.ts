@@ -346,6 +346,48 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	// end
 
+	// start of Sun Diadem's application on other items
+	jabocaberry: {
+		name: "Jaboca Berry",
+		spritenum: 230,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dragon",
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical' && source.hp && source.isActive && (!source.hasAbility('magicguard') || !source.hasItem('sundiadem'))) {
+				if (target.eatItem()) {
+					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
+				}
+			}
+		},
+		onEat() { },
+		num: 211,
+		gen: 4,
+	},
+	rowapberry: {
+		name: "Rowap Berry",
+		spritenum: 420,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dark",
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special' && source.hp && source.isActive && (!source.hasAbility('magicguard') || !source.hasItem('sundiadem'))) {
+				if (target.eatItem()) {
+					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
+				}
+			}
+		},
+		onEat() { },
+		num: 212,
+		gen: 4,
+		rating: 1,
+	},
+	// end
+
 	// start
 	sunring: {
 		name: "Sun Ring",
@@ -354,15 +396,25 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onAllySetStatus(status, target, source, effect) {
-				if ((effect as Move)?.status) && effectHolder = basespecies.num === -1068 && (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-	            const effectHolder = this.effectState.target;const effectHolder = this.effectState.target;
-					this.add('-block', target, 'item: Sun Ring', '[of] ' + effectHolder);
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Sun Ring');
 				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.add('-immune', target, '[from] item: Sun Ring');
 				return null;
-			},
-      onSetStatus(status, target, source, effect) {
-			if ((effect as Move)?.status) && (target.species.num === -1068) {
-				this.add('-block', target, '[from] item: Sun Ring');
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Sun Ring');
+				}
+				return false;
 			}
 		},
 		itemUser: ["Horizonoc"],
@@ -370,6 +422,5 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "Horizonoc is immune to status conditions. This effect extends to the ally in Sun.",
 	},
 	// end
-
 
 };
