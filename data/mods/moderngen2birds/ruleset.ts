@@ -4,14 +4,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "OU",
 	},
-	squawkabiluck: {
+	squawkabillyblue: {
 		inherit: true,
 		tier: "OU",
-	squawkalone: {
+	squawkabillyyellow: {
 		inherit: true,
 		tier: "OU",
 	},
-	squawkabillyyellow: {
+	squawkabillywhite: {
 		inherit: true,
 		tier: "OU",
 	},
