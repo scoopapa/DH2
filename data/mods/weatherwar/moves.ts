@@ -589,6 +589,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-ability', target, 'Duomod Reference??');
 				target.metronomeUsed = true;
 				this.actions.useMove(this.dex.getActiveMove('metronome'), target);
+				target.metronomeUsed = false;
 			}
 		},
 	},
