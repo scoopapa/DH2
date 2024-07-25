@@ -71,6 +71,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -5,
 		gen: 9,
 	},
+	// unresolved issues with Negative Zone, not implementing
 	threesacredtreasures: {
 		name: "Three Sacred Treasures",
 		desc: "If held by Pit, this item allows him to Mega Evolve in battle.",
@@ -83,6 +84,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -6,
 		gen: 9,
-	}
-	// unresolved issues with Negative Zone, not implementing
+	},
+	nahidiumz: {
+		name: "Nahidium Z",
+		desc: "If held by a Nahida with Scheme of Acuity, it can use Illusory Heartburst.",
+		spritenum: 635,
+		onTakeItem: false,
+		zMove: "Illusory Heartburst",
+		zMoveFrom: "Scheme of Acuity",
+		itemUser: ["Nahida"],
+		num: -7,
+		gen: 9,
+	},
 };
