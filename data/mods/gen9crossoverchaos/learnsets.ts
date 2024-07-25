@@ -339,7 +339,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			hex: ["9L1"],
 			hurricane: ["9L1"],
 			lavaplume: ["9L1"],
-			magma: ["9L1"],
+			magmastorm: ["9L1"],
 			aromatherapy: ["9L1"],
 			healbell: ["9L1"],
 			healingwish: ["9L1"],
