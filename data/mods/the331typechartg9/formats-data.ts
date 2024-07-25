@@ -485,11 +485,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	slowbro: {
 		inherit: true,
-		tier: "UU",
+		tier: "Uber",
 	},
 	slowbromega: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	slowbrogalar: {
 		inherit: true,
@@ -497,7 +497,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	slowking: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	slowkinggalar: {
 		inherit: true,
