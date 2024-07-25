@@ -1241,7 +1241,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sunnyday: ["9M"],
 			swagger: ["9M"],
 			sweetscent: ["9M"],
-			swordsdance: [9M"],
+			swordsdance: ["9M"],
 			synthesis: ["9M"],
 			takedown: ["9M"],
 			thief: ["9M"],
