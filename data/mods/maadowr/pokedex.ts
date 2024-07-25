@@ -177,7 +177,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Aegislash-Ma'adowr",
 		
 		baseForme: "Shield",
-		types: [Grass", "Steel"],
+		types: ["Grass", "Steel"],
 		baseStats: {hp: 70, atk: 45, def: 140, spa: 45, spd: 140, spe: 60},
 		abilities: {0: "Stance Change"},
 		category: "Imperial Insignia",
