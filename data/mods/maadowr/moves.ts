@@ -381,7 +381,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
 		onHit(pokemon) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			return boost({atk: 1, spa: 1}) || success if (pokemon.hasType('Bug'));
+			if (pokemon.hasType('Bug')) {
+				return boost({atk: 1, spa: 1}) || success;
+			}
 		},
 		secondary: null,
 		target: "allies",
