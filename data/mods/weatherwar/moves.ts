@@ -1634,18 +1634,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "Heals the user by 50% of its max HP.",
 		onHit: null,
+		heal: [1, 2],
 		pp: 10,
 	},
 	morningsun: {
 		inherit: true,
 		shortDesc: "Heals the user by 50% of its max HP.",
 		onHit: null,
+		heal: [1, 2],
 		pp: 10,
 	},
 	moonlight: {
 		inherit: true,
 		shortDesc: "Heals the user by 50% of its max HP.",
 		onHit: null,
+		heal: [1, 2],
 		pp: 10,
 	},
 	electroshot: {
