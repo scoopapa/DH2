@@ -69,6 +69,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Muk': 'Mud Devourment',
 				'Muk-Alola': 'Mud Devourment',
 				'Syruptitious': 'Adulteration',
+				'Steelix': 'Olive Rampage',
+				'Crobat': 'Venomous Fang',
+				'Saunusca': 'Tectonic Shift',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
