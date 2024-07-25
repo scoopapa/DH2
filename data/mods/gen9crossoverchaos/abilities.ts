@@ -485,4 +485,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -25,
 	},
+	// This isn't a doubles mod!
+	refresher: {
+		name: "Refresher",
+		shortDesc: "30% chance to restore ally's health for 1/4 at the end of each turn",
+		rating: 1,
+		num: -26,
+	},
 };
