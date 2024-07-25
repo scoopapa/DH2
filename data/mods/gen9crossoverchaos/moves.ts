@@ -530,6 +530,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Teeter Dance", target);
 			this.add('-anim', source, "Hyper Voice", target);
 			this.add('-anim', source, "Needle Arm", target);
 		},
@@ -973,12 +974,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
-	guardianorbiters: {
+	guardianorbitars: {
 		num: -32,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Guardian Orbiters",
+		name: "Guardian Orbitars",
 		shortDesc: "Special attacks targeting the user's side get reflected for the rest of the turn.",
 		pp: 20,
 		priority: 4,
@@ -1026,6 +1027,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Special",
 		name: "Final Strike",
+		shortDesc: "Lowers the user's Sp. Atk by 1.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
