@@ -295,7 +295,102 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
-
+	onix: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	steelix: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	zubat: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	golbat: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	crobat: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	doloice: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	humbat: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	sensat: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	echologos: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	absol: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	slugma: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	magcargo: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	saunusca: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	numel: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	camerupt: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	carment: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	shaftar: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	caverlisk: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	drilbur: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	excadrill: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	rockruff: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	lycanroc: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lycanrocmidnight: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lycanrocdusk: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 	akulut: {
 		tier: "Brunica Uber",
