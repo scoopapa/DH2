@@ -706,7 +706,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
 	},
-	maggnezone: {
+	magnezone: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
