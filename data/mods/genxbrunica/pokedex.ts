@@ -786,6 +786,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 50, atk: 105, def: 105, spa: 35, spd: 110, spe: 70},
 		abilities: {0: "Intimidate", 1: "Technician", H: "Dancer"},
 	},
+	steelix: {
+		inherit: true,
+		abilities: {0: "Sand Rush", 1: "Sturdy", H: "Sheer Force"},
+	},
 	zubat: {
 		inherit: true,
 		abilities: {0: "Inner Focus", 1: "Iron Fist", 1: "Echolocation", H: "Inner Focus"},
@@ -808,7 +812,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 136,
 		eggGroups: ["Mineral"],
 	},
-	
 	humbat: {
 		num: 1132,
 		name: "Humbat",
