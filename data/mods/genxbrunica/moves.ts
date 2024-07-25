@@ -391,6 +391,60 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Poison",
 	},
+	oliverampage: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Olive Rampage",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power.",
+		shortDesc: "x1.5 power of base move. Usually goes first.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Outrage", target);
+		},
+		target: "adjacentFoe",
+		type: "Dragon",
+	},
+	tectonicshift: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Tectonic Shift",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful and the user has not fainted, all hazards are removed from the user's side of the field.",
+		shortDesc: "x1.5 power of base move. Clears hazards on user's side.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Precipice Blades", target);
+		},
+		onAfterHit(target, pokemon, move) {
+			if (pokemon.hp) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (pokemon.hp) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Tectonic Shift', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		target: "adjacentFoe",
+		type: "Ground",
+	},
 	
 	
 	//Interacting with new Brunician mechanics
