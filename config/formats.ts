@@ -3970,6 +3970,18 @@ export const Formats: FormatList = [
 		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out', 'Sonic Boom', 'Dragon Rage'],
 	},
 	{
+        name: "[Gen 3] Modern Gen 2 The Sequel: Just The Birds",
+        threads: [
+            `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10203354">Smogon Thread</a>`,
+        ],
+        mod: 'moderngen2',
+        searchShow: false,
+        ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+        banlist: ['AG', 'Uber','Baton Pass', 'All Pokemon'],
+		  unbanlist: ["Squawkabilly", "Squawkabiluck", "Squawkalone", "SquawkabillyYellow", "Zapdos”, “Fezandipiti”, “Altaria”, “Altaria-Mega”, “Archeops”, “Articuno”, “Charizard-Mega-X”, “Charizard-Mega-Y”, “Charizard”, “Empoleon”, “Pelipper”, “Tornadus-Therian”, “Articuno-Galar”, “Corviknight”, “Decidueye”, “Pidgeot-Mega”, “Fezandipiti”, “Sirfetch’d”, “Skarmory”, “Talonflame”, “Togekiss”, “Eiscue”, “Hawlucha”, “Kilowattrel”, “Moltres”, “Moltres-Galar”, “Staraptor”, “Zapdos-Galar”, “Decidueye-Hisui”, “Braviary”, “Braviary-Hisui”, “Dodrio”, “Fearow”, “Flamingo”, “Honchrow”, “Mandibuzz”, “Oricoro”, “Oricoro-Pom-Pom”, “Oricoro-Sensu”, “Oricoro-Pa’u”, “Swellow”, “Toucannon”, “Xatu”, “Bombirdier”, “Chatot”, “Delibird”, “Farfetch’d”, “Noctowl”, “Swanna”, “Unfezant”,
+		],
+    },
+	{
 		name: "[Gen 3] Modern Gen 3",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
