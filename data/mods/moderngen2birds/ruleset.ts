@@ -1,65 +1,65 @@
 
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	Squawkabilly: {
+	squawkabilly: {
 		inherit: true,
 		tier: "OU",
 	},
-	Squawkabiluck: {
+	squawkabiluck: {
 		inherit: true,
 		tier: "OU",
-	Squawkalone: {
-		inherit: true,
-		tier: "OU",
-	},
-	SquawkabillyYellow: {
+	squawkalone: {
 		inherit: true,
 		tier: "OU",
 	},
-	Zapdos: {
+	squawkabillyyellow: {
 		inherit: true,
 		tier: "OU",
 	},
-	Fezandipiti: {
+	zapdos: {
 		inherit: true,
 		tier: "OU",
 	},
-		Altaria: {
+	fezandipiti: {
 		inherit: true,
 		tier: "OU",
 	},
-		Altariamega: {
+		altaria: {
 		inherit: true,
 		tier: "OU",
 	},
-		Archeops: {
+		altariamega: {
 		inherit: true,
 		tier: "OU",
 	},
-		Articuno: {
+		archeops: {
 		inherit: true,
 		tier: "OU",
 	},
-		Charizardmegax: {
+		articuno: {
 		inherit: true,
 		tier: "OU",
 	},
-		Charizardmegay: {
+		charizardmegax: {
 		inherit: true,
 		tier: "OU",
 	},
-		Charizard: {
+		charizardmegay: {
 		inherit: true,
 		tier: "OU",
 	},
-		Empoleon: {
+		charizard: {
 		inherit: true,
 		tier: "OU",
 	},
-		Pelipper: {
+		empoleon: {
 		inherit: true,
 		tier: "OU",
 	},
-		Tornadustherian: {
+		pelipper: {
+		inherit: true,
+		tier: "OU",
+	},
+		tornadustherian: {
 		inherit: true,
 		tier: "OU",
 	},
@@ -107,111 +107,111 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "OU",
 	},
-		Kilowattrel: {
+		kilowattrel: {
 		inherit: true,
 		tier: "OU",
 	},
-		Moltres: {
+		moltres: {
 		inherit: true,
 		tier: "OU",
 	},
-		Moltresgalar: {
+		moltresgalar: {
 		inherit: true,
 		tier: "OU",
 	},
-		Staraptor: {
+		staraptor: {
 		inherit: true,
 		tier: "OU",
 	},
-		Zapdosgalar: {
+		zapdosgalar: {
 		inherit: true,
 		tier: "OU",
 	},
-		Decidueyehisui: {
+		decidueyehisui: {
 		inherit: true,
 		tier: "OU",
 	},
-		Braviary: {
+		braviary: {
 		inherit: true,
 		tier: "OU",
 	},
-		Braviaryhisui: {
+		braviaryhisui: {
 		inherit: true,
 		tier: "OU",
 	},
-		Dodrio: {
+		dodrio: {
 		inherit: true,
 		tier: "OU",
 	},
-		Fearow: {
+		fearow: {
 		inherit: true,
 		tier: "OU",
 	},
-		Flamigo: {
+		flamigo: {
 		inherit: true,
 		tier: "OU",
 	},
-		Honchrow: {
+		honchrow: {
 		inherit: true,
 		tier: "OU",
 	},
-		Mandibuzz: {
+		mandibuzz: {
 		inherit: true,
 		tier: "OU",
 	},
-		Oricoro: {
+		oricorio: {
 		inherit: true,
 		tier: "OU",
 	},
-		Oricoropompom: {
+		oricoriopompom: {
 		inherit: true,
 		tier: "OU",
 	},
-		Oricorosensu: {
+		oricoriosensu: {
 		inherit: true,
 		tier: "OU",
 	},
-		Oricoropau: {
+		oricoriopau: {
 		inherit: true,
 		tier: "OU",
 	},
-		Swellow: {
+		swellow: {
 		inherit: true,
 		tier: "OU",
 	},
-		Toucannon: {
+		toucannon: {
 		inherit: true,
 		tier: "OU",
 	},
-		Xatu: {
+		xatu: {
 		inherit: true,
 		tier: "OU",
 	},
-		Bombirdier: {
+		bombirdier: {
 		inherit: true,
 		tier: "OU",
 	},
-		Chatot: {
+		chatot: {
 		inherit: true,
 		tier: "OU",
 	},
-		Delibird: {
+		delibird: {
 		inherit: true,
 		tier: "OU",
 	},
-		Farfetchd: {
+		farfetchd: {
 		inherit: true,
 		tier: "OU",
 	},
-		Noctowl: {
+		noctowl: {
 		inherit: true,
 		tier: "OU",
 	},
-		Swanna: {
+		swanna: {
 		inherit: true,
 		tier: "OU",
 	},
-		Unfezant: {
+		unfezant: {
 		inherit: true,
 		tier: "OU",
 	},
