@@ -639,6 +639,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
+			if (pokemon.species.name === 'Marle-Parasite') this.add('-anim', source, "Charge", source);
 			this.add('-anim', source, "Aura Sphere", target);
 		},
 		isZ: "marliumz",
@@ -825,7 +826,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Metal Burst", target);
-			this.add('-anim', source, "Bullet Seed", target);
 		},
 		multihit: [2, 5],
 		secondary: {
@@ -984,6 +984,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 4,
 		flags: {metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magic Coat", source);
+		},
 		volatileStatus: 'guardianorbiters',
 		condition: {
 			duration: 1,
@@ -1033,7 +1037,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Judgement", target);
+			this.add('-anim', source, "Judgment", target);
 			this.add('-anim', source, "Light of Ruin", target);
 		},
 		self: {
