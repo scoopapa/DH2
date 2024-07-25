@@ -614,10 +614,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
 	},
-   vaheelia: {
-		tier: "MD",
-		doublesTier: "MD",
-	},
 	grillantic0: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
