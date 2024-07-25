@@ -165,6 +165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					activated = true;
 				}
 				//TODO: Have it say for example "Attack" instead of "atk", etc.
+				//TODO: Reveal multiple in the event of ties
 				this.add('-message', `${pokemon.name} scanned ${target.name}! ${target.name}'s highest stat is ${target.getBestStat(false, true)}!`);
 			}
 		},
