@@ -692,6 +692,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	metalclaw: {
 		inherit: true,
+		shortDesc: "Sets Steel hazards in Time Warp.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.timewarp) {
 				move.onAfterHit = function(target, source, move) {
