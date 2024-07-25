@@ -98,7 +98,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		desc: "When this Pokémon's move misses, raises its Speed by 2 stages.",
 		shortDesc: "Raises user's Speed by 2 stages if its move misses.",
 		onModifySpe(spe, pokemon) {
-			if Pokemon.moveThisTurnResult = false {
+			if (pokemon.moveThisTurnResult === false) {
 				this.boost({spe: 2});
 			}
 		},
