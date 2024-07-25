@@ -2505,7 +2505,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		category: "Horizon",
 		abilities: {0: "Immunity", 1: "Flame Body", H: "Early Bird"},
 		heightm: 0.9,
-		weightkg: 25.3.,
+		weightkg: 25.3,
 		color: "Yellow",
 		eggGroups: ["Field"],
 
