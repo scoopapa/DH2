@@ -3964,7 +3964,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
 		],
-		mod: 'modergen2birds',
+		mod: 'moderngen2',
 		searchShow: false,
 		ruleset: ['Standard', 'Little Cup', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
 		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out', 'Sonic Boom', 'Dragon Rage'],
@@ -3974,7 +3974,7 @@ export const Formats: FormatList = [
         threads: [
             `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10203354">Smogon Thread</a>`,
         ],
-        mod: 'moderngen2',
+        mod: 'moderngen2birds',
         searchShow: false,
         ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
         banlist: ['AG', 'Uber','Baton Pass', 'All Pokemon'],
