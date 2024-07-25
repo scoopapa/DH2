@@ -721,7 +721,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 91,
 		name: "Sableye-Mega",
 		types: ["Ghost", "Rock"],
-		baseStats: {hp: 85, atk: 100, def: 135, spa: 100, spd: 135, spe: 20},
+		baseStats: {hp: 85, atk: 110, def: 110, spa: 110, spd: 110, spe: 50},
 		abilities: {0: "Magic Bounce"},
 	},
 	pecharunt: {
