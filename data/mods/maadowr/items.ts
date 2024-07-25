@@ -297,10 +297,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-			this.heal(baseSpecies.num === -1070.baseMaxhp / 8);
-	      } else {
-			this.heal(baseSpecies.num === -1070.baseMaxhp / 16);
+			if (pokemon.baseSpecies.num === -1070) {
+				if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
+					this.heal(pokemon.baseMaxhp / 8);
+	      	} else {
+					this.heal(pokemon.baseMaxhp / 16);
+				}
 			}
 		},
 		itemUser: ["Hieroturoc"],
