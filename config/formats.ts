@@ -3047,6 +3047,9 @@ export const Formats: FormatList = [
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Slowking-Base', 'Slowbro-Base'
 		],
+		onBegin() {
+			this.add('-message', `Be sure to use /weak to find out everything's new type interactions!`);
+		},
 	},
 	{
 		name: "[Gen 1] Tradebacks Expanded",
