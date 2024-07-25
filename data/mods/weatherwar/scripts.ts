@@ -219,6 +219,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dragapult").learnset.shadowclaw = ["9L1"];
 		this.modData("Learnsets", "dragapult").learnset.destinybond = ["9L1"];
 		this.modData("Learnsets", "dragapult").learnset.irontail = ["9L1"];
+		this.modData("Learnsets", "dragapult").learnset.sludgebomb = ["9L1"];
 		this.modData("Learnsets", "dragapult").learnset.setlotsofreallysmalldragons = ["9L1"];
 		this.modData("Learnsets", "dragapult").learnset.setthevoices = ["9L1"];
 		// Electrode
@@ -464,6 +465,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "wochien").learnset.setovergrowth = ["9L1"];
 		// Absol
 		this.modData("Learnsets", "absol").learnset.spiritbreak = ["9L1"];
+		this.modData("Learnsets", "absol").learnset.poisonjab = ["9L1"];
 		this.modData("Learnsets", "absol").learnset.moonblast = ["9L1"];
 		this.modData("Learnsets", "absol").learnset.alluringvoice = ["9L1"];
 		this.modData("Learnsets", "absol").learnset.dazzlinggleam = ["9L1"];

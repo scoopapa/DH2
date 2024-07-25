@@ -71,5 +71,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -5,
 		gen: 9,
 	},
+	threesacredtreasures: {
+		name: "Three Sacred Treasures",
+		desc: "If held by Pit, this item allows him to Mega Evolve in battle.",
+		megaStone: "Pit-Mega",
+		megaEvolves: "Pit",
+		itemUser: ["Pit"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -6,
+		gen: 9,
+	}
 	// unresolved issues with Negative Zone, not implementing
 };

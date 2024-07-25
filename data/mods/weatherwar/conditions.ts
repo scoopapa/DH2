@@ -435,13 +435,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
 			if (!this.field.pseudoWeather.thevoices || move.type !== 'Ghost') return;
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Ghost'] = true;
-				move.damage = 'level';
+			for (const target of pokemon.side.foe.active) {
+				if (target.types.includes("Normal")) {
+					if (!move.ignoreImmunity) move.ignoreImmunity = {};
+					if (move.ignoreImmunity !== true) {
+						move.ignoreImmunity['Ghost'] = true;
+						move.damage = 'level';
+					}
+				}
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -534,7 +537,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidual() {
 			this.add('-message', "The dust storm continues.");
 			this.add('-weather', 'Dust Storm', '[upkeep]');
-			this.eachEvent('Weather');
+			//this.eachEvent('Weather');
 		},
 		onWeather(target) {
 			const immuneTypes = ['Ground', 'Rock', 'Steel'];
@@ -897,7 +900,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			if(this.field.pseudoWeather.flashflood && this.randomChance(1, 4)) {
 				if (this.runEvent('DragOut', pokemon, pokemon)) {
-					this.add('-message', `The flash flood swept! ${pokemon.name} away!`);
+					this.add('-message', `The flash flood swept ${pokemon.name} away!`);
 					pokemon.forceSwitchFlag = true;
 				}
 			}

@@ -135,7 +135,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	queendr: {
+	queendeltarune: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
@@ -196,6 +196,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "unintroduced",
 	},
 	flynn: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	pit: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	pitmega: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	devil: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	kingboo: {
 		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
