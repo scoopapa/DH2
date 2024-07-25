@@ -445,7 +445,40 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ground",
 	},
-	
+	venomousbite: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Venomous Bite",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1, bite: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, the target loses all of its type-based immunities and any moves that the target was formerly immune to are super effective against the respective type instead.",
+		shortDesc: "x1.5 power of base move. Target's immunities become weaknesses.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Fang", target);
+		},
+		volatileStatus: 'venomousbite',
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Ghost",
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Venom Aspect');
+			},
+			onNegateImmunity: false,
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				//If the type would be immune to the move in a vacuum then it turns super effective
+				//(We can't check immunity for the mon itself as it is considered to completely lack immunities)
+				if (!this.dex.getImmunity(move.type,type)) {
+					return 1;
+				}
+			}
+		},
+	},
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
