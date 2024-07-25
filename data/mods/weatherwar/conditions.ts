@@ -435,13 +435,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
 			if (!this.field.pseudoWeather.thevoices || move.type !== 'Ghost') return;
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Ghost'] = true;
-				move.damage = 'level';
+			for (const target of pokemon.side.foe.active) {
+				if (target.types.includes("Normal")) {
+					if (!move.ignoreImmunity) move.ignoreImmunity = {};
+					if (move.ignoreImmunity !== true) {
+						move.ignoreImmunity['Ghost'] = true;
+						move.damage = 'level';
+					}
+				}
 			}
 		},
 		onFieldStart(field, source, effect) {
