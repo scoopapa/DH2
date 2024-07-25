@@ -385,6 +385,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "hitmontop").learnset.victorydance = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.circlethrow = ["9L1"];
+
+		//Distribution to returning mons on Slate 6
+		this.modData("Learnsets", "onix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "steelix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
 		
 	},
 	runAction(action) {
