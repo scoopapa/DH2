@@ -160,7 +160,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Doublade-Ma'adowr",
 		types: ["Grass"],
 		baseStats: {hp: 69, atk: 110, def: 150, spa: 35, spd: 49, spe: 35},
-		abilities: {0: "Intrepid Sword, H: "Friend Guard"},
+		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
 		category: "Wooden Sword",
 		heightm: 0.8,
 		weightkg: 4.5,
