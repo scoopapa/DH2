@@ -23,11 +23,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Stealth Rock",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1},
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
 		sideCondition: 'stealthrock',
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onEntryHazard(pokemon) {
