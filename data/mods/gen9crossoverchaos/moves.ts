@@ -297,6 +297,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aeroblast", target);
+			this.add('-anim', source, "Quick Attack", target);
 		},
 		secondary: {
 			chance: 30,
