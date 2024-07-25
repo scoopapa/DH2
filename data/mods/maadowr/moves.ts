@@ -665,8 +665,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, bite: 1},
-		drain: [1, 2] if (!this.field.isTerrain('electricterrain')),
-		drain: [3, 4] if (this.field.isTerrain('electricterrain')),
+		drain: [1, 2],
+		onModifyMove(move, source, target) {
+			if (this.field.isTerrain('electricterrain')) move.drain = [3, 4];
+		},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
