@@ -1051,7 +1051,144 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 		contestType: "Beautiful",
 	},
-
+	schemeofacuity: {
+		num: -34,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Scheme of Acuity",
+		shortDesc: "Prevents the target from switching out.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Laser Focus", source);
+			this.add('-anim', source, "Leaf Storm", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	illusoryheartburst: {
+		num: -35,
+		accuracy: true,
+		basePower: 160,
+		category: "Special",
+		name: "Illusory Heartburst",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Geomancy", source);
+			this.add('-anim', source, "Grass Knot", target);
+		},
+		isZ: "nahidiumz",
+		self: {
+			onHit(source) {
+				this.field.setTerrain('grassyterrain');
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Cute",
+	},
+	// Inhale is -36, but Kirby is uncoded
+	// Star Spit is -37, but Kirby is uncoded
+	devilsknife: {
+		num: -38,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Devilsknife",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swords Dance", source);
+			this.add('-anim', source, "Shadow Claw", target);
+		},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	snowgrave: {
+		num: -39,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		name: "Snowgrave",
+		pp: 20,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Blizzard", target);
+			this.add('-anim', source, "Subzero Slammer", target);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('snowgrave');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['snowgrave']?.lostFocus) {
+				this.add('cant', pokemon, 'Snowgrave', 'Snowgrave');
+				return true;
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Snowgrave');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					this.effectState.lostFocus = true;
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	killingclaw: {
+		num: -40,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Killing Claw",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bide", souce);
+			this.add('-anim', source, "Metal Claw", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
 		num: 340,
