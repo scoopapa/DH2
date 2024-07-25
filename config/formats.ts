@@ -3978,7 +3978,7 @@ export const Formats: FormatList = [
         searchShow: false,
         ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
         banlist: ['AG', 'Uber','Baton Pass', 'All Pokemon'],
-		  unbanlist: ["Squawkabilly", "Squawkabiluck", "Squawkalone", "SquawkabillyYellow", "Zapdos”, “Fezandipiti”, “Altaria”, “Altaria-Mega”, “Archeops”, “Articuno”, “Charizard-Mega-X”, “Charizard-Mega-Y”, “Charizard”, “Empoleon”, “Pelipper”, “Tornadus-Therian”, “Articuno-Galar”, “Corviknight”, “Decidueye”, “Pidgeot-Mega”, “Fezandipiti”, “Sirfetch’d”, “Skarmory”, “Talonflame”, “Togekiss”, “Eiscue”, “Hawlucha”, “Kilowattrel”, “Moltres”, “Moltres-Galar”, “Staraptor”, “Zapdos-Galar”, “Decidueye-Hisui”, “Braviary”, “Braviary-Hisui”, “Dodrio”, “Fearow”, “Flamingo”, “Honchrow”, “Mandibuzz”, “Oricoro”, “Oricoro-Pom-Pom”, “Oricoro-Sensu”, “Oricoro-Pa’u”, “Swellow”, “Toucannon”, “Xatu”, “Bombirdier”, “Chatot”, “Delibird”, “Farfetch’d”, “Noctowl”, “Swanna”, “Unfezant”,
+		  unbanlist: ["Squawkabilly", "Zapdos”, “Fezandipiti”, “Altaria”, “Altaria-Mega”, “Archeops”, “Articuno”, “Charizard-Mega-X”, “Charizard-Mega-Y”, “Charizard”, “Empoleon”, “Pelipper”, “Tornadus-Therian”, “Articuno-Galar”, “Corviknight”, “Decidueye”, “Pidgeot-Mega”, “Fezandipiti”, “Sirfetch’d”, “Skarmory”, “Talonflame”, “Togekiss”, “Eiscue”, “Hawlucha”, “Kilowattrel”, “Moltres”, “Moltres-Galar”, “Staraptor”, “Zapdos-Galar”, “Decidueye-Hisui”, “Braviary”, “Braviary-Hisui”, “Dodrio”, “Fearow”, “Flamingo”, “Honchrow”, “Mandibuzz”, “Oricoro”, “Oricoro-Pom-Pom”, “Oricoro-Sensu”, “Oricoro-Pa’u”, “Swellow”, “Toucannon”, “Xatu”, “Bombirdier”, “Chatot”, “Delibird”, “Farfetch’d”, “Noctowl”, “Swanna”, “Unfezant”,
 		],
     },
 	{
