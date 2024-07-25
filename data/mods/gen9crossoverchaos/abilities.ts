@@ -232,6 +232,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (pokemon.hp <= pokemon.maxhp / 2) {
+					this.add('-anim', pokemon, "Dark Pulse", target);
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			}
@@ -450,6 +451,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	galeforce: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
+				this.add('-anim', source, "Tailwind", source);
 				source.addVolatile('galeforce');
 			}
 		},
