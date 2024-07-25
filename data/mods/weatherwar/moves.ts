@@ -589,6 +589,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-ability', target, 'Duomod Reference??');
 				target.metronomeUsed = true;
 				this.actions.useMove(this.dex.getActiveMove('metronome'), target);
+				target.metronomeUsed = false;
 			}
 		},
 	},
@@ -689,11 +690,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return 0;
 		},
 	},
-	steelbeam: {
+	metalclaw: {
+		inherit: true,
+		shortDesc: "Sets Steel hazards in Time Warp.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.timewarp) {
-				delete move.mindBlownRecoil;
-				move.recoil = [1, 4];
+				move.onAfterHit = function(target, source, move) {
+					for (const side of source.side.foeSidesWithConditions()) {
+						side.addSideCondition('gmaxsteelsurge');
+					}
+				};
 			}
 		},
 	},
@@ -1862,6 +1868,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to burn. Dust Storm: 1.3x power.",
 		onModifyMove(move, pokemon, target) {
 			if (this.field.pseudoWeather.duststorm) move.basePower = 130;
+		},
+	},
+	defog: {
+		inherit: true,
+		shortDesc: "Clears hazards. Ends Twilight Zone.",
+		onHit(target, source, move) {
+			let success = false;
+			if (this.field.pseudoWeather.twilightzone) {
+				this.field.removePseudoWeather("twilightzone");
+				success = true;
+			}
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
 		},
 	},
 }

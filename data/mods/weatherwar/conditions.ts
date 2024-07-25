@@ -651,20 +651,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
+		onResidualOrder: 100,
+		onResidualSubOrder: 100,
 		onResidual(pokemon) {
 			if (!this.field.pseudoWeather.shitstorm || !pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'tox') return;
-				if (target.status === 'slp') {
-					target.setStatus('tox');
-				} else if (target.status) target.setStatus('psn');
+				if (target.status) {
+					target.setStatus('');
+					if (target.status === 'slp') target.setStatus('tox');
+					else target.setStatus('psn');
+				}
 			}
 		},
-		onSourceDamagingHit(damage, target, source, move) {
-			if(this.field.pseudoWeather.shitstorm && (target.status === 'psn' || target.status === 'tox'))
-				this.damage(target.baseMaxhp / 8, source, target);
+		onDamagingHit(damage, target, source, move) {
+			if(this.field.pseudoWeather.shitstorm && move.type === 'Poison' && (target.status === 'psn' || target.status === 'tox'))
+				this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
@@ -674,7 +676,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'Shitstorm', '[silent]');
 			}
 			this.add('-message', "A shitstorm brews!");
-			this.hint("In Shitstorm, Burn/Paralysis/Frostbite/Confusion become Poison, Sleep becomes Toxic, and Poison moves have 20% chance to poison.");
+			this.hint("In Shitstorm, Burn/Paralysis/Frostbite/Confusion become Poison, Sleep becomes Toxic, and Poison moves lower poisoned targets' Atk/SpA/Spe by 1.");
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
@@ -807,6 +809,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onModifyMove(move, pokemon) {
+			const targetSide = pokemon.side.foe;
 			if (this.field.pseudoWeather.timewarp && !move.flags['futuremove']) {
 				if (move.target === "self" && !pokemon.side.slotConditions[pokemon.position]['selfforesighter']) {
 					move.onTry = function (source, t) {
@@ -836,7 +839,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						return this.NOT_FAIL;
 					}
 				} 
-				else if (['normal', 'any', 'allAdjacent', 'allAdjacentFoes'].includes(move.target) && !pokemon.side.slotConditions[pokemon.position]['futuremove']) {
+				else if (['normal', 'any', 'allAdjacent', 'allAdjacentFoes'].includes(move.target) && !targetSide.slotConditions[pokemon.position]['futuremove']) {
 					move.onTry = function (source, t) {
 						if (!t.side.addSlotCondition(t, 'futuremove')) {
 							this.hint('Future moves fail when the targeted slot already has a future move focused on it.');
