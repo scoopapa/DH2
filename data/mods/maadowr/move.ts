@@ -941,8 +941,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// start: damage info in conditions.ts
 	incandescentflame: {
 		num: -34,
-		accuracy: 95,
-		basePower: 90,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
 		shortDesc: "Burns and suffers no power loss in Rain.",
 		name: "Incandescent Flame",
@@ -1004,8 +1004,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// end
 
 	// start
+	ascension: {
+		num: -36,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "No effect at the moment.",
+		name: "Ascension",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},		
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	// end
+
+	// start
 //	reboot: {
-//		num: -36,
+//		num: -37,
 
 	// end
 
