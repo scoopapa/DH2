@@ -2,217 +2,217 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	squawkabilly: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 	squawkabillyblue: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	squawkabillyyellow: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 	squawkabillywhite: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 	zapdos: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 	fezandipiti: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		altaria: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		altariamega: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		archeops: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		articuno: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		charizardmegax: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		charizardmegay: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		charizard: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		empoleon: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		pelipper: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		tornadustherian: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		articunogalar: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		corviknight: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		decidueye: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		pidgeotmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		pidgeot: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		sirfetchd: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		skarmory: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		talonflame: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		togekiss: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		eiscue: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		hawlucha: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		kilowattrel: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		moltres: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		moltresgalar: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		staraptor: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		zapdosgalar: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		decidueyehisui: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		braviary: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		braviaryhisui: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		dodrio: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		fearow: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		flamigo: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		honchrow: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		mandibuzz: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		oricorio: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		oricoriopompom: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		oricoriosensu: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		oricoriopau: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		swellow: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		toucannon: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		xatu: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		bombirdier: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		chatot: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		delibird: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		farfetchd: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		noctowl: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		swanna: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 		unfezant: {
 		inherit: true,
-		tier: "OU",
+		tier: "OUbirds",
 	},
 };
