@@ -651,14 +651,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
+		onResidualOrder: 100,
+		onResidualSubOrder: 100,
 		onResidual(pokemon) {
 			if (!this.field.pseudoWeather.shitstorm || !pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'tox') return;
-				if (target.status === 'slp') target.setStatus('tox');
-				else if (target.status) target.setStatus('psn');
+				if (target.status) {
+					target.setStatus('');
+					if (target.status === 'slp') target.setStatus('tox');
+					else target.setStatus('psn');
+				}
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -810,7 +813,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.pseudoWeather.timewarp && !move.flags['futuremove']) {
 				if (move.target === "self" && !pokemon.side.slotConditions[pokemon.position]['selfforesighter']) {
 					move.onTry = function (source, t) {
-						console.log(t);
 						if (!t.side.addSlotCondition(t, 'selfforesighter')) {
 							this.hint('Future moves fail when the targeted slot already has a future move focused on it.');
 							return false;
@@ -839,7 +841,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				} 
 				else if (['normal', 'any', 'allAdjacent', 'allAdjacentFoes'].includes(move.target) && !targetSide.slotConditions[pokemon.position]['futuremove']) {
 					move.onTry = function (source, t) {
-						console.log(t);
 						if (!t.side.addSlotCondition(t, 'futuremove')) {
 							this.hint('Future moves fail when the targeted slot already has a future move focused on it.');
 							return false;
