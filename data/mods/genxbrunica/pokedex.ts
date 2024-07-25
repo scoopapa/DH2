@@ -786,6 +786,18 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 50, atk: 105, def: 105, spa: 35, spd: 110, spe: 70},
 		abilities: {0: "Intimidate", 1: "Technician", H: "Dancer"},
 	},
+	zubat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Iron Fist", 1: "Echolocation", H: "Inner Focus"},
+	},
+	golbat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Iron Fist", 1: "Echolocation", H: "Inner Focus"},
+	},
+	crobat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Iron Fist", 1: "Echolocation", H: "Inner Focus"},
+	},
 	doloice: {
 		num: 1385,
 		name: "Doloice",
