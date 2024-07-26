@@ -142,7 +142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				let i: BoostID;
 				for (i in source.boosts) {
 					if (source.boosts[i] > 0) {
-						source.boosts[i] = 0
+						source.boosts[i] = 0;
 						activate = true;
 					}
 				}

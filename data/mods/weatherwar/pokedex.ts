@@ -151,7 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Charizard-Mega-Y",
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 78, atk: 94, def: 88, spa: 145, spd: 115, spe: 110},
-		abilities: {0: "Solar Flare"},
+		abilities: {0: "Slipstream"},
 	},
 	pelipper: {
 		inherit: true,
@@ -199,7 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Abomasnow",
 		types: ["Ice", "Grass"],
 		baseStats: {hp: 90, atk: 52, def: 115, spa: 112, spd: 115, spe: 56},
-		abilities: {0: "Ruin", 1: "Snow Cloak", H: "Ice Scales"},
+		abilities: {0: "Ruin", 1: "Snow Warning", H: "Ice Scales"},
 	},
 	abomasnowmega: {
 		inherit: true,
@@ -207,7 +207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Abomasnow-Mega",
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 90, atk: 52, def: 145, spa: 142, spd: 145, spe: 66},
-		abilities: {0: "Snow Warning"},
+		abilities: {0: "Snow Cloak"},
 	},
 	ninetalesalola: {
 		inherit: true,
@@ -271,7 +271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lickilicky",
 		types: ["Normal"],
 		baseStats: {hp: 120, atk: 85, def: 95, spa: 85, spd: 95, spe: 50},
-		abilities: {0: "Finger Waggler", 1: "Thick Fat", H: "Cloud Nine"},
+		abilities: {0: "Finger Waggler", 1: "Cloud Nine", H: "Thick Fat"},
 	},
 	golduck: {
 		inherit: true,
