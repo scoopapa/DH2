@@ -912,7 +912,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	lycanrocdusk: {
 		inherit: true,
 		types: ["Rock", "Ground"],
-		baseStats: {hp: 75, atk: 117, def: 75, spa: 35, spd: 75, spe: 110},
+		baseStats: {hp: 75, atk: 117, def: 75, spa: 55, spd: 75, spe: 110},
 		abilities: {0: "Tough Claws", H: "Vigilante"},
 	},
 };
