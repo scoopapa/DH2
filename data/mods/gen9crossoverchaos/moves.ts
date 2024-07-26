@@ -533,7 +533,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Teeter Dance", target);
 			this.add('-anim', source, "Hyper Voice", target);
-			this.add('-anim', source, "Needle Arm", target);
+			this.add('-anim', source, "Grassy Glide", target);
 		},
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
@@ -1175,7 +1175,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bide", souce);
+			this.add('-anim', source, "Bide", source);
 			this.add('-anim', source, "Metal Claw", target);
 		},
 		secondary: {
