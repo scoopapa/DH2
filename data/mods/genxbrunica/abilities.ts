@@ -214,12 +214,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon's Poison power is 2x; it can't be poisoned; Poison power against it is halved.",
 	},
 	runaway: {
+		inherit: true,
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
 			pokemon.trapped = pokemon.maybeTrapped = false;
 		},
 		shortDesc: "This Pokemon may switch out even when trapped by another Pokemon, or by Ingrain",
-		name: "Run Away",
 	},
 	prismshell: {
 		onPrepareHit(source, target, move) {
