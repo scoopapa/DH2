@@ -960,7 +960,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
 		onSourceDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
-			if (this.field.isWeather('raindance', 'primordialsea')) {
+			if this.field.isWeather(['raindance', 'primordialsea']) {
 				target.trySetStatus('brn', source);
 			}
 		},
