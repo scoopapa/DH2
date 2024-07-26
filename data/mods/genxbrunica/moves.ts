@@ -2746,8 +2746,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, or a Memory to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, or a Silvally, respectively. The target is immune to this move if it has the Sticky Hold Ability. The user does not switch out if there are no unfainted party members.",
-		shortDesc: "(Bugged?) Switches the user's item with the foes, then switches out if successful.",
+		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, a Memory, a Rusted Sword, a Rusted Shield, or an Awakening Seed to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, a Zamazenta, or a Lutakon respectively. The target is immune to this move if it has the Sticky Hold or Suction Cups Ability. The user does not switch out if there are no unfainted party members.",
+		shortDesc: "Switches the user's item with the foe's. User switches out if successful.",
 		isViable: true,
 		name: "Swindle",
 		pp: 20,
@@ -2758,7 +2758,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Trick", target);
 		},
 		onTryImmunity(target) {
-			return !target.hasAbility('stickyhold');
+			return !target.hasAbility(['stickyhold','suctioncups']);
 		},
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);
