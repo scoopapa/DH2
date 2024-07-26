@@ -3991,6 +3991,26 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
+		name: "[Gen 3] Modern Gen 2 The Sequel: Just The Birds",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10203354">Post in the Solomods Megathread</a>`,
+		],
+		mod: 'moderngen3',
+		searchShow: false,
+		ruleset: ['Standard', 'Z-Move Clause'],
+		banlist: [
+			'All Pokemon', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush',
+			'Power Construct', 'Battle Bond', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Shed Tail',
+		],
+		unbanlist: [
+			'Altaria', 'Archeops', 'Articuno', 'Articuno-Galar', 'Bombirdier', 'Braviary', 'Braviary-Hisui', 'Charizard', 'Chatot',
+			'Corviknight', 'Cramorant', 'Decidueye', 'Decidueye-Hisui', 'Delibird', 'Dodrio', 'Eiscue', 'Empoleon', 'Farfetchd', 'Fearow',
+			'Fezandipiti', 'Flamigo', 'Hawlucha', 'Honchkrow', 'Kilowattrel', 'Mandibuzz', 'Moltres', 'Moltres-Galar', 'Noctowl', 'Oricorio',
+			'Pelipper', 'Pidgeot', 'Sirfetchd', 'Skarmory', 'Squawkabilly', 'Staraptor', 'Swanna', 'Swellow', 'Talonflame', 'Togekiss',
+			'Tornadus-Therian', 'Toucannon', 'Unfezant', 'Xatu', 'Zapdos', 'Zapdos-Galar', 'Oricorio-Pom-Pom', 'Oricorio-Pau', 'Oricorio-Sensu',
+		],
+	},
+	{
 		name: "[Gen 4] Modern Gen 4",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
