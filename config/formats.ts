@@ -3997,7 +3997,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2birds',
 		searchShow: false,
-		ruleset: ['Standard Natdex', 'Z-Move Clause', /*'!Obtainable Abilities'*/], // temporary until I can figure why HAs work in MG3 but not here
+		ruleset: ['Standard', 'Z-Move Clause', '!Obtainable Abilities'], // temporary until I can figure why HAs work in MG3 but not here
 		banlist: [
 			'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush',
 			'Power Construct', 'Battle Bond', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Shed Tail',
