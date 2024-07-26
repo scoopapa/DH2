@@ -164,9 +164,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					this.add('-ability', pokemon, 'Echolocation');
 					activated = true;
 				}
-				//TODO: Have it say for example "Attack" instead of "atk", etc.
-				//TODO: Reveal multiple in the event of ties
-				this.add('-message', `${pokemon.name} scanned ${target.name}! ${target.name}'s highest stat is ${target.getBestStat(false, true)}!`);
+				this.add('-message', `${pokemon.name} scanned ${target.name}!`);
+				let stats = ['Attack'];
+				let bestStat = target.getStat('atk',false,true);
+				const statNames = {
+					'def': 'Defense',
+					'spa': 'Special Attack', 
+					'spd': 'Special Defense', 
+					'spe': 'Speed'
+				};
+				for (const i in statNames) {
+					let stat = target.getStat(i, false, true);
+					if (stat < bestStat) continue;
+					if (stat > bestStat)  {
+						stats = [statNames[i]];
+						bestStat = stat;
+					} else {
+						stats.push(" " + statNames[i]);
+					}
+				}
+				if (stats.length === 1) {
+					this.add('-message', `${target.name}'s highest stat is ${stats[0]}!`);
+				} else if (stats.length >= 5) {
+					this.add('-message', `All of ${target.name}'s stats are equal!`);
+				} else {
+					this.add('-message', `${target.name}'s highest stats are ${stats}!`);
+				}
 			}
 		},
 		flags: {},
