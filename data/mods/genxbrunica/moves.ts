@@ -400,7 +400,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 1,
 		flags: {protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power.",
-		shortDesc: "x1.5 power of base move. Usually goes first.",
+		shortDesc: "x1.5 power of base move. (BUGGED) Usually goes first.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
@@ -414,7 +414,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Tectonic Shift",
 		pp: 5,
-		priority: 1,
+		priority: 0,
 		flags: {protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move is successful and the user has not fainted, all hazards are removed from the user's side of the field.",
 		shortDesc: "x1.5 power of base move. Clears hazards on user's side.",
@@ -445,11 +445,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ground",
 	},
-	venomousbite: {
+	venomousfang: {
 		accuracy: true,
 		basePower: 1,
 		category: "Physical",
-		name: "Venomous Bite",
+		name: "Venomous Fang",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, contact: 1, bite: 1},
@@ -459,7 +459,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Fang", target);
 		},
-		volatileStatus: 'venomousbite',
+		volatileStatus: 'venomousfang',
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Ghost",
@@ -2076,28 +2076,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-
+*/
 	sonicpulse: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Sonic Pulse",
 		pp: 30,
+		desc: "Until the target faints or switches out, all further attacks used against it will become critical hits.",
+		shortDesc: "Moves against the target become guaranteed crits.",
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'sonicpulse',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Supersonic", target);
+		},
 		condition: {
-			duration: 100,
+			duration: 0,
 			onStart(pokemon, source, effect) {
 				if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
 					this.add('-start', pokemon, 'move: Sonic Pulse', '[silent]');
 				} else {
 					this.add('-start', pokemon, 'move: Sonic Pulse');
 				}
-			},
-			onRestart(pokemon) {
-				this.effectData.duration = 100;
-				this.add('-start', pokemon, 'move: Sonic Pulse');
 			},
 			onSourceModifyCritRatio(critRatio) {
 				return 5;
@@ -2107,12 +2109,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
 	},
-*/
+	
 	centuryblade: {
 		accuracy: 90,
 		basePower: 120,
