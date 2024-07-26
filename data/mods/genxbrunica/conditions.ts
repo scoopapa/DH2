@@ -69,12 +69,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Muk': 'Mud Devourment',
 				'Muk-Alola': 'Mud Devourment',
 				'Syruptitious': 'Adulteration',
+				'Steelix': 'Olive Rampage',
+				'Crobat': 'Venomous Fang',
+				'Saunusca': 'Tectonic Shift',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
 			if (balmMoveList[species]) {
 				this.effectState.balmMove = balmMoveList[species];
-				let balmMove = this.dex.moves.get(this.effectState.balmMove);
+				const balmMove = this.dex.moves.get(this.effectState.balmMove);
 				if (balmMove.type === target.addedType) {
 					const newMoveSlots = [];
 					for (const moveSlot of target.moveSlots) {
@@ -89,6 +92,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 							newMoveSlots.push(moveSlot);
 						} else {
 							const movepp = move.category === 'Status' ? 16 : 8;
+							//I can't specify BP in these new moveslots D:
 							newMoveSlots.push({
 								move: moveSlot.move,
 								id: moveSlot.id,
@@ -103,6 +107,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 					}
 					target.moveSlots = newMoveSlots;
 				}
+			}
+		},
+		//Priority's kinda janky so this should iron it out
+		onModifyPriority(priority, pokemon, target, move) {
+			if (!this.effectState.balmMove) return;
+			const balmMove = this.dex.moves.get(this.effectState.balmMove);
+			if (move.type === balmMove.type && 
+				(move.category === balmMove.category || ![move.category,balmMove.category].includes('Status'))
+			) {
+				return balmMove.priority;
 			}
 		},
 	},

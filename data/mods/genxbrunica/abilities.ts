@@ -156,6 +156,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		desc: "After another Pokemon uses a ballistic move, this Pokemon uses the same move. The copied move is subject to all effects that can prevent a move from being executed. A move used through this Ability cannot be copied again by other Pokemon with this Ability.",
 		shortDesc: "After another Pokemon uses a ballistic move, this Pokemon uses the same move.",
 	},
+	echolocation: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Echolocation');
+					activated = true;
+				}
+				//TODO: Have it say for example "Attack" instead of "atk", etc.
+				//TODO: Reveal multiple in the event of ties
+				this.add('-message', `${pokemon.name} scanned ${target.name}! ${target.name}'s highest stat is ${target.getBestStat(false, true)}!`);
+			}
+		},
+		flags: {},
+		name: "Echolocation",
+		shortDesc: "On switch-in, reveals the highest stat of each adjacent opponent.",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
