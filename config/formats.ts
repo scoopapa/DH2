@@ -3999,16 +3999,16 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Standard', 'Z-Move Clause'],
 		banlist: [
-			'All Pokemon', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush',
+			'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush',
 			'Power Construct', 'Battle Bond', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Shed Tail',
 		],
-		unbanlist: [
+	/*	unbanlist: [
 			'Altaria', 'Archeops', 'Articuno', 'Articuno-Galar', 'Bombirdier', 'Braviary', 'Braviary-Hisui', 'Charizard', 'Chatot',
 			'Corviknight', 'Cramorant', 'Decidueye', 'Decidueye-Hisui', 'Delibird', 'Dodrio', 'Eiscue', 'Empoleon', 'Farfetchd', 'Fearow',
 			'Fezandipiti', 'Flamigo', 'Hawlucha', 'Honchkrow', 'Kilowattrel', 'Mandibuzz', 'Moltres', 'Moltres-Galar', 'Noctowl', 'Oricorio',
 			'Pelipper', 'Pidgeot', 'Sirfetchd', 'Skarmory', 'Squawkabilly', 'Staraptor', 'Swanna', 'Swellow', 'Talonflame', 'Togekiss',
 			'Tornadus-Therian', 'Toucannon', 'Unfezant', 'Xatu', 'Zapdos', 'Zapdos-Galar', 'Oricorio-Pom-Pom', 'Oricorio-Pau', 'Oricorio-Sensu',
-		],
+		], */
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
 			if (!['Altaria', 'Archeops', 'Articuno', 'Bombirdier', 'Braviary', 'Charizard', 'Chatot', 'Corviknight', 'Cramorant',
