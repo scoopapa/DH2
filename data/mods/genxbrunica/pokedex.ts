@@ -481,7 +481,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	ponytabrunica: {
 		num: 77,
 		name: "Ponyta-Brunica",
-		basename: "Ponyta",
+		baseSpecies: "Ponyta",
 		forme: "Brunica",
 		types: ["Steel"],
 		baseStats: {hp: 50, atk: 95, def: 75, spa: 45, spd: 55, spe: 90},
@@ -646,7 +646,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	lutakon: {
 		num: -3,
 		name: "Lutakon",
-		baseForme: "Resting",
 		types: ["Grass"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 120, def: 90, spa: 120, spd: 130, spe: 90},
@@ -660,7 +659,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	lutakonawakened: {
 		num: -3,
 		name: "Lutakon-Awakened",
-		basename: "Lutakon",
+		baseSpecies: "Lutakon",
 		forme: "Awakened",
 		types: ["Grass"],
 		gender: "N",
@@ -713,7 +712,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	tsunameysurfing: {
 		num: 1280,
 		name: "Tsunamey-Surfing",
-		basename: "Tsunamey",
+		baseSpecies: "Tsunamey",
 		forme: "Surfing",
 		types: ["Dragon"],
 		baseStats: {hp: 60, atk: 115, def: 60, spa: 50, spd: 80, spe: 100},
@@ -835,7 +834,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	venipededesvega: {
 		num: 543,
 		name: "Venipede-Desvega",
-		basename: "Venipede",
+		baseSpecies: "Venipede",
 		forme: "Desvega",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 30, atk: 59, def: 45, spa: 30, spd: 39, spe: 57},
@@ -852,7 +851,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	whirlipededesvega: {
 		num: 544,
 		name: "Whirlipede-Desvega",
-		basename: "Whirlipede",
+		baseSpecies: "Whirlipede",
 		forme: "Desvega",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 40, atk: 99, def: 55, spa: 40, spd: 79, spe: 47},
@@ -902,7 +901,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	spearowdesvega: {
 		num: 21,
 		name: "Spearow-Desvega",
-		basename: "Spearow",
+		baseSpecies: "Spearow",
 		forme: "Desvega",
 		types: ["Flying", "Ice"],
 		baseStats: {hp: 40, atk: 65, def: 30, spa: 31, spd: 21, spe: 75},
@@ -921,7 +920,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	fearowdesvega: {
 		num: 22,
 		name: "Fearow-Desvega",
-		basename: "Fearow",
+		baseSpecies: "Fearow",
 		forme: "Desvega",
 		types: ["Flying", "Ice"],
 		baseStats: {hp: 65, atk: 95, def: 65, spa: 61, spd: 51, spe: 105},
