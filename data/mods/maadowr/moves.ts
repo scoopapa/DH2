@@ -933,11 +933,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Water', type);
 		},
-		priority: 0,
-		secondary: {
-			chance: 100 if (this.field.isTerrain('acidicterrain')),
-			status: 'psn',
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.field.isTerrain('acidicterrain')) {
+				target.trySetStatus('psn', source);
+			}
 		},
+		priority: 0,
+		secondary: {},
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
@@ -955,10 +958,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
-		secondary: {
-			chance: 100 if (this.field.isWeather('raindance', 'primordialsea')),
-			status: 'brn',
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.field.isWeather('raindance', 'primordialsea')) {
+				target.trySetStatus('brn', source);
+			}
 		},
+		secondary: {},
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
