@@ -251,7 +251,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return -1;
 		},
 		onAnyAfterMove() {
-			this.effectState.resisted = false;
+			this.effectState.lunargift = false;
 		},
 		flags: {breakable: 1},
 		name: "Lunar Gift",
