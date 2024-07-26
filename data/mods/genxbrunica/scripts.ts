@@ -412,6 +412,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		//skarmory blade runner
 		this.modData("Learnsets", "skarmory").learnset.bladerunner = ["9L1"];
+
+		//absol
+		this.modData("Learnsets", "absol").learnset.shocktail = ["9L1"];
 		
 	},
 	runAction(action) {
