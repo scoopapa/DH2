@@ -4009,6 +4009,16 @@ export const Formats: FormatList = [
 			'Pelipper', 'Pidgeot', 'Sirfetchd', 'Skarmory', 'Squawkabilly', 'Staraptor', 'Swanna', 'Swellow', 'Talonflame', 'Togekiss',
 			'Tornadus-Therian', 'Toucannon', 'Unfezant', 'Xatu', 'Zapdos', 'Zapdos-Galar', 'Oricorio-Pom-Pom', 'Oricorio-Pau', 'Oricorio-Sensu',
 		],
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (!['Altaria', 'Archeops', 'Articuno', 'Bombirdier', 'Braviary', 'Charizard', 'Chatot', 'Corviknight', 'Cramorant',
+			'Decidueye', 'Delibird', 'Dodrio', 'Eiscue', 'Empoleon', 'Farfetchd', 'Fearow', 'Fezandipiti', 'Flamigo', 'Hawlucha',
+			'Honchkrow', 'Kilowattrel', 'Mandibuzz', 'Moltres', 'Noctowl', 'Oricorio', 'Pelipper', 'Pidgeot', 'Sirfetchd', 'Skarmory',
+			'Squawkabilly', 'Staraptor', 'Swanna', 'Swellow', 'Talonflame', 'Togekiss', 'Tornadus-Therian', 'Toucannon', 'Unfezant',
+			'Xatu', 'Zapdos''].includes(species.baseSpecies)) {
+				return [`Only birds are allowed.`, `(${species.name}'s BST is not a bird (according to the mod's leader).)`];
+			}
+		},
 	},
 	{
 		name: "[Gen 4] Modern Gen 4",
