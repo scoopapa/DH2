@@ -3679,6 +3679,13 @@ export const Formats: FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
+		name: "[Gen 9] VGC 2024 Reg G (Bo1 Forced OTS)",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Limit One Restricted'],
+		restricted: ['Restricted Legendary'],
+	},
+	{
 		name: "[Gen 9] VGC 2024 Reg G (Bo3)",
 		mod: 'gen9',
 		gameType: 'doubles',
