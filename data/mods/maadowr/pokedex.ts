@@ -1692,7 +1692,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Dark"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65},
-		abilities: {0: "Synchronize", 1: "Telepathy", H: "Inner Focus"},
+		abilities: {0: "Synchronize", 1: "Keen Eye", H: "Inner Focus"},
 		category: "Moonlight",
 		heightm: 0.3,
 		weightkg: 1.0,
@@ -3040,10 +3040,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
-   eevee: {
-		inherit: true,
-		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
-	},
 	flareon: {
 		inherit: true,
 		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Guts"},
@@ -3064,11 +3060,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Synchronize", 1: "Solar Power", H: "Magic Bounce"},
 		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
-	},
-	umbreon: {
-		inherit: true,
-		abilities: {0: "Synchronize", 1: "Keen Eye", H: "Inner Focus"},
-		movepoolDeletions: ["frustration", "hiddenpower", "pursuit", "return"],
 	},
 	glaceon: {
 		inherit: true,
@@ -3127,7 +3118,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
-	musharna: {
+	munna: {
 		inherit: true,
 		abilities: {0: "Comatose", 1: "Synchronize", H: "Telepathy"},
 		movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
