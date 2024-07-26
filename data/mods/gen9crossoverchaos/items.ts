@@ -18,7 +18,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	dracocentauriumz: {
 		name: "Dracocentaurium Z",
-		desc: "If held by a Draco Centauros with Draco Burning, it can use Great Fire.",
+		desc: "If held by Draco Centauros with Draco Burning, it can use Great Fire.",
 		spritenum: 632,
 		onTakeItem: false,
 		zMove: "Great Fire",
@@ -29,7 +29,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	wriggliumz: {
 		name: "Wrigglium Z",
-		desc: "If held by a Wriggle Nightbug with Centipede Assault, it can use Luciola Cruciata.",
+		desc: "If held by Wriggle Nightbug with Centipede Assault, it can use Luciola Cruciata.",
 		spritenum: 642,
 		onTakeItem: false,
 		zMove: "Luciola Cruciata",
@@ -40,7 +40,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	maannaniumz: {
 		name: "Maannanium Z",
-		desc: "If held by an Ishtar with Meteor Beam, it can use Mountain Range-Shaking Firewood of Venus.",
+		desc: "If held by Ishtar with Meteor Beam, it can use Mountain Range-Shaking Firewood of Venus.",
 		spritenum: 643,
 		onTakeItem: false,
 		zMove: "Mountain Range-Shaking Firewood of Venus",
@@ -51,7 +51,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	hecatiumz: {
 		name: "Hecatium Z",
-		desc: "If held by an Hecatia-Tropical with Life Soup, it can use Water Planet.",
+		desc: "If held by Hecatia-Tropical with Life Soup, it can use Water Planet.",
 		spritenum: 633,
 		onTakeItem: false,
 		zMove: "Water Planet",
@@ -71,6 +71,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -5,
 		gen: 9,
 	},
+	// unresolved issues with Negative Zone, not implementing
 	threesacredtreasures: {
 		name: "Three Sacred Treasures",
 		desc: "If held by Pit, this item allows him to Mega Evolve in battle.",
@@ -83,6 +84,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -6,
 		gen: 9,
-	}
-	// unresolved issues with Negative Zone, not implementing
+	},
+	nahidiumz: {
+		name: "Nahidium Z",
+		desc: "If held by Nahida with Scheme of Acuity, it can use Illusory Heartburst.",
+		spritenum: 635,
+		onTakeItem: false,
+		zMove: "Illusory Heartburst",
+		zMoveFrom: "Scheme of Acuity",
+		itemUser: ["Nahida"],
+		num: -7,
+		gen: 9,
+	},
 };

@@ -215,5 +215,37 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
+	fynn: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	nahida: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	ariadne: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	jevil: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	mario: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	noelle: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	bailu: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	metalface: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
 
 };

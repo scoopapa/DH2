@@ -391,7 +391,94 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Poison",
 	},
-	
+	oliverampage: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Olive Rampage",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power.",
+		shortDesc: "x1.5 power of base move. (BUGGED) Usually goes first.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Outrage", target);
+		},
+		target: "adjacentFoe",
+		type: "Dragon",
+	},
+	tectonicshift: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Tectonic Shift",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful and the user has not fainted, all hazards are removed from the user's side of the field.",
+		shortDesc: "x1.5 power of base move. Clears hazards on user's side.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Precipice Blades", target);
+		},
+		onAfterHit(target, pokemon, move) {
+			if (pokemon.hp) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Tectonic Shift', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (pokemon.hp) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Tectonic Shift', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		target: "adjacentFoe",
+		type: "Ground",
+	},
+	venomousfang: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Venomous Fang",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1, bite: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, the target loses all of its type-based immunities and any moves that the target was formerly immune to are super effective against the respective type instead.",
+		shortDesc: "x1.5 power of base move. Target's immunities become weaknesses.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Fang", target);
+		},
+		volatileStatus: 'venomousfang',
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Ghost",
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Venom Aspect');
+			},
+			onNegateImmunity: false,
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				//If the type would be immune to the move in a vacuum then it turns super effective
+				//(We can't check immunity for the mon itself as it is considered to completely lack immunities)
+				if (!this.dex.getImmunity(move.type,type)) {
+					return 1;
+				}
+			}
+		},
+	},
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
@@ -1989,28 +2076,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-
+*/
 	sonicpulse: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Sonic Pulse",
 		pp: 30,
+		desc: "Until the target faints or switches out, all further attacks used against it will become critical hits.",
+		shortDesc: "Moves against the target become guaranteed crits.",
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'sonicpulse',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Supersonic", target);
+		},
 		condition: {
-			duration: 100,
+			duration: 0,
 			onStart(pokemon, source, effect) {
 				if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
 					this.add('-start', pokemon, 'move: Sonic Pulse', '[silent]');
 				} else {
 					this.add('-start', pokemon, 'move: Sonic Pulse');
 				}
-			},
-			onRestart(pokemon) {
-				this.effectData.duration = 100;
-				this.add('-start', pokemon, 'move: Sonic Pulse');
 			},
 			onSourceModifyCritRatio(critRatio) {
 				return 5;
@@ -2020,12 +2109,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
 	},
-*/
+	
 	centuryblade: {
 		accuracy: 90,
 		basePower: 120,
@@ -2657,8 +2746,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, or a Memory to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, or a Silvally, respectively. The target is immune to this move if it has the Sticky Hold Ability. The user does not switch out if there are no unfainted party members.",
-		shortDesc: "(Bugged?) Switches the user's item with the foes, then switches out if successful.",
+		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, a Memory, a Rusted Sword, a Rusted Shield, or an Awakening Seed to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, a Zamazenta, or a Lutakon respectively. The target is immune to this move if it has the Sticky Hold or Suction Cups Ability. The user does not switch out if there are no unfainted party members.",
+		shortDesc: "Switches the user's item with the foe's. User switches out if successful.",
 		isViable: true,
 		name: "Swindle",
 		pp: 20,
@@ -2669,7 +2758,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Trick", target);
 		},
 		onTryImmunity(target) {
-			return !target.hasAbility('stickyhold');
+			return !target.hasAbility(['stickyhold','suctioncups']);
 		},
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);

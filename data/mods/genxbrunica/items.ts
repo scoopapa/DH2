@@ -163,7 +163,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onTakeItem: false,
 	},
-	dragon: {
+	dragonbalm: {
 		name: "Dragon Balm",
 		desc: "Gains Dragon type on entry; unlocks certain Balm moves on certain Pokemon.",
 		ignoreKlutz: true,

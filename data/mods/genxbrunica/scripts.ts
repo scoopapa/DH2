@@ -213,7 +213,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "delphox").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.quickshot = ["9L1","8L1"];
 		this.modData("Learnsets", "delphox").learnset.shocktail = ["9L1"];
-		
+		*/
 		//rockruff line
 		this.modData("Learnsets", "rockruff").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "rockruffdusk").learnset.drainfang = ["9L1","8L1"];
@@ -221,7 +221,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lycanrocmidnight").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "lycanrocmidnight").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "lycanrocdusk").learnset.drainfang = ["9L1","8L1"];
-		
+		/*
 		//cripple clobber
 		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
@@ -348,8 +348,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "geodude").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "graveler").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "golem").learnset.accelerock = ["9L1"];
-		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];
-		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];*/
+		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];*/
+		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];
 		
 		/*for (const pokemon in this.data.FormatsData) {
 			const tierData = this.modData("FormatsData",pokemon);
@@ -385,6 +385,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "hitmontop").learnset.victorydance = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "hitmontop").learnset.circlethrow = ["9L1"];
+
+		//Distribution to returning mons on Slate 6
+		this.modData("Learnsets", "onix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "steelix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets", "golbat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets", "crobat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets", "crobat").learnset.xscissor = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.ominouswind = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.silverwind = ["9L1"];
+		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
 		
 	},
 	runAction(action) {
