@@ -391,6 +391,79 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	sleddo: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	gogoxen: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	bigsoot: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	detonape: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	blastquatch: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	ponytabrunica: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	alicheron: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	amotilus: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	raatilus: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	blootilus: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	yleltilus: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	acktilus: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	whitilus: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	komantile: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	amphipool: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	talitrident: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	skarmini: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	skarmory: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+
 
 	akulut: {
 		tier: "Brunica Uber",

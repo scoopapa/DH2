@@ -405,6 +405,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
 		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
 		
+		//skarmory blade runner
+		this.modData("Learnsets", "skarmory").learnset.bladerunner = ["9L1"];
+		
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;

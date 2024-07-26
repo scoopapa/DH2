@@ -173,6 +173,85 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Echolocation",
 		shortDesc: "On switch-in, reveals the highest stat of each adjacent opponent.",
 	},
+	antibody: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn','tox'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Antibody');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn','tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Antibody');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Antibody",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poisoned; Poison power against it is halved.",
+	},
+	runaway: {
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = pokemon.maybeTrapped = false;
+		},
+		shortDesc: "This Pokemon may switch out even when trapped by another Pokemon, or by Ingrain",
+		name: "Run Away",
+	},
+	prismshell: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.category !== 'Status' || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type || '???';
+			if (type !== '???' && source.getTypes().join() !== type && source.setType(type)) {
+				this.add('-start', source, 'typechange', type, '[from] ability: Prism Shell');
+			}
+		},
+		flags: {},
+		name: "Prism Shell",
+		shortDesc: "When about to use a status move, this Pokemon changes type to match that move's type.",
+	},
+	lithificate: {
+		shortDesc: "This Pokemon's Normal-type moves become Rock-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Rock';
+				move.lithificateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.lithificateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		flags: {},
+		name: "Lithificate",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
