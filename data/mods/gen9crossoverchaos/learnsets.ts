@@ -3497,6 +3497,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	jevil: {
 		learnset: {
+			devilsknife: ["9L1"],
 			shadowsneak: ["9L1"],
 			phantomforce: ["9L1"],
 			astonish: ["9L1"],
