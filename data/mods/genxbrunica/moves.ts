@@ -552,17 +552,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Ammolite Vortex",
 		pp: 5,
 		priority: 1,
-		flags: {protect: 1, contact: 1},
-		desc: "Power is equal to 1.5 times the base move's power. This move ignores type-based immunities and has neutral effectiveness against types that would otherwise resist it.",
-		shortDesc: "x1.5 power of base move. Ignores resistances/immunities.",
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. This move ignores effectiveness against types that would otherwise resist it. The target is immune if it does not share a type with the user.",
+		shortDesc: "x1.5 power of base move. Hits targets that share user's type. Ignores resistances.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Luster Purge", target);
 		},
+		onTryImmunity(target, source) {
+			return target.hasType(source.getTypes());
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (typeMod < 0) return 0;
 		},
-		ignoreImmunity: true,
 		target: "adjacentFoe",
 		type: "Normal",
 	},
