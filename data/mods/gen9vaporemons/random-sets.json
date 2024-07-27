@@ -1099,7 +1099,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Volt Switch", "Dazzling Gleam", "Focus Blast", "Thunderbolt", "Signal Beam"],
+                "movepool": ["Volt Switch", "Dazzling Gleam", "Focus Blast", "Thunderbolt", "Signal Beam", "Electroweb"],
                 "teraTypes": ["Electric", "Fairy"]
             }
         ]
@@ -1116,11 +1116,6 @@
                 "role": "Bulky Setup",
                 "movepool": ["Giga Drain", "Moonblast", "Quiver Dance", "Sludge Bomb", "Strength Sap"],
                 "teraTypes": ["Fairy", "Poison"]
-            },
-            {
-                "role": "Tera Blast user",
-                "movepool": ["Giga Drain", "Quiver Dance", "Strength Sap", "Tera Blast"],
-                "teraTypes": ["Fire", "Rock"]
             }
         ]
     },
@@ -1159,7 +1154,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Encore", "Haze", "Hydro Pump", "Hypnosis", "Ice Beam", "Rest", "Surf"],
+                "movepool": ["Encore", "Haze", "Hydro Pump", "Life Dew", "Ice Beam", "Earth Power", "Wash Away"],
                 "teraTypes": ["Steel", "Water"]
             }
         ]
