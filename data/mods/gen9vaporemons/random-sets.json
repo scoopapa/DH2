@@ -654,7 +654,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Fire Blast", "Gunk Shot", "Pain Split", "Sludge Bomb", "Toxic Spikes", "Will-O-Wisp"],
+                "movepool": ["Fire Blast", "Hazardous Waste", "Pain Split", "Sludge Bomb", "Toxic Spikes", "Will-O-Wisp"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -664,7 +664,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Defog", "Fire Blast", "Gunk Shot", "Pain Split", "Strange Steam", "Will-O-Wisp"],
+                "movepool": ["Defog", "Fire Blast", "Hazardous Waste", "Life Dew", "Strange Steam", "Will-O-Wisp", "Toxic Spikes"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -674,7 +674,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Earthquake", "Megahorn", "Stealth Rock", "Stone Edge", "Swords Dance"],
+                "movepool": ["Earthquake", "Megahorn", "Stealth Rock", "Chisel", "Swords Dance"],
                 "teraTypes": ["Dragon", "Fairy", "Flying", "Grass", "Water"]
             }
         ]
@@ -774,17 +774,17 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["Freeze-Dry", "Hydro Pump", "Ice Beam", "Sparkling Aria"],
+                "movepool": ["Freeze-Dry", "Hydro Pump", "Frost Breath", "Wash Away"],
                 "teraTypes": ["Ice", "Water"]
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Freeze-Dry", "Rest", "Sleep Talk", "Sparkling Aria"],
+                "movepool": ["Freeze-Dry", "Life Dew", "Shelter", "Sparkling Aria"],
                 "teraTypes": ["Dragon", "Ghost", "Ground", "Poison", "Steel"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dance", "Earthquake", "Freeze-Dry", "Waterfall"],
+                "movepool": ["Dragon Dance", "Earthquake", "Icicle Spear", "Waterfall"],
                 "teraTypes": ["Ground"]
             }
         ]
