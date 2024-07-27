@@ -4856,7 +4856,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			aircutter: ["9L1"],
 			featherdance: ["9L1"],
 			steelwing: ["9L1"],
-			shellsmash: ["9L1"],
+			slackoff: ["9L1"],
 			airslash: ["9L1"],
 			nightslash: ["9L1"],
 			sunnyday: ["9L1"],
