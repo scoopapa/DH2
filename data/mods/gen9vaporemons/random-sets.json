@@ -624,12 +624,12 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["High Jump Kick", "Knock Off", "Mach Punch", "Poison Jab", "Stone Edge"],
+                "movepool": ["High Jump Kick", "Knock Off", "Mach Punch", "Poison Jab", "Chisel"],
                 "teraTypes": ["Fighting"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Close Combat", "Knock Off", "Poison Jab", "Stone Edge", "Swords Dance"],
+                "movepool": ["Close Combat", "Knock Off", "Poison Jab", "Chisel", "Swords Dance"],
                 "teraTypes": ["Dark", "Fighting", "Poison"]
             }
         ]
@@ -644,7 +644,7 @@
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bulk Up", "Drain Punch", "Knock Off", "Poison Jab", "Rapid Spin"],
+                "movepool": ["Bulk Up", "Drain Punch", "Rage Fist", "Poison Jab", "Rapid Spin"],
                 "teraTypes": ["Dark", "Poison", "Steel"]
             }
         ]
