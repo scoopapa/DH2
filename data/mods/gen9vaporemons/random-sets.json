@@ -4,7 +4,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Power Whip", "Sludge Bomb", "Sunny Day", "Weather Ball"],
+                "movepool": ["Energy Ball", "Sludge Bomb", "Sunny Day", "Weather Ball"],
                 "teraTypes": ["Fire"]
             },
             {
@@ -79,12 +79,12 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Alluring Voice", "Encore", "Focus Blast", "Grass Knot", "Nasty Plot", "Nuzzle", "Surf", "Thunderbolt", "Volt Switch"],
+                "movepool": ["Signal Beam", "Electroweb", "Focus Blast", "Grass Knot", "Nasty Plot", "Nuzzle", "Surf", "Thunderbolt", "Volt Switch"],
                 "teraTypes": ["Grass", "Water"]
             },
             {
-                "role": "Tera Blast user",
-                "movepool": ["Encore", "Focus Blast", "Nasty Plot", "Surf", "Tera Blast", "Thunderbolt"],
+                "role": "Setup Sweeper",
+                "movepool": ["Encore", "Focus Blast", "Nasty Plot", "Surf", "Signal Beam", "Thunderbolt"],
                 "teraTypes": ["Ice"]
             }
         ]
