@@ -1033,8 +1033,13 @@
                 "teraTypes": ["Water"]
             },
             {
+                "role": "Fast Bulky Setup",
+                "movepool": ["Scale Shot", "Ice Punch", "Liquidation", "Swords Dance"],
+                "teraTypes": ["Water"]
+            },
+            {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dance", "Ice Punch", "Liquidation", "Trailblaze"],
+                "movepool": ["Dragon Dance", "Ice Punch", "Liquidation", "Choke"],
                 "teraTypes": ["Grass", "Water"]
             }
         ]
