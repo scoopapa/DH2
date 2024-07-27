@@ -824,7 +824,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Alluring Voice", "Calm Mind", "Shadow Ball", "Thunderbolt", "Round"],
+                "movepool": ["Signal Beam", "Calm Mind", "Shadow Ball", "Thunderbolt", "Round"],
                 "teraTypes": ["Electric", "Fairy"]
             }
         ]
@@ -869,7 +869,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Hurricane", "Freeze-Dry", "Haze", "Roost", "Substitute", "Defog"],
+                "movepool": ["Wind Breaker", "Freeze-Dry", "Haze", "Roost", "Substitute", "Defog"],
                 "teraTypes": ["Ground", "Steel"]
             }
         ]
@@ -880,6 +880,11 @@
             {
                 "role": "Fast Bulky Setup",
                 "movepool": ["Calm Mind", "Freezing Glare", "Hurricane", "Recover"],
+                "teraTypes": ["Steel"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["U-turn", "Freezing Glare", "Hurricane", "Signal Beam"],
                 "teraTypes": ["Steel"]
             }
         ]
