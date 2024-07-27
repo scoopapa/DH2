@@ -1412,7 +1412,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Koutei's Earth",
 		shortDesc: "Earth skills are 50% more powerful during Kohryu. Nature-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+			if (target.hasAbility('ascertainment'))
 				return;
 			
 			if (move.type === 'Earth' && this.field.isTerrain('kohryu'))
