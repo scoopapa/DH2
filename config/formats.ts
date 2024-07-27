@@ -2729,82 +2729,6 @@ export const Formats: FormatList = [
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Kings Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 9] Single Typed - OU",
-
-		mod: 'monotyped',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Zen Mode', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects'],
-		teambuilderFormat: 'National Dex',
-	},
-	{
-		name: "[Gen 9] Single Typed - Uber",
-
-		mod: 'monotyped',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
-		banlist: ['AG', 'Moody', 'Zen Mode', 'Baton Pass'],
-		teambuilderFormat: 'National Dex Uber',
-	},
-	{
-		name: "[Gen 9] Single Typed - LC",
-
-		mod: 'monotyped',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Little Cup'],
-		banlist: ['NFE', 'Moody', 'Baton Pass'],
-		teambuilderFormat: 'National Dex LC',
-	},
-	{
-		name: "[Gen 9] Single Typed - Monotype",
-
-		mod: 'monotyped',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Same Type Clause', 'Terastal Clause'],
-		banlist: [
-				'Arena Trap', 'Moody', 'Zen Mode', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
-				'Baton Pass', 'Arceus', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Espathra', 'Groudon',
-				'Kyogre', 'Palafin', 'Spectrier', 'Xerneas', 'Zacian', 'Zamazenta',
-		],
-		teambuilderFormat: 'National Dex',
-	},
-	{
-		name: "[Gen 9] Stadium YB 3v3 Random Battle",
-		desc: [
-			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
-		],
-		threads: [
-			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
-		],
-		mod: 'stadiumyb',
-		team: 'random',
-		bestOfDefault: true,
-		ruleset: [
-			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
-			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 3', 'Max Team Size = 6',
-		],
-		onSwitchIn(pokemon) {
-			const speed = pokemon.getStat('spe', false, true);
-			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
-		},
-	},
-	{
-		name: "[Gen 9] Stadium YB 6v6 Random Battle",
-		desc: [
-			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
-		],
-		threads: [
-			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
-		],
-		mod: 'stadiumyb',
-		team: 'random',
-		bestOfDefault: true,
-		ruleset: [
-			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
-			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 6', 'Max Team Size = 12',
-		],
-		onSwitchIn(pokemon) {
-			const speed = pokemon.getStat('spe', false, true);
-			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
-		},
-	},
-	{
 		name: "[Gen 9] Monster Hunter AG",
 		threads: [],
 		mod: 'monsterhunter',
@@ -3026,6 +2950,42 @@ export const Formats: FormatList = [
 		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
 	},
 	{
+		name: "[Gen 9] Single Typed - OU",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Zen Mode', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects'],
+		teambuilderFormat: 'National Dex',
+	},
+	{
+		name: "[Gen 9] Single Typed - Uber",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
+		banlist: ['AG', 'Moody', 'Zen Mode', 'Baton Pass'],
+		teambuilderFormat: 'National Dex Uber',
+	},
+	{
+		name: "[Gen 9] Single Typed - LC",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Little Cup'],
+		banlist: ['NFE', 'Moody', 'Baton Pass'],
+		teambuilderFormat: 'National Dex LC',
+	},
+	{
+		name: "[Gen 9] Single Typed - Monotype",
+
+		mod: 'monotyped',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Same Type Clause', 'Terastal Clause'],
+		banlist: [
+				'Arena Trap', 'Moody', 'Zen Mode', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang',
+				'Baton Pass', 'Arceus', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Espathra', 'Groudon',
+				'Kyogre', 'Palafin', 'Spectrier', 'Xerneas', 'Zacian', 'Zamazenta',
+		],
+		teambuilderFormat: 'National Dex',
+	},
+	{
         name: "[Gen 9] Spookymod",
         desc: [
             "jumpscaare",
@@ -3053,6 +3013,46 @@ export const Formats: FormatList = [
         },
         mod: 'spookymod',
     },
+	{
+		name: "[Gen 9] Stadium YB 3v3 Random Battle",
+		desc: [
+			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
+		],
+		mod: 'stadiumyb',
+		team: 'random',
+		bestOfDefault: true,
+		ruleset: [
+			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
+			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 3', 'Max Team Size = 6',
+		],
+		onSwitchIn(pokemon) {
+			const speed = pokemon.getStat('spe', false, true);
+			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
+		},
+	},
+	{
+		name: "[Gen 9] Stadium YB 6v6 Random Battle",
+		desc: [
+			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
+		],
+		mod: 'stadiumyb',
+		team: 'random',
+		bestOfDefault: true,
+		ruleset: [
+			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
+			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 6', 'Max Team Size = 12',
+		],
+		onSwitchIn(pokemon) {
+			const speed = pokemon.getStat('spe', false, true);
+			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
+		},
+	},
 	// {
 		// name: "[Gen 9] Super Types OU",
 		// desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
@@ -3679,6 +3679,13 @@ export const Formats: FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
+		name: "[Gen 9] VGC 2024 Reg G (Bo1 Forced OTS)",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Limit One Restricted'],
+		restricted: ['Restricted Legendary'],
+	},
+	{
 		name: "[Gen 9] VGC 2024 Reg G (Bo3)",
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -3890,7 +3897,7 @@ export const Formats: FormatList = [
 		name: "[Gen 2] VGC 2001",
 		mod: 'gen2doubles',
 		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Team Preview', 'Picked Team Size = 4'],
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Team Preview', 'Picked Team Size = 4', 'Min Source Gen = 2'],
 		banlist: [],
 		teambuilderFormat: 'OU',
 	},
