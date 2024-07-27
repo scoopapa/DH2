@@ -357,11 +357,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
 				return;
 			
-			if (move.type === 'Steel' && this.field.isTerrain('genbu'))
+			if (move.type === 'Steel' && this.field.isTerrain('byakko'))
 				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('genbu') && effect.effectType === "Move" && effect.type === "Fire")
+			if (this.field.isTerrain('byakko') && effect.effectType === "Move" && effect.type === "Fire")
 				this.chainModify(0.5);
 		},
 	},
