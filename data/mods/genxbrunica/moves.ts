@@ -247,7 +247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "10% chance to burn. 20% chance to lower target's acc. by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, ballistic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smoke Screen", target);
