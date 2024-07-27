@@ -496,7 +496,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Alicheron",
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 65, atk: 120, def: 105, spa: 60, spd: 60, spe: 90},
-		abilities: {0: "Alicheron"},
+		abilities: {0: "Run Away", 1: "Rock Head", H: "Healer"},
 		heightm: 1.8,
 		weightkg: 136,
 		eggGroups: ["Field"],
