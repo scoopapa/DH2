@@ -4737,7 +4737,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			lashout: ["9L1"],
 			brutalswing: ["9L1"],
 			quash: ["9L1"],
-			dragoncheer: ["9L1"],
 			taunt: ["9L1"],
 			thief: ["9L1"],
 			foulplay: ["9L1"],
