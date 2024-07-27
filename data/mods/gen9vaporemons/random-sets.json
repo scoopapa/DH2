@@ -1164,12 +1164,12 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Acrobatics", "Leech Seed", "Strength Sap", "Substitute"],
+                "movepool": ["Wind Breaker", "Leech Seed", "Strength Sap", "Substitute"],
                 "teraTypes": ["Steel"]
             },
             {
                 "role": "Fast Support",
-                "movepool": ["Acrobatics", "Encore", "Sleep Powder", "Strength Sap", "U-turn"],
+                "movepool": ["Acrobatics", "Root Pull", "Swords Dance", "Strength Sap"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -1178,8 +1178,8 @@
         "level": 92,
         "sets": [
             {
-                "role": "Wallbreaker",
-                "movepool": ["Dazzling Gleam", "Earth Power", "Leaf Storm", "Sludge Bomb"],
+                "role": "Bulky Attacker",
+                "movepool": ["Giga Drain", "Earth Power", "Morning Sun", "Sludge Bomb"],
                 "teraTypes": ["Fairy", "Grass", "Ground", "Poison"]
             },
             {
