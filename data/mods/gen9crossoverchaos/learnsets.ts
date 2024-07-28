@@ -2419,7 +2419,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			steelbeam: ["9L1"],
 		},
 	},
-	alicemartagoid: {
+	alicemargatroid: {
 		learnset: {
 			substitute: ["9L1"],
 			dollswar: ["9L1"],
