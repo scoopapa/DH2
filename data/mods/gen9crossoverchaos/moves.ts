@@ -670,8 +670,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Salt Cure", target);
 		},
-		onHit(target, source, move) {
-			return target.addVolatile('leechseed', source, move, 'trapper');
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
