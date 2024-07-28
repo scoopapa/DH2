@@ -1197,12 +1197,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Brilliant Diamond",
+		shortDesc: "Hits two turns after being used; prevents foe(s) from switching next turn.",
 		pp: 10,
 		priority: 0,
 		flags: {mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, futuremove: 1},
 		ignoreImmunity: true,
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			this.add('-anim', source, "Power Gem", target);
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
 				move: 'brilliantdiamond',
@@ -1215,14 +1217,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					category: "Status",
 					priority: 0,
 					flags: {mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, futuremove: 1},
-					pseudoWeather: 'brilliantdiamond',
+					sideCondition: 'brilliantdiamond',
 					condition: {
 						duration: 2,
-						onFieldStart(target) {
-							this.add('-fieldactivate', 'move: Brilliant Diamond');
+						onSideStart(targetSide) {
+							this.add('-sidestart', targetSide, 'move: Brilliant Diamond');
 						},
 						onTrapPokemon(pokemon) {
 							pokemon.tryTrap();
+							this.add('-anim', pokemon, "Rock Polish", pokemon);
 						},
 					},
 					ignoreImmunity: false,
@@ -1234,7 +1237,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return this.NOT_FAIL;
 		},
 		secondary: null,
-		target: "all",
+		target: "foeSide",
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
