@@ -101,7 +101,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		baseForme: "Standard",
 		types: ["Grass", "Psychic"],
-		gender: N,
+		gender: "N",
 		baseStats: {hp: 100, atk: 75, def: 100, spa: 75, spd: 100, spe: 60},
 		abilities: {0: "Pure Power", H: "Zen Mode"},
 		category: "Wooden Statue",
@@ -123,7 +123,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Immanicus",
 		forme: "Zen",
 		types: ["Grass", "Psychic"],
-		gender: N,
+		gender: "N",
 		baseStats: {hp: 100, atk: 150, def: 25, spa: 150, spd: 25, spe: 120},
 		abilities: {0: "Zen Mode"},
 		category: "Wooden Statue",
