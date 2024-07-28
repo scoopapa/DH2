@@ -1191,6 +1191,54 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+	brilliantdiamond: {
+		num: -41,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Brilliant Diamond",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'brilliantdiamond',
+				source: source,
+				moveData: {
+					id: 'brilliantdiamond',
+					name: "Brilliant Diamond",
+					accuracy: true,
+					basePower: 0,
+					category: "Status",
+					priority: 0,
+					flags: {mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, futuremove: 1},
+					pseudoWeather: 'brilliantdiamond',
+					condition: {
+						duration: 2,
+						onFieldStart(target) {
+							this.add('-fieldactivate', 'move: Brilliant Diamond');
+						},
+						onTrapPokemon(pokemon) {
+							pokemon.tryTrap();
+						},
+					},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Rock',
+				},
+			});
+			this.add('-start', source, 'move: Brilliant Diamond');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "all",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 	
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
