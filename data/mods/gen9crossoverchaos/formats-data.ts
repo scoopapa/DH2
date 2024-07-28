@@ -139,7 +139,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	alicemartagoid: {
+	alicemargatroid: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
