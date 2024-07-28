@@ -270,6 +270,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 200,
 		category: "Special",
 		name: "Great Fire",
+		shortDesc: "Calculates damage using the user's Def instead of SpA.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -277,7 +278,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Inferno Overdrive", target);
 		},
-		useSourceAlternateDefensiveAsOffensive: true,
+		overrideOffensiveStat: 'def',
 		isZ: "dracocentauriumz",
 		secondary: null,
 		target: "normal",
@@ -379,7 +380,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 180,
 		category: "Physical",
-		useSourceSpeedAsOffensive: true,
+		overrideOffensiveStat: 'spe',
 		shortDesc: "Uses user's Spe stat as Atk in damage calculation.",
 		name: "Luciola Cruciata",
 		pp: 1,
@@ -1082,6 +1083,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 160,
 		category: "Special",
 		name: "Illusory Heartburst",
+		shortDesc: "Sets Grassy Terrain.",
 		pp: 1,
 		priority: 0,
 		flags: {},
