@@ -345,9 +345,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Queenly Majesty", 1: "Tangled Feet", H: "Download"},
 		weightkg: 129,
 	},
-	alicemartagoid: {
+	alicemargatroid: {
 		num: 32,
-		name: "Alice Martagoid",
+		name: "Alice Margatroid",
 		types: ["Normal"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 120, spd: 100, spe: 70},
