@@ -209,11 +209,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (!source) source = this;
 
-			if (currentStatus === newStatus.id) {
-				if (currentStatus.statusSlots === 1 && 
-				   newStatus.statusSlots === 1) {
-					delete this.status[newStatus.id];
+			if (currentStatus.id === newStatus.id) {
+				if (currentStatus.statusSlots === 1 && newStatus.statusSlots === 1) {
 					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
+					delete this.status;
 				} else if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
