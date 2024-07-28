@@ -218,7 +218,73 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Psychic",
 	},
-	
+	snowbank: {
+		accuracy: 100,
+		basePower: 80,
+		name: "Snowbank",
+		desc: "If this move is successful, the target experiences the effects of all entry hazards on its side of the field, unless its held item is Heavy-Duty Boots or its ability is Keen Eye.",
+		shortDesc: "Target takes hazard damage after being hit by this move.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Spinner", target);
+		},
+		onAfterHit(target, source) {
+			this.runEvent('EntryHazard',target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
+	smokebomb: {
+		accuracy: 95,
+		basePower: 90,
+		category: "Special",
+		name: "Smoke Bomb",
+		desc: "Has a 10% chance to burn the target and a 20% chance to lower its accuracy by 1 stage.",
+		shortDesc: "10% chance to burn. 20% chance to lower target's acc. by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smoke Screen", target);
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'brn',
+			}, {
+				chance: 20,
+				boosts: {
+					accuracy: -1,
+				},
+			},
+		],
+		target: "normal",
+		type: "Fire",
+	},
+	goldrush: {
+		accuracy: 80,
+		basePower: 150,
+		category: "Physical",
+		name: "Gold Rush",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 	
 	//Balm Moves
 	magneticupdraft: {
@@ -400,7 +466,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 1,
 		flags: {protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power.",
-		shortDesc: "x1.5 power of base move. (BUGGED) Usually goes first.",
+		shortDesc: "x1.5 power of base move. Usually goes first.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
@@ -478,6 +544,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
+	},
+	ammolitevortex: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Ammolite Vortex",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. This move ignores effectiveness against types that would otherwise resist it. The target is immune if it does not share a type with the user.",
+		shortDesc: "x1.5 power of base move. Hits targets that share user's type. Ignores resistances.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Luster Purge", target);
+		},
+		onTryImmunity(target, source) {
+			return target.hasType(source.getTypes());
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (typeMod < 0) return 0;
+		},
+		target: "adjacentFoe",
+		type: "Normal",
 	},
 	
 	//Interacting with new Brunician mechanics
@@ -1818,7 +1907,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 	},
 	//There are mons that got dexited in SV but not Desvega and thus their signatures can't be used, so freeing their signatures here
-	naturesmadness: {
+	/*naturesmadness: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1831,7 +1920,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	shelltrap: {
 		inherit: true,
 		isNonstandard: null,
-	},
+	},*/
 
 	//misc movexit undoing
 	frustration: {
@@ -1847,6 +1936,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		isNonstandard: null,
 	},
 	naturalgift: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pursuit: {
 		inherit: true,
 		isNonstandard: null,
 	},

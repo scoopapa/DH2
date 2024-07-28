@@ -72,6 +72,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Steelix': 'Olive Rampage',
 				'Crobat': 'Venomous Fang',
 				'Saunusca': 'Tectonic Shift',
+				'Raatilus': 'Ammolite Vortex',
+				'Blootilus': 'Ammolite Vortex',
+				'Yleltilus': 'Ammolite Vortex',
+				'Acktilus': 'Ammolite Vortex',
+				'Whitilus': 'Ammolite Vortex',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 

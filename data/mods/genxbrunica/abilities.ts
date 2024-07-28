@@ -164,14 +164,116 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					this.add('-ability', pokemon, 'Echolocation');
 					activated = true;
 				}
-				//TODO: Have it say for example "Attack" instead of "atk", etc.
-				//TODO: Reveal multiple in the event of ties
-				this.add('-message', `${pokemon.name} scanned ${target.name}! ${target.name}'s highest stat is ${target.getBestStat(false, true)}!`);
+				this.add('-message', `${pokemon.name} scanned ${target.name}!`);
+				let stats = ['Attack'];
+				let bestStat = target.getStat('atk',false,true);
+				const statNames = {
+					'def': 'Defense',
+					'spa': 'Special Attack', 
+					'spd': 'Special Defense', 
+					'spe': 'Speed'
+				};
+				for (const i in statNames) {
+					let stat = target.getStat(i, false, true);
+					if (stat < bestStat) continue;
+					if (stat > bestStat)  {
+						stats = [statNames[i]];
+						bestStat = stat;
+					} else {
+						stats.push(" " + statNames[i]);
+					}
+				}
+				if (stats.length === 1) {
+					this.add('-message', `${target.name}'s highest stat is ${stats[0]}!`);
+				} else if (stats.length >= 5) {
+					this.add('-message', `All of ${target.name}'s stats are equal!`);
+				} else {
+					this.add('-message', `${target.name}'s highest stats are ${stats}!`);
+				}
 			}
 		},
 		flags: {},
 		name: "Echolocation",
 		shortDesc: "On switch-in, reveals the highest stat of each adjacent opponent.",
+	},
+	antibody: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn','tox'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Antibody');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn','tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Antibody');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Antibody",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poisoned; Poison power against it is halved.",
+	},
+	runaway: {
+		inherit: true,
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = pokemon.maybeTrapped = false;
+		},
+		shortDesc: "This Pokemon may switch out even when trapped by another Pokemon, or by Ingrain",
+	},
+	prismshell: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.category !== 'Status' || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type || '???';
+			if (type !== '???' && source.getTypes().join() !== type && source.setType(type)) {
+				this.add('-start', source, 'typechange', type, '[from] ability: Prism Shell');
+			}
+		},
+		flags: {},
+		name: "Prism Shell",
+		shortDesc: "When about to use a status move, this Pokemon changes type to match that move's type.",
+	},
+	lithificate: {
+		shortDesc: "This Pokemon's Normal-type moves become Rock-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Rock';
+				move.lithificateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.lithificateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		flags: {},
+		name: "Lithificate",
 	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
@@ -449,7 +551,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 				return;
 			}
-
 			const dazzlingHolder = this.effectState.target;
 			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.selfSwitch) {
 				this.attrLastMove('[still]');
@@ -537,7 +638,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Fairy';
@@ -549,7 +650,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Electric';
@@ -561,7 +662,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Flying';
@@ -573,7 +674,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Electric';
@@ -1207,7 +1308,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Ghost';

@@ -74,6 +74,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			//Toxic distribution is reduced among non-Poisons (the ones that returned for Desvega but not SV that kept it will have it returned)
 			if (!mon.types.includes('Poison') && learnset.toxic) delete learnset.toxic;
 			//Now we free all the moves
+			//(first one replaces hail with snowscape)
+			if (learnset.hail) {
+				delete learnset.hail;
+				learnset.snowscape = [];
+			}
 			for (const move in learnset) {
 				learnset[move].push("9L1");
 			}
@@ -404,6 +409,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["9L1"];
 		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
 		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
+		
+		//skarmory blade runner
+		this.modData("Learnsets", "skarmory").learnset.bladerunner = ["9L1"];
+
+		//absol
+		this.modData("Learnsets", "absol").learnset.shocktail = ["9L1"];
 		
 	},
 	runAction(action) {
