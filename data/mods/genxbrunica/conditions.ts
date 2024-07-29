@@ -82,6 +82,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			//...All this to adjust the PP. 
 			if (balmMoveList[species]) {
 				this.effectState.balmMove = balmMoveList[species];
+				this.effectState.balmType = target.addedType;
 				const balmMove = this.dex.moves.get(this.effectState.balmMove);
 				if (balmMove.type === target.addedType) {
 					const newMoveSlots = [];
