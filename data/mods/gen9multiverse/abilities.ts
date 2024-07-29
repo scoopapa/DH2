@@ -253,10 +253,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyAfterMove() {
 			this.effectState.resisted = false;
 		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.lunargift;
+		},
 		flags: {breakable: 1},
 		name: "Lunar Gift",
 		rating: 3.5,
-		shortDesc: "Once per battle, attacks taken have 0.5x effectiveness unless naturally immune.",
+		shortDesc: "Once per switch, attacks taken have 0.5x effectiveness unless naturally immune.",
 		num: -13,
 	},
 	embodyaspecthearthflame: {
