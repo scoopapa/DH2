@@ -4301,7 +4301,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			dragonbreath: ["9L8"],
 			dragonclaw: ["9M", "9L40"],
 			dragondance: ["9M"],
-			dragondart: ["9M"],
+			dragondarts: ["9M"],
 			dragonenergy: ["9M"],
 			dragonpulse: ["9M"],
 			dragontail: ["9M"],
