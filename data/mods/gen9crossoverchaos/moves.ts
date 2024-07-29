@@ -270,6 +270,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 200,
 		category: "Special",
 		name: "Great Fire",
+		shortDesc: "Calculates damage using the user's Def instead of SpA.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -277,7 +278,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Inferno Overdrive", target);
 		},
-		useSourceAlternateDefensiveAsOffensive: true,
+		overrideOffensiveStat: 'def',
 		isZ: "dracocentauriumz",
 		secondary: null,
 		target: "normal",
@@ -1083,6 +1084,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 160,
 		category: "Special",
 		name: "Illusory Heartburst",
+		shortDesc: "Sets Grassy Terrain.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -1191,6 +1193,57 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+	},
+	brilliantdiamond: {
+		num: -41,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Brilliant Diamond",
+		shortDesc: "Hits two turns after being used; prevents foe(s) from switching next turn.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			this.add('-anim', source, "Power Gem", target);
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'brilliantdiamond',
+				source: source,
+				moveData: {
+					id: 'brilliantdiamond',
+					name: "Brilliant Diamond",
+					accuracy: true,
+					basePower: 0,
+					category: "Status",
+					priority: 0,
+					flags: {mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, futuremove: 1},
+					sideCondition: 'brilliantdiamond',
+					condition: {
+						duration: 2,
+						onSideStart(targetSide) {
+							this.add('-sidestart', targetSide, 'move: Brilliant Diamond');
+						},
+						onTrapPokemon(pokemon) {
+							pokemon.tryTrap();
+							this.add('-anim', pokemon, "Rock Polish", pokemon);
+						},
+					},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Rock',
+				},
+			});
+			this.add('-start', source, 'move: Brilliant Diamond');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
 	},
 	
 	// Below are vanilla moves altered by custom interractions

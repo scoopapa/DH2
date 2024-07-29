@@ -13,7 +13,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "King Dedede",
 		types: ["Flying", "Fighting"],
     	gender: "M",
-		baseStats: {hp: 150, atk: 130, def: 100, spa: 70, spd: 60, spe: 70},
+		baseStats: {hp: 130, atk: 120, def: 100, spa: 70, spd: 60, spe: 70},
 		abilities: {0: "Thick Fat", H: "Gluttony"},
 		weightkg: 100,
 		formeOrder: ["King Dedede", "Masked Dedede"],
@@ -345,9 +345,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Queenly Majesty", 1: "Tangled Feet", H: "Download"},
 		weightkg: 129,
 	},
-	alicemartagoid: {
+	alicemargatroid: {
 		num: 32,
-		name: "Alice Martagoid",
+		name: "Alice Margatroid",
 		types: ["Normal"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 120, spd: 100, spe: 70},
