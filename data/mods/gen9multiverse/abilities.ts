@@ -251,7 +251,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return -1;
 		},
 		onAnyAfterMove() {
-			this.effectState.lunargift = false;
+			this.effectState.resisted = false;
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.lunargift;
 		},
 		flags: {breakable: 1},
 		name: "Lunar Gift",
