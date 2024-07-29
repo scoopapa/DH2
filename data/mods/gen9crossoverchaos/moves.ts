@@ -359,7 +359,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		useSourceSpeedAsOffensive: true,
+		overrideOffensiveStat: 'spe',
 		shortDesc: "Uses user's Spe stat as Atk in damage calculation.",
 		name: "Centipede Assault",
 		pp: 10,
@@ -379,7 +379,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 180,
 		category: "Physical",
-		useSourceSpeedAsOffensive: true,
+		overrideOffensiveStat: 'spe',
 		shortDesc: "Uses user's Spe stat as Atk in damage calculation.",
 		name: "Luciola Cruciata",
 		pp: 1,
@@ -670,8 +670,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Salt Cure", target);
 		},
-		onHit(target, source, move) {
-			return target.addVolatile('leechseed', source, move, 'trapper');
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",

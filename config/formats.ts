@@ -2722,8 +2722,7 @@ export const Formats: FormatList = [
 			'Tamantula','Spideth','Abomigo','Chillma','Wintber','Evergrowl','Stontler','Balatone','Coayena','Pherosmoke','Octovase','Cthulhurn','Shahood',
 			'Karakasa','Grag','Kimokus','Toknight','Cowpy','Cowork','Barbecow','Hoorel','Baishark','Luviu','Shucklony','Dreamer','Nohtyp']
 	},
-	/*
-   {
+/*{
 		name: "[Gen 9] Ma'adowr Singles",
 		desc: ["Solomod mainly based on Ancient Egypt and run by BlueRay",
 		      ],
@@ -2787,8 +2786,7 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'maadowr',
-	},
-	*/
+	},*/
 	{
 		name: "[Gen 9] Mega Mania",
 		mod: "megamania",
