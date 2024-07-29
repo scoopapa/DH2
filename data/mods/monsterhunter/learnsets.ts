@@ -1672,7 +1672,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sandstorm: ["9M"],
 			sandtomb: ["9M"],
 			scaryface: ["9M"],
-			scorchingsand: ["9M"],
+			scorchingsands: ["9M"],
 			sleeptalk: ["9M"],
 			smackdown: ["9M"],
 			snore: ["9M"],
