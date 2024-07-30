@@ -1278,10 +1278,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	eerieflames: {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (move.type === 'Fire') {
-				this.add('-immune', target, '[from] ability: Eerie Flames');
-				return null;
-			}
 			if (target === source || move.hasBounced || !move.flags['reflectable']) {
 				return;
 			}
@@ -1289,6 +1285,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
 			this.actions.useMove(newMove, target, source);
+			target.addVolatile('eerieflame');
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -1299,6 +1296,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
 			this.actions.useMove(newMove, this.effectState.target, source);
+			target.addVolatile('eerieflame');
 			return null;
 		},
 		condition: {
@@ -1306,7 +1304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Eerie Flames",
-		shortDesc: "Bounces back certain status moves; Fire immunity.",
+		shortDesc: "Bounces back certain status moves. Flash Fire boost when it does.",
 	},
 	guardsup: {
 		onStart(pokemon) {
@@ -2122,8 +2120,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	unfiltered: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
-				this.debug('Unfiltered neutralize');
-				return this.chainModify(0.75);
+				this.debug('Unfiltered boost');
+				return this.chainModify([5461, 4096]);
 			}
 		},
 		onChangeBoost(boost, target, source, effect) {
@@ -2135,7 +2133,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Unfiltered",
-		shortDesc: "Filter + Contrary",
+		shortDesc: "Stat raises lower stat instead and vice versa. Takes 4/3 damage from SE moves.",
 	},
 	clumpingup: {
 		onTryHit(target, source, move) {
