@@ -157,6 +157,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.removeVolatile('spectralleech');
 			},
 		},
+		flags: {breakable: 1},
 		name: "Spectral Leech",
 		rating: 4,
 		num: -7,
@@ -318,8 +319,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Curse Weaver weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Curse Weaver weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
 		name: "Curse Weaver",
-		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack. Curse becomes Ghost-type version.",
+		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack; halves damage received from Ghost attacks. Curse becomes Ghost-type version.",
 		rating: 3.5,
 		num: -16,
 	},
@@ -428,6 +444,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[bestStat]: 1}, target, target);
 			}
 		},
+		flags: {breakable: 1},
 		name: "DiVE Armor",
 		shortDesc: "Recieves 3/4 damage from SE attacks; highest stat raised by 1 when hp below 25%.",
 		rating: 3,
@@ -485,6 +502,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.addVolatile('laserfocus');
 			}
 		},
+		flags: {breakable: 1},
 		name: "Smirk",
 		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
 		rating: 3,
