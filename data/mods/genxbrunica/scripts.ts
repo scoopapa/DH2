@@ -753,7 +753,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (pokemon.volatiles['typebalm']?.balmMove) {
 				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
 				if (
-					balmMoveData.type === pokemon.addedType //Check if used the right balm
+					balmMoveData.type === pokemon.volatiles['typebalm'].balmType //Check if used the right balm
 					&& balmMoveData.type === move.type //Check if type matches
 					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
 				) {
@@ -1238,11 +1238,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},*/
 	},
 	pokemon: { 
-		addType(newType: string) {
+		/*addType(newType: string) {
 			if (this.volatiles['typebalm'] || this.terastallized) return false;
 			this.addedType = newType;
 			return true;
-		},
+		},*/
 		ignoringItem() {
 			return !!(
 				this.itemState.knockedOff || // Gen 3-4
