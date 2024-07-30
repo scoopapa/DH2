@@ -1523,7 +1523,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				if (target.hasAbility('smirk')) {
+				if (target.hasAbility('smirk') && !source.hasAbility('moldbreaker')) {
 					target.addVolatile('laserfocus')
 				}
 				return this.NOT_FAIL;
