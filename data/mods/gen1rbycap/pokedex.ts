@@ -35,4 +35,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		gen: 1,
 	},
+	mandrelec: {
+		num: 2004,
+		name: "Mandrelec",
+		types: ["Electric"],
+		baseStats: {hp: 110, atk: 130, def: 90, spa: 50, spd: 50, spe: 35},
+		abilities: {0: "No Ability"},
+		heightm: 1.1,
+		weightkg: 43,
+		color: "Yellow",
+		eggGroups: ["Water 1"],
+		gen: 1,
+	},
 };
