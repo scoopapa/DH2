@@ -4146,4 +4146,246 @@ export const Formats: FormatList = [
 		banlist: ['AG'],
 		teambuilderFormat: 'Uber',
 	},
+	{
+		section: "YB Solomods",
+		column: 3,
+		// name: "ybsolomods",
+	},
+	{
+		name: "[Gen 9] Colosseum YB",
+		desc: [
+			"<b>Colosseum YB</b>: A Gen 9 Solomod based in the Orre Region where a controlled form of the Shadow Pokemon phenomenon can be used by any Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DPy4hCz0_zV08xPjyNw7nF0mCIDUvuq0K6rMklyzIWE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'colosseumyb',
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Shadow Moves Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct',
+					 'Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU Colo', 'UU Colo', 'RU Colo', 'NFE Colo', 'LC Colo'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Colosseum YB.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Colosseum YB VGC",
+		desc: [
+			"<b>Colosseum YB</b>: A Gen 9 Solomod based in the Orre Region where a controlled form of the Shadow Pokemon phenomenon can be used by any Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DPy4hCz0_zV08xPjyNw7nF0mCIDUvuq0K6rMklyzIWE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'colosseumyb',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Shadow Moves Clause',
+					 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit Two Restricted'],
+		restricted: ['Restricted Legendary'],
+		banlist: ['Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU Colo', 'UU Colo', 'RU Colo', 'NFE Colo', 'LC Colo', 'Uber Colo'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Colosseum YB.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Kanto Rewind OU",
+		desc: [
+			"<b>Kanto Rewind</b>: A Gen 9 Solomod based in the Kanto Region featuring the new Retro Rewind mechanic, plus an extended Kanto Pokedex.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/18e7YCPuTGP5DaQau0WziJJaChGZ64-kRaApmhgPrAWw/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'kantorewind',
+		ruleset: ['Standard', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['KFE', 'KNFE', 'KLC'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Kanto Rewind.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Kanto Rewind VGC",
+		desc: [
+			"<b>Kanto Rewind</b>: A Gen 9 Solomod based in the Kanto Region featuring the new Retro Rewind mechanic, plus an extended Kanto Pokedex.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/18e7YCPuTGP5DaQau0WziJJaChGZ64-kRaApmhgPrAWw/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'kantorewind',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['KFE', 'KNFE', 'KLC'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Kanto Rewind.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Lights of Alola OU",
+		desc: [
+			"<b>Lights of Alola</b>: A Gen 9 Solomod based in the Alola Region featuring a number of new Z-Moves, overhauls to Totem Pokemon, and buffs to old Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'lightsofalola',
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct', 'Hearthflame Mask', 'Terapagium Z'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU LoA', 'UU LoA', 'RU LoA', 'NU LoA', 'NFE LoA', 'LC LoA'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Lights of Alola.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Lights of Alola Random Battle",
+		desc: [
+			"<b>Lights of Alola</b>: A Gen 9 Solomod based in the Alola Region featuring a number of new Z-Moves, overhauls to Totem Pokemon, and buffs to old Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'lightsofalola',
+		bestOfDefault: true,
+		team: 'random',
+		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Moves Clause', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Terastal Clause'],
+	},
+	{
+		name: "[Gen 9] Lights of Alola VGC",
+		desc: [
+			"<b>Lights of Alola</b>: A Gen 9 Solomod based in the Alola Region featuring a number of new Z-Moves, overhauls to Totem Pokemon, and buffs to old Pokemon.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1IDATbiqmtNtqhyUgBJ5TldBjWKRGgOxhA28NDDi-1-M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'lightsofalola',
+		bestOfDefault: true,
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit One Restricted'],
+		restricted: ['Restricted Legendary', 'Mythical'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU LoA', 'UU LoA', 'RU LoA', 'NU LoA', 'NFE LoA', 'LC LoA', 'Uber LoA'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Lights of Alola.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 1] NRPMRSCE",
+		desc: [
+			"<b>It stands for 'non-rby player makes rby solomod, chaos ensues'</b>",
+		],
+		threads: [
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1oeMaST50N7VLLIJnQURaQby2MnQMKNLdQF-oKwnU7K4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen1nrpmrsce',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
+	},
+	{
+		name: "[Gen 9] Rock Bottom VGC",
+		threads: [
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/170WmahuITbnjMe_rM4CWWFzENXBdh8O4JUMtkmzTiKE/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'rockbottomvgc',
+		gameType: 'doubles',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Limit One Restricted'],
+		restricted: ['Restricted Legendary'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RBV'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in [Gen 9] Rock Bottom VGC.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Stadium YB 3v3 Random Battle",
+		desc: [
+			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
+		],
+		mod: 'stadiumyb',
+		team: 'random',
+		bestOfDefault: true,
+		ruleset: [
+			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
+			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 3', 'Max Team Size = 6',
+		],
+		onSwitchIn(pokemon) {
+			const speed = pokemon.getStat('spe', false, true);
+			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
+		},
+	},
+	{
+		name: "[Gen 9] Stadium YB 6v6 Random Battle",
+		desc: [
+			"<b>Stadium YB</b>: A randomized metagame where each player is given a set of rental Pokemon to battle with."
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Stadium YB in the Solomods Megathread</a>`,
+		],
+		mod: 'stadiumyb',
+		team: 'random',
+		bestOfDefault: true,
+		ruleset: [
+			'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Team Preview',
+			'Species Clause', 'Dynamax Clause', 'Exact HP Mod', 'Force Open Team Sheets', 'Picked Team Size = 6', 'Max Team Size = 12',
+		],
+		onSwitchIn(pokemon) {
+			const speed = pokemon.getStat('spe', false, true);
+			this.add('-message', `${pokemon.name}'s Speed stat is ${speed}!`);
+		},
+	},
 ];

@@ -1160,13 +1160,14 @@ export class RandomTeams {
 		if (abilities.has('Guts') && (moves.has('facade') || moves.has('sleeptalk') || species.id === 'gurdurr')) return 'Guts';
 		if (species.id === 'copperajah' && moves.has('heavyslam')) return 'Heavy Metal';
 		if (species.id === 'jumpluff') return 'Infiltrator';
-		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Keen Eye';
+		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Sheer Force';
 		if (species.id === 'reuniclus') return 'Magic Guard';
 		if (species.id === 'smeargle' && !counter.get('technician')) return 'Own Tempo';
 		if (species.id === 'zebstrika') return (moves.has('wildcharge')) ? 'Sap Sipper' : 'Lightning Rod';
 		if (species.id === 'sandaconda' || (species.id === 'scrafty' && moves.has('rest'))) return 'Shed Skin';
 		if (species.id === 'cetitan' && (role === 'Wallbreaker' || isDoubles)) return 'Sheer Force';
 		if (species.id === 'dipplin') return 'Sticky Hold';
+		if (species.id === 'breloom' || species.id === 'cinccino') return 'Technician';
 		if (species.id === 'shiftry' && moves.has('tailwind')) return 'Wind Rider';
 
 		// singles
@@ -1174,6 +1175,13 @@ export class RandomTeams {
 			if (species.id === 'hypno') return 'Insomnia';
 			if (species.id === 'staraptor') return 'Reckless';
 			if (species.id === 'arcaninehisui') return 'Rock Head';
+			if (species.id === 'miltank') return 'Scrappy';
+			if (species.id === 'emolga') return 'Thunder Cape';
+			if (species.id === 'exeggutoralola') return 'Graviseeds';
+			if (species.id === 'ampharos' || species.id === 'dedenne') return 'Plus';
+			if (species.id === 'manectric') return 'Minus';
+			if (species.id === 'delcatty') return 'Normalize';
+			if (species.id === 'mienshao') return 'Regenerator';
 			if (['raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 			if (species.id === 'enamorus' && moves.has('calmmind')) return 'Cute Charm';
 			if (species.id === 'klawf' && role === 'Setup Sweeper') return 'Anger Shell';
@@ -1287,164 +1295,144 @@ export class RandomTeams {
 		teraType: string,
 		role: RandomTeamsTypes.Role,
 	) {
+		if (!isDoubles) {
+			if (role === 'Fast Bulky Setup' && (ability === 'Quark Drive' || ability === 'Protosynthesis')) {
+				return 'Booster Energy';
+			}
+			if (species.id === 'lokix') {
+				return (role === 'Fast Attacker') ? 'Silver Powder' : 'Life Orb';
+			}
+		}
+		if (species.requiredItems) {
+			// Z-Crystals aren't available in Gen 9, so require Plates
+			if (species.baseSpecies === 'Arceus') {
+				return species.requiredItems[0];
+			}
+			return this.sample(species.requiredItems);
+		}
 		if (role === 'AV Pivot') return 'Assault Vest';
+		if (species.id === 'pikachu') return 'Pikanium Z';
+		if (species.id === 'regieleki') return 'Magnet';
+		if (species.id === 'smeargle') return 'Focus Sash';
 		if (
-			species.id === 'snivy' || species.id === 'totodile' || species.id === 'espeon' || 
-			species.id === 'ralts' || species.id === 'floatzel' || species.id === 'rampardos' || 
-			species.id === 'poochyena' || species.id === 'tynamo' || species.id === 'karrablast' || 
-			species.id === 'toxicroak' || species.id === 'trapinch' || species.id === 'cetoddle' ||
-			species.id === 'venomoth' || species.id === 'pidove' || species.id === 'furfrou' ||
-			species.id === 'pawmi' || species.id === 'breloom' || species.id === 'porygon'
-		) return 'Life Orb';
-		if (
-			species.id === 'servine' || species.id === 'riolu' || species.id === 'eevee' || 
-			species.id === 'shieldon' || species.id === 'dratini' || species.id === 'munna' || 
-			species.id === 'pupitar' || species.id === 'shelmet' || species.id === 'mimejr' || 
-			species.id === 'sandshrew' || species.id === 'sandshrewalola' || species.id === 'morelull' ||
-			species.id === 'chingling' || species.id === 'oddish' || species.id === 'fidough' ||
-			species.id === 'applin' || species.id === 'slugma' || species.id === 'venonat' ||
-			species.id === 'tranquill' || species.id === 'sizzlipede' || species.id === 'charcadet' ||
-			species.id === 'shinx' || species.id === 'varoom'
-		) return 'Eviolite';
-		if (species.id === 'serperior') return 'Miracle Seed';
-		if (
-			species.id === 'smeargle' || species.id === 'delibird' || species.id === 'mrmimegalar' || 
-			species.id === 'bramblin'
+			(species.id === 'froslass' && counter.get('Physical') && !moves.has('trick')) || moves.has('populationbomb') ||
+			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
 		) return 'Wide Lens';
+		if (moves.has('clangoroussoul') || (species.id === 'toxtricity' && moves.has('shiftgear'))) return 'Throat Spray';
 		if (
-			species.id === 'torchic' || species.id === 'croconaw' || species.id === 'aerodactyl' || 
-			species.id === 'virizion' || species.id === 'croagunk' || species.id === 'elekid' ||
-			species.id === 'rockruff'
-		) return 'Expert Belt';
-		if (species.id === 'combusken' || species.id === 'tyranitar'|| species.id === 'electivire') return 'Air Balloon';
-		if (species.id === 'blaziken') return 'Charcoal';
-		if (species.id === 'feraligatr') return 'Mystic Water';
+			(species.baseSpecies === 'Magearna' && role === 'Tera Blast user') ||
+			(species.id === 'calyrexice' && isDoubles)
+		) return 'Weakness Policy';
+		if (['dragonenergy', 'lastrespects', 'waterspout'].some(m => moves.has(m))) return 'Choice Scarf';
 		if (
-			species.id === 'minccino' || species.id === 'gloom' || species.id === 'deerling' ||
-			species.id === 'grafaiai'
-			) return 'Loaded Dice';
+			ability === 'Imposter' ||
+			(species.id === 'magnezone' && moves.has('bodypress') && !isDoubles)
+		) return 'Choice Scarf';
+		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
+		/*if (
+			moves.has('courtchange') ||
+			!isDoubles && (species.id === 'luvdisc' || (species.id === 'terapagos' && !moves.has('rest')))
+		) return 'Heavy-Duty Boots';*/
+		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
-			species.id === 'cinccino' || species.id === 'panpour' || species.id === 'meowthalola' || 
-			species.id === 'mrmime' || species.id === 'weavile' || species.id === 'flittle' ||
-			species.id === 'lycanrocdusk'
-		) return 'Focus Sash';
-		if (species.id === 'okidogi') return 'Coba Berry';
-		if (species.id === 'munkidori') return 'Colbur Berry';
-		if (species.id === 'fezandipiti') return 'Babiri Berry';
-		if (species.id === 'sneasler' || species.id === 'pansear') return 'Lansat Berry';
-		if (species.id === 'simisear') return 'Binding Band';
-		if (species.id === 'nymble' || species.id === 'cutiefly') return 'Silver Powder';
+			['Cheek Pouch', 'Cud Chew', 'Harvest', 'Ripen'].some(m => ability === m) ||
+			moves.has('bellydrum') || moves.has('filletaway')
+		) {
+			return 'Sitrus Berry';
+		}
+		if (['healingwish', 'switcheroo', 'trick', 'badomen'].some(m => moves.has(m))) {
+			if (
+				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
+				role !== 'Wallbreaker' && role !== 'Doubles Wallbreaker' && !counter.get('priority')
+			) {
+				return 'Choice Scarf';
+			} else {
+				return (counter.get('Physical') > counter.get('Special')) ? 'Choice Band' : 'Choice Specs';
+			}
+		}
+		if (counter.get('Status') && (species.name === 'Latias' || species.name === 'Latios')) return 'Soul Dew';
+		if (species.id === 'scyther' && !isDoubles) return (isLead && !moves.has('uturn')) ? 'Eviolite' : 'Heavy-Duty Boots';
+		if (species.nfe && species.id !== 'eevee' && species.id !== 'clamperl') return 'Eviolite';
+		if (ability === 'Poison Heal') return 'Toxic Orb';
+		if ((ability === 'Guts' || (moves.has('facade') && ability !== 'Comatose')) && !moves.has('sleeptalk')) {
+			return (types.includes('Fire') || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
+		}
+		if (species.id === 'reuniclus' || (ability === 'Sheer Force' && counter.get('sheerforce'))) return 'Life Orb';
+		if (ability === 'Anger Shell') return this.sample(['Rindo Berry', 'Passho Berry', 'Scope Lens', 'Sitrus Berry']);
+		if (moves.has('dragondance') && isDoubles) return 'Clear Amulet';
+		if (counter.get('skilllink') && ability !== 'Skill Link' && species.id !== 'breloom') return 'Loaded Dice';
+		if (ability === 'Unburden') {
+			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
+		}
+		if (moves.has('shellsmash') && ability !== 'Weak Armor' && species.id !== 'clamperl') return 'White Herb';
+		if (moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
+		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
+		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
+		if (species.id === 'decidueye' && role === 'Wallbreaker') return 'Decidium Z';
+		if (moves.has('warmup')) return 'Scope Lens';
+		if (species.id === 'incineroar' && role === 'Setup Sweeper') return 'Incinium Z';
+		if (species.id === 'primarina' && role === 'Bulky Setup') return 'Primarium Z';
+		if (species.id === 'toucannon' && role === 'Wallbreaker') return 'Toucannium Z';
+		if (species.id === 'ledian') return 'Punching Glove';
+		if (species.id === 'snorlax') return 'Snorlium Z';
+		if (species.id === 'persianalola') return 'Darkinium Z';
+		if (species.id === 'hypno') return 'Hypnium Z';
+		if (species.id === 'crabominable') return 'Crabominabium Z';
+		if (species.id === 'mismagius' && role === 'Setup Sweeper') return 'Ghostium Z';
+		if (species.id === 'dugtrioalola') return 'Alodugtrium Z';
+		if (species.id === 'delibird') return 'Mysterious Bundle';
+		if (species.id === 'lilligant') return 'Grassium Z';
+		if (species.id === 'lilliganthisui') return 'Fightinium Z';
+		if (species.id === 'luvdisc') return 'Grip Claw';
+		if (species.id === 'wishiwashi') return 'Wishiwashium Z';
+		if (species.id === 'lycanroc' || species.id === 'lycanrocdusk' || species.id === 'lycanrocmidnight') return 'Lycanium Z';
+		if (species.id === 'eevee') return 'Eevium Z';
+		if (species.id === 'taurospaldeaaqua') return 'Taurosium Z';
+		if (species.id === 'marowak' || species.id === 'marowakalola') return 'Thick Club';
+		if (species.id === 'clamperl') return 'Deep Sea Tooth';
+		if (species.id === 'magmortar') return 'Magmortium Z';
+		if (species.id === 'electivire') return 'Electivium Z';
+		if (species.id === 'bewear') return 'Bewearium Z';
+		if (species.id === 'tsareena') return 'Tsareenium Z';
+		if (species.id === 'comfey' && role === 'Bulky Setup') return 'Kee Berry';
+		if ((species.id === 'porygonz' && role === 'Setup Sweeper') || species.id === 'castform') return 'Normalium Z';
+		if (species.id === 'golisopod') return 'Golisopium Z';
+		if (species.id === 'zygarde10') return 'Zygardium Z';
+		if (species.id === 'mimikyu' || species.id === 'mimikyutotem') return 'Mimikium Z';
+		if (species.id === 'kommoo') return 'Kommonium Z';
+		if (species.id === 'solgaleo') return 'Solganium Z';
+		if (species.id === 'lunala') return 'Lunalium Z';
+		if (species.id === 'necrozmaduskmane' || species.id === 'necrozmadawnwings') return 'Ultranecrozium Z';
+		if (species.id === 'marshadow') return 'Marshadium Z';
+		if (ability === 'Plus' || ability === 'Minus') return 'Collider';
+		if (species.id === 'mew' && role === 'Fast Attacker') return 'Mewnium Z';
+		if (species.id === 'mew' && role === 'Setup Sweeper') return 'Loaded Dice';
+		if (species.id === 'terapagos') return 'Terapagium Z';
+		// (use to specify for specific rocks later) if (item === 'Leftovers' && hasType['Rock']) return 'Sandy Supplement';
 		if (
-			species.id === 'lokix' || species.id === 'bastiodon' || species.id === 'emolga' ||
-			species.id === 'drakloak' || species.id === 'elgyem' || species.id === 'porygonz'
-		) return 'Power Herb';
-		if (species.id === 'doduo') return 'Bright Powder';
+			species.id === 'raticatealolatotem' || species.id === 'araquanidtotem' || species.id === 'lurantistotem' || 
+			species.id === 'marowakalolatotem' || species.id === 'kommoototem'
+		) { 
+			return 'Strange Souvenir';
+		}
+		if (ability === 'Gluttony') return `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
 		if (
-			species.id === 'dodrio' || species.id === 'glaceon' || species.id === 'gallade' || 
-			species.id === 'arctovish' || species.id === 'mightyena' || species.id === 'eelektrik' ||
-			species.id === 'alomomola' || species.id === 'cramorant' || species.id === 'yamaskgalar' ||
-			species.id === 'cetitan' || species.id === 'cottonee' || species.id === 'indeedee'
-		) return 'Leftovers';
-		if (species.id === 'lucario' || species.id === 'dhelmise') return 'Occa Berry';
+			moves.has('rest') && !moves.has('sleeptalk') &&
+			ability !== 'Natural Cure' && ability !== 'Shed Skin'
+		) {
+			return 'Chesto Berry';
+		}
 		if (
-			species.id === 'vaporeon' || species.id === 'mrrime' || species.id === 'finizen' ||
-			species.id === 'yanma'
-		) return 'Throat Spray';
-		if (
-			species.id === 'jolteon' || species.id === 'larvitar' || species.id === 'magmortar' ||
-			species.id === 'indeedeef' || species.id === 'luxio'
-		) return 'Flame Orb';
-		if (
-			species.id === 'flareon' || species.id === 'magby' || species.id === 'escavalier' || 
-			species.id === 'sandslash' || species.id === 'cofagrigus' || species.id === 'lycanrocmidnight'
-		) return 'Sitrus Berry';
-		if (species.id === 'umbreon') return 'Tanga Berry';
-		if (species.id === 'leafeon' || species.id === 'aegislash') return 'Heat Rock';
-		if (species.id === 'sylveon') return 'Fairy Feather';
-		if (species.id === 'kirlia' || species.id === 'pansage') return 'Blunder Policy';
-		if (
-			species.id === 'gardevoir' || species.id === 'bellossom' || species.id === 'sawsbuck' ||
-			species.id === 'brambleghast'
-		) return 'Big Root';
-		if (species.id === 'absol' || species.id === 'togekiss') return 'Scope Lens';
-		if (
-			species.id === 'cranidos' || species.id === 'arctozolt' || species.id === 'yamask' ||
-			species.id === 'ribombee' || species.id === 'veluza' || species.id === 'yanmega' ||
-			species.id === 'araquanid'
-		) return 'Rocky Helmet';
-		if (species.id === 'dracovish' || species.id === 'krokorok') return 'Grip Claw';
-		if (species.id === 'simisage') return 'Wiki Berry';
-		if (species.id === 'simipour' || species.id === 'keldeo' || species.id === 'zangoose') return 'Liechi Berry';
-		if (species.id === 'seviper' || species.id === 'gligar') return 'Razor Fang';
-		if (species.id === 'genesect') return 'Metronome';
-		if (species.id === 'terrakion') return 'Figy Berry';
-		if (
-			species.id === 'dragonair' || species.id === 'meowthgalar' || species.id === 'togepi' ||
-			species.id === 'doublade' || species.id === 'beheeyem'
-		) return 'Choice Band';
-		if (species.id === 'frosmoth' || species.id === 'eelektross') return 'Maranga Berry';
-		if (species.id === 'musharna' || species.id === 'vibrava' || species.id === 'mienshao') return 'Wise Glasses';
-		if (species.id === 'pawmo') return 'Punching Glove';
-		if (species.id === 'pawmot' || species.id === 'palafin') return 'Eject Button';
-		if (species.id === 'skarmory') return 'Kee Berry';
-		if (species.id === 'ditto' || species.id === 'persianalola' || species.id === 'tatsugiri') return 'Choice Scarf';
-		if (species.id === 'meowth' || species.id === 'skitty') return 'Silk Scarf';
-		if (species.id === 'persian' || species.id === 'paras') return 'Razor Claw';
-		if (species.id === 'perrserker') return 'Metal Coat';
-		if (species.id === 'terapagos' || species.id === 'cobalion') return 'Normal Gem';
-		if (species.id === 'orthworm') return 'Mental Herb';
-		if (species.id === 'accelgor' || species.id === 'magcargo') return 'White Herb';
-		if (species.id === 'snom' || species.id === 'shiinotic' || species.id === 'luvdisc') return 'Choice Specs';
-		if (species.id === 'bonsly') return 'Custap Berry';
-		if (species.id === 'sudowoodo') return 'Muscle Band';
-		if (species.id === 'capsakid' || species.id === 'dreepy' || species.id === 'ceruledge') return 'Eject Pack';
-		if (species.id === 'scovillain' || species.id === 'unfezant') return 'Mirror Herb';
-		if (species.id === 'sandslashalola') return 'Light Clay';
-		if (species.id === 'carnivine') return 'Watmel Berry';
-		if (species.id === 'parasect' || species.id === 'dragapult' || species.id === 'revavroom') return 'Lum Berry';
-		if (species.id === 'chimecho') return 'Aguav Berry';
-		if (species.id === 'sneasel') return 'Black Glasses';
-		if (species.id === 'sneaselhisui') return 'Big Nugget';
-		if (species.id === 'buizel') return 'Shell Bell';
-		if (species.id === 'zekrom') return 'Electirizer';
-		if (species.id === 'reshiram') return 'Magmarizer';
-		if (species.id === 'kyurem') return 'Haban Berry';
-		if (species.id === 'kyuremblack') return 'TR86';
-		if (species.id === 'kyuremwhite') return 'Safety Goggles';
-		if (species.id === 'audino' || species.id === 'gliscor') return 'Protective Pads';
-		if (species.id === 'magmar') return 'Luminous Moss';
-		if (species.id === 'electabuzz' || species.id === 'marshadow') return 'Clear Amulet';
-		if (species.id === 'spiritomb') return 'Odd Incense';
-		if (species.id === 'corphish') return 'Splash Plate';
-		if (species.id === 'crawdaunt') return 'Wacan Berry';
-		if (species.id === 'flygon') return 'Snowball';
-		if (species.id === 'sigilyph') return 'Sticky Barb';
-		if (species.id === 'zygarde10') return 'Cell Battery';
-		if (species.id === 'dachsbun') return 'Pixie Plate';
-		if (species.id === 'delcatty') return 'Lax Incense';
-		if (species.id === 'vileplume') return 'Red Card';
-		if (species.id === 'flamigo' || species.id === 'pecharunt') return 'Covert Cloak';
-		if (species.id === 'togetic') return 'Quick Claw';
-		if (species.id === 'falinks') return 'Shed Shell';
-		if (species.id === 'dragonite') return 'Enigma Berry';
-		if (species.id === 'espathra') return 'Ring Target';
-		if (species.id === 'bombirdier' || species.id === 'flapple') return 'Starf Berry';
-		if (species.id === 'hydrapple') return 'Rowap Berry';
-		if (species.id === 'dipplin' || species.id === 'klawf') return 'Salac Berry';
-		if (species.id === 'appletun') return 'Mago Berry';
-		if (species.id === 'honedge') return 'Spell Tag';
-		if (species.id === 'dondozo') return 'Dragon Fang';
-		if (species.id === 'armarouge') return 'Weakness Policy';
-		if (species.id === 'whimsicott') return 'Misty Seed';
-		if (species.id === 'luxray') return 'Magnet';
-		if (species.id === 'porygon2') return 'chopleberry';
-		if (species.id === 'lycanroc') return 'Rock Incense';
-		if (species.id === 'shroodle') return 'Black Sludge';
-		if (species.id === 'krookodile') return 'Rare Bone';
-		if (species.id === 'dewpider') return 'Mystic Water';
-		if (species.id === 'shroomish') return 'Toxic Orb';
-		if (species.id === 'sandile') return 'Soft Sand';
-		if (species.id === 'cryogonal') return 'Ganlon Berry';
+			species.id === 'gigalith' || species.id === 'carbink' || species.id === 'bastiodon' || 
+			species.id === 'diancie' || species.id === 'corsola' || species.id === 'probopass' && role === 'Bulky Support' ||
+			species.id === 'cradily' || species.id === 'tyranitar' && role === 'Bulky Support'
+		) { 
+			return 'Sandy Supplement';
+		}
+		/* if (
+			species.id !== 'yanmega' &&
+			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
+		) return 'Heavy-Duty Boots'; */
 	}
 
 	/** Item generation specific to Random Doubles */
@@ -1622,16 +1610,16 @@ export class RandomTeams {
 		// Default to tier-based levelling
 		const tier = species.tier;
 		const tierScale: Partial<Record<Species['tier'], number>> = {
-			Uber: 1,
-			OU: 1,
-			UUBL: 1,
-			UU: 1,
-			RUBL: 1,
-			RU: 1,
-			NUBL: 1,
-			NU: 1,
-			PUBL: 1,
-			PU: 1, "(PU)": 1, NFE: 1,
+			Uber: 74,
+			OU: 77,
+			UUBL: 78,
+			UU: 81,
+			RUBL: 82,
+			RU: 85,
+			NUBL: 86,
+			NU: 88,
+			PUBL: 89,
+			PU: 91, "(PU)": 94, NFE: 97,
 		};
 		return tierScale[tier] || 1;
 	}
@@ -1721,46 +1709,6 @@ export class RandomTeams {
 		// Get level
 		const level = this.getLevel(species, isDoubles);
 
-		// IV Nerf to FEs (-16 to all stats)
-		if (
-			!species.nfe && species.id !== 'smeargle' && species.id !== 'ditto' && 
-			 species.id !== 'luvdisc' && species.id !== 'delibird'
-		) {
-			ivs.hp = 0;
-			ivs.atk = 0;
-			ivs.def = 0;
-			ivs.spa = 0;
-			ivs.spd = 0;
-			ivs.spe = 0;
-		}
-
-		// EV Nerf to Box Legends (-26 to all stats in total)
-		if (
-			species.id === 'zekrom' || species.id === 'reshiram' || species.id === 'kyuremwhite' ||
-			species.id === 'kyurem' || species.id === 'kyuremblack' || species.id === 'terapagos' ||
-			species.id === 'xerneas' || species.id === 'yveltal' || species.id === 'zygarde'
-		) {
-			evs.hp = 0;
-			evs.atk = 0;
-			evs.def = 0;
-			evs.spa = 0;
-			evs.spd = 0;
-			evs.spe = 0;
-		}
-
-		// IV Nerf to NFEs (-8 to all stats)
-		if (
-			(species.nfe && species.prevo && species.id !== 'kirlia') || species.id === 'smeargle' ||
-			 species.id === 'luvdisc' || species.id === 'delibird'
-			) {
-			ivs.hp = 15;
-			ivs.atk = 15;
-			ivs.def = 15;
-			ivs.spa = 15;
-			ivs.spd = 15;
-			ivs.spe = 15;
-		}
-
 		// Prepare optimal HP
 		const srImmunity = ability === 'Magic Guard' || item === 'Heavy-Duty Boots';
 		let srWeakness = srImmunity ? 0 : this.dex.getEffectiveness('Rock', species);
@@ -1794,7 +1742,7 @@ export class RandomTeams {
 			if (move.id === 'shellsidearm') return false;
 			// Magearna and doubles Dragonite, though these can work well as a general rule
 			if (move.id === 'terablast' && (
-				species.id === 'porygon' || moves.has('shiftgear') || species.baseStats.atk > species.baseStats.spa)
+				species.id === 'porygon2' || moves.has('shiftgear') || species.baseStats.atk > species.baseStats.spa)
 			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
@@ -1818,7 +1766,7 @@ export class RandomTeams {
 			name: species.baseSpecies,
 			species: forme,
 			gender: species.baseSpecies === 'Greninja' ? 'M' : species.gender,
-			shiny: this.randomChance(1, 77),
+			shiny: this.randomChance(1, 100),
 			level,
 			moves: shuffledMoves,
 			ability,
