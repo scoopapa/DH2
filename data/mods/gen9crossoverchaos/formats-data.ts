@@ -164,30 +164,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DCC OU",
 	},
    divearmorx: {
-		tier: "unintroduced",
-		doublesTier: "unintroduced",
+		tier: "CC Ubers",
+		doublesTier: "DCC OU",
 	},
 	irene: {
-		tier: "unintroduced",
-		doublesTier: "unintroduced",
+		tier: "CC OU",
+		doublesTier: "DCC OU",
 	},
 	beatrice: {
-		tier: "unintroduced",
-		doublesTier: "unintroduced",
+		tier: "CC OU",
+		doublesTier: "DCC OU",
 	},
 	azhdaha: {
-		tier: "unintroduced",
-		doublesTier: "unintroduced",
+		tier: "CC OU",
+		doublesTier: "DCC OU",
 	},
 	sisyphusprime: {
-		tier: "unintroduced",
-		doublesTier: "unintroduced",
+		tier: "CC OU",
+		doublesTier: "DCC OU",
 	},
 	madwheel: {
-		tier: "unintroduced",
-		doublesTier: "unintroduced",
+		tier: "CC OU",
+		doublesTier: "DCC OU",
 	},
-		aversa: {
+	aversa: {
 		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
