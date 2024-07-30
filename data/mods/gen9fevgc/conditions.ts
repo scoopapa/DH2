@@ -35,4 +35,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return false;
 		},
 	},
+	eerieflame: {
+		name: 'Eerie Flame',
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Eerie Flames boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Eerie Flames boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
 };
