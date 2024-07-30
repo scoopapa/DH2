@@ -563,7 +563,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rage: ["9L1"],
 			rest: ["9L1"],
 			substitute: ["9L1"],
-			takedown: ["9L1"],
 			toxic: ["9L1"],
 		},
 	},
