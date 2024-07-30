@@ -157,7 +157,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.removeVolatile('spectralleech');
 			},
 		},
-		flags: {breakable: 1},
 		name: "Spectral Leech",
 		rating: 4,
 		num: -7,
@@ -502,7 +501,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.addVolatile('laserfocus');
 			}
 		},
-		flags: {breakable: 1},
 		name: "Smirk",
 		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
 		rating: 3,
