@@ -97,18 +97,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	charizardmegax: {
 		tier: "Birds",
+		gen: 3,
 	},
 	charizardmegay: {
 		tier: "Birds",
+		gen: 3,
 	},
 	altariamega: {
 		tier: "Birds",
+		gen: 3,
 	},
 	pelipper: {
 		tier: "Birds",
 	},
 	pidgeotmega: {
 		tier: "Birds",
+		gen: 3,
 	},
 	pidgeot: {
 		tier: "Birds",

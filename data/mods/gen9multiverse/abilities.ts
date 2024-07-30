@@ -240,18 +240,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	lunargift: {
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (this.effectState.lunargift) return;
 			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (this.effectState.lunargift) return;
 			if (move.category === 'Status') return;
 			if (!target.runImmunity(move.type)) return; // immunity has priority
-			if (target.hp < target.maxhp) return;
 			this.add('-activate', target, 'ability: Lunar Gift');
 			this.effectState.resisted = true;
 			this.effectState.lunargift = true;
 			return -1;
 		},
 		onAnyAfterMove() {
-			this.effectState.lunargift = false;
+			this.effectState.resisted = false;
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.lunargift;
 		},
 		flags: {breakable: 1},
 		name: "Lunar Gift",

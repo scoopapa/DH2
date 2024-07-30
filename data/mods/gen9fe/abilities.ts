@@ -3498,6 +3498,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Shear Strength",
 	},
 	suppressivefire: {
+		shortDesc: "Flash Fire + Filter",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Filter neutralize');

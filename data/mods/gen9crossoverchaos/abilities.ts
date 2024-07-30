@@ -126,27 +126,32 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by a foe with stat boosts. Eliminates the target's boosts after receiving damage.",
 		onFoePrepareHit(target, source, move) {
 			let activate = false;
-			for (i in source.boosts) {
-				if (source.boosts[i] > 0) {
-					activate = true;
-				}
-			}
-			if (activate) {
-				target.addVolatile('spectralleech');
+			if (target.positiveBoosts() > 0) {
+				source.addVolatile('spectralleech');
 			}
 		},
 		condition: {
 			duration: 1,
 			onDamagingHit(damage, target, source, effect) {
 				let activate = false;
-				let i: BoostID;
-				for (i in source.boosts) {
-					if (source.boosts[i] > 0) {
-						source.boosts[i] = 0;
+				let statName: BoostID;
+				const boosts: SparseBoostsTable = {};
+				for (statName in source.boosts) {
+					const stage = source.boosts[statName];
+					if (stage > 0) {
+						boosts[statName] = stage;
 						activate = true;
 					}
 				}
 				if (activate) {
+					this.attrLastMove('[still]');
+					this.add('-clearpositiveboost', source, target, 'ability: Spectral Leech');
+
+					let statName2: BoostID;
+					for (statName2 in boosts) {
+						boosts[statName2] = 0;
+					}
+					source.setBoost(boosts);
 					this.heal(target.maxhp / 4);
 				}
 				target.removeVolatile('spectralleech');
@@ -313,8 +318,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Curse Weaver weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Curse Weaver weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
 		name: "Curse Weaver",
-		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack. Curse becomes Ghost-type version.",
+		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack; halves damage received from Ghost attacks. Curse becomes Ghost-type version.",
 		rating: 3.5,
 		num: -16,
 	},
@@ -423,6 +443,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[bestStat]: 1}, target, target);
 			}
 		},
+		flags: {breakable: 1},
 		name: "DiVE Armor",
 		shortDesc: "Recieves 3/4 damage from SE attacks; highest stat raised by 1 when hp below 25%.",
 		rating: 3,

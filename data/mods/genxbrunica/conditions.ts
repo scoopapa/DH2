@@ -72,11 +72,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Steelix': 'Olive Rampage',
 				'Crobat': 'Venomous Fang',
 				'Saunusca': 'Tectonic Shift',
+				'Raatilus': 'Ammolite Vortex',
+				'Blootilus': 'Ammolite Vortex',
+				'Yleltilus': 'Ammolite Vortex',
+				'Acktilus': 'Ammolite Vortex',
+				'Whitilus': 'Ammolite Vortex',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
 			if (balmMoveList[species]) {
 				this.effectState.balmMove = balmMoveList[species];
+				this.effectState.balmType = target.addedType;
 				const balmMove = this.dex.moves.get(this.effectState.balmMove);
 				if (balmMove.type === target.addedType) {
 					const newMoveSlots = [];
