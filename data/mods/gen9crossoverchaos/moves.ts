@@ -358,7 +358,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	centipedeassault: {
 		num: -13,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 85,
 		category: "Physical",
 		overrideOffensiveStat: 'spe',
 		shortDesc: "Uses user's Spe stat as Atk in damage calculation.",
