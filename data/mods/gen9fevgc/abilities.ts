@@ -3950,7 +3950,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Boiling Spot",
-		shortDesc: "Torrent + Blaze",
+		shortDesc: "At 1/3 or less of its max HP, this Pokemon's offensive stat is 1.5x with Water & Fire attacks.",
 	},
 	juicyaim: {
 		onModifyDamage(damage, source, target, move) {
