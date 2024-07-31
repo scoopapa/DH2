@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
     excludeStandardTiers: true,
-    customTiers: ['FEOU', 'FENFE', 'FELC'],
+    customTiers: ['Reg A', 'Reg B', 'Reg A NFE', 'Reg A LC', 'Reg B LC'],
 	},
 	pokemon: {
 		ignoringAbility() {
