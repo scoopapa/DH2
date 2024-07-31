@@ -3828,4 +3828,286 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fat Cat",
 		shortDesc: "Thick Fat + Blaze",
 	},
+	poisonivy: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Poison Ivy boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Poison Ivy boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Poison Ivy",
+		shortDesc: "Overgrow + Corrosion",
+	},
+	offscale: {
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const toxicSpikes = side.sideConditions['toxicspikes'];
+			if (move.category === 'Physical' && (!toxicSpikes || toxicSpikes.layers < 2)) {
+				this.add('-activate', target, 'ability: Off-Scale');
+				side.addSideCondition('toxicspikes', target);
+			}
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target) return;
+			pokemon.addVolatile('offscale');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('offscale');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('offscale');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item && !pokemon.ignoringAbility()) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		flags: {},
+		name: "Off-Scale",
+		shortDesc: "Unburden + Toxic Debris",
+	},
+	litnitwit: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('litnitwit')) {
+					this.add('-immune', target, '[from] ability: Litnitwit');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('litnitwit');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Litnitwit');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('litnitwit')) {
+					this.debug('Flash Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('litnitwit')) {
+					this.debug('Flash Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Litnitwit', '[silent]');
+			},
+		},
+		flags: {breakable: 1},
+		name: "Litnitwit",
+		shortDesc: "Unaware + Flash Fire",
+	},
+	boilingspot: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if ((move.type === 'Water' || move.type === 'Fire') && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Boiling Spot boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if ((move.type === 'Water' || move.type === 'Fire') && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Boiling Spot boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Boiling Spot",
+		shortDesc: "Torrent + Blaze",
+	},
+	juicyaim: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Juicy Aim boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Juicy Aim');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'Juicy Aim');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		flags: {},
+		name: "Juicy Aim",
+		shortDesc: "Sniper + Unnerve",
+	},
+	windenergy: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Electric' || move.flags['wind'])) {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Wind Energy');
+				}
+				return null;
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				this.boost({spa: 1}, pokemon, pokemon);
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Electric' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Wind Energy');
+				}
+				return this.effectState.target;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Wind Energy",
+		shortDesc: "Raises the user's SpA by 1 stage when hit by Electric or wind, or when Tailwind begins; Wind & Electric immunity. Redirects Electric.",
+	},
+	polarity: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Polarity only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({spa: 2}, target, target, null, false, true);
+			}
+		},
+		flags: {},
+		name: "Polarity",
+		shortDesc: "Competitive + Static",
+	},
+	teapartyhost: {
+		onStart(pokemon) {
+			this.add('-message', `${pokemon.name} is hosting a tea party for its side!`);
+			for (const ally of pokemon.adjacentAllies()) {
+				this.heal(ally.baseMaxhp / 4, ally, pokemon);
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const allyActive of pokemon.adjacentAllies()) {
+				if (allyActive.status && this.randomChance(3, 10)) {
+					this.add('-activate', pokemon, 'ability: Tea Party Host');
+					allyActive.cureStatus();
+				}
+			}
+		},
+		flags: {},
+		name: "Tea Party Host",
+		shortDesc: "Hospitality + Healer",
+	},
+	summerheat: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Summer Heat Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Summer Heat SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Summer Heat",
+		shortDesc: "Heatproof + Chlorophyll",
+	},
+	phalacrocoracimorphosis: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.isSemiInvulnerable()) return;
+			if (['bellicramgulping', 'bellicramgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'bellicramgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('bellicram', move);
+			}
+		},
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (move.type === 'Electric' && source.hasAbility('gulpmissile') && source.species.name === 'Bellicram') {
+				const forme = source.hp <= source.maxhp / 2 ? 'bellicramgorging' : 'bellicramgulping';
+				source.formeChange(forme, move);
+			}
+		},
+		flags: {cantsuppress: 1, notransform: 1},
+		name: "Phalacrocoracimorphosis",
+		shortDesc: "When hit after Electric move, attacker loses 1/4 max HP and -1 Def/Para, defender is charged.",
+	},
 };
