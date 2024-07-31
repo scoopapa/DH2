@@ -52,4 +52,77 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 	},
+	// Commander needs two conditions so they are implemented here
+	// Great Dozo
+	commanded: {
+		name: "Commanded",
+		noCopy: true,
+		onStart(pokemon) {
+			this.boost({atk: 2, spa: 2, spe: 2, def: 2, spd: 2}, pokemon);
+		},
+		onDragOutPriority: 2,
+		onDragOut() {
+			return false;
+		},
+		// Prevents Shed Shell allowing a swap
+		onTrapPokemonPriority: -11,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = true;
+		},
+	},
+	// Iron Onigiri
+	commanding: {
+		name: "Commanding",
+		noCopy: true,
+		onDragOutPriority: 2,
+		onDragOut() {
+			return false;
+		},
+		// Prevents Shed Shell allowing a swap
+		onTrapPokemonPriority: -11,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = true;
+		},
+		// Override No Guard
+		onInvulnerabilityPriority: 2,
+		onInvulnerability(target, source, move) {
+			return false;
+		},
+		onBeforeTurn(pokemon) {
+			this.queue.cancelAction(pokemon);
+		},
+	},
+	// Proto-boost from Jelly-Filled Drive
+	droopyboost: {
+		name: 'droopyboost',
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name}'s Defense is being boosted!`);
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			this.debug('Jelly-Filled Drive def boost');
+			return this.chainModify([5325, 4096]);
+		},
+	},
+	curlyboost: {
+		name: 'curlyboost',
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name}'s Attack is being boosted!`);
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			this.debug('Jelly-Filled Drive def boost');
+			return this.chainModify([5325, 4096]);
+		},
+	},
+	stretchyboost: {
+		name: 'stretchyboost',
+		onStart(target, source, sourceEffect) {
+			this.add('-message', `${target.name}'s Speed is being boosted!`);
+		},
+		onModifySpe(spe, pokemon) {
+			this.debug('Jelly-Filled Drive def boost');
+			return this.chainModify([5325, 4096]);
+		},
+	},
 };
