@@ -11,8 +11,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!pokemon.volatiles['commanded']) return;
 			const tatsugiri = pokemon.volatiles['commanded'].source;
-			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri' || tatsugiri.baseSpecies.baseSpecies !== 'Iron Onigiri' ||
-				tatsugiri.baseSpecies.baseSpecies !== 'Iron Onigiri-Droopy' || tatsugiri.baseSpecies.baseSpecies !== 'Iron Onigiri-Stretchy') return; // Should never happen
+			if (tatsugiri.baseSpecies.baseSpecies !== 'Iron Onigiri') return; // Should never happen
 			switch (tatsugiri.baseSpecies.forme) {
 			case 'Droopy':
 				this.boost({def: 1}, pokemon, pokemon);
