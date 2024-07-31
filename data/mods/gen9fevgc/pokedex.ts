@@ -714,16 +714,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 227.5,
 		tags: ["Paradox"],
 	},
-	moonknight: {
-		num: 2127,
-		name: "Moon Knight",
-		types: ["Dragon", "Steel"],
-		gender: "N",
-		baseStats: {hp: 101, atk: 119, def: 89, spa: 55, spd: 93, spe: 103},
-		abilities: {0: "Protorefraction"},
-		weightkg: 227.5,
-		tags: ["Paradox"],
-	},
 	irononigiri: {
 		num: 2128,
 		name: "Iron Onigiri",
