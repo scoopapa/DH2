@@ -519,6 +519,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
+	bellicramgorging: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	bellicramgulping: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	greatdozo: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
