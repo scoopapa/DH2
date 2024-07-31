@@ -4099,6 +4099,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					source.trySetStatus('par', target, move);
 				}
 				target.formeChange('bellicram', move);
+				target.addVolatile('charge');
 			}
 		},
 		onSourceTryPrimaryHit(target, source, move) {
