@@ -4672,7 +4672,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				// Cancel all actions this turn for pokemon if applicable
 				this.queue.cancelAction(pokemon);
 				// Add volatiles to both pokemon
-				this.add('-activate', pokemon, 'ability: Commander', '[of] ' + ally);
+				this.add('-activate', pokemon, 'ability: Jelly-Filled Drive', '[of] ' + ally);
 				pokemon.addVolatile('commanding');
 				ally.addVolatile('commanded', pokemon);
 				if (pokemon.species.name === 'Iron Onigiri-Droopy') {
