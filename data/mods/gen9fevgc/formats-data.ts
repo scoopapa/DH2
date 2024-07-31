@@ -551,6 +551,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
+	irononigiridroopy: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	irononigiristretchy: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
 	ironbramble: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
