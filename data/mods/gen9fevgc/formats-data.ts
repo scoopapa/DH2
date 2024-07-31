@@ -575,6 +575,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
+	ironcopper: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
 	irondeciduous: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
