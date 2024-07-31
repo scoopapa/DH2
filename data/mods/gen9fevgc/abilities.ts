@@ -4102,7 +4102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceTryPrimaryHit(target, source, move) {
-			if (move.type === 'Electric' && source.hasAbility('gulpmissile') && source.species.name === 'Bellicram') {
+			if (move.type === 'Electric' && source.hasAbility('phalacrocoracimorphosis') && source.species.name === 'Bellicram') {
 				const forme = source.hp <= source.maxhp / 2 ? 'bellicramgorging' : 'bellicramgulping';
 				source.formeChange(forme, move);
 			}
