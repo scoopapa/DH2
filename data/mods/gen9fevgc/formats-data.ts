@@ -467,4 +467,108 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "FELC",
 	},
+	treemmet: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	sceptimora: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	fuecolithe: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	skelenine: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	sobbhound: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	inteledoom: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	wachu: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	kilowachu: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	poltchaddish: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	poltchaddishartisan: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	bellotcha: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	bellotchamasterpiece: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	bellicram: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	greatdozo: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	sandyapes: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	fluttervoir: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	gliderwing: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	brutebink: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	screambuzz: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	moonknight: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	irononigiri: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	ironbramble: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	ironfly: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	ironavianhisui: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	ironfox: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
+	irondeciduous: {
+		tier: "FEOU",
+		doublesTier: "FEOU",
+	},
 };
