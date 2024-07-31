@@ -37,6 +37,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	eerieflame: {
 		name: 'Eerie Flame',
+		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'Eerie Flames');
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
