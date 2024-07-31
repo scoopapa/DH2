@@ -99,11 +99,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 	droopyboost: {
 		name: 'droopyboost',
 		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'Droopy Boost (Defense)');
 			this.add('-message', `${target.name}'s Defense is being boosted!`);
 		},
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
-			this.add('-start', target, 'Droopy Boost (Defense)');
 			this.debug('Jelly-Filled Drive def boost');
 			return this.chainModify([5325, 4096]);
 		},
