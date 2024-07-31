@@ -725,6 +725,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 59.5,
 		otherFormes: ["Iron Onigiri-Droopy", "Iron Onigiri-Stretchy"],
 		formeOrder: ["Iron Onigiri", "Iron Onigiri-Droopy", "Iron Onigiri-Stretchy"],
+		tags: ["Paradox"],
 	},
 	irononigiridroopy: {
 		num: 2128,
@@ -736,6 +737,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 82, atk: 66, def: 74, spa: 122, spd: 88, spe: 108},
 		abilities: {0: "Jelly-Filled Drive"},
 		weightkg: 59.5,
+		tags: ["Paradox"],
 	},
 	irononigiristretchy: {
 		num: 2128,
@@ -747,6 +749,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 82, atk: 66, def: 74, spa: 122, spd: 88, spe: 108},
 		abilities: {0: "Jelly-Filled Drive"},
 		weightkg: 59.5,
+		tags: ["Paradox"],
 	},
 	ironbramble: {
 		num: 2129,
