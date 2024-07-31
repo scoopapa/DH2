@@ -60,7 +60,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					'waterabsorb', 'eartheater', 'sappyjest', 'heatblade', 'eerieflames', 'mindalign', 'nightlyjokes', 'levitate', 'leafcoat',
 					'friendlyprank', 'bulletproof', 'soundproof', 'wellbakedbody', 'clumpingup', 'windrider', 'wonderguard', 'divegoggles',
 					'smokeabsorb', 'sandproof', 'pyrotechnic', 'smelting', 'goodasgold', 'owntides', 'sturdyfire', 'speedyfire', 'ghoulfire',
-					'clueless', 'sirocco', 'sunlitflight', 'lithoproof', 'shockhorror', 'respark', 'hydrophillic', 'bulletveil', 'rekindle'])) {
+					'clueless', 'sirocco', 'sunlitflight', 'lithoproof', 'shockhorror', 'respark', 'hydrophillic', 'bulletveil', 'rekindle',
+					'airdrive', 'winddrive', 'windenergy', 'litnitwit'])) {
 						move.ignoreAbility = true;
 				}
 		},
@@ -4109,5 +4110,478 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {cantsuppress: 1, notransform: 1},
 		name: "Phalacrocoracimorphosis",
 		shortDesc: "When hit after Electric move, attacker loses 1/4 max HP and -1 Def/Para, defender is charged.",
+	},
+	protodyschronometria: {
+	  shortDesc: "This Pokemon ignores other Pokemon's Paradox boosters when taking or doing damage.",
+		onAnyModifyAtkPriority: 4,
+		onAnyModifyAtk(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				if (attacker.isAlly(abilityHolder) || attacker.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
+				for (const paradox of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis', 'quarkdrive', 'jellyfilleddrive',
+											'winddrive', 'heavydrive', 'jadedrive', 'airdrive', 'magicdrive', 'phantomdrive']) {
+					if (attacker.hasAbility(paradox)) {
+						if (attacker?.volatiles[paradox]?.bestStat !== 'atk') return;
+						this.debug('Protodyschronometria nullify');
+						return this.chainModify([3151, 4096]);
+					}
+				}
+		},
+		onAnyModifyDefPriority: 5,
+		onAnyModifyDef(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				if (defender.isAlly(abilityHolder) || defender.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
+				for (const paradox of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis', 'quarkdrive', 'jellyfilleddrive',
+											'winddrive', 'heavydrive', 'jadedrive', 'airdrive', 'magicdrive', 'phantomdrive']) {
+					if (defender.hasAbility(paradox)) {
+						if (defender?.volatiles[paradox]?.bestStat !== 'def') return;
+						this.debug('Protodyschronometria nullify');
+						return this.chainModify([3151, 4096]);
+					}
+				}
+		},
+		onAnyModifySpAPriority: 4,
+		onAnyModifySpA(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				if (attacker.isAlly(abilityHolder) || attacker.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
+				for (const paradox of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis', 'quarkdrive', 'jellyfilleddrive',
+											'winddrive', 'heavydrive', 'jadedrive', 'airdrive', 'magicdrive', 'phantomdrive']) {
+					if (attacker.hasAbility(paradox)) {
+						if (attacker?.volatiles[paradox]?.bestStat !== 'spa') return;
+						this.debug('Protodyschronometria nullify');
+						return this.chainModify([3151, 4096]);
+					}
+				}
+		},
+		onAnyModifySpDPriority: 5,
+		onAnyModifySpD(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				if (defender.isAlly(abilityHolder) || defender.ignoringAbility() || !this.effectState.unnerved) return;
+				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
+				else if (move.suppressedParadox !== abilityHolder) return;
+				for (const paradox of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis', 'quarkdrive', 'jellyfilleddrive',
+											'winddrive', 'heavydrive', 'jadedrive', 'airdrive', 'magicdrive', 'phantomdrive']) {
+					if (defender.hasAbility(paradox)) {
+						if (defender?.volatiles[paradox]?.bestStat !== 'spd') return;
+						this.debug('Protodyschronometria nullify');
+						return this.chainModify([3151, 4096]);
+					}
+				}
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Protodyschronometria');
+		},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Protodyschronometria",
+		rating: 3,
+	},
+	protopyre: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onUpdate(pokemon) {
+			if ((pokemon.hp <= pokemon.maxhp / 3) && !this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosynthesis'];
+			this.add('-end', pokemon, 'Protopyre', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Protopyre",
+		shortDesc: "Sunny Day active, Booster Energy used or HP drops below 1/3 max HP: highest stat is 1.3x, or 1.5x if Speed.",
+	},
+	protoneuron: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Protoneuron');
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosynthesis'];
+			this.add('-end', pokemon, 'Protoneuron', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Protoneuron",
+		shortDesc: "Protosynthesis + Telepathy",
+	},
+	prototoxin: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onUpdate(pokemon) {
+			if (((pokemon.status === 'psn' || pokemon.status === 'tox')) && !this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosynthesis'];
+			this.add('-end', pokemon, 'Prototoxin', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Prototoxin",
+		shortDesc: "Protosynthesis + Poison Heal. Gains Paradox boost when poisoned.",
+	},
+	protolithos: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Protolithos", "[of] " + target);
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosynthesis'];
+			this.add('-end', pokemon, 'Protolithos', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Protolithos",
+		shortDesc: "Protosynthesis + Clear Body",
+	},
+	protoavian: {
+		onStart(pokemon) {
+			this.effectState.bestStat = pokemon.getBestStat(true, true);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			const bestStat = (this.effectState.bestStat ||= target.getBestStat(true, true));
+			if (boost[bestStat] && boost[bestStat]! < 0) {
+				delete boost[bestStat];
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", bestStat, "[from] ability: Protoavian", "[of] " + target);
+				}
+			}
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosynthesis'];
+			this.add('-end', pokemon, 'Protoavian', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Protoavian",
+		shortDesc: "Highest stat can't be dropped by foe. Sunny Day or Booster Energy: highest stat is 1.3x, or 1.5x if Spe.",
+	},
+	protorefraction: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (!source || target === source || !boost || effect.name === 'Mirror Armor' || effect.name === 'Protorefraction') return;
+			let b: BoostID;
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					const negativeBoost: SparseBoostsTable = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					if (source.hp) {
+						this.add('-ability', target, 'Protorefraction');
+						this.boost(negativeBoost, source, target, null, true);
+					}
+				}
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosynthesis'];
+			this.add('-end', pokemon, 'Protorefraction', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Protorefraction",
+		shortDesc: "Protosynthesis + Mirror Armor",
+	},
+	jellyfilleddrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Jelly-Filled Drive', '[silent]');
+		},
+		onUpdate(pokemon) {
+			if (this.gameType !== 'doubles') return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.baseSpecies.baseSpecies !== 'Iron Onigiri' || ally.baseSpecies.baseSpecies !== 'Great Dozo') {
+				// Handle any edge cases
+				if (pokemon.getVolatile('commanding')) pokemon.removeVolatile('commanding');
+				return;
+			}
+			if (!pokemon.getVolatile('commanding')) {
+				// If Great Dozo already was commanded this fails
+				if (ally.getVolatile('commanded')) return;
+				// Cancel all actions this turn for pokemon if applicable
+				this.queue.cancelAction(pokemon);
+				// Add volatiles to both pokemon
+				this.add('-activate', pokemon, 'ability: Commander', '[of] ' + ally);
+				pokemon.addVolatile('commanding');
+				ally.addVolatile('commanded', pokemon);
+				if (pokemon.species.name === 'Iron Onigiri-Droopy') {
+					ally.addVolatile('droopyboost', pokemon);
+				} else if (pokemon.species.name === 'Iron Onigiri-Stretchy') {
+					ally.addVolatile('stretchyboost', pokemon);
+				} else {
+					ally.addVolatile('curlyboost', pokemon);
+				}
+				// Continued in conditions.ts in the volatiles
+			} else {
+				if (!ally.fainted) return;
+				pokemon.removeVolatile('commanding');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Jelly-Filled Drive",
+		shortDesc: "Quark Drive + Commander. Gives Great Dozo a Paradox boost based on Iron Onigiri form.",
+	},
+	winddrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+			if (pokemon.side.sideConditions['tailwind']) {
+				pokemon.addVolatile('quarkdrive');
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				if (!target.addVolatile('quarkdrive')) {
+					this.add('-immune', target, '[from] ability: Wind Rider');
+				}
+				return null;
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				pokemon.addVolatile('quarkdrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Wind Drive', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Wind Drive",
+		shortDesc: "Electric Terrain active, Booster Energy used, hit by a wind move, or Tailwind begins: highest stat is 1.3x, or 1.5x if Speed. Wind move immunity.",
+	},
+	heavydrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onModifyWeightPriority: 1,
+		onModifyWeight(weighthg) {
+			return weighthg * 2;
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Heavy Drive', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Heavy Drive",
+		shortDesc: "Quark Drive + Heavy Metal",
+	},
+	jadedrive: {
+		onStart(pokemon) {
+			this.effectState.bestStat = pokemon.getBestStat(true, true);
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			const bestStat = (this.effectState.bestStat ||= target.getBestStat(true, true));
+			if (boost[bestStat] && boost[bestStat]! < 0) {
+				delete boost[bestStat];
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", bestStat, "[from] ability: Jade Drive", "[of] " + target);
+				}
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Jade Drive', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, breakable: 1},
+		name: "Jade Drive",
+		shortDesc: "Highest stat can't be dropped by foe. Electric Terrain or Booster Energy: highest stat is 1.3x, or 1.5x if Spe.",
+	},
+	airdrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Air Drive', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Air Drive",
+		shortDesc: "Quark Drive + Levitate",
+	},
+	magicdrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (target !== source && move.category !== 'Status') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Magic Drive', '[of] ' + target);
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Magic Drive', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Magic Drive",
+		shortDesc: "Quark Drive + Magician",
+	},
+	phantomdrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Phantom Drive', '[silent]');
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Phantom Drive",
+		shortDesc: "Quark Drive + Long Reach",
 	},
 };
