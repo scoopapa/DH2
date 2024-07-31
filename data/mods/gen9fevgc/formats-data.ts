@@ -1,4 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+	// Reg A
 	meowsdrahisui: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
@@ -467,6 +468,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "FELC",
 	},
+	
+	// Reg B
 	treemmet: {
 		tier: "FELC",
 		doublesTier: "FELC",
