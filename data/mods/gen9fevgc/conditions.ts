@@ -100,6 +100,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
+			this.add('-start', target, 'Droopy Boost (Defense)');
 			this.debug('Jelly-Filled Drive def boost');
 			return this.chainModify([5325, 4096]);
 		},
@@ -107,6 +108,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	curlyboost: {
 		name: 'curlyboost',
 		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'Curly Boost (Attack)');
 			this.add('-message', `${target.name}'s Attack is being boosted!`);
 		},
 		onModifyAtkPriority: 5,
@@ -118,6 +120,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	stretchyboost: {
 		name: 'stretchyboost',
 		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'Stretchy Boost (Speed)');
 			this.add('-message', `${target.name}'s Speed is being boosted!`);
 		},
 		onModifySpe(spe, pokemon) {
