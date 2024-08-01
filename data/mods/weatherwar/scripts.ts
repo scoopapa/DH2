@@ -229,6 +229,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "electrode").learnset.boomburst = ["9L1"];
 		this.modData("Learnsets", "electrode").learnset.setthunderstorm = ["9L1"];
 		this.modData("Learnsets", "electrode").learnset.setmetronomebattle = ["9L1"];
+		delete this.modData('Learnsets', 'electrode').learnset.zapcannon;
+		delete this.modData('Learnsets', 'voltorb').learnset.zapcannon;
 		// Clefable
 		this.modData("Learnsets", "clefable").learnset.bloodmoon = ["9L1"];
 		this.modData("Learnsets", "clefable").learnset.setfable = ["9L1"];
@@ -334,6 +336,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "volbeat").learnset.supercellslam = ["9L1"];
 		this.modData("Learnsets", "volbeat").learnset.wildcharge = ["9L1"];
 		this.modData("Learnsets", "volbeat").learnset.nuzzle = ["9L1"];
+		this.modData("Learnsets", "volbeat").learnset.zapcannon = ["9L1"];
 		this.modData("Learnsets", "volbeat").learnset.thunderbolt = ["9L1"];
 		this.modData("Learnsets", "volbeat").learnset.discharge = ["9L1"];
 		this.modData("Learnsets", "volbeat").learnset.voltswitch = ["9L1"];
@@ -555,6 +558,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "diancie").learnset.setfable = ["9L1"];
 		this.modData("Learnsets", "diancie").learnset.setshitstorm = ["9L1"];
 		// Arctozolt
+		this.modData("Learnsets", "arctozolt").learnset.zapcannon = ["9L1"];
 		this.modData("Learnsets", "arctozolt").learnset.iceball = ["9L1"];
 		this.modData("Learnsets", "arctozolt").learnset.jetpunch = ["9L1"];
 		this.modData("Learnsets", "arctozolt").learnset.rockpolish = ["9L1"];
@@ -648,6 +652,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//removals
 		// Zapdos
 		delete this.modData('Learnsets', 'zapdos').learnset.ancientpower;
+		delete this.modData('Learnsets', 'zapdos').learnset.zapcannon;
 		// Archaludon
 		delete this.modData('Learnsets', 'duraludon').learnset.metalburst;
 		delete this.modData('Learnsets', 'archaludon').learnset.metalburst;
