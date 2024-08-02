@@ -37,6 +37,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	eerieflame: {
 		name: 'Eerie Flame',
+		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'Eerie Flames');
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
@@ -96,11 +99,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 	droopyboost: {
 		name: 'droopyboost',
 		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'Droopy Boost (Defense)');
 			this.add('-message', `${target.name}'s Defense is being boosted!`);
 		},
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
-			this.add('-start', target, 'Droopy Boost (Defense)');
 			this.debug('Jelly-Filled Drive def boost');
 			return this.chainModify([5325, 4096]);
 		},
