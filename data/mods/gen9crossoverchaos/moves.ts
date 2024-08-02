@@ -49,6 +49,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	electrohammer: {
+		num: -2,
 		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
@@ -72,7 +73,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	sheikahslate: {
-		num: -2,
+		num: -3,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -103,7 +104,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	lightarrow: {
-		num: -3,
+		num: -4,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -130,7 +131,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	psyblast: {
-		num: -4,
+		num: -5,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -165,7 +166,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	puyopop: {
-		num: -5,
+		num: -6,
 		accuracy: 90,
 		basePower: 10,
 		basePowerCallback(pokemon, target, move) {
@@ -200,7 +201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	dracoburning: {
-		num: -6,
+		num: -7,
 		accuracy: 90,
 		basePower: 105,
 		category: "Physical",
@@ -219,7 +220,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	frostkick: {
-		num: -7,
+		num: -8,
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
@@ -242,7 +243,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	shockkick: {
-		num: -8,
+		num: -9,
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
@@ -265,7 +266,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	greatfire: {
-		num: -9,
+		num: -10,
 		accuracy: true,
 		basePower: 200,
 		category: "Special",
@@ -286,7 +287,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	jumbobarrel: {
-		num: -10,
+		num: -11,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -313,7 +314,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	precisionstrikes: {
-		num: -11,
+		num: -12,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -332,7 +333,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	rudebuster: {
-		num: -12,
+		num: -13,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -356,7 +357,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	centipedeassault: {
-		num: -13,
+		num: -14,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -376,7 +377,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	luciolacruciata: {
-		num: -14,
+		num: -15,
 		accuracy: true,
 		basePower: 180,
 		category: "Physical",
@@ -397,7 +398,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	icebreak: {
-		num: -15,
+		num: -16,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -422,7 +423,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	arrowshot: {
-		num: -16,
+		num: -17,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -443,7 +444,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	mountainrangeshakingfirewoodofvenus: {
-		num: -17,
+		num: -18,
 		accuracy: true,
 		basePower: 190,
 		category: "Special",
@@ -471,7 +472,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	lifesoup: {
-		num: -18,
+		num: -19,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -495,7 +496,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	waterplanet: {
-		num: -19,
+		num: -20,
 		accuracy: true,
 		basePower: 150,
 		category: "Physical",
@@ -521,7 +522,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	shakalakamaracas: {
-		num: -20,
+		num: -21,
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
@@ -556,7 +557,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	doubledynamite: {
-		num: -21,
+		num: -22,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -584,7 +585,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	treeoceanofhourai: {
-		num: -22,
+		num: -23,
 		accuracy: true,
 		basePower: 180,
 		category: "Special",
@@ -607,7 +608,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	poltergust: {
-		num: -23,
+		num: -24,
 		accuracy: 95,
 		basePower: 110,
 		category: "Special",
@@ -630,7 +631,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	// Negative Zone has no valid means of use due to using an invalid move as base, not implementing unless this is resolved
 	heavenlysphere: {
-		num: -25,
+		num: -26,
 		accuracy: true,
 		basePower: 200,
 		category: "Special",
@@ -641,8 +642,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			if (pokemon.species.name === 'Marle-Parasite') this.add('-anim', source, "Charge", source);
-			this.add('-anim', source, "Aura Sphere", target);
+			if (pokemon.species.name === 'Marle-Parasite') {
+				this.add('-anim', source, "Charge", source);
+				this.add('-anim', source, "Geomancy", source);
+				this.add('-anim', source, "Electro Ball", target);
+			} else {
+				this.add('-anim', source, "Calm Mind", source);
+				this.add('-anim', source, "Geomancy", source);
+				this.add('-anim', source, "Aura Sphere", target);
+			}
 		},
 		isZ: "marliumz",
 		secondary: null,
@@ -658,7 +666,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	desiccation: {
-		num: -20,
+		num: -27,
 		accuracy: 90,
 		basePower: 65,
 		category: "Physical",
@@ -681,7 +689,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	dollswar: {
-		num: -21,
+		num: -28,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -711,7 +719,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	dollsphalanx: {
-		num: -22,
+		num: -29,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -772,7 +780,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	artfulsacrifice: {
-		num: -23,
+		num: -30,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -799,7 +807,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
  	// No need for this effect to be coded, given mod isn't a doubles format
 	chargedcannondive: {
-		num: -24,
+		num: -31,
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
@@ -817,7 +825,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	bulletburst: {
-		num: -25,
+		num: -32,
 		accuracy: 85,
 		basePower: 25,
 		category: "Physical",
@@ -842,7 +850,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	redtruth: {
-		num: -26,
+		num: -33,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
@@ -868,7 +876,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	nosferatu: {
-		num: -27,
+		num: -34,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
@@ -888,7 +896,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	waste: {
-		num: -28,
+		num: -35,
 		accuracy: 85,
 		basePower: 50,
 		category: "Special",
@@ -907,7 +915,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	goetia: {
-		num: -29,
+		num: -36,
 		accuracy: 75,
 		basePower: 120,
 		category: "Special",
@@ -926,7 +934,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	breechburst: {
-		num: -30,
+		num: -37,
 		accuracy: 95,
 		basePower: 30,
 		category: "Physical",
@@ -955,7 +963,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	godslayersword: {
-		num: -31,
+		num: -38,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -978,7 +986,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	guardianorbitars: {
-		num: -32,
+		num: -39,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1029,7 +1037,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	finalstrike: {
-		num: -33,
+		num: -40,
 		accuracy: 90,
 		basePower: 130,
 		category: "Special",
@@ -1054,7 +1062,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	schemeofacuity: {
-		num: -34,
+		num: -41,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -1079,7 +1087,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	illusoryheartburst: {
-		num: -35,
+		num: -42,
 		accuracy: true,
 		basePower: 160,
 		category: "Special",
@@ -1103,10 +1111,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Cute",
 	},
-	// Inhale is -36, but Kirby is uncoded
-	// Star Spit is -37, but Kirby is uncoded
+	// Inhale is -43, but Kirby is uncoded
+	// Star Spit is -44, but Kirby is uncoded
 	devilsknife: {
-		num: -38,
+		num: -45,
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
@@ -1127,7 +1135,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	snowgrave: {
-		num: -39,
+		num: -46,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
@@ -1170,7 +1178,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	killingclaw: {
-		num: -40,
+		num: -47,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -1195,7 +1203,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	brilliantdiamond: {
-		num: -41,
+		num: -48,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1244,6 +1252,91 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	// Skipping ahead bc future moves in the spreadsheet got added to an older mon
+	bombblast: {
+		num: -76,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Bomb Blast",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1, bullet: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			this.add('-anim', source, "Fling", target);
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 2,
+				move: 'bombblast',
+				source: source,
+				moveData: {
+					id: 'bombblast',
+					name: "Bomb Blast",
+					accuracy: 100,
+					basePower: 100,
+					category: "Special",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1, bullet: 1},
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', target, "Explosion", source);
+					},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Normal',
+				},
+			});
+			this.add('-start', source, 'move: Bomb Blast');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	bombthrow: {
+		num: -77,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Bomb Throw",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			this.add('-anim', source, "Fling", target);
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 2,
+				move: 'bombthrow',
+				source: source,
+				moveData: {
+					id: 'bombthrow',
+					name: "Bomb Throw",
+					accuracy: 100,
+					basePower: 100,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', target, "Explosion", source);
+					},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Fire',
+				},
+			});
+			this.add('-start', source, 'move: Bomb Throw');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
 	},
 	
 	// Below are vanilla moves altered by custom interractions
