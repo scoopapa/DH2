@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-		malenia: {
+	malenia: {
 		learnset: {
 			absorb: ["9L1"],
 			aerialace: ["9L1"],
