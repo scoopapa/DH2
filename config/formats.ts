@@ -339,6 +339,7 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
 		],
 		mod: 'gen9crossoverchaos',
+		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', /* 'Mega Data Mod' */],
 		onChangeSet(set) {
 			const item = this.toID(set.item);
