@@ -513,18 +513,13 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user restores 1/2 of its maximum HP, rounded half up. Also heals status if Rain is active.",
-		shortDesc: "Heals the user by 50% of its max HP; heals status if Rain is up.",
+		desc: "The user restores 1/2 of its maximum HP, rounded half up.",
+		shortDesc: "Heals the user by 50% of its max HP.",
 		name: "High Water",
 		pp: 10,
 		priority: 0,
 		flags: { snatch: 1, heal: 1 },
 		heal: [1, 2],
-		onHit(pokemon) {
-			if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
-				return pokemon.cureStatus();
-			}
-		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Life Dew", target);
@@ -958,22 +953,18 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	draconiccurse: {
 		num: -37,
 		accuracy: 95,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		name: "Draconic Curse",
-		desc: "This move has 10% chance to lower every stat of the opponent.",
-		shortDesc: "10% chance to lower opponent's stats.",
+		desc: "This move has 10% chance to lower the opponent's SpD.",
+		shortDesc: "10% chance to lower opponent's SpD.",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 10,
 			boosts: {
-				atk: -1,
-				def: -1,
-				spa: -1,
 				spd: -1,
-				spe: -1,
 			},
 		},
 		onPrepareHit: function (target, source) {
@@ -2236,7 +2227,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	houndshowl: {
 		num: -54,
 		accuracy: 100,
-		basePower: 55,
+		basePower: 40,
 		category: "Physical",
 		name: "Hound's Howl",
 		shortDesc: "If a foe is switching out, hits it at 2x power.",
@@ -2558,6 +2549,12 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	ragingbull: {
 		inherit: true,
 		basePower: 120,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
 	},
 	bitterblade: {
 		inherit: true,
@@ -2598,12 +2595,12 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	lastrespects: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			return 50 + 15 * pokemon.side.totalFainted + 15 * target.side.totalFainted;
+			return 50 + 15 * pokemon.side.totalFainted
 		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
-		shortDesc: "+15 power for each time a Pokemon fainted. Special if user's SpA > Atk.",
+		shortDesc: "+15 power for each time an ally fainted. Special if user's SpA > Atk.",
 	},
 	ragefist: {
 		inherit: true,
@@ -2659,7 +2656,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	roguewave: {
 		num: -61,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 60,
 		category: "Physical",
 		name: "Rogue Wave",
 		shortDesc: "Has 33% recoil. Usually goes first.",
@@ -2909,6 +2906,45 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				if (!pokemon.hasItem('identitycard')) {
 					pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
 					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
+				}
+			},
+		},
+	},
+	fishiousrend: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || !this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		desc: "Power doubles if the user moves after the target.",
+		shortDesc: "Power doubles if user moves after the target.",
+	},
+
+	// Karma field
+	wish: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1, futuremove: 1},
+		condition: {
+			duration: 2,
+			onStart(pokemon, source) {
+				if (source.hasAbility('karma')) {
+					this.effectState.hp = 3* source.maxhp / 4;
+				} 
+				else {
+					this.effectState.hp = source.maxhp / 2;
+				}
+			},
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) {
+						this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
+					}
 				}
 			},
 		},

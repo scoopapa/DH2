@@ -261,8 +261,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -22,
 	},
 	hairtrigger: {
+		onAfterMega(pokemon) {
+			if (pokemon.activeMoveActions > 1) return;
+			pokemon.addVolatile('hairtrigger');
+		},
+		onStart(pokemon) {
+			if (pokemon.activeMoveActions > 1) return;
+			pokemon.addVolatile('hairtrigger');
+		},
 		onModifyPriority(priority, source) {
-			if (!(source.activeMoveActions > 1)) {
+			if (source.volatiles['hairtrigger']) {
+				source.removeVolatile('hairtrigger');
 				return priority + 0.1;
 			}
 		},
