@@ -2615,4 +2615,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -75,
 	},
+	karma: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['futuremove']) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		desc: "This Pokemon's delayed moves have their power multiplied by 1.5. Wish restores 50% more HP, rounded half down.",
+		shortDesc: "This Pokemon's delayed moves have 1.5x power. Wish heals for 50% more HP.",
+		name: "Karma",
+		rating: 3,
+		num: 178,
+	},
 };

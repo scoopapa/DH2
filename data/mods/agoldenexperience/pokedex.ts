@@ -555,7 +555,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	mew: {
 		inherit : true,
-		abilities: {0: "Synchronize", H: "Protean"},
+		abilities: {0: "Protean"},
 	},
 
 	// Gen 2 :
@@ -1404,6 +1404,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Meteor Fragment",
+	},
+	jirachi: {
+		inherit: true,
+		abilities: {0: "Karma"},
 	},
 	deoxys: {
 		inherit: true,

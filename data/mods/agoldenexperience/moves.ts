@@ -2924,6 +2924,32 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		shortDesc: "Power doubles if user moves after the target.",
 	},
 
+	// Karma field
+	wish: {
+		inherit: true,
+		flags: {snatch: 1, heal: 1, metronome: 1, futuremove: 1},
+		condition: {
+			duration: 2,
+			onStart(pokemon, source) {
+				if (source.hasAbility('karma')) {
+					this.effectState.hp = 3* source.maxhp / 4;
+				} 
+				else {
+					this.effectState.hp = source.maxhp / 2;
+				}
+			},
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) {
+						this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
+					}
+				}
+			},
+		},
+	},
+
 
 	// Endless Dream field
 	wakeupslap: {
