@@ -673,7 +673,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (move.category === 'Status') return;
 				this.add('-activate', target, 'move: Thunder Armor');
 				const lockedmove = source.getVolatile('lockedmove');
-				if (lockedmove) /*{
+				if (lockedmove/*) {
 					// Outrage counter is reset
 					if (*/&& source.volatiles['lockedmove'].duration === 2) {
 						delete source.volatiles['lockedmove'];
