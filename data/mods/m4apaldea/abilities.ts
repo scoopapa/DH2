@@ -262,6 +262,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	hairtrigger: {
 		onModifyPriority(priority, source) {
+			console.log(source.volatiles['hairtrigger']);
 			if (source.volatiles['hairtrigger']) {
 				source.removeVolatile('hairtrigger');
 				return priority + 0.1;
