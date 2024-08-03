@@ -641,6 +641,53 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fairy",
 	},
+	thunderarmor: {
+		accuracy: true,
+		basePower: 1,
+		category: "Status",
+		name: "Thunder Armor",
+		pp: 5,
+		priority: 4,
+		flags: {cantusetwice: 1},
+		desc: "Cannot be selected the turn after it's used. The user and its party members are protected from damaging attacks made by other Pokemon, including allies, during this turn. The next damaging move used by the user will have doubled power. When a contact move is blocked, the attacker is paralyzed. Fails if this move is already in effect for the user's side.",
+		shortDesc: "Protects allies from damaging attacks. Contact: paralysis. User's next attack has x2 BP. Cannot be selected the turn after it's used.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
+		},
+		sideCondition: 'thunderarmor',
+		onTry() {
+			return !!this.queue.willAct();
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+			source.addVolatile('thunderarmorboost');
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Thunder Armor');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				if (move.category === 'Status') return;
+				this.add('-activate', target, 'move: Thunder Armor');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) /*{
+					// Outrage counter is reset
+					if (*/&& source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					//}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		target: "adjacentFoe",
+		type: "Electric",
+	},
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {

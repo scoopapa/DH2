@@ -80,6 +80,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Dodrio': 'Asura Barrage',
 				'Roserade': 'Vive Le\u0301 Rose',
 				'Bouffalant': 'Dread Stampede',
+				'Pichat': 'Thunder Armor',
+				'Pikachat': 'Thunder Armor',
+				'Raichat': 'Thunder Armor',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
@@ -126,6 +129,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 				(move.category === balmMove.category || ![move.category,balmMove.category].includes('Status'))
 			) {
 				return balmMove.priority;
+			}
+		},
+	},
+	thunderarmorboost: {
+		duration: 2,
+		onBasePowerPriority: 6,
+		onBasePower(basePower, attacker, defender, move) {
+			return this.chainModify(2);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.type === 'Electric' && move.category === 'Status') {
+					pokemon.disableMove(moveSlot.id);
+				}
 			}
 		},
 	},
