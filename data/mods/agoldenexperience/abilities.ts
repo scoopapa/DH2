@@ -2339,20 +2339,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 	},
-	protean: {
-		inherit: true,
-		onPrepareHit(source, target, move) {
-			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
-			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
-			}
-		},
-		onSwitchIn() {},
-		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
-		rating: 4.5,
-	},
 	dauntlessshield: {
 		inherit: true,
 		onStart(pokemon) {
@@ -2609,5 +2595,24 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Boosts Attack, Defense, Special Attack, and Special Defense by 1% per 25 happiness.",
 		rating: 4,
 		num: -74,
+	},
+	mightywall: {
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
+		shortDesc: "On first turn of arrival, this Pokemon's Defense and Special Defense are multiplied by 1.5.",
+		name: "Mighty Wall",
+		rating: 4,
+		num: -75,
 	},
 };
