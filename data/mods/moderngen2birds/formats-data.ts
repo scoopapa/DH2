@@ -20,9 +20,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	braviaryhisui: {
 		tier: "Birds",
 	},
-	charizard: {
-		tier: "Birds",
-	},
 	chatot: {
 		tier: "Birds",
 	},
@@ -80,6 +77,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	moltresgalar: {
 		tier: "Birds",
 	},
+	murkrow: {
+	tier: "Birds",
+	},
 	noctowl: {
 		tier: "Birds",
 	},
@@ -95,14 +95,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	oricoriopau: {
 		tier: "Birds",
 	},
-	charizardmegax: {
-		tier: "Birds",
-		gen: 3,
-	},
-	charizardmegay: {
-		tier: "Birds",
-		gen: 3,
-	},
 	altariamega: {
 		tier: "Birds",
 		gen: 3,
@@ -115,6 +107,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		gen: 3,
 	},
 	pidgeot: {
+		tier: "Birds",
+	},
+	quaquaval: {
 		tier: "Birds",
 	},
 	sirfetchd: {
@@ -162,9 +157,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 
   // Uber
 	hooh: {
-		tier: "Birds Uber",
-	},
-	lugia: {
 		tier: "Birds Uber",
 	},
 	espathra: {
