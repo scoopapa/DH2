@@ -172,7 +172,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DCC OU",
 	},
 	beatrice: {
-		tier: "CC OU",
+		tier: "CC Ubers",
 		doublesTier: "DCC OU",
 	},
 	azhdaha: {
