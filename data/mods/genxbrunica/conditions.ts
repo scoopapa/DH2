@@ -77,6 +77,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Yleltilus': 'Ammolite Vortex',
 				'Acktilus': 'Ammolite Vortex',
 				'Whitilus': 'Ammolite Vortex',
+				'Dodrio': 'Asura Barrage',
+				'Roserade': 'Vive Le\u0301 Rose',
+				'Bouffalant': 'Dread Stampede',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
