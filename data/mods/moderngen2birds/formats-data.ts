@@ -78,7 +78,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Birds",
 	},
 	murkrow: {
-	tier: "Birds",
+		tier: "Birds",
 	},
 	noctowl: {
 		tier: "Birds",
