@@ -1138,6 +1138,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 5,
 		evos: ["Pikachat"],
+		eggGroups: ["Undiscovered"],
 	},
 	pikachat: {
 		num: 1348,
@@ -1150,6 +1151,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Pichat",
 		evoLevel: 15,
 		evos: ["Raichat"],
+		eggGroups: ["Field", "Mineral"],
 	},
 	raichat: {
 		num: 1349,
@@ -1162,6 +1164,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Pikachat",
 		evoType: "useItem",
 		evoItem: "Fire Stone",
+		eggGroups: ["Field", "Mineral"],
 	},
 	bouffalant: {
 		inherit: true,
