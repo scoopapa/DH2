@@ -20,9 +20,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	braviaryhisui: {
 		tier: "Birds",
 	},
-	charizard: {
-		tier: "Birds",
-	},
 	chatot: {
 		tier: "Birds",
 	},
@@ -94,14 +91,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	oricoriopau: {
 		tier: "Birds",
-	},
-	charizardmegax: {
-		tier: "Birds",
-		gen: 3,
-	},
-	charizardmegay: {
-		tier: "Birds",
-		gen: 3,
 	},
 	altariamega: {
 		tier: "Birds",
