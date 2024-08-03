@@ -463,6 +463,82 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	pichat: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	pikachat: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	raichat: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	bouffalant: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	vullaby: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	mandibuzz: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	snover: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	abomasnow: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	thermonewt: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	teddiursa: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	ursaring: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	ursaluna: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	pineco: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	forretress: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	doduo: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	dodrio: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	budew: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	roselia: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	roserade: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 
 	akulut: {

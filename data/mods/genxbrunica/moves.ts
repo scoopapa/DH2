@@ -406,6 +406,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.field.clearTerrain();
 			}
 		},
+		secondary: null,
 		target: "adjacentFoe",
 		type: "Ground",
 	},
@@ -454,6 +455,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onAfterSubDamage(damage, target) {
 			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
 		},
+		secondary: null,
 		target: "adjacentFoe",
 		type: "Poison",
 	},
@@ -471,6 +473,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
 		},
+		secondary: null,
 		target: "adjacentFoe",
 		type: "Dragon",
 	},
@@ -508,6 +511,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
+		secondary: null,
 		target: "adjacentFoe",
 		type: "Ground",
 	},
@@ -551,7 +555,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Ammolite Vortex",
 		pp: 5,
-		priority: 1,
+		priority: 0,
 		flags: {protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. This move ignores effectiveness against types that would otherwise resist it. The target is immune if it does not share a type with the user.",
 		shortDesc: "x1.5 power of base move. Hits targets that share user's type. Ignores resistances.",
@@ -565,8 +569,124 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (typeMod < 0) return 0;
 		},
+		secondary: null,
 		target: "adjacentFoe",
 		type: "Normal",
+	},
+	asurabarrage: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Asura Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, recharge: 1, contact: 1},
+		multihit: 3,
+		desc: "Power is equal to 1.5 times the base move's power. Hits three times. If this move is successful, the user must recharge on the following turn and cannot select a move.",
+		shortDesc: "x1.5 power of base move. Hits three times. User cannot move next turn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Drill", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Bug",
+	},
+	dreadstampede: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Dread Stampede",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "x1.5 power of base move. Ignores the target's stat stage changes.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
+		},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Dark",
+	},
+	vivelerose: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Vive Le\u0301 Rose",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 50% chance to raise the user's Attack and Special Attack by 1 stage each.",
+		shortDesc: "x1.5 power of base move. 50% chance to raise user's Attack and Sp. Atk by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Petal Dance", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+					spa: 1,
+				},
+			},
+		},
+		target: "adjacentFoe",
+		type: "Fairy",
+	},
+	thunderarmor: {
+		accuracy: true,
+		basePower: 1,
+		category: "Status",
+		name: "Thunder Armor",
+		pp: 5,
+		priority: 4,
+		flags: {cantusetwice: 1},
+		desc: "Cannot be selected the turn after it's used. The user and its party members are protected from damaging attacks made by other Pokemon, including allies, during this turn. The next damaging move used by the user will have doubled power. When a contact move is blocked, the attacker is paralyzed. Fails if this move is already in effect for the user's side.",
+		shortDesc: "Protects allies from damaging attacks. Contact: paralysis. User's next attack has x2 BP. Cannot be selected the turn after it's used.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
+		},
+		sideCondition: 'thunderarmor',
+		onTry() {
+			return !!this.queue.willAct();
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+			source.addVolatile('thunderarmorboost');
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Thunder Armor');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				if (move.category === 'Status') return;
+				this.add('-activate', target, 'move: Thunder Armor');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove/*) {
+					// Outrage counter is reset
+					if (*/&& source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					//}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		target: "adjacentFoe",
+		type: "Electric",
 	},
 	
 	//Interacting with new Brunician mechanics
