@@ -109,6 +109,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pidgeot: {
 		tier: "Birds",
 	},
+	porygon2: {
+		tier: "Birds",
+	},
 	quaquaval: {
 		tier: "Birds",
 	},
