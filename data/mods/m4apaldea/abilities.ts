@@ -262,9 +262,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	hairtrigger: {
 		onModifyPriority(priority, source) {
-			if (!(source.activeMoveActions > 1)) {
+			if (source.volatiles['hairtrigger']) {
+				source.removeVolatile('hairtrigger');
 				return priority + 0.1;
 			}
+		},
+		onSwitchIn(pokemon) {
+			pokemon.addVolatile('hairtrigger');
 		},
 		desc: "The user moves first in their priority bracket on the first turn after switching in.",
 		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
