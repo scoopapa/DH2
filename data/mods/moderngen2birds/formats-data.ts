@@ -153,9 +153,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	hooh: {
 		tier: "Birds Uber",
 	},
-	lugia: {
-		tier: "Birds Uber",
-	},
 	espathra: {
 		tier: "Birds Uber",
 	},
