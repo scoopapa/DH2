@@ -278,8 +278,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	unsteadybody: {
 		shortDesc: "When flinched, sets up Stealth Rock on opponent's side.",
 		onFlinch(pokemon) {
+			let activated = false;
 			for (const side of pokemon.side.foeSidesWithConditions()) {
-				side.addSideCondition('stealthrock');
+				if (!side.sideConditions['stealthrock']) {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Unsteady Body');
+						activated = true;
+					}
+					side.addSideCondition('stealthrock');
+				}
 			}
 		},
 		flags: {},
@@ -289,7 +296,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon's ballistic and pulse moves also inflict Leech Seed.",
 		onSourceDamagingHitOrder: 1,
 		onSourceDamagingHit(damage, target, source, move) {
-			if (!target.hasType('Grass') && (move.flags['bullet'] || move.flags['pulse'])) {
+			if (!target.hasType('Grass') && !target.volatiles['leechseed'] && (move.flags['bullet'] || move.flags['pulse'])) {
+				this.add('-ability', source, 'Mulcher');
 				target.addVolatile('leechseed');
 			}
 		},
@@ -300,7 +308,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "Upon switching in, active allies heal statuses and negative stat conditions.",
 		onStart(pokemon) {
-			for (const ally of source.side.active) {
+			for (const ally of pokemon.side.active) {
 				let boosts: SparseBoostsTable = {};
 				let i: BoostID;
 				let cleared = false;

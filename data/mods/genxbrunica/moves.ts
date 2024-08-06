@@ -247,7 +247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "10% chance to burn. 20% chance to lower target's acc. by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smoke Screen", target);
@@ -757,7 +757,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	thunderarmor: {
 		accuracy: true,
-		basePower: 1,
+		basePower: 0,
 		category: "Status",
 		name: "Thunder Armor",
 		pp: 5,
@@ -814,7 +814,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "x1.5 power of base move. Sets up Trick Room unless already present.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Synchronoise", target);
+			this.add('-anim', source, "Psywave", target);
 		},
 		onAfterHit(target, source, move) {
 			if (!this.field.pseudoWeather.trickroom && !move.hasSheerForce && source.hp) {
