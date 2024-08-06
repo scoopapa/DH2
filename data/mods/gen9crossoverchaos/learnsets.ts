@@ -1790,7 +1790,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			venoshock: ["9L1"],
 		},
 	},
-	wrigglenightbuga: {
+	wrigglenightbugaltered: {
 		learnset: {
 			centipedeassault: ["9L1"],
 			aerialace: ["9L1"],
@@ -2100,7 +2100,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wonderroom: ["9L1"],
 		},
 	},
-	hecatialapislazulit: {
+	hecatiatropical: {
 		learnset: {
 			lifesoup: ["9L1"],
 			amnesia: ["9L1"],
@@ -2259,7 +2259,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			worryseed: ["9L1"],
 		},
 	},
-	twinrovaice: {
+	twinrova: {
 		learnset: {
 			doubledynamite: ["9L1"],
 			agility: ["9L1"],
@@ -2682,7 +2682,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wish: ["9L1"],
 		},
 	},
-	queen: {
+	queendeltarune: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L1"],
