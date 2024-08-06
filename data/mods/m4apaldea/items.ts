@@ -280,7 +280,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Bombirdier, this item allows it to Mega Evolve in battle.",
 	},
 	fezandipitite: {
-		name: "Fezanidipite",
+		name: "Fezandipitite",
 		spritenum: 578,
 		megaStone: "Fezandipiti-Mega",
 		megaEvolves: "Fezandipiti",
