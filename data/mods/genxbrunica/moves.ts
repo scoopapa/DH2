@@ -417,7 +417,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'telekinesis',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Flying",
 	},
 	leapingonrush: {
@@ -436,7 +436,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'smackdown',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Fighting",
 	},
 	cupricdeluge: {
@@ -468,7 +468,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Steel",
 	},
 	divebomb: {
@@ -493,7 +493,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Water",
 	},
 	muddevourment: {
@@ -521,7 +521,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ground",
 	},
 	cloneexpress: {
@@ -546,7 +546,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
 	},
 	adulteration: {
@@ -570,7 +570,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Poison",
 	},
 	oliverampage: {
@@ -588,7 +588,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Outrage", target);
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Dragon",
 	},
 	tectonicshift: {
@@ -626,7 +626,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ground",
 	},
 	venomousfang: {
@@ -645,7 +645,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'venomousfang',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
 		condition: {
 			onStart(pokemon) {
@@ -684,7 +684,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (typeMod < 0) return 0;
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Normal",
 	},
 	asurabarrage: {
@@ -706,7 +706,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'mustrecharge',
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Bug",
 	},
 	dreadstampede: {
@@ -726,7 +726,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		ignoreEvasion: true,
 		ignoreDefensive: true,
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Dark",
 	},
 	vivelerose: {
@@ -752,7 +752,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				},
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Fairy",
 	},
 	thunderarmor: {
@@ -799,7 +799,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return this.NOT_FAIL;
 			},
 		},
-		target: "adjacentFoe",
+		target: "allySide",
 		type: "Electric",
 	},
 	mysticburst: {
