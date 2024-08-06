@@ -699,7 +699,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1513,
 		name: "Drudraigoch",
 		types: ["Dragon", "Fire"],
-		baseStats: {hp: 107, atk: 125, def: 90, spa: 90, spd: 90, spe: 58},
+		baseStats: {hp: 107, atk: 125, def: 85, spa: 100, spd: 85, spe: 48},
 		abilities: {0: "Flame Body", 1: "Sheer Force", H: "Mold Breaker"},
 		heightm: 2.7,
 		weightkg: 952.5,
