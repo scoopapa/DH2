@@ -281,4 +281,117 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: -23,
 	},
+	powdercoat: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Powder Coat Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Powder Coat SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return damage / 2;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Powder Coat",
+		desc: "This Pokemon takes 1/2 damages from indirect damage and water type moves.",
+		shortDesc: "This Pokemon takes 1/2 damages from indirect damage and water type moves.",
+		rating: 2,
+		num: -24,
+	},
+	latedelivery: {
+		desc: "This Pokémon's non-contact Rock-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
+		shortDesc: "Non-contact Rock-type moves delayed until two turns later, but only one at a time.",
+		onBeforeMove(source, target, move) {
+			if (
+				move && move.type === 'Rock' && !move.flags['contact'] && source.hasAbility('clairvoyance') &&
+				source.side.addSlotCondition(source, 'clairvoyance')
+			) {
+				Object.assign(source.side.slotConditions[source.position]['clairvoyance'], {
+					duration: 3,
+					source: source,
+					target: null,
+					move: move,
+					position: target.position,
+					side: target.side,
+					moveData: this.dex.moves.get(move),
+				});
+				this.add('-ability', source, 'Late Delivery');
+				this.add('-message', `${source.name} cast ${move.name} into the future!`);
+				source.deductPP(move.id, 1);
+				return null;
+			}
+		},
+		condition: {
+			duration: 3,
+			onResidualOrder: 3,
+			onEnd(target) {
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get(data.move);
+				this.add('-ability', this.effectState.source, 'Late Delivery');
+				if (!data.target) {
+					this.hint(`${move.name} did not hit because there was no target.`);
+					return;
+				}
+
+				this.add('-message', `${this.effectState.source.name}'s ${move.name} took effect!`);
+				data.target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+				data.moveData.isFutureMove = true;
+				delete data.moveData.flags['contact'];
+				delete data.moveData.flags['protect'];
+
+				if (move.category === 'Status') {
+					this.actions.useMove(move, target, data.target);
+				} else {
+					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+					if (data.source.isActive) {
+						this.add('-anim', data.source, hitMove, data.target);
+					}
+					this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
+				}
+			},
+		},
+		name: "Clairvoyance",
+		rating: 3,
+		num: -25,
+	},
+	toxicdrain: {
+		shortDesc: "Removes Poison typing from adjacent Pokemon on switch-in. User gains +1 SpA for each Poison typing removed.",
+		desc: "Upon switch-in, the Poison typing is removed from all adjacent Pokemon. The user gains +1 SpA for each Poison typing removed.",
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (!target || target === pokemon) continue;
+				if (target.hasType('Poison') && target.isAdjacent(this.effectState.target)) {
+					target.setType(target.getTypes(true).map(type => type === "Poison" ? "???" : type));
+					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Toxic Drain', '[of] ' + pokemon);
+					this.boost({spa: 1}, pokemon);
+					this.add('-activate', this.effectState.target, 'ability: Toxic Drain');
+				}
+			}
+		},
+		name: "Toxic Drain",
+		rating: 4,
+		num: -26,
+	},
 };

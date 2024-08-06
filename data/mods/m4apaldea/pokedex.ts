@@ -302,4 +302,38 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Hatterenite",
 		megaCreator: "okispokis",
 	},
+
+	// slate 6
+
+	ribombee: {
+		inherit: true,
+		mega: "ribombeemega",
+		megaName: "Ribombee-Mega",
+		megaAbility: {0: "Powder Coat"},
+		megaStats: {hp: 60, atk: 70, def: 70, spa: 120, spd: 100, spe: 144},
+		megaStone: "Ribombinite",
+		movepoolAdditions: ["roost"],
+		megaCreator: "jazzmat",
+	},
+
+	bombirdier: {
+		inherit: true,
+		mega: "bombirdiermega",
+		megaName: "Bombirdier-Mega",
+		megaAbility: {0: "Late Delivery"},
+		megaStats: {hp: 70, atk: 138, def: 115, spa: 60, spd: 115, spe: 87},
+		megaStone: "Bombirdite",
+		movepoolAdditions: ["smackdown"],
+		megaCreator: "NANI",
+	},
+
+	fezandipiti: {
+		inherit: true,
+		mega: "fezandipitimega",
+		megaName: "Hatterene-Mega",
+		megaAbility: {0: "Toxic Drain"},
+		megaStats: {hp: 88, atk: 111, def: 92, spa: 115, spd: 145, spe: 104},
+		megaStone: "Hatterenite",
+		megaCreator: "okispokis",
+	},
 };

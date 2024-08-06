@@ -251,4 +251,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Hatterene, this item allows it to Mega Evolve in battle.",
 	},
+	ribombinite: {
+		name: "Ribombinite",
+		spritenum: 578,
+		megaStone: "Ribombee-Mega",
+		megaEvolves: "Ribombee",
+		itemUser: ["Ribombee"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2016,
+		gen: 8,
+		desc: "If held by a Ribombee, this item allows it to Mega Evolve in battle.",
+	},
+	bombirdite: {
+		name: "Bombirdite",
+		spritenum: 578,
+		megaStone: "Bombirdier-Mega",
+		megaEvolves: "Bombirdier",
+		itemUser: ["Bombirdier"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2017,
+		gen: 8,
+		desc: "If held by a Bombirdier, this item allows it to Mega Evolve in battle.",
+	},
+	fezandipitite: {
+		name: "Fezanidipite",
+		spritenum: 578,
+		megaStone: "Fezandipiti-Mega",
+		megaEvolves: "Fezandipiti",
+		itemUser: ["Fezandipiti"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2018,
+		gen: 8,
+		desc: "If held by a Fezandipiti, this item allows it to Mega Evolve in battle.",
+	},
 };
