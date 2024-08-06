@@ -83,6 +83,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Pichat': 'Thunder Armor',
 				'Pikachat': 'Thunder Armor',
 				'Raichat': 'Thunder Armor',
+				'Trippletop': 'Mystic Burst',
+				'Violagarie': 'Violet Seed',
+				'Yiseng': 'Mental Extract',
+				'Garoupe': 'Discovery',
+				'Frostabone': 'Shaking Tundra',
+				'Moskitoski': 'Venom Drain',
+				'Moskitoski-Swarm': 'Venom Drain',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
