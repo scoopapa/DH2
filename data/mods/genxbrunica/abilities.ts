@@ -275,6 +275,104 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Lithificate",
 	},
+	unsteadybody: {
+		shortDesc: "When flinched, sets up Stealth Rock on opponent's side.",
+		onFlinch(pokemon) {
+			for (const side of pokemon.side.foeSidesWithConditions()) {
+				side.addSideCondition('stealthrock');
+			}
+		},
+		flags: {},
+		name: "Unsteady Body",
+	},
+	mulcher: {
+		shortDesc: "This Pokemon's ballistic and pulse moves also inflict Leech Seed.",
+		onSourceDamagingHitOrder: 1,
+		onSourceDamagingHit(damage, target, source, move) {
+			if (!target.hasType('Grass') && (move.flags['bullet'] || move.flags['pulse'])) {
+				target.addVolatile('leechseed');
+			}
+		},
+		flags: {},
+		name: "Mulcher",
+	},
+	curiousmedicine: {
+		inherit: true,
+		shortDesc: "Upon switching in, active allies heal statuses and negative stat conditions.",
+		onStart(pokemon) {
+			for (const ally of source.side.active) {
+				let boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				let cleared = false;
+				for (i in ally.boosts) {
+					if (ally.boosts[i] < 0) {
+						boosts[i] = 0;
+						cleared = true;
+					}
+				}
+				if (cleared) {
+					ally.setBoost(boosts);
+					this.battle.add('-clearnegativeboost', ally,  '[from] ability: Curious Medicine', '[of] ' + pokemon);
+				}
+				if (ally.status) {
+					this.add('-activate', pokemon, 'ability: Curious Medicine');
+					ally.cureStatus();
+				}
+			}
+		},
+	},
+	eclipse: {
+		shortDesc: "Ghost-/Dark-/Fairy-type moves against this Pokemon deal damage with a halved offensive stat.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (['Ghost','Dark','Fairy'].includes(move.type)) {
+				this.debug('Eclipse weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (['Ghost','Dark','Fairy'].includes(move.type)) {
+				this.debug('Eclipse weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Eclipse",
+	},
+	buzzing: {
+		shortDesc: "If user is Moskitoski, changes to Swarm Form if it has > 1/4 max HP, else Solo Form.",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Moskitoski' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'moskitoski') {
+					pokemon.formeChange('Moskitoski-Swarm');
+				}
+			} else //{
+				if (pokemon.species.id === 'moskitoskiswarm') {
+					pokemon.formeChange('Moskitoski');
+				}
+			//}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Moskitoski' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'moskitoski') {
+					pokemon.formeChange('Moskitoski-Swarm');
+				}
+			} else //{
+				if (pokemon.species.id === 'moskitoskiswarm') {
+					pokemon.formeChange('Moskitoski');
+				}
+			//}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Buzzing",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
