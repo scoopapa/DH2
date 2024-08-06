@@ -775,12 +775,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHitSide(side, source) {
 			source.addVolatile('stall');
-			source.addVolatile('thunderarmorboost');
 		},
 		condition: {
 			duration: 1,
 			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Thunder Armor');
+				source.addVolatile('thunderarmorboost');
 			},
 			onTryHitPriority: 4,
 			onTryHit(target, source, move) {
