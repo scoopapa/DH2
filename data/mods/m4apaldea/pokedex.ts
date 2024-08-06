@@ -330,10 +330,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	fezandipiti: {
 		inherit: true,
 		mega: "fezandipitimega",
-		megaName: "Hatterene-Mega",
+		megaName: "Fezandipiti-Mega",
 		megaAbility: {0: "Toxic Drain"},
 		megaStats: {hp: 88, atk: 111, def: 92, spa: 115, spd: 145, spe: 104},
-		megaStone: "Hatterenite",
+		megaStone: "Fezanidipite",
 		megaCreator: "okispokis",
 	},
 };
