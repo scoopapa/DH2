@@ -247,7 +247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "10% chance to burn. 20% chance to lower target's acc. by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smoke Screen", target);
@@ -285,6 +285,120 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	torchtail: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Torch Tail",
+		desc: "Has a 10% chance to burn the target and a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio. 10% chance to burn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fire Lash", target);
+		},
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	clarentcleave: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Clarent Cleave",
+		desc: "This move ignores the Fairy type's immunity to Dragon. Its type effectiveness against Fairy is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Hits and is super effective on Fairy.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ceaseless Edge", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fairy') return 1;
+		},
+		ignoreImmunity: {'Dragon': true},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMove: {basePower: 180},
+	},
+	disconnect: {
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		name: "Disconnect",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Cannot be selected the turn after it's used.",
+		shortDesc: "100% to lower target's Def by 1. Can't be used consecutively.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	sleepdrain: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Sleep Drain",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If the target is sleeping, it instead recovers 3/4 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of damage dealt, 75% instead if target is sleeping.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dream Eater", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target && target.status === 'slp') {
+				move.drain = [3,4];
+			}
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	healingnature: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Healing Nature",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. This move's type effectiveness against Poison is changed to be super effective no matter what this move's type is. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt. Super effective on Poison.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Flare", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
 	
 	//Balm Moves
 	magneticupdraft: {
@@ -303,7 +417,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'telekinesis',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Flying",
 	},
 	leapingonrush: {
@@ -322,7 +436,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'smackdown',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Fighting",
 	},
 	cupricdeluge: {
@@ -354,7 +468,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Steel",
 	},
 	divebomb: {
@@ -379,7 +493,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Water",
 	},
 	muddevourment: {
@@ -406,7 +520,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.field.clearTerrain();
 			}
 		},
-		target: "adjacentFoe",
+		secondary: null,
+		target: "normal",
 		type: "Ground",
 	},
 	cloneexpress: {
@@ -431,7 +546,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
 	},
 	adulteration: {
@@ -454,7 +569,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onAfterSubDamage(damage, target) {
 			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
 		},
-		target: "adjacentFoe",
+		secondary: null,
+		target: "normal",
 		type: "Poison",
 	},
 	oliverampage: {
@@ -471,7 +587,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage", target);
 		},
-		target: "adjacentFoe",
+		secondary: null,
+		target: "normal",
 		type: "Dragon",
 	},
 	tectonicshift: {
@@ -508,7 +625,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 		},
-		target: "adjacentFoe",
+		secondary: null,
+		target: "normal",
 		type: "Ground",
 	},
 	venomousfang: {
@@ -527,7 +645,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'venomousfang',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
 		condition: {
 			onStart(pokemon) {
@@ -551,7 +669,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Ammolite Vortex",
 		pp: 5,
-		priority: 1,
+		priority: 0,
 		flags: {protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. This move ignores effectiveness against types that would otherwise resist it. The target is immune if it does not share a type with the user.",
 		shortDesc: "x1.5 power of base move. Hits targets that share user's type. Ignores resistances.",
@@ -565,8 +683,266 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (typeMod < 0) return 0;
 		},
-		target: "adjacentFoe",
+		secondary: null,
+		target: "normal",
 		type: "Normal",
+	},
+	asurabarrage: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Asura Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, recharge: 1, contact: 1},
+		multihit: 3,
+		desc: "Power is equal to 1.5 times the base move's power. Hits three times. If this move is successful, the user must recharge on the following turn and cannot select a move.",
+		shortDesc: "x1.5 power of base move. Hits three times. User cannot move next turn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Drill", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+	},
+	dreadstampede: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Dread Stampede",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "x1.5 power of base move. Ignores the target's stat stage changes.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
+		},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	vivelerose: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Vive Le\u0301 Rose",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 50% chance to raise the user's Attack and Special Attack by 1 stage each.",
+		shortDesc: "x1.5 power of base move. 50% chance to raise user's Attack, Sp. Atk by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Petal Dance", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	thunderarmor: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Thunder Armor",
+		pp: 5,
+		priority: 4,
+		flags: {cantusetwice: 1},
+		desc: "Cannot be selected the turn after it's used. The user and its party members are protected from damaging attacks made by other Pokemon, including allies, during this turn. The next damaging move used by the user will have doubled power. When a contact move is blocked, the attacker is paralyzed. Fails if this move is already in effect for the user's side.",
+		shortDesc: "Protects allies from damaging attacks. Contact: paralysis. User's next attack has x2 BP. Cannot be selected the turn after it's used.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
+		},
+		sideCondition: 'thunderarmor',
+		onTry() {
+			return !!this.queue.willAct();
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Thunder Armor');
+				source.addVolatile('thunderarmorboost');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				if (move.category === 'Status') return;
+				this.add('-activate', target, 'move: Thunder Armor');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove/*) {
+					// Outrage counter is reset
+					if (*/&& source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					//}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		target: "allySide",
+		type: "Electric",
+	},
+	mysticburst: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Mystic Burst",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If Trick Room is not already active when this move is used, it sets up Trick Room.",
+		shortDesc: "x1.5 power of base move. Sets up Trick Room unless already present.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psywave", target);
+		},
+		onAfterHit(target, source, move) {
+			if (!this.field.pseudoWeather.trickroom && !move.hasSheerForce && source.hp) {
+				this.field.addPseudoWeather('trickroom');
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!this.field.pseudoWeather.trickroom && !move.hasSheerForce && source.hp) {
+				this.field.addPseudoWeather('trickroom');
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "allAdjacent",
+		type: "Psychic",
+	},
+	violetseed: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Violet Seed",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, bullet: 1},
+		desc: "Power is equal to 1.5 times the base move's power. This move becomes a critical hit if the target is under the effects of Leech Seed.",
+		shortDesc: "x1.5 power of base move. Crits seeded targets.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aura Sphere", target);
+		},
+		onModifyMove(move, source, target) {
+			if (target.volatiles['leechseed']) {
+				move.critRatio = 5;
+			}
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Fighting",
+	},
+	mentalextract: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Mental Extract",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. After using this move, the user prevents all opposing Pokemon from using any moves that the user also knows as long as the user remains active.",
+		shortDesc: "x1.5 power of base move. Foes cannot use user's moves.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psystrike", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				volatileStatus: 'imprison',
+			},
+		},
+		target: "adjacentFoe",
+		type: "Psychic",
+	},
+	discovery: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Discovery",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to raise the user's Special Defense and Speed by 1 stage each.",
+		shortDesc: "x1.5 power of base move. 100% chance to raise user's Sp. Def, Speed by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Grassy Glide", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spd: 1,
+					spe: 1,
+				},
+			},
+		},
+		target: "adjacentFoe",
+		type: "Grass",
+	},
+	shakingtundra: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Shaking Tundra",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "x1.5 power of base move. 100% chance lower adjacent Pkmn Speed by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Earthquake", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacent",
+		type: "Ground",
+	},
+	venomdrain: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Venom Drain",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "x1.5 power of base move. User recovers 50% of the damage dealt.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Giga Drain", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Poison",
 	},
 	
 	//Interacting with new Brunician mechanics

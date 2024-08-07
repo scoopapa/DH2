@@ -765,4 +765,40 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -49,
 		gen: 9,
 	},
+	cornerstonemask: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {
+			return basePower;
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Cornerstone')) {
+				return this.chainModify(1.2);
+			}
+		},
+	},
+	hearthflamemask: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {
+			return basePower;
+		},
+		onModifyAtkPriority: 6,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
+				return this.chainModify(1.2);
+			}
+		},
+	},
+	wellspringmask: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {
+			return basePower;
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Wellspring')) {
+				return this.chainModify(1.2);
+			}
+		},
+	},
 }

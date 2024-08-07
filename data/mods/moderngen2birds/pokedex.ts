@@ -1,4 +1,18 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	moltresgalar: {
+		inherit: true,
+		gen: 3,
+	},	
+	zapdosgalar: {
+		inherit: true,
+		gen: 3,
+	},	
+	articunogalar: {
+		inherit: true,
+		gen: 3,
+	},
+
+// the rest	
 	turtwig: {
 		inherit: true,
 		gen: 3,

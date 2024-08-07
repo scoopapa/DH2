@@ -73,12 +73,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			
 			//Toxic distribution is reduced among non-Poisons (the ones that returned for Desvega but not SV that kept it will have it returned)
 			if (!mon.types.includes('Poison') && learnset.toxic) delete learnset.toxic;
-			//Now we free all the moves
-			//(first one replaces hail with snowscape)
+			//We replace Hail with Snowscape
 			if (learnset.hail) {
 				delete learnset.hail;
 				learnset.snowscape = [];
 			}
+			//Now we free all the moves
 			for (const move in learnset) {
 				learnset[move].push("9L1");
 			}
@@ -91,6 +91,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//Lorian move additions
 		this.modData("Learnsets", "spearow").learnset.payday = ["9L1","8L1"];
 		this.modData("Learnsets", "fearow").learnset.payday = ["9L1","8L1"];
+		
+		//zubat line
+		this.modData("Learnsets", "zubat").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "golbat").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "crobat").learnset.drainfang = ["9L1","8L1"];
 		
 		/*//oddish line
 		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
@@ -231,6 +236,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "stonjourner").learnset.crippleclobber = ["9L1","8L1"];
+		*/this.modData("Learnsets", "onix").learnset.crippleclobber = ["9L1","8L1"];
+		this.modData("Learnsets", "steelix").learnset.crippleclobber = ["9L1","8L1"];/*
 
 		//magby line
 		this.modData("Learnsets", "magby").learnset.quickshot = ["9L1","8L1"];
@@ -334,18 +341,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "eiscue").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "wooloo").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "dubwool").learnset.rapidspin = ["9L1"];
+		*/this.modData("Learnsets", "roselia").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "roserade").learnset.rapidspin = ["9L1"];
 		
-		this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
+		/*this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "gloom").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "vileplume").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "bellossom").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "venipede").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "whirlipede").learnset.mortalspin = ["9L1"];
-		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];
-		
+		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];*/
+		this.modData("Learnsets", "roselia").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "roserade").learnset.mortalspin = ["9L1"];
+		/*	
 		//Returning Toxic to the select non-Poisons that returned for Desvega but not SV
 		this.modData("Learnsets", "paras").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "parasect").learnset.toxic = ["9L1"];
+		*/
+		
+		/*
 		
 		this.modData("Learnsets", "aerodactyl").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "cranidos").learnset.accelerock = ["9L1"];
@@ -396,16 +410,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "steelix").learnset.powertrick = ["9L1"];
 		this.modData("Learnsets", "zubat").learnset.toxicshock = ["9L1"];
 		this.modData("Learnsets", "zubat").learnset.poisonterrain = ["9L1"];
-		this.modData("Learnsets", "zubat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets", "zubat").learnset.sleepdrain = ["9L1"];
 		this.modData("Learnsets", "golbat").learnset.toxicshock = ["9L1"];
 		this.modData("Learnsets", "golbat").learnset.poisonterrain = ["9L1"];
-		this.modData("Learnsets", "golbat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets", "golbat").learnset.sleepdrain = ["9L1"];
 		this.modData("Learnsets", "crobat").learnset.toxicshock = ["9L1"];
 		this.modData("Learnsets", "crobat").learnset.poisonterrain = ["9L1"];
-		this.modData("Learnsets", "crobat").learnset.drainfang = ["9M"];
 		this.modData("Learnsets", "crobat").learnset.xscissor = ["9L1"];
 		this.modData("Learnsets", "crobat").learnset.ominouswind = ["9L1"];
 		this.modData("Learnsets", "crobat").learnset.silverwind = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.sleepdrain = ["9L1"];
 		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["9L1"];
 		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
 		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
@@ -415,6 +429,39 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		//absol
 		this.modData("Learnsets", "absol").learnset.shocktail = ["9L1"];
+		
+		//doduo line
+		delete this.modData("Learnsets","doduo").learnset.endeavor;
+		delete this.modData("Learnsets","dodrio").learnset.endeavor;
+		this.modData("Learnsets","dodrio").learnset.axekick = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.triplekick = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.highjumpkick = ["9L1"];
+		this.modData("Learnsets","doduo").learnset.triplekick = ["9E"];
+		this.modData("Learnsets","doduo").learnset.jumpkick = ["9L39"];
+		this.modData("Learnsets","dodrio").learnset.jumpkick = ["9L39"];
+		this.modData("Learnsets","doduo").learnset.lunge = ["9L47"];
+		this.modData("Learnsets","dodrio").learnset.lunge = ["9L47"];
+		
+		//bouffalant
+		this.modData("Learnsets","bouffalant").learnset.trailblaze = ["9E"];
+		this.modData("Learnsets","bouffalant").learnset.headsmash = ["9L39"];
+		this.modData("Learnsets","bouffalant").learnset.supercellslam = ["9L39"];
+		
+		//budew line
+		this.modData("Learnsets","budew").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.playrough = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.playrough = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.tripleaxel = ["9L1"];
+		
+		//mandibuzz
+		this.modData("Learnsets","mandibuzz").learnset.airdive = ["9L1"];
 		
 	},
 	runAction(action) {

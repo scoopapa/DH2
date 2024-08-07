@@ -463,6 +463,151 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	pichat: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	pikachat: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	raichat: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	bouffalant: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	vullaby: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	mandibuzz: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	snover: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	abomasnow: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	thermonewt: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	teddiursa: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	ursaring: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	ursaluna: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	pineco: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	forretress: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	doduo: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	dodrio: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	budew: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	roselia: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	roserade: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	trippletop: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	sowlixi: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	gartifoli: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	violagarie: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	druddigonbrunica: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	drudraigoch: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mimikursa: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	mimiring: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	mimiluna: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mimilunabloodmoon: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	garoupe: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	xuehseng: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	yiseng: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	moskitoski: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	frostabone: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	hippopotasbrunica: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	hippowdonbrunica: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+
 
 
 	akulut: {
