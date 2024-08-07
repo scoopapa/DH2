@@ -247,7 +247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "10% chance to burn. 20% chance to lower target's acc. by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smoke Screen", target);
@@ -417,7 +417,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'telekinesis',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Flying",
 	},
 	leapingonrush: {
@@ -436,7 +436,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'smackdown',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Fighting",
 	},
 	cupricdeluge: {
@@ -468,7 +468,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Steel",
 	},
 	divebomb: {
@@ -493,7 +493,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Water",
 	},
 	muddevourment: {
@@ -521,7 +521,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ground",
 	},
 	cloneexpress: {
@@ -546,7 +546,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
 	},
 	adulteration: {
@@ -570,7 +570,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Poison",
 	},
 	oliverampage: {
@@ -588,7 +588,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Outrage", target);
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Dragon",
 	},
 	tectonicshift: {
@@ -626,7 +626,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ground",
 	},
 	venomousfang: {
@@ -645,7 +645,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'venomousfang',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
 		condition: {
 			onStart(pokemon) {
@@ -684,7 +684,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (typeMod < 0) return 0;
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Normal",
 	},
 	asurabarrage: {
@@ -706,7 +706,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			volatileStatus: 'mustrecharge',
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Bug",
 	},
 	dreadstampede: {
@@ -726,7 +726,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		ignoreEvasion: true,
 		ignoreDefensive: true,
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Dark",
 	},
 	vivelerose: {
@@ -752,12 +752,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 				},
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Fairy",
 	},
 	thunderarmor: {
 		accuracy: true,
-		basePower: 1,
+		basePower: 0,
 		category: "Status",
 		name: "Thunder Armor",
 		pp: 5,
@@ -775,12 +775,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHitSide(side, source) {
 			source.addVolatile('stall');
-			source.addVolatile('thunderarmorboost');
 		},
 		condition: {
 			duration: 1,
 			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Thunder Armor');
+				source.addVolatile('thunderarmorboost');
 			},
 			onTryHitPriority: 4,
 			onTryHit(target, source, move) {
@@ -799,7 +799,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return this.NOT_FAIL;
 			},
 		},
-		target: "adjacentFoe",
+		target: "allySide",
 		type: "Electric",
 	},
 	mysticburst: {
@@ -814,7 +814,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "x1.5 power of base move. Sets up Trick Room unless already present.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Synchronoise", target);
+			this.add('-anim', source, "Psywave", target);
 		},
 		onAfterHit(target, source, move) {
 			if (!this.field.pseudoWeather.trickroom && !move.hasSheerForce && source.hp) {
