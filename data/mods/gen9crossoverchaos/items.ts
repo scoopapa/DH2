@@ -115,7 +115,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: "Right Behind You",
 		zMoveFrom: "Backstab",
 		itemUser: ["Spy"],
-		num: -8,
+		num: -9,
 		gen: 9,
 	},
 };
