@@ -126,6 +126,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 			},
 		},
+		ignoreImmunity: {'Dark': true},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
