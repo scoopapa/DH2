@@ -594,7 +594,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Tree-Ocean of Hourai",
 		pp: 1,
 		priority: 0,
-		flags: {bullet: 1},
+		flags: {bullet: 1, heal: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Surf", target);
@@ -1034,7 +1034,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fairy",
-		zMove: {boost: {spd: 2}},
+		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
 	finalstrike: {
@@ -1251,12 +1251,131 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "foeSide",
 		type: "Rock",
-		zMove: {boost: {def: 1}},
+		zMove: {boost: {def: 2}},
 		contestType: "Clever",
 	},
+	starriders: {
+		num: -49,
+		accuracy: true,
+		basePower: 200,
+		category: "Special",
+		name: "Star Riders",
+		shortDesc: "No additional effects.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Cosmic Power", source);
+			this.add('-anim', source, "Moongeist Beam", target);
+		},
+		isZ: "geniumz",
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	Eject: {
+		num: -50,
+		accuracy: 90,
+		basePower: 90,
+		category: "Physical",
+		name: "Circle Throw",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', source, "Hyper Voice", target);
+			this.add('-anim', target, "Teleport", target);
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	backstab: {
+		num: -51,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Backstab damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Backstab NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Backstab",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-prepareAnim', source, "Phantom Force", source);
+			this.add('-anim', source, "Shadow Sneak", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	electrosapper: {
+		num: -52,
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Electro-Sapper",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Shadow Sneak", target);
+			this.add('-anim', source, "Thunder Cage", target);
+		},
+		volatileStatus: 'partiallytrapped',
+		boosts: {
+			spe: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {boost: {spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	rightbehindyou: {
+		num: -53,
+		accuracy: true,
+		basePower: 140,
+		category: "Physical",
+		name: "Right Behind You",
+		pp: 1,
+		priority: 0,
+		flags: {contact: 1, heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-prepareAnim', source, "Phantom Force", source);
+			this.add('-anim', source, "First Impression", target);
+		},
+		self: {
+			boosts: {
+				spe: 1,
+			},
+		},
+		drain: [1, 2],
+		isZ: "spyniumz",
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	
 	// Skipping ahead bc future moves in the spreadsheet got added to an older mon
 	bombblast: {
-		num: -76,
+		num: -77,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -1299,7 +1418,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	bombthrow: {
-		num: -77,
+		num: -78,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -1341,6 +1460,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Cool",
 	},
+	
 	
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
