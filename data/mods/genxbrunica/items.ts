@@ -243,6 +243,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 	},
+	//Items modified for Brunica
+	bigroot: {
+		inherit: true,
+		fling: {
+			basePower: 10,
+			volatileStatus: 'ingrain',
+		},
+	},
 	//Standard Items (returning from Desvega)
 	thunderorb: {
 		name: "Thunder Orb",

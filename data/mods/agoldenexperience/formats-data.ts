@@ -2048,8 +2048,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	deoxysattack: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	deoxysdefense: {
 		tier: "RU",
@@ -4768,7 +4768,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	fluttermane: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	slitherwing: {
@@ -4812,7 +4812,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	chienpao: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	wochien: {

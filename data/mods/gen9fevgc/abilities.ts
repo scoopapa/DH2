@@ -4198,7 +4198,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if ((pokemon.hp <= pokemon.maxhp / 3) && !this.field.isWeather('sunnyday')) {
+			if ((pokemon.hp <= pokemon.maxhp / 3)) {
 				pokemon.addVolatile('protopyre');
 			} else if (!pokemon.volatiles['protopyre']?.fromBooster) {
 				pokemon.removeVolatile('protopyre');
@@ -4341,7 +4341,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (((pokemon.status === 'psn' || pokemon.status === 'tox')) && !this.field.isWeather('sunnyday')) {
+			if (((pokemon.status === 'psn' || pokemon.status === 'tox'))) {
 				pokemon.addVolatile('prototoxin');
 			} else if (!pokemon.volatiles['prototoxin']?.fromBooster) {
 				pokemon.removeVolatile('prototoxin');
