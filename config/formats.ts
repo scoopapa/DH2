@@ -4307,6 +4307,12 @@ export const Formats: FormatList = [
 		mod: 'maxmeter',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onBegin() {
+			for (const side of this.sides) {
+				if (!side.getSideCondition('maxmeter7')) {
+					side.dynamaxUsed = true;
+				}
+			}
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
 			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5') || source.side.getSideCondition('maxmeter6') || source.side.getSideCondition('maxmeter7')) return;
