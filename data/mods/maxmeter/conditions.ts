@@ -30,6 +30,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onBeforeSwitchOutPriority: -1,
 		onBeforeSwitchOut(pokemon) {
 			pokemon.removeVolatile('dynamax');
+			pokemon.side.removeSideCondition('maxmeter7');
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
@@ -51,6 +52,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.hp = pokemon.getUndynamaxedHP();
 			pokemon.maxhp = pokemon.baseMaxhp;
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			pokemon.side.removeSideCondition('maxmeter7');
 		},
 	},
 };
