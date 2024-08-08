@@ -4305,7 +4305,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Max Meter",
 		mod: 'maxmeter',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
