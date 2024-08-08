@@ -340,7 +340,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	jellydessertqueen: {
 		onResidual(pokemon) {
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] ability: Jelly Dessert Queen');
+			// this.add('-heal', pokemon, pokemon.getHealth, '[from] ability: Jelly Dessert Queen');
 			this.heal(pokemon.baseMaxhp / 16);
 		},
 		name: "Jelly Dessert Queen",
@@ -512,5 +512,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "30% chance to restore ally's health for 1/4 at the end of each turn",
 		rating: 1,
 		num: -26,
+	},
+	autobuild: {
+		name: "Autobuild",
+		shortDesc: "This Pokemon is immune to hazards & terrain.",
+		// Literally every element of this has to be handled via moves.ts
+		rating: 4,
+		num: -27,
 	},
 };

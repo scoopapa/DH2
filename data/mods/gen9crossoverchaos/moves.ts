@@ -126,6 +126,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 			},
 		},
+		ignoreImmunity: {'Dark': true},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
@@ -487,7 +488,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Giga Drain", target);
 		},
 		onHit(pokemon, source, target) {
-			this.add('-heal', source, source.getHealth, '[from] move: Life Soup');
 			this.heal(source.maxhp / 10, source);
 		},
 		secondary: null,
@@ -593,7 +593,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Tree-Ocean of Hourai",
 		pp: 1,
 		priority: 0,
-		flags: {bullet: 1},
+		flags: {bullet: 1, heal: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Surf", target);
@@ -1033,7 +1033,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fairy",
-		zMove: {boost: {spd: 2}},
+		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
 	finalstrike: {
@@ -1250,12 +1250,135 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "foeSide",
 		type: "Rock",
-		zMove: {boost: {def: 1}},
+		zMove: {boost: {def: 2}},
 		contestType: "Clever",
 	},
+	starriders: {
+		num: -49,
+		accuracy: true,
+		basePower: 200,
+		category: "Special",
+		name: "Star Riders",
+		shortDesc: "No additional effects.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Cosmic Power", source);
+			this.add('-anim', source, "Moongeist Beam", target);
+		},
+		isZ: "geniumz",
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
+	eject: {
+		num: -50,
+		accuracy: 90,
+		basePower: 90,
+		category: "Special",
+		name: "Eject",
+		shortDesc: "Forces the target to switch to a random ally.",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', source, "Hyper Voice", target);
+			this.add('-anim', target, "Teleport", target);
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	backstab: {
+		num: -51,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Backstab damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Backstab NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Backstab",
+		shortDesc: "Power 1.5x if user moves before the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bide", source);
+			this.add('-anim', source, "Shadow Sneak", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	electrosapper: {
+		num: -52,
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Electro-Sapper",
+		shortDesc: "Lowers the target's Speed by 1; Traps and damages the target for 4-5 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bide", source);
+			this.add('-anim', source, "Thunder Cage", target);
+		},
+		volatileStatus: 'partiallytrapped',
+		boosts: {
+			spe: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {boost: {spd: 1, spe: 1}},
+		contestType: "Clever",
+	},
+	rightbehindyou: {
+		num: -53,
+		accuracy: true,
+		basePower: 140,
+		category: "Physical",
+		name: "Right Behind You",
+		shortDesc: "Raises user's speed by 1; restores 50% of damage dealt.",
+		pp: 1,
+		priority: 0,
+		flags: {contact: 1, heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bide", source);
+			this.add('-anim', source, "First Impression", target);
+		},
+		self: {
+			boosts: {
+				spe: 1,
+			},
+		},
+		drain: [1, 2],
+		isZ: "spyniumz",
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	
 	// Skipping ahead bc future moves in the spreadsheet got added to an older mon
 	bombblast: {
-		num: -76,
+		num: -77,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -1298,7 +1421,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	bombthrow: {
-		num: -77,
+		num: -78,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -1340,6 +1463,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Cool",
 	},
+	
 	
 	// Below are vanilla moves altered by custom interractions
 	bounce: {
@@ -1629,5 +1753,411 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
+	},
+	spikes: {
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'spikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('autobuild')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	stealthrock: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stealth Rock",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'stealthrock',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('autobuild')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	stickyweb: {
+		num: 564,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Web",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1},
+		sideCondition: 'stickyweb',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('autobuild')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Bug",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
+	},
+	toxicspikes: {
+		num: 390,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Toxic Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'toxicspikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('autobuild')) {
+					return;
+				} else if (this.effectState.layers >= 2) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+				} else {
+					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Poison",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	gmaxsteelsurge: {
+		num: 1000,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Gigantamax",
+		name: "G-Max Steelsurge",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isMax: "Copperajah",
+		self: {
+			onHit(source) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('gmaxsteelsurge');
+				}
+			},
+		},
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('autobuild')) return;
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	grassyterrain: {
+		num: 580,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Grassy Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'grassyterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable() && !defender.hasAbility('autobuild')) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded() && !attacker.hasAbility('autobuild')) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasAbility('autobuild')) {
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+	mistyterrain: {
+		num: 581,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Misty Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'mistyterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable() || target.hasAbility('autobuild')) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable() || target.hasAbility('autobuild')) return;
+				if (status.id === 'confusion') {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable() && !defender.hasAbility('autobuild')) {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'Misty Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		zMove: {boost: {spd: 1}},
+		contestType: "Beautiful",
+	},
+	psychicterrain: {
+		num: 678,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Psychic Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'psychicterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, effect) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+					return;
+				}
+				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
+				if (!target.isGrounded() || target.hasAbility('autobuild')) {
+					const baseMove = this.dex.moves.get(effect.id);
+					if (baseMove.priority > 0) {
+						if (target.hasAbility('autobuild')) {
+							this.hint("Psychic Terrain doesn't affect Pokémon with Autobuild.");
+						}
+						else {
+							this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
+						}
+					}
+					return;
+				}
+				this.add('-activate', target, 'move: Psychic Terrain');
+				return null;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable() && !attacker.hasAbility('autobuild')) {
+					this.debug('psychic terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Psychic Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Psychic Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	electricterrain: {
+		num: 604,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Electric Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'electricterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable() && !target.hasAbility('autobuild')) {
+					if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Electric Terrain');
+					}
+					return false;
+				}
+			},
+			onTryAddVolatile(status, target) {
+				if (!target.isGrounded() || target.isSemiInvulnerable() || target.hasAbility('autobuild')) return;
+				if (status.id === 'yawn') {
+					this.add('-activate', target, 'move: Electric Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable() && !attacker.hasAbility('autobuild')) {
+					this.debug('electric terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Electric Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Electric Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Electric",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
 	},
 };

@@ -247,5 +247,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "unintroduced",
 		doublesTier: "unintroduced",
 	},
-
+	geno: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	crewmate: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	amblingpearl: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	spy: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	masterkohga: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	tsih: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
 };
