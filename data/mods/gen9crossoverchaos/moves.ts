@@ -1316,7 +1316,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-prepareAnim', source, "Phantom Force", source);
+			this.add('-anim', source, "Bide", source);
 			this.add('-anim', source, "Shadow Sneak", target);
 		},
 		secondary: null,
@@ -1336,7 +1336,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Shadow Sneak", target);
+			this.add('-anim', source, "Bide", source);
 			this.add('-anim', source, "Thunder Cage", target);
 		},
 		volatileStatus: 'partiallytrapped',
@@ -1361,7 +1361,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, heal: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-prepareAnim', source, "Phantom Force", source);
+			this.add('-anim', source, "Bide", source);
 			this.add('-anim', source, "First Impression", target);
 		},
 		self: {
