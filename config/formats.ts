@@ -4191,7 +4191,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Dynamax Meter",
+		name: "[Gen 8] Dynamax Meter",
 		mod: 'gen8maxmeter',
 		ruleset: ['Standard'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
