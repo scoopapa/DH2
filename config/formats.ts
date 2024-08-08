@@ -4197,14 +4197,14 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 		onBegin() {
 			for (const side of this.sides) {
-				if (!side.getSideCondition('maxmeter7')) {
+				if (!side.getSideCondition('maxmeter5')) {
 					side.dynamaxUsed = true;
 				}
 			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
-			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5') || source.side.getSideCondition('maxmeter6') || source.side.getSideCondition('maxmeter7')) return;
+			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5')) return;
 			if (source.hasType(move.type)) {
 				source.side.addSideCondition('maxmeter1');
 			}
