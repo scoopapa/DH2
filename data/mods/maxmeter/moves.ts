@@ -1,4 +1,254 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	// removing dynamax's random immunities (AKA i totally could've just used tera instead of dmax)
+		destinybond: {
+		inherit: true,
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onFaint(target, source, effect) {
+				if (!source || !effect || target.isAlly(source)) return;
+				if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+					this.add('-activate', target, 'move: Destiny Bond');
+					source.faint();
+				}
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('destinybond');
+			},
+		},
+	},
+	encore: {
+		inherit: true,
+		condition: {
+			duration: 3,
+			noCopy: true, // doesn't get copied by Z-Baton Pass
+			onStart(target) {
+				let move: Move | ActiveMove | null = target.lastMove;
+				if (!move) return false;
+
+				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+				const moveIndex = target.moves.indexOf(move.id);
+				if (move.isZ || move.flags['failencore'] || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
+					// it failed
+					return false;
+				}
+				this.effectState.move = move.id;
+				this.add('-start', target, 'Encore');
+				if (!this.queue.willMove(target)) {
+					this.effectState.duration++;
+				}
+			},
+			onOverrideAction(pokemon, target, move) {
+				if (move.id !== this.effectState.move) return this.effectState.move;
+			},
+			onResidualOrder: 16,
+			onResidual(target) {
+				if (!target.moves.includes(this.effectState.move) ||
+					target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
+					// early termination if you run out of PP
+					target.removeVolatile('encore');
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Encore');
+			},
+			onDisableMove(pokemon) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+					return;
+				}
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id !== this.effectState.move) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		},
+	},
+	entrainment: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target === source) return false;
+			if (
+				target.ability === source.ability ||
+				target.getAbility().flags['cantsuppress'] || target.ability === 'truant' ||
+				source.getAbility().flags['noentrain']
+			) {
+				return false;
+			}
+		},
+		onHit(target, source) {
+			const oldAbility = target.setAbility(source.ability);
+			if (oldAbility) {
+				this.add('-ability', target, target.getAbility().name, '[from] move: Entrainment');
+				if (!target.isAlly(source)) target.volatileStaleness = 'external';
+				return;
+			}
+			return oldAbility as false | null;
+		},
+	},
+	grassknot: {
+		inherit: true,
+		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
+		basePowerCallback(pokemon, target) {
+			const targetWeight = target.getWeight();
+			let bp;
+			if (target.volatiles['dynamax']) {
+				bp = 120;
+			} else if (targetWeight >= 2000) {
+				bp = 120;
+			} else if (targetWeight >= 1000) {
+				bp = 100;
+			} else if (targetWeight >= 500) {
+				bp = 80;
+			} else if (targetWeight >= 250) {
+				bp = 60;
+			} else if (targetWeight >= 100) {
+				bp = 40;
+			} else {
+				bp = 20;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onTryHit() {},
+	},
+	lowkick: {
+		inherit: true,
+		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
+		basePowerCallback(pokemon, target) {
+			const targetWeight = target.getWeight();
+			let bp;
+			if (target.volatiles['dynamax']) {
+				bp = 120;
+			} else if (targetWeight >= 2000) {
+				bp = 120;
+			} else if (targetWeight >= 1000) {
+				bp = 100;
+			} else if (targetWeight >= 500) {
+				bp = 80;
+			} else if (targetWeight >= 250) {
+				bp = 60;
+			} else if (targetWeight >= 100) {
+				bp = 40;
+			} else {
+				bp = 20;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onTryHit() {},
+	},
+	heatcrash: {
+		inherit: true,
+		desc: "The power of this move depends on (user's weight / target's weight), rounded down. Power is equal to 120 if the result is 5 or more, 100 if 4, 80 if 3, 60 if 2, and 40 if 1 or less or if the target is Dynamax or Gigantamax. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
+		basePowerCallback(pokemon, target) {
+			const targetWeight = target.getWeight();
+			const pokemonWeight = pokemon.getWeight();
+			let bp;
+			if (target.volatiles['dynamax']) {
+				bp = 40;
+			} else if (pokemonWeight >= targetWeight * 5) {
+				bp = 120;
+			} else if (pokemonWeight >= targetWeight * 4) {
+				bp = 100;
+			} else if (pokemonWeight >= targetWeight * 3) {
+				bp = 80;
+			} else if (pokemonWeight >= targetWeight * 2) {
+				bp = 60;
+			} else {
+				bp = 40;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onTryHit() {},
+	},
+	heavyslam: {
+		inherit: true,
+		desc: "The power of this move depends on (user's weight / target's weight), rounded down. Power is equal to 120 if the result is 5 or more, 100 if 4, 80 if 3, 60 if 2, and 40 if 1 or less or if the target is Dynamax or Gigantamax. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
+		basePowerCallback(pokemon, target) {
+			const targetWeight = target.getWeight();
+			const pokemonWeight = pokemon.getWeight();
+			let bp;
+			if (target.volatiles['dynamax']) {
+				bp = 40;
+			} else if (pokemonWeight >= targetWeight * 5) {
+				bp = 120;
+			} else if (pokemonWeight >= targetWeight * 4) {
+				bp = 100;
+			} else if (pokemonWeight >= targetWeight * 3) {
+				bp = 80;
+			} else if (pokemonWeight >= targetWeight * 2) {
+				bp = 60;
+			} else {
+				bp = 40;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onTryHit() {},
+	},
+	instruct: {
+		inherit: true,
+		onHit(target, source) {
+			if (!target.lastMove) return false;
+			const lastMove = target.lastMove;
+			const moveIndex = target.moves.indexOf(lastMove.id);
+			if (
+				lastMove.flags['failinstruct'] || lastMove.isZ || lastMove.isMax ||
+				lastMove.flags['charge'] || lastMove.flags['recharge'] ||
+				target.volatiles['beakblast'] || target.volatiles['focuspunch'] || target.volatiles['shelltrap'] ||
+				(target.moveSlots[moveIndex] && target.moveSlots[moveIndex].pp <= 0)
+			) {
+				return false;
+			}
+			this.add('-singleturn', target, 'move: Instruct', '[of] ' + source);
+			this.queue.prioritizeAction(this.queue.resolveAction({
+				choice: 'move',
+				pokemon: target,
+				moveid: target.lastMove.id,
+				targetLoc: target.lastMoveTargetLoc!,
+			})[0] as MoveAction);
+		},
+	},
+	skillswap: {
+		inherit: true,
+		onTryHit(target, source) {
+			const targetAbility = target.getAbility();
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['failskillswap'] || targetAbility.flags['failskillswap']) {
+				return false;
+			}
+			const sourceCanBeSet = this.runEvent('SetAbility', source, source, this.effect, targetAbility);
+			if (!sourceCanBeSet) return sourceCanBeSet;
+			const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, sourceAbility);
+			if (!targetCanBeSet) return targetCanBeSet;
+		},
+	},
+	torment: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'gmaxmeltdown') this.effectState.duration = 3;
+				this.add('-start', pokemon, 'Torment');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Torment');
+			},
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+			},
+		},
+	},
+	
 	// coding the max meter side conditions (AKA I really should've worked off of Stockpile)
 	maxmeter1: {
 		shortDesc: "The first level of Max Meter.",
