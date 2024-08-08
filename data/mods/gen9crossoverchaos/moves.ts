@@ -488,7 +488,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		  this.add('-anim', source, "Giga Drain", target);
 		},
 		onHit(pokemon, source, target) {
-			this.add('-heal', source, source.getHealth, '[from] move: Life Soup');
 			this.heal(source.maxhp / 10, source);
 		},
 		secondary: null,
