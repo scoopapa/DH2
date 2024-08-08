@@ -9,7 +9,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', `This Pokemon has now entered Max Mode!`);
 			this.add('-message', `In Max Mode, all of this Pokemon's stats (except HP & Speed) are increased by 1.5x!`);
 			this.add('-message', `Additionally, this Pokemon is now immune to the negative effects of status conditions and can't be forced out (unless it's holding an Eject Button)!`);
-			this.add('-message', `Max Mode will last for the next 3 turns!`);
+			this.add('-message', `Max Mode will last for the next 3 turns and can't be entered again!`);
 			this.add('-start', pokemon, 'Dynamax', pokemon.gigantamax ? 'Gmax' : '');
 		},
 		onBeforeSwitchOutPriority: -1,
@@ -21,6 +21,26 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
 				return this.chainModify(2);
 			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			this.debug('Dynamax atk boost');
+			return this.chainModify(1.5);
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			this.debug('Dynamax def boost');
+			return this.chainModify(1.5);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			this.debug('Dynamax spa boost');
+			return this.chainModify(1.5);
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			this.debug('Dynamax spd boost');
+			return this.chainModify(1.5);
 		},
 		onDragOutPriority: 2,
 		onDragOut(pokemon) {
