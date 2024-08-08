@@ -144,16 +144,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noSketch: true,
 		sideCondition: 'maxmeter5',
 		condition: {
-			onAfterMoveSecondarySelf(source, target, move) {
-				if (!move || !target) return;
-				if (source.hasType(move.type)) {
-					source.side.removeSideCondition('maxmeter5');
-					source.side.addSideCondition('maxmeter6');
-				}
-			},
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Max Meter 5');
 				this.add('-message', `This side has 5 levels of Max Meter!`);
+				this.add('-message', `The Max Meter is now maxed out! This side can now Dynamax!`);
+				side.dynamaxUsed = false;				
 			},
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 2,
@@ -165,73 +160,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allySide",
 		type: "Fighting",
 	},
-	maxmeter6: {
-		shortDesc: "The sixth level of Max Meter.",
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Max Meter 6",
-		pp: 1,
-		priority: 0,
-		flags: {},
-		noSketch: true,
-		sideCondition: 'maxmeter6',
-		condition: {
-			onAfterMoveSecondarySelf(source, target, move) {
-				if (!move || !target) return;
-				if (source.hasType(move.type)) {
-					source.side.removeSideCondition('maxmeter6');
-					source.side.addSideCondition('maxmeter7');
-				}
-			},
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Max Meter 6');
-				this.add('-message', `This side has 6 levels of Max Meter!`);
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 2,
-			onSideEnd(side) {
-				this.add('-sideend', side, 'move: Max Meter 6');
-			},
-		},
-		secondary: null,
-		target: "allySide",
-		type: "Fighting",
-	},
-	maxmeter7: {
-		shortDesc: "The seventh and final level of Max Meter.",
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Max Meter 7",
-		pp: 1,
-		priority: 0,
-		flags: {},
-		noSketch: true,
-		sideCondition: 'maxmeter7',
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Max Meter 7');
-				this.add('-message', `This side has 7 levels of Max Meter!`);
-				this.add('-message', `The Max Meter is now maxed out!`);
-				if (side.sideConditions['dynamaxused']) {
-					side.dynamaxUsed = true;
-				} else {
-					side.dynamaxUsed = false;				
-				}
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 2,
-			onSideEnd(side) {
-				this.add('-sideend', side, 'move: Max Meter 7');
-			},
-		},
-		secondary: null,
-		target: "allySide",
-		type: "Fighting",
-	},
 	dynamaxused: {
-		shortDesc: "Prevents Dynamax from being used multiple times.",
+		shortDesc: "Prevents Dynamax from being used multiple times (but it's not used here).",
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
