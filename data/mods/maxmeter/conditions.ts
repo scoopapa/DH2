@@ -1,31 +1,16 @@
 export const Conditions: {[k: string]: ConditionData} = {
+	// Max Mode
 	dynamax: {
 		name: 'Dynamax',
 		noCopy: true,
 		onStart(pokemon) {
 			this.effectState.turns = 0;
-			pokemon.removeVolatile('minimize');
-			pokemon.removeVolatile('substitute');
 			pokemon.side.addSideCondition('dynamaxused', pokemon);
-			if (pokemon.volatiles['torment']) {
-				delete pokemon.volatiles['torment'];
-				this.add('-end', pokemon, 'Torment', '[silent]');
-			}
-			if (['cramorantgulping', 'cramorantgorging'].includes(pokemon.species.id) && !pokemon.transformed) {
-				pokemon.formeChange('cramorant');
-			}
+			this.add('-message', `This Pokemon has now entered Max Mode!`);
+			this.add('-message', `In Max Mode, all of this Pokemon's stats (except HP & Speed) are increased by 1.5x!`);
+			this.add('-message', `Additionally, this Pokemon is now immune to the negative effects of status conditions and can't be forced out (unless it's holding an Eject Button)!`);
+			this.add('-message', `Max Mode will last for the next 3 turns!`);
 			this.add('-start', pokemon, 'Dynamax', pokemon.gigantamax ? 'Gmax' : '');
-			if (pokemon.baseSpecies.name === 'Shedinja') return;
-
-			// Changes based on dynamax level, 2 is max (at LVL 10)
-			const ratio = 1.5 + (pokemon.dynamaxLevel * 0.05);
-
-			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio);
-			pokemon.hp = Math.floor(pokemon.hp * ratio);
-			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-		},
-		onTryAddVolatile(status, pokemon) {
-			if (status.id === 'flinch') return null;
 		},
 		onBeforeSwitchOutPriority: -1,
 		onBeforeSwitchOut(pokemon) {
@@ -48,11 +33,51 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax');
-			if (pokemon.baseSpecies.name === 'Shedinja') return;
-			pokemon.hp = pokemon.getUndynamaxedHP();
-			pokemon.maxhp = pokemon.baseMaxhp;
-			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			pokemon.side.removeSideCondition('maxmeter7');
+		},
+	},
+
+	// Statuses (incl. new Freeze)
+	frz: {
+		name: 'frz',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'frz');
+			}
+			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
+				target.formeChange('Shaymin', this.effect, true);
+			}
+		},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			if (this.randomChance(1, 10)) {
+				pokemon.cureStatus();
+				return;
+			}
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			this.debug('Freeze extra damage');
+			return this.chainModify([5325, 4096]);
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['defrost']) {
+				this.add('-curestatus', pokemon, 'frz', '[from] move: ' + move);
+				pokemon.clearStatus();
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (move.thawsTarget) {
+				target.cureStatus();
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire' && move.category !== 'Status') {
+				target.cureStatus();
+			}
 		},
 	},
 };
