@@ -292,6 +292,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			focusenergy: ["9L1"],
 			reversal: ["9L1"],
 			doubleedge: ["9L1"],
+			torchtail: ["9L1"],
 		},
 	},
 	gerblaze: {
@@ -367,6 +368,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			focusenergy: ["9L1"],
 			reversal: ["9L1"],
 			doubleedge: ["9L1"],
+			torchtail: ["9L1"],
 		},
 	},
 	smeltusk: {
@@ -450,6 +452,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			terracharge: ["9L1"],
 			closecombat: ["9L1"],
 			blastburn: ["9L1"],
+			torchtail: ["9L1"],
 		},
 	},
 	lochitten: {
