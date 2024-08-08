@@ -16,7 +16,7 @@
 /* eslint no-else-return: "error" */
 import {Utils} from '../../lib';
 import type {UserSettings} from '../users';
-import type {GlobalPermission} from '../user-groups';
+import type {GlobalPermission, RoomPermission} from '../user-groups';
 
 export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 	userdetails(target, user, trustable) {
@@ -130,6 +130,50 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 			roominfo.users.push(userinfo);
 		}
 		return roominfo;
+	},
+	fullformat(target, user, trustable) {
+		if (!trustable) return false;
+
+		if (target.length > 225) {
+			return null;
+		}
+		const targetRoom = Rooms.get(target);
+		if (!targetRoom?.battle?.playerTable[user.id]) {
+			return null;
+		}
+
+		return targetRoom.battle.format;
+	},
+	cmdsearch(target, user, trustable) {
+		// in no world should ths be a thing. our longest command name is 37 chars
+		if (target.length > 40) return null;
+		const cmdPrefix = target.charAt(0);
+		if (!['/', '!'].includes(cmdPrefix)) return null;
+		target = toID(target.slice(1));
+
+		const results = [];
+		for (const command of Chat.allCommands()) {
+			if (cmdPrefix === '!' && !command.broadcastable) continue;
+			const req = command.requiredPermission as GlobalPermission;
+			if (req &&
+				!(command.hasRoomPermissions ? this.room && user.can(req as RoomPermission, null, this.room) : user.can(req))
+			) {
+				continue;
+			}
+			const cmds = [
+				command.fullCmd,
+				...command.aliases.map(x => command.fullCmd.replace(command.cmd, `${x}`)),
+			];
+			for (const cmd of cmds) {
+				if (toID(cmd).startsWith(target)) {
+					results.push(cmdPrefix + cmd);
+					break;
+				}
+			}
+			// limit number of results to prevent spam
+			if (results.length >= 20) break;
+		}
+		return results;
 	},
 };
 
@@ -279,7 +323,7 @@ export const commands: Chat.ChatCommands = {
 				}
 				user.lastCommand = 'pm';
 				return this.errorReply(
-					this.tr`User ${targetUsername} is offline. If you still want to PM them, send the message again, or use /offlinemsg.`
+					this.tr`User ${targetUsername} is offline. Send the message again to confirm. If you are using /msg, use /offlinemsg instead.`
 				);
 			}
 			let error = this.tr`User ${targetUsername} not found. Did you misspell their name?`;
@@ -299,7 +343,7 @@ export const commands: Chat.ChatCommands = {
 				}
 				user.lastCommand = 'pm';
 				return this.errorReply(
-					this.tr`User ${targetUsername} is offline. If you still want to PM them, send the message again, or use /offlinemsg.`
+					this.tr`User ${targetUsername} is offline. Send the message again to confirm. If you are using /msg, use /offlinemsg instead.`
 				);
 			}
 			return this.errorReply(`${targetUsername} is offline.`);
