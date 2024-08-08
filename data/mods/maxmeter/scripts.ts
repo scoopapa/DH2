@@ -1,5 +1,12 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	actions: {
+		inherit: true,
+		getActiveMaxMove(move: Move, pokemon: Pokemon) {
+			if (typeof move === 'string') move = this.dex.getActiveMove(move);
+			if (move.name !== 'Struggel') return this.dex.getActiveMove(move);
+		},
+	},
 	side: {
 		inherit: true,
 		constructor(name: string, battle: Battle, sideNum: number, team: PokemonSet[]) {
