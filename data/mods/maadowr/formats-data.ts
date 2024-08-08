@@ -127,6 +127,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+  organtica: {
+		tier: "MD",
+		doublesTier: "MD",
+	},
   shelldure: {
 		tier: "MD NFE",
 		doublesTier: "MD NFE",
