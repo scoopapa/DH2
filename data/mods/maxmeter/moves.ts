@@ -220,6 +220,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Max Meter 7');
 				this.add('-message', `This side has 7 levels of Max Meter!`);
 				this.add('-message', `The Max Meter is now maxed out!`);
+				if (side.sideConditions['dynamaxused']) {
+					side.dynamaxUsed = true;
+				} else {
+					side.dynamaxUsed = false;				
+				}
 			},
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 2,
