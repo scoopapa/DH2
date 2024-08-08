@@ -2923,6 +2923,15 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Power doubles if the user moves after the target.",
 		shortDesc: "Power doubles if user moves after the target.",
 	},
+	psyblade: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			return basePower;
+		},
+		terrain: 'electricterrain',
+		shortDesc: "Sets Electric Terrain upon use.",
+		desc: "Sets Electric Terrain upon use.",
+	},
 
 	// Karma field
 	wish: {
