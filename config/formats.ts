@@ -4303,6 +4303,19 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Max Meter",
+		mod: 'maxmeter',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5') || source.side.getSideCondition('maxmeter6') || source.side.getSideCondition('maxmeter7')) return;
+			if (source.hasType(move.type)) {
+				source.side.addSideCondition('maxmeter1');
+			}
+		},
+	},
+	{
 		name: "[Gen 1] NRPMRSCE",
 		desc: [
 			"<b>It stands for 'non-rby player makes rby solomod, chaos ensues'</b>",
