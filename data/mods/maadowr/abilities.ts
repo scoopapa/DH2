@@ -296,7 +296,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	  // },
 		onStart(pokemon) {
 			if (!pokemon.side.faintedThisTurn) return;
-			this.field.addPseudoWeather('tailwind');
+			pokemon.side.addSideCondition('tailwind');
        		this.add('-sidestart', pokemon.side, 'move: Tailwind');
     	},
 		flags: {},
