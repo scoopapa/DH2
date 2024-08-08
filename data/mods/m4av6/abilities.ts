@@ -25,12 +25,12 @@ const hyperspaceLookup = {
 	calyrexshadow: { move: "Astral Barrage" },
 };
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	gravitas: {
+	graviton: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
 		onStart(source) {
 			this.field.addPseudoWeather('gravity');
 		},
-		name: "Gravitas",
+		name: "Graviton",
 		rating: 4,
 		num: -1,
 	},
@@ -172,6 +172,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "Summons hail on switch-in. If foe has a supereffective or OHKO move, summons rain.",
 		onStart(pokemon) {
+			let weather = 'hail';
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						weather = 'raindance';
+						return;
+					}
+				}
+			}
+			this.field.setWeather(weather, pokemon);
+		},
+		onAfterMega(pokemon) {
 			let weather = 'hail';
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
@@ -1448,7 +1466,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Body of Water",
 		onModifyMove(move, attacker) {
 			if (move.type === 'Water') {
-				move.useSourceDefensiveAsOffensive = true;
+				if (move.category === 'Special') {
+					move.overrideOffensiveStat = 'spd';
+				}
+				else if (move.category === 'Physical') {
+					move.overrideOffensiveStat = 'def';
+				}
 				(move as any).bodyofwaterBoosted = true;
 			}
 		},
