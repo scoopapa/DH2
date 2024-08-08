@@ -14,7 +14,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				const yourItem = target.takeItem(source);
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter1');
 					source.side.addSideCondition('maxmeter2');
@@ -48,7 +47,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				const yourItem = target.takeItem(source);
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter2');
 					source.side.addSideCondition('maxmeter3');
@@ -82,7 +80,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				const yourItem = target.takeItem(source);
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter3');
 					source.side.addSideCondition('maxmeter4');
@@ -116,7 +113,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				const yourItem = target.takeItem(source);
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter4');
 					source.side.addSideCondition('maxmeter5');
@@ -150,7 +146,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				const yourItem = target.takeItem(source);
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter5');
 					source.side.addSideCondition('maxmeter6');
@@ -184,7 +179,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				const yourItem = target.takeItem(source);
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter6');
 					source.side.addSideCondition('maxmeter7');
