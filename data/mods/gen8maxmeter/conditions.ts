@@ -31,6 +31,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.removeVolatile('dynamax');
 			pokemon.side.removeSideCondition('maxmeter5');
 		},
+		onFaint(pokemon) {
+			pokemon.removeVolatile('dynamax');
+			pokemon.side.removeSideCondition('maxmeter5');
+		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
 				return this.chainModify(2);
