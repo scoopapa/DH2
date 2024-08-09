@@ -17,6 +17,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.removeVolatile('dynamax');
 			pokemon.side.removeSideCondition('maxmeter7');
 		},
+		onFaint(pokemon) {
+			pokemon.removeVolatile('dynamax');
+			pokemon.side.removeSideCondition('maxmeter5');
+		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'psn' || effect.id === 'tox' || effect.id === 'brn') {
