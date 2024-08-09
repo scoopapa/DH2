@@ -1,4 +1,51 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	// meter moves
+	sleepysurprise: {
+		num: 2000,
+		accuracy: 100,
+		basePower: 150,
+		category: "Status",
+		name: "Sleepy Surprise",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rest", source);
+			this.add('-anim', source, "Misty Explosion", target);
+		},
+		onTry(source) {
+			if (source.status === 'slp' || source.hasAbility('comatose')) return false;
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
+				return null;
+			}
+			if (source.hasAbility(['insomnia', 'vitalspirit'])) {
+				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
+				return null;
+			}
+		},
+		onHit(target, source, move) {
+			const result = source.setStatus('slp', source, move);
+			if (!result) return result;
+			source.statusState.time = 3;
+			source.statusState.startTime = 3;
+			this.heal(source.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			pokemon.side.removeSideCondition('maxmeter7');
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Fairy",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	
 	// removing dynamax's random immunities (AKA i totally could've just used tera instead of dmax)
 		destinybond: {
 		inherit: true,
