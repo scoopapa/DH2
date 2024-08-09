@@ -45,7 +45,7 @@ const PERMALOCK_CACHE_TIME = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 const DEFAULT_TRAINER_SPRITES = [1, 2, 101, 102, 169, 170, 265, 266];
 
-import {FS, Utils, ProcessManager} from '../lib';
+import {Utils, ProcessManager} from '../lib';
 import {
 	Auth, GlobalAuth, SECTIONLEADER_SYMBOL, PLAYER_SYMBOL, HOST_SYMBOL, RoomPermission, GlobalPermission,
 } from './user-groups';
@@ -188,7 +188,7 @@ function isUsername(name: string) {
 function isTrusted(userid: ID) {
 	if (globalAuth.has(userid)) return userid;
 	for (const room of Rooms.global.chatRooms) {
-		if (room.persist && room.settings.isPrivate !== true && room.auth.isStaff(userid)) {
+		if (room.persist && !room.settings.isPrivate && room.auth.isStaff(userid)) {
 			return userid;
 		}
 	}
@@ -1586,8 +1586,16 @@ function pruneInactive(threshold: number) {
 			user.destroy();
 		}
 		if (!user.can('addhtml')) {
+			const suspicious = global.Config?.isSuspicious?.(user) || false;
 			for (const connection of user.connections) {
-				if (now - connection.lastActiveTime > CONNECTION_EXPIRY_TIME) {
+				if (
+					// conn's been inactive for 24h, just kill it
+					(now - connection.lastActiveTime > CONNECTION_EXPIRY_TIME) ||
+					// they're connected and not named, but not namelocked. this is unusual behavior, ultimately just wasting resources.
+					// people have been spamming us with conns as of writing this, so it appears to be largely bots doing this.
+					// so we're just gonna go ahead and dc them. if they're a real user, they can rejoin and go back to... whatever.
+					suspicious && (now - connection.connectedAt) > threshold
+				) {
 					connection.destroy();
 				}
 			}
@@ -1609,7 +1617,7 @@ function logGhostConnections(threshold: number): Promise<unknown> {
 		}
 	}
 	return buffer.length ?
-		FS(`logs/ghosts-${process.pid}.log`).append(buffer.join('\r\n') + '\r\n') :
+		Monitor.logPath(`ghosts-${process.pid}.log`).append(buffer.join('\r\n') + '\r\n') :
 		Promise.resolve();
 }
 
@@ -1634,7 +1642,7 @@ function socketConnect(
 	}
 	// Emergency mode connections logging
 	if (Config.emergency) {
-		void FS('logs/cons.emergency.log').append('[' + ip + ']\n');
+		void Monitor.logPath('cons.emergency.log').append('[' + ip + ']\n');
 	}
 
 	const user = new User(connection);
@@ -1724,7 +1732,7 @@ function socketReceive(worker: ProcessManager.StreamWorker, workerid: number, so
 	}
 	// Emergency logging
 	if (Config.emergency) {
-		void FS('logs/emergency.log').append(`[${user} (${connection.ip})] ${roomId}|${message}\n`);
+		void Monitor.logPath('emergency.log').append(`[${user} (${connection.ip})] ${roomId}|${message}\n`);
 	}
 
 	for (const line of lines) {

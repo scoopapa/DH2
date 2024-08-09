@@ -125,7 +125,7 @@ export const PrivateMessages = new class {
 		for (const {message, time, sender} of messages) {
 			user.send(
 				`|pm|${this.getIdentity(sender)}|${this.getIdentity(user)}|/html ` +
-				`${Utils.escapeHTML(message)} __[sent offline, <time>${new Date(time).toISOString()}</time>]__`
+				`${Utils.escapeHTML(message)} <i>[sent offline, <time>${new Date(time).toISOString()}</time>]</i>`
 			);
 		}
 	}
@@ -151,7 +151,7 @@ export const PrivateMessages = new class {
 		return this.clearInterval;
 	}
 	clearSeen() {
-		return PM.run(statements.clearSeen);
+		return PM.run(statements.clearSeen, [Date.now(), SEEN_EXPIRY_TIME]);
 	}
 	send(message: string, user: User, pmTarget: User, onlyRecipient: User | null = null) {
 		const buf = `|pm|${user.getIdentity()}|${pmTarget.getIdentity()}|${message}`;
@@ -203,7 +203,7 @@ export const PrivateMessages = new class {
 		return buf;
 	}
 	clearOffline() {
-		return PM.run(statements.clearDated);
+		return PM.run(statements.clearDated, [Date.now(), EXPIRY_TIME]);
 	}
 	destroy() {
 		void PM.destroy();
@@ -214,7 +214,7 @@ if (Config.usesqlite) {
 	if (!process.send) {
 		PM.spawn(Config.pmprocesses || 1);
 		// clear super old pms on startup
-		void PM.run(statements.clearDated);
+		void PM.run(statements.clearDated, [Date.now(), EXPIRY_TIME]);
 	} else if (process.send && process.mainModule === module) {
 		global.Monitor = {
 			crashlog(error: Error, source = 'A private message child process', details: AnyObject | null = null) {

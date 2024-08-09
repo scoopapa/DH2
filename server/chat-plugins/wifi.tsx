@@ -1,7 +1,8 @@
 /**
  * Wi-Fi chat-plugin. Only works in a room with id 'wifi'
  * Handles giveaways in the formats: question, lottery, gts
- * Written by Kris and bumbadadabum, based on the original plugin as written by Codelegend, SilverTactic, DanielCranham
+ * Written by dhelmise and bumbadadabum, based on the original
+ * plugin as written by Codelegend, SilverTactic, DanielCranham
  */
 
 import {FS, Utils} from '../../lib';
@@ -11,7 +12,7 @@ Punishments.addRoomPunishmentType({
 	desc: 'banned from giveaways',
 });
 
-const BAN_DURATION = 7 * 24 * 60 * 60 * 1000;
+const DAY = 24 * 60 * 60 * 1000;
 const RECENT_THRESHOLD = 30 * 24 * 60 * 60 * 1000;
 
 const DATA_FILE = 'config/chat-plugins/wifi.json';
@@ -233,11 +234,11 @@ abstract class Giveaway extends Rooms.SimpleRoomGame {
 		return Punishments.hasRoomPunishType(room, toID(user), 'GIVEAWAYBAN');
 	}
 
-	static ban(room: Room, user: User, reason: string) {
+	static ban(room: Room, user: User, reason: string, duration: number) {
 		Punishments.roomPunish(room, user, {
 			type: 'GIVEAWAYBAN',
 			id: toID(user),
-			expireTime: Date.now() + BAN_DURATION,
+			expireTime: Date.now() + duration,
 			reason,
 		});
 	}
@@ -449,7 +450,7 @@ export class QuestionGiveaway extends Giveaway {
 		if (Giveaway.checkBanned(this.room, user)) return user.sendTo(this.room, "You are banned from entering giveaways.");
 		if (this.checkExcluded(user)) return user.sendTo(this.room, "You are disallowed from entering the giveaway.");
 
-		if ((this.answered.get(user.id) ?? 0) >= 3) {
+		if (this.answered.get(user.id) >= 3) {
 			return user.sendTo(
 				this.room,
 				"You have already guessed three times. You cannot guess anymore in this.giveaway."
@@ -468,7 +469,7 @@ export class QuestionGiveaway extends Giveaway {
 
 		this.joined.set(user.latestIp, user.id);
 		this.answered.add(user.id);
-		if ((this.answered.get(user.id) ?? 0) >= 3) {
+		if (this.answered.get(user.id) >= 3) {
 			user.sendTo(
 				this.room,
 				`Your guess '${guess}' is wrong. You have used up all of your guesses. Better luck next time!`
@@ -718,6 +719,7 @@ export class LotteryGiveaway extends Giveaway {
 				<p style={{textAlign: 'center'}}>{Chat.count(this.joined.size, 'users')} joined the giveaway.<br />
 				Our lucky winner{Chat.plural(this.winners)}: <b>{winnerNames}</b>!<br />Congratulations!</p>
 			</>));
+			this.room.sendMods(`|c|&|Participants: ${[...this.joined.values()].join(', ')}`);
 			for (const winner of this.winners) {
 				winner.sendTo(
 					this.room,
@@ -919,6 +921,12 @@ export const handlers: Chat.Handlers = {
 			saveData();
 		}
 	},
+	onPunishUser(type, user, room) {
+		const game = room?.getGame(LotteryGiveaway) || room?.getGame(QuestionGiveaway);
+		if (game) {
+			game.kickUser(user);
+		}
+	},
 };
 
 export const commands: Chat.ChatCommands = {
@@ -1017,7 +1025,7 @@ export const commands: Chat.ChatCommands = {
 		},
 	},
 	gtshelp: [
-		`GTS giveaways are currently disabled. If you are a Room Owner and would like them to be re-enabled, contact Kris.`,
+		`GTS giveaways are currently disabled. If you are a Room Owner and would like them to be re-enabled, contact dhelmise.`,
 	],
 	ga: 'giveaway',
 	giveaway: {
@@ -1078,7 +1086,9 @@ export const commands: Chat.ChatCommands = {
 				giveaway.removeUser(user);
 			}
 		},
-		ban(target, room, user) {
+		monthban: 'ban',
+		permaban: 'ban',
+		ban(target, room, user, connection, cmd) {
 			if (!target) return false;
 			room = this.requireRoom('wifi' as RoomID);
 			this.checkCan('warn', null, room);
@@ -1091,11 +1101,16 @@ export const commands: Chat.ChatCommands = {
 				return this.errorReply(`User '${targetUser.name}' is already giveawaybanned.`);
 			}
 
-			Giveaway.ban(room, targetUser, reason);
+			const duration = cmd === 'monthban' ? 30 * DAY : cmd === 'permaban' ? 3650 * DAY : 7 * DAY;
+			Giveaway.ban(room, targetUser, reason, duration);
+
 			(room.getGame(LotteryGiveaway) || room.getGame(QuestionGiveaway))?.kickUser(targetUser);
-			this.modlog('GIVEAWAYBAN', targetUser, reason);
+
+			const action = cmd === 'monthban' ? 'MONTHGIVEAWAYBAN' : cmd === 'permaban' ? 'PERMAGIVEAWAYBAN' : 'GIVEAWAYBAN';
+			this.modlog(action, targetUser, reason);
 			const reasonMessage = reason ? ` (${reason})` : ``;
-			this.privateModAction(`${targetUser.name} was banned from entering giveaways by ${user.name}.${reasonMessage}`);
+			const durationMsg = cmd === 'monthban' ? ' for a month' : cmd === 'permaban' ? ' permanently' : '';
+			this.privateModAction(`${targetUser.name} was banned from entering giveaways${durationMsg} by ${user.name}.${reasonMessage}`);
 		},
 		unban(target, room, user) {
 			if (!target) return false;
