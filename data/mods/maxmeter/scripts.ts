@@ -1,5 +1,11 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	init() {
+		this.modData("Learnsets", "igglybuff").learnset.karaokenight = ["9L1"];
+		this.modData("Learnsets", "igglybuff").learnset.deflation = ["9L1"];
+		this.modData("Learnsets", "igglybuff").learnset.puffup = ["9L1"];
+		this.modData("Learnsets", "igglybuff").learnset.sleepysurprise = ["9L1"];
+	},
 	actions: {
 		inherit: true,
 		modifyDamage(
