@@ -5,6 +5,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 150,
 		category: "Status",
+		shortDesc: "User sleeps 2 turns and restores HP and status.",
 		name: "Sleepy Surprise",
 		pp: 5,
 		priority: 0,
@@ -14,6 +15,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rest", source);
 			this.add('-anim', source, "Misty Explosion", target);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
+		},
+		onTryHit(source) {
+			source.side.removeSideCondition('maxmeter7');
 		},
 		onTry(source) {
 			if (source.status === 'slp' || source.hasAbility('comatose')) return false;
@@ -33,17 +40,150 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			source.statusState.startTime = 3;
 			this.heal(source.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
-		onDisableMove(pokemon) {
-			if (!pokemon.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			pokemon.side.removeSideCondition('maxmeter7');
-		},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Fairy",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
+	},
+	karaokenight: {
+		num: 2001,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Puts the foe to sleep.",
+		name: "Karaoke Night",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		status: 'slp',
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sing", target);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.side.getSideCondition('maxmeter1') || !pokemon.side.getSideCondition('maxmeter2') || !pokemon.side.getSideCondition('maxmeter3') || !pokemon.side.getSideCondition('maxmeter4') || !pokemon.side.getSideCondition('maxmeter5') || !pokemon.side.getSideCondition('maxmeter6') || !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('karaokenight');
+		},
+		onTryHit(source) {
+			if (source.side.removeSideCondition('maxmeter1')) {
+				source.side.removeSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter2')) {
+				source.side.removeSideCondition('maxmeter2');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter6');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},
+	deflation: {
+		num: 2002,
+		accuracy: 100,
+		shortDesc: "If hit by an attack, returns 2x damage.",
+		basePower: 0,
+		damageCallback(pokemon) {
+			const lastDamagedBy = pokemon.getLastDamagedBy(true);
+			if (lastDamagedBy !== undefined) {
+				return (lastDamagedBy.damage * 2) || 1;
+			}
+			return 0;
+		},
+		category: "Special",
+		name: "Deflation",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Explosion", target);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.side.getSideCondition('maxmeter3') || !pokemon.side.getSideCondition('maxmeter4') || !pokemon.side.getSideCondition('maxmeter5') || !pokemon.side.getSideCondition('maxmeter6') || !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('deflation');
+		},
+		onTryHit(source) {
+			if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter4');
+			}
+		},
+		onTry(source) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy === undefined || !lastDamagedBy.thisTurn) return false;
+		},
+		onModifyTarget(targetRelayVar, source, target, move) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy) {
+				targetRelayVar.target = this.getAtSlot(lastDamagedBy.slot);
+			}
+		},
+		secondary: null,
+		target: "scripted",
+		type: "Fairy",
+		contestType: "Cool",
+	},
+	puffup: {
+		num: 2003,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Forces the target to switch to a random ally.",
+		name: "Puff Up",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pulverizing Pancake", target);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.side.getSideCondition('maxmeter5') || !pokemon.side.getSideCondition('maxmeter6') || !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('puffup');
+		},
+		onTryHit(source) {
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
 	},
 	
 	// removing dynamax's random immunities (AKA i totally could've just used tera instead of dmax)
@@ -311,7 +451,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				if (source.hasType(move.type)) {
+				if (source.hasType(move.type)) { // add that moves with numbers above 1999 shouldn't build meter
 					source.side.removeSideCondition('maxmeter1');
 					source.side.addSideCondition('maxmeter2');
 				}
