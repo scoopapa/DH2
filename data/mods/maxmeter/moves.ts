@@ -63,7 +63,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Sing", target);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.side.getSideCondition('maxmeter1') || !pokemon.side.getSideCondition('maxmeter2') || !pokemon.side.getSideCondition('maxmeter3') || !pokemon.side.getSideCondition('maxmeter4') || !pokemon.side.getSideCondition('maxmeter5') || !pokemon.side.getSideCondition('maxmeter6') || !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('karaokenight');
+			if (!pokemon.side.getSideCondition('maxmeter1') && !pokemon.side.getSideCondition('maxmeter2') && !pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('karaokenight');
 		},
 		onTryHit(source) {
 			if (source.side.removeSideCondition('maxmeter1')) {
@@ -117,7 +117,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Explosion", target);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.side.getSideCondition('maxmeter3') || !pokemon.side.getSideCondition('maxmeter4') || !pokemon.side.getSideCondition('maxmeter5') || !pokemon.side.getSideCondition('maxmeter6') || !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('deflation');
+			if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('deflation');
 		},
 		onTryHit(source) {
 			if (source.side.removeSideCondition('maxmeter3')) {
@@ -167,7 +167,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Pulverizing Pancake", target);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.side.getSideCondition('maxmeter5') || !pokemon.side.getSideCondition('maxmeter6') || !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('puffup');
+			if (!pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('puffup');
 		},
 		onTryHit(source) {
 			if (source.side.removeSideCondition('maxmeter5')) {
