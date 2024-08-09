@@ -17,7 +17,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Misty Explosion", target);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
+			if (!pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
 		},
 		onTryHit(source) {
 			source.side.removeSideCondition('maxmeter7');
