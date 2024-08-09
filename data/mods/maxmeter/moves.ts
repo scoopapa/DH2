@@ -63,13 +63,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Sing", target);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('karaokenight');
-			if (!pokemon.side.getSideCondition('maxmeter6')) pokemon.disableMove('karaokenight');
-			if (!pokemon.side.getSideCondition('maxmeter5')) pokemon.disableMove('karaokenight');
-			if (!pokemon.side.getSideCondition('maxmeter4')) pokemon.disableMove('karaokenight');
-			if (!pokemon.side.getSideCondition('maxmeter3')) pokemon.disableMove('karaokenight');
-			if (!pokemon.side.getSideCondition('maxmeter2')) pokemon.disableMove('karaokenight');
-			if (!pokemon.side.getSideCondition('maxmeter1')) pokemon.disableMove('karaokenight');
+			if (!pokemon.side.getSideCondition('maxmeter1') && !pokemon.side.getSideCondition('maxmeter2') && !pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('karaokenight');
 		},
 		onTryHit(source) {
 			if (source.side.removeSideCondition('maxmeter1')) {
