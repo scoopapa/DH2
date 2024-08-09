@@ -4325,8 +4325,17 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Max Meter",
 		mod: 'maxmeter',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Max Move Count = 8'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		/*onValidateSet(set) {
+			const problems: string[] = [];
+			const moves = [];
+			if (set.moves?.length) {
+				if (set.moves.length > 4 && ) { // find a way to force you to only have 4 non-meter moves
+					problems.push(`${set.name} has ${set.moves.length} moves, which is more than the limit of ${this.ruleTable.maxMoveCount}.`);
+					return problems;
+				}
+		},*/
 		onBegin() {
 			for (const side of this.sides) {
 				if (!side.getSideCondition('maxmeter7')) {
