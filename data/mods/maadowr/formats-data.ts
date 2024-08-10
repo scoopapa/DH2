@@ -64,8 +64,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
   aegislashblademaadowr: {
-		tier: "MD",
-		doublesTier: "MD",
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
   rolycolymaadowr: {
 		tier: "MD NFE",
@@ -150,6 +150,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
   immanicus: {
 		tier: "MD",
 		doublesTier: "MD",
+	},
+  immanicuszen: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
   caterpie: {
 		tier: "MD NFE",
@@ -864,7 +868,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	gengar: {
-		tier: "MD",
+		tier: "MD Ubers",
 		doublesTier: "MD",
 	},
 	gengarmega: {
@@ -1160,7 +1164,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	lucariomega: {
-		tier: "Mega",
+		tier: "MD Ubers",
 		doublesTier: "Mega",
 	},
 	timburr: {
@@ -1192,7 +1196,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	kangaskhanmega: {
-		tier: "Mega",
+		tier: "MD Ubers",
 		doublesTier: "Mega",
 	},
 	rattata: {
@@ -1392,7 +1396,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	mawilemega: {
-		tier: "Mega",
+		tier: "MD Ubers",
 		doublesTier: "Mega",
 	},
 	beldum: {
@@ -1408,7 +1412,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	metagrossmega: {
-		tier: "Mega",
+		tier: "MD Ubers",
 		doublesTier: "Mega",
 	},
 	bronzor: {
@@ -1572,7 +1576,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	sableyemega: {
-		tier: "Mega",
+		tier: "MD Ubers",
 		doublesTier: "Mega",
 	},
 	sneasel: {
