@@ -87,15 +87,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
 			this.add('-anim', source, "Rest", source);
 			this.add('-anim', source, "Misty Explosion", target);
 		},
 		/*onDisableMove(pokemon) {
 			if (!pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
 		},*/
-		onTryHit(source) {
-			source.side.removeSideCondition('maxmeter7');
-		},
 		onTry(source) {
 			if (source.status === 'slp' || source.hasAbility('comatose')) return false;
 			if (source.hp === source.maxhp) {
