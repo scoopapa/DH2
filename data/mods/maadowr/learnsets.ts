@@ -3188,6 +3188,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderbolt: ["9M"],
 			thundercage: ["9M"],
 			thunderwave: ["9M"],
+			trickroom: ["9M"],
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			zapcannon: ["9M"],
