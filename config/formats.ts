@@ -1234,7 +1234,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Ubermons",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710848/">National Dex Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-gen-9-natdex-slate-1-come-as-you-are-ogerpon-hearthflame-urshifu-landorus.3748813/">Ubermons Thread</a>`,
 		],
 
 		mod: 'gen9ubermons',
