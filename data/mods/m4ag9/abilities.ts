@@ -200,9 +200,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						move.ohko
 					) {
 						this.field.setWeather('raindance');
+						return;
 					}
 					else {
 						this.field.setWeather('hail');
+						return;
 					}
 				}
 			}
