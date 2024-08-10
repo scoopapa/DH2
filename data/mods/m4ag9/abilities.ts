@@ -2190,7 +2190,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
+					this.damage(this.clampIntRange(Math.round((this.activeMove.totalDamage as number) * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
 				}
 				if (this.effectState.mindBlownRecoil) {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
