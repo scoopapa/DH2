@@ -880,7 +880,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	curse: {
 		inherit: true,
 		condition: {
-			onStart(pokemon, source) {
+			onStart(pokemon, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-message', `${pokemon.name} was cursed!`);
 					this.add('-start', pokemon, 'Curse', '[silent]');
