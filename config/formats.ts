@@ -4343,6 +4343,9 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		onDisableMove(pokemon) {
+			if (!pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
 			if (move.num > 919) return;
