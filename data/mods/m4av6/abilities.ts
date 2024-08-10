@@ -332,7 +332,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokémon is KOed, the attacker is cursed, then permanently receives this Ability.",
 		onFaint(target, source, effect) {
 			if (!source || !effect || target.side === source.side) return;
-			if (effect.effectType === 'Move' && !effect.isFutureMove) {
+			if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
 				this.add('-ability', target, 'Nightmare Heart');
 				source.addVolatile('curse');
 				const bannedAbilities = [
