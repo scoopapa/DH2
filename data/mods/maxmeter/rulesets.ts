@@ -1,9 +1,9 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
 	supermoveadditions: {
-    effectType: 'Rule',
+		effectType: 'Rule',
 		name: 'Super Move Additions',
 		desc: 'Adds a Super to every Pokemon.',
-    onBegin() {
+    	onBegin() {
           for (const side0 of this.sides[0].pokemon) {
       	 	  const newMove  = {
       	    	move: "Super Move",
