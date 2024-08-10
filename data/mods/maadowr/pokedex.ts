@@ -1367,8 +1367,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	//	movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	//	category: "Gleam Eyes",
 		heightm: 1.4,
-		weightkg: 42.0,
-		color: "Yellow",
+		weightkg: 42,
+		color: "Blue",
 		eggGroups: ["Field"],
 		otherFormes: ["Luxray-Mega"],
 		formeOrder: ["Luxray", "Luxray-Mega"],
@@ -2067,7 +2067,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: 526,
 		name: "Gigalith",
 
-		types: ["Gigalith"],
+		types: ["Rock"],
 		baseStats: {hp: 80, atk: 135, def: 130, spa: 60, spd: 80, spe: 25},
 		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Sand Force"},
 	//	movepoolAdditions: ["recover", "timecompressor"],
@@ -2704,7 +2704,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Normal"],
 		baseStats: {hp: 60, atk: 90, def: 70, spa: 60, spd: 120, spe: 40},
-		abilities: {0: "Colour Change", 1: "Stakeout", H: "Protean"},
+		abilities: {0: "Color Change", 1: "Stakeout", H: "Protean"},
 	//	movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
 	//	category: "Colour Swap",
 		heightm: 1.0,
@@ -2720,7 +2720,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 75, atk: 105, def: 80, spa: 70, spd: 130, spe: 60},
-		abilities: {0: "Colour Change", 1: "Stakeout", H: "Protean"},
+		abilities: {0: "Color Change", 1: "Stakeout", H: "Protean"},
 	//	movepoolAdditions: ["colourmegone"],
 	//	category: "Colour Swap",
 		heightm: 1.4,
