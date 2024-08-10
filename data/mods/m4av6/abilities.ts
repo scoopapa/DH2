@@ -1087,7 +1087,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({def: 1}, source);
 			}
 		},
-		onSourceAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
 			if (move.flags['slicing']) {
@@ -1427,7 +1427,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				];
 				if (
 					pokemon.side.pokemon[i].fainted ||
-					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
+					pokemon.side.pokemon[i].getAbility().flags['notrace'] || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
 				) {
 					continue;
 				}

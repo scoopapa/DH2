@@ -171,8 +171,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	coldsweat: {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "Summons hail on switch-in. If foe has a supereffective or OHKO move, summons rain.",
+		// onStart(pokemon) {
+		// 	let weather = 'hail';
+		// 	for (const target of pokemon.foes()) {
+		// 		for (const moveSlot of target.moveSlots) {
+		// 			const move = this.dex.moves.get(moveSlot.move);
+		// 			if (move.category === 'Status') continue;
+		// 			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+		// 			if (
+		// 				this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+		// 				move.ohko
+		// 			) {
+		// 				weather = 'raindance';
+		// 				return;
+		// 			}
+		// 		}
+		// 	}
+		// 	this.field.setWeather(weather, pokemon);
+		// },
 		onStart(pokemon) {
-			let weather = 'hail';
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -182,30 +199,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						weather = 'raindance';
-						return;
+						this.field.setWeather('raindance');
+					}
+					else {
+						this.field.setWeather('hail');
 					}
 				}
 			}
-			this.field.setWeather(weather, pokemon);
-		},
-		onAfterMega(pokemon) {
-			let weather = 'hail';
-			for (const target of pokemon.foes()) {
-				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
-					if (move.category === 'Status') continue;
-					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
-					if (
-						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
-						move.ohko
-					) {
-						weather = 'raindance';
-						return;
-					}
-				}
-			}
-			this.field.setWeather(weather, pokemon);
 		},
 		onAnySwitchIn(pokemon) {
 			if (pokemon === this.effectState.target) return;
@@ -1087,7 +1087,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({def: 1}, source);
 			}
 		},
-		onSourceAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
 			if (move.flags['slicing']) {
@@ -1427,7 +1427,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				];
 				if (
 					pokemon.side.pokemon[i].fainted ||
-					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
+					pokemon.side.pokemon[i].getAbility().flags['notrace'] || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
 				) {
 					continue;
 				}
