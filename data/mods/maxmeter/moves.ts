@@ -120,12 +120,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return null;
 			}
 		},
-		onHit(target, source, move) {
-			const result = source.setStatus('slp', source, move);
-			if (!result) return result;
-			source.statusState.time = 3;
-			source.statusState.startTime = 3;
-			this.heal(source.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+		self: {
+			onHit(target, source, move) {
+				const result = source.setStatus('slp', source, move);
+				if (!result) return result;
+				source.statusState.time = 3;
+				source.statusState.startTime = 3;
+				this.heal(source.maxhp, source, source, move);
+			},
 		},
 		secondary: null,
 		target: "allAdjacent",
