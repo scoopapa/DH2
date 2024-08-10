@@ -10,6 +10,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, mystery: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Calm Mind", target);
+		},
 		onHit(target, source, effect) {
 			let type = source.getTypes()[0];
 			if (source.species.num === 174 || source.species.num === 39 || source.species.num === 40) {
@@ -68,7 +72,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return null;
 		},
   		*/
-		target: "normal",
+		target: "self",
 		type: "Stellar",
 		contestType: "Cute",
 	},
