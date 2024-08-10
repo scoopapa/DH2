@@ -4362,6 +4362,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			throatchop: ["8M", "7T"],
 			timecompressor: ["9M"],
 			toxic: ["7M", "6M", "5M"],
+			trickroom: ["9M"],
 			weatherball: ["8M"],
 		},
 	},
