@@ -1353,7 +1353,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		eggGroups: ["Field"],
 
 		evos: ["Luxray"],
-		prevo: "Luxio",
+		prevo: "Shinx",
 		evoLevel: 15,
 	},
 	luxray: {
