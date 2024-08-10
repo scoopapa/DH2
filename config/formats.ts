@@ -4325,7 +4325,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Max Meter",
 		mod: 'maxmeter',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Max Move Count = 8'],
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Super Move Additions'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		/*onValidateSet(set) {
 			const problems: string[] = [];
@@ -4345,6 +4345,7 @@ export const Formats: FormatList = [
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
+			if (move.num > 919) return;
 			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5') || source.side.getSideCondition('maxmeter6') || source.side.getSideCondition('maxmeter7')) return;
 			if (source.hasType(move.type)) {
 				source.side.addSideCondition('maxmeter1');
