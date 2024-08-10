@@ -1,4 +1,78 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	// super
+	supermove: {
+		num: 3000,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Allows the user to use their Super.",
+		name: "Super Move",
+		pp: 10,
+		priority: 0,
+		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, mystery: 1},
+		onHit(target, source, effect) {
+			let type = source.getTypes()[0];
+			if (source.species.num === 174 || source.species.num === 39 || source.species.num === 40) {
+				this.actions.useMove("Sleepy Surprise", source);
+			} else if (type === "Bug") { // placeholders
+				this.actions.useMove("Attack Order", source);
+			} else if (type === "Dark") {
+				this.actions.useMove("Fiery Wrath", source);
+			} else if (type === "Dragon") {
+				this.actions.useMove("Dragon Hammer", source);
+			} else if (type === "Electric") {
+				this.actions.useMove("Thunderbolt", source);
+			} else if (type === "Fairy") {
+				this.actions.useMove("Moonblast", source);
+			} else if (type === "Fighting") {
+				this.actions.useMove("Sacred Sword", source);
+			} else if (type === "Fire") {
+				this.actions.useMove("Flamethrower", source);
+			} else if (type === "Flying") {
+				this.actions.useMove("Oblivion Wing", source);
+			} else if (type === "Ghost") {
+				this.actions.useMove("Moongeist Beam", source);
+			} else if (type === "Grass") {
+				this.actions.useMove("Energy Ball", source);
+			} else if (type === "Ground") {
+				this.actions.useMove("Earthquake", source);
+			} else if (type === "Ice") {
+				this.actions.useMove("Ice Beam", source);
+			} else if (type === "Normal") {
+				this.actions.useMove("Double-Edge", source);
+			} else if (type === "Poison") {
+				this.actions.useMove("Sludge Bomb", source);
+			} else if (type === "Psychic") {
+				this.actions.useMove("Psychic", source);
+			} else if (type === "Rock") {
+				this.actions.useMove("Mighty Cleave", source);
+			} else if (type === "Steel") {
+				this.actions.useMove("Meteor Mash", source);
+			} else if (type === "Water") {
+				this.actions.useMove("Surf", source);
+			}
+		},
+		/* Nature Power code in case the above doesn't work
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			}
+			this.actions.useMove(move, pokemon, target);
+			return null;
+		},
+  		*/
+		target: "normal",
+		type: "Stellar",
+		contestType: "Cute",
+	},
+	
 	// meter moves
 	sleepysurprise: {
 		num: 2000,
@@ -16,9 +90,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Rest", source);
 			this.add('-anim', source, "Misty Explosion", target);
 		},
-		onDisableMove(pokemon) {
+		/*onDisableMove(pokemon) {
 			if (!pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('sleepysurprise');
-		},
+		},*/
 		onTryHit(source) {
 			source.side.removeSideCondition('maxmeter7');
 		},
