@@ -737,7 +737,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokémon's target has Blackmail, it survives every hit with at least 1 HP.",
 		onDamagePriority: -0,
 		onAnyDamage(damage, target, source, effect) {
-			if (move.ignoreAbility) return;
+			if (effect.effectType === 'Move') {
+				let move = this.dex.moves.get(effect.id);
+				if (move.ignoreAbility) return;
+			}
 			if (source === this.effectState.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Orderly Target');
