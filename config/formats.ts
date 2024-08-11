@@ -785,6 +785,7 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Dynamax Clause'],
 		mod: 'm4av6',
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
 		// teambuilderFormat: 'OU',
 	},
 	{
@@ -1230,6 +1231,17 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'triplethreat',
+	},
+	{
+		name: "[Gen 9] Ubermons",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-gen-9-natdex-slate-1-come-as-you-are-ogerpon-hearthflame-urshifu-landorus.3748813/">Ubermons Thread</a>`,
+		],
+
+		mod: 'gen9ubermons',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass'],
+		teambuilderFormat: "National Dex",
 	},
 	{
 		name: "[Gen 9] VaporeMons",
@@ -2773,6 +2785,72 @@ export const Formats: FormatList = [
 			'Tamantula','Spideth','Abomigo','Chillma','Wintber','Evergrowl','Stontler','Balatone','Coayena','Pherosmoke','Octovase','Cthulhurn','Shahood',
 			'Karakasa','Grag','Kimokus','Toknight','Cowpy','Cowork','Barbecow','Hoorel','Baishark','Luviu','Shucklony','Dreamer','Nohtyp']
 	},
+// start: Ma'adowr
+{
+		name: "[Gen 9] Ma'adowr Singles",
+		desc: 'Solomod mainly based on Ancient Egypt and run by BlueRay',
+		threads: [
+								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
+		      ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Pursuit', 'Return'],
+	//	teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['MD', 'MD NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Maadowr.'];
+				}
+			}
+		},
+		/*onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.species.get(set.species);
+			let item = this.dex.items.get(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
+			}
+		}, */
+		mod: 'maadowr',
+	},
+	{
+		name: "[Gen 9] Ma'adowr VGC",
+		desc: 'Solomod mainly based on Ancient Egypt and run by BlueRay',
+		threads: [
+								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
+		      ],
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod'],
+		banlist: ['Frustration', 'Hail', 'Hidden Power', 'Pursuit', 'Return'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['MD', 'MD NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Maadowr.'];
+				}
+			}
+		},
+		/*onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.species.get(set.species);
+			let item = this.dex.items.get(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
+			}
+		}, */
+		mod: 'maadowr',
+	},
+	// end: Ma'adowr
 	{
 		name: "[Gen 9] Mega Mania",
 		mod: "megamania",
@@ -3753,6 +3831,26 @@ export const Formats: FormatList = [
 		section: "Non-Pet Mod Formats",
 		column: 3,
 		// name: "nonpetmodformats",
+	},
+	{
+		name: "[Gen 8] Dynamax Meter",
+		mod: 'gen8maxmeter',
+		ruleset: ['Standard'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
+		onBegin() {
+			for (const side of this.sides) {
+				if (!side.getSideCondition('maxmeter5')) {
+					side.dynamaxUsed = true;
+				}
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5')) return;
+			if (source.hasType(move.type)) {
+				source.side.addSideCondition('maxmeter1');
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Littlest Cup",

@@ -33,7 +33,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	charizardmegay: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	squirtle: {
 		inherit: true,
@@ -513,7 +513,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	magnezone: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	farfetchd: {
 		inherit: true,
@@ -777,7 +777,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	scizor: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	scizormega: {
 		inherit: true,
@@ -1281,7 +1281,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	weavile: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	sneasler: {
 		inherit: true,
@@ -1301,7 +1301,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ursalunabloodmoon: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	slugma: {
 		inherit: true,
@@ -1421,7 +1421,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tyranitarmega: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	lugia: {
 		inherit: true,
@@ -1481,7 +1481,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	swampertmega: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	poochyena: {
 		inherit: true,
@@ -1569,7 +1569,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pelipper: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	ralts: {
 		inherit: true,
@@ -1585,7 +1585,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gardevoirmega: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 	},
 	gallade: {
 		inherit: true,
@@ -1633,7 +1633,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	shedinja: {
 		inherit: true,
-		tier: "AG",
+		tier: "RU",
 	},
 	whismur: {
 		inherit: true,
@@ -1713,7 +1713,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	medichammega: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	electrike: {
 		inherit: true,
@@ -1925,7 +1925,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	banettemega: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	duskull: {
 		inherit: true,
@@ -2053,19 +2053,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	latias: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "RU",
 	},
 	latiasmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	latios: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	latiosmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	kyogre: {
 		inherit: true,
@@ -2093,7 +2093,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	jirachi: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "RUBL",
 	},
 	deoxys: {
 		inherit: true,
@@ -2345,7 +2345,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hippowdon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	skorupi: {
 		inherit: true,
@@ -2385,7 +2385,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	abomasnowmega: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "RU",
 	},
 	rotom: {
 		inherit: true,
@@ -2485,7 +2485,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	victini: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 	},
 	snivy: {
 		inherit: true,
@@ -2525,7 +2525,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	samurotthisui: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	patrat: {
 		inherit: true,
@@ -3001,7 +3001,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	haxorus: {
 		inherit: true,
-		tier: "UU",
+		tier: "RUBL",
 	},
 	cubchoo: {
 		inherit: true,
@@ -3037,7 +3037,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mienshao: {
 		inherit: true,
-		tier: "RU",
+		tier: "RUBL",
 	},
 	druddigon: {
 		inherit: true,
@@ -3157,7 +3157,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kyurem: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	kyuremblack: {
 		inherit: true,
@@ -3321,7 +3321,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	aegislash: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 	},
 	aegislashblade: {
 		inherit: true,
@@ -3529,7 +3529,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hoopaunbound: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	volcanion: {
 		inherit: true,
@@ -3885,11 +3885,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tapukoko: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	tapulele: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	tapubulu: {
 		inherit: true,
@@ -3981,7 +3981,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	blacephalon: {
 		inherit: true,
-		tier: "OU",
+		tier: "RUBL",
 	},
 	zeraora: {
 		inherit: true,
@@ -4005,7 +4005,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rillaboom: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	scorbunny: {
 		inherit: true,
@@ -4017,7 +4017,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cinderace: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	sobble: {
 		inherit: true,
@@ -4261,11 +4261,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracozolt: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	arctozolt: {
 		inherit: true,
-		tier: "Uber",
+		tier: "RU",
 	},
 	dracovish: {
 		inherit: true,
@@ -4293,15 +4293,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zacian: {
 		inherit: true,
-		tier: "AG",
+		tier: "Uber",
 	},
 	zaciancrowned: {
 		inherit: true,
-		tier: "AG",
+		tier: "Uber",
 	},
 	zamazenta: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zamazentacrowned: {
 		inherit: true,
@@ -4341,7 +4341,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	spectrier: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	calyrex: {
 		inherit: true,
@@ -4357,7 +4357,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	enamorus: {
 		inherit: true,
-		tier: "RU",
+		tier: "RUBL",
 	},
 	enamorustherian: {
 		inherit: true,
@@ -4373,7 +4373,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	meowscarada: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	fuecoco: {
 		inherit: true,
@@ -4397,7 +4397,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	quaquaval: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	lechonk: {
 		inherit: true,
@@ -4677,7 +4677,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	irontreads: {
 		inherit: true,
@@ -4685,7 +4685,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ironmoth: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 	},
 	ironhands: {
 		inherit: true,
@@ -4753,7 +4753,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ceruledge: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	toedscool: {
 		inherit: true,
@@ -4773,15 +4773,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	annihilape: {
 		inherit: true,
-		tier: "UU",
+		tier: "Uber",
 	},
 	walkingwake: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ironleaves: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "RUBL",
 	},
 	poltchageist: {
 		inherit: true,
@@ -4869,6 +4869,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pecharunt: {
 		inherit: true,
-		tier: "RU",
+		tier: "RUBL",
 	},
 };
