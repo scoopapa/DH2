@@ -596,8 +596,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	beartic: {
-		tier: "MD NFE",
-		doublesTier: "MD NFE",
+		tier: "MD",
+		doublesTier: "MD",
 	},
 	vanillite: {
 		tier: "MD NFE",
@@ -868,11 +868,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	gengar: {
-		tier: "MD Ubers",
+		tier: "MD",
 		doublesTier: "MD",
 	},
 	gengarmega: {
-		tier: "Mega",
+		tier: "MD Ubers",
 		doublesTier: "Mega",
 	},
 	spiritomb: {
@@ -1120,8 +1120,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	excadrill: {
-		tier: "MD NFE",
-		doublesTier: "MD NFE",
+		tier: "MD",
+		doublesTier: "MD",
 	},
 	sizzlipedemaadowr: {
 		tier: "MD NFE",
