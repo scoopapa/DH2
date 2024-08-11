@@ -25,12 +25,12 @@ const hyperspaceLookup = {
 	calyrexshadow: { move: "Astral Barrage" },
 };
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	gravitas: {
+	graviton: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
 		onStart(source) {
 			this.field.addPseudoWeather('gravity');
 		},
-		name: "Gravitas",
+		name: "Graviton",
 		rating: 4,
 		num: -1,
 	},
@@ -172,7 +172,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "On switch-in, this Pokémon summons hail. It changes the current weather to rain whenever any opposing Pokémon has an attack that is super effective on this Pokémon or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "Summons hail on switch-in. If foe has a supereffective or OHKO move, summons rain.",
 		onStart(pokemon) {
-			let weather = 'hail';
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -182,12 +181,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						weather = 'raindance';
+						this.field.setWeather('raindance');
+						return;
+					}
+					else {
+						this.field.setWeather('hail');
 						return;
 					}
 				}
 			}
-			this.field.setWeather(weather, pokemon);
 		},
 		onAnySwitchIn(pokemon) {
 			if (pokemon === this.effectState.target) return;
@@ -314,7 +316,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokémon is KOed, the attacker is cursed, then permanently receives this Ability.",
 		onFaint(target, source, effect) {
 			if (!source || !effect || target.side === source.side) return;
-			if (effect.effectType === 'Move' && !effect.isFutureMove) {
+			if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
 				this.add('-ability', target, 'Nightmare Heart');
 				source.addVolatile('curse');
 				const bannedAbilities = [
@@ -719,7 +721,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokémon's target has Blackmail, it survives every hit with at least 1 HP.",
 		onDamagePriority: -0,
 		onAnyDamage(damage, target, source, effect) {
-			if (move.ignoreAbility) return;
+			if (effect.effectType === 'Move') {
+				let move = this.dex.moves.get(effect.id);
+				if (move.ignoreAbility) return;
+			}
 			if (source === this.effectState.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Orderly Target');
@@ -1066,7 +1071,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({def: 1}, source);
 			}
 		},
-		onSourceAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (source.hp === source.maxhp || source.hp <= source.maxhp / 3) return;
 			if (move.flags['slicing']) {
@@ -1406,7 +1411,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				];
 				if (
 					pokemon.side.pokemon[i].fainted ||
-					pokemon.side.pokemon[i].getAbility().isPermanent || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
+					pokemon.side.pokemon[i].getAbility().flags['notrace'] || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
 				) {
 					continue;
 				}
@@ -1448,7 +1453,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Body of Water",
 		onModifyMove(move, attacker) {
 			if (move.type === 'Water') {
-				move.useSourceDefensiveAsOffensive = true;
+				if (move.category === 'Special') {
+					move.overrideOffensiveStat = 'spd';
+				}
+				else if (move.category === 'Physical') {
+					move.overrideOffensiveStat = 'def';
+				}
 				(move as any).bodyofwaterBoosted = true;
 			}
 		},
@@ -2167,7 +2177,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
+					this.damage(this.clampIntRange(Math.round((this.activeMove.totalDamage as number) * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
 				}
 				if (this.effectState.mindBlownRecoil) {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);

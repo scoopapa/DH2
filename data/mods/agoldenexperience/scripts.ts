@@ -1454,6 +1454,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'stunfiskgalar').learnset.leechlife = ['9L1'];
     this.modData('Learnsets', 'stunfiskgalar').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'stunfiskgalar').learnset.secretpower = ['9L1'];
+    this.modData('Learnsets', 'stunfiskgalar').learnset.ironhead = ['9L1'];
     this.modData('Learnsets', 'mienshao').learnset.courtchange = ['9L1'];
     this.modData('Learnsets', 'druddigon').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'bouffalant').learnset.headsmash = ['9L1'];
