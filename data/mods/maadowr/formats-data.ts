@@ -388,8 +388,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	sneezibia: {
-		tier: "MD NFE",
-		doublesTier: "MD NFE",
+		tier: "MD",
+		doublesTier: "MD",
 	},
 	vaporeon: {
 		tier: "MD",
@@ -949,7 +949,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	prayingvisitor: {
 		tier: "MD",
-		doublesTier: "MD",
+		doublesTier: "MD Ubers",
 	},
 	staryumaadowr: {
 		tier: "MD NFE",
