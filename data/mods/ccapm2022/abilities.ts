@@ -1,5 +1,5 @@
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	crystalize: {
+	crystalize: { 
 		onAfterUseItem(item, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'groundpoison' || pokemon.transformed) {
 				return;
