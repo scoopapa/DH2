@@ -1,5 +1,5 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-	// super
+	// super 
 	supermove: {
 		num: 3000,
 		accuracy: 100,
