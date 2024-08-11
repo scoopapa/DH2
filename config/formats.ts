@@ -787,6 +787,16 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
 		// teambuilderFormat: 'OU',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in M4A OU NatDex.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 6] Megas Revisited",
@@ -3439,6 +3449,16 @@ export const Formats: FormatList = [
 		mod: 'm4ag9',
 		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
 		// teambuilderFormat: 'OU',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in M4A OU NatDex.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] M4A Paldea VGC",
