@@ -2805,7 +2805,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onValidateSet(set) {
+		/*onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 			let species = this.dex.species.get(set.species);
@@ -2815,7 +2815,7 @@ export const Formats: FormatList = [
 			if (item.megaEvolves === species.name) {
 				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
-		},
+		}, */
 		mod: 'maadowr',
 	},
 	{
@@ -2837,7 +2837,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onValidateSet(set) {
+		/*onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 			let species = this.dex.species.get(set.species);
@@ -2847,7 +2847,7 @@ export const Formats: FormatList = [
 			if (item.megaEvolves === species.name) {
 				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
-		},
+		}, */
 		mod: 'maadowr',
 	},
 	// end: Ma'adowr

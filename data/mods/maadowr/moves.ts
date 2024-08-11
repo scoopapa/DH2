@@ -528,7 +528,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Special",
-		shortDesc: "Recovers 50% of the damage dealt to the targets and needs to recharge afterwards.",
+		shortDesc: "Recovers 50% of the damage dealt to the target and needs to recharge afterwards.",
 		name: "Lunar Storm",
 		pp: 5,
 		priority: 0,
