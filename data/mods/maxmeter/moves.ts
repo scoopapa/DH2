@@ -1041,7 +1041,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		noSketch: true,
 		self: {
-			volatileStatus: 'magiccoat',
+			volatileStatus: 'psychosight',
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1068,24 +1068,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Cute",
-	},
-	magiccoat: {
-		inherit: true,
 		condition: {
-			duration: 1,
-			durationCallback(target, source, effect) {
-				if (effect.id === 'psychosight') {
-					return 2;
-				}
-				return 1;
-			},
+			duration: 2,
 			onStart(target, source, effect) {
-				this.add('-singleturn', target, 'move: Magic Coat');
+				this.add('-singleturn', target, 'move: Psycho Sight');
 				if (effect?.effectType === 'Move') {
 					this.effectState.pranksterBoosted = effect.pranksterBoosted;
 				}
@@ -1112,6 +1098,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return null;
 			},
 		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 	stainlessstagger: {
 		num: 2019,
