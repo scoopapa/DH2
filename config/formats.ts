@@ -4407,7 +4407,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onBegin() {
 			for (const side of this.sides) {
-				if (!side.getSideCondition('maxmeter7')) {
+				if (!side.getSideCondition('maxmeter10')) {
 					side.dynamaxUsed = true;
 				}
 			}
@@ -4418,35 +4418,35 @@ export const Formats: FormatList = [
 				pokemon.disableMove('supermove');
 			} else if (
 				pokemon.species.num === 174 || pokemon.species.num === 39 || pokemon.species.num === 40 ||
-				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405 ||
+				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474 ||
 				type === "Bug" || type === "Dragon" || type === "Fire" ||
 				type === "Grass" || type === "Ice" || type === "Normal" ||
 				type === "Poison" || type === "Steel" || type === "Water"
 			) { 
-				if (!pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+				if (!pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
 			} else if (
 				type === "Dark" || type === "Electric" || type === "Fairy" ||
 				type === "Fighting" || type === "Flying" || type === "Ghost" ||
 				type === "Ground" || type === "Psychic" || type === "Rock"
 			) { 
-				if (!pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+				if (!pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
 			}	else if (
-				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474
+				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405
 			) {
-				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
 			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
 			if (move.num > 919) return;
-			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5') || source.side.getSideCondition('maxmeter6') || source.side.getSideCondition('maxmeter7')) return;
+			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5') || source.side.getSideCondition('maxmeter6') || source.side.getSideCondition('maxmeter7') || source.side.getSideCondition('maxmeter8') || source.side.getSideCondition('maxmeter9') || source.side.getSideCondition('maxmeter10')) return;
 			if (source.hasType(move.type)) {
 				source.side.addSideCondition('maxmeter1');
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!move || !target) return;
-			if (target.side.getSideCondition('maxmeter1') || target.side.getSideCondition('maxmeter2') || target.side.getSideCondition('maxmeter3') || target.side.getSideCondition('maxmeter4') || target.side.getSideCondition('maxmeter5') || target.side.getSideCondition('maxmeter6') || target.side.getSideCondition('maxmeter7')) return;
+			if (target.side.getSideCondition('maxmeter1') || target.side.getSideCondition('maxmeter2') || target.side.getSideCondition('maxmeter3') || target.side.getSideCondition('maxmeter4') || target.side.getSideCondition('maxmeter5') || target.side.getSideCondition('maxmeter6') || target.side.getSideCondition('maxmeter7') || target.side.getSideCondition('maxmeter8') || target.side.getSideCondition('maxmeter9') || target.side.getSideCondition('maxmeter10')) return;
 			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
 				target.side.addSideCondition('maxmeter1');
 			}
