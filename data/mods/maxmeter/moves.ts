@@ -402,17 +402,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Sets Safeguard, Mist, & Lucky Chant. Special if user's SpA > Atk.",
+		shortDesc: "Sets Safeguard, Mist, & Lucky Chant for 5 turns. Special if user's SpA > Atk.",
 		name: "Pixie Parade",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		noSketch: true,
-		self: {
-			sideCondition: 'safeguard',
-			sideCondition: 'mist',
-			sideCondition: 'luckychant',
-		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			if (source.side.removeSideCondition('maxmeter5')) {
@@ -429,7 +424,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
-		secondary: null,
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				source.side.addSideCondition('safeguard');
+				source.side.addSideCondition('luckychant');
+				source.side.addSideCondition('mist');
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				source.side.addSideCondition('safeguard');
+				source.side.addSideCondition('luckychant');
+				source.side.addSideCondition('mist');
+			}
+		},
+		secondary: {}, // sheer force-boosted
 		target: "normal",
 		type: "Fairy",
 		zMove: {effect: 'clearnegativeboost'},
