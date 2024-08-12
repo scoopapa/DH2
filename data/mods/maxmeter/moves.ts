@@ -109,6 +109,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Rest", source);
 			this.add('-anim', source, "Misty Explosion", target);
@@ -156,20 +165,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'error474',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			if (source.side.removeSideCondition('maxmeter3')) {
-				source.side.removeSideCondition('maxmeter3');
-			} if (source.side.removeSideCondition('maxmeter4')) {
+			if (source.side.removeSideCondition('maxmeter4')) {
 				source.side.removeSideCondition('maxmeter4');
-				source.side.addSideCondition('maxmeter1');
 			} else if (source.side.removeSideCondition('maxmeter5')) {
 				source.side.removeSideCondition('maxmeter5');
-				source.side.addSideCondition('maxmeter2');
+				source.side.addSideCondition('maxmeter1');
 			} else if (source.side.removeSideCondition('maxmeter6')) {
 				source.side.removeSideCondition('maxmeter6');
-				source.side.addSideCondition('maxmeter3');
+				source.side.addSideCondition('maxmeter2');
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
 				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Conversion", target);
 		},
@@ -207,17 +222,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			if (source.side.removeSideCondition('maxmeter4')) {
+			if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter4')) {
 				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter1');
 			} else if (source.side.removeSideCondition('maxmeter5')) {
 				source.side.removeSideCondition('maxmeter5');
-				source.side.addSideCondition('maxmeter1');
+				source.side.addSideCondition('maxmeter2');
 			} else if (source.side.removeSideCondition('maxmeter6')) {
 				source.side.removeSideCondition('maxmeter6');
-				source.side.addSideCondition('maxmeter2');
+				source.side.addSideCondition('maxmeter3');
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
-				source.side.addSideCondition('maxmeter3');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter6');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter7');
 			}
 			this.add('-anim', source, "Parabolic Charge", target);
 			this.add('-anim', source, "Extreme Speed", target);
@@ -259,6 +286,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Quiver Dance", source);
 			this.add('-anim', source, "Muddy Water", target);
@@ -305,6 +341,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Feint", target);
 			this.add('-anim', source, "Dark Pulse", target);
@@ -342,6 +387,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Clanging Scales", target);
 		},
@@ -383,6 +437,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Charge", target);
 			this.add('-anim', source, "Electro Drift", target);
@@ -417,6 +480,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Twinkle Tackle", target);
 		},
@@ -467,6 +539,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "All-Out Pummeling", target);
 			this.add('-anim', source, "Bulk Up", source);
@@ -505,6 +586,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Burn Up", target);
 		},
@@ -541,6 +631,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Aeroblast", target);
 		},
@@ -575,6 +674,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Poltergeist", target);
 			this.add('-anim', source, "Spite", target);
@@ -613,6 +721,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Leaf Storm", target);
 		},
@@ -646,6 +763,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Precipice Blades", target);
 		},
@@ -696,6 +822,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Clear Smog", target);
 			this.add('-anim', source, "Ice Spinner", target);
@@ -737,6 +872,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Double-Edge", target);
 		},
@@ -793,6 +937,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Gunk Shot", target);
 		},
@@ -840,6 +993,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Rock Wrecker", target);
 			this.add('-anim', source, "Stealth Rock", target);
@@ -891,6 +1053,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter5');
 			}
 			this.add('-anim', source, "Psycho Boost", target);
 		},
@@ -966,6 +1137,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Sucker Punch", target);
 			this.add('-anim', source, "Rock Polish", target);
@@ -1009,6 +1189,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
 				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
 			}
 			this.add('-anim', source, "Water Spout", target);
 			this.add('-anim', source, "Life Dew", source);
@@ -1681,7 +1870,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	maxmeter7: {
-		shortDesc: "The seventh and final level of Max Meter.",
+		shortDesc: "The seventh level of Max Meter.",
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1692,9 +1881,132 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noSketch: true,
 		sideCondition: 'maxmeter7',
 		condition: {
+			onAfterMoveSecondarySelf(source, target, move) {
+				if (!move || !target) return;
+				if (move.num > 919) return;
+				if (source.hasType(move.type)) {
+					source.side.removeSideCondition('maxmeter7');
+					source.side.addSideCondition('maxmeter8');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter7');
+					target.side.addSideCondition('maxmeter8');
+				}
+			},
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Max Meter 7');
 				this.add('-message', `This side has 7 levels of Max Meter!`);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Max Meter 7');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Fighting",
+	},
+	maxmeter8: {
+		shortDesc: "The eighth level of Max Meter.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Max Meter 8",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		noSketch: true,
+		sideCondition: 'maxmeter8',
+		condition: {
+			onAfterMoveSecondarySelf(source, target, move) {
+				if (!move || !target) return;
+				if (move.num > 919) return;
+				if (source.hasType(move.type)) {
+					source.side.removeSideCondition('maxmeter8');
+					source.side.addSideCondition('maxmeter9');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter8');
+					target.side.addSideCondition('maxmeter9');
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Max Meter 8');
+				this.add('-message', `This side has 8 levels of Max Meter!`);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Max Meter 8');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Fighting",
+	},
+	maxmeter9: {
+		shortDesc: "The ninth and penultimate level of Max Meter.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Max Meter 9",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		noSketch: true,
+		sideCondition: 'maxmeter9',
+		condition: {
+			onAfterMoveSecondarySelf(source, target, move) {
+				if (!move || !target) return;
+				if (move.num > 919) return;
+				if (source.hasType(move.type)) {
+					source.side.removeSideCondition('maxmeter9');
+					source.side.addSideCondition('maxmeter10');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter9');
+					target.side.addSideCondition('maxmeter10');
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Max Meter 9');
+				this.add('-message', `This side has 9 levels of Max Meter!`);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Max Meter 9');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Fighting",
+	},
+	maxmeter10: {
+		shortDesc: "The tenth and final level of Max Meter.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Max Meter 10",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		noSketch: true,
+		sideCondition: 'maxmeter10',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Max Meter 10');
+				this.add('-message', `This side has 10 levels of Max Meter!`);
 				this.add('-message', `The Max Meter is now maxed out!`);
 				if (side.sideConditions['dynamaxused']) {
 					side.dynamaxUsed = true;
@@ -1705,7 +2017,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 2,
 			onSideEnd(side) {
-				this.add('-sideend', side, 'move: Max Meter 7');
+				this.add('-sideend', side, 'move: Max Meter 10');
 			},
 		},
 		secondary: null,
