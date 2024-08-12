@@ -6,11 +6,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(pokemon) {
 			this.effectState.turns = 0;
 			pokemon.side.addSideCondition('dynamaxused', pokemon);
-			this.add('-message', `This Pokemon has now entered Max Mode!`);
-			this.add('-message', `In Max Mode, all of this Pokemon's stats (except HP & Speed) are increased by 1.5x!`);
-			this.add('-message', `Additionally, this Pokemon is now immune to the negative effects of Burn, Paralysis, Freeze, Poison, and Confusion!`);
-			this.add('-message', `Max Mode will last for the next 3 turns and can't be entered again!`);
 			this.add('-start', pokemon, 'Dynamax', pokemon.gigantamax ? 'Gmax' : '');
+			this.add('-message', `This Pokemon has now entered Max Mode!`);
+			this.add('-message', `In Max Mode, this Pokemon's HP is increased by 1.5x and all of this Pokemon's moves deal 1.3x damage!`);
+			this.add('-message', `Additionally, this Pokemon is now immune to the negative effects of Burn, Paralysis, Freeze, Poison, Confusion, and Flinching!`);
+			this.add('-message', `Max Mode will last for the next 3 turns and can't be entered again!`);
+			if (pokemon.baseSpecies.name === 'Shedinja') return;
+			pokemon.maxhp = Math.floor(pokemon.maxhp * 1.5);
+			pokemon.hp = Math.floor(pokemon.hp * 1.5);
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
 		onBeforeSwitchOutPriority: -1,
 		onBeforeSwitchOut(pokemon) {
@@ -19,13 +23,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFaint(pokemon) {
 			pokemon.removeVolatile('dynamax');
-			pokemon.side.removeSideCondition('maxmeter5');
+			pokemon.side.removeSideCondition('maxmeter7');
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'psn' || effect.id === 'tox' || effect.id === 'brn') {
 				return false;
 			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
@@ -35,27 +42,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			this.debug('Dynamax atk boost');
-			return this.chainModify(1.5);
-		},
-		onModifyDefPriority: 6,
-		onModifyDef(def, pokemon) {
-			this.debug('Dynamax def boost');
-			return this.chainModify(1.5);
+			return this.chainModify([5324, 4096]);
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			this.debug('Dynamax spa boost');
-			return this.chainModify(1.5);
-		},
-		onModifySpDPriority: 6,
-		onModifySpD(spd, pokemon) {
-			this.debug('Dynamax spd boost');
-			return this.chainModify(1.5);
-		},
-		onDragOutPriority: 2,
-		onDragOut(pokemon) {
-			this.add('-block', pokemon, 'Dynamax');
-			return null;
+			return this.chainModify([5324, 4096]);
 		},
 		onResidualPriority: -100,
 		onResidual() {
@@ -64,6 +56,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax');
 			pokemon.side.removeSideCondition('maxmeter7');
+			if (pokemon.baseSpecies.name === 'Shedinja') return;
+			pokemon.hp = pokemon.getUndynamaxedHP();
+			pokemon.maxhp = pokemon.baseMaxhp;
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
 	},
 	lockedmove: {
