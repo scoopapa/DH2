@@ -14,6 +14,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Calm Mind", target);
 		},
+		onTryHit(source) {
+			if (ssource.volatiles['dynamax']) return false;
+		},
 		onHit(target, source, effect) {
 			let type = source.getTypes()[0];
 			if (source.species.num === 174 || source.species.num === 39 || source.species.num === 40) {
