@@ -4450,8 +4450,10 @@ export const Formats: FormatList = [
 			}	else if (
 				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474 ||
 				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405
-			) { 
+			) {
 				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+			} else if (pokemon.volatiles['dynamax']) {
+				pokemon.disableMove('supermove');
 			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
