@@ -1041,7 +1041,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		noSketch: true,
 		self: {
-			volatileStatus: 'psychosight',
+			sideCondition: 'psychosight',
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1070,8 +1070,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 2,
+			onSideStart(side) {
+				this.add('-start', side, 'move: Psycho Sight');
+				this.add('-message', `The Magic Coat will bounce back status moves for 2 turns!`);
+			},
 			onStart(target, source, effect) {
-				this.add('-singleturn', target, 'move: Psycho Sight');
 				if (effect?.effectType === 'Move') {
 					this.effectState.pranksterBoosted = effect.pranksterBoosted;
 				}
@@ -1096,6 +1099,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				newMove.pranksterBoosted = false;
 				this.actions.useMove(newMove, this.effectState.target, source);
 				return null;
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Psycho Sight');
 			},
 		},
 		secondary: null,
@@ -1200,6 +1208,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 5,
 			onSideStart(side) {
 				this.add('-start', side, 'move: Opulent Oasis');
+				this.add('-message', `The oasis will heal this side for the next 5 turns!`);
 			},
 			onResidualOrder: 6,
 			onResidual(pokemon) {
