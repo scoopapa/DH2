@@ -4289,26 +4289,6 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Dynamax Meter",
-		mod: 'gen8maxmeter',
-		ruleset: ['Standard'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
-		onBegin() {
-			for (const side of this.sides) {
-				if (!side.getSideCondition('maxmeter5')) {
-					side.dynamaxUsed = true;
-				}
-			}
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target) return;
-			if (source.side.getSideCondition('maxmeter1') || source.side.getSideCondition('maxmeter2') || source.side.getSideCondition('maxmeter3') || source.side.getSideCondition('maxmeter4') || source.side.getSideCondition('maxmeter5')) return;
-			if (source.hasType(move.type)) {
-				source.side.addSideCondition('maxmeter1');
-			}
-		},
-	},
-	{
 		name: "[Gen 9] Kanto Rewind OU",
 		desc: [
 			"<b>Kanto Rewind</b>: A Gen 9 Solomod based in the Kanto Region featuring the new Retro Rewind mechanic, plus an extended Kanto Pokedex.",
