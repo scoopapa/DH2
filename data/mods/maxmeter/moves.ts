@@ -63,6 +63,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.actions.useMove("Opulent Oasis", source);
 			}
 		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405) {
+				move.priority = 2;
+			}
+		},
 		/* Nature Power code in case the above doesn't work
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
