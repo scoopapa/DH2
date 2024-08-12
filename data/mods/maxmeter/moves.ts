@@ -249,14 +249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Parabolic Charge", target);
 			this.add('-anim', source, "Extreme Speed", target);
 		},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 2,
-				},
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Electric",
 		zMove: {effect: 'clearnegativeboost'},
