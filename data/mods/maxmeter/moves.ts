@@ -17,43 +17,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source, effect) {
 			let type = source.getTypes()[0];
 			if (source.species.num === 174 || source.species.num === 39 || source.species.num === 40) {
-				this.actions.useMove("Sleepy Surprise", source);
-			} else if (type === "Bug") { // placeholders
-				this.actions.useMove("Attack Order", source);
+				this.actions.useMove("Snooze Button", source);
+			} else if (source.species.num === 474 || source.species.num === 233 || source.species.num === 137) {
+				this.actions.useMove("ERROR 474", source);
+			} else if (source.species.num === 403 || source.species.num === 404 || source.species.num === 405) {
+				this.actions.useMove("Flux Tail", source);
+			} else if (type === "Bug") {
+				this.actions.useMove("Nutritious Nectar", source);
 			} else if (type === "Dark") {
-				this.actions.useMove("Fiery Wrath", source);
+				this.actions.useMove("Deceiving Daze", source);
 			} else if (type === "Dragon") {
-				this.actions.useMove("Dragon Hammer", source);
+				this.actions.useMove("Dragon Drop", source);
 			} else if (type === "Electric") {
-				this.actions.useMove("Thunderbolt", source);
+				this.actions.useMove("Electric Incline", source);
 			} else if (type === "Fairy") {
-				this.actions.useMove("Moonblast", source);
+				this.actions.useMove("Pixie Parade", source);
 			} else if (type === "Fighting") {
-				this.actions.useMove("Sacred Sword", source);
+				this.actions.useMove("Hype Hammer", source);
 			} else if (type === "Fire") {
-				this.actions.useMove("Flamethrower", source);
+				this.actions.useMove("Flame Fan", source);
 			} else if (type === "Flying") {
-				this.actions.useMove("Oblivion Wing", source);
+				this.actions.useMove("Winding Wind", source);
 			} else if (type === "Ghost") {
-				this.actions.useMove("Moongeist Beam", source);
+				this.actions.useMove("Ghastly Gash", source);
 			} else if (type === "Grass") {
-				this.actions.useMove("Energy Ball", source);
+				this.actions.useMove("Draping Drain", source);
 			} else if (type === "Ground") {
-				this.actions.useMove("Earthquake", source);
+				this.actions.useMove("Tremor Trial", source);
 			} else if (type === "Ice") {
-				this.actions.useMove("Ice Beam", source);
+				this.actions.useMove("Glacier Glomp", source);
 			} else if (type === "Normal") {
-				this.actions.useMove("Double-Edge", source);
+				this.actions.useMove("Blank Bash", source);
 			} else if (type === "Poison") {
-				this.actions.useMove("Sludge Bomb", source);
+				this.actions.useMove("Venom Vault", source);
 			} else if (type === "Psychic") {
-				this.actions.useMove("Psychic", source);
+				this.actions.useMove("Psycho Sight", source);
 			} else if (type === "Rock") {
-				this.actions.useMove("Mighty Cleave", source);
+				this.actions.useMove("Pebble Pester", source);
 			} else if (type === "Steel") {
-				this.actions.useMove("Meteor Mash", source);
+				this.actions.useMove("Stainless Stagger", source);
 			} else if (type === "Water") {
-				this.actions.useMove("Surf", source);
+				this.actions.useMove("Opulent Oasis", source);
 			}
 		},
 		/* Nature Power code in case the above doesn't work
@@ -78,13 +82,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	
 	// meter moves
-	sleepysurprise: {
+	snoozebutton: {
 		num: 2000,
-		accuracy: 100,
-		basePower: 150,
-		category: "Status",
+		accuracy: true,
+		basePower: 170,
+		category: "Special",
 		shortDesc: "User sleeps 2 turns and restores HP and status.",
-		name: "Sleepy Surprise",
+		name: "Snooze Button",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
@@ -135,6 +139,889 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
+	error474: {
+		num: 2001,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "+1 to all stats. Once per switch-in.",
+		name: "ERROR 474",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		volatileStatus: 'error474',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+			} if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter4');
+			}
+			this.add('-anim', source, "Conversion", target);
+		},
+		onTry(source, target, move) {
+			if (source.volatiles['error474']) return false;
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: ERROR 474');
+			},
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	fluxtail: {
+		num: 2002,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Nearly always goes first.",
+		name: "Flux Tail",
+		pp: 5,
+		priority: 2,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+			} if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter4');
+			}
+			this.add('-anim', source, "Parabolic Charge", target);
+			this.add('-anim', source, "Extreme Speed", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	nutritiousnectar: {
+		num: 2003,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Heals the team's status. Special if user's SpA > Atk.",
+		name: "Nutritious Nectar",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Quiver Dance", source);
+			this.add('-anim', source, "Muddy Water", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
+				for (const ally of source.side.pokemon) {
+					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+						continue;
+					}
+					ally.cureStatus();
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	deceivingdaze: {
+		num: 2004,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Taunts the foe. Special if user's SpA > Atk.",
+		name: "Deceiving Daze",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		volatileStatus: 'taunt',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Feint", target);
+			this.add('-anim', source, "Dark Pulse", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	dragondrop: {
+		num: 2005,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Adds the Dragon-type to the foe. Special if user's SpA > Atk.",
+		name: "Dragon Drop",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Clanging Scales", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onHit(target) {
+			if (target.hasType('Dragon')) return false;
+			if (!target.addType('Dragon')) return false;
+			this.add('-start', target, 'typeadd', 'Dragon', '[from] move: Dragon Drop');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	electricincline: {
+		num: 2006,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Charges the user. Special if user's SpA > Atk.",
+		name: "Electric Incline",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		self: {
+			volatileStatus: 'charge',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Electro Drift", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	pixieparade: {
+		num: 2007,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets Safeguard, Mist, & Lucky Chant. Special if user's SpA > Atk.",
+		name: "Pixie Parade",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		self: {
+			sideCondition: 'safeguard',
+			sideCondition: 'mist',
+			sideCondition: 'luckychant',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Twinkle Tackle", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	hypehammer: {
+		num: 2008,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Gives the user the Focus Energy effect. Special if user's SpA > Atk.",
+		name: "Hype Hammer",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		self: {
+			volatileStatus: 'focusenergy',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "All-Out Pummeling", target);
+			this.add('-anim', source, "Bulk Up", source);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	flamefan: {
+		num: 2009,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Makes the target weaker to Fire. Special if user's SpA > Atk.",
+		name: "Flame Fan",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		volatileStatus: 'tarshot',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Burn Up", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	windingwind: {
+		num: 2010,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets Tailwind. Special if user's SpA > Atk.",
+		name: "Winding Wind",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, wind: 1},
+		noSketch: true,
+		self: {
+			sideCondition: 'tailwind',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Aeroblast", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	ghastlygash: {
+		num: 2011,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Disables the foe's last move. Special if user's SpA > Atk.",
+		name: "Ghastly Gash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		volatileStatus: 'disable',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Poltergeist", target);
+			this.add('-anim', source, "Spite", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	drapingdrain: {
+		num: 2012,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "User recovers 2/3 of the damage dealt. Special if user's SpA > Atk.",
+		name: "Draping Drain",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		drain: [2, 3],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Leaf Storm", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	tremortrial: {
+		num: 2013,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets a layer of Spikes. Special if user's SpA > Atk.",
+		name: "Tremor Trial",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Precipice Blades", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Ground",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	glacierglomp: {
+		num: 2014,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Clears the foe's stat changes. Special if user's SpA > Atk.",
+		name: "Glacier Glomp",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Clear Smog", target);
+			this.add('-anim', source, "Ice Spinner", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	blankbash: {
+		num: 2015,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Clears hazards from the user's side of the field. Special if user's SpA > Atk.",
+		name: "Blank Bash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Double-Edge", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Blank Bash', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Blank Bash', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		secondary: {}, // sheer force-boosted
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	venomvault: {
+		num: 2016,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets a layer of Toxic Spikes. Special if user's SpA > Atk.",
+		name: "Venom Vault",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Gunk Shot", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('toxicspikes');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('toxicspikes');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Poison",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	pebblepester: {
+		num: 2017,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets Stealth Rock. Special if user's SpA > Atk.",
+		name: "Pebble Pester",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Rock Wrecker", target);
+			this.add('-anim', source, "Stealth Rock", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Rock",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	psychosight: {
+		num: 2018,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets Magic Coat for 2 turns. Special if user's SpA > Atk.",
+		name: "Psycho Sight",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		self: {
+			volatileStatus: 'magiccoat',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter2');
+			}
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	magiccoat: {
+		inherit: true,
+		condition: {
+			duration: 1,
+			durationCallback(target, source, effect) {
+				if (effect.id === 'psychosight') {
+					return 2;
+				}
+				return 1;
+			},
+			onStart(target, source, effect) {
+				this.add('-singleturn', target, 'move: Magic Coat');
+				if (effect?.effectType === 'Move') {
+					this.effectState.pranksterBoosted = effect.pranksterBoosted;
+				}
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.flags['reflectable']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, this.effectState.target, source);
+				return null;
+			},
+		},
+	},
+	stainlessstagger: {
+		num: 2019,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Ignores resistances. Special if user's SpA > Atk.",
+		name: "Stainless Stagger",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Sucker Punch", target);
+			this.add('-anim', source, "Rock Polish", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel' || type === 'Water' || type === 'Fire' || type === 'Electric') return 0;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	opulentoasis: {
+		num: 2020,
+		accuracy: true,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Sets a team-wide Aqua Ring for 5 turns. Special if user's SpA > Atk.",
+		name: "Opulent Oasis",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		noSketch: true,
+		self: {
+			sideCondition: 'opulentoasis',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			}
+			this.add('-anim', source, "Water Spout", target);
+			this.add('-anim', source, "Life Dew", source);
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		condition: {
+			duration: 5,
+			onSideStart(side) {
+				this.add('-start', side, 'move: Opulent Oasis');
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Opulent Oasis');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	/*
 	karaokenight: {
 		num: 2001,
 		accuracy: 100,
@@ -278,6 +1165,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
+ */
 	
 	// removing dynamax's random immunities (AKA i totally could've just used tera instead of dmax)
 		destinybond: {
