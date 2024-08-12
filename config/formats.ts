@@ -4436,6 +4436,9 @@ export const Formats: FormatList = [
 				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
 			}
 		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if ((pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405) && move.id === 'supermove') return priority + 2;
+		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
 			if (move.num > 919) return;
