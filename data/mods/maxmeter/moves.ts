@@ -1432,9 +1432,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
-				if (source.hasType(move.type)) { // add that moves with numbers above 1999 shouldn't build meter
+				if (move.num > 919) return;
+				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter1');
 					source.side.addSideCondition('maxmeter2');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter1');
+					target.side.addSideCondition('maxmeter2');
 				}
 			},
 			onSideStart(side) {
@@ -1465,9 +1473,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
+				if (move.num > 919) return;
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter2');
 					source.side.addSideCondition('maxmeter3');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter2');
+					target.side.addSideCondition('maxmeter3');
 				}
 			},
 			onSideStart(side) {
@@ -1498,9 +1514,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
+				if (move.num > 919) return;
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter3');
 					source.side.addSideCondition('maxmeter4');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter3');
+					target.side.addSideCondition('maxmeter4');
 				}
 			},
 			onSideStart(side) {
@@ -1531,9 +1555,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
+				if (move.num > 919) return;
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter4');
 					source.side.addSideCondition('maxmeter5');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter4');
+					target.side.addSideCondition('maxmeter5');
 				}
 			},
 			onSideStart(side) {
@@ -1564,9 +1596,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
+				if (move.num > 919) return;
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter5');
 					source.side.addSideCondition('maxmeter6');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter5');
+					target.side.addSideCondition('maxmeter6');
 				}
 			},
 			onSideStart(side) {
@@ -1597,9 +1637,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (!move || !target) return;
+				if (move.num > 919) return;
 				if (source.hasType(move.type)) {
 					source.side.removeSideCondition('maxmeter6');
 					source.side.addSideCondition('maxmeter7');
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (!move || !target) return;
+				if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+					target.side.removeSideCondition('maxmeter6');
+					target.side.addSideCondition('maxmeter7');
 				}
 			},
 			onSideStart(side) {
