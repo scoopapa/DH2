@@ -166,7 +166,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 			if (!skipChecks) {
 				if (!this.side.canDynamaxNow()) return;
-				if (!this.side.getSideCondition('maxmeter7')) return;
+				if (!this.side.getSideCondition('maxmeter10')) return;
 				if (
 					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
 				) {
