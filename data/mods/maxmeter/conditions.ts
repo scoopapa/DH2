@@ -19,11 +19,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onBeforeSwitchOutPriority: -1,
 		onBeforeSwitchOut(pokemon) {
 			pokemon.removeVolatile('dynamax');
-			pokemon.side.removeSideCondition('maxmeter7');
+			pokemon.side.removeSideCondition('maxmeter10');
 		},
 		onFaint(pokemon) {
 			pokemon.removeVolatile('dynamax');
-			pokemon.side.removeSideCondition('maxmeter7');
+			pokemon.side.removeSideCondition('maxmeter10');
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -55,7 +55,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax');
-			pokemon.side.removeSideCondition('maxmeter7');
+			pokemon.side.removeSideCondition('maxmeter10');
 			if (pokemon.baseSpecies.name === 'Shedinja') return;
 			pokemon.hp = pokemon.getUndynamaxedHP();
 			pokemon.maxhp = pokemon.baseMaxhp;
