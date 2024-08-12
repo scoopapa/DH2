@@ -37,7 +37,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	guts: {
 		inherit: true,
 		onModifyPriority(priority, pokemon, target, move) {
-			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 2;
+			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 3;
 		},
 	},
 	rivalry: {
@@ -52,7 +52,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyPriority(priority, pokemon, target, move) {
-			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 2;
+			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 3;
 		},
 		flags: {},
 		name: "Rivalry",
@@ -62,7 +62,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	intimidate: {
 		inherit: true,
 		onModifyPriority(priority, pokemon, target, move) {
-			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 2;
+			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 3;
 		},
 	},
 };
