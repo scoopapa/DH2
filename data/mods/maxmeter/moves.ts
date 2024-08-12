@@ -1034,15 +1034,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Sets Magic Coat for 2 turns. Special if user's SpA > Atk.",
+		shortDesc: "Suppresses the foe's ability. Special if user's SpA > Atk.",
 		name: "Psycho Sight",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		noSketch: true,
-		self: {
-			sideCondition: 'psychosight',
-		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			if (source.side.removeSideCondition('maxmeter5')) {
@@ -1068,43 +1065,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
-		condition: {
-			duration: 2,
-			onSideStart(side) {
-				this.add('-start', side, 'move: Psycho Sight');
-				this.add('-message', `The Magic Coat will bounce back status moves for 2 turns!`);
-			},
-			onStart(target, source, effect) {
-				if (effect?.effectType === 'Move') {
-					this.effectState.pranksterBoosted = effect.pranksterBoosted;
-				}
-			},
-			onTryHitPriority: 2,
-			onTryHit(target, source, move) {
-				if (target === source || move.hasBounced || !move.flags['reflectable']) {
-					return;
-				}
-				const newMove = this.dex.getActiveMove(move.id);
-				newMove.hasBounced = true;
-				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
-				this.actions.useMove(newMove, target, source);
-				return null;
-			},
-			onAllyTryHitSide(target, source, move) {
-				if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
-					return;
-				}
-				const newMove = this.dex.getActiveMove(move.id);
-				newMove.hasBounced = true;
-				newMove.pranksterBoosted = false;
-				this.actions.useMove(newMove, this.effectState.target, source);
-				return null;
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 10,
-			onSideEnd(side) {
-				this.add('-sideend', side, 'move: Psycho Sight');
-			},
+		onHit(target) {
+			if (target.getAbility().isPermanent) return;
+			target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().isPermanent) return;
+			target.addVolatile('gastroacid');
 		},
 		secondary: null,
 		target: "normal",
