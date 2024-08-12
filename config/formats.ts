@@ -4418,6 +4418,7 @@ export const Formats: FormatList = [
 				pokemon.disableMove('supermove');
 			} else if (
 				pokemon.species.num === 174 || pokemon.species.num === 39 || pokemon.species.num === 40 ||
+				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405 ||
 				type === "Bug" || type === "Dragon" || type === "Fire" ||
 				type === "Grass" || type === "Ice" || type === "Normal" ||
 				type === "Poison" || type === "Steel" || type === "Water"
@@ -4430,8 +4431,7 @@ export const Formats: FormatList = [
 			) { 
 				if (!pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
 			}	else if (
-				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474 ||
-				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405
+				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474
 			) {
 				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
 			}
