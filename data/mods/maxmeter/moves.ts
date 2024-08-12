@@ -197,35 +197,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	fluxtail: {
 		num: 2002,
 		accuracy: true,
-		basePower: 80,
+		basePower: 100,
 		category: "Physical",
-		shortDesc: "Nearly always goes first.",
+		shortDesc: "Boosts the user's Speed by 2 stages.",
 		name: "Flux Tail",
 		pp: 5,
-		priority: 2,
+		priority: 0,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			if (source.side.removeSideCondition('maxmeter3')) {
-				source.side.removeSideCondition('maxmeter3');
-			} if (source.side.removeSideCondition('maxmeter4')) {
+			if (source.side.removeSideCondition('maxmeter4')) {
 				source.side.removeSideCondition('maxmeter4');
-				source.side.addSideCondition('maxmeter1');
 			} else if (source.side.removeSideCondition('maxmeter5')) {
 				source.side.removeSideCondition('maxmeter5');
-				source.side.addSideCondition('maxmeter2');
+				source.side.addSideCondition('maxmeter1');
 			} else if (source.side.removeSideCondition('maxmeter6')) {
 				source.side.removeSideCondition('maxmeter6');
-				source.side.addSideCondition('maxmeter3');
+				source.side.addSideCondition('maxmeter2');
 			} else if (source.side.removeSideCondition('maxmeter7')) {
 				source.side.removeSideCondition('maxmeter7');
-				source.side.addSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter3');
 			}
 			this.add('-anim', source, "Parabolic Charge", target);
 			this.add('-anim', source, "Extreme Speed", target);
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 2,
+				},
+			},
+		},
 		target: "normal",
 		type: "Electric",
 		zMove: {effect: 'clearnegativeboost'},
