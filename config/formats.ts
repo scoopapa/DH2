@@ -4462,6 +4462,13 @@ export const Formats: FormatList = [
 				source.side.addSideCondition('maxmeter1');
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			if (!move || !target) return;
+			if (target.side.getSideCondition('maxmeter1') || target.side.getSideCondition('maxmeter2') || target.side.getSideCondition('maxmeter3') || target.side.getSideCondition('maxmeter4') || target.side.getSideCondition('maxmeter5') || target.side.getSideCondition('maxmeter6') || target.side.getSideCondition('maxmeter7')) return;
+			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod < 0) {
+				target.side.addSideCondition('maxmeter1');
+			}
+		},
 	},
 	{
 		name: "[Gen 1] NRPMRSCE",
