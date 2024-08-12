@@ -212,12 +212,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	fluxtail: {
 		num: 2002,
 		accuracy: true,
-		basePower: 100,
+		basePower: 90,
 		category: "Physical",
-		shortDesc: "Boosts the user's Speed by 2 stages.",
+		shortDesc: "Always goes first.",
 		name: "Flux Tail",
 		pp: 5,
-		priority: 0,
+		priority: 3,
 		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
