@@ -9,7 +9,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Super Move",
 		pp: 10,
 		priority: 0,
-		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, mystery: 1},
+		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1, mystery: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Calm Mind", target);
@@ -94,7 +94,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Snooze Button",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -160,7 +160,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "ERROR 474",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {snatch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		volatileStatus: 'error474',
 		onPrepareHit(target, source, move) {
@@ -218,7 +218,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Flux Tail",
 		pp: 5,
 		priority: 3,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -264,7 +264,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Nutritious Nectar",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -321,7 +321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Deceiving Daze",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		volatileStatus: 'taunt',
 		onPrepareHit(target, source, move) {
@@ -365,7 +365,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Dragon Drop",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -415,7 +415,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Electric Incline",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		self: {
 			volatileStatus: 'charge',
@@ -461,7 +461,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Pixie Parade",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -517,7 +517,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Hype Hammer",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		self: {
 			volatileStatus: 'focusenergy',
@@ -563,7 +563,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Flame Fan",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		volatileStatus: 'tarshot',
 		onPrepareHit(target, source, move) {
@@ -609,7 +609,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Winding Wind",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, wind: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1, wind: 1},
 		noSketch: true,
 		self: {
 			sideCondition: 'tailwind',
@@ -654,7 +654,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Ghastly Gash",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		volatileStatus: 'disable',
 		onPrepareHit(target, source, move) {
@@ -698,7 +698,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Draping Drain",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		drain: [2, 3],
 		onPrepareHit(target, source, move) {
@@ -744,7 +744,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Tremor Trial",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -800,7 +800,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Glacier Glomp",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -850,7 +850,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Blank Bash",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -915,7 +915,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Venom Vault",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -974,7 +974,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Pebble Pester",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1031,7 +1031,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Psycho Sight",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1081,7 +1081,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Stainless Stagger",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1130,7 +1130,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Opulent Oasis",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		self: {
 			sideCondition: 'opulentoasis',
@@ -1249,7 +1249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Deflation",
 		pp: 10,
 		priority: -6,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1303,7 +1303,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Puff Up",
 		pp: 10,
 		priority: -6,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
