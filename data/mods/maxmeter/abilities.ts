@@ -32,4 +32,37 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 254,
 	},
+
+// hard-coding the priority boost for luxray's flux tail
+	guts: {
+		inherit: true,
+		onModifyPriority(priority, pokemon, target, move) {
+			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 2;
+		},
+	},
+	rivalry: {
+		shortDesc: "This Pokemon's attacks do 1.25x on same gender targets.",
+		onBasePowerPriority: 24,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.gender && defender.gender) {
+				if (attacker.gender === defender.gender) {
+					this.debug('Rivalry boost');
+					return this.chainModify(1.25);
+				}
+			}
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 2;
+		},
+		flags: {},
+		name: "Rivalry",
+		rating: 0,
+		num: 79,
+	},
+	intimidate: {
+		inherit: true,
+		onModifyPriority(priority, pokemon, target, move) {
+			if ((move?.id === 'supermove') && (pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405)) return priority + 2;
+		},
+	},
 };
