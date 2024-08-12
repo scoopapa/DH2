@@ -15,7 +15,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Calm Mind", target);
 		},
 		onTryHit(source) {
-			if (ssource.volatiles['dynamax']) return false;
+			if (source.volatiles['dynamax']) return false;
 		},
 		onHit(target, source, effect) {
 			let type = source.getTypes()[0];
