@@ -4425,15 +4425,6 @@ export const Formats: FormatList = [
 		mod: 'maxmeter',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Super Move Additions'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
-		/*onValidateSet(set) {
-			const problems: string[] = [];
-			const moves = [];
-			if (set.moves?.length) {
-				if (set.moves.length > 4 && ) { // find a way to force you to only have 4 non-meter moves
-					problems.push(`${set.name} has ${set.moves.length} moves, which is more than the limit of ${this.ruleTable.maxMoveCount}.`);
-					return problems;
-				}
-		},*/
 		onBegin() {
 			for (const side of this.sides) {
 				if (!side.getSideCondition('maxmeter7')) {
@@ -4442,7 +4433,26 @@ export const Formats: FormatList = [
 			}
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+			let type = pokemon.getTypes()[0];
+			if (
+				pokemon.species.num === 174 || pokemon.species.num === 39 || pokemon.species.num === 40 ||
+				type === "Bug" || type === "Dragon" || type === "Fire" ||
+				type === "Grass" || type === "Ice" || type === "Normal" ||
+				type === "Poison" || type === "Steel" || type === "Water"
+			) { 
+				if (!pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+			} else if (
+				type === "Dark" || type === "Electric" || type === "Fairy" ||
+				type === "Fighting" || type === "Flying" || type === "Ghost" ||
+				type === "Ground" || type === "Psychic" || type === "Rock"
+			) { 
+				if (!pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+			}	else if (
+				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474 ||
+				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405
+			) { 
+				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7')) pokemon.disableMove('supermove');
+			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target) return;
