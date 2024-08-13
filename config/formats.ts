@@ -4416,13 +4416,24 @@ export const Formats: FormatList = [
 			let type = pokemon.getTypes()[0];
 			if (pokemon.volatiles['dynamax']) {
 				pokemon.disableMove('supermove');
-			} 	else if (
-				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405
+			} else if (
+				pokemon.species.num === 60 || pokemon.species.num === 61 || || pokemon.species.num === 62 ||
+				pokemon.species.num === 186
+			) {
+				if (!pokemon.side.getSideCondition('maxmeter1') && !pokemon.side.getSideCondition('maxmeter2') && !pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
+			} else if (
+				pokemon.species.num === 235
+			) {
+				if (!pokemon.side.getSideCondition('maxmeter2') && !pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
+			} else if (
+				pokemon.species.num === 403 || pokemon.species.num === 404 || pokemon.species.num === 405 ||
+				pokemon.species.num === 605 || pokemon.species.num === 606
 			) {
 				if (!pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
 			} else if (
 				pokemon.species.num === 174 || pokemon.species.num === 39 || pokemon.species.num === 40 ||
 				pokemon.species.num === 137 || pokemon.species.num === 233 || pokemon.species.num === 474 ||
+				pokemon.species.num === 129 || pokemon.species.num === 130 ||
 				type === "Bug" || type === "Dragon" || type === "Fire" ||
 				type === "Grass" || type === "Ice" || type === "Normal" ||
 				type === "Poison" || type === "Steel" || type === "Water"
