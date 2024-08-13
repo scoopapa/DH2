@@ -1426,10 +1426,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const move2 = target.moveSlots[1];
 			const move3 = target.moveSlots[2];
 			const move4 = target.moveSlots[3];
-			this.actions.useMove(move1, source);
-			this.actions.useMove(move2, source);
-			this.actions.useMove(move3, source);
-			this.actions.useMove(move4, source);
+			this.actions.useMove(move1, target);
+			this.actions.useMove(move2, target);
+			this.actions.useMove(move3, target);
+			this.actions.useMove(move4, target);
 			this.add('-message', `The Art Attack is now over!`);
 		},
 		secondary: null,
