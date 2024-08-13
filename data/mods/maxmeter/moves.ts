@@ -1418,7 +1418,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				source.side.removeSideCondition('maxmeter10');
 				source.side.addSideCondition('maxmeter8');
 			}
-			this.add('-anim', source, "Sketch", target);
+			this.add('-anim', source, "Baton Pass", target);
 		},
 		onHit(target) {
 			this.add('-message', `Smeargle is having an Art Attack!`);
