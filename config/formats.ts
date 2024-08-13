@@ -4417,7 +4417,7 @@ export const Formats: FormatList = [
 			if (pokemon.volatiles['dynamax']) {
 				pokemon.disableMove('supermove');
 			} else if (
-				pokemon.species.num === 60 || pokemon.species.num === 61 || || pokemon.species.num === 62 ||
+				pokemon.species.num === 60 || pokemon.species.num === 61 || pokemon.species.num === 62 ||
 				pokemon.species.num === 186
 			) {
 				if (!pokemon.side.getSideCondition('maxmeter1') && !pokemon.side.getSideCondition('maxmeter2') && !pokemon.side.getSideCondition('maxmeter3') && !pokemon.side.getSideCondition('maxmeter4') && !pokemon.side.getSideCondition('maxmeter5') && !pokemon.side.getSideCondition('maxmeter6') && !pokemon.side.getSideCondition('maxmeter7') && !pokemon.side.getSideCondition('maxmeter8') && !pokemon.side.getSideCondition('maxmeter9') && !pokemon.side.getSideCondition('maxmeter10')) pokemon.disableMove('supermove');
