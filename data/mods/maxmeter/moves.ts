@@ -31,7 +31,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.actions.useMove("Time Warp", source);
 			} else if (source.species.num === 129 || source.species.num === 130) {
 				this.actions.useMove("Dragon Install", source);
-			} else if (source.species.num === 60 || source.species.num === 61 || || source.species.num === 62 || source.species.num === 186) {
+			} else if (source.species.num === 60 || source.species.num === 61 || source.species.num === 62 || source.species.num === 186) {
 				this.actions.useMove("Hop Away", source);
 			} else if (type === "Bug") {
 				this.actions.useMove("Nutritious Nectar", source);
