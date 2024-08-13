@@ -1422,14 +1422,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target) {
 			this.add('-message', `Smeargle is having an Art Attack!`);
-			const move1 = target.moveSlots[0];
-			const move2 = target.moveSlots[1];
-			const move3 = target.moveSlots[2];
-			const move4 = target.moveSlots[3];
-			this.actions.useMove("move1", target);
-			this.actions.useMove("move2", target);
-			this.actions.useMove("move3", target);
-			this.actions.useMove("move4", target);
+			const move1 = this.dex.moves.get(target.moveSlots[0].id);
+			const move2 = this.dex.moves.get(target.moveSlots[1].id);
+			const move3 = this.dex.moves.get(target.moveSlots[2].id);
+			const move4 = this.dex.moves.get(target.moveSlots[3].id);
+			this.actions.useMove(move1, target);
+			this.actions.useMove(move2, target);
+			this.actions.useMove(move3, target);
+			this.actions.useMove(move4, target);
 			this.add('-message', `The Art Attack is now over!`);
 		},
 		secondary: null,
