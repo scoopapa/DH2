@@ -25,6 +25,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.actions.useMove("ERROR 474", source);
 			} else if (source.species.num === 403 || source.species.num === 404 || source.species.num === 405) {
 				this.actions.useMove("Flux Tail", source);
+			}	else if (source.species.num === 235) {
+				this.actions.useMove("Art Attack", source);
+			} else if (source.species.num === 605 || source.species.num === 606) {
+				this.actions.useMove("Time Warp", source);
+			} else if (source.species.num === 129 || source.species.num === 130) {
+				this.actions.useMove("Dragon Install", source);
+			} else if (source.species.num === 60 || source.species.num === 61 || || source.species.num === 62 || source.species.num === 186) {
+				this.actions.useMove("Hop Away", source);
 			} else if (type === "Bug") {
 				this.actions.useMove("Nutritious Nectar", source);
 			} else if (type === "Dark") {
@@ -218,7 +226,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Flux Tail",
 		pp: 5,
 		priority: 3,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1, contact: 1},
 		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1186,6 +1194,251 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
+	hopaway: {
+		num: 2021,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Switches the user out if it hits.",
+		name: "Hop Away",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1, contact: 1},
+		noSketch: true,
+		selfSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter1')) {
+				source.side.removeSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter2')) {
+				source.side.removeSideCondition('maxmeter2');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter6');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter7');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter8');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter9');
+			}
+			this.add('-anim', source, "Splash", source);
+			this.add('-anim', source, "Bounce", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	dragoninstall: {
+		num: 2022,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Boosts the user's Atk & SpA by 2, and adds the Dragon-type to the user.",
+		name: "Dragon Install",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter6');
+			}
+			this.add('-anim', source, "Dragon Dance", target);
+			this.add('-anim', source, "Morning Sun", target);
+		},
+		onHit(target) {
+			if (target.hasType('Dragon')) return false;
+			if (!target.addType('Dragon')) return false;
+			this.add('-start', target, 'typeadd', 'Dragon', '[from] move: Dragon Install');
+		},
+		boosts: {
+			atk: 2,
+			spa: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Dragon",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	timewarp: {
+		num: 2023,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Sets Trick Room and gives numerous buffs.",
+		name: "Time Warp",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
+		noSketch: true,
+		pseudoWeather: 'trickroom',
+		volatileStatus: 'timewarp',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter6');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter7');
+			}
+			this.add('-anim', source, "Gravity", target);
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Time Warp');
+				this.add('-message', `${pokemon} has caused a Time Warp!`);
+				this.add('-message', `Time Warp boosts the power of Psychic moves by 1.2x, changes Normal moves into Psychic moves, and lets the user skip the charge turn on charge moves!`);
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Psychic') {
+					return this.chainModify(1.2);
+				}
+			},
+			onModifyTypePriority: -2,
+			onModifyType(move) {
+				if (move.type === 'Normal') {
+					move.type = 'Psychic';
+					this.debug(move.name + "'s type changed to Psychic");
+				}
+			},
+			onModifyMovePriority: 1,
+			onModifyMove(move) {
+				delete move.flags['charge'];
+			},
+			onChargeMove(pokemon, target, move) {
+				if (pokemon.useItem()) {
+					this.debug('time warp - remove charge turn for ' + move.id);
+					this.attrLastMove('[still]');
+					this.addMove('-anim', pokemon, move.name, target);
+					return false; // skip charge turn
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	artattack: {
+		num: 2024,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User uses all of their moves (except their Super).",
+		name: "Art Attack",
+		pp: 5,
+		priority: 0,
+		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failencore: 1, failmimic: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			if (source.side.removeSideCondition('maxmeter2')) {
+				source.side.removeSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter3')) {
+				source.side.removeSideCondition('maxmeter3');
+				source.side.addSideCondition('maxmeter1');
+			} else if (source.side.removeSideCondition('maxmeter4')) {
+				source.side.removeSideCondition('maxmeter4');
+				source.side.addSideCondition('maxmeter2');
+			} else if (source.side.removeSideCondition('maxmeter5')) {
+				source.side.removeSideCondition('maxmeter5');
+				source.side.addSideCondition('maxmeter3');
+			} else if (source.side.removeSideCondition('maxmeter6')) {
+				source.side.removeSideCondition('maxmeter6');
+				source.side.addSideCondition('maxmeter4');
+			} else if (source.side.removeSideCondition('maxmeter7')) {
+				source.side.removeSideCondition('maxmeter7');
+				source.side.addSideCondition('maxmeter5');
+			} else if (source.side.removeSideCondition('maxmeter8')) {
+				source.side.removeSideCondition('maxmeter8');
+				source.side.addSideCondition('maxmeter6');
+			} else if (source.side.removeSideCondition('maxmeter9')) {
+				source.side.removeSideCondition('maxmeter9');
+				source.side.addSideCondition('maxmeter7');
+			} else if (source.side.removeSideCondition('maxmeter10')) {
+				source.side.removeSideCondition('maxmeter10');
+				source.side.addSideCondition('maxmeter8');
+			}
+			this.add('-anim', source, "Sketch", target);
+		},
+		onHit(target) {
+			this.add('-message', `Smeargle is having an Art Attack!`);
+			const move1 = target.moveSlots[0];
+			const move2 = target.moveSlots[1];
+			const move3 = target.moveSlots[2];
+			const move4 = target.moveSlots[3];
+			this.actions.useMove(move1, source);
+			this.actions.useMove(move2, source);
+			this.actions.useMove(move3, source);
+			this.actions.useMove(move4, source);
+			this.add('-message', `The Art Attack is now over!`);
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+
 	/*
 	karaokenight: {
 		num: 2001,
