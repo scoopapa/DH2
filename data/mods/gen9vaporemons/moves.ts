@@ -987,6 +987,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidual(pokemon) {
 				this.heal(pokemon.baseMaxhp / 8);
 			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Rekindle');
+			},
 		},
 		secondary: null,
 		target: "self",
@@ -1022,6 +1025,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-message', `${target.name}'s flames were put out!`);
 					target.removeVolatile('rekindle');
 				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Rekindle');
 			},
 		},
 		secondary: null,
