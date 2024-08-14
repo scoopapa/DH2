@@ -1343,7 +1343,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(pokemon, source, effect) {
 				this.add('-start', pokemon, 'Time Warp');
-				this.add('-message', `${pokemon} has caused a Time Warp!`);
+				this.add('-message', `${pokemon.name} has caused a Time Warp!`);
 				this.add('-message', `Time Warp boosts the power of Psychic moves by 1.2x, changes Normal moves into Psychic moves, and lets the user skip the charge turn on charge moves!`);
 			},
 			onBasePowerPriority: 9,
