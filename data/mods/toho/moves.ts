@@ -394,7 +394,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 1,
 			onSideEnd(targetSide) {
-				console.log(targetSide.pokemon);
+				//console.log(targetSide.pokemon);
 				this.boost({atk: -1}, targetSide.pokemon);
 			},
 		},
