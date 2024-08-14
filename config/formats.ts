@@ -3158,7 +3158,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] toho",
+		name: "[Gen 9] Touhoumons",
 		desc: `2hu`,
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
@@ -3815,13 +3815,6 @@ export const Formats: FormatList = [
 		section: "Non-Pet Mod Formats",
 		column: 3,
 		// name: "nonpetmodformats",
-	},
-	{
-		name: "[Gen 9] Big Boss",
-
-		mod: 'gen9',
-		ruleset: ['Standard', 'Big Boss Rule', '!Species Clause'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 9] Littlest Cup",
