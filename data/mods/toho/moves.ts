@@ -209,6 +209,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Salt Cure", target);
+		},
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
@@ -238,6 +242,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, slicing: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smart Strike", target);
+		},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -253,6 +261,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Astral Barrage", target);
+		},
 		secondary: {
 			chance: 10,
 			volatileStatus: 'flinch',
@@ -284,6 +296,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Clear Smog", target);
+		},
 		secondary: {
 			chance: 30,
 			status: 'par',
@@ -316,9 +332,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 65,
 		category: "Physical",
 		name: "Divine Strike",
+		shortDesc: "Always results in a critical hit.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, slicing: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Secret Sword", target);
+		},
 		willCrit: true,
 		secondary: null,
 		target: "normal",
@@ -334,6 +355,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Calm Mind", target);
+		},
 		boosts: {
 			atk: 1,
 			spa: 1,
@@ -355,6 +380,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Recover", target);
+		},
 		heal: [1, 2],
 		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Hecatia Lapislazuli' && !pokemon.transformed) {
@@ -383,6 +412,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: -6,
 		flags: {reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, allyanim: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Roar", target);
+		},
 		forceSwitch: true,
 		self: {
 			onHit(source) {
@@ -394,8 +427,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 1,
 			onSideEnd(targetSide) {
-				//console.log(targetSide.pokemon);
-				this.boost({atk: -1}, targetSide.pokemon);
+				//console.log(targetSide.active);
+				this.boost({atk: -1}, targetSide.active);
 			},
 		},
 		secondary: null,
@@ -413,6 +446,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, bullet: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Throw", target);
+		},
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('excavate');
 		},
@@ -497,6 +534,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pin Missile", target);
+		},
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
