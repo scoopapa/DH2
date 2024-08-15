@@ -2201,23 +2201,6 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
-		name: "[Gen 9] Balls",
-		mod: 'balls',
-		desc: `A hilarious metagame filled with nothing but balls.`,
-		ruleset: ['Standard', 'Data Mod'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['Balls'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return ['Balls ' + set.species + ' doesnt exist.'];
-				}
-			}
-		},
-	},
-	{
 		name: "[Gen 9] ASoDH",
 		desc: 'Another Solomod on DH (by Lysio & Akira)',
 		threads: [],
@@ -2235,6 +2218,23 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'asodh',
+	},
+	{
+		name: "[Gen 9] Balls",
+		mod: 'balls',
+		desc: `A hilarious metagame filled with nothing but balls.`,
+		ruleset: ['Standard', 'Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Balls'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return ['Balls ' + set.species + ' doesnt exist.'];
+				}
+			}
+		},
 	},
 	{
         name: "[Gen 9] Climate Change",
