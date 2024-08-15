@@ -118,6 +118,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
+			this.attrLastMove('[still]');
+			this.add('-anim', attacker, "Charge", attacker);
 			return null;
 		},
 		condition: {
@@ -943,6 +945,46 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Poison",
+	},
+	maidenspeak: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Maiden's Peak",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		desc: "The first use of this move will boost the user's Special Attack, change its typing to Grass/Water, and replace its ability with Unnerve. Later uses call Hydro Pump.",
+		shortDesc: "First use: +1 SpA; become Grass/Water; gain Unnerve. Future uses call Hydro Pump.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			if (!source.volatiles['maidenspeak']) {
+				this.add('-anim', source, "Haze", target);
+			}
+		},
+		onTryHit(target, pokemon) {
+			if (pokemon.volatiles['maidenspeak']) {
+				this.actions.useMove('hydropump',pokemon,target);
+			} else {
+				pokemon.addVolatile('maidenspeak');
+			}
+			return null;
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Maiden\'s Peak', '[silent]');
+				this.add('-message', `${pokemon.name} took the form of Venustoise!`);
+				pokemon.setType(['Grass','Water']);
+				this.add('-start', pokemon, 'typechange', 'Grass/Water', '[silent]');
+				this.boost({spa: 1}, pokemon, pokemon);
+				pokemon.setAbility('unnerve');
+			},
+		},
+		target: "normal",
+		type: "Dark",
 	},
 	
 	//Interacting with new Brunician mechanics

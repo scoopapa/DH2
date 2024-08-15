@@ -381,6 +381,24 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Buzzing",
 	},
+	watercompaction: {
+		inherit: true,
+		shortDesc: "This Pokemon's Defense is raised 2 if hit by a Water move; Water power against it is halved.",
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Water Compaction weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Water Compaction weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
