@@ -355,28 +355,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'moskitoski') {
 					pokemon.formeChange('Moskitoski-Swarm');
+					this.add('-message', `${pokemon.name} formed a swarm!`);
 				}
 			} else //{
 				if (pokemon.species.id === 'moskitoskiswarm') {
 					pokemon.formeChange('Moskitoski');
+					this.add('-message', `${pokemon.name}'s swarm dispersed!`);
 				}
 			//}
 		},
-		onResidualOrder: 29,
 		onResidual(pokemon) {
-			if (
-				pokemon.baseSpecies.baseSpecies !== 'Moskitoski' || pokemon.level < 20 ||
-				pokemon.transformed || !pokemon.hp
-			) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'moskitoski') {
-					pokemon.formeChange('Moskitoski-Swarm');
-				}
-			} else //{
-				if (pokemon.species.id === 'moskitoskiswarm') {
-					pokemon.formeChange('Moskitoski');
-				}
-			//}
+			if (pokemon.hp) 
+				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Buzzing",
