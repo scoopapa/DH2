@@ -364,6 +364,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			//}
 		},
+		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (pokemon.hp) 
 				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
