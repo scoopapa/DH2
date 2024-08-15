@@ -2106,6 +2106,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 		}
 	},
+	
+	telekinesis: {
+		//not sure if it's movexited or not
+		inherit: true,
+		onTry(source, target, move) {
+			// Additional Gravity check for Z-move variant
+			if (this.field.getPseudoWeather('Gravity')) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Gravity', move);
+				return null;
+			}
+			else if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
+				this.add('-immune', target);
+				return null;
+			}
+		},
+		condition: {
+			inherit: true,
+			onStart(target) {
+				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
+					return null;
+				}
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'Telekinesis');
+			},
+		},
+	},
 	haze: {
 		inherit: true,
 		desc: "Resets the stat stages of all active Pokemon to 0. Pokemon with the ability Rock Bottom are not affected.",
