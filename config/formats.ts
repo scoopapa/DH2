@@ -2234,7 +2234,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		mod: 'maadowr',
+		mod: 'asodh',
 	},
 	{
         name: "[Gen 9] Climate Change",
