@@ -370,7 +370,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	golddigger: {
 		num: -12,
 		accuracy: 100,
-		basePower: 10,
+		basePower: 100,
 		category: "Physical",
 		shortDesc: "Removes target's Steel-type.",
 		name: "Golddigger",
@@ -526,9 +526,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	lunarstorm: {
 		num: -18,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 120,
 		category: "Special",
-		shortDesc: "Recovers 50% of the damage dealt to the target and needs to recharge afterwards.",
+		shortDesc: "Heals and recharges afterwards.",
 		name: "Lunar Storm",
 		pp: 5,
 		priority: 0,
@@ -1020,7 +1020,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
-	// start: damage info in conditions.ts
+	// start:
 	incandescentflame: {
 		num: -34,
 		accuracy: 100,
