@@ -13,7 +13,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	slugma: {
 		inherit: true,
 		baseStats: {hp: 30, atk: 40, def: 40, spa: 80, spd: 30, spe: 40},
-		abilities: {0: "Magma Armor", 1: "Weak Armor", H: "Hazard Absorb"},
+		abilities: {0: "Flame Body", 1: "Weak Armor", H: "Hazard Absorb"},
 	},
 	sprigatito: {
 		inherit: true,
