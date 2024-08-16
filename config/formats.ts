@@ -675,6 +675,20 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 	},
 	{
+		name: "[Gen 9] Little Colosseum",
+		desc: ["<b>Little Colosseum</b>: A Gen 9 Little Cup Pet Mod that aims to buff weaker LC Pokemon and nerf LC Ubers to create a more diverse metagame."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3749020/">Little Colosseum on Smogon Forums</a>`,
+		],
+		mod: 'littlecolosseum',
+		ruleset: ['Little Cup', 'Standard', 'Data Mod'],
+		banlist: [
+			'Aipom', 'Basculin-White-Striped', 'Cutiefly', 'Diglett-Base', 'Dunsparce', 'Duraludon', 'Flittle', 'Girafarig', 'Gligar',
+			'Meditite', 'Misdreavus', 'Murkrow', 'Porygon', 'Qwilfish-Hisui', 'Rufflet', 'Scraggy', 'Scyther', 'Sneasel', 'Sneasel-Hisui',
+			'Snivy', 'Stantler', 'Vulpix', 'Vulpix-Alola', 'Yanma', 'Moody', 'Baton Pass', 'Sticky Web',
+		],
+	},
+	{
 	  name: "[Gen 9] Masquerade",
      desc: '<b>Masquerade</b>: A micrometa where every Pokemon has at least one Ogerpon-like Mask form that can Terastalize to change its ability.',
 	  threads: [
