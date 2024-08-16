@@ -276,9 +276,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	graviton: {
-		shortDesc: "On switch-in, this Pokémon summons Gravity.",
+		shortDesc: "Summons Gravity when replacing a fainted Pokémon.",
 		onStart(source) {
-			this.field.addPseudoWeather('gravity');
+			if (!source.side.faintedThisTurn) return; // this is a new line added to balance the ability
+				this.field.addPseudoWeather('gravity');
 		},
 		flags: {},
 		name: "Graviton",
