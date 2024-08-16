@@ -3237,6 +3237,54 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Touhoumons",
+		desc: `2hu`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
+		],
+		mod: 'toho',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
+		unbanlist: [],
+		teambuilderFormat: 'National Dex',
+		onChangeSet(set) {
+			const item = this.toID(set.item);
+			if (set.species === 'Cirno' || set.species === 'Cirno-Tanned') {
+				if (item === 'summerbackdoor') {
+					set.species = 'Cirno-Tanned';
+					set.ability = 'Drought';
+					let moonblast = set.moves.indexOf('moonblast');
+					if (moonblast >= 0) {
+						set.moves[moonblast] = 'solarbeam';
+					}
+					let playrough = set.moves.indexOf('playrough');
+					if (playrough >= 0) {
+						set.moves[playrough] = 'powerwhip';
+					}
+					let chillingwater = set.moves.indexOf('chillingwater');
+					if (chillingwater >= 0) {
+						set.moves[chillingwater] = 'trailblaze';
+					}
+					let waterpledge = set.moves.indexOf('waterpledge');
+					if (waterpledge >= 0) {
+						set.moves[waterpledge] = 'grasspledge';
+					}
+				} else {
+					set.species = 'Cirno';
+				}
+			}
+		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			for (const set of team) {
+				if (set.species == 'Cirno-Tanned' && set.ability !== 'Drought')
+					 return ["Cirno-Tanned can only have Drought as its ability."]
+				if ((set.species !== 'Cirno-Tanned' && set.species !== 'Cirno') && set.ability === 'Drought')
+					 return ["Only Cirno-Tanned can have Drought as its ability."]
+			}
+		},
+	},
+	{
 		name: "[Gen 1] Tradebacks Expanded",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9881531">Post in Solomods Megathread</a>`,
