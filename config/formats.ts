@@ -681,6 +681,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3749020/">Little Colosseum on Smogon Forums</a>`,
 		],
 		mod: 'littlecolosseum',
+		teambuilderFormat: "LC",
 		ruleset: ['Little Cup', 'Standard', 'Data Mod'],
 		banlist: [
 			'Aipom', 'Basculin-White-Striped', 'Cutiefly', 'Diglett-Base', 'Dunsparce', 'Duraludon', 'Flittle', 'Girafarig', 'Gligar',
