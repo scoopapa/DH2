@@ -16,6 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Protean (Gen 7)",
+		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
 		rating: 4,
 		num: -168,
 	},
