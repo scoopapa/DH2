@@ -175,7 +175,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		flags: {},
-		name: "Surge Surfer",
+		name: "Delusion",
 		shortDesc: "This Pokemon heals 1/8 of its max HP at the end of each turn while confused or in Psychic Terrain.",
 	},
 	surprise: {
