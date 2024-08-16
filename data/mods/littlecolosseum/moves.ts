@@ -41,7 +41,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('hazardabsorb')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 			},
