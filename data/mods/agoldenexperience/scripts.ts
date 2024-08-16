@@ -478,6 +478,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'skrelp').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'dragalge').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'araquanid').learnset.highwater = ['9M'];
+    this.modData('Learnsets', 'volcanion').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'grapploct').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'medidragon').learnset.highwater = ['9M'];
 
