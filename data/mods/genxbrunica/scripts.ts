@@ -463,6 +463,30 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//mandibuzz
 		this.modData("Learnsets","mandibuzz").learnset.airdive = ["9L1"];
 		
+		//gastly line
+		this.modData("Learnsets","gastly").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.toxicshock = ["9L1"];
+		
+		//sandygast line
+		this.modData("Learnsets","sandygast").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets","palossand").learnset.nastyplot = ["9L1"];
+		
+		//salandit line
+		this.modData("Learnsets","salandit").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets","salandit").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.fierydance = ["9L1"];
+		
+		//shiinotic
+		this.modData("Learnsets","shiinotic").learnset.calmmind = ["9L1"];
+		
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
