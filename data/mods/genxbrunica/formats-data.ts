@@ -607,8 +607,106 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
-
-
+	salandit: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	salazzle: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	snolobe: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	freezerit: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	icesty: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	sandygast: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	palossand: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	gastly: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	haunter: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	gengar: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mantyke: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	mantine: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	remoraid: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	octillery: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	elgyem: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	beheeyem: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	elgyemloria: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	beheeyemloria: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	elgyemdesvega: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	yuaftoh: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	morelull: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	shiinotic: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	impidimp: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	morgrem: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	grimmsnarl: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 	akulut: {
 		tier: "Brunica Uber",
