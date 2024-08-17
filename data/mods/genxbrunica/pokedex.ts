@@ -905,6 +905,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 30,
 		evoType: "other",
 		evoCondition: "Ice Stone during Diamond Dust",
+		eggGroups: ["Field"],
 	},
 	rafskull: {
 		num: 1525,
@@ -988,6 +989,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Static", H: "Defender"},
 		heightm: 0.6,
 		weightkg: 8.7,
+		eggGroups: ["Amorphous", "Fairy"],
 	},
 	clobbopus: {
 		inherit: true,
