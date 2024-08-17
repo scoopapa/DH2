@@ -675,6 +675,21 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 	},
 	{
+		name: "[Gen 9] Little Colosseum",
+		desc: ["<b>Little Colosseum</b>: A Gen 9 Little Cup Pet Mod that aims to buff weaker LC Pokemon and nerf LC Ubers to create a more diverse metagame."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3749020/">Little Colosseum on Smogon Forums</a>`,
+		],
+		mod: 'littlecolosseum',
+		teambuilderFormat: "LC",
+		ruleset: ['Little Cup', 'Standard', 'Data Mod'],
+		banlist: [
+			'Aipom', 'Basculin-White-Striped', 'Cutiefly', 'Diglett-Base', 'Dunsparce', 'Duraludon', 'Flittle', 'Girafarig', 'Gligar',
+			'Meditite', 'Misdreavus', 'Murkrow', 'Porygon', 'Qwilfish-Hisui', 'Rufflet', 'Scraggy', 'Scyther', 'Sneasel', 'Sneasel-Hisui',
+			'Snivy', 'Stantler', 'Vulpix', 'Vulpix-Alola', 'Yanma', 'Moody', 'Baton Pass', 'Sticky Web',
+		],
+	},
+	{
 	  name: "[Gen 9] Masquerade",
      desc: '<b>Masquerade</b>: A micrometa where every Pokemon has at least one Ogerpon-like Mask form that can Terastalize to change its ability.',
 	  threads: [
@@ -785,7 +800,18 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Dynamax Clause'],
 		mod: 'm4av6',
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
 		// teambuilderFormat: 'OU',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in M4A OU NatDex.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 6] Megas Revisited",
@@ -2190,6 +2216,25 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
+		name: "[Gen 9] ASoDH",
+		desc: 'Another Solomod on DH (by Lysio & Akira)',
+		threads: [],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass'],
+		teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['ASODH', 'ASODH NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in ASoDH.'];
+				}
+			}
+		},
+		mod: 'asodh',
+	},
+	{
 		name: "[Gen 9] Balls",
 		mod: 'balls',
 		desc: `A hilarious metagame filled with nothing but balls.`,
@@ -2792,8 +2837,8 @@ export const Formats: FormatList = [
 								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Pursuit', 'Return'],
-	//	teambuilderFormat: 'National Dex',
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Espathra', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Pursuit', 'Return'],
+		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['MD', 'MD NFE'];
@@ -2804,7 +2849,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onValidateSet(set) {
+		/*onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 			let species = this.dex.species.get(set.species);
@@ -2814,7 +2859,7 @@ export const Formats: FormatList = [
 			if (item.megaEvolves === species.name) {
 				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
-		},
+		}, */
 		mod: 'maadowr',
 	},
 	{
@@ -2826,6 +2871,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod'],
 		banlist: ['Frustration', 'Hail', 'Hidden Power', 'Pursuit', 'Return'],
+		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
 			let allowedTiers = ['MD', 'MD NFE'];
@@ -2836,7 +2882,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onValidateSet(set) {
+		/*onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 			let species = this.dex.species.get(set.species);
@@ -2846,7 +2892,7 @@ export const Formats: FormatList = [
 			if (item.megaEvolves === species.name) {
 				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
-		},
+		}, */
 		mod: 'maadowr',
 	},
 	// end: Ma'adowr
@@ -3220,6 +3266,54 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Touhoumons",
+		desc: `2hu`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
+		],
+		mod: 'toho',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
+		unbanlist: [],
+		teambuilderFormat: 'National Dex',
+		onChangeSet(set) {
+			const item = this.toID(set.item);
+			if (set.species === 'Cirno' || set.species === 'Cirno-Tanned') {
+				if (item === 'summerbackdoor') {
+					set.species = 'Cirno-Tanned';
+					set.ability = 'Drought';
+					let moonblast = set.moves.indexOf('moonblast');
+					if (moonblast >= 0) {
+						set.moves[moonblast] = 'solarbeam';
+					}
+					let playrough = set.moves.indexOf('playrough');
+					if (playrough >= 0) {
+						set.moves[playrough] = 'powerwhip';
+					}
+					let chillingwater = set.moves.indexOf('chillingwater');
+					if (chillingwater >= 0) {
+						set.moves[chillingwater] = 'trailblaze';
+					}
+					let waterpledge = set.moves.indexOf('waterpledge');
+					if (waterpledge >= 0) {
+						set.moves[waterpledge] = 'grasspledge';
+					}
+				} else {
+					set.species = 'Cirno';
+				}
+			}
+		},
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			for (const set of team) {
+				if (set.species == 'Cirno-Tanned' && set.ability !== 'Drought')
+					 return ["Cirno-Tanned can only have Drought as its ability."]
+				if ((set.species !== 'Cirno-Tanned' && set.species !== 'Cirno') && set.ability === 'Drought')
+					 return ["Only Cirno-Tanned can have Drought as its ability."]
+			}
+		},
+	},
+	{
 		name: "[Gen 1] Tradebacks Expanded",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9881531">Post in Solomods Megathread</a>`,
@@ -3438,6 +3532,16 @@ export const Formats: FormatList = [
 		mod: 'm4ag9',
 		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
 		// teambuilderFormat: 'OU',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in M4A OU NatDex.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] M4A Paldea VGC",
@@ -3590,7 +3694,7 @@ export const Formats: FormatList = [
 	/////////////// Gen 9 Offical Smogon Formats //////////////////
 	///////////////////////////////////////////////////////////////
 	{
-		section: "Offical Smogon Formats",
+		section: "Official Smogon Formats",
 		column: 3,
 		// name: "officialsmogonformats",
 	},
@@ -3600,6 +3704,16 @@ export const Formats: FormatList = [
 		mod: 'gen9',
 		ruleset: ['Standard'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
+	},
+	{
+		name: "[Gen 9] LC",
+		mod: 'gen9',
+		ruleset: ['Little Cup', 'Standard'],
+		banlist: [
+			'Aipom', 'Basculin-White-Striped', 'Cutiefly', 'Diglett-Base', 'Dunsparce', 'Duraludon', 'Flittle', 'Gastly', 'Girafarig', 'Gligar',
+			'Meditite', 'Misdreavus', 'Murkrow', 'Porygon', 'Qwilfish-Hisui', 'Rufflet', 'Scraggy', 'Scyther', 'Sneasel', 'Sneasel-Hisui',
+			'Snivy', 'Stantler', 'Vulpix', 'Vulpix-Alola', 'Yanma', 'Moody', 'Baton Pass', 'Sticky Web',
+		],
 	},
 	{
 		name: "[Gen 9] Anything Goes",
@@ -3800,6 +3914,13 @@ export const Formats: FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
+		name: "[Gen 9] BSS Reg H",
+		mod: 'gen9',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer'],
+		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
+	},
+	{
 		name: "[Gen 9] VGC 2024 Reg G",
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -3821,6 +3942,29 @@ export const Formats: FormatList = [
 		challengeShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3', 'Limit One Restricted'],
 		restricted: ['Restricted Legendary'],
+	},
+	{
+		name: "[Gen 9] VGC 2024 Reg H",
+		mod: 'gen9',
+		gameType: 'doubles',
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets'],
+		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
+	},
+	{
+		name: "[Gen 9] VGC 2024 Reg H (Bo1 Forced OTS)",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets'],
+		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
+	},
+	{
+		name: "[Gen 9] VGC 2024 Reg H (Bo3)",
+		mod: 'gen9',
+		gameType: 'doubles',
+		challengeShow: false,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3'],
+		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
 	},
 
 	///////////////////////////////////////////////////////////////

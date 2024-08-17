@@ -2109,7 +2109,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			memento: ["9L1"],
 			mistyterrain: ["9L1"],
 			moonblast: ["9L1"],
-			naturepower: ["9L1"],
 			playrough: ["9L1"],
 			poisonpowder: ["9L1"],
 			protect: ["9L1"],
