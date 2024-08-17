@@ -401,6 +401,51 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	spectralbeam: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Special",
+		name: "Spectral Beam",
+		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dark Pulse", target);
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ghost",
+	},
+	malevolentmaul: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Physical",
+		name: "Malevolent Maul",
+		desc: "Has a 30% chance to inflict a Curse that damages the target for 25% of its maximum HP, rounded down, at the end of each turn while the target remains active. If the target uses Baton Pass, the replacement will continue to be affected. Inflicting the curse does not consume the user's HP.",
+		shortDesc: "30% chance to Curse the target.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Jaw Lock", target);
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'curse',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+	},
 	
 	//Balm Moves
 	magneticupdraft: {
@@ -980,6 +1025,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.setType(['Grass','Water']);
 				this.add('-start', pokemon, 'typechange', 'Grass/Water', '[silent]');
 				this.boost({spa: 1}, pokemon, pokemon);
+				this.add('-ability', pokemon, pokemon.getAbility().name);
 				this.add('-ability', pokemon, 'Unnerve', '[from] move: Maiden\'s Peak', '[of] ' + pokemon);
 				pokemon.setAbility('unnerve');
 				const newMoveSlots = [];
@@ -1005,6 +1051,101 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Dark",
+	},
+	neuralnetwork: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Neural Network",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "x1.5 power of base move. 30% paralysis on foe(s). Allies have doubled SpA/SpD until next turn ends.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Discharge", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.alliesAndSelf()) {
+					pokemon.addVolatile('neuralnetwork');
+				}
+			},
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Neural Network', '[silent]');
+				this.add('-message', `The Balm move supercharged ${pokemon.name}'s Special Attack and Special Defense!`);
+			},
+			onRestart(pokemon) {
+				pokemon.volatiles['neuralnetwork'].duration = 2;
+				this.add('-message', `The Balm move supercharged ${pokemon.name}'s Special Attack and Special Defense!`);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa) {
+				return this.chainModify(2);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd) {
+				return this.chainModify(2);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Neural Network', '[silent]');
+			}
+		},
+		target: "allAdjacentFoes",
+		type: "Electric",
+	},
+	electrifiedjet: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Electrified Jet",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 30% chance to paralyze the target.",
+		shortDesc: "x1.5 power of base move. 30% chance to paralyze the target.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fusion Bolt", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Water",
+	},
+	icebergcrash: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Iceberg Crash",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 10% chance to freeze the target. This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+		shortDesc: "x1.5 power of base move. 10% chance to freeze. Super effective on Steel.",
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Subzero Slammer", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
 	},
 	
 	//Interacting with new Brunician mechanics
