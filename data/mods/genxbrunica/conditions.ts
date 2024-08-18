@@ -93,6 +93,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'Gastly': 'Maiden\'s Peak',
 				'Haunter': 'Maiden\'s Peak',
 				'Gengar': 'Maiden\'s Peak',
+				'Cryophtore': 'Neural Network',
+				'Pantaray': 'Electrified Jet',
+				'Wreckitanic': 'Iceberg Crash',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 

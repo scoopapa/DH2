@@ -707,6 +707,74 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	cninapse: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	cryophtore: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	cubchoo: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	beartic: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	brrrmanook: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	rafskull: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	phantooneer: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	spectraleon: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mantinebrunica: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	pantaray: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	cruxdisc: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	clobbopusbrunica: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	frostloc: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	dhelmisebrunica: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	wreckitanic: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	houndourbrunica: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	houndread: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 	akulut: {
 		tier: "Brunica Uber",
