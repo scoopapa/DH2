@@ -352,7 +352,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onHit(pokemon, source, move) {
 				if (move.category !== 'Status') {
-					this.effectState.lostFocus = true && source.trySetStatus('par', pokemon);
+						this.effectState.lostFocus = true;
+						if (!source.hasType('Ground')) {  
+							source.trySetStatus('par', pokemon);
+					}
 				}
 			},
 			onTryAddVolatile(status, pokemon) {
@@ -395,15 +398,18 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "User and ally recover 25% of their HP. If they're Bug-type, they also have their offensive stats increased.",
+		shortDesc: "User and ally recover 25% of their HP. If they're Bug-type and got healed, they also have their offensive stats increased.",
 		name: "Honey Dew",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
 		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			if (pokemon.hasType('Bug')) {
-				this.boost({atk: 1, spa: 1}, pokemon, pokemon) || success;
+			// Attempt to heal the Pokémon and store whether healing was successful
+			const healedAmount = this.heal(this.modify(pokemon.maxhp, 0.25));
+			const success = typeof healedAmount === 'number' && healedAmount > 0;
+			// If the Pokémon is Bug-type and was healed, boost its offensive stats
+			if (pokemon.hasType('Bug') && success) {
+				this.boost({atk: 1, spa: 1}, pokemon, pokemon);
 			}
 		},
 		secondary: null,
@@ -750,33 +756,27 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
 		onHit(target) {
-			let success = false;
 			let boosts: BoostsTable = target.boosts;
-	
-			// Clear negative stat boosts
+		
+			// Check if the target's HP is not full before healing
+			if (target.hp < target.maxhp) {
+				// Calculate the heal amount (25% of max HP)
+				const healAmount = target.maxhp / 4;
+				target.heal(healAmount);
+				this.add('-heal', target, target.getHealth, healAmount);
+			}
+		
+			// Clear negative stat boosts after healing
 			for (const stat in boosts) {
 				if (boosts[stat as keyof BoostsTable] < 0) {
 					boosts[stat as keyof BoostsTable] = 0;
-					success = true;
 				}
 			}
-	
-			// Notify about the clearing of negative boosts
-			if (success) {
-				this.add('-clearnegativeboost', target);
-				// Check if all boosts are cleared
 				if (Object.values(boosts).every(value => value === 0)) {
 					target.clearBoosts();
-					this.add('-clearboost', target);
+			    	this.add('-clearboost', target);
 				}
-			}
-	
-			// Heal the target regardless of HP status
-			const healAmount = target.maxhp / 4;
-			target.heal(healAmount);
-			this.add('-heal', target, target.getHealth, healAmount);
-	
-			return success;
+				return true;
 		},
 		secondary: null,
 		target: "allies",
@@ -1400,6 +1400,30 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			return bp;
 		},
 	},		
+	// end
+	// start
+	hypnosis: {
+		num: 95,
+		accuracy: 55,
+		basePower: 0,
+		category: "Status",
+		name: "Hypnosis",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onTryHit(target, source, move) {
+			if (target.hasType('Psychic')) {
+				this.add('-immune', target, '[from] type: Psychic');
+				return null;
+			}
+		},
+		status: 'slp',
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
 	// end
 
 	// start: list of unattainable moves

@@ -1196,7 +1196,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD",
 	},
 	kangaskhanmega: {
-		tier: "MD Ubers",
+		tier: "Mega",
 		doublesTier: "Mega",
 	},
 	rattata: {
