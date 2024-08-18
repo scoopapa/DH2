@@ -2208,7 +2208,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			electrify: ["9L1"],
 			attune: ["9L1"],
 			electricterrain: ["9L1"],
-			perishson: ["9L1"],
+			perishsong: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			protect: ["9L1"],

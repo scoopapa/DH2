@@ -289,7 +289,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1041,
 		name: "Satori Komeiji",
 		types: ["Psychic"],
-		baseStats: {hp: 100, atk: 90, def: 90, spa: 70, spd: 70, spe: 80},
+		baseStats: {hp: 100, atk: 90, def: 70, spa: 90, spd: 70, spe: 80},
 		abilities: {0: "Insomnia", H: "Neuroforce"},
 	},
 	rinkaenbyou: {
@@ -359,7 +359,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1051,
 		name: "Hatate Himekaidou",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 70, atk: 81, def: 78, spa: 106, spd: 60, spe: 115},
+		baseStats: {hp: 70, atk: 81, def: 78, spa: 106, spd: 60, spe: 155},
 		abilities: {0: "Trace", 1: "Infiltrator", H: "Technician"},
 	},
 	kyoukokasodani: {
@@ -443,7 +443,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1063,
 		name: "Doremy Sweet",
 		types: ["Psychic"],
-		baseStats: {hp: 81, atk: 75, def: 112, spa: 94, spd: 73, spe: 80},
+		baseStats: {hp: 81, atk: 75, def: 122, spa: 94, spd: 73, spe: 80},
 		abilities: {0: "World of Nightmares"},
 	},
 	clownpiece: {
@@ -489,7 +489,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1069,
 		name: "Eternity Larva",
 		types: ["Bug", "Flying"],
-		baseStats: {hp: 51, atk: 34, def: 76, spa: 113, spd: 49, spe: 112},
+		baseStats: {hp: 51, atk: 34, def: 76, spa: 133, spd: 49, spe: 112},
 		abilities: {0: "Chlorophyll", 1: "Flash Fire", H: "Regenerator"},
 	},
 	nemunosakata: {
