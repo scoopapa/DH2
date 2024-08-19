@@ -53,7 +53,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	blastoisemega: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	caterpie: {
 		inherit: true,
@@ -5346,12 +5346,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zamazenta: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zamazentacrowned: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	eternatus: {
 		inherit: true,
@@ -5813,7 +5813,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	fluttermane: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	slitherwing: {
 		inherit: true,
@@ -5878,7 +5878,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chiyu: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	koraidon: {
 		inherit: true,
