@@ -4370,8 +4370,9 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen4',
 		searchShow: false,
-		ruleset: ['Standard'],
-		banlist: ['AG'],
+		ruleset: ['Standard', 'Sleep Moves Clause'],
+		banlist: ['AG', 'Blastoise-Mega', 'Chi-Yu'],
+		unbanlist: ['Flutter Mane', 'Zamazenta', 'Zamazenta-Crowned'],
 		teambuilderFormat: 'Uber',
 	},
 ];
