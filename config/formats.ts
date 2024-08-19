@@ -4360,7 +4360,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen4',
 		searchShow: false,
-		ruleset: ['Standard'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: ['AG', 'Uber', 'Arena Trap', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew'],
 	},
 	{
