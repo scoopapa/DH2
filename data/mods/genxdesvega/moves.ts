@@ -1278,6 +1278,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	autotomize: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	//brazdo and loria moves just in case
 	citrusysting: {
