@@ -3149,7 +3149,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	landorus: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	landorustherian: {
 		inherit: true,
@@ -4317,7 +4317,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	urshifu: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	urshifurapidstrike: {
 		inherit: true,
@@ -4821,7 +4821,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	ogerponhearthflametera: {
 		inherit: true,
