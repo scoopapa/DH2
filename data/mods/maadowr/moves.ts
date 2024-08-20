@@ -383,6 +383,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			if (target.hasType('Steel')) {
 				target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				// Make the Steel-type removal visual
+				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: Golddigger');
 			}
 		},
 		secondary: null,
@@ -1237,6 +1239,76 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	// end
+
+	enhancement: {
+		num: -41,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User and ally recover 25% of their HP. If they're Rock-type, they also have their defensive stats increased.",
+		name: "Enhancement",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
+		onHit(pokemon) {
+			// Attempt to heal the Pokémon and store whether healing was successful
+			const healedAmount = this.heal(this.modify(pokemon.maxhp, 0.25));
+			const success = typeof healedAmount === 'number' && healedAmount > 0;
+			// If the Pokémon is Rock-type and was healed, boost its defensive stats
+			if (pokemon.hasType('Rock') && success) {
+				this.boost({def: 1, spd: 1}, pokemon, pokemon);
+			}
+		},
+		secondary: null,
+		target: "allies",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+   // end
+   // start
+   saute: {
+    num: -42,
+    accuracy: true,
+    basePower: 0,
+    category: "Status",
+    name: "Saute",
+    pp: 5,
+    priority: 0,
+    flags: {bypasssub: 1, metronome: 1},
+    onHitField(target, source, move) {
+        const targets: Pokemon[] = [];
+        for (const pokemon of this.getAllActive()) {
+            // Check if the Pokémon is on the user's side
+            if (pokemon.side === source.side) {
+                if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
+                    this.add('-miss', source, pokemon);
+                } else if (this.runEvent('TryHit', pokemon, source, move) && pokemon.getItem().isBerry) {
+                    targets.push(pokemon);
+                }
+            }
+        }
+        this.add('-fieldactivate', 'move: Saute');
+        if (!targets.length) {
+            this.add('-fail', source, 'move: Saute');
+            this.attrLastMove('[still]');
+            return this.NOT_FAIL;
+        }
+        for (const pokemon of targets) {
+            const item = pokemon.getItem();
+            if (item.isBerry) {
+                // Add volatile if a Pokémon on user's side has one of these berries
+                if (['figyberry', 'wikiberry', 'magoberry', 'aguavberry', 'iapapaberry', 'sitrusberry','oranberry', 'leppaberry', 'liechiberry', 'ganlonberry', 'salacberry', 'petayaberry', 'apicotberry', 'starfberry'].includes(item.id)) {
+					pokemon.addVolatile('sauteing'); // Add the 'sauteing' volatile status
+                    }                
+                pokemon.eatItem(true);
+            }
+        }
+    },
+    secondary: null,
+    target: "all",
+    type: "Fire",
+},
+// end
 
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
