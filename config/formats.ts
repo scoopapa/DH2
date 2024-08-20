@@ -4358,23 +4358,22 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 4] Modern Gen 4",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9837342">Smogon Post</a>`,
 		],
 		mod: 'moderngen4',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Z-Move Clause'],
 		banlist: ['AG', 'Uber', 'Arena Trap', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew'],
 	},
 	{
 		name: "[Gen 4] Modern Gen 4 Ubers",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9837342">Smogon Post</a>`,
 		],
 		mod: 'moderngen4',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause'],
-		banlist: ['AG', 'Blastoise-Mega', 'Chi-Yu'],
-		unbanlist: ['Flutter Mane', 'Zamazenta', 'Zamazenta-Crowned'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['AG'],
 		teambuilderFormat: 'Uber',
 	},
 ];
