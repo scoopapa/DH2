@@ -167,7 +167,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mudslap: ["9L1"],
 			stompingtantrum: ["9L1"],
 			sandattack: ["9L1"],
-			acidspray: ["9L1"],
 			poisonsting: ["9L1"],
 			poisontail: ["9L1"],
 			takedown: ["9L1"],
