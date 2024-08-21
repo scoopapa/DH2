@@ -563,7 +563,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.add('-message', `${pokemon.name}'s Reboot PP cannot be restored by Leppa Berry!`);
 				return; // Prevent restoration for "Reboot"
 			}
-			Determine the amount of PP to restore
+			// Determine the amount of PP to restore
 			const ppRestoreAmount = pokemon.volatiles['sauteing'] ? 20 : 10;
 			moveSlot.pp += ppRestoreAmount;
 			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
