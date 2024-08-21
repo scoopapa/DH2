@@ -413,26 +413,30 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onAllySetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+		onSetStatus(status, target, source, effect) {
+			// Always grant immunity to Horizonoc
+			if (target.baseSpecies.baseSpecies === 'Horizonoc' && target.hasItem('sunring')) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] item: Sun Ring');
 				}
-				return false;
+				return false; // Prevent the status from being applied
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			// Check if the user is Horizonoc and the weather is sunny
+			if (target.baseSpecies.baseSpecies === 'Horizonoc' && target.hasItem('sunring') && 
+				['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+				this.add('-immune', target, '[from] item: Sun Ring');
+				return false; // Prevent the status from being applied to the ally
 			}
 		},
 		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+			// Check if the user is Horizonoc and the weather is sunny
+			if (target.baseSpecies.baseSpecies === 'Horizonoc' && target.hasItem('sunring') && 
+				status.id === 'yawn' && 
+				['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
 				this.add('-immune', target, '[from] item: Sun Ring');
-				return null;
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (!['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
-				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] item: Sun Ring');
-				}
-				return false;
+				return null; // Prevent the volatile status from being applied
 			}
 		},
 		itemUser: ["Horizonoc"],
