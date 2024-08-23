@@ -47,3 +47,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
+},
