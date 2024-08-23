@@ -1073,7 +1073,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Vaheelia",
 
 		types: ["Ice", "Ghost"],
-		baseStats: {hp: 99, atk: 130, def: 50, spa: 40, spd: 70, spe: 111},
+		baseStats: {hp: 99, atk: 130, def: 90, spa: 40, spd: 70, spe: 111},
 		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Ice Body"},
 	//	category: "Devour",
 		heightm: 1.8,
