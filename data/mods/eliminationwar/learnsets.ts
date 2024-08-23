@@ -630,5 +630,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tachyoncutter: ["9L1"],
 			thunderwave: ["9L1"],
 			uturn: ["9L1"],
-		}},
+		},
 	},
+};
