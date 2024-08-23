@@ -1426,7 +1426,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaName: "Orbeetle-Mega",
 		megaType: ["Bug", "Psychic"],
 		megaStats: {hp: 60, atk: 45, def: 130, spa: 140, spd: 140, spe: 90},
-		megaAbility: {0: "Gravitas"},
+		megaAbility: {0: "Graviton"},
 		megaStone: "Orbeetlite",
 		megaCreator: "Scoopapa",
 		movepoolAdditions: ["focusblast", "teleport"],

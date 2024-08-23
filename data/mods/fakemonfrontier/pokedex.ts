@@ -313,7 +313,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Vamplin",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 80, atk: 60, def: 100, spa: 100, spd: 100, spe: 110},
-		abilities: {0: "Opportunist", H: "Thermal      Exchange"},
+		abilities: {0: "Opportunist", H: "Thermal Exchange"},
 		height: 30,
 		weightkg: 30,
 	},

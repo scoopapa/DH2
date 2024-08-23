@@ -118,6 +118,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
+			this.attrLastMove('[still]');
+			this.add('-anim', attacker, "Charge", attacker);
 			return null;
 		},
 		condition: {
@@ -192,7 +194,258 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 	},
-	
+	psybolt: {
+		accuracy: 70,
+		basePower: 110,
+		category: "Special",
+		name: "Psy Bolt",
+		desc: "Has a 30% chance to confuse the target. If the terrain is Psychic Terrain, this move does not check accuracy.",
+		shortDesc: "30% chance to confuse target. Can't miss in Psychic Terrain.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (this.field.isTerrain('psychicterrain')) {
+				move.accuracy = true;
+			}
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'confusion',
+		},
+		target: "any",
+		type: "Psychic",
+	},
+	snowbank: {
+		accuracy: 100,
+		basePower: 80,
+		name: "Snowbank",
+		desc: "If this move is successful, the target experiences the effects of all entry hazards on its side of the field, unless its held item is Heavy-Duty Boots or its ability is Keen Eye.",
+		shortDesc: "Target takes hazard damage after being hit by this move.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Spinner", target);
+		},
+		onAfterHit(target, source) {
+			this.runEvent('EntryHazard',target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
+	smokebomb: {
+		accuracy: 95,
+		basePower: 90,
+		category: "Special",
+		name: "Smoke Bomb",
+		desc: "Has a 10% chance to burn the target and a 20% chance to lower its accuracy by 1 stage.",
+		shortDesc: "10% chance to burn. 20% chance to lower target's acc. by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smoke Screen", target);
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'brn',
+			}, {
+				chance: 20,
+				boosts: {
+					accuracy: -1,
+				},
+			},
+		],
+		target: "normal",
+		type: "Fire",
+	},
+	joustinglance: {
+		accuracy: 80,
+		basePower: 150,
+		category: "Physical",
+		name: "Jousting Lance",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Head Smash", target);
+		},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	torchtail: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Torch Tail",
+		desc: "Has a 10% chance to burn the target and a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio. 10% chance to burn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fire Lash", target);
+		},
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	clarentcleave: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Clarent Cleave",
+		desc: "This move ignores the Fairy type's immunity to Dragon. Its type effectiveness against Fairy is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Hits and is super effective on Fairy.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ceaseless Edge", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fairy') return 1;
+		},
+		ignoreImmunity: {'Dragon': true},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMove: {basePower: 180},
+	},
+	disconnect: {
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		name: "Disconnect",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Cannot be selected the turn after it's used.",
+		shortDesc: "100% to lower target's Def by 1. Can't be used consecutively.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Wild Charge", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	sleepdrain: {
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Sleep Drain",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If the target is sleeping, it instead recovers 3/4 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of damage dealt, 75% instead if target is sleeping.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dream Eater", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target && target.status === 'slp') {
+				move.drain = [3,4];
+			}
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	healingnature: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Healing Nature",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. This move's type effectiveness against Poison is changed to be super effective no matter what this move's type is. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt. Super effective on Poison.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Flare", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
+	spectralbeam: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Special",
+		name: "Spectral Beam",
+		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dark Pulse", target);
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ghost",
+	},
+	malevolentmaul: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Physical",
+		name: "Malevolent Maul",
+		desc: "Has a 30% chance to inflict a Curse that damages the target for 25% of its maximum HP, rounded down, at the end of each turn while the target remains active. If the target uses Baton Pass, the replacement will continue to be affected. Inflicting the curse does not consume the user's HP.",
+		shortDesc: "30% chance to Curse the target.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Jaw Lock", target);
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'curse',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+	},
 	
 	//Balm Moves
 	magneticupdraft: {
@@ -202,8 +455,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Magnetic Updraft",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, wind: 1},
-		desc: "Power is equal to 1.5 times the base move's power. For 3 turns, the target cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the target is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the target is under any of their effects. Fails if the target is already under this effect or the effects of Ingrain, Smack Down, Thousand Arrows, or Leaping Onrush. The target is immune to this effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
+		flags: {nosketch: 1, protect: 1, wind: 1},
+		desc: "Power is equal to 1.5 times the base move's power. For 3 turns, the target cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the target is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the target is under any of their effects. Fails if the target is already under this effect or the effects of Ingrain, Smack Down, Thousand Arrows, or Leaping Onrush. The target is immune to this added effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
 		shortDesc: "x1.5 power of base move. For 3 turns, target floats but moves can't miss it.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -211,7 +464,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'telekinesis',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Flying",
 	},
 	leapingonrush: {
@@ -221,7 +474,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Leaping Onrush",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move hits a target under the effect of Bounce, Fly, Magnet Rise, or Telekinesis, the effect ends. If the target is a Flying type that has not used Roost this turn or a Pokemon with the Levitate Ability, it loses its immunity to Ground-type attacks and the Arena Trap Ability as long as it remains active. During the effect, Magnet Rise fails for the target and Telekinesis fails against the target.",
 		shortDesc: "x1.5 power of base move. Removes the target's Ground immunity.",
 		onPrepareHit: function(target, source, move) {
@@ -230,7 +483,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		volatileStatus: 'smackdown',
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Fighting",
 	},
 	cupricdeluge: {
@@ -240,7 +493,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Cupric Deluge",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
 		shortDesc: "x1.5 power of base move. Foes: Steel hazard.",
 		onPrepareHit: function(target, source, move) {
@@ -262,7 +515,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		secondary: null,
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Steel",
 	},
 	divebomb: {
@@ -272,7 +525,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Dive Bomb",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. After the move lands, it the target to become a Water type unless the target is an Arceus or a Silvally, the target is already purely Water type, the target is Terastallized, or the target is using a Type Balm.",
 		shortDesc: "x1.5 power of base move. Changes the target's type to Water.",
 		onPrepareHit: function(target, source, move) {
@@ -287,23 +540,50 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Water",
 	},
-	//There was a miscount, Clone Express is archived
-	/*cloneexpress: {
+	muddevourment: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Mud Devourment",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain. Does not end the effects of Nature Field",
+		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain or Nature Field.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Earth Power", target);
+		},
+		onAfterHit(target, source) {
+			if (source.hp && !this.field.isTerrain(['poisonterrain', 'guardianofnature'])) {
+				this.field.clearTerrain();
+			}
+		},
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp && !this.field.isTerrain(['poisonterrain', 'guardianofnature'])) {
+				this.field.clearTerrain();
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
+	cloneexpress: {
 		accuracy: true,
 		basePower: 1,
 		category: "Physical",
 		name: "Clone Express",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to confuse the target if it has a non-volatile status condition.",
 		shortDesc: "x1.5 power of base move. 100% to confuse statused target.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Population Bomb", target);
+			this.add('-anim', source, "Spectral Thief", target);
 		},
 		secondary: {
 			chance: 100,
@@ -313,10 +593,560 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "adjacentFoe",
+		target: "normal",
 		type: "Ghost",
-	},*/
-	
+	},
+	adulteration: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Adulteration",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Causes the target's Ability to be rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, Zero to Hero, or Surf's Up, this move fails, and receiving the effect through Baton Pass ends the effect immediately.",
+		shortDesc: "x1.5 power of base move. Nullifies the target's Ability.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Wave", target);
+		},
+		onHit(target) {
+			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (!target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	oliverampage: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Olive Rampage",
+		pp: 5,
+		priority: 1,
+		flags: {nosketch: 1, protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power.",
+		shortDesc: "x1.5 power of base move. Usually goes first.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Outrage", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	tectonicshift: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Tectonic Shift",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful and the user has not fainted, all hazards are removed from the user's side of the field.",
+		shortDesc: "x1.5 power of base move. Clears hazards on user's side.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Precipice Blades", target);
+		},
+		onAfterHit(target, pokemon, move) {
+			if (pokemon.hp) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Tectonic Shift', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (pokemon.hp) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Tectonic Shift', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
+	venomousfang: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Venomous Fang",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, contact: 1, bite: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, the target loses all of its type-based immunities and any moves that the target was formerly immune to are super effective against the respective type instead.",
+		shortDesc: "x1.5 power of base move. Target's immunities become weaknesses.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Fang", target);
+		},
+		volatileStatus: 'venomousfang',
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Venom Aspect');
+			},
+			onNegateImmunity: false,
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				//If the type would be immune to the move in a vacuum then it turns super effective
+				//(We can't check immunity for the mon itself as it is considered to completely lack immunities)
+				if (!this.dex.getImmunity(move.type,type)) {
+					return 1;
+				}
+			}
+		},
+	},
+	ammolitevortex: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Ammolite Vortex",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. This move ignores effectiveness against types that would otherwise resist it. The target is immune if it does not share a type with the user.",
+		shortDesc: "x1.5 power of base move. Hits targets that share user's type. Ignores resistances.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Luster Purge", target);
+		},
+		onTryImmunity(target, source) {
+			return target.hasType(source.getTypes());
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (typeMod < 0) return 0;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	asurabarrage: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Asura Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, recharge: 1, contact: 1},
+		multihit: 3,
+		desc: "Power is equal to 1.5 times the base move's power. Hits three times. If this move is successful, the user must recharge on the following turn and cannot select a move.",
+		shortDesc: "x1.5 power of base move. Hits three times. User cannot move next turn.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Drill", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+	},
+	dreadstampede: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Dread Stampede",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "x1.5 power of base move. Ignores the target's stat stage changes.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
+		},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	vivelerose: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Vive Le\u0301 Rose",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, contact: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 50% chance to raise the user's Attack and Special Attack by 1 stage each.",
+		shortDesc: "x1.5 power of base move. 50% chance to raise user's Attack, Sp. Atk by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Petal Dance", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	thunderarmor: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Thunder Armor",
+		pp: 5,
+		priority: 4,
+		flags: {nosketch: 1, cantusetwice: 1},
+		desc: "Cannot be selected the turn after it's used. The user and its party members are protected from damaging attacks made by other Pokemon, including allies, during this turn. The next damaging move used by the user will have doubled power. When a contact move is blocked, the attacker is paralyzed. Fails if this move is already in effect for the user's side.",
+		shortDesc: "Protects allies from damaging attacks. Contact: paralysis. User's next attack has x2 BP. Cannot be selected the turn after it's used.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
+		},
+		sideCondition: 'thunderarmor',
+		onTry() {
+			return !!this.queue.willAct();
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Thunder Armor');
+				source.addVolatile('thunderarmorboost');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				if (move.category === 'Status') return;
+				this.add('-activate', target, 'move: Thunder Armor');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove/*) {
+					// Outrage counter is reset
+					if (*/&& source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					//}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('par', target);
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		target: "allySide",
+		type: "Electric",
+	},
+	mysticburst: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Mystic Burst",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If Trick Room is not already active when this move is used, it sets up Trick Room.",
+		shortDesc: "x1.5 power of base move. Sets up Trick Room unless already present.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psywave", target);
+		},
+		onAfterHit(target, source, move) {
+			if (!this.field.pseudoWeather.trickroom && !move.hasSheerForce && source.hp) {
+				this.field.addPseudoWeather('trickroom');
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!this.field.pseudoWeather.trickroom && !move.hasSheerForce && source.hp) {
+				this.field.addPseudoWeather('trickroom');
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "allAdjacent",
+		type: "Psychic",
+	},
+	violetseed: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Violet Seed",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, bullet: 1},
+		desc: "Power is equal to 1.5 times the base move's power. This move becomes a critical hit if the target is under the effects of Leech Seed.",
+		shortDesc: "x1.5 power of base move. Crits targets under Leech Seed.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aura Sphere", target);
+		},
+		onModifyMove(move, source, target) {
+			if (target.volatiles['leechseed']) {
+				move.critRatio = 5;
+			}
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Fighting",
+	},
+	mentalextract: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Mental Extract",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. After using this move, the user prevents all opposing Pokemon from using any moves that the user also knows as long as the user remains active.",
+		shortDesc: "x1.5 power of base move. Foes cannot use user's moves.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psystrike", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				volatileStatus: 'imprison',
+			},
+		},
+		target: "adjacentFoe",
+		type: "Psychic",
+	},
+	discovery: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Discovery",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to raise the user's Special Defense and Speed by 1 stage each.",
+		shortDesc: "x1.5 power of base move. 100% chance to raise user's Sp. Def, Speed by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Grassy Glide", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spd: 1,
+					spe: 1,
+				},
+			},
+		},
+		target: "adjacentFoe",
+		type: "Grass",
+	},
+	shakingtundra: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Shaking Tundra",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "x1.5 power of base move. 100% chance lower adjacent Pkmn Speed by 1.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Earthquake", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacent",
+		type: "Ground",
+	},
+	venomdrain: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Venom Drain",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "x1.5 power of base move. User recovers 50% of the damage dealt.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Giga Drain", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	maidenspeak: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Maiden's Peak",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1},
+		desc: "The first use of this move will boost the user's Special Attack, change its typing to Grass/Water, and replace its ability with Unnerve. Later uses call Hydro Pump.",
+		shortDesc: "First use: +1 SpA; become Grass/Water; gain Unnerve. Future calls become Hydro Pump.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			if (!source.volatiles['maidenspeak']) {
+				this.add('-anim', source, "Haze", target);
+			}
+		},
+		onTryHit(target, pokemon) {
+			if (pokemon.volatiles['maidenspeak']) {
+				this.actions.useMove('hydropump',pokemon,target);
+			} else {
+				pokemon.addVolatile('maidenspeak');
+			}
+			return null;
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Maiden\'s Peak', '[silent]');
+				this.add('-message', `${pokemon.name} took the form of Venustoise!`);
+				pokemon.setType(['Grass','Water']);
+				this.add('-start', pokemon, 'typechange', 'Grass/Water', '[silent]');
+				this.boost({spa: 1}, pokemon, pokemon);
+				this.add('-ability', pokemon, pokemon.getAbility().name);
+				this.add('-ability', pokemon, 'Unnerve', '[from] move: Maiden\'s Peak', '[of] ' + pokemon);
+				pokemon.setAbility('unnerve');
+				const newMoveSlots = [];
+				for (const moveSlot of pokemon.moveSlots) {
+					let move = this.dex.moves.get(moveSlot.id);
+					if (move.type !== 'Dark' || move.category !== 'Status') {
+						newMoveSlots.push(moveSlot);
+						continue;
+					}
+					newMoveSlots.push({
+						move: 'Hydro Pump',
+						id: 'hydropump',
+						pp: 8,
+						maxpp: 8,
+						target: 'normal',
+						disabled: false,
+						used: false,
+						virtual: true,
+					});
+				}
+				pokemon.moveSlots = newMoveSlots;
+			},
+		},
+		target: "normal",
+		type: "Dark",
+	},
+	neuralnetwork: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Neural Network",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "x1.5 power of base move. 30% paralysis on foe(s). Allies have doubled SpA/SpD until next turn ends.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Discharge", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.alliesAndSelf()) {
+					pokemon.addVolatile('neuralnetwork');
+				}
+			},
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Neural Network', '[silent]');
+				this.add('-message', `The Balm move supercharged ${pokemon.name}'s Special Attack and Special Defense!`);
+			},
+			onRestart(pokemon) {
+				pokemon.volatiles['neuralnetwork'].duration = 2;
+				this.add('-message', `The Balm move supercharged ${pokemon.name}'s Special Attack and Special Defense!`);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa) {
+				return this.chainModify(2);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd) {
+				return this.chainModify(2);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Neural Network', '[silent]');
+			}
+		},
+		target: "allAdjacentFoes",
+		type: "Electric",
+	},
+	electrifiedjet: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Electrified Jet",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 30% chance to paralyze the target.",
+		shortDesc: "x1.5 power of base move. 30% chance to paralyze the target.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fusion Bolt", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Water",
+	},
+	icebergcrash: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Iceberg Crash",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 10% chance to freeze the target. This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+		shortDesc: "x1.5 power of base move. 10% chance to freeze. Super effective on Steel.",
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Subzero Slammer", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+	},
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
@@ -346,6 +1176,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (this.field.isTerrain('guardianofnature')) return priority + 2;
 				if (this.field.isTerrain('grassyterrain')) return priority + 1;
 			}
+		},
+	},
+	minimize: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onRestart: () => null,
+			onSourceModifyDamage(damage, source, target, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'bullybash',//'maliciousmoonsault',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return this.chainModify(2);
+				}
+			},
+			onAccuracy(accuracy, target, source, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'bullybash',//'maliciousmoonsault',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return true;
+				}
+				return accuracy;
+			},
 		},
 	},
 	//Returning moves from Desvega
@@ -1393,6 +2247,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 		}
 	},
+	
+	telekinesis: {
+		//not sure if it's movexited or not
+		inherit: true,
+		onTry(source, target, move) {
+			// Additional Gravity check for Z-move variant
+			if (this.field.getPseudoWeather('Gravity')) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Gravity', move);
+				return null;
+			}
+			else if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
+				this.add('-immune', target);
+				return null;
+			}
+		},
+		condition: {
+			inherit: true,
+			onStart(target) {
+				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
+					return null;
+				}
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'Telekinesis');
+			},
+		},
+	},
 	haze: {
 		inherit: true,
 		desc: "Resets the stat stages of all active Pokemon to 0. Pokemon with the ability Rock Bottom are not affected.",
@@ -1632,7 +2515,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 	},
 	//There are mons that got dexited in SV but not Desvega and thus their signatures can't be used, so freeing their signatures here
-	naturesmadness: {
+	/*naturesmadness: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1645,7 +2528,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	shelltrap: {
 		inherit: true,
 		isNonstandard: null,
-	},
+	},*/
 
 	//misc movexit undoing
 	frustration: {
@@ -1661,6 +2544,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		isNonstandard: null,
 	},
 	naturalgift: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pursuit: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	autotomize: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1890,28 +2781,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-
+*/
 	sonicpulse: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Sonic Pulse",
 		pp: 30,
+		desc: "Until the target faints or switches out, all further attacks used against it will become critical hits.",
+		shortDesc: "Moves against the target become guaranteed crits.",
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'sonicpulse',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Supersonic", target);
+		},
 		condition: {
-			duration: 100,
+			duration: 0,
 			onStart(pokemon, source, effect) {
 				if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
 					this.add('-start', pokemon, 'move: Sonic Pulse', '[silent]');
 				} else {
 					this.add('-start', pokemon, 'move: Sonic Pulse');
 				}
-			},
-			onRestart(pokemon) {
-				this.effectData.duration = 100;
-				this.add('-start', pokemon, 'move: Sonic Pulse');
 			},
 			onSourceModifyCritRatio(critRatio) {
 				return 5;
@@ -1921,12 +2814,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
 	},
-*/
+	
 	centuryblade: {
 		accuracy: 90,
 		basePower: 120,
@@ -2558,8 +3451,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, or a Memory to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, or a Silvally, respectively. The target is immune to this move if it has the Sticky Hold Ability. The user does not switch out if there are no unfainted party members.",
-		shortDesc: "(Bugged?) Switches the user's item with the foes, then switches out if successful.",
+		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, a Memory, a Rusted Sword, a Rusted Shield, or an Awakening Seed to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, a Zamazenta, or a Lutakon respectively. The target is immune to this move if it has the Sticky Hold or Suction Cups Ability. The user does not switch out if there are no unfainted party members.",
+		shortDesc: "Switches the user's item with the foe's. User switches out if successful.",
 		isViable: true,
 		name: "Swindle",
 		pp: 20,
@@ -2570,7 +3463,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Trick", target);
 		},
 		onTryImmunity(target) {
-			return !target.hasAbility('stickyhold');
+			return !target.hasAbility(['stickyhold','suctioncups']);
 		},
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);

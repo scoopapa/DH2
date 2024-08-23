@@ -49,7 +49,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1,
 	},
 	puyomastery: {
-		shortDesc: "Boosts Water attacks by 1.5x",
+		shortDesc: "This Pokemon's Water moves have 1.5x power.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Water') {
@@ -124,20 +124,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	spectralleech: {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by a foe with stat boosts. Eliminates the target's boosts after receiving damage.",
-		onDamagingHit(damage, target, source, effect) {
+		onFoePrepareHit(target, source, move) {
 			let activate = false;
-			let i: BoostID;
-			const removeBoosts = {};
-			for (i in source.boosts) {
-				if (source.boosts[i] > 0) {
-					removeBoosts[i] = source.boosts[i] * -1;
-					activate = true;
+			if (target.positiveBoosts() > 0) {
+				source.addVolatile('spectralleech');
+			}
+		},
+		condition: {
+			duration: 1,
+			onDamagingHit(damage, target, source, effect) {
+				let activate = false;
+				let statName: BoostID;
+				const boosts: SparseBoostsTable = {};
+				for (statName in source.boosts) {
+					const stage = source.boosts[statName];
+					if (stage > 0) {
+						boosts[statName] = stage;
+						activate = true;
+					}
 				}
-			}
-			if (activate) {
-				this.boost(removeBoosts, source);
-				this.heal(target.maxhp / 4);
-			}
+				if (activate) {
+					this.attrLastMove('[still]');
+					this.add('-clearpositiveboost', source, target, 'ability: Spectral Leech');
+
+					let statName2: BoostID;
+					for (statName2 in boosts) {
+						boosts[statName2] = 0;
+					}
+					source.setBoost(boosts);
+					this.heal(target.maxhp / 4);
+				}
+				target.removeVolatile('spectralleech');
+			},
 		},
 		name: "Spectral Leech",
 		rating: 4,
@@ -219,6 +237,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (pokemon.hp <= pokemon.maxhp / 2) {
+					this.add('-anim', pokemon, "Dark Pulse", target);
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			}
@@ -295,18 +314,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Ghost') {
-				this.debug('Curse Weaver Boost boost');
+				this.debug('Curse Weaver boost');
 				return this.chainModify(1.5);
 			}
 		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Curse Weaver weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Curse Weaver weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
 		name: "Curse Weaver",
-		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack. Curse becomes Ghost-type version.",
+		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack; halves damage received from Ghost attacks. Curse becomes Ghost-type version.",
 		rating: 3.5,
 		num: -16,
 	},
 	jellydessertqueen: {
 		onResidual(pokemon) {
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] ability: Jelly Dessert Queen');
+			// this.add('-heal', pokemon, pokemon.getHealth, '[from] ability: Jelly Dessert Queen');
 			this.heal(pokemon.baseMaxhp / 16);
 		},
 		name: "Jelly Dessert Queen",
@@ -324,6 +358,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// I have no clue what's going on here, all I know is that this is how Morpeko was coded
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Binary Soul",
+		shortDesc: "If Twinrova, it changes between Fire and Ice at the end of each turn.",
 		rating: 1,
 		num: -18,
 	},
@@ -344,6 +379,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Perplexing Gaze",
+		shortDesc: "This Pokemon's Psychic moves have 1.5x power.",
 		rating: 3.5,
 		num: -19,
 	},
@@ -353,6 +389,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Rainbow Puppeteer",
+		shortDesc: "This Pokemon's moves have STAB.",
 		rating: 4,
 		num: -20,
 	},
@@ -364,7 +401,123 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Devouring Jaw",
+		shortDesc: "This Pokemon's biting moves heal it for 50% of the damage dealt.",
 		rating: 3,
 		num: -21,
+	},
+	divearmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('DiVE Armor neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+			) {
+				this.effectState.checkedBerserk = false;
+			} else {
+				this.effectState.checkedBerserk = true;
+			}
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedBerserk;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedBerserk = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp < target.maxhp / 4 && target.hp + damage >= target.maxhp / 4) {
+				const bestStat = target.getBestStat(true, true);
+				this.boost({[bestStat]: 1}, target, target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "DiVE Armor",
+		shortDesc: "Recieves 3/4 damage from SE attacks; highest stat raised by 1 when hp below 25%.",
+		rating: 3,
+		num: -22,
+	},
+	shadowgift: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadowgift boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Shadowgift boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Shadowgift",
+		shortDesc: "Attacking stat multiplied by 1.5 while using a Ghost-type attack.",
+		rating: 3.5,
+		num: -23,
+	},
+	galeforce: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-anim', source, "Tailwind", source);
+				source.addVolatile('galeforce');
+			}
+		},
+		condition: {
+			onModifyPriority(priority, pokemon, target, move) {
+				pokemon.removeVolatile('galeforce')
+				return priority + 1;
+			},
+		},
+		name: "Galeforce",
+		shortDesc: "If this Pokemon attacks and KO's a target, next move used has +1 priority.",
+		rating: 3,
+		num: -24,
+	},
+	smirk: {
+		// On protect effect handled in moves.ts
+		onFoeDamagingHit(damage, target, source, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Smirk trigger');
+				source.addVolatile('laserfocus');
+			}
+		},
+		onAfterMove(pokemon, target, move) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.debug('Smirk trigger');
+				target.addVolatile('laserfocus');
+			}
+		},
+		name: "Smirk",
+		shortDesc: "On Supereffective attack or a failed move against this Pokemon, grants Laser Focus.",
+		rating: 3,
+		num: -25,
+	},
+	// This isn't a doubles mod!
+	refresher: {
+		name: "Refresher",
+		shortDesc: "30% chance to restore ally's health for 1/4 at the end of each turn",
+		rating: 1,
+		num: -26,
+	},
+	autobuild: {
+		name: "Autobuild",
+		shortDesc: "This Pokemon is immune to hazards & terrain.",
+		// Literally every element of this has to be handled via moves.ts
+		rating: 4,
+		num: -27,
 	},
 };

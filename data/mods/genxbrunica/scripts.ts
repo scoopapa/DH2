@@ -11,10 +11,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		const undexitedMons = [];
 		for (const pokemon in this.data.FormatsData) {
-			//We will skip mons absent from Desvega and custom formes that lack tiers
+			//We will skip mons absent from Brunica and custom formes that lack tiers
 			const tierData = this.modData("FormatsData",pokemon);
 			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Brunica')) {
-				//console.log(pokemon + " is not in the Desvegan Regional Pokedex. I think this is everything.");
+				//console.log(pokemon + " is not in the Brunician Regional Pokedex. I think this is everything.");
 				continue;
 			}
 			const mon = this.modData("Pokedex",pokemon);
@@ -40,6 +40,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			//This will exclude inherited movesets and the mons that were in SV, as none of the mons specified to lack Tera Blast are in Desvega
 			if (learnset.terablast /* || ['magikarp','ditto','smeargle','cosmog','cosmoem','terapagos'].includes(pokemon)*/) {
 				//console.log(pokemon + " was present in Scarlet and Violet. Skipping...");
+				
+				//Also freeing these moves for realmons
+				learnset.hiddenpower = ["9M"];
+				learnset.snore = ["9M"];
+				learnset.naturalgift = ["9M"];
+				learnset.frustration = ["9M"];
+				learnset['return'] = ["9M"];
+				learnset.takedown = ["9M"];
 				continue;
 			}
 			
@@ -65,11 +73,29 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			
 			//Toxic distribution is reduced among non-Poisons (the ones that returned for Desvega but not SV that kept it will have it returned)
 			if (!mon.types.includes('Poison') && learnset.toxic) delete learnset.toxic;
+			//We replace Hail with Snowscape
+			if (learnset.hail) {
+				delete learnset.hail;
+				learnset.snowscape = [];
+			}
 			//Now we free all the moves
 			for (const move in learnset) {
 				learnset[move].push("9L1");
 			}
 		}
+		//Shuppet line
+		this.modData("Learnsets", "shuppet").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "banette").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "banette").learnset.drainpunch = ["9L1","8L1"];
+		
+		//Lorian move additions
+		this.modData("Learnsets", "spearow").learnset.payday = ["9L1","8L1"];
+		this.modData("Learnsets", "fearow").learnset.payday = ["9L1","8L1"];
+		
+		//zubat line
+		this.modData("Learnsets", "zubat").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "golbat").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "crobat").learnset.drainfang = ["9L1","8L1"];
 		
 		/*//oddish line
 		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
@@ -107,13 +133,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "minun").learnset.minusion = ["9L1"];
 		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
-		
+		*/
 		//bidoof line
 		delete this.modData("Learnsets", "bidoof").learnset.sunnyday;
 		delete this.modData("Learnsets", "bibarel").learnset.sunnyday;
 		this.modData("Learnsets", "bibarel").learnset.wavecrash = ["9L70"];
 		this.modData("Learnsets", "bibarel").learnset.shocktail = ["9M"];
-		
+		/*
 		//stunfisk
 		this.modData("Learnsets", "stunfisk").learnset.sparkingleap = ["9L1","8L1"];
 		
@@ -197,7 +223,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "delphox").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.quickshot = ["9L1","8L1"];
 		this.modData("Learnsets", "delphox").learnset.shocktail = ["9L1"];
-		
+		*/
 		//rockruff line
 		this.modData("Learnsets", "rockruff").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "rockruffdusk").learnset.drainfang = ["9L1","8L1"];
@@ -205,11 +231,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lycanrocmidnight").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "lycanrocmidnight").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "lycanrocdusk").learnset.drainfang = ["9L1","8L1"];
-		
+		/*
 		//cripple clobber
 		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "stonjourner").learnset.crippleclobber = ["9L1","8L1"];
+		*/this.modData("Learnsets", "onix").learnset.crippleclobber = ["9L1","8L1"];
+		this.modData("Learnsets", "steelix").learnset.crippleclobber = ["9L1","8L1"];/*
 
 		//magby line
 		this.modData("Learnsets", "magby").learnset.quickshot = ["9L1","8L1"];
@@ -313,18 +341,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "eiscue").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "wooloo").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "dubwool").learnset.rapidspin = ["9L1"];
+		*/this.modData("Learnsets", "roselia").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "roserade").learnset.rapidspin = ["9L1"];
 		
-		this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
+		/*this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "gloom").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "vileplume").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "bellossom").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "venipede").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "whirlipede").learnset.mortalspin = ["9L1"];
-		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];
-		
+		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];*/
+		this.modData("Learnsets", "roselia").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "roserade").learnset.mortalspin = ["9L1"];
+		/*	
 		//Returning Toxic to the select non-Poisons that returned for Desvega but not SV
 		this.modData("Learnsets", "paras").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "parasect").learnset.toxic = ["9L1"];
+		*/
+		
+		/*
 		
 		this.modData("Learnsets", "aerodactyl").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "cranidos").learnset.accelerock = ["9L1"];
@@ -332,12 +367,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "geodude").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "graveler").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "golem").learnset.accelerock = ["9L1"];
-		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];
-		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];*/
+		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];*/
+		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];
 		
 		/*for (const pokemon in this.data.FormatsData) {
 			const tierData = this.modData("FormatsData",pokemon);
-			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Desvega')) {
+			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Brunica')) {
 				break;
 			}
 			const mon = this.modData("Pokedex",pokemon);
@@ -349,6 +384,117 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				console.log(pokemon + " was not assigned to a base species!");
 			}
 		}*/
+		//Distribution for returning mons to Brunica on Slate 5
+		this.modData("Learnsets", "wingull").learnset.airdive = ["9L1"];
+		this.modData("Learnsets", "pelipper").learnset.airdive = ["9L1"];
+		this.modData("Learnsets", "grimer").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "grimer").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "muk").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "muk").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "tyrogue").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.darkestlariat = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.brutalswing = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.meteormash = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.steelbeam = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.victorydance = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.circlethrow = ["9L1"];
+
+		//Distribution to returning mons on Slate 6
+		this.modData("Learnsets", "onix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "steelix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.xscissor = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.ominouswind = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.silverwind = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
+		
+		//skarmory blade runner
+		this.modData("Learnsets", "skarmory").learnset.bladerunner = ["9L1"];
+
+		//absol
+		this.modData("Learnsets", "absol").learnset.shocktail = ["9L1"];
+		
+		//doduo line
+		delete this.modData("Learnsets","doduo").learnset.endeavor;
+		delete this.modData("Learnsets","dodrio").learnset.endeavor;
+		this.modData("Learnsets","dodrio").learnset.axekick = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.triplekick = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.highjumpkick = ["9L1"];
+		this.modData("Learnsets","doduo").learnset.triplekick = ["9E"];
+		this.modData("Learnsets","doduo").learnset.jumpkick = ["9L39"];
+		this.modData("Learnsets","dodrio").learnset.jumpkick = ["9L39"];
+		this.modData("Learnsets","doduo").learnset.lunge = ["9L47"];
+		this.modData("Learnsets","dodrio").learnset.lunge = ["9L47"];
+		
+		//bouffalant
+		this.modData("Learnsets","bouffalant").learnset.trailblaze = ["9E"];
+		this.modData("Learnsets","bouffalant").learnset.headsmash = ["9L39"];
+		this.modData("Learnsets","bouffalant").learnset.supercellslam = ["9L39"];
+		
+		//budew line
+		this.modData("Learnsets","budew").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.playrough = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.playrough = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.tripleaxel = ["9L1"];
+		
+		//mandibuzz
+		this.modData("Learnsets","mandibuzz").learnset.airdive = ["9L1"];
+		
+		//gastly line
+		this.modData("Learnsets","gastly").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.drainfang = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.drainfang = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.drainfang = ["9L1"];
+		
+		//sandygast line
+		this.modData("Learnsets","sandygast").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets","palossand").learnset.nastyplot = ["9L1"];
+		
+		//salandit line
+		this.modData("Learnsets","salandit").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets","salandit").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets","salandit").learnset.quickshot = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.quickshot = ["9L1"];
+		
+		//shiinotic
+		this.modData("Learnsets","shiinotic").learnset.calmmind = ["9L1"];
+		
+		//numel line
+		this.modData("Learnsets","numel").learnset.terracharge = ["9L1"];
+		this.modData("Learnsets","camerupt").learnset.terracharge = ["9L1"];
 		
 	},
 	runAction(action) {
@@ -687,7 +833,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (pokemon.volatiles['typebalm']?.balmMove) {
 				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
 				if (
-					balmMoveData.type === pokemon.addedType //Check if used the right balm
+					balmMoveData.type === pokemon.volatiles['typebalm'].balmType //Check if used the right balm
 					&& balmMoveData.type === move.type //Check if type matches
 					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
 				) {
@@ -769,26 +915,40 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			// Dancer's activation order is completely different from any other event, so it's handled separately
-			if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
-				const dancers = this.battle.getAllActive().filter(currentPoke =>
-					pokemon !== currentPoke && currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()
+			if ((move.flags['dance'] || move.flags['bullet']) && moveDidSomething && !move.isExternal) {
+				const active = this.battle.getAllActive().filter(currentPoke =>
+					pokemon !== currentPoke && !currentPoke.isSemiInvulnerable() && currentPoke.hasAbility(['dancer','ballfetch'])
 				);
-				// Dancer activates in order of lowest speed stat to highest
-				// Note that the speed stat used is after any volatile replacements like Speed Swap,
-				// but before any multipliers like Agility or Choice Scarf
-				// Ties go to whichever Pokemon has had the ability for the least amount of time
-				dancers.sort(
-					(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
-				);
-				const targetOf1stDance = this.battle.activeTarget!;
-				for (const dancer of dancers) {
-					if (this.battle.faintMessages()) break;
-					if (dancer.fainted) continue;
-					this.battle.add('-activate', dancer, 'ability: Dancer');
-					const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
-						targetOf1stDance :
-						pokemon;
-					this.runMove(move.id, dancer, dancer.getLocOf(dancersTarget), this.dex.abilities.get('dancer'), undefined, true);
+				if (active.length) {
+					const dancers = [];
+					if (move.flags['dance']) {
+						for (const currentPoke of active.filter(currentPoke => currentPoke.hasAbility('dancer'))) {
+							dancers.push(currentPoke);
+						}
+					}
+					if (move.flags['bullet']) {
+						for (const currentPoke of active.filter(currentPoke => currentPoke.hasAbility('ballfetch'))) {
+							dancers.push(currentPoke);
+						}
+					}
+					// Dancer activates in order of lowest speed stat to highest
+					// Note that the speed stat used is after any volatile replacements like Speed Swap,
+					// but before any multipliers like Agility or Choice Scarf
+					// Ties go to whichever Pokemon has had the ability for the least amount of time
+					dancers.sort(
+						(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+					);
+					const targetOf1stDance = this.battle.activeTarget!;
+					for (const dancer of dancers) {
+						if (this.battle.faintMessages()) break;
+						if (dancer.fainted) continue;
+						this.battle.add('-activate', dancer, 'ability: ' + (move.flags['dance'] ? 'Dancer' : 'Ball Fetch'));
+						const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
+							targetOf1stDance :
+							pokemon;
+						this.runMove(move.id, dancer, dancer.getLocOf(dancersTarget), this.dex.abilities.get(
+						move.flags['dance'] ? 'dancer' : 'ballfetch'), undefined, true);
+					}
 				}
 			}
 			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
@@ -1158,11 +1318,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},*/
 	},
 	pokemon: { 
-		addType(newType: string) {
+		/*addType(newType: string) {
 			if (this.volatiles['typebalm'] || this.terastallized) return false;
 			this.addedType = newType;
 			return true;
-		},
+		},*/
 		ignoringItem() {
 			return !!(
 				this.itemState.knockedOff || // Gen 3-4

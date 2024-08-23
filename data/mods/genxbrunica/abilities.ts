@@ -103,25 +103,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 		},
 	},
-	//Cloning Genes being archived, there was a miscount
-	/*cloninggenes: {
+	cloninggenes: {
 		// activation in conditions.ts#twoturnmove
 		name: "Cloning Genes",
 		flags: {},
 		shortDesc: "Sets up Substitute when targeted by a two-turn move.",
 		condition: {
 			onStart(pokemon) {
-				if (pokemon.hasAbility('cloninggenes') && !pokemon.volatiles['substitute'] 
-				&& pokemon.hp > pokemon.maxhp * 0.25 && pokemon.maxhp > 1) {
+				const threshold = pokemon.maxhp * 0.25;
+				if (!pokemon.volatiles['substitute'] && pokemon.hp > threshold
+					&& pokemon.maxhp > 1 && pokemon.hasAbility('cloninggenes')) {
 					this.add('-ability', pokemon, 'Cloning Genes');
-					this.directDamage(pokemon.maxhp * 0.25, pokemon, pokemon);
+					this.directDamage(threshold, pokemon, pokemon);
 					pokemon.addVolatile('substitute');
 					this.add('-message', `${pokemon.name} set up a substitute in response to its opponent charging a move!`);
 				}
 				pokemon.removeVolatile('cloninggenes');
 			},
 		}
-	},*/
+	},
 	frostcloak: {
 		name: "Frost Cloak",
 		shortDesc: "Sets up Aurora Veil under snow.",
@@ -149,6 +149,317 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.flags['charge']) move.ignoreImmunity = true;
 		},
 		flags: {},
+	},
+	ballfetch: {
+		inherit: true,
+		//implemented in scripts.ts; only listed here to adjust the text
+		desc: "After another Pokemon uses a ballistic move, this Pokemon uses the same move. The copied move is subject to all effects that can prevent a move from being executed. A move used through this Ability cannot be copied again by other Pokemon with this Ability.",
+		shortDesc: "After another Pokemon uses a ballistic move, this Pokemon uses the same move.",
+	},
+	echolocation: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Echolocation');
+					activated = true;
+				}
+				this.add('-message', `${pokemon.name} scanned ${target.name}!`);
+				let stats = ['Attack'];
+				let bestStat = target.getStat('atk',false,true);
+				const statNames = {
+					'def': 'Defense',
+					'spa': 'Special Attack', 
+					'spd': 'Special Defense', 
+					'spe': 'Speed'
+				};
+				for (const i in statNames) {
+					let stat = target.getStat(i, false, true);
+					if (stat < bestStat) continue;
+					if (stat > bestStat)  {
+						stats = [statNames[i]];
+						bestStat = stat;
+					} else {
+						stats.push(" " + statNames[i]);
+					}
+				}
+				if (stats.length === 1) {
+					this.add('-message', `${target.name}'s highest stat is ${stats[0]}!`);
+				} else if (stats.length >= 5) {
+					this.add('-message', `All of ${target.name}'s stats are equal!`);
+				} else {
+					this.add('-message', `${target.name}'s highest stats are ${stats}!`);
+				}
+			}
+		},
+		flags: {},
+		name: "Echolocation",
+		shortDesc: "On switch-in, reveals the highest stat of each adjacent opponent.",
+	},
+	antibody: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn','tox'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Antibody');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn','tox'].includes(status.id)) return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Antibody');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Antibody",
+		shortDesc: "This Pokemon's Poison power is 2x; it can't be poisoned; Poison power against it is halved.",
+	},
+	runaway: {
+		inherit: true,
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = pokemon.maybeTrapped = false;
+		},
+		shortDesc: "This Pokemon may switch out even when trapped by another Pokemon, or by Ingrain",
+	},
+	prismshell: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.category !== 'Status' || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type || '???';
+			if (type !== '???' && source.getTypes().join() !== type && source.setType(type)) {
+				this.add('-start', source, 'typechange', type, '[from] ability: Prism Shell');
+			}
+		},
+		flags: {},
+		name: "Prism Shell",
+		shortDesc: "When about to use a status move, this Pokemon changes type to match that move's type.",
+	},
+	lithificate: {
+		shortDesc: "This Pokemon's Normal-type moves become Rock-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Rock';
+				move.lithificateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.lithificateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		flags: {},
+		name: "Lithificate",
+	},
+	unsteadybody: {
+		shortDesc: "When flinched, sets up Stealth Rock on opponent's side.",
+		onFlinch(pokemon) {
+			let activated = false;
+			for (const side of pokemon.side.foeSidesWithConditions()) {
+				if (!side.sideConditions['stealthrock']) {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Unsteady Body');
+						activated = true;
+					}
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		flags: {},
+		name: "Unsteady Body",
+	},
+	mulcher: {
+		shortDesc: "This Pokemon's ballistic and pulse moves also inflict Leech Seed.",
+		onSourceDamagingHitOrder: 1,
+		onSourceDamagingHit(damage, target, source, move) {
+			if (!target.hasType('Grass') && !target.volatiles['leechseed'] && (move.flags['bullet'] || move.flags['pulse'])) {
+				this.add('-ability', source, 'Mulcher');
+				target.addVolatile('leechseed');
+			}
+		},
+		flags: {},
+		name: "Mulcher",
+	},
+	curiousmedicine: {
+		inherit: true,
+		shortDesc: "Upon switching in, active allies heal statuses and negative stat conditions.",
+		onStart(pokemon) {
+			for (const ally of pokemon.side.active) {
+				let boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				let cleared = false;
+				for (i in ally.boosts) {
+					if (ally.boosts[i] < 0) {
+						boosts[i] = 0;
+						cleared = true;
+					}
+				}
+				if (cleared) {
+					ally.setBoost(boosts);
+					this.battle.add('-clearnegativeboost', ally,  '[from] ability: Curious Medicine', '[of] ' + pokemon);
+				}
+				if (ally.status) {
+					this.add('-activate', pokemon, 'ability: Curious Medicine');
+					ally.cureStatus();
+				}
+			}
+		},
+	},
+	eclipse: {
+		shortDesc: "Ghost-/Dark-/Fairy-type moves against this Pokemon deal damage with a halved offensive stat.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (['Ghost','Dark','Fairy'].includes(move.type)) {
+				this.debug('Eclipse weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (['Ghost','Dark','Fairy'].includes(move.type)) {
+				this.debug('Eclipse weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Eclipse",
+	},
+	buzzing: {
+		shortDesc: "If user is Moskitoski, changes to Swarm Form if it has > 1/4 max HP, else Solo Form.",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Moskitoski' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'moskitoski') {
+					pokemon.formeChange('Moskitoski-Swarm');
+					this.add('-message', `${pokemon.name} formed a swarm!`);
+				}
+			} else //{
+				if (pokemon.species.id === 'moskitoskiswarm') {
+					pokemon.formeChange('Moskitoski');
+					this.add('-message', `${pokemon.name}'s swarm dispersed!`);
+				}
+			//}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.hp) 
+				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Buzzing",
+	},
+	watercompaction: {
+		inherit: true,
+		shortDesc: "This Pokemon's Defense is raised 2 if hit by a Water move; Water power against it is halved.",
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Water Compaction weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Water Compaction weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	defender: {
+		desc: "If this Pokemon is a Cruxdisc and a Pantaray is an active ally, this Pokemon attaches to the Pantaray. The Pantaray has its Attack, Special Attack, Speed, Defense, and Special Defense raised by 2 stages. During the effect, the Pantaray cannot be switched out, this Pokemon cannot select an action, and attacks targeted at this Pokemon will be avoided but it will still take indirect damage. If this Pokemon faints during the effect, a Pokemon can be switched in as a replacement but the Pantaray remains unable to be switched out. If the Pantaray faints during the effect, this Pokemon regains the ability to select an action.",
+		shortDesc: "If ally is Pantaray: this Pokemon cannot act or be hit, +2 to all Pantaray's stats.",
+		onUpdate(pokemon) {
+			if (this.gameType !== 'doubles') return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.baseSpecies.baseSpecies !== 'Cruxdisc' || ally.baseSpecies.baseSpecies !== 'Pantaray') {
+				// Handle any edge cases
+				if (pokemon.getVolatile('commanding')) pokemon.removeVolatile('commanding');
+				return;
+			}
+
+			if (!pokemon.getVolatile('commanding')) {
+				// If Pantaray already was commanded this fails
+				if (ally.getVolatile('commanded')) return;
+				// Cancel all actions this turn for pokemon if applicable
+				this.queue.cancelAction(pokemon);
+				// Add volatiles to both pokemon
+				this.add('-activate', pokemon, 'ability: Defender', '[of] ' + ally);
+				this.add('-message', `${pokemon.name} attached itself to ${ally.name}!`);
+				pokemon.addVolatile('commanding');
+				ally.addVolatile('commanded', pokemon);
+				// Continued in conditions.ts in the volatiles
+			} else {
+				if (!ally.fainted) return;
+				pokemon.removeVolatile('commanding');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Defender",
+	},
+	icebreaker: {
+		shortDesc: "This Pokemon's Ice moves deal 1.5x damage.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Icebreaker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Icebreaker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Icebreaker",
+	},
+	contagious: {
+		shortDesc: "First turn out: This Pokemon's moves change targets' abilities to Contagious.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (source.activeMoveActions > 1) {
+				return;
+			}
+			const targetAbility = target.getAbility();
+			if (targetAbility.flags['cantsuppress'] || targetAbility.id === 'contagious') {
+				return;
+			}
+			const oldAbility = target.setAbility('contagious', source);
+			if (oldAbility) {
+				this.add('-activate', source, 'ability: Contagious');
+				this.add('-activate', target, 'ability: ' + this.dex.abilities.get(oldAbility).name);
+				this.add('-activate', target, 'ability: Contagious',  "[from] ability: Contagious", "[of] " + source);
+				this.add('-message', `${target.name}'s Ability became Contagious!`);
+			}
+		},
+		flags: {},
+		name: "Contagious",
 	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
@@ -204,7 +515,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	railgunner: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.id.endsWith('beam')) {
+			const moveid = move.id;
+			if (moveid.endsWith('beam') || [
+				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon', 'doomdesire', 'psybolt'
+				].includes(moveid)) {
 				return this.chainModify([5325, 4096]);
 			}
 		},
@@ -423,7 +737,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 				return;
 			}
-
 			const dazzlingHolder = this.effectState.target;
 			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.selfSwitch) {
 				this.attrLastMove('[still]');
@@ -511,7 +824,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Fairy';
@@ -523,7 +836,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Electric';
@@ -535,7 +848,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Flying';
@@ -547,7 +860,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Electric';
@@ -1181,7 +1494,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast', 'ammolitevortex'
 			];
 			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Ghost';

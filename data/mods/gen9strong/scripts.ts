@@ -46,7 +46,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let critMult;
 			let critRatio = this.battle.runEvent('ModifyCritRatio', source, target, move, move.critRatio || 0);
 			critRatio = this.battle.clampIntRange(critRatio, 0, 4);
-			critMult = [0, 16, 8, 2, 1];
+			critMult = [0, 24, 8, 2, 1];
 
 			const moveHit = target.getMoveHitData(move);
 			moveHit.crit = move.willCrit || false;
@@ -160,7 +160,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// crit - not a modifier
 			const isCrit = target.getMoveHitData(move).crit;
 			if (isCrit) {
-				baseDamage = tr(baseDamage * (move.critModifier || 2));
+				baseDamage = tr(baseDamage * (move.critModifier || 1.5));
 			}
 
 			// random factor - also not a modifier

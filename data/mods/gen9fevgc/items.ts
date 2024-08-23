@@ -331,4 +331,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 		rating: 3,
 	},
+	boosterenergy: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed || this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (!this.field.isWeather('sunnyday')) {
+				for (const proto of ['protopyre', 'protoneuron', 'prototoxin', 'protolithos', 'protoavian',
+											'protorefraction', 'protosynthesis']) { 
+					if (pokemon.hasAbility(proto)) {
+						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
+							pokemon.addVolatile(proto);
+						}
+						return;
+					}
+				}
+			}
+			if (!this.field.isTerrain('electricterrain')) {
+				for (const quark of ['quarkdrive', 'jellyfilleddrive', 'winddrive', 'heavydrive', 'jadedrive', 'airdrive',
+											'magicdrive', 'phantomdrive']) { 
+					if (pokemon.hasAbility(quark)) {
+						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
+							pokemon.addVolatile(quark);
+						}
+						return;
+					}
+				}
+			}
+		},
+		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
+	},
 };

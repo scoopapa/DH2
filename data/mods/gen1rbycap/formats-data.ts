@@ -12,6 +12,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		gen: 1,
 	},
+	mandrelec: {
+		tier: "OU",
+		gen: 1,
+	},
 
 // Normal Mons
 	bulbasaur: {

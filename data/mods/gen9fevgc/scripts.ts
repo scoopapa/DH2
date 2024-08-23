@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
     excludeStandardTiers: true,
-    customTiers: ['FEOU', 'FENFE', 'FELC'],
+    customTiers: ['Reg A', 'Reg B', 'Reg A NFE', 'Reg A LC', 'Reg B LC'],
 	},
 	pokemon: {
 		ignoringAbility() {
@@ -52,7 +52,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 	
 			if (!ignoreImmunities && status.id &&
-					!((source?.hasAbility('corrosion') || source?.hasAbility('deeptoxin')) && ['tox', 'psn'].includes(status.id))) {
+					!((source?.hasAbility('corrosion') || source?.hasAbility('deeptoxin') || source?.hasAbility('poisonivy')) && ['tox', 'psn'].includes(status.id))) {
 				// the game currently never ignores immunities
 				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 					this.battle.debug('immune to status');
@@ -100,7 +100,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !(this.hasType('???') && 'roost' in this.volatiles)) return false;
-			if ((this.hasAbility('levitate') || this.hasAbility('sunlitflight')) && !this.battle.suppressingAbility(this)) return null;
+			if ((this.hasAbility('levitate') || this.hasAbility('sunlitflight') || this.hasAbility('airdrive')) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';

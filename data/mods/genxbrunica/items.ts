@@ -163,7 +163,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onTakeItem: false,
 	},
-	dragon: {
+	dragonbalm: {
 		name: "Dragon Balm",
 		desc: "Gains Dragon type on entry; unlocks certain Balm moves on certain Pokemon.",
 		ignoreKlutz: true,
@@ -241,6 +241,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (this.field.isTerrain('electricterrain') && !this.getAllActive().some(target => !target.hasAbility('guardianofnature'))) {
 				pokemon.useItem();
 			}
+		},
+	},
+	//Items modified for Brunica
+	bigroot: {
+		inherit: true,
+		fling: {
+			basePower: 10,
+			volatileStatus: 'ingrain',
 		},
 	},
 	//Standard Items (returning from Desvega)

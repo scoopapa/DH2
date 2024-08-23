@@ -4321,7 +4321,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	urshifurapidstrike: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zarude: {
 		inherit: true,
@@ -4813,7 +4813,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ogerponwellspring: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	ogerponwellspringtera: {
 		inherit: true,

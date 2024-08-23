@@ -420,19 +420,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon heals 1/16 max HP per turn. Drought = highest offense 1.3x.",
 	},
 	slipstream: {
-		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				return;
-			}
-			let statsLowered = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					statsLowered = true;
-				}
-			}
-			if (statsLowered) {
-				this.boost({spe: 2}, target, target, null, false, true);
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Slipstream boost');
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifyMove(move, pokemon) {
@@ -440,7 +432,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Slipstream",
-		shortDesc: "Speed Defiant + all moves switch in Delta Stream.",
+		shortDesc: "Flying moves 1.3x power + all moves switch in Delta Stream.",
 	},
 	banshee: {
 		onTryHit(target, source, move) {
@@ -507,11 +499,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "1.5x healing + 1.5x Grass power in Overgrowth.",
 	},
 	sandforce: {
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
-				this.debug('Sand Force boost');
-				return this.chainModify([4915, 4096]);
+				this.debug('Sand Force Atk weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+				this.debug('Sand Force SpA weaken');
+				return this.chainModify(0.75);
 			}
 		},
 		onResidualOrder: 28,
@@ -524,7 +523,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Sand Force",
-		shortDesc: "Ground/Rock/Steel 1.2x power + Bad Dreams if Dust Storm.",
+		shortDesc: "Takes 0.75x from Ground/Rock/Steel + Bad Dreams if Dust Storm.",
 	},
 	snowcloak: {
 		onTryBoost(boost, target, source, effect) {

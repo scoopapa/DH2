@@ -23,7 +23,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	//There was an error so this edit to accommodate for Cloning Genes is being archived
-	/*
+	
 	twoturnmove: {
 		// Cloning Genes
 		inherit: true,
@@ -53,25 +53,56 @@ export const Conditions: {[k: string]: ConditionData} = {
 			// Run side-effects normally associated with hitting (e.g., Protean, Libero)
 			this.runEvent('PrepareHit', attacker, defender, effect);
 		},
-	},*/
+	},
 	typebalm: {
 		//This is here to track whether a mon has used a Type Balm this switch-in
 		duration: 0,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'typechange', target.getTypes(false, true).join('/'), '[silent]');
-			this.add('-message', `${target.name} used the ` + target.addedType + ' Balm to gain the ' + target.addedType + ' type!');
+			this.add('-message', `${target.name} gained the ${target.addedType} type from the Type Balm!`);
 			const balmMoveList = {
 				'Photalohm': 'Magnetic Updraft',
 				'Smeltusk': 'Leaping Onrush',
 				'Panthoard': 'Cupric Deluge',
-				//'Mustelone': 'Clone Express',
-				'Froskua': 'Dive Bomb'
+				'Mustelone': 'Clone Express',
+				'Froskua': 'Dive Bomb',
+				'Muk': 'Mud Devourment',
+				'Muk-Alola': 'Mud Devourment',
+				'Syruptitious': 'Adulteration',
+				'Steelix': 'Olive Rampage',
+				'Crobat': 'Venomous Fang',
+				'Saunusca': 'Tectonic Shift',
+				'Raatilus': 'Ammolite Vortex',
+				'Blootilus': 'Ammolite Vortex',
+				'Yleltilus': 'Ammolite Vortex',
+				'Acktilus': 'Ammolite Vortex',
+				'Whitilus': 'Ammolite Vortex',
+				'Dodrio': 'Asura Barrage',
+				'Roserade': 'Vive Le\u0301 Rose',
+				'Bouffalant': 'Dread Stampede',
+				'Pichat': 'Thunder Armor',
+				'Pikachat': 'Thunder Armor',
+				'Raichat': 'Thunder Armor',
+				'Trippletop': 'Mystic Burst',
+				'Violagarie': 'Violet Seed',
+				'Yiseng': 'Mental Extract',
+				'Garoupe': 'Discovery',
+				'Frostabone': 'Shaking Tundra',
+				'Moskitoski': 'Venom Drain',
+				'Moskitoski-Swarm': 'Venom Drain',
+				'Gastly': 'Maiden\'s Peak',
+				'Haunter': 'Maiden\'s Peak',
+				'Gengar': 'Maiden\'s Peak',
+				'Cryophtore': 'Neural Network',
+				'Pantaray': 'Electrified Jet',
+				'Wreckitanic': 'Iceberg Crash',
 			};
 			const species = target.baseSpecies.baseSpecies;
 			//...All this to adjust the PP. 
 			if (balmMoveList[species]) {
 				this.effectState.balmMove = balmMoveList[species];
-				let balmMove = this.dex.moves.get(this.effectState.balmMove);
+				this.effectState.balmType = target.addedType;
+				const balmMove = this.dex.moves.get(this.effectState.balmMove);
 				if (balmMove.type === target.addedType) {
 					const newMoveSlots = [];
 					for (const moveSlot of target.moveSlots) {
@@ -86,6 +117,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 							newMoveSlots.push(moveSlot);
 						} else {
 							const movepp = move.category === 'Status' ? 16 : 8;
+							//I can't specify BP in these new moveslots D:
 							newMoveSlots.push({
 								move: moveSlot.move,
 								id: moveSlot.id,
@@ -99,6 +131,31 @@ export const Conditions: {[k: string]: ConditionData} = {
 						}
 					}
 					target.moveSlots = newMoveSlots;
+				}
+			}
+		},
+		//Priority's kinda janky so this should iron it out
+		onModifyPriority(priority, pokemon, target, move) {
+			if (!this.effectState.balmMove) return;
+			const balmMove = this.dex.moves.get(this.effectState.balmMove);
+			if (move.type === balmMove.type && 
+				(move.category === balmMove.category || ![move.category,balmMove.category].includes('Status'))
+			) {
+				return balmMove.priority;
+			}
+		},
+	},
+	thunderarmorboost: {
+		duration: 2,
+		onBasePowerPriority: 6,
+		onBasePower(basePower, attacker, defender, move) {
+			return this.chainModify(2);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.type === 'Electric' && move.category === 'Status') {
+					pokemon.disableMove(moveSlot.id);
 				}
 			}
 		},

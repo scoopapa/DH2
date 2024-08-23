@@ -311,7 +311,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-			pokemon.canTerastallize = null;
+			if (this.ruleTable.has('terastalclause')) {
+				pokemon.canTerastallize = null;
+			}
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
@@ -336,7 +338,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-			pokemon.canTerastallize = null;
+			if (this.ruleTable.has('terastalclause')) {
+				pokemon.canTerastallize = null;
+			}
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
