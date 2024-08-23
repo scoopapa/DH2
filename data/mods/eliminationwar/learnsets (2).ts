@@ -1,4 +1,4 @@
-export const Learnsets: {[speciesid: string]: LearnsetData} = {
+export const Learnsets: {[k: string]: LearnsetData} = {
 	matchupmoth: {
 		learnset: {
 			absorb: ["9L1"],

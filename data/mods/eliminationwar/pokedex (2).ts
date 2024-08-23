@@ -2,7 +2,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	matchupmoth: {
 		num: 1001,
 		species: "Matchup Moth",
-		types: ["Fighting"", "Bug"],
+		types: ["Fighting", "Bug"],
 		baseStats: {hp: 85, atk: 70, def: 105, spa: 115, spd: 80, spe: 90},
 		abilities: {0: "Mold Breaker", 1: "Compound Eyes", H: "Dazzling"},
 	},
@@ -16,14 +16,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	jumbojet: {
 		num: 1003,
 		species: "Jumbo Jet",
-		types: ["Steel"", "Flying"],
+		types: ["Steel", "Flying"],
 		baseStats: {hp: 125, atk: 120, def: 95, spa: 35, spd: 75, spe: 90},
 		abilities: {0: "Light Metal", 1: "Defeatist", H: "Iron Barbs"},
 	},
 	thetombguy: {
 		num: 1004,
 		species: "the tomb guy",
-		types: ["Dark"", "Ghost"],
+		types: ["Dark", "Ghost"],
 		baseStats: {hp: 50, atk: 100, def: 120, spa: 100, spd: 120, spe: 100},
 		abilities: {0: "Unaware", 1: "Neutralizing Gas", H: "Battle Armor"},
 	},
