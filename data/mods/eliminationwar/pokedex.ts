@@ -32,7 +32,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Palafinbutnotreallybutmaybe",
 		types: ["Water", "Poison"],
 		baseStats: {hp: 100, atk: 115, def: 90, spa: 40, spd: 90, spe: 10},
-		abilities: {0: "Technican", 1: "Grassy Surge", H: "Mold Breaker"},
+		abilities: {0: "Technician", 1: "Grassy Surge", H: "Mold Breaker"},
 	},
 	bulkybean: {
 		num: 1006,
