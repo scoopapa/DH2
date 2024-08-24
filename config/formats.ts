@@ -1047,7 +1047,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen1rbycap',
 		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber'],
+		banlist: ['Uber', 'Camouflage'],
 	},
 	{
 		name: "[Gen 9] Roulettemons 2",
