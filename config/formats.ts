@@ -444,6 +444,22 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
+		name: "[Gen 9] Elimination War",
+		mod: 'eliminationwar',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['Legal', 'Eliminated'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Elimination War'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Eramons",
 		desc: [
 			`<b>Eramons</b>: A Gen 9 Pet Mod based on broad strokes of real-life historical time periods.`,
