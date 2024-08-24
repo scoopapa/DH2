@@ -450,7 +450,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['Legal', 'Eliminated'];
+			let allowedTiers = ['Legal'/*, 'Eliminated'*/];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
