@@ -170,7 +170,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			behemothbash: ["9L1"],
 			belch: ["9L1"],
 			block: ["9L1"],
-			block: ["9L1"],
 			chillyreception: ["9L1"],
 			confide: ["9L1"],
 			corrosivegas: ["9L1"],
