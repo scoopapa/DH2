@@ -2225,14 +2225,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -67,
 	},
-	dodge: { //tmp
-		shortDesc: "This Pokemon uses its Speed in damage calculation.",
+	dodge: {
+		shortDesc: "When taking damages, this Pokemon adds 50% of its Speed to its corresponding defense.",
 		name: "Dodge",
-		onFoeBeforeMovePriority: 6,
-		onFoeBeforeMove(attacker, defender, move) {
-			if (defender === this.effectState.target && move.category !== "Status") {
-				move.overrideDefensiveStat = 'spe';
-			}
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			const spe = pokemon.getStat('spe', false, true);
+			const newDef = def + (spe / 2);
+			return newDef;
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			const spe = pokemon.getStat('spe', false, true);
+			const newSpD = spd + (spe / 2);
+			return newSpD;
 		},
 		rating: 3.5,
 		num: -68,
@@ -2338,14 +2344,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.3);
 			}
 		},
-	},
-	dauntlessshield: {
-		inherit: true,
-		onStart(pokemon) {
-			this.boost({def: 1}, pokemon);
-		},
-		rating: 3.5,
-		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
 	},
 	cheerleader: {
 		onStart(pokemon) {
