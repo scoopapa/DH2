@@ -3779,6 +3779,7 @@ export const Formats: FormatList = [
 		banlist: ['AG', 'Uber', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard', 'Damp Rock',
 				'Diglett', 'Dugtrio', 'Snorunt', 'Glalie', 'Trapinch', 'Scovillain', 'Gothita', 'Gothorita', 'Gothitelle',
 		],
+		unbanlist: ['Chien-Pao', 'Inteleon', 'Raging Bolt', 'Urshifu-Rapid-Strike'],
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
 			const unSeenAbilities = Object.keys(species.abilities)
