@@ -120,7 +120,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	// end
 
-	// start: Currently doesn't affect the user of Perish Song. Perhaps, I misunderstood how Perish Song actually targets...
+	// start
    buzz: {
 		desc: "When this Pokémon uses a Sound move, the target(s) will be inflicted with a Torment effect.",
 		shortDesc: "Inflicts Torment effect if the Pokémon uses a Sound move.",
@@ -245,7 +245,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	// end
 
-	// start: currently, only heals user rather than ally as well
+	// start: revisit later to check if ally also gets healed
 	cultivation: {
 		shortDesc: "User recovers 1/16 of its HP, 1/8 in terrain.",
 		onTerrainChange(target, source) {
@@ -276,9 +276,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	graviton: {
-		shortDesc: "On switch-in, this Pokémon summons Gravity.",
+		shortDesc: "Summons Gravity when replacing a fainted Pokémon.",
 		onStart(source) {
-			this.field.addPseudoWeather('gravity');
+			if (!source.side.faintedThisTurn) return; // this is a new line added to balance the ability
+				this.field.addPseudoWeather('gravity');
 		},
 		flags: {},
 		name: "Graviton",
@@ -977,6 +978,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,
+	},
+
+	runaway: {
+		inherit: true,
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = pokemon.maybeTrapped = false;
+		},
+		shortDesc: "Cannot be trapped.",
+		flags: {},
+		name: "Run Away",
+		rating: 0,
+		num: 50,
 	},
 	// end
 };

@@ -118,6 +118,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
+			this.attrLastMove('[still]');
+			this.add('-anim', attacker, "Charge", attacker);
 			return null;
 		},
 		condition: {
@@ -399,6 +401,51 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	spectralbeam: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Special",
+		name: "Spectral Beam",
+		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dark Pulse", target);
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ghost",
+	},
+	malevolentmaul: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Physical",
+		name: "Malevolent Maul",
+		desc: "Has a 30% chance to inflict a Curse that damages the target for 25% of its maximum HP, rounded down, at the end of each turn while the target remains active. If the target uses Baton Pass, the replacement will continue to be affected. Inflicting the curse does not consume the user's HP.",
+		shortDesc: "30% chance to Curse the target.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, bite: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Jaw Lock", target);
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'curse',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+	},
 	
 	//Balm Moves
 	magneticupdraft: {
@@ -408,7 +455,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Magnetic Updraft",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, wind: 1},
+		flags: {nosketch: 1, protect: 1, wind: 1},
 		desc: "Power is equal to 1.5 times the base move's power. For 3 turns, the target cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the target is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the target uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the target is under any of their effects. Fails if the target is already under this effect or the effects of Ingrain, Smack Down, Thousand Arrows, or Leaping Onrush. The target is immune to this added effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
 		shortDesc: "x1.5 power of base move. For 3 turns, target floats but moves can't miss it.",
 		onPrepareHit: function(target, source, move) {
@@ -427,7 +474,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Leaping Onrush",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move hits a target under the effect of Bounce, Fly, Magnet Rise, or Telekinesis, the effect ends. If the target is a Flying type that has not used Roost this turn or a Pokemon with the Levitate Ability, it loses its immunity to Ground-type attacks and the Arena Trap Ability as long as it remains active. During the effect, Magnet Rise fails for the target and Telekinesis fails against the target.",
 		shortDesc: "x1.5 power of base move. Removes the target's Ground immunity.",
 		onPrepareHit: function(target, source, move) {
@@ -446,7 +493,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Cupric Deluge",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
 		shortDesc: "x1.5 power of base move. Foes: Steel hazard.",
 		onPrepareHit: function(target, source, move) {
@@ -478,7 +525,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Dive Bomb",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. After the move lands, it the target to become a Water type unless the target is an Arceus or a Silvally, the target is already purely Water type, the target is Terastallized, or the target is using a Type Balm.",
 		shortDesc: "x1.5 power of base move. Changes the target's type to Water.",
 		onPrepareHit: function(target, source, move) {
@@ -503,7 +550,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Mud Devourment",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain. Does not end the effects of Nature Field",
 		shortDesc: "x1.5 power of base move. Ends terrain unless Poison Terrain or Nature Field.",
 		onPrepareHit: function(target, source, move) {
@@ -531,7 +578,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Clone Express",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to confuse the target if it has a non-volatile status condition.",
 		shortDesc: "x1.5 power of base move. 100% to confuse statused target.",
 		onPrepareHit: function(target, source, move) {
@@ -556,7 +603,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Adulteration",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Causes the target's Ability to be rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, Zero to Hero, or Surf's Up, this move fails, and receiving the effect through Baton Pass ends the effect immediately.",
 		shortDesc: "x1.5 power of base move. Nullifies the target's Ability.",
 		onPrepareHit: function(target, source, move) {
@@ -580,7 +627,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Olive Rampage",
 		pp: 5,
 		priority: 1,
-		flags: {protect: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power.",
 		shortDesc: "x1.5 power of base move. Usually goes first.",
 		onPrepareHit: function(target, source, move) {
@@ -598,7 +645,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Tectonic Shift",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move is successful and the user has not fainted, all hazards are removed from the user's side of the field.",
 		shortDesc: "x1.5 power of base move. Clears hazards on user's side.",
 		onPrepareHit: function(target, source, move) {
@@ -636,7 +683,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Venomous Fang",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, contact: 1, bite: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1, bite: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, the target loses all of its type-based immunities and any moves that the target was formerly immune to are super effective against the respective type instead.",
 		shortDesc: "x1.5 power of base move. Target's immunities become weaknesses.",
 		onPrepareHit: function(target, source, move) {
@@ -670,7 +717,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Ammolite Vortex",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. This move ignores effectiveness against types that would otherwise resist it. The target is immune if it does not share a type with the user.",
 		shortDesc: "x1.5 power of base move. Hits targets that share user's type. Ignores resistances.",
 		onPrepareHit: function(target, source, move) {
@@ -694,7 +741,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Asura Barrage",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, recharge: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, recharge: 1, contact: 1},
 		multihit: 3,
 		desc: "Power is equal to 1.5 times the base move's power. Hits three times. If this move is successful, the user must recharge on the following turn and cannot select a move.",
 		shortDesc: "x1.5 power of base move. Hits three times. User cannot move next turn.",
@@ -716,7 +763,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Dread Stampede",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Ignores the target's stat stage changes, including evasiveness.",
 		shortDesc: "x1.5 power of base move. Ignores the target's stat stage changes.",
 		onPrepareHit: function(target, source, move) {
@@ -736,7 +783,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Vive Le\u0301 Rose",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {nosketch: 1, protect: 1, contact: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Has a 50% chance to raise the user's Attack and Special Attack by 1 stage each.",
 		shortDesc: "x1.5 power of base move. 50% chance to raise user's Attack, Sp. Atk by 1.",
 		onPrepareHit: function(target, source, move) {
@@ -762,7 +809,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Thunder Armor",
 		pp: 5,
 		priority: 4,
-		flags: {cantusetwice: 1},
+		flags: {nosketch: 1, cantusetwice: 1},
 		desc: "Cannot be selected the turn after it's used. The user and its party members are protected from damaging attacks made by other Pokemon, including allies, during this turn. The next damaging move used by the user will have doubled power. When a contact move is blocked, the attacker is paralyzed. Fails if this move is already in effect for the user's side.",
 		shortDesc: "Protects allies from damaging attacks. Contact: paralysis. User's next attack has x2 BP. Cannot be selected the turn after it's used.",
 		onPrepareHit: function(target, source, move) {
@@ -809,7 +856,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Mystic Burst",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. If Trick Room is not already active when this move is used, it sets up Trick Room.",
 		shortDesc: "x1.5 power of base move. Sets up Trick Room unless already present.",
 		onPrepareHit: function(target, source, move) {
@@ -837,9 +884,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Violet Seed",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, bullet: 1},
+		flags: {nosketch: 1, protect: 1, bullet: 1},
 		desc: "Power is equal to 1.5 times the base move's power. This move becomes a critical hit if the target is under the effects of Leech Seed.",
-		shortDesc: "x1.5 power of base move. Crits seeded targets.",
+		shortDesc: "x1.5 power of base move. Crits targets under Leech Seed.",
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aura Sphere", target);
@@ -860,7 +907,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Mental Extract",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. After using this move, the user prevents all opposing Pokemon from using any moves that the user also knows as long as the user remains active.",
 		shortDesc: "x1.5 power of base move. Foes cannot use user's moves.",
 		onPrepareHit: function(target, source, move) {
@@ -883,7 +930,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Discovery",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to raise the user's Special Defense and Speed by 1 stage each.",
 		shortDesc: "x1.5 power of base move. 100% chance to raise user's Sp. Def, Speed by 1.",
 		onPrepareHit: function(target, source, move) {
@@ -909,7 +956,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Shaking Tundra",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. Has a 100% chance to lower the target's Speed by 1 stage.",
 		shortDesc: "x1.5 power of base move. 100% chance lower adjacent Pkmn Speed by 1.",
 		onPrepareHit: function(target, source, move) {
@@ -932,7 +979,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Venom Drain",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1},
+		flags: {nosketch: 1, protect: 1},
 		desc: "Power is equal to 1.5 times the base move's power. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
 		shortDesc: "x1.5 power of base move. User recovers 50% of the damage dealt.",
 		onPrepareHit: function(target, source, move) {
@@ -943,6 +990,162 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Poison",
+	},
+	maidenspeak: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Maiden's Peak",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1},
+		desc: "The first use of this move will boost the user's Special Attack, change its typing to Grass/Water, and replace its ability with Unnerve. Later uses call Hydro Pump.",
+		shortDesc: "First use: +1 SpA; become Grass/Water; gain Unnerve. Future calls become Hydro Pump.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			if (!source.volatiles['maidenspeak']) {
+				this.add('-anim', source, "Haze", target);
+			}
+		},
+		onTryHit(target, pokemon) {
+			if (pokemon.volatiles['maidenspeak']) {
+				this.actions.useMove('hydropump',pokemon,target);
+			} else {
+				pokemon.addVolatile('maidenspeak');
+			}
+			return null;
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Maiden\'s Peak', '[silent]');
+				this.add('-message', `${pokemon.name} took the form of Venustoise!`);
+				pokemon.setType(['Grass','Water']);
+				this.add('-start', pokemon, 'typechange', 'Grass/Water', '[silent]');
+				this.boost({spa: 1}, pokemon, pokemon);
+				this.add('-ability', pokemon, pokemon.getAbility().name);
+				this.add('-ability', pokemon, 'Unnerve', '[from] move: Maiden\'s Peak', '[of] ' + pokemon);
+				pokemon.setAbility('unnerve');
+				const newMoveSlots = [];
+				for (const moveSlot of pokemon.moveSlots) {
+					let move = this.dex.moves.get(moveSlot.id);
+					if (move.type !== 'Dark' || move.category !== 'Status') {
+						newMoveSlots.push(moveSlot);
+						continue;
+					}
+					newMoveSlots.push({
+						move: 'Hydro Pump',
+						id: 'hydropump',
+						pp: 8,
+						maxpp: 8,
+						target: 'normal',
+						disabled: false,
+						used: false,
+						virtual: true,
+					});
+				}
+				pokemon.moveSlots = newMoveSlots;
+			},
+		},
+		target: "normal",
+		type: "Dark",
+	},
+	neuralnetwork: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Neural Network",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "x1.5 power of base move. 30% paralysis on foe(s). Allies have doubled SpA/SpD until next turn ends.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Discharge", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.alliesAndSelf()) {
+					pokemon.addVolatile('neuralnetwork');
+				}
+			},
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Neural Network', '[silent]');
+				this.add('-message', `The Balm move supercharged ${pokemon.name}'s Special Attack and Special Defense!`);
+			},
+			onRestart(pokemon) {
+				pokemon.volatiles['neuralnetwork'].duration = 2;
+				this.add('-message', `The Balm move supercharged ${pokemon.name}'s Special Attack and Special Defense!`);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa) {
+				return this.chainModify(2);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd) {
+				return this.chainModify(2);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Neural Network', '[silent]');
+			}
+		},
+		target: "allAdjacentFoes",
+		type: "Electric",
+	},
+	electrifiedjet: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Electrified Jet",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 30% chance to paralyze the target.",
+		shortDesc: "x1.5 power of base move. 30% chance to paralyze the target.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fusion Bolt", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Water",
+	},
+	icebergcrash: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Iceberg Crash",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Has a 10% chance to freeze the target. This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+		shortDesc: "x1.5 power of base move. 10% chance to freeze. Super effective on Steel.",
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Subzero Slammer", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
 	},
 	
 	//Interacting with new Brunician mechanics
@@ -2044,6 +2247,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 		}
 	},
+	
+	telekinesis: {
+		//not sure if it's movexited or not
+		inherit: true,
+		onTry(source, target, move) {
+			// Additional Gravity check for Z-move variant
+			if (this.field.getPseudoWeather('Gravity')) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Gravity', move);
+				return null;
+			}
+			else if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
+				this.add('-immune', target);
+				return null;
+			}
+		},
+		condition: {
+			inherit: true,
+			onStart(target) {
+				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
+					return null;
+				}
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'Telekinesis');
+			},
+		},
+	},
 	haze: {
 		inherit: true,
 		desc: "Resets the stat stages of all active Pokemon to 0. Pokemon with the ability Rock Bottom are not affected.",
@@ -2316,6 +2548,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		isNonstandard: null,
 	},
 	pursuit: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	autotomize: {
 		inherit: true,
 		isNonstandard: null,
 	},

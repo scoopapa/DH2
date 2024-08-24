@@ -53,7 +53,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	blastoisemega: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	caterpie: {
 		inherit: true,
@@ -4831,7 +4831,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	solgaleo: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	lunala: {
 		inherit: true,
@@ -4966,7 +4966,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cinderace: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	sobble: {
 		inherit: true,
@@ -5346,7 +5346,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zamazenta: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zamazentacrowned: {
 		inherit: true,
@@ -5813,7 +5813,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	fluttermane: {
 		inherit: true,
 		gen: 4,
-		tier: "Uber",
+		tier: "OU",
 	},
 	slitherwing: {
 		inherit: true,
@@ -5868,7 +5868,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chienpao: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	wochien: {
 		inherit: true,
@@ -5878,7 +5878,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chiyu: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	koraidon: {
 		inherit: true,
@@ -5988,7 +5988,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ogerponhearthflame: {
 		inherit: true,
 		gen: 4,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ogerponwellspring: {
 		inherit: true,
@@ -5998,6 +5998,46 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ogerponcornerstone: {
 		inherit: true,
 		gen: 4,
+		tier: "OU",
+	},
+	archaludon: {
+		inherit: true,
+		gen: 4,
+		tier: "OU",
+	},
+	hydrapple: {
+		inherit: true,
+		gen: 4,
+		tier: "OU",
+	},
+	gougingfire: {
+		inherit: true,
+		gen: 4,
+		tier: "OU",
+	},
+	ragingbolt: {
+		inherit: true,
+		gen: 4,
+		tier: "OU",
+	},
+	ironboulder: {
+		inherit: true,
+		gen: 3,
+		tier: "OU",
+	},
+	ironcrown: {
+		inherit: true,
+		gen: 3,
+		tier: "OU",
+	},
+	terapagos: {
+		inherit: true,
+		gen: 3,
+		tier: "OU",
+	},
+	pecharunt: {
+		inherit: true,
+		gen: 3,
 		tier: "OU",
 	},
 };

@@ -355,31 +355,111 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'moskitoski') {
 					pokemon.formeChange('Moskitoski-Swarm');
+					this.add('-message', `${pokemon.name} formed a swarm!`);
 				}
 			} else //{
 				if (pokemon.species.id === 'moskitoskiswarm') {
 					pokemon.formeChange('Moskitoski');
+					this.add('-message', `${pokemon.name}'s swarm dispersed!`);
 				}
 			//}
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			if (
-				pokemon.baseSpecies.baseSpecies !== 'Moskitoski' || pokemon.level < 20 ||
-				pokemon.transformed || !pokemon.hp
-			) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'moskitoski') {
-					pokemon.formeChange('Moskitoski-Swarm');
-				}
-			} else //{
-				if (pokemon.species.id === 'moskitoskiswarm') {
-					pokemon.formeChange('Moskitoski');
-				}
-			//}
+			if (pokemon.hp) 
+				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Buzzing",
+	},
+	watercompaction: {
+		inherit: true,
+		shortDesc: "This Pokemon's Defense is raised 2 if hit by a Water move; Water power against it is halved.",
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Water Compaction weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Water Compaction weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	defender: {
+		desc: "If this Pokemon is a Cruxdisc and a Pantaray is an active ally, this Pokemon attaches to the Pantaray. The Pantaray has its Attack, Special Attack, Speed, Defense, and Special Defense raised by 2 stages. During the effect, the Pantaray cannot be switched out, this Pokemon cannot select an action, and attacks targeted at this Pokemon will be avoided but it will still take indirect damage. If this Pokemon faints during the effect, a Pokemon can be switched in as a replacement but the Pantaray remains unable to be switched out. If the Pantaray faints during the effect, this Pokemon regains the ability to select an action.",
+		shortDesc: "If ally is Pantaray: this Pokemon cannot act or be hit, +2 to all Pantaray's stats.",
+		onUpdate(pokemon) {
+			if (this.gameType !== 'doubles') return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.baseSpecies.baseSpecies !== 'Cruxdisc' || ally.baseSpecies.baseSpecies !== 'Pantaray') {
+				// Handle any edge cases
+				if (pokemon.getVolatile('commanding')) pokemon.removeVolatile('commanding');
+				return;
+			}
+
+			if (!pokemon.getVolatile('commanding')) {
+				// If Pantaray already was commanded this fails
+				if (ally.getVolatile('commanded')) return;
+				// Cancel all actions this turn for pokemon if applicable
+				this.queue.cancelAction(pokemon);
+				// Add volatiles to both pokemon
+				this.add('-activate', pokemon, 'ability: Defender', '[of] ' + ally);
+				this.add('-message', `${pokemon.name} attached itself to ${ally.name}!`);
+				pokemon.addVolatile('commanding');
+				ally.addVolatile('commanded', pokemon);
+				// Continued in conditions.ts in the volatiles
+			} else {
+				if (!ally.fainted) return;
+				pokemon.removeVolatile('commanding');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Defender",
+	},
+	icebreaker: {
+		shortDesc: "This Pokemon's Ice moves deal 1.5x damage.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Icebreaker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Icebreaker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Icebreaker",
+	},
+	contagious: {
+		shortDesc: "First turn out: This Pokemon's moves change targets' abilities to Contagious.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (source.activeMoveActions > 1) {
+				return;
+			}
+			const targetAbility = target.getAbility();
+			if (targetAbility.flags['cantsuppress'] || targetAbility.id === 'contagious') {
+				return;
+			}
+			const oldAbility = target.setAbility('contagious', source);
+			if (oldAbility) {
+				this.add('-activate', source, 'ability: Contagious');
+				this.add('-activate', target, 'ability: ' + this.dex.abilities.get(oldAbility).name);
+				this.add('-activate', target, 'ability: Contagious',  "[from] ability: Contagious", "[of] " + source);
+				this.add('-message', `${target.name}'s Ability became Contagious!`);
+			}
+		},
+		flags: {},
+		name: "Contagious",
 	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {

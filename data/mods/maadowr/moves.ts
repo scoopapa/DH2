@@ -352,7 +352,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onHit(pokemon, source, move) {
 				if (move.category !== 'Status') {
-					this.effectState.lostFocus = true && source.trySetStatus('par', pokemon);
+						this.effectState.lostFocus = true;
+						if (!source.hasType('Ground')) {  
+							source.trySetStatus('par', pokemon);
+					}
 				}
 			},
 			onTryAddVolatile(status, pokemon) {
@@ -370,7 +373,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	golddigger: {
 		num: -12,
 		accuracy: 100,
-		basePower: 10,
+		basePower: 100,
 		category: "Physical",
 		shortDesc: "Removes target's Steel-type.",
 		name: "Golddigger",
@@ -380,6 +383,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onHit(target, source, move) {
 			if (target.hasType('Steel')) {
 				target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
+				// Make the Steel-type removal visual
+				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: Golddigger');
 			}
 		},
 		secondary: null,
@@ -395,15 +400,18 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "User and ally recover 25% of their HP. If they're Bug-type, they also have their offensive stats increased.",
+		shortDesc: "User and ally recover 25% of their HP. If they're Bug-type and got healed, they also have their offensive stats increased.",
 		name: "Honey Dew",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
 		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			if (pokemon.hasType('Bug')) {
-				this.boost({atk: 1, spa: 1}, pokemon, pokemon) || success;
+			// Attempt to heal the Pokémon and store whether healing was successful
+			const healedAmount = this.heal(this.modify(pokemon.maxhp, 0.25));
+			const success = typeof healedAmount === 'number' && healedAmount > 0;
+			// If the Pokémon is Bug-type and was healed, boost its offensive stats
+			if (pokemon.hasType('Bug') && success) {
+				this.boost({atk: 1, spa: 1}, pokemon, pokemon);
 			}
 		},
 		secondary: null,
@@ -526,9 +534,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	lunarstorm: {
 		num: -18,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 120,
 		category: "Special",
-		shortDesc: "Recovers 50% of the damage dealt to the target and needs to recharge afterwards.",
+		shortDesc: "Heals and recharges afterwards.",
 		name: "Lunar Storm",
 		pp: 5,
 		priority: 0,
@@ -750,33 +758,27 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
 		onHit(target) {
-			let success = false;
 			let boosts: BoostsTable = target.boosts;
-	
-			// Clear negative stat boosts
+		
+			// Check if the target's HP is not full before healing
+			if (target.hp < target.maxhp) {
+				// Calculate the heal amount (25% of max HP)
+				const healAmount = target.maxhp / 4;
+				target.heal(healAmount);
+				this.add('-heal', target, target.getHealth, healAmount);
+			}
+		
+			// Clear negative stat boosts after healing
 			for (const stat in boosts) {
 				if (boosts[stat as keyof BoostsTable] < 0) {
 					boosts[stat as keyof BoostsTable] = 0;
-					success = true;
 				}
 			}
-	
-			// Notify about the clearing of negative boosts
-			if (success) {
-				this.add('-clearnegativeboost', target);
-				// Check if all boosts are cleared
 				if (Object.values(boosts).every(value => value === 0)) {
 					target.clearBoosts();
-					this.add('-clearboost', target);
+			    	this.add('-clearboost', target);
 				}
-			}
-	
-			// Heal the target regardless of HP status
-			const healAmount = target.maxhp / 4;
-			target.heal(healAmount);
-			this.add('-heal', target, target.getHealth, healAmount);
-	
-			return success;
+				return true;
 		},
 		secondary: null,
 		target: "allies",
@@ -1020,7 +1022,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
-	// start: damage info in conditions.ts
+	// start:
 	incandescentflame: {
 		num: -34,
 		accuracy: 100,
@@ -1238,6 +1240,76 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
+	enhancement: {
+		num: -41,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User and ally recover 25% of their HP. If they're Rock-type, they also have their defensive stats increased.",
+		name: "Enhancement",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
+		onHit(pokemon) {
+			// Attempt to heal the Pokémon and store whether healing was successful
+			const healedAmount = this.heal(this.modify(pokemon.maxhp, 0.25));
+			const success = typeof healedAmount === 'number' && healedAmount > 0;
+			// If the Pokémon is Rock-type and was healed, boost its defensive stats
+			if (pokemon.hasType('Rock') && success) {
+				this.boost({def: 1, spd: 1}, pokemon, pokemon);
+			}
+		},
+		secondary: null,
+		target: "allies",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+   // end
+   // start
+   saute: {
+    num: -42,
+    accuracy: true,
+    basePower: 0,
+    category: "Status",
+    name: "Saute",
+    pp: 5,
+    priority: 0,
+    flags: {bypasssub: 1, metronome: 1},
+    onHitField(target, source, move) {
+        const targets: Pokemon[] = [];
+        for (const pokemon of this.getAllActive()) {
+            // Check if the Pokémon is on the user's side
+            if (pokemon.side === source.side) {
+                if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
+                    this.add('-miss', source, pokemon);
+                } else if (this.runEvent('TryHit', pokemon, source, move) && pokemon.getItem().isBerry) {
+                    targets.push(pokemon);
+                }
+            }
+        }
+        this.add('-fieldactivate', 'move: Saute');
+        if (!targets.length) {
+            this.add('-fail', source, 'move: Saute');
+            this.attrLastMove('[still]');
+            return this.NOT_FAIL;
+        }
+        for (const pokemon of targets) {
+            const item = pokemon.getItem();
+            if (item.isBerry) {
+                // Add volatile if a Pokémon on user's side has one of these berries
+                if (['figyberry', 'wikiberry', 'magoberry', 'aguavberry', 'iapapaberry', 'sitrusberry','oranberry', 'leppaberry', 'liechiberry', 'ganlonberry', 'salacberry', 'petayaberry', 'apicotberry', 'starfberry'].includes(item.id)) {
+					pokemon.addVolatile('sauteing'); // Add the 'sauteing' volatile status
+                    }                
+                pokemon.eatItem(true);
+            }
+        }
+    },
+    secondary: null,
+    target: "all",
+    type: "Fire",
+},
+// end
+
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
 //		num: -38,
@@ -1400,6 +1472,30 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			return bp;
 		},
 	},		
+	// end
+	// start
+	hypnosis: {
+		num: 95,
+		accuracy: 55,
+		basePower: 0,
+		category: "Status",
+		name: "Hypnosis",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onTryHit(target, source, move) {
+			if (target.hasType('Psychic')) {
+				this.add('-immune', target, '[from] type: Psychic');
+				return null;
+			}
+		},
+		status: 'slp',
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
 	// end
 
 	// start: list of unattainable moves

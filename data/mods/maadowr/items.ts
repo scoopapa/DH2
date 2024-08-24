@@ -413,26 +413,30 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onAllySetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+		onSetStatus(status, target, source, effect) {
+			// Always grant immunity to Horizonoc
+			if (target.baseSpecies.baseSpecies === 'Horizonoc' && target.hasItem('sunring')) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] item: Sun Ring');
 				}
-				return false;
+				return false; // Prevent the status from being applied
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			// Check if the user is Horizonoc and the weather is sunny
+			if (target.baseSpecies.baseSpecies === 'Horizonoc' && target.hasItem('sunring') && 
+				['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+				this.add('-immune', target, '[from] item: Sun Ring');
+				return false; // Prevent the status from being applied to the ally
 			}
 		},
 		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+			// Check if the user is Horizonoc and the weather is sunny
+			if (target.baseSpecies.baseSpecies === 'Horizonoc' && target.hasItem('sunring') && 
+				status.id === 'yawn' && 
+				['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
 				this.add('-immune', target, '[from] item: Sun Ring');
-				return null;
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (!['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
-				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] item: Sun Ring');
-				}
-				return false;
+				return null; // Prevent the volatile status from being applied
 			}
 		},
 		itemUser: ["Horizonoc"],
@@ -464,7 +468,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	// end
 
-	// start: Modify existing item. Leppa Berry denies replenishing Reboot's PP for balance purposes.
+/*	// start: Modify existing item. Leppa Berry denies replenishing Reboot's PP for balance purposes.
 	leppaberry: {
 		name: "Leppa Berry",
 		spritenum: 244,
@@ -496,7 +500,438 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 154,
 		gen: 3,
+	}, */
+
+	// start
+	colourstone: {
+		name: "Colour Stone",
+		spritenum: 187, // Hard Stone sprite
+		fling: {
+			basePower: 100,
+		},
+		itemUser: ["Magistama"],
+		num: -1023,
+		desc: "If held by Magistama, adds a new type based on the last unfainted Pokémon's primary type if there's no overlap.",
+	//	onBeforeSwitchIn(pokemon) {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Magistama') return; // Check if the Pokémon is Magistama
+	
+			const lastUnfainted = pokemon.side.pokemon.slice().reverse().find(p => !p.fainted);
+			if (!lastUnfainted) return; // No unfainted Pokémon found
+	
+			const primaryType = lastUnfainted.types[0]; // Get the primary type of the last unfainted Pokémon
+	
+			// Check for type overlap
+			if (!pokemon.types.includes(primaryType)) {
+				// Add the new type if there's no overlap
+				if (pokemon.types.length < 3) { // Adjusted to allow for one additional type
+					// Safely add the new type
+					const newTypes = [...pokemon.types, primaryType]; // Create a new array with the additional type
+					pokemon.types = newTypes; // Assign the new array to the Pokémon's types
+	
+					// Notify the game about the new type
+					this.add('-start', pokemon, 'typeadd', primaryType, '[from] item: Colour Stone');
+				}
+			}
+		},
 	},
 	// end
 
+	// start: Modify existing item. Leppa Berry denies replenishing Reboot's PP for balance purposes.
+	leppaberry: {
+		name: "Leppa Berry",
+		spritenum: 244,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Fighting",
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.hp) return;
+			if (pokemon.moveSlots.some(move => move.pp === 0)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			const moveSlot = pokemon.moveSlots.find(move => move.pp === 0) ||
+				pokemon.moveSlots.find(move => move.pp < move.maxpp);
+			if (!moveSlot) return;
+			// Check if the move is "Reboot"
+			const move = this.dex.moves.get(moveSlot.move);
+			if (move.name === 'Reboot') {
+				this.add('-activate', pokemon, 'item: Leppa Berry', move.name, '[consumed]');
+				this.add('-message', `${pokemon.name}'s Reboot PP cannot be restored by Leppa Berry!`);
+				return; // Prevent restoration for "Reboot"
+			}
+			// Determine the amount of PP to restore
+			const ppRestoreAmount = pokemon.volatiles['sauteing'] ? 20 : 10;
+			moveSlot.pp += ppRestoreAmount;
+			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
+			this.add('-activate', pokemon, 'item: Leppa Berry', moveSlot.move, '[consumed]');
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 154,
+		gen: 3,
+	},
+	// start: Handle sauteing volatile
+	sitrusberry: {
+		name: "Sitrus Berry",
+		spritenum: 448,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Psychic",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? pokemon.baseMaxhp / 2 : pokemon.baseMaxhp / 4;
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 158,
+		gen: 3,
+	},
+	oranberry: {
+		name: "Oran Berry",
+		spritenum: 319,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Poison",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, 10)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? 20 : 10; // Heal 20 if 'sauteing', otherwise 10
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 155,
+		gen: 3,
+		rating: 0,
+	},
+	figyberry: {
+		name: "Figy Berry",
+		spritenum: 140,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Bug",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? (2 * pokemon.baseMaxhp / 3) : (pokemon.baseMaxhp / 3);
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+			if (pokemon.getNature().minus === 'atk') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 159,
+		gen: 3,
+		rating: 3,
+	},
+	wikiberry: {
+		name: "Wiki Berry",
+		spritenum: 538,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Rock",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? (2 * pokemon.baseMaxhp / 3) : (pokemon.baseMaxhp / 3);
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+			if (pokemon.getNature().minus === 'spa') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 160,
+		gen: 3,
+		rating: 3,
+	},
+	magoBerry: {
+		name: "Mago Berry",
+		spritenum: 274,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ghost",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? (2 * pokemon.baseMaxhp / 3) : (pokemon.baseMaxhp / 3);
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 161,
+		gen: 3,
+		rating: 3,
+	},
+	aguavberry: {
+		name: "Aguav Berry",
+		spritenum: 5,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Dragon",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? (2 * pokemon.baseMaxhp / 3) : (pokemon.baseMaxhp / 3);
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 162,
+		gen: 3,
+		rating: 3,
+	},
+	iapapaberry: {
+		name: "Iapapa Berry",
+		spritenum: 217,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Dark",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			// Check if the Pokémon can heal
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			// Check if the Pokémon has the 'sauteing' volatile
+			const healAmount = pokemon.volatiles['sauteing'] ? (2 * pokemon.baseMaxhp / 3) : (pokemon.baseMaxhp / 3);
+			this.heal(healAmount); // Heal the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+			if (pokemon.getNature().minus === 'def') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		num: 163,
+		gen: 3,
+		rating: 3,
+	},
+	liechiberry: {
+		name: "Liechi Berry",
+		spritenum: 248,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Grass",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			// Determine the amount of Attack boost
+			const boostAmount = pokemon.volatiles['sauteing'] ? 2 : 1;
+			this.boost({atk: boostAmount}); // Boost Attack by the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 201,
+		gen: 3,
+	},
+	ganlonberry: {
+		name: "Ganlon Berry",
+		spritenum: 158,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Ice",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			// Determine the amount of Defense boost
+			const boostAmount = pokemon.volatiles['sauteing'] ? 2 : 1;
+			this.boost({def: boostAmount}); // Boost Defense by the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 202,
+		gen: 3,
+	},
+	salacberry: {
+		name: "Salac Berry",
+		spritenum: 426,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fighting",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			// Determine the amount of Speed boost
+			const boostAmount = pokemon.volatiles['sauteing'] ? 2 : 1;
+			this.boost({spe: boostAmount}); // Boost Speed by the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 203,
+		gen: 3,
+		rating: 3,
+	},
+	petayaberry: {
+		name: "Petaya Berry",
+		spritenum: 335,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Poison",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			// Determine the amount of Special Attack boost
+			const boostAmount = pokemon.volatiles['sauteing'] ? 2 : 1;
+			this.boost({spa: boostAmount}); // Boost Special Attack by the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 204,
+		gen: 3,
+	},
+	apicotberry: {
+		name: "Apicot Berry",
+		spritenum: 10,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Ground",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			// Determine the amount of Special Defense boost
+			const boostAmount = pokemon.volatiles['sauteing'] ? 2 : 1;
+			this.boost({spd: boostAmount}); // Boost Special Defense by the appropriate amount
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 205,
+		gen: 3,
+	},
+	starfberry: {
+		name: "Starf Berry",
+		spritenum: 472,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Psychic",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			const stats: BoostID[] = [];
+			let stat: BoostID;
+			for (stat in pokemon.boosts) {
+				if (stat !== 'accuracy' && stat !== 'evasion' && pokemon.boosts[stat] < 6) {
+					stats.push(stat);
+				}
+			}
+			if (stats.length) {
+				const randomStat = this.sample(stats);
+				const boost: SparseBoostsTable = {};
+				// Determine the amount of stat boost
+				const boostAmount = pokemon.volatiles['sauteing'] ? 4 : 2;
+				boost[randomStat] = boostAmount; // Set the boost amount
+				this.boost(boost); // Apply the boost
+			}
+			pokemon.removeVolatile('sauteing'); // Remove the 'sauteing' volatile status
+		},
+		num: 207,
+		gen: 3,
+	},
+	// end
 };
