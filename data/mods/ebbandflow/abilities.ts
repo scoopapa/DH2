@@ -43,5 +43,43 @@ goodasgold: {
 		rating: 5,
 		num: 283,
 	},
-
+damp: {
+	onStart(source) {
+			this.actions.useMove("Explosion", source);
+		},
+		flags: {breakable: 1},
+		name: "Damp",
+		rating: 0.5,
+		num: 6,
+	},
+	snowcloak: { // CHECK ONCE
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod === 0) {
+				this.debug('Snowcloak neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Snow Cloak",
+		rating: 1.5,
+		num: 81,
+	},
+	unnerve: { // Check this
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Ghost') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Ghost')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		flags: {},
+		name: "Unnerve",
+		rating: 1,
+		num: 127,
+	},
 }
