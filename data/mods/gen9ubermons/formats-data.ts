@@ -2469,7 +2469,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darkrai: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	shaymin: {
 		inherit: true,
