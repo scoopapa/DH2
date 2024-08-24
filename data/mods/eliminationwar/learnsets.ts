@@ -617,7 +617,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			heatwave: ["9L1"],
 			hurricane: ["9L1"],
 			irondefense: ["9L1"],
-			irondefense: ["9L1"],
 			pluck: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
