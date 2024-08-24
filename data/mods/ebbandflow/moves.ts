@@ -108,7 +108,7 @@ focuspunch: {
 		type: "Ground",
 		contestType: "Tough",
 	},
-  metalsound: { // CHECK THIS ONCE
+ metalsound: {
 		num: 319,
 		accuracy: 85,
 		basePower: 0,
@@ -120,6 +120,7 @@ focuspunch: {
 		boosts: {
 			spd: -1,
 		},
+
 onAfterHit(target, pokemon, move) {
 			if (!move.hasSheerForce) {
 				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
@@ -130,6 +131,9 @@ onAfterHit(target, pokemon, move) {
 					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
 				}
 			}
 		},
@@ -144,9 +148,12 @@ onAfterHit(target, pokemon, move) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 					}
 				}
-				
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
 			}
 		},
+	 
 		secondary: null,
 		target: "normal",
 		type: "Steel",
