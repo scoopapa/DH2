@@ -284,7 +284,7 @@ onAfterHit(target, pokemon, move) {
 	mistyexplosion: {
 		num: 802,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 0,
 		category: "Special",
 		name: "Misty Explosion",
 		pp: 5,
