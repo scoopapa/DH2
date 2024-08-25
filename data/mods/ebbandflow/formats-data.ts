@@ -1225,7 +1225,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ursalunabloodmoon: {
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 	},
 	slugma: {
 		isNonstandard: null,
@@ -1941,7 +1941,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	deoxysspeed: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	turtwig: {
 		isNonstandard: null,
@@ -3693,11 +3693,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tapukoko: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	tapulele: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	tapubulu: {
 		isNonstandard: null,
@@ -3813,7 +3813,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rillaboom: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	scorbunny: {
 		isNonstandard: null,
@@ -4097,7 +4097,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dragapult: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	zacian: {
 		isNonstandard: null,
@@ -4149,7 +4149,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	spectrier: {
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 	},
 	calyrex: {
 		isNonstandard: null,
@@ -4257,7 +4257,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	espathra: {
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 	},
 	wiglett: {
 		isNonstandard: null,
@@ -4457,7 +4457,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gholdengo: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	greattusk: {
 		isNonstandard: null,
@@ -4573,7 +4573,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kingambit: {
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 	},
 	clodsire: {
 		isNonstandard: null,
@@ -4581,7 +4581,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	annihilape: {
 		isNonstandard: null,
-		tier: "UU",
+		tier: "Uber",
 	},
 	walkingwake: {
 		isNonstandard: null,
@@ -4669,7 +4669,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	terapagos: {
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 	},
 	terapagosstellar: {
 		isNonstandard: null,
