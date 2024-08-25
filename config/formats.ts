@@ -459,6 +459,16 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+		{
+		name: "[Gen 9] Ebb and Flow",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/.3748857/">Ebb and Flow</a>`,
+		],
+		teambuilderFormat: "National Dex",
+		mod: 'ebbandflow',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+	},
 	{
 		name: "[Gen 9] Eramons",
 		desc: [
