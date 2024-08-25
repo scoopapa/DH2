@@ -465,7 +465,7 @@ export const Formats: FormatList = [
 			`<a href="https://www.smogon.com/forums/threads/.3748857/">Ebb and Flow</a>`,
 		],
 		mod: 'ebbandflow',
-		ruleset: ['Standard', 'Sleep Clause Mod', 'Terastal Clause'],
+		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
 	},
 	{
