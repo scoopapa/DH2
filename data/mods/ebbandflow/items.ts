@@ -85,12 +85,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
-				const bp = move.basePower;
-				if (bp >= 100) {
-			    this.heal(120);
-				  target.useItem();
-				}
+			const bp = move.basePower;
+			if (bp >= 100) {
+			 this.heal(120);
+			  target.useItem();
 			}
 		},
 		num: -1000,
