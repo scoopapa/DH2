@@ -1,6 +1,10 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'donotuse',
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ["DoNU Res", "DoNU", "DoNU UUBL", "DoNU UU", "DoNU RUBL", "DoNU RU", "DoNU Uber"],
+	},
 	init() {
 		for (const i in this.data.Items) {
 			if (!this.data.Items[i].megaStone) continue;

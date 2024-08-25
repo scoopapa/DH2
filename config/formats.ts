@@ -3717,8 +3717,8 @@ export const Formats: FormatList = [
 		],
 		mod: 'sharedpowermultiverse',
 		ruleset: ['Standard OMs', 'Evasion Abilities Clause', 'Evasion Items Clause', 'Sleep Moves Clause', 'Terastal Clause', 'Data Mod'],
-		banlist: ['Moody', 'Baton Pass'],
-		restricted: ['Lunar Gift', 'Huge Power'],
+		banlist: ['Moody', 'Baton Pass', 'Chlorophyll'],
+		restricted: ['Lunar Gift', 'Huge Power', 'Neutralizing Gas', 'Regenerator', 'Contrary', 'Quick Draw', 'Tinted Lens'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3866,12 +3866,11 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-do-not-use.3734326/">Do Not Use</a>`,
 		],
 		mod: 'mixandmegadonotuse',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause'],
-		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody'],
-		restricted: ['Dewpider', 'Diglett-Alola', 'Nidoran-M', 'Wattrel', 'Wingull', 'Zigzagoon'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause', 'Overflow Stat Mod', 'Pokemon Restrictions', 'Mega Data Mod'],
+		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody', 'Rusted Sword', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite'],
 		onValidateTeam(team) {
 			let speciesTable = {};
-			let allowedTiers = ['DoNU', 'DoNU UUBL', 'DoNU UU', 'DoNU RUBL', 'DoNU RU'];
+			let allowedTiers = ['DoNU Res', 'DoNU', 'DoNU UUBL', 'DoNU UU', 'DoNU RUBL', 'DoNU RU'];
 			const itemTable = new Set<ID>();
 			for (const set of team) {
 				const item = this.dex.items.get(set.item);
@@ -3901,7 +3900,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in [Gen 9] Do Not Use UU.'];
+					return [set.species + ' is not legal in [Gen 9] Do Not Use Mix and Mega.'];
 				}
 			}
 		},

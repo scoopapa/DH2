@@ -1,5 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen9multiverse',
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['MV'],
+	},
 	field: {
 		suppressingWeather() {
 			for (const pokemon of this.battle.getAllActive()) {
