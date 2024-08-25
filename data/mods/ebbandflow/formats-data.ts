@@ -2921,7 +2921,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	volcarona: {
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 	},
 	cobalion: {
 		isNonstandard: null,
@@ -4137,7 +4137,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regieleki: {
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 	},
 	regidrago: {
 		isNonstandard: null,
