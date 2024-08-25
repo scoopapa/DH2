@@ -2543,8 +2543,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	axekick: {
 		inherit: true,
 		type: "Dark",
-		shortDesc: "30% confusion. User loses 50% max HP if miss. Ignores the target's ability.",
-		ignoreAbility: true,
+		shortDesc: "30% confusion. User loses 50% max HP if miss.",
 	},
 	ragingbull: {
 		inherit: true,
