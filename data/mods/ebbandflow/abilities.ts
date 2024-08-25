@@ -1,5 +1,4 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-
   slowstart: {
 		onStart(pokemon) {
 			pokemon.addVolatile('slowstart');
