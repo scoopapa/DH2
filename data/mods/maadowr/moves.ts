@@ -557,7 +557,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -19,
 		accuracy: 100,
 		basePower: 80,
-		category: "Special",
+		category: "Physical",
 		shortDesc: "Spectral Thief clone.",
 		name: "Motion Cap",
 		pp: 10,
@@ -567,8 +567,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		// Boost stealing implemented in scripts.js
 		secondary: null,
 		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
+		type: "Fighting",
+		contestType: "Clever",
 	},
 	// end
 
@@ -1271,6 +1271,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     accuracy: true,
     basePower: 0,
     category: "Status",
+	 shortDesc: "User's side eats berries; effect doubled.",
     name: "Saute",
     pp: 5,
     priority: 0,
