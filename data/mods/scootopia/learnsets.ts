@@ -2765,7 +2765,7 @@ export const Learnsets = {
 			drainingkiss: ["9L1"],
 			energyball: ["9L1"],
 			weatherball: ["9L1"],
-			uturn: ["9L1"],
+			flipturn: ["9L1"],
 			shedtail: ["9L1"],
 			calmmind: ["9L1"],
 			morningsun: ["9L1"],
