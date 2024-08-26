@@ -20,4 +20,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -168,
 	},
+	spikedfur: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			const bp = move.basePower;
+			if (bp <= 60) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Spiked Fur",
+		rating: 2.5,
+		shortDesc: "Pokemon that use moves with ≤60 BP against this Pokemon lose 1/8 of their max HP.",
+	},
 };
