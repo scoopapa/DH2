@@ -975,7 +975,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
 		shortDesc: "After stat reduction, contact moves burn attacker. Duration = amount of stat reduction.",
 		name: "Volcanic Singe",
-		// onBoost(boost, target, source, effect) {
 		onTryBoost(boost, target, source, effect) {
 			let i: BoostName;
 			for (i in boost) {

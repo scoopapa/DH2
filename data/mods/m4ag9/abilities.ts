@@ -722,11 +722,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagePriority: -0,
 		onAnyDamage(damage, target, source, effect) {
 			if (effect.effectType === 'Move') {
+				console.log("Hello this is a move");
 				let move = this.dex.moves.get(effect.id);
 				if (move.ignoreAbility) return;
 			}
 			if (source === this.effectState.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
+				console.log("Moshi Moshi bossu");
 				this.add('-ability', source, 'Orderly Target');
 				return target.hp - 1;
 			}
@@ -975,7 +977,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
 		shortDesc: "After stat reduction, contact moves burn attacker. Duration = amount of stat reduction.",
 		name: "Volcanic Singe",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -2608,7 +2610,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	badinfluence: {
 		shortDesc: "If this Pokémon has a stat stage lowered, all Pokémon on the field have the same stat stage lowered.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'badinfluence') return;
 			let b: BoostName;
 			const negativeBoost: SparseBoostsTable = {};
