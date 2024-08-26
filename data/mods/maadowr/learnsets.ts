@@ -5836,6 +5836,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			irontail: ["9M"],
 			knockoff: ["9M"],
 			lastresort: ["9M"],
+			motioncap: ["9M"],
 			nastyplot: ["9M"],
 			playrough: ["9M"],
 			protect: ["9M"],
