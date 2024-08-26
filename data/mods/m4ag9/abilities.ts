@@ -722,13 +722,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagePriority: -0,
 		onAnyDamage(damage, target, source, effect) {
 			if (effect.effectType === 'Move') {
-				console.log("Hello this is a move");
 				let move = this.dex.moves.get(effect.id);
 				if (move.ignoreAbility) return;
 			}
 			if (source === this.effectState.target && target.hasAbility('blackmail') &&
 				damage >= target.hp && effect && effect.effectType === 'Move') {
-				console.log("Moshi Moshi bossu");
 				this.add('-ability', source, 'Orderly Target');
 				return target.hp - 1;
 			}
