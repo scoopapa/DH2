@@ -375,6 +375,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						//	this.add('-message', `${target.name}'s Immunity prevents it from being poisoned!`);
 							continue; // Skip applying poison and flag
 						}
+						if (target.hasAbility('comatose')) {
+							//	this.add('-message', `${target.name}'s Immunity prevents it from being poisoned!`);
+								continue; // Skip applying poison and flag
+						}
 						if (target.side.getSideCondition('safeguard')) {
 						//	this.add('-message', `${target.name} is protected by Safeguard!`);
 							continue; // Skip applying poison and flag
@@ -592,11 +596,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (!pokemon.isStarted) return; // should activate *after* Data Mod
 			let newtype = null;
 			for (const ally of pokemon.side.active) {
-				if (
-					ally !== pokemon && !ally.hasAbility('scaleshift') && ally.types[0] !== pokemon.baseSpecies.types[0] &&
-					ally.types[0] !== pokemon.baseSpecies.types[1]
-				) {
+				if (ally && ally !== pokemon && !ally.fainted && !ally.hasAbility('scaleshift') &&
+					ally.types[0] !== pokemon.baseSpecies.types[0] &&
+					ally.types[0] !== pokemon.baseSpecies.types[1]) {
 					newtype = ally.types[0];
+					break;
 				}
 			}
 			if (newtype) {
@@ -604,11 +608,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				if (pokemon.getTypes().join() === typecombo.join() || !pokemon.setType(typecombo)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
-			} else {
-				if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
-				this.add('-ability', pokemon, 'Scale Shift');
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			}
+			
 		},
 		onEnd(pokemon) {
 			if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
