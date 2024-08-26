@@ -1310,6 +1310,46 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     type: "Fire",
 },
 // end
+// start
+	blockage: {
+		num: -43,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "King's Shield with Disable instead.",
+		name: "Blockage",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		volatileStatus: 'blockage',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Blockage');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (move.category !== 'Status') {
+					this.add('-activate', target, 'move: Blockage');
+					// Disable the damaging move
+					source.addVolatile('disable');
+					return this.NOT_FAIL;
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	// end
 
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
