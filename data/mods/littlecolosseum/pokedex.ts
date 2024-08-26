@@ -20,4 +20,19 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 65, def: 54, spa: 31, spd: 45, spe: 75},
 		abilities: {0: "Overgrow", H: "Protean (Gen 7)"},
 	},
+	dreepy: {
+		inherit: true,
+		baseStats: {hp: 41, atk: 60, def: 40, spa: 42, spd: 40, spe: 82},
+	},
+	tepig: {
+		inherit: true,
+		types: ["Fire", "Ground"],
+		baseStats: {hp: 65, atk: 63, def: 50, spa: 35, spd: 50, spe: 45},
+		abilities: {0: "Blaze", H: "Sap Sipper"},
+	},
+	meowthgalar: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 65, def: 65, spa: 40, spd: 40, spe: 40},
+		abilities: {0: "Tough Claws", H: "Spiked Fur"},
+	},
 };
