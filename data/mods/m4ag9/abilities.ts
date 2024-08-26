@@ -104,7 +104,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						types = ['Psychic'];
 						break;
 					case 'acidicterrain':
-						newType = 'Poison';
+						types = ['Poison'];
 						break;
 					default:
 						types = pokemon.baseSpecies.types;
