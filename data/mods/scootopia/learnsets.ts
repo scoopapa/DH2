@@ -2806,7 +2806,6 @@ export const Learnsets = {
 			sleeptalk: ["9L1"],
 			endure: ["9L1"],
 			chillingwater: ["9L1"],
-			revivalblessing: ["9L1"],
 			stealthrock: ["9L1"],
 			helpinghand: ["9L1"],
 			crystaltail: ["9L1"],

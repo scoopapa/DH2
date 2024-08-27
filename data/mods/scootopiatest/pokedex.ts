@@ -187,7 +187,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1024,
 		name: "MuabBoa",
 		types: ["Ground", "Fighting"],
-		baseStats: {hp: 65, atk: 110, def: 75, spa: 55, spd: 65, spe: 120},
+		baseStats: {hp: 65, atk: 100, def: 75, spa: 55, spd: 65, spe: 120},
 		abilities: {0: "Anticipation", 1: "Sand Rush", H: "Inner Focus"},
 		weightkg: 25,
 	},
@@ -250,18 +250,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	axolacred: {
 		num: 1036,
 		name: "Axolacred",
-		types: ["Dragon", "Flying"],
-		baseStats: {hp: 60, atk: 75, def: 85, spa: 95, spd: 95, spe: 85},
-		abilities: {0: "Regenerator", 1: "Shield Dust", H: "Beads of Ruin"},
+		types: ["Dragon"],
+		baseStats: {hp: 85, atk: 90, def: 85, spa: 95, spd: 95, spe: 65},
+		abilities: {0: "Magic Guard", H: "Levitate"},
 		weightkg: 33,
-	},
-	eleqwil: {
-		num: 999,
-		name: "Eleqwil",
-		types: ["Electric", "Ground"],
-		baseStats: {hp: 78, atk: 101, def: 91, spa: 45, spd: 108, spe: 37},
-		abilities: {0: "Mold Breaker", 1: "Iron Barbs", H: "Bulletproof"},
-		weightkg: 27.3,
 	},
 	roscenti: {
 		num: 1037,
@@ -371,7 +363,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Pythos",
 		types: ["Dark"],
 		baseStats: {hp: 90, atk: 110, def: 130, spa: 85, spd: 90, spe: 75},
-		abilities: {0: "Long Reach"},
+		abilities: {0: "Marvel Scale"},
 		weightkg: 178,
 	},
 	corundell: {
@@ -401,7 +393,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	fenreil: {
 		num: 1053,
 		name: "Fenreil",
-		types: ["Normal", "Dark"],
+		types: ["Dark", "Normal"],
 		baseStats: {hp: 80, atk: 105, def: 100, spa: 105, spd: 100, spe: 110},
 		abilities: {0: "Natural Cure", 1: "Wild Heart"},
 		weightkg: 232,
@@ -434,6 +426,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 80, atk: 85, def: 110, spa: 105, spd: 110, spe: 25},
 		abilities: {0: "Solid Rock", 1: "Unaware", H: "Seed Sower"},
+		weightkg: 113,
+	},
+	pictagon: {
+		num: 1055,
+		name: "Pictagon",
+		types: ["Dragon", "Ghost"],
+		baseStats: {hp: 105, atk: 105, def: 60, spa: 80, spd: 85, spe: 95},
+		abilities: {0: "Clear Body", 1: "Infiltrator", H: "No Guard"},
 		weightkg: 113,
 	},
 	jaegorm: {
