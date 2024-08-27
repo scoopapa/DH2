@@ -6693,7 +6693,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			trickroom: ["9M"],
 			willowisp: ["9M"],
 			wish: ["9M"],
-			wondergleam: ["9M"],
+			wondermirror: ["9M"],
 		},
 	},
 	// end
