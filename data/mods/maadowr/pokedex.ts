@@ -2586,6 +2586,41 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	karrablast: {
+		num: 588,
+		name: "Karrablast",
+
+		types: ["Bug"],
+		baseStats: {hp: 50, atk: 75, def: 45, spa: 40, spd: 45, spe: 60},
+		abilities: {0: "Swarm", 1: "Shed Skin", H: "No Guard"},
+		heightm: 0.5,
+		weightkg: 5.9,
+		color: "Blue",
+		eggGroups: ["Bug"],
+		evos: ["Escavalier"],
+	},
+	escavalier: {
+		num: 589,
+		name: "Escavalier",
+
+		// baseForme: "Standard",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 70, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
+		abilities: {0: "Sky Rider", 1: "Shell Armor", H: "Overcoat"},
+		heightm: 1,
+		weightkg: 33,
+		color: "Gray",
+		eggGroups: ["Bug"],
+		// otherFormes: ["Escavalier-Rider"],
+		// formeOrder: ["Escavalier", "Escavalier-Rider"],
+
+		prevo: "Karrablast",
+		evoType: "trade",
+		evoCondition: "with a Shelmet",
+	},
+	// end
+
+	// start
 	snommaadowr: {
 		num: -1083,
 		name: "Snom-Ma'adowr",
@@ -2958,6 +2993,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 5.0,
 		color: "Pink",
 		tags: ["Mythical"], // "Extraterrestrial"
+		eggGroups: ["Undiscovered"],
+
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start: Easter Egg from a different region
+	rodwell: {
+		num: -1203,
+		name: "Rodwell",
+
+		types: ["Bug", "Electric"],
+		gender: "N",
+		baseStats: {hp: 60, atk: 114, def: 72, spa: 66, spd: 126, spe: 132},
+		abilities: {0: "Archetype", 1: "Electromorphosis", H: "Galvanize"},
+	//	category: "Sky Fish",
+		heightm: 1.4,
+		weightkg: 14.0,
+		color: "White",
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 
 	//	creator: "BlueRay",
