@@ -427,7 +427,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Iconoblast",
-		shortDesc: "Sets a World Effect if the user has one in their moveset."
+		shortDesc: "Sets a World Effect if the user has one in their moveset.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, mustpressure: 1},
@@ -446,7 +446,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		num: 881,
 		accuracy: true,
 		basePower: 0,
-		shortDesc: "User switches. Sets a World Effect if the user has one in their moveset."
+		shortDesc: "User switches. Sets a World Effect if the user has one in their moveset.",
 		category: "Status",
 		name: "Legacy Shade",
 		pp: 5,
