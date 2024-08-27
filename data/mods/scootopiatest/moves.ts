@@ -16,7 +16,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				let dmgDiv = 8;
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
-				if (pokemon.hasAbility("overcoat") dmgDiv = 16;
+				if (pokemon.hasAbility("overcoat")) dmgDiv = 16;
 				this.damage(pokemon.maxhp / dmgDiv);
 			},
 			onStart(battle, source, effect) {
