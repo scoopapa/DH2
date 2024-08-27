@@ -908,25 +908,45 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
-	// start
-//	wondergleam: {
-//		num: -31,
-//		accuracy: 100,
-//		basePower: 70,
-//		category: "Special",
-//		shortDesc: "Damage dependent on reverted type chart effectiveness in Psychic terrain.",
-//		name: "Wonder Gleam",
-//		pp: 10,
-//		priority: 0,
-//		flags: {protect: 1, mirror: 1, metronome: 1},
-//		onEffectiveness(typeMod, target, type) {
-//			if (type === {'Psychic', 'Steel', 'Dark'}) return 1;
-//		},
-//		secondary: null,
-//		target: "normal",
-//		type: "Psychic",
-//		contestType: "Clever",
-//	},
+	//Start
+	wondermirror: {
+		num: -31,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Changes user's type to the type of the last move it was hit by.",
+		name: "Wonder Mirror",
+		pp: 10,
+		priority: 4,
+		stallingMove: true,
+		volatileStatus: 'wondermirror',	
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Wonder Mirror');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				this.add('-activate', target, 'move: Wonder Mirror');
+				// Change the user's type to the type of the incoming move
+				const newType = move.type;
+				target.setType(newType);
+				this.add('-start', target, 'typechange', newType);
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		contestType: "Beautiful",
+	},
 	// end
 
    // start
