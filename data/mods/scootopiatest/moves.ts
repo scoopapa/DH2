@@ -154,7 +154,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 5,
 		type: "Flying",
-		shortDesc: "1/8 damage to all active Pokemon each turn. Rock and Steel take 1/16.",
+		shortDesc: "1/16 heal to all active Pokemon each turn. Pseudo-Rain.",
 		priority: 0,
 		flags: {nonsky: 1},
 		pseudoWeather: 'rainofdew',
@@ -256,7 +256,54 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "all",
 	},
 	
-	
+	stellaralignment: { // STELLAR ALIGNMENT
+		name: "Stellar Alignment",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Psychic",
+		shortDesc: "Pokemon get pumped after 3 turns. +10% Accuracy. Pseudo-Sun",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'cursedfield',
+		condition: {
+			duration: 0,
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Stellar Alignment', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Stellar Alignment');
+				}
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return this.chainModify(1.1);
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "stellaralignment") {
+							pokemon.m.lastField = "stellaralignment";
+							pokemon.m.fieldTurns = 0;
+						}
+						pokemon.m.fieldTurns++;
+						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+						if (pokemon.m.fieldTurns === 3) {
+							if (!pokemon.volatiles['focusenergy']) pokemon.addVolatile('focusenergy');
+							pokemon.m.fieldTurns = 0;
+						}
+					}
+				}
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Stellar Alignment');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
 	
 	// Custom Moves
 	shedtail: {
