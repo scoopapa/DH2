@@ -408,6 +408,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 55, atk: 95, def: 55, spa: 105, spd: 180, spe: 110},
 		abilities: {0: "Levitate", H: "Power Construct"},
+		otherFormes: ["Flocura-Nexus"],
+		formeOrder: ["Flocura", "Flocura-Nexus"],
 		weightkg: 7.1,
 	},
 	flocuranexus: {
@@ -417,17 +419,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Nexus",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 105, atk: 125, def: 105, spa: 137, spd: 180, spe: 48},
-		abilities: {0: "Power Construct"},
+		abilities: {0: "Levitate", H: "Power Construct"},
+		requiredAbility: "Power Construct",
+		battleOnly: "Flocura",
 		weightkg: 999,
 	},
-	cyromebook: {
+	cyrome: {
 		num: 2053,
 		name: "Cyrome-Book",
-		baseSpecies: "Cyrome",
 		forme: "Book",
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 80, atk: 110, def: 55, spa: 105, spd: 55, spe: 25},
 		abilities: {0: "Sturdy"},
+		otherFormes: ["Cyrome-Scribe","Cyrome-Author"],
+		formeOrder:  ["Cyrome-Book","Cyrome-Scribe","Cyrome-Author"],
 		weightkg: 15,
 	},
 	cyromescribe: {
@@ -438,6 +443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 180, atk: 110, def: 55, spa: 105, spd: 55, spe: 95},
 		abilities: {0: "Magician", H: "Power Construct"},
+		otherFormes: ["Cyrome-Book","Cyrome-Author"],
 		weightkg: 168,
 	},
 	cyromeauthor: {
@@ -450,5 +456,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Power Construct"},
 		weightkg: 999,
 	},
-
 };
