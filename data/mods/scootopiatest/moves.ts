@@ -1,6 +1,6 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	//World Effects
-	cursedfield: {
+	cursedfield: { // CURSED FIELD
 		name: "Cursed Field",
 		accuracy: true,
 		basePower: 0,
@@ -14,8 +14,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 0,
 			onSwitchIn(pokemon) {
-				if (pokemon.hasType("Ghost") || pokemon.hasType("Dark")) return;
-				if (pokemon.hasAbility("Overcoat")) return;
+				if (pokemon.hasType("Ghost") || pokemon.hoasType("Dark")) return;
+				if (pokemon.hasAbility("overcoat")) return;
 				this.damage(pokemon.maxhp / 8);
 			},
 			onStart(battle, source, effect) {
@@ -52,7 +52,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "all",
 	},
 	
-	blessedfield: {
+	blessedfield: { // BLESSED FIELD
 		name: "Blessed Field",
 		accuracy: true,
 		basePower: 0,
@@ -103,6 +103,160 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 	},
+	
+	rainofmeteors: { // RAIN OF METEORS
+		name: "Rain of Meteors",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Flying",
+		shortDesc: "1/8 damage to all active Pokemon each turn. Rock and Steel take 1/16.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'rainofmeteors',
+		condition: {
+			duration: 0,
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Rain of Meteors', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Rain of Meteors');
+				}
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofmeteors") {
+							pokemon.m.lastField = "rainofmeteors";
+							pokemon.m.fieldTurns = 0;
+						}
+						let dmgDiv = 8;
+						if (pokemon.hasAbility("overcoat") || pokemon.hasType("Rock") || pokemon.hasType("Steel")) dmgDiv = 16;
+						pokemon.damage(pokemon.maxhp / dmgDiv);
+					}
+				}
+				
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Rain of Meteors');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	rainofdew: { // RAIN OF DEW
+		name: "Rain of Dew",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Flying",
+		shortDesc: "1/8 damage to all active Pokemon each turn. Rock and Steel take 1/16.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'rainofdew',
+		condition: {
+			duration: 0,
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Rain of Dew', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Rain of Dew');
+				}
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofdew") {
+							pokemon.m.lastField = "rainofdew";
+							pokemon.m.fieldTurns = 0;
+						}
+						let dmgDiv = 16;
+						if (pokemon.hasAbility("Rain Dish")) dmgDiv = 8;
+						pokemon.heal(pokemon.maxhp / dmgDiv);
+					}
+				}
+				
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Rain of Dew');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	silentdomain: { // SILENT DOMAIN
+		name: "Silent Domain",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Psychic",
+		shortDesc: "Reduces stat changes each turn. No Sound Moves or Critical Hits.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'silentdomain',
+		condition: {
+			duration: 0,
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Silent Domain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Silent Domain');
+				}
+			},
+			onCriticalHit: false,
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['sound']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "silentdomain") {
+							pokemon.m.lastField = "silentdomain";
+							pokemon.m.fieldTurns = 0;
+						}
+						const toBoost = {};
+						for (const boost in pokemon.boosts) {
+							if (pokemon.boosts[boost] > 0) toBoost[boost] = -1;
+							else if (pokemon.boosts[boost] < 0) toBoost[boost] = 1;
+						}
+						this.boost(toBoost, target, source, null, true, false);
+					}
+				}
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Silent Domain');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	
 	
 	// Custom Moves
 	shedtail: {
