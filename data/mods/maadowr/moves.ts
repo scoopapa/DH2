@@ -1415,6 +1415,37 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 //	},
 	// end
 
+	// start: Reserve Idea For New Project
+	paranoia: {
+		num: -100,  
+		accuracy: 95,  
+		basePower: 0,  
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 4), 1);
+		},
+		onHit(target, source) {
+			if (!target) return;		
+			// Determine the best stat of the target
+			const bestStat = target.getBestStat(false, true) as keyof BoostsTable;
+	
+			// Create boosts object to lower the best stat
+			const boosts: Partial<BoostsTable> = {};
+			boosts[bestStat] = -1;
+			this.boost(boosts, target);
+		},
+		shortDesc: "Quarters targets' HP + lowers best stat.",
+		name: "Paranoia",  
+		category: "Special",
+		pp: 10,  
+		priority: 0,  
+		flags: {protect: 1, mirror: 1},
+		secondary: null,  
+		target: "allAdjacentFoes",  
+		type: "Bug",  
+		contestType: "Clever", 
+	},
+	// end
+
 	// start
 	camouflage: {
 		inherit: true,
