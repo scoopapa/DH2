@@ -8,7 +8,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jumbojet: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	thetombguy: {
