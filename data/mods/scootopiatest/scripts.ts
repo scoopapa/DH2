@@ -2,10 +2,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: "scootopia",
 	teambuilderConfig: { excludeStandardTiers: true },
 	init(){
-		this.scootopia = {};
-		this.scootopia.worldEffects = ["chaoticweather", "chaoticterrain", "cursedfield", "blessedfield", 
+		const scoot = this.dataCache
+		scoot.scootopia = {};
+		scoot.scootopia.worldEffects = ["chaoticweather", "chaoticterrain", "cursedfield", "blessedfield", 
 							"rainofmeteors", "rainofdew", "silentdomain", "stellaralignment"];
-		this.scootopia.getWorldEffect = function() {
+		scoot.scootopia.getWorldEffect = function() {
 			for (let e of this.scootopia.worldEffects) {
 				if (this.field.getPseudoWeather(e)) {
 					return e;
@@ -13,7 +14,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return false;
 		}
-		this.scootopia.worldEffectStart = function(w) {
+		scoot.scootopia.worldEffectStart = function(w) {
+			console.log("world effect start");
 			for (let e of this.scootopia.worldEffects) {
 				if (this.field.getPseudoWeather(e) && e !== w) {
 					this.field.removePseudoWeather(e);
@@ -22,7 +24,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
-		this.scootopia.getWorldEffectMove = function(pokemon) {
+		scoot.scootopia.getWorldEffectMove = function(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.id);
 				if (this.scootopia.worldEffects.includes(moveSlot.id)) {
@@ -31,7 +33,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
-		this.scootopia.getImmunity = function(pokemon, w) {
+		scoot.scootopia.getImmunity = function(pokemon, w) {
 			if (!w) w = this.scootopia.getWorldEffect();
 			if (!w) return false;
 			const ability = pokemon.ability;

@@ -2756,6 +2756,8 @@ export const Learnsets = {
 		learnset: {
 			acrobatics: ["9L1"],
 			dracometeor: ["9L1"],
+			coreenforcer: ["9L1"],
+			dragontail: ["9L1"],
 			dragonpulse: ["9L1"],
 			airslash: ["9L1"],
 			meteorbeam: ["9L1"],
