@@ -2586,7 +2586,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
-	karrablast: {
+	/*karrablast: {
 		num: 588,
 		name: "Karrablast",
 
@@ -2618,7 +2618,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoType: "trade",
 		evoCondition: "with a Shelmet",
 	},
-	// end
+	// end*/
 
 	// start
 	snommaadowr: {
@@ -3112,6 +3112,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		baseStats: {hp: 71, atk: 102, def: 64, spa: 64, spd: 59, spe: 112},
 	//	movepoolDeletions: ["frustration", "hiddenpower", "return", "toxic"],
+	},
+	// end
+
+	// start
+	escavalier: {
+		inherit: true,
+		abilities: {0: "Sky Rider", 1: "Shell Armor", H: "Overcoat"},
 	},
 	// end
 
