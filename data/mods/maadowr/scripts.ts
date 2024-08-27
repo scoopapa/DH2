@@ -2,8 +2,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers'],
-		customDoublesTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers'],
+		customTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers', 'EXP'],
+		customDoublesTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers', 'EXP'],
 	},
 	init() {		
 
