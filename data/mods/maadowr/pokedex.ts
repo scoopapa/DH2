@@ -1073,7 +1073,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Vaheelia",
 
 		types: ["Ice", "Ghost"],
-		baseStats: {hp: 99, atk: 130, def: 50, spa: 40, spd: 70, spe: 111},
+		baseStats: {hp: 99, atk: 130, def: 90, spa: 40, spd: 70, spe: 111},
 		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Ice Body"},
 	//	category: "Devour",
 		heightm: 1.8,
@@ -2165,7 +2165,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		
 		types: ["Rock", "Ghost"],
 		gender: "N",
-		baseStats: {hp: 70, atk: 80, def: 116, spa: 88, spd: 87, spe: 59},
+		baseStats: {hp: 70, atk: 75, def: 121, spa: 88, spd: 87, spe: 59},
 	//	category: "Imperial Insignia",
 		abilities: {0: "Bulletproof", 1: "Weak Armor", H: "Friend Guard"},
 		heightm: 0.4,
@@ -2931,7 +2931,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Fairy", "Fire"],
 		gender: "N",
-		baseStats: {hp: 63, atk: 112, def: 105, spa: 126, spd: 105, spe: 49},
+		baseStats: {hp: 133, atk: 112, def: 77, spa: 126, spd: 77, spe: 35},
 		abilities: {0: "Reconfiguration"},
 	//	category: "Drone",
 		heightm: 0.8,
