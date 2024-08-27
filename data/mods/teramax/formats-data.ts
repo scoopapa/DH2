@@ -2456,7 +2456,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	volcarona: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	talonflame: {
@@ -2852,7 +2852,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	melmetal: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	froakie: {
