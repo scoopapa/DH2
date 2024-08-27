@@ -1240,6 +1240,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
+	// start
+	reactivepoison: {
+		num: -37,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Reactive Poison", 
+		pp: 20,  
+		priority: 0, 
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyPriority(priority, source, target, move) {  
+			if (target.status === 'psn' || target.status === 'tox') {  
+				return priority + 1; 
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	// end
+
 	enhancement: {
 		num: -41,
 		accuracy: true,
