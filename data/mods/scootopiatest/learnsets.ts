@@ -1136,7 +1136,7 @@ export const Learnsets = {
 
 		},
 	},
-	cyromebook: {
+	cyrome: {
 		learnset: {
 			poltergeist: ["9L1"],
 			shadowclaw: ["9L1"],
