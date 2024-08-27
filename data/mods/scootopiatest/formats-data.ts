@@ -207,7 +207,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		// tier: "OU",
 		// doublesTier: "DOU",
 	// },
-	cyromebook: {
+	cyrome: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
