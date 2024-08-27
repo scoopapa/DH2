@@ -41,6 +41,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if ( ability == 'overcoat' 
 						|| ability == 'celestial' 
 						|| ability == 'fallingstar'
+						|| ability == 'cloudnine'
+						|| ability == 'airlock'
+						|| ability == 'windrider'
+						|| ability == 'windpower'
 					) return true;
 				break;
 				case 'chaoticterrain':

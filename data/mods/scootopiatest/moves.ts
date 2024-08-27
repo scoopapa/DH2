@@ -345,7 +345,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 							pokemon.m.fieldTurns = 0;
 						}
 						if (this.scootopia.getImmunity(pokemon, 'chaoticweather')) continue;
+						if (pokemon.effectiveWeather() === '') {
+							pokemon.damage(pokemon.maxhp / 16);
+						}
 					}
+				}
+			},
+			onModifyMove(move) {
+				switch (move.type){
+					case "Water":
+						move.weather = "raindance";
+					break;
+					case "Fire":
+						move.weather = "sunnyday";
+					break;
+					case "Rock":
+						move.weather = "sandstorm";
+					break;
+					case "Ice":
+						move.weather = "snowscape";
+					break
 				}
 			},
 			onEnd() {
@@ -378,6 +397,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				this.scootopia.worldEffectStart('chaoticterrain');
 			},
+			onModifyMove(move) {
+				switch (move.type){
+					case "Grass":
+						move.terrain = "grassyterrain";
+					break;
+					case "Electric":
+						move.terrain = "electricterrain";
+					break;
+					case "Psychic":
+						move.terrain = "psychicterrain";
+					break;
+					case "Fairy":
+						move.terrain = "mistyterrain";
+					break
+				}
+			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
 					for (const pokemon of side.active) {
@@ -386,6 +421,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 							pokemon.m.fieldTurns = 0;
 						}
 						if (this.scootopia.getImmunity(pokemon, 'chaoticterrain')) continue;
+						if (!this.field.terrain && pokemon.isGrounded()) {
+							pokemon.damage(pokemon.maxhp / 16);
+						}
 					}
 				}
 			},
@@ -477,6 +515,37 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Ghost",
+	},
+	
+	// Modified moves
+	defog: {
+		inherit: true,
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			this.field.removePseudoWeather(this.scootopia.getWorldEffect());
+			return success;
+		},
 	},
 	
 	// Custom Moves
