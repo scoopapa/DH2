@@ -49,7 +49,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Victory Star", 1: "Prankster", H: "Unburden"},
 		weightkg: 35,
 	},
-	minillo{
+	minillow: {
 		num: 2007,
 		name: "Minillow",
 		types: ["Water", "Fairy"],
@@ -95,7 +95,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Electric"],
 		baseStats: {hp: 85, atk: 65, def: 75, spa: 115, spd: 115, spe: 50},
 		abilities: {0: "Hydration", H: "Electromorphosis"},
-		weightkg: W 84,
+		weightkg: 84,
 	},
 	axolacred: {
 		num: 2013,
@@ -288,7 +288,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Psychic"],
 		baseStats: {hp: 75, atk: 55, def: 125, spa: 120, spd: 85, spe: 65},
 		abilities: {0: "Clear Body", 1: "Gooey", H: "Water Absorb"},
-		weightkg: W 84,
+		weightkg: 84,
 	},
 	avastar: {
 		num: 2037,
