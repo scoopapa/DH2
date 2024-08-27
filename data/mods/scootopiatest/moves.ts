@@ -24,6 +24,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Cursed Field');
 				}
+				this.worldEffect.worldEffectStart('cursedfield');
 			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
@@ -76,6 +77,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Blessed Field');
 				}
+				this.worldEffect.worldEffectStart('blessedfield');
 			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
@@ -123,6 +125,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Rain of Meteors');
 				}
+				this.worldEffect.worldEffectStart('rainofmeteors');
 			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
@@ -166,6 +169,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Rain of Dew');
 				}
+				this.worldEffect.worldEffectStart('rainofdew');
 			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
@@ -209,6 +213,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Silent Domain');
 				}
+				this.worldEffect.worldEffectStart('silentdomain');
 			},
 			onCriticalHit: false,
 			onDisableMove(pokemon) {
@@ -275,6 +280,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Stellar Alignment');
 				}
+				this.worldEffect.worldEffectStart('stellaralignment');
 			},
 			onModifyAccuracy(accuracy) {
 				if (typeof accuracy !== 'number') return;
@@ -305,7 +311,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "all",
 	},
 	
-	chaoticweather: { // CHAOTICWEATHER
+	chaoticweather: { // CHAOTIC WEATHER
 		name: "Chaotic Weather",
 		accuracy: true,
 		basePower: 0,
@@ -324,6 +330,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Chaotic Weather');
 				}
+				this.worldEffect.worldEffectStart('chaoticweather');
 			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
@@ -364,6 +371,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Chaotic Terrain');
 				}
+				this.worldEffect.worldEffectStart('chaoticterrain');
 			},
 			onResidual(field) {
 				for (const side of field.battle.sides) {
@@ -383,6 +391,74 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "all",
+	},
+	// World Effect-Related Moves
+	rebalance: {
+		num: 432,
+		shortDesc: "Clears World Effects. Lowers foe's SpA.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Rebalance",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onHit(target, source, move) {
+			let success = false;
+			let w = this.worldEffect.getWorldEffect()
+			while(w){
+				this.worldEffect.getWorldEffect()
+				this.field.removePseudoWeather(w);
+				success = true;
+			}
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({spa:-1});
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	
+	iconoblast: {
+		num: 851,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Iconoblast",
+		shortDesc: "Sets a World Effect if the user has one in their moveset."
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, mustpressure: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Tera Blast ' + move.type);
+		},
+		onModifyType(move, pokemon, target) {
+			
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	
+	legacyshade: {
+		num: 881,
+		accuracy: true,
+		basePower: 0,
+		shortDesc: "User switches. Sets a World Effect if the user has one in their moveset."
+		category: "Status",
+		name: "Legacy Shade",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		onModifyMove(move, pokemon, target){
+			
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "all",
+		type: "Ice",
 	},
 	
 	// Custom Moves
