@@ -266,7 +266,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Pokemon get pumped after 3 turns. +10% Accuracy. Pseudo-Sun",
 		priority: 0,
 		flags: {nonsky: 1},
-		pseudoWeather: 'cursedfield',
+		pseudoWeather: 'stellaralignment',
 		condition: {
 			duration: 0,
 			onStart(battle, source, effect) {
@@ -299,6 +299,86 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Stellar Alignment');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	chaoticweather: { // CHAOTICWEATHER
+		name: "Chaotic Weather",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Dark",
+		shortDesc: "Moves change weather based on type. 1/16 residual damage if no weather. Wind.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'chaoticweather',
+		condition: {
+			duration: 0,
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Chaotic Weather', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Chaotic Weather');
+				}
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticweather") {
+							pokemon.m.lastField = "chaoticweather";
+							pokemon.m.fieldTurns = 0;
+						}
+
+					}
+				}
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Chaotic Weather');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	chaoticterrain: { // CHAOTIC TERRAIN
+		name: "Chaotic Terrain",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Dark",
+		shortDesc: "Moves change terrain based on type. 1/16 residual damage to grounded if no weather.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'chaoticterrain',
+		condition: {
+			duration: 0,
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Chaotic Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Chaotic Terrain');
+				}
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticterrain") {
+							pokemon.m.lastField = "chaoticterrain";
+							pokemon.m.fieldTurns = 0;
+						}
+
+					}
+				}
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Chaotic Terrain');
 			},
 		},
 		secondary: null,
