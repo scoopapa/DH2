@@ -35,20 +35,75 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						pokemon.m.fieldTurns++;
 						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
 						if (pokemon.m.fieldTurns === 3) {
-							pokemon.trySetStatus('tox', pokemon.side.foe.active[0], this.field.getTerrain());
+							if (!pokemon.hasType('Ghost') && !pokemon.hasType('Dark')) {
+								pokemon.trySetStatus('tox', pokemon.side.foe.active[0], this.field.getTerrain());
+							}
+							pokemon.m.fieldTurns = 0;
 						}
 					}
 				}
 			},
 			onEnd() {
-				if (!this.effectState.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Cursed Field');
 			},
 		},
 		secondary: null,
 		target: "all",
 	},
-
+	
+	blessedfield: {
+		name: "Blessed Field",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Ground",
+		shortDesc: "1/8 Heal on switch-in. Status heal after 3 turns. Dark and Ghost unaffected.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'blessedfield',
+		condition: {
+			duration: 0,
+			onSwitchIn(pokemon) {
+				if (pokemon.hasType("Ghost") || pokemon.hasType("Dark")) return;
+				// if (pokemon.hasAbility("Overcoat")) return;
+				this.heal(pokemon.maxhp / 8);
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Blessed Field', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Blessed Field');
+				}
+			},
+			onResidual(field) {
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (!pokemon.m.lastField || pokemon.m.lastField !== "blessedfield") {
+							pokemon.m.lastField = "blessedfield";
+							pokemon.m.fieldTurns = 0;
+						}
+						pokemon.m.fieldTurns++;
+						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+						if (pokemon.m.fieldTurns === 3) {
+							if (!pokemon.hasType('Ghost') && !pokemon.hasType('Dark')) {
+								pokemon.cureStatus();
+							}
+							pokemon.m.fieldTurns = 0;
+						}
+					}
+				}
+			},
+			onEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Blessed Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
 	// Custom Moves
 	shedtail: {
 		num: 880,
