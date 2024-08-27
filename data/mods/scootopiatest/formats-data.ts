@@ -1,222 +1,222 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-		arbrellanorth: {
-		tier: "OU",
+	arbrellanorth: {
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	krachiten: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	scalaron: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	rantler: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	woolora: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	harzodia: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	minillow: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	sturgard: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	albatrygon: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	electangle: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	efflor: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	whiscamp: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	axolacred: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	noxtrice: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	lunacal: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	eleqwil: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	molatreme: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	velocipasta: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	crolegion: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	coraking: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	celespirit: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	elemadillo: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	cinnastar: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	crossont: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	torgeist: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	embuck: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	cindoe: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	cobracotta: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	cyllindrake: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	soleron: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	soleronawakened: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	alliglacier: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	dracoil: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	dojodo: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	zeploom: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	jamborai: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	avastar: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	nunopod: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	pyrove: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	stonehusk: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	zephyrmine: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	boreasel: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	corundell: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	quadringo: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	zygola: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	skawamud: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	noxon: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	xiphoil: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	saphor: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	fenreil: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	flocura: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	// flocuranexus: {
-		// tier: "OU",
+		// tier: "Scoo",
 		// doublesTier: "DOU",
 	// },
 	cyrome: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	cyromescribe: {
-		tier: "OU",
+		tier: "Scoo",
 		doublesTier: "DOU",
 	},
 	// cyromeauthor: {
-		// tier: "OU",
+		// tier: "Scoo",
 		// doublesTier: "DOU",
 	// },
 	// flocuranexus: {
