@@ -3166,7 +3166,7 @@ export const Formats: FormatList = [
 		"Coraking", "Volvolpa", "Harzodia", "Cyllindrake", "Alliglacier", "Electangle", "Pyrove", "Soleron",
 		"Soleron-Awakened", "Zephyrmine", "Boreasel", "Elemadillo", "Axolacred", "Skawamud",
 		"Noxon", "Xiphoil", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar",
-		"Zygola", "Cyrome-Book", "Cyrome-Scribe", "Cyrome-Author", "Stone Husk", "Corundell", "Quadringo",
+		"Zygola", "Cyrome", "Cyrome-Scribe", "Cyrome-Author", "Stone Husk", "Corundell", "Quadringo",
 		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
 	},
 	{
