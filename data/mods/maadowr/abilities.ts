@@ -790,6 +790,96 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	// end
 
+	// start: Volatiles are handled in script
+	skyrider: {
+		shortDesc: "Tag Team: Escavalier and Grapplin.",
+		onUpdate(pokemon) {
+			const grapplin = pokemon.side.active.find(ally => ally.species.name === 'Grapplin');
+
+    		if (!grapplin) return; // Ensure Grapplin is present
+
+			// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+			if ((grapplin) && !grapplin.volatiles['skyriding']) {
+				grapplin.addVolatile('skyriding')
+			} // end
+
+    		if (pokemon.hasType('Steel')) {
+        		// If the user is Steel and Grapplin is not Steel, add skyriderally to Grapplin
+        		if (!grapplin.hasType('Steel')) {
+            		grapplin.addVolatile('skyriderally');
+        		}
+    		} else {
+        		// If the user is not Steel, remove skyriderally from Grapplin
+        		if (grapplin.volatiles['skyriderally']) {
+            		grapplin.removeVolatile('skyriderally');
+        		}
+    		}
+		},
+		onFaint(pokemon) {
+			pokemon.side.active.forEach(ally => {
+				if (ally && ally.volatiles['skyriderally']) {
+					ally.removeVolatile('skyriderally');
+				}
+				// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+				if (ally && ally.volatiles['skyriding']) {
+					ally.removeVolatile('skyriding')
+				} // end
+			});
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.active.forEach(ally => {
+				if (ally && ally.volatiles['skyriderally']) {
+					ally.removeVolatile('skyriderally');
+				}
+				// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+				if (ally && ally.volatiles['skyriding']) {
+					ally.removeVolatile('skyriding')
+				} // end
+			});
+		},
+		onEnd(pokemon) {
+			pokemon.side.active.forEach(ally => {
+				if (ally && ally.volatiles['skyriderally']) {
+					ally.removeVolatile('skyriderally');
+				}
+				// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+				if (ally && ally.volatiles['skyriding']) {
+					ally.removeVolatile('skyriding')
+				} // end
+			});
+		},
+		onPrepareHit(pokemon, target, move) {
+			const grapplin = pokemon.side.active.find(ally => ally.species.name === 'Grapplin');
+   			if (!grapplin) return; // Ensure Grapplin is present
+
+			// Check if the move is not a status move
+			if (move.category !== 'Status') {
+				// Loop through the action queue
+				for (const action of this.queue.list as MoveAction[]) {
+					// Check if the action is valid
+					if (
+						!action.move || !action.pokemon?.isActive ||
+						action.pokemon.fainted || action.maxMove || action.zmove
+					) {
+						continue; // Skip invalid actions
+					}
+		
+					// Check if the action belongs specifically to the ally; indirectly, that's Grapplin
+					if (action.pokemon.isAlly(pokemon)) {
+						this.queue.prioritizeAction(action, move); // Prioritize the action
+						this.add('-waiting', pokemon, action.pokemon); // Notify that Grapplin is waiting
+						break; // Exit the loop but not the function, meaning user's move should be able to do damage now
+					}
+				}
+			}
+		},	
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Sky Rider",
+		rating: 0,
+		num: -26,
+	},
+	// end
+
 	// start: Archetype (Reserve Idea for New Project)
 	archetype: {
 		shortDesc: "Gains opposite effect of target's lowered stat.",
