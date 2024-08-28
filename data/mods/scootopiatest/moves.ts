@@ -358,7 +358,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						move.weather = "sandstorm";
 					break;
 					case "Ice":
-						move.weather = "snowscape";
+						move.weather = "snow";
 					break
 				}
 			},
