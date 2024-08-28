@@ -88,13 +88,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 30,
 		},
+		desc: "Single use per battle. Instantly sets a World Effect in the holder's moveset.",
 		onStart(pokemon) {
 			if (!pokemon.side.usedShatteredOrb) pokemon.side.usedShatteredOrb = false;
 			let wMove = this.dex.dataCache.scootopia.getWorldEffectMove(pokemon)
 			if (!wMove) return;
 			if (!pokemon.ignoringItem() && this.dex.dataCache.scootopia.getWorldEffect(pokemon) !== wMove) {
 				pokemon.useItem();
-				battle.field.addPseudoWeather(wMove);
+				pokemon.battle.field.addPseudoWeather(wMove);
 				pokemon.side.usedShatteredOrb = true;
 			}
 		},
@@ -104,7 +105,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (!wMove) return;
 			if (!pokemon.ignoringItem() && this.dex.dataCache.scootopia.getWorldEffect(pokemon) !== wMove) {
 				pokemon.useItem();
-				battle.field.addPseudoWeather(wMove);
+				pokemon.battle.field.addPseudoWeather(wMove);
 				pokemon.side.usedShatteredOrb = true;
 			}
 		},

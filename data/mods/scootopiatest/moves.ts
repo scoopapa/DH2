@@ -329,6 +329,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-fieldstart', 'move: Chaotic Weather');
 				}
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (pokemon.hasAbility('windrider')) this.boost({atk: 1},pokemon);
+					}
+				}
 				this.dex.dataCache.scootopia.worldEffectStart('chaoticweather', source);
 			},
 			onResidual(pokemon) {
