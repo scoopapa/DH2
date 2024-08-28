@@ -1393,6 +1393,42 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
+	// start
+	pincerattack: {
+		num: -44, 
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Combo attack: Escavalier, double damage; Grapplin, heals.",
+		name: "Pincer Attack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1},
+		onModifyType(move, pokemon) {
+			// Change the move type based on the user
+			if (pokemon.species.name === 'Escavalier') {
+				move.type = 'Bug'; // Change to Bug type if Escavalier is the user
+			} else if (pokemon.species.name === 'Grapplin') {
+				move.type = 'Fighting'; // Change to Fighting type if Grapplin is the user
+			}
+		},
+		onBasePower(basePower, pokemon) {
+			// Check if Grapplin used this move first this turn
+			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Escavalier') {
+				this.debug('double power');
+				return this.chainModify(2);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') move.drain = [1, 2];
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	// end
+
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
 //		num: -38,
