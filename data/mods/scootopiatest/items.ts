@@ -112,7 +112,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (pokemon.side.usedShatteredOrb) return true;
 			return false;
 		},
-		num: 884,
-		gen: 7,
+		gen: 9,
+		rating: 3,
 	},
 };
