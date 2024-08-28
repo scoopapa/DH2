@@ -102,7 +102,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (pokemon.side.usedShatteredOrb) return;
 			let wMove = this.dex.dataCache.scootopia.getWorldEffectMove(pokemon)
 			if (!wMove) return;
-			if (!pokemon.ignoringItem() && this.dex.dataCache.scootopia.getWorldEffect(pokemon) !== wMove)) {
+			if (!pokemon.ignoringItem() && this.dex.dataCache.scootopia.getWorldEffect(pokemon) !== wMove) {
 				pokemon.useItem();
 				battle.field.addPseudoWeather(wMove);
 				pokemon.side.usedShatteredOrb = true;
