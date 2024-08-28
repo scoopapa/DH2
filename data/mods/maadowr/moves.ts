@@ -757,7 +757,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
-		onHit(target) {
+		/*onHit(target) {
 			let boosts: BoostsTable = target.boosts;
 		
 			// Check if the target's HP is not full before healing
@@ -779,6 +779,53 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			    	this.add('-clearboost', target);
 				}
 				return true;
+		},*/
+		onHit(pokemon) {
+			// Healing for the user
+			if (pokemon.hp < pokemon.maxhp) {
+				const healAmount = pokemon.maxhp / 4;
+				pokemon.heal(healAmount);
+				this.add('-heal', pokemon, pokemon.getHealth, healAmount);
+			}
+		
+			// Clear negative stat boosts for the user
+			let userBoosts: BoostsTable = pokemon.boosts;
+			let clearedUserBoosts = false; // Flag to track if any user boosts were cleared
+			for (const stat in userBoosts) {
+				if (userBoosts[stat as keyof BoostsTable] < 0) {
+					userBoosts[stat as keyof BoostsTable] = 0;
+					clearedUserBoosts = true; // Set flag if any boost was reset
+				}
+			}
+			
+			// Notify about the clearing of user's negative boosts
+			if (clearedUserBoosts) {
+				pokemon.clearBoosts();
+				this.add('-clearboost', pokemon);
+			}
+		
+			// Access the ally (assuming the ally is the other Pokémon in the same team)
+			const ally = pokemon.side.active.find(p => p !== pokemon); // Adjust as needed based on your game's structure
+		
+			// Clear negative stat boosts for the ally
+			if (ally) {
+				let allyBoosts: BoostsTable = ally.boosts;
+				let clearedAllyBoosts = false; // Flag to track if any ally boosts were cleared
+				for (const stat in allyBoosts) {
+					if (allyBoosts[stat as keyof BoostsTable] < 0) {
+						allyBoosts[stat as keyof BoostsTable] = 0;
+						clearedAllyBoosts = true; // Set flag if any boost was reset
+					}
+				}
+				
+				// Notify about the clearing of ally's negative boosts
+				if (clearedAllyBoosts) {
+					ally.clearBoosts();
+					this.add('-clearboost', ally);
+				}
+			}
+		
+			return true; 
 		},
 		secondary: null,
 		target: "allies",
