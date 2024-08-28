@@ -457,7 +457,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Flying",
+		type: "Psychic",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
 	},
