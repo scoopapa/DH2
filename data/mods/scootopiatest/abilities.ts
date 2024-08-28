@@ -115,73 +115,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Shell Bunker",
 		shortDesc: "After taking damage, Def and SpD are doubled for the rest of the turn.",
 	},
-	// crystalline: {
-	// onSourceModifyAtkPriority: 6,
-	// onSourceModifyAtk(atk, attacker, defender, move) {
-	// if (move.type === 'Crystal' || move.type === 'Rock') {
-	// this.debug('Crystalline weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// onSourceModifySpAPriority: 5,
-	// onSourceModifySpA(atk, attacker, defender, move) {
-	// if (move.type === 'Crystal' || move.type === 'Rock') {
-	// this.debug('Crystalline weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// name: "Crystalline",
-	// shortDesc: "Reduces damage from Rock and Crystal by 50%.",
-	// rating: 3.5,
-	// },
-	// wildroots: {
-	// onSourceModifyAtkPriority: 6,
-	// onSourceModifyAtk(atk, attacker, defender, move) {
-	// if (move.type === 'Fairy' || move.type === 'Feral') {
-	// this.debug('Wild Roots weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// onSourceModifySpAPriority: 5,
-	// onSourceModifySpA(atk, attacker, defender, move) {
-	// if (move.type === 'Fairy' || move.type === 'Feral') {
-	// this.debug('Wild Roots weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// shortDesc: "Reduces damage from Fairy and Feral by 50%.",
-	// name: "Wild Roots",
-	// rating: 3.5,
-	// },
-	// growthpower: {
-	// onTryHitPriority: 1,
-	// onTryHit(target, source, move) {
-	// if (target !== source && move.type === 'Grass') {
-	// this.field.setTerrain('grassyterrain');
-	// this.add('-immune', target, '[from] ability: Growth Power');
-	// return null;
-	// }
-	// },
-	// onAllyTryHitSide(target, source, move) {
-	// if (target === this.effectState.target || target.side !== source.side) return;
-	// if (move.type === 'Grass') {
-	// this.field.setTerrain('grassyterrain');
-	// }
-	// },
-	// onSwitchIn(pokemon) {
-	// if (pokemon.hp > pokemon.maxhp / 2) target.m.growthPower = false;
-	// },
-	// onResidual(pokemon) {
-	// if (pokemon.hp > pokemon.maxhp / 2) target.m.growthPower = false;
-	// },
-	// onDamage(damage, target, source, move) {
-	// if (!move || move.effectType !== 'Move' || !source) return;
-	// if (!target.m.growthPower) {
-	// target.m.growthPower = true
-	// this.field.setTerrain('grassyterrain');
-	// }
-	// },
-	// shortDesc: "If knocked below 50% or hit by a Grass move, sets Grassy Terrain. Immune to Grass moves.",
-	// name: "Growth Power",
-	// },
+	hydration: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.status 
+				&& ( ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())
+					|| this.dex.dataCache.scootopia.getWorldEffect() === "rainofdew" )
+			) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				pokemon.cureStatus();
+			}
+		},
+	},
+	solarpower: {
+		inherit: true,
+		onModifySpA(spa, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) ||  this.dex.dataCache.scootopia.getWorldEffect() === "stellaralignment") {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 };

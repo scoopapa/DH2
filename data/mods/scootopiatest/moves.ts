@@ -19,32 +19,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (pokemon.hasAbility("overcoat")) dmgDiv = 16;
 				this.damage(pokemon.maxhp / dmgDiv);
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Cursed Field', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Cursed Field');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('cursedfield');
+				this.dex.dataCache.scootopia.worldEffectStart('cursedfield', source);
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "cursedfield") {
-							pokemon.m.lastField = "cursedfield";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) continue;
-						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
-						pokemon.m.fieldTurns++;
-						if (pokemon.m.fieldTurns === 3) {
-							pokemon.trySetStatus('tox', pokemon.side.foe.active[0], this.field.getTerrain());
-							pokemon.m.fieldTurns = 0;
-						}
-					}
+			onResidualOrder: 5,
+			onResidualSubOrder: 3,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "cursedfield") {
+					pokemon.m.lastField = "cursedfield";
+					pokemon.m.fieldTurns = 0;
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
+				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+				pokemon.m.fieldTurns++;
+				if (pokemon.m.fieldTurns === 3) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0], this.field.getTerrain());
+					pokemon.m.fieldTurns = 0;
 				}
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Cursed Field');
 			},
@@ -71,32 +69,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				// if (pokemon.hasAbility("Overcoat")) return;
 				this.heal(pokemon.maxhp / 8);
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Blessed Field', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Blessed Field');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('blessedfield');
+				this.dex.dataCache.scootopia.worldEffectStart('blessedfield', source);
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "blessedfield") {
-							pokemon.m.lastField = "blessedfield";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'blessedfield')) continue; //what the fuck
-						pokemon.m.fieldTurns++;
-						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
-						if (pokemon.m.fieldTurns === 3) {
-							pokemon.cureStatus();
-							pokemon.m.fieldTurns = 0;
-						}
-					}
+			onResidualOrder: 5,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "blessedfield") {
+					pokemon.m.lastField = "blessedfield";
+					pokemon.m.fieldTurns = 0;
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'blessedfield')) return; //what the fuck
+				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+				pokemon.m.fieldTurns++;
+				if (pokemon.m.fieldTurns === 3) {
+					pokemon.cureStatus();
+					pokemon.m.fieldTurns = 0;
 				}
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Blessed Field');
 			},
@@ -118,30 +114,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'rainofmeteors',
 		condition: {
 			duration: 0,
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Rain of Meteors', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Rain of Meteors');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('rainofmeteors');
+				this.dex.dataCache.scootopia.worldEffectStart('rainofmeteors', source);
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofmeteors") {
-							pokemon.m.lastField = "rainofmeteors";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofmeteors')) continue;
-						let dmgDiv = 8;
-						if (pokemon.hasAbility("overcoat") || pokemon.hasType("Rock") || pokemon.hasType("Steel")) dmgDiv = 16;
-						pokemon.damage(pokemon.maxhp / dmgDiv);
-					}
+			onResidualOrder: 6,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				// let pokemon = field.battle.activePokemon;
+				// if (!pokemon) return;
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofmeteors") {
+					pokemon.m.lastField = "rainofmeteors";
+					pokemon.m.fieldTurns = 0;
 				}
-				
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofmeteors')) return;
+				let dmgDiv = 8;
+				if (pokemon.hasAbility("overcoat") || pokemon.hasType("Rock") || pokemon.hasType("Steel")) dmgDiv = 16;
+				console.log(dmgDiv + ' ' + pokemon.name);
+				this.damage(pokemon.maxhp / dmgDiv);
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Rain of Meteors');
 			},
@@ -163,30 +159,31 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'rainofdew',
 		condition: {
 			duration: 0,
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
+				console.log('hi');
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Rain of Dew', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Rain of Dew');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('rainofdew');
+				this.dex.dataCache.scootopia.worldEffectStart('rainofdew', source);
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofdew") {
-							pokemon.m.lastField = "rainofdew";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofdew')) continue;
-						let dmgDiv = 16;
-						if (pokemon.hasAbility("Rain Dish")) dmgDiv = 8;
-						pokemon.heal(pokemon.maxhp / dmgDiv);
-					}
+			onResidualOrder: 5,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofdew") {
+					pokemon.m.lastField = "rainofdew";
+					pokemon.m.fieldTurns = 0;
 				}
-				
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofdew')) return;
+				let dmgDiv = 16;
+				if (!pokemon.effectiveWeather() === "raindance") {
+					if (pokemon.hasAbility("Rain Dish")) dmgDiv = 8;
+					if (pokemon.hasAbility("Dry Skin")) dmgDiv = 5.3333334;
+				}
+				this.heal(pokemon.maxhp / dmgDiv);
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Rain of Dew');
 			},
@@ -208,13 +205,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'silentdomain',
 		condition: {
 			duration: 0,
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Silent Domain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Silent Domain');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('silentdomain');
+				this.dex.dataCache.scootopia.worldEffectStart('silentdomain', source);
 			},
 			onCriticalHit: false,
 			onDisableMove(pokemon) {
@@ -227,36 +224,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 6,
 			onBeforeMove(pokemon, target, move) {
-				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return true;
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return;
 				if (!move.isZ && !move.isMax && move.flags['sound']) {
 					this.add('cant', pokemon, 'move: Throat Chop');
 					return false;
 				}
 			},
 			onModifyMove(move, pokemon, target) {
-				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return true;
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return;
 				if (!move.isZ && !move.isMax && move.flags['sound']) {
 					this.add('cant', pokemon, 'move: Throat Chop');
 					return false;
 				}
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "silentdomain") {
-							pokemon.m.lastField = "silentdomain";
-							pokemon.m.fieldTurns = 0;
-						}
-						const toBoost = {};
-						for (const boost in pokemon.boosts) {
-							if (pokemon.boosts[boost] > 0 && !this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) toBoost[boost] = -1;
-							else if (pokemon.boosts[boost] < 0) toBoost[boost] = 1;
-						}
-						this.boost(toBoost, pokemon, pokemon, null, true, false);
-					}
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "silentdomain") {
+					pokemon.m.lastField = "silentdomain";
+					pokemon.m.fieldTurns = 0;
 				}
+				const toBoost = {};
+				for (const boost in pokemon.boosts) {
+					if (pokemon.boosts[boost] > 0 && !this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) toBoost[boost] = -1;
+					else if (pokemon.boosts[boost] < 0) toBoost[boost] = 1;
+				}
+				this.boost(toBoost, pokemon, pokemon, null, true, false);
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Silent Domain');
 			},
@@ -278,36 +271,37 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'stellaralignment',
 		condition: {
 			duration: 0,
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Stellar Alignment', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Stellar Alignment');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('stellaralignment');
+				this.dex.dataCache.scootopia.worldEffectStart('stellaralignment', source);
 			},
 			onModifyAccuracy(accuracy) {
 				if (typeof accuracy !== 'number') return;
 				return this.chainModify(1.1);
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "stellaralignment") {
-							pokemon.m.lastField = "stellaralignment";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'stellaralignment')) continue;
-						pokemon.m.fieldTurns++;
-						if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
-						if (pokemon.m.fieldTurns === 3) {
-							if (!pokemon.volatiles['focusenergy']) pokemon.addVolatile('focusenergy');
-							pokemon.m.fieldTurns = 0;
-						}
-					}
+			onResidualOrder: 5,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "stellaralignment") {
+					pokemon.m.lastField = "stellaralignment";
+					pokemon.m.fieldTurns = 0;
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'stellaralignment')) return;
+				pokemon.m.fieldTurns++;
+				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+				if (pokemon.m.fieldTurns === 3) {
+					if (!pokemon.volatiles['focusenergy']) pokemon.addVolatile('focusenergy');
+					pokemon.m.fieldTurns = 0;
+				}
+				if (pokemon.hasAbility('solarpower') && pokemon.effectiveWeather() !== 'sunnyday'){
+					this.damage(pokemon.maxhp / 8);
 				}
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Stellar Alignment');
 			},
@@ -329,26 +323,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'chaoticweather',
 		condition: {
 			duration: 0,
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Chaotic Weather', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Chaotic Weather');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('chaoticweather');
+				this.dex.dataCache.scootopia.worldEffectStart('chaoticweather', source);
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticweather") {
-							pokemon.m.lastField = "chaoticweather";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticweather')) continue;
-						if (pokemon.effectiveWeather() === '') {
-							pokemon.damage(pokemon.maxhp / 16);
-						}
-					}
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticweather") {
+					pokemon.m.lastField = "chaoticweather";
+					pokemon.m.fieldTurns = 0;
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticweather')) return;
+				if (pokemon.effectiveWeather() === '') {
+					this.damage(pokemon.maxhp / 16);
 				}
 			},
 			onModifyMove(move) {
@@ -367,7 +357,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					break
 				}
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Chaotic Weather');
 			},
@@ -389,13 +379,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'chaoticterrain',
 		condition: {
 			duration: 0,
-			onStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Chaotic Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Chaotic Terrain');
 				}
-				this.dex.dataCache.scootopia.worldEffectStart('chaoticterrain');
+				this.dex.dataCache.scootopia.worldEffectStart('chaoticterrain', source);
 			},
 			onModifyMove(move) {
 				switch (move.type){
@@ -413,21 +403,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					break
 				}
 			},
-			onResidual(field) {
-				for (const side of field.battle.sides) {
-					for (const pokemon of side.active) {
-						if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticterrain") {
-							pokemon.m.lastField = "chaoticterrain";
-							pokemon.m.fieldTurns = 0;
-						}
-						if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticterrain')) continue;
-						if (!this.field.terrain && pokemon.isGrounded()) {
-							pokemon.damage(pokemon.maxhp / 16);
-						}
-					}
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticterrain") {
+					pokemon.m.lastField = "chaoticterrain";
+					pokemon.m.fieldTurns = 0;
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticterrain')) return;
+				if (!this.field.terrain && pokemon.isGrounded()) {
+					this.damage(pokemon.maxhp / 16);
 				}
 			},
-			onEnd() {
+			onFieldEnd() {
 				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
 				this.add('-fieldend', 'move: Chaotic Terrain');
 			},
@@ -448,9 +434,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
 		onHit(target, source, move) {
 			let success = false;
-			let w = this.dex.dataCache.scootopia.getWorldEffect()
+			let w = this.dex.dataCache.scootopia.getWorldEffect(target)
 			while(w){
-				this.dex.dataCache.scootopia.getWorldEffect()
+				this.dex.dataCache.scootopia.getWorldEffect(target)
 				this.field.removePseudoWeather(w);
 				success = true;
 			}
@@ -549,7 +535,60 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			}
 			this.field.clearTerrain();
-			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect());
+			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(target));
+			return success;
+		},
+	},
+	
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			if (this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	morningsun: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			if (this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
 			return success;
 		},
 	},

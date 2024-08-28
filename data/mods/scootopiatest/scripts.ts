@@ -4,37 +4,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){
 		const scoot = this.dataCache
 		scoot.scootopia = {};
+		scoot.scootopia.shatteredOrbUsed = [false, false];
 		scoot.scootopia.worldEffects = ["chaoticweather", "chaoticterrain", "cursedfield", "blessedfield", 
-							"rainofmeteors", "rainofdew", "silentdomain", "stellaralignment"];
-		scoot.scootopia.getWorldEffect = function() {
-			for (let e of this.scootopia.worldEffects) {
-				if (this.field.getPseudoWeather(e)) {
+										"rainofmeteors", "rainofdew", "silentdomain", "stellaralignment"];
+		scoot.scootopia.getWorldEffect = function(pokemon) {
+			let battle = pokemon.battle
+			for (let e of scoot.scootopia.worldEffects) {
+				if (battle.field.getPseudoWeather(e)) {
 					return e;
 				}
 			}
 			return false;
 		}
-		scoot.scootopia.worldEffectStart = function(w) {
-			console.log("world effect start");
-			for (let e of this.scootopia.worldEffects) {
-				if (this.field.getPseudoWeather(e) && e !== w) {
-					this.field.removePseudoWeather(e);
-				} else if ( !this.field.getPseudoWeather(e) && e === w ) {
-					this.field.addPseudoWeather(w);
+		scoot.scootopia.worldEffectStart = function(w, pokemon) {
+			let battle = pokemon.battle
+			for (let e of scoot.scootopia.worldEffects) {
+				if (battle.field.getPseudoWeather(e) && e !== w) {
+					battle.field.removePseudoWeather(e);
+					battle.add('-fieldend', 'move: ' + e);
+				} else if ( !battle.field.getPseudoWeather(e) && e === w ) {
+					battle.field.addPseudoWeather(w);
 				}
 			}
 		}
 		scoot.scootopia.getWorldEffectMove = function(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.moves.get(moveSlot.id);
-				if (this.scootopia.worldEffects.includes(moveSlot.id)) {
-					console.log(moveSlot.id);
-					return move
+				if (scoot.scootopia.worldEffects.includes(moveSlot.id)) {
+					return moveSlot.id
 				}
 			}
 		}
 		scoot.scootopia.getImmunity = function(pokemon, w) {
-			if (!w) w = this.scootopia.getWorldEffect();
+			if (!w) w = scoot.scootopia.getWorldEffect(pokemon);
 			if (!w) return false;
 			const ability = pokemon.ability;
 			const fieldImmune = pokemon.hasType("Dark") || pokemon.hasType("Ghost");
@@ -57,7 +58,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					) return true;
 				break;
 				case 'rainofdew':
-					return false
+					return pokemon.hasItem('utilityumbrella');
 				break;
 				case 'rainofmeteors':
 					if ( ability == 'celestial' 
