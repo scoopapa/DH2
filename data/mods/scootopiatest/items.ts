@@ -107,7 +107,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				battle.field.addPseudoWeather(wMove);
 				pokemon.side.usedShatteredOrb = true;
 			}
-		}
+		},
 		onTakeItem(item, pokemon, source) {
 			if (pokemon.side.usedShatteredOrb) return true;
 			return false;
