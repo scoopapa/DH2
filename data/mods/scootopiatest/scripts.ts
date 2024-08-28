@@ -88,17 +88,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 		// Arbrella-North
-		console.log("arbrellanorth");
 		this.modData("Learnsets", "arbrellanorth").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "arbrellanorth").learnset.cursedfield = ["9L1"];
 		this.modData("Learnsets", "arbrellanorth").learnset.blessedfield = ["9L1"];
 		// Krachiten
-		console.log("krachiten");
 		this.modData("Learnsets", "krachiten").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "krachiten").learnset.rainofdew = ["9L1"];
 		this.modData("Learnsets", "krachiten").learnset.silentdomain = ["9L1"];
 		// Scalaron
-		console.log("scalaron");
 		this.modData("Learnsets", "scalaron").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "scalaron").learnset.chaoticweather = ["9L1"];
 		this.modData("Learnsets", "scalaron").learnset.rainofdew = ["9L1"];
@@ -119,14 +116,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "efflor").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "efflor").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "efflor").learnset.blessedfield = ["9L1"];
-		// Whiscamp
-		this.modData("Learnsets", "whiscamp").learnset.rebalance = ["9L1"];
-		this.modData("Learnsets", "whiscamp").learnset.chaoticterrain = ["9L1"];
+		// Barbolt
+		this.modData("Learnsets", "barbolt").learnset.rebalance = ["9L1"];
+		this.modData("Learnsets", "barbolt").learnset.chaoticterrain = ["9L1"];
 		// Axolacred
 		this.modData("Learnsets", "axolacred").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "axolacred").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "axolacred").learnset.rainofdew = ["9L1"];
 		// Noxtrice
+		console.log("noxtrice");
 		this.modData("Learnsets", "noxtrice").learnset.cursedland = ["9L1"];
 		// Lunacal
 		console.log("lunacal");

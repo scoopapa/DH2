@@ -89,9 +89,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Solid Rock", 1: "Unaware", H: "Seed Sower"},
 		weightkg: 113,
 	},
-	whiscamp: {
+	barbolt: {
 		num: 2012,
-		name: "Whiscamp",
+		name: "Barbolt",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 85, atk: 65, def: 75, spa: 115, spd: 115, spe: 50},
 		abilities: {0: "Hydration", H: "Electromorphosis"},
