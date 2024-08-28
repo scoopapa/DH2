@@ -2025,7 +2025,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			delete this.effectState.magicked;
 		},
 		name: "Magician",
-		desc: "The user swaps its held item with the held item of a Pokemon it hits with an attack. This effect fails if neither the user or the target is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, a Memory, a Rusted Sword, or a Rusted Shield to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta, respectively. The target is immune to this effect if it has the Sticky Hold Ability. This effect can only trigger once per switch-in. Does not affect Doom Desire and Future Sight.",
+		desc: "The user swaps its held item with the held item of a Pokemon it hits with an attack. This effect fails if neither the user or the target is holding an item or if the user is trying to give or take a Mega Stone or form-changing item to or from the species that can Mega Evolve or change forms with it. The target is immune to this effect if it has the Sticky Hold Ability. This effect can only trigger once per switch-in. Does not affect Doom Desire and Future Sight.",
 		shortDesc: "Swaps items with a Pokemon it hits with an attack. Once per switch-in.",
         flags: {},
 		num: 170,
@@ -2096,8 +2096,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Magnet Pull",
 		rating: 4,
 		num: 42,
-		desc: "Prevents opposing Steel-type Pokemon from choosing to switch out for three turns, unless they are holding a Shed Shell or are a Ghost type.",
-		shortDesc: "Prevents opposing Steel-type Pokemon from choosing to switch out for 3 turns.",
+		desc: "Prevents opposing Steel-types from switching out for four turns (six turns if the user is holding Grip Claw), starting from when either the user or a valid foe switches in. The target can still switch out if it is holding Shed Shell, is behind a Substitute, has Run Away, or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. The effect ends if the user leaves the field.",
+		shortDesc: "Traps enemy Steel-types for 4 turns.",
 	},
 	megalauncher: {
 		inherit: true,
@@ -2157,7 +2157,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.effectState.boost = {def: length, spd: length, spe: -length};
+				this.effectState.boost = {def: 1, spd: 1, spe: -1};
 			}
 		},
 		onTryHeal(damage, target, source, effect) {
@@ -2687,8 +2687,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Shadow Tag",
 		rating: 4.5,
 		num: 23,
-		desc: "Prevents opposing Pokemon from choosing to switch out for three turns, unless they are holding a Shed Shell, have the Run Away or Shadow Tag Abilities, or are a Ghost type.",
-		shortDesc: "Prevents foes from switching for 3 turns unless they also have this Ability.",
+		desc: "Prevents opposing Pokemon from switching out for four turns (six turns if the user is holding Grip Claw), starting from when either the user or a valid foe switches in. The target can still switch out if it is holding Shed Shell, is behind a Substitute, has Shadow Tag or Run Away, or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. The effect ends if the user leaves the field.",
+		shortDesc: "Traps enemies without Shadow Tag for 4 turns.",
 	},
 	sharpness: {
 		inherit: true,
@@ -2913,6 +2913,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
+	},
+	synchronize: {
+		inherit: true,
+		onAfterSetStatus(status, target, source, effect) {
+			if (!source || source === target) return;
+			if (effect && effect.id === 'toxicspikes') return;
+			this.add('-activate', target, 'ability: Synchronize');
+			// Hack to make status-prevention abilities think Synchronize is a status move
+			// and show messages when activating against it.
+			source.trySetStatus(status, target, {status: status.id, id: 'synchronize'} as Effect);
+		},
+		desc: "If another Pokemon inflicts a non-volatile status condition on this Pokemon, that Pokemon receives the same non-volatile status condition.",
+		shortDesc: "If status is inflicted by another Pokemon, it also gets that status.",
 	},
 	tangledfeet: {
 		onDamage(damage, target, source, effect) {

@@ -70,6 +70,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	trapped: {
 		inherit: true,
 		duration: 4,
+		durationCallback(target, source) {
+			if (source?.hasItem('gripclaw')) return 6;
+			return 4;
+		},
 		onStart(target) {
 			if(!this.turn) this.effectState.duration--;
 			this.add('-activate', target, 'trapped');
@@ -80,6 +84,11 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 	partiallytrapped: {
 		inherit: true,
+		duration: 4,
+		durationCallback(target, source) {
+			if (source?.hasItem('gripclaw')) return 6;
+			return 4;
+		},
 		onStart(pokemon, source) {
 			if(pokemon.volatiles['strongpartialtrap']) return false;
 			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
@@ -169,6 +178,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		name: 'blocked',
 		noCopy: true,
 		duration: 4,
+		durationCallback(target, source) {
+			if (source?.hasItem('gripclaw')) return 6;
+			return 4;
+		},
 		onStart(target, source, move) {
 			this.add('-activate', target, 'trapped');
 		},
@@ -176,17 +189,17 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			pokemon.tryTrap();
 		},
 		onSourceHit(target, source, move) { //Damaging moves won't switch
-			if(move.selfSwitch && target !== source && !source.hasItem('shedshell') && !source.hasAbility('runaway')) delete move.selfSwitch;
+			if(move.selfSwitch && target !== source && !source.volatiles['substitute'] && !source.hasItem('shedshell') && !source.hasAbility('runaway')) delete move.selfSwitch;
 		},
 		onAfterMoveSecondaryPriority: -100,
 		onAfterMoveSecondary(target, source, move) { //Items and custom Abilities won't switch
 			if(target !== source){
-				if(source.switchFlag && !source.hasItem('shedshell') && !source.hasAbility('runaway')){
+				if(source.switchFlag && !source.volatiles['substitute'] && !source.hasItem('shedshell') && !source.hasAbility('runaway')){
 					this.add('-fail', target, '[from] move: Fairy Lock');
 					source.switchFlag = false;
 					return null;
 				}
-				if(target.switchFlag && !target.hasItem('shedshell') && !target.hasAbility('runaway')){
+				if(target.switchFlag && !target.volatiles['substitute'] && !target.hasItem('shedshell') && !target.hasAbility('runaway')){
 					this.add('-fail', target, '[from] move: Fairy Lock');
 					source.switchFlag = false;
 					return null;
@@ -194,7 +207,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onEmergencyExit(target) { //Escape Plan won't switch
-			if(!target.hasItem('shedshell')){
+			if(!target.hasItem('shedshell') && !target.volatiles['substitute']){
 				target.switchFlag = false;
 				return false;
 			}
@@ -204,6 +217,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		name: 'meanlooked',
 		noCopy: true,
 		duration: 4,
+		durationCallback(target, source) {
+			if (source?.hasItem('gripclaw')) return 6;
+			return 4;
+		},
 		onStart(target, source, move) {
 			this.add('-activate', target, 'trapped');
 		},
@@ -242,18 +259,18 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		name: 'strongpartialtrap',
 		duration: 3,
 		durationCallback(target, source) {
-			if (source?.hasItem('gripclaw')) return 5;
-			return this.random(3, 4);
+			if (source?.hasItem('gripclaw')) return 4;
+			return 3;
 		},
 		onStart(pokemon, source) {
 			if(pokemon.volatiles['partiallytrapped']) return false;
 			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			this.effectState.boundDivisor = source.hasItem('bindingband') ? 3 : 4;
 		},
-		onResidualOrder: 11,
+		onResidualOrder: 13,
 		onResidual(pokemon) {
 			const source = this.effectState.source;
-			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 				delete pokemon.volatiles['strongpartialtrap'];
 				this.add('-end', pokemon, this.effectState.sourceEffect, '[strongpartialtrap]', '[silent]');
 				return;
@@ -263,6 +280,13 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, this.effectState.sourceEffect, '[strongpartialtrap]');
 		},
+		onTrapPokemon(pokemon) {
+			if (this.effectState.source?.isActive) pokemon.tryTrap();
+		},
+	},
+	sleuther: {
+		name: 'sleuther',
+		noCopy: true,
 	},
 	/* Status changes due to other elements */
 	par: {
