@@ -8471,6 +8471,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	salmini: {
 		learnset: {
+			//IT'S 7AM HERE gonna work on this later
 			watergun: ["9L1"],
 			hydropump: ["9L1"],
 			surf: ["9L1"],
