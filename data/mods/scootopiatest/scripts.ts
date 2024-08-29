@@ -124,10 +124,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "axolacred").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "axolacred").learnset.rainofdew = ["9L1"];
 		// Noxtrice
-		console.log("noxtrice");
 		this.modData("Learnsets", "noxtrice").learnset.cursedland = ["9L1"];
 		// Lunacal
-		console.log("lunacal");
 		this.modData("Learnsets", "lunacal").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "lunacal").learnset.rainofmeteors = ["9L1"];
 		// Eleqwil

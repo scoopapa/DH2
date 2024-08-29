@@ -211,7 +211,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
-	cyromescribe: {
+	cyromebook: {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},

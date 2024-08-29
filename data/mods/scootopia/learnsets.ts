@@ -1954,6 +1954,7 @@ export const Learnsets = {
 	harzodia: {
 		learnset: {
 			allyswitch: ["9L1"],
+			solarbeam: ["9L1"],
 			helpinghand: ["9L1"],
 			psychic: ["9L1"],
 			psyshock: ["9L1"],
