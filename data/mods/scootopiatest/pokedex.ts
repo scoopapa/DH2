@@ -429,10 +429,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cyrome",
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 180, atk: 110, def: 55, spa: 105, spd: 55, spe: 95},
-		abilities: {0: "Sturdy"},
+		abilities: {0: "Magician"},
 		otherFormes: ["Cyrome-Book","Cyrome-Author","Cyrome-Page"],
 		formeOrder:  ["Cyrome-Book","Cyrome","Cyrome-Author"],
-		weightkg: 15,
+		weightkg: 168,
 	},
 	cyromepage: {
 		num: 2053,
@@ -443,7 +443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 25, def: 45, spa: 90, spd: 45, spe: 35},
 		abilities: {0: "Scrappy"},
 		otherFormes: ["Cyrome","Cyrome-Book","Cyrome-Author"],
-		weightkg: 168,
+		weightkg: 1,
 	},
 	cyromebook: {
 		num: 2053,
@@ -452,9 +452,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Book",
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 80, atk: 110, def: 55, spa: 105, spd: 55, spe: 25},
-		abilities: {0: "Magician"},
+		abilities: {0: "Sturdy"},
 		otherFormes: ["Cyrome","Cyrome-Author","Cyrome-Page"],
-		weightkg: 168,
+		weightkg: 15,
 	},
 	cyromeauthor: {
 		num: 2053,
