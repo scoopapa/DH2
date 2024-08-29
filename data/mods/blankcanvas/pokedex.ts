@@ -3,7 +3,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9001,
 		name: "Piss",
 		types: ["Normal"],
-		baseStats: {hp: 70, atk: 110, def: 50, spa: 50, spd: 50, spe: 120},
+		baseStats: {hp: 70, atk: 100, def: 50, spa: 50, spd: 50, spe: 120},
 		abilities: {0: "Magic Guard"},
 		weightkg: 382,
 	},
