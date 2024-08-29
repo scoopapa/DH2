@@ -2899,7 +2899,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE'];
+			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -2932,7 +2932,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE'];
+			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {

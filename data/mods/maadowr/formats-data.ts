@@ -1619,4 +1619,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MD",
 		doublesTier: "MD",
 	},
+	rodwell: {
+		tier: "EXP",
+		doublesTier: "EXP",
+	},
 };
