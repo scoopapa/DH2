@@ -2958,7 +2958,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	tangling: {
 		onHit(target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
+			if (this.checkMoveMakesContact(move, source, target)) 
+				this.add('-activate', target, 'ability: Tangling');{
 				source.addVolatile('singletrap', target, Dex.abilities.get('tangling'), 'trapper');
 			}
 		},

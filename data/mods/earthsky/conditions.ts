@@ -183,6 +183,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return 4;
 		},
 		onStart(target, source, move) {
+			this.add('-start', target, 'Block', '[silent]');
 			this.add('-activate', target, 'trapped');
 		},
 		onTrapPokemon(pokemon) {
@@ -212,6 +213,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return false;
 			}
 		},
+		onEnd(target) {
+			this.add('-end', target, 'trapped');
+			this.add('-end', target, 'Block', '[silent]');
+		},
 	},
 	meanlooked: {
 		name: 'meanlooked',
@@ -222,11 +227,16 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return 4;
 		},
 		onStart(target, source, move) {
+			this.add('-start', target, 'Mean Look', '[silent]');
 			this.add('-activate', target, 'trapped');
 		},
 		onTrapPokemonPriority: 100,
 		onTrapPokemon(pokemon) {
 			pokemon.trapped = true;
+		},
+		onEnd(target) {
+			this.add('-end', target, 'trapped');
+			this.add('-end', target, 'Mean Look', '[silent]');
 		},
 	},
 	arenatrapped: {
@@ -248,12 +258,13 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			pokemon.tryTrap();
 		},
 		onStart(target) {
+			this.add('-start', target, 'singletrap', '[silent]');
 			this.add('-activate', target, 'trapped');
 		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, 'singletrap');
+		onEnd(target) {
+			this.add('-end', target, 'trapped');
+			this.add('-end', target, 'singletrap', '[silent]');
 		},
-		end: "  [POKEMON] was freed from trapping.",
 	},
 	strongpartialtrap: {
 		name: 'strongpartialtrap',

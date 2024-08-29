@@ -6854,6 +6854,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.runEvent('AfterSubDamage', target, source, move, damage);
 				return this.HIT_SUBSTITUTE;
 			},
+			onTrapPokemonPriority: -10,
+			onTrapPokemon(pokemon) {
+				if(!pokemon.volatiles['meanlooked']){
+					pokemon.trapped = false;
+				}
+			},
 			onEnd(target) {
 				this.add('-end', target, 'Substitute');
 			},
