@@ -2751,6 +2751,12 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+    {
+		name: "[Gen 3] Gen 3 Plus",
+		mod: 'gen3plus',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+	},
 	{
 		name: "[Gen 1] Glitch OU",
 		mod: 'gen1glitch',
@@ -2767,6 +2773,12 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber'],
+	},
+    {
+		name: "[Gen 3] Hoennification",
+        mod: 'gen3hoennification',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
 	},
 	{
 		name: "[Gen 9] i forgor OU",
@@ -2887,7 +2899,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE'];
+			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -2920,7 +2932,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE'];
+			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
