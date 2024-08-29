@@ -260,7 +260,6 @@ export const Learnsets = {
 			outrage: ["9L1"],
 			breakingswipe: ["9L1"],
 			dragonbreath: ["9L1"],
-			honeclaws: ["9L1"],
 			playrough: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			drainingkiss: ["9L1"],
