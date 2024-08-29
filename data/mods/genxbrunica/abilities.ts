@@ -461,6 +461,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Contagious",
 	},
+	dozer: {
+		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when asleep.",
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 12);
+			}
+		},
+		flags: {},
+		name: "Dozer",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
@@ -787,9 +797,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
-			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
-				|| pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.baseSpecies.baseSpecies === 'Slushisloshi' && pokemon.hasItem('slushisloshiscale')) return;
+			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies) || 
+				pokemon.level < 20 || pokemon.transformed || pokemon.hasItem('slushisloshiscale')) return;
 			//Effects of Slushisloshi Scale are coded in that item
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {

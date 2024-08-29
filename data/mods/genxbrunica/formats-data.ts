@@ -775,6 +775,50 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	aleviar: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	cuttrout: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	salmini: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	salmomega: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	feebas: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	milotic: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	wailmer: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	wailord: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	fletchling: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	fletchinder: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	talonflame: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 	akulut: {
 		tier: "Brunica Uber",
