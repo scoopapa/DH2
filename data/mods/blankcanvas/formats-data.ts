@@ -14,4 +14,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	badjur: {
 		tier: "BC",
 	},
+	vipult: {
+		tier: "BC",
+	},
+	fettogre: {
+		tier: "BC",
+	},
+	crystuit: {
+		tier: "BC",
+	},
+	monmothra: {
+		tier: "BC",
+	},
+	wizhazard: {
+		tier: "BC",
+	},
+	the729frontfacingpumpkins: {
+		tier: "BC",
+	},
 };
