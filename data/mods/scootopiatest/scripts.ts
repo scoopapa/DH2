@@ -4,7 +4,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init(){
 		const scoot = this.dataCache
 		scoot.scootopia = {};
-		scoot.scootopia.shatteredOrbUsed = [false, false];
 		scoot.scootopia.worldEffects = ["chaoticweather", "chaoticterrain", "cursedfield", "blessedfield", 
 										"rainofmeteors", "rainofdew", "silentdomain", "stellaralignment"];
 		scoot.scootopia.getWorldEffect = function(pokemon) {

@@ -1429,4 +1429,77 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	
+	crystalcutter: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalbash: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystaltail: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalcage: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalbeam: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalburst: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalhealing: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalfortification: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalshard: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralshred: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralbite: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralrush: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralbreath: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralshriek: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralpower: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralspray: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralresilience: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralhealing: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 };
