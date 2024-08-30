@@ -53,4 +53,25 @@ fishhook: {
 		gen: 4,
 		rating: 3,
 	},
+	kunai: { // Hope this works
+		name: "Kunai",
+		spritenum: 581,
+		fling: {
+			basePower: 90,
+		},
+		onAfterMove(pokemon, move) {
+			let kunai = 0;
+			if (move.type === 'Physical') {
+				kunai++;
+			}
+			if (kunai >= 3) {
+				this.boost({def: 1, spd: 1});
+				kunai = 0;
+			}
+		},
+		num: 640,
+		gen: 6,
+		shortDesc: "If the holder uses 3 consecutive attacking moves, it gains +1 Defense and Special Defense.",
+		rating: 3,
+	},
 }
