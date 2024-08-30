@@ -863,6 +863,59 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 
+	// start: Escavalier + Grapplin Combo
+	skyriderally: {
+		name: "Sky Rider Ally",
+		noCopy: true,
+		onStart(pokemon) {
+			if (!pokemon.types.includes('Steel')) {
+				pokemon.types = [...pokemon.types, 'Steel']; // Spread operator to create a new array
+				this.add('-message', `${pokemon.name} received armor from Escavalier! ${pokemon.name} let out a cry.`);
+				// here, I would have added a sound for the battle cry. Perhaps, one day, I'll know how to add it
+				// this.add('-cries', pokemon, 'Eternatus');
+				this.add('-anim', pokemon, 'Roar');
+				this.add('-message', `The battle intensifies as ${pokemon.name} gains extra reinforcement!`);
+			}
+		},
+		onEnd(pokemon) {
+		if (pokemon.types.includes('Steel')) {
+			pokemon.types = pokemon.types.filter(type => type !== 'Steel'); // Remove Steel type
+			this.add('-message', `${pokemon.name}'s armor was taken down. ${pokemon.name} is upset, feeling the loss of its protection!`);
+			}
+		},
+	},
+
+	skyriding: {
+		name: "Sky Riding",
+		noCopy: true,
+		onPrepareHit(pokemon, target, move) {
+			const escavalier = pokemon.side.active.find(ally => ally.species.name === 'Escavalier' && (ally.hasAbility('skyrider')));
+   			if (!escavalier) return; // Ensure Escavalier is present
+
+			// Check if the move is not a status move
+			if (move.category !== 'Status') {
+				// Loop through the action queue
+				for (const action of this.queue.list as MoveAction[]) {
+					// Check if the action is valid
+					if (
+						!action.move || !action.pokemon?.isActive ||
+						action.pokemon.fainted || action.maxMove || action.zmove
+					) {
+						continue; // Skip invalid actions
+					}
+		
+					// Check if the action belongs specifically to the ally; indirectly, that's Escavalier
+					if (action.pokemon.isAlly(pokemon)) {
+						this.queue.prioritizeAction(action, move); // Prioritize the action
+						this.add('-waiting', pokemon, action.pokemon); // Notify that Escavalier is waiting
+						break; // Exit the loop but not the function, meaning user's move should be able to do damage now
+					}
+				}
+			}
+		},	
+	},
+	// end
+
 	// Arceus and Silvally's actual typing is implemented here.
 	// Their true typing for all their formes is Normal, and it's only
 	// Multitype and RKS System, respectively, that changes their type,
