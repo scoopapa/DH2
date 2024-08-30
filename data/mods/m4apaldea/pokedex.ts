@@ -367,7 +367,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaName: "Ogerpon-Mega",
 		megaType: ["Grass", "Fairy"],
 		megaAbility: {0: "Masquerade"},
-		megaStats: {hp: 80, atk: 135, def: 134, spa: 70, spd: 106, spe: 115},
+		megaStats: {hp: 80, atk: 135, def: 134, spa: 70, spd: 116, spe: 115},
 		megaStone: "Ogerponite",
 		megaCreator: "jazzmat",
 	},

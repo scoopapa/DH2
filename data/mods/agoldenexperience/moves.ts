@@ -2555,10 +2555,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
-	bitterblade: {
-		inherit: true,
-		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1 },
-	},
 	tidyup: {
 		inherit: true,
 		shortDesc: "User +1 Atk, Spe, Acc. Clears all substitutes/hazards on user's side.",
