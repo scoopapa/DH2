@@ -1793,6 +1793,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.1,
 		weightkg: 2.28,
 		evos: ["Salmomega"],
+		eggGroups: ["Water 2"],
 	},
 	salmomega: {
 		num: 1420,
@@ -1805,6 +1806,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Salmini",
 		evoType: "levelExtra",
 		evoCondition: "with a Special Attack stat of at least 35",
+		eggGroups: ["Water 2"],
 	},
 	wailord: {
 		inherit: true,
