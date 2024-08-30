@@ -709,6 +709,15 @@ export const Formats: FormatList = [
 		unbanlist: ['Sand Veil'],
 	},
 	{
+		name: "[Gen 9] Iron Fist",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
+		],
+		mod: 'ironfist',
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+	},
+	{
 		name: "[Gen 9] Ironmons",
 		desc: ["<b>Ironmons</b>: A OU based Pet Mod that aims to create new Paradox forms for existing Pokemon, both past and future.",
 		      ],
