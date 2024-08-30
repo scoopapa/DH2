@@ -1,15 +1,14 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
   	
   ironfist: {
-    name: "Adamant Orb",
 		spritenum: 4,
 		fling: {
 			basePower: 60,
       multihit: 2,
-      secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
-		},
+      	secondary: {
+				chance: 30,
+				volatileStatus: 'flinch',
+			},
 		},
 		onPrepareHit(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
@@ -72,6 +71,27 @@ fishhook: {
 		num: 640,
 		gen: 6,
 		shortDesc: "If the holder uses 3 consecutive attacking moves, it gains +1 Defense and Special Defense.",
+		rating: 3,
+	},
+	baseball: { // Hope this works CHECK THIS
+		name: "Baseball",
+		spritenum: 581,
+		fling: {
+			basePower: 10,
+			status: 'baseball',
+		},
+	onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+			this.add('Baseball this guy');
+			return null;
+		},
+		onStart(pokemon) { // To do: Implement Baseball in coniditions.ts
+			pokemon.trySetStatus('baseball', pokemon);
+		},
+		num: 640,
+		gen: 6,
+		shortDesc: 'When switching in and is hit by a move, the move fails.',
 		rating: 3,
 	},
 }
