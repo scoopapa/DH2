@@ -496,6 +496,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets","numel").learnset.terracharge = ["9L1"];
 		this.modData("Learnsets","camerupt").learnset.terracharge = ["9L1"];
 		
+		//wailmer line
+		this.modData("Learnsets","wailmer").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.iciclecrash = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.iciclecrash = ["9L1"];
+		
+		//fletchling line
+		this.modData("Learnsets","fletchling").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchling").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.solarblade = ["9L1"];
+		
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
@@ -831,12 +845,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (maxMove) {
 				move = this.getActiveMaxMove(baseMove, pokemon);
 			} else if (pokemon.volatiles['typebalm']?.balmMove) {
-				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
+				const balmEffectData = pokemon.volatiles['typebalm'];
+				const isBalmStatus = balmEffectData.isBalmStatus;
 				if (
-					balmMoveData.type === pokemon.volatiles['typebalm'].balmType //Check if used the right balm
-					&& balmMoveData.type === move.type //Check if type matches
-					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
+					move.type === pokemon.volatiles['typebalm'].balmType //Check if balm type matches move type
+					&& ((move.category === 'Status') ? isBalmStatus : !isBalmStatus) //If the balm or base move is status but not both it won't overwrite
 				) {
+					const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
 					move = this.getActiveBalmMove(move, balmMoveData);
 					balmMove = pokemon.volatiles['typebalm'].balmMove;
 				}
