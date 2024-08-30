@@ -1,7 +1,12 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen5',
 	gen: 4,
-
+	teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['Yaya'],
+	},
 	actions: {
 		inherit: true,
 		modifyDamage(baseDamage, pokemon, target, move, suppressMessages = false) {
