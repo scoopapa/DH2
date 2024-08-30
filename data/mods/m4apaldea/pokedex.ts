@@ -336,4 +336,39 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Fezandipitite",
 		megaCreator: "okispokis",
 	},
+
+	// slate 7
+
+	milotic: {
+		inherit: true,
+		mega: "miloticmega",
+		megaName: "Milotic-Mega",
+		megaType: ["Water", "Dragon"],
+		megaAbility: {0: "Multiscale"},
+		megaStats: {hp: 95, atk: 70, def: 109, spa: 130, spd: 155, spe: 81},
+		megaStone: "Milotinite",
+		megaCreator: "lydian",
+	},
+
+	probopass: {
+		inherit: true,
+		mega: "probopassmega",
+		megaName: "Probopass-Mega",
+		megaAbility: {0: "Congestion"},
+		megaStats: {hp: 60, atk: 145, def: 180, spa: 55, spd: 165, spe: 20},
+		megaStone: "Probopassite",
+		movepoolAdditions: ["trickroom"],
+		megaCreator: "Paulluxx",
+	},
+
+	ogerpon: {
+		inherit: true,
+		mega: "ogerponmega",
+		megaName: "Ogerpon-Mega",
+		megaType: ["Grass", "Fairy"],
+		megaAbility: {0: "Masquerade"},
+		megaStats: {hp: 80, atk: 135, def: 134, spa: 70, spd: 106, spe: 115},
+		megaStone: "Ogerponite",
+		megaCreator: "jazzmat",
+	},
 };

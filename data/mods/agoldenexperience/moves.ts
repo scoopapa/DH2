@@ -2931,6 +2931,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		shortDesc: "Sets Electric Terrain upon use.",
 		desc: "Sets Electric Terrain upon use.",
 	},
+	revivalblessing: {
+		inherit: true,
+		flags: {heal: 1, noassist: 1},
+	},
 
 	// Karma field
 	wish: {

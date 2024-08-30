@@ -230,4 +230,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: { boost: { accuracy: 1 } },
 		contestType: "Clever",
 	},
+	ivycudgel: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera':
+				move.type = 'Water';
+				break;
+			case 'Ogerpon-Hearthflame': case 'Ogerpon-Hearthflame-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Ogerpon-Cornerstone': case 'Ogerpon-Cornerstone-Tera':
+				move.type = 'Rock';
+				break;
+			case 'Ogerpon-Mega':
+				move.type = 'Fairy';
+				break;
+			}
+		},
+	},
 };
