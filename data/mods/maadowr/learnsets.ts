@@ -4725,6 +4725,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			scorchingsands: ["9M"],
 			skydrop: ["9M"],
 			sleeptalk: ["9M"],
+			smackdown: ["9M"],
 			snore: ["9M"],
 			stealthrock: ["9M"],
 			stoneedge: ["9M"],
