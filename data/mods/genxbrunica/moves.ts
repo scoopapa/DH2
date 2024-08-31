@@ -1,4 +1,4 @@
-export const Moves: {[moveid: string]: MoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	//New Brunician moves
 	cruelstrike: {
 		accuracy: 100,
@@ -413,7 +413,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Dark Pulse", target);
+			this.add('-anim', source, "Dragon Pulse", target);
 		},
 		secondary: {
 			chance: 10,
@@ -461,6 +461,68 @@ export const Moves: {[moveid: string]: MoveData} = {
 			spa: 3,
 			spe: 3,
 		},
+	},
+	refracture: {
+		accuracy: 95,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.volatiles['rockpolish']) {
+				this.debug('Rock Polish into Refracture damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		desc: "Has a 40% chance to lower the target's accuracy by 1 stage. If the user had used Rock Polish since Transforming or its most recent switch-in, then this move doubles in power",
+		shortDesc: "40% to lower target's accuracy by 1. x2 power if Rock Polish used earlier.",
+		category: "Special",
+		name: "Refracture",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Gem", target);
+		},
+		secondary: {
+			chance: 40,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	reefraze: {
+		accuracy: 90,
+		basePower: 65,
+		category: "Special",
+		name: "Reef Raze",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		desc: "If this move is successful, it sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate or Keen Eye Abilities. A maximum of three layers may be set, and opponents lose 1/8 of their maximum HP with one layer, 1/6 of their maximum HP with two layers, and 1/4 of their maximum HP with three layers, all rounded down. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, Defog, or Tectonic Shift successfully, is hit by Defog, or has the ability Traveler and switches in.",
+		shortDesc: "Sets a layer of Spikes on the opposing side.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aqua Cutter", target);
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Water",
 	},
 	
 	//Balm Moves
@@ -1224,6 +1286,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
+	sunblast: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Sunblast",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, failcopycat: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, the effect of Sunny Day begins.",
+		shortDesc: "x1.5 power of base move. Starts Sunny Day.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Solar Beam", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				onHit() {
+					this.field.setWeather('sunnyday');
+				},
+			},
+		},
+		target: "normal",
+		type: "Fire",
+	},
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
@@ -1278,6 +1365,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return accuracy;
 			},
 		},
+	},
+	rockpolish: {
+		inherit: true,
+		volatileStatus: 'rockpolish',
 	},
 	//Returning moves from Desvega
 	mindmelt: {

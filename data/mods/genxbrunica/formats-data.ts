@@ -819,6 +819,67 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	relicanth: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	antiqualik: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerin: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerinmermaid: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerinfish: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerinningyo: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	kelpony: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	kelpurion: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	oculeye: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	telebyss: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	shellosbrunica: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	gastrodonbrunica: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	prawdet: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	lobswab: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	capstacian: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+
 
 	akulut: {
 		tier: "Brunica Uber",

@@ -8,7 +8,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	init() {
 		//Free dexited movesets
-		
 		const undexitedMons = [];
 		for (const pokemon in this.data.FormatsData) {
 			//We will skip mons absent from Brunica and custom formes that lack tiers
@@ -83,6 +82,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset[move].push("9L1");
 			}
 		}
+		//Relicanth
+		this.modData("Learnsets", "relicanth").learnset.terracharge = ["9L35"];
+		
 		//Shuppet line
 		this.modData("Learnsets", "shuppet").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "banette").learnset.drainfang = ["9L1","8L1"];
@@ -498,8 +500,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		//wailmer line
 		this.modData("Learnsets","wailmer").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.frostfeint = ["9L1"];
 		this.modData("Learnsets","wailmer").learnset.iciclecrash = ["9L1"];
 		this.modData("Learnsets","wailord").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.frostfeint = ["9L1"];
 		this.modData("Learnsets","wailord").learnset.iciclecrash = ["9L1"];
 		
 		//fletchling line
@@ -1251,6 +1255,35 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
+		
+		hitStepBreakProtect(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+			//Adding custom protective moves
+			if (move.breaksProtect) {
+				for (const target of targets) {
+					let broke = false;
+					for (const effectid of [
+						'banefulbunker', 'burningbulwark', 'kingsshield', 'obstruct', 'protect', 'silktrap', 'spikyshield',
+						'fieldofvision', 'toxicsnowball', 'firewall'
+					]) {
+						if (target.removeVolatile(effectid)) broke = true;
+					}
+					//if (this.battle.gen >= 6 || !target.isAlly(pokemon)) {
+						for (const effectid of ['craftyshield', 'matblock', 'quickguard', 'wideguard']) {
+							if (target.side.removeSideCondition(effectid)) broke = true;
+						}
+					//}
+					if (broke) {
+						if (move.id === 'feint') {
+							this.battle.add('-activate', target, 'move: Feint');
+						} else {
+							this.battle.add('-activate', target, 'move: ' + move.name, '[broken]');
+						}
+						/*if (this.battle.gen >= 6)*/ delete target.volatiles['stall'];
+					}
+				}
+			}
+			return undefined;
+		}
 		/*canMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return null;
 
