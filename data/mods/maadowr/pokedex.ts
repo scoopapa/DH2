@@ -1039,7 +1039,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Water", "Grass"],
 		gender: "N",
 		baseStats: {hp: 132, atk: 92, def: 104, spa: 156, spd: 88, spe: 108},
-		abilities: {0: "Cultivation"},
+		abilities: {0: "Absorption"},
 	//	category: "Life Bringer",
 		heightm: 4.0,
 		weightkg: 800.0,
