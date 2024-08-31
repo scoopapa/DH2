@@ -174,6 +174,7 @@ silcoonsexactmovepool: {
 		onModifyMove(move, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				move.status = 'par';
+			}
 		},
 		secondary: null,
 		target: "normal",
