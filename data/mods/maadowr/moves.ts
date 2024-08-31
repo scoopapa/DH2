@@ -1100,12 +1100,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
-		onBasePower(basePower, source) {
+		/*onBasePower(basePower, source) {
 			if (['raindance', 'primordialsea'].includes(source.effectiveWeather()) && !source.hasItem('utilityumbrella')) {
 				this.debug('rain Incandescent Flame boost');
 				return this.chainModify(2);
 			}
-		},
+		},*/
 		secondary: {chance: 100,
 			onHit(target, source, move) {
 				if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -1460,14 +1460,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 		onBasePower(basePower, pokemon) {
-			// Check if Grapplin used this move first this turn
-			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Escavalier') {
-				this.debug('double power');
-				return this.chainModify(2);
+			// Check whoever used this move first this turn
+			if (pokemon.species.name === 'Escavalier') {
+				move.type = 'Bug'; // Change to Bug type if Escavalier is the user
+			} else if (pokemon.species.name === 'Grapplin') {
+				move.type = 'Fighting'; // Change to Fighting type if Grapplin is the user
 			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') move.drain = [1, 2];
 		},
 		secondary: null,
 		target: "normal",
