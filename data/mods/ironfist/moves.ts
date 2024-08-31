@@ -226,4 +226,26 @@ silcoonsexactmovepool: {
 		type: "Bug",
 		contestType: "Beautiful",
 	},
+	gofish: {
+		num: 389,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Go Fish",
+		shortDesc: "Switches out target Pokemon. Has Sucker Punch conditions. +1 priority.",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? source.switchFlag = true : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
 }
