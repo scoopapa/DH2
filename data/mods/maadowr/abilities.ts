@@ -247,8 +247,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: revisit later to check if ally also gets healed
 	cultivation: {
-		shortDesc: "User recovers 1/16 of its HP, 1/8 in terrain.",
-		onTerrainChange(target, source) {
+		shortDesc: "User and ally recover 1/16 of their HP in terrain.",
+		onResidualOrder: 26,
+    	onResidual(pokemon) {
+		//onTerrainChange(target, source) {
 			// Check if any relevant terrain is active
 			if (this.field.isTerrain('electricterrain') || 
 				this.field.isTerrain('grassyterrain') || 
@@ -257,13 +259,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.field.isTerrain('acidicterrain')) {
 				
 				// Heal the user by 1/16 of its max HP
-				this.heal(target.baseMaxhp / 16);
+				this.heal(pokemon.baseMaxhp / 16);
 				
 				// Heal the ally by 1/16 of their max HP
-				for (const ally of target.side.pokemon) {
-					if (ally && ally.hp > 0) { // Check if the ally is alive
-						this.heal(ally.baseMaxhp / 16);
-					}
+				const ally = pokemon.side.active.find(ally => ally && ally !== pokemon && !ally.fainted);
+					if (ally) {
+						this.heal(ally.baseMaxhp / 16, ally);
 				}
 			}
 		},
@@ -337,11 +338,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	interference: {
-		shortDesc: "If user gets hurt by a contact move, inflicts Torment on the attacker.",
+		shortDesc: "When attacked, inflicts Torment on the attacker.",
    		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
+			//if (this.checkMoveMakesContact(move, source, target)) {
 				source.addVolatile('torment', this.effectState.target);
-			}
+			//}
 		},
 		flags: {},
 		name: "Interference",
