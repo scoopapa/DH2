@@ -502,6 +502,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
+			// start: Incandescent Flame, making sure it is unaffected by Rain
+			if (move.id === 'incandescentflame' && !attacker.hasItem('utilityumbrella')) {
+				this.debug('rain Incandescent Flame boost');
+				return this.chainModify(1);
+			} // end
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
@@ -535,7 +540,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
-			if (move.type === 'Fire' && move.category !== 'Status') {
+			if (move.type === 'Fire' && move.id !== 'incandescentflame' && move.category !== 'Status') { // ensures Incandescent Flame does damage in Primordial Sea
 				this.debug('Primordial Sea fire suppress');
 				this.add('-fail', attacker, move, '[from] Primordial Sea');
 				this.attrLastMove('[still]');
