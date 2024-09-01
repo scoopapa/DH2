@@ -13,7 +13,7 @@ baseball: {
     onTry(source, move) {
 			if (move.flags['sound']) {
 				this.add('-fail', source);
-        		this.add(`Shut up!`);
+        		this.add('-message', `Shut up!`);
 				return null;
 			}
 		},
