@@ -16,9 +16,9 @@ silcoonsexactmovepool: {
 	      this.actions.useMove("Iron Defense", source);
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 		type: "Bug",
-    shortDesc: "This pokemon uses Tackle, String Shot, Poison Sting, Bug Bite, and Iron Defense, in that order.",
+      shortDesc: "This pokemon uses Tackle, String Shot, Poison Sting, Bug Bite, and Iron Defense, in that order.",
 	},
   	pog: {
 		num: 573,
