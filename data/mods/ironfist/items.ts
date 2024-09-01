@@ -58,7 +58,7 @@ fishhook: {
 		fling: {
 			basePower: 90,
 		},
-		onAfterMove(pokemon, move) {
+		onHit(pokemon, move) {
 			let kunai = 0;
 			if (move.type === 'Physical') {
 				kunai++;
