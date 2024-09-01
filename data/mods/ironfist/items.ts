@@ -83,7 +83,7 @@ fishhook: {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
-			this.add(`baseball this guy`);
+			this.add('-message', `baseball this guy`);
 			return null;
 		},
 		onStart(pokemon) { // To do: Implement Baseball in coniditions.ts
