@@ -35,10 +35,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
 			if (move && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;
+			}
 		},
 		flags: {},
 		name: "Perfectionist",
@@ -107,7 +111,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				foespe += target.getStat('spe', false, true);
 			}
 			if (foespe >= ownspe) {
-				this.boost({spe: 1});
+				this.boost({atk: 1});
 			} 
 		},
 		flags: {},
