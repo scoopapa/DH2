@@ -72,7 +72,48 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Degenerator",
+		shortDesc: "When the user switches out, damage active opponents by 31% of their max HP.",
 		rating: 1.5,
 		num: 119,
+	},
+	alphasigmarizz: {
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+				if (effect.effectType === 'Move') {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Alpha Sigma Rizz');
+			}
+			return false;
+		},
+		flags: {breakable: 1},
+		name: "Alpha Sigma Rizz",
+		rating: 2,
+		num: 165,
+		shortDesc: "This pokemon can't get infatuated, taunted, heal blocked, or statused.",
+	},
+	chainedwrath: {
+		onStart(pokemon) {
+			let ownspe = 0;
+			let foespe = 0;
+			for (const target of pokemon.foes()) {
+				ownspe += pokemon.getStat('spe', false, true);
+				foespe += target.getStat('spe', false, true);
+			}
+			if (foespe >= ownspe) {
+				this.boost({spe: 1});
+			} 
+		},
+		flags: {},
+		name: "Chained Wrath",
+		shortDesc: "When the opponent's speed is higher than this pokemon's, this pokemon's attack is raised by 1 stage.",
+		rating: 3.5,
+		num: 88,
 	},
 }

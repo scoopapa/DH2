@@ -149,6 +149,7 @@ silcoonsexactmovepool: {
 		},
 		category: "Physical",
 		name: "Tripler Kick",
+		shortDesc: "Power rises on each attack. (Triple Axel clone).",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -159,5 +160,93 @@ silcoonsexactmovepool: {
 		type: "Fighting",
 		zMove: {basePower: 120},
 		maxMove: {basePower: 140},
+	},
+	gorgingmissile: {
+		num: 514,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Gorging Missile",
+		shortDesc: "If user is under 50% max HP, paralyzes the opponent.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				move.status = 'par';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	goombastomp: {
+		num: 247,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Goomba Stomp",
+		shotDesc: "100% chance to lower the target's Defense by 1. OHKOs Goomba.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		onModifyMove(pokemon, move) {
+			for (const target of pokemon.foes()) {
+				if (target.name === 'Goomba') {
+					move.ohko = true;
+				}
+			}
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	silcoonblast: {
+		num: 547,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Silcoon Blast",
+		pp: 166,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		onHit(target, pokemon, move) {
+			for (const target of pokemon.foes()) {
+				target.formeChange('Silcoon');
+			}
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Beautiful",
+	},
+	gofish: {
+		num: 389,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Go Fish",
+		shortDesc: "Switches out target Pokemon. Has Sucker Punch conditions. +1 priority.",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? source.switchFlag = true : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
 	},
 }
