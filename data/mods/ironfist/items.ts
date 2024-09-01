@@ -80,10 +80,10 @@ fishhook: {
 			basePower: 10,
 			status: 'baseball',
 		},
-	onTryHitPriority: 1,
+		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
-			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Ema Skye')}|baseball this guy`);
+			this.add(`baseball this guy`);
 			return null;
 		},
 		onStart(pokemon) { // To do: Implement Baseball in coniditions.ts
