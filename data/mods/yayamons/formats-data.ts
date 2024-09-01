@@ -760,7 +760,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gligar: {
 		tier: "NU",
-		doublesTier: "LC",
 		doublesTier: "Yaya",
 	},
 	gliscor: {
