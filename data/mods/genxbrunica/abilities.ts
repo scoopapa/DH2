@@ -471,6 +471,31 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Dozer",
 	},
+	hydrosynthesis: {
+		shortDesc: "Water power is x1.2 instead of halved in sun.",
+		//Sun negation in conditions.ts
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) && move.type === 'Water') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Hydrosynthesis",
+	},
+	ripcurrent: {
+		shortDesc: "25% chance for non-contact attack to force target into random ally.",
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Rip Current's effect
+			if (source.hp && target.hp && !this.checkMoveMakesContact(move, source, target) && !target.forceSwitchFlag
+				&& !target.hasAbility('shielddust') && !target.hasItem('covertcloak') && this.randomChance(1, 4)) {
+				this.add('-activate', source, 'ability: Rip Current');
+				this.actions.dragIn(target.side, target.position)
+			}
+		},
+		flags: {},
+		name: "Rip Current",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
@@ -527,7 +552,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			const moveid = move.id;
 			if (moveid.endsWith('beam') || [
-				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon', 'doomdesire', 'psybolt'
+				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon',
+				'doomdesire', 'psybolt', 'refracture'
 				].includes(moveid)) {
 				return this.chainModify([5325, 4096]);
 			}

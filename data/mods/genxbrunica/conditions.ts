@@ -99,6 +99,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				wailord: 'Northern Collapse',
 				talonflame: 'Bright Wing',
 				milotic: 'Sea Monster',
+				kelpurion: 'Sunblast',
 			};
 			const species = target.species.id;
 			//...All this to adjust the PP. 
@@ -165,6 +166,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (move.type === 'Electric' && move.category === 'Status') {
 					pokemon.disableMove(moveSlot.id);
 				}
+			}
+		},
+	},
+	sunnyday: {
+		inherit: true,
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (move.id === 'hydrosteam' && !attacker.hasItem('utilityumbrella')) {
+				this.debug('Sunny Day Hydro Steam boost');
+				return this.chainModify(1.5);
+			}
+			if (defender.hasItem('utilityumbrella')) return;
+			if (move.type === 'Fire') {
+				this.debug('Sunny Day fire boost');
+				return this.chainModify(1.5);
+			}
+			if (move.type === 'Water' && (!attacker.hasAbility('hydrosynthesis') || attacker.hasItem('utilityumbrella'))) {
+				this.debug('Sunny Day water suppress');
+				return this.chainModify(0.5);
 			}
 		},
 	},
