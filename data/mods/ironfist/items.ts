@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				volatileStatus: 'flinch',
 			},
 		},
-		onPrepareHit(basePower, attacker, defender, move) {
+		onPrepareHit(source, move) {
 			if (move.flags['punch']) {
 				this.actions.useMove("Double Iron Bash", source);
 			}
