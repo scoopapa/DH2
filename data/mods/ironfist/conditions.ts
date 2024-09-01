@@ -13,7 +13,7 @@ baseball: {
     onTry(source, move) {
 			if (move.flags['sound']) {
 				this.add('-fail', source);
-        this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Ema Skye')}|Baseball! Shut uP!!!`);
+        		this.add(`Shut up!`);
 				return null;
 			}
 		},
