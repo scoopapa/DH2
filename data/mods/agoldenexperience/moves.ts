@@ -2543,8 +2543,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	axekick: {
 		inherit: true,
 		type: "Dark",
-		shortDesc: "30% confusion. User loses 50% max HP if miss. Ignores the target's ability.",
-		ignoreAbility: true,
+		shortDesc: "30% confusion. User loses 50% max HP if miss.",
 	},
 	ragingbull: {
 		inherit: true,
@@ -2555,10 +2554,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -1,
 			},
 		},
-	},
-	bitterblade: {
-		inherit: true,
-		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1 },
 	},
 	tidyup: {
 		inherit: true,
@@ -2931,6 +2926,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		terrain: 'electricterrain',
 		shortDesc: "Sets Electric Terrain upon use.",
 		desc: "Sets Electric Terrain upon use.",
+	},
+	revivalblessing: {
+		inherit: true,
+		flags: {heal: 1, noassist: 1},
 	},
 
 	// Karma field

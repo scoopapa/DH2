@@ -104,7 +104,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						types = ['Psychic'];
 						break;
 					case 'acidicterrain':
-						newType = 'Poison';
+						types = ['Poison'];
 						break;
 					default:
 						types = pokemon.baseSpecies.types;
@@ -774,7 +774,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, source);
 			}
 		},
-		onSourceAfterSubDamage(target, source, move) { // should still activate when targeting a Substitute
+		onSourceAfterSubDamage(damage, target, source, move) { // should still activate when targeting a Substitute
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
 				this.boost({atk: 1}, source);
@@ -975,7 +975,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
 		shortDesc: "After stat reduction, contact moves burn attacker. Duration = amount of stat reduction.",
 		name: "Volcanic Singe",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -1375,7 +1375,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!action) return;
 			const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
 			if (!target) return;
-			if (!action.move.spreadHit && target.hp && target.hp <= target.maxhp / 2) {
+			if (action.move.target != 'allAdjacentFoes' && action.move.target != 'allAdjacent' && target.hp && target.hp <= target.maxhp / 2) {
 				pokemon.addVolatile('coupdegrass');
 			}
 		},
@@ -2608,7 +2608,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	badinfluence: {
 		shortDesc: "If this Pokémon has a stat stage lowered, all Pokémon on the field have the same stat stage lowered.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'badinfluence') return;
 			let b: BoostName;
 			const negativeBoost: SparseBoostsTable = {};

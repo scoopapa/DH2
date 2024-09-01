@@ -1954,6 +1954,7 @@ export const Learnsets = {
 	harzodia: {
 		learnset: {
 			allyswitch: ["9L1"],
+			solarbeam: ["9L1"],
 			helpinghand: ["9L1"],
 			psychic: ["9L1"],
 			psyshock: ["9L1"],
@@ -2756,6 +2757,8 @@ export const Learnsets = {
 		learnset: {
 			acrobatics: ["9L1"],
 			dracometeor: ["9L1"],
+			coreenforcer: ["9L1"],
+			dragontail: ["9L1"],
 			dragonpulse: ["9L1"],
 			airslash: ["9L1"],
 			meteorbeam: ["9L1"],
@@ -2765,7 +2768,7 @@ export const Learnsets = {
 			drainingkiss: ["9L1"],
 			energyball: ["9L1"],
 			weatherball: ["9L1"],
-			uturn: ["9L1"],
+			flipturn: ["9L1"],
 			shedtail: ["9L1"],
 			calmmind: ["9L1"],
 			morningsun: ["9L1"],
@@ -2806,7 +2809,6 @@ export const Learnsets = {
 			sleeptalk: ["9L1"],
 			endure: ["9L1"],
 			chillingwater: ["9L1"],
-			revivalblessing: ["9L1"],
 			stealthrock: ["9L1"],
 			helpinghand: ["9L1"],
 			crystaltail: ["9L1"],

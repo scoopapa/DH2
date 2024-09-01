@@ -461,6 +461,41 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Contagious",
 	},
+	dozer: {
+		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when asleep.",
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 12);
+			}
+		},
+		flags: {},
+		name: "Dozer",
+	},
+	hydrosynthesis: {
+		shortDesc: "Water power is x1.2 instead of halved in sun.",
+		//Sun negation in conditions.ts
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) && move.type === 'Water') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Hydrosynthesis",
+	},
+	ripcurrent: {
+		shortDesc: "25% chance for non-contact attack to force target into random ally.",
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Rip Current's effect
+			if (source.hp && target.hp && !this.checkMoveMakesContact(move, source, target) && !target.forceSwitchFlag
+				&& !target.hasAbility('shielddust') && !target.hasItem('covertcloak') && this.randomChance(1, 4)) {
+				this.add('-activate', source, 'ability: Rip Current');
+				this.actions.dragIn(target.side, target.position)
+			}
+		},
+		flags: {},
+		name: "Rip Current",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
@@ -517,7 +552,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			const moveid = move.id;
 			if (moveid.endsWith('beam') || [
-				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon', 'doomdesire', 'psybolt'
+				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon',
+				'doomdesire', 'psybolt', 'refracture'
 				].includes(moveid)) {
 				return this.chainModify([5325, 4096]);
 			}
@@ -787,9 +823,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
-			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
-				|| pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.baseSpecies.baseSpecies === 'Slushisloshi' && pokemon.hasItem('slushisloshiscale')) return;
+			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies) || 
+				pokemon.level < 20 || pokemon.transformed || pokemon.hasItem('slushisloshiscale')) return;
 			//Effects of Slushisloshi Scale are coded in that item
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {

@@ -1,26 +1,26 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	matchupmoth: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	wobbadubba: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	jumbojet: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	thetombguy: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	palafinbutnotreallybutmaybe: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	bulkybean: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	obstagooner: {
