@@ -5908,6 +5908,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	pyroak: {
 		inherit: true,
+		baseStats: {hp: 120, atk: 70, def: 105, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Rock Head", 1: "Battle Armor", H: "White Smoke"},
 	},
 	revenankh: {
@@ -5969,10 +5970,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Filter", 1: "Rough Skin", H: "Water Veil"},
 	},
-	chuggalong: {
+	/*chuggon: {
 		inherit: true,
 		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
 	},
+	draggalong: {
+		inherit: true,
+		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
+	},
+	chuggalong: {
+		inherit: true,
+		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
+	},*/
 	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
 		number: -14,

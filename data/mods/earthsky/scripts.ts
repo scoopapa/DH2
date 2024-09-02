@@ -5083,6 +5083,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','corsolagalar').learnset.toxic = ["9M"];
 		delete this.modData('Learnsets','corsolagalar').learnset.blizzard;
 		delete this.modData('Learnsets','corsolagalar').learnset.earthquake;
+		delete this.modData('Learnsets','corsolagalar').learnset.headsmash;
 		delete this.modData('Learnsets','corsolagalar').learnset.meteorbeam;
 		delete this.modData('Learnsets','corsolagalar').learnset.tantrum;
 		// Remoraid
@@ -13451,6 +13452,27 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','cresceidon').learnset.heavyslam = ["9E"];
 		delete this.modData('Learnsets','cresceidon').learnset.doubleedge;
 		delete this.modData('Learnsets','cresceidon').learnset.pound;
+		// Chuggon
+		/*this.modData('Learnsets','chuggon').learnset.lovelykiss = ["9D"];
+		this.modData('Learnsets','chuggon').learnset.block = ["9M"];
+		this.modData('Learnsets','chuggon').learnset.echoedvoice = ["9M"];
+		this.modData('Learnsets','chuggon').learnset.fullcollide = ["9M"];
+		this.modData('Learnsets','chuggon').learnset.incinerate = ["9M"];
+		this.modData('Learnsets','chuggon').learnset.laserfocus = ["9M"];
+		this.modData('Learnsets','chuggon').learnset.screech = ["9M"];
+		// Draggalong
+		this.modData('Learnsets','draggalong').learnset.lovelykiss = ["9D"];
+		this.modData('Learnsets','draggalong').learnset.bind = ["9L1"];
+		this.modData('Learnsets','draggalong').learnset.dragonhammer = ["9L1"];
+		this.modData('Learnsets','draggalong').learnset.block = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.breakingswipe = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.brutalswing = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.echoedvoice = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.fullcollide = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.incinerate = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.irontail = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.laserfocus = ["9M"];
+		this.modData('Learnsets','draggalong').learnset.screech = ["9M"];
 		// Chuggalong
 		this.modData('Learnsets','chuggalong').learnset.lovelykiss = ["9D"];
 		this.modData('Learnsets','chuggalong').learnset.bind = ["9L1"];
@@ -13463,6 +13485,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','chuggalong').learnset.incinerate = ["9M"];
 		this.modData('Learnsets','chuggalong').learnset.irontail = ["9M"];
 		this.modData('Learnsets','chuggalong').learnset.laserfocus = ["9M"];
-		this.modData('Learnsets','chuggalong').learnset.screech = ["9M"];
+		this.modData('Learnsets','chuggalong').learnset.screech = ["9M"];*/
 	},
 };
