@@ -35,86 +35,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	golisargil: {
 		tier: "RegEvo",
 	},
-	tarountula: {
-		tier: "ASODH NFE",
+	gossifleurorre: {
+		tier: "RegEvo NFE",
 	},
-	spidops: {
-		tier: "ASODH",
+	eldegossorre: {
+		tier: "RegEvo NFE",
 	},
-	wiglett: {
-		tier: "ASODH NFE",
+	eldegoth: {
+		tier: "RegEvo",
 	},
-	wugtrio: {
-		tier: "ASODH",
+	skarmoryorre: {
+		tier: "RegEvo NFE",
 	},
-	smoliv: {
-		tier: "ASODH NFE",
-	},
-	dolliv: {
-		tier: "ASODH NFE",
-	},
-	arboliva: {
-		tier: "ASODH",
-	},
-	capsakid: {
-		tier: "ASODH NFE",
-	},
-	scovillain: {
-		tier: "ASODH",
-	},
-	tadbulb: {
-		tier: "ASODH NFE",
-	},
-	bellibolt: {
-		tier: "ASODH",
-	},
-	squawkabilly: {
-		tier: "ASODH",
-	},
-	tandemaus: {
-		tier: "ASODH NFE",
-	},
-	maushold: {
-		tier: "ASODH",
-	},
-	bramblin: {
-		tier: "ASODH NFE",
-	},
-	brambleghast: {
-		tier: "ASODH",
-	},
-	gimmighoul: {
-		tier: "ASODH NFE",
-	},
-	gimmighoulroaming: {
-		tier: "ASODH NFE",
-	},
-	gholdengo: {
-		tier: "ASODH",
-	},
-	poltchageist: {
-		tier: "ASODH NFE",
-	},
-	sinistcha: {
-		tier: "ASODH",
-	},
-	okidogi: {
-		tier: "ASODH",
-	},
-	munkidori: {
-		tier: "ASODH",
-	},
-	fezandipiti: {
-		tier: "ASODH",
-	},
-	ogerpon: {
-		tier: "ASODH",
-	},
-	ogerponwellspring: {
-		tier: "ASODH",
-	},
-	ogerponhearthflame: {
-		tier: "ASODH",
+	skarocious: {
+		tier: "RegEvo",
 	},
 	ogerponcornerstone: {
 		tier: "ASODH",
