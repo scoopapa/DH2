@@ -65,7 +65,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: { breakable: 1 },
-		name: "Just A Little Guy",
+		name: "Just a Little Guy",
 		shortDesc: "Takes half damage if lighter than opponent.",
 	},
   	degenerator: {
@@ -139,7 +139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	auctorwile: {
 		onDamagingHit(damage, target, source, effect) {
-			this.boost({def: 1});
+			if(effect.effectType === 'Move' && effect.name === 'Double Iron Bash') this.damage(source.baseMaxhp / 4, source, target);
 		},
 		flags: {},
 		name: "Auctor Wile",

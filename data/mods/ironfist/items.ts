@@ -10,10 +10,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		onPrepareHit(source, target, move) {
-			if (move.flags['punch']) {
+			if (move.flags['punch'] && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
+				return null;
 			}
-			return null;
 		},
 		flags: {},
 		name: "Iron Fist",
@@ -52,20 +52,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		rating: 3,
 	},
-	kunai: { // Hope this works
+	kunai: {
 		name: "Kunai",
 		spritenum: 581,
 		fling: {
 			basePower: 90,
 		},
-		onHit(pokemon, move) {
-			let kunai = 0;
-			if (move.type === 'Physical') {
-				kunai++;
-			}
-			if (kunai >= 3) {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source.kunai === undefined) source.kunai = 0;
+			console.log(source.kunai);
+			if (move.category === 'Physical') source.kunai ++;
+			else source.kunai = 0;
+			if (source.kunai >= 3) {
 				this.boost({def: 1, spd: 1});
-				kunai = 0;
+				source.kunai = 0;
 			}
 		},
 		num: 640,
@@ -73,7 +73,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "If the holder uses 3 consecutive attacking moves, it gains +1 Defense and Special Defense.",
 		rating: 3,
 	},
-	baseball: { // Hope this works CHECK THIS
+	baseball: {
 		name: "Baseball",
 		spritenum: 581,
 		fling: {
@@ -86,12 +86,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.add('-message', `baseball this guy`);
 			return null;
 		},
-		onStart(pokemon) { // To do: Implement Baseball in coniditions.ts
+		onStart(pokemon) {
 			pokemon.trySetStatus('baseball', pokemon);
 		},
 		num: 640,
 		gen: 6,
-		shortDesc: 'When switching in and is hit by a move, the move fails.',
+		shortDesc: 'When switching in, any attacker gets Baseballed.',
 		rating: 3,
 	},
 }
