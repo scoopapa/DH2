@@ -1,4 +1,4 @@
-export const Abilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	//new
 	darkesthunger: {
 		shortDesc: "This Pokemon restores 12.5% of its Max HP if it attacks and KOes another Pokemon.",
