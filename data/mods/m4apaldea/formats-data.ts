@@ -669,4 +669,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ironcrown: {tier: "Paldea", doublesTier: "Paldea"},
 	ironboulder: {tier: "Paldea", doublesTier: "Paldea"},
 
+	walkingwake: {tier: "Paldea", doublesTier: "Paldea"},
+	ironleaves: {tier: "Paldea", doublesTier: "Paldea"},
+
+	pecharunt: {tier: "Paldea", doublesTier: "Paldea"},
+
+	terapagos: {tier: "Paldea", doublesTier: "Paldea"},
+
 };
