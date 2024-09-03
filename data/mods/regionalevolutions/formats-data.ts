@@ -50,10 +50,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skarocious: {
 		tier: "RegEvo",
 	},
-	ogerponcornerstone: {
-		tier: "ASODH",
+	feebasorre: {
+		tier: "RegEvo NFE",
 	},
-	archaludon: {
-		tier: "ASODH",
+	quetzalucid: {
+		tier: "RegEvo",
+	},
+	snubbullultra: {
+		tier: "RegEvo NFE",
+	},
+	granbullultra: {
+		tier: "RegEvo NFE",
+	},
+	blancbull: {
+		tier: "RegEvo",
+	},
+	stuffulancient: {
+		tier: "RegEvo NFE",
+	},
+	inciscyon: {
+		tier: "RegEvo",
 	},
 };
