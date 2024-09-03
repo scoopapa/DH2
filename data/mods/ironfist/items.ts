@@ -1,45 +1,45 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-  	
-  ironfist: {
+	ironfist: {
 		spritenum: 4,
 		fling: {
 			basePower: 60,
-      multihit: 2,
-      	secondary: {
+			multihit: 2,
+			secondary: {
 				chance: 30,
 				volatileStatus: 'flinch',
 			},
 		},
-		onPrepareHit(source, move) {
+		onPrepareHit(source, target, move) {
 			if (move.flags['punch']) {
-				this.actions.useMove("Double Iron Bash", source);
+				this.actions.useMove("Double Iron Bash", source, target);
 			}
+			return null;
 		},
 		flags: {},
 		name: "Iron Fist",
 		rating: 3,
-    shortDesc: "All punching moves turn into Double Iron Bash.",
+		shortDesc: "All punching moves turn into Double Iron Bash.",
 		num: 89,
 	},
-fishhook: {
+	fishhook: {
 		name: "Fish Hook",
 		spritenum: 249,
 		fling: {
 			basePower: 90,
 		},
-    onFoeTrapPokemon(pokemon) {
+		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hasType('Water') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
-	  onFoeMaybeTrapPokemon(pokemon, source) {
+		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
 			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Water')) {
 				pokemon.maybeTrapped = true;
 			}
 		},
-  onDisableMove(pokemon) {
+		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.id);
 				if (move.type === 'Electric' || move.type === 'Grass') {
@@ -48,7 +48,7 @@ fishhook: {
 			}
 		},
 		num: 270,
-    shortDesc: "Prevents opposing Water-types from switching out while holder is active. Holder cannot use Grass or Electric-type moves.",
+		shortDesc: "Prevents opposing Water-types from switching out while holder is active. Holder cannot use Grass or Electric-type moves.",
 		gen: 4,
 		rating: 3,
 	},
