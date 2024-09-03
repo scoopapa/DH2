@@ -8,7 +8,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1.5,
 		num: 105,
 	},
-  dtairslash: {
+    dtairslash: {
 		onTryHit(target, source, move) {
 			if (move.type === 'Flying' && move.name != 'Air Slash') {
 				this.add('-immune', target, '[from] ability: !dt air slash');
@@ -49,7 +49,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 101,
 	},
-  justalittleguy: {
+    justalittleguy: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (attacker.getWeight() > defender.getWeight()) {
@@ -82,10 +82,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	alphasigmarizz: {
 		onAllyTryAddVolatile(status, target, source, effect) {
-			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+			if (['attract', 'healblock', 'taunt'].includes(status.id)) {
 				if (effect.effectType === 'Move') {
 					const effectHolder = this.effectState.target;
-					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
+					this.add('-block', target, 'ability: Alpha Sigma Rizz', '[of] ' + effectHolder);
 				}
 				return null;
 			}
@@ -116,8 +116,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Chained Wrath",
-		shortDesc: "When the opponent's speed is higher than this pokemon's, this pokemon's attack is raised by 1 stage.",
+		shortDesc: "When the opponent's speed is higher than this Pokemon's, its Attack is raised by 1 stage.",
 		rating: 3.5,
 		num: 88,
+	},
+	identitycrisis: {
+        onResidualOrder: 28,
+        onResidualSubOrder: 2,
+        onResidual(pokemon) {
+            if (!pokemon.hp) return;
+            const names = ['anaconja', 'earl', 'Orangesodapop', 'Jumpheart', 'zxgzxg', 'TTTech_', 'gekokeso', 'MemesBita', 'regiboat', 'Tanny89k', 'Fragmented', 'Gaboswampert', 'DenebStargazer', 'Beebos', 'PalpitoadChamp', 'Soul Dew Latias', 'woo', 'AquaticPanic', 'Yoshiblaze'];
+            const avatars = ['shelly', 'janitor', 'crasherwake', 'bianca', 'miku-water', 'burglar', 'swimmer-gen4dp', 'wattson', 'blue-gen1', 'anabel', 'klara', 'psychic-lgpe', 'maid', 'pokemonbreederf', 'brycenman', 'lyra', 'lana-masters', 'hilda', 'schoolkid-gen4'];
+            const pokemons = this.dex.species.all();
+            pokemon.formeChange(this.sample(pokemons));
+            const randomNumber = this.random(names.length);
+            pokemon.side.name = names[randomNumber];
+            pokemon.side.avatar = avatars[randomNumbers];
+        },
+        flags: {},
+        name: "Identity Crisis",
+        shortDesc: "At the end of each turn, change this Pokemon and its side's name and avatar to a random one.",
+    },
+	auctorwile: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+		flags: {},
+		name: "Auctor Wile",
+		shortDesc: "If this Pokemon is damaged by a punching move, the attacker loses 25% max HP.",
 	},
 }
