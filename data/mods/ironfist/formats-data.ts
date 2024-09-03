@@ -79,7 +79,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	samurottundefined: {
+	samurottsinnoh: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

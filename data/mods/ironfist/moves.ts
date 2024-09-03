@@ -8,17 +8,17 @@ silcoonsexactmovepool: {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onHit(source) {
-		  this.actions.useMove("Tackle", source);
-      this.actions.useMove("String Shot", source);
-      this.actions.useMove("Poison Sting", source);
-      this.actions.useMove("Bug Bite", source);
-      this.actions.useMove("Iron Defense", source);
+		onPrepareHit(source) {
+			this.actions.useMove("Tackle", source);
+	      this.actions.useMove("String Shot", source);
+	      this.actions.useMove("Poison Sting", source);
+	      this.actions.useMove("Bug Bite", source);
+	      this.actions.useMove("Iron Defense", source);
 		},
 		secondary: null,
-		target: "allAdjacent",
-		type: "Fairy",
-    shortDesc: "This pokemon uses Tackle, String Shot, Poison Sting, Bug Bite, and Iron Defense, in that order.",
+		target: "self",
+		type: "Bug",
+      shortDesc: "This pokemon uses Tackle, String Shot, Poison Sting, Bug Bite, and Iron Defense, in that order.",
 	},
   	pog: {
 		num: 573,

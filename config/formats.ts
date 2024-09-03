@@ -716,6 +716,17 @@ export const Formats: FormatList = [
 		mod: 'ironfist',
 		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU', 'DOU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Iron Fist.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Ironmons",
