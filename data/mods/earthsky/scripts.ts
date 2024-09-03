@@ -3451,11 +3451,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','dugtrio').learnset.minimize = ["9D"];
 		this.modData('Learnsets','dugtrio').learnset.escapetunnel = ["9L58"];
 		delete this.modData('Learnsets','dugtrio').learnset.allyswitch;
+		delete this.modData('Learnsets','dugtrio').learnset.sludgewave;
 		// Dugtrio Alola
 		this.modData('Learnsets','dugtrioalola').learnset.minimize = ["9D"];
 		this.modData('Learnsets','dugtrioalola').learnset.escapetunnel = ["9L58"];
 		this.modData('Learnsets','dugtrioalola').learnset.honeclaws = ["9M"];
 		delete this.modData('Learnsets','dugtrioalola').learnset.allyswitch;
+		delete this.modData('Learnsets','dugtrioalola').learnset.sludgewave;
 		// Meowth
 		this.modData('Learnsets','meowth').learnset.mefirst = ["9D"];
 		this.modData('Learnsets','meowth').learnset.trumpcard = ["9L55"];

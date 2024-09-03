@@ -2804,7 +2804,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	swoobat: {
 		inherit: true,
-		baseStats: {hp: 87, atk: 67, def: 55, spa: 77, spd: 55, spe: 72},
+		baseStats: {hp: 87, atk: 67, def: 55, spa: 77, spd: 55, spe: 114},
 		isNonstandard: null,
 	},
 	audinomega: {
