@@ -107,14 +107,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'kyurem').learnset.scaleshot;
 		delete this.modData('Learnsets', 'kyurem').learnset.dragondance;
 		delete this.modData('Learnsets', 'kyurem').learnset.icefang;
-		delete this.modData('Learnsets', 'kyuremblack').learnset.iciclespear;
-		delete this.modData('Learnsets', 'kyuremblack').learnset.scaleshot;
-		delete this.modData('Learnsets', 'kyuremblack').learnset.dragondance;
-		delete this.modData('Learnsets', 'kyuremblack').learnset.icefang;
-		delete this.modData('Learnsets', 'kyuremwhite').learnset.iciclespear;
-		delete this.modData('Learnsets', 'kyuremwhite').learnset.scaleshot;
-		delete this.modData('Learnsets', 'kyuremwhite').learnset.dragondance;
-		delete this.modData('Learnsets', 'kyuremwhite').learnset.icefang;
 		this.modData("Learnsets", "meloetta").learnset.holdback = ["9L1"];
 		this.modData("Learnsets", "hoopa").learnset.holdback = ["9L1"];
 		this.modData("Learnsets", "cyclizar").learnset.extremespeed = ["9L1"];
@@ -346,8 +338,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	    this.modData("Learnsets", "reshiram").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "zekrom").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "kyurem").learnset.echoedvoice = ["9L1"];
-	    this.modData("Learnsets", "kyuremblack").learnset.echoedvoice = ["9L1"];
-	    this.modData("Learnsets", "kyuremwhite").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "meloetta").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "drampa").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "drampayb").learnset.echoedvoice = ["9L1"];
@@ -571,8 +561,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	    this.modData("Learnsets", "reshiram").learnset.snatch = ["9L1"];
 	    this.modData("Learnsets", "zekrom").learnset.snatch = ["9L1"];
 	    this.modData("Learnsets", "kyurem").learnset.snatch = ["9L1"];
-	    this.modData("Learnsets", "kyuremblack").learnset.echoedvoice = ["9L1"];
-	    this.modData("Learnsets", "kyuremwhite").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "yveltal").learnset.snatch = ["9L1"];
 	    this.modData("Learnsets", "hoopa").learnset.snatch = ["9L1"];
 	    this.modData("Learnsets", "tapulele").learnset.snatch = ["9L1"];
@@ -895,8 +883,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	    this.modData("Learnsets", "reshiram").learnset.ancientpower = ["9L1"];
 	    this.modData("Learnsets", "zekrom").learnset.ancientpower = ["9L1"];
 	    this.modData("Learnsets", "kyurem").learnset.ancientpower = ["9L1"];
-	    this.modData("Learnsets", "kyuremblack").learnset.echoedvoice = ["9L1"];
-	    this.modData("Learnsets", "kyuremwhite").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "xerneas").learnset.ancientpower = ["9L1"];
 	    this.modData("Learnsets", "yveltal").learnset.ancientpower = ["9L1"];
 	    this.modData("Learnsets", "turtonator").learnset.ancientpower = ["9L1"];
@@ -1216,8 +1202,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	    this.modData("Learnsets", "reshiram").learnset.irontail = ["9L1"];
 	    this.modData("Learnsets", "zekrom").learnset.irontail = ["9L1"];
 	    this.modData("Learnsets", "kyurem").learnset.irontail = ["9L1"];
-	    this.modData("Learnsets", "kyuremblack").learnset.echoedvoice = ["9L1"];
-	    this.modData("Learnsets", "kyuremwhite").learnset.echoedvoice = ["9L1"];
 	    this.modData("Learnsets", "yveltal").learnset.irontail = ["9L1"];
 	    this.modData("Learnsets", "zygarde").learnset.irontail = ["9L1"];
 	    this.modData("Learnsets", "drampa").learnset.irontail = ["9L1"];
