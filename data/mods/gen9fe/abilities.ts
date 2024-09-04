@@ -2103,8 +2103,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	armourlock: {
 	  shortDesc: "This Pokemon can neither be critted nor have its item removed.",
 		onTakeItem(item, pokemon, source) {
-			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
 			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
 				this.add('-activate', pokemon, 'ability: Armour Lock');
 				return false;
