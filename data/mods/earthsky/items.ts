@@ -1947,7 +1947,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	gripclaw: {
 		inherit: true,
-		shortDesc: "If the holder uses a move that traps or binds for more than a single turn (excluding the turn of use), its duration is extended. Trapping and binding last six turns instead of four, and strong binding lasts three turns instead of two.",
+		desc: "If the holder uses a move that traps or binds for more than a single turn (excluding the turn of use), its duration is extended. Trapping and binding last six turns instead of four, and strong binding lasts three turns instead of two.",
 		shortDesc: "Holder's trap/binding lasts 6 turns, strong bind lasts 3 turns.",
 	},
 	heavydutyboots: {
