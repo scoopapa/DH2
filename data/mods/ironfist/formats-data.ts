@@ -1,154 +1,154 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	melmetal: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	ninjask: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	toxapex: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	silcoon: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	togedemaru: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	bramblin: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	anarlvet: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	gholdengo: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	kingler: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	feebas: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	microwave: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	glaceon: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	lytlegai: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	sylveon: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	ohmyrod: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	celesteela: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	bigcrammer: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	archeops: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	runerigus: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	crabominable: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	samurottsinnoh: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	wyrdeer: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	goomba: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	fridgile: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	zaciancrowned: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	melmetal2: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	traike: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	pidown: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	silvally: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	vivillonplainshigh: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	moltres: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	kurayami: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	hitmontop: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	zelda: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	cascoon: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	sentret: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	drigike: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	phish: {
-		tier: "OU",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 }

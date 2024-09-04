@@ -1,6 +1,5 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-silcoonsexactmovepool: {
-		num: 802,
+	silcoonsexactmovepool: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -10,18 +9,17 @@ silcoonsexactmovepool: {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(source) {
 			this.actions.useMove("Tackle", source);
-	      this.actions.useMove("String Shot", source);
-	      this.actions.useMove("Poison Sting", source);
-	      this.actions.useMove("Bug Bite", source);
-	      this.actions.useMove("Iron Defense", source);
+			this.actions.useMove("String Shot", source);
+			this.actions.useMove("Poison Sting", source);
+			this.actions.useMove("Bug Bite", source);
+			this.actions.useMove("Iron Defense", source);
 		},
 		secondary: null,
 		target: "self",
 		type: "Bug",
-      shortDesc: "This pokemon uses Tackle, String Shot, Poison Sting, Bug Bite, and Iron Defense, in that order.",
+		shortDesc: "Uses Tackle, String Shot, Poison Sting, Bug Bite, and Iron Defense.",
 	},
   	pog: {
-		num: 573,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -29,18 +27,22 @@ silcoonsexactmovepool: {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "G-Max Steelsurge", target);
+		},
 		onEffectiveness(typeMod, target, type) {
 		    return 1;
 		},
-    selfBoost: {
+		selfBoost: {
 			boosts: {
 				atk: 1,
 			},
 		},
-    status: 'par',
+		status: 'par',
 		target: "normal",
 		type: "Steel",
-    shortDesc: "Always super-effective. Always paralyzes. Raises user's attack by one stage.",
+		shortDesc: "Always super-effective. Always paralyzes. Raises user's attack by one stage.",
 		contestType: "Beautiful",
 	},
   	velvetblade: {
@@ -48,6 +50,8 @@ silcoonsexactmovepool: {
 		accuracy: 100,
 		basePower: 100,
 		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Night Slash", target);
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Payback NOT boosted');
 				return move.basePower;
@@ -63,7 +67,7 @@ silcoonsexactmovepool: {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-    shortDesc: "Slicing move. If user moved after target, always crits.",
+		shortDesc: "If user moved after target, always crits.",
 		contestType: "Tough",
 	},
   	mogoff: {
@@ -75,6 +79,10 @@ silcoonsexactmovepool: {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Bulk Up", target);
+		},
 		secondary: {
 			chance: 50,
 			volatileStatus: 'confusion',
@@ -82,7 +90,7 @@ silcoonsexactmovepool: {
 		target: "any",
 		type: "Ghost",
 		contestType: "Tough",
-    shortDesc: "50% chance to confuse the target.",
+		shortDesc: "50% chance to confuse the target.",
 	},
   	chocolatekiss: {
 		num: 411,
@@ -93,6 +101,10 @@ silcoonsexactmovepool: {
 		pp: 20,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Lovely Kiss", target);
+		},
 		secondary: {
 			chance: 70,
 			boosts: {
@@ -101,7 +113,7 @@ silcoonsexactmovepool: {
 		},
 		target: "normal",
 		type: "Fairy",
-    shortDesc: "+1 priority. Has a 70% chance to lower target's speed by 1.",
+		shortDesc: "Usually moves first. 70% chance to lower target's speed by 1.",
 		contestType: "Cool",
 	},
   	fishingminigame: {
@@ -113,6 +125,10 @@ silcoonsexactmovepool: {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Anchor Shot", target);
+		},
 		onHit(target, source, move) {
 			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 		},
@@ -120,7 +136,7 @@ silcoonsexactmovepool: {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
-    shortDesc: "Traps the target",
+		shortDesc: "Prevents the target from switching out.",
 	},
   	stankyleg: {
 		num: 440,
@@ -131,6 +147,10 @@ silcoonsexactmovepool: {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rolling Kick", target);
+		},
 		secondary: {
 			chance: 100,
 			status: 'tox',
@@ -138,7 +158,7 @@ silcoonsexactmovepool: {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cool",
-    shortDesc: "100% chance to badly poisonthe target.",
+		shortDesc: "100% chance to badly poison the target.",
 	},
   	triplerkick: {
 		num: 813,
@@ -149,10 +169,14 @@ silcoonsexactmovepool: {
 		},
 		category: "Physical",
 		name: "Tripler Kick",
-		shortDesc: "Power rises on each attack. (Triple Axel clone).",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Triple Kick", target);
+		},
 		multihit: 3,
 		multiaccuracy: true,
 		secondary: null,
@@ -171,6 +195,10 @@ silcoonsexactmovepool: {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Snipe Shot", target);
+		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				move.status = 'par';
@@ -191,6 +219,10 @@ silcoonsexactmovepool: {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "High Jump Kick", target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -214,10 +246,15 @@ silcoonsexactmovepool: {
 		basePower: 0,
 		category: "Status",
 		name: "Silcoon Blast",
+		shortDesc: "Turns the opponent into Silcoon.",
 		pp: 166,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
 		secondary: null,
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Hyper Beam", target);
+		},
 		onHit(target, pokemon, move) {
 			for (const target of pokemon.foes()) {
 				target.formeChange('Silcoon');
@@ -233,10 +270,15 @@ silcoonsexactmovepool: {
 		basePower: 0,
 		category: "Status",
 		name: "Go Fish",
-		shortDesc: "Switches out target Pokemon. Has Sucker Punch conditions. +1 priority.",
+		shortDesc: "Forces the target to switch. Fails if the target is not attacking.",
 		pp: 5,
 		priority: 1,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		forceSwitch: true,
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Boomburst", target);
+		},
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? source.switchFlag = true : null;
