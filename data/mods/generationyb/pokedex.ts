@@ -297,7 +297,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Ground", "Psychic"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 55, def: 95, spa: 120, spd: 95, spe: 95},
-		abilities: {0: "Queenly Majesty", H: "Competitive"},
+		abilities: {0: "Queenly Majesty", H: "Supreme Overlord"},
 		weightkg: 25,
 		prevo: "Merecate",
 		eggGroups: ["Field"],
