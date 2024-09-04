@@ -1,4 +1,4 @@
-export const Pokedex: {[speciesid: string]: SpeciesData} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	//new mons
 	
 	//(The last dex number in Desvega went to Virulope, which sits at 1457, so Feathfir will pick up from there)
