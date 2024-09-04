@@ -880,6 +880,60 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -26,
 	},
 	// end
+	// start: Amaterasu, bound by volatile and Engraving. So, there's no real natural user of Amaterasu
+	amaterasu: {
+		shortDesc: "User burns and suffers 1/8 Burn damage.",
+		onUpdate(pokemon) {
+			// Check if the Pokémon has the Amaterasu ability and is not already burned, etc.
+			if (pokemon.hasAbility('amaterasu') && !pokemon.status && !pokemon.hasType('Fire')) {
+				if (pokemon.isGrounded() && this.field.isTerrain('mistyterrain')) {
+					return;
+				}
+				if (pokemon.side.getSideCondition('safeguard')) {
+					return;
+				}
+				if (pokemon.hasItem('sunring') && (pokemon.baseSpecies.baseSpecies === 'Horizonoc')) {
+					return;
+				}
+				// Check if the ally is Horizonoc and Sun or Desolate Land is active
+				const allyPresent = pokemon.side.active.some(ally => ally && ally !== pokemon && ally.baseSpecies.baseSpecies === 'Horizonoc' && ally.hasItem('sunring'));
+				if (allyPresent && ['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+					return;
+				}
+				pokemon.setStatus('brn', pokemon, null, true);
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				if (target === this.effectState.target) {
+					this.debug('Amaterasu damage increase for burn damage');
+					return this.chainModify(2);
+				}
+			}
+		},	
+		onFaint(target, source, effect) {
+			if (!source || !effect || target.side === source.side) return;
+			if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+				this.add('-ability', target, 'Amaterasu');
+				const bannedAbilities = [
+					'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'skyrider', 'stancechange', 'truant', 'zenmode',
+				];
+				if (bannedAbilities.includes(source.ability) || source.hasType('Fire')) {
+					return;
+				} else {
+					source.setAbility('amaterasu');
+					source.baseAbility = 'amaterasu' as ID;
+					source.ability = 'amaterasu' as ID;
+					this.add('-ability', source, 'Amaterasu', '[from] Ability: Amaterasu');
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Amaterasu",
+		rating: 0,
+		num: -29,
+	},
+	// end
 
 	// start: Archetype (Reserve Idea for New Project)
 	archetype: {
