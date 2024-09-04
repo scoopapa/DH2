@@ -408,6 +408,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Role Reversal"},
 		weightkg: 10,
 		eggGroups: ["Human-Like", "Fairy"],
+		otherFormes: ["Tragichiou-Comedy"],
+		formeOrder: ["Tragichiou", "Tragichiou-Comedy"],
 	},
 	tragichioucomedy: {
 		num: 1239,
@@ -419,6 +421,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Role Reversal"},
 		weightkg: 10,
 		eggGroups: ["Human-Like", "Fairy"],
+		requiredAbility: "Role Reversal",
+		battleOnly: "Tragichiou",
 	},
 	frozun: {
 		num: 1240,
@@ -703,6 +707,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Stone Face"},
 		weightkg: 89,
 		eggGroups: ["Flying"],
+		otherFormes: ["Driscue-No Sand"],
+		formeOrder: ["Driscue", "Driscue-No Sand"],
 	},
 	driscuenosand: {
 		num: 1264,
@@ -714,6 +720,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Stone Face"},
 		weightkg: 89,
 		eggGroups: ["Flying"],
+		requiredAbility: "Stone Face",
+		battleOnly: "Driscue",
 	},
 	lawnjourner: {
 		num: 1265,
@@ -864,6 +872,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 150,
 		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
+		otherFormes: ["Ohunu-Ohunu-Core"],
+		formeOrder: ["Ohunu-Ohunu", "Ohunu-Ohunu-Core"],
 	},
 	ohunuohunucore: {
 		num: 1279,
@@ -876,6 +886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 999.9,
 		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
+		changesFrom: "Ohunu-Ohunu",
 	},
 	kaledzi: {
 		num: 1280,
