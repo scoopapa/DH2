@@ -115,6 +115,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	sucrosid: {
 		learnset: {
+			stickytrap: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -325,6 +326,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	ancillarine: {
 		learnset: {
+			bladebullet: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -535,6 +537,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	cobrush: {
 		learnset: {
+			paintover: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -4713,6 +4716,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gbonawola: {
 		learnset: {
+			futureflames: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -4802,6 +4806,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gbonanene: {
 		learnset: {
+			futurefamine: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -4899,6 +4904,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gbonablanu: {
 		learnset: {
+			futurelaments: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -4995,6 +5001,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	gbonazito: {
 		learnset: {
+			futureshock: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
