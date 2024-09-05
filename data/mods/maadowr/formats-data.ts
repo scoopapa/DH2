@@ -335,6 +335,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MD Ubers",
 		doublesTier: "MD Ubers",
 	},
+	arastinithprotector: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
 	cicadillo: {
 		tier: "MD",
 		doublesTier: "MD Ubers",

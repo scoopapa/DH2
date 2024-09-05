@@ -1100,12 +1100,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
-		onBasePower(basePower, source) {
+		/*onBasePower(basePower, source) {
 			if (['raindance', 'primordialsea'].includes(source.effectiveWeather()) && !source.hasItem('utilityumbrella')) {
 				this.debug('rain Incandescent Flame boost');
 				return this.chainModify(2);
 			}
-		},
+		},*/
 		secondary: {chance: 100,
 			onHit(target, source, move) {
 				if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -1464,16 +1464,83 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Escavalier') {
 				this.debug('double power');
 				return this.chainModify(2);
+			} else if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') {
+				this.debug('double power');
+				return this.chainModify(2);
 			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') move.drain = [1, 2];
 		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
 	},
+	// end
+
+	// start: Exhume from Dark Volatile
+	exhume: {
+		num: -45,
+		accuracy: true,
+		basePower: 0,
+		category: 'Status',
+		shortDesc: "Executes first move of last fainted ally. Best stat boost.",
+		name: 'Exhume',
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
+		onPrepareHit(target, source) {
+			// Find the last fainted Dark-type Pokémon on the user's team
+			const faintedDarkTypes = source.side.pokemon.filter(p => p.fainted && p.hasType('Dark'));
+			const lastFaintedDark = faintedDarkTypes[faintedDarkTypes.length - 1];
+	
+			if (!lastFaintedDark) {
+				this.add('-fail', source, 'move: Exhume');
+				return null;
+			}
+	
+			// Determine the best stat to boost
+			const stats: Array<StatIDExceptHP> = ['atk', 'spa', 'def', 'spd', 'spe']; // List of stats to consider
+			let bestStat: StatIDExceptHP = stats[0]; // Initialize with the first stat
+			let highestValue = lastFaintedDark.getStat(bestStat); // Get the initial highest value
+	
+			for (const stat of stats) {
+				const currentValue = lastFaintedDark.getStat(stat);
+				if (currentValue > highestValue) {
+					highestValue = currentValue;
+					bestStat = stat; // Update bestStat to the current highest stat
+				}
+			}
+	
+			// Apply +1 to the best stat
+			this.boost({[bestStat]: 1}, source);
+		},
+		onTryHit(target, source, move) {
+			// Find the last fainted Dark-type Pokémon on the user's team
+			const faintedDarkTypes = source.side.pokemon.filter(p => p.fainted && p.hasType('Dark'));
+			const lastFaintedDark = faintedDarkTypes[faintedDarkTypes.length - 1];
+	  
+			if (!lastFaintedDark) {
+			  this.add('-fail', source, 'move: Exhume');
+			  return null;
+			}
+	  
+			// Use the first move of the last fainted Dark-type Pokémon
+			const firstMove = lastFaintedDark.moveSlots[0]; // Get the first move slot
+	  
+			if (!firstMove) {
+			  this.add('-fail', source, 'move: Exhume');
+			  return null;
+			}
+	  
+			// Use the move as if it were the user's move
+			const moveData = this.dex.moves.get(firstMove.id);
+			this.add('-message', `${source.name} exhumes ${lastFaintedDark.name}'s ${moveData.name}!`);		
+			this.actions.useMove(moveData.id, source, target); // Use the move on the target		
+		  },
+		secondary: null,
+		target: 'normal',
+		type: 'Dark',
+		contestType: "Cool",
+	  },
 	// end
 
 	// start: This move is only for testing purposes due to Wood Stove
