@@ -199,6 +199,34 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	falsealarm: {
+		name: "False Alarm",
+		spritenum: 118,
+		fling: {
+			basePower: 30,
+		},
+		onAfterMoveSecondaryPriority: 2,
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && target.hp && move && move.category !== 'Status' && !move.flags['futuremove'] && target.getMoveHitData(move).typeMod < 0) {
+				if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.beingCalledBack || target.isSkyDropped()) return;
+				if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
+				target.switchFlag = true;
+				if (target.useItem()) {
+					source.switchFlag = false;
+				} else {
+					target.switchFlag = false;
+				}
+			}
+		},
+		num: -1008,
+		gen: 9,
+		desc: "If holder survives a NvE hit, it immediately switches out to a chosen ally. Single use.",
+		rating: 3,
+	},
+	/*
 	cornerstonemask: {
 		name: "Cornerstone Mask",
 		spritenum: 758,
@@ -310,6 +338,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		desc: "Ogerpon-Wellspring: +1 SpD when hit below 1/3 HP. Aurum Aura grants Embody Aspect.",
 	},
+ */
 
 // Memories
 	bugmemory: {
