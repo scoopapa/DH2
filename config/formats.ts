@@ -4810,6 +4810,55 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Generation YB",
+		desc: [
+			"<b>Generation YB</b>: A Gen 9 solomod made by Yoshiblaze introducing 80 new Pokemon, a full regional dex, and a new generation mechanic in Aurum Aura.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HoohlLhWNlvJIv9-Ha_u5ZQ0Uzhl5x505ZOQFahufqI/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'generationyb',
+		ruleset: ['Standard', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Power Construct'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OUYB', 'UUYB', 'RUYB', 'NUYB', 'NFEYB', 'LCYB'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Generation YB.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Generation YB VGC",
+		desc: [
+			"<b>Generation YB</b>: A Gen 9 solomod made by Yoshiblaze introducing 80 new Pokemon, a full regional dex, and a new generation mechanic in Aurum Aura.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HoohlLhWNlvJIv9-Ha_u5ZQ0Uzhl5x505ZOQFahufqI/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'generationyb',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod'],
+		banlist: ['Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OUYB', 'UUYB', 'RUYB', 'NUYB', 'NFEYB', 'LCYB', 'UberYB'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Generation YB.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Kanto Rewind OU",
 		desc: [
 			"<b>Kanto Rewind</b>: A Gen 9 Solomod based in the Kanto Region featuring the new Retro Rewind mechanic, plus an extended Kanto Pokedex.",
