@@ -375,8 +375,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "While this Pokemon is active, no Pokemon can fall asleep. Sleeping Pokemon wake up when this Pokemon enters the field.",
 	},
 	perfectgarden: { // shoutouts to m4a
-		desc: "On switch-in, the field becomes Grassy Terrain. This terrain remains in effect until this Ability is no longer active for any Pokémon.",
-		shortDesc: "On switch-in, Grassy Terrain begins until this Ability is not active in battle.",
 		onStart(source) {
 			if (this.field.setTerrain('grassyterrain')) {
 				this.add('-message', `${source.name} turns the battlefield into a beautiful garden!`);
