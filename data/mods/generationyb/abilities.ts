@@ -344,6 +344,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	overclock: {
 		onStart(pokemon) {
+			this.add('-activate', target, 'ability: Overclock');
 			this.add('-message', `An alarm is ringing loudly!`);
 			for (const target of this.getAllActive()) {
 				if (['slp'].includes(target.status)) {
