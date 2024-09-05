@@ -2078,6 +2078,16 @@ export const Scripts: ModdedBattleScriptsData = {
 	    this.modData("Learnsets", "analock").learnset.explosion = ["9L1"];
 	    this.modData("Learnsets", "dekatsosi").learnset.explosion = ["9L1"];
   },
+	pokemon: {
+		ignoringItem() {
+			return !!(
+				this.itemState.knockedOff || // Gen 3-4
+				(this.battle.gen >= 5 && !this.isActive) ||
+				(!this.getItem().ignoreKlutz && (this.hasAbility('klutz') || this.hasAbility('gorillatactics'))) ||
+				this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']
+			);
+		},
+	},
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
