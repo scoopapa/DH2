@@ -107,6 +107,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'kyurem').learnset.scaleshot;
 		delete this.modData('Learnsets', 'kyurem').learnset.dragondance;
 		delete this.modData('Learnsets', 'kyurem').learnset.icefang;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.iciclespear;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.scaleshot;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.dragondance;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.icefang;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.iciclespear;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.scaleshot;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.dragondance;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.icefang;
 		this.modData("Learnsets", "meloetta").learnset.holdback = ["9L1"];
 		this.modData("Learnsets", "hoopa").learnset.holdback = ["9L1"];
 		this.modData("Learnsets", "cyclizar").learnset.extremespeed = ["9L1"];
