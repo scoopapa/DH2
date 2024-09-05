@@ -1897,6 +1897,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				source.side.removeSideCondition('twistsoffate');
 			},
 			onFaint(pokemon) {
+				const source = this.effectState.source;
 				if (pokemon === source) {
 					source.side.removeSideCondition('twistsoffate');
 				}
