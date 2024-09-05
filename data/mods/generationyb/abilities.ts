@@ -544,6 +544,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		shortDesc: "Sunny Day active: +1 to all non-Speed stats. When Sun goes away, -1 to all non-Speed stats.",
 	},
+	rolereversal: {
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Tragichiou' || attacker.transformed || move.category === 'Status') return;
+			const targetForme = (move.category === 'Physical' ? 'Tragichiou' : 'Tragichiou-Comedy');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Role Reversal",
+		shortDesc: "This Pokemon changes to its Comedy form before it uses a Special move and its Tragedy form before it uses a Physical move.",
+		rating: 4,
+	},
 
   // Aurum Aura Exclusives #soon
   
