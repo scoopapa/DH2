@@ -4845,7 +4845,6 @@ export const Formats: FormatList = [
 		mod: 'generationyb',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod'],
-		banlist: ['Shadow Adapter > 1', 'Pure Heart + Shadow Adapter'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
