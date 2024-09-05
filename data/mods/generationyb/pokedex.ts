@@ -1110,9 +1110,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Swarm", 1: "Opportunist", H: "Rivalry"},
   },
+	nincada: {
+		inherit: true,
+		abilities: {0: "Compound Eyes", 1: "Parasitic", H: "Run Away"},
+  },
 	ninjask: {
 		inherit: true,
 		baseStats: {hp: 61, atk: 100, def: 45, spa: 50, spd: 50, spe: 160},
+		abilities: {0: "Speed Boost", 1: "Parasitic", H: "Infiltrator"},
   },
 	shedinja: {
 		inherit: true,
