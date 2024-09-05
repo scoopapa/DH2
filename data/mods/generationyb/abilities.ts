@@ -211,7 +211,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
-				if ((this.field.isTerrain) && target.isGrounded()) {
+				if ((this.field.isTerrain('electricterrain') || this.field.isTerrain('psychicterrain') || this.field.isTerrain('grassyterrain') || this.field.isTerrain('mistyterrain')) && target.isGrounded()) {
   				this.add('-anim', target, "Poison Gas", target);
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
