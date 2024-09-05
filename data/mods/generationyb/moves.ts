@@ -722,7 +722,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		ignoreImmunity: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Future Sight", target);
+			this.add('-anim', source, "Spite", source);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -739,6 +739,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
 					ignoreImmunity: false,
+  					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Magma Storm", target);
+					},
 					onHit(target, source, move) {
 						return target.addVolatile('torment');
 					},
@@ -767,7 +771,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		ignoreImmunity: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Future Sight", target);
+			this.add('-anim', source, "Quiver Dance", source);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -776,19 +780,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move: 'futureharvest',
 				source: source,
 				moveData: {
-					id: 'futureharvest',
-					name: "Future Harvest",
+					id: 'futurefamine',
+					name: "Future Famine",
 					accuracy: 100,
 					basePower: 80,
 					category: "Special",
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
 					ignoreImmunity: false,
+  					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Sticky Web", target);
+					},
 					onHit(target, source, move) {
 						return target.addVolatile('healblock');
 					},
 					effectType: 'Move',
-					type: 'Grass',
+					type: 'Bug',
 				},
 			});
 			this.add('-start', source, 'move: Future Famine');
@@ -812,7 +820,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		ignoreImmunity: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Future Sight", target);
+			this.add('-anim', source, "Hex", source);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -829,6 +837,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
 					ignoreImmunity: false,
+  					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Dark Void", target);
+					},
 					onHit(target, source, move) {
 						return target.addVolatile('disable');
 					},
@@ -857,7 +869,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		ignoreImmunity: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Future Sight", target);
+			this.add('-anim', source, "Charge", source);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
@@ -874,6 +886,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					priority: 0,
 					flags: {allyanim: 1, metronome: 1, futuremove: 1},
 					ignoreImmunity: false,
+  					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Wildbolt Storm", target);
+					},
 					onHit(target, source, move) {
 						return target.addVolatile('gastroacid');
 					},
@@ -1852,5 +1868,45 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Steel",
+	},
+	twistsoffate: {
+		shortDesc: "Allows Twist of Fate to work.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Twists of Fate",
+		pp: 40,
+		priority: 0,
+		flags: {},
+    	noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic", target);
+		},
+		sideCondition: 'twistsoffate',
+	   condition: {
+			onTryHit(pokemon, target, move) {
+				if (move.flags['futuremove']) {
+					this.add('-immune', pokemon, '[from] ability: Twist of Fate');
+					return null;
+				}
+			},
+			onAnyFaintPriority: 1,
+			onAnyFaint() {
+				const source = this.effectState.source;
+				source.side.removeSideCondition('twistsoffate');
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Twists of Fate');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Twists of Fate');
+			},
+	   },
+		secondary: null,
+		target: "self",
+		type: "Dragon",
 	},
 };
