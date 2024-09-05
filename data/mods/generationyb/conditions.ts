@@ -6,7 +6,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			const type = pokemon.teraType;
       	this.add('-start', pokemon, 'Aurum Aura');
 			this.add('-message', `${pokemon.name}'s glistening aura changes its attacks' categories to what they were in the past!`);
-			if (type === 'Stellar' || source.species.baseSpecies === 'Ogerpon') {
+			if (type === 'Stellar' || pokemon.species.baseSpecies === 'Ogerpon') {
 				switch (pokemon.species.name) {
 					case 'Ogerpon':
 						pokemon.setAbility('embodyaspectteal', pokemon, true);
