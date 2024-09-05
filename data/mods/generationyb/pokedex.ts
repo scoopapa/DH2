@@ -1068,9 +1068,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 60, atk: 45, def: 80, spa: 100, spd: 100, spe: 30},
   },
+  paras: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Parasitic"},
+  },
   parasect: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 105, def: 80, spa: 60, spd: 80, spe: 30},
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Parasitic"},
   },
   politoed: {
 		inherit: true,
