@@ -1774,6 +1774,55 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	direclaw: {
+		num: 827,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "50% chance to freeze, poison, or paralyze target.",
+		name: "Dire Claw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 50,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('psn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				} else {
+					target.trySetStatus('frz', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	bittermalice: {
+		num: 841,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "50% frz. 2x power if target already frozen.",
+		name: "Bitter Malice",
+		viable: true,
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'frz') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: {
+			chance: 50,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ghost",
+	},
   
   // it's called aura bruh
 	aurumauraused: {
@@ -1785,7 +1834,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {},
-    noSketch: true,
+    	noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Morning Sun", target);
