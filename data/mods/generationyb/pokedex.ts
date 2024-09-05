@@ -8,7 +8,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 65, atk: 63, def: 62, spa: 50, spd: 50, spe: 20},
 		abilities: {0: "Overgrow", H: "Symbiosis"},
 		weightkg: 10,
-		evos: ["Urxine"],
+		evos: ["Nectear"],
 		eggGroups: ["Field", "Grass"],
 	},
 	nectear: {
@@ -192,7 +192,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 41, atk: 52, def: 39, spa: 32, spd: 32, spe: 54},
 		abilities: {0: "Motor Drive", 1: "Serene Grace", H: "Klutz"},
 		weightkg: 5,
-		evos: ["Nezuken"],
+		evos: ["Nezuto"],
 		eggGroups: ["Field", "Human-Like"],
 	},
 	nezuto: {
