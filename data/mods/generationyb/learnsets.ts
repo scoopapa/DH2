@@ -4443,6 +4443,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			doubleedge: ["9L1"],
 			synthesis: ["9L1"],
 			bodypress: ["9L1"],
+			grassyglide: ["9L1"],
 		},
 	},
 	aufant: {
