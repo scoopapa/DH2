@@ -746,7 +746,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 1267,
 		name: "Aurrarajah",
 		types: ["Ground", "Steel"],
-		baseStats: {hp: 125, atk: 132, def: 87, spa: 61, spd: 64, spe: 30},
+		baseStats: {hp: 125, atk: 132, def: 87, spa: 61, spd: 64, spe: 31},
 		abilities: {0: "Dry Skin", H: "Dazzling"},
 		weightkg: 999.9,
 		prevo: "Aufant",
