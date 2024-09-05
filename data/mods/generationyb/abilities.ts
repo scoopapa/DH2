@@ -436,7 +436,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyMove(move, pokemon) {
 			if (this.field.isWeather(['hail', 'snow']) && (move.type === 'Steel' || move.type === 'Ice')) {
 			  move.willCrit = true;
-      }
+      	}
 		},
 		flags: {},
 		name: "Snowpiercer",
@@ -555,7 +555,99 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 
   // Aurum Aura Exclusives #soon
-  
+	heartofcourage: {
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasType(move.type) && pokemon.hp <= pokemon.maxhp / 2) {
+			  move.willCrit = true;
+      	}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Heart of Courage",
+		rating: 4,
+		shortDesc: "This Pokemon's STAB moves always critcally hit when the user is below 50% HP.",
+	},
+	unknownforce: {
+		onStart(pokemon, source, effect) {
+			this.add('-message', `A peculiar presence envelopes the battlefield...`);
+		},
+		onModifyMove(move, pokemon) {
+			if (move.num === 237) {
+				move.secondaries = [];
+			  	move.basePower = 150;
+			  	move.type = 'Stellar';
+      	}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.num === 237) {
+				this.boost({atk: 1, spa: 1}, source, source);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Unknown Force",
+		rating: 3,
+		shortDesc: "Unown: Hidden Power is typeless, has 150 BP, and boosts the user's Attack and Special Attack by 1 stage.",
+	},
+	timewarp: {
+		shortDesc: "Once per battle, on switch-in, this Pokemon summons Trick Room.",
+		onStart(pokemon) {
+			if (pokemon.timeWapred) return;
+			pokemon.timeWapred = true;
+			this.add('-ability', pokemon, 'Time Warp');
+			this.field.addPseudoWeather('trickroom', pokemon, pokemon.ability);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Time Warp",
+		rating: 4,
+	},
+	rockforever: {
+		onStart(pokemon) {
+			if (this.effectState.rocking) {
+				this.boost({atk: 2, def: 2}, pokemon);
+			}
+		},
+		onDamagePriority: -40,
+		onDamage(damage, target, source, effect) {
+			if (!this.effectState.rocking && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.effectState.rocking = true;
+				this.add('-ability', target, 'Rock Forever');
+				return target.hp - 1;
+				this.add('-message', `${pokemon.name} refused to go down!`);
+				this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
+				this.heal(pokemon.baseMaxhp);
+				this.boost({atk: 2, def: 2}, pokemon);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Rock Forever",
+		rating: 5,
+		shortDesc: "Once per battle, Survives lethal attack with 1 HP, HP fully restored, +2 Atk/Def.",
+	},
+	unwaveringmelody: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Punk Rock boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move.flags['sound'] && target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Unwavering Melody boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifyMovePriority: 7,
+		onModifyMove(move, pokemon) {
+			if (move.category === "Status") return;
+			if (move.flags['sound']) {
+				move.category = "Special";
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Unwavering Melody",
+		rating: 3,
+		shortDesc: "User's Sound moves are always Special and deal 1.3x damage + 2x damage when NvE.",
+	},
 
   // Old Abilities
 	regenerator: {
