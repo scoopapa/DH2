@@ -645,8 +645,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Unwavering Melody",
-		rating: 3,
+		rating: 4.5,
 		shortDesc: "User's Sound moves are always Special and deal 1.3x damage + 2x damage when NvE.",
+	},
+	twistoffate: {
+		onStart(source) {
+			this.add('-message', `${source.name} now realizes that, perhaps, you can defy your destiny!`);
+			this.actions.useMove("Twists of Fate", source, source);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Twist of Fate",
+		rating: 2,
+		shortDesc: "This Pokemon's team becomes immune to Future moves until this Pokemon faints.",
 	},
 
   // Old Abilities
