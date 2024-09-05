@@ -851,7 +851,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LCYB",
 		doublesTier: "LCYB",
 	},
-	whismicott: {
+	whimsicott: {
 		tier: "NUYB",
 		doublesTier: "NUYB",
 	},
