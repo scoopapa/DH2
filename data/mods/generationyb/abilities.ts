@@ -158,7 +158,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	doorstop: {
 	   onSwitchOut(pokemon) {
-      pokemon.side.addSlotCondition(pokemon, 'doorstop');
+			this.add('-activate', target, 'ability: Doorstop');
+      	pokemon.side.addSlotCondition(pokemon, 'doorstop');
 			this.add('-message', `${pokemon.name} is holding the door for its team!`);
 	   },
     condition: {
@@ -292,7 +293,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (move.type === 'Bug') {
 				if (this.randomChance(3, 10)) {
 					target.trySetStatus('brn', source);
-          target.addVolatile('trapped', source, move, 'trapper');
+          		target.addVolatile('trapped', source, move, 'trapper');
 				}
 			}
 		},
