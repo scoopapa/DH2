@@ -423,12 +423,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 	},
 	relentless: {
-		onUpdate(pokemon) {
-			if (pokemon.moveThisTurnResult === false) {
-				this.add('-activate', pokemon, 'ability: Relentless');
-				this.boost({atk: 1});
-				this.add('-message', `${pokemon.name}'s frustration boosted its Attack!`);
-			}
+		onMoveFail(target, source, move) {
+			this.boost({atk: 1});
+			this.add('-message', `${pokemon.name}'s frustration boosted its Attack!`);
 		},
 		flags: {},
 		name: "Relentless",
