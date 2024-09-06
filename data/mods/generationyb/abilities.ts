@@ -623,10 +623,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		condition: {
-			onStart(target, source, effect) {
-				this.add('-message', `${target.name} refused to go down!`);
-				this.add('-message', `${target.name} wants to rock and roll forever!`);
-				this.actions.useMove("Rock of Legend", target, target);
+			onResidualOrder: 1,
+			onResidual(pokemon) {
+				this.add('-message', `${pokemon.name} refused to go down!`);
+				this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
+				this.actions.useMove("Rock of Legend", pokemon, pokemon);
 			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
