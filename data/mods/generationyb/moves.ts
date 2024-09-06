@@ -491,8 +491,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.basePower = 150;
 			}
 		},
-		onUseMoveMessage(pokemon, target, move) {
-			this.add('-activate', pokemon, 'move: Cyclone', move.magnitude);
+		onHit(target, source, move) {
+			let bp = move.magnitude;
+			this.add('-message', `Cyclone hit with a BP of ${bp}!`);
 		},
 		secondary: null,
 		target: "allAdjacent",
