@@ -635,7 +635,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Extreme Evoboost", source);
-			this.add('-anim', source, "Smart Strike", target);
+			this.add('-anim', source, "Secret Sword", target);
 		},
 		secondary: null,
 		target: "normal",
