@@ -4113,40 +4113,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		onEnd(source) {
-			if (source.transformed) return;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon !== source && pokemon.hasAbility('Neutralizing Gas')) {
-					return;
-				}
-			}
-			this.add('-end', source, 'ability: Neutralizing Gas');
-
-			// FIXME this happens before the pokemon switches out, should be the opposite order.
-			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
-			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
-			// (If you're tackling this, do note extreme weathers have the same issue)
-
-			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
-			if (source.abilityState.ending) return;
-			source.abilityState.ending = true;
-			const sortedActive = this.getAllActive();
-			this.speedSort(sortedActive);
-			for (const pokemon of sortedActive) {
-				if (pokemon !== source) {
-					// don't restart abilities that weren't suppressed
-					if (pokemon.getAbility().flags['cantsuppress'] || pokemon.hasItem('abilityshield')) continue; 
-
-					// Will be suppressed by Pokemon#ignoringAbility if needed
-					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
-					if (pokemon.ability === "eczema") {
-						pokemon.addVolatile('ability:unaware');
-					} else if (pokemon.ability === "gluttony") {
-						pokemon.abilityState.gluttony = false;
-					}
-				}
-			}
-		},
 	},
 	//Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {
