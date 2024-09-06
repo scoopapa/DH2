@@ -697,7 +697,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	twistoffate: {
 		onStart(source) {
 			this.add('-message', `${source.name} now realizes that, perhaps, you can defy your destiny!`);
-			this.actions.useMove("Twists of Fate", source, source);
+			if (!source.side.getSideCondition('twistsoffate')) {
+				this.add('-message', `${source.name} now realizes that, perhaps, you can defy your destiny!`);
+				this.actions.useMove("Twists of Fate", source, source);
+			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Twist of Fate",
