@@ -1906,4 +1906,50 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Dragon",
 	},
+	rockoflegend: {
+		shortDesc: "Allows Rock Forever to work.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Rock of Legend",
+		pp: 40,
+		priority: 0,
+		flags: {},
+		heal: [1, 1],
+    	noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Boomburst", target);
+		},
+		boosts: {
+			atk: 2,
+			def: 2,
+		},
+		sideCondition: 'rockoflegend',
+	   condition: {
+			onSwitchIn() {
+				const source = this.effectState.source;
+				 if (!source.fainted) {
+					this.boost({atk: 2, def: 2}, source);
+				 }
+			},
+			onFaint(pokemon) {
+				const source = this.effectState.source;
+				if (pokemon === source) {
+					source.side.removeSideCondition('rockoflegend');
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Rock of Legend');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Rock of Legend');
+			},
+	   },
+		secondary: null,
+		target: "self",
+		type: "Flying",
+	},
 };
