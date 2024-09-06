@@ -478,7 +478,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.magnitude = 1;
 				move.basePower = 75;
 			} else if (i < 75) {
-				move.magnitude = 5;
+				move.magnitude = 2;
 				move.basePower = 95;
 			} else if (i < 90) {
 				move.magnitude = 3;
