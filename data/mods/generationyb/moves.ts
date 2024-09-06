@@ -1927,7 +1927,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		sideCondition: 'rockoflegend',
 	   condition: {
-			onSwitchIn() {
+			onSwap() {
 				const source = this.effectState.source;
 				 if (!source.fainted) {
 					this.boost({atk: 2, def: 2}, source);
