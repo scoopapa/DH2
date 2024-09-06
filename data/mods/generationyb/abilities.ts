@@ -609,27 +609,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 	},
 	rockforever: {
-		onStart(pokemon) {
-			if (this.effectState.rocking) {
+		onSwitchIn(pokemon) {
+			if (pokemon.rocking) {
 				this.boost({atk: 2, def: 2}, pokemon);
 			}
 		},
-		onDamagePriority: -40,
-		onDamage(damage, target, source, effect) {
-			if (!target.side.getSideCondition('rockoflegend') && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-activate', target, 'ability: Rock Forever');
-				target.addVolatile('rockforever');
-				return target.hp - 1;
-			}
-		},
-		condition: {
-			duration: 1,
-			onResidualOrder: 1,
-			onResidual(pokemon) {
+		onFaint(pokemon) {
+			if (pokemon.species.baseSpecies === 'Squawkabilly' && !pokemon.rocking && this.canSwitch(pokemon.side)) {
+				this.add('-ability', pokemon, 'Rock Forever');
 				this.add('-message', `${pokemon.name} refused to go down!`);
 				this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
-				this.actions.useMove("Rock of Legend", pokemon, pokemon);
-			},
+				pokemon.rocking = true;
+				pokemon.hp = pokemon.maxhp;
+				this.boost({atk: 2, def: 2}, pokemon);
+			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Rock Forever",
