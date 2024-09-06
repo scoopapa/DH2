@@ -610,11 +610,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	birdsofafeather: {
 		onStart(pokemon) {
-			const allies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && (ally !== pokemon)  && ally.hasType('Flying'));
-			if (allies > 0) {
+			pokemon.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && !ally.status && ally.hasType('Flying'));
+			if (pokemon.allies > 0) {
 				this.add('-activate', pokemon, 'ability: Birds of a Feather');
 				this.add('-message', `Birds of a feather flock together!`);
-				const birds = Math.min(allies.length, 5);
+				const birds = Math.min(pokemon.allies.length, 5);
 				this.add('-start', pokemon, `birds${birds}`, '[silent]');
 				this.effectState.fallen = birds;
 			}
