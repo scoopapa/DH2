@@ -654,7 +654,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Fire Blast", target);
+			this.add('-anim', source, "Pyro Ball", target);
 		},
 		onMoveFail(target, source, move) {
 			if (!this.canSwitch(source.side)) return;
