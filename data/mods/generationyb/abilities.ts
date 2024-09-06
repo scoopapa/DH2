@@ -182,7 +182,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	earthlymight: {
 		onBasePowerPriority: 24,
 		onBasePower(basePower, attacker, defender, move) {
-      if (defender.eggGroups === 'Amorphous' || defender.eggGroups === 'Ditto' || defender.eggGroups === 'Undiscovered') {
+      if (defender.baseSpecies.eggGroups === 'Amorphous' || defender.baseSpecies.eggGroups === 'Ditto' || defender.baseSpecies.eggGroups === 'Undiscovered') {
         this.debug('Earthly Might boost');
         return this.chainModify([5325, 4096]);
       }
@@ -195,7 +195,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	galacticmight: {
 		onBasePowerPriority: 24,
 		onBasePower(basePower, attacker, defender, move) {
-      if (defender.eggGroups === 'Human-Like' || defender.eggGroups === 'Field') {
+      if (defender.baseSpecies.eggGroups === 'Human-Like' || defender.baseSpecies.eggGroups === 'Field') {
         this.debug('Galactic Might boost');
         return this.chainModify([5325, 4096]);
       }
