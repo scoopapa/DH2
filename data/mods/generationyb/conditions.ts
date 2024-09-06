@@ -61,8 +61,8 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 						this.add('-activate', pokemon, 'ability: Mold Breaker');
 						break;
 					case 'Deino': case 'Zweilous': case 'Hydreigon':
-						pokemon.setAbility('liquidooze', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Liquid Ooze');
+						pokemon.setAbility('trace', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Trace');
 						break;
 					case 'Elgyem': case 'Beheeyem':
 						pokemon.setAbility('timewarp', pokemon, true);
