@@ -610,52 +610,57 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	birdsofafeather: {
 		onStart(pokemon) {
-			pokemon.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && !ally.status && ally.hasType('Flying'));
-			if (pokemon.allies > 0) {
-				this.add('-activate', pokemon, 'ability: Birds of a Feather');
-				this.add('-message', `Birds of a feather flock together!`);
-				const birds = Math.min(pokemon.allies.length, 5);
-				this.add('-start', pokemon, `birds${birds}`, '[silent]');
-				this.effectState.fallen = birds;
-			}
+			console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+			const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
+			this.add('-start', pokemon, `Birds: ${this.effectState.bird}`, '[silent]');
+			//this.boost({atk: bird * 2, def: bird * 2, spa: bird * 2, spd: bird * 2, spe: bird * 2});
+			this.effectState.bird = bird;
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, `birds${this.effectState.birds}`, '[silent]');
+			this.add('-end', pokemon, `Bird: ${this.effectState.bird}`, '[silent]');
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (this.effectState.birds) {
-				if (pokemon.ignoringAbility()) return;
+			if (this.effectState.bird) {
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
+				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
-				return this.chainModify([powMod[this.effectState.birds], 4096]);
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
+				return this.chainModify([powMod[this.effectState.bird], 4096]);
 			}
 		},
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
-			if (this.effectState.birds) {
-				if (pokemon.ignoringAbility()) return;
+			if (this.effectState.bird) {
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
+				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
-				return this.chainModify([powMod[this.effectState.birds], 4096]);
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
+				return this.chainModify([powMod[this.effectState.bird], 4096]);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if (this.effectState.birds) {
-				if (pokemon.ignoringAbility()) return;
+			if (this.effectState.bird) {
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
+				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
-				return this.chainModify([powMod[this.effectState.birds], 4096]);
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
+				return this.chainModify([powMod[this.effectState.bird], 4096]);
 			}
 		},
 		onModifySpDPriority: 6,
 		onModifySpD(spd, pokemon) {
-			if (this.effectState.birds) {
-				if (pokemon.ignoringAbility()) return;
+			if (this.effectState.bird) {
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
+				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
-				return this.chainModify([powMod[this.effectState.birds], 4096]);
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
+				return this.chainModify([powMod[this.effectState.bird], 4096]);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
