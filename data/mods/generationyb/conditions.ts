@@ -41,8 +41,8 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 						this.add('-activate', pokemon, 'ability: Twist of Fate');
 						break;
 					case 'Squawkabilly': case 'Squawkabilly-Blue': case 'Squawkabilly-White': case 'Squawkabilly-Yellow':
-						pokemon.setAbility('rockforever', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Rock Forever');
+						pokemon.setAbility('birdsofafeather', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Birds of a Feather');
 						break;
 					case 'Chatot':
 						pokemon.setAbility('unwaveringmelody', pokemon, true);
