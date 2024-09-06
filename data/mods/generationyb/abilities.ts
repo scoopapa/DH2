@@ -623,6 +623,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		condition: {
+			duration: 1,
 			onResidualOrder: 1,
 			onResidual(pokemon) {
 				this.add('-message', `${pokemon.name} refused to go down!`);
