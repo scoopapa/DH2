@@ -425,9 +425,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 	},
 	relentless: {
-		onMoveFail(target, source, move) {
-			this.boost({atk: 1});
-			this.add('-message', `${pokemon.name}'s frustration boosted its Attack!`);
+		onUpdate(pokemon) {
+			if (!this.effectState.relentless && pokemon.moveThisTurnResult === false) {
+				this.boost({atk: 1});
+				this.add('-message', `${pokemon.name}'s frustration boosted its Attack!`);
+				this.effectState.relentless = true;
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			delete this.effectState.relentless;
 		},
 		flags: {},
 		name: "Relentless",
@@ -611,11 +618,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamage(damage, target, source, effect) {
 			if (!this.effectState.rocking && damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', target, 'Rock Forever');
-				return target.hp - 1;
 				this.add('-message', `${target.name} refused to go down!`);
 				this.add('-message', `${target.name} wants to rock and roll forever!`);
-				this.heal(target.baseMaxhp);
+				this.heal(target.maxhp);
 				this.boost({atk: 2, def: 2}, target);
+				return target.hp - 1;
 				this.effectState.rocking = true;
 			}
 		},
