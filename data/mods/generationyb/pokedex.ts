@@ -225,7 +225,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 65, atk: 30, def: 45, spa: 60, spd: 45, spe: 65},
 		abilities: {0: "Cursed Body"},
 		weightkg: 5,
-		prevo: "Kataralope",
+		evos: ["Kataralope"],
 		eggGroups: ["Field", "Fairy"],
 	},
 	kataralope: {
@@ -235,7 +235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 85, atk: 95, def: 75, spa: 85, spd: 95, spe: 85},
 		abilities: {0: "Power Rush"},
 		weightkg: 10,
-		evos: ["Haresay"],
+		prevo: "Haresay",
 		eggGroups: ["Field", "Fairy"],
 	},
 	dandileo: {
