@@ -616,15 +616,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
-			if (!this.effectState.rocking && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'Rock Forever');
+			if (!target.side.getSideCondition('rockoflegend') && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-activate', target, 'ability: Rock Forever');
+				target.addVolatile('rockforever');
+				return target.hp - 1;
+			}
+		},
+		condition: {
+			onStart(target, source, effect) {
 				this.add('-message', `${target.name} refused to go down!`);
 				this.add('-message', `${target.name} wants to rock and roll forever!`);
-				this.heal(target.maxhp);
-				this.boost({atk: 2, def: 2}, target);
-				this.effectState.rocking = true;
-				return false;
-			}
+				this.actions.useMove("Rock of Legend", target, target);
+			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Rock Forever",
