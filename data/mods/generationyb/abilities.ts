@@ -622,8 +622,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (this.effectState.bird) {
-				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted));
-				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted).length;
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
 				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
@@ -633,8 +633,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyDefPriority: 6,
 		onModifyDef(def, pokemon) {
 			if (this.effectState.bird) {
-				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted));
-				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted).length;
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
 				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
@@ -644,8 +644,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if (this.effectState.bird) {
-				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted));
-				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted).length;
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
 				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
@@ -655,8 +655,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifySpDPriority: 6,
 		onModifySpD(spd, pokemon) {
 			if (this.effectState.bird) {
-				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted));
-				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.getTypes().join() === 'Flying' && !pokemon.fainted).length;
+				console.log(pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted));
+				const bird = pokemon.side.pokemon.filter(pokemon => pokemon.hasType('Flying') && !pokemon.fainted).length;
 				this.effectState.bird = bird;
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.bird]}/4096`);
