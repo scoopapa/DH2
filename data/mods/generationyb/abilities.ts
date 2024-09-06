@@ -609,6 +609,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 	},
 	rockforever: {
+		onBeforeSwitchIn(pokemon) {
+			if (pokemon.rocking) {
+				pokemon.setAbility('rockforever');
+				pokemon.baseAbility = 'rockforever';
+				pokemon.ability = 'rockforever';
+				pokemon.switchedIn = undefined;
+			}
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.rocking) {
 				this.boost({atk: 2, def: 2}, pokemon);
@@ -617,11 +625,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onFaint(pokemon) {
 			if (pokemon.species.baseSpecies === 'Squawkabilly' && !pokemon.rocking && this.canSwitch(pokemon.side)) {
 				this.add('-ability', pokemon, 'Rock Forever');
-				this.add('-message', `${pokemon.name} refused to go down!`);
+				this.add('-message', `But ${pokemon.name} didn't go down!`);
 				this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
 				pokemon.rocking = true;
 				pokemon.hp = pokemon.maxhp;
-				this.boost({atk: 2, def: 2}, pokemon);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
