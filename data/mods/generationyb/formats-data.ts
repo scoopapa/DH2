@@ -912,8 +912,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "NUYB",
 	},
 	ferroseed: {
-		tier: "LCYB",
-		doublesTier: "LCYB",
+		tier: "NUYB",
+		doublesTier: "NUYB",
 	},
 	ferrothorn: {
 		tier: "OUYB",
@@ -1104,6 +1104,74 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "NFEYB",
 	},
 	silvally: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyfighting: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyflying: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallypoison: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyground: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyrock: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallybug: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyghost: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallysteel: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyfire: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallywater: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallygrass: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyelectric: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallypsychic: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyice: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallydragon: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallydark: {
+		tier: "NUYB",
+		doublesTier: "NUYB",
+	},
+	silvallyfairy: {
 		tier: "NUYB",
 		doublesTier: "NUYB",
 	},
