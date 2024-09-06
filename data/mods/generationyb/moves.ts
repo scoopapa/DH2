@@ -513,23 +513,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		volatileStatus: 'focusenergy',
+		sideCondition: 'kicharge',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Focus Energy", target);
-		},
-		self: {
-			onHit(source) {
-				for (const pokemon of source.alliesAndSelf()) {
-					pokemon.addVolatile('kicharge');
-				}
-			},
 		},
 		boosts: {
 			spe: 1,
 		},
 		condition: {
-			noCopy: true,
-			onRestart: () => null,
+			duration: 2,
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.id === 'aurasphere') {
+					return this.chainModify(1.5);
+				}
+			},
 		},
 		secondary: null,
 		target: "self",
@@ -1401,14 +1400,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	spiderweb: {
 		inherit: true,
 		isNonstandard: null,
-	},
-	aurasphere: {
-		inherit: true,
-		onBasePower(basePower, pokemon, target) {
-			if (pokemon.volatiles['kicharge']) {
-				return this.chainModify(1.5);
-			}
-		},
 	},
 	defog: {
 		inherit: true,
