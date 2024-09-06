@@ -90,7 +90,9 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 		onBeforeSwitchOutPriority: -1,
 		onBeforeSwitchOut(pokemon) {
-			this.actions.useMove("Aurum Aura Used", pokemon, pokemon);
+			if (!target.side.getSideCondition('aurumauraused')) {
+				this.actions.useMove("Aurum Aura Used", pokemon, pokemon);
+			}
 		},
 	},
 	frz: {
