@@ -1007,7 +1007,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
-		onAnyModifyBoost(boosts, pokemon) {
+		//Okay so Mold Breaker hits through Rough Skin but not Unaware
+		//While Rough Skin announces itself through its effects, UNAWARE DOESN'T
+		onStart(pokemon) {
+			pokemon.addVolatile('ability:unaware');
+		},
+		onSourcePrepareHit(source, target, move) {
+			if (target.volatiles['ability:unaware']) {
+				if (move.ignoreAbility) target.removeVolatile('ability:unaware');
+			} else if (!move.ignoreAbility) target.addVolatile('ability:unaware');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('ability:unaware');
+		},
+		/*onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon) {
@@ -1022,8 +1035,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['spa'] = 0;
 				boosts['accuracy'] = 0;
 			}
-		},
-		flags: {breakable: 1},
+		},*/
+		flags: {},
 		name: "Eczema",
 		rating: 3,
 	},
@@ -4068,6 +4081,72 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		inherit: true,
+	},
+	neutralizinggas: {
+		inherit: true,
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				// Can't suppress a Tatsugiri inside of Dondozo already
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Rough Image'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				const targetAbilID = target.getAbility().id;
+				if (targetAbilID === 'eczema') {
+					target.removeVolatile('ability:unaware');
+				} else if (strongWeathers.includes(targetAbilID)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+			}
+		},
+		onEnd(source) {
+			if (source.transformed) return;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source && pokemon.hasAbility('Neutralizing Gas')) {
+					return;
+				}
+			}
+			this.add('-end', source, 'ability: Neutralizing Gas');
+
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If you're tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			if (source.abilityState.ending) return;
+			source.abilityState.ending = true;
+			const sortedActive = this.getAllActive();
+			this.speedSort(sortedActive);
+			for (const pokemon of sortedActive) {
+				if (pokemon !== source) {
+					// don't restart abilities that weren't suppressed
+					if (pokemon.getAbility().flags['cantsuppress'] || pokemon.hasItem('abilityshield')) continue; 
+
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+					if (pokemon.ability === "eczema") {
+						pokemon.addVolatile('ability:unaware');
+					} else if (pokemon.ability === "gluttony") {
+						pokemon.abilityState.gluttony = false;
+					}
+				}
+			}
+		},
 	},
 	//Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {
