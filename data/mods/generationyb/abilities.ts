@@ -427,9 +427,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	relentless: {
 		onUpdate(pokemon) {
 			if (!this.effectState.relentless && pokemon.moveThisTurnResult === false) {
+				this.effectState.relentless = true;
 				this.boost({atk: 1});
 				this.add('-message', `${pokemon.name}'s frustration boosted its Attack!`);
-				this.effectState.relentless = true;
 			}
 		},
 		onResidualOrder: 29,
