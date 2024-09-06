@@ -425,16 +425,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 	},
 	relentless: {
-		onUpdate(pokemon) {
-			if (!this.effectState.relentless && pokemon.moveThisTurnResult === false) {
-				this.effectState.relentless = true;
-				this.boost({atk: 1});
-				this.add('-message', `${pokemon.name}'s frustration boosted its Attack!`);
-			}
+		onBeforeMove(pokemon, target, move) {
+			delete this.effectState.relentless;
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			delete this.effectState.relentless;
+			if (!this.effectState.relentless && pokemon.moveThisTurnResult === false) {
+				this.effectState.relentless = true;
+				this.boost({atk: 1});
+				this.add('-message', `${pokemon.name}'s frustration at failing boosted its Attack!`);
+			}
 		},
 		flags: {},
 		name: "Relentless",
@@ -623,6 +623,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.heal(target.maxhp);
 				this.boost({atk: 2, def: 2}, target);
 				this.effectState.rocking = true;
+				return false;
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
