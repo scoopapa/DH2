@@ -599,46 +599,58 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	timewarp: {
 		shortDesc: "Once per battle, on switch-in, this Pokemon summons Trick Room.",
 		onStart(pokemon) {
-			if (pokemon.timeWapred) return;
-			pokemon.timeWapred = true;
-			this.add('-ability', pokemon, 'Time Warp');
-			this.field.addPseudoWeather('trickroom', pokemon, pokemon.ability);
+			const allies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && (ally !== pokemon)  && ally.hasType('Flying'));
+			if (allies > 0) {
+				this.add('-activate', pokemon, 'ability: Birds of a Feather');
+				this.add('-message', `Birds of a feather flock together!`);
+				const birds = Math.min(allies.length, 5);
+				this.add('-start', pokemon, `birds${birds}`, '[silent]');
+				this.effectState.fallen = birds;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `birds${this.effectState.birds}`, '[silent]');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (this.effectState.birds) {
+				if (pokemon.ignoringAbility()) return;
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
+				return this.chainModify([powMod[this.effectState.birds], 4096]);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (this.effectState.birds) {
+				if (pokemon.ignoringAbility()) return;
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
+				return this.chainModify([powMod[this.effectState.birds], 4096]);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.effectState.birds) {
+				if (pokemon.ignoringAbility()) return;
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
+				return this.chainModify([powMod[this.effectState.birds], 4096]);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (this.effectState.birds) {
+				if (pokemon.ignoringAbility()) return;
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Birds of a Feather boost: ${powMod[this.effectState.birds]}/4096`);
+				return this.chainModify([powMod[this.effectState.birds], 4096]);
+			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Time Warp",
-		rating: 4,
-	},
-	rockforever: {
-		onBeforeSwitchIn(pokemon) {
-			if (pokemon.zombie) {
-				pokemon.setAbility('rockforever');
-				pokemon.baseAbility = 'rockforever';
-				pokemon.ability = 'rockforever';
-				pokemon.zombie = false;
-				pokemon.switchedIn = undefined;
-			}
-		},
-		onSwitchIn(pokemon) {
-			if (pokemon.rocking) {
-				this.boost({atk: 2, def: 2}, pokemon);
-			}
-		},
-		onFaint(pokemon) {
-			if (pokemon.species.baseSpecies === 'Squawkabilly' && !pokemon.transformed && !pokemon.zombie && this.canSwitch(pokemon.side)) {
-				if (pokemon.formeChange('Squawkabilly', this.effect, true)) {
-					this.add('-ability', pokemon, 'Rock Forever');
-					this.add('-message', `But ${pokemon.name} didn't go down!`);
-					this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
-					pokemon.zombie = true;
-					pokemon.rocking = true;
-					pokemon.hp = pokemon.maxhp;
-				}
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Rock Forever",
+		name: "Birds of a Feather",
 		rating: 5,
-		shortDesc: "Once per battle, Survives lethal attack with 1 HP, HP fully restored, +2 Atk/Def.",
+		shortDesc: "This Pokemon's non-Speed stats are boosted 10% for each Flying ally, up to 5 allies.",
 	},
 	unwaveringmelody: {
 		onBasePowerPriority: 7,
