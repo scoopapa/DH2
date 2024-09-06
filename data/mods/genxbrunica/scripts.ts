@@ -538,7 +538,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!rawSpecies) continue;
 				const species = pokemon.setSpecies(rawSpecies);
 				if (!species) continue;
-				console.log("WE HAVE A MON BEING FORME CHANGED");
 				pokemon.baseSpecies = rawSpecies;
 				pokemon.details = species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
