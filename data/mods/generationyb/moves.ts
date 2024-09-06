@@ -655,7 +655,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onMoveFail(target, source, move) {
 			if (!this.canSwitch(source.side)) return;
 			this.damage(source.baseMaxhp / 3, source, source);
-			move.selfSwitch = true;
+			source.switchFlag = true;				
 		},
 		secondary: null,
 		target: "normal",
