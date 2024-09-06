@@ -599,6 +599,17 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	timewarp: {
 		shortDesc: "Once per battle, on switch-in, this Pokemon summons Trick Room.",
 		onStart(pokemon) {
+			if (pokemon.timeWapred) return;
+			pokemon.timeWapred = true;
+			this.add('-ability', pokemon, 'Time Warp');
+			this.field.addPseudoWeather('trickroom', pokemon, pokemon.ability);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Time Warp",
+		rating: 4,
+	},
+	birdsofafeather: {
+		onStart(pokemon) {
 			const allies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && (ally !== pokemon)  && ally.hasType('Flying'));
 			if (allies > 0) {
 				this.add('-activate', pokemon, 'ability: Birds of a Feather');
