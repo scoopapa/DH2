@@ -610,13 +610,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
 			if (!this.effectState.rocking && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.effectState.rocking = true;
 				this.add('-ability', target, 'Rock Forever');
 				return target.hp - 1;
-				this.add('-message', `${pokemon.name} refused to go down!`);
-				this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
-				this.heal(pokemon.baseMaxhp);
-				this.boost({atk: 2, def: 2}, pokemon);
+				this.add('-message', `${target.name} refused to go down!`);
+				this.add('-message', `${target.name} wants to rock and roll forever!`);
+				this.heal(target.baseMaxhp);
+				this.boost({atk: 2, def: 2}, target);
+				this.effectState.rocking = true;
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
