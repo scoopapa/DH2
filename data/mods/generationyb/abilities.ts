@@ -622,7 +622,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-message', `${target.name} wants to rock and roll forever!`);
 				this.heal(target.maxhp);
 				this.boost({atk: 2, def: 2}, target);
-				return target.hp - 1;
 				this.effectState.rocking = true;
 			}
 		},
