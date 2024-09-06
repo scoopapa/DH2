@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	/* FEG9 abils */
 	unfiltered: {
 		shortDesc: "Filter + Contrary + This Pokemon's NvE Moves deal 4/3x damage.",
@@ -1651,10 +1651,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Circuit Breaker', '[fromitem]');
-					this.add('-message', `${pokemon.name} used its Booster Energy to break the circuit harder!`);
+					this.add('-message', `${pokemon.name} used its Booster Energy to overclock its Circuit Breaker!`);
 				} else {
 					this.add('-activate', pokemon, 'ability: Circuit Breaker');
-					this.add('-message', `The Electric Terrain lets ${pokemon.name} break the circuit harder!`);
+					this.add('-message', `The Electric Terrain lets ${pokemon.name} overclock its Circuit Breaker!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
