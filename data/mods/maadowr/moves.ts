@@ -557,7 +557,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -19,
 		accuracy: 100,
 		basePower: 80,
-		category: "Special",
+		category: "Physical",
 		shortDesc: "Spectral Thief clone.",
 		name: "Motion Cap",
 		pp: 10,
@@ -567,8 +567,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		// Boost stealing implemented in scripts.js
 		secondary: null,
 		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
+		type: "Fighting",
+		contestType: "Clever",
 	},
 	// end
 
@@ -757,7 +757,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},
-		onHit(target) {
+		/*onHit(target) {
 			let boosts: BoostsTable = target.boosts;
 		
 			// Check if the target's HP is not full before healing
@@ -779,6 +779,53 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			    	this.add('-clearboost', target);
 				}
 				return true;
+		},*/
+		onHit(pokemon) {
+			// Healing for the user
+			if (pokemon.hp < pokemon.maxhp) {
+				const healAmount = pokemon.maxhp / 4;
+				pokemon.heal(healAmount);
+				this.add('-heal', pokemon, pokemon.getHealth, healAmount);
+			}
+		
+			// Clear negative stat boosts for the user
+			let userBoosts: BoostsTable = pokemon.boosts;
+			let clearedUserBoosts = false; // Flag to track if any user boosts were cleared
+			for (const stat in userBoosts) {
+				if (userBoosts[stat as keyof BoostsTable] < 0) {
+					userBoosts[stat as keyof BoostsTable] = 0;
+					clearedUserBoosts = true; // Set flag if any boost was reset
+				}
+			}
+			
+			// Notify about the clearing of user's negative boosts
+			if (clearedUserBoosts) {
+				pokemon.clearBoosts();
+				this.add('-clearboost', pokemon);
+			}
+		
+			// Access the ally (assuming the ally is the other Pokémon in the same team)
+			const ally = pokemon.side.active.find(p => p !== pokemon); // Adjust as needed based on your game's structure
+		
+			// Clear negative stat boosts for the ally
+			if (ally) {
+				let allyBoosts: BoostsTable = ally.boosts;
+				let clearedAllyBoosts = false; // Flag to track if any ally boosts were cleared
+				for (const stat in allyBoosts) {
+					if (allyBoosts[stat as keyof BoostsTable] < 0) {
+						allyBoosts[stat as keyof BoostsTable] = 0;
+						clearedAllyBoosts = true; // Set flag if any boost was reset
+					}
+				}
+				
+				// Notify about the clearing of ally's negative boosts
+				if (clearedAllyBoosts) {
+					ally.clearBoosts();
+					this.add('-clearboost', ally);
+				}
+			}
+		
+			return true; 
 		},
 		secondary: null,
 		target: "allies",
@@ -908,25 +955,45 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
-	// start
-//	wondergleam: {
-//		num: -31,
-//		accuracy: 100,
-//		basePower: 70,
-//		category: "Special",
-//		shortDesc: "Damage dependent on reverted type chart effectiveness in Psychic terrain.",
-//		name: "Wonder Gleam",
-//		pp: 10,
-//		priority: 0,
-//		flags: {protect: 1, mirror: 1, metronome: 1},
-//		onEffectiveness(typeMod, target, type) {
-//			if (type === {'Psychic', 'Steel', 'Dark'}) return 1;
-//		},
-//		secondary: null,
-//		target: "normal",
-//		type: "Psychic",
-//		contestType: "Clever",
-//	},
+	//Start
+	wondermirror: {
+		num: -31,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Changes user's type to the type of the last move it was hit by.",
+		name: "Wonder Mirror",
+		pp: 10,
+		priority: 4,
+		stallingMove: true,
+		volatileStatus: 'wondermirror',	
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Wonder Mirror');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				this.add('-activate', target, 'move: Wonder Mirror');
+				// Change the user's type to the type of the incoming move
+				const newType = move.type;
+				target.setType(newType);
+				this.add('-start', target, 'typechange', newType);
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		contestType: "Beautiful",
+	},
 	// end
 
    // start
@@ -1033,12 +1100,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
-		onBasePower(basePower, source) {
+		/*onBasePower(basePower, source) {
 			if (['raindance', 'primordialsea'].includes(source.effectiveWeather()) && !source.hasItem('utilityumbrella')) {
 				this.debug('rain Incandescent Flame boost');
 				return this.chainModify(2);
 			}
-		},
+		},*/
 		secondary: {chance: 100,
 			onHit(target, source, move) {
 				if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -1240,6 +1307,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
+	// start
+	reactivepoison: {
+		num: -37,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Reactive Poison", 
+		pp: 20,  
+		priority: 0, 
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyPriority(priority, source, target, move) {  
+			if (target.status === 'psn' || target.status === 'tox') {  
+				return priority + 1; 
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	// end
+
 	enhancement: {
 		num: -41,
 		accuracy: true,
@@ -1271,6 +1360,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     accuracy: true,
     basePower: 0,
     category: "Status",
+	 shortDesc: "User's side eats berries; effect doubled.",
     name: "Saute",
     pp: 5,
     priority: 0,
@@ -1309,6 +1399,149 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
     type: "Fire",
 },
 // end
+// start
+	blockage: {
+		num: -43,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "King's Shield with Disable instead.",
+		name: "Blockage",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		volatileStatus: 'blockage',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Blockage');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (move.category !== 'Status') {
+					this.add('-activate', target, 'move: Blockage');
+					// Disable the damaging move
+					source.addVolatile('disable');
+					return this.NOT_FAIL;
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	// end
+
+	// start
+	pincerattack: {
+		num: -44, 
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Combo attack: Escavalier, double damage; Grapplin, heals.",
+		name: "Pincer Attack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1},
+		onModifyType(move, pokemon) {
+			// Change the move type based on the user
+			if (pokemon.species.name === 'Escavalier') {
+				move.type = 'Bug'; // Change to Bug type if Escavalier is the user
+			} else if (pokemon.species.name === 'Grapplin') {
+				move.type = 'Fighting'; // Change to Fighting type if Grapplin is the user
+			}
+		},
+		onBasePower(basePower, pokemon) {
+			// Check if Grapplin used this move first this turn
+			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Escavalier') {
+				this.debug('double power');
+				return this.chainModify(2);
+			} else if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') {
+				this.debug('double power');
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	// end
+
+	// start: Exhume from Dark Volatile
+	exhume: {
+		num: -45,
+		accuracy: true,
+		basePower: 0,
+		category: 'Status',
+		shortDesc: "Executes first move of last fainted ally. Best stat boost.",
+		name: 'Exhume',
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
+		onPrepareHit(target, source) {
+			// Find the last fainted Dark-type Pokémon on the user's team
+			const faintedDarkTypes = source.side.pokemon.filter(p => p.fainted && p.hasType('Dark'));
+			const lastFaintedDark = faintedDarkTypes[faintedDarkTypes.length - 1];
+	
+			if (!lastFaintedDark) {
+				this.add('-fail', source, 'move: Exhume');
+				return null;
+			}
+	
+			// Determine the best stat to boost
+			const stats: Array<StatIDExceptHP> = ['atk', 'spa', 'def', 'spd', 'spe']; // List of stats to consider
+			let bestStat: StatIDExceptHP = stats[0]; // Initialize with the first stat
+			let highestValue = lastFaintedDark.getStat(bestStat); // Get the initial highest value
+	
+			for (const stat of stats) {
+				const currentValue = lastFaintedDark.getStat(stat);
+				if (currentValue > highestValue) {
+					highestValue = currentValue;
+					bestStat = stat; // Update bestStat to the current highest stat
+				}
+			}
+	
+			// Apply +1 to the best stat
+			this.boost({[bestStat]: 1}, source);
+		},
+		onTryHit(target, source, move) {
+			// Find the last fainted Dark-type Pokémon on the user's team
+			const faintedDarkTypes = source.side.pokemon.filter(p => p.fainted && p.hasType('Dark'));
+			const lastFaintedDark = faintedDarkTypes[faintedDarkTypes.length - 1];
+	  
+			if (!lastFaintedDark) {
+			  this.add('-fail', source, 'move: Exhume');
+			  return null;
+			}
+	  
+			// Use the first move of the last fainted Dark-type Pokémon
+			const firstMove = lastFaintedDark.moveSlots[0]; // Get the first move slot
+	  
+			if (!firstMove) {
+			  this.add('-fail', source, 'move: Exhume');
+			  return null;
+			}
+	  
+			// Use the move as if it were the user's move
+			const moveData = this.dex.moves.get(firstMove.id);
+			this.add('-message', `${source.name} exhumes ${lastFaintedDark.name}'s ${moveData.name}!`);		
+			this.actions.useMove(moveData.id, source, target); // Use the move on the target		
+		  },
+		secondary: null,
+		target: 'normal',
+		type: 'Dark',
+		contestType: "Cool",
+	  },
+	// end
 
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
@@ -1330,6 +1563,37 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 //		shortDesc: "Freezes all adjacent opponents.", // Short description
 //		desc: "A chilling blast that may freeze all adjacent opponents.", // Detailed description
 //	},
+	// end
+
+	// start: Reserve Idea For New Project
+	paranoia: {
+		num: -100,  
+		accuracy: 95,  
+		basePower: 0,  
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 4), 1);
+		},
+		onHit(target, source) {
+			if (!target) return;		
+			// Determine the best stat of the target
+			const bestStat = target.getBestStat(false, true) as keyof BoostsTable;
+	
+			// Create boosts object to lower the best stat
+			const boosts: Partial<BoostsTable> = {};
+			boosts[bestStat] = -1;
+			this.boost(boosts, target);
+		},
+		shortDesc: "Quarters targets' HP + lowers best stat.",
+		name: "Paranoia",  
+		category: "Special",
+		pp: 10,  
+		priority: 0,  
+		flags: {protect: 1, mirror: 1},
+		secondary: null,  
+		target: "allAdjacentFoes",  
+		type: "Bug",  
+		contestType: "Clever", 
+	},
 	// end
 
 	// start

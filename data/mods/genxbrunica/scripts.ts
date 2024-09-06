@@ -8,7 +8,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	init() {
 		//Free dexited movesets
-		
 		const undexitedMons = [];
 		for (const pokemon in this.data.FormatsData) {
 			//We will skip mons absent from Brunica and custom formes that lack tiers
@@ -83,6 +82,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset[move].push("9L1");
 			}
 		}
+		//Relicanth
+		this.modData("Learnsets", "relicanth").learnset.terracharge = ["9L35"];
+		
 		//Shuppet line
 		this.modData("Learnsets", "shuppet").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "banette").learnset.drainfang = ["9L1","8L1"];
@@ -496,6 +498,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets","numel").learnset.terracharge = ["9L1"];
 		this.modData("Learnsets","camerupt").learnset.terracharge = ["9L1"];
 		
+		//wailmer line
+		this.modData("Learnsets","wailmer").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.frostfeint = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.iciclecrash = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.frostfeint = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.iciclecrash = ["9L1"];
+		
+		//fletchling line
+		this.modData("Learnsets","fletchling").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchling").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.solarblade = ["9L1"];
+		
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
@@ -831,12 +849,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (maxMove) {
 				move = this.getActiveMaxMove(baseMove, pokemon);
 			} else if (pokemon.volatiles['typebalm']?.balmMove) {
-				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
+				const balmEffectData = pokemon.volatiles['typebalm'];
+				const isBalmStatus = balmEffectData.isBalmStatus;
 				if (
-					balmMoveData.type === pokemon.volatiles['typebalm'].balmType //Check if used the right balm
-					&& balmMoveData.type === move.type //Check if type matches
-					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
+					move.type === pokemon.volatiles['typebalm'].balmType //Check if balm type matches move type
+					&& ((move.category === 'Status') ? isBalmStatus : !isBalmStatus) //If the balm or base move is status but not both it won't overwrite
 				) {
+					const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
 					move = this.getActiveBalmMove(move, balmMoveData);
 					balmMove = pokemon.volatiles['typebalm'].balmMove;
 				}
@@ -1236,6 +1255,35 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
+		
+		hitStepBreakProtect(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+			//Adding custom protective moves
+			if (move.breaksProtect) {
+				for (const target of targets) {
+					let broke = false;
+					for (const effectid of [
+						'banefulbunker', 'burningbulwark', 'kingsshield', 'obstruct', 'protect', 'silktrap', 'spikyshield',
+						'fieldofvision', 'toxicsnowball', 'firewall'
+					]) {
+						if (target.removeVolatile(effectid)) broke = true;
+					}
+					//if (this.battle.gen >= 6 || !target.isAlly(pokemon)) {
+						for (const effectid of ['craftyshield', 'matblock', 'quickguard', 'wideguard']) {
+							if (target.side.removeSideCondition(effectid)) broke = true;
+						}
+					//}
+					if (broke) {
+						if (move.id === 'feint') {
+							this.battle.add('-activate', target, 'move: Feint');
+						} else {
+							this.battle.add('-activate', target, 'move: ' + move.name, '[broken]');
+						}
+						/*if (this.battle.gen >= 6)*/ delete target.volatiles['stall'];
+					}
+				}
+			}
+			return undefined;
+		}
 		/*canMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return null;
 

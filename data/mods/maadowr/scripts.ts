@@ -2,13 +2,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers'],
-		customDoublesTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers'],
+		customTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers', 'EXP'],
+		customDoublesTiers: ['Mega', 'MD', 'MD NFE', 'MD Ubers', 'EXP'],
 	},
 	init() {		
 
 		// test
-	//	this.modData("Learnsets", "paras").learnset.earthpower = ['9M'];
+		this.modData("Learnsets", "relicanth").learnset.wavecrash = ['9M'];
 
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];

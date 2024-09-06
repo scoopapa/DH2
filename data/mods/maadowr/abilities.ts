@@ -247,8 +247,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: revisit later to check if ally also gets healed
 	cultivation: {
-		shortDesc: "User recovers 1/16 of its HP, 1/8 in terrain.",
-		onTerrainChange(target, source) {
+		shortDesc: "User and ally recover 1/16 of their HP in terrain.",
+		onResidualOrder: 26,
+    	onResidual(pokemon) {
+		//onTerrainChange(target, source) {
 			// Check if any relevant terrain is active
 			if (this.field.isTerrain('electricterrain') || 
 				this.field.isTerrain('grassyterrain') || 
@@ -257,13 +259,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.field.isTerrain('acidicterrain')) {
 				
 				// Heal the user by 1/16 of its max HP
-				this.heal(target.baseMaxhp / 16);
+				this.heal(pokemon.baseMaxhp / 16);
 				
 				// Heal the ally by 1/16 of their max HP
-				for (const ally of target.side.pokemon) {
-					if (ally && ally.hp > 0) { // Check if the ally is alive
-						this.heal(ally.baseMaxhp / 16);
-					}
+				const ally = pokemon.side.active.find(ally => ally && ally !== pokemon && !ally.fainted);
+					if (ally) {
+						this.heal(ally.baseMaxhp / 16, ally);
 				}
 			}
 		},
@@ -337,11 +338,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	interference: {
-		shortDesc: "If user gets hurt by a contact move, inflicts Torment on the attacker.",
+		shortDesc: "When attacked, inflicts Torment on the attacker.",
    		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
+			//if (this.checkMoveMakesContact(move, source, target)) {
 				source.addVolatile('torment', this.effectState.target);
-			}
+			//}
 		},
 		flags: {},
 		name: "Interference",
@@ -374,6 +375,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						if (target.hasAbility('immunity')) {
 						//	this.add('-message', `${target.name}'s Immunity prevents it from being poisoned!`);
 							continue; // Skip applying poison and flag
+						}
+						if (target.hasAbility('comatose')) {
+							//	this.add('-message', `${target.name}'s Immunity prevents it from being poisoned!`);
+								continue; // Skip applying poison and flag
 						}
 						if (target.side.getSideCondition('safeguard')) {
 						//	this.add('-message', `${target.name} is protected by Safeguard!`);
@@ -592,11 +597,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (!pokemon.isStarted) return; // should activate *after* Data Mod
 			let newtype = null;
 			for (const ally of pokemon.side.active) {
-				if (
-					ally !== pokemon && !ally.hasAbility('scaleshift') && ally.types[0] !== pokemon.baseSpecies.types[0] &&
-					ally.types[0] !== pokemon.baseSpecies.types[1]
-				) {
+				if (ally && ally !== pokemon && !ally.fainted && !ally.hasAbility('scaleshift') &&
+					ally.types[0] !== pokemon.baseSpecies.types[0] &&
+					ally.types[0] !== pokemon.baseSpecies.types[1]) {
 					newtype = ally.types[0];
+					break;
 				}
 			}
 			if (newtype) {
@@ -604,11 +609,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				if (pokemon.getTypes().join() === typecombo.join() || !pokemon.setType(typecombo)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
-			} else {
-				if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
-				this.add('-ability', pokemon, 'Scale Shift');
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			}
+			
 		},
 		onEnd(pokemon) {
 			if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
@@ -786,6 +788,233 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Wood Stove",
 		rating: 2,
 		num: -25,
+	},
+	// end
+
+	// start: Volatiles are handled in script
+	skyrider: {
+		shortDesc: "Tag Team: Escavalier and Grapplin.",
+		onUpdate(pokemon) {
+			const grapplin = pokemon.side.active.find(ally => ally.species.name === 'Grapplin');
+
+    		if (!grapplin) return; // Ensure Grapplin is present
+
+			// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+			if ((grapplin) && !grapplin.volatiles['skyriding']) {
+				grapplin.addVolatile('skyriding')
+			} // end
+
+    		if (pokemon.hasType('Steel')) {
+        		// If the user is Steel and Grapplin is not Steel, add skyriderally to Grapplin
+        		if (!grapplin.hasType('Steel')) {
+            		grapplin.addVolatile('skyriderally');
+        		}
+    		} else {
+        		// If the user is not Steel, remove skyriderally from Grapplin
+        		if (grapplin.volatiles['skyriderally']) {
+            		grapplin.removeVolatile('skyriderally');
+        		}
+    		}
+		},
+		onFaint(pokemon) {
+			pokemon.side.active.forEach(ally => {
+				if (ally && ally.volatiles['skyriderally']) {
+					ally.removeVolatile('skyriderally');
+				}
+				// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+				if (ally && ally.volatiles['skyriding']) {
+					ally.removeVolatile('skyriding')
+				} // end
+			});
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.active.forEach(ally => {
+				if (ally && ally.volatiles['skyriderally']) {
+					ally.removeVolatile('skyriderally');
+				}
+				// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+				if (ally && ally.volatiles['skyriding']) {
+					ally.removeVolatile('skyriding')
+				} // end
+			});
+		},
+		onEnd(pokemon) {
+			pokemon.side.active.forEach(ally => {
+				if (ally && ally.volatiles['skyriderally']) {
+					ally.removeVolatile('skyriderally');
+				}
+				// This is a new line to handle the case where Grapplin attacks first and Escavalier afterwards
+				if (ally && ally.volatiles['skyriding']) {
+					ally.removeVolatile('skyriding')
+				} // end
+			});
+		},
+		onPrepareHit(pokemon, target, move) {
+			const grapplin = pokemon.side.active.find(ally => ally.species.name === 'Grapplin');
+   			if (!grapplin) return; // Ensure Grapplin is present
+
+			// Check if the move is not a status move
+			if (move.category !== 'Status') {
+				// Loop through the action queue
+				for (const action of this.queue.list as MoveAction[]) {
+					// Check if the action is valid
+					if (
+						!action.move || !action.pokemon?.isActive ||
+						action.pokemon.fainted || action.maxMove || action.zmove
+					) {
+						continue; // Skip invalid actions
+					}
+		
+					// Check if the action belongs specifically to the ally; indirectly, that's Grapplin
+					if (action.pokemon.isAlly(pokemon)) {
+						this.queue.prioritizeAction(action, move); // Prioritize the action
+						this.add('-waiting', pokemon, action.pokemon); // Notify that Grapplin is waiting
+						break; // Exit the loop but not the function, meaning user's move should be able to do damage now
+					}
+				}
+			}
+		},	
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Sky Rider",
+		rating: 0,
+		num: -26,
+	},
+	// end
+	// start: Amaterasu, bound by volatile and Engraving. So, there's no real natural user of Amaterasu
+	amaterasu: {
+		shortDesc: "User burns and suffers 1/8 Burn damage.",
+		onUpdate(pokemon) {
+			// Check if the Pokémon has the Amaterasu ability and is not already burned, etc.
+			if (pokemon.hasAbility('amaterasu') && !pokemon.status && !pokemon.hasType('Fire')) {
+				if (pokemon.isGrounded() && this.field.isTerrain('mistyterrain')) {
+					return;
+				}
+				if (pokemon.side.getSideCondition('safeguard')) {
+					return;
+				}
+				if (pokemon.hasItem('sunring') && (pokemon.baseSpecies.baseSpecies === 'Horizonoc')) {
+					return;
+				}
+				// Check if the ally is Horizonoc and Sun or Desolate Land is active
+				const allyPresent = pokemon.side.active.some(ally => ally && ally !== pokemon && ally.baseSpecies.baseSpecies === 'Horizonoc' && ally.hasItem('sunring'));
+				if (allyPresent && ['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+					return;
+				}
+				pokemon.setStatus('brn', pokemon, null, true);
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				if (target === this.effectState.target) {
+					this.debug('Amaterasu damage increase for burn damage');
+					return this.chainModify(2);
+				}
+			}
+		},	
+		onFaint(target, source, effect) {
+			if (!source || !effect || target.side === source.side) return;
+			if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+				this.add('-ability', target, 'Amaterasu');
+				const bannedAbilities = [
+					'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'skyrider', 'stancechange', 'truant', 'zenmode',
+				];
+				if (bannedAbilities.includes(source.ability) || source.hasType('Fire')) {
+					return;
+				} else {
+					source.setAbility('amaterasu');
+					source.baseAbility = 'amaterasu' as ID;
+					source.ability = 'amaterasu' as ID;
+					this.add('-ability', source, 'Amaterasu', '[from] Ability: Amaterasu');
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Amaterasu",
+		rating: 0,
+		num: -29,
+	},
+	// end
+
+	// start: Archetype (Reserve Idea for New Project)
+	archetype: {
+		shortDesc: "Gains opposite effect of target's lowered stat.",
+		onPrepareHit(source, target, move) {
+			if (move && move.target === 'allAdjacentFoes') {
+				for (const foe of source.foes()) {
+					if (foe.isAdjacent(source)) {
+						const boosts = { ...foe.boosts };
+						foe.addVolatile('archetype', source);
+						foe.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', foe, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${foe.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'allAdjacent') {
+				for (const adjacent of this.getAllActive()) {
+					if (adjacent !== source && adjacent.isAdjacent(source)) {
+						const boosts = { ...adjacent.boosts };
+						adjacent.addVolatile('archetype', source);
+						adjacent.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', adjacent, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${adjacent.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'normal') {
+				const boosts = { ...target.boosts };
+				target.addVolatile('archetype', source);
+				target.volatiles['archetype'].boosts = boosts;
+			//	this.add('-start', target, 'Archetype', '[from] ability: Archetype');
+			//	this.add('-message', `${target.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+			}
+		},
+		onAfterMove(source, target, move) {
+			if (target.fainted) return;
+	
+			const stats = ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion'] as const;
+			type BoostStatistics = typeof stats[number];
+			const boostGains: Partial<Record<BoostStatistics, number>> = {};
+	
+			for (const activeTarget of this.getAllActive()) {
+				if (!activeTarget.volatiles['archetype']) continue;
+	
+				const storedBoosts = activeTarget.volatiles['archetype'].boosts;
+				const currentBoosts = activeTarget.boosts;
+	
+				for (const stat of stats) {
+					if (currentBoosts[stat] < storedBoosts[stat] || 
+						(currentBoosts[stat] < 0 && currentBoosts[stat] < storedBoosts[stat])) {
+						const difference = storedBoosts[stat] - currentBoosts[stat];
+						boostGains[stat] = (boostGains[stat] || 0) + difference;
+	
+					//	this.add('-message', `${source.name} gains ${difference} ${stat} boost from ${activeTarget.name}'s lower boost.`);
+					}
+				}
+	
+				delete activeTarget.volatiles['archetype'];
+			//	this.add('-end', activeTarget, 'Archetype', '[from] ability: Archetype');
+			}
+	
+			// Apply all boost gains at once and trigger visual display
+			if (Object.keys(boostGains).length > 0) {
+				this.boost(boostGains, source, source, this.effect);
+			}
+		},	
+		flags: {},
+		name: "Archetype",
+		rating: 4,
+		num: -27,
+	},
+	// end
+	// start: Reserve Idea for New Project
+	parasignal: {
+		shortDesc: "Sets Psychic Terrain when hurt.",
+		onDamagingHit(damage, target, source, move) {
+			this.field.setTerrain('psychicterrain');
+		},
+		flags: {},
+		name: "Parasignal",
+		rating: 2,
+		num: -28,
 	},
 	// end
 
