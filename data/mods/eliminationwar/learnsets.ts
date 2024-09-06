@@ -170,7 +170,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			behemothbash: ["9L1"],
 			belch: ["9L1"],
 			block: ["9L1"],
-			block: ["9L1"],
 			chillyreception: ["9L1"],
 			confide: ["9L1"],
 			corrosivegas: ["9L1"],
@@ -618,7 +617,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			heatwave: ["9L1"],
 			hurricane: ["9L1"],
 			irondefense: ["9L1"],
-			irondefense: ["9L1"],
 			pluck: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
@@ -632,6 +630,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			uturn: ["9L1"],
 		},
 	},
+<<<<<<< HEAD
 	regivillain: {
 		learnset: {
 			beatup: ["9L1"],
@@ -1215,3 +1214,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	},
 };
+=======
+};
+>>>>>>> parent of b1feed25c0 (Elimination War Slate 2)
