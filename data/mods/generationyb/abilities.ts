@@ -610,10 +610,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	rockforever: {
 		onBeforeSwitchIn(pokemon) {
-			if (pokemon.rocking) {
+			if (pokemon.zombie) {
 				pokemon.setAbility('rockforever');
 				pokemon.baseAbility = 'rockforever';
 				pokemon.ability = 'rockforever';
+				pokemon.zombie = false;
 				pokemon.switchedIn = undefined;
 			}
 		},
@@ -623,12 +624,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onFaint(pokemon) {
-			if (pokemon.species.baseSpecies === 'Squawkabilly' && !pokemon.rocking && this.canSwitch(pokemon.side)) {
-				this.add('-ability', pokemon, 'Rock Forever');
-				this.add('-message', `But ${pokemon.name} didn't go down!`);
-				this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
-				pokemon.rocking = true;
-				pokemon.hp = pokemon.maxhp;
+			if (pokemon.species.baseSpecies === 'Squawkabilly' && !pokemon.transformed && !pokemon.zombie && this.canSwitch(pokemon.side)) {
+				if (pokemon.formeChange('Squawkabilly', this.effect, true)) {
+					this.add('-ability', pokemon, 'Rock Forever');
+					this.add('-message', `But ${pokemon.name} didn't go down!`);
+					this.add('-message', `${pokemon.name} wants to rock and roll forever!`);
+					pokemon.zombie = true;
+					pokemon.rocking = true;
+					pokemon.hp = pokemon.maxhp;
+				}
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
