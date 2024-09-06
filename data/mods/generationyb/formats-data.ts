@@ -1360,8 +1360,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "LCYB",
 	},
 	palafin: {
-		tier: "UberYB",
-		doublesTier: "UberYB",
+		tier: "OUBL",
+		doublesTier: "OUBL",
 	},
 	orthworm: {
 		tier: "NUYB",
@@ -1555,6 +1555,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "UberYB",
 		doublesTier: "UberYB",
 	},
+	dialgaorigin: {
+		tier: "UberYB",
+		doublesTier: "UberYB",
+	},
+	palkiaorigin: {
+		tier: "UberYB",
+		doublesTier: "UberYB",
+	},
 	heatran: {
 		tier: "OUYB",
 		doublesTier: "OUYB",
@@ -1563,7 +1571,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NUYB",
 		doublesTier: "NUYB",
 	},
-	giratina: {
+	giratinaorigin: {
 		tier: "UberYB",
 		doublesTier: "UberYB",
 	},
@@ -1660,8 +1668,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "RUYB",
 	},
 	genesect: {
-		tier: "OUYB",
-		doublesTier: "OUYB",
+		tier: "OUBL",
+		doublesTier: "OUBL",
 	},
 	avalugghisui: {
 		tier: "NUYB",
@@ -1740,8 +1748,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "UberYB",
 	},
 	necrozmadawnwings: {
-		tier: "UberYB",
-		doublesTier: "UberYB",
+		tier: "OUBL",
+		doublesTier: "OUBL",
 	},
 	marshadow: {
 		tier: "UberYB",
@@ -1836,8 +1844,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "RUYB",
 	},
 	ogerponhearthflame: {
-		tier: "UberYB",
-		doublesTier: "UberYB",
+		tier: "OUBL",
+		doublesTier: "OUBL",
 	},
 	ogerponcornerstone: {
 		tier: "UUYB",
@@ -1847,9 +1855,29 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OUYB",
 		doublesTier: "OUYB",
 	},
+	ogerpontealtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ogerponhearthflametera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ogerponcornerstonetera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ogerponwellspringtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	terapagos: {
-		tier: "UberYB",
-		doublesTier: "UberYB",
+		tier: "OUYB",
+		doublesTier: "OUYB",
+	},
+	terapagosstellar: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 	pecharunt: {
 		tier: "UUYB",
@@ -2168,8 +2196,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "UberYB",
 	},
 	ohunuohunu: {
-		tier: "UberYB",
-		doublesTier: "UberYB",
+		tier: "OUBL",
+		doublesTier: "OUBL",
 	},
 	ohunuohunucore: {
 		tier: "UberYB",
