@@ -168,10 +168,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			pokemon.addVolatile('pumkinberry');
 		},
 		condition: {
-			duration: 2,
-  		onModifyDamage(damage, source, target, move) {
-  			return this.chainModify(2);
-  		},
+			duration: 1,
+	  		onModifyDamage(damage, source, target, move) {
+	  			return this.chainModify(2);
+	  		},
 		},
 		num: -1006,
 		gen: 9,
