@@ -516,8 +516,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Focus Energy", target);
 		},
-		onHit(pokemon) {
-			pokemon.addVolatile('kicharge');
+		self: {
+			onHit(source) {
+				for (const pokemon of source.alliesAndSelf()) {
+					pokemon.addVolatile('kicharge');
+				}
+			},
 		},
 		boosts: {
 			spe: 1,
@@ -1890,11 +1894,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-immune', pokemon, '[from] ability: Twist of Fate');
 					return null;
 				}
-			},
-			onAnyFaintPriority: 1,
-			onAnyFaint() {
-				const source = this.effectState.source;
-				source.side.removeSideCondition('twistsoffate');
 			},
 			onFaint(pokemon) {
 				const source = this.effectState.source;
