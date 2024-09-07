@@ -32,7 +32,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 						pokemon.setAbility('heartofcourage', pokemon, true);
 						this.add('-activate', pokemon, 'ability: Heart of Courage');
 						break;
-					case 'Unown':
+					case 'Unown': case 'Unown-B': case 'Unown-C': case 'Unown-D': case 'Unown-E': case 'Unown-F': case 'Unown-G': case 'Unown-H': case 'Unown-I': case 'Unown-J': case 'Unown-K': case 'Unown-L': case 'Unown-M': case 'Unown-N': case 'Unown-O': case 'Unown-P': case 'Unown-Q': case 'Unown-R': case 'Unown-S': case 'Unown-T': case 'Unown-U': case 'Unown-V': case 'Unown-W': case 'Unown-X': case 'Unown-Y': case 'Unown-Z': case 'Unown-Exclamation': case 'Unown-Question':
 						pokemon.setAbility('unknownforce', pokemon, true);
 						this.add('-activate', pokemon, 'ability: Unknown Force');
 						break;
