@@ -606,6 +606,33 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		onChangeSet(set) {
+			if (set.species.startsWith('Lutakon')) {
+				const item = this.toID(set.item);
+				if (item === 'awakeningseed') {
+					set.species = 'Lutakon-Awakened';
+					set.ability = 'Guardian of Nature';
+					let synthesis = set.moves.indexOf('Synthesis');
+					if (synthesis < 0) {
+						synthesis = set.moves.indexOf('synthesis');
+					}
+					if (synthesis >= 0) {
+						let gaiaRecoveryIndex = set.moves.indexOf('gaiarecovery');
+						if (gaiaRecoveryIndex < 0) {
+							gaiaRecoveryIndex = set.moves.indexOf('Gaia Recovery');
+						}
+						if (gaiaRecoveryIndex >= 0) {
+							delete set.moves[synthesis];
+						}
+						else {
+							set.moves[synthesis] = 'gaiarecovery';
+						}
+					}
+				} else {
+					set.species = 'Lutakon';
+				}
+			}
+		},
 	},
 	{
 	name: "[Gen 9] Generation X: Brunica [OU]",
