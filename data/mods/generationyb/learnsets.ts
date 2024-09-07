@@ -17433,6 +17433,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			doubleedge: ["9L1"],
 			electroweb: ["9L1"],
 			alluringvoice: ["9L1"],
+			grassknot: ["9L1"],
 			//electroball: ["9L1"],
 		},
 	},
