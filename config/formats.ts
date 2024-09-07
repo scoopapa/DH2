@@ -567,7 +567,7 @@ export const Formats: FormatList = [
 			'Floatzera', 'Florgerouge', 'Gargamise', 'Garpyuku', 'Great Kleav', 'Icekrai', 'Iron Dirge', 'Iron Legion', 'Iron Matcha',
 			'Iron Meta', 'Iron Mimic', 'Iron Tornado', 'Lelecuno-Galar', 'Meowscorio-Sensu', 'Necrotrik-Dawn-Wings', 'Necrotrik-Ultra', 'Primeleo',
 			'Relishadow', 'Revarantis', 'Roaring Sal', 'Rotoghold', 'Samuraiai-Hisui', 'Scream Cormorant', 'Sol Valiant', 'Stargrowth', 'Tapu Titan', 'Tinkovish', 'Toedieleki',
-			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox',
+			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox', 'Slither King',
 			'Muktaria-Alola-Mega', 'Mawlakazam-Mega-X', 'Mawlakazam-Mega-Y', 'Goopert-Hisui-Mega', 'Scizorite', 'Tentazor-Mega', 'Aerodactylite', 'Aerodirge-Mega', 'Zoroshark-Hisui-Mega'
 		],
 			//Just slapping "FEOU" in the banlist exclude these mons from the teambuilder... but an error ('Nothing matches "FEOU"') was thrown in dex-formats on the server side
@@ -603,6 +603,33 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
+				}
+			}
+		},
+		onChangeSet(set) {
+			if (set.species.startsWith('Lutakon')) {
+				const item = this.toID(set.item);
+				if (item === 'awakeningseed') {
+					set.species = 'Lutakon-Awakened';
+					set.ability = 'Guardian of Nature';
+					let synthesis = set.moves.indexOf('Synthesis');
+					if (synthesis < 0) {
+						synthesis = set.moves.indexOf('synthesis');
+					}
+					if (synthesis >= 0) {
+						let gaiaRecoveryIndex = set.moves.indexOf('gaiarecovery');
+						if (gaiaRecoveryIndex < 0) {
+							gaiaRecoveryIndex = set.moves.indexOf('Gaia Recovery');
+						}
+						if (gaiaRecoveryIndex >= 0) {
+							delete set.moves[synthesis];
+						}
+						else {
+							set.moves[synthesis] = 'gaiarecovery';
+						}
+					}
+				} else {
+					set.species = 'Lutakon';
 				}
 			}
 		},

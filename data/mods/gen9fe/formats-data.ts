@@ -61,7 +61,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	slitherking: {
-		tier: "FEUU",
+		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["morningsun", "uturn", "firstimpression", "flareblitz"],
 		randomBattleLevel: 80,

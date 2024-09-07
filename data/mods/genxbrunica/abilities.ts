@@ -42,7 +42,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			//Strong terrains can override Nature Field, and of course Nature Field shouldn't try to overwrite itself.
 			//Terrains set by other mons are instantly overridden
 			//Even if it's a terrain clear or a terrain set by this mon, if the mon stays in it won't stick. 
-			if (!strongTerrains.includes(terrain) && ((this.field.terrainState.source !== pokemon && terrain) || !(pokemon.beingCalledBack || pokemon.switchFlag))) this.field.setTerrain('guardianofnature');
+			if (!strongTerrains.includes(terrain) && pokemon.hp && ((this.field.terrainState.source !== pokemon && terrain) || !(pokemon.beingCalledBack || pokemon.switchFlag))) this.field.setTerrain('guardianofnature');
 		},
 		onEnd(pokemon) {
 			if (this.field.terrainState.source !== pokemon) return;
@@ -413,8 +413,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				pokemon.addVolatile('commanding');
 				ally.addVolatile('commanded', pokemon);
 				// Continued in conditions.ts in the volatiles
-			} else {
-				if (!ally.fainted) return;
+			} else if (ally.fainted) {
 				pokemon.removeVolatile('commanding');
 			}
 		},
@@ -503,6 +502,35 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
 			if (this.field.isTerrain('guardianofnature')) return this.chainModify(2);
+		},
+	},
+	neutralizinggas: {
+		inherit: true,
+		//End Nature Field on switch-in (Strong weathers are programmed to just end then and there too)
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongFieldEffects = ['desolateland', 'primordialsea', 'deltastream', 'guardianofnature'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Rough Image'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				const targetAbilID = target.getAbility().id;
+				if (strongFieldEffects.includes(targetAbilID)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+			}
 		},
 	},
 	//from desvega
