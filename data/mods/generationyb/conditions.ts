@@ -94,6 +94,12 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 				this.actions.useMove("Aurum Aura Used", pokemon, pokemon);
 			}
 		},
+		onDragOutPriority: 2,
+		onDragOut(pokemon) {
+			if (!pokemon.side.getSideCondition('aurumauraused')) {
+				this.actions.useMove("Aurum Aura Used", pokemon, pokemon);
+			}
+		},
 	},
 	frz: {
 		name: 'frz',
