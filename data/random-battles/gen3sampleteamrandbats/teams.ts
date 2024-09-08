@@ -1,6 +1,6 @@
 /* eslint max-len: ["error", 240] */
 
-import RandomGen4Teams from '../random-battles/gen4/teams';
+import RandomGen4Teams from '../gen4/teams';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 
 const SampleTeamsData = {
