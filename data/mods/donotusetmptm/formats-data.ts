@@ -1,4 +1,19 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
+	// New Mons
+	cramorant: {
+		tier: "DoNU",
+		isNonstandard: null,
+	},
+	meowthgalar: {
+		tier: "DoNU",
+		isNonstandard: null,
+	},
+	numel: {
+		tier: "DoNU",
+		isNonstandard: null,
+	},
+	
+	// Old Mons
 	applin: {
 		tier: "DoNU RU",
 		isNonstandard: null,
