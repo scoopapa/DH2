@@ -2,8 +2,8 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['ASODH', 'ASODH NFE', 'ASODH Ubers'],
-		customDoublesTiers: ['ASODH', 'ASODH NFE', 'ASODH Ubers'],
+		customTiers: ['Mega', 'ASODH', 'ASODH NFE', 'ASODH Ubers'],
+		customDoublesTiers: ['Mega', 'ASODH', 'ASODH NFE', 'ASODH Ubers'],
 	},
 	actions: {
 		canMegaEvo(pokemon) {

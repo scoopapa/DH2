@@ -997,7 +997,9 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		// ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Dynamax Clause'],
 		mod: 'm4av6',
-		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite', 'Baton Pass'],
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite', 'Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
+			'Arena Trap', 'Baton Pass', 'Power Construct', 'Shadow Tag', 'Snow Cloak', 'Sand Veil', 'Moody'
+		],
 		// teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -3768,7 +3770,9 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		// ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Terastal Clause'],
 		mod: 'm4ag9',
-		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite', 'Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
+			'Arena Trap', 'Baton Pass', 'Power Construct', 'Shadow Tag', 'Snow Cloak', 'Sand Veil', 'Moody'
+		],
 		// teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
