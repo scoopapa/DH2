@@ -42,6 +42,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	fletchling: {
 		inherit: true,
+		types: ["Fire", "Flying"],
 		baseStats: {hp: 45, atk: 50, def: 55, spa: 40, spd: 38, spe: 52},
 	},
 	spoink: {
