@@ -5,10 +5,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: null,
 	},
 	cramorantgulping: {
-		tier: "DoNU",
+		tier: "Illegal",
 	},
 	cramorantgorging: {
-		tier: "DoNU",
+		tier: "Illegal",
 	},
 	meowthgalar: {
 		tier: "DoNU",
