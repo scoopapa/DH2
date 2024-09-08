@@ -32,7 +32,7 @@ __export(random_teams_exports, {
   default: () => random_teams_default
 });
 module.exports = __toCommonJS(random_teams_exports);
-var import_random_teams = __toESM(require("../gen2/random-teams"));
+var import_random_teams = __toESM(require("../gen2/teams"));
 var import_lib = require("../../../lib");
 class RandomGen1Teams extends import_random_teams.default {
   constructor() {
