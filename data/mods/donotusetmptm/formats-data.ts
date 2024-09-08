@@ -4,6 +4,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "DoNU",
 		isNonstandard: null,
 	},
+	cramorantgulping: {
+		tier: "DoNU",
+	},
+	cramorantgorging: {
+		tier: "DoNU",
+	},
 	meowthgalar: {
 		tier: "DoNU",
 		isNonstandard: null,
