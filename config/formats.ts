@@ -997,7 +997,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		// ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Dynamax Clause'],
 		mod: 'm4av6',
-		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite', 'Baton Pass'],
 		// teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
