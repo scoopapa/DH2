@@ -3034,7 +3034,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Zebsonavolt",
 
 		types: ["Electric"],
-		baseStats: {hp: 90, atk: 120, def: 73, spa: 70, spd: 63, spe: 121},
+		baseStats: {hp: 95, atk: 120, def: 74, spa: 60, spd: 74, spe: 126},
 		abilities: {0: "Lightning Rod", 1: "Regenerator", H: "Sap Sipper"},
 		heightm: 1.9,
 		weightkg: 93.2,
