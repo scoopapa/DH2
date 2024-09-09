@@ -6762,6 +6762,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			safeguard: ["9M"],
 			shockwave: ["9M"],
 			signalbeam: ["9M"],
+			skyattack: ["9M"],
 			skydrop: ["9M"],
 			sleeptalk: ["9M"],
 			smartstrike: ["9M"],
