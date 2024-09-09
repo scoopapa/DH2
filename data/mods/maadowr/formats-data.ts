@@ -740,6 +740,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	zebstrika: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	zebsonavolt: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
