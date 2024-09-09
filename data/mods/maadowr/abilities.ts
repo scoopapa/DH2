@@ -1070,6 +1070,28 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 40,
 	},
 
+	pixilate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'colourmegone', 'judgment', 'multiattack', 'naturalgift', 'pincerattack', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fairy';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Pixilate",
+		rating: 4,
+		num: 182,
+	},
+
 	rivalry: {
 		onBasePowerPriority: 24,
 		onBasePower(basePower, attacker, defender, move) {
@@ -1222,4 +1244,295 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 50,
 	},
 	// end
+
+	cursedbody: {
+		onDamagingHit(damage, target, source, move) {		
+			if (source.volatiles['disable']) return; // Prevent reapplying disable
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cursed Body', target);
+					source.addVolatile('disable', target);
+				} else if (target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cursed Body', target);
+					source.addVolatile('disable', target);
+				}
+			}
+			
+		},
+		flags: {},
+		name: "Cursed Body",
+		rating: 2,
+		num: 130,
+	},
+	cutecharm: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['attract']) return;
+			// Existing logic for Cute Charm
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cute Charm', target);
+					source.addVolatile('attract', target);
+				} else if (target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cute Charm', target);
+					source.addVolatile('attract', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cute Charm",
+		rating: 0.5,
+		num: 56,
+	},
+	// Effect Spore
+	effectspore: {
+		onDamagingHit(damage, target, source, move) {
+			// Check if the move makes contact, the source has no status, and is not immune to powder
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				// Check if the source has the Maudior Feature as a volatile
+				if (target.volatiles['maudiorfeature']) {
+					// If the user has Maudior Feature, guarantee one of the status effects
+					this.add('-activate', source, 'ability: Effect Spore', target);
+					const r = this.random(3); // Generate a random number from 0 to 2
+					if (r === 0) {
+						source.setStatus('slp', target); // Sleep
+					} else if (r === 1) {
+						source.setStatus('par', target); // Paralysis
+					} else {
+						source.setStatus('psn', target); // Poison
+					}
+				} else {
+					// Existing logic for Effect Spore
+					const r = this.random(100); // Generate a random number from 0 to 99
+					if (r < 11) {
+						source.setStatus('slp', target); // Sleep
+					} else if (r < 21) {
+						source.setStatus('par', target); // Paralysis
+					} else if (r < 30) {
+						source.setStatus('psn', target); // Poison
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
+	// End
+	flamebody: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.status) {
+			// Existing logic for Flame Body
+				if (this.checkMoveMakesContact(move, source, target)) {
+					if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+						source.trySetStatus('brn', target);
+					} else if (target.volatiles['maudiorfeature']) {
+						source.trySetStatus('brn', target);
+					}
+				}
+			}	
+		},
+		flags: {},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
+	},
+	harvest: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			// Check if the source has the Maudior Feature
+			if (pokemon.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, guarantee the Berry restoration
+				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+					pokemon.setItem(pokemon.lastItem);
+					pokemon.lastItem = '';
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
+				}
+			} else {
+				// Existing logic for Harvest
+				if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
+					if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+						pokemon.setItem(pokemon.lastItem);
+						pokemon.lastItem = '';
+						this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Harvest",
+		rating: 2.5,
+		num: 139,
+	},
+	healer: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const allyActive of pokemon.adjacentAllies()) {
+				// Check if the Pokémon has the Maudior Feature as a volatile
+				if (pokemon.volatiles['maudiorfeature']) {
+					// If the user has Maudior Feature, guarantee the status cure
+					if (allyActive.status) {
+						this.add('-activate', pokemon, 'ability: Healer');
+						allyActive.cureStatus();
+					}
+				} else {
+					// Existing logic for Healer
+					if (allyActive.status && this.randomChance(3, 10)) {
+						this.add('-activate', pokemon, 'ability: Healer');
+						allyActive.cureStatus();
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Healer",
+		rating: 0,
+		num: 131,
+	},
+	poisonpoint: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.status) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+						source.trySetStatus('psn', target);
+					} else if (target.volatiles['maudiorfeature']) {
+						source.trySetStatus('psn', target);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	poisontouch: {
+		onSourceDamagingHit(damage, target, source, move) {
+			// Check if the target has Shield Dust or Covert Cloak
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak') || (target.status)) return;
+	
+				// Check if the source has the Maudior Feature as a volatile
+				if (source.volatiles['maudiorfeature']) {
+					// If the user has Maudior Feature, guarantee the poison effect
+				//	this.add('-activate', source, 'ability: Poison Touch', target);
+					target.trySetStatus('psn', source);
+				} else {
+				// Existing logic for Poison Touch
+				if (this.checkMoveMakesContact(move, target, source)) {
+					if (this.randomChance(3, 10)) {
+						target.trySetStatus('psn', source);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Touch",
+		rating: 2,
+		num: 143,
+	},
+	shedskin: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			// Check if the Pokémon has the Maudior Feature as a volatile
+			if (pokemon.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, guarantee the status cure
+				if (pokemon.hp && pokemon.status) {
+					this.add('-activate', pokemon, 'ability: Shed Skin');
+					pokemon.cureStatus();
+				}
+			} else {
+				// Existing logic for Shed Skin
+				if (pokemon.hp && pokemon.status && this.randomChance(33, 100)) {
+					this.debug('shed skin');
+					this.add('-activate', pokemon, 'ability: Shed Skin');
+					pokemon.cureStatus();
+				}
+			}
+		},
+		flags: {},
+		name: "Shed Skin",
+		rating: 3,
+		num: 61,
+	},
+	static: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.status) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+						source.trySetStatus('par', target);
+					} else if (target.volatiles['maudiorfeature']) {
+						source.trySetStatus('par', target);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Static",
+		rating: 2,
+		num: 9,
+	},
+	stench: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			// Check if the Pokémon has the Maudior Feature as a volatile
+			const source = this.effectState.source; // Get the source of the move
+			if (source.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, guarantee the flinch effect
+				this.debug('Adding guaranteed Stench flinch');
+				if (!move.secondaries) move.secondaries = [];
+				// Remove any existing flinch secondary
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 100, // Set chance to 100% for guaranteed flinch
+					volatileStatus: 'flinch',
+				});
+			} else {
+				// Existing logic for Stench
+				if (move.category !== "Status") {
+					this.debug('Adding Stench flinch');
+					if (!move.secondaries) move.secondaries = [];
+					for (const secondary of move.secondaries) {
+						if (secondary.volatileStatus === 'flinch') return;
+					}
+					move.secondaries.push({
+						chance: 10, // Original chance for flinch
+						volatileStatus: 'flinch',
+					});
+				}
+			}
+		},
+		flags: {},
+		name: "Stench",
+		rating: 0.5,
+		num: 1,
+	},
+	wonderskin: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			// Check if the Pokémon has the Maudior Feature as a volatile
+			if (target.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, set accuracy to 0 for status moves
+				if (move.category === 'Status' && typeof accuracy === 'number') {
+					this.debug('Wonder Skin with Maudior Feature - setting accuracy to 0');
+					return 0; // Guarantee 0% accuracy for status moves
+				}
+			} else {
+				// Existing logic for Wonder Skin
+				if (move.category === 'Status' && typeof accuracy === 'number') {
+					this.debug('Wonder Skin - setting accuracy to 50');
+					return 50; // Set accuracy to 50% for status moves
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Wonder Skin",
+		rating: 2,
+		num: 147,
+	},
+	
 };
