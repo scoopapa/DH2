@@ -71,4 +71,35 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	inciscyon: {
 		tier: "RegEvo",
 	},
+
+	beldumkanto: {
+		tier: "RegEvo NFE",
+	},
+	metangkanto: {
+		tier: "RegEvo NFE",
+	},
+	yamatang: {
+		tier: "RegEvo",
+	},
+	aipomkanto: {
+		tier: "RegEvo NFE",
+	},
+	kortori: {
+		tier: "RegEvo",
+	},
+	diodactyl: {
+		tier: "RegEvo",
+	},
+	meissnactyl: {
+		tier: "RegEvo",
+	},
+	shroomishhisui: {
+		tier: "RegEvo NFE",
+	},
+	breloomhisui: {
+		tier: "RegEvo NFE",
+	},
+	sageloom: {
+		tier: "RegEvo",
+	},
 };
