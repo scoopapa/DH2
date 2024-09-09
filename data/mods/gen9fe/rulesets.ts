@@ -44,7 +44,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				const baseSpecies = Dex.species.get(pokemon.species.name);
 				//let modded = [0,1].some(type => species.types[type] !== baseSpecies.types[type]);
 				let modded = false;
-				for (const abil in species.abilities) {
+				/*for (const abil in species.abilities) {
 					const abilName = species.abilities[abil];
 					const ability = this.dex.abilities.get(abilName);
 					const baseAbility = Dex.abilities.get(abilName);
@@ -56,7 +56,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				if (modded) {
 					pokemon.isModded = true;
 					continue;
-				}
+				}*/
 				for (const type in [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {
 						// console.log(species.types[type] + " is different from " + baseSpecies.types[type]);
@@ -118,7 +118,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				for (const abil in appearance.m.speciesModdedAbils) {
 					const ability = appearance.m.speciesModdedAbils[abil];
 					let buf = `<ul class="utilichart"><li class="result">`;
-					buf += `<span class="col namecol">${ability.name}</span><span class="col abilitydesccol">${ability.shortDesc || ability.desc}</span> `;
+					buf += `<span class="col abilitydesccol">${ability.name}: ${ability.shortDesc || ability.desc}</span> `;
 					buf += `</li><li style="clear:both"></li></ul>`;
 					this.add(`raw|${buf}`);
 				}
