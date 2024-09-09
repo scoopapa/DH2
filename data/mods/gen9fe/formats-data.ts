@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataTable = {
 	revarantis: {
 		tier: "FEOU",
 		doublesTier: "DOU",
