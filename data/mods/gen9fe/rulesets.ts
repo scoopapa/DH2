@@ -116,7 +116,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			if (appearance.m.speciesModdedAbils) {
 				for (const abil in appearance.m.speciesModdedAbils) {
-					const abilty = appearance.m.speciesModdedAbils[abil];
+					const ability = appearance.m.speciesModdedAbils[abil];
 					let buf = `<ul class="utilichart"><li class="result">`;
 					buf += `<span class="col namecol">${ability.name}</span><span class="col abilitydesccol">${ability.shortDesc || ability.desc}</span> `;
 					buf += `</li><li style="clear:both"></li></ul>`;
