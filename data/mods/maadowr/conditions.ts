@@ -1081,10 +1081,254 @@ export const Conditions: {[k: string]: ConditionData} = {
         },
 	},
 	// end
+	anquiterraengravingeffect: {
+		name: 'Anquiterra Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Anquiterra Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+    	    if (!pokemon.volatiles['anquiterrafeature']) {
+                pokemon.addVolatile('anquiterrafeature');
+            }
+        },
+	},
+	arastinithengravingeffect: {
+		name: 'Arastinith Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Arastinith Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['arastinithfeature']) {
+                pokemon.addVolatile('arastinithfeature');
+           }
+        },
+	},
+	barbaraclemaadowrengravingeffect: {
+		name: 'Barbaracle-Ma\'adowr Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Barbaracle-Ma'adowr Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['barbaraclemaadowrfeature']) {
+                pokemon.addVolatile('barbaraclemaadowrfeature');
+            }
+        },
+	},
+	beheeyemengravingeffect: {
+		name: 'Beheeyem Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Beheeyem Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['beheeyemfeature']) {
+                pokemon.addVolatile('beheeyemfeature');
+            }
+        },
+	},
+	chantyrusengravingeffect: {
+		name: 'Chantyrus Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Chantyrus Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['chantyrusfeature']) {
+                pokemon.addVolatile('chantyrusfeature');
+            }
+        },
+	},
+	craftenirengravingeffect: {
+		name: 'Craftenir Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Craftenir Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['craftenirfeature']) {
+                pokemon.addVolatile('craftenirfeature');
+            }
+        },
+	},
+	equinoqueengravingeffect: {
+		name: 'Equinoque Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Equinoque Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['equinoquefeature']) {
+                pokemon.addVolatile('equinoquefeature');
+        //    } else {
+        //        pokemon.removeVolatile('equinoquefeature');
+            }
+        },
+	},
+	golurkengravingeffect: {
+		name: 'Golurk Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Golurk Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['golurkfeature']) {
+                pokemon.addVolatile('golurkfeature');
+            }
+        },
+	},
+	grapplinengravingeffect: {
+		name: 'Grapplin Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Grapplin Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['grapplinfeature']) {
+                pokemon.addVolatile('grapplinfeature');
+            }
+        },
+	},
+	iblissengravingeffect: {
+		name: 'Ibliss Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Ibliss Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['iblissfeature']) {
+                pokemon.addVolatile('iblissfeature');
+            }
+        },
+	},
+	kenuterraengravingeffect: {
+		name: 'Kenuterra Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Kenuterra Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['kenuterrafeature']) {
+                pokemon.addVolatile('kenuterrafeature');
+            }
+        },
+	},
+	klinklangengravingeffect: {
+		name: 'Klinklang Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Klinklang Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['klinklangfeature']) {
+                pokemon.addVolatile('klinklangfeature');
+            }
+        },
+	},
+	maudiorengravingeffect: {
+		name: 'Maudior Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Maudior Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['maudiorfeature']) {
+                pokemon.addVolatile('maudiorfeature');
+            }
+        },
+	},
+	orasundraengravingeffect: {
+		name: 'Orasundra Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Orasundra Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['orasundrafeature']) {
+                pokemon.addVolatile('orasundrafeature');
+            }
+        },
+	},
+	parascentengravingeffect: {
+		name: 'Parascent Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Parascent Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['parascentfeature']) {
+                pokemon.addVolatile('parascentfeature');
+            }
+        },
+	},
+	rabscaengravingeffect: {
+		name: 'Rabsca Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Rabsca Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['rabscafeature']) {
+                pokemon.addVolatile('rabscafeature');
+            }
+        },
+	},
+	sneezibiaengravingeffect: {
+		name: 'Sneezibia Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Sneezibia Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['sneezibiafeature']) {
+                pokemon.addVolatile('sneezibiafeature');
+            }
+        },
+	},
+	spiritombengravingeffect: {
+		name: 'Spiritomb Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Spiritomb Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['spiritombfeature']) {
+                pokemon.addVolatile('spiritombfeature');
+            }
+        },
+	},
+	tinkatonengravingeffect: {
+		name: 'Tinkaton Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Tinkaton Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['tinkatonfeature']) {
+                pokemon.addVolatile('tinkatonfeature');
+            }
+        },
+	},
+	zebsonavoltengravingeffect: {
+		name: 'Zebsonavolt Engraving Effect',
+		noCopy: true,
+		/*onStart(side) {
+            this.add('-message', `The Zebsonavolt Engraving was activated on ${side.name}'s side!`);
+        },*/
+        onUpdate(pokemon) {
+            if (!pokemon.volatiles['zebsonavoltfeature']) {
+                pokemon.addVolatile('zebsonavoltfeature');
+            }
+        },
+	},
+	// end
 
 	// start: List of Engrave effects
 	grassfeature: {
 		name: 'Grass Feature',
+		noCopy: true,
 		onStart(pokemon) {
 		//	this.add('-start', pokemon, 'Grass Feature');
 			this.effectState.faintedCount = 0; // Initialize the fainted count
@@ -1118,6 +1362,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	bugfeature: {
 		name: 'Bug Feature',
+		noCopy: true,
 		onPrepareHit(source, target, move) {
 			// Store boosts for all targets affected by the move
 			if (move && move.target === 'allAdjacentFoes') {
@@ -1184,6 +1429,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	firefeature: {
 		name: 'Fire Feature',
+		noCopy: true,
 		onFaint(target, source, effect) {
 			if (!source || !effect || target.side === source.side) return;
 			if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
@@ -1205,6 +1451,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	waterfeature: {
 		name: 'Water Feature',
+		noCopy: true,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'Water Engraving');
@@ -1225,6 +1472,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	icefeature: {
 		name: 'Ice Feature',
+		noCopy: true,
 		onDamage(damage, target, source, effect) {
 			if (
 				effect.effectType === "Move" &&
@@ -1258,6 +1506,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	electricfeature: {
 		name: 'Electric Feature',
+		noCopy: true,
 		onModifyCritRatio(critRatio, source) {
 			const hpPercentage = source.hp / source.maxhp; // Calculate remaining HP percentage
 			const hpFactor = Math.floor((1 - hpPercentage) * 100); // Convert to a scale of 0-100
@@ -1271,6 +1520,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	psychicfeature: {
 		name: 'Psychic Feature',
+		noCopy: true,
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
@@ -1282,6 +1532,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	ghostfeature: {
 		name: 'Ghost Feature',
+		noCopy: true,
 		onFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move' && !effect.flags['futuremove'] && !source.volatiles['curse']) {
 				source.addVolatile('curse', target);
@@ -1290,6 +1541,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	poisonfeature: {
 		name: 'Poison Feature',
+		noCopy: true,
 		onFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move' && !effect.flags['futuremove']) {
 			  source.addVolatile('contamination', target);
@@ -1298,6 +1550,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	fightingfeature: {
 		name: 'Fighting Feature',
+		noCopy: true,
 		onAnyModifyDamage(damage, source, target, move) {
 			if (target === this.effectState.target) {
 				this.debug('Fighting Engraving weaken');
@@ -1319,6 +1572,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	rockfeature: {
 		name: 'Rock Feature',
+		noCopy: true,
 		onSourceModifyAccuracyPriority: -1,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
@@ -1339,6 +1593,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	groundfeature: {
 		name: 'Ground Feature',
+		noCopy: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source === this.effectState.target && !source.activeTurns) {
 				this.debug('Ground Engraving - reducing damage by 50% on switch-in');
@@ -1349,6 +1604,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
     normalfeature: {
 		name: 'Normal Feature',
+		noCopy: true,
 		onDamage(damage, target, source, effect) {
 			// Check if the damage is indirect
 			if (effect.effectType !== 'Move') {
@@ -1360,6 +1616,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	flyingfeature: {
 		name: 'Flying Feature',
+		noCopy: true,
 		onBasePowerPriority: 30,
     	onBasePower(basePower, attacker, defender, move) {
         const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
@@ -1372,6 +1629,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	dragonfeature: {
 		name: 'Dragon Feature',
+		noCopy: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Dragon' && move.category !== 'Status' && defender.hp <= defender.maxhp / 2) {
@@ -1389,6 +1647,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	steelfeature: {
 		name: 'Steel Feature',
+		noCopy: true,
 		onModifySecondaries(secondaries) {
 			this.debug('Steel Engraving prevent secondary');
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
@@ -1396,6 +1655,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	darkfeature: {
 		name: 'Dark Feature',
+		noCopy: true,
 		onUpdate(this: Battle, pokemon: Pokemon) {
 			if (pokemon.moveSlots.length < 4) {
 			  const move = this.dex.moves.get('exhume');
@@ -1419,6 +1679,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	fairyfeature: {
 		name: 'Fairy Feature',
+		noCopy: true,
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 	  
@@ -1458,6 +1719,587 @@ export const Conditions: {[k: string]: ConditionData} = {
 			  }
 			}
 		  },
+	},
+	// end
+	anquiterrafeature: {
+		name: 'Anquiterra Feature',
+		noCopy: true,
+ 	    onModifySpe(spe, pokemon) {
+        // Check if the Pokémon is grounded and its HP is at or below 50%
+        	if (pokemon.isGrounded() && pokemon.hp <= pokemon.maxhp / 2) {
+            	this.debug('Anquiterra Feature speed boost');
+            	return this.chainModify(1.5); // Increase speed by 50%
+        	}
+        	return spe; // Return original speed if conditions are not met
+    	},
+	},
+	arastinithfeature: {
+		name: 'Arastinith Feature',
+		noCopy: true,
+		onDamagingHit(damage, target, source, move) {
+			if (target === this.effectState.target && source !== target && !source.volatiles['mentaldamage']) {
+				source.addVolatile('mentaldamage', target);
+			}
+		},
+		onAfterMove(source, targets, move) {
+			// Check if the source is the effect target
+			if (source !== this.effectState.target) return;
+	
+			// Ensure targets is treated as an array
+			const affectedTargets = Array.isArray(targets) ? targets : [targets];
+	
+			// Prevent applying 'mentaldamage' if the source used a move that targets itself
+			if (affectedTargets.includes(source)) return;  // Check if the source is one of the targets
+	
+			// Determine the type of spread move and apply 'mentaldamage' accordingly
+			if (move && move.target === 'allAdjacentFoes') {
+				for (const foe of source.foes()) {
+					if (foe.isAdjacent(source)) {
+						if (!foe.volatiles['mentaldamage']) {
+							foe.addVolatile('mentaldamage', source);
+						}
+					}
+				}
+			} else if (move && move.target === 'allAdjacent') {
+				for (const adjacent of this.getAllActive()) {
+					if (adjacent !== source && adjacent.isAdjacent(source)) {
+						if (!adjacent.volatiles['mentaldamage']) {
+							adjacent.addVolatile('mentaldamage', source);
+						}
+					}
+				}
+			} else if (move && move.target === 'normal') {
+				// Apply to the specific target of the move
+				const firstTarget = affectedTargets[0]; // Access the first target safely
+				if (firstTarget && firstTarget !== source && !firstTarget.volatiles['mentaldamage']) {
+					firstTarget.addVolatile('mentaldamage', source);
+				}
+			}
+			// Additional cases can be added here for other types of spread moves if needed
+		},
+	},
+	barbaraclemaadowrfeature: {
+		name: 'Barbaracle-Ma\'adowr Feature',
+		noCopy: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Barbaracle-Ma\'adowr Feature neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+	},
+	beheeyemfeature: {
+		name: 'Beheeyem Feature',
+		noCopy: true,
+		onAfterEachBoost(boost, target, source, effect) {
+			if (effect?.id === 'beheeyemfeature') return;
+			const partner = target.side.active.find(pokemon => pokemon && pokemon !== target && !pokemon.fainted);
+			if (!partner || !partner.volatiles['beheeyemfeature']) return;
+	
+			const beheeyemBoost: SparseBoostsTable = {};
+			let activated = false;
+	
+			// Check for decreases in stats with safe access
+			if (boost.atk !== undefined && boost.atk < 0) {
+				beheeyemBoost.spa = -boost.atk; // If user lowers Atk, raise ally's SpA
+				activated = true;
+			}
+			if (boost.spa !== undefined && boost.spa < 0) {
+				beheeyemBoost.atk = -boost.spa; // If user lowers SpA, raise ally's Atk
+				activated = true;
+			}
+			if (boost.def !== undefined && boost.def < 0) {
+				beheeyemBoost.spd = -boost.def; // If user lowers Def, raise ally's SpD
+				activated = true;
+			}
+			if (boost.spd !== undefined && boost.spd < 0) {
+				beheeyemBoost.def = -boost.spd; // If user lowers SpD, raise ally's Def
+				activated = true;
+			}
+	
+			if (activated) {
+				this.add('-activate', target, 'Beheeyem Feature');
+				this.boost(beheeyemBoost, partner, target, null, true);
+			}
+		},
+	
+	},
+	chantyrusfeature: {
+		name: 'Chantyrus Feature',
+		noCopy: true,
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'colourmegone', 'judgment', 'multiattack', 'naturalgift', 'pincerattack', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ghost';
+			}
+		},
+	},
+	craftenirfeature: {
+		name: 'Craftenir Feature',	
+		noCopy: true,	
+		onUpdate(pokemon) {
+			// Check if the Pokémon has no item
+			if (!pokemon.item && !pokemon.volatiles['jewellimit']) {
+				// Get the current primary type of the Pokémon
+				const currentType = pokemon.types[0]; // Get the current primary type
+
+				// Determine the primary type based on the species
+				const speciesPrimaryType = pokemon.species.types[0]; // Get the original primary type from species
+	
+				// Assign a jewel based on the current or species primary type
+				let jewel;
+            	const typeToUse = currentType === '???' ? speciesPrimaryType : currentType; // Use species type if current is ???
+				switch (typeToUse) {
+					case 'Grass':
+						jewel = 'Grass Gem';
+						break;
+					case 'Bug':
+						jewel = 'Bug Gem';
+						break;
+					case 'Fire':
+						jewel = 'Fire Gem';
+						break;
+					case 'Water':
+						jewel = 'Water Gem';
+						break;
+					case 'Ice':
+						jewel = 'Ice Gem';
+						break;
+					case 'Electric':
+						jewel = 'Electric Gem';
+						break;
+					case 'Psychic':
+						jewel = 'Psychic Gem';
+						break;
+					case 'Ghost':
+						jewel = 'Ghost Gem';
+						break;
+					case 'Ground':
+						jewel = 'Ground Gem';
+						break;
+					case 'Rock':
+						jewel = 'Rock Gem';
+						break;
+					case 'Fighting':
+						jewel = 'Fighting Gem';
+						break;
+					case 'Normal':
+						jewel = 'Normal Gem';
+						break;
+					case 'Flying':
+						jewel = 'Flying Gem';
+						break;
+					case 'Dragon':
+						jewel = 'Dragon Gem';
+						break;
+					case 'Steel':
+						jewel = 'Steel Gem';
+						break;
+					case 'Dark':
+						jewel = 'Dark Gem';
+						break;
+					case 'Fairy':
+						jewel = 'Fairy Gem';
+						break;
+					default:
+						jewel = `${typeToUse} Gem`; // Default to the user's original primary type gem if ??? type
+						break;
+				}
+	
+				// Assign the jewel to the Pokémon
+				pokemon.setItem(jewel);
+				this.add('-item', pokemon, jewel);
+				// Mark that this Pokémon has received a jewel and can no longer receive another jewel unless it reenters the field
+				pokemon.volatiles['jewellimit'] = { id: 'jewellimit' };
+			}
+		},
+	},
+	equinoquefeature: {
+		name: 'Equinoque Feature',
+		noCopy: true,
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.boost({spe: 1}, pokemon, pokemon);
+			}
+		},
+		onAllySideConditionStart(target, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				this.boost({spe: 1}, pokemon, pokemon);
+			}
+		},
+	},
+	golurkfeature: {
+		name: 'Golurk Feature',
+		noCopy: true,
+	//	onStart(pokemon) {
+	//		this.add('-start', pokemon, 'Golurk Lock');
+    //    	this.add('-message', `${pokemon.name} will be locked into a move at 33% HP or below!`);
+    //	},
+		onUpdate(pokemon) {
+			const hpThreshold = pokemon.maxhp / 3; // Calculate HP threshold
+			// Check if the Pokémon's HP is above or below the threshold
+			if (pokemon.hp > hpThreshold) {
+				// Remove Golurk Lock if HP is above threshold
+				if (pokemon.volatiles['golurklock'] &&
+					!['choicescarf', 'choiceband', 'choicespecs'].includes(pokemon.item)) {
+					pokemon.removeVolatile('golurklock');
+				}
+			} else if (pokemon.hp <= hpThreshold) {
+				// Add Golurk Lock if HP is below threshold
+				if (!pokemon.volatiles['golurklock'] &&
+					!['choicescarf', 'choiceband', 'choicespecs'].includes(pokemon.item)) {
+					pokemon.addVolatile('golurklock');
+				}
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Golurk Feature boost');
+				return this.chainModify(1.5); // Boost Attack by 1.5x
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Golurk Feature boost');
+				return this.chainModify(1.5); // Boost Special Attack by 1.5x
+			}
+		},
+	},
+	grapplinfeature: {
+		name: 'Grapplin Feature',
+		noCopy: true,
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		
+	},
+	iblissfeature: {
+		name: 'Ibliss Feature',
+		noCopy: true,
+	//	duration: 1,
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+	},
+	kenuterrafeature: {
+		name: 'Kenuterra Feature',
+		noCopy: true,
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2 && pokemon.isGrounded()) {
+				this.debug('Kenuterra Feature boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2 && pokemon.isGrounded()) {
+				this.debug('Kenuterra Feature boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	klinklangfeature: {
+		name: 'Klinklang Feature',
+		noCopy: true,
+		onResidualOrder: 26,
+    	onResidual(pokemon) {
+			// Check if the Pokémon is Electric or Steel
+			/*if ((pokemon.types.includes('Electric') || pokemon.types.includes('Rock') || pokemon.types.includes('Steel')) && this.field.isTerrain('electricterrain')) {
+				// Apply Magnet Rise effect if not already active
+				if (!pokemon.volatiles['magnetrise']) {
+					pokemon.addVolatile('magnetrise');
+				//	this.add('-activate', pokemon, 'move: Magnet Rise');
+				}
+			}*/
+				
+			// Determine the turn number
+			const turnNumber = this.turn; // Assuming 'this.turn' gives the current turn number
+			// Check for the presence of Plus and Minus abilities as well as Magnet Modul item among active Pokémon
+
+			const hasPlusAllyMinus = pokemon.hasAbility('plus') && pokemon.side.active.some(ally => ally && ally !== pokemon && (ally.hasAbility('minus') 
+			|| (ally.hasItem('magnetmodule') && (ally.hasType('Electric') || ally.hasType('Rock') || ally.hasType('Steel')))));
+			const hasMinusAllyPlus = pokemon.hasAbility('minus') && pokemon.side.active.some(ally => ally && ally !== pokemon && (ally.hasAbility('plus') 
+			|| (ally.hasItem('magnetmodule') && (ally.hasType('Electric') || ally.hasType('Rock') || ally.hasType('Steel')))));
+			const hasMagnetModuleAllyPlusMinus = pokemon.hasItem('magnetmodule') && pokemon.side.active.some(ally => ally && ally !== pokemon && (ally.hasAbility('plus') || ally.hasAbility('minus')));
+
+			// Apply boosts based on the conditions
+            if (turnNumber % 2 === 0 && (hasPlusAllyMinus || hasMinusAllyPlus || hasMagnetModuleAllyPlusMinus)) { // Even turn
+                this.boost({atk: 1, spa: 1}, pokemon); // Boost Atk and SpA
+            } else if (turnNumber % 2 === 1 && (hasPlusAllyMinus || hasMinusAllyPlus || hasMagnetModuleAllyPlusMinus)) { // Odd turn
+                this.boost({def: 1, spd: 1}, pokemon); // Boost Def and SpD
+            }
+		
+		},
+	},
+	lanturnfeature: {
+		name: 'Lanturn Feature',
+		noCopy: true,
+		onSourceModifyAccuracy(accuracy, source, target) {
+			if (typeof accuracy === 'number') {
+				return this.chainModify([1300, 1000]);
+			}
+		},
+		onModifyAccuracy(accuracy, target, source) {
+			if (typeof accuracy === 'number') {
+				return this.chainModify([1300, 1000]);
+			}
+		},
+	},
+	maudiorfeature: {
+		name: 'Maudior Feature',
+		noCopy: true,
+	},
+	orasundrafeature: {
+		name: 'Orasundra Feature',
+		noCopy: true,
+		onDamagingHit(damage, target, source, move) {
+			if (target === this.effectState.target && source !== target && !source.volatiles['paradamage']) {
+			  source.addVolatile('paradamage', target);
+			}
+		},
+		onAfterMove(source, targets, move) {
+			// Check if the source is the effect target
+			if (source !== this.effectState.target) return;
+	
+			// Ensure targets is treated as an array
+			const affectedTargets = Array.isArray(targets) ? targets : [targets];
+	
+			// Prevent applying 'paradamage' if the source used a move that targets itself
+			if (affectedTargets.includes(source)) return;  // Check if the source is one of the targets
+	
+			// Determine the type of spread move and apply 'paradamage' accordingly
+			if (move && move.target === 'allAdjacentFoes') {
+				for (const foe of source.foes()) {
+					if (foe.isAdjacent(source)) {
+						if (!foe.volatiles['paradamage']) {
+							foe.addVolatile('paradamage', source);
+						}
+					}
+				}
+			} else if (move && move.target === 'allAdjacent') {
+				for (const adjacent of this.getAllActive()) {
+					if (adjacent !== source && adjacent.isAdjacent(source)) {
+						if (!adjacent.volatiles['paradamage']) {
+							adjacent.addVolatile('paradamage', source);
+						}
+					}
+				}
+			} else if (move && move.target === 'normal') {
+				// Apply to the specific target of the move
+				const firstTarget = affectedTargets[0]; // Access the first target safely
+				if (firstTarget && firstTarget !== source && !firstTarget.volatiles['paradamage']) {
+					firstTarget.addVolatile('paradamage', source);
+				}
+			}
+			// Additional cases can be added here for other types of spread moves if needed
+		},
+	
+	},
+	parascentfeature: {
+		name: 'Parascent Feature',
+		noCopy: true,
+		onHit(target, source, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				if (!source.volatiles['hayfever']) {
+					if (!source.hasType('Grass') && !source.hasItem('Safety Goggles') && !source.hasAbility('Overcoat')) {
+						source.addVolatile('hayfever');
+						this.add('-start', source, 'Hay Fever');
+                    	this.add('-message', `${source.name} caught Hay Fever from the Parascent Engraving!`);
+					}
+				}
+			}
+		},
+	},
+	rabscafeature: {
+		name: 'Rabsca Feature',   
+		noCopy: true, 
+		onHit(target, source, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				this.heal(target.baseMaxhp / 4);
+			}
+		},
+	},
+	sneezibiafeature: {
+		name: 'Sneezibia Feature',
+		noCopy: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp && target.hasType('Ice')) {
+				this.debug('Sneezibia Feature weaken');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	spiritombfeature: {
+		name: 'Spiritomb Feature',
+		noCopy: true,
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			// Check if the source used a move that's super effective and not status
+			if (target !== source && !target.volatiles['embargo'] &&
+				move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0 &&
+				!target.volatiles['stall']) {
+				// Inflict Embargo on the target
+				target.addVolatile('embargo');
+			}
+		},
+	},
+	tinkatonfeature: {
+		name: 'Tinkaton Feature',
+        noCopy: true,
+    	onStart(pokemon) {
+			this.effectState.recycled = false;
+		},
+		onAfterUseItem(item, pokemon) {
+			if (pokemon === this.effectState.target && !this.effectState.recycled) {
+				const success = this.actions.useMove('recycle', pokemon);
+				if (success) {
+					this.effectState.recycled = true;
+				}
+			}
+		},
+    
+	},
+	zebsonavoltfeature: {
+		name: 'Zebsonavolt Feature',
+		noCopy: true,
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod > 0) {
+				target.trySetStatus('brn', source);
+			}
+		},
+	},
+	// end
+
+	// start: Golurk Lock, from Golurk Feature
+	golurklock: {
+    	name: 'Golurk Lock',
+    	noCopy: true,
+    	onBeforeMove(pokemon, target, move) {
+			if (!pokemon.volatiles['golurklock'].lockedMove) {
+				// First move used after getting the volatile becomes the locked move
+				pokemon.volatiles['golurklock'].lockedMove = move.id;
+				this.add('-message', `${pokemon.name} locked into ${move.name}!`);
+			} else if (pokemon.volatiles['golurklock'].lockedMove !== move.id) {
+				// If trying to use a different move, fail
+				this.add('-fail', pokemon);
+				this.add('-message', `${pokemon.name} is locked into ${this.dex.moves.get(pokemon.volatiles['golurklock'].lockedMove).name}!`);
+				return false;
+			}
+			// If using the locked move, allow it to proceed
+		},
+		onDisableMove(pokemon) {
+			if (pokemon.volatiles['golurklock'].lockedMove) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id !== pokemon.volatiles['golurklock'].lockedMove) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Golurk Lock');
+			this.add('-message', `${pokemon.name} is no longer locked into a move.`);
+		},
+    
+	},
+	// end
+
+	// start: Hayy Fever, bound by Parascent Engraving
+	hayfever: {
+		name: 'Hay Fever',
+		noCopy: true,
+	//	onStart(pokemon) {
+	//		this.add('-start', pokemon, 'Hay Fever');
+	//	},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
+		//	this.add('-damage', pokemon, pokemon.getHealth, '[from] Hay Fever');
+		},
+		onAnyTryBoost(boost, target, source, effect) {
+			if (source && target === source) {
+				let showMsg = false;
+				for (let i in boost) {
+					// @ts-ignore
+					if (boost[i] > 0) {
+						// @ts-ignore
+						boost[i] = 0;
+						showMsg = true;
+					}
+				}
+				if (showMsg && !(effect as ActiveMove).secondaries) {
+					this.add('-fail', target, 'Hay Fever');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Hay Fever');
+		},
+	},
+	// end
+
+	// start: Mental Damage, bound by Arastinith Engraving
+	mentaldamage: {
+		name: 'Mental Damage',
+  		onStart(pokemon, source) {
+    		this.add('-start', pokemon, 'Mental Damage', '[silent]');
+    		this.effectState.source = source;
+  		},
+  		onResidualOrder: 10,
+  		onResidual(pokemon) {
+			const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
+    		if (conditions.some(condition => pokemon.volatiles[condition])) {
+				this.damage(pokemon.baseMaxhp / 8, pokemon, this.effectState.source);
+			}
+  		},
+		onEnd(pokemon) {
+    		this.add('-end', pokemon, 'Mental Damage');
+  		},
+	},
+	// end
+
+	// start: Para Damage, bound by Orasundra Engraving
+	paradamage: {
+		name: 'Para Damage',
+		onStart(pokemon, source) {
+		  this.add('-start', pokemon, 'Para Damage', '[silent]');
+		  this.effectState.source = source;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+		  if (pokemon.status === 'par') {
+			return this.chainModify(0.5);
+		  }
+		},
+		onResidualOrder: 11,
+		onResidual(pokemon) {
+		  if (pokemon.status === 'par') {
+			this.damage(pokemon.baseMaxhp / 16, pokemon, this.effectState.source);
+		  }
+		},
+		onEnd(pokemon) {
+		  this.add('-end', pokemon, 'Para Damage');
+		},
 	},
 	// end
 
