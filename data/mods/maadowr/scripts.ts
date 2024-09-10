@@ -9,6 +9,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		// test
 		this.modData("Learnsets", "relicanth").learnset.wavecrash = ['9M'];
+		this.modData("Learnsets", "beheeyem").learnset.superkinesis = ['9M'];
+		this.modData("Learnsets", "spiritomb").learnset.partingshot = ['9M'];
 
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];

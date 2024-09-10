@@ -537,6 +537,41 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	// end
 
+	magnetmodule: {
+		name: "Magnet Module",
+		spritenum: 273, // Magnet sprite
+		fling: {
+			basePower: 30,
+		},
+		num: -1024,
+		desc: "Electric Terrain: 1/8 healing and item removal prevention for Electric, Rock or Steel.",
+		onTakeItem(item, pokemon, source) {
+            if ((pokemon.types.includes('Electric') || pokemon.types.includes('Rock') || pokemon.types.includes('Steel')) && this.field.isTerrain('electricterrain')) {
+                return false; // Prevent item removal in Electric Terrain
+            }
+            return true; // Allow item removal otherwise
+        },
+		onResidualOrder: 26,
+		onResidual(pokemon) {
+			// Check if the Pokémon is Electric, Rock, or Steel and if Electric Terrain is active
+			/*if (pokemon.types.includes('Rock')  && this.field.isTerrain('electricterrain')) {
+				// Apply Magnet Rise effect if not already active
+				if (!pokemon.volatiles['magnetrise']) {
+					pokemon.addVolatile('magnetrise');
+					pokemon.addVolatile('magnetrisetracker');
+				//	this.add('-activate', pokemon, 'move: Magnet Rise');
+				} else if (pokemon.volatiles['magnetrise'] && pokemon.volatiles['magnetrisetracker'] && !this.field.isTerrain('electricterrain')) {
+					// Remove Magnet Rise and Magnet Rise Tracker if Electric Terrain is no longer active
+					pokemon.removeVolatile('magnetrise');
+					pokemon.removeVolatile('magnetrisetracker');
+				}
+			}*/
+			if ((pokemon.types.includes('Electric') || pokemon.types.includes('Rock') || pokemon.types.includes('Steel')) && this.field.isTerrain('electricterrain')) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+	},
+
 	// start of Engrave items
 	grassengraving: {
 		name: "Grass Engraving",
@@ -559,7 +594,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Grass')) {
@@ -592,7 +627,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Bug')) {
@@ -625,7 +660,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Fire')) {
@@ -659,7 +694,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Water')) {
@@ -692,7 +727,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Ice')) {
@@ -725,7 +760,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Electric')) {
@@ -758,7 +793,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Psychic')) {
@@ -791,7 +826,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Ghost')) {
@@ -824,7 +859,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Poison')) {
@@ -857,7 +892,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Fighting')) {
@@ -890,7 +925,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Rock')) {
@@ -923,7 +958,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Ground')) {
@@ -956,7 +991,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Normal')) {
@@ -989,7 +1024,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Flying')) {
@@ -1022,7 +1057,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Dragon')) {
@@ -1055,7 +1090,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Steel')) {
@@ -1088,7 +1123,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Dark')) {
@@ -1121,7 +1156,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
 				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
 				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
-				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebstrikaengravingeffect']) {
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
 					return;
 				}
 				if (pokemon.hasType('Fairy')) {
@@ -1129,6 +1164,700 @@ export const Items: {[k: string]: ModdedItemData} = {
 					this.add('-sidestart', pokemon.side, 'Fairy Engraving');
 					this.add('-anim', pokemon, "Flash");
 					this.add('-message', `The Fairy Engraving has been activated on ${pokemon.side.name}'s side! Fairy-type Pokémon steal target's item with a damaging move. Target receives Black Sludge.`);
+				}
+			}
+		},
+	},
+	// end
+	anquiterraengraving: {
+		name: "Anquiterra Engraving",
+		spritenum: 633,
+		onTakeItem: false,
+		num: -1049,
+		desc: "Grounded Pokémon have their Spe increased by 50% if HP <= 50%.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['anquiterraengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] || pokemon.side.sideConditions['beheeyemengravingeffect'] ||
+				    pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] || pokemon.side.sideConditions['equinoqueengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Anquiterra') {
+					pokemon.side.addSideCondition('anquiterraengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Anquiterra Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Anquiterra Engraving has been activated on ${pokemon.side.name}'s side! Grounded Pokémon have their Spe increased by 50% if HP <= 50%.`);
+				}
+			}
+		},
+	},
+	arastinithengraving: {
+		name: "Arastinith Engraving",
+		spritenum: 642,
+		onTakeItem: false,
+		num: -1050,
+		desc: "Pokémon cause 1/8 residual damage to targets affected by negative mental effect.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['arastinithengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] || pokemon.side.sideConditions['beheeyemengravingeffect'] ||
+				    pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] || pokemon.side.sideConditions['equinoqueengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Arastinith') {
+					pokemon.side.addSideCondition('arastinithengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Arastinith Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Arastinith Engraving has been activated on ${pokemon.side.name}'s side! Pokémon cause 1/8 residual damage to targets they inflict with negative mental effect.`);
+				}
+			}
+		},
+	},
+	barbaraclemaadowrengraving: {
+		name: "Barbaracle-Ma'adowr Engraving",
+		spritenum: 643,
+		onTakeItem: false,
+		num: -1051,
+		desc: "Pokémon on user's side receive 25% less damage from super-effective moves.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['barbaraclemaadowrengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['beheeyemengravingeffect'] ||
+				    pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] || pokemon.side.sideConditions['equinoqueengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Barbaracle-Ma\'adowr') {
+					pokemon.side.addSideCondition('barbaraclemaadowrengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Barbaracle-Ma\'adowr Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Barbaracle-Ma'adowr Engraving has been activated on ${pokemon.side.name}'s side! Pokémon receive 25% less damage from super-effective moves.`);
+				}
+			}
+		},
+	},
+	beheeyemengraving: {
+		name: "Beheeyem Engraving",
+		spritenum: 641,
+		onTakeItem: false,
+		num: -1052,
+		desc: "Applies opposite of negative stat changes to ally's opposite stat, (Atk/SpA, Def/SpD).",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['beheeyemengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] || pokemon.side.sideConditions['equinoqueengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Beheeyem') {
+					pokemon.side.addSideCondition('beheeyemengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Beheeyem Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Beheeyem Engraving has been activated on ${pokemon.side.name}'s side! Applies opposite of negative stat changes to ally's opposite stat, (Atk/SpA, Def/SpD).`);
+				}
+			}
+		},
+	},
+	chantyrusengraving: {
+		name: "Chantyrus Engraving",
+		spritenum: 635,
+		onTakeItem: false,
+		num: -1053,
+		desc: "Pokémon on user's side have their Normal moves turned into Ghost.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['chantyrusengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] || pokemon.side.sideConditions['equinoqueengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Chantyrus') {
+					pokemon.side.addSideCondition('chantyrusengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Chantyrus Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Chantyrus Engraving has been activated on ${pokemon.side.name}'s side! Pokémon have their Normal moves turned into Ghost.`);
+				}
+			}
+		},
+	},
+	craftenirengraving: {
+		name: "Craftenir Engraving",
+		spritenum: 645,
+		onTakeItem: false,
+		num: -1054,
+		desc: "Pokémon on user's side receive a gem based on primary type if they have no item. Once per switch.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['craftenirengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['equinoqueengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Craftenir') {
+					pokemon.side.addSideCondition('craftenirengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Craftenir Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Craftenir Engraving has been activated on ${pokemon.side.name}'s side! Pokémon receive a gem based on primary type if they have no item. Once per switch.`);
+				}
+			}
+		},
+	},
+	equinoqueengraving: {
+		name: "Equinoque Engraving",
+		spritenum: 633,
+		onTakeItem: false,
+		num: -1055,
+		desc: "Pokémon on user's side have their Spe raised by 1 stage in Tailwind.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['equinoqueengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Equinoque') {
+					pokemon.side.addSideCondition('equinoqueengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Equinoque Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Equinoque Engraving has been activated on ${pokemon.side.name}'s side! Pokémon have their Spe raised by 1 stage in Tailwind.`);
+				}
+			}
+		},
+	},
+	golurkengraving: {
+		name: "Golurk Engraving",
+		spritenum: 639,
+		onTakeItem: false,
+		num: -1056,
+		desc: "Pokémon on user's side do 50% more damage at 33% HP or below but are locked into a move.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['golurkengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Golurk') {
+					pokemon.side.addSideCondition('golurkengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Golurk Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Golurk Engraving has been activated on ${pokemon.side.name}'s side! Pokémon do 50% more damage at 33% HP or below but are locked into a move.`);
+				}
+			}
+		},
+	},
+	grapplinengraving: {
+		name: "Grapplin Engraving",
+		spritenum: 637,
+		onTakeItem: false,
+		num: -1057,
+		desc: "Pokémon on user's side recover 1/8 of their HP in Tailwind.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['grapplinengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['iblissengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Grapplin') {
+					pokemon.side.addSideCondition('grapplinengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Grapplin Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Grapplin Engraving has been activated on ${pokemon.side.name}'s side! Pokémon recover 1/8 of their HP in Tailwind.`);
+				}
+			}
+		},
+	},
+	iblissengraving: {
+		name: "Ibliss Engraving",
+		spritenum: 640,
+		onTakeItem: false,
+		num: -1058,
+		desc: "Pokémon on user's side basically receive Magic Coat.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['iblissengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Ibliss') {
+					pokemon.side.addSideCondition('iblissengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Ibliss Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Ibliss Engraving has been activated on ${pokemon.side.name}'s side! Pokémon basically receive Magic Coat.`);
+				}
+			}
+		},
+	},
+	kenuterraengraving: {
+		name: "Kenuterra Engraving",
+		spritenum: 633,
+		onTakeItem: false,
+		num: -1059,
+		desc: "Grounded Pokémon on user's side increase their Def and SpD by 50% if HP <= 50%.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['kenuterraengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Kenuterra') {
+					pokemon.side.addSideCondition('kenuterraengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Kenuterra Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Kenuterra Engraving has been activated on ${pokemon.side.name}'s side! Grounded Pokémon increase their Def and SpD by 50% if HP <= 50%.`);
+				}
+			}
+		},
+	},
+	klinklangengraving: {
+		name: "Klinklang Engraving",
+		spritenum: 647,
+		onTakeItem: false,
+		num: -1060,
+		desc: "If Plus + Minus / Magnet Module (Electric, Rock, Steel) -> Even turns: +1 Atk and SpA, odd turns: +1 Def and SpD.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['klinklangengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['lanturnengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Klinklang') {
+					pokemon.side.addSideCondition('klinklangengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Klinklang Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Klinklang Engraving has been activated on ${pokemon.side.name}'s side! If Plus + Minus / Magnet Module (Electric, Rock, Steel) -> Even turns: +1 Atk and SpA, odd turns: +1 Def and SpD.`);
+				}
+			}
+		},
+	},
+	lanturnengraving: {
+		name: "Lanturn Engraving",
+		spritenum: 633,
+		onTakeItem: false,
+		num: -1061,
+		desc: "Pokémon on user's side have 30% more accuracy but are also more likely to be hit.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['lanturnengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Lanturn') {
+					pokemon.side.addSideCondition('lanturnengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Lanturn Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Lanturn Engraving has been activated on ${pokemon.side.name}'s side! Pokémon get +30% acc but are more likely to be hit by the same amount.`);
+				}
+			}
+		},
+	},
+	maudiorengraving: {
+		name: "Maudior Engraving",
+		spritenum: 647,
+		onTakeItem: false,
+		num: -1062,
+		desc: "Pokémon on user's side are guaranteed to trigger their abilities.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['maudiorengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Maudior') {
+					pokemon.side.addSideCondition('maudiorengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Maudior Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Maudior Engraving has been activated on ${pokemon.side.name}'s side! Pokémon' abilities are guaranteed to trigger.`);
+				}
+			}
+		},
+	},
+	orasundraengraving: {
+		name: "Orasundra Engraving",
+		spritenum: 638,
+		onTakeItem: false,
+		num: -1063,
+		desc: "Pokémon on user's side do 1/16 residual damage to a paralyzed Pokémon. The latter's Atk is halfed.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['orasundraengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['parascentengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Orasundra') {
+					pokemon.side.addSideCondition('orasundraengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Orasundra Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Orasundra Engraving has been activated on ${pokemon.side.name}'s side! Pokémon doo 1/16 residual damage to paralyzed Pokémon. The latter's Atk is halfed.`);
+				}
+			}
+		},
+	},
+	parascentengraving: {
+		name: "Parascent Engraving",
+		spritenum: 642,
+		onTakeItem: false,
+		num: -1064,
+		desc: "Pokémon on user's side inflict Hayfever if they receive super-effective damage.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['parascentengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] ||
+				    pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Parascent') {
+					pokemon.side.addSideCondition('parascentengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Parascent Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Parascent Engraving has been activated on ${pokemon.side.name}'s side! If hit by super-effective move, Pokémon do 1/8 residual damage and deny positive stat boost.`);
+				}
+			}
+		},
+	},
+	rabscaengraving: {
+		name: "Rabsca Engraving",
+		spritenum: 642,
+		onTakeItem: false,
+		num: -1065,
+		desc: "Pokémon on user's side recover 1/4 of their HP when hit with a super effective move.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['rabscaengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] ||
+				    pokemon.side.sideConditions['parascentengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Rabsca') {
+					pokemon.side.addSideCondition('rabscaengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Rabsca Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Rabsca Engraving has been activated on ${pokemon.side.name}'s side! Pokémon recover 1/4 of their HP when hit with a super effective move.`);
+				}
+			}
+		},
+	},
+	sneezibiaengraving: {
+		name: "Sneezibia Engraving",
+		spritenum: 632,
+		onTakeItem: false,
+		num: -1066,
+		desc: "Pokémon on user's side receive 50% less damage at full HP if they're Ice-type.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['sneezibiaengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] ||
+				    pokemon.side.sideConditions['parascentengravingeffect'] || pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['spiritombengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Sneezibia') {
+					pokemon.side.addSideCondition('sneezibiaengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Sneezibia Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Sneezibia Engraving has been activated on ${pokemon.side.name}'s side! Ice-type Pokémon receive 50% less damage at full HP.`);
+				}
+			}
+		},
+	},
+	spiritombengraving: {
+		name: "Spiritomb Engraving",
+		spritenum: 644,
+		onTakeItem: false,
+		num: -1067,
+		desc: "Pokémon on user's side inflict Embargo if their moves do super-effective damage.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['spiritombengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] ||
+				    pokemon.side.sideConditions['parascentengravingeffect'] || pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] ||
+				    pokemon.side.sideConditions['tinkatonengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Spiritomb') {
+					pokemon.side.addSideCondition('spiritombengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Spiritomb Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Spiritomb Engraving has been activated on ${pokemon.side.name}'s side! Pokémon inflict Embargo if their moves deal super-effective damage.`);
+				}
+			}
+		},
+	},
+	tinkatonengraving: {
+		name: "Tinkaton Engraving",
+		spritenum: 648,
+		onTakeItem: false,
+		num: -1068,
+		desc: "Pokémon on user's side recycle consumable items once per switch.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['tinkatonengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] ||
+				    pokemon.side.sideConditions['parascentengravingeffect'] || pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] ||
+				    pokemon.side.sideConditions['spiritombengravingeffect'] || pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Tinkaton') {
+					pokemon.side.addSideCondition('tinkatonengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Tinkaton Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Tinkaton Engraving has been activated on ${pokemon.side.name}'s side! Pokémon recycle consumable items once per switch.`);
+				}
+			}
+		},
+	},
+	zebsonavoltengraving: {
+		name: "Zebsonavolt Engraving",
+		spritenum: 634,
+		onTakeItem: false,
+		num: -1069,
+		desc: "Pokémon on user's side cause Burn if they deal super-effective damage.",
+		 // Check if the item can be activated
+		onUpdate(pokemon) {
+			if (!pokemon.side.sideConditions['zebsonavoltengravingeffect']) {
+				if (pokemon.side.sideConditions['grassengravingeffect'] || pokemon.side.sideConditions['bugengravingeffect'] || pokemon.side.sideConditions['fireengravingeffect'] ||
+					pokemon.side.sideConditions['waterengravingeffect'] || pokemon.side.sideConditions['iceengravingeffect'] || pokemon.side.sideConditions['electricengravingeffect'] || 
+					pokemon.side.sideConditions['psychicengravingeffect'] || pokemon.side.sideConditions['ghostengravingeffect'] || pokemon.side.sideConditions['poisonengravingeffect'] || 
+					pokemon.side.sideConditions['fightingengravingeffect'] || pokemon.side.sideConditions['rockengravingeffect'] || pokemon.side.sideConditions['groundengravingeffect'] ||
+				    pokemon.side.sideConditions['normalengravingeffect'] || pokemon.side.sideConditions['flyingengravingeffect'] || pokemon.side.sideConditions['dragonengravingeffect'] ||
+				    pokemon.side.sideConditions['steelengravingeffect'] || pokemon.side.sideConditions['darkengravingeffect'] || pokemon.side.sideConditions['fairyengravingeffect'] ||
+				    pokemon.side.sideConditions['anquiterraengravingeffect'] || pokemon.side.sideConditions['arastinithengravingeffect'] || pokemon.side.sideConditions['barbaraclemaadowrengravingeffect'] ||
+				    pokemon.side.sideConditions['beheeyemengravingeffect'] || pokemon.side.sideConditions['chantyrusengravingeffect'] || pokemon.side.sideConditions['craftenirengravingeffect'] ||
+				    pokemon.side.sideConditions['equinoqueengravingeffect'] || pokemon.side.sideConditions['golurkengravingeffect'] || pokemon.side.sideConditions['grapplinengravingeffect'] ||
+				    pokemon.side.sideConditions['iblissengravingeffect'] || pokemon.side.sideConditions['kenuterraengravingeffect'] || pokemon.side.sideConditions['klinklangengravingeffect'] ||
+				    pokemon.side.sideConditions['lanturnengravingeffect'] || pokemon.side.sideConditions['maudiorengravingeffect'] || pokemon.side.sideConditions['orasundraengravingeffect'] ||
+				    pokemon.side.sideConditions['parascentengravingeffect'] || pokemon.side.sideConditions['rabscaengravingeffect'] || pokemon.side.sideConditions['sneezibiaengravingeffect'] ||
+				    pokemon.side.sideConditions['spiritombengravingeffect'] || pokemon.side.sideConditions['tinkatonengravingeffect']) {
+					return;
+				}
+				if (pokemon.baseSpecies.baseSpecies === 'Zebsonavolt') {
+					pokemon.side.addSideCondition('zebsonavoltengravingeffect');
+					this.add('-sidestart', pokemon.side, 'Zebsonavolt Engraving');
+					this.add('-anim', pokemon, "Flash");
+					this.add('-message', `The Zebsonavolt Engraving has been activated on ${pokemon.side.name}'s side! Pokémon cause Burn if dealing super-effective damage.`);
 				}
 			}
 		},
