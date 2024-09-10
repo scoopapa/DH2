@@ -102,4 +102,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sageloom: {
 		tier: "RegEvo",
 	},
+	hoothootorre: {
+		tier: "RegEvo NFE",
+	},
+	noctowlorre: {
+		tier: "RegEvo NFE",
+	},
+	archathene: {
+		tier: "RegEvo",
+	},
+	poliwag: {
+		tier: "RegEvo NFE",
+	},
+	poliwhirlorre: {
+		tier: "RegEvo NFE",
+	},
+	poliorre: {
+		tier: "RegEvo",
+	},
 };
