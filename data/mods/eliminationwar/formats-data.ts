@@ -8,7 +8,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jumbojet: {
-		tier: "Legal",
+		tier: "Eliminated",
 		doublesTier: "DOU",
 	},
 	thetombguy: {
@@ -43,8 +43,53 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	idkman: {
+	Regivillain: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
+	noosegoose: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	JOBAPPLICATION: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	MythicMayhem: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	Maldew: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	Salamire: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	BetterTusk: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	Voltoxin: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	OurSikentwistedMind: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	RotomWashed: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	Astrodactyl: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	Joe: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+
 };
