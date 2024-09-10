@@ -204,7 +204,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	breloomhisui: {
 		num: 286,
-		name: "Breloom",
+		name: "Breloom-Hisui",
 		baseSpecies: "Breloom",
 		forme: "Hisui",
 		types: ["Ice", "Fighting"],
