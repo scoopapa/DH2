@@ -36,6 +36,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "DoNU RU",
 		isNonstandard: null,
 	},
+	beldum: {
+		tier: "DoNU",
+		isNonstandard: null,
+		randomBattleMoves: ["ironhead", "steelbeam", "zenheadbutt", "headbutt"],
+		//randomBattleLevel: 94
+	},
 	bidoof: {
 		tier: "DoNU",
 		isNonstandard: null,

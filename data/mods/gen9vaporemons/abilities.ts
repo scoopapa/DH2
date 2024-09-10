@@ -966,8 +966,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	mudwash: {
 		name: "Mud Wash",
 		onStart(source) {
+			/*
 			this.actions.useMove("Mud Sport", source);
 			this.actions.useMove("Water Sport", source);
+			*/
+			this.add('-ability', source, 'Mud Wash');
+			this.field.addPseudoWeather('mudsport', source, source.ability);
+			this.field.addPseudoWeather('watersport', source, source.ability);
 			this.add('-message', `${source.name}'s splashed around in the mud!`);
 		},
 		onModifyMove(move, pokemon) {
@@ -1112,7 +1117,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	waterveil: {
 		onStart(source) {
-			this.actions.useMove("Aqua Ring", source);
+			//this.actions.useMove("Aqua Ring", source);
+			this.add('-ability', source, 'Water Veil');
+			source.addVolatile('aquaring');
 		},
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
