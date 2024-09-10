@@ -1219,6 +1219,3 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	},
 };
-=======
-};
->>>>>>> parent of b1feed25c0 (Elimination War Slate 2)
