@@ -2392,54 +2392,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 	},
-	beadsofruin: {
-		inherit: true,
-		onAnyModifySpD(spd, target, source, move) {
-			const abilityHolder = this.effectState.target;
-			// if (target.hasAbility('Beads of Ruin')) return;
-			// if (!move.ruinedSpD?.hasAbility('Beads of Ruin')) move.ruinedSpD = abilityHolder;
-			// if (move.ruinedSpD !== abilityHolder) return;
-			this.debug('Beads of Ruin SpD drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Sp. Def multiplied by 0.83, including this Pokemon.",
-	},
-	swordofruin: {
-		inherit: true,
-		onAnyModifyDef(def, target, source, move) {
-			const abilityHolder = this.effectState.target;
-			// if (target.hasAbility('Sword of Ruin')) return;
-			// if (!move.ruinedDef?.hasAbility('Sword of Ruin')) move.ruinedDef = abilityHolder;
-			// if (move.ruinedDef !== abilityHolder) return;
-			this.debug('Sword of Ruin Def drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Defense multiplied by 0.83, including this Pokemon.",
-	},
-	tabletsofruin: {
-		inherit: true,
-		onAnyModifyAtk(atk, source, target, move) {
-			const abilityHolder = this.effectState.target;
-			// if (source.hasAbility('Tablets of Ruin')) return;
-			// if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
-			// if (move.ruinedAtk !== abilityHolder) return;
-			this.debug('Tablets of Ruin Atk drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Attack multiplied by 0.83, including this Pokemon.",
-	},
-	vesselofruin: {
-		inherit: true,
-		onAnyModifySpA(spa, source, target, move) {
-			const abilityHolder = this.effectState.target;
-			// if (source.hasAbility('Vessel of Ruin')) return;
-			// if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
-			// if (move.ruinedSpA !== abilityHolder) return;
-			this.debug('Vessel of Ruin SpA drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Sp. Atk multiplied by 0.83, including this Pokemon.",
-	},
 	withering: {
 		onModifyMove(move) {
 			if (!move || !move.flags['contact'] || move.target === 'self') return;
