@@ -630,7 +630,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			uturn: ["9L1"],
 		},
 	},
-<<<<<<< HEAD
 	regivillain: {
 		learnset: {
 			beatup: ["9L1"],
