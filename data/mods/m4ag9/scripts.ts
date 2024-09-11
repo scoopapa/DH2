@@ -17,6 +17,7 @@ const viabilityList = [
 	"toxapex", "tyranitar", "urshifurapidstrike", "victini", "volcanion", "volcarona", "weavile", "zapdos", "zapdosgalar", "zeraora",
 	"ceruledge", "clodsire", "darkrai", "garganacl", "glimmora", "gougingfire", "greattusk", "hatterene", "ironcrown", "irontreads",
 	"ironvaliant", "ogerponheartflame", "ogerponwellspring", "ragingbolt", "samurotthisui", "zamazenta", "tapulele", "tinglu", "walkingwake", "gholdengo",
+	'roaringmoon',
 ];
 const megaViabilityList = [
 	"araquanidmega", "bastiodonmega", "bibarelmega", "chandeluremega", "conkeldurrmega", "corviknightmega", "dhelmisemega", "dragalgemega",
