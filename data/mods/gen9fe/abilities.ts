@@ -3789,7 +3789,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 					(pokemon.gender && (', ' + pokemon.gender)) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
-				this.add('-end', pokemon, 'Rough Image');
+				this.add('-message', `${pokemon.name}'s illusion wore off!`);
 				if (this.ruleTable.has('illusionlevelmod')) {
 					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
 				}
