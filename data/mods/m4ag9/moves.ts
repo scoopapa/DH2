@@ -1,4 +1,4 @@
-// export const Moves: {[moveid: string]: ModdedMoveData} = {
+export const Moves: {[moveid: string]: ModdedMoveData} = {
 // 	// Down-to-Earth
 // 	electricterrain: {
 // 		inherit: true,
@@ -932,4 +932,4 @@
 // 			}
 // 		},
 // 	},
-// };
+};

@@ -24,7 +24,7 @@
 // 	calyrexice: { move: "Glacial Lance" },
 // 	calyrexshadow: { move: "Astral Barrage" },
 // };
-// export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 // 	graviton: {
 // 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
 // 		onStart(source) {
@@ -2851,4 +2851,4 @@
 // 		rating: 4,
 // 		num: -1007,
 // 	},
-// };
+};

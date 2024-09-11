@@ -1,4 +1,4 @@
-// export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
+export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 // 	butterfree: {
 // 		inherit: true,
@@ -1910,4 +1910,4 @@
 // 		megaStone: "Hoopanite",
 // 		megaCreator: "DrPumpkinz",
 // 	},
-// };
+};
