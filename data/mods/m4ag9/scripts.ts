@@ -41,7 +41,7 @@ const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", 
 */
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'm4v6',
+	inherit: 'm4av6',
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
