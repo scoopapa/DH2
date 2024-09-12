@@ -2137,8 +2137,38 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'Rabsca Feature',   
 		noCopy: true, 
 		onHit(target, source, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				this.heal(target.baseMaxhp / 4);
+			const isMultihit = move.multihit; // Check if the move is multihit
+			const hasParentalBond = source.hasAbility('parentalbond'); // Check for Parental Bond
+	
+			// If the move is a multihit move
+			if (isMultihit) {
+				// Heal only for the first hit
+				if (move.hit === 1) { // Check if this is the first hit
+					const typeMod = target.getMoveHitData(move).typeMod; // Get the effectiveness of the move
+					if (typeMod > 0) {
+						this.heal(target.baseMaxhp / 4); // Heal the target
+					}
+				}
+				return; // Stop further healing from subsequent hits
+			}
+	
+			// If the move is not a multihit move
+			if (!isMultihit) {
+				if (hasParentalBond) {
+					// Heal only for the first hit if the source has Parental Bond
+					if (move.hit === 1) { // Check if this is the first hit
+						const typeMod = target.getMoveHitData(move).typeMod; // Get the effectiveness of the move
+						if (typeMod > 0) {
+							this.heal(target.baseMaxhp / 4); // Heal the target
+						}
+					}
+				} else {
+					// Heal normally if the source does not have Parental Bond
+					const typeMod = target.getMoveHitData(move).typeMod; // Get the effectiveness of the move
+					if (typeMod > 0) {
+						this.heal(target.baseMaxhp / 4); // Heal the target
+					}
+				}
 			}
 		},
 	},
