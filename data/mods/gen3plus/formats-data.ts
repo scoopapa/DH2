@@ -987,7 +987,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	tyranitarmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	lugia: {
 		tier: "Uber"
@@ -1425,7 +1425,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	salamencemega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	beldum: {
 		tier: "LC"
@@ -1437,7 +1437,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	metagrossmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	regirock: {
 		tier: "OU"
@@ -1452,25 +1452,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	latiasmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	latios: {
 		tier: "Uber"
 	},
 	latiosmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	kyogre: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	kyogreprimal: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	groudon: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	groudonprimal: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	rayquaza: {
 		tier: "Uber"
@@ -1494,7 +1494,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	regigigas: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	obstagoon: {
 		tier: "OU"
