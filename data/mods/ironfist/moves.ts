@@ -46,7 +46,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
   	velvetblade: {
-		num: 371,
 		accuracy: 100,
 		basePower: 100,
 		onPrepareHit(pokemon, target, move) {
@@ -71,7 +70,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
   	mogoff: {
-		num: 542,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -93,7 +91,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "50% chance to confuse the target.",
 	},
   	chocolatekiss: {
-		num: 411,
 		accuracy: 60,
 		basePower: 100,
 		category: "Physical",
@@ -117,7 +114,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
   	fishingminigame: {
-		num: 615,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -139,7 +135,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Prevents the target from switching out.",
 	},
   	stankyleg: {
-		num: 440,
 		accuracy: 95,
 		basePower: 60,
 		category: "Physical",
@@ -161,7 +156,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "100% chance to badly poison the target.",
 	},
   	triplerkick: {
-		num: 813,
 		accuracy: 90,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
@@ -186,7 +180,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		maxMove: {basePower: 140},
 	},
 	gorgingmissile: {
-		num: 514,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -210,7 +203,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	goombastomp: {
-		num: 247,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -241,7 +233,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	silcoonblast: {
-		num: 547,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -265,7 +256,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	gofish: {
-		num: 389,
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
@@ -291,4 +281,77 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
+	cuddle: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "cuddle",
+		shortDesc: "the pokemon have. a nice cuddle :)",
+		pp: 625000,
+		priority: 0,
+		flags: {},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tickle", target);
+		},
+		onTryHit(target, source) {
+			this.add('-message', `${source.name} cuddled ${target.name}...`);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Friend",
+		contestType: "Cute",
+	},
+	feebasproshops: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Feebas Pro Shops",
+		shortDesc: "50%: 85 BP Special, hits Ghost; 50%: 2 Fishing Tokens.",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Pay Day", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (this.randomChance(1, 2)) {
+				move.basePower = 85;
+				move.category = "Special";
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Fighting'] = true;
+				}
+			} else {
+				//fishing token
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Clever",
+	},
+	bigbash: {
+		accuracy: 100,
+		basePower: 68,
+		category: "Physical",
+		name: "cuddle",
+		shortDesc: "Guaranteed crit if either Pokemon used Big Button.",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onPrepareHit(pokemon, target, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Giga Impact", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if(pokemon.volatiles['bigbutton'] || target.volatiles['bigbutton']) move.willCrit = true;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+	
 }
