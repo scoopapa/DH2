@@ -64,7 +64,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
   coldrush: {
 	num: -3,
 	accuracy: 100,
-	basePower: 100,
+	basePower: 120,
 	category: "Physical",
 	shortDesc: "This move hits in two turns and sets Snow.",
 	name: "Cold Rush",
@@ -87,7 +87,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				id: 'coldrush',
 				name: "Cold Rush",
 				accuracy: 100,
-				basePower: 100,
+				basePower: 120,
 				category: "Physical",
 				priority: 0,
 				flags: {allyanim: 1, metronome: 1, futuremove: 1},
@@ -1542,6 +1542,70 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	  },
 	// end
+
+	// start:
+	superkinesis: {
+		num: -46,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Superkinesis",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		shortDesc: "Lowers user's best stat by 2.",
+		onHit(target, source) {
+			if (!target) return;
+			const bestStat = source.getBestStat(false, true) as keyof BoostsTable;
+			const boosts: Partial<BoostsTable> = {};
+			boosts[bestStat] = -2;
+			this.boost(boosts, source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	// end
+	reverberation: {
+		num: -47,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Reverberation",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		shortDesc: "Mini Earthquake follow-up at 60 BP.",
+		onAfterMove(source) {
+			source.addVolatile('quakingboom');
+			this.actions.useMove('earthquake', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	earthquake: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source && source.volatiles['quakingboom']) {
+				move.basePower = 60;
+			}
+		},
+		onAfterMove(target, source) {
+			// This function is called for each target hit by Earthquake
+			// Check if the target is still alive
+			if (target && target.hp > 0) {
+				// Check how many active Pokémon are still alive
+				const allTargets = this.getAllActive().filter(p => p && p.hp > 0);
+				// If this is the last target being hit, remove the volatile
+				if (allTargets.length === 1) {
+					delete source.volatiles['quakingboom'];
+				}
+			}
+		},
+	},
 
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
