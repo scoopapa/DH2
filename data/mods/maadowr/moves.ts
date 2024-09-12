@@ -1508,7 +1508,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					bestStat = stat; // Update bestStat to the current highest stat
 				}
 			}
-			this.add('-anim', source, 'Moonlight', target);
+			this.add('-anim', source, 'Moonlight');
 			// Apply +1 to the best stat
 			this.boost({[bestStat]: 1}, source);
 
@@ -1523,11 +1523,57 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			// Use the move as if it were the user's move
 			const moveData = this.dex.moves.get(firstMove.id);
 			this.add('-message', `${source.name} exhumes ${lastFaintedDark.name}'s ${moveData.name}!`);	
-			this.actions.useMove(moveData.id, source, target);	// Use the move on the target
+			
+			// Distinguish how to execute the move based on its target type
+			switch (moveData.target) {
+    			case 'self':
+        			this.actions.useMove(moveData.id, source, source); // Affects only the user
+       			break;
+    			case 'allySide':
+        			this.actions.useMove(moveData.id, source, source.side.pokemon[0]); // Affects an ally
+        		break;
+				case 'allyTeam':
+      				// Affects the entire team, e.g., for moves like Aromatherapy
+        			this.actions.useMove(moveData.id, source, null); // Null can be used for moves that affect the entire team
+        		break;
+    			case 'normal':
+        			// List available foes
+        			const targets = source.side.foe.active.filter(target => target && !target.fainted);
+        			if (targets.length > 0) {
+            		// Randomly select a foe
+            		const randomTarget = targets[Math.floor(Math.random() * targets.length)];
+            		this.actions.useMove(moveData.id, source, randomTarget);
+        			} else {
+           				this.add('-fail', source, 'move: Exhume'); // No available foes
+        			}
+        		break;
+				case 'allAdjacent':
+        			// Affects all adjacent Pokémon (both allies and foes)
+        			const adjacentTargets = source.side.active.filter(target => target && !target.fainted);
+        			for (const target of adjacentTargets) {
+            			this.actions.useMove(moveData.id, source, target);
+        			}
+        		break;
+    			case 'allAdjacentFoes':
+        			// Affects all adjacent foes
+        			const adjacentFoes = source.side.foe.active.filter(target => target && !target.fainted);
+        			for (const target of adjacentFoes) {
+            			this.actions.useMove(moveData.id, source, target);
+        			}
+        		break;
+    			case 'all':
+        			this.actions.useMove(moveData.id, source, null); // Affects everyone; null can be used for moves that don't require a target
+        		break;
+				default:
+       			 	// Default case; use the original target if no specific case matches
+        			this.actions.useMove(moveData.id, source, target);
+        		break;
+			}
+		//	this.actions.useMove(moveData.id, source, target);	// Use the move on the target
 		
 		},
 		secondary: null,
-		target: 'normal',
+		target: 'self',
 		type: 'Dark',
 		contestType: "Cool",
 	  },
