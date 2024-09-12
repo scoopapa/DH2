@@ -23,7 +23,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Chlorophyll"
+				"H": "Chlorophyll",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.9,
 		"evos": [
@@ -80,7 +81,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Chlorophyll"
+				"H": "Chlorophyll",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"prevo": "Bulbasaur",
@@ -138,7 +140,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Chlorophyll"
+				"H": "Chlorophyll",
+				"S": "Illuminate"
 		},
 		"weightkg": 100,
 		"prevo": "Ivysaur",
@@ -204,7 +207,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 155.5,
 		"eggGroups": [
@@ -263,7 +267,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"evos": [
@@ -319,7 +324,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19,
 		"prevo": "Charmander",
@@ -377,7 +383,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 90.5,
 		"prevo": "Charmeleon",
@@ -445,7 +452,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110.5,
 		"eggGroups": [
@@ -507,7 +515,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Drought",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -566,7 +575,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"evos": [
@@ -622,7 +632,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 22.5,
 		"prevo": "Squirtle",
@@ -679,7 +690,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 85.5,
 		"prevo": "Wartortle",
@@ -744,7 +756,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 101.1,
 		"eggGroups": [
@@ -799,7 +812,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.9,
 		"evos": [
@@ -854,7 +868,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.9,
 		"prevo": "Caterpie",
@@ -911,7 +926,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Compound Eyes",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32,
 		"prevo": "Metapod",
@@ -967,7 +983,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.2,
 		"evos": [
@@ -1023,7 +1040,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10,
 		"prevo": "Weedle",
@@ -1080,7 +1098,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.5,
 		"prevo": "Kakuna",
@@ -1144,7 +1163,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.5,
 		"eggGroups": [
@@ -1203,7 +1223,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.8,
 		"evos": [
@@ -1259,7 +1280,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Pidgey",
@@ -1316,7 +1338,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.5,
 		"prevo": "Pidgeotto",
@@ -1380,7 +1403,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 50.5,
 		"eggGroups": [
@@ -1438,7 +1462,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Guts",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.5,
 		"evos": [
@@ -1503,7 +1528,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Hustle",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.8,
 		"evos": [
@@ -1556,7 +1582,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Guts",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 18.5,
 		"prevo": "Rattata",
@@ -1622,7 +1649,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Hustle",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 25.5,
 		"prevo": "Rattata-Alola",
@@ -1678,7 +1706,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 105,
 		"eggGroups": [
@@ -1730,7 +1759,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -1786,7 +1816,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 38,
 		"prevo": "Spearow",
@@ -1840,7 +1871,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Shed Skin",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.9,
 		"evos": [
@@ -1896,7 +1928,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Shed Skin",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 65,
 		"prevo": "Ekans",
@@ -1951,7 +1984,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"prevo": "Pichu",
@@ -2048,7 +2082,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2102,7 +2137,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2157,7 +2193,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2212,7 +2249,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2267,7 +2305,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2322,7 +2361,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2377,7 +2417,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2431,7 +2472,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2485,7 +2527,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2539,7 +2582,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2593,7 +2637,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2647,7 +2692,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2701,7 +2747,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2754,7 +2801,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2808,7 +2856,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"eggGroups": [
@@ -2859,7 +2908,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Pikachu",
@@ -2925,7 +2975,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21,
 		"prevo": "Pikachu",
@@ -2980,7 +3031,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -3045,7 +3097,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"evos": [
@@ -3098,7 +3151,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.5,
 		"prevo": "Sandshrew",
@@ -3162,7 +3216,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"prevo": "Sandshrew-Alola",
@@ -3216,7 +3271,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 7,
 		"evos": [
@@ -3273,7 +3329,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 20,
 		"prevo": "Nidoran-F",
@@ -3331,7 +3388,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"prevo": "Nidorina",
@@ -3387,7 +3445,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"evos": [
@@ -3445,7 +3504,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.5,
 		"prevo": "Nidoran-M",
@@ -3504,7 +3564,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 62,
 		"prevo": "Nidorino",
@@ -3547,7 +3608,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 35,
 		"name": "Clefairy",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3564,7 +3625,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"prevo": "Cleffa",
@@ -3603,7 +3665,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 36,
 		"name": "Clefable",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3620,7 +3682,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"prevo": "Clefairy",
@@ -3675,7 +3738,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Drought"
+				"H": "Drought",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.9,
 		"evos": [
@@ -3739,7 +3803,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.9,
 		"evos": [
@@ -3792,7 +3857,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Drought"
+				"H": "Drought",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.9,
 		"prevo": "Vulpix",
@@ -3840,7 +3906,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Alola",
 		"types": [
 				"Ice",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3857,7 +3923,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.9,
 		"prevo": "Vulpix-Alola",
@@ -3894,7 +3961,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Jigglypuff",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3911,7 +3978,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.5,
 		"prevo": "Igglybuff",
@@ -3951,7 +4019,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Wigglytuff",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3968,7 +4036,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"prevo": "Jigglypuff",
@@ -4020,7 +4089,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"evos": [
@@ -4076,7 +4146,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"prevo": "Zubat",
@@ -4133,7 +4204,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.4,
 		"evos": [
@@ -4189,7 +4261,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Stench"
+				"H": "Stench",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.6,
 		"prevo": "Oddish",
@@ -4247,7 +4320,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Effect Spore"
+				"H": "Effect Spore",
+				"S": "Illuminate"
 		},
 		"weightkg": 18.6,
 		"prevo": "Gloom",
@@ -4303,7 +4377,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Effect Spore",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.4,
 		"evos": [
@@ -4360,7 +4435,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Effect Spore",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.5,
 		"prevo": "Paras",
@@ -4416,7 +4492,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Compound Eyes",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"evos": [
@@ -4472,7 +4549,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"prevo": "Venonat",
@@ -4526,7 +4604,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Arena Trap",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.8,
 		"evos": [
@@ -4591,7 +4670,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -4644,7 +4724,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Arena Trap",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.3,
 		"prevo": "Diglett",
@@ -4708,7 +4789,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 66.6,
 		"prevo": "Diglett-Alola",
@@ -4760,7 +4842,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.2,
 		"evos": [
@@ -4827,7 +4910,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.2,
 		"evos": [
@@ -4882,7 +4966,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"evos": [
@@ -4935,7 +5020,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32,
 		"prevo": "Meowth",
@@ -4998,7 +5084,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"prevo": "Meowth-Alola",
@@ -5050,7 +5137,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Damp",
 				"1": "Cloud Nine",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.6,
 		"evos": [
@@ -5106,7 +5194,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Damp",
 				"1": "Cloud Nine",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 76.6,
 		"prevo": "Psyduck",
@@ -5161,7 +5250,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"evos": [
@@ -5216,7 +5306,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32,
 		"prevo": "Mankey",
@@ -5276,7 +5367,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Flash Fire",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19,
 		"evos": [
@@ -5341,7 +5433,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Flash Fire",
-				"H": "Rock Head"
+				"H": "Rock Head",
+				"S": "Illuminate"
 		},
 		"weightkg": 22.7,
 		"evos": [
@@ -5394,7 +5487,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Flash Fire",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 155,
 		"prevo": "Growlithe",
@@ -5459,7 +5553,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Flash Fire",
-				"H": "Rock Head"
+				"H": "Rock Head",
+				"S": "Illuminate"
 		},
 		"weightkg": 168,
 		"prevo": "Growlithe-Hisui",
@@ -5508,7 +5603,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Damp",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.4,
 		"evos": [
@@ -5563,7 +5659,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Damp",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 20,
 		"prevo": "Poliwag",
@@ -5621,7 +5718,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Damp",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 54,
 		"prevo": "Poliwhirl",
@@ -5680,7 +5778,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.5,
 		"evos": [
@@ -5735,7 +5834,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 56.5,
 		"prevo": "Abra",
@@ -5791,7 +5891,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48,
 		"prevo": "Kadabra",
@@ -5854,7 +5955,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Trace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48,
 		"eggGroups": [
@@ -5912,7 +6014,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.5,
 		"evos": [
@@ -5967,7 +6070,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 70.5,
 		"prevo": "Machop",
@@ -6023,7 +6127,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 130,
 		"prevo": "Machoke",
@@ -6075,7 +6180,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -6131,7 +6237,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.4,
 		"prevo": "Bellsprout",
@@ -6188,7 +6295,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.5,
 		"prevo": "Weepinbell",
@@ -6244,7 +6352,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Liquid Ooze",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 45.5,
 		"evos": [
@@ -6300,7 +6409,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Liquid Ooze",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"prevo": "Tentacool",
@@ -6355,7 +6465,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Sturdy",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 20,
 		"evos": [
@@ -6420,7 +6531,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.3,
 		"evos": [
@@ -6474,7 +6586,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Sturdy",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 105,
 		"prevo": "Geodude",
@@ -6540,7 +6653,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"prevo": "Geodude-Alola",
@@ -6595,7 +6709,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Sturdy",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 300,
 		"prevo": "Graveler",
@@ -6659,7 +6774,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 316,
 		"prevo": "Graveler-Alola",
@@ -6711,7 +6827,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Flash Fire",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"evos": [
@@ -6775,7 +6892,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24,
 		"evos": [
@@ -6828,7 +6946,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Flash Fire",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 95,
 		"prevo": "Ponyta",
@@ -6879,7 +6998,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Galar",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 65,
@@ -6892,7 +7011,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 80,
 		"prevo": "Ponyta-Galar",
@@ -6945,7 +7065,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 36,
 		"evos": [
@@ -7011,7 +7132,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 36,
 		"evos": [
@@ -7067,7 +7189,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 78.5,
 		"prevo": "Slowpoke",
@@ -7134,7 +7257,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shell Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"eggGroups": [
@@ -7196,7 +7320,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 70.5,
 		"prevo": "Slowpoke-Galar",
@@ -7252,7 +7377,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"evos": [
@@ -7309,7 +7435,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"prevo": "Magnemite",
@@ -7366,7 +7493,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"eggGroups": [
@@ -7429,7 +7557,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 42,
 		"evos": [
@@ -7484,7 +7613,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.2,
 		"evos": [
@@ -7540,7 +7670,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 85.2,
 		"prevo": "Doduo",
@@ -7594,7 +7725,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 90,
 		"evos": [
@@ -7651,7 +7783,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Seel",
@@ -7706,7 +7839,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Stench",
 				"1": "Sticky Hold",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"evos": [
@@ -7771,7 +7905,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 42,
 		"evos": [
@@ -7824,7 +7959,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Stench",
 				"1": "Sticky Hold",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Grimer",
@@ -7888,7 +8024,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52,
 		"prevo": "Grimer-Alola",
@@ -7940,7 +8077,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shell Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -7996,7 +8134,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shell Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 132.5,
 		"prevo": "Shellder",
@@ -8052,7 +8191,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.1,
 		"evos": [
@@ -8108,7 +8248,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.1,
 		"prevo": "Gastly",
@@ -8165,7 +8306,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.5,
 		"prevo": "Haunter",
@@ -8230,7 +8372,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shadow Tag",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.5,
 		"eggGroups": [
@@ -8289,7 +8432,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 210,
 		"evos": [
@@ -8344,7 +8488,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.4,
 		"evos": [
@@ -8399,7 +8544,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 75.6,
 		"prevo": "Drowzee",
@@ -8453,7 +8599,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"evos": [
@@ -8508,7 +8655,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"prevo": "Krabby",
@@ -8564,7 +8712,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Static",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.4,
 		"evos": [
@@ -8630,7 +8779,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Static",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"evos": [
@@ -8684,7 +8834,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Static",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 66.6,
 		"prevo": "Voltorb",
@@ -8749,7 +8900,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Static",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 71,
 		"prevo": "Voltorb-Hisui",
@@ -8803,7 +8955,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"evos": [
@@ -8860,7 +9013,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Exeggcute",
@@ -8925,7 +9079,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 415.6,
 		"prevo": "Exeggcute",
@@ -8979,7 +9134,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Lightning Rod",
-				"H": "Battle Armor"
+				"H": "Battle Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"evos": [
@@ -9035,7 +9191,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Lightning Rod",
-				"H": "Battle Armor"
+				"H": "Battle Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 45,
 		"prevo": "Cubone",
@@ -9101,7 +9258,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Lightning Rod",
-				"H": "Rock Head"
+				"H": "Rock Head",
+				"S": "Illuminate"
 		},
 		"weightkg": 34,
 		"prevo": "Cubone",
@@ -9158,7 +9316,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 98,
 		"eggGroups": [
@@ -9210,7 +9369,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 49.8,
 		"prevo": "Tyrogue",
@@ -9266,7 +9426,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 50.2,
 		"prevo": "Tyrogue",
@@ -9321,7 +9482,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Oblivious",
-				"H": "Cloud Nine"
+				"H": "Cloud Nine",
+				"S": "Illuminate"
 		},
 		"weightkg": 65.5,
 		"evos": [
@@ -9376,7 +9538,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Stench"
+				"H": "Stench",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -9432,7 +9595,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Stench"
+				"H": "Stench",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.5,
 		"prevo": "Koffing",
@@ -9483,7 +9647,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Galar",
 		"types": [
 				"Poison",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 65,
@@ -9496,7 +9660,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"prevo": "Koffing",
@@ -9550,7 +9715,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 115,
 		"evos": [
@@ -9607,7 +9773,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Rhyhorn",
@@ -9665,7 +9832,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Serene Grace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34.6,
 		"prevo": "Happiny",
@@ -9723,7 +9891,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"evos": [
@@ -9779,7 +9948,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Early Bird",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 80,
 		"eggGroups": [
@@ -9842,7 +10012,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100,
 		"eggGroups": [
@@ -9900,7 +10071,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"evos": [
@@ -9956,7 +10128,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Horsea",
@@ -10013,7 +10186,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Water Veil",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"evos": [
@@ -10068,7 +10242,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Water Veil",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 39,
 		"prevo": "Goldeen",
@@ -10123,7 +10298,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Natural Cure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34.5,
 		"evos": [
@@ -10180,7 +10356,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Natural Cure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 80,
 		"prevo": "Staryu",
@@ -10223,7 +10400,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Mr. Mime",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 40,
@@ -10236,7 +10413,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 54.5,
 		"prevo": "Mime Jr.",
@@ -10301,7 +10479,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 56.8,
 		"prevo": "Mime Jr.",
@@ -10358,7 +10537,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 56,
 		"evos": [
@@ -10416,7 +10596,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.6,
 		"prevo": "Smoochum",
@@ -10474,7 +10655,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Elekid",
@@ -10530,7 +10712,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 44.5,
 		"prevo": "Magby",
@@ -10582,7 +10765,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"eggGroups": [
@@ -10645,7 +10829,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 59,
 		"eggGroups": [
@@ -10704,7 +10889,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 88.4,
 		"otherFormes": [
@@ -10771,7 +10957,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 115,
 		"eggGroups": [
@@ -10826,7 +11013,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 85,
 		"eggGroups": [
@@ -10881,7 +11069,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"eggGroups": [
@@ -10932,7 +11121,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10,
 		"evos": [
@@ -10989,7 +11179,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 235,
 		"prevo": "Magikarp",
@@ -11054,7 +11245,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 305,
 		"eggGroups": [
@@ -11114,7 +11306,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 220,
 		"eggGroups": [
@@ -11170,7 +11363,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"eggGroups": [
@@ -11227,7 +11421,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"evos": [
@@ -11299,7 +11494,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"eggGroups": [
@@ -11350,7 +11546,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29,
 		"prevo": "Eevee",
@@ -11405,7 +11602,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24.5,
 		"prevo": "Eevee",
@@ -11460,7 +11658,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Guts"
+				"H": "Guts",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Eevee",
@@ -11512,7 +11711,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Trace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 36.5,
 		"evos": [
@@ -11572,7 +11772,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"evos": [
@@ -11629,7 +11830,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"prevo": "Omanyte",
@@ -11685,7 +11887,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Battle Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"evos": [
@@ -11742,7 +11945,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Battle Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.5,
 		"prevo": "Kabuto",
@@ -11798,7 +12002,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Pressure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 59,
 		"eggGroups": [
@@ -11861,7 +12066,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 79,
 		"eggGroups": [
@@ -11919,7 +12125,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Immunity",
 				"1": "Thick Fat",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 460,
 		"prevo": "Munchlax",
@@ -11974,7 +12181,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55.4,
 		"eggGroups": [
@@ -12040,7 +12248,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 50.9,
 		"eggGroups": [
@@ -12095,7 +12304,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Static"
+				"H": "Static",
+				"S": "Illuminate"
 		},
 		"weightkg": 52.6,
 		"eggGroups": [
@@ -12161,7 +12371,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 58.2,
 		"eggGroups": [
@@ -12216,7 +12427,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"eggGroups": [
@@ -12282,7 +12494,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 66,
 		"eggGroups": [
@@ -12333,7 +12546,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Marvel Scale"
+				"H": "Marvel Scale",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.3,
 		"evos": [
@@ -12389,7 +12603,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Marvel Scale"
+				"H": "Marvel Scale",
+				"S": "Illuminate"
 		},
 		"weightkg": 16.5,
 		"prevo": "Dratini",
@@ -12447,7 +12662,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 210,
 		"prevo": "Dragonair",
@@ -12505,7 +12721,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 122,
 		"eggGroups": [
@@ -12573,7 +12790,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 127,
 		"eggGroups": [
@@ -12636,7 +12854,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"eggGroups": [
@@ -12697,7 +12916,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"eggGroups": [
@@ -12754,7 +12974,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.4,
 		"evos": [
@@ -12810,7 +13031,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.8,
 		"prevo": "Chikorita",
@@ -12867,7 +13089,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"prevo": "Bayleef",
@@ -12922,7 +13145,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Flash Fire"
+				"H": "Flash Fire",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.9,
 		"evos": [
@@ -12977,7 +13201,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Flash Fire"
+				"H": "Flash Fire",
+				"S": "Illuminate"
 		},
 		"weightkg": 19,
 		"prevo": "Cyndaquil",
@@ -13034,7 +13259,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Flash Fire"
+				"H": "Flash Fire",
+				"S": "Illuminate"
 		},
 		"weightkg": 79.5,
 		"prevo": "Quilava",
@@ -13098,7 +13324,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 69.8,
 		"prevo": "Quilava",
@@ -13150,7 +13377,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.5,
 		"evos": [
@@ -13206,7 +13434,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Totodile",
@@ -13263,7 +13492,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 88.8,
 		"prevo": "Croconaw",
@@ -13314,7 +13544,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"evos": [
@@ -13369,7 +13600,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.5,
 		"prevo": "Sentret",
@@ -13424,7 +13656,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.2,
 		"evos": [
@@ -13480,7 +13713,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.8,
 		"prevo": "Hoothoot",
@@ -13535,7 +13769,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.8,
 		"evos": [
@@ -13591,7 +13826,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35.6,
 		"prevo": "Ledyba",
@@ -13646,7 +13882,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Insomnia",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"evos": [
@@ -13702,7 +13939,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Insomnia",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.5,
 		"prevo": "Spinarak",
@@ -13757,7 +13995,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 75,
 		"prevo": "Golbat",
@@ -13812,7 +14051,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -13868,7 +14108,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 22.5,
 		"prevo": "Chinchou",
@@ -13922,7 +14163,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -13986,7 +14228,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"eggGroups": [
@@ -14024,7 +14267,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 173,
 		"name": "Cleffa",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -14041,7 +14284,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3,
 		"evos": [
@@ -14080,7 +14324,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Igglybuff",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -14097,7 +14341,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -14135,7 +14380,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 175,
 		"name": "Togepi",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.875,
@@ -14152,7 +14397,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Serene Grace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -14190,7 +14436,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 176,
 		"name": "Togetic",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Flying"
 		],
 		"genderRatio": {
@@ -14208,7 +14454,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Serene Grace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.2,
 		"prevo": "Togepi",
@@ -14262,7 +14509,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -14318,7 +14566,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"prevo": "Natu",
@@ -14372,7 +14621,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Plus"
+				"H": "Plus",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.8,
 		"evos": [
@@ -14428,7 +14678,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Plus"
+				"H": "Plus",
+				"S": "Illuminate"
 		},
 		"weightkg": 13.3,
 		"prevo": "Mareep",
@@ -14485,7 +14736,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Plus"
+				"H": "Plus",
+				"S": "Illuminate"
 		},
 		"weightkg": 61.5,
 		"prevo": "Flaaffy",
@@ -14550,7 +14802,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61.5,
 		"eggGroups": [
@@ -14609,7 +14862,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.8,
 		"prevo": "Gloom",
@@ -14652,7 +14906,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Marill",
 		"types": [
 				"Water",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 70,
@@ -14665,7 +14919,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Huge Power",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"prevo": "Azurill",
@@ -14710,7 +14965,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Azumarill",
 		"types": [
 				"Water",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 100,
@@ -14723,7 +14978,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Huge Power",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28.5,
 		"prevo": "Marill",
@@ -14778,7 +15034,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 38,
 		"prevo": "Bonsly",
@@ -14833,7 +15090,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Damp",
-				"H": "Drizzle"
+				"H": "Drizzle",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.9,
 		"prevo": "Poliwhirl",
@@ -14889,7 +15147,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.5,
 		"evos": [
@@ -14946,7 +15205,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"prevo": "Hoppip",
@@ -15004,7 +15264,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3,
 		"prevo": "Skiploom",
@@ -15059,7 +15320,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Pickup",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"evos": [
@@ -15114,7 +15376,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Early Bird"
+				"H": "Early Bird",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.8,
 		"evos": [
@@ -15169,7 +15432,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Early Bird"
+				"H": "Early Bird",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"prevo": "Sunkern",
@@ -15225,7 +15489,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Speed Boost",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 38,
 		"evos": [
@@ -15281,7 +15546,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Damp",
 				"1": "Water Absorb",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"evos": [
@@ -15347,7 +15613,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Water Absorb",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"evos": [
@@ -15402,7 +15669,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Damp",
 				"1": "Water Absorb",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 75,
 		"prevo": "Wooper",
@@ -15461,7 +15729,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 26.5,
 		"prevo": "Eevee",
@@ -15516,7 +15785,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 27,
 		"prevo": "Eevee",
@@ -15568,7 +15838,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.1,
 		"evos": [
@@ -15624,7 +15895,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 79.5,
 		"prevo": "Slowpoke",
@@ -15690,7 +15962,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 79.5,
 		"prevo": "Slowpoke-Galar",
@@ -15744,7 +16017,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -15801,7 +16075,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"eggGroups": [
@@ -15912,7 +16187,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shadow Tag",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28.5,
 		"prevo": "Wynaut",
@@ -15967,7 +16243,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 41.5,
 		"evos": [
@@ -16022,7 +16299,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.2,
 		"evos": [
@@ -16078,7 +16356,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 125.8,
 		"prevo": "Pineco",
@@ -16132,7 +16411,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Run Away",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14,
 		"evos": [
@@ -16189,7 +16469,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Sand Veil",
-				"H": "Immunity"
+				"H": "Immunity",
+				"S": "Illuminate"
 		},
 		"weightkg": 64.8,
 		"evos": [
@@ -16245,7 +16526,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 400,
 		"prevo": "Onix",
@@ -16310,7 +16592,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 740,
 		"eggGroups": [
@@ -16355,7 +16638,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 209,
 		"name": "Snubbull",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -16372,7 +16655,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Run Away",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.8,
 		"evos": [
@@ -16411,7 +16695,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 210,
 		"name": "Granbull",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -16428,7 +16712,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48.7,
 		"prevo": "Snubbull",
@@ -16480,7 +16765,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Swift Swim",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.9,
 		"eggGroups": [
@@ -16543,7 +16829,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Swift Swim",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.9,
 		"evos": [
@@ -16597,7 +16884,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 118,
 		"prevo": "Scyther",
@@ -16662,7 +16950,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 125,
 		"eggGroups": [
@@ -16721,7 +17010,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.5,
 		"eggGroups": [
@@ -16775,7 +17065,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Guts",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 54,
 		"eggGroups": [
@@ -16838,7 +17129,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 62.5,
 		"eggGroups": [
@@ -16897,7 +17189,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"evos": [
@@ -16962,7 +17255,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 27,
 		"evos": [
@@ -17015,7 +17309,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.8,
 		"evos": [
@@ -17070,7 +17365,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 125.8,
 		"prevo": "Teddiursa",
@@ -17126,7 +17422,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magma Armor",
 				"1": "Flame Body",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"evos": [
@@ -17182,7 +17479,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magma Armor",
 				"1": "Flame Body",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"prevo": "Slugma",
@@ -17237,7 +17535,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"evos": [
@@ -17293,7 +17592,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 55.8,
 		"prevo": "Swinub",
@@ -17354,7 +17654,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Natural Cure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"eggGroups": [
@@ -17417,7 +17718,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.5,
 		"evos": [
@@ -17467,7 +17769,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -17523,7 +17826,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Suction Cups",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28.5,
 		"prevo": "Remoraid",
@@ -17579,7 +17883,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Hustle",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"eggGroups": [
@@ -17634,7 +17939,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Water Absorb",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 220,
 		"prevo": "Mantyke",
@@ -17690,7 +17996,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 50.5,
 		"eggGroups": [
@@ -17744,7 +18051,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Early Bird",
 				"1": "Flash Fire",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.8,
 		"evos": [
@@ -17800,7 +18108,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Early Bird",
 				"1": "Flash Fire",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"prevo": "Houndour",
@@ -17864,7 +18173,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 49.5,
 		"eggGroups": [
@@ -17923,7 +18233,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 152,
 		"prevo": "Seadra",
@@ -17979,7 +18290,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.5,
 		"evos": [
@@ -18034,7 +18346,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Phanpy",
@@ -18089,7 +18402,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Trace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.5,
 		"prevo": "Porygon",
@@ -18146,7 +18460,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 71.2,
 		"evos": [
@@ -18201,7 +18516,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 58,
 		"eggGroups": [
@@ -18255,7 +18571,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 21,
 		"evos": [
@@ -18313,7 +18630,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48,
 		"prevo": "Tyrogue",
@@ -18370,7 +18688,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"evos": [
@@ -18429,7 +18748,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.5,
 		"evos": [
@@ -18484,7 +18804,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.4,
 		"evos": [
@@ -18536,7 +18857,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 75.5,
 		"eggGroups": [
@@ -18590,7 +18912,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Serene Grace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 46.8,
 		"prevo": "Chansey",
@@ -18647,7 +18970,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 178,
 		"eggGroups": [
@@ -18703,7 +19027,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 198,
 		"eggGroups": [
@@ -18759,7 +19084,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 187,
 		"eggGroups": [
@@ -18813,7 +19139,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 72,
 		"evos": [
@@ -18869,7 +19196,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 152,
 		"prevo": "Larvitar",
@@ -18926,7 +19254,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Stream",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 202,
 		"prevo": "Pupitar",
@@ -18990,7 +19319,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Stream",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 255,
 		"eggGroups": [
@@ -19052,7 +19382,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 216,
 		"eggGroups": [
@@ -19109,7 +19440,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 199,
 		"eggGroups": [
@@ -19166,7 +19498,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"eggGroups": [
@@ -19223,7 +19556,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"evos": [
@@ -19279,7 +19613,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.6,
 		"prevo": "Treecko",
@@ -19336,7 +19671,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52.2,
 		"prevo": "Grovyle",
@@ -19401,7 +19737,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55.2,
 		"eggGroups": [
@@ -19460,7 +19797,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"evos": [
@@ -19516,7 +19854,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.5,
 		"prevo": "Torchic",
@@ -19573,7 +19912,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 52,
 		"prevo": "Combusken",
@@ -19637,7 +19977,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Speed Boost",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52,
 		"eggGroups": [
@@ -19695,7 +20036,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.6,
 		"evos": [
@@ -19752,7 +20094,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"prevo": "Mudkip",
@@ -19810,7 +20153,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 81.9,
 		"prevo": "Marshtomp",
@@ -19875,7 +20219,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 102,
 		"eggGroups": [
@@ -19930,7 +20275,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13.6,
 		"evos": [
@@ -19985,7 +20331,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 37,
 		"prevo": "Poochyena",
@@ -20039,7 +20386,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.5,
 		"evos": [
@@ -20104,7 +20452,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.5,
 		"evos": [
@@ -20157,7 +20506,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.5,
 		"prevo": "Zigzagoon",
@@ -20221,7 +20571,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.5,
 		"prevo": "Zigzagoon-Galar",
@@ -20275,7 +20626,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.6,
 		"evos": [
@@ -20331,7 +20683,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10,
 		"prevo": "Wurmple",
@@ -20388,7 +20741,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28.4,
 		"prevo": "Silcoon",
@@ -20442,7 +20796,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"prevo": "Wurmple",
@@ -20499,7 +20854,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Compound Eyes"
+				"H": "Compound Eyes",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.6,
 		"prevo": "Cascoon",
@@ -20554,7 +20910,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Rain Dish",
-				"H": "Own Tempo"
+				"H": "Own Tempo",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.6,
 		"evos": [
@@ -20611,7 +20968,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Rain Dish",
-				"H": "Own Tempo"
+				"H": "Own Tempo",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.5,
 		"prevo": "Lotad",
@@ -20669,7 +21027,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Rain Dish",
-				"H": "Own Tempo"
+				"H": "Own Tempo",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"prevo": "Lombre",
@@ -20725,7 +21084,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -20782,7 +21142,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Early Bird",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"prevo": "Seedot",
@@ -20840,7 +21201,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 59.6,
 		"prevo": "Nuzleaf",
@@ -20897,7 +21259,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.3,
 		"evos": [
@@ -20953,7 +21316,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.8,
 		"prevo": "Taillow",
@@ -21008,7 +21372,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.5,
 		"evos": [
@@ -21065,7 +21430,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Drizzle",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"prevo": "Wingull",
@@ -21108,7 +21474,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Ralts",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 28,
@@ -21121,7 +21487,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Trace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.6,
 		"evos": [
@@ -21165,7 +21532,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Kirlia",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 38,
@@ -21178,7 +21545,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Trace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.2,
 		"prevo": "Ralts",
@@ -21224,7 +21592,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Gardevoir",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 68,
@@ -21237,7 +21605,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Trace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48.4,
 		"prevo": "Kirlia",
@@ -21289,7 +21658,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 68,
@@ -21302,7 +21671,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48.4,
 		"eggGroups": [
@@ -21361,7 +21731,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.7,
 		"evos": [
@@ -21418,7 +21789,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.6,
 		"prevo": "Surskit",
@@ -21473,7 +21845,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Effect Spore",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.5,
 		"evos": [
@@ -21530,7 +21903,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Effect Spore",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.2,
 		"prevo": "Shroomish",
@@ -21585,7 +21959,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Truant",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24,
 		"evos": [
@@ -21640,7 +22015,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 46.5,
 		"prevo": "Slakoth",
@@ -21696,7 +22072,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Truant",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 130.5,
 		"prevo": "Vigoroth",
@@ -21751,7 +22128,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Compound Eyes",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.5,
 		"evos": [
@@ -21808,7 +22186,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Speed Boost",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"prevo": "Nincada",
@@ -21865,7 +22244,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Wonder Guard",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.2,
 		"prevo": "Nincada",
@@ -21919,7 +22299,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16.3,
 		"evos": [
@@ -21975,7 +22356,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.5,
 		"prevo": "Whismur",
@@ -22032,7 +22414,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 84,
 		"prevo": "Loudred",
@@ -22091,7 +22474,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Guts",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 86.4,
 		"evos": [
@@ -22146,7 +22530,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Guts",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 253.8,
 		"prevo": "Makuhita",
@@ -22184,7 +22569,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Azurill",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -22201,7 +22586,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Huge Power",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -22252,7 +22638,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Magnet Pull",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 97,
 		"evos": [
@@ -22311,7 +22698,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"evos": [
@@ -22367,7 +22755,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.6,
 		"prevo": "Skitty",
@@ -22420,7 +22809,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"eggGroups": [
@@ -22483,7 +22873,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 161,
 		"eggGroups": [
@@ -22529,7 +22920,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Mawile",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 50,
@@ -22542,7 +22933,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Intimidate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"eggGroups": [
@@ -22593,7 +22985,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 50,
@@ -22606,7 +22998,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Huge Power",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.5,
 		"eggGroups": [
@@ -22666,7 +23059,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"evos": [
@@ -22722,7 +23116,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Aron",
@@ -22779,7 +23174,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 360,
 		"prevo": "Lairon",
@@ -22842,7 +23238,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 395,
 		"eggGroups": [
@@ -22901,7 +23298,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pure Power",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.2,
 		"evos": [
@@ -22957,7 +23355,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pure Power",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.5,
 		"prevo": "Meditite",
@@ -23021,7 +23420,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pure Power",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.5,
 		"eggGroups": [
@@ -23079,7 +23479,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Lightning Rod",
-				"H": "Minus"
+				"H": "Minus",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.2,
 		"evos": [
@@ -23134,7 +23535,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Lightning Rod",
-				"H": "Minus"
+				"H": "Minus",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.2,
 		"prevo": "Electrike",
@@ -23197,7 +23599,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 44,
 		"eggGroups": [
@@ -23255,7 +23658,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Plus",
 				"1": "Illuminate",
-				"H": "Lightning Rod"
+				"H": "Lightning Rod",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.2,
 		"eggGroups": [
@@ -23308,7 +23712,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Minus",
 				"1": "Illuminate",
-				"H": "Volt Absorb"
+				"H": "Volt Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.2,
 		"eggGroups": [
@@ -23362,7 +23767,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Swarm",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.7,
 		"eggGroups": [
@@ -23418,7 +23824,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.7,
 		"eggGroups": [
@@ -23473,7 +23880,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Poison Point",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"prevo": "Budew",
@@ -23531,7 +23939,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Liquid Ooze",
 				"1": "Sticky Hold",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.3,
 		"evos": [
@@ -23586,7 +23995,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Liquid Ooze",
 				"1": "Sticky Hold",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 80,
 		"prevo": "Gulpin",
@@ -23641,7 +24051,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rough Skin",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.8,
 		"evos": [
@@ -23697,7 +24108,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rough Skin",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 88.8,
 		"prevo": "Carvanha",
@@ -23761,7 +24173,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 130.3,
 		"eggGroups": [
@@ -23819,7 +24232,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Veil",
 				"1": "Oblivious",
-				"H": "Pressure"
+				"H": "Pressure",
+				"S": "Illuminate"
 		},
 		"weightkg": 130,
 		"evos": [
@@ -23875,7 +24289,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Veil",
 				"1": "Oblivious",
-				"H": "Pressure"
+				"H": "Pressure",
+				"S": "Illuminate"
 		},
 		"weightkg": 398,
 		"prevo": "Wailmer",
@@ -23931,7 +24346,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Own Tempo"
+				"H": "Own Tempo",
+				"S": "Illuminate"
 		},
 		"weightkg": 24,
 		"evos": [
@@ -23987,7 +24403,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magma Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 220,
 		"prevo": "Numel",
@@ -24051,7 +24468,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320.5,
 		"eggGroups": [
@@ -24109,7 +24527,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "White Smoke",
 				"1": "Drought",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 80.4,
 		"eggGroups": [
@@ -24162,7 +24581,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30.6,
 		"evos": [
@@ -24217,7 +24637,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 71.5,
 		"prevo": "Spoink",
@@ -24271,7 +24692,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"eggGroups": [
@@ -24325,7 +24747,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Arena Trap",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"evos": [
@@ -24382,7 +24805,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.3,
 		"prevo": "Trapinch",
@@ -24440,7 +24864,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82,
 		"prevo": "Vibrava",
@@ -24495,7 +24920,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 51.3,
 		"evos": [
@@ -24552,7 +24978,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 77.4,
 		"prevo": "Cacnea",
@@ -24608,7 +25035,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Illuminate",
-				"H": "Cloud Nine"
+				"H": "Cloud Nine",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.2,
 		"evos": [
@@ -24665,7 +25093,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Illuminate",
-				"H": "Cloud Nine"
+				"H": "Cloud Nine",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.6,
 		"prevo": "Swablu",
@@ -24717,7 +25146,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Dragon",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 75,
@@ -24730,7 +25159,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.6,
 		"eggGroups": [
@@ -24789,7 +25219,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Immunity",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.3,
 		"eggGroups": [
@@ -24842,7 +25273,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52.5,
 		"eggGroups": [
@@ -24898,7 +25330,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 168,
 		"eggGroups": [
@@ -24953,7 +25386,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 154,
 		"eggGroups": [
@@ -25007,7 +25441,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.9,
 		"evos": [
@@ -25063,7 +25498,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.6,
 		"prevo": "Barboach",
@@ -25117,7 +25553,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"evos": [
@@ -25174,7 +25611,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32.8,
 		"prevo": "Corphish",
@@ -25231,7 +25669,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.5,
 		"evos": [
@@ -25288,7 +25727,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 108,
 		"prevo": "Baltoy",
@@ -25347,7 +25787,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Suction Cups",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.8,
 		"evos": [
@@ -25403,7 +25844,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Suction Cups",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.4,
 		"prevo": "Lileep",
@@ -25458,7 +25900,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"evos": [
@@ -25514,7 +25957,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 68.2,
 		"prevo": "Anorith",
@@ -25564,7 +26008,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Oblivious",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.4,
 		"evos": [
@@ -25620,7 +26065,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Marvel Scale",
 				"1": "Illuminate",
-				"H": "Cute Charm"
+				"H": "Cute Charm",
+				"S": "Illuminate"
 		},
 		"weightkg": 162,
 		"prevo": "Feebas",
@@ -25676,7 +26122,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Forecast",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.8,
 		"eggGroups": [
@@ -25743,7 +26190,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Forecast",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.8,
 		"eggGroups": [
@@ -25800,7 +26248,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Forecast",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.8,
 		"eggGroups": [
@@ -25857,7 +26306,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Forecast",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.8,
 		"eggGroups": [
@@ -25912,7 +26362,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Color Change",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 22,
 		"eggGroups": [
@@ -25965,7 +26416,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.3,
 		"evos": [
@@ -26020,7 +26472,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"prevo": "Shuppet",
@@ -26083,7 +26536,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"eggGroups": [
@@ -26141,7 +26595,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"evos": [
@@ -26196,7 +26651,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30.6,
 		"prevo": "Duskull",
@@ -26253,7 +26709,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100,
 		"eggGroups": [
@@ -26307,7 +26764,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"prevo": "Chingling",
@@ -26362,7 +26820,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 47,
 		"eggGroups": [
@@ -26424,7 +26883,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 49,
 		"eggGroups": [
@@ -26482,7 +26942,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shadow Tag",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14,
 		"evos": [
@@ -26537,7 +26998,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16.8,
 		"evos": [
@@ -26594,7 +27056,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 256.5,
 		"prevo": "Snorunt",
@@ -26658,7 +27121,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 350.2,
 		"eggGroups": [
@@ -26718,7 +27182,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Oblivious"
+				"H": "Oblivious",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.5,
 		"evos": [
@@ -26775,7 +27240,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Oblivious"
+				"H": "Oblivious",
+				"S": "Illuminate"
 		},
 		"weightkg": 87.6,
 		"prevo": "Spheal",
@@ -26833,7 +27299,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Oblivious"
+				"H": "Oblivious",
+				"S": "Illuminate"
 		},
 		"weightkg": 150.6,
 		"prevo": "Sealeo",
@@ -26888,7 +27355,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shell Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52.5,
 		"evos": [
@@ -26944,7 +27412,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 27,
 		"prevo": "Clamperl",
@@ -26999,7 +27468,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 22.6,
 		"prevo": "Clamperl",
@@ -27059,7 +27529,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Rock Head",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.4,
 		"eggGroups": [
@@ -27113,7 +27584,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.7,
 		"eggGroups": [
@@ -27162,7 +27634,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 42.1,
 		"evos": [
@@ -27217,7 +27690,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110.5,
 		"prevo": "Bagon",
@@ -27274,7 +27748,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 102.6,
 		"prevo": "Shelgon",
@@ -27338,7 +27813,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 112.6,
 		"eggGroups": [
@@ -27398,7 +27874,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 95.2,
 		"evos": [
@@ -27455,7 +27932,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 202.5,
 		"prevo": "Beldum",
@@ -27513,7 +27991,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 550,
 		"prevo": "Metang",
@@ -27578,7 +28057,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 942.9,
 		"eggGroups": [
@@ -27639,7 +28119,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 230,
 		"eggGroups": [
@@ -27695,7 +28176,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 175,
 		"eggGroups": [
@@ -27751,7 +28233,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 205,
 		"eggGroups": [
@@ -27808,7 +28291,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"eggGroups": [
@@ -27874,7 +28358,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52,
 		"eggGroups": [
@@ -27936,7 +28421,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"eggGroups": [
@@ -28002,7 +28488,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 70,
 		"eggGroups": [
@@ -28063,7 +28550,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Drizzle",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 352,
 		"eggGroups": [
@@ -28128,7 +28616,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 430,
 		"eggGroups": [
@@ -28188,7 +28677,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Drought",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 950,
 		"eggGroups": [
@@ -28254,7 +28744,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 999.7,
 		"eggGroups": [
@@ -28315,7 +28806,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Air Lock",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 206.5,
 		"eggGroups": [
@@ -28381,7 +28873,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 392,
 		"eggGroups": [
@@ -28440,7 +28933,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.1,
 		"eggGroups": [
@@ -28497,7 +28991,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.8,
 		"eggGroups": [
@@ -28565,7 +29060,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.8,
 		"eggGroups": [
@@ -28622,7 +29118,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.8,
 		"eggGroups": [
@@ -28679,7 +29176,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.8,
 		"eggGroups": [
@@ -28735,7 +29233,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.2,
 		"evos": [
@@ -28791,7 +29290,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 97,
 		"prevo": "Turtwig",
@@ -28849,7 +29349,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 310,
 		"prevo": "Grotle",
@@ -28904,7 +29405,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.2,
 		"evos": [
@@ -28961,7 +29463,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 22,
 		"prevo": "Chimchar",
@@ -29019,7 +29522,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55,
 		"prevo": "Monferno",
@@ -29074,7 +29578,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.2,
 		"evos": [
@@ -29130,7 +29635,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23,
 		"prevo": "Piplup",
@@ -29188,7 +29694,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 84.5,
 		"prevo": "Prinplup",
@@ -29240,7 +29747,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -29296,7 +29804,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.5,
 		"prevo": "Starly",
@@ -29353,7 +29862,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24.9,
 		"prevo": "Staravia",
@@ -29407,7 +29917,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20,
 		"evos": [
@@ -29464,7 +29975,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.5,
 		"prevo": "Bidoof",
@@ -29519,7 +30031,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.2,
 		"evos": [
@@ -29574,7 +30087,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25.5,
 		"prevo": "Kricketot",
@@ -29628,7 +30142,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Intimidate",
-				"H": "Guts"
+				"H": "Guts",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.5,
 		"evos": [
@@ -29683,7 +30198,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Intimidate",
-				"H": "Guts"
+				"H": "Guts",
+				"S": "Illuminate"
 		},
 		"weightkg": 30.5,
 		"prevo": "Shinx",
@@ -29739,7 +30255,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Intimidate",
-				"H": "Guts"
+				"H": "Guts",
+				"S": "Illuminate"
 		},
 		"weightkg": 42,
 		"prevo": "Luxio",
@@ -29794,7 +30311,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Poison Point",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.2,
 		"evos": [
@@ -29850,7 +30368,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Poison Point",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.5,
 		"prevo": "Roselia",
@@ -29910,7 +30429,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.5,
 		"evos": [
@@ -29965,7 +30485,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 102.5,
 		"prevo": "Cranidos",
@@ -30020,7 +30541,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Soundproof"
+				"H": "Soundproof",
+				"S": "Illuminate"
 		},
 		"weightkg": 57,
 		"evos": [
@@ -30076,7 +30598,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Soundproof"
+				"H": "Soundproof",
+				"S": "Illuminate"
 		},
 		"weightkg": 149.5,
 		"prevo": "Shieldon",
@@ -30127,7 +30650,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.4,
 		"evos": [
@@ -30196,7 +30720,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"prevo": "Burmy",
@@ -30262,7 +30787,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"prevo": "Burmy",
@@ -30318,7 +30844,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"prevo": "Burmy",
@@ -30372,7 +30899,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.3,
 		"prevo": "Burmy",
@@ -30431,7 +30959,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.5,
 		"evos": [
@@ -30484,7 +31013,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 38.5,
 		"prevo": "Combee",
@@ -30538,7 +31068,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Pickup",
-				"H": "Volt Absorb"
+				"H": "Volt Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.9,
 		"eggGroups": [
@@ -30592,7 +31123,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.5,
 		"evos": [
@@ -30648,7 +31180,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.5,
 		"prevo": "Buizel",
@@ -30703,7 +31236,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.3,
 		"evos": [
@@ -30760,7 +31294,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.3,
 		"prevo": "Cherubi",
@@ -30823,7 +31358,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.3,
 		"eggGroups": [
@@ -30879,7 +31415,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sticky Hold",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.3,
 		"evos": [
@@ -30943,7 +31480,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sticky Hold",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.9,
 		"prevo": "Shellos",
@@ -31004,7 +31542,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Pickup",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.3,
 		"prevo": "Aipom",
@@ -31060,7 +31599,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.2,
 		"evos": [
@@ -31116,7 +31656,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"prevo": "Drifloon",
@@ -31170,7 +31711,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Limber"
+				"H": "Limber",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.5,
 		"evos": [
@@ -31226,7 +31768,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Limber"
+				"H": "Limber",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.3,
 		"prevo": "Buneary",
@@ -31291,7 +31834,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28.3,
 		"eggGroups": [
@@ -31350,7 +31894,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.4,
 		"prevo": "Misdreavus",
@@ -31406,7 +31951,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 27.3,
 		"prevo": "Murkrow",
@@ -31465,7 +32011,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Own Tempo",
-				"H": "Keen Eye"
+				"H": "Keen Eye",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.9,
 		"evos": [
@@ -31520,7 +32067,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 43.8,
 		"prevo": "Glameow",
@@ -31570,7 +32118,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.6,
 		"evos": [
@@ -31626,7 +32175,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Stench",
 				"1": "Illuminate",
-				"H": "Keen Eye"
+				"H": "Keen Eye",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.2,
 		"evos": [
@@ -31682,7 +32232,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Stench",
 				"1": "Illuminate",
-				"H": "Keen Eye"
+				"H": "Keen Eye",
+				"S": "Illuminate"
 		},
 		"weightkg": 38,
 		"prevo": "Stunky",
@@ -31738,7 +32289,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.5,
 		"evos": [
@@ -31795,7 +32347,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 187,
 		"prevo": "Bronzor",
@@ -31849,7 +32402,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Rock Head",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"evos": [
@@ -31892,7 +32446,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Mime Jr.",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 20,
@@ -31905,7 +32459,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Soundproof",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"evos": [
@@ -31962,7 +32517,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Serene Grace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24.4,
 		"evos": [
@@ -32018,7 +32574,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.9,
 		"eggGroups": [
@@ -32072,7 +32629,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 108,
 		"eggGroups": [
@@ -32126,7 +32684,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Rough Skin"
+				"H": "Rough Skin",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.5,
 		"evos": [
@@ -32183,7 +32742,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Rough Skin"
+				"H": "Rough Skin",
+				"S": "Illuminate"
 		},
 		"weightkg": 56,
 		"prevo": "Gible",
@@ -32241,7 +32801,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Veil",
 				"1": "Illuminate",
-				"H": "Rough Skin"
+				"H": "Rough Skin",
+				"S": "Illuminate"
 		},
 		"weightkg": 95,
 		"prevo": "Gabite",
@@ -32306,7 +32867,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 95,
 		"eggGroups": [
@@ -32369,7 +32931,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Thick Fat",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 105,
 		"evos": [
@@ -32424,7 +32987,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.2,
 		"evos": [
@@ -32480,7 +33044,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 54,
 		"prevo": "Riolu",
@@ -32546,7 +33111,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 57.5,
 		"eggGroups": [
@@ -32601,7 +33167,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Stream",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 49.5,
 		"evos": [
@@ -32656,7 +33223,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sand Stream",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 300,
 		"prevo": "Hippopotas",
@@ -32711,7 +33279,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Keen Eye"
+				"H": "Keen Eye",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -32768,7 +33337,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Keen Eye"
+				"H": "Keen Eye",
+				"S": "Illuminate"
 		},
 		"weightkg": 61.5,
 		"prevo": "Skorupi",
@@ -32824,7 +33394,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23,
 		"evos": [
@@ -32880,7 +33451,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 44.4,
 		"prevo": "Croagunk",
@@ -32934,7 +33506,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 27,
 		"eggGroups": [
@@ -32987,7 +33560,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 7,
 		"evos": [
@@ -33042,7 +33616,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 24,
 		"prevo": "Finneon",
@@ -33097,7 +33672,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Water Absorb",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 65,
 		"evos": [
@@ -33153,7 +33729,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Soundproof"
+				"H": "Soundproof",
+				"S": "Illuminate"
 		},
 		"weightkg": 50.5,
 		"evos": [
@@ -33210,7 +33787,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Soundproof"
+				"H": "Soundproof",
+				"S": "Illuminate"
 		},
 		"weightkg": 135.5,
 		"prevo": "Snover",
@@ -33275,7 +33853,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 185,
 		"eggGroups": [
@@ -33335,7 +33914,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34,
 		"prevo": "Sneasel",
@@ -33393,7 +33973,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 180,
 		"prevo": "Magneton",
@@ -33448,7 +34029,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Oblivious",
-				"H": "Cloud Nine"
+				"H": "Cloud Nine",
+				"S": "Illuminate"
 		},
 		"weightkg": 140,
 		"prevo": "Lickitung",
@@ -33504,7 +34086,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 282.8,
 		"prevo": "Rhydon",
@@ -33560,7 +34143,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 128.6,
 		"prevo": "Tangela",
@@ -33619,7 +34203,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 138.6,
 		"prevo": "Electabuzz",
@@ -33674,7 +34259,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Vital Spirit"
+				"H": "Vital Spirit",
+				"S": "Illuminate"
 		},
 		"weightkg": 68,
 		"prevo": "Magmar",
@@ -33712,7 +34298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 468,
 		"name": "Togekiss",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Flying"
 		],
 		"genderRatio": {
@@ -33730,7 +34316,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Serene Grace",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 38,
 		"prevo": "Togetic",
@@ -33783,7 +34370,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Speed Boost",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 51.5,
 		"prevo": "Yanma",
@@ -33842,7 +34430,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Chlorophyll"
+				"H": "Chlorophyll",
+				"S": "Illuminate"
 		},
 		"weightkg": 25.5,
 		"prevo": "Eevee",
@@ -33897,7 +34486,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25.9,
 		"prevo": "Eevee",
@@ -33949,7 +34539,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Sand Veil",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 42.5,
 		"prevo": "Gligar",
@@ -34006,7 +34597,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Oblivious",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 291,
 		"prevo": "Piloswine",
@@ -34062,7 +34654,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34,
 		"prevo": "Porygon2",
@@ -34119,7 +34712,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 52,
 		"prevo": "Kirlia",
@@ -34186,7 +34780,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 56.4,
 		"eggGroups": [
@@ -34245,7 +34840,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Magnet Pull",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 340,
 		"prevo": "Nosepass",
@@ -34300,7 +34896,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 106.6,
 		"prevo": "Dusclops",
@@ -34357,7 +34954,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 26.6,
 		"prevo": "Snorunt",
@@ -34415,7 +35013,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34487,7 +35086,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34543,7 +35143,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34599,7 +35200,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34655,7 +35257,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34711,7 +35314,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34766,7 +35370,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34822,7 +35427,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34878,7 +35484,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -34935,7 +35542,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 683,
 		"eggGroups": [
@@ -35001,7 +35609,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 850,
 		"eggGroups": [
@@ -35061,7 +35670,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 336,
 		"eggGroups": [
@@ -35127,7 +35737,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 660,
 		"eggGroups": [
@@ -35186,7 +35797,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 430,
 		"eggGroups": [
@@ -35242,7 +35854,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 420,
 		"eggGroups": [
@@ -35300,7 +35913,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 750,
 		"eggGroups": [
@@ -35365,7 +35979,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 650,
 		"eggGroups": [
@@ -35424,7 +36039,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 85.6,
 		"eggGroups": [
@@ -35480,7 +36096,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.1,
 		"eggGroups": [
@@ -35537,7 +36154,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.4,
 		"eggGroups": [
@@ -35594,7 +36212,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 50.5,
 		"eggGroups": [
@@ -35651,7 +36270,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.1,
 		"eggGroups": [
@@ -35716,7 +36336,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.2,
 		"eggGroups": [
@@ -35772,7 +36393,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -35868,7 +36490,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -35929,7 +36552,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -35990,7 +36614,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36051,7 +36676,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36098,7 +36724,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseSpecies": "Arceus",
 		"forme": "Fairy",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -36112,7 +36738,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36173,7 +36800,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36234,7 +36862,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36295,7 +36924,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36356,7 +36986,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36417,7 +37048,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36478,7 +37110,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36539,7 +37172,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36600,7 +37234,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36661,7 +37296,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36722,7 +37358,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36783,7 +37420,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36844,7 +37482,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -36904,7 +37543,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"eggGroups": [
@@ -36961,7 +37601,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.1,
 		"evos": [
@@ -37017,7 +37658,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"prevo": "Snivy",
@@ -37074,7 +37716,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 63,
 		"prevo": "Servine",
@@ -37129,7 +37772,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.9,
 		"evos": [
@@ -37185,7 +37829,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 55.5,
 		"prevo": "Tepig",
@@ -37242,7 +37887,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 150,
 		"prevo": "Pignite",
@@ -37296,7 +37942,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.9,
 		"evos": [
@@ -37351,7 +37998,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 24.5,
 		"prevo": "Oshawott",
@@ -37408,7 +38056,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Shell Armor"
+				"H": "Shell Armor",
+				"S": "Illuminate"
 		},
 		"weightkg": 94.6,
 		"prevo": "Dewott",
@@ -37472,7 +38121,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 58.2,
 		"prevo": "Dewott",
@@ -37520,7 +38170,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.6,
 		"evos": [
@@ -37575,7 +38226,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 27,
 		"prevo": "Patrat",
@@ -37629,7 +38281,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Pickup",
-				"H": "Run Away"
+				"H": "Run Away",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.1,
 		"evos": [
@@ -37684,7 +38337,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.7,
 		"prevo": "Lillipup",
@@ -37740,7 +38394,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61,
 		"prevo": "Herdier",
@@ -37794,7 +38449,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.1,
 		"evos": [
@@ -37849,7 +38505,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 37.5,
 		"prevo": "Purrloin",
@@ -37907,7 +38564,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Overgrow"
+				"H": "Overgrow",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.5,
 		"evos": [
@@ -37962,7 +38620,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Overgrow"
+				"H": "Overgrow",
+				"S": "Illuminate"
 		},
 		"weightkg": 30.5,
 		"prevo": "Pansage",
@@ -38017,7 +38676,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Blaze"
+				"H": "Blaze",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"evos": [
@@ -38072,7 +38732,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Blaze"
+				"H": "Blaze",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"prevo": "Pansear",
@@ -38127,7 +38788,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Torrent"
+				"H": "Torrent",
+				"S": "Illuminate"
 		},
 		"weightkg": 13.5,
 		"evos": [
@@ -38182,7 +38844,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Torrent"
+				"H": "Torrent",
+				"S": "Illuminate"
 		},
 		"weightkg": 29,
 		"prevo": "Panpour",
@@ -38233,7 +38896,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Synchronize",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.3,
 		"evos": [
@@ -38288,7 +38952,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Synchronize",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.5,
 		"prevo": "Munna",
@@ -38344,7 +39009,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.1,
 		"evos": [
@@ -38400,7 +39066,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"prevo": "Pidove",
@@ -38457,7 +39124,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29,
 		"prevo": "Tranquill",
@@ -38511,7 +39179,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.8,
 		"evos": [
@@ -38566,7 +39235,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 79.5,
 		"prevo": "Blitzle",
@@ -38620,7 +39290,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"evos": [
@@ -38675,7 +39346,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 102,
 		"prevo": "Roggenrola",
@@ -38731,7 +39403,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Sand Stream",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 260,
 		"prevo": "Boldore",
@@ -38786,7 +39459,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.1,
 		"evos": [
@@ -38843,7 +39517,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.5,
 		"prevo": "Woobat",
@@ -38898,7 +39573,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"evos": [
@@ -38954,7 +39630,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.4,
 		"prevo": "Drilbur",
@@ -39008,7 +39685,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31,
 		"eggGroups": [
@@ -39058,7 +39736,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 103,
@@ -39071,7 +39749,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32,
 		"eggGroups": [
@@ -39133,7 +39812,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"evos": [
@@ -39188,7 +39868,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"prevo": "Timburr",
@@ -39244,7 +39925,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 87,
 		"prevo": "Gurdurr",
@@ -39294,7 +39976,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.5,
 		"evos": [
@@ -39350,7 +40033,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 17,
 		"prevo": "Tympole",
@@ -39407,7 +40091,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 62,
 		"prevo": "Palpitoad",
@@ -39462,7 +40147,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55.5,
 		"eggGroups": [
@@ -39516,7 +40202,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 51,
 		"eggGroups": [
@@ -39570,7 +40257,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Chlorophyll",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"evos": [
@@ -39626,7 +40314,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Chlorophyll",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.3,
 		"prevo": "Sewaddle",
@@ -39683,7 +40372,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Chlorophyll",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.5,
 		"prevo": "Swadloon",
@@ -39738,7 +40428,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Swarm",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.3,
 		"evos": [
@@ -39794,7 +40485,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Swarm",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 58.5,
 		"prevo": "Venipede",
@@ -39851,7 +40543,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Swarm",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 200.5,
 		"prevo": "Whirlipede",
@@ -39893,7 +40586,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Cottonee",
 		"types": [
 				"Grass",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 40,
@@ -39906,7 +40599,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Chlorophyll"
+				"H": "Chlorophyll",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.6,
 		"evos": [
@@ -39950,7 +40644,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Whimsicott",
 		"types": [
 				"Grass",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 60,
@@ -39963,7 +40657,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Chlorophyll"
+				"H": "Chlorophyll",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.6,
 		"prevo": "Cottonee",
@@ -40020,7 +40715,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.6,
 		"evos": [
@@ -40077,7 +40773,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16.3,
 		"prevo": "Petilil",
@@ -40143,7 +40840,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Hustle",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.2,
 		"prevo": "Petilil",
@@ -40197,7 +40895,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"eggGroups": [
@@ -40260,7 +40959,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rock Head",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"eggGroups": [
@@ -40313,7 +41013,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"evos": [
@@ -40368,7 +41069,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.2,
 		"evos": [
@@ -40424,7 +41126,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33.4,
 		"prevo": "Sandile",
@@ -40481,7 +41184,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 96.3,
 		"prevo": "Krokorok",
@@ -40535,7 +41239,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 37.5,
 		"evos": [
@@ -40599,7 +41304,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"evos": [
@@ -40653,7 +41359,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 92.9,
 		"prevo": "Darumaka",
@@ -40720,7 +41427,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 92.9,
 		"eggGroups": [
@@ -40776,7 +41484,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Darumaka-Galar",
@@ -40832,7 +41541,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"eggGroups": [
@@ -40886,7 +41596,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Chlorophyll",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"eggGroups": [
@@ -40940,7 +41651,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.5,
 		"evos": [
@@ -40997,7 +41709,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 200,
 		"prevo": "Dwebble",
@@ -41053,7 +41766,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.8,
 		"evos": [
@@ -41110,7 +41824,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Scraggy",
@@ -41166,7 +41881,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14,
 		"eggGroups": [
@@ -41219,7 +41935,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -41285,7 +42002,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -41339,7 +42057,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 76.5,
 		"prevo": "Yamask",
@@ -41399,7 +42118,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sturdy",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 16.5,
 		"evos": [
@@ -41456,7 +42176,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sturdy",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 81,
 		"prevo": "Tirtouga",
@@ -41512,7 +42233,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.5,
 		"evos": [
@@ -41569,7 +42291,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 32,
 		"prevo": "Archen",
@@ -41620,7 +42343,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Stench",
 				"1": "Sticky Hold",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31,
 		"evos": [
@@ -41675,7 +42399,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Stench",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 107.3,
 		"prevo": "Trubbish",
@@ -41734,7 +42459,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"evos": [
@@ -41799,7 +42525,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"evos": [
@@ -41852,7 +42579,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 81.1,
 		"prevo": "Zorua",
@@ -41916,7 +42644,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 73,
 		"prevo": "Zorua-Hisui",
@@ -41968,7 +42697,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.8,
 		"evos": [
@@ -42023,7 +42753,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"prevo": "Minccino",
@@ -42078,7 +42809,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Shadow Tag"
+				"H": "Shadow Tag",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.8,
 		"evos": [
@@ -42133,7 +42865,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Shadow Tag"
+				"H": "Shadow Tag",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"prevo": "Gothita",
@@ -42189,7 +42922,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Shadow Tag"
+				"H": "Shadow Tag",
+				"S": "Illuminate"
 		},
 		"weightkg": 44,
 		"prevo": "Gothorita",
@@ -42239,7 +42973,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -42294,7 +43029,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"prevo": "Solosis",
@@ -42350,7 +43086,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.1,
 		"prevo": "Duosion",
@@ -42405,7 +43142,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.5,
 		"evos": [
@@ -42462,7 +43200,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24.2,
 		"prevo": "Ducklett",
@@ -42517,7 +43256,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.7,
 		"evos": [
@@ -42572,7 +43312,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 41,
 		"prevo": "Vanillite",
@@ -42628,7 +43369,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 57.5,
 		"prevo": "Vanillish",
@@ -42684,7 +43426,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Serene Grace"
+				"H": "Serene Grace",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.5,
 		"evos": [
@@ -42751,7 +43494,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Illuminate",
-				"H": "Serene Grace"
+				"H": "Serene Grace",
+				"S": "Illuminate"
 		},
 		"weightkg": 92.5,
 		"prevo": "Deerling",
@@ -42816,7 +43560,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"eggGroups": [
@@ -42869,7 +43614,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Shed Skin",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.9,
 		"evos": [
@@ -42925,7 +43671,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"prevo": "Karrablast",
@@ -42981,7 +43728,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Effect Spore",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -43037,7 +43785,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Effect Spore",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.5,
 		"prevo": "Foongus",
@@ -43092,7 +43841,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"evos": [
@@ -43148,7 +43898,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 135,
 		"prevo": "Frillish",
@@ -43202,7 +43953,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.6,
 		"eggGroups": [
@@ -43257,7 +44009,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Compound Eyes",
 				"1": "Illuminate",
-				"H": "Swarm"
+				"H": "Swarm",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.6,
 		"evos": [
@@ -43313,7 +44066,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Compound Eyes",
 				"1": "Illuminate",
-				"H": "Swarm"
+				"H": "Swarm",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.3,
 		"prevo": "Joltik",
@@ -43368,7 +44122,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18.8,
 		"evos": [
@@ -43425,7 +44180,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"prevo": "Ferroseed",
@@ -43481,7 +44237,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Plus",
 				"1": "Minus",
-				"H": "Clear Body"
+				"H": "Clear Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 21,
 		"evos": [
@@ -43537,7 +44294,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Plus",
 				"1": "Minus",
-				"H": "Clear Body"
+				"H": "Clear Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 51,
 		"prevo": "Klink",
@@ -43594,7 +44352,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Plus",
 				"1": "Minus",
-				"H": "Clear Body"
+				"H": "Clear Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 81,
 		"prevo": "Klang",
@@ -43648,7 +44407,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"evos": [
@@ -43703,7 +44463,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 22,
 		"prevo": "Tynamo",
@@ -43759,7 +44520,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 80.5,
 		"prevo": "Eelektrik",
@@ -43814,7 +44576,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Synchronize",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"evos": [
@@ -43869,7 +44632,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Synchronize",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34.5,
 		"prevo": "Elgyem",
@@ -43924,7 +44688,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Flame Body",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.1,
 		"evos": [
@@ -43980,7 +44745,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Flame Body",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"prevo": "Litwick",
@@ -44037,7 +44803,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Flame Body",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34.3,
 		"prevo": "Lampent",
@@ -44092,7 +44859,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"evos": [
@@ -44148,7 +44916,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 36,
 		"prevo": "Axew",
@@ -44205,7 +44974,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 105.5,
 		"prevo": "Fraxure",
@@ -44260,7 +45030,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"evos": [
@@ -44315,7 +45086,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 260,
 		"prevo": "Cubchoo",
@@ -44370,7 +45142,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 148,
 		"eggGroups": [
@@ -44423,7 +45196,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.7,
 		"evos": [
@@ -44478,7 +45252,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sticky Hold",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25.3,
 		"prevo": "Shelmet",
@@ -44534,7 +45309,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Limber",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"eggGroups": [
@@ -44598,7 +45374,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.5,
 		"eggGroups": [
@@ -44650,7 +45427,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20,
 		"evos": [
@@ -44706,7 +45484,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35.5,
 		"prevo": "Mienfoo",
@@ -44761,7 +45540,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Rough Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 139,
 		"eggGroups": [
@@ -44817,7 +45597,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 92,
 		"evos": [
@@ -44874,7 +45655,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 330,
 		"prevo": "Golett",
@@ -44929,7 +45711,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Inner Focus",
-				"H": "Pressure"
+				"H": "Pressure",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.2,
 		"evos": [
@@ -44985,7 +45768,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Inner Focus",
-				"H": "Pressure"
+				"H": "Pressure",
+				"S": "Illuminate"
 		},
 		"weightkg": 70,
 		"prevo": "Pawniard",
@@ -45041,7 +45825,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Soundproof"
+				"H": "Soundproof",
+				"S": "Illuminate"
 		},
 		"weightkg": 94.6,
 		"eggGroups": [
@@ -45096,7 +45881,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.5,
 		"evos": [
@@ -45154,7 +45940,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 41,
 		"prevo": "Rufflet",
@@ -45219,7 +46006,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 43.4,
 		"prevo": "Rufflet",
@@ -45273,7 +46061,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"evos": [
@@ -45330,7 +46119,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.5,
 		"prevo": "Vullaby",
@@ -45384,7 +46174,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Flash Fire",
-				"H": "White Smoke"
+				"H": "White Smoke",
+				"S": "Illuminate"
 		},
 		"weightkg": 58,
 		"eggGroups": [
@@ -45438,7 +46229,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Hustle",
-				"H": "Truant"
+				"H": "Truant",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"eggGroups": [
@@ -45492,7 +46284,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.3,
 		"evos": [
@@ -45548,7 +46341,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hustle",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 50,
 		"prevo": "Deino",
@@ -45605,7 +46399,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 160,
 		"prevo": "Zweilous",
@@ -45660,7 +46455,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Swarm"
+				"H": "Swarm",
+				"S": "Illuminate"
 		},
 		"weightkg": 28.8,
 		"evos": [
@@ -45716,7 +46512,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Swarm"
+				"H": "Swarm",
+				"S": "Illuminate"
 		},
 		"weightkg": 46,
 		"prevo": "Larvesta",
@@ -45774,7 +46571,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 250,
 		"eggGroups": [
@@ -45831,7 +46629,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 260,
 		"eggGroups": [
@@ -45888,7 +46687,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 200,
 		"eggGroups": [
@@ -45945,7 +46745,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 63,
 		"eggGroups": [
@@ -46009,7 +46810,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 63,
 		"eggGroups": [
@@ -46066,7 +46868,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61,
 		"eggGroups": [
@@ -46131,7 +46934,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61,
 		"eggGroups": [
@@ -46187,7 +46991,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 330,
 		"eggGroups": [
@@ -46244,7 +47049,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 345,
 		"eggGroups": [
@@ -46302,7 +47108,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 68,
 		"eggGroups": [
@@ -46367,7 +47174,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 68,
 		"eggGroups": [
@@ -46423,7 +47231,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 325,
 		"eggGroups": [
@@ -46491,7 +47300,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 325,
 		"eggGroups": [
@@ -46549,7 +47359,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 325,
 		"eggGroups": [
@@ -46606,7 +47417,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48.5,
 		"eggGroups": [
@@ -46671,7 +47483,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48.5,
 		"eggGroups": [
@@ -46729,7 +47542,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"eggGroups": [
@@ -46794,7 +47608,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"eggGroups": [
@@ -46852,7 +47667,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82.5,
 		"eggGroups": [
@@ -46924,7 +47740,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82.5,
 		"eggGroups": [
@@ -46986,7 +47803,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82.5,
 		"eggGroups": [
@@ -47048,7 +47866,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82.5,
 		"eggGroups": [
@@ -47110,7 +47929,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82.5,
 		"eggGroups": [
@@ -47170,7 +47990,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"evos": [
@@ -47225,7 +48046,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29,
 		"prevo": "Chespin",
@@ -47282,7 +48104,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 90,
 		"prevo": "Quilladin",
@@ -47336,7 +48159,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.4,
 		"evos": [
@@ -47391,7 +48215,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.5,
 		"prevo": "Fennekin",
@@ -47448,7 +48273,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39,
 		"prevo": "Braixen",
@@ -47502,7 +48328,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7,
 		"evos": [
@@ -47557,7 +48384,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.9,
 		"prevo": "Froakie",
@@ -47614,7 +48442,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"prevo": "Frogadier",
@@ -47677,7 +48506,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"eggGroups": [
@@ -47732,7 +48562,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"eggGroups": [
@@ -47786,7 +48617,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Huge Power"
+				"H": "Huge Power",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"evos": [
@@ -47842,7 +48674,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Huge Power"
+				"H": "Huge Power",
+				"S": "Illuminate"
 		},
 		"weightkg": 42.4,
 		"prevo": "Bunnelby",
@@ -47897,7 +48730,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.7,
 		"evos": [
@@ -47953,7 +48787,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"prevo": "Fletchling",
@@ -48010,7 +48845,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flame Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 24.5,
 		"prevo": "Fletchinder",
@@ -48064,7 +48900,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"evos": [
@@ -48119,7 +48956,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.4,
 		"prevo": "Scatterbug",
@@ -48178,7 +49016,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17,
 		"prevo": "Spewpa",
@@ -48279,7 +49118,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17,
 		"prevo": "Spewpa",
@@ -48334,7 +49174,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17,
 		"eggGroups": [
@@ -48390,7 +49231,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13.5,
 		"evos": [
@@ -48446,7 +49288,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 81.5,
 		"prevo": "Litleo",
@@ -48484,7 +49327,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Flabébé",
 		"baseForme": "Red",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -48498,7 +49341,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.1,
 		"evos": [
@@ -48553,7 +49397,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Floette",
 		"baseForme": "Red",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -48567,7 +49411,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.9,
 		"prevo": "Flabébé",
@@ -48628,7 +49473,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseSpecies": "Floette",
 		"forme": "Eternal",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -48642,7 +49487,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.9,
 		"eggGroups": [
@@ -48681,7 +49527,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Florges",
 		"baseForme": "Red",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -48695,7 +49541,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10,
 		"prevo": "Floette",
@@ -48762,7 +49609,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31,
 		"evos": [
@@ -48817,7 +49665,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 91,
 		"prevo": "Skiddo",
@@ -48871,7 +49720,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"evos": [
@@ -48928,7 +49778,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 136,
 		"prevo": "Pancham",
@@ -48985,7 +49836,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"eggGroups": [
@@ -49060,7 +49912,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Own Tempo"
+				"H": "Own Tempo",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.5,
 		"evos": [
@@ -49118,7 +49971,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"prevo": "Espurr",
@@ -49181,7 +50035,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"prevo": "Espurr",
@@ -49234,7 +50089,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -49290,7 +50146,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.5,
 		"prevo": "Honedge",
@@ -49348,7 +50205,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 53,
 		"prevo": "Doublade",
@@ -49412,7 +50270,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 53,
 		"eggGroups": [
@@ -49453,7 +50312,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 682,
 		"name": "Spritzee",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 78,
@@ -49466,7 +50325,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.5,
 		"evos": [
@@ -49508,7 +50368,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 683,
 		"name": "Aromatisse",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 101,
@@ -49521,7 +50381,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15.5,
 		"prevo": "Spritzee",
@@ -49563,7 +50424,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 684,
 		"name": "Swirlix",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 62,
@@ -49576,7 +50437,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.5,
 		"evos": [
@@ -49618,7 +50480,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 685,
 		"name": "Slurpuff",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 82,
@@ -49631,7 +50493,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"prevo": "Swirlix",
@@ -49687,7 +50550,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Suction Cups",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.5,
 		"evos": [
@@ -49744,7 +50608,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Suction Cups",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 47,
 		"prevo": "Inkay",
@@ -49801,7 +50666,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31,
 		"evos": [
@@ -49857,7 +50723,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 96,
 		"prevo": "Binacle",
@@ -49912,7 +50779,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.3,
 		"evos": [
@@ -49969,7 +50837,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 81.5,
 		"prevo": "Skrelp",
@@ -50024,7 +50893,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.3,
 		"evos": [
@@ -50080,7 +50950,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35.3,
 		"prevo": "Clauncher",
@@ -50136,7 +51007,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sand Veil",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"evos": [
@@ -50193,7 +51065,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sand Veil",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21,
 		"prevo": "Helioptile",
@@ -50254,7 +51127,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 26,
 		"evos": [
@@ -50311,7 +51185,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Rock Head"
+				"H": "Rock Head",
+				"S": "Illuminate"
 		},
 		"weightkg": 270,
 		"prevo": "Tyrunt",
@@ -50368,7 +51243,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25.2,
 		"evos": [
@@ -50424,7 +51300,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 225,
 		"prevo": "Amaura",
@@ -50462,7 +51339,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 700,
 		"name": "Sylveon",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.875,
@@ -50479,7 +51356,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 23.5,
 		"prevo": "Eevee",
@@ -50531,7 +51409,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.5,
 		"eggGroups": [
@@ -50573,7 +51452,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Dedenne",
 		"types": [
 				"Electric",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 67,
@@ -50586,7 +51465,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Pickup",
-				"H": "Plus"
+				"H": "Plus",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.2,
 		"eggGroups": [
@@ -50628,7 +51508,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Carbink",
 		"types": [
 				"Rock",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -50642,7 +51522,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.7,
 		"eggGroups": [
@@ -50696,7 +51577,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.8,
 		"evos": [
@@ -50752,7 +51634,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.5,
 		"prevo": "Goomy",
@@ -50818,7 +51701,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 68.5,
 		"prevo": "Goomy",
@@ -50872,7 +51756,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 150.5,
 		"prevo": "Sliggoo",
@@ -50937,7 +51822,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 334.1,
 		"prevo": "Sliggoo-Hisui",
@@ -50978,7 +51864,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Klefki",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 57,
@@ -50991,7 +51877,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3,
 		"eggGroups": [
@@ -51045,7 +51932,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7,
 		"evos": [
@@ -51102,7 +51990,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Natural Cure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 71,
 		"prevo": "Phantump",
@@ -51159,7 +52048,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"evos": [
@@ -51227,7 +52117,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.5,
 		"evos": [
@@ -51283,7 +52174,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"evos": [
@@ -51339,7 +52231,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"evos": [
@@ -51394,7 +52287,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"prevo": "Pumpkaboo",
@@ -51461,7 +52355,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.5,
 		"prevo": "Pumpkaboo-Small",
@@ -51516,7 +52411,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 14,
 		"prevo": "Pumpkaboo-Large",
@@ -51571,7 +52467,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Insomnia"
+				"H": "Insomnia",
+				"S": "Illuminate"
 		},
 		"weightkg": 39,
 		"prevo": "Pumpkaboo-Super",
@@ -51623,7 +52520,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 99.5,
 		"evos": [
@@ -51680,7 +52578,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 505,
 		"prevo": "Bergmite",
@@ -51745,7 +52644,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 262.4,
 		"prevo": "Bergmite",
@@ -51799,7 +52699,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"evos": [
@@ -51856,7 +52757,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 85,
 		"prevo": "Noibat",
@@ -51901,7 +52803,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Xerneas",
 		"baseForme": "Active",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -51915,7 +52817,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 215,
 		"eggGroups": [
@@ -51965,7 +52868,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseSpecies": "Xerneas",
 		"forme": "Neutral",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -51979,7 +52882,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 215,
 		"eggGroups": [
@@ -52034,7 +52938,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 203,
 		"eggGroups": [
@@ -52092,6 +52997,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
+				"S": "Illuminate",
 				"H": "Illuminate"
 		},
 		"weightkg": 305,
@@ -52161,6 +53067,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
+				"S": "Illuminate",
 				"H": "Illuminate"
 		},
 		"weightkg": 33.5,
@@ -52219,7 +53126,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 610,
 		"eggGroups": [
@@ -52266,7 +53174,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Diancie",
 		"types": [
 				"Rock",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -52280,7 +53188,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.8,
 		"eggGroups": [
@@ -52332,7 +53241,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Rock",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -52346,7 +53255,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 27.8,
 		"eggGroups": [
@@ -52409,7 +53319,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"eggGroups": [
@@ -52474,7 +53385,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 490,
 		"eggGroups": [
@@ -52530,7 +53442,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 195,
 		"eggGroups": [
@@ -52588,7 +53501,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -52644,7 +53558,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"prevo": "Rowlet",
@@ -52702,7 +53617,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 36.6,
 		"prevo": "Dartrix",
@@ -52766,7 +53682,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 37,
 		"prevo": "Dartrix",
@@ -52818,7 +53735,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.3,
 		"evos": [
@@ -52873,7 +53791,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Litten",
@@ -52930,7 +53849,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 83,
 		"prevo": "Torracat",
@@ -52984,7 +53904,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.5,
 		"evos": [
@@ -53040,7 +53961,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.5,
 		"prevo": "Popplio",
@@ -53081,7 +54003,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Primarina",
 		"types": [
 				"Water",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.875,
@@ -53098,7 +54020,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 44,
 		"prevo": "Brionne",
@@ -53150,7 +54073,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Pickup"
+				"H": "Pickup",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.2,
 		"evos": [
@@ -53206,7 +54130,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Pickup"
+				"H": "Pickup",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.8,
 		"prevo": "Pikipek",
@@ -53263,7 +54188,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 26,
 		"prevo": "Trumbeak",
@@ -53317,7 +54243,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"evos": [
@@ -53372,7 +54299,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.2,
 		"prevo": "Yungoos",
@@ -53436,7 +54364,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"eggGroups": [
@@ -53487,7 +54416,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.4,
 		"evos": [
@@ -53543,7 +54473,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.5,
 		"prevo": "Grubbin",
@@ -53600,7 +54531,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 45,
 		"prevo": "Charjabug",
@@ -53665,7 +54597,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Levitate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 147.5,
 		"eggGroups": [
@@ -53716,7 +54649,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7,
 		"evos": [
@@ -53772,7 +54706,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Hyper Cutter",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 180,
 		"prevo": "Crabrawler",
@@ -53833,7 +54768,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.4,
 		"eggGroups": [
@@ -53899,7 +54835,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.4,
 		"eggGroups": [
@@ -53954,7 +54891,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.4,
 		"eggGroups": [
@@ -54009,7 +54947,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.4,
 		"eggGroups": [
@@ -54045,7 +54984,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Cutiefly",
 		"types": [
 				"Bug",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 40,
@@ -54058,7 +54997,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shield Dust",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.2,
 		"evos": [
@@ -54102,7 +55042,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Ribombee",
 		"types": [
 				"Bug",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 60,
@@ -54115,7 +55055,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shield Dust",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.5,
 		"prevo": "Cutiefly",
@@ -54167,7 +55108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Totem",
 		"types": [
 				"Bug",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 60,
@@ -54180,7 +55121,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"eggGroups": [
@@ -54295,7 +55237,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Rockruff",
@@ -54360,7 +55303,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Vital Spirit",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Rockruff",
@@ -54415,7 +55359,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"prevo": "Rockruff",
@@ -54469,7 +55414,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -54530,7 +55476,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 78.6,
 		"eggGroups": [
@@ -54585,7 +55532,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Limber",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"evos": [
@@ -54641,7 +55589,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Limber",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.5,
 		"prevo": "Mareanie",
@@ -54695,7 +55644,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"evos": [
@@ -54750,7 +55700,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Inner Focus"
+				"H": "Inner Focus",
+				"S": "Illuminate"
 		},
 		"weightkg": 920,
 		"prevo": "Mudbray",
@@ -54805,7 +55756,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -54862,7 +55814,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Water Absorb"
+				"H": "Water Absorb",
+				"S": "Illuminate"
 		},
 		"weightkg": 82,
 		"prevo": "Dewpider",
@@ -54927,7 +55880,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 217.5,
 		"eggGroups": [
@@ -54979,7 +55933,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -55034,7 +55989,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18.5,
 		"prevo": "Fomantis",
@@ -55098,7 +56054,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 58,
 		"eggGroups": [
@@ -55137,7 +56094,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Morelull",
 		"types": [
 				"Grass",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 40,
@@ -55150,7 +56107,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Effect Spore",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -55193,7 +56151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Shiinotic",
 		"types": [
 				"Grass",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 60,
@@ -55206,7 +56164,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Effect Spore",
-				"H": "Rain Dish"
+				"H": "Rain Dish",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"prevo": "Morelull",
@@ -55265,7 +56224,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Oblivious"
+				"H": "Oblivious",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.8,
 		"evos": [
@@ -55319,7 +56279,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Oblivious"
+				"H": "Oblivious",
+				"S": "Illuminate"
 		},
 		"weightkg": 22.2,
 		"prevo": "Salandit",
@@ -55385,7 +56346,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 81,
 		"eggGroups": [
@@ -55438,7 +56400,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Cute Charm"
+				"H": "Cute Charm",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.8,
 		"evos": [
@@ -55494,7 +56457,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 135,
 		"prevo": "Stufful",
@@ -55549,7 +56513,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Oblivious",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.2,
 		"evos": [
@@ -55605,7 +56570,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Oblivious",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.2,
 		"prevo": "Bounsweet",
@@ -55662,7 +56628,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.4,
 		"prevo": "Steenee",
@@ -55704,7 +56671,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 764,
 		"name": "Comfey",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -55721,7 +56688,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Natural Cure"
+				"H": "Natural Cure",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -55771,7 +56739,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 76,
 		"eggGroups": [
@@ -55824,7 +56793,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 82.8,
 		"eggGroups": [
@@ -55878,7 +56848,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -55935,7 +56906,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 108,
 		"prevo": "Wimpod",
@@ -55991,7 +56963,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 70,
 		"evos": [
@@ -56047,7 +57020,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 250,
 		"prevo": "Sandygast",
@@ -56101,7 +57075,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.2,
 		"eggGroups": [
@@ -56157,7 +57132,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120.5,
 		"evos": [
@@ -56215,7 +57191,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"prevo": "Type: Null",
@@ -56313,7 +57290,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56374,7 +57352,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56435,7 +57414,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56496,7 +57476,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56543,7 +57524,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseSpecies": "Silvally",
 		"forme": "Fairy",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -56557,7 +57538,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56618,7 +57600,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56679,7 +57662,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56740,7 +57724,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56801,7 +57786,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56862,7 +57848,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56923,7 +57910,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -56984,7 +57972,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -57045,7 +58034,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -57106,7 +58096,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -57167,7 +58158,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -57228,7 +58220,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -57289,7 +58282,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100.5,
 		"eggGroups": [
@@ -57348,7 +58342,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [
@@ -57431,7 +58426,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"eggGroups": [
@@ -57485,7 +58481,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.9,
 		"eggGroups": [
@@ -57539,7 +58536,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shell Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 212,
 		"eggGroups": [
@@ -57594,7 +58592,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Lightning Rod",
-				"H": "Sturdy"
+				"H": "Sturdy",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.3,
 		"eggGroups": [
@@ -57658,7 +58657,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"eggGroups": [
@@ -57699,7 +58699,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseForme": "Disguised",
 		"types": [
 				"Ghost",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 55,
@@ -57712,7 +58712,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.7,
 		"eggGroups": [
@@ -57765,7 +58766,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Busted",
 		"types": [
 				"Ghost",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 55,
@@ -57778,7 +58779,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.7,
 		"eggGroups": [
@@ -57822,7 +58824,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Totem",
 		"types": [
 				"Ghost",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 55,
@@ -57835,7 +58837,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.8,
 		"eggGroups": [
@@ -57876,7 +58879,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Busted-Totem",
 		"types": [
 				"Ghost",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 55,
@@ -57889,7 +58892,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.8,
 		"eggGroups": [
@@ -57944,7 +58948,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19,
 		"eggGroups": [
@@ -57998,7 +59003,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Cloud Nine"
+				"H": "Cloud Nine",
+				"S": "Illuminate"
 		},
 		"weightkg": 185,
 		"eggGroups": [
@@ -58054,7 +59060,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 210,
 		"eggGroups": [
@@ -58107,7 +59114,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Soundproof",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 29.7,
 		"evos": [
@@ -58163,7 +59171,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Soundproof",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 47,
 		"prevo": "Jangmo-o",
@@ -58220,7 +59229,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Soundproof",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 78.2,
 		"prevo": "Hakamo-o",
@@ -58284,7 +59294,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 207.5,
 		"eggGroups": [
@@ -58325,7 +59336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Tapu Koko",
 		"types": [
 				"Electric",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -58339,7 +59350,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 20.5,
 		"eggGroups": [
@@ -58382,7 +59394,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Tapu Lele",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -58396,7 +59408,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18.6,
 		"eggGroups": [
@@ -58439,7 +59452,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Tapu Bulu",
 		"types": [
 				"Grass",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -58453,7 +59466,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 45.5,
 		"eggGroups": [
@@ -58496,7 +59510,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Tapu Fini",
 		"types": [
 				"Water",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -58510,7 +59524,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.2,
 		"eggGroups": [
@@ -58566,7 +59581,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.1,
 		"evos": [
@@ -58624,7 +59640,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 999.9,
 		"prevo": "Cosmog",
@@ -58685,7 +59702,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 230,
 		"prevo": "Cosmoem",
@@ -58743,7 +59761,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Cosmoem",
@@ -58801,7 +59820,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 55.5,
 		"eggGroups": [
@@ -58858,7 +59878,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 333.6,
 		"eggGroups": [
@@ -58915,7 +59936,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 25,
 		"eggGroups": [
@@ -58971,7 +59993,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100,
 		"eggGroups": [
@@ -59028,7 +60051,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 999.9,
 		"eggGroups": [
@@ -59085,7 +60109,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.1,
 		"eggGroups": [
@@ -59142,7 +60167,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 888,
 		"eggGroups": [
@@ -59198,7 +60224,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 230,
 		"eggGroups": [
@@ -59268,7 +60295,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 460,
 		"eggGroups": [
@@ -59326,7 +60354,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 350,
 		"eggGroups": [
@@ -59384,7 +60413,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 230,
 		"eggGroups": [
@@ -59434,7 +60464,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Magearna",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -59448,7 +60478,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 80.5,
 		"eggGroups": [
@@ -59500,7 +60531,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Original",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -59514,7 +60545,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 80.5,
 		"eggGroups": [
@@ -59569,7 +60601,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 22.2,
 		"eggGroups": [
@@ -59625,7 +60658,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.8,
 		"evos": [
@@ -59684,7 +60718,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 150,
 		"prevo": "Poipole",
@@ -59743,7 +60778,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 820,
 		"eggGroups": [
@@ -59800,7 +60836,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"eggGroups": [
@@ -59856,7 +60893,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 44.5,
 		"eggGroups": [
@@ -59912,7 +60950,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Magnet Pull",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"eggGroups": [
@@ -59968,7 +61007,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 800,
 		"eggGroups": [
@@ -60026,7 +61066,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"evos": [
@@ -60082,7 +61123,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14,
 		"prevo": "Grookey",
@@ -60139,7 +61181,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 90,
 		"prevo": "Thwackey",
@@ -60195,7 +61238,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.5,
 		"evos": [
@@ -60251,7 +61295,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9,
 		"prevo": "Scorbunny",
@@ -60308,7 +61353,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"prevo": "Raboot",
@@ -60364,7 +61410,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -60420,7 +61467,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.5,
 		"prevo": "Sobble",
@@ -60477,7 +61525,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 45.2,
 		"prevo": "Drizzile",
@@ -60529,7 +61578,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"evos": [
@@ -60584,7 +61634,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"prevo": "Skwovet",
@@ -60638,7 +61689,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.8,
 		"evos": [
@@ -60693,7 +61745,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Keen Eye",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"prevo": "Rookidee",
@@ -60750,7 +61803,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 75,
 		"prevo": "Corvisquire",
@@ -60805,7 +61859,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"evos": [
@@ -60861,7 +61916,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Compound Eyes",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.5,
 		"prevo": "Blipbug",
@@ -60918,7 +61974,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40.8,
 		"prevo": "Dottler",
@@ -60973,7 +62030,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.9,
 		"evos": [
@@ -61028,7 +62086,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 19.9,
 		"prevo": "Nickit",
@@ -61082,7 +62141,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Effect Spore"
+				"H": "Effect Spore",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.2,
 		"evos": [
@@ -61137,7 +62197,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Effect Spore"
+				"H": "Effect Spore",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"prevo": "Gossifleur",
@@ -61191,7 +62252,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Run Away",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"evos": [
@@ -61246,7 +62308,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 43,
 		"prevo": "Wooloo",
@@ -61300,7 +62363,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shell Armor",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.5,
 		"evos": [
@@ -61357,7 +62421,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shell Armor",
-				"H": "Swift Swim"
+				"H": "Swift Swim",
+				"S": "Illuminate"
 		},
 		"weightkg": 115.5,
 		"prevo": "Chewtle",
@@ -61413,7 +62478,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 13.5,
 		"evos": [
@@ -61468,7 +62534,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 34,
 		"prevo": "Yamper",
@@ -61522,7 +62589,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Flash Fire"
+				"H": "Flash Fire",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -61578,7 +62646,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Flame Body",
-				"H": "Flash Fire"
+				"H": "Flash Fire",
+				"S": "Illuminate"
 		},
 		"weightkg": 78,
 		"prevo": "Rolycoly",
@@ -61635,7 +62704,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Flame Body",
-				"H": "Flash Fire"
+				"H": "Flash Fire",
+				"S": "Illuminate"
 		},
 		"weightkg": 310.5,
 		"prevo": "Carkol",
@@ -61691,7 +62761,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.5,
 		"evos": [
@@ -61750,7 +62821,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Hustle"
+				"H": "Hustle",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"prevo": "Applin",
@@ -61808,7 +62880,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 13,
 		"prevo": "Applin",
@@ -61865,7 +62938,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shed Skin",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.6,
 		"evos": [
@@ -61921,7 +62995,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shed Skin",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 65.5,
 		"prevo": "Silicobra",
@@ -61978,7 +63053,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"eggGroups": [
@@ -62044,7 +63120,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"eggGroups": [
@@ -62102,7 +63179,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 18,
 		"eggGroups": [
@@ -62157,7 +63235,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -62212,7 +63291,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Arrokuda",
@@ -62267,7 +63347,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Static",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"evos": [
@@ -62325,7 +63406,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Plus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"prevo": "Toxel",
@@ -62389,7 +63471,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Minus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"prevo": "Toxel",
@@ -62445,7 +63528,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Minus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0,
 		"eggGroups": [
@@ -62499,7 +63583,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "White Smoke",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -62555,7 +63640,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "White Smoke",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Sizzlipede",
@@ -62610,7 +63696,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -62666,7 +63753,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Limber",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39,
 		"prevo": "Clobbopus",
@@ -62724,7 +63812,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.2,
 		"evos": [
@@ -62789,7 +63878,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.2,
 		"evos": [
@@ -62844,7 +63934,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.4,
 		"prevo": "Sinistea",
@@ -62909,7 +64000,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.4,
 		"prevo": "Sinistea-Antique",
@@ -62963,7 +64055,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.4,
 		"evos": [
@@ -63019,7 +64112,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.8,
 		"prevo": "Hatenna",
@@ -63063,7 +64157,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Hatterene",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -63077,7 +64171,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.1,
 		"prevo": "Hattrem",
@@ -63120,7 +64215,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Impidimp",
 		"types": [
 				"Dark",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "M",
 		"baseStats": {
@@ -63134,7 +64229,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.5,
 		"evos": [
@@ -63178,7 +64274,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Morgrem",
 		"types": [
 				"Dark",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "M",
 		"baseStats": {
@@ -63192,7 +64288,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.5,
 		"prevo": "Impidimp",
@@ -63237,7 +64334,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Grimmsnarl",
 		"types": [
 				"Dark",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "M",
 		"baseStats": {
@@ -63251,7 +64348,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61,
 		"prevo": "Morgrem",
@@ -63308,7 +64406,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Guts",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 46,
 		"prevo": "Linoone-Galar",
@@ -63363,7 +64462,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"prevo": "Meowth-Galar",
@@ -63421,7 +64521,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.4,
 		"prevo": "Corsola-Galar",
@@ -63472,7 +64573,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 117,
 		"prevo": "Farfetch’d-Galar",
@@ -63529,7 +64631,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 58.2,
 		"prevo": "Mr. Mime-Galar",
@@ -63584,7 +64687,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 66.6,
 		"prevo": "Yamask-Galar",
@@ -63627,7 +64731,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 868,
 		"name": "Milcery",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -63641,7 +64745,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"evos": [
@@ -63685,7 +64790,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Alcremie",
 		"baseForme": "Vanilla Cream",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "F",
 		"baseStats": {
@@ -63699,7 +64804,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.5,
 		"prevo": "Milcery",
@@ -63777,7 +64883,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Battle Armor",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 62,
 		"eggGroups": [
@@ -63831,7 +64938,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Lightning Rod",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"eggGroups": [
@@ -63886,7 +64994,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.8,
 		"evos": [
@@ -63942,7 +65051,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shield Dust",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 42,
 		"prevo": "Snom",
@@ -63997,7 +65107,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 520,
 		"eggGroups": [
@@ -64050,7 +65161,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 89,
 		"eggGroups": [
@@ -64113,7 +65225,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 89,
 		"eggGroups": [
@@ -64171,7 +65284,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Synchronize",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"eggGroups": [
@@ -64235,7 +65349,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Synchronize",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 28,
 		"eggGroups": [
@@ -64287,7 +65402,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3,
 		"eggGroups": [
@@ -64351,7 +65467,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3,
 		"eggGroups": [
@@ -64406,7 +65523,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 100,
 		"evos": [
@@ -64462,7 +65580,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 650,
 		"prevo": "Cufant",
@@ -64520,7 +65639,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Hustle",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 190,
 		"eggGroups": [
@@ -64575,7 +65695,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Static",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 150,
 		"eggGroups": [
@@ -64630,7 +65751,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 215,
 		"eggGroups": [
@@ -64685,7 +65807,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 175,
 		"eggGroups": [
@@ -64739,7 +65862,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 40,
 		"evos": [
@@ -64797,7 +65921,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2,
 		"evos": [
@@ -64854,7 +65979,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"prevo": "Dreepy",
@@ -64912,7 +66038,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Clear Body",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 50,
 		"prevo": "Drakloak",
@@ -64957,7 +66084,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Zacian",
 		"baseForme": "Hero",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -64971,7 +66098,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"eggGroups": [
@@ -65021,7 +66149,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseSpecies": "Zacian",
 		"forme": "Crowned",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Steel"
 		],
 		"gender": "N",
@@ -65036,7 +66164,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 355,
 		"eggGroups": [
@@ -65097,7 +66226,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 210,
 		"eggGroups": [
@@ -65162,7 +66292,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 785,
 		"eggGroups": [
@@ -65223,7 +66354,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 950,
 		"eggGroups": [
@@ -65289,7 +66421,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0,
 		"eggGroups": [
@@ -65346,7 +66479,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Inner Focus",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12,
 		"evos": [
@@ -65406,7 +66540,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 105,
 		"prevo": "Kubfu",
@@ -65473,7 +66608,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 105,
 		"prevo": "Kubfu",
@@ -65532,7 +66668,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0,
 		"eggGroups": [
@@ -65585,7 +66722,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 70,
 		"eggGroups": [
@@ -65651,7 +66789,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 70,
 		"eggGroups": [
@@ -65705,7 +66844,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 145,
 		"eggGroups": [
@@ -65761,7 +66901,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 200,
 		"eggGroups": [
@@ -65817,7 +66958,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 800,
 		"eggGroups": [
@@ -65873,7 +67015,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 44.5,
 		"eggGroups": [
@@ -65930,7 +67073,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 7.7,
 		"eggGroups": [
@@ -65998,7 +67142,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 809.1,
 		"eggGroups": [
@@ -66056,7 +67201,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 53.6,
 		"eggGroups": [
@@ -66109,7 +67255,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 95.1,
 		"prevo": "Stantler",
@@ -66165,7 +67312,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 89,
 		"prevo": "Scyther",
@@ -66221,7 +67369,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Guts",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 290,
 		"prevo": "Ursaring",
@@ -66287,7 +67436,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 333,
 		"eggGroups": [
@@ -66341,7 +67491,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"prevo": "Basculin-White-Striped",
@@ -66406,7 +67557,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swift Swim",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 110,
 		"prevo": "Basculin-White-Striped",
@@ -66460,7 +67612,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pressure",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 43,
 		"prevo": "Sneasel-Hisui",
@@ -66517,7 +67670,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Swift Swim",
-				"H": "Intimidate"
+				"H": "Intimidate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.5,
 		"prevo": "Qwilfish-Hisui",
@@ -66562,7 +67716,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Enamorus",
 		"baseForme": "Incarnate",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Flying"
 		],
 		"gender": "F",
@@ -66577,7 +67731,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Cute Charm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48,
 		"eggGroups": [
@@ -66627,7 +67782,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"baseSpecies": "Enamorus",
 		"forme": "Therian",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Flying"
 		],
 		"gender": "F",
@@ -66642,7 +67797,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48,
 		"eggGroups": [
@@ -66698,7 +67854,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.1,
 		"evos": [
@@ -66754,7 +67911,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.2,
 		"prevo": "Sprigatito",
@@ -66812,7 +67970,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Overgrow",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 31.2,
 		"prevo": "Floragato",
@@ -66867,7 +68026,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 9.8,
 		"evos": [
@@ -66922,7 +68082,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30.7,
 		"prevo": "Fuecoco",
@@ -66979,7 +68140,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Blaze",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 326.5,
 		"prevo": "Crocalor",
@@ -67033,7 +68195,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.1,
 		"evos": [
@@ -67089,7 +68252,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21.5,
 		"prevo": "Quaxly",
@@ -67147,7 +68311,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Torrent",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61.9,
 		"prevo": "Quaxwell",
@@ -67198,7 +68363,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.2,
 		"evos": [
@@ -67256,7 +68422,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Lechonk",
@@ -67319,7 +68486,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Thick Fat"
+				"H": "Thick Fat",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Lechonk",
@@ -67371,7 +68539,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"evos": [
@@ -67426,7 +68595,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Insomnia",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16.5,
 		"prevo": "Tarountula",
@@ -67480,7 +68650,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -67536,7 +68707,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Swarm",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17.5,
 		"prevo": "Nymble",
@@ -67590,7 +68762,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Static",
 				"1": "Natural Cure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.5,
 		"evos": [
@@ -67646,7 +68819,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Natural Cure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"prevo": "Pawmi",
@@ -67703,7 +68877,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Volt Absorb",
 				"1": "Natural Cure",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 41,
 		"prevo": "Pawmo",
@@ -67759,7 +68934,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Pickup",
-				"H": "Own Tempo"
+				"H": "Own Tempo",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.8,
 		"evos": [
@@ -67818,7 +68994,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.3,
 		"prevo": "Tandemaus",
@@ -67882,7 +69059,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.8,
 		"prevo": "Tandemaus",
@@ -67922,7 +69100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 926,
 		"name": "Fidough",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 37,
@@ -67935,7 +69113,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.9,
 		"evos": [
@@ -67978,7 +69157,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 927,
 		"name": "Dachsbun",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 57,
@@ -67991,7 +69170,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 14.9,
 		"prevo": "Fidough",
@@ -68047,7 +69227,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Early Bird",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"evos": [
@@ -68103,7 +69284,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Early Bird",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11.9,
 		"prevo": "Smoliv",
@@ -68160,7 +69342,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 48.2,
 		"prevo": "Dolliv",
@@ -68216,7 +69399,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Hustle",
-				"H": "Guts"
+				"H": "Guts",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.4,
 		"otherFormes": [
@@ -68282,7 +69466,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Hustle",
-				"H": "Guts"
+				"H": "Guts",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.4,
 		"eggGroups": [
@@ -68336,7 +69521,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Hustle",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.4,
 		"eggGroups": [
@@ -68390,7 +69576,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Hustle",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.4,
 		"eggGroups": [
@@ -68441,7 +69628,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sturdy",
-				"H": "Clear Body"
+				"H": "Clear Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"evos": [
@@ -68496,7 +69684,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sturdy",
-				"H": "Clear Body"
+				"H": "Clear Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 105,
 		"prevo": "Nacli",
@@ -68552,7 +69741,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sturdy",
-				"H": "Clear Body"
+				"H": "Clear Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 240,
 		"prevo": "Naclstack",
@@ -68606,7 +69796,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Flame Body"
+				"H": "Flame Body",
+				"S": "Illuminate"
 		},
 		"weightkg": 10.5,
 		"evos": [
@@ -68663,7 +69854,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 85,
 		"prevo": "Charcadet",
@@ -68719,7 +69911,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Flash Fire",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 62,
 		"prevo": "Charcadet",
@@ -68774,7 +69967,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Own Tempo",
 				"1": "Static",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.4,
 		"evos": [
@@ -68829,7 +70023,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Static",
-				"H": "Damp"
+				"H": "Damp",
+				"S": "Illuminate"
 		},
 		"weightkg": 113,
 		"prevo": "Tadbulb",
@@ -68885,7 +70080,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Volt Absorb",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.6,
 		"evos": [
@@ -68942,7 +70138,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Volt Absorb",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 38.6,
 		"prevo": "Wattrel",
@@ -68997,7 +70194,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Run Away",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"evos": [
@@ -69052,7 +70250,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Intimidate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 61,
 		"prevo": "Maschiff",
@@ -69107,7 +70306,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.7,
 		"evos": [
@@ -69163,7 +70363,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 27.2,
 		"prevo": "Shroodle",
@@ -69218,7 +70419,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.6,
 		"evos": [
@@ -69274,7 +70476,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6,
 		"prevo": "Bramblin",
@@ -69330,7 +70533,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 33,
 		"evos": [
@@ -69386,7 +70590,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 58,
 		"prevo": "Toedscool",
@@ -69440,7 +70645,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Shell Armor",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 79,
 		"eggGroups": [
@@ -69493,7 +70699,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Insomnia",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3,
 		"evos": [
@@ -69549,7 +70756,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Chlorophyll",
 				"1": "Insomnia",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"prevo": "Capsakid",
@@ -69604,7 +70812,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Compound Eyes",
 				"1": "Illuminate",
-				"H": "Shed Skin"
+				"H": "Shed Skin",
+				"S": "Illuminate"
 		},
 		"weightkg": 1,
 		"evos": [
@@ -69660,7 +70869,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Synchronize",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 3.5,
 		"prevo": "Rellor",
@@ -69715,7 +70925,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.5,
 		"evos": [
@@ -69770,7 +70981,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Speed Boost"
+				"H": "Speed Boost",
+				"S": "Illuminate"
 		},
 		"weightkg": 90,
 		"prevo": "Flittle",
@@ -69811,7 +71023,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 957,
 		"name": "Tinkatink",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Steel"
 		],
 		"gender": "F",
@@ -69826,7 +71038,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8.9,
 		"evos": [
@@ -69868,7 +71081,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 958,
 		"name": "Tinkatuff",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Steel"
 		],
 		"gender": "F",
@@ -69883,7 +71096,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 59.1,
 		"prevo": "Tinkatink",
@@ -69926,7 +71140,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 959,
 		"name": "Tinkaton",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Steel"
 		],
 		"gender": "F",
@@ -69941,7 +71155,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Own Tempo",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 112.8,
 		"prevo": "Tinkatuff",
@@ -69995,7 +71210,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.8,
 		"evos": [
@@ -70050,7 +71266,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 5.4,
 		"prevo": "Wiglett",
@@ -70105,7 +71322,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Keen Eye",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 42.9,
 		"eggGroups": [
@@ -70158,7 +71376,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Veil",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.2,
 		"evos": [
@@ -70215,7 +71434,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60.2,
 		"prevo": "Finizen",
@@ -70278,7 +71498,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 97.4,
 		"eggGroups": [
@@ -70334,7 +71555,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"evos": [
@@ -70390,7 +71612,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Varoom",
@@ -70445,7 +71668,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Shed Skin",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 63,
 		"eggGroups": [
@@ -70498,7 +71722,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sand Veil"
+				"H": "Sand Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 310,
 		"eggGroups": [
@@ -70552,7 +71777,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"evos": [
@@ -70608,7 +71834,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 45,
 		"prevo": "Glimmet",
@@ -70662,7 +71889,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Pickup",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"evos": [
@@ -70717,7 +71945,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 15,
 		"prevo": "Greavard",
@@ -70773,7 +72002,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 37,
 		"eggGroups": [
@@ -70826,7 +72056,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 45,
 		"evos": [
@@ -70881,7 +72112,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Thick Fat",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 700,
 		"prevo": "Cetoddle",
@@ -70937,7 +72169,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 90,
 		"eggGroups": [
@@ -70990,7 +72223,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Oblivious",
-				"H": "Water Veil"
+				"H": "Water Veil",
+				"S": "Illuminate"
 		},
 		"weightkg": 220,
 		"eggGroups": [
@@ -71045,7 +72279,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"cosmeticFormes": [
@@ -71107,7 +72342,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Vital Spirit",
 				"1": "Inner Focus",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 56,
 		"prevo": "Primeape",
@@ -71163,7 +72399,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Poison Point",
 				"1": "Water Absorb",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 223,
 		"prevo": "Wooper-Paldea",
@@ -71219,7 +72456,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 160,
 		"prevo": "Girafarig",
@@ -71275,7 +72513,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Run Away",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.2,
 		"prevo": "Dunsparce",
@@ -71338,7 +72577,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Serene Grace",
 				"1": "Run Away",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 47.4,
 		"prevo": "Dunsparce",
@@ -71392,7 +72632,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Pressure"
+				"H": "Pressure",
+				"S": "Illuminate"
 		},
 		"weightkg": 120,
 		"prevo": "Bisharp",
@@ -71451,7 +72692,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 320,
 		"eggGroups": [
@@ -71493,7 +72735,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 985,
 		"name": "Scream Tail",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Psychic"
 		],
 		"gender": "N",
@@ -71508,7 +72750,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 8,
 		"eggGroups": [
@@ -71565,7 +72808,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 21,
 		"eggGroups": [
@@ -71608,7 +72852,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Flutter Mane",
 		"types": [
 				"Ghost",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -71622,7 +72866,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4,
 		"eggGroups": [
@@ -71679,7 +72924,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 92,
 		"eggGroups": [
@@ -71736,7 +72982,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"eggGroups": [
@@ -71793,7 +73040,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 240,
 		"eggGroups": [
@@ -71850,7 +73098,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 11,
 		"eggGroups": [
@@ -71907,7 +73156,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 380.7,
 		"eggGroups": [
@@ -71964,7 +73214,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 111,
 		"eggGroups": [
@@ -72021,7 +73272,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 36,
 		"eggGroups": [
@@ -72078,7 +73330,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 303,
 		"eggGroups": [
@@ -72132,7 +73385,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 17,
 		"evos": [
@@ -72189,7 +73443,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Frigibax",
@@ -72247,7 +73502,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 210,
 		"prevo": "Arctibax",
@@ -72304,7 +73560,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 5,
 		"evos": [
@@ -72368,7 +73625,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Run Away",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.1,
 		"evos": [
@@ -72423,7 +73681,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30,
 		"prevo": "Gimmighoul",
@@ -72482,7 +73741,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 74.2,
 		"eggGroups": [
@@ -72539,7 +73799,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 152.2,
 		"eggGroups": [
@@ -72596,7 +73857,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 699.7,
 		"eggGroups": [
@@ -72653,7 +73915,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.9,
 		"eggGroups": [
@@ -72710,7 +73973,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 380,
 		"eggGroups": [
@@ -72752,7 +74016,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 1006,
 		"name": "Iron Valiant",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Fighting"
 		],
 		"gender": "N",
@@ -72767,7 +74031,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 35,
 		"eggGroups": [
@@ -72824,7 +74089,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 303,
 		"eggGroups": [
@@ -72881,7 +74147,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 240,
 		"eggGroups": [
@@ -72938,7 +74205,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 280,
 		"eggGroups": [
@@ -72995,7 +74263,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 125,
 		"eggGroups": [
@@ -73049,7 +74318,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sticky Hold"
+				"H": "Sticky Hold",
+				"S": "Illuminate"
 		},
 		"weightkg": 4.4,
 		"prevo": "Applin",
@@ -73110,7 +74380,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.1,
 		"evos": [
@@ -73176,7 +74447,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 1.1,
 		"evos": [
@@ -73232,7 +74504,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.2,
 		"prevo": "Poltchageist",
@@ -73298,7 +74571,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 2.2,
 		"prevo": "Poltchageist-Artisan",
@@ -73355,7 +74629,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 92,
 		"eggGroups": [
@@ -73412,7 +74687,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 12.2,
 		"eggGroups": [
@@ -73455,7 +74731,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Fezandipiti",
 		"types": [
 				"Poison",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "M",
 		"baseStats": {
@@ -73469,7 +74745,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 30.1,
 		"eggGroups": [
@@ -73526,7 +74803,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73604,7 +74882,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Water Absorb",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73667,7 +74946,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73730,7 +75010,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Sturdy",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73792,7 +75073,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73852,7 +75134,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73916,7 +75199,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -73980,7 +75264,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 39.8,
 		"eggGroups": [
@@ -74039,7 +75324,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Sturdy",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 60,
 		"prevo": "Duraludon",
@@ -74096,7 +75382,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Sticky Hold"
+				"H": "Sticky Hold",
+				"S": "Illuminate"
 		},
 		"weightkg": 93,
 		"prevo": "Dipplin",
@@ -74154,7 +75441,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 590,
 		"eggGroups": [
@@ -74209,7 +75497,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 480,
 		"eggGroups": [
@@ -74264,7 +75553,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 162.5,
 		"eggGroups": [
@@ -74319,7 +75609,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 156,
 		"eggGroups": [
@@ -74374,7 +75665,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 6.5,
 		"eggGroups": [
@@ -74441,7 +75733,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 16,
 		"eggGroups": [
@@ -74499,7 +75792,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 77,
 		"eggGroups": [
@@ -74557,7 +75851,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"abilities": {
 				"0": "Illuminate",
 				"1": "Illuminate",
-				"H": "Illuminate"
+				"H": "Illuminate",
+				"S": "Illuminate"
 		},
 		"weightkg": 0.3,
 		"eggGroups": [

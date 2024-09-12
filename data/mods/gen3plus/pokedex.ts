@@ -3547,7 +3547,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 35,
 		"name": "Clefairy",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3603,7 +3603,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 36,
 		"name": "Clefable",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3840,7 +3840,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Alola",
 		"types": [
 				"Ice",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3894,7 +3894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Jigglypuff",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -3951,7 +3951,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Wigglytuff",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -6879,7 +6879,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Galar",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 65,
@@ -9483,7 +9483,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Galar",
 		"types": [
 				"Poison",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 65,
@@ -10223,7 +10223,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Mr. Mime",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 40,
@@ -14024,7 +14024,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 173,
 		"name": "Cleffa",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -14080,7 +14080,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Igglybuff",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -14135,7 +14135,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 175,
 		"name": "Togepi",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.875,
@@ -14190,7 +14190,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 176,
 		"name": "Togetic",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Flying"
 		],
 		"genderRatio": {
@@ -14652,7 +14652,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Marill",
 		"types": [
 				"Water",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 70,
@@ -14710,7 +14710,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Azumarill",
 		"types": [
 				"Water",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 100,
@@ -16355,7 +16355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 209,
 		"name": "Snubbull",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -16411,7 +16411,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 210,
 		"name": "Granbull",
 		"types": [
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -21108,7 +21108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Ralts",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 28,
@@ -21165,7 +21165,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Kirlia",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 38,
@@ -21224,7 +21224,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Gardevoir",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 68,
@@ -21289,7 +21289,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Psychic",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 68,
@@ -22184,7 +22184,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Azurill",
 		"types": [
 				"Normal",
-				"Fairy"
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -22529,7 +22529,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Mawile",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 50,
@@ -22593,7 +22593,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Steel",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 50,
@@ -24717,7 +24717,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"forme": "Mega",
 		"types": [
 				"Dragon",
-				"Fairy"
+				"Normal"
 		],
 		"baseStats": {
 				"hp": 75,
@@ -29728,7 +29728,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 985,
 		"name": "Scream Tail",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Psychic"
 		],
 		"gender": "N",
@@ -29786,7 +29786,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"name": "Flutter Mane",
 		"types": [
 				"Ghost",
-				"Fairy"
+				"Normal"
 		],
 		"gender": "N",
 		"baseStats": {
@@ -29948,6 +29948,63 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"gmaxUnreleased": false,
 		"cannotDynamax": false
 	},
+	ironbundle: {
+		"exists": true,
+		"tags": [
+				"Paradox"
+		],
+		"num": 991,
+		"name": "Iron Bundle",
+		"types": [
+				"Ice",
+				"Water"
+		],
+		"gender": "N",
+		"baseStats": {
+				"hp": 56,
+				"atk": 80,
+				"def": 114,
+				"spa": 124,
+				"spd": 60,
+				"spe": 136
+		},
+		"abilities": {
+				"0": "Illuminate",
+				"1": "Illuminate",
+				"H": "Illuminate"
+		},
+		"weightkg": 11,
+		"eggGroups": [
+				"Undiscovered"
+		],
+		"tier": "Uber",
+		"doublesTier": "DUU",
+		"id": "ironbundle",
+		"fullname": "pokemon: Iron Bundle",
+		"effectType": "Pokemon",
+		"kind": "Species",
+		"gen": 3,
+		"shortDesc": "",
+		"desc": "",
+		"isNonstandard": null,
+		"baseSpecies": "Iron Bundle",
+		"forme": "",
+		"baseForme": "",
+		"prevo": "",
+		"evos": [],
+		"nfe": false,
+		"canHatch": false,
+		"genderRatio": {
+				"M": 0,
+				"F": 0
+		},
+		"bst": 570,
+		"weighthg": 110,
+		"unreleasedHidden": false,
+		"maleOnlyHidden": false,
+		"gmaxUnreleased": false,
+		"cannotDynamax": false
+	},
 	ironhands: {
 		"exists": true,
 		"tags": [
@@ -30070,7 +30127,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 1006,
 		"name": "Iron Valiant",
 		"types": [
-				"Fairy",
+				"Normal",
 				"Fighting"
 		],
 		"gender": "N",

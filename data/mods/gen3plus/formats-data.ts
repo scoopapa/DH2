@@ -240,7 +240,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC"
 	},
 	dugtrio: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	dugtrioalola: {
 		tier: "OU"
@@ -648,16 +648,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	mewtwo: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	mewtwomegax: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	mewtwomegay: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	mew: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	chikorita: {
 		tier: "LC"
@@ -990,10 +990,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	lugia: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	hooh: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	celebi: {
 		tier: "OU"
@@ -1455,7 +1455,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	latios: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	latiosmega: {
 		tier: "OU"
@@ -1473,25 +1473,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	rayquaza: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	rayquazamega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	jirachi: {
 		tier: "OU"
 	},
 	deoxys: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	deoxysattack: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	deoxysdefense: {
 		tier: "OU"
 	},
 	deoxysspeed: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	regigigas: {
 		tier: "OU"
@@ -1524,7 +1524,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	sneasler: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	overqwil: {
 		tier: "OU"
@@ -1551,7 +1551,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	fluttermane: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	sandyshocks: {
 		tier: "OU"
@@ -1576,5 +1576,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ragingbolt: {
 		tier: "OU"
+	},
+	ironbundle: {
+		tier: "Uber"
 	},
 };
