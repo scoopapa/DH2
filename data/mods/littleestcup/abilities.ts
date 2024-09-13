@@ -68,12 +68,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.5);
 		},
 		flags: {},
 		name: "Aerilate",
 		rating: 4,
 		num: 184,
+		shortDesc: "This Pokemon's Normal-type moves become Flying type and have 1.5x power.",
 	},
 	aftermath: {
 		onDamagingHitOrder: 1,
@@ -327,10 +328,40 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 123,
 	},
 	ballfetch: {
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Ball Fetch');
+			pokemon.baseMaxhp = Math.floor(Math.floor(
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+			) * pokemon.level / 100 + 10);
+			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+			pokemon.hp = (newMaxHP - (pokemon.maxhp - pokemon.hp)) * 2;
+			pokemon.maxhp = newMaxHP * 2;
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(2);
+		},
 		flags: {},
 		name: "Ball Fetch",
 		rating: 0,
 		num: 237,
+		shortDesc: "Every stat of this Pokemon is doubled.",
 	},
 	battery: {
 		onAllyBasePowerPriority: 22,
@@ -513,7 +544,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	clearbody: {
 		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
+			//if (source && target === source) return;
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
@@ -530,6 +561,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Clear Body",
 		rating: 2,
 		num: 29,
+		shortDesc: "Prevents Pokemon from lowering this Pokemon's stat stages.",
 	},
 	cloudnine: {
 		onSwitchIn(pokemon) {
@@ -664,13 +696,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (effect && effect.id === 'zpower') return;
 			let i: BoostID;
 			for (i in boost) {
-				boost[i]! *= -1;
+				if (boost[i]! < 0) {
+					boost[i]! *= -1;
+				}
 			}
 		},
 		flags: {breakable: 1},
 		name: "Contrary",
 		rating: 4.5,
 		num: 126,
+		shortDesc: "If this Pokemon has a stat stage lowered it is raised instead.",
 	},
 	corrosion: {
 		// Implemented in sim/pokemon.js:Pokemon#setStatus
@@ -1643,12 +1678,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	grasspelt: {
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+			if (this.field.isTerrain('grassyterrain')) {
+				//return this.chainModify(1);
+				return this.chainModify(5);
+			}
 		},
 		flags: {breakable: 1},
 		name: "Grass Pelt",
 		rating: 0.5,
 		num: 179,
+		shortDesc: "If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1,5.",
 	},
 	grassysurge: {
 		onStart(source) {
@@ -2100,19 +2139,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 215,
 	},
 	innerfocus: {
-		onTryAddVolatile(status, pokemon) {
-			if (status.id === 'flinch') return null;
-		},
-		onTryBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+			const armorTailHolder = this.effectState.target;
+			if ((source.isAlly(armorTailHolder) || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', armorTailHolder, 'ability: Inner Focus', move, '[of] ' + target);
+				return false;
 			}
 		},
 		flags: {breakable: 1},
 		name: "Inner Focus",
 		rating: 1,
 		num: 39,
+		shortDesc: "This Pokemon and its allies are protected from opposing priority moves.",
 	},
 	insomnia: {
 		onUpdate(pokemon) {
@@ -2494,16 +2537,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 63,
 	},
 	megalauncher: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['pulse']) {
-				return this.chainModify(1.5);
-			}
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.flags['pulse']) return priority + 1;
 		},
 		flags: {},
 		name: "Mega Launcher",
 		rating: 3,
 		num: 178,
+		shortDesc: "This Pokemon's pulse moves have their priority increased by 1.",
 	},
 	merciless: {
 		onModifyCritRatio(critRatio, source, target) {
@@ -3308,18 +3349,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	powerofalchemy: {
-		onAllyFaint(target) {
-			if (!this.effectState.target.hp) return;
-			const ability = target.getAbility();
-			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
-			if (this.effectState.target.setAbility(ability)) {
-				this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			}
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		flags: {},
 		name: "Power of Alchemy",
 		rating: 0,
 		num: 223,
+		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
 	},
 	powerspot: {
 		onAllyBasePowerPriority: 22,
@@ -3795,15 +3832,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 247,
 	},
 	rivalry: {
-		onBasePowerPriority: 24,
-		onBasePower(basePower, attacker, defender, move) {
+		onModifyMovePriority: -5,
+		onModifyMove(move, attacker, defender) {
 			if (attacker.gender && defender.gender) {
 				if (attacker.gender === defender.gender) {
 					this.debug('Rivalry boost');
-					return this.chainModify(1.25);
+					move.basePower = 125;
 				} else {
 					this.debug('Rivalry weaken');
-					return this.chainModify(0.75);
+					move.basePower = 75;
 				}
 			}
 		},
@@ -3811,6 +3848,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Rivalry",
 		rating: 0,
 		num: 79,
+		shortDesc: "This Pokemon’s attacks do 125 power on same gender targets; 075 on opposite gender.",
 	},
 	rkssystem: {
 		// RKS System's type-changing itself is implemented in statuses.js
@@ -4854,10 +4892,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
+		// hazard immunity coded in moves.ts
 		flags: {breakable: 1},
 		name: "Telepathy",
 		rating: 0,
 		num: 140,
+		shortDesc: "This Pokemon does not take damage from attacks made by its allies or entry hazards.",
 	},
 	teraformzero: {
 		onAfterTerastallization(pokemon) {
