@@ -629,7 +629,7 @@ export const Formats: FormatList = [
 					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
 				}
 			}
-		},
+		},/*
 		onChangeSet(set) {
 			if (set.species.startsWith('Lutakon')) {
 				const item = this.toID(set.item);
@@ -656,7 +656,7 @@ export const Formats: FormatList = [
 					set.species = 'Lutakon';
 				}
 			}
-		},
+		},*/
 	},
 	{
 	name: "[Gen 9] Generation X: Brunica [OU]",
@@ -2469,6 +2469,12 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
+		name: "[Gen 3] ADV Tradebacks",
+		mod: 'gen3tradebacks',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', 'Baton Pass Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+	},
+	{
 		name: "[Gen 9] ASoDH",
 		desc: 'Another Solomod on DH (by Lysio & Akira)',
 		threads: [],
@@ -2959,8 +2965,8 @@ export const Formats: FormatList = [
     {
 		name: "[Gen 3] Gen 3 Plus",
 		mod: 'gen3plus',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken'],
 	},
 	{
 		name: "[Gen 1] Glitch OU",
@@ -2982,8 +2988,8 @@ export const Formats: FormatList = [
     {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', 'Baton Pass Mod'],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken'],
 	},
 	{
 		name: "[Gen 9] i forgor OU",

@@ -151,7 +151,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},		
 	// end
 
-	// start
+	// start: look for typetracker and soaksteeldenial in condition.ts, Soak in moves.ts
+	// If someone wishes to copy this ability, make sure you account for Magic Powder and special form changes from certain Pkm (like
+	// my own Aegislash-Ma'adowr which is Grass / Steel in shield form and Grass / Flying in blade form. Form changes override any
+	// temporary type change effect from stuff like Soak or Burn Up, etc.! Magic Powder isn't in my regional dex, so, that's one stuff
+	// less to worry about.)
    chainlink: {
 		shortDesc: "In a double battle, the Pokémon steals its partner's Steel type.",
 		onUpdate(pokemon) {
@@ -164,6 +168,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						this.add('-message', `${pokemon.name} stole its partner's armor!`);
 						this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Ability: Chain Link');
 						ally.addVolatile('chainlink');
+						ally.addVolatile('typetracker'); // New Inclusion to keep track of fringe cases...
 					}
 				}
 			}
@@ -189,15 +194,50 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			onEnd(pokemon) {
 				for (const ally of pokemon.allies()) { // revert Chain Link user's type first
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
-						let types = ally.baseSpecies.types;
-						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
-						this.add('-ability', ally, 'Chain Link');
-						this.add('-message', `${ally.name} returned its partner's armor!`);
-						this.add('-start', ally, 'typechange', ally.types.join('/'));
-						types = pokemon.baseSpecies.types;
-						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						const currentTypes = ally.getTypes();
+                		const newTypes = currentTypes.filter(type => type !== 'Steel'); // Remove Steel type
+                		ally.setType(newTypes); // Set the new types without Steel
+               		 	this.add('-ability', ally, 'Chain Link');
+                		this.add('-message', `${ally.name} returned its partner's armor!`);
+                		this.add('-start', ally, 'typechange', ally.types.join('/'));
+					}
+				}
+				// Now we handle the Pokémon and add a special case for Mechatauro as it could theoretically have ???-typing twice through
+				// Chain Link and Burn Up
+				if (pokemon.hasType('???')) {
+					if (pokemon.baseSpecies.name === 'Mechatauro') {
+						// Replace only the first instance of ??? with Steel for Mechatauro
+						const currentTypes = pokemon.getTypes();
+						const newTypes = [];
+						let replaced = false; // Flag to track if we've replaced the first ???
+				
+						for (const type of currentTypes) {
+							if (type === '???' && !replaced) {
+								newTypes.push('Steel'); // Replace the first ??? with Steel
+								replaced = true; // Set the flag to true after replacement
+							} else {
+								newTypes.push(type); // Keep the other types as they are
+							}
+						}
+				
+						pokemon.setType(newTypes); // Set the new types with Steel replacing the first ???
+						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+					} else {
+						// Replace all instances of ??? with Steel for other Pokémon
+						const currentTypes = pokemon.getTypes();
+						const newTypes = currentTypes.filter(type => type !== '???').concat('Steel');
+						pokemon.setType(newTypes); // Set the new types including Steel
 						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 					}
+				}
+				if (pokemon.volatiles['typetracker'] && pokemon.baseSpecies.name !== 'Aegislash-Ma\'adowr' &&
+					pokemon.baseSpecies.name !== 'Aegislash-Blade-Ma\'adowr' && pokemon.hasType('Water')) {
+					// Add Steel type to the Pokémon
+    				if (!pokemon.hasType('Steel')) {
+        				pokemon.addType('Steel'); // Add Steel type if it doesn't already have it; it's just to be safe even if I cannot imagine how the Pkm would have gained Steel beforehand...
+        				this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Typetracker');
+        				this.add('-message', `${pokemon.name} gained its Steel type back!`);
+    				}	
 				}
 			},
 		},
