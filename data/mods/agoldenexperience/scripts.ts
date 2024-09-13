@@ -1628,7 +1628,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'screamtail').learnset.afteryou = ['9L1'];
     this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     delete this.modData('Learnsets', 'brutebonnet').learnset.spore;
-    this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.focusblast = ['9L1'];
@@ -1651,6 +1650,9 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
     delete this.modData('Learnsets', 'gimmighoul').learnset.nastyplot;
     delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
+    delete this.modData('Learnsets', 'pawniard').learnset.knockoff;
+    delete this.modData('Learnsets', 'bisharp').learnset.knockoff;
+    delete this.modData('Learnsets', 'kingambit').learnset.knockoff;
 
     // return 
     this.modData('Learnsets', 'meltan').learnset.return = ['9M'];
