@@ -1016,8 +1016,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		/*onStart(side) {
             this.add('-message', `The Flying Engraving was activated on ${side.name}'s side!`);
         },*/
+		  // Aegislash-Ma'adowr (Grass, Steel) should now be able to benefit from the effect once the Engraving is activated and if it switches to its blade-form (Grass, Flying)
         onUpdate(pokemon) {
-            if (pokemon.hasType('Flying')) {
+            if (pokemon.hasType('Flying') || (pokemon.baseSpecies.name === 'Aegislash-Ma\'adowr' && 
+				((pokemon.hasType('Grass') && pokemon.hasType('Steel')) || (pokemon.hasType('Grass') && pokemon.hasType('???'))))) {
                 pokemon.addVolatile('flyingfeature');
             } else {
                 pokemon.removeVolatile('flyingfeature');
@@ -1621,7 +1623,9 @@ export const Conditions: {[k: string]: ConditionData} = {
     	onBasePower(basePower, attacker, defender, move) {
         const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
         this.debug('Base Power: ' + basePowerAfterMultiplier);
-        if (basePowerAfterMultiplier <= 60) {
+        if (basePowerAfterMultiplier <= 60 && (attacker.hasType('Flying') || 
+			(attacker.baseSpecies.name === 'Aegislash-Ma\'adowr' && ((attacker.hasType('Grass') && attacker.hasType('Steel')) ||
+			(attacker.hasType('Grass') && attacker.hasType('???')))))) {
             this.debug('Flying Engraving boost');
             return this.chainModify(1.5); // Boost base power by 50%
         	}
@@ -2133,8 +2137,38 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'Rabsca Feature',   
 		noCopy: true, 
 		onHit(target, source, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				this.heal(target.baseMaxhp / 4);
+			const isMultihit = move.multihit; // Check if the move is multihit
+			const hasParentalBond = source.hasAbility('parentalbond'); // Check for Parental Bond
+	
+			// If the move is a multihit move
+			if (isMultihit) {
+				// Heal only for the first hit
+				if (move.hit === 1) { // Check if this is the first hit
+					const typeMod = target.getMoveHitData(move).typeMod; // Get the effectiveness of the move
+					if (typeMod > 0) {
+						this.heal(target.baseMaxhp / 4); // Heal the target
+					}
+				}
+				return; // Stop further healing from subsequent hits
+			}
+	
+			// If the move is not a multihit move
+			if (!isMultihit) {
+				if (hasParentalBond) {
+					// Heal only for the first hit if the source has Parental Bond
+					if (move.hit === 1) { // Check if this is the first hit
+						const typeMod = target.getMoveHitData(move).typeMod; // Get the effectiveness of the move
+						if (typeMod > 0) {
+							this.heal(target.baseMaxhp / 4); // Heal the target
+						}
+					}
+				} else {
+					// Heal normally if the source does not have Parental Bond
+					const typeMod = target.getMoveHitData(move).typeMod; // Get the effectiveness of the move
+					if (typeMod > 0) {
+						this.heal(target.baseMaxhp / 4); // Heal the target
+					}
+				}
 			}
 		},
 	},
@@ -2357,6 +2391,181 @@ export const Conditions: {[k: string]: ConditionData} = {
 			  	this.add('-message', `${source.name} was contaminated by ${pokemon.name}'s toxin!`);
 				}
 			}
+		},
+	},
+	// end
+
+	steeldenial: {
+		name: "Steel Denial",
+		onPrepareHit(pokemon) {
+			// If the Pokémon has the Steel type, replace it with "???"
+			if (pokemon.hasType('Steel')) {
+				const oldTypes = pokemon.types.slice();
+				pokemon.setType(pokemon.types.map(type => type === 'Steel' ? '???' : type));
+				// Check if the types actually changed
+				if (oldTypes.join('/') !== pokemon.types.join('/')) {
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Steel Denial');
+				}
+				// pokemon.types = pokemon.types.filter(type => type !== 'Steel'); // Remove Steel type rather than replacing it with ???
+
+				/*// Check if the types actually changed visually
+				if (oldTypes.length !== pokemon.types.length) {
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Steel Denial');
+				}*/
+			}
+		},
+		onUpdate(pokemon) {
+			// If the Pokémon has the Steel type, replace it with "???"
+			if (pokemon.hasType('Steel')) {
+				const oldTypes = pokemon.types.slice();
+				pokemon.setType(pokemon.types.map(type => type === 'Steel' ? '???' : type));
+				// Check if the types actually changed
+				if (oldTypes.join('/') !== pokemon.types.join('/')) {
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Steel Denial');
+				}
+				// pokemon.types = pokemon.types.filter(type => type !== 'Steel'); // Remove Steel type rather than replacing it with ???
+
+				/*// Check if the types actually changed visually
+				if (oldTypes.length !== pokemon.types.length) {
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Steel Denial');
+				}*/
+			}
+		},
+		
+	},
+	// end
+	// start: Aegislash-Ma'adowr is the only Pkm who could get this volatile if hit by Soak
+	soaksteeldenial: {
+		name: 'Soak Steel Denial',
+		onPrepareHit(pokemon) {
+			// Aegislash-Ma'adowr is just soaked and will turn into mono Water
+			if (pokemon.types.join() !== 'Water' && !pokemon.volatiles['typetracker']) {
+				pokemon.setType('Water');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// When ally Craftenir is present: Water, blade -> Grass/Steel, shield -> Water/???, shield
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Steel') && pokemon.volatiles['typetracker'] && pokemon.volatiles['chainlink']) {
+				pokemon.setType(['Water', '???']);
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// When ally Craftenir is present: Water/???, shield -> (Grass/Flying, blade) -> Water, blade
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Flying') && pokemon.volatiles['typetracker'] && pokemon.volatiles['chainlink']) {
+				pokemon.setType('Water');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// Water/Steel (Steel regained), shield -> (Grass/Flying, blade) -> Water, blade
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Flying') && pokemon.volatiles['typetracker'] && !pokemon.volatiles['chainlink']) {
+				pokemon.setType('Water');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// Water, blade -> (Grass/Steel, shield) -> Water/Steel, shield
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Steel') && pokemon.volatiles['typetracker'] && !pokemon.volatiles['chainlink']) {
+				pokemon.setType(['Water', 'Steel']);
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+		},
+		onUpdate(pokemon) {
+			// Aegislash-Ma'adowr is just soaked and will turn into mono Water
+			if (pokemon.types.join() !== 'Water' && !pokemon.volatiles['typetracker']) {
+				pokemon.setType('Water');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// When ally Craftenir is present: Water, blade -> Grass/Steel, shield -> Water/???, shield
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Steel') && pokemon.volatiles['typetracker'] && pokemon.volatiles['chainlink']) {
+				pokemon.setType(['Water', '???']);
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// When ally Craftenir is present: Water/???, shield -> (Grass/Flying, blade) -> Water, blade
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Flying') && pokemon.volatiles['typetracker'] && pokemon.volatiles['chainlink']) {
+				pokemon.setType('Water');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// Water/Steel (Steel regained), shield -> (Grass/Flying, blade) -> Water, blade
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Flying') && pokemon.volatiles['typetracker'] && !pokemon.volatiles['chainlink']) {
+				pokemon.setType('Water');
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+			// Water, blade -> (Grass/Steel, shield) -> Water/Steel, shield
+			if (pokemon.types.join() !== 'Water' && pokemon.hasType('Grass') && pokemon.hasType('Steel') && pokemon.volatiles['typetracker'] && !pokemon.volatiles['chainlink']) {
+				pokemon.setType(['Water', 'Steel']);
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] Soak Steel Denial');
+			}
+		},
+	},
+	typetracker: {
+		name: 'Type Tracker',
+		onPrepareHit(pokemon) {
+			if (pokemon.volatiles['chainlink']) {
+				// ally Craftenir borrows Steel from non soaked Aegislash-Ma'adowr
+				if (pokemon.baseSpecies.name === 'Aegislash-Ma\'adowr' && pokemon.hasType('Steel') && !pokemon.volatiles['soaksteeldenial']) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+				}
+			} 
+			if (!pokemon.volatiles['chainlink']) {
+				// ally Craftenir switches out; typetracker ensures Aegislash-Ma'adowr was the Pkm that gave its Steel-type to ally Craftenir
+				if (pokemon.baseSpecies.name === 'Aegislash-Ma\'adowr' && pokemon.species.name !== 'Aegislash-Blade-Ma\'adowr' && pokemon.hasType('Water') 
+					&& !pokemon.hasType('Steel') && pokemon.volatiles['soaksteeldenial']) {
+					pokemon.addType('Steel');
+					this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Soak Steel Denial');
+					this.add('-message', `${pokemon.name} gained the Steel type!`);
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['chainlink']) {
+				// ally Craftenir borrows Steel from non soaked Aegislash-Ma'adowr
+				if (pokemon.baseSpecies.name === 'Aegislash-Ma\'adowr' && pokemon.hasType('Steel') && !pokemon.volatiles['soaksteeldenial']) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === "Steel" ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+				}
+			} 
+			if (!pokemon.volatiles['chainlink']) {
+				// ally Craftenir switches out; typetracker ensures Aegislash-Ma'adowr was the Pkm that gave its Steel-type to ally Craftenir
+				if (pokemon.baseSpecies.name === 'Aegislash-Ma\'adowr' && pokemon.species.name !== 'Aegislash-Blade-Ma\'adowr' && pokemon.hasType('Water') 
+					&& !pokemon.hasType('Steel') && pokemon.volatiles['soaksteeldenial']) {
+					pokemon.addType('Steel');
+					this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Soak Steel Denial');
+					this.add('-message', `${pokemon.name} gained the Steel type!`);
+				}
+			}
+		},
+	},
+
+	// start: Wind Blessing from Eye of the Sun move
+	windblessing: {
+		name: 'Wind Blessing',
+		noCopy: true,
+		duration: 5,
+		onSideStart(side, source) {
+			this.add('-sidestart', side, 'Wind Blessing');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Wind Blessing neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onSideResidualOrder: 26,
+		onSideResidualSubOrder: 6,
+		onSideEnd(side) {
+			this.add('-sideend', side, 'Wind Blessing');
+		},
+	},
+	// end
+	
+	// start: Time Crystals from Time Compressor
+	timecrystals: {
+		name: 'Time Crystals',
+		noCopy: true,
+		duration: 3,
+		onSideStart(side) {
+			this.add('-sidestart', side, 'Time Crystals');
+		},
+		onSideEnd(side) {
+			this.add('-message', 'The time crystals unleashed a great amount of energy and...');
+			this.add('-fieldstart', 'move: Trick Room');
+			this.add('-sideend', side, 'Time Crystals');
 		},
 	},
 	// end
