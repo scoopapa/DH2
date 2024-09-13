@@ -3561,28 +3561,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 757,
 		fling: {
 			basePower: 80,
-		},/* Fully code it if it wins, have to add stuff to both scripts.ts and rulesets.ts
-		onStart(pokemon) {
-			const side = pokemon.side;
-			let activated = false;
-			for (const ally of side.pokemon) {
-				if (ally.item) continue;
-				if ((ally as any).lostItemForDelibird) {
-					const item = (ally as any).lostItemForDelibird;
-					if (ally.setItem(item)) {
-						if (!activated) {
-							this.add('-item', pokemon, 'Masterpiece Teacup');
-						}
-						activated = true;
-						this.add('-item', ally, this.dex.items.get(item), '[from] item: Masterpiece Teacup');
-					}
-				}
-			}
-		},*/
+		},
 		num: 2404,
 		gen: 9,
 		rating: 0,
-		shortDesc: "Evolves Poltchageist-Artisan into Sinistcha-Masterpiece when used. Restores lost items.",
 	},
 	mawilite: {
 		name: "Mawilite",
@@ -6474,13 +6456,12 @@ export const Items: {[itemid: string]: ItemData} = {
 	tr46: {
 		name: "TR46",
 		fling: {
-			basePower: 250,
+			basePower: 10,
 		},
 		spritenum: 729,
 		num: 1176,
 		gen: 8,
 		isNonstandard: "Past",
-		shortDesc: "Teaches certain Pokemon the move Explosion. One use.",
 	},
 	tr47: {
 		name: "TR47",
