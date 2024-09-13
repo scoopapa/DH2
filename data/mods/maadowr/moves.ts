@@ -904,33 +904,18 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Time Compressor",
 		pp: 5,
 		priority: 0,
-		flags: {metronome: 1, futuremove: 1},
-		onTry(source: Pokemon) {
-			if (!source.side.addSlotCondition(source, 'futuremove')) return false;
-			Object.assign(source.side.slotConditions[source.position]['futuremove'], {
-				duration: 3,
-				move: 'timecompressor',
-				source: source,
-				moveData: {
-					id: 'timecompressor',
-					name: "Time Compressor",
-					accuracy: true,
-					basePower: 0,
-					category: "Status",
-					priority: 0,
-					flags: {metronome: 1, futuremove: 1},
-					onHit(this: Battle, target: Pokemon, source: Pokemon, move: ActiveMove) {
-						this.field.addPseudoWeather('trickroom', source, move);
-					},
-					effectType: 'Move',
-					type: 'Rock',
-				},
-			});
-			this.add('-start', source, 'move: Time Compressor');
-			return true;
-		},
+		flags: {metronome: 1},
+		onTry(pokemon) {
+			if (!pokemon.side.sideConditions['timecrystals']) {
+				pokemon.side.addSideCondition('timecrystals');
+				this.add('-message', 'Time crystals started to glow.');
+				this.add('-anim', pokemon, 'Flash');	
+			} else {
+				return false; // If Time Crystals are already active, fail the move
+			}
+		},	
 		secondary: null,
-		target: "all",
+		target: "allySide",
 		type: "Rock",
 		contestType: "Clever",
 	},
@@ -1481,9 +1466,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: 'Status',
-		shortDesc: "Executes first move of last fainted ally. Best stat boost.",
+		shortDesc: "Executes first move of last fainted Dark ally. Best stat boost.",
 		name: 'Exhume',
-		pp: 5,
+		pp: 8, // this should be fine since this move can only be called through an Engraving effect, which doesn't max pp
 		priority: 0,
 		flags: {protect: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
 		onTryHit(target, source, move) {
