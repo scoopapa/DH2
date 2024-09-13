@@ -47,4 +47,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pinaturbo: {
 		tier: "BC",
 	},
+	eolikopter: {
+		tier: "BC",
+	},
+	mohawtter: {
+		tier: "BC",
+	},
+	arachnode: {
+		tier: "BC",
+	},
+	blobbiam: {
+		tier: "BC",
+	},
+	florustitia: {
+		tier: "BC",
+	},
 };
