@@ -2553,6 +2553,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	// end
+	
+	// start: Time Crystals from Time Compressor
+	timecrystals: {
+		name: 'Time Crystals',
+		noCopy: true,
+		duration: 3,
+		onSideStart(side) {
+			this.add('-sidestart', side, 'Time Crystals');
+		},
+		onSideEnd(side) {
+			this.add('-message', 'The time crystals unleashed a great amount of energy and...');
+			this.add('-fieldstart', 'move: Trick Room');
+			this.add('-sideend', side, 'Time Crystals');
+		},
+	},
+	// end
 
 	// Commander needs two conditions so they are implemented here
 	// Dondozo
