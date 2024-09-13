@@ -715,7 +715,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	florustitia: {
 		learnset: {
 			leafblade: ["9L1"],
-			energyball: ["9L1"],
 			brickbreak: ["9L1"],
 			aurasphere: ["9L1"],
 			dragondance: ["9L1"],
