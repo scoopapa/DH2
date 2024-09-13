@@ -43,7 +43,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	Regivillain: {
+	regivillain: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
@@ -51,43 +51,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	JOBAPPLICATION: {
+	jobapplication: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	MythicMayhem: {
+	mythicmayhem: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	Maldew: {
+	maldew: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	Salamire: {
+	salamire: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	BetterTusk: {
+	bettertusk: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	Voltoxin: {
+	voltoxin: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	OurSikentwistedMind: {
+	oursikentwistedmind: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	RotomWashed: {
+	rotomwashed: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	Astrodactyl: {
+	astrodactyl: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	Joe: {
+	joe: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
