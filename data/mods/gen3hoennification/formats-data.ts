@@ -2415,7 +2415,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	zekrom: {
-		tier: "OUberU"
+		tier: "Uber"
 	},
 	landorus: {
 		tier: "OU"

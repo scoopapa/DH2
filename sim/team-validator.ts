@@ -836,9 +836,10 @@ export class TeamValidator {
 
 		let moveProblems;
 		if (ruleTable.has('obtainablemoves')) {
-			if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4' || this.dex.currentMod === 'gen3tradebacks' || this.dex.currentMod === 'gen3plus' || this.dex.currentMod === 'gen3hoennification') return;
-			moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
-			problems.push(...moveProblems);
+			if (this.dex.currentMod !== 'moderngen3' && this.dex.currentMod !== 'moderngen4' && this.dex.currentMod !== 'gen3tradebacks' && this.dex.currentMod !== 'gen3plus' && this.dex.currentMod !== 'gen3hoennification') {
+				moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
+				problems.push(...moveProblems);
+			}
 		}
 
 		let eventOnlyData;
