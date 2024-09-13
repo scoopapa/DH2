@@ -629,7 +629,7 @@ export const Formats: FormatList = [
 					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
 				}
 			}
-		},
+		},/*
 		onChangeSet(set) {
 			if (set.species.startsWith('Lutakon')) {
 				const item = this.toID(set.item);
@@ -656,7 +656,7 @@ export const Formats: FormatList = [
 					set.species = 'Lutakon';
 				}
 			}
-		},
+		},*/
 	},
 	{
 	name: "[Gen 9] Generation X: Brunica [OU]",
