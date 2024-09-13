@@ -1,4 +1,4 @@
-export const Conditions: {[k: string]: ConditionData} = {
+export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTable = {
 	dynamax: {
 		name: 'Dynamax',
 		noCopy: true,
@@ -23,8 +23,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Stamina');
 						break;
 					case 'Butterfree':
-						pokemon.setAbility('magicbounce', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Magic Bounce');
+						pokemon.setAbility('soulheart', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Soul-Heart');
 						break;
 					case 'Pikachu':
 						pokemon.setAbility('hugepower', pokemon, true);
@@ -55,8 +55,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Friend Guard');
 						break;
 					case 'Snorlax':
-						pokemon.setAbility('sapsipper', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Sap Sipper');
+						pokemon.setAbility('naturalcure', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Natural Cure');
 						break;
 					case 'Garbodor':
 						pokemon.setAbility('toxicdebris', pokemon, true);
@@ -71,28 +71,28 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Grass Pelt');
 						break;
 					case 'Cinderace':
-						pokemon.setAbility('quickfeet', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Quick Feet');
+						pokemon.setAbility('magicguard', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Magic Guard');
 						break;
 					case 'Inteleon':
 						pokemon.setAbility('stormdrain', pokemon, true);
 						this.add('-activate', pokemon, 'ability: Storm Drain');
 						break;
 					case 'Corviknight':
-						pokemon.setAbility('ironbarbs', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Iron Barbs');
+						pokemon.setAbility('intimidate', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Intimidate');
 						break;
 					case 'Orbeetle':
-						pokemon.setAbility('magicguard', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Magic Guard');
+						pokemon.setAbility('psychicsurge', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Psychic Surge');
 						break;
 					case 'Drednaw':
 						pokemon.setAbility('solidrock', pokemon, true);
 						this.add('-activate', pokemon, 'ability: Solid Rock');
 						break;
 					case 'Coalossal':
-						pokemon.setAbility('eartheater', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Earth Eater');
+						pokemon.setAbility('desolateland', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Desolate Land');
 						break;
 					case 'Appletun':
 						pokemon.setAbility('marvelscale', pokemon, true);
@@ -115,8 +115,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 						this.add('-activate', pokemon, 'ability: Dry Skin');
 						break;
 					case 'Hatterene':
-						pokemon.setAbility('naturalcure', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Natural Cure');
+						pokemon.setAbility('regenerator', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Regenerator');
 						break;
 					case 'Grimmsnarl':
 						pokemon.setAbility('mistysurge', pokemon, true);
