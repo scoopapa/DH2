@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	ragefist: {
 		inherit: true,
 		basePowerCallback(pokemon) {
@@ -398,30 +398,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, each Pokemon on the opposing side either falls asleep, becomes poisoned, or becomes paralyzed, even if they have a substitute.",
-		shortDesc: "20% chance to sleep, poison, or paralyze target.",
+		desc: "If the target uses a Fire-type move in the next 3 turns, it is prevented from executing and the target loses 1/4 of its maximum HP, rounded half up. This effect does not happen if the Fire-type move is prevented by Primordial Sea.",
+		shortDesc: "For 3 turns, if the target uses a Fire move, it loses 1/4 max HP.",
 		name: "G-Max Befuddle",
 		pp: 5,
 		priority: 0,
 		flags: {},
+		volatileStatus: 'powder',
 		isMax: "Butterfree",
-		secondary: {
-			chance: 20,
-			self: {
-				onHit(source) {
-					for (const pokemon of source.foes()) {
-						const result = this.random(3);
-						if (result === 0) {
-							pokemon.trySetStatus('slp', source);
-						} else if (result === 1) {
-							pokemon.trySetStatus('par', source);
-						} else {
-							pokemon.trySetStatus('psn', source);
-						}
-					}
-				},
-			},
-		},
+		secondary: null,
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Cool",
@@ -622,17 +607,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gmaxfireball: {
 		num: 1000,
 		accuracy: true,
-		basePower: 150,
+		basePower: 90,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "This move and its effects ignore the Abilities of other Pokemon.",
-		shortDesc: "Ignores the Abilities of other Pokemon.",
+		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
+		shortDesc: "User switches out after damaging the target.",
 		name: "G-Max Fireball",
 		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Cinderace",
-		ignoreAbility: true,
+		selfSwitch: true,
+		//ignoreAbility: true,
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Fire",
@@ -813,27 +799,45 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the user restores its Sitrus Berry, even if they have a substitute.",
-		shortDesc: "Restores user's Sitrus Berry.",
+		desc: "If this move is successful, the user restores its changes the target's item with an Iapapa Berry and consumes it, even if they have a substitute.",
+		shortDesc: "Gives target an Iapapa Berry and consumes it.",
 		name: "G-Max Replenish",
 		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Snorlax",
-		self: {
-			onHit(source) {
-				if (this.random(2) === 0) return;
-				for (const pokemon of source.alliesAndSelf()) {
-					if (pokemon.item) continue;
-
-					if (pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
-						const item = pokemon.lastItem;
-						pokemon.lastItem = '';
-						this.add('-item', pokemon, this.dex.items.get(item), '[from] move: G-Max Replenish');
-						pokemon.setItem(item);
+		/*onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.getItem();
+					this.add('-item', target, 'Iapapa Berry', '[from] move: G-Max Replenish');
+					this.add('-enditem', target, 'Iapapa Berry', '[from] stealeat', '[move] G-Max Replenish', '[of] ' + source);
+						if (this.singleEvent('Eat', item, null, source, null, null)) {
+						this.runEvent('EatItem', source, null, null, item);
 					}
 				}
-			},
+			}
+		},*/
+		
+		onBeforeHit(target, source) {
+			if (source.hp) {
+				if (target.item) {
+					this.add('-enditem', target, item.name);
+					target.setItem('iapapaberry');
+					this.add('-item', target, 'Iapapa Berry', '[from] move: G-Max Replenish');
+				}
+			}
+		},
+		onHit(target, source) {
+			if (source.hp) {
+				const item = target.getItem();
+				if (source.hp && item.name === 'Iapapa Berry') {
+					this.add('-enditem', target, item.name, '[from] stealeat', '[move] G-Max Replenish', '[of] ' + source);
+					if (this.singleEvent('Eat', item, null, source, null, null)) {
+						this.runEvent('EatItem', source, null, null, item);
+					}
+					if (item.onEat) source.ateBerry = true;
+				}
+			}
 		},
 		secondary: null,
 		target: "adjacentFoe",
@@ -910,19 +914,68 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gmaxsnooze: {
 		num: 1000,
 		accuracy: true,
-		basePower: 110,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the gmaxsnooze succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('G-Max Snooze damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the effects of Reflect begin.",
-		shortDesc: "This move summons Reflect for 5 turns upon use.",
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
+		shortDesc: "If a foe is switching out, hits it at 2x power.",
 		name: "G-Max Snooze",
 		pp: 5,
 		priority: 0,
 		flags: {},
-		isMax: "Grimmsnarl",
-		self: {
-			sideCondition: 'reflect',
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('gmaxsnooze', pokemon);
+				const data = side.getSideConditionData('gmaxsnooze');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
 		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('gmaxsnooze');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('G-Max Snooze start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: G-Max Snooze');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the G-Max Snooze user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('gmaxsnooze', source, source.getLocOf(pokemon));
+				}
+			},
+		},
+		isMax: "Grimmsnarl",
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Dark",
@@ -1200,8 +1253,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side.",
-		shortDesc: "Clears terrain and hazards from both sides of the field.",
+		desc: "If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Additionally, it heals 1/4 of its max HP when it removes hazards, screens or terrain.",
+		shortDesc: "Removes terrain/screens/hazards and heals 25% if successful.",
 		name: "G-Max Wind Rage",
 		pp: 5,
 		priority: 0,
@@ -1214,6 +1267,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
 				];
 				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				//const removeTerrain = ['electricterrain', 'grassyterrain', 'mistyterrain', 'psychicterrain'];
 				for (const targetCondition of removeTarget) {
 					if (source.side.foe.removeSideCondition(targetCondition)) {
 						if (!removeAll.includes(targetCondition)) continue;
@@ -1227,7 +1281,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						success = true;
 					}
 				}
-				this.field.clearTerrain();
+				/*for (const terrainCondition of removeTerrain) {
+					if (source.side.removeSideCondition(terrainCondition)) {
+						this.add('-sideend', source.side, this.dex.conditions.get(terrainCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}*/
+				if (this.field.clearTerrain()) success = true;
+				if (success) !!this.heal(this.modify(source.maxhp, 0.25));
 				return success;
 			},
 		},
@@ -1402,6 +1463,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	noxioustorque: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	powder: {
+		inherit: true,
+		condition: {
+			duration: 3,
+			onStart(target) {
+				this.add('-start', target, 'Powder');
+			},
+			onTryMovePriority: -1,
+			onTryMove(pokemon, target, move) {
+				if (move.type === 'Fire') {
+					this.add('-activate', pokemon, 'move: Powder');
+					this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
+					this.attrLastMove('[still]');
+					return false;
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Powder');
+			},
+		},
 	},
 
 	/*
