@@ -206,7 +206,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Grass"
 		],
-		"requiredItem": "Venusaurite",
+		// "requiredItem": "Venusaurite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "venusaurmega",
@@ -222,9 +222,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Venusaurite"
-		],
+		// "requiredItems": [
+		// 		"Venusaurite"
+		// ],
 		"bst": 625,
 		"weighthg": 1555,
 		"unreleasedHidden": false,
@@ -439,7 +439,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Dragon"
 		],
-		"requiredItem": "Charizardite X",
+		// "requiredItem": "Charizardite X",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "charizardmegax",
@@ -455,9 +455,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Charizardite X"
-		],
+		// "requiredItems": [
+		// 		"Charizardite X"
+		// ],
 		"bst": 634,
 		"weighthg": 1105,
 		"unreleasedHidden": false,
@@ -499,7 +499,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Dragon"
 		],
-		"requiredItem": "Charizardite Y",
+		// "requiredItem": "Charizardite Y",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "charizardmegay",
@@ -515,9 +515,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Charizardite Y"
-		],
+		// "requiredItems": [
+		// 		"Charizardite Y"
+		// ],
 		"bst": 634,
 		"weighthg": 1005,
 		"unreleasedHidden": false,
@@ -731,7 +731,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Water 1"
 		],
-		"requiredItem": "Blastoisinite",
+		// "requiredItem": "Blastoisinite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "blastoisemega",
@@ -747,9 +747,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Blastoisinite"
-		],
+		// "requiredItems": [
+		// 		"Blastoisinite"
+		// ],
 		"bst": 630,
 		"weighthg": 1011,
 		"unreleasedHidden": false,
@@ -1118,7 +1118,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"requiredItem": "Beedrillite",
+		// "requiredItem": "Beedrillite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "beedrillmega",
@@ -1138,9 +1138,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Beedrillite"
-		],
+		// "requiredItems": [
+		// 		"Beedrillite"
+		// ],
 		"bst": 495,
 		"weighthg": 405,
 		"unreleasedHidden": false,
@@ -1346,7 +1346,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"requiredItem": "Pidgeotite",
+		// "requiredItem": "Pidgeotite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "pidgeotmega",
@@ -1366,9 +1366,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Pidgeotite"
-		],
+		// "requiredItems": [
+		// 		"Pidgeotite"
+		// ],
 		"bst": 579,
 		"weighthg": 505,
 		"unreleasedHidden": false,
@@ -5716,7 +5716,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"requiredItem": "Alakazite",
+		// "requiredItem": "Alakazite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "alakazammega",
@@ -5732,9 +5732,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Alakazite"
-		],
+		// "requiredItems": [
+		// 		"Alakazite"
+		// ],
 		"bst": 600,
 		"weighthg": 480,
 		"unreleasedHidden": false,
@@ -6972,7 +6972,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Water 1"
 		],
-		"requiredItem": "Slowbronite",
+		// "requiredItem": "Slowbronite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "slowbromega",
@@ -6992,9 +6992,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Slowbronite"
-		],
+		// "requiredItems": [
+		// 		"Slowbronite"
+		// ],
 		"bst": 590,
 		"weighthg": 1200,
 		"unreleasedHidden": false,
@@ -8036,7 +8036,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Amorphous"
 		],
-		"requiredItem": "Gengarite",
+		// "requiredItem": "Gengarite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "gengarmega",
@@ -8056,9 +8056,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Gengarite"
-		],
+		// "requiredItems": [
+		// 		"Gengarite"
+		// ],
 		"bst": 600,
 		"weighthg": 405,
 		"unreleasedHidden": false,
@@ -9615,7 +9615,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"requiredItem": "Kangaskhanite",
+		// "requiredItem": "Kangaskhanite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kangaskhanmega",
@@ -9635,9 +9635,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 1
 		},
-		"requiredItems": [
-				"Kangaskhanite"
-		],
+		// "requiredItems": [
+		// 		"Kangaskhanite"
+		// ],
 		"bst": 590,
 		"weighthg": 1000,
 		"unreleasedHidden": false,
@@ -10400,7 +10400,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"requiredItem": "Pinsirite",
+		// "requiredItem": "Pinsirite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "pinsirmega",
@@ -10420,9 +10420,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Pinsirite"
-		],
+		// "requiredItems": [
+		// 		"Pinsirite"
+		// ],
 		"bst": 600,
 		"weighthg": 590,
 		"unreleasedHidden": false,
@@ -10796,7 +10796,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 2",
 				"Dragon"
 		],
-		"requiredItem": "Gyaradosite",
+		// "requiredItem": "Gyaradosite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "gyaradosmega",
@@ -10816,9 +10816,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Gyaradosite"
-		],
+		// "requiredItems": [
+		// 		"Gyaradosite"
+		// ],
 		"bst": 640,
 		"weighthg": 3050,
 		"unreleasedHidden": false,
@@ -11581,7 +11581,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"requiredItem": "Aerodactylite",
+		// "requiredItem": "Aerodactylite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "aerodactylmega",
@@ -11597,9 +11597,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Aerodactylite"
-		],
+		// "requiredItems": [
+		// 		"Aerodactylite"
+		// ],
 		"bst": 615,
 		"weighthg": 790,
 		"unreleasedHidden": false,
@@ -12274,7 +12274,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"requiredItem": "Mewtwonite X",
+		// "requiredItem": "Mewtwonite X",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "mewtwomegax",
@@ -12294,9 +12294,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 0
 		},
-		"requiredItems": [
-				"Mewtwonite X"
-		],
+		// "requiredItems": [
+		// 		"Mewtwonite X"
+		// ],
 		"bst": 780,
 		"weighthg": 1270,
 		"unreleasedHidden": false,
@@ -12335,7 +12335,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"requiredItem": "Mewtwonite Y",
+		// "requiredItem": "Mewtwonite Y",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "mewtwomegay",
@@ -12355,9 +12355,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 0
 		},
-		"requiredItems": [
-				"Mewtwonite Y"
-		],
+		// "requiredItems": [
+		// 		"Mewtwonite Y"
+		// ],
 		"bst": 780,
 		"weighthg": 330,
 		"unreleasedHidden": false,
@@ -14205,7 +14205,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"requiredItem": "Ampharosite",
+		// "requiredItem": "Ampharosite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "ampharosmega",
@@ -14225,9 +14225,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Ampharosite"
-		],
+		// "requiredItems": [
+		// 		"Ampharosite"
+		// ],
 		"bst": 610,
 		"weighthg": 615,
 		"unreleasedHidden": false,
@@ -15923,7 +15923,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"requiredItem": "Steelixite",
+		// "requiredItem": "Steelixite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "steelixmega",
@@ -15943,9 +15943,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Steelixite"
-		],
+		// "requiredItems": [
+		// 		"Steelixite"
+		// ],
 		"bst": 610,
 		"weighthg": 7400,
 		"unreleasedHidden": false,
@@ -16268,7 +16268,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"requiredItem": "Scizorite",
+		// "requiredItem": "Scizorite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "scizormega",
@@ -16288,9 +16288,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Scizorite"
-		],
+		// "requiredItems": [
+		// 		"Scizorite"
+		// ],
 		"bst": 600,
 		"weighthg": 1250,
 		"unreleasedHidden": false,
@@ -16439,7 +16439,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"requiredItem": "Heracronite",
+		// "requiredItem": "Heracronite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "heracrossmega",
@@ -16459,9 +16459,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Heracronite"
-		],
+		// "requiredItems": [
+		// 		"Heracronite"
+		// ],
 		"bst": 600,
 		"weighthg": 625,
 		"unreleasedHidden": false,
@@ -17443,7 +17443,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"requiredItem": "Houndoominite",
+		// "requiredItem": "Houndoominite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "houndoommega",
@@ -17463,9 +17463,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Houndoominite"
-		],
+		// "requiredItems": [
+		// 		"Houndoominite"
+		// ],
 		"bst": 600,
 		"weighthg": 495,
 		"unreleasedHidden": false,
@@ -18540,7 +18540,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"requiredItem": "Tyranitarite",
+		// "requiredItem": "Tyranitarite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "tyranitarmega",
@@ -18560,9 +18560,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Tyranitarite"
-		],
+		// "requiredItems": [
+		// 		"Tyranitarite"
+		// ],
 		"bst": 700,
 		"weighthg": 2550,
 		"unreleasedHidden": false,
@@ -18938,7 +18938,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Dragon"
 		],
-		"requiredItem": "Sceptilite",
+		// "requiredItem": "Sceptilite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "sceptilemega",
@@ -18954,9 +18954,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Sceptilite"
-		],
+		// "requiredItems": [
+		// 		"Sceptilite"
+		// ],
 		"bst": 630,
 		"weighthg": 552,
 		"unreleasedHidden": false,
@@ -19168,7 +19168,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"requiredItem": "Blazikenite",
+		// "requiredItem": "Blazikenite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "blazikenmega",
@@ -19184,9 +19184,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Blazikenite"
-		],
+		// "requiredItems": [
+		// 		"Blazikenite"
+		// ],
 		"bst": 630,
 		"weighthg": 520,
 		"unreleasedHidden": false,
@@ -19402,7 +19402,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Water 1"
 		],
-		"requiredItem": "Swampertite",
+		// "requiredItem": "Swampertite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "swampertmega",
@@ -19418,9 +19418,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"evos": [],
 		"nfe": false,
 		"canHatch": true,
-		"requiredItems": [
-				"Swampertite"
-		],
+		// "requiredItems": [
+		// 		"Swampertite"
+		// ],
 		"bst": 635,
 		"weighthg": 1020,
 		"unreleasedHidden": false,
@@ -20794,7 +20794,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Amorphous"
 		],
-		"requiredItem": "Gardevoirite",
+		// "requiredItem": "Gardevoirite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "gardevoirmega",
@@ -20814,9 +20814,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Gardevoirite"
-		],
+		// "requiredItems": [
+		// 		"Gardevoirite"
+		// ],
 		"bst": 618,
 		"weighthg": 484,
 		"unreleasedHidden": false,
@@ -21939,7 +21939,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"requiredItem": "Sablenite",
+		// "requiredItem": "Sablenite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "sableyemega",
@@ -21959,9 +21959,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Sablenite"
-		],
+		// "requiredItems": [
+		// 		"Sablenite"
+		// ],
 		"bst": 480,
 		"weighthg": 1610,
 		"unreleasedHidden": false,
@@ -22060,7 +22060,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field",
 				"Fairy"
 		],
-		"requiredItem": "Mawilite",
+		// "requiredItem": "Mawilite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "mawilemega",
@@ -22080,9 +22080,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Mawilite"
-		],
+		// "requiredItems": [
+		// 		"Mawilite"
+		// ],
 		"bst": 480,
 		"weighthg": 235,
 		"unreleasedHidden": false,
@@ -22290,7 +22290,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"requiredItem": "Aggronite",
+		// "requiredItem": "Aggronite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "aggronmega",
@@ -22310,9 +22310,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Aggronite"
-		],
+		// "requiredItems": [
+		// 		"Aggronite"
+		// ],
 		"bst": 630,
 		"weighthg": 3950,
 		"unreleasedHidden": false,
@@ -22463,7 +22463,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"requiredItem": "Medichamite",
+		// "requiredItem": "Medichamite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "medichammega",
@@ -22483,9 +22483,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Medichamite"
-		],
+		// "requiredItems": [
+		// 		"Medichamite"
+		// ],
 		"bst": 510,
 		"weighthg": 315,
 		"unreleasedHidden": false,
@@ -22637,7 +22637,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"requiredItem": "Manectite",
+		// "requiredItem": "Manectite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "manectricmega",
@@ -22657,9 +22657,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Manectite"
-		],
+		// "requiredItems": [
+		// 		"Manectite"
+		// ],
 		"bst": 575,
 		"weighthg": 440,
 		"unreleasedHidden": false,
@@ -23189,7 +23189,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 2"
 		],
-		"requiredItem": "Sharpedonite",
+		// "requiredItem": "Sharpedonite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "sharpedomega",
@@ -23209,9 +23209,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Sharpedonite"
-		],
+		// "requiredItems": [
+		// 		"Sharpedonite"
+		// ],
 		"bst": 560,
 		"weighthg": 1303,
 		"unreleasedHidden": false,
@@ -23474,7 +23474,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"requiredItem": "Cameruptite",
+		// "requiredItem": "Cameruptite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "cameruptmega",
@@ -23494,9 +23494,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Cameruptite"
-		],
+		// "requiredItems": [
+		// 		"Cameruptite"
+		// ],
 		"bst": 560,
 		"weighthg": 3205,
 		"unreleasedHidden": false,
@@ -24139,7 +24139,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Flying",
 				"Dragon"
 		],
-		"requiredItem": "Altarianite",
+		// "requiredItem": "Altarianite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "altariamega",
@@ -24159,9 +24159,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Altarianite"
-		],
+		// "requiredItems": [
+		// 		"Altarianite"
+		// ],
 		"bst": 590,
 		"weighthg": 206,
 		"unreleasedHidden": false,
@@ -25449,7 +25449,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Amorphous"
 		],
-		"requiredItem": "Banettite",
+		// "requiredItem": "Banettite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "banettemega",
@@ -25469,9 +25469,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Banettite"
-		],
+		// "requiredItems": [
+		// 		"Banettite"
+		// ],
 		"bst": 555,
 		"weighthg": 130,
 		"unreleasedHidden": false,
@@ -25778,7 +25778,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"requiredItem": "Absolite",
+		// "requiredItem": "Absolite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "absolmega",
@@ -25798,9 +25798,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Absolite"
-		],
+		// "requiredItems": [
+		// 		"Absolite"
+		// ],
 		"bst": 565,
 		"weighthg": 490,
 		"unreleasedHidden": false,
@@ -26005,7 +26005,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Fairy",
 				"Mineral"
 		],
-		"requiredItem": "Glalitite",
+		// "requiredItem": "Glalitite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "glaliemega",
@@ -26025,9 +26025,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Glalitite"
-		],
+		// "requiredItems": [
+		// 		"Glalitite"
+		// ],
 		"bst": 580,
 		"weighthg": 3502,
 		"unreleasedHidden": false,
@@ -26666,7 +26666,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Dragon"
 		],
-		"requiredItem": "Salamencite",
+		// "requiredItem": "Salamencite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "salamencemega",
@@ -26686,9 +26686,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0.5,
 				"F": 0.5
 		},
-		"requiredItems": [
-				"Salamencite"
-		],
+		// "requiredItems": [
+		// 		"Salamencite"
+		// ],
 		"bst": 700,
 		"weighthg": 1126,
 		"unreleasedHidden": false,
@@ -26898,7 +26898,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"requiredItem": "Metagrossite",
+		// "requiredItem": "Metagrossite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "metagrossmega",
@@ -26918,9 +26918,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 0
 		},
-		"requiredItems": [
-				"Metagrossite"
-		],
+		// "requiredItems": [
+		// 		"Metagrossite"
+		// ],
 		"bst": 700,
 		"weighthg": 9429,
 		"unreleasedHidden": false,
@@ -27185,7 +27185,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"requiredItem": "Latiasite",
+		// "requiredItem": "Latiasite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "latiasmega",
@@ -27205,9 +27205,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 1
 		},
-		"requiredItems": [
-				"Latiasite"
-		],
+		// "requiredItems": [
+		// 		"Latiasite"
+		// ],
 		"bst": 700,
 		"weighthg": 520,
 		"unreleasedHidden": false,
@@ -27309,7 +27309,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"requiredItem": "Latiosite",
+		// "requiredItem": "Latiosite",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "latiosmega",
@@ -27329,9 +27329,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 1,
 				"F": 0
 		},
-		"requiredItems": [
-				"Latiosite"
-		],
+		// "requiredItems": [
+		// 		"Latiosite"
+		// ],
 		"bst": 700,
 		"weighthg": 700,
 		"unreleasedHidden": false,
@@ -27431,7 +27431,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"requiredItem": "Blue Orb",
+		// "requiredItem": "Blue Orb",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kyogreprimal",
@@ -27451,9 +27451,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 0
 		},
-		"requiredItems": [
-				"Blue Orb"
-		],
+		// "requiredItems": [
+		// 		"Blue Orb"
+		// ],
 		"bst": 770,
 		"weighthg": 4300,
 		"unreleasedHidden": false,
@@ -27553,7 +27553,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"requiredItem": "Red Orb",
+		// "requiredItem": "Red Orb",
 		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "groudonprimal",
@@ -27573,9 +27573,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"M": 0,
 				"F": 0
 		},
-		"requiredItems": [
-				"Red Orb"
-		],
+		// "requiredItems": [
+		// 		"Red Orb"
+		// ],
 		"bst": 770,
 		"weighthg": 9997,
 		"unreleasedHidden": false,
