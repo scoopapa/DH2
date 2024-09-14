@@ -2,20 +2,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen4',
 	gen: 3,
 	init() {
-		for (const i in this.data.Pokedex) {
-            if (this.data.Pokedex[i].abilities[0] == 'Illuminate' && this.data.Pokedex[i].abilities[1] && i != 'staryu' && i != 'starmie' && i != 'volbeat') {
-                this.data.Pokedex[i].abilities[0] = this.data.Pokedex[i].abilities[1];
-                delete this.data.Pokedex[i].abilities[1];
-            }
-			if (this.data.Pokedex[i].abilities[0] == 'Illuminate' && this.data.Pokedex[i].abilities['H'] && i != 'staryu' && i != 'starmie' && i != 'volbeat') {
-                this.data.Pokedex[i].abilities[0] = this.data.Pokedex[i].abilities['H'];
-                delete this.data.Pokedex[i].abilities['H'];
-            }
-			if (this.data.Pokedex[i].abilities[1] == 'Illuminate' && this.data.Pokedex[i].abilities['H'] && i != 'lanturn' && i != 'chinchou') {
-                this.data.Pokedex[i].abilities[1] = this.data.Pokedex[i].abilities['H'];
-                delete this.data.Pokedex[i].abilities['H'];
-            }
-		}
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
 		for (const i in this.data.Moves) {
