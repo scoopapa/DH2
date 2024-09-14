@@ -3231,6 +3231,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	emperorsclothes: {
 		shortDesc: "Deal 10% bonus damage for each hit taken (up to 50%)",
 		onStart(pokemon) {
+			if (!pokemon.hp) return;
 			let attacked = pokemon.timesAttacked;
 			if (attacked > 0) {
 				this.effectState.fallen = attacked > 5 ? 5 : attacked;
@@ -3240,7 +3241,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.effectState.fallen >= 5) return;
+			if (!target.hp || this.effectState.fallen >= 5) return;
 			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
 				if (this.effectState.fallen) {
 					this.add('-end', target, `fallen${this.effectState.fallen}`, '[silent]');
