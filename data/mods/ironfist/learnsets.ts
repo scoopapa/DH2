@@ -680,6 +680,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	feebas: {
 		learnset: {
 			inherit: true,
+			feebasproshops: ["9L1"],
 			attract: ["9L1"],
 			blizzard: ["9L1"],
 			brine: ["9L1"],

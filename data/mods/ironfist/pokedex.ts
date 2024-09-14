@@ -72,6 +72,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 130, def: 130, spa: 50, spd: 70, spe: 50},
 		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Tough Claws"},
 	},
+	kinglermega: {
+		num: 1010,
+		name: "Kingler-Mega",
+		baseSpecies: "Kingler",
+		forme: "Mega",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 70, atk: 130, def: 210, spa: 60, spd: 100, spe: 30},
+		abilities: {0: "Shell Armor"},
+		requiredItem: "Kinglerite",
+	},
 	feebas: {
 		inherit: true,
 		num: 1011,

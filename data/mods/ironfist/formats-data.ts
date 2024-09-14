@@ -104,7 +104,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	traike: {
-		tier: "IF",
+		tier: "Banned Lol",
 		doublesTier: "DOU",
 	},
 	pidown: {

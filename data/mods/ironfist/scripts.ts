@@ -71,6 +71,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 			// old-gens
 			this.lastMove = null;
+			
+			//fishing tokens?
+			this.fishingTokens = 0;
 		},
 		canDynamaxNow(): boolean {
 			if (this.battle.gen !== 9) return false;
@@ -80,6 +83,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// if (this.battle.gameType === 'multitriples' && this.battle.turn % 3 !== [1, 1, 2, 2, 0, 0][this.side.n]) {
 			//		return false;
 			// }
+			return true;
+		},
+		addFishingTokens(amount: number) {
+			this.fishingTokens += amount;
+			const word = (amount === 1) ? 'token' : 'tokens';
+			this.battle.add('-message', `${amount} fishing ${word} were added to ${this.name}'s side!`);
+			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
+		},
+		removeFishingTokens(amount: number) {
+			if (amount > this.fishingTokens) {
+				//this.add('-message', `There weren't enough fishing tokens on the field!`);
+				return false;
+			}
+			this.fishingTokens -= amount;
+			const word = (amount === 1) ? 'token' : 'tokens';
+			this.battle.add('-message', `${amount} fishing ${word} were removed from ${this.name}'s side!`);
+			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 			return true;
 		},
 	},
