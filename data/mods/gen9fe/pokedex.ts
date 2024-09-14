@@ -1791,7 +1791,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		name: "Pawnrunt", 
 		types: ["Steel", "Ice"],
 		baseStats: {hp: 50, atk: 70, def: 60, spa: 45, spd: 45, spe: 55}, 
-		abilities: {0: "Inner Mood"}, 
+		abilities: {0: "Erratic"}, 
 		evos: ["Frosgambit"],
 		weightkg: 13.5,
 	 },
