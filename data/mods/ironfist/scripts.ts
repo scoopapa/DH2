@@ -119,21 +119,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			const result: DynamaxOptions = {maxMoves: []};
 			let atLeastOne = false;
-			for (const moveSlot of this.moveSlots) {
-				const move = this.battle.dex.moves.get(moveSlot.id);
-				const maxMove = this.battle.actions.getMaxMove(move, this);
-				if (maxMove) {
-					if (this.maxMoveDisabled(move)) {
-						result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
-					} else {
-						result.maxMoves.push({move: maxMove.id, target: maxMove.target});
-						atLeastOne = true;
-					}
-				}
-			}
 			if (!atLeastOne) return;
 			if (this.canGigantamax) result.gigantamax = this.canGigantamax;
 			return result;
 		},		
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			if ('staccato' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if ((this.hasAbility('levitate') || this.hasAbility('impalpable')) && !this.battle.suppressingAttackEvents()) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
 	},
 };
