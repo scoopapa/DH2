@@ -548,7 +548,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "caterpie",
 		"fullname": "pokemon: Caterpie",
@@ -603,7 +603,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "metapod",
 		"fullname": "pokemon: Metapod",
@@ -656,7 +656,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Bug"
 		],
 		"canGigantamax": "G-Max Befuddle",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "butterfree",
 		"fullname": "pokemon: Butterfree",
@@ -711,7 +711,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "weedle",
 		"fullname": "pokemon: Weedle",
@@ -767,7 +767,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kakuna",
 		"fullname": "pokemon: Kakuna",
@@ -826,7 +826,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Beedrill",
 				"Beedrill-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "beedrill",
 		"fullname": "pokemon: Beedrill",
@@ -880,7 +880,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "pidgey",
 		"fullname": "pokemon: Pidgey",
@@ -936,7 +936,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "pidgeotto",
 		"fullname": "pokemon: Pidgeotto",
@@ -995,7 +995,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Pidgeot",
 				"Pidgeot-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "pidgeot",
 		"fullname": "pokemon: Pidgeot",
@@ -1057,7 +1057,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Rattata",
 				"Rattata-Alola"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "rattata",
 		"fullname": "pokemon: Rattata",
@@ -1120,7 +1120,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Raticate-Alola",
 				"Raticate-Alola-Totem"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "raticate",
 		"fullname": "pokemon: Raticate",
@@ -1174,7 +1174,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "spearow",
 		"fullname": "pokemon: Spearow",
@@ -1227,7 +1227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "fearow",
 		"fullname": "pokemon: Fearow",
@@ -1666,7 +1666,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nidoranf",
 		"fullname": "pokemon: Nidoran-F",
@@ -1723,7 +1723,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nidorina",
 		"fullname": "pokemon: Nidorina",
@@ -1777,7 +1777,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nidoqueen",
 		"fullname": "pokemon: Nidoqueen",
@@ -1834,7 +1834,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field"
 		],
 		"mother": "nidoranf",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nidoranm",
 		"fullname": "pokemon: Nidoran-M",
@@ -1892,7 +1892,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nidorino",
 		"fullname": "pokemon: Nidorino",
@@ -1947,7 +1947,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nidoking",
 		"fullname": "pokemon: Nidoking",
@@ -1980,7 +1980,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 35,
 		"name": "Clefairy",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -2034,7 +2034,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 36,
 		"name": "Clefable",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -2339,7 +2339,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "zubat",
 		"fullname": "pokemon: Zubat",
@@ -2395,7 +2395,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "golbat",
 		"fullname": "pokemon: Golbat",
@@ -2617,7 +2617,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Bug",
 				"Grass"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "paras",
 		"fullname": "pokemon: Paras",
@@ -2672,7 +2672,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Bug",
 				"Grass"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "parasect",
 		"fullname": "pokemon: Parasect",
@@ -3589,7 +3589,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "abra",
 		"fullname": "pokemon: Abra",
@@ -3645,7 +3645,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kadabra",
 		"fullname": "pokemon: Kadabra",
@@ -3704,7 +3704,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Alakazam",
 				"Alakazam-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "alakazam",
 		"fullname": "pokemon: Alakazam",
@@ -3757,7 +3757,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "machop",
 		"fullname": "pokemon: Machop",
@@ -3812,7 +3812,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "machoke",
 		"fullname": "pokemon: Machoke",
@@ -3864,7 +3864,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Human-Like"
 		],
 		"canGigantamax": "G-Max Chi Strike",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "machamp",
 		"fullname": "pokemon: Machamp",
@@ -4385,7 +4385,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Ponyta",
 				"Ponyta-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "ponyta",
 		"fullname": "pokemon: Ponyta",
@@ -4446,7 +4446,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Rapidash",
 				"Rapidash-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "rapidash",
 		"fullname": "pokemon: Rapidash",
@@ -4747,7 +4747,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Farfetch’d",
 				"Farfetch’d-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "farfetchd",
 		"fullname": "pokemon: Farfetch’d",
@@ -5418,7 +5418,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "onix",
 		"fullname": "pokemon: Onix",
@@ -5579,7 +5579,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "krabby",
 		"fullname": "pokemon: Krabby",
@@ -5633,7 +5633,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 3"
 		],
 		"canGigantamax": "G-Max Foam Burst",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kingler",
 		"fullname": "pokemon: Kingler",
@@ -5928,7 +5928,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "cubone",
 		"fullname": "pokemon: Cubone",
@@ -5991,7 +5991,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Marowak-Alola",
 				"Marowak-Alola-Totem"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "marowak",
 		"fullname": "pokemon: Marowak",
@@ -6155,7 +6155,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "lickitung",
 		"fullname": "pokemon: Lickitung",
@@ -6494,7 +6494,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Grass"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "tangela",
 		"fullname": "pokemon: Tangela",
@@ -6553,7 +6553,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Kangaskhan",
 				"Kangaskhan-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kangaskhan",
 		"fullname": "pokemon: Kangaskhan",
@@ -6720,7 +6720,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "goldeen",
 		"fullname": "pokemon: Goldeen",
@@ -6774,7 +6774,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "seaking",
 		"fullname": "pokemon: Seaking",
@@ -6829,7 +6829,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "staryu",
 		"fullname": "pokemon: Staryu",
@@ -6885,7 +6885,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "starmie",
 		"fullname": "pokemon: Starmie",
@@ -6947,7 +6947,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Mr. Mime",
 				"Mr. Mime-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "mrmime",
 		"fullname": "pokemon: Mr. Mime",
@@ -7055,7 +7055,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Human-Like"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "jynx",
 		"fullname": "pokemon: Jynx",
@@ -7222,7 +7222,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Pinsir",
 				"Pinsir-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "pinsir",
 		"fullname": "pokemon: Pinsir",
@@ -7850,7 +7850,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "omanyte",
 		"fullname": "pokemon: Omanyte",
@@ -7905,7 +7905,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "omastar",
 		"fullname": "pokemon: Omastar",
@@ -7961,7 +7961,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kabuto",
 		"fullname": "pokemon: Kabuto",
@@ -8016,7 +8016,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kabutops",
 		"fullname": "pokemon: Kabutops",
@@ -8075,7 +8075,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Aerodactyl",
 				"Aerodactyl-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "aerodactyl",
 		"fullname": "pokemon: Aerodactyl",
@@ -9361,7 +9361,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "ledyba",
 		"fullname": "pokemon: Ledyba",
@@ -9415,7 +9415,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "ledian",
 		"fullname": "pokemon: Ledian",
@@ -9577,7 +9577,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "crobat",
 		"fullname": "pokemon: Crobat",
@@ -9782,7 +9782,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 173,
 		"name": "Cleffa",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -9915,7 +9915,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Undiscovered"
 		],
 		"canHatch": true,
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "togepi",
 		"fullname": "pokemon: Togepi",
@@ -9972,7 +9972,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Flying",
 				"Fairy"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "togetic",
 		"fullname": "pokemon: Togetic",
@@ -10022,7 +10022,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "natu",
 		"fullname": "pokemon: Natu",
@@ -10076,7 +10076,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "xatu",
 		"fullname": "pokemon: Xatu",
@@ -11410,7 +11410,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Unown-Exclamation",
 				"Unown-Question"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "unown",
 		"fullname": "pokemon: Unown",
@@ -11463,7 +11463,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Amorphous"
 		],
 		"canHatch": true,
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "wobbuffet",
 		"fullname": "pokemon: Wobbuffet",
@@ -11796,7 +11796,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Steelix",
 				"Steelix-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "steelix",
 		"fullname": "pokemon: Steelix",
@@ -12077,7 +12077,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "shuckle",
 		"fullname": "pokemon: Shuckle",
@@ -12590,7 +12590,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Corsola",
 				"Corsola-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "corsola",
 		"fullname": "pokemon: Corsola",
@@ -12641,7 +12641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "remoraid",
 		"fullname": "pokemon: Remoraid",
@@ -12694,7 +12694,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "octillery",
 		"fullname": "pokemon: Octillery",
@@ -12806,7 +12806,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1"
 		],
 		"canHatch": true,
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "mantine",
 		"fullname": "pokemon: Mantine",
@@ -13464,7 +13464,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Undiscovered"
 		],
 		"canHatch": true,
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "smoochum",
 		"fullname": "pokemon: Smoochum",
@@ -13622,7 +13622,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "miltank",
 		"fullname": "pokemon: Miltank",
@@ -14176,7 +14176,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Undiscovered"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "celebi",
 		"fullname": "pokemon: Celebi",
@@ -14856,7 +14856,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Zigzagoon",
 				"Zigzagoon-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "zigzagoon",
 		"fullname": "pokemon: Zigzagoon",
@@ -14915,7 +14915,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Linoone",
 				"Linoone-Galar"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "linoone",
 		"fullname": "pokemon: Linoone",
@@ -14970,7 +14970,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "wurmple",
 		"fullname": "pokemon: Wurmple",
@@ -15025,7 +15025,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "silcoon",
 		"fullname": "pokemon: Silcoon",
@@ -15077,7 +15077,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "beautifly",
 		"fullname": "pokemon: Beautifly",
@@ -15132,7 +15132,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "cascoon",
 		"fullname": "pokemon: Cascoon",
@@ -15185,7 +15185,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "dustox",
 		"fullname": "pokemon: Dustox",
@@ -15578,7 +15578,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "taillow",
 		"fullname": "pokemon: Taillow",
@@ -15631,7 +15631,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Flying"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "swellow",
 		"fullname": "pokemon: Swellow",
@@ -16352,7 +16352,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "nincada",
 		"fullname": "pokemon: Nincada",
@@ -16405,7 +16405,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Bug"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "ninjask",
 		"fullname": "pokemon: Ninjask",
@@ -16460,7 +16460,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "shedinja",
 		"fullname": "pokemon: Shedinja",
@@ -16514,7 +16514,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "whismur",
 		"fullname": "pokemon: Whismur",
@@ -16570,7 +16570,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "loudred",
 		"fullname": "pokemon: Loudred",
@@ -16622,7 +16622,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Monster",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "exploud",
 		"fullname": "pokemon: Exploud",
@@ -16896,7 +16896,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field",
 				"Fairy"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "skitty",
 		"fullname": "pokemon: Skitty",
@@ -16950,7 +16950,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field",
 				"Fairy"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "delcatty",
 		"fullname": "pokemon: Delcatty",
@@ -17065,7 +17065,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Mawile",
 				"Mawile-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "mawile",
 		"fullname": "pokemon: Mawile",
@@ -17121,7 +17121,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "aron",
 		"fullname": "pokemon: Aron",
@@ -17178,7 +17178,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Monster"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "lairon",
 		"fullname": "pokemon: Lairon",
@@ -17238,7 +17238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Aggron",
 				"Aggron-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "aggron",
 		"fullname": "pokemon: Aggron",
@@ -17407,7 +17407,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "electrike",
 		"fullname": "pokemon: Electrike",
@@ -17468,7 +17468,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Manectric",
 				"Manectric-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "manectric",
 		"fullname": "pokemon: Manectric",
@@ -17740,7 +17740,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Grass"
 		],
 		"canHatch": true,
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "roselia",
 		"fullname": "pokemon: Roselia",
@@ -17900,7 +17900,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "carvanha",
 		"fullname": "pokemon: Carvanha",
@@ -17961,7 +17961,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Sharpedo",
 				"Sharpedo-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "sharpedo",
 		"fullname": "pokemon: Sharpedo",
@@ -18017,7 +18017,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field",
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "wailmer",
 		"fullname": "pokemon: Wailmer",
@@ -18072,7 +18072,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field",
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "wailord",
 		"fullname": "pokemon: Wailord",
@@ -18398,7 +18398,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Field",
 				"Human-Like"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "spinda",
 		"fullname": "pokemon: Spinda",
@@ -18947,7 +18947,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "lunatone",
 		"fullname": "pokemon: Lunatone",
@@ -19000,7 +19000,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "solrock",
 		"fullname": "pokemon: Solrock",
@@ -19273,7 +19273,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "baltoy",
 		"fullname": "pokemon: Baltoy",
@@ -19327,7 +19327,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Mineral"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "claydol",
 		"fullname": "pokemon: Claydol",
@@ -19385,7 +19385,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "lileep",
 		"fullname": "pokemon: Lileep",
@@ -19438,7 +19438,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "cradily",
 		"fullname": "pokemon: Cradily",
@@ -19493,7 +19493,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "anorith",
 		"fullname": "pokemon: Anorith",
@@ -19547,7 +19547,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 3"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "armaldo",
 		"fullname": "pokemon: Armaldo",
@@ -19715,7 +19715,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Castform-Rainy",
 				"Castform-Snowy"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "castform",
 		"fullname": "pokemon: Castform",
@@ -19771,7 +19771,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		],
 		"requiredAbility": "Forecast",
 		"battleOnly": "Castform",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"id": "castformsunny",
 		"fullname": "pokemon: Castform-Sunny",
 		"effectType": "Pokemon",
@@ -19826,7 +19826,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		],
 		"requiredAbility": "Forecast",
 		"battleOnly": "Castform",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"id": "castformrainy",
 		"fullname": "pokemon: Castform-Rainy",
 		"effectType": "Pokemon",
@@ -19881,7 +19881,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		],
 		"requiredAbility": "Forecast",
 		"battleOnly": "Castform",
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"id": "castformsnowy",
 		"fullname": "pokemon: Castform-Snowy",
 		"effectType": "Pokemon",
@@ -19931,7 +19931,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "kecleon",
 		"fullname": "pokemon: Kecleon",
@@ -20314,7 +20314,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Absol",
 				"Absol-Mega"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "absol",
 		"fullname": "pokemon: Absol",
@@ -20369,7 +20369,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Undiscovered"
 		],
 		"canHatch": true,
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "wynaut",
 		"fullname": "pokemon: Wynaut",
@@ -20539,7 +20539,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "spheal",
 		"fullname": "pokemon: Spheal",
@@ -20597,7 +20597,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "sealeo",
 		"fullname": "pokemon: Sealeo",
@@ -20651,7 +20651,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Field"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "walrein",
 		"fullname": "pokemon: Walrein",
@@ -20705,7 +20705,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 1"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "clamperl",
 		"fullname": "pokemon: Clamperl",
@@ -20759,7 +20759,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 1"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "huntail",
 		"fullname": "pokemon: Huntail",
@@ -20812,7 +20812,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"eggGroups": [
 				"Water 1"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "gorebyss",
 		"fullname": "pokemon: Gorebyss",
@@ -20870,7 +20870,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"Water 1",
 				"Water 2"
 		],
-		"isNonstandard": "Past",
+		"isNonstandard": null,
 		"tier": "Illegal",
 		"id": "relicanth",
 		"fullname": "pokemon: Relicanth",
