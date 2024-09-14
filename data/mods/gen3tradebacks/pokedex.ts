@@ -1980,7 +1980,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 35,
 		"name": "Clefairy",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -2034,7 +2034,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 36,
 		"name": "Clefable",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -9782,7 +9782,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 173,
 		"name": "Cleffa",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
