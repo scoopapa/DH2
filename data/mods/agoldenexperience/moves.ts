@@ -1391,10 +1391,8 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
 		self: {
 			onHit(source) {
-				if (source.positiveBoosts()) {
-					source.clearBoosts();
-					this.add('-clearpositiveboost', source);
-				}
+				source.clearBoosts();
+				this.add('-clearboost', source);
 			}
 		}
 	},
@@ -2312,7 +2310,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Inferno", target);
 		},
 		secondary: null,
-		target: "all",
+		target: "normal",
 		type: "Fire",
 	},
 	junglehealing: {

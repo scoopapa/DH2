@@ -270,7 +270,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			endeavor: ["9M"],
 			endure: ["9M", "4M"],
 			facade: ["9M", "7M", "6M", "5M", "4M"],
-			firepunch: ["9M", "7T", "6T", "5T", "4T"],
 			fling: ["9M", "9L36", "7M", "7L36", "6M", "6L36", "5M", "5L36", "4M", "4L36"],
 			focuspunch: ["9M", "7T", "6T", "4M"],
 			foulplay: ["9M", "7T", "6T", "5T"],
