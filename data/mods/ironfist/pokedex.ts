@@ -352,8 +352,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tangetteeternal: {
 		num: 1044,
 		name: "Tangette-Eternal",
-		baseSpecies: "Tangette",
-		forme: "Eternal",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 90, atk: 85, def: 100, spa: 120, spd: 90, spe: 75},
 		abilities: {0: "Growth Veil"},
