@@ -243,5 +243,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
-
+	swampertancient: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	belliboltancient: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	salazzleancient: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
 };
