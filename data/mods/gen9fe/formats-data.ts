@@ -420,7 +420,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		randomBattleLevel: 75,
 	},
 	corvizolt: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["boltbeak", "bravebird", "earthquake", "roost"],
 		randomBattleLevel: 75,
