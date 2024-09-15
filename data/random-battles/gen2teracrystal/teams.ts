@@ -394,7 +394,10 @@ export class RandomGen2Teams extends RandomGen3Teams {
 		const preferredTypes = set.preferredTypes;
 		// In Gen 2, if a set has multiple preferred types, enforce all of them.
 		const preferredType = preferredTypes ? preferredTypes.join() : '';
-
+		
+		const teraTypes = set.teraTypes!;
+		let teraType = this.sampleIfArray(teraTypes);
+		
 		const ability = '';
 		let item = undefined;
 
@@ -406,11 +409,11 @@ export class RandomGen2Teams extends RandomGen3Teams {
 
 		// Get moves
 		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, movePool,
-			preferredType, role);
-		const counter = this.newQueryMoves(moves, species, preferredType, abilities);
+			preferredType, teraType, role);
+		const counter = this.newQueryMoves(moves, species, preferredType, teraType, abilities);
 
 		// Get items
-		item = this.getItem(ability, types, moves, counter, teamDetails, species, isLead, preferredType, role);
+		item = this.getItem(ability, types, moves, counter, teamDetails, species, isLead, preferredType, teraType, role);
 
 		const level = this.getLevel(species);
 
@@ -480,11 +483,20 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			evs,
 			ivs,
 			item,
+			teraType,
 			role,
 			// No shiny chance because Gen 2 shinies have bad IVs
 			shiny: false,
 			gender: species.gender ? species.gender : 'M',
 		};
+		if (this.gen === 2) {
+			// Tera type
+			if (this.forceTeraType) {
+				set.teraType = this.forceTeraType;
+			} else {
+				set.teraType = this.sample(this.dex.types.all()).name;
+			}
+		}
 	}
 }
 
