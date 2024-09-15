@@ -2986,7 +2986,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			highhorsepower: ["9L1"],
 			brickbreak: ["9L1"],
 			//aerialace: ["9L1"],
-			defog: ["9L1"],
+			//defog: ["9L1"],
 		},
 	},
 	vivillonplainshigh: {
