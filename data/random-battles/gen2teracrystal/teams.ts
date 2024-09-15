@@ -470,7 +470,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			evs.hp -= 4;
 		}
 
-		// Set Tera Type
+		/*// Set Tera Type
 		if (this.gen === 2) {
 			// Tera type
 			if (this.forceTeraType) {
@@ -478,7 +478,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			} else {
 				set.teraType = this.sample(this.dex.types.all()).name;
 			}
-		}
+		}*/
 		
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
