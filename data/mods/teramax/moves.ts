@@ -844,7 +844,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			}
 		}, */
-		onAfterHit(target, source) { // placeholder - knocks the foe's item and heals lax
+		onAfterHit(target, source, move) { // placeholder - knocks the foe's item and heals lax
 			if (source.hp) {
 				const item = target.takeItem();
 				if (item) {
