@@ -816,8 +816,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 				}
 			}
-		},*/
-		
+		},
 		onBeforeHit(target, source) {
 			if (source.hp) {
 				if (target.item) {
@@ -826,12 +825,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-item', target, 'Iapapa Berry', '[from] move: G-Max Replenish');
 				}
 			}
-		},
+		},*/
 		onHit(target, source) {
 			if (source.hp) {
 				const papa = target.getItem();
 				if (target.item) {
-					this.add('-enditem', target, item.name);
+					this.add('-enditem', target, papa.name);
 					target.setItem('iapapaberry');
 					this.add('-item', target, 'Iapapa Berry', '[from] move: G-Max Replenish');
 				}
