@@ -208,7 +208,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		//forcedForme: "Ougayporn-Comerstone",
 		//itemUser: ["Ougayporn-Comerstone"],
 	},
-	kinglerite: {
+	electrodite: {
 		name: "Electrodite",
 		shortDesc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",
 		spritenum: 628,
