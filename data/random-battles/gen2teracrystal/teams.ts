@@ -470,6 +470,16 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			evs.hp -= 4;
 		}
 
+		// Set Tera Type
+		if (this.gen === 2) {
+			// Tera type
+			if (this.forceTeraType) {
+				set.teraType = this.forceTeraType;
+			} else {
+				set.teraType = this.sample(this.dex.types.all()).name;
+			}
+		}
+		
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
 		this.prng.shuffle(shuffledMoves);
@@ -489,14 +499,6 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			shiny: false,
 			gender: species.gender ? species.gender : 'M',
 		};
-		if (this.gen === 2) {
-			// Tera type
-			if (this.forceTeraType) {
-				set.teraType = this.forceTeraType;
-			} else {
-				set.teraType = this.sample(this.dex.types.all()).name;
-			}
-		}
 	}
 }
 
