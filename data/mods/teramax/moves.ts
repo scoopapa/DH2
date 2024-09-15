@@ -826,6 +826,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			}
 		},*/
+		/* this is close but not quite
 		onHit(target, source) {
 			if (source.hp) {
 				const papa = target.getItem();
@@ -840,6 +841,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						this.runEvent('EatItem', source, null, null, papa);
 					}
 					if (papa.onEat) source.ateBerry = true;
+				}
+			}
+		}, */
+		onAfterHit(target, source) { // placeholder - knocks the foe's item and heals lax
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: G-Max Replenish', '[of] ' + source);
+					this.heal(source.maxhp / 3, source, source, move);
 				}
 			}
 		},
