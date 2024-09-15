@@ -849,7 +849,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: G-Max Replenish', '[of] ' + source);
-					this.heal(source.maxhp / 3, source, source, move);
+					this.heal(source.maxhp / 4.5, source, source, move);
 				}
 			}
 		},
