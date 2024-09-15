@@ -243,7 +243,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vivillonplainshigh: {
 		num: 1031,
-		name: "Vivillon"-"Plains-High",
+		name: "Vivillon-Plains-High",
 		baseSpecies: "Vivillon",
 		forme: "Plains-High",
 		types: ["Bug", "Fighting"],
@@ -453,8 +453,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ougayporncomerstone: {
 		num: 1056,
 		name: "Ougayporn-Comerstone",
-		baseSpecies: "Ougayporn",
-		forme: "Comerstone",
 		types: ["Grass", "Rock"],
 		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
 		abilities: {0: "Get Sturdy"},
