@@ -64,7 +64,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "appletun").learnset.sludgebomb = ["9L1"];
 		this.modData("Learnsets", "appletun").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "butterfree").learnset.mysticalfire = ["9L1"];
-		this.modData("Learnsets", "butterfree").learnset.spore = ["9L1"];
+		//this.modData("Learnsets", "butterfree").learnset.spore = ["9L1"];
 		this.modData("Learnsets", "butterfree").learnset.earthpower = ["9L1"];
 		this.modData("Learnsets", "butterfree").learnset.sludgebomb = ["9L1"];
 		this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["9L1"];
@@ -199,6 +199,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'krabby').learnset.rocksmash;
 		delete this.modData('Learnsets', 'krabby').learnset.superpower;
 		delete this.modData('Learnsets', 'krabby').learnset.hammerarm;
+		this.modData("Learnsets", "lapras").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.belch = ["9L1"];
+		this.modData("Learnsets", "copperajah").learnset.powerwhip = ["9L1"];
+		this.modData("Learnsets", "copperajah").learnset.spikes = ["9L1"];
 	},
 	actions: {
 		inherit: true,

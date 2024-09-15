@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ItemDataTable = {
 	altarianite: {
 		name: "Altarianite",
 		spritenum: 615,

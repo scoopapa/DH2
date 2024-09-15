@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	/* FEG9 abils */
 	unfiltered: {
 		shortDesc: "Filter + Contrary + This Pokemon's NvE Moves deal 4/3x damage.",
@@ -1007,7 +1007,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
-		onAnyModifyBoost(boosts, pokemon) {
+		//Okay so Mold Breaker hits through Rough Skin but not Unaware
+		//While Rough Skin announces itself through its effects, UNAWARE DOESN'T
+		onStart(pokemon) {
+			pokemon.addVolatile('ability:unaware');
+		},
+		onSourcePrepareHit(source, target, move) {
+			if (target.volatiles['ability:unaware']) {
+				if (move.ignoreAbility) target.removeVolatile('ability:unaware');
+			} else if (!move.ignoreAbility) target.addVolatile('ability:unaware');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('ability:unaware');
+		},
+		/*onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon) {
@@ -1022,8 +1035,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['spa'] = 0;
 				boosts['accuracy'] = 0;
 			}
-		},
-		flags: {breakable: 1},
+		},*/
+		flags: {},
 		name: "Eczema",
 		rating: 3,
 	},
@@ -1638,10 +1651,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Circuit Breaker', '[fromitem]');
-					this.add('-message', `${pokemon.name} used its Booster Energy to break the circuit harder!`);
+					this.add('-message', `${pokemon.name} used its Booster Energy to overclock its Circuit Breaker!`);
 				} else {
 					this.add('-activate', pokemon, 'ability: Circuit Breaker');
-					this.add('-message', `The Electric Terrain lets ${pokemon.name} break the circuit harder!`);
+					this.add('-message', `The Electric Terrain lets ${pokemon.name} overclock its Circuit Breaker!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
@@ -1921,7 +1934,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			let showMsg = false;
 			let i: BoostName;
@@ -2103,8 +2116,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	armourlock: {
 	  shortDesc: "This Pokemon can neither be critted nor have its item removed.",
 		onTakeItem(item, pokemon, source) {
-			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
 			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
 				this.add('-activate', pokemon, 'ability: Armour Lock');
 				return false;
@@ -2714,12 +2727,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= target.maxhp) {
+			if (target.hp >= target.maxhp && !move.ignoreAbility) {
 				this.debug('Steamy Scales weaken');
 				return this.chainModify(0.5);
 			}
 		},
-		flags: {breakable: 1},
+		flags: {},
 		name: "Steamy Scales",
 	},
 	marvelsteam: {
@@ -2862,12 +2875,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	angrybird: {
 		shortDesc: "Defiant + Competitive",
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Angry Bird only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -2888,12 +2896,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Sharp Goggles/Competitive only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -3118,12 +3121,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setTerrain('psychicterrain');
 		},
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Mind Domain/Competitive only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -3218,6 +3216,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	emperorsclothes: {
 		shortDesc: "Deal 10% bonus damage for each hit taken (up to 50%)",
 		onStart(pokemon) {
+			if (!pokemon.hp) return;
 			let attacked = pokemon.timesAttacked;
 			if (attacked > 0) {
 				this.effectState.fallen = attacked > 5 ? 5 : attacked;
@@ -3227,7 +3226,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (this.effectState.fallen >= 5) return;
+			if (!target.hp || this.effectState.fallen >= 5) return;
 			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
 				if (this.effectState.fallen) {
 					this.add('-end', target, `fallen${this.effectState.fallen}`, '[silent]');
@@ -3248,7 +3247,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Emperor's Clothes",
 	},
-	innermood: {
+	/*innermood: {
 		shortDesc: "Inner Focus + Moody",
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
@@ -3294,6 +3293,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Inner Mood",
+	},*/
+	erratic: {
+		shortDesc: "+2 to a random stat (not Acc./Eva.) when any stat is lowered by a foe.",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) return;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					let stats: BoostID[] = [];
+					let statPlus: BoostID;
+					for (statPlus in pokemon.boosts) {
+						if (!['accuracy','evasion'].includes(statPlus) && pokemon.boosts[statPlus] < 6) {
+							stats.push(statPlus);
+						}
+					}
+					//Don't boost if it's +6 across the board and the mon suffered a drop to Evasion or Accuracy
+					if (stats.length) this.boost({[this.sample(stats)]: 2}, target, target, null, false, true);
+					return;
+				}
+			}
+		},
+		flags: {},
+		name: "Erratic",
 	},
 	nononsense: {
 		shortDesc: "Battle Armor + Clear Body",
@@ -3662,6 +3684,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Apple of Ruin');
+			this.add('-message', `${pokemon.name}'s Apple of Ruin lowered the Evasion of all surrounding Pokémon!`);
 		},
 		onAnyModifyAccuracyPriority: -1,
 		onAnyModifyAccuracy(accuracy, target, source, move) {
@@ -3703,12 +3726,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rogue: {
 	  shortDesc: "Competitive + Overcoat",
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Competitive/Rogue only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -3774,9 +3792,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.debug('illusion cleared');
 				pokemon.illusion = null;
 				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
-					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+					(pokemon.gender && (', ' + pokemon.gender)) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
-				this.add('-end', pokemon, 'Illusion');
+				this.add('-message', `${pokemon.name}'s illusion wore off!`);
 				if (this.ruleTable.has('illusionlevelmod')) {
 					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
 				}
@@ -3791,12 +3809,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	riotpayload: {
 		shortDesc: "Rocky Payload + Defiant",
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant/Riot Payload only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -4068,6 +4081,38 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		inherit: true,
+	},
+	neutralizinggas: {
+		inherit: true,
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				// Can't suppress a Tatsugiri inside of Dondozo already
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Rough Image'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				const targetAbilID = target.getAbility().id;
+				if (targetAbilID === 'eczema') {
+					target.removeVolatile('ability:unaware');
+				} else if (strongWeathers.includes(targetAbilID)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+			}
+		},
 	},
 	//Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {

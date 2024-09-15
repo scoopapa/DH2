@@ -105,6 +105,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				tierSpecies = this.dex.species.get('Sawsbuck-Winter-Mega');
 			} else if (item.id === 'toxtricitite' && species.id === 'toxtricitylowkey') {
 				tierSpecies = this.dex.species.get('Toxtricity-Low-Key-Mega');
+			} else if (item.id === 'slowkinite' && species.id === 'slowkinggalar') {
+				tierSpecies = this.dex.species.get('Slowking-Galar-Mega');
 			} else if (item.id === 'redorb' && species.id === 'groudon') {
 				tierSpecies = this.dex.species.get('Groudon-Primal');
 			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
