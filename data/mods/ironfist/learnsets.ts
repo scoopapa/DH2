@@ -2790,6 +2790,11 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			conversion2: ["9L1"],
 		},
 	},
+	traike: {
+		learnset: {
+			attract: ["9L1"],
+		},
+	},
 	pidown: {
 		learnset: {
 			attract: ["9L1"],
