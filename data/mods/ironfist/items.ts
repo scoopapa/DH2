@@ -95,8 +95,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 89,
 	},
 	kinglerite: {
-		name: "Kingler",
-		shortDesc: "If held by an Abomasnow, this item allows it to Mega Evolve in battle.",
+		name: "Kinglerite",
+		shortDesc: "If held by a Kingler, this item allows it to Mega Evolve in battle.",
 		spritenum: 605,
 		megaStone: "Kingler-Mega",
 		megaEvolves: "Kingler",
@@ -208,5 +208,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		//forcedForme: "Ougayporn-Comerstone",
 		//itemUser: ["Ougayporn-Comerstone"],
 	},
-	
+	kinglerite: {
+		name: "Electrodite",
+		shortDesc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",
+		spritenum: 628,
+		megaStone: "Electrode-Mega",
+		megaEvolves: "Electrode",
+		itemUser: ["Electrode"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
 }
