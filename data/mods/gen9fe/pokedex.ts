@@ -1418,7 +1418,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		name: "Bombirdus", 
 		types: ["Flying", "Dark"],
 		gender: "M",
-		baseStats: {hp: 75, atk: 120, def: 77, spa: 92, spd: 85, spe: 101}, 
+		baseStats: {hp: 75, atk: 110, def: 77, spa: 92, spd: 85, spe: 101}, 
 		abilities: {0: "Riot Payload"}, 
 		weightkg: 53,
 	 },
