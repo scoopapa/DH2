@@ -207,6 +207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: null,
 		requiredItem: null,
 		battleOnly: null,
+		name: "Zacian-Crowned",
 		abilities: {0: "Identity Crisis"},	
 	},
 	melmetal2: {
