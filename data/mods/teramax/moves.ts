@@ -829,13 +829,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		onHit(target, source) {
 			if (source.hp) {
-				const item = target.getItem();
-				if (source.hp && item.name === 'Iapapa Berry') {
-					this.add('-enditem', target, item.name, '[from] stealeat', '[move] G-Max Replenish', '[of] ' + source);
-					if (this.singleEvent('Eat', item, null, source, null, null)) {
-						this.runEvent('EatItem', source, null, null, item);
+				const papa = target.getItem();
+				if (target.item) {
+					this.add('-enditem', target, item.name);
+					target.setItem('iapapaberry');
+					this.add('-item', target, 'Iapapa Berry', '[from] move: G-Max Replenish');
+				}
+				if (source.hp && target.hasItem('iapapaberry')) {
+					this.add('-enditem', target, papa.name, '[from] stealeat', '[move] G-Max Replenish', '[of] ' + source);
+					if (this.singleEvent('Eat', papa, null, source, null, null)) {
+						this.runEvent('EatItem', source, null, null, papa);
 					}
-					if (item.onEat) source.ateBerry = true;
+					if (papa.onEat) source.ateBerry = true;
 				}
 			}
 		},
