@@ -3440,6 +3440,13 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 	},
 	{
+		name: "[Gen 2] Tera Crystal Randbats",
+		desc: ["<b>Tera Crystal</b>- A Gen 2 solomod where the Gen 9 mechanic of Terastallization is added to the game."],
+		mod: 'gen2teracrystal',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Data Mod', 'Can Terastal'],
+	},
+	{
 		name: "[Gen 9] The 3-3-1 Typechart",
 		desc: [
 			"<b>The 3-3-1 Typechart</b>: A solomod that gives every type 3 weaknesses, 3 resistances, and 1 immunity.",
