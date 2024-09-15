@@ -335,6 +335,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MD Ubers",
 		doublesTier: "MD Ubers",
 	},
+	arastinithprotector: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
 	cicadillo: {
 		tier: "MD",
 		doublesTier: "MD Ubers",
@@ -736,6 +740,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	zebstrika: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	zebsonavolt: {
 		tier: "MD",
 		doublesTier: "MD",
 	},

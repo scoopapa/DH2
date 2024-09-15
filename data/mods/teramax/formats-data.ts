@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	grookey: {
 		tier: "TMLC",
 		doublesTier: "DOU",
@@ -2572,7 +2572,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	roaringmoon: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	ironvaliant: {
@@ -2804,7 +2804,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	baxcalibur: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	zacian: {

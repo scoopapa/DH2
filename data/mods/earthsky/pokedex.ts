@@ -1164,6 +1164,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Tireless", H: "Gale Wings"},
 		heightm: 4.4,
 		weightkg: 144,
+		color: "Green",
 		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
@@ -1177,7 +1178,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 0.9,
 		weightkg: 14.3,
 		tags: ["Sub-Legendary"],
-		color: "Yellow",
+		color: "Green",
 		eggGroups: ["Undiscovered"],
 	},
 	selervis: {
@@ -1190,7 +1191,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.8,
 		weightkg: 52.6,
 		tags: ["Sub-Legendary"],
-		color: "Green",
+		color: "Purple",
 		eggGroups: ["Undiscovered"],
 	},
 	helyrion: {
@@ -1271,43 +1272,43 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Undiscovered"],
 	},
-	oceides: {
-		num: -578,
-		name: "Oceides",
-		types: ["Water", "Ground"],
-		gender: "N",
-		baseStats: {hp: 135, atk: 120, def: 105, spa: 120, spd: 105, spe: 95},
-		abilities: {0: "Pressure", H: "Against Current"},
-		heightm: 2.9,
-		weightkg: 380.0,
-		tags: ["Restricted Legendary"],
-		color: "Blue",
-		eggGroups: ["Undiscovered"],
-	},
 	hatar: {
-		num: -579,
+		num: -578,
 		name: "Hatar",
 		types: ["Fire", "Dark"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 135, def: 115, spa: 125, spd: 100, spe: 105},
 		abilities: {0: "Pressure", H: "Soul Drain"},
 		heightm: 2.6,
-		weightkg: 310.0,
+		weightkg: 350.0,
 		tags: ["Restricted Legendary"],
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 	},
 	zuros: {
-		num: -580,
+		num: -579,
 		name: "Zuros",
 		types: ["Electric", "Flying"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 105, def: 100, spa: 135, spd: 125, spe: 115},
 		abilities: {0: "Pressure", H: "Lightning Rod"},
-		heightm: 3.2,
+		heightm: 2.9,
 		weightkg: 320.0,
 		tags: ["Restricted Legendary"],
 		color: "Yellow",
+		eggGroups: ["Undiscovered"],
+	},
+	oceides: {
+		num: -580,
+		name: "Oceides",
+		types: ["Water", "Ground"],
+		gender: "N",
+		baseStats: {hp: 135, atk: 120, def: 105, spa: 120, spd: 105, spe: 95},
+		abilities: {0: "Pressure", H: "Against Current"},
+		heightm: 3.2,
+		weightkg: 380.0,
+		tags: ["Restricted Legendary"],
+		color: "Blue",
 		eggGroups: ["Undiscovered"],
 	},
 	norphaval: {
@@ -1558,7 +1559,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Egelas",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 58, atk: 109, def: 72, spa: 88, spd: 48, spe: 109},
-		abilities: {0: "Symbiosis", 1: "Hustle", H: "Truant"},
+		abilities: {0: "Symbiosis", 1: "Hustle", H: "Swarm"},
 		heightm: 0.3,
 		weightkg: 16.5,
 		color: "Black",
@@ -2108,6 +2109,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vital Spirit", 1: "Clean House", H: "Ice Body"},
 		isNonstandard: null,
 	},
+	electabuzz: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 83, def: 57, spa: 100, spd: 85, spe: 105},
+	},
 	taurospaldeacombat: {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "No Guard", H: "Relentless"},
@@ -2275,6 +2280,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	stantler: {
 		inherit: true,
 		abilities: {0: "Disturbance", 1: "Frisk", H: "Sap Sipper"},
+	},
+	elekid: {
+		inherit: true,
+		baseStats: {hp: 45, atk: 63, def: 37, spa: 70, spd: 55, spe: 95},
 	},
 	raikou: {
 		inherit: true,
@@ -2456,6 +2465,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	latios: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Telepathy"},
+	},
+	latiosmega: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 100, spa: 160, spd: 130, spe: 110},
+		isNonstandard: null,
 	},
 	kyogre: {
 		inherit: true,
@@ -2763,6 +2777,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intimidate", 1: "Snow Plow", H: "Scrappy"},
 		isNonstandard: null,
 	},
+	munna: {
+		inherit: true,
+		abilities: {0: "Forewarn", 1: "Synchronize", H: "Wonder Skin"},
+		isNonstandard: null,
+	},
+	musharna: {
+		inherit: true,
+		abilities: {0: "Forewarn", 1: "Synchronize", H: "Wonder Skin"},
+		isNonstandard: null,
+	},
 	roggenrola: {
 		inherit: true,
 		abilities: {0: "Sturdy", H: "Sand Force"},
@@ -2776,6 +2800,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gigalith: {
 		inherit: true,
 		abilities: {0: "Sturdy", H: "Sand Force"},
+		isNonstandard: null,
+	},
+	swoobat: {
+		inherit: true,
+		baseStats: {hp: 87, atk: 67, def: 55, spa: 77, spd: 55, spe: 114},
 		isNonstandard: null,
 	},
 	audinomega: {
@@ -3430,6 +3459,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Receiver"},
 	},
+	sobble: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Rattled"},
+	},
+	drizzile: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Technician"},
+	},
+	inteleon: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Technician"},
+	},
 	rookidee: {
 		inherit: true,
 		abilities: {0: "Keen Eye", 1: "Disturbance", H: "Big Pecks"},
@@ -3595,6 +3636,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	indeedeef: {
 		inherit: true,
 		abilities: {0: "Own Tempo", 1: "Synchronize", H: "Clean House"},
+	},
+	duraludon: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 95, def: 110, spa: 115, spd: 45, spe: 75},
 	},
 	zacian: {
 		inherit: true,
@@ -5278,10 +5323,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	latiosmega: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	bidoof: {
 		inherit: true,
 		isNonstandard: null,
@@ -5406,14 +5447,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	munna: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	musharna: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	pidove: {
 		inherit: true,
 		isNonstandard: null,
@@ -5427,10 +5460,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		isNonstandard: null,
 	},
 	woobat: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	swoobat: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -5879,6 +5908,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	pyroak: {
 		inherit: true,
+		baseStats: {hp: 120, atk: 70, def: 105, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Rock Head", 1: "Battle Armor", H: "White Smoke"},
 	},
 	revenankh: {
@@ -5936,13 +5966,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Heat Sink", 1: "Disturbance", H: "Pixilate"},
 	},
+	cresceidon: {
+		inherit: true,
+		abilities: {0: "Filter", 1: "Rough Skin", H: "Water Veil"},
+	},
+	/*chuggon: {
+		inherit: true,
+		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
+	},
+	draggalong: {
+		inherit: true,
+		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
+	},
+	chuggalong: {
+		inherit: true,
+		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
+	},*/
 	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
 		number: -14,
-	},
-	kitsunoh: {
-		inherit: true,
-		number: -15,
 	},
 	monohm: {
 		inherit: true,

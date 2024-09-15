@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: LearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	varantis: {
 		learnset: {
 			acidspray: ["9L1"],
@@ -346,7 +346,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			skittersmack: ["9L1"],
 		},
 	},
-	smoliqwil: {
+	smoliquil: {
 		learnset: {
 			absorb: ["9L1"],
 			bulletseed: ["9L1"],

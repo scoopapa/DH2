@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataTable = {
 	revarantis: {
 		tier: "FEOU",
 		doublesTier: "DOU",
@@ -61,7 +61,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	slitherking: {
-		tier: "FEUU",
+		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["morningsun", "uturn", "firstimpression", "flareblitz"],
 		randomBattleLevel: 80,
@@ -420,7 +420,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	corvizolt: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["boltbeak", "bravebird", "earthquake", "roost"],
 		randomBattleLevel: 75,

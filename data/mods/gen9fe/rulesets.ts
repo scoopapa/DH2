@@ -1,4 +1,4 @@
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable = {
 	megadatamod: {
 		effectType: 'Rule',
 		name: 'Mega Data Mod',
@@ -44,6 +44,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				const baseSpecies = Dex.species.get(pokemon.species.name);
 				//let modded = [0,1].some(type => species.types[type] !== baseSpecies.types[type]);
 				let modded = false;
+				/*for (const abil in species.abilities) {
+					const abilName = species.abilities[abil];
+					const ability = this.dex.abilities.get(abilName);
+					const baseAbility = Dex.abilities.get(abilName);
+					if ((ability.shortDesc || ability.desc) !== (baseAbility.shortDesc || baseAbility.desc)) {
+						modded = true;
+						(pokemon.m.speciesModdedAbils ||= {})[abil] = ability;
+					}
+				}
+				if (modded) {
+					pokemon.isModded = true;
+					continue;
+				}*/
 				for (const type in [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {
 						// console.log(species.types[type] + " is different from " + baseSpecies.types[type]);
@@ -51,7 +64,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						break;
 					}
 				}
-				modded ||= /*if*/ (species.baseStats.hp !== baseSpecies.baseStats.hp/*) modded = true;
+				if (modded) {
+					pokemon.isModded = true;
+					continue;
+				}
+				modded = /*if*/ (species.baseStats.hp !== baseSpecies.baseStats.hp/*) modded = true;
 				else if (*/ || species.baseStats.atk !== baseSpecies.baseStats.atk/*) modded = true;
 				else if (*/ || species.baseStats.def !== baseSpecies.baseStats.def/*) modded = true;
 				else if (*/ || species.baseStats.spa !== baseSpecies.baseStats.spa/*) modded = true;
@@ -97,6 +114,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
 			}
 			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+			if (appearance.m.speciesModdedAbils) {
+				for (const abil in appearance.m.speciesModdedAbils) {
+					const ability = appearance.m.speciesModdedAbils[abil];
+					let buf = `<ul class="utilichart"><li class="result">`;
+					buf += `<span class="col abilitydesccol">${ability.name}: ${ability.shortDesc || ability.desc}</span> `;
+					buf += `</li><li style="clear:both"></li></ul>`;
+					this.add(`raw|${buf}`);
+				}
+				delete appearance.m.speciesModdedAbils;
+			}
+			
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!target.hasAbility(['illusion','roughimage'])) return; // making sure the correct information is given when an Illusion breaks

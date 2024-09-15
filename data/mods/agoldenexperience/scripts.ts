@@ -1176,6 +1176,12 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'octillery').learnset.aurasphere = ['9L1'];
     this.modData('Learnsets', 'octillery').learnset.terrainpulse = ['9L1'];
     this.modData('Learnsets', 'mantine').learnset.flipturn = ['9L1'];
+    this.modData('Learnsets', 'raikou').learnset.thunderclap = ['9L1'];
+    this.modData('Learnsets', 'entei').learnset.earthquake = ['9L1'];
+    this.modData('Learnsets', 'entei').learnset.burningbulwark = ['9L1'];
+    this.modData('Learnsets', 'suicune').learnset.hydrosteam = ['9L1'];
+    this.modData('Learnsets', 'suicune').learnset.knockoff = ['9L1'];
+    this.modData('Learnsets', 'suicune').learnset.flipturn = ['9L1'];
 
     // Gen 3:
     this.modData('Learnsets', 'blaziken').learnset.roost = ['9L1'];
@@ -1362,7 +1368,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'giratina').learnset.teleport = ['9L1'];
 
     // Gen 5:
-    this.modData('Learnsets', 'serperior').learnset.mudshot = ['9L1'];
     this.modData('Learnsets', 'serperior').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.megakick = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.glare = ['9L1'];
@@ -1623,6 +1628,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'screamtail').learnset.afteryou = ['9L1'];
     this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     delete this.modData('Learnsets', 'brutebonnet').learnset.spore;
+    this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.focusblast = ['9L1'];
@@ -1645,9 +1651,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
     delete this.modData('Learnsets', 'gimmighoul').learnset.nastyplot;
     delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
-    delete this.modData('Learnsets', 'pawniard').learnset.knockoff;
-    delete this.modData('Learnsets', 'bisharp').learnset.knockoff;
-    delete this.modData('Learnsets', 'kingambit').learnset.knockoff;
 
     // return 
     this.modData('Learnsets', 'meltan').learnset.return = ['9M'];
