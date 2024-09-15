@@ -3,7 +3,8 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["growth", "hiddenpowerfire", "hiddenpowerice", "razorleaf", "sleeppowder", "synthesis"]
+                "movepool": ["growth", "hiddenpowerfire", "hiddenpowerice", "razorleaf", "sleeppowder", "synthesis"],
+                "teraTypes": ["Steel", "Water"]
             }
         ]
     },
@@ -11,7 +12,8 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["bellydrum", "earthquake", "fireblast", "rockslide", "swordsdance"]
+                "movepool": ["bellydrum", "earthquake", "fireblast", "rockslide", "swordsdance"],
+                "teraTypes": ["Ground", "Rock"]
             }
         ]
     },
@@ -19,11 +21,13 @@
         "sets": [
             {
                 "role": "Generalist",
-                "movepool": ["icebeam", "rest", "sleeptalk", "surf", "zapcannon"]
+                "movepool": ["icebeam", "rest", "sleeptalk", "surf", "zapcannon"],
+                "teraTypes": ["Dragon", "Grass"]
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["icebeam", "rapidspin", "rest", "roar", "surf", "toxic"]
+                "movepool": ["icebeam", "rapidspin", "rest", "roar", "surf", "toxic"],
+                "teraTypes": ["Dragon", "Grass"]
             }
         ]
     },
@@ -31,15 +35,18 @@
         "sets": [
             {
                 "role": "Generalist",
-                "movepool": ["nightmare", "psychic", "sleeppowder", "substitute"]
+                "movepool": ["nightmare", "psychic", "sleeppowder", "substitute"],
+                "teraTypes": ["Psychic"]
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["psychic", "sleeppowder", "stunspore", "substitute"]
+                "movepool": ["psychic", "sleeppowder", "stunspore", "substitute"],
+                "teraTypes": ["Psychic"]
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["hiddenpowerbug", "psychic", "sleeppowder", "stunspore"]
+                "movepool": ["hiddenpowerbug", "psychic", "sleeppowder", "stunspore"],
+                "teraTypes": ["Water", "Ground"]
             }
         ]
     },
