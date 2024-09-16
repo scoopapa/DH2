@@ -1265,6 +1265,83 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Fire",
 	},
+	spiritualembrace: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Spiritual Embrace",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, failcopycat: 1},
+		desc: "Power is equal to 1.5 times the base move's power. If this move is successful, the effect of Sunny Day begins.",
+		shortDesc: "x1.5 base move power. Sets target ability to Synchronize.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Seed Flare');
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				const oldAbility = target.setAbility('Synchronize');
+				if (target.setAbility('Synchronize')) {
+					this.add('-ability', target, oldAbility);
+					this.add('-ability', target, 'Synchronize', '[from] move: Spiritual Embrace');
+				}
+			},
+		},
+		target: "normal",
+		type: "Grass",
+	},
+	gowestyoungfeline: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Go West, Young Feline",
+		pp: 10,
+		priority: 5,
+		flags: {nosketch: 1, failcopycat: 1, reflectable: 1},
+		desc: "Causes the target's Ability to become Rattled. Fails if the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Simple, Stance Change, Tera Shift, Truant, Zen Mode, or Zero to Hero.",
+		shortDesc: "Always goes first. The target's Ability becomes Rattled.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Uproar');
+		},
+		onTryHit(target) {
+			if (target.getAbility().flags['cantsuppress'] || target.ability === 'rattled') {
+				return false;
+			}
+		},
+		onHit(pokemon) {
+			const oldAbility = pokemon.setAbility('rattled');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Rattled', '[from] move: Go West, Young Feline');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		target: "normal",
+		type: "Ghost",
+	},
+	'100000voltkahunawave': {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "100,000 Volt Kahuna Wave",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, failcopycat: 1},
+		desc: "Power is equal to 1.5 times the base move's power, and further doubles if the target is paralyzed. This move and its effects ignore the Abilities of other Pokemon.",
+		shortDesc: "x1.5 base move power, x3 instead on Paralyzed. Ignores abilities.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Electro Drift');
+		},
+		ignoreAbility: true,
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'par') {
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Water",
+	},
 	
 	//Interacting with new Brunician mechanics
 	floralhealing: {
