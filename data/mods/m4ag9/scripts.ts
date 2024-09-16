@@ -100,7 +100,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				// singles tiers
 				if (ag.includes(id)) this.modData('FormatsData', id).tier = "AG";
 				else if (uber.includes(id)) this.modData('FormatsData', id).tier = "Uber";
-				else if (viabilityList.includes(id)) console.log(id); this.modData('FormatsData', id).tier = "Popular";
+				else if (viabilityList.includes(id)) this.modData('FormatsData', id).tier = "Popular";
 				else if (megaViabilityList.includes(id)) this.modData('FormatsData', id).tier = "Popular Megas";
 				else if (this.dataCache.Pokedex[id] && this.dataCache.Pokedex[id].name.includes('-Mega')) this.modData('FormatsData', id).tier = "Other Megas";
 				else if (!this.modData('FormatsData', id).isNonstandard && this.dataCache.Pokedex[id] && !this.dataCache.Pokedex[id].evos && !id.startsWith('pikachu') && !id.startsWith('meltan')) this.modData('FormatsData', id).tier = "Heat!"; // default (FE)
