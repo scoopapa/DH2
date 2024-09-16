@@ -6256,12 +6256,13 @@ export const Items: {[itemid: string]: ItemData} = {
 	tr26: {
 		name: "TR26",
 		fling: {
-			basePower: 10,
+			basePower: 250,
 		},
 		spritenum: 721,
 		num: 1156,
 		gen: 8,
 		isNonstandard: "Past",
+		shortDesc: "Teaches certain Pokemon the move Explosion. One use.",
 	},
 	tr27: {
 		name: "TR27",
