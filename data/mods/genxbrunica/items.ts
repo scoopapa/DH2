@@ -114,6 +114,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 20,
 		},
+		//Effects implemented in scripts.ts
 		//manual fling effects
 		onPrepareHitPriority: 1,
 		onPrepareHit(target, source, move) {
@@ -127,9 +128,15 @@ export const Items: {[itemid: string]: ItemData} = {
 					if (targetmove.isMax && targetmove.baseMove) targetmove = this.dex.moves.get(targetmove.baseMove);
 
 					const ppDeducted = target.deductPP(targetmove.id, 4);
-					if (ppDeducted) this.add('-activate', target, 'move: Fling', targetmove.name, ppDeducted);
+					if (ppDeducted) this.add('-activate', target, 'move: Spite', targetmove.name, ppDeducted);
 				},
 			});
+		},
+		condition: {
+			duration: 1,
+			onResidual(target) {
+				target.removeVolatile('tomeofimagination');
+			},
 		},
 	},
 	

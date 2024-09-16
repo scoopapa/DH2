@@ -975,8 +975,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					const usedTomeOfImagination = pokemon.hasItem('tomeofimagination') && move.id !== 'fling' && pokemon.useItem();
 					if (usedTomeOfImagination) {
 						this.battle.add('-activate', pokemon, 'item: Tome of Imagination');
-						this.battle.add('-message', 
-							`${pokemon.name} used its Tome of Imagination to preserve its move's PP!`);
+						this.battle.add('-message', `${pokemon.name} used its Tome of Imagination to preserve its move's PP!`);
+						pokemon.addVolatile('tomeofimagination');
 					} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
 						this.battle.add('cant', pokemon, 'nopp', move);
 						this.battle.clearActiveMove(true);
@@ -1162,18 +1162,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (targets.length) {
 				target = targets[targets.length - 1]; // in case of redirection
 			}
-
-			const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
-			if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
-				let extraPP = 0;
-				for (const source of pressureTargets) {
-					const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
-					if (ppDrop !== true) {
-						extraPP += ppDrop || 0;
+			if (!source.hasItem('tomeofimagination') && !source.volatiles['tomeofimagination']) {
+				const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
+				if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
+					let extraPP = 0;
+					for (const source of pressureTargets) {
+						const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
+						if (ppDrop !== true) {
+							extraPP += ppDrop || 0;
+						}
 					}
-				}
-				if (extraPP > 0) {
-					pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					if (extraPP > 0) {
+						pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					}
 				}
 			}
 
