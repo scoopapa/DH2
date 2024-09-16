@@ -33,4 +33,52 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		shortDesc: "Pokemon that use moves with ≤60 BP against this Pokemon lose 1/8 of their max HP.",
 	},
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			for (const poke of this.getAllActive()) {
+				if (poke.hasAbility('counteract') && poke.side.id !== pokemon.side.id && !poke.abilityState.ending) {
+					return;
+				}
+			}
+			if (move?.type === 'Flying' && pokemon.hp >= pokemon.maxhp / 4) return priority + 1;
+		},
+		flags: {},
+		name: "Gale Wings",
+		shortDesc: "If this Pokemon has 25% of its max HP or more, its Flying-type moves have +1 priority.",
+		rating: 3,
+		num: 177,
+	},
+	magicresistance: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Magic Resistance weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Magic Resistance weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (target !== source && move.category !== 'Status') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Magic Resistance', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Magic Resistance",
+		rating: 3.5,
+		shortDesc: "This Pokemon steals foe's item after hitting them, and takes 50% damage from Fire/Ice.",
+	},
 };

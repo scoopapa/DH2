@@ -35,4 +35,20 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 40, spd: 40, spe: 40},
 		abilities: {0: "Tough Claws", H: "Spiked Fur"},
 	},
+	toxel: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 48, def: 55, spa: 64, spd: 55, spe: 40},
+		abilities: {0: "Rattled", 1: "Static", H: "Pickpocket"},
+	},
+	fletchling: {
+		inherit: true,
+		types: ["Fire", "Flying"],
+		baseStats: {hp: 45, atk: 50, def: 55, spa: 40, spd: 38, spe: 52},
+	},
+	spoink: {
+		inherit: true,
+		types: ["Psychic", "Rock"],
+		baseStats: {hp: 60, atk: 25, def: 35, spa: 70, spd: 75, spe: 70},
+		abilities: {0: "Magic Resistance", 1: "Own Tempo", H: "Gluttony"},
+	},
 };

@@ -1,4 +1,4 @@
-export const Conditions: {[k: string]: ConditionData} = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	par: {
 		inherit: true,
 		onStart(target, source, sourceEffect) {

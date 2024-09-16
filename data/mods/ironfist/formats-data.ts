@@ -35,6 +35,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	kinglermega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 	feebas: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -104,7 +108,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	traike: {
-		tier: "IF",
+		tier: "Banned Lol",
 		doublesTier: "DOU",
 	},
 	pidown: {
@@ -148,6 +152,82 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	phish: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	smelmetal: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	starmie: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	victreebel: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	bondra: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	tangetteeternal: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	donmigo: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	dragoone: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	collachet: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	guiltrism: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	swampert: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	swooliobat: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	electrode: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	electrodemega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	mariokartwii: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	impalpitoad: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	scrubby: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	ougayporncomerstone: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	palpitoadissocool: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	spewpa: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

@@ -377,6 +377,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	meloettapirouette: {
 		inherit: true,
 		abilities: {0: "No Guard", H: "Muscle Memory"},
+		requiredMove: null,
+		requiredItem: "Dancing Shoes",
 	},
 	landorus: {
 		inherit: true,

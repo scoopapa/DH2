@@ -1039,7 +1039,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Water", "Grass"],
 		gender: "N",
 		baseStats: {hp: 132, atk: 92, def: 104, spa: 156, spd: 88, spe: 108},
-		abilities: {0: "Cultivation"},
+		abilities: {0: "Absorption"},
 	//	category: "Life Bringer",
 		heightm: 4.0,
 		weightkg: 800.0,
@@ -2995,6 +2995,54 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		tags: ["Mythical"], // "Extraterrestrial"
 		eggGroups: ["Undiscovered"],
 
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	blitzle: {
+		num: 522,
+		name: "Blitzle",
+		types: ["Electric"],
+		baseStats: {hp: 45, atk: 60, def: 32, spa: 50, spd: 32, spe: 76},
+		abilities: {0: "Lightning Rod", 1: "Motor Drive", H: "Sap Sipper"},
+		heightm: 0.8,
+		weightkg: 29.8,
+		color: "Black",
+		eggGroups: ["Field"],
+		
+		evos: ["Zebstrika"],
+	},
+	zebstrika: {
+		num: 523,
+		name: "Zebstrika",
+
+		types: ["Electric"],
+		baseStats: {hp: 75, atk: 100, def: 63, spa: 80, spd: 63, spe: 116},
+		abilities: {0: "Lightning Rod", 1: "Motor Drive", H: "Sap Sipper"},
+		heightm: 1.6,
+		weightkg: 79.5,
+		color: "Black",
+		eggGroups: ["Field"],
+
+		prevo: "Blitzle",
+		evoLevel: 27,
+		evos: ["Zebsonavolt"],
+	},
+	zebsonavolt: {
+		num: -1102,
+		name: "Zebsonavolt",
+
+		types: ["Electric"],
+		baseStats: {hp: 95, atk: 120, def: 74, spa: 60, spd: 74, spe: 126},
+		abilities: {0: "Lightning Rod", 1: "Regenerator", H: "Sap Sipper"},
+		heightm: 1.9,
+		weightkg: 93.2,
+		color: "Black",
+		eggGroups: ["Field"],
+
+		prevo: "Zebstrika",
+		evoItem: "Thunder Stone",
 	//	creator: "BlueRay",
 	},
 	// end

@@ -64,7 +64,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
   coldrush: {
 	num: -3,
 	accuracy: 100,
-	basePower: 100,
+	basePower: 120,
 	category: "Physical",
 	shortDesc: "This move hits in two turns and sets Snow.",
 	name: "Cold Rush",
@@ -87,7 +87,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				id: 'coldrush',
 				name: "Cold Rush",
 				accuracy: 100,
-				basePower: 100,
+				basePower: 120,
 				category: "Physical",
 				priority: 0,
 				flags: {allyanim: 1, metronome: 1, futuremove: 1},
@@ -385,6 +385,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
 				// Make the Steel-type removal visual
 				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: Golddigger');
+				// Apply the Steel Denial volatile only if the target is Aegislash-Ma'adowr to ensure Steel-type is removed even if it changes its form
+				if (target.species.name === 'Aegislash-Ma\'adowr') {
+					target.addVolatile('steeldenial');
+				}
 			}
 		},
 		secondary: null,
@@ -704,7 +708,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		shortDesc: "Inflicts target with a Torment effect.",
+		shortDesc: "Inflicts targets with a Torment effect.",
 		name: "Soothing Song",
 		pp: 10,
 		priority: 0,
@@ -721,7 +725,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 //		volatileStatus: 'torment',
 		secondary: null,
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Beautiful",
 	},
@@ -900,33 +904,18 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Time Compressor",
 		pp: 5,
 		priority: 0,
-		flags: {metronome: 1, futuremove: 1},
-		onTry(source: Pokemon) {
-			if (!source.side.addSlotCondition(source, 'futuremove')) return false;
-			Object.assign(source.side.slotConditions[source.position]['futuremove'], {
-				duration: 3,
-				move: 'timecompressor',
-				source: source,
-				moveData: {
-					id: 'timecompressor',
-					name: "Time Compressor",
-					accuracy: true,
-					basePower: 0,
-					category: "Status",
-					priority: 0,
-					flags: {metronome: 1, futuremove: 1},
-					onHit(this: Battle, target: Pokemon, source: Pokemon, move: ActiveMove) {
-						this.field.addPseudoWeather('trickroom', source, move);
-					},
-					effectType: 'Move',
-					type: 'Rock',
-				},
-			});
-			this.add('-start', source, 'move: Time Compressor');
-			return true;
-		},
+		flags: {metronome: 1},
+		onTry(pokemon) {
+			if (!pokemon.side.sideConditions['timecrystals']) {
+				pokemon.side.addSideCondition('timecrystals');
+				this.add('-message', 'Time crystals started to glow.');
+				this.add('-anim', pokemon, 'Flash');	
+			} else {
+				return false; // If Time Crystals are already active, fail the move
+			}
+		},	
 		secondary: null,
-		target: "all",
+		target: "allySide",
 		type: "Rock",
 		contestType: "Clever",
 	},
@@ -1100,12 +1089,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
-		onBasePower(basePower, source) {
+		/*onBasePower(basePower, source) {
 			if (['raindance', 'primordialsea'].includes(source.effectiveWeather()) && !source.hasItem('utilityumbrella')) {
 				this.debug('rain Incandescent Flame boost');
 				return this.chainModify(2);
 			}
-		},
+		},*/
 		secondary: {chance: 100,
 			onHit(target, source, move) {
 				if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -1123,45 +1112,38 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	// start: damage info in conditions.ts
 	eyeofthesun: {
 		num: -35,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		shortDesc: "For 5 turns, Pkm on the user's side take 25% less damage from supereffective moves. If Sun is active, effect extends to 8 turns.",
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		shortDesc: "Skips in Sun and sets Wind Blessing, reducing super-effective damage for the team.",
 		name: "Eye of the Sun",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, metronome: 1},
-		sideCondition: 'eyeofthesun',
-		condition: {
-			duration: 5,
-			durationCallback(target, source) {
-				// Check if the sun is active
-				if (['sunnyday', 'desolateland'].includes(source.effectiveWeather())) {
-					return 8; // Extend duration to 8 turns if sun is active
-				}
-				return 5; // Default duration
-			},
-			onAnyModifyDamage(damage, source, target, move) {
-				// Check if the move is super effective
-				if (target !== source && this.effectState.target.hasAlly(target)) {
-					if (target.getMoveHitData(move).typeMod > 0) {
-						this.debug('Eye of the Sun neutralize');
-						return this.chainModify(0.75); // Reduce damage by 25%
-					}
-				}
-			},
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Eye of the Sun');
-			},
-			onSideEnd(side) {
-				this.add('-sideend', side, 'move: Eye of the Sun');
-				this.add(`The effects of Eye of the Sun have faded!`);
-			},
+		flags: {charge: 1, protect: 1, metronome: 1, mirror: 1}, 
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, 'Tailwind'); // originally: move.name instead of 'Tailwind'
+			if (!attacker.side.sideConditions['windblessing']) {
+				attacker.side.addSideCondition('windblessing');
+			}
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.add('-anim', attacker, 'Oblivion Wing', defender); // originally: this.addMove,  and instead of Oblivion Wing, it was move.name
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 		secondary: null,
-		target: "allySide",
+		hasSheerForce: true,
+		target: "normal",
 		type: "Flying",
-		contestType: "Clever",
+		contestType: "Cool",
 	},
 	// end
 
@@ -1183,12 +1165,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			// Clear all pseudoweather effects
 			for (const pseudoweather in this.field.pseudoWeather) {
 			//	this.add('-end', pseudoweather.charAt(0).toUpperCase() + pseudoweather.slice(1), '[from] move: Reboot');
+				this.add('-fieldend', this.dex.conditions.get(pseudoweather).name); // new
 				delete this.field.pseudoWeather[pseudoweather]; // Remove each pseudoweather effect
 			}
 
 			// Clear all side conditions
 			for (const side of this.sides) {
 				for (const condition in side.sideConditions) {
+					this.add('-sideend', side, this.dex.conditions.get(condition).name); // new: add visual cue for removing side condition
 					side.removeSideCondition(condition);
 			//		this.add('-end', condition.charAt(0).toUpperCase() + condition.slice(1), '[from] move: Reboot');
 				}
@@ -1464,10 +1448,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Escavalier') {
 				this.debug('double power');
 				return this.chainModify(2);
+			} else if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') {
+				this.debug('double power');
+				return this.chainModify(2);
 			}
-		},
-		onModifyMove(move, pokemon) {
-			if (this.lastSuccessfulMoveThisTurn === 'pincerattack' && pokemon.species.name === 'Grapplin') move.drain = [1, 2];
 		},
 		secondary: null,
 		target: "normal",
@@ -1475,6 +1459,174 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Tough",
 	},
 	// end
+
+	// start: Exhume from Dark Volatile, this is now a more simplified coding version
+	exhume: {
+		num: -45,
+		accuracy: true,
+		basePower: 0,
+		category: 'Status',
+		shortDesc: "Executes first move of last fainted Dark ally. Best stat boost.",
+		name: 'Exhume',
+		pp: 8, // this should be fine since this move can only be called through an Engraving effect, which doesn't max pp
+		priority: 0,
+		flags: {protect: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
+		onTryHit(target, source, move) {
+			// Find the last fainted Dark-type Pokémon on the user's team
+			const faintedDarkTypes = source.side.pokemon.filter(p => p.fainted && p.hasType('Dark'));
+			const lastFaintedDark = faintedDarkTypes[faintedDarkTypes.length - 1];
+	  
+			if (!lastFaintedDark) {
+			  this.add('-fail', source, 'move: Exhume');
+			  return null;
+			}
+
+			// Determine the best stat to boost
+			const stats: Array<StatIDExceptHP> = ['atk', 'spa', 'def', 'spd', 'spe']; // List of stats to consider
+			let bestStat: StatIDExceptHP = stats[0]; // Initialize with the first stat
+			let highestValue = lastFaintedDark.getStat(bestStat); // Get the initial highest value
+	
+			for (const stat of stats) {
+				const currentValue = lastFaintedDark.getStat(stat);
+				if (currentValue > highestValue) {
+					highestValue = currentValue;
+					bestStat = stat; // Update bestStat to the current highest stat
+				}
+			}
+			this.add('-anim', source, 'Moonlight');
+			// Apply +1 to the best stat
+			this.boost({[bestStat]: 1}, source);
+
+			// Use the first move of the last fainted Dark-type Pokémon
+			const firstMove = lastFaintedDark.moveSlots[0]; // Get the first move slot
+	  
+			if (!firstMove) {
+			  this.add('-fail', source, 'move: Exhume');
+			  return null;
+			}
+
+			// Use the move as if it were the user's move
+			const moveData = this.dex.moves.get(firstMove.id);
+			this.add('-message', `${source.name} exhumes ${lastFaintedDark.name}'s ${moveData.name}!`);	
+			
+			// Distinguish how to execute the move based on its target type
+			switch (moveData.target) {
+    			case 'self':
+        			this.actions.useMove(moveData.id, source, source); // Affects only the user
+       			break;
+    			case 'allySide':
+        			this.actions.useMove(moveData.id, source, source.side.pokemon[0]); // Affects an ally
+        		break;
+				case 'allyTeam':
+      				// Affects the entire team, e.g., for moves like Aromatherapy
+        			this.actions.useMove(moveData.id, source, null); // Null can be used for moves that affect the entire team
+        		break;
+    			case 'normal':
+        			// List available foes
+        			const targets = source.side.foe.active.filter(target => target && !target.fainted);
+        			if (targets.length > 0) {
+            		// Randomly select a foe
+            		const randomTarget = targets[Math.floor(Math.random() * targets.length)];
+            		this.actions.useMove(moveData.id, source, randomTarget);
+        			} else {
+           				this.add('-fail', source, 'move: Exhume'); // No available foes
+        			}
+        		break;
+				case 'allAdjacent':
+        			// Affects all adjacent Pokémon (both allies and foes)
+        			const adjacentTargets = source.side.active.filter(target => target && !target.fainted);
+        			for (const target of adjacentTargets) {
+            			this.actions.useMove(moveData.id, source, target);
+        			}
+        		break;
+    			case 'allAdjacentFoes':
+        			// Affects all adjacent foes
+        			const adjacentFoes = source.side.foe.active.filter(target => target && !target.fainted);
+        			for (const target of adjacentFoes) {
+            			this.actions.useMove(moveData.id, source, target);
+        			}
+        		break;
+    			case 'all':
+        			this.actions.useMove(moveData.id, source, null); // Affects everyone; null can be used for moves that don't require a target
+        		break;
+				default:
+       			 	// Default case; use the original target if no specific case matches
+        			this.actions.useMove(moveData.id, source, target);
+        		break;
+			}
+		//	this.actions.useMove(moveData.id, source, target);	// Use the move on the target
+		
+		},
+		secondary: null,
+		target: 'self',
+		type: 'Dark',
+		contestType: "Cool",
+	  },
+	// end
+
+	// start:
+	superkinesis: {
+		num: -46,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Superkinesis",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		shortDesc: "Lowers user's best stat by 2.",
+		onHit(target, source) {
+			if (!target) return;
+			const bestStat = source.getBestStat(false, true) as keyof BoostsTable;
+			const boosts: Partial<BoostsTable> = {};
+			boosts[bestStat] = -2;
+			this.boost(boosts, source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	// end
+	reverberation: {
+		num: -47,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Reverberation",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		shortDesc: "Mini Earthquake follow-up at 60 BP.",
+		onAfterMove(source) {
+			source.addVolatile('quakingboom');
+			this.actions.useMove('earthquake', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	earthquake: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source && source.volatiles['quakingboom']) {
+				move.basePower = 60;
+			}
+		},
+		onAfterMove(target, source) {
+			// This function is called for each target hit by Earthquake
+			// Check if the target is still alive
+			if (target && target.hp > 0) {
+				// Check how many active Pokémon are still alive
+				const allTargets = this.getAllActive().filter(p => p && p.hp > 0);
+				// If this is the last target being hit, remove the volatile
+				if (allTargets.length === 1) {
+					delete source.volatiles['quakingboom'];
+				}
+			}
+		},
+	},
 
 	// start: This move is only for testing purposes due to Wood Stove
 //	frostblast: {
@@ -1692,6 +1844,38 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
+	},
+	// end
+
+	// start: modifying Soak for Aegislash-Ma'adowr to account for form change, letting it stay mono Water
+	soak: {
+		num: 487,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Soak",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
+		onHit(target) {
+			if (target.getTypes().join() === 'Water' || !target.setType('Water')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Water');
+			
+			// Apply soaksteeldenial volatile if the target is Aegislash-Ma'adowr
+			if (target.species.name === 'Aegislash-Ma\'adowr' || target.species.name === 'Aegislash-Blade-Ma\'adowr') {
+				target.addVolatile('soaksteeldenial');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {boost: {spa: 1}},
+		contestType: "Cute",
 	},
 	// end
 

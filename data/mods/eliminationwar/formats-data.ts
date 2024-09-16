@@ -43,8 +43,53 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
-	idkman: {
+	regivillain: {
 		tier: "Legal",
 		doublesTier: "DOU",
 	},
+	noosegoose: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	jobapplication: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	mythicmayhem: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	maldew: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	salamire: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	bettertusk: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	voltoxin: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	oursikentwistedmind: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	rotomwashed: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	astrodactyl: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+	joe: {
+		tier: "Legal",
+		doublesTier: "DOU",
+	},
+
 };

@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	zenmode: {
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
@@ -177,6 +177,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Steam Engine boost');
+				return this.chainModify(2);
+			}
+		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
 			if ((effect as Move)?.status) {
@@ -207,7 +214,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Steam Engine",
 		rating: 2,
 		num: 243,
-		shortDesc: "Immune to burn. 0.5x damage from Fire and Water moves. If hit: summons Sun.",
+		shortDesc: "Burn immunity. Takes 0.5x from Fire/Water & summons Sun. 2x power on Fire.",
 	},
 	galewings: {
 		onBasePowerPriority: 21,

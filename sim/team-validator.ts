@@ -836,9 +836,10 @@ export class TeamValidator {
 
 		let moveProblems;
 		if (ruleTable.has('obtainablemoves')) {
-			if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
-			moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
-			problems.push(...moveProblems);
+			if (this.dex.currentMod !== 'moderngen3' && this.dex.currentMod !== 'moderngen4' && this.dex.currentMod !== 'gen3tradebacks' && this.dex.currentMod !== 'gen3plus' && this.dex.currentMod !== 'gen3hoennification') {
+				moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
+				problems.push(...moveProblems);
+			}
 		}
 
 		let eventOnlyData;
@@ -2224,7 +2225,7 @@ export class TeamValidator {
 			if (setSources.sourcesBefore < 5) setSources.sourcesBefore = 0;
 			const canUseAbilityPatch = dex.gen >= 8 && this.format.mod !== 'gen8dlc1';
 			if (!setSources.size() && !canUseAbilityPatch) {
-				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
+				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4' || this.dex.currentMod === 'gen3tradebacks' || this.dex.currentMod === 'gen3plus' || this.dex.currentMod === 'gen3hoennification') return;
 				problems.push(`${name} has a hidden ability - it can't have moves only learned before gen 5.`);
 				return problems;
 			}

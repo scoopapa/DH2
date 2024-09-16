@@ -111,11 +111,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
-		shortDesc: "100% chance to lower the target's Sp. Def by 2.",
+		shortDesc: "100% chance to lower the target's Sp. Def by 2. Hits twice.",
 		name: "Acid Spray",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		multihit: 2,
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1111,13 +1112,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 85,
 		basePower: 15,
 		category: "Physical",
-		shortDesc: "Hits 2-5 times in one turn.",
+		shortDesc: "Hits 22-25 times in one turn.",
 		isNonstandard: "Past",
 		name: "Barrage",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		multihit: [2, 5],
+		multihit: [22, 25],
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -3817,7 +3818,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	diamondstorm: {
 		num: 591,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
 		shortDesc: "50% chance to raise user's Defense by 2.",
@@ -4724,7 +4725,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
+		shortDesc: "Hits adjacent Pokemon. Double damage in Dig.", // code if it wins - basically change to Dig to use EQ on turn 2
 		name: "Earthquake",
 		pp: 10,
 		priority: 0,
@@ -5414,13 +5415,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		shortDesc: "Power doubles if user is burn/poison/paralyzed.",
+		shortDesc: "Power doubles if user is statused.",
 		name: "Facade",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon) {
-			if (pokemon.status && pokemon.status !== 'slp') {
+			if (pokemon.status || pokemon.hasAbility('comatose')) {
 				return this.chainModify(2);
 			}
 		},
@@ -5892,17 +5893,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "Hits first. First turn out only.",
+		shortDesc: "Hits first. First turn out onwards.",
 		name: "First Impression",
 		pp: 10,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		onTry(source) {
-			if (source.activeMoveActions > 1) {
-				this.hint("First Impression only works on your first turn out.");
-				return false;
-			}
-		},
 		secondary: null,
 		target: "normal",
 		type: "Bug",
@@ -7768,7 +7763,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('telepathy')) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
 				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
@@ -8233,7 +8228,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns. Grounded: +Grass power, +1/16 max HP.",
+		shortDesc: "5 turns. Grounded: +Grass power, -1/16 max HP.",
 		name: "Grassy Terrain",
 		pp: 10,
 		priority: 0,
@@ -8270,7 +8265,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onResidualSubOrder: 2,
 			onResidual(pokemon) {
 				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
-					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+					this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon);
 				} else {
 					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
 				}
@@ -8426,17 +8421,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises user's Attack and Sp. Atk by 1; 2 in Sun.",
+		shortDesc: "Raises user's Sp. Atk and Sp. Def by 1; 2 in Sun.",
 		name: "Growth",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		onModifyMove(move, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) move.boosts = {atk: 2, spa: 2};
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) move.boosts = {spa: 2, spd: 2};
 		},
 		boosts: {
-			atk: 1,
 			spa: 1,
+			spd: 1,
 		},
 		secondary: null,
 		target: "self",
@@ -9759,13 +9754,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
-		shortDesc: "User cannot move next turn.",
+		shortDesc: "User cannot move next turn if target or sub is not KOed.",
 		name: "Hyper Beam",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, metronome: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
+		self: null,
+		onHit(target, source) {
+			if (!target.hp || target.volatiles['substitute']) return;
+			if (target.hp) {
+				source.addVolatile('mustrecharge');
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -9870,7 +9869,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		secondary: null,
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Ice",
 		contestType: "Cool",
 	},
 	hypnosis: {
@@ -10114,6 +10113,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
+		shortDesc: "30% chance to make the target flinch.",
+		name: "Icicle Crash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},/*
+	iciclecrash: {
+		num: 556,
+		accuracy: 90,
+		basePower: 85,
+		category: "Physical",
 		shortDesc: "30% chance to make the target finch.",
 		name: "Icicle Crash",
 		pp: 10,
@@ -10140,7 +10157,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-	},
+	},*/
 	iciclespear: {
 		num: 333,
 		accuracy: 100,
@@ -16961,7 +16978,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "30% chance to burn the target. Thaws target.",
+		shortDesc: "30% chance to bun the target. Thaws target.",
 		name: "Scald",
 		pp: 15,
 		priority: 0,
@@ -16969,7 +16986,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		thawsTarget: true,
 		secondary: {
 			chance: 30,
-			status: 'brn',
+			onHit(target) {
+				target.addVolatile('scald');
+			},
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-message', `The target was bunned! It will become a Dachsbun!`);
+				pokemon.formeChange('Dachsbun');
+				// pokemon.setAbility('wellbakedbody');
+			},
+			onEnd(pokemon) {
+				if (['Dachsbun'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
 		},
 		target: "normal",
 		type: "Water",
@@ -18899,7 +18930,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.effectState.layers++;
 			},
 			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('telepathy')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -19220,7 +19251,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
+		shortDesc: "Hurts foes on switch-in. Factors Rock weakness inversely.",
 		name: "Stealth Rock",
 		pp: 20,
 		priority: 0,
@@ -19232,9 +19263,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('telepathy')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				const newtypeMod = Math.pow(typeMod, -1);
+				this.damage(pokemon.maxhp * Math.pow(2, newtypeMod) / 8);
 			},
 		},
 		secondary: null,
@@ -19366,7 +19398,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('telepathy')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -21328,6 +21360,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasAbility('telepathy')) return;
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
@@ -22768,24 +22801,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 	wringout: {
 		num: 378,
 		accuracy: 100,
-		basePower: 0,
-		basePowerCallback(pokemon, target, move) {
-			const hp = target.hp;
-			const maxHP = target.maxhp;
-			const bp = Math.floor(Math.floor((120 * (100 * Math.floor(hp * 4096 / maxHP)) + 2048 - 1) / 4096) / 100) || 1;
-			this.debug('BP for ' + hp + '/' + maxHP + " HP: " + bp);
-			return bp;
-		},
+		basePower: 130,
 		category: "Special",
-		shortDesc: "More power the more HP the target has left.",
+		shortDesc: "Lowers the user's Defense, Sp. Def, Speed by 1.",
 		isNonstandard: "Past",
 		name: "Wring Out",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				spe: -1,
+				def: -1,
+				spd: -1,
+			},
+		},
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Rock",
 		zMove: {basePower: 190},
 		maxMove: {basePower: 140},
 		contestType: "Tough",
