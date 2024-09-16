@@ -42,4 +42,14 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	bigbutton: {
+		inherit: true,
+		duration: null,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Dynamax', '[silent]');
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Dynamax', '[silent]');
+		}
+	},
 }

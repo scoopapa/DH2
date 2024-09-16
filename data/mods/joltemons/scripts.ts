@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+  	gen: 8,
+	inherit: 'gen8',
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();

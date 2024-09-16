@@ -2875,12 +2875,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	angrybird: {
 		shortDesc: "Defiant + Competitive",
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Angry Bird only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -2901,12 +2896,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Sharp Goggles/Competitive only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -3131,12 +3121,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.field.setTerrain('psychicterrain');
 		},
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Mind Domain/Competitive only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -3262,7 +3247,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Emperor's Clothes",
 	},
-	innermood: {
+	/*innermood: {
 		shortDesc: "Inner Focus + Moody",
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
@@ -3308,6 +3293,29 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 		name: "Inner Mood",
+	},*/
+	erratic: {
+		shortDesc: "+2 to a random stat (not Acc./Eva.) when any stat is lowered by a foe.",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) return;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					let stats: BoostID[] = [];
+					let statPlus: BoostID;
+					for (statPlus in target.boosts) {
+						if (!['accuracy','evasion'].includes(statPlus) && target.boosts[statPlus] < 6) {
+							stats.push(statPlus);
+						}
+					}
+					//Don't boost if it's +6 across the board and the mon suffered a drop to Evasion or Accuracy
+					if (stats.length) this.boost({[this.sample(stats)]: 2}, target, target, null, false, true);
+					return;
+				}
+			}
+		},
+		flags: {},
+		name: "Erratic",
 	},
 	nononsense: {
 		shortDesc: "Battle Armor + Clear Body",
@@ -3718,12 +3726,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	rogue: {
 	  shortDesc: "Competitive + Overcoat",
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Competitive/Rogue only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -3806,12 +3809,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	riotpayload: {
 		shortDesc: "Rocky Payload + Defiant",
 		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				if (effect.id === 'stickyweb') {
-					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant/Riot Payload only affects stats lowered by foes.", true, source.side);
-				}
-				return;
-			}
+			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {

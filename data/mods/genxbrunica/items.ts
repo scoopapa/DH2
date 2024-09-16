@@ -1,7 +1,7 @@
 export const Items: {[itemid: string]: ItemData} = {
 	awakeningseed: {
 		name: "Awakening Seed",
-		desc: "If held by a Lutakon, this item changes its forme to Awakened.",
+		shortDesc: "If held by a Lutakon, this item changes its forme to Awakened.",
 		onTakeItem(item, pokemon, source) {
 			return !((source && source.baseSpecies.baseSpecies === 'Lutakon') || pokemon.baseSpecies.baseSpecies === 'Lutakon');
 		},
@@ -32,6 +32,111 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (move.type === 'Water') {
 				this.boost({spe: 2});
 			}
+		},
+	},
+	blunderpolicy: {
+		inherit: true,
+		shortDesc: "Speed +2 if holder misses/is immobilized or target is immune. Single use.",
+		//Basically activates under similar conditions to Stomping Tantrum/Temper Flare boost
+		//So it's in scripts.ts, activating alongside such conditions
+	},
+	protectivepads: {
+		inherit: true,
+		shortDesc: "Recoil/crash moves have x1.2 power (excl. Struggle); Holder protected from adverse contact effects (excl. Pickpocket)",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Protective Pads boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+	},
+	soullink: {
+		name: "Soul-Link",
+		shortDesc: "Passive damage on holder is also inflicted on an opponent. (Prioritizes directly across)",
+		fling: {
+			basePower: 60,
+		},
+		onDamage(damage, target, source, effect) {
+			if (!effect || effect.id === 'struggle' || effect.id === 'soullink') return;
+			if (effect.effectType !== 'Move' || target === source) {
+				const foes = target.foes();
+				if (!foes.length) return;
+				let damageTarget = foes[target.position + target.side.active.length - 1] || this.sample(foes);
+				this.damage(damage, damageTarget, target);
+			}
+		},
+	},
+	hornoplenty: {
+		name: "Horn o' Plenty",
+		shortDesc: "Stockpile if at full HP. (+1 Def/SpD if successful; Max. 3)",
+		fling: {
+			basePower: 10,
+			volatileStatus: 'stockpile',
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(target) {
+			if (target.hp === target.maxhp) {
+				target.addVolatile('stockpile');
+			}
+		},
+	},
+	warpscarf: {
+		name: "Warp Scarf",
+		shortDesc: "End of turn: 50% chance for holder to switch into an ally of choice.",
+		fling: {
+			basePower: 10,
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(target) {
+			if (this.canSwitch(target.side) && !target.switchFlag && this.randomChance(1,2)) {
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
+				}
+				target.switchFlag = true;
+				this.add('-activate', target, 'item: Warp Scarf');
+			}
+		},
+		//manual fling effects
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			move.forceSwitch = true;
+		},
+	},
+	tomeofimagination: {
+		name: "Tome of Imagination",
+		shortDesc: "On PP consumption from user's moves, this item is consumed instead.",
+		fling: {
+			basePower: 20,
+		},
+		//Effects implemented in scripts.ts
+		//manual fling effects
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({
+				chance: 100,
+				onHit(target) {
+					if (!target.hp) return;
+					let targetmove: Move | ActiveMove | null = target.lastMove;
+					if (!targetmove || targetmove.isZ) return;
+					if (targetmove.isMax && targetmove.baseMove) targetmove = this.dex.moves.get(targetmove.baseMove);
+
+					const ppDeducted = target.deductPP(targetmove.id, 4);
+					if (ppDeducted) this.add('-activate', target, 'move: Spite', targetmove.name, ppDeducted);
+				},
+			});
+		},
+		condition: {
+			duration: 1,
+			onResidual(target) {
+				target.removeVolatile('tomeofimagination');
+			},
 		},
 	},
 	
