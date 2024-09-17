@@ -537,6 +537,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (pokemon.volatiles['sugarrush']) {
+				console.log("Man I have the fucking sugar rush");
 				this.boost({spe: -2}, pokemon);
 			}
 		},
