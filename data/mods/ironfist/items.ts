@@ -8,7 +8,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.kunai === undefined) source.kunai = 0;
 			console.log(source.kunai);
-			if (move.category === 'Physical') source.kunai ++;
+			if (move.category !== 'Status') source.kunai ++;
 			else source.kunai = 0;
 			if (source.kunai >= 3) {
 				this.boost({def: 1, spd: 1});
@@ -61,8 +61,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
-			this.add('-message', `baseball this guy`);
-			return null;
+			if (target.useItem()) {
+				this.add('-message', `baseball this guy`);
+				return null;
+			}
 		},
 		onStart(pokemon) {
 			pokemon.trySetStatus('baseball', pokemon);
@@ -130,7 +132,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				balanceBoost.spd = boost.def;
 				activated = true;
 			}
-			if (activated && pokemon.useItem()) {
+			if (activated && target.useItem()) {
 				this.boost(balanceBoost, target, target, null, true);
 			}
 		},
@@ -189,10 +191,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('nervecharm');
 			}
 		},
-		onBeforeMovePriority: 9,
-		onBeforeMove(pokemon) {
+		beforeTurnCallback(pokemon) {
 			if (pokemon.removeVolatile('nervecharm')) {
-				pokemon.addSideCondition('quickguard');
+				console.log("adding quickguard");
+				pokemon.side.addSideCondition('quickguard');
 			}
 			pokemon.addVolatile('nervecharm');
 		},

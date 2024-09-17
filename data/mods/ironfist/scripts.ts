@@ -86,19 +86,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 		addFishingTokens(amount: number) {
+			if(this.fishingTokens === undefined) this.fishingTokens = 0;
 			this.fishingTokens += amount;
-			const word = (amount === 1) ? 'token' : 'tokens';
-			this.battle.add('-message', `${amount} fishing ${word} were added to ${this.name}'s side!`);
+			const word = (amount === 1) ? 'token was' : 'tokens were';
+			this.battle.add('-message', `${amount} fishing ${word} added to ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 		},
 		removeFishingTokens(amount: number) {
+			if(this.fishingTokens === undefined) this.fishingTokens = 0;
 			if (amount > this.fishingTokens) {
 				//this.add('-message', `There weren't enough fishing tokens on the field!`);
 				return false;
 			}
 			this.fishingTokens -= amount;
-			const word = (amount === 1) ? 'token' : 'tokens';
-			this.battle.add('-message', `${amount} fishing ${word} were removed from ${this.name}'s side!`);
+			const word = (amount === 1) ? 'token was' : 'tokens were';
+			this.battle.add('-message', `${amount} fishing ${word} removed from ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 			return true;
 		},

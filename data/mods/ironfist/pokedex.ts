@@ -141,7 +141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Big Crammer",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 89, atk: 93, def: 69, spa: 119, spd: 111, spe: 109},
-		abilities: {0: "Protostatis"},
+		abilities: {0: "Protostasis"},
 	},
 	archeops: {
 		inherit: true,
