@@ -526,8 +526,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	sugarrush: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') {
-				console.log("Source is: " + source);
-				console.log("Target is: " + target);
 				if (!this.boost({spe: 12})) {
 					this.add('-immune', target, '[from] ability: Sugar Rush');
 					target.addVolatile('sugarrush');
@@ -538,8 +536,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.activeTurns && pokemon.volatiles['sugarrush']) {
-				console.log("I'm here!");
+			if (pokemon.volatiles['sugarrush']) {
 				this.boost({spe: -2});
 			}
 		},
