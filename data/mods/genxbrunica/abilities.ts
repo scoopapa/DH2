@@ -1224,28 +1224,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	thoughtful: {
-		shortDesc: "Placeholder, does nothing right now.",
-		/* shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team. 
-		onStart(pokemon) {
+		 shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team.",
+		 onStart(pokemon) {
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				if (!pokemon.side.pokemon[i].fainted) break;
+				if (pokemon.side.pokemon[i] && !pokemon.side.pokemon[i].fainted) break;
 			}
 			
 			if (!pokemon.side.pokemon[i]) return;
 			let chosenTeammate = pokemon.side.pokemon[i];
-			if (pokemon === chosenTeammate) return;
-			if (chosenTeammate.species.num === 493 || chosenTeammate.species.num === 773) return;
+			if (pokemon === chosenTeammate/*) return;
+			if (*/ || [493,773].includes(chosenTeammate.species.num)) return;
 			
 			let newBaseTypes = chosenTeammate.getTypes().filter(type => type !== '???');
-			if (!newBaseTypes.length) return;
-			this.add('-start', pokemon, 'typechange', '[from] ability: Thoughtful');
-			pokemon.setType(newBaseTypes);
+			if (!newBaseTypes.length || !pokemon.setType(newBaseTypes)) return;
+			this.add('-start', pokemon, 'typechange',  newBaseTypes.join('/'), '[from] ability: Thoughtful');
 		},
-		*/
 		name: "Thoughtful",
-		rating: 0.1,
 	},
 	stonehouse: {
 		shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.",
@@ -1273,7 +1268,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onAnyAccuracyPriority: -1,
 		onAnyAccuracy(accuracy, target, source, move) {
-			//If the first condition is met it returns true, otherwise the accuracy is untouched
+			//If the first set of conditions is met it returns true, otherwise the accuracy is untouched
 			return (move && !move.ohko && !target.isGrounded()
 					  && !['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies)
 					  && target.baseSpecies.name !== 'Gengar-Mega'

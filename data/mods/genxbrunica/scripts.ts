@@ -259,11 +259,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "flygon").learnset.shocktail = ["9L1","8L1"];
 		
 		//pichu line
+		*/
 		this.modData("Learnsets", "pichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichualola").learnset.shocktail = ["9L1","8L1"];
-
+		/*
 		//eeveelutions
 		this.modData("Learnsets", "eevee").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "vaporeon").learnset.drainfang = ["9L1","8L1"];
@@ -513,6 +514,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets","fletchinder").learnset.solarblade = ["9L1"];
 		this.modData("Learnsets","talonflame").learnset.airdive = ["9L1"];
 		this.modData("Learnsets","talonflame").learnset.solarblade = ["9L1"];
+		
+		//meowth line
+		this.modData("Learnsets","meowth").learnset.confuseray = ["9L1"];
+		this.modData("Learnsets","persian").learnset.confuseray = ["9L1"];
+		
+		//ralts family
+		this.modData("Learnsets","kirlia").learnset.healingnature = ["9L1"];
+		this.modData("Learnsets","gardevoir").learnset.healingnature = ["9L1"];
+		this.modData("Learnsets","gallade").learnset.healingnature = ["9L1"];
 		
 	},
 	runAction(action) {
@@ -931,6 +941,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!willTryMove) {
 				this.battle.runEvent('MoveAborted', pokemon, target, move);
 				this.battle.clearActiveMove(true);
+				if (willTryMove === false && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
 				// The event 'BeforeMove' could have returned false or null
 				// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
 				// null indicates the opposite, as the Pokemon didn't have an option to choose anything
@@ -946,6 +959,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (move.beforeMoveCallback && move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
 				this.battle.clearActiveMove(true);
 				pokemon.moveThisTurnResult = false;
+				if (pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
 				return;
 			}
 			pokemon.lastDamage = 0;
@@ -955,11 +971,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (lockedMove === true) lockedMove = false;
 				if (lockedMove) {
 					sourceEffect = this.dex.conditions.get('lockedmove');	
-				} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
-					this.battle.add('cant', pokemon, 'nopp', move);
-					this.battle.clearActiveMove(true);
-					pokemon.moveThisTurnResult = false;
-					return;
+				} else {
+					const usedTomeOfImagination = pokemon.hasItem('tomeofimagination') && move.id !== 'fling' && pokemon.useItem();
+					if (usedTomeOfImagination) {
+						this.battle.add('-activate', pokemon, 'item: Tome of Imagination');
+						this.battle.add('-message', `${pokemon.name} used its Tome of Imagination to preserve its move's PP!`);
+						pokemon.addVolatile('tomeofimagination');
+					} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+						this.battle.add('cant', pokemon, 'nopp', move);
+						this.battle.clearActiveMove(true);
+						pokemon.moveThisTurnResult = false;
+						if (pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+							this.battle.boost({spe: 2}, pokemon);
+						}
+						return;
+					}
 				}
 				pokemon.moveUsed(move, targetLoc);
 			}
@@ -1040,7 +1066,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			pokemon.moveThisTurnResult = undefined;
 			const oldMoveResult: boolean | null | undefined = pokemon.moveThisTurnResult;
 			const moveResult = this.useMoveInner(move, pokemon, target, sourceEffect, zMove, maxMove, balmMove);
-			if (oldMoveResult === pokemon.moveThisTurnResult) pokemon.moveThisTurnResult = moveResult;
+			if (oldMoveResult === pokemon.moveThisTurnResult) {
+				pokemon.moveThisTurnResult = moveResult;
+				if (moveResult === false && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
+			}
 			return moveResult;
 		},
 		useMoveInner(
@@ -1123,7 +1154,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (!target) {
 				this.battle.attrLastMove('[notarget]');
-				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail' /*: '-notarget', pokemon*/);
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail' /*: '-notarget'*/, pokemon);
 				return false;
 			}
 
@@ -1131,18 +1162,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (targets.length) {
 				target = targets[targets.length - 1]; // in case of redirection
 			}
-
-			const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
-			if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
-				let extraPP = 0;
-				for (const source of pressureTargets) {
-					const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
-					if (ppDrop !== true) {
-						extraPP += ppDrop || 0;
+			if (!source.hasItem('tomeofimagination') && !source.volatiles['tomeofimagination']) {
+				const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
+				if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
+					let extraPP = 0;
+					for (const source of pressureTargets) {
+						const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
+						if (ppDrop !== true) {
+							extraPP += ppDrop || 0;
+						}
 					}
-				}
-				if (extraPP > 0) {
-					pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					if (extraPP > 0) {
+						pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					}
 				}
 			}
 
@@ -1174,7 +1206,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				moveResult = this.trySpreadMoveHit(targets, pokemon, move);
 			} else {
 				this.battle.attrLastMove('[notarget]');
-				this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail'/* : '-notarget'*/, pokemon);
 				return false;
 			}
 			if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
