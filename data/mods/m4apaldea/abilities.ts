@@ -504,4 +504,45 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -28,
 	},
+	twinheart: {
+		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Farigiraf-Mega' || attacker.transformed) return;
+			if (move.category === 'Status') return;
+			const targetForme = (move.category === 'Special' ? 'Farigiraf-Mega' : 'Farigiraf-Mega-Nocturnal');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			const newatk = attacker.storedStats.spa;
+			const newspa = attacker.storedStats.atk;
+			attacker.storedStats.atk = newatk;
+			attacker.storedStats.spa = newspa;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Twin Heart",
+		rating: 4,
+		num: -29,
+	},
+	sugarrush: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				if (!this.boost({spe: 12})) {
+					this.add('-immune', target, '[from] ability: Sugar Rush');
+					target.addVolatile('sugarrush');
+				}
+				return null;
+			}
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns && pokemon.volatiles['sugarrush']) {
+				this.boost({spe: -2});
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sugar Rush",
+		shortDesc: "When hit by a fairy type move, gain +12 speed, which will then decrease by 2 stages at the end of every turn until the user switches out. Fairy Immunity.",
+		rating: 3,
+		num: -30,
+	},
 };

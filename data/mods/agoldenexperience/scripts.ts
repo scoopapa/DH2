@@ -1544,6 +1544,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'stakataka').learnset.zawall = ['9M'];
     this.modData('Learnsets', 'blacephalon').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'blacephalon').learnset.shadowsneak = ['9L1'];
+    this.modData('Learnsets', 'naganadel').learnset.roost = ['9L1'];
+    delete this.modData('Learnsets', 'naganadel').learnset.nastyplot;
 
     // Gen 8:
     this.modData('Learnsets', 'inteleon').learnset.aurasphere = ['9M'];

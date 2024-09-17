@@ -209,14 +209,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Cetitan, this item allows it to Mega Evolve in battle.",
 	},
-	ninetalinite: {
-		name: "Ninetalinite",
+	ninetalesite: {
+		name: "Ninetalesite",
 		spritenum: 578,
 		megaStone: "Ninetales-Mega",
 		megaEvolves: "Ninetales",
 		itemUser: ["Ninetales"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name.startsWith('Ninetales')) return false;
 			return true;
 		},
 		num: -2016,
@@ -334,5 +334,47 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -2024,
 		gen: 8,
 		desc: "If held by a Ogerpon, this item allows it to Mega Evolve in battle.",
+	},
+	dugtrionite: {
+		name: "Dugtrionite",
+		spritenum: 578,
+		megaStone: "Dugtrio-Mega-Alola",
+		megaEvolves: "Dugtrio-Alola",
+		itemUser: ["Dugtrio-Alola"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2025,
+		gen: 8,
+		desc: "If held by a Dugtrio-Alola, this item allows it to Mega Evolve in battle.",
+	},
+	farigirafite: {
+		name: "Farigirafite",
+		spritenum: 578,
+		megaStone: "Farigiraf-Mega",
+		megaEvolves: "Farigiraf",
+		itemUser: ["Farigiraf"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2026,
+		gen: 8,
+		desc: "If held by a Farigiraf, this item allows it to Mega Evolve in battle.",
+	},
+	hydrapplinite: {
+		name: "Hydrapplinite",
+		spritenum: 578,
+		megaStone: "Hydrapple-Mega",
+		megaEvolves: "Hydrapple",
+		itemUser: ["Hydrapple"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2027,
+		gen: 8,
+		desc: "If held by a Hydrapple, this item allows it to Mega Evolve in battle.",
 	},
 };

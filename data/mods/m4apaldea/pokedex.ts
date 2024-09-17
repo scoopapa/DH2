@@ -277,7 +277,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaName: "Ninetales-Mega",
 		megaAbility: {0: "Wandering Spirit"},
 		megaStats: {hp: 73, atk: 76, def: 105, spa: 101, spd: 130, spe: 120},
-		megaStone: "Ninetalinite",
+		megaStone: "Ninetalesite",
 		megaCreator: "DrPumpkinz",
 	},
 
@@ -369,6 +369,71 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaAbility: {0: "Masquerade"},
 		megaStats: {hp: 80, atk: 135, def: 134, spa: 70, spd: 116, spe: 115},
 		megaStone: "Ogerponite",
+		megaCreator: "jazzmat",
+	},
+
+	// slate 8
+
+	dugtrioalola: {
+		inherit: true,
+		mega: "dugtrioalolamega",
+		megaName: "Dugtrio-Alola-Mega",
+		megaType: ["Ground", "Steel"],
+		megaAbility: {0: "Fur Coat"},
+		megaStats: {hp: 35, atk: 110, def: 110, spa: 60, spd: 80, spe: 130},
+		megaStone: "Dugtrionite",
+		movepoolAdditions: ["painsplit", "thunderwave", "taunt"],
+		megaCreator: "LordThemberchaud",
+	},
+
+	farigiraf: {
+		inherit: true,
+		otherFormes: [
+			"Farigiraf-Mega", "Farigiraf-Mega-Nocturnal"
+		],
+		formeOrder: [
+			"Farigiraf", "Farigiraf-Mega", "Farigiraf-Mega-Nocturnal"
+		],
+		movepoolAdditions: ["superpower"],
+	},
+	farigirafmega: {
+		num: 981,
+		name: "Farigiraf-Mega",
+		baseSpecies: "Farigiraf",
+		forme: "Mega",
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
+		abilities: {0: "Twin Heart"},
+		heightm: 1.8,
+		weightkg: 50,
+		prevo: "Girafarig",
+		eggGroups: ["Field"],
+		megaCreator: "Lysion",
+	},
+	farigirafmeganocturnal: {
+		num: 981,
+		name: "Farigiraf-Mega-Nocturnal",
+		baseSpecies: "Farigiraf",
+		forme: "Mega-Nocturnal",
+		types: ["Normal", "Dark"],
+		baseStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
+		abilities: {0: "Twin Heart"},
+		heightm: 1.8,
+		weightkg: 50,
+		eggGroups: ["Field"],
+		requiredAbility: "Twin Heart",
+		battleOnly: "Farigiraf-Mega",
+		megaCreator: "Lysion",
+	},
+
+	hydrapple: {
+		inherit: true,
+		mega: "hydrapplemega",
+		megaName: "Hydrapple-Mega",
+		megaType: ["Grass", "Dragon"],
+		megaAbility: {0: "Sugar Rush"},
+		megaStats: {hp: 106, atk: 100, def: 150, spa: 130, spd: 110, spe: 44},
+		megaStone: "Hydrapplinite",
 		megaCreator: "jazzmat",
 	},
 };
