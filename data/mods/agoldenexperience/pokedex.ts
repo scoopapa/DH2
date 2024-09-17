@@ -1012,9 +1012,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 68, atk: 75, def: 65, spa: 165, spd: 135, spe: 110},
 	},
+	surskit: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 30, def: 32, spa: 50, spd: 52, spe: 65},
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Rain Dish"},
+	},
 	masquerain: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 60, def: 62, spa: 100, spd: 82, spe: 96},
+		baseStats: {hp: 75, atk: 60, def: 62, spa: 100, spd: 82, spe: 106},
+		abilities: {0: "Intimidate", 1: "Drizzle", H: "Unnerve"},
 	},
 	ninjask: {
 		inherit: true,
@@ -1526,10 +1532,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 103, atk: 93, def: 77, spa: 51, spd: 71, spe: 84},
 		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Keen Eye"},
-	},
-	bronzong: {
-		inherit: true,
-		abilities: {0: "Levitate", 1: "Heatproof", H: "Drizzle"},
 	},
 	chatot: {
 		inherit: true,
