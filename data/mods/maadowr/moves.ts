@@ -1297,6 +1297,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
+		shortDesc: "Priority against a poisoned target.",
 		name: "Reactive Poison", 
 		pp: 20,  
 		priority: 0, 
