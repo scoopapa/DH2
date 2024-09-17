@@ -508,10 +508,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.baseSpecies !== 'Farigiraf-Mega' || attacker.transformed) return;
+			if (attacker.species.baseSpecies !== 'Farigiraf' || attacker.transformed) return;
 			if (move.category === 'Status') return;
 			const targetForme = (move.category === 'Special' ? 'Farigiraf-Mega' : 'Farigiraf-Mega-Nocturnal');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 			const newatk = attacker.storedStats.spa;
 			const newspa = attacker.storedStats.atk;
 			attacker.storedStats.atk = newatk;
@@ -527,7 +528,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && move.type === 'Fairy') {
 				if (!this.boost({spe: 12})) {
 					this.add('-immune', target, '[from] ability: Sugar Rush');
-					target.addVolatile('sugarrush');
+					source.addVolatile('sugarrush');
 				}
 				return null;
 			}

@@ -406,7 +406,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Twin Heart"},
 		heightm: 1.8,
 		weightkg: 50,
-		prevo: "Girafarig",
 		eggGroups: ["Field"],
 		megaCreator: "Lysion",
 	},
