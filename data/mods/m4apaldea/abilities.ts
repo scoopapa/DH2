@@ -528,8 +528,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && move.type === 'Fairy') {
 				if (!this.boost({spe: 12})) {
 					this.add('-immune', target, '[from] ability: Sugar Rush');
-					target.addVolatile('sugarrush');
 				}
+				target.addVolatile('sugarrush');
 				return null;
 			}
 		},
