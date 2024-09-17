@@ -3303,8 +3303,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (boost[i]! < 0) {
 					let stats: BoostID[] = [];
 					let statPlus: BoostID;
-					for (statPlus in pokemon.boosts) {
-						if (!['accuracy','evasion'].includes(statPlus) && pokemon.boosts[statPlus] < 6) {
+					for (statPlus in target.boosts) {
+						if (!['accuracy','evasion'].includes(statPlus) && target.boosts[statPlus] < 6) {
 							stats.push(statPlus);
 						}
 					}

@@ -131,7 +131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             pokemon.formeChange(this.sample(pokemons));
             const randomNumber = this.random(names.length);
             pokemon.side.name = names[randomNumber];
-            pokemon.side.avatar = avatars[randomNumbers];
+            pokemon.side.avatar = avatars[randomNumber];
         },
         flags: {},
         name: "Identity Crisis",

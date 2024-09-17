@@ -204,6 +204,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 1.0,
 	},
 	zaciancrowned: {
+		inherit: true,
 		forme: null,
 		requiredItem: null,
 		battleOnly: null,
