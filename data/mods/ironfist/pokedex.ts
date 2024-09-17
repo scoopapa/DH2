@@ -45,7 +45,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Bramblin",
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 75, atk: 125, def: 60, spa: 75, spd: 70, spe: 120},
-		abilities: {0: "Wind Rider", 1: "dt air slash", H: "Infiltrator"},
+		abilities: {0: "Wind Rider", 1: "!dt air slash", H: "Infiltrator"},
 	},
 	anarlvet: {
 		num: 1007,
