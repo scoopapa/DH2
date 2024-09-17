@@ -525,6 +525,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	sugarrush: {
 		onTryHit(target, source, move) {
+			console.log("Source is: " + source);
+			console.log("Target is: " + target);
 			if (target !== source && move.type === 'Fairy') {
 				if (!this.boost({spe: 12})) {
 					this.add('-immune', target, '[from] ability: Sugar Rush');
