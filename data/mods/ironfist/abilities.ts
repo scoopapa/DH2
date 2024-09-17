@@ -5,8 +5,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Ultra Luck",
-		rating: 1.5,
-		num: 105,
+		shortDesc: "This Pokemon's moves have +3 crit ratio.",
 	},
     degenerator: {
 		onSwitchOut(pokemon) {
@@ -27,8 +26,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "!dt air slash",
-		rating: 5,
-		num: 283,
+		shortDesc: "This Pokemon is immune to most Flying-type moves.",
 	},
   	alphasigmarizz: {
 		onAllyTryAddVolatile(status, target, source, effect) {
@@ -121,8 +119,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         shortDesc: "At the end of each turn, change this Pokemon and its side's name and avatar to a random one.",
     },
 	auctorwile: {
-		onDamagingHit(damage, target, source, effect) {
-			if(effect.effectType === 'Move' && effect.name === 'Double Iron Bash') this.damage(source.baseMaxhp / 4, source, target);
+		onDamagingHit(damage, target, source, move) {
+			if(effect.effectType === 'Move' && move.flags['punch']) this.damage(source.baseMaxhp / 4, source, target);
 		},
 		flags: {},
 		name: "Auctor Wile",
