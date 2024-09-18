@@ -5,20 +5,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Ultra Luck",
-		rating: 1.5,
-		num: 105,
+		shortDesc: "This Pokemon's moves have +3 crit ratio.",
 	},
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-					this.damage(target.baseMaxhp * 0.31);
+				this.damage(target.baseMaxhp * 0.30, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 31% of their max HP.",
-		rating: 1.5,
-		num: 119,
+		shortDesc: "When the user switches out, damage active opponents by 30% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
@@ -29,8 +26,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "!dt air slash",
-		rating: 5,
-		num: 283,
+		shortDesc: "This Pokemon is immune to most Flying-type moves.",
 	},
   	alphasigmarizz: {
 		onAllyTryAddVolatile(status, target, source, effect) {
@@ -55,33 +51,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This pokemon can't get infatuated, taunted, heal blocked, or statused.",
 	},
 	perfectionist: {
-		onBasePowerPriority: 30,
-		onBasePower(basePower, attacker, defender, move) {
-			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+		onModifyMove(move, pokemon) {
+			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
 				this.debug('Perfectionist boost');
-				return this.chainModify(1.5);
-			}
-		},
-      		onAnyInvulnerabilityPriority: 1,
-		onAnyInvulnerability(target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
-		},
-		onAnyAccuracy(accuracy, target, source, move) {
-			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			this.debug('Base Power: ' + basePowerAfterMultiplier);
-			if (basePowerAfterMultiplier <= 60) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) {
-				return true;
-			}
-			return accuracy;
+				move.basePower *= 1.5;
+				move.accuracy = true;
 			}
 		},
 		flags: {},
 		name: "Perfectionist",
-		rating: 3.5,
-		num: 101,
+		shortDesc: "This Pokemon's moves of 60 power or less have 1.5x power and can't miss.",
 	},
     justalittleguy: {
 		onSourceModifyAtkPriority: 6,
@@ -110,7 +91,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				ownspe += pokemon.getStat('spe', false, true);
 				foespe += target.getStat('spe', false, true);
 			}
-			if (foespe >= ownspe) {
+			if (foespe > ownspe) {
 				this.boost({atk: 1});
 			} 
 		},
@@ -138,8 +119,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         shortDesc: "At the end of each turn, change this Pokemon and its side's name and avatar to a random one.",
     },
 	auctorwile: {
-		onDamagingHit(damage, target, source, effect) {
-			if(effect.effectType === 'Move' && effect.name === 'Double Iron Bash') this.damage(source.baseMaxhp / 4, source, target);
+		onDamagingHit(damage, target, source, move) {
+			if(effect.effectType === 'Move' && move.flags['punch']) this.damage(source.baseMaxhp / 4, source, target);
 		},
 		flags: {},
 		name: "Auctor Wile",
@@ -333,13 +314,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	prismwings: {
 		onStart(pokemon) {
-			const allTypes = this.dex.deepClone(this.dex.types.all());
-			pokemon.setType(allTypes);
-			this.add('-start', pokemon, 'typechange', allTypes.join('/'), '[from] ability: Prism Wings');
+			pokemon.addVolatile('prismwings');
+		},
+		condition: {
+			noCopy: true,
+			duration: 1,
+			onStart(pokemon) {
+				const allTypes = this.dex.deepClone(this.dex.types.all());
+				pokemon.setType(allTypes);
+				this.add('-start', pokemon, 'typechange', allTypes.join('/'), '[from] ability: Prism Wings');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
 		},
 		flags: {},
 		name: "Prism Wings",
-		shortDesc: "On switch-in, this Pokemon is all types.",
+		shortDesc: "On switch-in, this Pokemon is all types for one turn.",
 	},
 	steeldrummer: {
 		onTryHitPriority: 1,
@@ -350,7 +341,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.actions.useMove(newMove, target, {target: source});
+			this.actions.useMove(newMove, target, source);
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -360,7 +351,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.actions.useMove(newMove, this.effectState.target, {target: source});
+			this.actions.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {

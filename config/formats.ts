@@ -766,7 +766,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'ironfist',
 		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

@@ -1,14 +1,13 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	kunai: {
 		name: "Kunai",
-		spritenum: 581,
 		fling: {
 			basePower: 90,
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.kunai === undefined) source.kunai = 0;
 			console.log(source.kunai);
-			if (move.category === 'Physical') source.kunai ++;
+			if (move.category !== 'Status') source.kunai ++;
 			else source.kunai = 0;
 			if (source.kunai >= 3) {
 				this.boost({def: 1, spd: 1});
@@ -22,7 +21,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	fishhook: {
 		name: "Fish Hook",
-		spritenum: 249,
 		fling: {
 			basePower: 90,
 		},
@@ -53,7 +51,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	baseball: {
 		name: "Baseball",
-		spritenum: 581,
+		spritenum: 606,
 		fling: {
 			basePower: 10,
 			status: 'baseball',
@@ -61,15 +59,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
-			this.add('-message', `baseball this guy`);
-			return null;
+			if (target.useItem()) {
+				this.add('-message', `baseball this guy`);
+				return null;
+			}
 		},
 		onStart(pokemon) {
 			pokemon.trySetStatus('baseball', pokemon);
 		},
 		num: 640,
 		gen: 6,
-		shortDesc: 'When switching in, any attacker gets Baseballed.',
+		shortDesc: 'When switching in, any attacker gets Baseballed. Single use.',
 		rating: 3,
 	},
 	ironfist: {
@@ -108,8 +108,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	balanceboard: {
 		name: "Balance Board",
-		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised and item is consumed.",
+		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
 		spritenum: 716,
+		rating: 3,
 		onAfterBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'balanceboard') return;
 			let activated = false;
@@ -130,7 +131,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				balanceBoost.spd = boost.def;
 				activated = true;
 			}
-			if (activated && pokemon.useItem()) {
+			if (activated && target.useItem()) {
 				this.boost(balanceBoost, target, target, null, true);
 			}
 		},
@@ -145,6 +146,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Bucket Hat",
 		shortDesc: "On switchin, the holder consumes a Fishing Token to restore 1/4 max HP.",
 		spritenum: 236,
+		rating: 3,
 		onSwitchIn(pokemon) {
 			if (pokemon.hp != pokemon.baseMaxhp && pokemon.side.removeFishingTokens(1)) {
 				this.heal(pokemon.baseMaxhp / 4);
@@ -153,8 +155,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	jarofmercury: {
 		name: "Jar of Mercury",
-		shortDesc: "If the holder were to be hit by DIB, use item to lower attacker's stats by 1.",
+		shortDesc: "If the holder were to be hit by DIB, lowers attacker's stats by 1.  Single use.",
 		spritenum: 761,
+		rating: 3,
 		fling: {
 			basePower: 10,
 			boosts: {
@@ -178,7 +181,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	nervecharm: {
 		name: "Nerve Charm",
 		shortDesc: "Every other turn, the holder sets Quick Guard.",
-		spritenum: 761,
+		rating: 3,
 		fling: {
 			basePower: 40,
 			priority: 1,
@@ -189,10 +192,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('nervecharm');
 			}
 		},
-		onBeforeMovePriority: 9,
-		onBeforeMove(pokemon) {
+		beforeTurnCallback(pokemon) {
 			if (pokemon.removeVolatile('nervecharm')) {
-				pokemon.addSideCondition('quickguard');
+				console.log("adding quickguard");
+				pokemon.side.addSideCondition('quickguard');
 			}
 			pokemon.addVolatile('nervecharm');
 		},
@@ -201,12 +204,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	cornerstonemask: {
 		inherit: true,
 		shortDesc: "Ougayporn-Comerstone: 1.2x power attacks.",
+		rating: 3,
 		onTakeItem(item, source) {
-			//if (source.baseSpecies.baseSpecies === 'Ougayporn-Comerstone') return false;
+			if (source.baseSpecies.baseSpecies === 'Ougayporn-Comerstone') return false;
 			return true;
 		},
-		//forcedForme: "Ougayporn-Comerstone",
-		//itemUser: ["Ougayporn-Comerstone"],
+		forcedForme: "Ougayporn-Comerstone",
+		itemUser: ["Ougayporn-Comerstone"],
 	},
 	electrodite: {
 		name: "Electrodite",

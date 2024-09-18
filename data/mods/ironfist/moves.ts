@@ -242,11 +242,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				def: -1,
 			},
 		},
-		onModifyMove(pokemon, move) {
+		onModifyMove(move, pokemon) {
 			for (const target of pokemon.foes()) {
-				if (target.name === 'Goomba') {
-					move.ohko = true;
-				}
+				if (target.baseSpecies == "Goomba")  move.ohko = true;
 			}
 		},
 		target: "normal",

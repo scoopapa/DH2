@@ -45,7 +45,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Bramblin",
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 75, atk: 125, def: 60, spa: 75, spd: 70, spe: 120},
-		abilities: {0: "Wind Rider", 1: "dt air slash", H: "Infiltrator"},
+		abilities: {0: "Wind Rider", 1: "!dt air slash", H: "Infiltrator"},
 	},
 	anarlvet: {
 		num: 1007,
@@ -141,7 +141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Big Crammer",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 89, atk: 93, def: 69, spa: 119, spd: 111, spe: 109},
-		abilities: {0: "Protostatis"},
+		abilities: {0: "Protostasis"},
 	},
 	archeops: {
 		inherit: true,
