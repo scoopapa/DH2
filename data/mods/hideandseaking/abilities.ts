@@ -3308,18 +3308,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	powerofalchemy: {
-		onAllyFaint(target) {
-			if (!this.effectState.target.hp) return;
-			const ability = target.getAbility();
-			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
-			if (this.effectState.target.setAbility(ability)) {
-				this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			}
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		flags: {},
 		name: "Power of Alchemy",
 		rating: 0,
 		num: 223,
+		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
 	},
 	powerspot: {
 		onAllyBasePowerPriority: 22,
