@@ -189,6 +189,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.category === 'Status') return;
 			const targetForme = (move.category === 'Special' ? 'Girafatak' : 'Girafatak-Nocturnal');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			const newatk = attacker.storedStats.spa;
+			const newspa = attacker.storedStats.atk;
+			attacker.storedStats.atk = newatk;
+			attacker.storedStats.spa = newspa;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Double Spirit",

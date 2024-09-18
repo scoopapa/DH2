@@ -676,4 +676,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	terapagos: {tier: "Paldea", doublesTier: "Paldea"},
 
+	farigirafmega: {tier: "Mega"},
+	farigirafmeganocturnal: {tier: "Mega"},
+
 };
