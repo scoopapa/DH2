@@ -107,6 +107,10 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 				pikachu: '100,000 Volt Kahuna Wave',
 				raichu: '100,000 Volt Kahuna Wave',
 				raichualola: '100,000 Volt Kahuna Wave',
+				azdharsha: 'Furious Flare',
+				icypenser: 'Cryptic Chill',
+				adoraboa: 'Sneaky Squeeze',
+				sagachelys: 'Pearl of Wisdom',
 			};
 			const species = target.species.id;
 			//...All this to adjust the PP. 

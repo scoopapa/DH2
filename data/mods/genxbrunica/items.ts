@@ -139,6 +139,54 @@ export const Items: {[itemid: string]: ItemData} = {
 			},
 		},
 	},
+	ruggedscale: {
+		name: "Rugged Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 30, boosts: {def: -1}});
+		},
+		shortDesc: "Evolves Squamsy into Azdharsha when traded.",
+	},
+	serenescale: {
+		name: "Serene Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 10, status: 'frz'});
+		},
+		shortDesc: "Evolves Frydgety into Icypenser when traded.",
+	},
+	darlingscale: {
+		name: "Darling Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 30, boosts: {spd: -1}});
+		},
+		shortDesc: "Evolves Loathon into Adoraboa when traded.",
+	},
+	agedscale: {
+		name: "Aged Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 30, volatileStatus: 'flinch'});
+		},
+		shortDesc: "Evolves Doltoise into Sagachelys when traded.",
+	},
 	
 	//Type Balms
 	normalbalm: {

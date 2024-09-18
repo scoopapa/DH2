@@ -967,6 +967,47 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	canlumi: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	paynaimo: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	squamsy: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	azdharsha: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	frydgety: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	icypenser: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	loathon: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	adoraboa: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	doltoise: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	sagachelys: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+
 
 
 	akulut: {
