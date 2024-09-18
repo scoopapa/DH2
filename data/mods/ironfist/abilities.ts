@@ -10,12 +10,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp * 0.31, target, pokemon);
+				this.damage(target.baseMaxhp * 0.30, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 31% of their max HP.",
+		shortDesc: "When the user switches out, damage active opponents by 30% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
