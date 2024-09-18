@@ -1297,6 +1297,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
+		shortDesc: "Priority against a poisoned target.",
 		name: "Reactive Poison", 
 		pp: 20,  
 		priority: 0, 
@@ -1470,7 +1471,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: 'Exhume',
 		pp: 8, // this should be fine since this move can only be called through an Engraving effect, which doesn't max pp
 		priority: 0,
-		flags: {protect: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1},
+		flags: {protect: 1, failencore: 1, failmefirst: 1, noassist: 1, failcopycat: 1, failmimic: 1, nosketch: 1},
 		onTryHit(target, source, move) {
 			// Find the last fainted Dark-type Pokémon on the user's team
 			const faintedDarkTypes = source.side.pokemon.filter(p => p.fainted && p.hasType('Dark'));
