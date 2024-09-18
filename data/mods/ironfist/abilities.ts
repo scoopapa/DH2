@@ -91,7 +91,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				ownspe += pokemon.getStat('spe', false, true);
 				foespe += target.getStat('spe', false, true);
 			}
-			if (foespe >= ownspe) {
+			if (foespe > ownspe) {
 				this.boost({atk: 1});
 			} 
 		},
@@ -314,13 +314,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	prismwings: {
 		onStart(pokemon) {
-			const allTypes = this.dex.deepClone(this.dex.types.all());
-			pokemon.setType(allTypes);
-			this.add('-start', pokemon, 'typechange', allTypes.join('/'), '[from] ability: Prism Wings');
+			pokemon.addVolatile('prismwings');
+		},
+		condition: {
+			noCopy: true,
+			duration: 1,
+			onStart(pokemon) {
+				const allTypes = this.dex.deepClone(this.dex.types.all());
+				pokemon.setType(allTypes);
+				this.add('-start', pokemon, 'typechange', allTypes.join('/'), '[from] ability: Prism Wings');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
 		},
 		flags: {},
 		name: "Prism Wings",
-		shortDesc: "On switch-in, this Pokemon is all types.",
+		shortDesc: "On switch-in, this Pokemon is all types for one turn.",
 	},
 	steeldrummer: {
 		onTryHitPriority: 1,
