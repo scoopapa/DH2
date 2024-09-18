@@ -394,4 +394,156 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -26,
 	},
+	congestion: {
+		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
+		shortDesc: "Status moves don't effect until the user switches out.",
+		onBeforeMove(source, target, move) {
+			if (
+				move && move.category === 'Status' && source.hasAbility('congestion') &&
+				source.side.addSlotCondition(source, 'congestion')
+			) {
+				Object.assign(source.side.slotConditions[source.position]['congestion'], {
+					source: source,
+					target: null,
+					move: move,
+					position: target.position,
+					side: target.side,
+					moveData: this.dex.moves.get(move),
+				});
+				this.add('-ability', source, 'Congestion');
+				this.add('-message', `${source.name} will cast ${move.name} when it goes!`);
+				source.deductPP(move.id, 1);
+				return null;
+			}
+		},
+		condition: {
+			onResidualOrder: 3,
+			onSwitchOut(target) {
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get(data.move);
+				this.add('-ability', this.effectState.source, 'Congestion');
+				if (!data.target) {
+					this.hint(`${move.name} did not hit because there was no target.`);
+					return;
+				}
+
+				this.add('-message', `${this.effectState.source.name}'s ${move.name} took effect!`);
+				data.target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+				data.moveData.isFutureMove = true;
+				delete data.moveData.flags['contact'];
+				delete data.moveData.flags['protect'];
+
+				if (move.category === 'Status') {
+					this.actions.useMove(move, target, data.target);
+				}
+			},
+		},
+		name: "Congestion",
+		rating: 3,
+		num: -27,
+	},
+	masquerade: {
+		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
+		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp || pokemon.volatiles['masquerade']) return;
+			pokemon.addVolatile('masquerade');
+			let i;
+			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				if (!pokemon.side.pokemon[i]) continue;
+				const additionalBannedAbilities = [
+					'noability', 'flowergift', 'forecast', 'hugepower', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas',
+					'powerofalchemy', 'purepower', 'receiver', 'trace', 'wonderguard',
+				];
+				if (
+					pokemon.side.pokemon[i].fainted ||
+					pokemon.side.pokemon[i].getAbility().flags['notrace'] || additionalBannedAbilities.includes(pokemon.side.pokemon[i].ability)
+				) {
+					continue;
+				}
+				break;
+			}
+			if (!pokemon.side.pokemon[i] || pokemon === pokemon.side.pokemon[i]) {
+				this.effectState.gaveUp = true;
+				return;
+			}
+			const masquerade = pokemon.side.pokemon[i];
+			this.add('-ability', pokemon, 'Masquerade');
+			pokemon.setAbility(masquerade.ability);
+			this.hint(`${pokemon.name} inherited ${this.dex.abilities.get(pokemon.ability).name} from ${masquerade.name}!`);
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name, '[silent]');
+		},
+		condition: {
+			onDamagingHit(damage, target, source, move) {
+				this.effectState.busted = true;
+			},
+			onFaint(pokemon) {
+				this.effectState.busted = true;
+			},
+			onUpdate(pokemon) {
+				if (pokemon.hasAbility('masquerade')) return;
+				if (this.effectState.busted) {
+					this.add('-ability', pokemon, 'Masquerade');
+					this.add('-message', `${pokemon.name}'s Masquerade wore off!`);
+					pokemon.setAbility('masquerade');
+				}
+			},
+		},
+		name: "Masquerade",
+		rating: 3,
+		num: -28,
+	},
+	twinheart: {
+		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Farigiraf' || attacker.transformed) return;
+			if (move.category === 'Status') return;
+			const targetForme = (move.category === 'Special' ? 'Farigiraf-Mega' : 'Farigiraf-Mega-Nocturnal');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
+			const newatk = attacker.storedStats.spa;
+			const newspa = attacker.storedStats.atk;
+			attacker.storedStats.atk = newatk;
+			attacker.storedStats.spa = newspa;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Twin Heart",
+		rating: 4,
+		num: -29,
+	},
+	sugarrush: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				if (!this.boost({spe: 12})) {
+					this.add('-immune', target, '[from] ability: Sugar Rush');
+				}
+				target.addVolatile('sugarrush');
+				return null;
+			}
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['sugarrush']) {
+				this.boost({spe: -2}, pokemon);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sugar Rush",
+		shortDesc: "When hit by a fairy type move, gain +12 speed, which will then decrease by 2 stages at the end of every turn until the user switches out. Fairy Immunity.",
+		rating: 3,
+		num: -30,
+	},
 };

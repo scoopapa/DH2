@@ -8,6 +8,7 @@
  */
 
 import {Dex, toID} from './dex';
+import type {MoveSource} from './dex-species';
 import {Utils} from '../lib';
 import {Tags} from '../data/tags';
 import {Teams} from './teams';
@@ -102,6 +103,10 @@ export class PokemonSources {
 	 */
 	pomegEventEgg?: string | null;
 	/**
+	 * For event-only Pokemon that do not have a minimum source gen identified by its moves
+	 */
+	eventOnlyMinSourceGen?: number;
+	/**
 	 * Some Pokemon evolve by having a move in their learnset (like Piloswine
 	 * with Ancient Power). These can only carry three other moves from their
 	 * prevo, because the fourth move must be the evo move. This restriction
@@ -151,6 +156,7 @@ export class PokemonSources {
 		this.limitedEggMoves = null;
 	}
 	minSourceGen() {
+		if (this.eventOnlyMinSourceGen) return this.eventOnlyMinSourceGen;
 		if (this.sourcesBefore) return this.sourcesAfter || 1;
 		let min = 10;
 		for (const source of this.sources) {
@@ -687,7 +693,7 @@ export class TeamValidator {
 			if (dex.gen === 4 && item.id === 'griseousorb' && species.num !== 487) {
 				problems.push(`${set.name} cannot hold the Griseous Orb.`, `(In Gen 4, only Giratina could hold the Griseous Orb).`);
 			}
-			if (dex.gen <= 1) {
+			if (dex.gen <= 1 || dex.currentMod === 'gen7letsgo') {
 				if (item.id) {
 					// no items allowed
 					set.item = '';
@@ -830,16 +836,20 @@ export class TeamValidator {
 
 		let moveProblems;
 		if (ruleTable.has('obtainablemoves')) {
-			if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
-			moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
-			problems.push(...moveProblems);
+			if (this.dex.currentMod !== 'moderngen3' && this.dex.currentMod !== 'moderngen4' && this.dex.currentMod !== 'gen3tradebacks' && this.dex.currentMod !== 'gen3plus' && this.dex.currentMod !== 'gen3hoennification') {
+				moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
+				problems.push(...moveProblems);
+			}
 		}
 
 		let eventOnlyData;
 
 		if (!setSources.sourcesBefore && setSources.sources.length) {
+			let skippedEggSource = true;
 			const legalSources = [];
 			for (const source of setSources.sources) {
+				if (['2E', '3E'].includes(source) && set.level < 5) continue;
+				skippedEggSource = false;
 				if (this.validateSource(set, source, setSources, outOfBattleSpecies)) continue;
 				legalSources.push(source);
 			}
@@ -855,8 +865,12 @@ export class TeamValidator {
 				}
 				if (!nonEggSource) {
 					// all egg moves
-					problems.push(`${name} can't get its egg move combination (${setSources.limitedEggMoves!.join(', ')}) from any possible father.`);
-					problems.push(`(Is this incorrect? If so, post the chainbreeding instructions in Bug Reports)`);
+					if (skippedEggSource) {
+						problems.push(`${name} is from a Gen 2 or 3 egg, which cannot be obtained at levels below 5.`);
+					} else {
+						problems.push(`${name} can't get its egg move combination (${setSources.limitedEggMoves!.join(', ')}) from any possible father.`);
+						problems.push(`(Is this incorrect? If so, post the chainbreeding instructions in Bug Reports)`);
+					}
 				} else {
 					if (species.id === 'mew' && pokemonGoProblems && !pokemonGoProblems.length) {
 						// Whitelist Pokemon GO Mew, which cannot be sent to Let's Go
@@ -883,6 +897,7 @@ export class TeamValidator {
 			let legal = false;
 			for (const event of eventData) {
 				if (this.validateEvent(set, setSources, event, eventSpecies)) continue;
+				setSources.eventOnlyMinSourceGen = event.generation;
 				legal = true;
 				break;
 			}
@@ -1359,7 +1374,7 @@ export class TeamValidator {
 		const fathers: ID[] = [];
 		// Gen 6+ don't have egg move incompatibilities
 		// (except for certain cases with baby Pokemon not handled here)
-		if (!getAll && eggGen >= 6 && !setSources.levelUpEggMoves) return true;
+		if (!getAll && eggGen >= 6 && !setSources.levelUpEggMoves && !species.mother) return true;
 
 		let eggMoves = setSources.limitedEggMoves;
 		if (eggGen === 3) eggMoves = eggMoves?.filter(eggMove => !setSources.pomegEggMoves?.includes(eggMove));
@@ -1501,6 +1516,15 @@ export class TeamValidator {
 		return true;
 	}
 
+	motherCanLearn(species: ID, move: ID) {
+		if (!species) return false;
+		const fullLearnset = this.dex.species.getFullLearnset(species);
+		for (const {learnset} of fullLearnset) {
+			if (learnset[move]) return true;
+		}
+		return false;
+	}
+
 	validateForme(set: PokemonSet) {
 		const dex = this.dex;
 		const name = set.name || set.species;
@@ -1510,20 +1534,25 @@ export class TeamValidator {
 		const species = dex.species.get(set.species);
 
 		if (species.name === 'Necrozma-Ultra') {
-			const whichMoves = (set.moves.includes('sunsteelstrike') ? 1 : 0) +
-				(set.moves.includes('moongeistbeam') ? 2 : 0);
+			const whichMoves = (set.moves.map(toID).includes('sunsteelstrike' as ID) ? 1 : 0) +
+				(set.moves.map(toID).includes('moongeistbeam' as ID) ? 2 : 0);
 			if (item.name !== 'Ultranecrozium Z') {
 				// Necrozma-Ultra transforms from one of two formes, and neither one is the base forme
 				problems.push(`Necrozma-Ultra must start the battle holding Ultranecrozium Z.`);
 			} else if (whichMoves === 1) {
 				set.species = 'Necrozma-Dusk-Mane';
+				set.ability = 'Prism Armor';
 			} else if (whichMoves === 2) {
 				set.species = 'Necrozma-Dawn-Wings';
+				set.ability = 'Prism Armor';
 			} else {
 				problems.push(`Necrozma-Ultra must start the battle as Necrozma-Dusk-Mane or Necrozma-Dawn-Wings holding Ultranecrozium Z. Please specify which Necrozma it should start as.`);
 			}
 		} else if (species.name === 'Zygarde-Complete') {
 			problems.push(`Zygarde-Complete must start the battle as Zygarde or Zygarde-10% with Power Construct. Please specify which Zygarde it should start as.`);
+		} else if (species.baseSpecies === 'Terapagos') {
+			set.species = 'Terapagos';
+			set.ability = 'Tera Shift';
 		} else if (species.battleOnly) {
 			if (species.requiredAbility && set.ability !== species.requiredAbility) {
 				// Darmanitan-Zen
@@ -1740,7 +1769,7 @@ export class TeamValidator {
 
 		for (const ruleid of ruleTable.tagRules) {
 			if (ruleid.startsWith('*')) continue;
-			const tagid = ruleid.slice(12);
+			const tagid = ruleid.slice(12) as ID;
 			const tag = Tags[tagid];
 			if ((tag.speciesFilter || tag.genericFilter)!(tierSpecies)) {
 				const existenceTag = EXISTENCE_TAG.includes(tagid);
@@ -2058,7 +2087,7 @@ export class TeamValidator {
 			if (canBottleCap) {
 				// IVs can be overridden but Hidden Power type can't
 				if (Object.keys(eventData.ivs).length >= 6) {
-					const requiredHpType = dex.getHiddenPower(eventData.ivs).type;
+					const requiredHpType = dex.getHiddenPower(eventData.ivs as StatsTable).type;
 					if (set.hpType && set.hpType !== requiredHpType) {
 						if (fastReturn) return true;
 						problems.push(`${name} can only have Hidden Power ${requiredHpType}${etc}.`);
@@ -2196,7 +2225,7 @@ export class TeamValidator {
 			if (setSources.sourcesBefore < 5) setSources.sourcesBefore = 0;
 			const canUseAbilityPatch = dex.gen >= 8 && this.format.mod !== 'gen8dlc1';
 			if (!setSources.size() && !canUseAbilityPatch) {
-				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
+				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4' || this.dex.currentMod === 'gen3tradebacks' || this.dex.currentMod === 'gen3plus' || this.dex.currentMod === 'gen3hoennification') return;
 				problems.push(`${name} has a hidden ability - it can't have moves only learned before gen 5.`);
 				return problems;
 			}
@@ -2425,11 +2454,20 @@ export class TeamValidator {
 				}
 			}
 
+			let formeCantInherit = false;
+			let nextSpecies = dex.species.learnsetParent(baseSpecies);
+			while (nextSpecies) {
+				if (nextSpecies.name === species.name) break;
+				nextSpecies = dex.species.learnsetParent(nextSpecies);
+			}
+			if (checkingPrevo && !nextSpecies) formeCantInherit = true;
+			if (formeCantInherit && dex.gen < 9) break;
+
 			let sources = learnset[moveid] || [];
 			if (moveid === 'sketch') {
 				sketch = true;
 			} else if (learnset['sketch']) {
-				if (move.noSketch || move.isZ || move.isMax) {
+				if (move.flags['nosketch'] || move.isZ || move.isMax) {
 					cantLearnReason = `can't be Sketched.`;
 				} else if (move.gen > 7 && !canSketchPostGen7Moves &&
 					(dex.gen === 8 ||
@@ -2471,6 +2509,8 @@ export class TeamValidator {
 					}
 					continue;
 				}
+
+				if (formeCantInherit && (learned.charAt(1) !== 'E' || learnedGen < 9)) continue;
 
 				// redundant
 				if (learnedGen <= moveSources.sourcesBefore) continue;
@@ -2525,11 +2565,16 @@ export class TeamValidator {
 						// falls through to LMT check below
 					} else if (level >= 5 && learnedGen === 3 && species.canHatch) {
 						// Pomeg Glitch
-						learned = learnedGen + 'Epomeg';
-					} else if ((!species.gender || species.gender === 'F') &&
+						learned = learnedGen + 'Epomeg' as MoveSource;
+					} else if (species.gender !== 'N' &&
 						learnedGen >= 2 && species.canHatch && !setSources.isFromPokemonGo) {
 						// available as egg move
-						learned = learnedGen + 'Eany';
+						if (species.gender === 'M' && !this.motherCanLearn(toID(species.mother), moveid)) {
+							// male-only Pokemon can have level-up egg moves if it can have a mother that learns the move
+							cantLearnReason = `is learned at level ${parseInt(learned.substr(2))}.`;
+							continue;
+						}
+						learned = learnedGen + 'Eany' as MoveSource;
 						// falls through to E check below
 					} else {
 						// this move is unavailable, skip it
@@ -2576,10 +2621,10 @@ export class TeamValidator {
 						// Pomeg glitched moves have to be from an egg but since they aren't true egg moves,
 						// there should be no breeding restrictions
 						moveSources.pomegEggMoves = [move.id];
-					} else if (learnedGen < 6) {
+					} else if (learnedGen < 6 || (species.mother && !this.motherCanLearn(toID(species.mother), moveid))) {
 						limitedEggMove = move.id;
 					}
-					learned = learnedGen + 'E' + (species.prevo ? species.id : '');
+					learned = learnedGen + 'E' + (species.prevo ? species.id : '') as MoveSource;
 					if (tradebackEligible && learnedGen === 2 && move.gen <= 1) {
 						// can tradeback
 						moveSources.add('1ET' + learned.slice(2), limitedEggMove);

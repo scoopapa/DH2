@@ -151,7 +151,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},		
 	// end
 
-	// start
+	// start: look for typetracker and soaksteeldenial in condition.ts, Soak in moves.ts
+	// If someone wishes to copy this ability, make sure you account for Magic Powder and special form changes from certain Pkm (like
+	// my own Aegislash-Ma'adowr which is Grass / Steel in shield form and Grass / Flying in blade form. Form changes override any
+	// temporary type change effect from stuff like Soak or Burn Up, etc.! Magic Powder isn't in my regional dex, so, that's one stuff
+	// less to worry about.)
    chainlink: {
 		shortDesc: "In a double battle, the Pokémon steals its partner's Steel type.",
 		onUpdate(pokemon) {
@@ -164,6 +168,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 						this.add('-message', `${pokemon.name} stole its partner's armor!`);
 						this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Ability: Chain Link');
 						ally.addVolatile('chainlink');
+						ally.addVolatile('typetracker'); // New Inclusion to keep track of fringe cases...
 					}
 				}
 			}
@@ -189,15 +194,50 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			onEnd(pokemon) {
 				for (const ally of pokemon.allies()) { // revert Chain Link user's type first
 					if (ally.hasAbility('chainlink') && ally.hasType('Steel')) {
-						let types = ally.baseSpecies.types;
-						if (ally.getTypes().join() === types.join() || !ally.setType(types)) return;
-						this.add('-ability', ally, 'Chain Link');
-						this.add('-message', `${ally.name} returned its partner's armor!`);
-						this.add('-start', ally, 'typechange', ally.types.join('/'));
-						types = pokemon.baseSpecies.types;
-						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						const currentTypes = ally.getTypes();
+                		const newTypes = currentTypes.filter(type => type !== 'Steel'); // Remove Steel type
+                		ally.setType(newTypes); // Set the new types without Steel
+               		 	this.add('-ability', ally, 'Chain Link');
+                		this.add('-message', `${ally.name} returned its partner's armor!`);
+                		this.add('-start', ally, 'typechange', ally.types.join('/'));
+					}
+				}
+				// Now we handle the Pokémon and add a special case for Mechatauro as it could theoretically have ???-typing twice through
+				// Chain Link and Burn Up
+				if (pokemon.hasType('???')) {
+					if (pokemon.baseSpecies.name === 'Mechatauro') {
+						// Replace only the first instance of ??? with Steel for Mechatauro
+						const currentTypes = pokemon.getTypes();
+						const newTypes = [];
+						let replaced = false; // Flag to track if we've replaced the first ???
+				
+						for (const type of currentTypes) {
+							if (type === '???' && !replaced) {
+								newTypes.push('Steel'); // Replace the first ??? with Steel
+								replaced = true; // Set the flag to true after replacement
+							} else {
+								newTypes.push(type); // Keep the other types as they are
+							}
+						}
+				
+						pokemon.setType(newTypes); // Set the new types with Steel replacing the first ???
+						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+					} else {
+						// Replace all instances of ??? with Steel for other Pokémon
+						const currentTypes = pokemon.getTypes();
+						const newTypes = currentTypes.filter(type => type !== '???').concat('Steel');
+						pokemon.setType(newTypes); // Set the new types including Steel
 						this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 					}
+				}
+				if (pokemon.volatiles['typetracker'] && pokemon.baseSpecies.name !== 'Aegislash-Ma\'adowr' &&
+					pokemon.baseSpecies.name !== 'Aegislash-Blade-Ma\'adowr' && pokemon.hasType('Water')) {
+					// Add Steel type to the Pokémon
+    				if (!pokemon.hasType('Steel')) {
+        				pokemon.addType('Steel'); // Add Steel type if it doesn't already have it; it's just to be safe even if I cannot imagine how the Pkm would have gained Steel beforehand...
+        				this.add('-start', pokemon, 'typeadd', 'Steel', '[from] Typetracker');
+        				this.add('-message', `${pokemon.name} gained its Steel type back!`);
+    				}	
 				}
 			},
 		},
@@ -247,8 +287,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: revisit later to check if ally also gets healed
 	cultivation: {
-		shortDesc: "User recovers 1/16 of its HP, 1/8 in terrain.",
-		onTerrainChange(target, source) {
+		shortDesc: "User and ally recover 1/16 of their HP in terrain.",
+		onResidualOrder: 26,
+    	onResidual(pokemon) {
+		//onTerrainChange(target, source) {
 			// Check if any relevant terrain is active
 			if (this.field.isTerrain('electricterrain') || 
 				this.field.isTerrain('grassyterrain') || 
@@ -257,13 +299,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				this.field.isTerrain('acidicterrain')) {
 				
 				// Heal the user by 1/16 of its max HP
-				this.heal(target.baseMaxhp / 16);
+				this.heal(pokemon.baseMaxhp / 16);
 				
 				// Heal the ally by 1/16 of their max HP
-				for (const ally of target.side.pokemon) {
-					if (ally && ally.hp > 0) { // Check if the ally is alive
-						this.heal(ally.baseMaxhp / 16);
-					}
+				const ally = pokemon.side.active.find(ally => ally && ally !== pokemon && !ally.fainted);
+					if (ally) {
+						this.heal(ally.baseMaxhp / 16, ally);
 				}
 			}
 		},
@@ -337,11 +378,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start
 	interference: {
-		shortDesc: "If user gets hurt by a contact move, inflicts Torment on the attacker.",
+		shortDesc: "When attacked, inflicts Torment on the attacker.",
    		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
+			//if (this.checkMoveMakesContact(move, source, target)) {
 				source.addVolatile('torment', this.effectState.target);
-			}
+			//}
 		},
 		flags: {},
 		name: "Interference",
@@ -879,6 +920,60 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -26,
 	},
 	// end
+	// start: Amaterasu, bound by volatile and Engraving. So, there's no real natural user of Amaterasu
+	amaterasu: {
+		shortDesc: "User burns and suffers 1/8 Burn damage.",
+		onUpdate(pokemon) {
+			// Check if the Pokémon has the Amaterasu ability and is not already burned, etc.
+			if (pokemon.hasAbility('amaterasu') && !pokemon.status && !pokemon.hasType('Fire')) {
+				if (pokemon.isGrounded() && this.field.isTerrain('mistyterrain')) {
+					return;
+				}
+				if (pokemon.side.getSideCondition('safeguard')) {
+					return;
+				}
+				if (pokemon.hasItem('sunring') && (pokemon.baseSpecies.baseSpecies === 'Horizonoc')) {
+					return;
+				}
+				// Check if the ally is Horizonoc and Sun or Desolate Land is active
+				const allyPresent = pokemon.side.active.some(ally => ally && ally !== pokemon && ally.baseSpecies.baseSpecies === 'Horizonoc' && ally.hasItem('sunring'));
+				if (allyPresent && ['sunnyday', 'desolateland'].includes(this.field.effectiveWeather())) {
+					return;
+				}
+				pokemon.setStatus('brn', pokemon, null, true);
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				if (target === this.effectState.target) {
+					this.debug('Amaterasu damage increase for burn damage');
+					return this.chainModify(2);
+				}
+			}
+		},	
+		onFaint(target, source, effect) {
+			if (!source || !effect || target.side === source.side) return;
+			if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+				this.add('-ability', target, 'Amaterasu');
+				const bannedAbilities = [
+					'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'skyrider', 'stancechange', 'truant', 'zenmode',
+				];
+				if (bannedAbilities.includes(source.ability) || source.hasType('Fire')) {
+					return;
+				} else {
+					source.setAbility('amaterasu');
+					source.baseAbility = 'amaterasu' as ID;
+					source.ability = 'amaterasu' as ID;
+					this.add('-ability', source, 'Amaterasu', '[from] Ability: Amaterasu');
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Amaterasu",
+		rating: 0,
+		num: -29,
+	},
+	// end
 
 	// start: Archetype (Reserve Idea for New Project)
 	archetype: {
@@ -1013,6 +1108,28 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Magma Armor",
 		rating: 0.5,
 		num: 40,
+	},
+
+	pixilate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'colourmegone', 'judgment', 'multiattack', 'naturalgift', 'pincerattack', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fairy';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Pixilate",
+		rating: 4,
+		num: 182,
 	},
 
 	rivalry: {
@@ -1167,4 +1284,295 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 50,
 	},
 	// end
+
+	cursedbody: {
+		onDamagingHit(damage, target, source, move) {		
+			if (source.volatiles['disable']) return; // Prevent reapplying disable
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cursed Body', target);
+					source.addVolatile('disable', target);
+				} else if (target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cursed Body', target);
+					source.addVolatile('disable', target);
+				}
+			}
+			
+		},
+		flags: {},
+		name: "Cursed Body",
+		rating: 2,
+		num: 130,
+	},
+	cutecharm: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['attract']) return;
+			// Existing logic for Cute Charm
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cute Charm', target);
+					source.addVolatile('attract', target);
+				} else if (target.volatiles['maudiorfeature']) {
+					this.add('-activate', source, 'ability: Cute Charm', target);
+					source.addVolatile('attract', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cute Charm",
+		rating: 0.5,
+		num: 56,
+	},
+	// Effect Spore
+	effectspore: {
+		onDamagingHit(damage, target, source, move) {
+			// Check if the move makes contact, the source has no status, and is not immune to powder
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				// Check if the source has the Maudior Feature as a volatile
+				if (target.volatiles['maudiorfeature']) {
+					// If the user has Maudior Feature, guarantee one of the status effects
+					this.add('-activate', source, 'ability: Effect Spore', target);
+					const r = this.random(3); // Generate a random number from 0 to 2
+					if (r === 0) {
+						source.setStatus('slp', target); // Sleep
+					} else if (r === 1) {
+						source.setStatus('par', target); // Paralysis
+					} else {
+						source.setStatus('psn', target); // Poison
+					}
+				} else {
+					// Existing logic for Effect Spore
+					const r = this.random(100); // Generate a random number from 0 to 99
+					if (r < 11) {
+						source.setStatus('slp', target); // Sleep
+					} else if (r < 21) {
+						source.setStatus('par', target); // Paralysis
+					} else if (r < 30) {
+						source.setStatus('psn', target); // Poison
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
+	// End
+	flamebody: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.status) {
+			// Existing logic for Flame Body
+				if (this.checkMoveMakesContact(move, source, target)) {
+					if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+						source.trySetStatus('brn', target);
+					} else if (target.volatiles['maudiorfeature']) {
+						source.trySetStatus('brn', target);
+					}
+				}
+			}	
+		},
+		flags: {},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
+	},
+	harvest: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			// Check if the source has the Maudior Feature
+			if (pokemon.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, guarantee the Berry restoration
+				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+					pokemon.setItem(pokemon.lastItem);
+					pokemon.lastItem = '';
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
+				}
+			} else {
+				// Existing logic for Harvest
+				if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
+					if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+						pokemon.setItem(pokemon.lastItem);
+						pokemon.lastItem = '';
+						this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Harvest",
+		rating: 2.5,
+		num: 139,
+	},
+	healer: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const allyActive of pokemon.adjacentAllies()) {
+				// Check if the Pokémon has the Maudior Feature as a volatile
+				if (pokemon.volatiles['maudiorfeature']) {
+					// If the user has Maudior Feature, guarantee the status cure
+					if (allyActive.status) {
+						this.add('-activate', pokemon, 'ability: Healer');
+						allyActive.cureStatus();
+					}
+				} else {
+					// Existing logic for Healer
+					if (allyActive.status && this.randomChance(3, 10)) {
+						this.add('-activate', pokemon, 'ability: Healer');
+						allyActive.cureStatus();
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Healer",
+		rating: 0,
+		num: 131,
+	},
+	poisonpoint: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.status) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+						source.trySetStatus('psn', target);
+					} else if (target.volatiles['maudiorfeature']) {
+						source.trySetStatus('psn', target);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	poisontouch: {
+		onSourceDamagingHit(damage, target, source, move) {
+			// Check if the target has Shield Dust or Covert Cloak
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak') || (target.status)) return;
+	
+				// Check if the source has the Maudior Feature as a volatile
+				if (source.volatiles['maudiorfeature']) {
+					// If the user has Maudior Feature, guarantee the poison effect
+				//	this.add('-activate', source, 'ability: Poison Touch', target);
+					target.trySetStatus('psn', source);
+				} else {
+				// Existing logic for Poison Touch
+				if (this.checkMoveMakesContact(move, target, source)) {
+					if (this.randomChance(3, 10)) {
+						target.trySetStatus('psn', source);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Touch",
+		rating: 2,
+		num: 143,
+	},
+	shedskin: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			// Check if the Pokémon has the Maudior Feature as a volatile
+			if (pokemon.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, guarantee the status cure
+				if (pokemon.hp && pokemon.status) {
+					this.add('-activate', pokemon, 'ability: Shed Skin');
+					pokemon.cureStatus();
+				}
+			} else {
+				// Existing logic for Shed Skin
+				if (pokemon.hp && pokemon.status && this.randomChance(33, 100)) {
+					this.debug('shed skin');
+					this.add('-activate', pokemon, 'ability: Shed Skin');
+					pokemon.cureStatus();
+				}
+			}
+		},
+		flags: {},
+		name: "Shed Skin",
+		rating: 3,
+		num: 61,
+	},
+	static: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.status) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					if (this.randomChance(3, 10) && !target.volatiles['maudiorfeature']) {
+						source.trySetStatus('par', target);
+					} else if (target.volatiles['maudiorfeature']) {
+						source.trySetStatus('par', target);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Static",
+		rating: 2,
+		num: 9,
+	},
+	stench: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			// Check if the Pokémon has the Maudior Feature as a volatile
+			const source = this.effectState.source; // Get the source of the move
+			if (source.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, guarantee the flinch effect
+				this.debug('Adding guaranteed Stench flinch');
+				if (!move.secondaries) move.secondaries = [];
+				// Remove any existing flinch secondary
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 100, // Set chance to 100% for guaranteed flinch
+					volatileStatus: 'flinch',
+				});
+			} else {
+				// Existing logic for Stench
+				if (move.category !== "Status") {
+					this.debug('Adding Stench flinch');
+					if (!move.secondaries) move.secondaries = [];
+					for (const secondary of move.secondaries) {
+						if (secondary.volatileStatus === 'flinch') return;
+					}
+					move.secondaries.push({
+						chance: 10, // Original chance for flinch
+						volatileStatus: 'flinch',
+					});
+				}
+			}
+		},
+		flags: {},
+		name: "Stench",
+		rating: 0.5,
+		num: 1,
+	},
+	wonderskin: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			// Check if the Pokémon has the Maudior Feature as a volatile
+			if (target.volatiles['maudiorfeature']) {
+				// If the user has Maudior Feature, set accuracy to 0 for status moves
+				if (move.category === 'Status' && typeof accuracy === 'number') {
+					this.debug('Wonder Skin with Maudior Feature - setting accuracy to 0');
+					return 0; // Guarantee 0% accuracy for status moves
+				}
+			} else {
+				// Existing logic for Wonder Skin
+				if (move.category === 'Status' && typeof accuracy === 'number') {
+					this.debug('Wonder Skin - setting accuracy to 50');
+					return 50; // Set accuracy to 50% for status moves
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Wonder Skin",
+		rating: 2,
+		num: 147,
+	},
+	
 };

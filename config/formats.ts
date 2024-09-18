@@ -444,6 +444,30 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
+		name: "[Gen 9] Do Not Use: The Pet Mod: The Musical",
+		desc: [
+			"<b>Do Not Use: The Pet Mod: The Musical</b>: A National Dex Pet Mod where only Pokemon with 280 BST or less, with some exception, are allowed. New Pokemon are added and edited into the existing DNU metagame."
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3749356/">Do Not Use: The Pet Mod: The Musical</a>`,
+		],
+		mod: 'donotusetmptm',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause'],
+		teambuilderFormat: 'National Dex',
+		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody'],
+		unbanlist: ['Assist'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['DoNU', 'DoNU UUBL', 'DoNU UU', 'DoNU RUBL', 'DoNU RU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in [Gen 9] Do Not Use: The Pet Mod: The Musical.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Elimination War",
 		mod: 'eliminationwar',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
@@ -563,11 +587,11 @@ export const Formats: FormatList = [
 		//banning other megas accessed through said stone will not ban the use of said mega stone on the base forms
 		banlist: ['Altarianite', 'Revival Blessing', 'Shed Tail', 'Last Respects', 'Mawilite', 'Alakazite', 'Baton Pass', 'Light Clay',
 			'Aero Wake', 'Amigotrio-Alola', 'Amphamence', 'Anoraidon', 'Arbolosion-Hisui', 'Baxgeist-Large', 'Bellikiss', 'Bouffa-Lu', 'Brambleswine',
-			'Celedos', 'Corvizolt', 'Cresserace', 'Crygargonal', 'Deciperior-Hisui', 'Deliraidon', 'Deoxyslash-Speed', 'Drampiclus', 'Druddizor',
+			'Celedos', 'Cresserace', 'Crygargonal', 'Deciperior-Hisui', 'Deliraidon', 'Deoxyslash-Speed', 'Drampiclus', 'Druddizor',
 			'Floatzera', 'Florgerouge', 'Gargamise', 'Garpyuku', 'Great Kleav', 'Icekrai', 'Iron Dirge', 'Iron Legion', 'Iron Matcha',
 			'Iron Meta', 'Iron Mimic', 'Iron Tornado', 'Lelecuno-Galar', 'Meowscorio-Sensu', 'Necrotrik-Dawn-Wings', 'Necrotrik-Ultra', 'Primeleo',
 			'Relishadow', 'Revarantis', 'Roaring Sal', 'Rotoghold', 'Samuraiai-Hisui', 'Scream Cormorant', 'Sol Valiant', 'Stargrowth', 'Tapu Titan', 'Tinkovish', 'Toedieleki',
-			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox',
+			'Urshiluxe-Rapid-Strike', 'Varantis', 'Vikadrago', 'Weezaluna-Bloodmoon', 'Whimsy Sands', 'Wopple', 'Yu-Clod', 'Yveltox', 'Slither King',
 			'Muktaria-Alola-Mega', 'Mawlakazam-Mega-X', 'Mawlakazam-Mega-Y', 'Goopert-Hisui-Mega', 'Scizorite', 'Tentazor-Mega', 'Aerodactylite', 'Aerodirge-Mega', 'Zoroshark-Hisui-Mega'
 		],
 			//Just slapping "FEOU" in the banlist exclude these mons from the teambuilder... but an error ('Nothing matches "FEOU"') was thrown in dex-formats on the server side
@@ -605,7 +629,34 @@ export const Formats: FormatList = [
 					return [set.species + ' is not available in Generation X\'s Brunica formats.'];
 				}
 			}
-		},
+		},/*
+		onChangeSet(set) {
+			if (set.species.startsWith('Lutakon')) {
+				const item = this.toID(set.item);
+				if (item === 'awakeningseed') {
+					set.species = 'Lutakon-Awakened';
+					set.ability = 'Guardian of Nature';
+					let synthesis = set.moves.indexOf('Synthesis');
+					if (synthesis < 0) {
+						synthesis = set.moves.indexOf('synthesis');
+					}
+					if (synthesis >= 0) {
+						let gaiaRecoveryIndex = set.moves.indexOf('gaiarecovery');
+						if (gaiaRecoveryIndex < 0) {
+							gaiaRecoveryIndex = set.moves.indexOf('Gaia Recovery');
+						}
+						if (gaiaRecoveryIndex >= 0) {
+							delete set.moves[synthesis];
+						}
+						else {
+							set.moves[synthesis] = 'gaiarecovery';
+						}
+					}
+				} else {
+					set.species = 'Lutakon';
+				}
+			}
+		},*/
 	},
 	{
 	name: "[Gen 9] Generation X: Brunica [OU]",
@@ -707,6 +758,27 @@ export const Formats: FormatList = [
 		ruleset: ['HG Standard', 'Data Mod', 'Freeze Clause Mod'],
 		banlist: ['Uber'],
 		unbanlist: ['Sand Veil'],
+	},
+	{
+		name: "[Gen 9] Iron Fist",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
+		],
+		mod: 'ironfist',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['IF'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Iron Fist.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Ironmons",
@@ -832,7 +904,86 @@ export const Formats: FormatList = [
 				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
 		},
+		onHitPriority: 1,
+		onHit(target, source, move) {
+			const forte = source.m.forte;
+			if (move?.category !== 'Status' && forte) {
+				this.singleEvent('Hit', forte, {}, target, source, move);
+				if (forte.self) this.singleEvent('Hit', forte.self, {}, source, source, move);
+				this.singleEvent('AfterHit', forte, {}, target, source, move);
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			const forte = source.m.forte;
+			if (move?.category !== 'Status' && forte) {
+				this.singleEvent('AfterSubDamage', forte, null, target, source, move, damage);
+			}
+		},
+		onModifySecondaries(secondaries, target, source, move) {
+			if (secondaries.some(s => !!s.self)) move.selfDropped = false;
+		},
+		onAfterMoveSecondaryPriority: 1,
+		onAfterMoveSecondarySelf(source, target, move) {
+			const forte = source.m.forte;
+			if (move?.category !== 'Status' && forte) {
+				this.singleEvent('AfterMoveSecondarySelf', forte, null, source, target, move);
+			}
+		},
+		onBasePowerPriority: 1,
+		onBasePower(basePower, source, target, move) {
+			const forte = source.m.forte;
+			if (move.category !== 'Status' && forte?.onBasePower) {
+				forte.onBasePower.call(this, basePower, source, target, move);
+			}
+		},
+		pokemon: {
+			getItem() {
+				const move = this.battle.dex.moves.get(this.m.forte);
+				if (!move.exists) return Object.getPrototypeOf(this).getItem.call(this);
+				return {
+					...this.battle.dex.items.get('mail'),
+					name: move.name, id: move.id, ignoreKlutz: true, onTakeItem: false,
+				};
+			},
+		},
 		mod: 'm4apaldea',
+	},
+	{
+		name: "[Gen 9] M4A Paldea VGC",
+		desc: ["Megas for All v7 but it's a VGC format",
+		      ],
+		threads: [
+				`&bullet; <a href="https://www.smogon.com/forums/threads/3671140/">Megas for All v7 on Smogon Forums</a>`,
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
+				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
+		      ],
+		gameType: 'doubles',
+		ruleset: ['Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Mega Data Mod', 'Terastal Clause'],
+		banlist: [
+			'Koraidon', 'Miraidon',
+		],
+		mod: 'm4apaldea',
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.doublesTier !== 'Mega' && template.doublesTier !== 'Paldea' && template.doublesTier !== 'Paldea (NFE)') {
+					return [set.species + ' is not a part of the Paldea Pokédex.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.species.get(set.species);
+			let item = this.dex.items.get(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
+			}
+		},
 	},
 	{
 		name: "[Gen 8] M4A OU NatDex",
@@ -846,7 +997,9 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		// ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Dynamax Clause'],
 		mod: 'm4av6',
-		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite', 'Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
+			'Arena Trap', 'Power Construct', 'Shadow Tag', 'Snow Cloak', 'Sand Veil'
+		],
 		// teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -1130,6 +1283,25 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Regional Evolutions",
+		desc: 'A NatDex micrometa, with only new regional forms and regional evolutions!',
+		threads: [],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass'],
+		teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['RegEvo', 'RegEvo NFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in RegEvo.'];
+				}
+			}
+		},
+		mod: 'regionalevolutions',
+	},
+	{
 		name: "[Gen 9] Return to Orre: Tercera",
 	   desc: [
 			"This is a micrometa that only uses Pokemon obtainable in Colosseum and XD.",
@@ -1181,27 +1353,23 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] National Dex BH",
 		desc: `Balanced Hackmons with National Dex elements mixed in.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3711099/">National Dex BH</a>`,
-		],
-
 		mod: 'gen9',
 		searchShow: false,
 		ruleset: ['-Nonexistent', 'Standard NatDex', 'Forme Clause', 'Sleep Moves Clause', 'Ability Clause = 2', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'CFZ Clause', 'Terastal Clause', '!Obtainable'],
 		banlist: [
-			'Cramorant-Gorging', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Eternatus-Eternamax', 'Groudon-Primal', 'Rayquaza-Mega', 'Shedinja', 'Arena Trap',
-			'Contrary', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Pure Power',
-			'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite', 'Berserk Gene', 'Belly Drum', 'Bolt Beak', 'Chatter', 'Double Iron Bash',
-			'Electrify', 'Last Respects', 'Octolock', 'Rage Fist', 'Revival Blessing', 'Shed Tail', 'Shell Smash', 'Comatose + Sleep Talk', 'Imprison + Transform',
+			'Cramorant-Gorging', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Eternatus-Eternamax', 'Greninja-Ash', 'Groudon-Primal', 'Rayquaza-Mega', 'Shedinja', 'Arena Trap',
+			'Contrary', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Pure Power', 'Shadow Tag',
+			'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite', 'Berserk Gene', 'Belly Drum', 'Bolt Beak', 'Ceaseless Edge', 'Chatter', 'Double Iron Bash', 'Electrify',
+			'Last Respects', 'Octolock', 'Rage Fist', 'Revival Blessing', 'Shed Tail', 'Shell Smash', 'Comatose + Sleep Talk', 'Imprison + Transform',
 		],
 		restricted: ['Arceus'],
 		onValidateTeam(team, format) {
 			// baseSpecies:count
-			const restrictedPokemonCount = new Map<string, number>();
+			const restrictedPokemonCount = new this.dex.Multiset<string>();
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (!this.ruleTable.isRestrictedSpecies(species)) continue;
-				restrictedPokemonCount.set(species.baseSpecies, (restrictedPokemonCount.get(species.baseSpecies) || 0) + 1);
+				restrictedPokemonCount.add(species.baseSpecies);
 			}
 			for (const [baseSpecies, count] of restrictedPokemonCount) {
 				if (count > 1) {
@@ -2262,6 +2430,12 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
+		name: "[Gen 3] ADV Tradebacks",
+		mod: 'gen3tradebacks',
+		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+	},
+	{
 		name: "[Gen 9] ASoDH",
 		desc: 'Another Solomod on DH (by Lysio & Akira)',
 		threads: [],
@@ -2711,7 +2885,6 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9929461">FEVGC on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DoV2Vk9B2mYxwVQt9ebA2CvygBLk29az3iszycMAh2k/edit#gid=0">Spreadsheet</a>`,
 		      ],
-		searchShow: false,
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets', 'Data Mod'],
 		mod: 'gen9fevgc',
@@ -2735,7 +2908,6 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9929461">FEVGC on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1DoV2Vk9B2mYxwVQt9ebA2CvygBLk29az3iszycMAh2k/edit#gid=0">Spreadsheet</a>`,
 		      ],
-		searchShow: false,
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Data Mod', 'Force Open Team Sheets', 'Best of = 3'],
 		mod: 'gen9fevgc',
@@ -2754,8 +2926,8 @@ export const Formats: FormatList = [
     {
 		name: "[Gen 3] Gen 3 Plus",
 		mod: 'gen3plus',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Drizzle', 'Drought', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken'],
 	},
 	{
 		name: "[Gen 1] Glitch OU",
@@ -2777,8 +2949,8 @@ export const Formats: FormatList = [
     {
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
-		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', 'Baton Pass Mod'],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken'],
 	},
 	{
 		name: "[Gen 9] i forgor OU",
@@ -2895,7 +3067,7 @@ export const Formats: FormatList = [
 								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Espathra', 'Gengarite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Pursuit', 'Return'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Espathra', 'Gengarite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Chantyrus Engraving', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Magic Powder', 'Pursuit', 'Return'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -2928,7 +3100,7 @@ export const Formats: FormatList = [
 		      ],
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod'],
-		banlist: ['Frustration', 'Hail', 'Hidden Power', 'Pursuit', 'Return'],
+		banlist: ['Frustration', 'Hail', 'Hidden Power', 'Magic Powder', 'Pursuit', 'Return'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -2951,6 +3123,29 @@ export const Formats: FormatList = [
 				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
 		}, */
+		mod: 'maadowr',
+	},
+	{
+		name: "[Gen 9] Ma'adowr VGC Restricted",
+		desc: 'Solomod mainly based on Ancient Egypt and run by BlueRay',
+		threads: [
+								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
+		      ],
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Data Mod', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod', 'Limit Two Restricted'],
+		banlist: ['Frustration', 'Hail', 'Hidden Power', 'Magic Powder', 'Pursuit', 'Return'],
+		restricted: ['Restricted Legendary'],
+		teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['MD', 'MD NFE', 'MD Ubers', 'EXP', 'EXP2'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Maadowr.'];
+				}
+			}
+		},
 		mod: 'maadowr',
 	},
 	// end: Ma'adowr
@@ -3369,7 +3564,18 @@ export const Formats: FormatList = [
 		'Mightyena', 'Miltank', 'Monferno', 'Oddish', 'Pansear', 'Pignite', 'Poipole', 'Psyduck', 'Quilava', 'Raboot', 'Sawsbuck', 'Scorbunny', 'Shelgon', 'Simisear', 'Sizzlipede', 'Skeledirge',
 		'Skiddo', 'Sliggoo', 'Sliggoo-Hisui', 'Stantler', 'Swablu', 'Tepig', 'Thwackey', 'Torchic', 'Torkoal', 'Torracat', 'Typhlosion', 'Typhlosion-Hisui', 'Watchog', 'Wyrdeer', 'Zebstrika', 'Zweilous',
 		],
-	},
+	},/*
+		{
+		name: "[Gen 4] Yayamons",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/>Post in Solomods Megathread</a>`,
+		],
+// placeholder link
+		mod: 'yayamons',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['Uber'],
+	},*/
 	///////////////////////////////////////////////////////////////
 	///////////////////// Non-Smogon Mods /////////////////////////
 	///////////////////////////////////////////////////////////////
@@ -3554,7 +3760,9 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		// ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Terastal Clause'],
 		mod: 'm4ag9',
-		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite'],
+		banlist: ['Slowking-Galar-Mega', 'Slowking-Galar + Slowkinite', 'Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
+			'Arena Trap', 'Power Construct', 'Shadow Tag', 'Snow Cloak', 'Sand Veil'
+		],
 		// teambuilderFormat: 'OU',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -3564,43 +3772,6 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in M4A OU NatDex.'];
 				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] M4A Paldea VGC",
-		desc: ["Megas for All v7 but it's a VGC format",
-		      ],
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		gameType: 'doubles',
-		ruleset: ['Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: [
-			'Koraidon', 'Miraidon',
-		],
-		mod: 'm4apaldea',
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.doublesTier !== 'Mega' && template.doublesTier !== 'Paldea' && template.doublesTier !== 'Paldea (NFE)') {
-					return [set.species + ' is not a part of the Paldea Pokédex.'];
-				}
-			}
-		},
-		onValidateSet(set) {
-			const problems: string[] = [];
-			const setHas: {[k: string]: true} = {};
-			let species = this.dex.species.get(set.species);
-			let item = this.dex.items.get(set.item);
-			let tierSpecies = species;
-
-			if (item.megaEvolves === species.name) {
-				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
 			}
 		},
 	},
@@ -4024,6 +4195,45 @@ export const Formats: FormatList = [
 
 		mod: 'gen9',
 		ruleset: ['Standard NatDex'],
+	},
+	{
+		name: "[Gen 9] Triples",
+		mod: 'gen9',
+		gameType: 'triples',
+		searchShow: false,
+		ruleset: ['Standard Doubles'],
+		banlist: [
+			'Annihilape', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Eternatus', 'Flutter Mane',
+			'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 'Mewtwo',
+			'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Palkia-Origin', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Terapagos', 'Urshifu',
+			'Urshifu-Rapid-Strike', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Shadow Tag',
+		],
+	},
+	{
+		name: "[Gen 9] Type Split",
+		desc: `The Physical/Special split is reverted; All non-Status moves are Physical or Special depending on their type, no exceptions.`,
+		mod: 'gen9',
+		searchShow: false,
+		ruleset: ['Standard OMs', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
+		banlist: [
+			'Annihilape', 'Arceus', 'Archaludon', 'Calyrex-Shadow', 'Chi-Yu', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Espathra',
+			'Eternatus', 'Flutter Mane', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Iron Bundle', 'Koraidon', 'Kyogre', 'Kyurem-White', 'Landorus-Base',
+			'Lugia', 'Lunala', 'Magearna', 'Mewtwo', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Palkia-Origin', 'Rayquaza', 'Regieleki',
+			'Reshiram', 'Shaymin-Sky', 'Sneasler', 'Solgaleo', 'Terapagos', 'Volcarona', 'Zacian-Crowned', 'Zamazenta-Crowned', 'Arena Trap', 'Moody', 'Shadow Tag',
+			'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+		onModifyMovePriority: -1000,
+		onModifyMove(move, pokemon, target) {
+			if (move.category === 'Status') return;
+			const specialTypes = ['Dark', 'Dragon', 'Electric', 'Fairy', 'Fire', 'Grass', 'Ice', 'Psychic', 'Water'];
+			if (specialTypes.includes(move.type)) {
+				move.category = 'Special';
+			} else if (move.type === 'Stellar') {
+				move.category = pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true) ? 'Physical' : 'Special';
+			} else {
+				move.category = 'Physical';
+			}
+		},
 	},
 	// Please keep these here for testing / debugging
 	{

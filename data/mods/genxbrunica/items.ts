@@ -1,11 +1,191 @@
 export const Items: {[itemid: string]: ItemData} = {
 	awakeningseed: {
 		name: "Awakening Seed",
-		desc: "If held by a Lutakon, this item changes its forme to Awakened.",
+		shortDesc: "If held by a Lutakon, this item changes its forme to Awakened.",
 		onTakeItem(item, pokemon, source) {
 			return !((source && source.baseSpecies.baseSpecies === 'Lutakon') || pokemon.baseSpecies.baseSpecies === 'Lutakon');
 		},
 		itemUser: ["Lutakon-Awakened"],
+	},
+	deluxebait: {
+		name: "Deluxe Bait",
+		shortDesc: "Speed is raised 2 if holder is hit by Water; Water power against it is halved.",
+		fling: {
+			basePower: 10,
+			volatileStatus: 'trapped',
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Deluxe Bait weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Deluxe Bait weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Water') {
+				this.boost({spe: 2});
+			}
+		},
+	},
+	blunderpolicy: {
+		inherit: true,
+		shortDesc: "Speed +2 if holder misses/is immobilized or target is immune. Single use.",
+		//Basically activates under similar conditions to Stomping Tantrum/Temper Flare boost
+		//So it's in scripts.ts, activating alongside such conditions
+	},
+	protectivepads: {
+		inherit: true,
+		shortDesc: "Recoil/crash moves have x1.2 power (excl. Struggle); Holder protected from adverse contact effects (excl. Pickpocket)",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Protective Pads boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+	},
+	soullink: {
+		name: "Soul-Link",
+		shortDesc: "Passive damage on holder is also inflicted on an opponent. (Prioritizes directly across)",
+		fling: {
+			basePower: 60,
+		},
+		onDamage(damage, target, source, effect) {
+			if (!effect || effect.id === 'struggle' || effect.id === 'soullink') return;
+			if (effect.effectType !== 'Move' || target === source) {
+				const foes = target.foes();
+				if (!foes.length) return;
+				let damageTarget = foes[target.position + target.side.active.length - 1] || this.sample(foes);
+				this.damage(damage, damageTarget, target);
+			}
+		},
+	},
+	hornoplenty: {
+		name: "Horn o' Plenty",
+		shortDesc: "Stockpile if at full HP. (+1 Def/SpD if successful; Max. 3)",
+		fling: {
+			basePower: 10,
+			volatileStatus: 'stockpile',
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(target) {
+			if (target.hp === target.maxhp) {
+				target.addVolatile('stockpile');
+			}
+		},
+	},
+	warpscarf: {
+		name: "Warp Scarf",
+		shortDesc: "End of turn: 50% chance for holder to switch into an ally of choice.",
+		fling: {
+			basePower: 10,
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(target) {
+			if (this.canSwitch(target.side) && !target.switchFlag && this.randomChance(1,2)) {
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
+				}
+				target.switchFlag = true;
+				this.add('-activate', target, 'item: Warp Scarf');
+			}
+		},
+		//manual fling effects
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			move.forceSwitch = true;
+		},
+	},
+	tomeofimagination: {
+		name: "Tome of Imagination",
+		shortDesc: "On PP consumption from user's moves, this item is consumed instead.",
+		fling: {
+			basePower: 20,
+		},
+		//Effects implemented in scripts.ts
+		//manual fling effects
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({
+				chance: 100,
+				onHit(target) {
+					if (!target.hp) return;
+					let targetmove: Move | ActiveMove | null = target.lastMove;
+					if (!targetmove || targetmove.isZ) return;
+					if (targetmove.isMax && targetmove.baseMove) targetmove = this.dex.moves.get(targetmove.baseMove);
+
+					const ppDeducted = target.deductPP(targetmove.id, 4);
+					if (ppDeducted) this.add('-activate', target, 'move: Spite', targetmove.name, ppDeducted);
+				},
+			});
+		},
+		condition: {
+			duration: 1,
+			onResidual(target) {
+				target.removeVolatile('tomeofimagination');
+			},
+		},
+	},
+	ruggedscale: {
+		name: "Rugged Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 30, boosts: {def: -1}});
+		},
+		shortDesc: "Evolves Squamsy into Azdharsha when traded.",
+	},
+	serenescale: {
+		name: "Serene Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 10, status: 'frz'});
+		},
+		shortDesc: "Evolves Frydgety into Icypenser when traded.",
+	},
+	darlingscale: {
+		name: "Darling Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 30, boosts: {spd: -1}});
+		},
+		shortDesc: "Evolves Loathon into Adoraboa when traded.",
+	},
+	agedscale: {
+		name: "Aged Scale",
+		fling: {
+			basePower: 30,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 30, volatileStatus: 'flinch'});
+		},
+		shortDesc: "Evolves Doltoise into Sagachelys when traded.",
 	},
 	
 	//Type Balms
@@ -513,24 +693,24 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	slushisloshiscale: {
 		name: "Slushisloshi Scale",
-		shortDesc: "Slushisloshi: Does not revert to Solo Forme, ability changed to Water Absorb in School Forme",
+		shortDesc: "Slushisloshi/Wishiwashi: Does not revert to Solo Forme, ability changed to Water Absorb in School Forme",
 		fling: {
 			basePower: 20,
 		},
 		ignoreKlutz: true,
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Slushisloshi' || pokemon.transformed || pokemon.level < 20) return;
-			if (pokemon.species.id === 'slushisloshi') {
+			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed || pokemon.level < 20) return;
+			if (['slushisloshi','wishiwashi'].includes(pokemon.species.id)) {
 				this.add('-item', pokemon, 'Slushisloshi Scale');
-				pokemon.formeChange('Slushisloshi-School', this.dex.abilities.get('schooling'), true);
+				pokemon.formeChange(pokemon.baseSpecies.baseSpecies + '-School', this.dex.abilities.get('schooling'), true);
 				this.add('-ability', pokemon, 'Water Absorb');
 			}
 			pokemon.setAbility('waterabsorb', pokemon, true);
 		},
 		onTakeItem(item, pokemon, source) {
-			return (source && source.baseSpecies.baseSpecies !== "Slushisloshi" && pokemon.baseSpecies.baseSpecies !== "Slushisloshi");
+			return (source && !["Slushisloshi", "Wishiwashi"].includes(source.baseSpecies.baseSpecies) && !["Slushisloshi", "Wishiwashi"].includes(pokemon.baseSpecies.baseSpecies));
 		},
-		itemUser: ["Slushisloshi", "Slushisloshi-School"],
+		itemUser: ["Slushisloshi", "Slushisloshi-School", "Wishiwashi", "Wishiwashi-School"],
 		//Effects coded under Schooling in abilities.ts
 	},
 	hinderpolicy: {
@@ -580,509 +760,4 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 	},
 	
-	/*//Wonder Masks
-	ninjaskmask: {
-		name: "Ninjask Mask",
-		shortDesc: "Wonder Mask of Ninjask. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Ninjask-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Ninjask Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Ninjask Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	ironmormask: {
-		name: "Ironmor Mask",
-		shortDesc: "Wonder Mask of Ironmor. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Ironmor-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Ironmor Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Ironmor Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	janutchermask: {
-		name: "Janutcher Mask",
-		shortDesc: "Wonder Mask of Janutcher. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Janutcher-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Janutcher Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Janutcher Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	hisuiansamurottmask: {
-		name: "Hisuian Samurott Mask",
-		shortDesc: "Wonder Mask of Samurott-Hisui. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Samurott-Hisui-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Hisuian Samurott Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Hisuian Samurott Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	baxcaliburmask: {
-		name: "Baxcalibur Mask",
-		shortDesc: "Wonder Mask of Baxcalibur. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Baxcalibur-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Baxcalibur Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Baxcalibur Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	vulguilemask: {
-		name: "Vulguile Mask",
-		shortDesc: "Wonder Mask of Vulguile. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Vulguile-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Vulguile Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Vulguile Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	arcognitionmask: {
-		name: "Arcognition Mask",
-		shortDesc: "Wonder Mask of Arcognition. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Arcognition-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Arcognition Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Arcognition Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	ampalangomask: {
-		name: "Ampalango Mask",
-		shortDesc: "Wonder Mask of Ampalango. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Ampalango-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Ampalango Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Ampalango Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	tinkatonmask: {
-		name: "Tinkaton Mask",
-		shortDesc: "Wonder Mask of Tinkaton. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Tinkaton-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Tinkaton Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Tinkaton Mask emanates a strange power...`);
-			this.effectState.revealed = true
-		},
-		onTakeItem: false,
-	},
-	carbinkmask: {
-		name: "Carbink Mask",
-		shortDesc: "Wonder Mask of Carbink. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Carbink-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Carbink Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Carbink Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	pumentummask: {
-		name: "Pumentum Mask",
-		shortDesc: "Wonder Mask of Pumentum. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Pumentum-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Pumentum Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Pumentum Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	bewearmask: {
-		name: "Bewear Mask",
-		shortDesc: "Wonder Mask of Bewear. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Bewear-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Bewear Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Bewear Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	jestiremask: {
-		name: "Jestire Mask",
-		shortDesc: "Wonder Mask of Jestire. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Jestire-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Jestire Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Jestire Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	bombastormask: {
-		name: "Bombastor Mask",
-		shortDesc: "Wonder Mask of Bombastor. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Bombastor-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Bombastor Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Bombastor Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	macawphonymask: {
-		name: "Macawphony Mask",
-		shortDesc: "Wonder Mask of Macawphony. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Macawphony-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Macawphony Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Macawphony Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	gyaradosmask: {
-		name: "Gyarados Mask",
-		shortDesc: "Wonder Mask of Gyarados. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Gyarados-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Gyarados Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Gyarados Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	wildpyremask: {
-		name: "Wildpyre Mask",
-		shortDesc: "Wonder Mask of Wildpyre. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Wildpyre-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Wildpyre Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Wildpyre Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	swauntedmask: {
-		name: "Swaunted Mask",
-		shortDesc: "Wonder Mask of Swaunted. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Swaunted-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Swaunted Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Swaunted Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	norvidmask: {
-		name: "Norvid Mask",
-		shortDesc: "Wonder Mask of Norvid. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Norvid-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Norvid Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Norvid Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	ogerponmask: {
-		name: "Ogerpon Mask",
-		shortDesc: "Wonder Mask of Ogerpon. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Ogerpon-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Ogerpon Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Ogerpon Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	quagsiremask: {
-		name: "Quagsire Mask",
-		shortDesc: "Wonder Mask of Quagsire. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Quagsire-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Quagsire Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Quagsire Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	sandacondamask: {
-		name: "Sandaconda Mask",
-		shortDesc: "Wonder Mask of Sandaconda. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Sandaconda-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Sandaconda Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Sandaconda Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	keisbergmask: {
-		name: "Keisberg Mask",
-		shortDesc: "Wonder Mask of Keisberg. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Keisberg-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Keisberg Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Keisberg Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	icestymask: {
-		name: "Icesty Mask",
-		shortDesc: "Wonder Mask of Icesty. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Icesty-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Icesty Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Icesty Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	eeveemask: {
-		name: "Eevee Mask",
-		shortDesc: "Wonder Mask of Eevee. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Eevee-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Eevee Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Eevee Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	kecleonmask: {
-		name: "Kecleon Mask",
-		shortDesc: "Wonder Mask of Kecleon. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Kecleon-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Kecleon Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Kecleon Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	desveganmamoswinemask: {
-		name: "Desvegan Mamoswine Mask",
-		shortDesc: "Wonder Mask of Mamoswine-Desvega. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Mamoswine-Desvega-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Desvegan Mamoswine Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Desvegan Mamoswine Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	virulopemask: {
-		name: "Virulope Mask",
-		shortDesc: "Wonder Mask of Virulope. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Virulope-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Virulope Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Virulope Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	parascendmask: {
-		name: "Parascend Mask",
-		shortDesc: "Wonder Mask of Parascend. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Parascend-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Parascend Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Parascend Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	alakazammask: {
-		name: "Alakazam Mask",
-		shortDesc: "Wonder Mask of Alakazam. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Alakazam-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Alakazam Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Alakazam Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	kelplossusmask: {
-		name: "Kelplossus Mask",
-		shortDesc: "Wonder Mask of Kelplossus. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Kelplossus-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Kelplossus Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Kelplossus Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	garganaclmask: {
-		name: "Garganacl Mask",
-		shortDesc: "Wonder Mask of Garganacl. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Garganacl-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Garganacl Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Garganacl Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	orthwormmask: {
-		name: "Orthworm Mask",
-		shortDesc: "Wonder Mask of Orthworm. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Orthworm-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Orthworm Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Orthworm Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	auruminemask: {
-		name: "Aurumine Mask",
-		shortDesc: "Wonder Mask of Aurumine. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Aurumine-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Aurumine Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Aurumine Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	shorrormask: {
-		name: "Shorror Mask",
-		shortDesc: "Wonder Mask of Shorror. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Shorror-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Shorror Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Shorror Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},
-	pelippermask: {
-		name: "Pelipper Mask",
-		shortDesc: "Wonder Mask of Pelipper. Use on any Pokemon to Wonder Evolve.",
-		megaStone: "Cirno-Pelipper-Mask",
-		megaEvolves: "Cirno",
-		ignoreKlutz: true,
-		onStart(pokemon) {
-			if (this.effectState.revealed) return;
-			this.add('-item', pokemon, 'Pelipper Mask', '[silent]');
-			this.add('-message', `${pokemon.name}\'s Pelipper Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-		},
-		onTakeItem: false,
-	},*/
 };

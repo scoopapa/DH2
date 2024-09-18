@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	ragingbull: {
 		inherit: true,
 		onModifyType(move, pokemon) {
@@ -95,7 +95,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					delete pokemon.volatiles['magnetrise'];
 				}
 				if (pokemon.volatiles['telekinesis']) {
-					applies = true;
+					//applies = true;
 					delete pokemon.volatiles['telekinesis'];
 				}
 				else if (!applies) return false;
@@ -232,35 +232,68 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	ivycudgel: {
-		num: 904,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		name: "Ivy Cudgel",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		critRatio: 2,
-		onPrepareHit(target, source, move) {
-			if (move.type !== "Grass") {
-				this.attrLastMove('[anim] Ivy Cudgel ' + move.type);
-			}
-		},
+		inherit: true,
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
-			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera': case 'Hattepon-Wellspring': case 'Hattepon-Wellspring-Tera':
+			case 'Hattepon-Wellspring': case 'Hattepon-Wellspring-Tera':
+			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera':
 				move.type = 'Water';
 				break;
-			case 'Ogerpon-Hearthflame': case 'Ogerpon-Hearthflame-Tera': case 'Hattepon-Hearthflame': case 'Hattepon-Hearthflame-Tera':
+			case 'Hattepon-Hearthflame': case 'Hattepon-Hearthflame-Tera':
+			case 'Ogerpon-Hearthflame': case 'Ogerpon-Hearthflame-Tera':
 				move.type = 'Fire';
 				break;
-			case 'Ogerpon-Cornerstone': case 'Ogerpon-Cornerstone-Tera': case 'Hattepon-Cornerstone': case 'Hattepon-Cornerstone-Tera':
+			case 'Hattepon-Cornerstone': case 'Hattepon-Cornerstone-Tera':
+			case 'Ogerpon-Cornerstone': case 'Ogerpon-Cornerstone-Tera':
 				move.type = 'Rock';
 				break;
 			}
 		},
-		secondary: null,
-		target: "normal",
-		type: "Grass",
+	},
+	mistyterrain: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable() ||
+					(['psn','tox'].includes(status.id) && source && source.hasAbility('miasma'))) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (target.isGrounded() && !target.isSemiInvulnerable() && status.id === 'confusion') {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'Misty Terrain');
+			},
+		},
 	},
 };

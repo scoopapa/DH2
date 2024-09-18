@@ -978,7 +978,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	blazikenmega: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 130, def: 90, spa: 140, spd: 90, spe: 100},
+		baseStats: {hp: 80, atk: 130, def: 95, spa: 130, spd: 95, spe: 100},
 		abilities: {0: "Reckless"},
 	},
 	mightyena: {
@@ -1012,9 +1012,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 68, atk: 75, def: 65, spa: 165, spd: 135, spe: 110},
 	},
+	surskit: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 30, def: 32, spa: 50, spd: 52, spe: 65},
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Rain Dish"},
+	},
 	masquerain: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 60, def: 62, spa: 100, spd: 82, spe: 96},
+		baseStats: {hp: 75, atk: 60, def: 62, spa: 100, spd: 82, spe: 106},
+		abilities: {0: "Intimidate", 1: "Drizzle", H: "Unnerve"},
 	},
 	ninjask: {
 		inherit: true,
@@ -1526,10 +1532,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 103, atk: 93, def: 77, spa: 51, spd: 71, spe: 84},
 		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Keen Eye"},
-	},
-	bronzong: {
-		inherit: true,
-		abilities: {0: "Levitate", 1: "Heatproof", H: "Drizzle"},
 	},
 	chatot: {
 		inherit: true,
@@ -3018,10 +3020,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		requiredItem: "Necrosolunite",
 		battleOnly: ["Necrozma-Dawn-Wings", "Necrozma-Dusk-Mane"],
 	},
-	naganadel: {
-		inherit: true,
-		baseStats: {hp: 73, atk: 83, def: 73, spa: 113, spd: 79, spe: 119},
-	},
+	// naganadel: {
+	// 	inherit: true,
+	// 	baseStats: {hp: 73, atk: 83, def: 73, spa: 113, spd: 79, spe: 119},
+	// },
 
 	// Gen 8 :
 	meltan: {
@@ -3508,7 +3510,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	gougingfire: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 95, def: 121, spa: 65, spd: 103, spe: 101},
 		abilities: {0: "Protosynthesis", H: "Pressure"},
 	},
 	ragingbolt: {
@@ -3825,7 +3826,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Girafatak",
 		forme: "Nocturnal",
 		types: ["Normal", "Dark"],
-		baseStats: {hp: 80, atk: 125, def: 75, spa: 85, spd: 75, spe: 95},
+		baseStats: {hp: 80, atk: 85, def: 75, spa: 125, spd: 75, spe: 95},
 		abilities: {0: "Double Spirit"},
 		heightm: 1.8,
 		weightkg: 50,

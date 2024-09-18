@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[k: string]: ModdedabilityState} = {
 	// Set 1
 	porous: {// Feel like this might be wrong
 		id: "porous",
@@ -425,11 +425,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fowl Behavior",
 		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
 		onStart(pokemon) {
-			pokemon.abilityData.choiceLock = "";
+			pokemon.abilityState.choiceLock = "";
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
-			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+			if (pokemon.abilityState.choiceLock && pokemon.abilityState.choiceLock !== move.id) {
 				// Fails unless ability is being ignored (these events will not run), no PP lost.
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
@@ -439,8 +439,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
-			pokemon.abilityData.choiceLock = move.id;
+			if (pokemon.abilityState.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityState.choiceLock = move.id;
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, pokemon, move) {
@@ -460,16 +460,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.5);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.abilityData.choiceLock) return;
+			if (!pokemon.abilityState.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+				if (moveSlot.id !== pokemon.abilityState.choiceLock) {
 					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			pokemon.abilityData.choiceLock = "";
+			pokemon.abilityState.choiceLock = "";
 		},
 	},
 	pillage: {
@@ -1433,10 +1433,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Lemegeton');
-			pokemon.abilityData.ending = false;
+			pokemon.abilityState.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'lemegeton');
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'lemegeton');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -1451,11 +1451,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// (If your tackling this, do note extreme weathers have the same issue)
 
 			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
-			source.abilityData.ending = true;
+			source.abilityState.ending = true;
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon !== source) {
 					// Will be suppressed by Pokemon#ignoringAbility if needed
-					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 				}
 			}
 		},
@@ -2621,7 +2621,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceModifyDamagePriority: -1,
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.abilityData.berryWeaken) {
+			if (target.abilityState.berryWeaken) {
 				return this.chainModify(0.5);
 			}
 		},
@@ -2634,7 +2634,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
 			];
 			// Record if the pokemon ate a berry to resist the attack
-			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
+			pokemon.abilityState.berryWeaken = weakenBerries.includes(item.name);
 		},
 		name: "Berry Nice",
 		shortDesc: "Chlorophyll + Harvest + Berries eaten by this Pokemon have their effect doubled.",
@@ -2700,7 +2700,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceModifyDamagePriority: -1,
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.abilityData.berryWeaken) {
+			if (target.abilityState.berryWeaken) {
 				return this.chainModify(0.5);
 			}
 		},
@@ -2713,7 +2713,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
 			];
 			// Record if the pokemon ate a berry to resist the attack
-			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
+			pokemon.abilityState.berryWeaken = weakenBerries.includes(item.name);
 		},
 		onSourceBasePowerPriority: 18,
 		onSourceBasePower(basePower, attacker, defender, move) {
@@ -3027,10 +3027,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Neutralizing Gas');
-			pokemon.abilityData.ending = false;
+			pokemon.abilityState.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -3060,11 +3060,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// (If your tackling this, do note extreme weathers have the same issue)
 
 			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
-			source.abilityData.ending = true;
+			source.abilityState.ending = true;
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon !== source) {
 					// Will be suppressed by Pokemon#ignoringAbility if needed
-					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 				}
 			}
 		},
@@ -5162,11 +5162,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.getWeather().id === 'raindance' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
-			if (this.field.weatherData.source !== pokemon) return;
+			if (this.field.weatherDataState.source !== pokemon) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('rainparade')) {
-					this.field.weatherData.source = target;
+					this.field.weatherDataState.source = target;
 					return;
 				}
 			}

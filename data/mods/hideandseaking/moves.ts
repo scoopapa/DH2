@@ -3817,7 +3817,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	diamondstorm: {
 		num: 591,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
 		shortDesc: "50% chance to raise user's Defense by 2.",
@@ -3842,11 +3842,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 91,
 		accuracy: 100,
 		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (move.hit < 2) {
+				this.debug('Earthquake placeholder');
+				return move.basePower * 2.5;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		shortDesc: "Digs underground turn 1, strikes turn 2.",
 		name: "Dig",
 		pp: 10,
 		priority: 0,
+		multihit: 2,
 		flags: {
 			contact: 1, charge: 1, protect: 1, mirror: 1,
 			nonsky: 1, metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1,
@@ -3874,7 +3882,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return false;
 			},
 			onSourceModifyDamage(damage, source, target, move) {
-				if (move.id === 'earthquake' || move.id === 'magnitude') {
+				if (move.id === 'magnitude') {
 					return this.chainModify(2);
 				}
 			},
@@ -4724,11 +4732,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
+		shortDesc: "Hits adjacent Pokemon. Double damage in Dig.",
 		name: "Earthquake",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		// effect implemented in Dig
 		secondary: null,
 		target: "allAdjacent",
 		type: "Ground",
@@ -5642,7 +5651,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		shortDesc: "Has a 30% chance this move's power is doubled.",
+		shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
 		name: "Fiery Dance",
 		pp: 10,
 		priority: 0,
@@ -5892,17 +5901,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "Hits first. First turn out only.",
+		shortDesc: "Hits first. First turn out onwards.",
 		name: "First Impression",
 		pp: 10,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		onTry(source) {
-			if (source.activeMoveActions > 1) {
-				this.hint("First Impression only works on your first turn out.");
-				return false;
-			}
-		},
 		secondary: null,
 		target: "normal",
 		type: "Bug",
@@ -8250,7 +8253,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
 				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
-				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+				if ((weakenedMoves.includes(move.id) || move.id === 'dig' && move.hit < 2) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
 					this.debug('move weakened by grassy terrain');
 					return this.chainModify(0.5);
 				}
@@ -10114,28 +10117,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
-		shortDesc: "30% chance to make the target finch.",
+		shortDesc: "30% chance to make the target flinch.",
 		name: "Icicle Crash",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 30,
-			onHit(target) {
-				target.addVolatile('iciclecrash');
-			},
-		},
-		condition: {
-			onStart(pokemon) {
-				this.add('-message', `The target finched! It will become Finchinator!`);
-				pokemon.formeChange('Garchomp');
-				// pokemon.setAbility('roughskin');
-			},
-			onEnd(pokemon) {
-				if (['Garchomp'].includes(pokemon.species.forme)) {
-					pokemon.formeChange(pokemon.species.battleOnly as string);
-				}
-			},
+			volatileStatus: 'flinch',
 		},
 		target: "normal",
 		type: "Ice",
@@ -17346,7 +17335,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
-		shortDesc: "Usually moves first.",
+		shortDesc: "Usually goes first.",
 		name: "Shadow Sneak",
 		pp: 30,
 		priority: 1,

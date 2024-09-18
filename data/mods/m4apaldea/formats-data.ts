@@ -648,4 +648,35 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
 	ogerponcornerstone: {tier: "Paldea", doublesTier: "Paldea"},
 
+	feebas: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	milotic: {tier: "Paldea", doublesTier: "Paldea"},
+
+	nosepass: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	probopass: {tier: "Paldea", doublesTier: "Paldea"},
+
+	diglettalola: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	dugtrioalola: {tier: "Paldea", doublesTier: "Paldea"},
+
+	dipplin: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	hydrapple: {tier: "Paldea", doublesTier: "Paldea"},
+
+	duraludon: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	archaludon: {tier: "Paldea", doublesTier: "Paldea"},
+
+	gougingfire: {tier: "Paldea", doublesTier: "Paldea"},
+	ragingbolt: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ironcrown: {tier: "Paldea", doublesTier: "Paldea"},
+	ironboulder: {tier: "Paldea", doublesTier: "Paldea"},
+
+	walkingwake: {tier: "Paldea", doublesTier: "Paldea"},
+	ironleaves: {tier: "Paldea", doublesTier: "Paldea"},
+
+	pecharunt: {tier: "Paldea", doublesTier: "Paldea"},
+
+	terapagos: {tier: "Paldea", doublesTier: "Paldea"},
+
+	farigirafmega: {tier: "Mega"},
+	farigirafmeganocturnal: {tier: "Mega"},
+
 };

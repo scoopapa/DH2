@@ -24,5 +24,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "dreepy").learnset.uturn = ["9L1"];
 		this.modData("Learnsets", "dreepy").learnset.hex = ["9L1"];
 		this.modData("Learnsets", "dreepy").learnset.psychicfangs = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.spark = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.thunder = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.thunderbolt = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.discharge = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.voltswitch = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.poisonjab = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.acidspray = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.clearsmog = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "toxel").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "fletchling").learnset.flamethrower = ["9L1"];
+		this.modData("Learnsets", "fletchling").learnset.fireblast = ["9L1"];
+		delete this.modData('Learnsets', 'fletchling').learnset.bravebird;
+		this.modData("Learnsets", "spoink").learnset.ancientpower = ["9L1"];
+		this.modData("Learnsets", "spoink").learnset.meteorbeam = ["9L1"];
 	},
 };

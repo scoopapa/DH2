@@ -1,4 +1,4 @@
-export const Abilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	//new
 	darkesthunger: {
 		shortDesc: "This Pokemon restores 12.5% of its Max HP if it attacks and KOes another Pokemon.",
@@ -42,7 +42,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			//Strong terrains can override Nature Field, and of course Nature Field shouldn't try to overwrite itself.
 			//Terrains set by other mons are instantly overridden
 			//Even if it's a terrain clear or a terrain set by this mon, if the mon stays in it won't stick. 
-			if (!strongTerrains.includes(terrain) && ((this.field.terrainState.source !== pokemon && terrain) || !(pokemon.beingCalledBack || pokemon.switchFlag))) this.field.setTerrain('guardianofnature');
+			if (!strongTerrains.includes(terrain) && pokemon.hp && ((this.field.terrainState.source !== pokemon && terrain) || !(pokemon.beingCalledBack || pokemon.switchFlag))) this.field.setTerrain('guardianofnature');
 		},
 		onEnd(pokemon) {
 			if (this.field.terrainState.source !== pokemon) return;
@@ -413,8 +413,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.addVolatile('commanding');
 				ally.addVolatile('commanded', pokemon);
 				// Continued in conditions.ts in the volatiles
-			} else {
-				if (!ally.fainted) return;
+			} else if (ally.fainted) {
 				pokemon.removeVolatile('commanding');
 			}
 		},
@@ -461,6 +460,41 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Contagious",
 	},
+	dozer: {
+		shortDesc: "This Pokemon is healed by 1/12 of its max HP each turn when asleep.",
+		onResidual(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.heal(pokemon.baseMaxhp / 12);
+			}
+		},
+		flags: {},
+		name: "Dozer",
+	},
+	hydrosynthesis: {
+		shortDesc: "Water power is x1.2 instead of halved in sun.",
+		//Sun negation in conditions.ts
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) && move.type === 'Water') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Hydrosynthesis",
+	},
+	ripcurrent: {
+		shortDesc: "25% chance for non-contact attack to force target into random ally.",
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Rip Current's effect
+			if (source.hp && target.hp && !this.checkMoveMakesContact(move, source, target) && !target.forceSwitchFlag
+				&& !target.hasAbility('shielddust') && !target.hasItem('covertcloak') && this.randomChance(1, 4)) {
+				this.add('-activate', source, 'ability: Rip Current');
+				this.actions.dragIn(target.side, target.position)
+			}
+		},
+		flags: {},
+		name: "Rip Current",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
@@ -468,6 +502,35 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
 			if (this.field.isTerrain('guardianofnature')) return this.chainModify(2);
+		},
+	},
+	neutralizinggas: {
+		inherit: true,
+		//End Nature Field on switch-in (Strong weathers are programmed to just end then and there too)
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongFieldEffects = ['desolateland', 'primordialsea', 'deltastream', 'guardianofnature'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Rough Image'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				const targetAbilID = target.getAbility().id;
+				if (strongFieldEffects.includes(targetAbilID)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+			}
 		},
 	},
 	//from desvega
@@ -517,7 +580,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			const moveid = move.id;
 			if (moveid.endsWith('beam') || [
-				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon', 'doomdesire', 'psybolt'
+				'powergem', 'lusterpurge', 'lightofruin', 'fleurcannon', 'electroshot', 'dynamaxcannon',
+				'doomdesire', 'psybolt', 'refracture'
 				].includes(moveid)) {
 				return this.chainModify([5325, 4096]);
 			}
@@ -787,9 +851,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
-			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
-				|| pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.baseSpecies.baseSpecies === 'Slushisloshi' && pokemon.hasItem('slushisloshiscale')) return;
+			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies) || 
+				pokemon.level < 20 || pokemon.transformed || pokemon.hasItem('slushisloshiscale')) return;
 			//Effects of Slushisloshi Scale are coded in that item
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
@@ -1161,28 +1224,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 	},
 	thoughtful: {
-		shortDesc: "Placeholder, does nothing right now.",
-		/* shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team. 
-		onStart(pokemon) {
+		 shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team.",
+		 onStart(pokemon) {
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				if (!pokemon.side.pokemon[i].fainted) break;
+				if (pokemon.side.pokemon[i] && !pokemon.side.pokemon[i].fainted) break;
 			}
 			
 			if (!pokemon.side.pokemon[i]) return;
 			let chosenTeammate = pokemon.side.pokemon[i];
-			if (pokemon === chosenTeammate) return;
-			if (chosenTeammate.species.num === 493 || chosenTeammate.species.num === 773) return;
+			if (pokemon === chosenTeammate/*) return;
+			if (*/ || [493,773].includes(chosenTeammate.species.num)) return;
 			
 			let newBaseTypes = chosenTeammate.getTypes().filter(type => type !== '???');
-			if (!newBaseTypes.length) return;
-			this.add('-start', pokemon, 'typechange', '[from] ability: Thoughtful');
-			pokemon.setType(newBaseTypes);
+			if (!newBaseTypes.length || !pokemon.setType(newBaseTypes)) return;
+			this.add('-start', pokemon, 'typechange',  newBaseTypes.join('/'), '[from] ability: Thoughtful');
 		},
-		*/
 		name: "Thoughtful",
-		rating: 0.1,
 	},
 	stonehouse: {
 		shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.",
@@ -1210,7 +1268,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAnyAccuracyPriority: -1,
 		onAnyAccuracy(accuracy, target, source, move) {
-			//If the first condition is met it returns true, otherwise the accuracy is untouched
+			//If the first set of conditions is met it returns true, otherwise the accuracy is untouched
 			return (move && !move.ohko && !target.isGrounded()
 					  && !['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies)
 					  && target.baseSpecies.name !== 'Gengar-Mega'

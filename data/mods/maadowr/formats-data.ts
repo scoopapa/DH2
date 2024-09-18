@@ -335,9 +335,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MD Ubers",
 		doublesTier: "MD Ubers",
 	},
+	arastinithprotector: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
 	cicadillo: {
 		tier: "MD",
-		doublesTier: "MD Ubers",
+		doublesTier: "Illegal",
 	},
     flareon: {
 		tier: "MD",
@@ -736,6 +740,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "MD NFE",
 	},
 	zebstrika: {
+		tier: "MD NFE",
+		doublesTier: "MD NFE",
+	},
+	zebsonavolt: {
 		tier: "MD",
 		doublesTier: "MD",
 	},
@@ -949,7 +957,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	prayingvisitor: {
 		tier: "MD",
-		doublesTier: "MD Ubers",
+		doublesTier: "Illegal",
 	},
 	staryumaadowr: {
 		tier: "MD NFE",
@@ -1622,5 +1630,205 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rodwell: {
 		tier: "EXP",
 		doublesTier: "EXP",
+	},
+	mew: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	mewtwo: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	mewtwomegax: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	mewtwomegay: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	raikou: {
+		tier: "EXP2",
+		doublesTier: "EXP2",
+	},
+	entei: {
+		tier: "EXP2",
+		doublesTier: "EXP2",
+	},
+	suicune: {
+		tier: "EXP2",
+		doublesTier: "EXP2",
+	},
+	lugia: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	hooh: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+   celebi: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	kyogre: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	kyogreprimal: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	groudon: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	groudonprimal: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	rayquaza: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	rayquazamega: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	jirachi: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	deoxys: {
+		tier: "MD Ubers",
+		doublesTier: "Illegal",
+	},
+	dialga: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	dialgaorigin: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	palkia: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	palkiaorigin: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	giratina: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	giratinaorigin: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	arceus: {
+		tier: "MD Ubers",
+		doublesTier: "Illegal",
+	},
+	cobalion: {
+		tier: "EXP2",
+		doublesTier: "EXP2",
+	},
+	terrakion: {
+		tier: "EXP2",
+		doublesTier: "EXP2",
+	},
+	virizion: {
+		tier: "EXP2",
+		doublesTier: "EXP2",
+	},
+	reshiram: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	zekrom: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	kyurem: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	kyuremblack: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	kyuremwhite: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	keldeo: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	xerneas: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	yveltal: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	zygarde: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	zygarde10: {
+		tier: "EXP2",
+		doublesTier: "MD Ubers",
+	},
+	zygardecomplete: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	hoopa: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	hoopaunbound: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	volcanion: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
+	},
+	cosmog: {
+		tier: "EXP2",
+		doublesTier: "MD Ubers",
+	},
+	cosmoem: {
+		tier: "EXP2",
+		doublesTier: "MD Ubers",
+	},
+	lunala: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	solgaleo: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	necrozma: {
+		tier: "EXP2",
+		doublesTier: "MD Ubers",
+	},
+	necrozmaduskmane: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	necrozmadawnwings: {
+		tier: "MD Ubers",
+		doublesTier: "MD Ubers",
+	},
+	zarude: {
+		tier: "EXP2",
+		doublesTier: "Illegal",
 	},
 };

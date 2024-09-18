@@ -293,7 +293,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// AFFECTED ABILITIES: Magnetic Waves, Leviflame, Levitability
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
-			if (!(type in this.battle.dex.data.TypeChart)) {
+			if (!this.battle.dex.types.isName(type)) {
 				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
 				throw new Error("Use runStatusImmunity for " + type);
 			}

@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	feathfir: {
 		tier: "Brunica LC",
 		doublesTier: "DOU",
@@ -775,6 +775,240 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	aleviar: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	cuttrout: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	salmini: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	salmomega: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	feebas: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	milotic: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	wailmer: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	wailord: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	fletchling: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	fletchinder: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	talonflame: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	relicanth: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	antiqualik: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerin: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerinmermaid: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerinfish: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lymerinningyo: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	kelpony: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	kelpurion: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	oculeye: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	telebyss: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	shellosbrunica: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	gastrodonbrunica: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	prawdet: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	lobswab: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	capstacian: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	gifsterious: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	mysterelk: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	doetective: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	noirvid: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	pyrote: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	coymedia: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	jestire: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	fangear: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	terromak: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	shorror: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	ralts: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	kirlia: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	gardevoir: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	gallade: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	pichu: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	pikachu: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	raichu: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	raichualola: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	meowth: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	meowthalola: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	persian: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	persianalola: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	canlumi: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	paynaimo: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	squamsy: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	azdharsha: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	frydgety: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	icypenser: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	loathon: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	adoraboa: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	doltoise: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	sagachelys: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+
+
 
 	akulut: {
 		tier: "Brunica Uber",

@@ -7,7 +7,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
-			if (pokemon.illusion && ['Ogerpon', 'Terapagos', 'Hattepon'].includes(pokemon.illusion.species.baseSpecies)) {
+			if (pokemon.illusion && ['Hattepon', 'Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
 				this.battle.singleEvent('End', this.dex.abilities.get('Rough Image'), pokemon.abilityState, pokemon);
 			}
 	
@@ -28,7 +28,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 		canMegaEvo(pokemon) {
-			const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
+			const species = pokemon.baseSpecies;
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (
 				altForme?.isMega && altForme?.requiredMove &&
@@ -36,49 +37,29 @@ export const Scripts: ModdedBattleScriptsData = {
 			) {
 				return altForme.name;
 			}
-			switch (pokemon.baseSpecies.name) {
-				case "Amphamence":
-					if (item.name === "Salamencite") {
-						return "Amphamence-Mega-X"; 
-					}
-					if (item.name === "Ampharosite") {
-						return "Amphamence-Mega-Y"; 
-					}
-					break;
-				case "Tyranix":
-					if (item.name === "Tyranitarite") {
-						return "Tyranix-Mega-X"; 
-					}
-					if (item.name === "Steelixite") {
-						return "Tyranix-Mega-Y"; 
-					}
-					break;
-				case "Mawlakazam":
-					if (item.name === "Mawilite") {
-						return "Mawlakazam-Mega-X"; 
-					}
-					if (item.name === "Alakazite") {
-						return "Mawlakazam-Mega-Y"; 
-					}
-					break;
+			if (item.megaStone === species.name) return null;
+			switch (species.name) {
 				case "Chomptry":
 					if (item.name === "Garchompite") {
 						return "Chomptry-Mega";
 					}
-					break;
+					return null;
 				case "Tentazor":
 					if (item.name === "Scizorite") {
 						return "Tentazor-Mega";
 					}
-					break;
+					return null;
 				case "Aerodirge":
 					if (item.name === "Aerodactylite") {
 						return "Aerodirge-Mega";
 					}
-					break;
+					return null;
 			}
 			
-			return item.megaStone;
+			if (item.megaEvolves === species.baseSpecies) {
+				return item.megaStone;
+			}
+			return null;
 		},
 		canUltraBurst(pokemon) {
 			if (pokemon.baseSpecies.name === 'Necrotrik-Dawn-Wings' && pokemon.getItem().id === 'depletedultranecroziumz') {

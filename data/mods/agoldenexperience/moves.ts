@@ -1391,10 +1391,8 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
 		self: {
 			onHit(source) {
-				if (source.positiveBoosts()) {
-					source.clearBoosts();
-					this.add('-clearpositiveboost', source);
-				}
+				source.clearBoosts();
+				this.add('-clearboost', source);
 			}
 		}
 	},
@@ -2312,7 +2310,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Inferno", target);
 		},
 		secondary: null,
-		target: "all",
+		target: "normal",
 		type: "Fire",
 	},
 	junglehealing: {
@@ -2554,10 +2552,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -1,
 			},
 		},
-	},
-	bitterblade: {
-		inherit: true,
-		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1 },
 	},
 	tidyup: {
 		inherit: true,
@@ -2930,6 +2924,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		terrain: 'electricterrain',
 		shortDesc: "Sets Electric Terrain upon use.",
 		desc: "Sets Electric Terrain upon use.",
+	},
+	revivalblessing: {
+		inherit: true,
+		flags: {heal: 1, noassist: 1},
 	},
 
 	// Karma field

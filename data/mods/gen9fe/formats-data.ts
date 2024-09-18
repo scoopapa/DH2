@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataTable = {
 	revarantis: {
 		tier: "FEOU",
 		doublesTier: "DOU",
@@ -61,7 +61,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	slitherking: {
-		tier: "FEUU",
+		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["morningsun", "uturn", "firstimpression", "flareblitz"],
 		randomBattleLevel: 80,
@@ -420,7 +420,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	corvizolt: {
-		tier: "FEOU",
+		tier: "FEUU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["boltbeak", "bravebird", "earthquake", "roost"],
 		randomBattleLevel: 75,
@@ -753,6 +753,26 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
+	tapusala: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	jirabsca: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	donphurott: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	regithorn: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	lanpass: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -862,4 +882,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
+	phanpott: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	chinpass: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+
 };

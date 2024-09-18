@@ -8,7 +8,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	init() {
 		//Free dexited movesets
-		
 		const undexitedMons = [];
 		for (const pokemon in this.data.FormatsData) {
 			//We will skip mons absent from Brunica and custom formes that lack tiers
@@ -83,6 +82,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset[move].push("9L1");
 			}
 		}
+		//Relicanth
+		this.modData("Learnsets", "relicanth").learnset.terracharge = ["9L35"];
+		
 		//Shuppet line
 		this.modData("Learnsets", "shuppet").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "banette").learnset.drainfang = ["9L1","8L1"];
@@ -257,11 +259,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "flygon").learnset.shocktail = ["9L1","8L1"];
 		
 		//pichu line
+		*/
 		this.modData("Learnsets", "pichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichualola").learnset.shocktail = ["9L1","8L1"];
-
+		/*
 		//eeveelutions
 		this.modData("Learnsets", "eevee").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "vaporeon").learnset.drainfang = ["9L1","8L1"];
@@ -496,6 +499,31 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets","numel").learnset.terracharge = ["9L1"];
 		this.modData("Learnsets","camerupt").learnset.terracharge = ["9L1"];
 		
+		//wailmer line
+		this.modData("Learnsets","wailmer").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.frostfeint = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.iciclecrash = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.frostfeint = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.iciclecrash = ["9L1"];
+		
+		//fletchling line
+		this.modData("Learnsets","fletchling").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchling").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.solarblade = ["9L1"];
+		
+		//meowth line
+		this.modData("Learnsets","meowth").learnset.confuseray = ["9L1"];
+		this.modData("Learnsets","persian").learnset.confuseray = ["9L1"];
+		
+		//ralts family
+		this.modData("Learnsets","kirlia").learnset.healingnature = ["9L1"];
+		this.modData("Learnsets","gardevoir").learnset.healingnature = ["9L1"];
+		this.modData("Learnsets","gallade").learnset.healingnature = ["9L1"];
+		
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
@@ -527,9 +555,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.baseAbility = pokemon.ability;
 
 				const behemothMove: {[k: string]: string} = {
-					'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash', 'Lutakon-Awakened': 'gaiarecovery',
+					'Zacian-Crowned': 'behemothblade', 
+					'Zamazenta-Crowned': 'behemothbash', 
+					'Lutakon-Awakened': 'gaiarecovery',
 				};
-				const ironHead = pokemon.baseMoves.indexOf(rawspecies.name === 'Lutakon-Awakened' ? 'synthesis' : 'ironhead');
+				const ironHead = pokemon.baseMoves.indexOf(rawSpecies.name === 'Lutakon-Awakened' ? 'synthesis' : 'ironhead');
 				if (ironHead >= 0) {
 					const move = this.dex.moves.get(behemothMove[rawSpecies.name]);
 					const movepp = (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5;
@@ -795,6 +825,58 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		return false;
 	},
+	
+	/*showOpenTeamSheets(hideFromSpectators = false) {
+		if (this.turn !== 0) return;
+		for (const side of this.sides) {
+			const team = side.pokemon.map(pokemon => {
+				const set = pokemon.set;
+				const newSet: PokemonSet = {
+					name: '',
+					species: set.species,
+					item: set.item,
+					ability: set.ability,
+					moves: set.moves,
+					nature: '',
+					gender: pokemon.gender,
+					evs: null!,
+					ivs: null!,
+					level: set.level,
+				};
+				//if (this.gen === 8) newSet.gigantamax = set.gigantamax;
+				//if (this.gen === 9) newSet.teraType = set.teraType;
+				// Only display Hidden Power type if the Pokemon has Hidden Power
+				// This is based on how team sheets were written in past VGC formats
+				if (set.moves.some(m => this.dex.moves.get(m).id === 'hiddenpower')) newSet.hpType = set.hpType;
+				// This is done so the client doesn't flag Zacian/Zamazenta as illusions
+				// when they use their signature move
+				const setSpecies = toID(set.species);
+				const setItem = toID(set.item);
+				const isLutakon = setSpecies === 'lutakon';
+				if ((setSpecies === 'zacian' && setItem === 'rustedsword') ||
+					(setSpecies === 'zamazenta' && setItem === 'rustedshield') || 
+					(isLutakon && setItem === 'awakeningseed')) {
+					newSet.species = Dex.species.get(set.species + (isLutakon ? 'awakened' : 'crowned')).name;
+					const crowned: {[k: string]: string} = {
+						'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash', 
+						'Lutakon-Awakened': 'gaiarecovery'
+					};
+					const ironHead = set.moves.map(toID).indexOf((isLutakon ? 'synthesis' : 'ironhead') as ID);
+					if (ironHead >= 0) {
+						newSet.moves[ironHead] = crowned[newSet.species];
+					}
+				}
+				return newSet;
+			});
+			if (hideFromSpectators) {
+				for (const s of this.sides) {
+					this.addSplit(s.id, ['showteam', side.id, Teams.pack(team)]);
+				}
+			} else {
+				this.add('showteam', side.id, Teams.pack(team));
+			}
+		}
+	},*/
 	actions: {	
 		getActiveBalmMove(baseMove: Move, balmMove: Move) {
 			if (typeof baseMove === 'string') baseMove = this.dex.getActiveMove(baseMove);
@@ -831,12 +913,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			} else if (maxMove) {
 				move = this.getActiveMaxMove(baseMove, pokemon);
 			} else if (pokemon.volatiles['typebalm']?.balmMove) {
-				const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
+				const balmEffectData = pokemon.volatiles['typebalm'];
+				const isBalmStatus = balmEffectData.isBalmStatus;
 				if (
-					balmMoveData.type === pokemon.volatiles['typebalm'].balmType //Check if used the right balm
-					&& balmMoveData.type === move.type //Check if type matches
-					&& (move.category === balmMoveData.category || ![balmMoveData.category, move.category].includes('Status')) //If the balm or base move is status but not both it won't overwrite
+					(move.id === 'hiddenpower' ? pokemon.hpType : move.type) 
+						=== pokemon.volatiles['typebalm'].balmType //Check if balm type matches move type
+					&& ((move.category === 'Status') ? isBalmStatus : !isBalmStatus) //If the balm or base move is status but not both it won't overwrite
 				) {
+					const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
 					move = this.getActiveBalmMove(move, balmMoveData);
 					balmMove = pokemon.volatiles['typebalm'].balmMove;
 				}
@@ -858,6 +942,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!willTryMove) {
 				this.battle.runEvent('MoveAborted', pokemon, target, move);
 				this.battle.clearActiveMove(true);
+				if (willTryMove === false && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
 				// The event 'BeforeMove' could have returned false or null
 				// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
 				// null indicates the opposite, as the Pokemon didn't have an option to choose anything
@@ -873,6 +960,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (move.beforeMoveCallback && move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
 				this.battle.clearActiveMove(true);
 				pokemon.moveThisTurnResult = false;
+				if (pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
 				return;
 			}
 			pokemon.lastDamage = 0;
@@ -882,11 +972,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (lockedMove === true) lockedMove = false;
 				if (lockedMove) {
 					sourceEffect = this.dex.conditions.get('lockedmove');	
-				} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
-					this.battle.add('cant', pokemon, 'nopp', move);
-					this.battle.clearActiveMove(true);
-					pokemon.moveThisTurnResult = false;
-					return;
+				} else {
+					const usedTomeOfImagination = pokemon.hasItem('tomeofimagination') && move.id !== 'fling' && pokemon.useItem();
+					if (usedTomeOfImagination) {
+						this.battle.add('-activate', pokemon, 'item: Tome of Imagination');
+						this.battle.add('-message', `${pokemon.name} used its Tome of Imagination to preserve its move's PP!`);
+						pokemon.addVolatile('tomeofimagination');
+					} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+						this.battle.add('cant', pokemon, 'nopp', move);
+						this.battle.clearActiveMove(true);
+						pokemon.moveThisTurnResult = false;
+						if (pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+							this.battle.boost({spe: 2}, pokemon);
+						}
+						return;
+					}
 				}
 				pokemon.moveUsed(move, targetLoc);
 			}
@@ -967,7 +1067,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			pokemon.moveThisTurnResult = undefined;
 			const oldMoveResult: boolean | null | undefined = pokemon.moveThisTurnResult;
 			const moveResult = this.useMoveInner(move, pokemon, target, sourceEffect, zMove, maxMove, balmMove);
-			if (oldMoveResult === pokemon.moveThisTurnResult) pokemon.moveThisTurnResult = moveResult;
+			if (oldMoveResult === pokemon.moveThisTurnResult) {
+				pokemon.moveThisTurnResult = moveResult;
+				if (moveResult === false && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
+			}
 			return moveResult;
 		},
 		useMoveInner(
@@ -1050,7 +1155,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (!target) {
 				this.battle.attrLastMove('[notarget]');
-				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail' /*: '-notarget', pokemon*/);
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail' /*: '-notarget'*/, pokemon);
 				return false;
 			}
 
@@ -1058,18 +1163,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (targets.length) {
 				target = targets[targets.length - 1]; // in case of redirection
 			}
-
-			const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
-			if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
-				let extraPP = 0;
-				for (const source of pressureTargets) {
-					const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
-					if (ppDrop !== true) {
-						extraPP += ppDrop || 0;
+			if (!pokemon.hasItem('tomeofimagination') && !pokemon.volatiles['tomeofimagination']) {
+				const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
+				if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
+					let extraPP = 0;
+					for (const source of pressureTargets) {
+						const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
+						if (ppDrop !== true) {
+							extraPP += ppDrop || 0;
+						}
 					}
-				}
-				if (extraPP > 0) {
-					pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					if (extraPP > 0) {
+						pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					}
 				}
 			}
 
@@ -1101,7 +1207,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				moveResult = this.trySpreadMoveHit(targets, pokemon, move);
 			} else {
 				this.battle.attrLastMove('[notarget]');
-				this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail'/* : '-notarget'*/, pokemon);
 				return false;
 			}
 			if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
@@ -1236,6 +1342,35 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
+		
+		hitStepBreakProtect(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+			//Adding custom protective moves
+			if (move.breaksProtect) {
+				for (const target of targets) {
+					let broke = false;
+					for (const effectid of [
+						'banefulbunker', 'burningbulwark', 'kingsshield', 'obstruct', 'protect', 'silktrap', 'spikyshield',
+						'fieldofvision', 'toxicsnowball', 'firewall'
+					]) {
+						if (target.removeVolatile(effectid)) broke = true;
+					}
+					//if (this.battle.gen >= 6 || !target.isAlly(pokemon)) {
+						for (const effectid of ['craftyshield', 'matblock', 'quickguard', 'wideguard']) {
+							if (target.side.removeSideCondition(effectid)) broke = true;
+						}
+					//}
+					if (broke) {
+						if (move.id === 'feint') {
+							this.battle.add('-activate', target, 'move: Feint');
+						} else {
+							this.battle.add('-activate', target, 'move: ' + move.name, '[broken]');
+						}
+						/*if (this.battle.gen >= 6)*/ delete target.volatiles['stall'];
+					}
+				}
+			}
+			return undefined;
+		}
 		/*canMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return null;
 

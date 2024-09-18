@@ -66,7 +66,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	alakazammega: {
-		tier: "ASODH",
+		tier: "ASODH Ubers",
+		doublesTier: "Mega",
 	},
 	ponyta: {
 		tier: "ASODH NFE",
@@ -90,7 +91,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	slowbromega: {
-		tier: "ASODH",
+		tier: "Mega",
 	},
 	slowbrogalar: {
 		tier: "ASODH",
@@ -222,7 +223,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	sceptilemega: {
-		tier: "ASODH",
+		tier: "Mega",
 	},
 	torchic: {
 		tier: "ASODH NFE",
@@ -234,7 +235,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	blazikenmega: {
-		tier: "ASODH",
+		tier: "ASODH Ubers",
+		doublesTier: "Mega",
 	},
 	zigzagoon: {
 		tier: "ASODH NFE",
@@ -309,7 +311,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	glaliemega: {
-		tier: "ASODH",
+		tier: "Mega",
 	},
 	froslass: {
 		tier: "ASODH",
@@ -324,7 +326,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	salamencemega: {
-		tier: "ASODH",
+		tier: "ASODH Ubers",
+		doublesTier: "Mega",
 	},
 	jirachi: {
 		tier: "ASODH",
@@ -357,7 +360,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	lopunnymega: {
-		tier: "ASODH",
+		tier: "Mega",
 	},
 	hippopotas: {
 		tier: "ASODH NFE",
@@ -620,7 +623,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH",
 	},
 	stonjournermega: {
-		tier: "ASODH",
+		tier: "Mega",
 	},
 	duraludon: {
 		tier: "ASODH NFE",
@@ -629,7 +632,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ASODH NFE",
 	},
 	urshifu: {
-		tier: "ASODH",
+		tier: "ASODH Uber",
 	},
 	urshifurapidstrike: {
 		tier: "ASODH",

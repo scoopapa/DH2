@@ -189,6 +189,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.category === 'Status') return;
 			const targetForme = (move.category === 'Special' ? 'Girafatak' : 'Girafatak-Nocturnal');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			const newatk = attacker.storedStats.spa;
+			const newspa = attacker.storedStats.atk;
+			attacker.storedStats.atk = newatk;
+			attacker.storedStats.spa = newspa;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Double Spirit",
@@ -1717,9 +1721,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 59,
     },
 	mimicry: {
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
+		inherit: true,
 		onTerrainChange(pokemon) {
 			let types;
 			switch (this.field.terrain) {
@@ -1751,10 +1753,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.add('-end', pokemon, 'typeadd', '[silent]');
 			}
 		},
-		name: "Mimicry",
-		shortDesc: "This Pokemon's type gets a new added type to match the Terrain. Type reverts when Terrain ends.",
-		rating: 0.5,
-		num: 250,
 	},
 	disguise: {
 		onDamagePriority: 1,
@@ -1839,8 +1837,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 138,
 	},
 	zenmode: {
-		onResidualOrder: 27,
-		onStart(pokemon) {
+		inherit: true,
+		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
@@ -1851,41 +1849,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.removeVolatile('zenmode');
 			}
 		},
-		condition: {
-			onStart(pokemon) {
-				if (!pokemon.species.name.includes('Galar')) {
-					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-				} else {
-					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-				}
-			},
-			onEnd(pokemon) {
-				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
-					pokemon.formeChange(pokemon.species.battleOnly as string);
-				}
-			},
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Zen Mode",
 		shortDesc: "If Darmanitan, changes Mode to Zen.",
-		rating: 0,
-		num: 161,
 	},
 	dragonsmaw: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dragon') {
-				this.debug('Dragon\'s Maw boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dragon') {
-				this.debug('Dragon\'s Maw boost');
-				return this.chainModify(1.5);
-			}
-		},
+		inherit: true,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status' && move.type === 'Dragon') {
 				this.heal(pokemon.lastDamage / 8, pokemon);
@@ -1897,14 +1864,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 263,
 	},
 	runaway: {
+		inherit: true,
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
 			pokemon.trapped = pokemon.maybeTrapped = false;
 		},
-		name: "Run Away",
 		shortDesc: "This Pokemon can't be trapped by any mean.",
-		rating: 0,
-		num: 50,
 	},
 	illuminate: {
 		onSourceModifyAccuracyPriority: 9,
@@ -1936,6 +1901,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 118,
 	},
 	pastelveil: {
+		inherit: true,
+		desc: "This Pokemon and its allies cannot be poisoned or burned. Gaining this Ability while this Pokemon or its ally is poisoned or burned cures them. If this Ability is being ignored during an effect that causes poison or burn, this Pokemon is cured immediately but its ally is not.",
 		shortDesc: "This Pokemon and its allies cannot be poisoned or burned. On switch-in, cures poisoned and burned allies.",
 		onStart(pokemon) {
 			for (const ally of pokemon.allies()) {
@@ -1972,9 +1939,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			return false;
 		},
-		name: "Pastel Veil",
-		rating: 2,
-		num: 257,
 	},
 	defeatist: {
 		onModifyAtkPriority: 5,
@@ -1996,16 +1960,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 129,
 	},
 	ironfist: {
-		onBasePowerPriority: 23,
+		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				this.debug('Iron Fist boost');
-				return this.chainModify(1.3);
+				return this.chainModify([5325, 4096]);
 			}
 		},
-		name: "Iron Fist",
-		rating: 3,
-		num: 89,
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
+		shortDesc: "This Pokemon's punch-based attacks have 1.3x power. Sucker Punch is not boosted.",
 	},
 	rkssystem: {
 		shortDesc: "Non-STAB moves have 1.2x power.",
@@ -2432,54 +2395,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(0.75);
 			}
 		},
-	},
-	beadsofruin: {
-		inherit: true,
-		onAnyModifySpD(spd, target, source, move) {
-			const abilityHolder = this.effectState.target;
-			// if (target.hasAbility('Beads of Ruin')) return;
-			// if (!move.ruinedSpD?.hasAbility('Beads of Ruin')) move.ruinedSpD = abilityHolder;
-			// if (move.ruinedSpD !== abilityHolder) return;
-			this.debug('Beads of Ruin SpD drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Sp. Def multiplied by 0.83, including this Pokemon.",
-	},
-	swordofruin: {
-		inherit: true,
-		onAnyModifyDef(def, target, source, move) {
-			const abilityHolder = this.effectState.target;
-			// if (target.hasAbility('Sword of Ruin')) return;
-			// if (!move.ruinedDef?.hasAbility('Sword of Ruin')) move.ruinedDef = abilityHolder;
-			// if (move.ruinedDef !== abilityHolder) return;
-			this.debug('Sword of Ruin Def drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Defense multiplied by 0.83, including this Pokemon.",
-	},
-	tabletsofruin: {
-		inherit: true,
-		onAnyModifyAtk(atk, source, target, move) {
-			const abilityHolder = this.effectState.target;
-			// if (source.hasAbility('Tablets of Ruin')) return;
-			// if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
-			// if (move.ruinedAtk !== abilityHolder) return;
-			this.debug('Tablets of Ruin Atk drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Attack multiplied by 0.83, including this Pokemon.",
-	},
-	vesselofruin: {
-		inherit: true,
-		onAnyModifySpA(spa, source, target, move) {
-			const abilityHolder = this.effectState.target;
-			// if (source.hasAbility('Vessel of Ruin')) return;
-			// if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
-			// if (move.ruinedSpA !== abilityHolder) return;
-			this.debug('Vessel of Ruin SpA drop');
-			return this.chainModify(0.83);
-		},
-		shortDesc: "Active Pokemon have their Sp. Atk multiplied by 0.83, including this Pokemon.",
 	},
 	withering: {
 		onModifyMove(move) {
