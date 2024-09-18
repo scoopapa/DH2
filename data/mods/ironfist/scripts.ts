@@ -316,8 +316,48 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return false;
 	}
 	},
+	actions: {
+		canTerastallize(pokemon: Pokemon) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9) {
+				return null;
+			}
+			return pokemon.teraType;
+		},
+
+		terastallize(pokemon: Pokemon) {
+			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+
+			const type = pokemon.teraType;
+			if (type === 'Bug') {
+				this.battle.add('-terastallize', pokemon, type);
+				pokemon.terastallized = type;
+				pokemon.addedType = '';
+				pokemon.knownType = true;
+				pokemon.apparentType = type;
+				if (pokemon.species.baseSpecies === 'Ogerpon') {
+					const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+					pokemon.formeChange(pokemon.species.id + tera, null, true);
+				}
+				if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+					pokemon.formeChange('Terapagos-Stellar', null, true);
+					pokemon.baseMaxhp = Math.floor(Math.floor(
+						2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+					) * pokemon.level / 100 + 10);
+					const newMaxHP = pokemon.baseMaxhp;
+					pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+					pokemon.maxhp = newMaxHP;
+					this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				}
+				this.battle.runEvent('AfterTerastallization', pokemon);
+			} else {
+				pokemon.addVolatile('bigbutton');
+			}
+		}
+	},
 	side: {
-		inherit: true,
+		//inherit: true,
 		constructor(name: string, battle: Battle, sideNum: number, team: PokemonSet[]) {
 			const sideScripts = battle.dex.data.Scripts.side;
 			if (sideScripts) Object.assign(this, sideScripts);
@@ -382,13 +422,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.fishingTokens = 0;
 		},
 		canDynamaxNow(): boolean {
-			if (this.battle.gen !== 9) return false;
-			// In multi battles, players on a team are alternatingly given the option to dynamax each turn
-			// On turn 1, the players on their team's respective left have the first chance (p1 and p2)
-			if (this.battle.gameType === 'multi' && this.battle.turn % 2 !== [1, 1, 0, 0][this.n]) return false;
-			// if (this.battle.gameType === 'multitriples' && this.battle.turn % 3 !== [1, 1, 2, 2, 0, 0][this.side.n]) {
-			//		return false;
-			// }
+			if (this.battle.gen === 9) return false;
 			return true;
 		},
 		addFishingTokens(amount: number) {
@@ -412,25 +446,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 	},
 	pokemon: {
-		inherit: true,
-		getDynamaxRequest(skipChecks?: boolean) {
-			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
-			if (!skipChecks) {
-				if (!this.side.canDynamaxNow()) return;
-				if (
-					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
-				) {
-					return;
-				}
-				// Some pokemon species are unable to dynamax
-				if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
-			}
-			const result: DynamaxOptions = {maxMoves: []};
-			let atLeastOne = false;
-			if (!atLeastOne) return;
-			if (this.canGigantamax) result.gigantamax = this.canGigantamax;
-			return result;
-		},		
+		inherit: true,	
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
