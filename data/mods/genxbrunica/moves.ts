@@ -2507,6 +2507,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	
 	telekinesis: {
 		//not sure if it's movexited or not
+		//whatever the case it removes the immune message from magnetic updraft vs palossand
 		inherit: true,
 		onTry(source, target, move) {
 			// Additional Gravity check for Z-move variant
@@ -2522,7 +2523,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 		condition: {
-			inherit: true,
+			duration: 3,
 			onStart(target) {
 				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
 					target.baseSpecies.name === 'Gengar-Mega') {
@@ -2530,6 +2531,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
 				this.add('-start', target, 'Telekinesis');
+			},
+			onAccuracyPriority: -1,
+			onAccuracy(accuracy, target, source, move) {
+				if (move && !move.ohko) return true;
+			},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
+			onUpdate(pokemon) {
+				if (pokemon.baseSpecies.name === 'Gengar-Mega') {
+					delete pokemon.volatiles['telekinesis'];
+					this.add('-end', pokemon, 'Telekinesis', '[silent]');
+				}
+			},
+			onResidualOrder: 19,
+			onEnd(target) {
+				this.add('-end', target, 'Telekinesis');
 			},
 		},
 	},
