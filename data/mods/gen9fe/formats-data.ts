@@ -753,6 +753,26 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
+	tapusala: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	jirabsca: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	donphurott: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	regithorn: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	lanpass: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -862,4 +882,13 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
+	phanpott: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	chinpass: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+
 };

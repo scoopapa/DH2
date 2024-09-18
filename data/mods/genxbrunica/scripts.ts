@@ -916,7 +916,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const balmEffectData = pokemon.volatiles['typebalm'];
 				const isBalmStatus = balmEffectData.isBalmStatus;
 				if (
-					move.type === pokemon.volatiles['typebalm'].balmType //Check if balm type matches move type
+					(move.id === 'hiddenpower' ? pokemon.hpType : move.type) 
+						=== pokemon.volatiles['typebalm'].balmType //Check if balm type matches move type
 					&& ((move.category === 'Status') ? isBalmStatus : !isBalmStatus) //If the balm or base move is status but not both it won't overwrite
 				) {
 					const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
@@ -1162,7 +1163,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (targets.length) {
 				target = targets[targets.length - 1]; // in case of redirection
 			}
-			if (!source.hasItem('tomeofimagination') && !source.volatiles['tomeofimagination']) {
+			if (!pokemon.hasItem('tomeofimagination') && !pokemon.volatiles['tomeofimagination']) {
 				const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
 				if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
 					let extraPP = 0;
