@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
+	//slate 0
 	melmetal: {
 		learnset: {
 			inherit: true,
@@ -377,6 +378,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			swordsdance: ["9L1"],
 			pog: ["9L1"],
 			goombastomp: ["9L1"],
+			sniftgear: ["9L1"],
 		},
 	},
 	bramblin: {
@@ -657,6 +659,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			earthquake: ["9L1"],
 			stealthrock: ["9L1"],
 			feebasproshops: ["9L1"],
+			fishanddip: ["9L1"],
+			fishingminigame: ["9L1"],
 		},
 	},
 	feebas: {
@@ -717,6 +721,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			whirlpool: ["9L1"],
 			gofish: ["9L1"],
 			feebasproshops: ["9L1"],
+			fishanddip: ["9L1"],
 		},
 	},
 	microwave: {
@@ -1000,6 +1005,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 			swordsdance: ["9L1"],
 			goombastomp: ["9L1"],
+			sniftgear: ["9L1"],
 		},
 	},
 	sylveon: {
@@ -1134,6 +1140,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			stankyleg: ["9L1"],
 			gofish: ["9L1"],
 			feebasproshops: ["9L1"],
+			sniftgear: ["9L1"],
 		},
 	},
 	celesteela: {
@@ -1208,6 +1215,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	bigcrammer: {
 		learnset: {
+			fishanddip: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
 			agility: ["9L1"],
@@ -1279,6 +1287,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	archeops: {
 		learnset: {
 			inherit: true,
+			fishanddip: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
 			agility: ["9L1"],
@@ -1894,6 +1903,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			substitute: ["9L1"],
 			toxic: ["9L1"],
 			hiddenpower: ["9L1"],
+			fishanddip: ["9L1"],
 		},
 	},
 	zaciancrowned: {
@@ -2735,8 +2745,11 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sketch: ["9L1"],
 			goombastomp: ["9L1"],
 			stankyleg: ["9L1"],
+			fishanddip: ["9L1"],
 		},
 	},
+	
+	//slate 1
 	melmetal2: {
 		learnset: {
 			acidarmor: ["9L1"],
@@ -2791,7 +2804,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	traike: {
 		learnset: {
-			attract: ["9L1"],
+			splash: ["9L1"],
 		},
 	},
 	pidown: {
@@ -3136,6 +3149,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			futuresight: ["9L1"],
 			psychic: ["9L1"],
 			psyshock: ["9L1"],
+			fishanddip: ["9L1"],
 		},
 	},
 	kurayami: {
@@ -3278,6 +3292,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			workup: ["9L1"],
 			triplerkick: ["9L1"],
 			feebasproshops: ["9L1"],
+			sniftgear: ["9L1"],
 		},
 	},
 	zelda: {
@@ -3488,6 +3503,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			workup: ["9L1"],
 			thekitchensink: ["9L1"],
 			feebasproshops: ["9L1"],
+			fishanddip: ["9L1"],
 		},
 	},
 	drigike: {
@@ -3575,6 +3591,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			powertrick: ["9L1"],
 		},
 	},
+	
+	//slate 2
 	smelmetal: {
 		learnset: {
 			acidarmor: ["9L1"],
@@ -3687,6 +3705,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			voltswitch: ["9L1"],
 			wideguard: ["9L1"],
 			zapcannon: ["9L1"],
+			sniftgear: ["9L1"],
 		},
 	},
 	starmie: {
@@ -4527,6 +4546,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			stankyleg: ["9L1"],
 			fishingminigame: ["9L1"],
 			goombastomp: ["9L1"],
+			sniftgear: ["9L1"],
 		},
 	},
 	swooliobat: {
@@ -5050,6 +5070,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9L1"],
 			substitute: ["9L1"],
 			takedown: ["9L1"],
+			recover: ["9L1"],
 		},
 	},
 };

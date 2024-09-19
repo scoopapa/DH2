@@ -1,4 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	//slate 0
 	melmetal: {
 		inherit: true,
 		num: 1001,
@@ -29,7 +30,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Silcoon",
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 89, atk: 145, def: 90, spa: 105, spd: 80, spe: 91},
-		abilities: {0: "Intimidate"},
+		abilities: {0: "toxic masculinity"},
 	},
 	togedemaru: {
 		inherit: true,
@@ -102,7 +103,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Glaceon",
 		types: ["Ice"],
 		baseStats: {hp: 85, atk: 60, def: 110, spa: 130, spd: 95, spe: 65},
-		abilities: {0: "Perfectionist", H: "Ice Body"},
+		abilities: {0: "Perfectionist", 1: "MILF", H: "Ice Body"},
 	},
 	lytlegai: {
 		num: 1014,
@@ -118,7 +119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sylveon",
 		types: ["Fairy"],
 		baseStats: {hp: 60, atk: 130, def: 110, spa: 65, spd: 65, spe: 95},
-		abilities: {0: "Cute Charm", H: "Pixilate"},
+		abilities: {0: "Cute Charm", 1: "MILF", H: "Pixilate"},
 	},
 	ohmyrod: {
 		num: 1016,
@@ -185,7 +186,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Wyrdeer",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 110, atk: 105, def: 72, spa: 105, spd: 75, spe: 85},
-		abilities: {0: "Intimidate", 1: "Frisk", H: "Sap Sipper"},
+		abilities: {0: "toxic masculinity", 1: "MILF", H: "Sap Sipper"},
 	},
 	goomba: {
 		num: 1024,
@@ -211,6 +212,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Zacian-Crowned",
 		abilities: {0: "Identity Crisis"},	
 	},
+	
+	//slate 1
 	melmetal2: {
 		num: 1027,
 		name: "Melmetal 2",
@@ -276,7 +279,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Hitmontop",
 		types: ["Fighting"],
 		baseStats: {hp: 65, atk: 115, def: 65, spa: 35, spd: 145, spe: 50},
-		abilities: {0: "Intimidate", 1: "Technician", H: "Steadfast"},
+		abilities: {0: "toxic masculinity", 1: "Technician", H: "Steadfast"},
 		weightkg: 48.0,
 	},
 	zelda: {
@@ -284,7 +287,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Zelda",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 90, atk: 115, def: 90, spa: 90, spd: 80, spe: 100},
-		abilities: {0: "Sniper", 1: "Justified", H: "Stamina"},
+		abilities: {0: "Sniper", 1: "MILF", H: "Stamina"},
 	},
 	cascoon: {
 		inherit: true,
@@ -317,6 +320,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Illusion", 1: "Imposter", H: "Good as Gold"},
 		weightkg: 69.0,
 	},
+	
+	//slate 2
 	smelmetal: {
 		num: 1040,
 		name: "Smelmetal",
@@ -380,7 +385,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Collachet",
 		types: ["Fighting"],
 		baseStats: {hp: 102, atk: 128, def: 88, spa: 100, spd: 103, spe: 54},
-		abilities: {0: "Intimidate"},
+		abilities: {0: "toxic masculinity"},
 		weightkg: 538.3,
 	},
 	guiltrism: {
@@ -440,7 +445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Impalpitoad",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 75, atk: 65, def: 55, spa: 65, spd: 55, spe: 69},
-		abilities: {0: "Impalpable"},
+		abilities: {0: "MILF", H: "Impalpable"},
 	},
 	scrubby: {
 		num: 1055,
@@ -463,7 +468,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "palpitoad is so cool",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 120, atk: 100, def: 85, spa: 100, spd: 85, spe: 70},
-		abilities: {0: "champion"},
+		abilities: {0: "MILF", H: "champion"},
 	},
 	spewpa: {
 		inherit: true,
@@ -473,4 +478,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 50, def: 120, spa: 110, spd: 120, spe: 30},
 		abilities: {0: "Shed Skin", 1: "Perish Body", H: "Magic Bounce"},
 	},
+
+	//slate 3
 }

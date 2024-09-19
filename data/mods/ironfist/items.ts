@@ -1,4 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	//slate 1
 	kunai: {
 		name: "Kunai",
 		fling: {
@@ -106,6 +107,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+
+	//slate 2
 	balanceboard: {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
@@ -224,4 +227,94 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+
+	//slate 3
+	aguavberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	figyberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'atk') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	aguavberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	iapapaberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'def') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	magoberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	wikiberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spa') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	zeldaniumz: {
+		name: "Zeldanium Z",
+		shortDesc: "If held by a Zelda with Triple Arrows, it can use Arrows of Light.",
+		spritenum: 651,
+		onTakeItem: false,
+		zMove: "Arrows of Light",
+		zMoveFrom: "Triple Arrows",
+		itemUser: ["Zelda"],
+	},
+	
 }

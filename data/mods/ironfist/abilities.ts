@@ -1,5 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-  	ultraluck: {
+  	//slate 1
+	ultraluck: {
 		onModifyCritRatio(critRatio) {
 			return critRatio + 3;
 		},
@@ -126,6 +127,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Auctor Wile",
 		shortDesc: "If this Pokemon is damaged by a punching move, the attacker loses 25% max HP.",
 	},
+	
+	//slate 2
 	ironnose: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Steel') {
@@ -418,5 +421,126 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "champion",
 		shortDesc: "Swift Swim + Rain Dish",
+	},
+
+	//slate 3
+	milf: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			pokemon.side.addFishingToken(1);
+		},
+		flags: {},
+		name: "MILF",
+		shortDesc: "At the end of each turn, add 1 Fishing Token to the user's side.",
+	},
+	rkssystem: {
+		inherit: true,
+		shortDesc: "RKS System + Magic Guard + Technician",
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	toxicmasculinity: {
+		//effect in intimidate
+		flags: {},
+		name: "toxic masculinity",
+		shortDesc: "Intimidate: 50% SpA + 1; 20% Spe + 1; 50% Atk -1; 3% Toxic Spikes on both sides.",
+	},
+	intimidate: {
+		inherit: true,
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else if (target.ability === 'Toxic Masculinity') {
+					if (this.randomChance(1, 2)) this.boost({spa: 1}, target, pokemon, null, true);
+					if (this.randomChance(1, 2)) this.boost({atk: 1}, target, pokemon, null, true);
+					if (this.randomChance(1, 5)) this.boost({spe: 1}, target, pokemon, null, true);
+					if (this.randomChance(1, 5)) {
+						this.boost({evasion: 1}, target, pokemon, null, true);
+						this.boost({evasion: 1}, pokemon, pokemon, null, true);
+					}
+					if (this.randomChance(3, 100)) {
+						pokemon.side.addSideCondition('toxicspikes', pokemon);
+						target.side.addSideCondition('toxicspikes', pokemon);
+					}
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
+	magneticstorm: {
+		shortDesc: "Magnet Pull + Storm Drain",
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!(source ||= this.effectState.target) || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Steel')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Magnetic Storm');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Water' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Magnetic Storm');
+				}
+				return this.effectState.target;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Magnetic Storm",
+	},
+	riverthief: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: River Thief');
+				}
+				return null;
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark' && target.hasType('Water') && target.side.fishingTokens) {
+				const tokens = target.side.fishingTokens;
+				target.side.removeFishingTokens(tokens);
+				source.side.addFishingTokens(tokens);
+			},
+		},
+		flags: {breakable: 1},
+		name: "River Thief",
+		shortDesc: "Speed Storm Drain + using a Dark-type move against a Water-type Pokemon steals that side's tokens.",
 	},
 }

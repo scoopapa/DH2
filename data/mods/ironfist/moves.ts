@@ -19,7 +19,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	*/
 
-	//actual moves
+	//slate 1
 	silcoonsexactmovepool: {
 		accuracy: true,
 		basePower: 0,
@@ -95,6 +95,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Mog Off",
+		shortDesc: "50% chance to lower the target's Atk/SpA by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -104,12 +105,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 50,
-			volatileStatus: 'confusion',
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
 		},
 		target: "any",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "50% chance to confuse the target.",
+		//shortDesc: "50% chance to confuse the target.",
 	},
   	chocolatekiss: {
 		accuracy: 60,
@@ -136,10 +140,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
   	fishingminigame: {
 		accuracy: 100,
-		basePower: 100,
+		basePower: 90,
 		category: "Physical",
 		name: "Fishing Minigame",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -300,6 +304,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
+	
+	//slate 2
 	thekitchensink: {
         num: -1,
         accuracy: 93.81174699,
@@ -1022,7 +1028,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "50%: 85 BP Special, hits Ghost; 50%: 2 Fishing Tokens.",
 		pp: 5,
 		priority: 0,
-		flags: {},
+		flags: {fishing: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Pay Day", target);
@@ -1233,5 +1239,222 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
+	},
+
+	//slate 3
+	fishanddip: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fish and Dip",
+		shortDesc: "Sets 1 Fishing Token on the user's side. User switches out.",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, fishing: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Life Dew", pokemon);
+		},
+		onHit(target, source, move) {
+			source.side.addFishingTokens(1);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Water",
+	},
+	
+	ohmygoooodwaaaaaaaaaanisfokifnouh: {
+		name: "OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH",
+		type: "Normal",
+		category: "Physical",
+		basePower: 0,
+		accuracy: 100,
+		pp: 1,
+		noPPBoosts: true,
+		shortDesc: "User faints. Removes entry hazards from the user's side of the field.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Spin Out", target);
+		},
+		onHit(target, source, move) {
+			if (!move.hasSheerForce) {
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH', '[of] ' + pokemon);
+					}
+				}
+			}
+		},
+		selfdestruct: "always",
+		secondary: null,
+		target: "normal",
+	},
+	sniftgear: {
+		name: "Snift Gear",
+		type: "Steel",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "User +2 Atk; can hit Ghost-types, ignores evasiveness, takes 2x from Poison.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Odor Sleuth", target);
+		},
+		boosts: {
+			atk: 2,
+		},
+		volatileStatus: "sniftgear",
+		condition: {
+			onModifyMovePriority: -5,
+			onModifyMove(move) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Fighting'] = true;
+					move.ignoreImmunity['Normal'] = true;
+				}
+			},
+			onAnyModifyBoost(boosts, pokemon) {
+				const unawareUser = this.effectState.target;
+				if (unawareUser === pokemon) return;
+				if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+					boosts['evasion'] = 0;
+				}
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.type === 'Poison')  return this.chainModify(2);
+			},
+		},
+		secondary: null,
+		target: "self",
+	},
+	anchorshot: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, fishing: 1},
+	},
+	arrowsoflight: {
+		name: "Arrows of Light",
+		type: "Fighting",
+		category: "Physical",
+		basePower: 0,
+		accuracy: 100,
+		pp: 1,
+		shortDesc: "User gains the Laser Focus effect.",
+		priority: 0,
+		flags: {},
+		isZ: "zeldaniumz",
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sinister Arrow Raid", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fishprocessing: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fish Processing",
+		shortDesc: "Sets 1 Fishing Token on the user's side when used and while the user stays in.",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, fishing: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Shift Gear", pokemon);
+		},
+		onHit(target, source, move) {
+			source.side.addFishingTokens(1);
+		},
+		volatileStatus: "fishprocessing",
+		condition: {
+			onResidual(pokemon) {
+				pokemon.side.addFishingToken(1);
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+	},
+	fisheater: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fish Eater",
+		shortDesc: "Consumes half of user's side's Fishing Tokens; gains +1 Stockpile, 1/16 max HP for each one.",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, fishing: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Life Dew", pokemon);
+		},
+		onTry(source) {
+			return (source.side.fishingTokens && source.side.fishingTokens > 0);
+		},
+		onHit(target, source, move) {
+			const tokens = (source.side.fishingTokens % 2) ? source.side.fishingTokens / 2 : source.fishingTokens / 2 + 1;
+			const success = source.side.removeFishingTokens(tokens);
+			if (success) {
+				for (let i = 0; i < Math.min(3, tokens); i ++) {
+					source.addVolatile('stockpile');
+				}
+				this.heal(Math.ceil(source.maxhp * tokens / 16), source);
+			}
+			return success;
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
+	fishingterrain: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fishing Terrain",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'fishingterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				let mod = 1;
+				if (attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					if(move.type === 'Water') mod *= 1.2;
+					if(move.flags['fishing']) mod *= 1.5;
+				}
+				
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Fishing Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Fishing Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Fishing Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Water",
 	},
 }

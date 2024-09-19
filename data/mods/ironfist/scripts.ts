@@ -330,6 +330,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			const type = pokemon.teraType;
+			console.log(pokemon);
 			if (type === 'Bug') {
 				this.battle.add('-terastallize', pokemon, type);
 				pokemon.terastallized = type;
