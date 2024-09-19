@@ -791,6 +791,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	yanma: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	//TODO: Free Lorian Yanma line
+	yanmega: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 	feebas: {
 		tier: "Brunica LC",
 		doublesTier: "DOU",
