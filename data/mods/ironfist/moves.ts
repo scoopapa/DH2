@@ -116,8 +116,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		//shortDesc: "50% chance to confuse the target.",
 	},
   	chocolatekiss: {
-		accuracy: 60,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 60,
 		category: "Physical",
 		name: "Chocolate Kiss",
 		pp: 20,
