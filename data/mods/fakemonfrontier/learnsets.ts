@@ -1,6 +1,7 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	alliglacier: {
 		learnset: {
+			powerwhip: ["9L1"],
 			tripleaxel: ["9L1"],
 			icespinner: ["9L1"],
 			iciclespear: ["9L1"],
@@ -321,6 +322,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["9L1"],
 	}},
 	dizmuth: {learnset: {
+		earthquake: ["9L1"],
 		allyswitch: ["9L1"],
 		ancientpower: ["9L1"],
 		blazingtorque: ["9L1"],
@@ -710,6 +712,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		},
 	},
 	harletritus: {learnset: {
+		playrough: ["9L1"],
+		wish: ["9L1"],
 		acrobatics: ["9L1"],
 		aerialace: ["9L1"],
 		ancientpower: ["9L1"],
@@ -1336,6 +1340,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	}},
 	manchini: {
 		learnset: {
+			defog: ["9L1"],
 			beatup: ["9L1"],
 			bulletseed: ["9L1"],
 			banefulbunker: ["9L1"],
@@ -1616,6 +1621,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		wideguard: ["9L1"],
 	}},
 	puffrost: {learnset: {
+		defog: ["9L1"],
 		avalanche: ["9L1"],
 		blizzard: ["9L1"],
 		block: ["9L1"],
@@ -2064,6 +2070,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 	}},
 	stavage: {learnset: {
+		swordsdance: ["9L1"],
+		icespinner: ["9L1"],
+		tripleaxel: ["9L1"],
 		acid: ["9L1"],
 		acidspray: ["9L1"],
 		aquacutter: ["9L1"],
@@ -2137,6 +2146,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		whirlpool: ["9L1"],
 	}},
 	swampent: {learnset: {
+		smackdown: ["9L1"],
 		acid: ["9L1"],
 		acidspray: ["9L1"],
 		aquatail: ["9L1"],
@@ -2460,7 +2470,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		constrict: ["9L1"],
 		darkpulse: ["9L1"],
 		doubleedge: ["9L1"],
-		earthquake: ["9L1"],
 		embargo: ["9L1"],
 		endure: ["9L1"],
 		extremespeed: ["9L1"],
@@ -2526,7 +2535,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		waterpulse: ["9L1"],
 		wrap: ["9L1"],
 	}},
-		encrave: {
+	encrave: {
 		learnset: {
 			scald: ["9L1"],
 			spiritshackle: ["9L1"],
@@ -2827,6 +2836,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	bluffly: {
 		learnset: {
+			closecombat: ["9L1"],
+			focusblast: ["9L1"],
 			aurasphere: ["9L1"],
 			belch: ["9L1"],
 			crunch: ["9L1"],
@@ -2996,6 +3007,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	djinnferno: {
 		learnset: {
+			defog: ["9L1"],
+			morningsun: ["9L1"],
 			bulkup: ["9L1"],
 			closecombat: ["9L1"],
 			drainpunch: ["9L1"],
@@ -3207,6 +3220,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	stalagtide: {
 		learnset: {
+			closecombat: ["9L1"],
+			earthquake: ["9L1"],
 			aquacutter: ["9L1"],
 			aquajet: ["9L1"],
 			highhorsepower: ["9L1"],
@@ -3702,7 +3717,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["9L1"],
 			focusblast: ["9L1"],
 			aurasphere: ["9L1"],
-			fireblast: ["9L1"],
 			recover: ["9L1"],
 			recycle: ["9L1"],
 			thunderbolt: ["9L1"],
