@@ -1263,7 +1263,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Water",
 	},
-	
 	ohmygoooodwaaaaaaaaaanisfokifnouh: {
 		name: "OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH",
 		type: "Normal",
@@ -1456,5 +1455,141 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Water",
+	},
+	naturepower: {
+		inherit: true,
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			} else if (this.field.isTerrain('fishingterrain')) {
+				move = 'fishingmetagame';
+			}
+			this.actions.useMove(move, pokemon, {target});
+			return null;
+		},
+	},
+	secretpower: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			} else if (this.field.isTerrain('fishingterrain')) {
+				move.secondaries.push({
+					chance: 100,
+					onHit(target, source, move) {
+						source.side.addFishingTokens(1);
+					},
+				});
+			}
+		},
+	},
+	terrainpulse: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			case 'fishingterrain':
+				move.type = 'Water';
+				break;
+			}
+		},
+	},
+	waterpledge: {
+		inherit: true,
+		isViable: true,
+		shortDesc: "Sets Rainbow if Fishing Terrain is active.",
+		onModifyMove(move) {
+			if (this.field.isTerrain('fishingterrain')) move.sideCondition = 'waterpledge';
+		},
+	},
+	skydrop: {
+		inherit: true,
+		onTry(source, target) {
+			return !target.fainted && !target.volatiles['bigbutton'];
+		},
+	},
+	evilscaryuturn: {
+		name: "EVIL SCARY U-Turn",
+		type: "Dark",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "User switches out after damaging the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Scary Face", target);
+			this.add('-anim', pokemon, "Shadow Sneak", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+	},
+	looksmaxxknuckle: {
+		name: "Looksmaxx Knuckle",
+		type: "Fairy",
+		category: "Physical",
+		basePower: 85,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Raises the user's Attack by 1.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Max Knuckle", target);
+		},
+		self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		secondary: null,
+		target: "normal",
 	},
 }

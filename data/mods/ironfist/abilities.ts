@@ -543,4 +543,46 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "River Thief",
 		shortDesc: "Speed Storm Drain + using a Dark-type move against a Water-type Pokemon steals that side's tokens.",
 	},
+	fishysurge: {
+		onStart(source) {
+			this.field.setTerrain('fishingterrain');
+		},
+		flags: {},
+		name: "Fishy Surge",
+		shortDesc: "On switchin, set Fishing Terrain.",
+	},
+	mimicry: {
+		inherit: true,
+		onTerrainChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				types = ['Electric'];
+				break;
+			case 'grassyterrain':
+				types = ['Grass'];
+				break;
+			case 'mistyterrain':
+				types = ['Fairy'];
+				break;
+			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			case 'fishingterrain':
+				types = ['Water'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
+		},
+	},
 }
