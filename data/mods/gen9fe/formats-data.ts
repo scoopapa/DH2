@@ -761,7 +761,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
-	donphurott: {
+	donphurotthisui: {
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
