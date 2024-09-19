@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+  	gen: 8,
+	inherit: 'gen8',
 	init() {
 		// Automatically construct fusion learnsets! (Thank u scoopapa)
 		for (const id in this.dataCache.Pokedex) { // check the dex for fusions
