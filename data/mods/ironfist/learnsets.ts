@@ -804,6 +804,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			wildcharge: ["9L1"],
 			willowisp: ["9L1"],
 			zapcannon: ["9L1"],
+			campfire: ["9L1"],
 		},
 	},
 	glaceon: {
@@ -1658,6 +1659,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sunnyday: ["9L1"],
 			goombastomp: ["9L1"],
 			gofish: ["9L1"],
+			campfire: ["9L1"],
 		},
 	},
 	wyrdeer: {
@@ -1768,6 +1770,11 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			workup: ["9L1"],
 			zenheadbutt: ["9L1"],
 			goombastomp: ["9L1"],
+			stankyleg: ["9L1"],
+			vineboom: ["9L1"],
+			icebeam: ["9L1"],
+			hypervoice: ["9L1"],
+			recover: ["9L1"],
 		},
 	},
 	goomba: {
@@ -3150,6 +3157,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			psychic: ["9L1"],
 			psyshock: ["9L1"],
 			fishanddip: ["9L1"],
+			campfire: ["9L1"],
 		},
 	},
 	kurayami: {
@@ -3351,6 +3359,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			substitute: ["9L1"],
 			swordsdance: ["9L1"],
 			feebasproshops: ["9L1"],
+			campfire: ["9L1"],
 		},
 	},
 	cascoon: {

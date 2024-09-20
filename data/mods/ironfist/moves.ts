@@ -1592,4 +1592,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	lemonacid: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Lemon Acid",
+		shortDesc: "100% chance to lower the target’s Special Defense by one stage."
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Acid Spray", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+			},
+		},
+		target: "normal",
+		type: "Lemon",
+	},
+	campfire: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Campfire",
+		shortDesc: "Consumes 1 Fishing Token to heal 50% max HP.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ember", pokemon);
+		},
+		onTry(source) {
+			return (source.side.fishingTokens && source.side.fishingTokens > 0);
+		},
+		onHit(target, source, move) {
+			const success = source.side.removeFishingTokens(1);
+			if (success) this.heal(Math.ceil(source.maxhp / 2), source);
+			return success;
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Fire",
+	},
 }

@@ -185,7 +185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1023,
 		name: "Wyrdeer",
 		types: ["Normal", "Psychic"],
-		baseStats: {hp: 110, atk: 105, def: 72, spa: 105, spd: 75, spe: 85},
+		baseStats: {hp: 110, atk: 85, def: 72, spa: 125, spd: 72, spe: 85},
 		abilities: {0: "toxic masculinity", 1: "MILF", H: "Sap Sipper"},
 	},
 	goomba: {
