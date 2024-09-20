@@ -15162,7 +15162,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trailblaze: ["9L1"],
 		},
 	},
-	donphurott: {
+	donphurotthisui: {
 		learnset: {
 			aerialace: ["9L1"],
 			airslash: ["9L1"],
