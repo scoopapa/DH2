@@ -718,5 +718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bramblin Mentality"},
 		weightkg: 19.9,
 	},
-
+	inkay: {
+		inherit: true,
+	},
 }

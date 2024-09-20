@@ -1703,6 +1703,35 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	liondeluge: {
+		name: "Lion Deluge",
+		type: "Electric",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 40,
+		shortDesc: "Sets Deluge of Lions for 5 turns.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		pseudoWeather: 'liondeluge',
+		condition: {
+			duration: 5,
+			onFieldStart(target, source, sourceEffect) {
+				this.add('-fieldactivate', 'move: Lion Deluge');
+				this.hint(`Normal-type moves cause the user to become Pyroar after using ${sourceEffect}.`);
+			},
+			onBeforeMovePriority: 100,
+			onBeforeMove(pokemon) {
+				pokemon.formeChange('Pyroar');
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
 	
 	//Freaky shit
 	attract: {

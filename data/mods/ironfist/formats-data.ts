@@ -339,4 +339,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	inkay: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 }
