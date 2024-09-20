@@ -428,6 +428,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
+			this.add('-activate', pokemon, 'ability: MILF');
 			pokemon.side.addFishingTokens(1);
 		},
 		flags: {},
@@ -452,8 +453,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fishingcat: {
 		onSourceDamagingHit(damage, target, source, move) {
-			if(move.flags['fishing']) this.heal(source.baseMaxhp / 4, source, source);
-			source.side.addFishingTokens(1);
+			if(move.flags['fishing']) {
+				this.heal(source.baseMaxhp / 4, source, source);
+				source.side.addFishingTokens(1);
+			}
 		},
 		flags: {},
 		name: "Fishing Cat",
@@ -524,6 +527,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else if (target.ability === 'toxicmasculinity') {
+					this.add('-activate', target, 'ability: toxic masculinity');
 					if (this.randomChance(1, 2)) this.boost({spa: 1}, target, pokemon, null, true);
 					if (this.randomChance(1, 2)) this.boost({atk: 1}, target, pokemon, null, true);
 					if (this.randomChance(1, 5)) this.boost({spe: 1}, target, pokemon, null, true);
@@ -587,6 +591,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceDamagingHit(damage, target, source, move) {
 			if (move.type === 'Dark' && target.hasType('Water') && target.side.fishingTokens) {
+				this.add('-activate', source, 'ability: River Thief');
 				const tokens = target.side.fishingTokens;
 				target.side.removeFishingTokens(tokens);
 				source.side.addFishingTokens(tokens);
@@ -603,40 +608,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Fishy Surge",
 		shortDesc: "On switchin, set Fishing Terrain.",
-	},
-	mimicry: {
-		inherit: true,
-		onTerrainChange(pokemon) {
-			let types;
-			switch (this.field.terrain) {
-			case 'electricterrain':
-				types = ['Electric'];
-				break;
-			case 'grassyterrain':
-				types = ['Grass'];
-				break;
-			case 'mistyterrain':
-				types = ['Fairy'];
-				break;
-			case 'psychicterrain':
-				types = ['Psychic'];
-				break;
-			case 'fishingterrain':
-				types = ['Water'];
-				break;
-			default:
-				types = pokemon.baseSpecies.types;
-			}
-			const oldTypes = pokemon.getTypes();
-			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
-			if (this.field.terrain || pokemon.transformed) {
-				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
-				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
-			} else {
-				this.add('-activate', pokemon, 'ability: Mimicry');
-				this.add('-end', pokemon, 'typechange', '[silent]');
-			}
-		},
 	},
 	biglady: {
 		onUpdate(pokemon) {
@@ -807,5 +778,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Bramblin Mentality",
 		shortDesc: "Comatose",
+	},
+
+	//vanilla
+	mimicry: {
+		inherit: true,
+		onTerrainChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				types = ['Electric'];
+				break;
+			case 'grassyterrain':
+				types = ['Grass'];
+				break;
+			case 'mistyterrain':
+				types = ['Fairy'];
+				break;
+			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			case 'fishingterrain':
+				types = ['Water'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
+		},
 	},
 }

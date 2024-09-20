@@ -1008,11 +1008,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
         target: "allAdjacent",
         type: "???",
     },
-	cuddle: {
+	cuddie: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "cuddle",
+		name: "cuddIe",
 		shortDesc: "the pokemon have. a nice cuddle :)",
 		pp: 625000,
 		priority: 0,
@@ -1385,6 +1385,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		volatileStatus: "sniftgear",
 		condition: {
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} took a big sniff!`);
+				this.add('-start', pokemon, 'Snift Gear', '[silent]');
+			},
 			onModifyMovePriority: -5,
 			onModifyMove(move) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
