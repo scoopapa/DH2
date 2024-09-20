@@ -2699,7 +2699,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Heatproof Drive",
 		rating: 4,
 	},
-	armorfist: {
+	/*armorfist: {
 		shortDesc: "x1.2 power to punch and priority moves (stacking); Own side is protected from the sort",
 		onFoeTryMove(target, source, move) {
 			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
@@ -2724,7 +2724,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Armor Fist",
 	},
-	/*mercurypulse: {
+	mercurypulse: {
 		shortDesc: "On switch-in, summons Rain Dance. During Rain Dance, Attack is 1.3333x.",
 		onStart(pokemon) {
 			if (this.field.setWeather('raindance')) {
@@ -2744,6 +2744,37 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Mercury Pulse",
 		rating: 4.5,
 	},*/
+	firedup: {
+		shortDesc: "Side protected from Fire and Priority moves; It's own have x1.5 power.",
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+			const armorTailHolder = this.effectState.target;
+			if ((source.isAlly(armorTailHolder) || move.target === 'all') && (move.priority > 0.1 || move.type === 'Fire')) {
+				this.attrLastMove('[still]');
+				this.add('cant', armorTailHolder, 'ability: Fired Up', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.priority > 0.1) {
+				this.debug('Fired Up boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.priority > 0.1) {
+				this.debug('Fired Up boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Fired Up",
+	},
 	firedrinker: {
 		shortDesc: "Sap Sipper + Blaze. Sap Sipper also activates against Fire-type moves.",
 		onTryHitPriority: 1,
