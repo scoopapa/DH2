@@ -120,7 +120,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		target: "any",
-		type: "FREAKY",
+		type: "Freaky",
 		contestType: "Tough",
 		//shortDesc: "50% chance to confuse the target.",
 	},
@@ -1195,7 +1195,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		],
 		target: "normal",
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	tinycudgel: {
 		accuracy: 100,
@@ -1276,7 +1276,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH",
 		type: "Normal",
 		category: "Physical",
-		basePower: 0,
+		basePower: 300,
 		accuracy: 99.9,
 		pp: 1,
 		noPPBoosts: true,
@@ -1291,8 +1291,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (!move.hasSheerForce) {
 				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 				for (const condition of sideConditions) {
-					if (pokemon.side.removeSideCondition(condition)) {
-						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH', '[of] ' + pokemon);
+					if (source.side.removeSideCondition(condition)) {
+						this.add('-sideend', source.side, this.dex.conditions.get(condition).name, '[from] move: OH MY GOOOOD WAAAAAAAAAANISFOKIFNOUH', '[of] ' + source);
 					}
 				}
 			}
@@ -1459,7 +1459,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		heal: [1, 3],
 		volatileStatus: 'endure',
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	fishprocessing: {
 		accuracy: true,
@@ -1480,7 +1480,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		volatileStatus: "fishprocessing",
 		condition: {
 			onResidual(pokemon) {
-				pokemon.side.addFishingToken(1);
+				pokemon.side.addFishingTokens(1);
 			},
 		},
 		secondary: null,
@@ -1504,7 +1504,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return (source.side.fishingTokens && source.side.fishingTokens > 0);
 		},
 		onHit(target, source, move) {
-			const tokens = (source.side.fishingTokens % 2) ? source.side.fishingTokens / 2 : source.fishingTokens / 2 + 1;
+			const tokens = Math.ceil(source.side.fishingTokens / 2);
 			const success = source.side.removeFishingTokens(tokens);
 			if (success) {
 				for (let i = 0; i < Math.min(3, tokens); i ++) {
@@ -1514,7 +1514,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			return success;
 		},
-		selfSwitch: true,
 		secondary: null,
 		target: "self",
 		type: "Normal",
@@ -1620,6 +1619,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 100,
 			boosts: {
+				spd: -1,
 			},
 		},
 		target: "normal",
@@ -1649,7 +1649,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			return success;
 		},
-		selfSwitch: true,
 		secondary: null,
 		target: "self",
 		type: "Fire",
@@ -1681,7 +1680,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	transgenderoperationsonillegalaliens: {
 		name: "Transgender Operations on Illegal Aliens",
-		type: "FREAKY",
+		type: "Freaky",
 		category: "Status",
 		basePower: 0,
 		accuracy: 100,
@@ -1695,128 +1694,128 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onTryImmunity(pokemon, source) {
 			const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'Ougayporn-Comerstone', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyafia', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
-			return (pokemon.gender !== 'N' && nonVanilla.includes(pokemon));
+			return (pokemon.gender !== 'N' && nonVanilla.includes(pokemon.name));
 		},
 		onHit(target) {
 			target.gender = (target.gender === 'F') ? 'M' : 'F';
-			this.add('-message', `${target.name} is now ${(target.gender === 'M') ? 'male' : 'female'!}`);
+			this.add('-message', `${target.name} is now ${(target.gender === 'M') ? 'male' : 'female'}!`);
 		},
 		secondary: null,
 		target: "normal",
 	},
 	
-	//freaky shit
+	//Freaky shit
 	attract: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	bind: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	confide: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	confuseray: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	constrict: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	doubleslap: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	faketears: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	flatter: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	growl: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	harden: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	healblock: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	lick: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	lovelykiss: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	milkdrink: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	mindreader: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	pounce: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	rocksmash: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	roleplay: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	skittersmack: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	sleeptalk: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	smackdown: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	snarl: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	submission: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	swagger: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	swallow: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	sweetkiss: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	tickle: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 	topsyturvy: {
 		inherit: true,
-		type: "FREAKY",
+		type: "Freaky",
 	},
 
 	//fake moves
@@ -1832,11 +1831,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
-				
+				this.add('-sidestart', side, 'Aboma Care Spikes', '[silent]');
 			},
 			onEntryHazard(pokemon) {
-				pokemon.heal(pokemon.baseMaxhp / 4);
+				this.heal(pokemon.maxhp / 4);
 				pokemon.side.removeSideCondition('abomacarespikes');
+				this.add('-sideend', pokemon.side, 'move: Aboma Care Spikes', '[of] ' + pokemon, '[silent]');
 			},
 		},
 		secondary: null,
@@ -1942,4 +1942,5 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return !target.fainted && !target.volatiles['bigbutton'];
 		},
 	},
+	gmaxcuddle: null,
 }

@@ -30,6 +30,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 89, atk: 145, def: 90, spa: 105, spd: 80, spe: 91},
 		abilities: {0: "toxic masculinity"},
+		evos: null,
 	},
 	togedemaru: {
 		inherit: true,
@@ -37,7 +38,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Togedemaru",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 100, atk: 50, def: 100, spa: 50, spd: 100, spe: 133},
-		abilities: {0: "Iron Barbs", 1: "Lightning Rod", H: "Serene Grace"},
+		abilities: {0: "Iron Barbs", 1: "Lightning Rod", H: "Benevolent Blessing"},
 	},
 	bramblin: {
 		inherit: true,
@@ -60,7 +61,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1008,
 		name: "Gholdengo",
-		types: ["Ghost", "FREAKY"],
+		types: ["Ghost", "Freaky"],
 		baseStats: {hp: 100, atk: 60, def: 90, spa: 125, spd: 90, spe: 110},
 		abilities: {0: "Alpha Sigma Rizz"},
 	},
@@ -291,6 +292,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fairy"],
 		baseStats: {hp: 105, atk: 65, def: 115, spa: 85, spd: 95, spe: 25},
 		abilities: {0: "Shed Skin", 1: "Unaware", H: "Magic Guard"},
+		evos: null,
 	},
 	sentret: {
 		inherit: true,
@@ -319,7 +321,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	smelmetal: {
 		num: 1039,
 		name: "Smelmetal",
-		types: ["Steel", "FREAKY"],
+		types: ["Steel", "Freaky"],
 		baseStats: {hp: 97, atk: 99, def: 144, spa: 77, spd: 107, spe: 37},
 		abilities: {0: "Iron Nose"},
 		weightkg: 570.0,
@@ -471,6 +473,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 70, atk: 50, def: 120, spa: 110, spd: 120, spe: 30},
 		abilities: {0: "Shed Skin", 1: "Perish Body", H: "Magic Bounce"},
+		evos: null,
 	},
 	
 	moltresmega: {
@@ -526,6 +529,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120},
 		abilities: {0: "Shed Skin", 1: "Multiscale", H: "Grassy Surge"},
 		weightkg: 9.9,
+		evos: null,
 	},
 	kakuna: {
 		inherit: true,
@@ -535,6 +539,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 120, def: 100, spa: 80, spd: 100, spe: 100},
 		abilities: {0: "Shed Skin", 1: "Sharpness", H: "Tinted Lens"},
 		weightkg: 10.0,
+		evos: null,
 	},
 	enamorustherian: {
 		inherit: true,
@@ -579,7 +584,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1070,
 		name: "Whonhef",
 		types: ["Normal", "Fighting"],
-		baseStats: {hp: 80, atk: 110, def: 73, spa: 73, spd: 120, spe: 109},
+		baseStats: {hp: 80, atk: 110, def: 73, spa: 73, spd: 120, spe: 79},
 		abilities: {0: "Sharpness", 1: "Berserk", H: "Hyper Cutter"},
 	},
 	fishfactory: {
@@ -713,4 +718,5 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bramblin Mentality"},
 		weightkg: 19.9,
 	},
+
 }

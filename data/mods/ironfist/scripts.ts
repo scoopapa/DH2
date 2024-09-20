@@ -329,9 +329,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 			}
 
-			const type = pokemon.teraType;
-			console.log(pokemon);
-			if (type === 'Bug') {
+			let type = pokemon.teraType;
+			let canTera = false;
+			if (pokemon.set.ability === 'I Love Fishing') {
+				canTera = true;
+				type = 'Water';
+			}
+			if (type === 'Bug' || canTera) {
 				this.battle.add('-terastallize', pokemon, type);
 				pokemon.terastallized = type;
 				for (const ally of pokemon.side.pokemon) {

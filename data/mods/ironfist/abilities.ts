@@ -523,13 +523,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.ability === 'Toxic Masculinity') {
+				} else if (target.ability === 'toxicmasculinity') {
 					if (this.randomChance(1, 2)) this.boost({spa: 1}, target, pokemon, null, true);
 					if (this.randomChance(1, 2)) this.boost({atk: 1}, target, pokemon, null, true);
 					if (this.randomChance(1, 5)) this.boost({spe: 1}, target, pokemon, null, true);
 					if (this.randomChance(1, 5)) {
-						this.boost({evasion: 1}, target, pokemon, null, true);
-						this.boost({evasion: 1}, pokemon, pokemon, null, true);
+						this.boost({evasion: -1}, target, pokemon, null, true);
+						this.boost({evasion: -1}, pokemon, pokemon, null, true);
 					}
 					if (this.randomChance(3, 100)) {
 						pokemon.side.addSideCondition('toxicspikes', pokemon);
@@ -675,7 +675,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	kaijukiller: {
 		onUpdate(pokemon) {
 			for (const target of pokemon.adjacentFoes()) {
-				if (!pokemon.kaijuKillerBoosted && pokemon.volatiles['bigbutton']) {
+				if (!pokemon.kaijuKillerBoosted && target.volatiles['bigbutton']) {
 					pokemon.kaijuKillerBoosted = true;
 					this.add('-activate', pokemon, 'ability: Kaiju Killer');
 					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});

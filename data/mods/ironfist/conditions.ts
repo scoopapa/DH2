@@ -71,7 +71,10 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	sunnyday: {
 		inherit: true,
 		onFieldStart(battle, source, effect) {
-			if (battle.field.isTerrain('fishingterrain')) return;
+			if (battle.terrain === 'fishingterrain') {
+				this.add('-message', 'The fishing terrain blocked out the sun!');
+				return;
+			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, '[of] ' + source);
