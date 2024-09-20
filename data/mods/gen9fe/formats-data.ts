@@ -639,7 +639,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	magnegiri: {
-		tier: "FEUU",
+		tier: "FEUUBL",
 		doublesTier: "DOU",
 	},
 	celeblim: {

@@ -35,8 +35,8 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife',
 											'prehistorichunter', 'ancientmarble']) { 
 					if (pokemon.hasAbility(proto)) {
-						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
-							pokemon.addVolatile(proto);
+						if (!(pokemon.volatiles['protosynthesis'] || pokemon.volatiles[proto]) && pokemon.useItem()) {
+							pokemon.addVolatile(['openingact','weightoflife','prehistorichunter'].includes(proto) ? proto : 'protosynthesis');
 						}
 						return;
 					}
@@ -46,8 +46,8 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
 											'faultyphoton', 'firewall', 'innovate', 'baryonblade']) { 
 					if (pokemon.hasAbility(quark)) {
-						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
-							pokemon.addVolatile(quark);
+						if (!(pokemon.volatiles['quarkdrive'] || pokemon.volatiles[quark]) && pokemon.useItem()) {
+							pokemon.addVolatile(['lightdrive','baryonblade','circuitbreaker'].includes(quark) ? quark : 'quarkdrive');
 						}
 						return;
 					}
