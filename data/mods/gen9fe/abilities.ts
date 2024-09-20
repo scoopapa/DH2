@@ -739,21 +739,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Primitive",
 		rating: 3,
 	},
-	systempurge: {
+	/*systempurge: {
 		shortDesc: "Hit by a Dark move or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Dark') {
 				target.addVolatile('systempurge');
 			}
 		},
-		/*onTerrainChange(pokemon) {
+		/ *onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
 				pokemon.addVolatile('systempurge');
 			} else if (!pokemon.volatiles['systempurge']?.fromBooster) {
 				pokemon.removeVolatile('systempurge');
 			}
-		},*/
+		},* /
 		onEnd(pokemon) {
 			delete pokemon.volatiles['systempurge'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
@@ -814,6 +814,76 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "System Purge",
 		rating: 3,
+	},*/
+	baryonblade: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('baryonblade');
+			} else if (!pokemon.volatiles['baryonblade']?.fromBooster) {
+				pokemon.removeVolatile('baryonblade');
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['baryonblade'];
+			this.add('-end', pokemon, 'Baryon Blade', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Baryon Blade', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Baryon Blade');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'baryonblade' + this.effectState.bestStat);
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 1;
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Baryon Blade', '[silent]');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Baryon Blade",
+		shortDesc: "Quark Drive effects. +1 Critrate; +2 instead under Quark Drive.",
 	},
 	delayedreaction: {
 		shortDesc: "This Pokemon switches out at the end of the next turn after being lowered to 50% of its max HP.",
@@ -3061,7 +3131,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Armor Fist",
 	},
-	mercurypulse: {
+	/*mercurypulse: {
 		shortDesc: "On switch-in, summons Rain Dance. During Rain Dance, Attack is 1.3333x.",
 		onStart(pokemon) {
 			if (this.field.setWeather('raindance')) {
@@ -3080,7 +3150,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Mercury Pulse",
 		rating: 4.5,
-	},
+	},*/
 	firedrinker: {
 		shortDesc: "Sap Sipper + Blaze. Sap Sipper also activates against Fire-type moves.",
 		onTryHitPriority: 1,
@@ -4284,10 +4354,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Protosynthesis",
-		rating: 3,
-		num: 281,
 	},
 	quarkdrive: {
 		inherit: true,

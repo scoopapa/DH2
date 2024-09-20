@@ -138,7 +138,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		randomBattleLevel: 75,
 	},
 	solvaliantmega: {
-		tier: "FEOU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		randomBattleMoves: ["moonblast", "knockoff", "closecombat", "fireblast"],
 		randomBattleLevel: 73,

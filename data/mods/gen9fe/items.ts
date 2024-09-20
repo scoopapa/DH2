@@ -44,7 +44,7 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
-											'faultyphoton', 'firewall', 'innovate']) { 
+											'faultyphoton', 'firewall', 'innovate', 'baryonblade']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
 							pokemon.addVolatile(quark);
@@ -53,9 +53,9 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 					}
 				}
 			}
-			if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
+			/*if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
 				pokemon.addVolatile('systempurge');
-			}
+			}*/
 		},
 		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
