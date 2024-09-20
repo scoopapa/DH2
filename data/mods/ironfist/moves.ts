@@ -1719,18 +1719,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "", target);
+			this.add('-anim', pokemon, "Ion Deluge", target);
 		},
 		pseudoWeather: 'liondeluge',
 		condition: {
 			duration: 5,
 			onFieldStart(target, source, sourceEffect) {
 				this.add('-fieldactivate', 'move: Lion Deluge');
-				this.hint(`Normal-type moves cause the user to become Pyroar after using ${sourceEffect}.`);
+				this.hint(`Certin types of moves cause the user to become a lion Pokemon after using ${sourceEffect}.`);
 			},
-			onBeforeMovePriority: 100,
-			onBeforeMove(pokemon) {
-				pokemon.formeChange('Pyroar');
+			onResidual(pokemon) {
+				const roars = ["Alluring Voice", "Boomburst", "Bug Buzz", "Chatter", "Clanging Scales", "Clangorous Soul", "Clangorous Soulblaze", "Confide", "Disarming Voice", "Echoed Voice", "Eerie Spell", "Grass Whistle", "Growl", "Heal Bell", "Howl", "Hyper Voice", "Metal Sound", "Noble Roar", "Overdrive", "Parting Shot", "Perish Song", "Psychic Noise", "Relic Song", "Roar", "Roar of Time", "Round", "Screech", "Sing", "Snarl", "Snore", "Sparkling Aria", "Supersonic", "Torch Song", "Uproar"];
+				let target = pokemon;
+				const roar = this.dex.getActiveMove(this.sample(roars));
+				if (roar.target != "self") {
+					if(pokemon.adjacentFoes().length == 0) return;
+					target = this.sample(pokemon.adjacentFoes());
+				}
+				this.add('-message', `${pokemon.name} roared!`);
+				this.actions.useMove(roar, pokemon, target);
+			},
+			onBeforeMove(pokemon, target, move) {
+				if(move.type === 'Normal') pokemon.formeChange('Pyroar');
+				if(move.type === 'Electric') pokemon.formeChange('Luxray');
+				if(move.type === 'Fire') pokemon.formeChange('Entei');
+				if(move.type === 'Dragon') pokemon.formeChange('Gouging Fire');
+				if(move.type === 'Steel') pokemon.formeChange('Solgaleo');
 			},
 		},
 		secondary: null,
