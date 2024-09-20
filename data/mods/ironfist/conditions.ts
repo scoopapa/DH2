@@ -48,7 +48,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onStart(pokemon) {
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
 		},
-		onSourceModifyDamage(damage, source, target, move) {
+		onBasePower(basePower, pokemon, target, move) {
 			const boostedMoves = [
 				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'doubleironbash', 'grassknot', 'lowkick',
 			];

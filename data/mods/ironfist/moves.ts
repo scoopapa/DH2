@@ -1621,7 +1621,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Consumes 1 Fishing Token to heal 50% max HP.",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, metronome: 1},
+		flags: {snatch: 1, metronome: 1, fishing: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Ember", pokemon);
@@ -1631,7 +1631,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			const success = source.side.removeFishingTokens(1);
-			if (success) this.heal(Math.ceil(source.maxhp / 2), source);
+			if (success) {
+				this.heal(Math.ceil(source.maxhp / 2), source);
+				if (!['', 'slp', 'frz'].includes(source.status)) source.cureStatus();
+			}
 			return success;
 		},
 		selfSwitch: true,
