@@ -3346,7 +3346,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Apple of Ruin');
-			this.add('-message', `${pokemon.name}'s Apple of Ruin lowered the Evasion of all surrounding Pokémon!`);
+			this.add('-message', `${pokemon.name}'s Apple of Ruin weakened the Evasion of all surrounding Pokémon!`);
 		},
 		onAnyModifyAccuracyPriority: -1,
 		onAnyModifyAccuracy(accuracy, target, source, move) {
