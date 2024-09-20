@@ -46,11 +46,17 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		inherit: true,
 		duration: null,
 		onStart(pokemon) {
+			if (!pokemon.big) pokemon.big = true;
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['grassknot', 'lowkick'].includes(move.id)) {
+				return this.chainModify(2);
+			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
 			const boostedMoves = [
-				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'doubleironbash', 'grassknot', 'lowkick',
+				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'doubleironbash'
 			];
 			if (boostedMoves.includes(move.id)) {
 				return this.chainModify(2);

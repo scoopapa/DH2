@@ -428,11 +428,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			pokemon.side.addFishingToken(1);
+			pokemon.side.addFishingTokens(1);
 		},
 		flags: {},
 		name: "MILF",
 		shortDesc: "At the end of each turn, add 1 Fishing Token to the user's side.",
+	},
+	benevolentblessing: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if(this.randomChance(1, 20)) pokemon.setStatus('slp');
+			if(this.randomChance(1, 100)) {
+				for (const target of pokemon.adjacentFoes()) {
+					this.actions.useMove('selfdestruct', pokemon, target);
+				}
+			}
+		},
+		//mogoff effect in its entry
+		flags: {},
+		name: "Benevolent Blessing",
+		shortDesc: "5% to fall asleep, 1% to Final Gambit; Mog Off: 50% Swagger, 50% Self-Destruct.",
+	},
+	fishingcat: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if(move.flags['fishing']) this.heal(source.baseMaxhp / 4, source, source);
+			source.side.addFishingTokens(1);
+		},
+		flags: {},
+		name: "Fishing Cat",
+		shortDesc: "This Pokemon heals 1/4 of its max HP and adds 1 Fishing Token after using a fishing move.",
 	},
 	rkssystem: {
 		inherit: true,
@@ -452,6 +477,34 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+	},
+	frozenlandscape: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-start', source, 'typechange', 'Ice');
+			}
+		},
+		flags: {},
+		name: "Frozen Landscape",
+		shortDesc: "If this Pokémon is hit by a contact move, the attacker becomes an Ice-type.",
+	},
+	thediamondhand: {
+		//need to work out details
+		flags: {},
+		name: "The Diamond Hand",
+	},
+	ilovefishing: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['fishing']) {
+				return this.chainModify(1.5);
+			}
+		},
+		//tera effect in scripts.ts
+		flags: {},
+		name: "I Love Fishing",
+		shortDesc: "This Pokemon's fishing moves have 1.5x power; Big Button Teras Water.",
 	},
 	toxicmasculinity: {
 		//effect in intimidate
@@ -584,5 +637,175 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'typechange', '[silent]');
 			}
 		},
+	},
+	biglady: {
+		onUpdate(pokemon) {
+			if (!pokemon.bigLadyBoosted && pokemon.volatiles['bigbutton']) {
+				pokemon.bigLadyBoosted = true;
+				this.add('-activate', pokemon, 'ability: Big Lady');
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.bigLadyBoosted = false;
+		},
+		flags: {breakable: 1},
+		name: "Big Lady",
+		shortDesc: "When this Pokemon uses Big Button, its stats are raised by 1 stage.",
+	},
+	pvzfishing: {
+		onDragOutPriority: 1,
+		onDragOut(pokemon) {
+			this.add('-activate', pokemon, 'ability: PVZ Fishing');
+			return null;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if(move.type === 'Grass') return 1;
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Grass') return this.chainModify(2);
+		},
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		flags: {breakable: 1},
+		name: "PVZ Fishing",
+		shortDesc: "Suction Cups + Long Reach; this Pokemon is 4x weak to Grass moves.",
+	},
+	kaijukiller: {
+		onUpdate(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				if (!pokemon.kaijuKillerBoosted && pokemon.volatiles['bigbutton']) {
+					pokemon.kaijuKillerBoosted = true;
+					this.add('-activate', pokemon, 'ability: Kaiju Killer');
+					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.kaijuKillerBoosted = false;
+		},
+		flags: {breakable: 1},
+		name: "Kaiju Killer",
+		shortDesc: "When another Pokemon uses Big Button, this Pokemon's stats are raised by 1 stage.",
+	},
+	ironlady: {
+		onStart(pokemon) {
+			if (pokemon.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Iron Lady');
+				const fallen = Math.min(pokemon.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Iron Lady boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		onModifyMove(move) {
+			move.forceSTAB = true;
+		},
+		flags: {},
+		name: "Iron Lady",
+		shortDesc: "Supreme Overlord + This Pokemon's moves have STAB.",
+	},
+	skillissue: {
+		onFlinch(pokemon) {
+			this.boost({spe: 1});
+		},
+		onStart(pokemon) {
+			// n.b. only affects Hackmons
+			// interaction with No Ability is complicated: https://www.smogon.com/forums/threads/pokemon-sun-moon-battle-mechanics-research.3586701/page-76#post-7790209
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+			// interaction with Ability Shield is similar to No Ability
+			if (pokemon.hasItem('Ability Shield')) {
+				this.add('-block', pokemon, 'item: Ability Shield');
+				this.effectState.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const oldAbility = target.setAbility(pokemon.ability);
+			if (oldAbility) {
+				this.add('-ability', target, target.getAbility().name, '[from] ability: Skill Issue');
+				return;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		name: "Skill Issue",
+		shortDesc: "Steadfast + On switchin, this Pokemon changes the ability of the opponent to this one.",
+	},
+	mysticslicer: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fairy';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			let mod = 1;
+			if (move.typeChangerBoosted === this.effect) mod *= 1.2;
+			if (move.flags['slicing']) mod *= 1.5;
+			return this.chainModify(mod);
+		},
+		flags: {},
+		name: "Mystic Slicer",
+		shortDesc: "Sharpness + Pixilate",
+	},
+	partinggift: {
+		onFaint(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				if (pokemon.item) this.actions.useMove('fling', pokemon, target);
+			}
+		},
+		flags: {},
+		name: "Parting Gift",
+		shortDesc: "When the user's HP drops to 0, it executes the move Fling before fainting.",
+	},
+	abomacare: {
+		onSwitchOut(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+			pokemon.side.addSideCondition('abomacarespikes');
+		},
+		flags: {},
+		name: "Aboma Care",
+		shortDesc: "Upon switching out, this Pokemon loses 12% HP but the incoming Pokemon heals 25% HP.",
+	},
+	bramblinmentality: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Bramblin Mentality');
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Bramblin Mentality');
+			}
+			return false;
+		},
+		// Permanent sleep "status" implemented in the relevant sleep-checking effects
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Bramblin Mentality",
+		shortDesc: "Comatose",
 	},
 }

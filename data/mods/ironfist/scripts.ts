@@ -356,7 +356,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				this.battle.runEvent('AfterTerastallization', pokemon);
 			} else {
-				pokemon.addVolatile('bigbutton');
+				if(!pokemon.volatiles['bigbutton']) pokemon.addVolatile('bigbutton');
 			}
 		}
 	},

@@ -103,6 +103,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Bulk Up", target);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.ability === 'benevolentblessing') {
+				move.secondary = null;
+				move.onHit = function(target, source) {
+					if (this.randomChance(1, 2)) this.actions.useMove('swagger', source, source);
+					else this.actions.useMove("selfdestruct", source, target);
+				};
+			}
+		},
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -111,7 +120,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		target: "any",
-		type: "Ghost",
+		type: "FREAKY",
 		contestType: "Tough",
 		//shortDesc: "50% chance to confuse the target.",
 	},
@@ -1186,7 +1195,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		],
 		target: "normal",
-		type: "Bug",
+		type: "FREAKY",
 	},
 	tinycudgel: {
 		accuracy: 100,
@@ -1292,6 +1301,71 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	frigidterrain: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Frigid Terrain",
+		shortDesc: "5 turns. Grounded: +Ice power, Fishing takes 3x PP.",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'frigidterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					if(move.type === 'Ice') return this.chainModify(1.5);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Frigid Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Frigid Terrain');
+				}
+			},
+			onAnyDeductPP(target, source) {
+				//if (target.isGrounded() && ) return 2;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Frigid Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Water",
+	},
+	getemboys: {
+		name: "Get Em\', Boys",
+		type: "Normal",
+		category: "Physical",
+		basePower: 100,
+		basePowerCallback(pokemon, target, move) {
+			const allies = pokemon.side.pokemon.filter(ally => !ally.fainted && ally.diamondHand);
+			return 100 + 10 * allies;
+		},
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Power inceases by 10 for each unfainted Diamond Hand member in the party.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Close Combat", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
 	sniftgear: {
 		name: "Snift Gear",
 		type: "Steel",
@@ -1333,6 +1407,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 	},
+	springtidestorm: {
+		inherit: true,
+		basePower: 120,
+		shortDesc: "30% chance to lower the foe(s) Attack by 1. Rain: can't miss.",
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				move.accuracy = true;
+				break;
+			}
+		},
+	},
 	anchorshot: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, fishing: 1},
@@ -1352,6 +1439,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Sinister Arrow Raid", target);
 		},
+		secondary: null,
+		target: "normal",
+	},
+	supermushroom: {
+		name: "Super Mushroom",
+		type: "Grass",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "Heals the user for 1/3 max HP and gains Endure. Cannot be selected twice in a row.",
+		priority: 3,
+		flags: {snatch: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Synthesis", pokemon);
+		},
+		heal: [1, 3],
+		volatileStatus: 'endure',
 		secondary: null,
 		target: "normal",
 	},
@@ -1418,6 +1524,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fishing Terrain",
+		shortDesc: "5 turns. Grounded: +Water, Fishing power, Fishing tokens are doubled.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
@@ -1437,7 +1544,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					if(move.type === 'Water') mod *= 1.2;
 					if(move.flags['fishing']) mod *= 1.5;
 				}
-				
+				return this.chainModify(mod);
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
@@ -1456,6 +1563,290 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Water",
 	},
+	evilscaryuturn: {
+		name: "EVIL SCARY U-Turn",
+		type: "Dark",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "User switches out after damaging the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Scary Face", target);
+			this.add('-anim', pokemon, "Shadow Sneak", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+	},
+	looksmaxxknuckle: {
+		name: "Looksmaxx Knuckle",
+		type: "Fairy",
+		category: "Physical",
+		basePower: 85,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Raises the user's Attack by 1.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Max Knuckle", target);
+		},
+		self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		secondary: null,
+		target: "normal",
+	},
+	lemonacid: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Lemon Acid",
+		shortDesc: "100% chance to lower the target’s Special Defense by one stage.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Acid Spray", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+			},
+		},
+		target: "normal",
+		type: "Lemon",
+	},
+	campfire: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Campfire",
+		shortDesc: "Consumes 1 Fishing Token to heal 50% max HP.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1, fishing: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ember", pokemon);
+		},
+		onTry(source) {
+			return (source.side.fishingTokens && source.side.fishingTokens > 0);
+		},
+		onHit(target, source, move) {
+			const success = source.side.removeFishingTokens(1);
+			if (success) {
+				this.heal(Math.ceil(source.maxhp / 2), source);
+				if (!['', 'slp', 'frz'].includes(source.status)) source.cureStatus();
+			}
+			return success;
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Fire",
+	},
+	sizedifference: {
+		name: "Size Difference",
+		type: "Ice",
+		category: "Physical",
+		basePower: 100,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Payback NOT boosted');
+				return move.basePower;
+			}
+			const targetMove = target.lastMove;
+			if (targetMove.name.length < 15) return move.basePower * 2;
+		},
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "If used after the target, if the move they used has a shorter name than this move, 2x power.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Hammer", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	transgenderoperationsonillegalaliens: {
+		name: "Transgender Operations on Illegal Aliens",
+		type: "FREAKY",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Fails on vanilla Pokemon. Changes the target's gender.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Endeavor", target);
+		},
+		onTryImmunity(pokemon, source) {
+			const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'Ougayporn-Comerstone', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyafia', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
+			return (pokemon.gender !== 'N' && nonVanilla.includes(pokemon));
+		},
+		onHit(target) {
+			target.gender = (target.gender === 'F') ? 'M' : 'F';
+			this.add('-message', `${target.name} is now ${(target.gender === 'M') ? 'male' : 'female'!}`);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	
+	//freaky shit
+	attract: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	bind: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	confide: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	confuseray: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	constrict: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	doubleslap: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	faketears: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	flatter: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	growl: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	harden: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	healblock: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	lick: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	lovelykiss: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	milkdrink: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	mindreader: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	pounce: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	rocksmash: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	roleplay: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	skittersmack: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	sleeptalk: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	smackdown: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	snarl: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	submission: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	swagger: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	swallow: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	sweetkiss: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	tickle: {
+		inherit: true,
+		type: "FREAKY",
+	},
+	topsyturvy: {
+		inherit: true,
+		type: "FREAKY",
+	},
+
+	//fake moves
+	abomacarespikes: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Aboma Care Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'abomacarespikes',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				
+			},
+			onEntryHazard(pokemon) {
+				pokemon.heal(pokemon.baseMaxhp / 4);
+				pokemon.side.removeSideCondition('abomacarespikes');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+
+	//vanilla moves
 	naturepower: {
 		inherit: true,
 		onTryHit(target, pokemon) {
@@ -1550,96 +1941,5 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			return !target.fainted && !target.volatiles['bigbutton'];
 		},
-	},
-	evilscaryuturn: {
-		name: "EVIL SCARY U-Turn",
-		type: "Dark",
-		category: "Physical",
-		basePower: 70,
-		accuracy: 100,
-		pp: 20,
-		shortDesc: "User switches out after damaging the target.",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Scary Face", target);
-			this.add('-anim', pokemon, "Shadow Sneak", target);
-		},
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
-	},
-	looksmaxxknuckle: {
-		name: "Looksmaxx Knuckle",
-		type: "Fairy",
-		category: "Physical",
-		basePower: 85,
-		accuracy: 100,
-		pp: 10,
-		shortDesc: "Raises the user's Attack by 1.",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Max Knuckle", target);
-		},
-		self: {
-				boosts: {
-					atk: 1,
-				},
-			},
-		secondary: null,
-		target: "normal",
-	},
-	lemonacid: {
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Lemon Acid",
-		shortDesc: "100% chance to lower the target’s Special Defense by one stage."
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Acid Spray", target);
-		},
-		secondary: {
-			chance: 100,
-			boosts: {
-			},
-		},
-		target: "normal",
-		type: "Lemon",
-	},
-	campfire: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Campfire",
-		shortDesc: "Consumes 1 Fishing Token to heal 50% max HP.",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, metronome: 1, fishing: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Ember", pokemon);
-		},
-		onTry(source) {
-			return (source.side.fishingTokens && source.side.fishingTokens > 0);
-		},
-		onHit(target, source, move) {
-			const success = source.side.removeFishingTokens(1);
-			if (success) {
-				this.heal(Math.ceil(source.maxhp / 2), source);
-				if (!['', 'slp', 'frz'].includes(source.status)) source.cureStatus();
-			}
-			return success;
-		},
-		selfSwitch: true,
-		secondary: null,
-		target: "self",
-		type: "Fire",
 	},
 }

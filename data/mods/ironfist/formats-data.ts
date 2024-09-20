@@ -107,10 +107,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	traike: {
-		tier: "Banned Lol",
-		doublesTier: "DOU",
-	},
 	pidown: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -228,6 +224,118 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	spewpa: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	moltresmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	jirachitwo: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	shinxfishing: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	conquescape: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	daiyafia: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	metapod: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	kakuna: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	enamorustherian: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	pokestarfisherman: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	magnegiri: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	mario: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	contamicow: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	whonhef: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fishfactory: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	'cowboy_bandido': {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	basculinbluestriped: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	pokestargiant: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	richardpetty: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	impidimp: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	impidimpmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fishingzombie: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	mt: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	margaretthatcher: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fleshvaliant: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fleshvaliantmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	abomasnow: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	komala: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
