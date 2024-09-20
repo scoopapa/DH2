@@ -537,7 +537,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const tokens = target.side.fishingTokens;
 				target.side.removeFishingTokens(tokens);
 				source.side.addFishingTokens(tokens);
-			},
+			}
 		},
 		flags: {breakable: 1},
 		name: "River Thief",

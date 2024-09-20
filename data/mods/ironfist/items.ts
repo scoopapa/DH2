@@ -255,19 +255,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 	},
-	aguavberry: {
-		inherit: true,
-		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp * .6);
-			if (pokemon.getNature().minus === 'spd') {
-				pokemon.addVolatile('confusion');
-			}
-		},
-	},
 	iapapaberry: {
 		inherit: true,
 		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",

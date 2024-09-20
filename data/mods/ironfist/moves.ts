@@ -1268,7 +1268,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		category: "Physical",
 		basePower: 0,
-		accuracy: 100,
+		accuracy: 99.9,
 		pp: 1,
 		noPPBoosts: true,
 		shortDesc: "User faints. Removes entry hazards from the user's side of the field.",

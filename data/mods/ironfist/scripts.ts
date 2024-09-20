@@ -431,7 +431,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 		addFishingTokens(amount: number) {
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
-			if(this.battle.field.isTerrain('fishingterrain') amount *= 2;
+			if(this.battle.field.isTerrain('fishingterrain')) amount *= 2;
 			this.fishingTokens += amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} added to ${this.name}'s side!`);
