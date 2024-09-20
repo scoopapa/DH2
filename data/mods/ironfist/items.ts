@@ -1,4 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	//slate 1
 	kunai: {
 		name: "Kunai",
 		fling: {
@@ -106,6 +107,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+
+	//slate 2
 	balanceboard: {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
@@ -180,7 +183,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	nervecharm: {
 		name: "Nerve Charm",
-		shortDesc: "Every other turn, the holder sets Quick Guard.",
+		shortDesc: "(Semi-functional) Every other turn, the holder sets Quick Guard.",
 		rating: 3,
 		fling: {
 			basePower: 40,
@@ -219,6 +222,118 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Electrode-Mega",
 		megaEvolves: "Electrode",
 		itemUser: ["Electrode"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+
+	//slate 3
+	aguavberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	figyberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'atk') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	iapapaberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'def') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	magoberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	wikiberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spa') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	zeldaniumz: {
+		name: "Zeldanium Z",
+		shortDesc: "If held by a Zelda with Triple Arrows, it can use Arrows of Light.",
+		spritenum: 651,
+		onTakeItem: false,
+		zMove: "Arrows of Light",
+		zMoveFrom: "Triple Arrows",
+		itemUser: ["Zelda"],
+	},
+	moltresite: {
+		name: "Moltresite",
+		shortDesc: "If held by a Moltres, this item allows it to Mega Evolve in battle.",
+		spritenum: 622,
+		megaStone: "Moltres-Mega",
+		megaEvolves: "Moltres",
+		itemUser: ["Moltres"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	impidimpite: {
+		name: "Impidimpite",
+		shortDesc: "If held by an Impidimp, this item allows it to Mega Evolve in battle.",
+		spritenum: 601,
+		megaStone: "Impidimp-Mega",
+		megaEvolves: "Impidimp",
+		itemUser: ["Impidimp"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	fleshvaliantite: {
+		name: "Fleshvaliantite",
+		shortDesc: "If held by a Flesh Valiant, this item allows it to Mega Evolve in battle.",
+		spritenum: 587,
+		megaStone: "Flesh Valiant-Mega",
+		megaEvolves: "Flesh Valiant",
+		itemUser: ["Flesh Valiant"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;

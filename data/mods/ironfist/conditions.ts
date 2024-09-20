@@ -46,10 +46,49 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		inherit: true,
 		duration: null,
 		onStart(pokemon) {
+			if (!pokemon.big) pokemon.big = true;
 			this.add('-start', pokemon, 'Dynamax', '[silent]');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['grassknot', 'lowkick'].includes(move.id)) {
+				return this.chainModify(2);
+			}
+		},
+		onBasePower(basePower, pokemon, target, move) {
+			const boostedMoves = [
+				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'doubleironbash'
+			];
+			if (boostedMoves.includes(move.id)) {
+				return this.chainModify(2);
+			}
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax', '[silent]');
 		}
+	},
+
+	//slate 3
+	sunnyday: {
+		inherit: true,
+		onFieldStart(battle, source, effect) {
+			if (battle.terrain === 'fishingterrain') {
+				this.add('-message', 'The fishing terrain blocked out the sun!');
+				return;
+			}
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, '[of] ' + source);
+			} else {
+				this.add('-weather', 'SunnyDay');
+			}
+		},
+	},
+	raindance: {
+		inherit: true,
+		onFieldResidual() {
+			this.add('-weather', 'RainDance', '[upkeep]');
+			if (this.field.isTerrain('fishingterrain')) this.effectState.duration ++;
+			this.eachEvent('Weather');
+		},
 	},
 }
