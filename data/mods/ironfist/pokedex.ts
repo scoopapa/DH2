@@ -47,6 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 75, atk: 125, def: 60, spa: 75, spd: 70, spe: 120},
 		abilities: {0: "Wind Rider", 1: "!dt air slash", H: "Infiltrator"},
+		evos: null,
 	},
 	anarlvet: {
 		num: 1007,
@@ -718,5 +719,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bramblin Mentality"},
 		weightkg: 19.9,
 	},
-
 }
