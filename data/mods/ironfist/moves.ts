@@ -1479,7 +1479,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Shift Gear", pokemon);
 		},
 		onHit(target, source, move) {
-			source.side.addFishingTokens(1);
+			target.side.addFishingTokens(1);
 		},
 		volatileStatus: "fishprocessing",
 		condition: {
