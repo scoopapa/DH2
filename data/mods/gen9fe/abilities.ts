@@ -1733,7 +1733,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 	},
 	burningpetals: {
-		shortDesc: "Flash Fire effects + Allied Fire-types can't have stats lowered or be statused.",
+		shortDesc: "Allied Fire-types status/stat drop/Fire immune; Gains x1.5 to Fire on activation.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				move.accuracy = true;
