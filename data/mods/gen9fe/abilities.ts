@@ -496,65 +496,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarksurge');
-			} else if (!pokemon.volatiles['quarksurge']?.fromBooster) {
-				pokemon.removeVolatile('quarksurge');
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['quarksurge'];
+			delete pokemon.volatiles['quarkdrive'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Quark Surge', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Quark Surge');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Surge atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Surge def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Surge spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Surge spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Quark Surge spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive');
-			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Quark Surge",
@@ -569,65 +518,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.transformed) return;
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('onceuponatime');
-			} else if (!pokemon.volatiles['onceuponatime']?.fromBooster) {
-				pokemon.removeVolatile('onceuponatime');
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['onceuponatime'];
+			delete pokemon.volatiles['protosynthesis'];
 			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Once Upon a Time', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Once Upon a Time');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Once Upon a Time atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Once Upon a Time def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Once Upon a Time spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Once Upon a Time spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Once Upon a Time spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
-			},
 		},
 		onModifyMove(move) {
 			move.infiltrates = true;
@@ -663,9 +561,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.transformed) return;
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('primitive');
-			} else if (!pokemon.volatiles['primitive']?.fromBooster) {
-				pokemon.removeVolatile('primitive');
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
 			}
 		},
 		onUpdate(pokemon) {
@@ -681,79 +579,28 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['primitive'];
+			delete pokemon.volatiles['protosynthesis'];
 			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Primitive', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Primitive');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Primitive atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Primitive def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Primitive spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Primitive spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Primitive spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
-			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Primitive",
 		rating: 3,
 	},
-	systempurge: {
+	/*systempurge: {
 		shortDesc: "Hit by a Dark move or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Dark') {
 				target.addVolatile('systempurge');
 			}
 		},
-		/*onTerrainChange(pokemon) {
+		/ *onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
 				pokemon.addVolatile('systempurge');
 			} else if (!pokemon.volatiles['systempurge']?.fromBooster) {
 				pokemon.removeVolatile('systempurge');
 			}
-		},*/
+		},* /
 		onEnd(pokemon) {
 			delete pokemon.volatiles['systempurge'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
@@ -814,8 +661,78 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "System Purge",
 		rating: 3,
+	},*/
+	baryonblade: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('baryonblade');
+			} else if (!pokemon.volatiles['baryonblade']?.fromBooster) {
+				pokemon.removeVolatile('baryonblade');
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['baryonblade'];
+			this.add('-end', pokemon, 'Baryon Blade', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.name === 'Booster Energy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Baryon Blade', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Baryon Blade');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 1;
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Baryon Blade', '[silent]');
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Baryon Blade",
+		shortDesc: "Quark Drive effects. +1 Critrate; +2 instead under Quark Drive.",
 	},
-	delayedreaction: {
+	/*delayedreaction: {
 		shortDesc: "This Pokemon switches out at the end of the next turn after being lowered to 50% of its max HP.",
 		onAfterMoveSecondary(target, source, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
@@ -839,7 +756,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Delayed Reaction",
 		rating: 1,
-	},
+	},*/
 	madcow: {
 		shortDesc: "On switch-in, or when this Pokemon is lowered to 50% max HP, the foe's Attack is lowered by 1 stage.",
 		onStart(pokemon) {
@@ -1098,65 +1015,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('faultyphoton');
-			} else if (!pokemon.volatiles['faultyphoton']?.fromBooster) {
-				pokemon.removeVolatile('faultyphoton');
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
 			}
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['quarkdrive'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Faulty Photon', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Faulty Photon');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Faulty Photon atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Faulty Photon def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Faulty Photon spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Faulty Photon spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Faulty Photon spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive');
-			},
 		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
@@ -1173,11 +1039,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (attacker.isAlly(abilityHolder) || attacker.ignoringAbility() || !this.effectState.unnerved) return;
 				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
 				else if (move.suppressedParadox !== abilityHolder) return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+				for (const paradox of ['faultyphoton', /*'systempurge'*/ 'baryonblade', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (attacker?.volatiles[paradox]?.bestStat !== 'atk') return;
+						if ((attacker?.volatiles['quarkdrive'] || attacker?.volatiles['protosynthesis'] || attacker?.volatiles[paradox])?.bestStat !== 'atk') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1189,11 +1055,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (defender.isAlly(abilityHolder) || defender.ignoringAbility() || !this.effectState.unnerved) return;
 				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
 				else if (move.suppressedParadox !== abilityHolder) return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+				for (const paradox of ['faultyphoton', /*'systempurge'*/ 'baryonblade', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
-						if (defender?.volatiles[paradox]?.bestStat !== 'def') return;
+						if ((defender?.volatiles['quarkdrive'] || defender?.volatiles['protosynthesis'] || defender?.volatiles[paradox])?.bestStat !== 'def') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1205,11 +1071,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (attacker.isAlly(abilityHolder) || attacker.ignoringAbility() || !this.effectState.unnerved) return;
 				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
 				else if (move.suppressedParadox !== abilityHolder) return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+				for (const paradox of ['faultyphoton', /*'systempurge'*/ 'baryonblade', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (attacker?.volatiles[paradox]?.bestStat !== 'spa') return;
+						if ((attacker?.volatiles['quarkdrive'] || attacker?.volatiles['protosynthesis'] || attacker?.volatiles[paradox]).bestStat !== 'spa') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1221,11 +1087,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (defender.isAlly(abilityHolder) || defender.ignoringAbility() || !this.effectState.unnerved) return;
 				if (!move.suppressedParadox) move.suppressedParadox = abilityHolder;
 				else if (move.suppressedParadox !== abilityHolder) return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+				for (const paradox of ['faultyphoton', /*'systempurge'*/ 'baryonblade', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
-						if (defender?.volatiles[paradox]?.bestStat !== 'spd') return;
+						if ((defender?.volatiles['quarkdrive'] || defender?.volatiles['protosynthesis'] || defender?.volatiles[paradox])?.bestStat !== 'def') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1256,14 +1122,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && attacker.volatiles['firewall']) {
+			if (move.type === 'Fire' && attacker.volatiles['quarkdrive']) {
 				this.debug('Firewall Fire boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && attacker.volatiles['firewall']) {
+			if (move.type === 'Fire' && attacker.volatiles['quarkdrive']) {
 				this.debug('Firewall Fire boost');
 				return this.chainModify(1.5);
 			}
@@ -1271,65 +1137,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('firewall');
-			} else if (!pokemon.volatiles['firewall']?.fromBooster) {
-				pokemon.removeVolatile('firewall');
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['firewall'];
+			delete pokemon.volatiles['quarkdrive'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Firewall', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Firewall');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Firewall atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Firewall def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Firewall spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Firewall spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Firewall spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive');
-			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Firewall",
@@ -1346,65 +1161,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('nanorepairs');
-			} else if (!pokemon.volatiles['nanorepairs']?.fromBooster) {
-				pokemon.removeVolatile('nanorepairs');
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['nanorepairs'];
+			delete pokemon.volatiles['quarkdrive'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Nanorepairs', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Nanorepairs');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Nanorepairs atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Nanorepairs def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Nanorepairs spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Nanorepairs spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Nanorepairs spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive');
-			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Nanorepairs",
@@ -2460,65 +2224,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.transformed) return;
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('ancientmarble');
-			} else if (!pokemon.volatiles['ancientmarble']?.fromBooster) {
-				pokemon.removeVolatile('ancientmarble');
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
+				pokemon.removeVolatile('protosynthesis');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['ancientmarble'];
+			delete pokemon.volatiles['protosynthesis'];
 			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Ancient Marble', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Ancient Marble');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Ancient Marble atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Ancient Marble def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Ancient Marble spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Ancient Marble spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Ancient Marble spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Protosynthesis');
-			},
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Ancient Marble",
@@ -2628,8 +2341,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');
-					this.add('-message', `${pokemon.name} used its Booster Energy to locate nearby prey!`);
-					pokemon.formeChange(forme, this.effect, false, '[msg]');
+					if (pokemon.species.id === 'screamcormorant') {
+						this.add('-message', `${pokemon.name} used its Booster Energy to locate nearby prey!`);
+						pokemon.formeChange(forme, this.effect, false, '[msg]');
+					}
 				} else {
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter');
 				}
@@ -2965,78 +2680,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return damage / 2;
 			}
 		},
-		
 		onStart(pokemon) {
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('heatproofdrive');
-			} else if (!pokemon.volatiles['heatproofdrive']?.fromBooster) {
-				pokemon.removeVolatile('heatproofdrive');
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['heatproofdrive'];
+			delete pokemon.volatiles['quarkdrive'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Heatproof Drive', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Heatproof Drive');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Quark Drive spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive');
-			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Heatproof Drive",
 		rating: 4,
 	},
-	armorfist: {
+	/*armorfist: {
 		shortDesc: "x1.2 power to punch and priority moves (stacking); Own side is protected from the sort",
 		onFoeTryMove(target, source, move) {
 			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
@@ -3080,6 +2743,37 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Mercury Pulse",
 		rating: 4.5,
+	},*/
+	firedup: {
+		shortDesc: "Side protected from Fire and Priority moves; It's own have x1.5 power.",
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+			const armorTailHolder = this.effectState.target;
+			if ((source.isAlly(armorTailHolder) || move.target === 'all') && (move.priority > 0.1 || move.type === 'Fire')) {
+				this.attrLastMove('[still]');
+				this.add('cant', armorTailHolder, 'ability: Fired Up', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.priority > 0.1) {
+				this.debug('Fired Up boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.priority > 0.1) {
+				this.debug('Fired Up boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Fired Up",
 	},
 	firedrinker: {
 		shortDesc: "Sap Sipper + Blaze. Sap Sipper also activates against Fire-type moves.",
@@ -3116,10 +2810,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fire Drinker",
 	},
 	minddomain: {
-		shortDesc: "Competitive + Psychic Surge. Competitive also summons Psychic Terrain.",
-		onStart(source) {
-			this.field.setTerrain('psychicterrain');
-		},
+		shortDesc: "When stats are lowered, +2 SpA and sets up Psychic Terrain.",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
@@ -3372,7 +3063,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Magnetic Storm",
 	},
-	ultraimpulse: {
+	/*ultraimpulse: {
 		shortDesc: "x1.5 to highest stat when burned; +1 upon landing a KO",
 		onStart(pokemon) {
 			this.effectState.bestStat = pokemon.getBestStat(true, true);
@@ -3409,6 +3100,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Ultra Impulse",
+	},*/
+	ultrashackles: {
+		shortDesc: "Beast Boost + Unburden",
+		onAfterUseItem(item, pokemon) {
+			if (pokemon === this.effectState.target) pokemon.addVolatile('unburden');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('unburden');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('unburden');
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({[this.effectState.bestStat ||= source.getBestStat(true, true)]: length}, source);
+			}
+		},
+		flags: {},
+		name: "Ultra Shackles",
 	},
 	dauntingstorm: {
 		shortDesc: "Water Absorb + Intimidate",
@@ -3509,9 +3219,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Hydrotechnic",
 	},
 	shearstrength: {
-		shortDesc: "Takes x0.75 damage from moves with secondaries.",
+		shortDesc: "Takes x0.75 damage from SE moves and moves with secondaries.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.secondaries) {
+			if (move.secondaries || target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Shear Strength neutralize');
 				return this.chainModify(0.75);
 			}
@@ -3587,65 +3297,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('innovate');
-			} else if (!pokemon.volatiles['innovate']?.fromBooster) {
-				pokemon.removeVolatile('innovate');
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['innovate'];
+			delete pokemon.volatiles['quarkdrive'];
 			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.name === 'Booster Energy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Innovate', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Innovate');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Quark Drive spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of pokemon.foes()) {
-					if (target.hasAbility('dyschronometria')) {
-						this.debug('Dyschronometria negating spe boost');
-						return;
-					}
-				}
-				this.debug('Quark Drive spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive');
-			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Innovate",
@@ -3684,7 +3343,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Apple of Ruin');
-			this.add('-message', `${pokemon.name}'s Apple of Ruin lowered the Evasion of all surrounding Pokémon!`);
+			this.add('-message', `${pokemon.name}'s Apple of Ruin weakened the Evasion of all surrounding Pokémon!`);
 		},
 		onAnyModifyAccuracyPriority: -1,
 		onAnyModifyAccuracy(accuracy, target, source, move) {
@@ -3700,15 +3359,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 	},
 	bestboost: {
-		shortDesc: "This Pokemon's highest stat can't be lowered and raises 1 stage after KOing a foe.",
+		shortDesc: "This Pokemon's highest stat can't be lowered.", //and raises 1 stage after KOing a foe.",
 		onStart(pokemon) {
 			this.effectState.bestStat = pokemon.getBestStat(true, true);
 		},
-		onSourceAfterFaint(length, target, source, effect) {
+		/*onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.boost({[this.effectState.bestStat]: length}, source);
 			}
-		},
+		},*/
 		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			const bestStat = (this.effectState.bestStat ||= target.getBestStat(true, true));
@@ -3736,7 +3395,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onImmunity(type, pokemon) {
-			if (['sandstorm','hail','powder'].includes(type)) return false;
+			if (['sandstorm',/*'hail',*/'powder'].includes(type)) return false;
 		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
@@ -3806,7 +3465,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Rough Image",
 	},
-	riotpayload: {
+	/*riotpayload: {
 		shortDesc: "Rocky Payload + Defiant",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) return;
@@ -3834,6 +3493,31 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Riot Payload",
+	},*/
+	prankrock: {
+		shortDesc: "Rocky Payload + Prankster",
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Riot Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Riot Payload boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Prank Rock",
 	},
 	toxicattitude: {
 		shortDesc: "Intimidate + Poison Point",
@@ -4238,9 +3922,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			onStart(pokemon, source, effect) {
 				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Protosynthesis', '[fromitem]');
+					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name, '[fromitem]');
 				} else {
-					this.add('-activate', pokemon, 'ability: Protosynthesis');
+					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
@@ -4284,10 +3968,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Protosynthesis",
-		rating: 3,
-		num: 281,
 	},
 	quarkdrive: {
 		inherit: true,
@@ -4296,9 +3977,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			onStart(pokemon, source, effect) {
 				if (effect?.name === 'Booster Energy') {
 					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Quark Drive', '[fromitem]');
+					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name, '[fromitem]');
 				} else {
-					this.add('-activate', pokemon, 'ability: Quark Drive');
+					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);

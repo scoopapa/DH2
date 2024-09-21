@@ -77,7 +77,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (/*this.battle.gen >= 6 && */move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
 					this.battle.debug('natural powder immunity');
 				} else if (this.battle.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
-					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && !this.dex.getImmunity('prankster', target) && pokemon.hasAbility(['prankster','openingact'])
+					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && !this.dex.getImmunity('prankster', target) && pokemon.hasAbility(['prankster','openingact','prankrock'])
 						 && !targets[i].isAlly(pokemon)) {
 						this.battle.debug('natural prankster immunity');
 						if (!target.illusion) this.battle.hint("Since gen 7, Dark is immune to Prankster moves.");
