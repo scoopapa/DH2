@@ -666,9 +666,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "PVZ Fishing", H: "Damp"},
 		weightkg: 4.8,
 	},
-	mt: {
+	pokestarmt: {
 		num: 1080,
-		name: "MT",
+		name: "Pokestar MT",
 		types: ["Steel"],
 		baseStats: {hp: 105, atk: 103, def: 105, spa: 100, spd: 97, spe: 90},
 		abilities: {0: "Analytic", H: "Kaiju Killer"},
