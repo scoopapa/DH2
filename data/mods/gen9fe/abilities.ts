@@ -118,7 +118,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
@@ -1724,8 +1724,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	fortunomorphosis: {
 		shortDesc: "This Pokemon gains the Laser Focus effect when it takes a hit from an attack.",
-	  onDamagingHitOrder: 1,
-	  onDamagingHit(damage, target, source, move) {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
 			target.addVolatile('laserfocus');
 		},
 		flags: {},
@@ -1735,15 +1735,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	burningpetals: {
 		shortDesc: "Allied Fire-types status/stat drop/Fire immune; Gains x1.5 to Fire on activation.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fire') {
+			if (target !== source && move.type === 'Fire' && target.hasType('Fire')) {
 				move.accuracy = true;
 				if (!target.addVolatile('burningpetals')) {
-					this.add('-immune', target, '[from] ability: Burning Petals');
+					this.add('-block', target, 'ability: Burning Petals', '[of] ' + target)
+					this.add('-message', `${target.name} is surrounded by burning petals!`);
 				}
 				return null;
 			}
 		},
-		onAllyBoost(boost, target, source, effect) {
+		onAllyTryHitSide(target, source, move) {
+			if (!target.isAlly(source) && move.type === 'Fire' && target.hasType('Fire')) {
+				move.accuracy = true;
+				const effectHolder = this.effectState.target;
+				if (!effectHolder.addVolatile('burningpetals')) {
+					this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder)
+					this.add('-message', `${target.name} is surrounded by burning petals!`);
+				}
+				return null;
+			}
+		},
+		onAllyTryBoost(boost, target, source, effect) {
 			if ((source && target === source) || !target.hasType('Fire')) return;
 			let showMsg = false;
 			let i: BoostName;
@@ -1755,7 +1767,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
 				const effectHolder = this.effectState.target;
-				if (!effectHolder.addVolatile('burningpetals')) this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+				if (!effectHolder.addVolatile('burningpetals')) {
+					this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+					this.add('-message', `${target.name} is surrounded by burning petals!`);
+				}
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
@@ -1763,7 +1778,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.debug('interrupting setStatus with Burning Petals');
 				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
-					if (!effectHolder.addVolatile('burningpetals')) this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+					if (!effectHolder.addVolatile('burningpetals')) {
+						this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+						this.add('-message', `${target.name} is surrounded by burning petals!`);
+					}
 				}
 				return null;
 			}
@@ -1782,7 +1800,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		condition: {
 			noCopy: true,
 			onStart(target) {
-				this.add('-start', target, 'ability: Burning Petals');
+				this.add('-ability', target, 'Burning Petals');
+				this.add('-start', target, 'Flash Fire', '[silent]');
+				this.add('-message', `The power of ${target.name}'s Fire-type moves rose!`);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
@@ -1799,7 +1819,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'ability: Burning Petals', '[silent]');
+				this.add('-end', target, 'Flash Fire', '[silent]');
 			},
 		},
 		flags: {breakable: 1},
@@ -1894,7 +1914,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	glacialfocus: {
 		shortDesc: "This Pokemon can't be flinched or have its Evasion lowered.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.evasion && boost.evasion < 0) {
 				delete boost.evasion;
