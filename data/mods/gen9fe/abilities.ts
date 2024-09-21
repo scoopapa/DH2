@@ -3764,8 +3764,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Unidentified Flying Object",
 	},
-	roughimage: {
-		shortDesc: "Illusion effects. Breaking the illusion damages the attacker for 12.5% of Max HP.",
+	afterimage: {
+		shortDesc: "Illusion effects. This Pokemon's Speed is boosted by 1 each turn while Illusion is active.",
 		onBeforeSwitchIn(pokemon) {
 			pokemon.illusion = null;
 			// yes, you can Illusion an active pokemon but only if it's to your right
@@ -3781,10 +3781,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
-			if (target.illusion) {
-				this.singleEvent('End', this.dex.abilities.get('Rough Image'), target.abilityState, target, source, move);
-				this.damage(source.baseMaxhp / 8, source, target);
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns && pokemon.illusion) {
+				this.boost({spe: 1});
 			}
 		},
 		onEnd(pokemon) {
@@ -3804,7 +3805,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			pokemon.illusion = null;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Rough Image",
+		name: "Afterimage",
 	},
 	riotpayload: {
 		shortDesc: "Rocky Payload + Defiant",
