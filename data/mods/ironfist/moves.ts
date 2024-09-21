@@ -241,7 +241,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Goomba Stomp",
-		shotDesc: "100% chance to lower the target's Defense by 1. OHKOs Goomba.",
+		shortDesc: "100% chance to lower the target's Defense by 1. OHKOs Goomba.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
@@ -1067,7 +1067,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 68,
 		category: "Physical",
-		name: "cuddle",
+		name: "Big Bash",
 		shortDesc: "Guaranteed crit if either Pokemon used Big Button.",
 		pp: 20,
 		priority: 0,
@@ -1479,7 +1479,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Shift Gear", pokemon);
 		},
 		onHit(target, source, move) {
-			source.side.addFishingTokens(1);
+			target.side.addFishingTokens(1);
 		},
 		volatileStatus: "fishprocessing",
 		condition: {

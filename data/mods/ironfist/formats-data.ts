@@ -115,6 +115,74 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	silvallybug: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallydark: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallydragon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyelectric: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyfairy: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyfighting: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyfire: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyflying: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyghost: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallygrass: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyground: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyice: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallypoison: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallypsychic: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyrock: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallysteel: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallywater: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 	vivillonplainshigh: {
 		tier: "IF",
 		doublesTier: "DOU",
