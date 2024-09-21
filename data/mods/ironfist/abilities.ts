@@ -706,8 +706,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-block', pokemon, 'item: Ability Shield');
 				this.effectState.gaveUp = true;
 			}
-		},
-		onUpdate(pokemon) {
+			
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 
 			const possibleTargets = pokemon.adjacentFoes().filter(
