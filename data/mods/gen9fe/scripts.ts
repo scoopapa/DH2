@@ -8,7 +8,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
 			if (pokemon.illusion && ['Hattepon', 'Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
-				this.battle.singleEvent('End', this.dex.abilities.get('Rough Image'), pokemon.abilityState, pokemon);
+				this.battle.singleEvent('End', this.dex.abilities.get('Afterimage'), pokemon.abilityState, pokemon);
 			}
 	
 			const type = pokemon.teraType;
@@ -166,7 +166,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				if (zMove) {
 					if (pokemon.illusion) {
-						this.battle.singleEvent('End', this.dex.abilities.get('Rough Image'), pokemon.abilityState, pokemon);
+						this.battle.singleEvent('End', this.dex.abilities.get('Afterimage'), pokemon.abilityState, pokemon);
 					}
 					this.battle.add('-zpower', pokemon);
 					pokemon.side.zMoveUsed = true;

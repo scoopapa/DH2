@@ -1395,7 +1395,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		name: "Zoroshark-Hisui", 
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 65, atk: 110, def: 50, spa: 110, spd: 50, spe: 105}, 
-		abilities: {0: "Rough Image"}, 
+		abilities: {0: "Afterimage"}, 
 		otherFormes: ["Zoroshark-Hisui-Mega"],
 		formeOrder: ["Zoroshark-Hisui", "Zoroshark-Hisui-Mega"],
 		weightkg: 80.9,
