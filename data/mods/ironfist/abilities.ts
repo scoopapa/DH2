@@ -461,7 +461,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Benevolent Blessing",
 		shortDesc: "Serene Grace + 5% slp, 1% Final Gambit; Mog Off: 50% Swagger, 50% Self-Destruct.",
 	},
-	fishingcat: {
+	fishercat: {
 		onSourceDamagingHit(damage, target, source, move) {
 			if(move.flags['fishing']) {
 				this.heal(source.baseMaxhp / 4, source, source);
@@ -469,7 +469,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "Fishing Cat",
+		name: "Fishercat",
 		shortDesc: "This Pokemon heals 1/4 of its max HP and adds 1 Fishing Token after using a fishing move.",
 	},
 	rkssystem: {
