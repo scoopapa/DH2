@@ -2810,10 +2810,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fire Drinker",
 	},
 	minddomain: {
-		shortDesc: "Competitive + Psychic Surge. Competitive also summons Psychic Terrain.",
-		onStart(source) {
-			this.field.setTerrain('psychicterrain');
-		},
+		shortDesc: "When stats are lowered, +2 SpA and sets up Psychic Terrain.",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) return;
 			let i: BoostID;
