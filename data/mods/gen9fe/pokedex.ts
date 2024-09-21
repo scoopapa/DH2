@@ -1887,7 +1887,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		name: "Zorvanha-Hisui", 
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 40, atk: 75, def: 30, spa: 75, spd: 30, spe: 70}, 
-		abilities: {0: "Rough Image"}, 
+		abilities: {0: "Afterimage"}, 
 		weightkg: 16.7,
 		evos: ["Zoroshark-Hisui"],
 	 },
