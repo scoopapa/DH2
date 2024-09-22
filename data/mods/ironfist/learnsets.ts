@@ -6741,7 +6741,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			yawn: ["9L1"],
 			zenheadbutt: ["9L1"],
 			fishingterrain: ["9L1"],
-			trangenderoperationsonillegalaliens: ["9L1"],
+			transgenderoperationsonillegalaliens: ["9L1"],
 			fisheater: ["9L1"],
 		},
 	},
