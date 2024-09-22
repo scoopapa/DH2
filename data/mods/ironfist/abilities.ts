@@ -436,6 +436,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "At the end of each turn, add 1 Fishing Token to the user's side.",
 	},
 	benevolentblessing: {
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+			if (move.self?.chance) move.self.chance *= 2;
+		},
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
@@ -449,9 +459,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//mogoff effect in its entry
 		flags: {},
 		name: "Benevolent Blessing",
-		shortDesc: "5% to fall asleep, 1% to Final Gambit; Mog Off: 50% Swagger, 50% Self-Destruct.",
+		shortDesc: "Serene Grace + 5% slp, 1% Final Gambit; Mog Off: 50% Swagger, 50% Self-Destruct.",
 	},
-	fishingcat: {
+	fishercat: {
 		onSourceDamagingHit(damage, target, source, move) {
 			if(move.flags['fishing']) {
 				this.heal(source.baseMaxhp / 4, source, source);
@@ -459,7 +469,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "Fishing Cat",
+		name: "Fishercat",
 		shortDesc: "This Pokemon heals 1/4 of its max HP and adds 1 Fishing Token after using a fishing move.",
 	},
 	rkssystem: {
@@ -510,23 +520,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's fishing moves have 1.5x power; Big Button Teras Water.",
 	},
 	toxicmasculinity: {
-		//effect in intimidate
-		flags: {},
-		name: "toxic masculinity",
-		shortDesc: "Intimidate: 50% SpA + 1; 20% Spe + 1; 50% Atk -1; 3% Toxic Spikes on both sides.",
-	},
-	intimidate: {
-		inherit: true,
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					this.add('-ability', pokemon, 'toxic masculinity', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.ability === 'toxicmasculinity') {
+				} else {
 					this.add('-activate', target, 'ability: toxic masculinity');
 					if (this.randomChance(1, 2)) this.boost({spa: 1}, target, pokemon, null, true);
 					if (this.randomChance(1, 2)) this.boost({atk: 1}, target, pokemon, null, true);
@@ -539,11 +542,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						pokemon.side.addSideCondition('toxicspikes', pokemon);
 						target.side.addSideCondition('toxicspikes', pokemon);
 					}
-				} else {
-					this.boost({atk: -1}, target, pokemon, null, true);
 				}
 			}
 		},
+		flags: {},
+		name: "toxic masculinity",
+		shortDesc: "Intimidate but 50% SpA + 1; 20% Spe + 1; 50% Atk -1; 3% Toxic Spikes on both sides.",
 	},
 	magneticstorm: {
 		shortDesc: "Magnet Pull + Storm Drain",
@@ -702,8 +706,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-block', pokemon, 'item: Ability Shield');
 				this.effectState.gaveUp = true;
 			}
-		},
-		onUpdate(pokemon) {
+			
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 
 			const possibleTargets = pokemon.adjacentFoes().filter(
