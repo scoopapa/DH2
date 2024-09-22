@@ -1644,7 +1644,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp / 8));
+				this.damage(pokemon.baseMaxhp / 8);
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'DoT');
