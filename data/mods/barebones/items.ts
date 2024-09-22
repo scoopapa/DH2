@@ -1,6 +1,7 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	pinchberry: {
 		name: "Pinch Berry",
+		shortDesc: "Restores 1/2 max HP at 1/3 max HP or less. Single use.",
 		spritenum: 448,
 		isBerry: true,
 		naturalGift: {
@@ -26,6 +27,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	
 	tsersiberry: {
 		name: "Tsersi Berry",
+		shortDesc: "Halves damage taken from a super-effective attack. Single use.",
 		spritenum: 124,
 		isBerry: true,
 		naturalGift: {

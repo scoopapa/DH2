@@ -4,7 +4,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Basedon",
 		types: ["Stellar"],
 		baseStats: {hp: 35, atk: 35, def: 35, spa: 35, spd: 35, spe: 35},
-		abilities: {0: "Appraisal", 1: "Desperation", H: "Last Stand"},
+		abilities: {0: "Appraisal", 1: "Desperation", 2: "Last Stand", 3: "Tinted Lens", 4: "Rejuvenate", 5: "Recycler", 6: "Somewhat Reckless",},
 	},
 	ophysive: {
 		num: 1002,
