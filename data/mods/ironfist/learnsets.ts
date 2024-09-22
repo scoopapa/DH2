@@ -5413,8 +5413,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	daiyafia: {
 		learnset: {
-			getem: ["9L1"],
-			boys: ["9L1"],
+			getemboys: ["9L1"],
 			stankyleg: ["9L1"],
 			goombastomp: ["9L1"],
 			mogoff: ["9L1"],
