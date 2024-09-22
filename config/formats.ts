@@ -2475,7 +2475,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Bare Bones",
 		desc: 'bare bones micrometa',
 		mod: 'barebones',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod', 'Camomons Mod'],
+		ruleset: ['-Nonexistent','Standard NatDex', 'Terastal Clause', 'Data Mod', 'Camomons Mod'],
 		/*banlist: ['All Items', 'All Abilities'],
 		unbanlist: [
 		'Pinch Berry', 'Tsersi Berry', 'Leftovers', 'Silk Scarf', 'Charcoal', 'Mystic Water', 'Miracle Seed', 'Magnet', 'Never-Melt Ice', 'Black Belt', 'Poison Barb',
