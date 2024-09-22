@@ -52,5 +52,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 	},
 };
-
+//Testing if this works together with ModdedItemData
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
+	lifeorb: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	choicescarf: {
+		inherit: true,
+		inNonstandard: 'Unobtainable', 
+	},
+	choiceband: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	choicespecs: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+}
 
