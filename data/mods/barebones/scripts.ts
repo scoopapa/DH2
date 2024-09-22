@@ -6,3 +6,4 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['bbones'],
 	},
 };
+
