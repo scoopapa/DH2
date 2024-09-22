@@ -2476,7 +2476,7 @@ export const Formats: FormatList = [
 		desc: 'bare bones micrometa',
 		mod: 'barebones',
 		ruleset: [
-		'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Data Mod', 'Camomons Mod',
+		'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Data Mod', 'Camomons Mod', 'Min Source Gen = 9',
 		],
 		banlist: [/*'All Items',*/ 'All Abilities'],
 		unbanlist: [
