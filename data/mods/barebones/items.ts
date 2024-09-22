@@ -550,6 +550,76 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
 	},
+	//hiding plate as well, might undo it if adding plates
+	dracoplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	dreadplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	earthplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	fistplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	flameplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	icicleplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	insectplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	ironplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	meadowplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	mindplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	pixieplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	skyplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	splashplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	spookyplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	stoneplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	toxicplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	zapplate: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	//end of plates
 };
 
 
