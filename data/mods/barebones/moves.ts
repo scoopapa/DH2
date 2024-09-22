@@ -1535,7 +1535,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		target: "normal",
-		type: "Stellar",
+		type: "Normal",
 	},
 	
 
@@ -1553,7 +1553,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		forceSwitch: true,
 		target: "normal",
-		type: "Stellar",
+		type: "Normal",
 	},
 	
 	
@@ -1569,7 +1569,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		selfSwitch: true,
 		secondary: null,
 		target: "all",
-		type: "Stellar",
+		type: "Normal",
 	},
 	
 	
@@ -1602,7 +1602,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "foeSide",
-		type: "Stellar",
+		type: "Normal",
 	},
 	
 	
@@ -1655,6 +1655,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'dot',
 		},
 		target: "normal",
-		type: "Stellar",
+		type: "Normal",
 	},
 };
