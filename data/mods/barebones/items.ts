@@ -52,7 +52,81 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 	},
 	
-	//Item 'Soft Banlist'
+	//To get allowed items to show up higher
+	silkscarf: {
+		inherit: true,
+		rating: 3,
+	},	
+	charcoal: {
+		inherit: true,
+		rating: 3,
+	},	
+	mysticwater: {
+		inherit: true,
+		rating: 3,
+	},	
+	miracleseed: {
+		inherit: true,
+		rating: 3,
+	},	
+	magnet: {
+		inherit: true,
+		rating: 3,
+	},	
+	nevermeltice: {
+		inherit: true,
+		rating: 3,
+	},
+	blackbelt: {
+		inherit: true,
+		rating: 3,
+	},	
+	poisonbarb: {
+		inherit: true,
+		rating: 3,
+	},	
+	softsand: {
+		inherit: true,
+		rating: 3,
+	},	
+	sharpbeak: {
+		inherit: true,
+		rating: 3,
+	},	
+	twistedspoon: {
+		inherit: true,
+		rating: 3,
+	},	
+	silverpowder: {
+		inherit: true,
+		rating: 3,
+	},	
+	hardstone: {
+		inherit: true,
+		rating: 3,
+	},	
+	spelltag: {
+		inherit: true,
+		rating: 3,
+	},
+	dragonfang: {
+		inherit: true,
+		rating: 3,
+	},	
+	blackglasses: {
+		inherit: true,
+		rating: 3,
+	},
+	metalcoat: {
+		inherit: true,
+		rating: 3,
+	},
+	fairyfeather: {
+		inherit: true,
+		rating: 3,
+	},
+	
+	//Just to hide items away (mainly Popular Items, and some others), they are already banned in config/format.ts
 	lifeorb: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
@@ -60,7 +134,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	
 	choicescarf: {
 		inherit: true,
-		inNonstandard: 'Unobtainable', 
+		isNonstandard: 'Unobtainable', 
 	},
 	
 	choiceband: {
@@ -73,6 +147,75 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		isNonstandard: 'Unobtainable',
 	},
 	
+	heavydutyboot: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	assaultvest: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	rockyhelmet: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	focussash: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	eviolite: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	expertbelt: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	salacberry: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	aguavberry: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	figyberry: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	iapapaberry: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	magoberry: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	wikiberry: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	powerherb: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	
+	mentalherb: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
 };
 
 
