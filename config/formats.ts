@@ -2472,6 +2472,30 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Bare Bones",
+		desc: 'bare bones micrometa',
+		mod: 'barebones',
+		ruleset: ['-Nonexistent', 'Standard NatDex', 'Terastal Clause', 'Data Mod', 'Camomons Mod'],
+		banlist: ['All Items', 'All Abilities'],
+		unbanlist: [
+		'Pinch Berry', 'Tsersi Berry', 'Leftovers', 'Silk Scarf', 'Charcoal', 'Mystic Water', 'Miracle Seed', 'Magnet', 'Never-Melt Ice', 'Black Belt', 'Poison Barb',
+		'Soft Sand', 'Sharp Beak', 'Twisted Spoon', 'Silver Powder', 'Hard Rock', 'Spell Tag', 'Dragon Fang', 'Black Glasses', 'Metal Coat', 'Fairy Feather',
+		
+		'Tinted Lens', 'Desparation', 'Last Stand', 'Appraisal', 'Rejuvenate', 'Recycler', 'Somewhat Reckless'
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['bbones'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not in Bare Bones.'];
+				}
+			}
+		}
+  },
+	{
         name: "[Gen 9] Climate Change",
         desc: [
             "weather war",
