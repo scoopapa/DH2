@@ -4343,9 +4343,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (((pokemon.status === 'psn' || pokemon.status === 'tox'))) {
 				pokemon.addVolatile('prototoxin');
-			} else if (!pokemon.volatiles['prototoxin']?.fromBooster) {
+			} /*else if (!pokemon.volatiles['prototoxin']?.fromBooster) {
 				pokemon.removeVolatile('prototoxin');
-			}
+			}*/
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
