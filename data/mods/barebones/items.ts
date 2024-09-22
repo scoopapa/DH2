@@ -53,6 +53,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	
 	//To get allowed items to show up higher
+	/*
 	silkscarf: {
 		inherit: true,
 		rating: 3,
@@ -125,6 +126,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		rating: 3,
 	},
+	*/
 	
 	//Just to hide items away (mainly Popular Items, and some others), they are already banned in config/format.ts
 	//Doing this until there is a better way to hide illegal items
