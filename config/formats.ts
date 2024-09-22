@@ -470,7 +470,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Elimination War",
 		mod: 'eliminationwar',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
