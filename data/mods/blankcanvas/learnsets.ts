@@ -888,7 +888,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			taunt: ["9L1"],
 			toxic: ["9L1"],
 			moonlight: ["9L1"],
-			topsyturvey: ["9L1"],
+			topsyturvy: ["9L1"],
 			switcheroo: ["9L1"],
 			muddywater: ["9L1"],
 			glaciate: ["9L1"],
