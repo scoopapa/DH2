@@ -130,88 +130,71 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	lifeorb: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	choicescarf: {
 		inherit: true,
 		isNonstandard: 'Unobtainable', 
-	},
-	
+	},	
 	choiceband: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	choicespecs: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
-	heavydutyboot: {
+	},	
+	heavydutyboots: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	assaultvest: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	rockyhelmet: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	focussash: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	eviolite: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	expertbelt: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	salacberry: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	aguavberry: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	figyberry: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	iapapaberry: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	magoberry: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	wikiberry: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	powerherb: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
-	},
-	
+	},	
 	mentalherb: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
