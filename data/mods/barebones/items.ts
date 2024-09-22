@@ -51,11 +51,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		rating: 3,
 	},
-	
-	lifeorb: {
-		inherit: true,
-		isNonstandard: "Past",
-	}
 };
 
 
