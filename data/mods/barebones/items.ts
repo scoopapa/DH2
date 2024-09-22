@@ -54,7 +54,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	
 	lifeorb: {
 		inherit: true,
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 	}
 };
 
