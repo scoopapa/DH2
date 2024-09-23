@@ -93,12 +93,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	stall: {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
+			if (this.effectState.stalled) return;
 			if (move.category === 'Status') {
 				this.add('-activate', source, 'ability: Stall');
 				// add message here later
 				const repeatMove = this.dex.getActiveMove(move.id);
 				this.actions.useMove(repeatMove, source, target);
+				this.effectState.stalled = true;
 			}
+		},
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon) {
+			delete this.effectState.stalled;
 		},
 		onFractionalPriority: -0.1,
 		flags: {},
