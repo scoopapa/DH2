@@ -94,7 +94,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status') {
-				this.add('-activate', pokemon, 'ability: Stall');
+				this.add('-activate', source, 'ability: Stall');
 				// add message here later
 				const repeatMove = this.dex.getActiveMove(move.id);
 				this.actions.useMove(repeatMove, source, target);
