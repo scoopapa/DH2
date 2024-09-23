@@ -405,6 +405,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
                 power += 20;
             }
            
+		    //rollout
+			if (pokemon.volatiles['defensecurl']) power *= 2;
+		   
             //smelling salts
             if (target.status === 'par') {
                 power *= 2;
