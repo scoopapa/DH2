@@ -39,5 +39,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'fletchling').learnset.bravebird;
 		this.modData("Learnsets", "spoink").learnset.ancientpower = ["9L1"];
 		this.modData("Learnsets", "spoink").learnset.meteorbeam = ["9L1"];
+		delete this.modData('Learnsets', 'cutiefly').learnset.calmmind;
+		delete this.modData('Learnsets', 'cutiefly').learnset.psychic;
+		delete this.modData('Learnsets', 'cutiefly').learnset.quiverdance;
+		this.modData("Learnsets", "cutiefly").learnset.tailglow = ["9L1"];
+		this.modData("Learnsets", "shieldon").learnset.bodypress = ["9L1"];
+		this.modData("Learnsets", "shieldon").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "wooper").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "wooper").learnset.poisonjab = ["9L1"];
 	},
 };
