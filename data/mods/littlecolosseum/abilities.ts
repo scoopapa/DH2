@@ -107,4 +107,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 100,
 	},
+	gowiththeflow: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Go with the Flow');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		shortDesc: "Effects of Unware and Water Absorb.",
+		name: "Go with the Flow",
+		rating: 4,
+	},
 };
