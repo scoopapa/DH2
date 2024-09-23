@@ -96,8 +96,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Status') {
 				this.add('-activate', source, 'ability: Stall');
 				// add message here later
-				//const repeatMove = this.dex.getActiveMove(move.id);
-				this.actions.useMove("Copycat", source, target);
+				const repeatMove = this.dex.getActiveMove(move.id);
+				this.actions.useMove(repeatMove, source, target);
 				return;
 			}
 		},
