@@ -1,6 +1,7 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	hazardabsorb: {
-    // implemented in moves.ts
+    	// implemented in moves.ts
+		flags: {},
 		shortDesc: "This Pokemon doesn't take damage from hazards.",
 		name: "Hazard Absorb",
 		rating: 4,
@@ -80,5 +81,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Magic Resistance",
 		rating: 3.5,
 		shortDesc: "This Pokemon steals foe's item after hitting them, and takes 50% damage from Fire/Ice.",
+	},
+	hover: {
+    	// implemented in moves.ts
+		// and also scripts.ts
+		flags: {},
+		shortDesc: "This Pokemon is immune to Ground moves and Stealth Rock.",
+		name: "Hover",
+		rating: 4,
+	},
+	stall: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (move.category === 'Status') {
+				this.add('-activate', pokemon, 'ability: Stall');
+				// add message here later
+				const repeatMove = this.dex.getActiveMove(move.id);
+				this.actions.useMove(repeatMove, source, target);
+			}
+		},
+		onFractionalPriority: -0.1,
+		flags: {},
+		shortDesc: "This Pokemon's status moves are used twice, but it usually moves last.",
+		name: "Stall",
+		rating: 1,
+		num: 100,
 	},
 };
