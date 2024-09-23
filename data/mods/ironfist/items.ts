@@ -17,7 +17,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 640,
 		gen: 6,
-		shortDesc: "If the holder uses 3 consecutive attacking moves, it gains +1 Defense and Special Defense.",
+		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Defense and Sp. Defense.",
 		rating: 3,
 	},
 	fishhook: {
@@ -46,7 +46,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 270,
-		shortDesc: "Prevents opposing Water-types from switching out while holder is active. Holder cannot use Grass or Electric-type moves.",
+		shortDesc: "Traps opposing Water-types. Holder cannot use Grass or Electric-type moves.",
 		gen: 4,
 		rating: 3,
 	},
