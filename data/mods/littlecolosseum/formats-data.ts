@@ -4174,7 +4174,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	cutiefly: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	ribombee: {
 		tier: "UU",
