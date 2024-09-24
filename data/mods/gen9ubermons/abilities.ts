@@ -26,7 +26,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	supremeoverlord: {
 		inherit: true,
 		onModifyMove(move) {
+			move.ignoreAccuracy = true;
 			move.ignoreDefensive = true;
+			move.ignoreEvasion = true;
 			move.ignoreOffensive = true;
 		},
 		desc: "This Pokemon's moves have their power multiplied by 1+(X*0.1), where X is the total number of times any Pokemon has fainted on the user's side when this Ability became active, and X cannot be greater than 5. Stat changes from this Pokemon and its target are ignored.",
