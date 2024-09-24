@@ -121,7 +121,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	auctorwile: {
 		onDamagingHit(damage, target, source, move) {
-			if(effect.effectType === 'Move' && move.flags['punch']) this.damage(source.baseMaxhp / 4, source, target);
+			if(move.flags['punch']) this.damage(source.baseMaxhp / 4, source, target);
 		},
 		flags: {},
 		name: "Auctor Wile",

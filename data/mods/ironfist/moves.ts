@@ -241,7 +241,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Goomba Stomp",
-		shortDesc: "100% chance to lower the target's Defense by 1. OHKOs Goomba.",
+		shortDesc: "100% chance to lower target's Defense by 1. OHKOs Goomba.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
@@ -1991,6 +1991,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			return !target.fainted && !target.volatiles['bigbutton'];
 		},
+	},
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wickedtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	combattorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	noxioustorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	gmaxcuddle: null,
 }
