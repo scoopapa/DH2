@@ -91,6 +91,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 	},
 	stall: {
+		/*
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 			if (this.effectState.stalled) return;
@@ -107,9 +108,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			delete this.effectState.stalled;
 		},
+  		*/
 		onFractionalPriority: -0.1,
 		flags: {},
-		shortDesc: "This Pokemon's status moves are used twice, but it usually moves last.",
+		shortDesc: "(Non-functional Placeholder) This Pokemon's status moves are used twice, but it usually moves last.",
 		name: "Stall",
 		rating: 1,
 		num: 100,
