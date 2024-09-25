@@ -280,7 +280,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Parental Bond",
-		rating: 4.5,
+		rating: 4,
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered.",
 		num: 184,
 	},
 
