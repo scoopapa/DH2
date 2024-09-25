@@ -8,7 +8,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onAnyTryHealPriority: 1,
 		onAnyTryHeal(damage, target, source, effect) {
 			if (target.hasType('Dark')) return;
-			const healingEffects = ['floralhealing', 'healpulse', 'junglehealing', 'lifedew', 'lunarblessing', 'moonlight', 'morningsun', 'purify', 'shoreup', 'strengthsap', 'swallow', 'synthesis', 'wish'];
+			const healingEffects = ['drain', 'floralhealing', 'healpulse', 'junglehealing', 'lifedew', 'lunarblessing', 'moonlight', 'morningsun', 'purify', 'shoreup', 'strengthsap', 'swallow', 'synthesis', 'wish'];
 			if (healingEffects.includes(effect.id)) {
 				return this.chainModify(0.5);
 			}
