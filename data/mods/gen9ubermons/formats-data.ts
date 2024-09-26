@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	bulbasaur: {
 		inherit: true,
 		tier: "LC",
@@ -957,7 +957,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zapdosgalar: {
 		inherit: true,
-		tier: "UU",
+		tier: "UUBL",
 	},
 	moltres: {
 		inherit: true,
@@ -2469,7 +2469,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darkrai: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	shaymin: {
 		inherit: true,
@@ -4713,7 +4713,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	chienpao: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	wochien: {
 		inherit: true,
@@ -4721,7 +4721,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	chiyu: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	koraidon: {
 		inherit: true,
@@ -4765,7 +4765,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kingambit: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	clodsire: {
 		inherit: true,
@@ -4845,7 +4845,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gougingfire: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ragingbolt: {
 		inherit: true,

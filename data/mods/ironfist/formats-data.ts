@@ -383,7 +383,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	mt: {
+	pokestarmt: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

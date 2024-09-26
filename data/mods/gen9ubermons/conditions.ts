@@ -1,1 +1,1 @@
-export const Conditions: {[k: string]: ModdedConditionData} = {};
+export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTable = {};
