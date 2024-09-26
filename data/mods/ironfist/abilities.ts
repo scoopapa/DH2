@@ -503,9 +503,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "If this Pokémon is hit by a contact move, the attacker becomes an Ice-type.",
 	},
 	thediamondhand: {
-		//need to work out details
+		onStart(pokemon) {
+			const diamondHand = pokemon.side.pokemon.filter(p => !p.fainted && p.baseSpecies.diamondHand);
+			if (diamondHand.length > 0) {
+				this.add('-activate', pokemon, 'ability: The Diamond Hand');
+				this.add('-start', pokemon, `diamondHand${diamondHand.length}`, '[silent]');
+				this.effectState.diamondHand = diamondHand.length;
+				this.boost({atk: -1 * diamondHand.length, spa: -1 * diamondHand.length}, pokemon, pokemon);
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `diamondHand${this.effectState.diamondHand}`, '[silent]');
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + this.effectState.diamondHand;
+		},
 		flags: {},
 		name: "The Diamond Hand",
+		shortDesc: "This Pokemon's Atk/SpA -1, but crit rate +1 for each unfainted Diamond Hand ally.",
 	},
 	ilovefishing: {
 		onBasePowerPriority: 19,

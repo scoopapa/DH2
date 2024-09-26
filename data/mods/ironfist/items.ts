@@ -98,7 +98,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	kinglerite: {
 		name: "Kinglerite",
 		shortDesc: "If held by a Kingler, this item allows it to Mega Evolve in battle.",
-		spritenum: 605,
 		megaStone: "Kingler-Mega",
 		megaEvolves: "Kingler",
 		itemUser: ["Kingler"],
@@ -218,7 +217,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	electrodite: {
 		name: "Electrodite",
 		shortDesc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",
-		spritenum: 628,
 		megaStone: "Electrode-Mega",
 		megaEvolves: "Electrode",
 		itemUser: ["Electrode"],
@@ -306,7 +304,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	moltresite: {
 		name: "Moltresite",
 		shortDesc: "If held by a Moltres, this item allows it to Mega Evolve in battle.",
-		spritenum: 622,
 		megaStone: "Moltres-Mega",
 		megaEvolves: "Moltres",
 		itemUser: ["Moltres"],
@@ -318,7 +315,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	impidimpite: {
 		name: "Impidimpite",
 		shortDesc: "If held by an Impidimp, this item allows it to Mega Evolve in battle.",
-		spritenum: 601,
 		megaStone: "Impidimp-Mega",
 		megaEvolves: "Impidimp",
 		itemUser: ["Impidimp"],
@@ -330,7 +326,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	fleshvaliantite: {
 		name: "Fleshvaliantite",
 		shortDesc: "If held by a Flesh Valiant, this item allows it to Mega Evolve in battle.",
-		spritenum: 587,
 		megaStone: "Flesh Valiant-Mega",
 		megaEvolves: "Flesh Valiant",
 		itemUser: ["Flesh Valiant"],
