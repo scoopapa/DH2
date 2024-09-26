@@ -2209,8 +2209,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 39,
 		"name": "Jigglypuff",
 		"types": [
-				"Normal",
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -2264,8 +2263,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 40,
 		"name": "Wigglytuff",
 		"types": [
-				"Normal",
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -6918,8 +6916,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 122,
 		"name": "Mr. Mime",
 		"types": [
-				"Psychic",
-				null
+				"Psychic"
 		],
 		"baseStats": {
 				"hp": 40,
@@ -9835,8 +9832,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 174,
 		"name": "Igglybuff",
 		"types": [
-				"Normal",
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -9889,7 +9885,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 175,
 		"name": "Togepi",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.875,
@@ -10334,8 +10330,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 183,
 		"name": "Marill",
 		"types": [
-				"Water",
-				null
+				"Water"
 		],
 		"baseStats": {
 				"hp": 70,
@@ -10391,8 +10386,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 184,
 		"name": "Azumarill",
 		"types": [
-				"Water",
-				null
+				"Water"
 		],
 		"baseStats": {
 				"hp": 100,
@@ -11829,7 +11823,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 209,
 		"name": "Snubbull",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -11884,7 +11878,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 210,
 		"name": "Granbull",
 		"types": [
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -15776,8 +15770,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 280,
 		"name": "Ralts",
 		"types": [
-				"Psychic",
-				null
+				"Psychic"
 		],
 		"baseStats": {
 				"hp": 28,
@@ -15832,8 +15825,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 281,
 		"name": "Kirlia",
 		"types": [
-				"Psychic",
-				null
+				"Psychic"
 		],
 		"baseStats": {
 				"hp": 38,
@@ -15890,8 +15882,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 282,
 		"name": "Gardevoir",
 		"types": [
-				"Psychic",
-				null
+				"Psychic"
 		],
 		"baseStats": {
 				"hp": 68,
@@ -16762,8 +16753,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 298,
 		"name": "Azurill",
 		"types": [
-				"Normal",
-				null
+				"Normal"
 		],
 		"genderRatio": {
 				"M": 0.25,
@@ -17038,8 +17028,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		"num": 303,
 		"name": "Mawile",
 		"types": [
-				"Steel",
-				null
+				"Steel"
 		],
 		"baseStats": {
 				"hp": 50,
