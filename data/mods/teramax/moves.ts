@@ -726,7 +726,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 		isMax: "Inteleon",
-		ignoreAbility: true,
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Water",
