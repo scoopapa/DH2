@@ -18,6 +18,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Dark Void",
 		pp: 15,
 		flags: {heal: 1, protect: 1, mirror: 1, metronome: 1},
+		viable: true,
 		drain: [1, 2],
 		status: null,
 		onTry() {},

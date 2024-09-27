@@ -15,8 +15,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Flower Veil');
 						break;
 					case 'Charizard':
-						pokemon.setAbility('moldbreaker', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Mold Breaker');
+						pokemon.setAbility('battlebond', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Battle Bond');
 						break;
 					case 'Blastoise':
 						pokemon.setAbility('stamina', pokemon, true);
@@ -39,8 +39,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Scrappy');
 						break;
 					case 'Gengar':
-						pokemon.setAbility('mummy', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Mummy');
+						pokemon.setAbility('corrosion', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Corrosion');
 						break;
 					case 'Kingler':
 						pokemon.setAbility('angershell', pokemon, true);
@@ -75,8 +75,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Magic Guard');
 						break;
 					case 'Inteleon':
-						pokemon.setAbility('stormdrain', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Storm Drain');
+						pokemon.setAbility('stakeout', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Stakeout');
 						break;
 					case 'Corviknight':
 						pokemon.setAbility('intimidate', pokemon, true);
@@ -107,6 +107,10 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Sand Rush');
 						break;
 					case 'Toxtricity':
+						pokemon.setAbility('merciless', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Merciless');
+						break;
+					case 'Toxtricity-Low-Key':
 						pokemon.setAbility('electromorphosis', pokemon, true);
 						this.add('-activate', pokemon, 'ability: Electromorphosis');
 						break;
@@ -131,10 +135,14 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Bulletproof');
 						break;
 					case 'Duraludon':
-						pokemon.setAbility('pressure', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Pressure');
+						pokemon.setAbility('unaware', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Unaware');
 						break;
 					case 'Urshifu':
+						pokemon.setAbility('innerfocus', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Inner Focus');
+						break;
+					case 'Urshifu-Rapid-Strike':
 						pokemon.setAbility('innerfocus', pokemon, true);
 						this.add('-activate', pokemon, 'ability: Inner Focus');
 						break;
