@@ -1876,7 +1876,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aboma Care Spikes",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
 		sideCondition: 'abomacarespikes',
 		condition: {
 			// this is a side condition

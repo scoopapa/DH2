@@ -194,7 +194,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('nervecharm');
 			}
 		},
-		beforeTurnCallback(pokemon) {
+		onBeforeTurn(pokemon) {
 			if (pokemon.removeVolatile('nervecharm')) {
 				console.log("adding quickguard");
 				pokemon.side.addSideCondition('quickguard');
