@@ -82,7 +82,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: { breakable: 1 },
 		name: "Just a Little Guy",
-		shortDesc: "Takes half damage if lighter than opponent.",
+		shortDesc: "This Pokemon takes halved damage from heavier attackers.",
 	},
   	chainedwrath: {
 		onStart(pokemon) {
@@ -117,7 +117,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         },
         flags: {},
         name: "Identity Crisis",
-        shortDesc: "At the end of each turn, change this Pokemon and its side's name and avatar to a random one.",
+        shortDesc: "End of turn: change this Pokemon and its side's name and avatar to a random one.",
     },
 	auctorwile: {
 		onDamagingHit(damage, target, source, move) {
@@ -771,7 +771,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Parting Gift",
-		shortDesc: "When the user's HP drops to 0, it executes the move Fling before fainting.",
+		shortDesc: "When this Pokemon's HP drops to 0, it uses Fling before fainting.",
 	},
 	abomacare: {
 		onSwitchOut(pokemon) {
