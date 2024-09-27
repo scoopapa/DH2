@@ -15,8 +15,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Flower Veil');
 						break;
 					case 'Charizard':
-						pokemon.setAbility('battlebond', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Battle Bond');
+						pokemon.setAbility('battlebondcharizard', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Battle Bond (Charizard)');
 						break;
 					case 'Blastoise':
 						pokemon.setAbility('stamina', pokemon, true);

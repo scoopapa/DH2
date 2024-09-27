@@ -265,6 +265,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		shortDesc: "Takes 1/2 damage from special attacks. Full HP: No damage from indirect sources.",
 	},
+	battlebondcharizard: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') return;
+			if (source.abilityState.battleBondcharizardTriggered) return;
+			if (source.hp && source.side.foePokemonLeft()) {
+				this.boost({atk: 1, spa: 1, spe: 1}, source, source, this.effect);
+				this.add('-activate', source, 'ability: Battle Bond (Charizard)');
+				source.abilityState.battleBondcharizardTriggered = true;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Battle Bond (Charizard)",
+		desc: "If this Pokemon is a Greninja, its Attack, Special Attack, and Speed are raised by 1 stage if it attacks and knocks out another Pokemon. This effect can only happen once per battle.",
+		shortDesc: "After KOing a Pokemon: raises Attack, Sp. Atk, Speed by 1 stage. Once per battle.",
+		rating: 3.5,
+		num: 210,
+	},
 	stalwart: {
 		inherit: true,
 		onModifyMove() {},

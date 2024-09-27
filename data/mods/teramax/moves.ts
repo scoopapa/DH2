@@ -552,6 +552,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.foes()) {
+					for (const moveSlot of pokemon.moveSlots) {
+						const targetmove = this.dex.moves.get(moveSlot.move);
+						const movePP = targetmove.pp;
+						const damage = this.heal(movePP * 2, source, source);
+						if (damage) {
+							this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
+						}
+					}
 					let move: Move | ActiveMove | null = pokemon.lastMove;
 					if (!move || move.isZ) continue;
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
@@ -561,11 +569,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						this.add("-activate", pokemon, 'move: G-Max Depletion', move.name, ppDeducted);
 						// Don't return here because returning early doesn't trigger
 						// activation text for the second Pokemon in doubles
-					}
-					for (const moveSlot of target.moveSlots) {
-						const move = this.dex.moves.get(moveSlot.move);
-						const movePP = move.pp;
-						this.heal(movePP * 2);
 					}
 				}
 			},
@@ -1066,19 +1069,21 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: {sound: 1},
 		isMax: "Toxtricity",
-		onModifyMove(move, pokemon) {
-			if (pokemon.species.name === 'Toxtricity-Gmax') move.category = 'Physical';
-		},
 		self: {
 			onHit(source) {
 				for (const pokemon of source.foes()) {
-					if (source.species.name === 'Toxtricity-Gmax') {
-						pokemon.trySetStatus('psn', source);
-					} else if (source.species.name === 'Toxtricity-Low-Key-Gmax') {
+					if (source.baseSpecies.forme === 'Low-Key') {
 						pokemon.trySetStatus('par', source);
+					} else {
+						pokemon.trySetStatus('psn', source);
 					}
 				}
 			},
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.name === 'Toxtricity') { 
+				move.category = 'Physical';
+			}
 		},
 		secondary: null,
 		target: "adjacentFoe",
