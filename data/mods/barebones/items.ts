@@ -1,7 +1,7 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	pinchberry: {
 		name: "Pinch Berry",
-		shortDesc: "Restores 1/2 max HP at 1/3 max HP or less. Single use.",
+		shortDesc: "Restores 1/3 max HP at 1/3 max HP or less. Single use.",
 		spritenum: 448,
 		isBerry: true,
 		naturalGift: {
@@ -18,9 +18,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 2)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp / 2);
+			this.heal(pokemon.baseMaxhp / 3);
 		},
-		num: 1001,
+		num: -1,
 		gen: 9,
 		rating: 3,
 	},
@@ -47,11 +47,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onEat() { },
-		num: 1002,
+		num: -2,
 		gen: 9,
 		rating: 3,
 	},
 	
+	exchanger: {
+		name: "Exchanger",
+		shortDesc: "Holder has 1.25x Speed, but also has 0.75x Attack and Sp. Attack.",
+		spritenum: 137,
+		fling: {
+			basePower: 10,
+		},
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.25);
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(0.75);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(0.75);
+		},
+		num: -3,
+		gen: 9,
+		rating: 3,
+	},
 	//To get allowed items to show up higher
 	/*
 	silkscarf: {
@@ -155,10 +177,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		isNonstandard: 'Unobtainable',
 	},	
 	rockyhelmet: {
-		inherit: true,
-		isNonstandard: 'Unobtainable',
-	},	
-	focussash: {
 		inherit: true,
 		isNonstandard: 'Unobtainable',
 	},	
@@ -620,6 +638,62 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		isNonstandard: 'Unobtainable',
 	},
 	//end of plates
+	adamantcrystal: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	adamantorb: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	boosterenergy: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	cornerstonemask: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	griseouscore: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	griseousorb: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	hearthflamemask: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	lightball: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	lustrousglobe: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	lustrousorb: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	rustedshield: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	rustedsword: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	souldew: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
+	wellspringmask: {
+		inherit: true,
+		isNonstandard: 'Unobtainable',
+	},
 };
 
 

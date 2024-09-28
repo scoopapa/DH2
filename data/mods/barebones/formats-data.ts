@@ -11,11 +11,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "bbones",
 		doublesTier: "bbones",
 	},
-	inphysa: {
+	inphysid: {
 		tier: "bbones",
 		doublesTier: "bbones",
 	},
-	inspeca: {
+	inspecid: {
 		tier: "bbones",
 		doublesTier: "bbones",
 	},
@@ -24,6 +24,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "bbones",
 	},
 	nimspec: {
+		tier: "bbones",
+		doublesTier: "bbones",
+	},
+	gamphyst: {
+		tier: "bbones",
+		doublesTier: "bbones",
+	},
+	gamspect: {
+		tier: "bbones",
+		doublesTier: "bbones",
+	},
+	stitial: {
 		tier: "bbones",
 		doublesTier: "bbones",
 	},

@@ -27,12 +27,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hp <= target.maxhp / 2 > 0) {
 				this.debug('Last Stand neutralize');
-				return this.chainModify(0.75);
+				return this.chainModify(0.66);
 			}
 		},
 		flags: {breakable: 1},
 		name: "Last Stand",
-		shortDesc: "At 1/2 or less of its max HP, this Pokemon receives 3/4 damage from attacks.",
+		shortDesc: "At 1/2 or less of its max HP, this Pokemon receives 2/3 damage from attacks.",
 		rating: 4,
 		num: 1002,
 	},
@@ -41,10 +41,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	appraisal: {
 		onStart(pokemon) {
 			for (const target of pokemon.foes()) {
+				this.add('-ability', target, target.getAbility().name, '[from] ability: Appraisal', '[of] ' + pokemon);
 				if (target.item) {
 					this.add('-item', target, target.getItem().name, '[from] ability: Appraisal', '[of] ' + pokemon);
 				}
-				this.add('-ability', target, target.getItem().name, '[from] ability: Appraisal', '[of] ' + pokemon);
 			}
 		},
 		flags: {},
@@ -58,12 +58,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	rejuvenate: {
 		onSwitchOut(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.heal(pokemon.baseMaxhp / 4);
+				pokemon.heal(pokemon.baseMaxhp / 3);
 			}
 		},
 		flags: {},
 		name: "Rejuvenate",
-		shortDesc: "This Pokemon restores 1/4 of its max HP when switching out with 1/2 or less max HP.",
+		shortDesc: "This Pokemon restores 1/3 of its max HP when switching out with 1/2 or less max HP.",
 		rating: 4,
 		num: 1004,
 	},
@@ -73,15 +73,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.hp && !pokemon.item) {
-				pokemon.setItem(pokemon.lastItem);
-				pokemon.lastItem = '';
-				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Recycler');
+			if (this.randomChance(2, 3)) {
+				if (pokemon.hp && !pokemon.item) {
+					pokemon.setItem(pokemon.lastItem);
+					pokemon.lastItem = '';
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Recycler');
+				}
 			}
 		},
 		flags: {},
 		name: "Recycler",
-		shortDesc: "Restores last used item at the end of each turn.",
+		shortDesc: "2/3 chance to restore last used item at the end of each turn.",
 		rating: 3,
 		num: 1005,
 	},
@@ -103,6 +105,92 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's attacks have 1.3x power, but also have 33% recoil.",
 		rating: 3,
 		num: 1006,
+	},
+	
+	tintedtactics: {
+		onStart(pokemon) {
+			pokemon.abilityState.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityState.choiceLock && pokemon.abilityState.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Tinted Tactics");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityState.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityState.choiceLock = move.id;
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Tactics boost');
+				return this.chainModify(2);
+			}
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityState.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityState.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.choiceLock = "";
+		},
+		flags: {},
+		name: "Tinted Tactics",
+		shortDesc: "This Pokemon's not very effective attacks deal double damage, but it gets locked into that attack.",
+		rating: 4,
+		num: 1007,
+	},
+	intimidate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1, spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Intimidate",
+		shortDesc: "On switch-in, lowers the Attack and Sp. Attack of opponents by 1 stage.",
+		rating: 3.5,
+		num: 22,
+	},
+	sceptic: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fairy' || move.type === 'Ghost' || move.type === 'Dragon') {
+				this.debug('Sceptic weaken');
+				return this.chainModify(0.66);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fairy' || move.type === 'Ghost' || move.type === 'Dragon') {
+				this.debug('Sceptic weaken');
+				return this.chainModify(0.66);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sceptic",
+		shortDesc: "Dragon-, Fairy-, and Ghost-type attacks against this Pokemon are weakened.",
+		rating: 3.5,
+		num: 1008,
 	},
 };
 
