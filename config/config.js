@@ -664,6 +664,7 @@ exports.grouplist = [
 		minigame: true,
 		modchat: true,
 		hiderank: true,
+		tournaments: true,
 	},
 	{
 		symbol: '\u00a7',
