@@ -241,7 +241,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Goomba Stomp",
-		shortDesc: "100% chance to lower the target's Defense by 1. OHKOs Goomba.",
+		shortDesc: "100% chance for -1 Defense. OHKOs Goomba.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
@@ -292,7 +292,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Go Fish",
-		shortDesc: "Forces the target to switch. Fails if the target is not attacking.",
+		shortDesc: "Force switches target. Fails if target is not attacking.",
 		pp: 5,
 		priority: 1,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
@@ -405,6 +405,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
                 power += 20;
             }
            
+		    //rollout
+			if (pokemon.volatiles['defensecurl']) power *= 2;
+		   
             //smelling salts
             if (target.status === 'par') {
                 power *= 2;
@@ -1034,7 +1037,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Feebas Pro Shops",
-		shortDesc: "50%: 85 BP Special, hits Ghost; 50%: 2 Fishing Tokens.",
+		shortDesc: "50%: 85 BP Special, hits Ghost; 50%: +2 tokens.",
 		pp: 5,
 		priority: 0,
 		flags: {fishing: 1},
@@ -1074,7 +1077,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Giga Impact", target);
+			this.add('-anim', pokemon, "Pulverizing Pancake", target);
 		},
 		onModifyMove(move, pokemon, target) {
 			if(pokemon.volatiles['bigbutton'] || target.volatiles['bigbutton']) move.willCrit = true;
@@ -1280,7 +1283,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 99.9,
 		pp: 1,
 		noPPBoosts: true,
-		shortDesc: "User faints. Removes entry hazards from the user's side of the field.",
+		shortDesc: "User faints. Removes user's side's entry hazards.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1356,7 +1359,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Power inceases by 10 for each unfainted Diamond Hand member in the party.",
+		shortDesc: "+10 power for each unfainted allied Diamond Hand.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1453,7 +1456,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 10,
-		shortDesc: "Heals the user for 1/3 max HP and gains Endure. Cannot be selected twice in a row.",
+		shortDesc: "Heals 1/3 max HP, Endure. Cannot be selected twice in a row.",
 		priority: 3,
 		flags: {snatch: 1, metronome: 1, cantusetwice: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1470,7 +1473,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fish Processing",
-		shortDesc: "Sets 1 Fishing Token on the user's side when used and while the user stays in.",
+		shortDesc: "+1 Fishing Token; +1 Fishing Token at end of turn.",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, fishing: 1},
@@ -1496,7 +1499,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fish Eater",
-		shortDesc: "Consumes half of user's side's Fishing Tokens; gains +1 Stockpile, 1/16 max HP for each one.",
+		shortDesc: "-50% fishing tokens; 1/16 heal, +1 stockpile each.",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, fishing: 1},
@@ -1672,7 +1675,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		accuracy: 100,
 		pp: 5,
-		shortDesc: "If used after the target, if the move they used has a shorter name than this move, 2x power.",
+		shortDesc: "Move against user has shorter name: 2x power.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1873,7 +1876,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aboma Care Spikes",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
 		sideCondition: 'abomacarespikes',
 		condition: {
 			// this is a side condition
@@ -1988,6 +1991,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			return !target.fainted && !target.volatiles['bigbutton'];
 		},
+	},
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wickedtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	combattorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	noxioustorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	gmaxcuddle: null,
 }
