@@ -21,7 +21,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		desc: "While a Pokemon with this ability is active, healing via recovery moves is halved as long as the Pokemon does not have Dark-type.",
-		shortDesc: "While this ability is active, Pokemon without Dark-type heal 50% with healing moves.",
+		shortDesc: "While this ability is active, Pokemon without Dark-type heal 50% less with healing moves.",
 	},
 	supremeoverlord: {
 		inherit: true,
@@ -32,6 +32,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			move.ignoreOffensive = true;
 		},
 		desc: "This Pokemon's moves have their power multiplied by 1+(X*0.1), where X is the total number of times any Pokemon has fainted on the user's side when this Ability became active, and X cannot be greater than 5. Stat changes from this Pokemon and its target are ignored.",
-		shortDesc: "10% more power for each fainted ally, max 50%. Ignores stat changes.",
+		shortDesc: "10% more power for each fainted ally, max 50%. Ignores all stat changes.",
 	},
 };
