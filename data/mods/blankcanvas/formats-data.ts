@@ -77,4 +77,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	reversadusa: {
 		tier: "BC",
 	},
+	llanfairwyrm: {
+		tier: "BC",
+	},
+	frostengu: {
+		tier: "BC",
+	},
+	bulionage: {
+		tier: "BC",
+	},
+	yamateraph: {
+		tier: "BC",
+	},
+	bugswarm: {
+		tier: "BC",
+	},
 };
