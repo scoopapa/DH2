@@ -1023,7 +1023,30 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
-
+	stegsaw: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	stegohaul: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	raphlete: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	raptorelay: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	atollodon: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	fulmenops: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 
 	akulut: {

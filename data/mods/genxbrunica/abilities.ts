@@ -495,6 +495,75 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Rip Current",
 	},
+	thagomizer: {
+		shortDesc: "x1.2 power to caudal(/tail) attacks.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.category === 'Status') return;
+			const moveid = move.id;
+			if (moveid.startsWith('tail') || moveid.endsWith('tail') || 
+				['powerwhip','firelash','slam','breakingswipe'].includes(moveid)) {
+				this.debug('Thagomizer boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Thagomizer",
+	},
+	receiver: {
+		inherit: true,
+		shortDesc: "This Pokemon copies the Ability of an ally that fainted this turn.",
+		onSwitchIn(pokemon) {
+			if (!pokemon.hp) return;
+			const faintedTeammate = pokemon.side.faintedThisTurn;
+			if (faintedTeammate) {
+				const ability = faintedTeammate.getAbility();
+				if (ability.flags['noreceiver'] || ability.id === 'noability') return;
+				if (pokemon.setAbility(ability)) {
+					this.add('-ability', pokemon, 'Receiver');
+					this.add('-ability', pokemon, ability.name);
+				}
+			}
+		},
+	},
+	deepdive: {
+		shortDesc: "Atollodon: After damaging with Water, change to Submerged. Surfaced takes x0.5 from non-contact, Submerged is immune to Grass.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (source.species.name === 'Atollodon' && move.type === 'Water' && !source.transformed) {
+				source.formeChange('Atollodon-Submerged');
+			}
+		},
+		onSourceBasePowerPriority: 21,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (defender.species.name === 'Atollodon' && !move.flags['contact']) {
+				return this.chainModify(0.5);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (pokemon.species.name === 'Atollodon-Submerged' && move.type === 'Grass') {
+				this.add('-immune', pokemon, '[from] ability: Deep Dive');
+				return null;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, notransform: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Deep Dive",
+	},
+	weatherflux: {
+		shortDesc: "Fulmenops: After damaging with Electric, change to Stormy. Balmy takes x0.5 from non-contact, Stormy is airborne.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (source.species.name === 'Fulmenops' && move.type === 'Electric' && !source.transformed) {
+				source.formeChange('Fulmenops-Stormy');
+			}
+		},
+		onSourceBasePowerPriority: 21,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (defender.species.name === 'Fulmenops' && !move.flags['contact']) {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, notransform: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Weather Flux",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
