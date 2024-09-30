@@ -4773,8 +4773,8 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
-		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],
+		ruleset: ['Standard', '+No Ability', '-All Abilities'],
+		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Berserk Gene', 'Baton Pass', 'Alakazite', 'Soul Dew'],
 	},
 	{
 		name: "[Gen 2] Modern Gen 2 Ubers",
