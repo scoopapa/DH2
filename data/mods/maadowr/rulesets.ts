@@ -7,8 +7,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		//	this.add(`raw|<img src="https://raw.githubusercontent.com/scoopapa/DH/master/data/mods/m4av6/sprites/m4a_banner.png" height="65" width="381">`);
 			this.add('-message', `Welcome to Ma'adowr!`);
 			this.add('-message', `Ma'adowr is a new region mainly based on Ancient Egypt and features the new Engraving mechanic!`);
-			this.add('-message', `You can find my thread and metagame resources here in the near future:`);
-		//	this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
+			this.add('-message', `You can find my thread and metagame resources below:`);
+			this.add('-message', `https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10273156`);
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.illusion) {
