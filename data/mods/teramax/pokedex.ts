@@ -362,7 +362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	toxtricitygmax: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 118, def: 70, spa: 118, spd: 70, spe: 86},
-		abilities: {0: "Mericless"},
+		abilities: {0: "Merciless"},
 		weightkg: 999.9,
 	},
 	toxtricitylowkeygmax: {
