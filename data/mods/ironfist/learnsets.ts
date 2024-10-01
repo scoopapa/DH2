@@ -4116,7 +4116,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 		},
 	},
-	ogergoncornerstone: {
+	ogerponcornerstone: {
 		learnset: {
 			brickbreak: ["9L1"],
 			bulletseed: ["9L1"],
