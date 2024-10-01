@@ -4139,7 +4139,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			growth: ["9L1"],
 			helpinghand: ["9L1"],
 			hornleech: ["9L1"],
-			tinycudgel: ["9L1"],
+			ivycudgel: ["9L1"],
 			knockoff: ["9L1"],
 			lashout: ["9L1"],
 			leafstorm: ["9L1"],

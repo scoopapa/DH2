@@ -452,14 +452,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Feet"},
 		weightkg: 0.1,
 	},
-	ogergoncornerstone: {
-		num: 1055,
-		name: "Ogerpon-Cornerstone",
-		types: ["Grass", "Rock"],
-		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
-		abilities: {0: "Get Sturdy"},
-		weightkg: 39.8,
-	},
 	palpitoadissocool: {
 		num: 1056,
 		name: "palpitoad is so cool",

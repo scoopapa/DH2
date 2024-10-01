@@ -383,7 +383,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Impalpable",
 		shortDesc: "This Pokemon is non-grounded, and is immune to its own and the opponent's STABs.",
 	},
-	getsturdy: {
+	/*getsturdy: {
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
 		},
@@ -405,7 +405,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Get Sturdy",
 		shortDesc: "Super Luck + Sturdy + crits lower Def by 1 + sets ability to Sturdy at 1 HP.",
-	},
+	},*/
 	champion: {
 		onModifySpe(spe, pokemon) {
 			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {

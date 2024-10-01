@@ -1200,24 +1200,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Silly",
 	},
-	tinycudgel: {
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Tiny Cudgel",
-		shortDesc: "Always results in a critical hit.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Ivy Cudgel Rock", target);
-		},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-	},
 	awesomeearthquake: {
 		name: "awesome Earthquake",
 		type: "Ground",
