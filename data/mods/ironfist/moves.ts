@@ -120,7 +120,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		target: "any",
-		type: "Freaky",
+		type: "Silly",
 		contestType: "Tough",
 		//shortDesc: "50% chance to confuse the target.",
 	},
@@ -1198,25 +1198,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		],
 		target: "normal",
-		type: "Freaky",
-	},
-	tinycudgel: {
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Tiny Cudgel",
-		shortDesc: "Always results in a critical hit.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, pokemon, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Ivy Cudgel Rock", target);
-		},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Rock",
+		type: "Silly",
 	},
 	awesomeearthquake: {
 		name: "awesome Earthquake",
@@ -1687,7 +1669,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	transgenderoperationsonillegalaliens: {
 		name: "Transgender Operations on Illegal Aliens",
-		type: "Freaky",
+		type: "Silly",
 		category: "Status",
 		basePower: 0,
 		accuracy: 100,
@@ -1700,7 +1682,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Endeavor", target);
 		},
 		onTryImmunity(pokemon, source) {
-			const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'Ougayporn-Comerstone', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyafia', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
+			const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyafia', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
 			return (pokemon.gender !== 'N' && nonVanilla.includes(pokemon.name));
 		},
 		onHit(target) {
@@ -1754,118 +1736,118 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
-	//Freaky shit
+	//Silly shit
 	attract: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	bind: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	confide: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	confuseray: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	constrict: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	doubleslap: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	faketears: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	flatter: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	growl: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	harden: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	healblock: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	lick: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	lovelykiss: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	milkdrink: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	mindreader: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	pounce: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	rocksmash: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	roleplay: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	skittersmack: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	sleeptalk: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	smackdown: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	snarl: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	submission: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	swagger: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	swallow: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	sweetkiss: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	tickle: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 	topsyturvy: {
 		inherit: true,
-		type: "Freaky",
+		type: "Silly",
 	},
 
 	//fake moves

@@ -203,17 +203,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		condition: {},
 	},
-	cornerstonemask: {
-		inherit: true,
-		shortDesc: "Ougayporn-Comerstone: 1.2x power attacks.",
-		rating: 3,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Ougayporn-Comerstone') return false;
-			return true;
-		},
-		forcedForme: "Ougayporn-Comerstone",
-		itemUser: ["Ougayporn-Comerstone"],
-	},
 	electrodite: {
 		name: "Electrodite",
 		shortDesc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",

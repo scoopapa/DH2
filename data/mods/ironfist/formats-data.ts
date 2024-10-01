@@ -283,7 +283,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	ougayporncomerstone: {
+	ogerponcornerstone: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

@@ -62,7 +62,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1008,
 		name: "Gholdengo",
-		types: ["Ghost", "Freaky"],
+		types: ["Ghost", "Silly"],
 		baseStats: {hp: 100, atk: 60, def: 90, spa: 125, spd: 90, spe: 110},
 		abilities: {0: "Alpha Sigma Rizz"},
 	},
@@ -322,7 +322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	smelmetal: {
 		num: 1039,
 		name: "Smelmetal",
-		types: ["Steel", "Freaky"],
+		types: ["Steel", "Silly"],
 		baseStats: {hp: 97, atk: 99, def: 144, spa: 77, spd: 107, spe: 37},
 		abilities: {0: "Iron Nose"},
 		weightkg: 570.0,
@@ -451,14 +451,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 75, spa: 125, spd: 90, spe: 90},
 		abilities: {0: "Quick Feet"},
 		weightkg: 0.1,
-	},
-	ougayporncomerstone: {
-		num: 1055,
-		name: "Ougayporn-Comerstone",
-		types: ["Grass", "Rock"],
-		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
-		abilities: {0: "Get Sturdy"},
-		weightkg: 39.8,
 	},
 	palpitoadissocool: {
 		num: 1056,
