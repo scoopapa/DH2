@@ -189,6 +189,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			doubleteam: ["1M"],
 			reflect: ["1M"],
 			substitute: ["1M"],
+			rest: ["1M"],
 			counter: ["2E"],
 			seismictoss: ["2E"],
 			selfdestruct: ["2E"],
