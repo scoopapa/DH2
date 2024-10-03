@@ -572,6 +572,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			pissongrave: ["9L1"],
+			lethalhug: ["9L1"],
 		},
 	},
 	kingler: {
@@ -3765,6 +3766,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			ohmygoooodwaaaaaaaaaanisfokifnouh: ["9L1"],
 			sniftgear: ["9L1"],
 			pissongrave: ["9L1"],
+			lethalhug: ["9L1"],
 		},
 	},
 	starmie: {
@@ -7160,6 +7162,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			lethalhug: ["9L1"],
 		},
 	},
 	boogerponclownerstone: {
@@ -7229,6 +7232,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			pissongrave: ["9L1"],
+			lethalhug: ["9L1"],
 		},
 	},
 	keisbergif: {
@@ -7302,6 +7306,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			bulkup: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			lethalhug: ["9L1"],
 		},
 	},
 	indeedeem: {
