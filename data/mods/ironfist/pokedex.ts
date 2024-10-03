@@ -814,7 +814,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Clownery", H: "Inner Focus"},
 		weightkg: 236.9,
 	},
-	indeedeem: {
+	indeedee: {
 		num: 1009,
 		name: "Indeedee",
 		types: ["Psychic", "Silly"],
