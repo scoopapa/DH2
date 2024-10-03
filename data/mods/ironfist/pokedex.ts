@@ -751,7 +751,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ronaldreagan: {
 		num: 1001,
-		species: "Ronald Reagan",
+		name: "Ronald Reagan",
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 125, atk: 85, def: 90, spa: 105, spd: 95, spe: 60},
 		abilities: {0: "Reaganomics"},
@@ -759,7 +759,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	limelips: {
 		num: 1002,
-		species: "Lime Lips",
+		name: "Lime Lips",
 		types: ["Lemon", "Fairy"],
 		baseStats: {hp: 80, atk: 110, def: 70, spa: 90, spd: 70, spe: 110},
 		abilities: {0: "Dazzling", H: "Strong Jaw"},
@@ -767,7 +767,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lemotic: {
 		num: 1003,
-		species: "Lemotic",
+		name: "Lemotic",
 		types: ["Lemon", "Ghost"],
 		baseStats: {hp: 139, atk: 146, def: 57, spa: 115, spd: 71, spe: 72},
 		abilities: {0: "Minus", 1: "Mega Launcher", H: "Perish Body"},
@@ -775,7 +775,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zestii: {
 		num: 1004,
-		species: "Zestii",
+		name: "Zestii",
 		types: ["Lemon"],
 		baseStats: {hp: 80, atk: 65, def: 90, spa: 120, spd: 125, spe: 95},
 		abilities: {0: "Lemon Squeezy"},
@@ -784,7 +784,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sunflora: {
 		inherit: true,
 		num: 1005,
-		species: "Sunflora",
+		name: "Sunflora",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 85, atk: 110, def: 75, spa: 110, spd: 110, spe: 50},
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Drought"},
@@ -792,7 +792,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rawringmoon: {
 		num: 1006,
-		species: "Rawring Moon",
+		name: "Rawring Moon",
 		types: ["Dragon", "Silly"],
 		baseStats: {hp: 105, atk: 129, def: 71, spa: 55, spd: 101, spe: 109},
 		abilities: {0: "Protosynthesis"},
@@ -800,7 +800,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	boogerponclownerstone: {
 		num: 1007,
-		species: "Boogerpon-CLOWNerstone",
+		name: "Boogerpon-CLOWNerstone",
 		types: ["Grass", "Silly"],
 		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
 		abilities: {0: "Get Silly"},
@@ -808,7 +808,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	keisbergif: {
 		num: 1008,
-		species: "Keisberg-IF",
+		name: "Keisberg-IF",
 		types: ["Ice", "Silly"],
 		baseStats: {hp: 105, atk: 120, def: 110, spa: 75, spd: 110, spe: 25},
 		abilities: {0: "Clownery", H: "Inner Focus"},
@@ -816,7 +816,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	indeedeem: {
 		num: 1009,
-		species: "Indeedee",
+		name: "Indeedee",
 		types: ["Psychic", "Silly"],
 		baseStats: {hp: 60, atk: 65, def: 55, spa: 105, spd: 95, spe: 135},
 		abilities: {0: "Inner Focus", 1: "Psychic Surge", H: "Synchronize"},
@@ -824,7 +824,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	applesnewestemoji: {
 		num: 1010,
-		species: "Apple\'s Newest Emoji",
+		name: "Apple\'s Newest Emoji",
 		types: ["Fire", "Lemon"],
 		baseStats: {hp: 92, atk: 65, def: 100, spa: 110, spd: 82, spe: 108},
 		abilities: {0: "Flame Body", 1: "Unaware", H: "Zesty"},
@@ -833,7 +833,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cinderace: {
 		inherit: true,
 		num: 1011,
-		species: "Cinderace",
+		name: "Cinderace",
 		types: ["Fire"],
 		baseStats: {hp: 80, atk: 116, def: 85, spa: 65, spd: 85, spe: 99},
 		abilities: {0: "Blaze", H: "Libero"},
@@ -841,7 +841,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lemonfish: {
 		num: 1012,
-		species: "Lemon Fish",
+		name: "Lemon Fish",
 		types: ["Lemon", "Water"],
 		baseStats: {hp: 100, atk: 105, def: 80, spa: 60, spd: 60, spe: 80},
 		abilities: {0: "Swift Swim", 1: "Ripen", H: "Lemonade"},
@@ -849,7 +849,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dracolition: {
 		num: 1013,
-		species: "Dracolition",
+		name: "Dracolition",
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 112, atk: 128, def: 90, spa: 60, spd: 85, spe: 40},
 		abilities: {0: "Wrecking Ball", 1: "Intimidate", H: "Dragons Maw"},
