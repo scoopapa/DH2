@@ -276,7 +276,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		num: 21,
 		name: "Lashiram",
 		types: ["Steel", "Dragon"],
-		baseStats: {hp: 95, atk: 110, def: 120, spa: 100, spd: 85, spe: 60},
+		baseStats: {hp: 95, atk: 110, def: 120, spa: 100, spd: 85, spe: 65},
 		abilities: {0: "Molten Core"},
 		weightkg: 225,
 	},
