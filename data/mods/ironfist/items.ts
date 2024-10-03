@@ -60,7 +60,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
-			if (target.useItem()) {
+			if (!['oblivious', 'unaware'].includes(source.ability) && target.useItem()) {
 				this.add('-message', `baseball this guy`);
 				return null;
 			}
@@ -84,7 +84,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		onPrepareHit(source, target, move) {
-			if (move.flags['punch'] && move.name !== "Double Iron Bash") {
+			if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
 				return null;
 			}
@@ -322,5 +322,64 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+	},
+
+	//slate 4
+	deeznuts: {
+		name: "Deez NUts",
+		fling: {
+			basePower: 280,
+			onHit(target, source, move) {
+				if (move) {
+					this.heal(target.baseMaxhp);
+				}
+			},
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "This Pokemon's stats are doubled if their BST is 280 or less, or Inkay/Richard Petty.",
+		rating: 3,
+	},
+	lemonmemory: {
+		name: "Lemon Memory",
+		shortDesc: "Holder's Multi-Attack is Lemon type.",
+		spritenum: 679,
+		onMemory: 'Lemon',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Lemon",
+		itemUser: ["Silvally-Lemon"],
 	},
 }

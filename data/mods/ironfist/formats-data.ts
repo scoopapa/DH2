@@ -300,7 +300,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jirachitwo: {
-		tier: "IF",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	shinxfishing: {
@@ -408,6 +408,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	inkay: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallylemon: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

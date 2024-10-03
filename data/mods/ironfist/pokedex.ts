@@ -230,17 +230,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1028,
 		name: "Pidown",
 		types: ["Fighting", "Poison"],
-		baseStats: {hp: 130, atk: 120, def: 110, spa: 35, spd: 85, spe: 35},
-		abilities: {0: "Guts", 1: "Regenerator", H: "Mold Breaker"},
+		baseStats: {hp: 130, atk: 120, def: 95, spa: 40, spd: 85, spe: 40},
+		abilities: {0: "Guts", 1: "Gluttony", H: "Mold Breaker"},
 		weightkg: 102.9,
 	},
 	silvally: {
 		inherit: true,
 		num: 1029,
-		name: "Silvally",
-		types: ["Normal"],
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
+		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fairy", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Lemon", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water"],
+		formeOrder: [
+			"Silvally", "Silvally-Fighting", "Silvally-Flying", "Silvally-Poison", "Silvally-Ground", "Silvally-Rock", "Silvally-Bug", "Silvally-Ghost", "Silvally-Steel",
+			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy", "Silvally-Lemon",
+		],
 	},
 	vivillonplainshigh: {
 		num: 1030,
@@ -710,5 +711,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 115, def: 65, spa: 75, spd: 95, spe: 65},
 		abilities: {0: "Bramblin Mentality"},
 		weightkg: 19.9,
+	},
+
+	silvallylemon: {
+		num: 1029,
+		name: "Silvally-Lemon",
+		baseSpecies: "Silvally",
+		forme: "Lemon",
+		types: ["Lemon"],
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
+		abilities: {0: "RKS System"},
+		requiredItem: "Lemon Memory",
+		changesFrom: "Silvally",
 	},
 }

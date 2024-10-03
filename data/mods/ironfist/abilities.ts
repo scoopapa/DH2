@@ -1,3 +1,27 @@
+import {FS} from '../../../lib';
+import {toID} from '../../../sim/dex-data';
+import {Pokemon} from "../../../sim/pokemon";
+
+// Similar to User.usergroups. Cannot import here due to users.ts requiring Chat
+// This also acts as a cache, meaning ranks will only update when a hotpatch/restart occurs
+const usergroups: {[userid: string]: string} = {};
+const usergroupData = FS('config/usergroups.csv').readIfExistsSync().split('\n');
+for (const row of usergroupData) {
+	if (!toID(row)) continue;
+
+	const cells = row.split(',');
+	if (cells.length > 3) throw new Error(`Invalid entry when parsing usergroups.csv`);
+	usergroups[toID(cells[0])] = cells[1].trim() || ' ';
+}
+
+export function getName(name: string): string {
+	const userid = toID(name);
+	if (!userid) throw new Error('No/Invalid name passed to getSymbol');
+
+	const group = usergroups[userid] || ' ';
+	return group + name;
+}
+
 export const Abilities: {[k: string]: ModdedAbilityData} = {
   	//slate 1
 	ultraluck: {
@@ -11,12 +35,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp * 0.30, target, pokemon);
+				this.damage(target.baseMaxhp * 0.28, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 30% of their max HP.",
+		shortDesc: "When the user switches out, damage active opponents by 28% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
@@ -383,7 +407,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Impalpable",
 		shortDesc: "This Pokemon is non-grounded, and is immune to its own and the opponent's STABs.",
 	},
-	/*getsturdy: {
+	getsilly: {
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
 		},
@@ -395,17 +419,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				const oldAbility = target.setAbility('sturdy', target);
-				if (oldAbility) {
-					this.add('-activate', target, 'ability: Get Sturdy', this.dex.abilities.get(oldAbility).name, '[of] ' + target);
-				}
-				return target.hp - 1;
+				source.addVolatile('clownnose');
+				return target.hp - 2;
 			}
 		},
 		flags: {},
-		name: "Get Sturdy",
-		shortDesc: "Super Luck + Sturdy + crits lower Def by 1 + sets ability to Sturdy at 1 HP.",
-	},*/
+		name: "Get Silly",
+		shortDesc: "Super Luck + Sturdy + crits lower Def by 1 + attacker grows a clown nose at 2 HP.",
+	},
 	champion: {
 		onModifySpe(spe, pokemon) {
 			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
@@ -535,34 +556,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's fishing moves have 1.5x power; Big Button Teras Water.",
 	},
 	toxicmasculinity: {
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of pokemon.adjacentFoes()) {
-				if (!activated) {
-					this.add('-ability', pokemon, 'toxic masculinity', 'boost');
-					activated = true;
-				}
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else {
-					this.add('-activate', target, 'ability: toxic masculinity');
-					if (this.randomChance(1, 2)) this.boost({spa: 1}, target, pokemon, null, true);
-					if (this.randomChance(1, 2)) this.boost({atk: 1}, target, pokemon, null, true);
-					if (this.randomChance(1, 5)) this.boost({spe: 1}, target, pokemon, null, true);
-					if (this.randomChance(1, 5)) {
-						this.boost({evasion: -1}, target, pokemon, null, true);
-						this.boost({evasion: -1}, pokemon, pokemon, null, true);
-					}
-					if (this.randomChance(3, 100)) {
-						pokemon.side.addSideCondition('toxicspikes', pokemon);
-						target.side.addSideCondition('toxicspikes', pokemon);
-					}
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.atk && boost.atk < 0) {
+				delete boost.atk;
+				if (!(effect as ActiveMove).secondaries) {
+					target.side.addSideCondition('toxicspikes', pokemon);
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: toxic masculinity", "[of] " + target);
 				}
 			}
 		},
 		flags: {},
 		name: "toxic masculinity",
-		shortDesc: "Intimidate but 50% SpA + 1; 20% Spe + 1; 50% Atk -1; 3% Toxic Spikes on both sides.",
+		shortDesc: "This Pokemon's Attack cannot be lowered. If it would, set Toxic Spikes on the opponent's side.",
 	},
 	magneticstorm: {
 		shortDesc: "Magnet Pull + Storm Drain",
@@ -796,6 +802,78 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Bramblin Mentality",
 		shortDesc: "Comatose",
+	},
+
+	//slate 4
+	reaganomics: {
+		onStart(pokemon) {
+			if(pokemon.side.fishingTokens > 0) pokemon.side.addFishingTokens(pokemon.side.fishingTokens);
+			if(this.randomChance(1, 8192)) pokemon.side.foe.addFishingTokens(1);
+		},
+		flags: {},
+		name: "Reaganomics",
+		shortDesc: "On switchin, this Pokemon doubles its side's Fishing tokens. 1/8192 chance for opp's side to get 1.",
+	},
+	gexserver: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Gex Server');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.add('-activate', target, 'ability: Gex Server');
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
+					target.addVolatile('gexserver');
+				}
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} was hacked!`);
+			},
+			onPrepareHit(source, target, move) {
+				if (this.randomChance(3, 10)) {
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|https://twitter.com/Duo__M2`);
+					if (target) target.addVolatile('gexserver');
+				}
+			},
+		},
+		flags: {},
+		name: "Gex Server",
+		shortDesc: "On switchin, adjacent opponents may send a link to DuoM2's Twitter.",
+	},
+	lemonsqueezy: {
+		onDamagingHit(damage, target, source, effect) {
+			this.add('-activate', source, 'move: Aromatherapy');
+			for (const ally of source.side.pokemon) {
+				if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+					continue;
+				}
+				ally.cureStatus();
+			}
+		},
+		flags: {},
+		name: "Lemon Squeezy",
+		shortDesc: "This Pokemon cures its party of status conditions after it is damaged by a move.",
+	},
+	clownery: {
+		onTryHit(target, source, move) {
+			if (['Normal', 'Fighting'].includes(move.type) && target !== source) {
+				this.add('-immune', target, '[from] ability: Clownery');
+				return null;
+			}
+		},
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			return -0.1;
+		},
+		flags: {breakable: 1},
+		name: "Clownery",
+		shortDesc: "This Pokemon moves last in its priority bracket, but is immune to Normal/Fighting.",
 	},
 
 	//vanilla
