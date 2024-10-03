@@ -283,10 +283,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	ogerponcornerstone: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
 	palpitoadissocool: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -300,7 +296,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jirachitwo: {
-		tier: "IF",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	shinxfishing: {
@@ -408,6 +404,62 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	inkay: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallylemon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	ronaldreagan: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	limelips: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemotic: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	zestii: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	sunflora: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	rawringmoon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	boogerponclownerstone: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	keisbergif: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	indeedeem: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	applesnewestemoji: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	cinderace: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemonfish: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	dracolition: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
