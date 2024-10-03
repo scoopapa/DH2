@@ -51,6 +51,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			toxic: ["9L1"],
 			goombastomp: ["9L1"],
 			fishingterrain: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	ninjask: {
@@ -570,6 +571,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			feebasproshops: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	kingler: {
@@ -1025,6 +1027,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			goombastomp: ["9L1"],
 			fishingterrain: ["9L1"],
 			sniftgear: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	sylveon: {
@@ -2841,6 +2844,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			toxic: ["9L1"],
 			conversion2: ["9L1"],
 			fishingterrain: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	pidown: {
@@ -3404,6 +3408,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			campfire: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	cascoon: {
@@ -3759,6 +3764,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			ohmygoooodwaaaaaaaaaanisfokifnouh: ["9L1"],
 			sniftgear: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	starmie: {
@@ -4869,6 +4875,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			workup: ["9L1"],
 			fishingterrain: ["9L1"],
 			ohmygoooodwaaaaaaaaaanisfokifnouh: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	impalpitoad: {
@@ -4931,6 +4938,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L1"],
 			weatherball: ["9L1"],
 			fishingterrain: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	scrubby: {
@@ -5642,6 +5650,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			substitute: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	magnegiri: {
@@ -5942,6 +5951,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	basculinbluestriped: {
@@ -6065,6 +6075,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			terrainpulse: ["9L1"],
 			yawn: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	richardpetty: {
@@ -6813,6 +6824,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			psybeam: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	limelips: {
@@ -7216,6 +7228,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			brainrotcudgel: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	keisbergif: {
@@ -7487,6 +7500,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			campfire: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			pissongrave: ["9L1"],
 		},
 	},
 	lemonfish: {

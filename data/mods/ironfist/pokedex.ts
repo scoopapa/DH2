@@ -19,6 +19,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1003,
 		name: "Toxapex",
+		fish: true,
 		types: ["Poison", "Water"],
 		baseStats: {hp: 152, atk: 142, def: 53, spa: 50, spd: 63, spe: 35},
 		abilities: {0: "Merciless", 1: "Limber", H: "Degenerator"},
@@ -70,6 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1009,
 		name: "Kingler",
+		fish: true,
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 130, def: 130, spa: 50, spd: 70, spe: 50},
 		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Tough Claws"},
@@ -79,6 +81,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kingler-Mega",
 		baseSpecies: "Kingler",
 		forme: "Mega",
+		fish: true,
 		types: ["Water", "Steel"],
 		baseStats: {hp: 70, atk: 130, def: 210, spa: 60, spd: 100, spe: 30},
 		abilities: {0: "Shell Armor"},
@@ -89,6 +92,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1011,
 		name: "Feebas",
+		fish: true,
 		types: ["Water"],
 		baseStats: {hp: 20, atk: 25, def: 20, spa: 10, spd: 55, spe: 80},
 		abilities: {0: "Swift Swim", 1: "Oblivious", H: "Adaptability"},
@@ -129,6 +133,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ohmyrod: {
 		num: 1016,
 		name: "Ohmyrod",
+		fish: true,
 		types: ["Water", "Grass"],
 		baseStats: {hp: 75, atk: 130, def: 134, spa: 95, spd: 86, spe: 45},
 		abilities: {0: "Water Absorb", H: "Innards Out"},
@@ -146,6 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	bigcrammer: {
 		num: 1018,
 		name: "Big Crammer",
+		fish: true,
 		types: ["Water", "Electric"],
 		baseStats: {hp: 89, atk: 93, def: 69, spa: 119, spd: 111, spe: 109},
 		abilities: {0: "Protostasis"},
@@ -172,6 +178,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1021,
 		name: "Crabominable",
+		fish: true,
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 87, atk: 112, def: 57, spa: 62, spd: 117, spe: 93},
 		abilities: {0: "Anger Shell", 1: "Iron Fist", H: "Unseen Fist"},
@@ -180,6 +187,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	samurottsinnoh: {
 		num: 1022,
 		name: "Samurott-Sinnoh",
+		fish: true,
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 80, atk: 105, def: 80, spa: 70, spd: 75, spe: 115},
 		abilities: {0: "Blaze", H: "Sharpness"},
@@ -236,6 +244,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	silvally: {
 		inherit: true,
+		fish: true,
 		num: 1029,
 		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fairy", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Lemon", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water"],
 		formeOrder: [
@@ -315,6 +324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	phish: {
 		num: 1038,
 		name: "Phish",
+		fish: true,
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 52, atk: 54, def: 104, spa: 123, spd: 111, spe: 80},
 		abilities: {0: "Illusion", 1: "Imposter", H: "Good as Gold"},
@@ -332,6 +342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1040,
 		name: "Starmie",
+		fish: true,
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 60, atk: 75, def: 85, spa: 100, spd: 110, spe: 115},
 		abilities: {0: "Illuminate", 1: "Natural Cure", H: "Analytic"},
@@ -399,6 +410,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1048,
 		name: "Swampert",
+		fish: true,
 		types: ["Water", "Ground"],
 		baseStats: {hp: 100, atk: 110, def: 90, spa: 75, spd: 90, spe: 60},
 		abilities: {0: "Torrent", H: "Steel Drummer"},
@@ -441,6 +453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	impalpitoad: {
 		num: 1053,
 		name: "Impalpitoad",
+		fish: true,
 		types: ["Water", "Ground"],
 		baseStats: {hp: 75, atk: 65, def: 55, spa: 65, spd: 55, spe: 69},
 		abilities: {0: "MILF", H: "Impalpable"},
@@ -448,6 +461,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	scrubby: {
 		num: 1054,
 		name: "Scrubby",
+		fish: true,
 		types: ["Water", "Dark"],
 		baseStats: {hp: 90, atk: 50, def: 75, spa: 125, spd: 90, spe: 90},
 		abilities: {0: "Quick Feet"},
@@ -456,6 +470,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	palpitoadissocool: {
 		num: 1056,
 		name: "palpitoad is so cool",
+		fish: true,
 		types: ["Water", "Ground"],
 		baseStats: {hp: 120, atk: 100, def: 85, spa: 100, spd: 85, spe: 70},
 		abilities: {0: "MILF", H: "champion"},
@@ -492,6 +507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	shinxfishing: {
 		num: 1060,
 		name: "Shinx-Fishing",
+		fish: true,
 		types: ["Electric"],
 		baseStats: {hp: 46, atk: 66, def: 35, spa: 41, spd: 35, spe: 46},
 		abilities: {0: "Fishercat", 1: "toxic masculinity", H: "Guts"},
@@ -547,6 +563,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pokestarfisherman: {
 		num: 1066,
 		name: "Pokestar Fisherman",
+		fish: true,
 		types: ["Normal"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "I Love Fishing"},
@@ -555,6 +572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	magnegiri: {
 		num: 1067,
 		name: "Magnegiri",
+		fish: true,
 		types: ["Water", "Electric"],
 		baseStats: {hp: 70, atk: 60, def: 90, spa: 125, spd: 95, spe: 80},
 		abilities: {0: "Magnetic Storm"},
@@ -584,6 +602,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	fishfactory: {
 		num: 1071,
 		name: "Fish Factory",
+		fish: true,
 		types: ["Steel", "Fire"],
 		baseStats: {hp: 120, atk: 40, def: 100, spa: 90, spd: 90, spe: 60},
 		abilities: {0: "White Smoke", 1: "Damp", H: "Flash Fire"},
@@ -601,6 +620,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1073,
 		name: "Basculin-Blue-Striped",
+		fish: true,
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 92, def: 65, spa: 80, spd: 55, spe: 98},
 		abilities: {0: "Rock Head", 1: "Adaptability", H: "Fishy Surge"},
@@ -654,6 +674,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	fishingzombie: {
 		num: 1079,
 		name: "Fishing Zombie",
+		fish: true,
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 110, atk: 85, def: 110, spa: 90, spd: 80, spe: 5},
 		abilities: {0: "PVZ Fishing", H: "Damp"},
@@ -711,6 +732,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 115, def: 65, spa: 75, spd: 95, spe: 65},
 		abilities: {0: "Bramblin Mentality"},
 		weightkg: 19.9,
+	},
+	inkay: {
+		inherit: true,
+		fish: true,
 	},
 
 	silvallylemon: {
