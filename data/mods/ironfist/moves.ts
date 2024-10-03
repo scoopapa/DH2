@@ -2001,6 +2001,200 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	incinerate: {
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Incinerate",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				let item = target.item;
+				const nonBurn = ['Never-Melt Ice', 'Charcoal', 'Magmarizer', 'Dragon Fang', 'Dragon Scale', 'Damp Rock', 'Smooth Rock', 'Heat Rock', 'Insect Plate', 'Dread Plate', 'Draco Plate', 'Zap Plate', 'Flame Plate', 'Fist Plate', 'Sky Plate', 'Pixie Plate', 'Spooky Plate', 'Meadow Plate', 'Earth Plate', 'Icicle Plate', 'Toxic Plate', 'Stone Plate', 'Iron Plate', 'Splash Plate', 'Light Ball', 'Metal Powder', 'Quick Powder', 'Deep Sea Scale', 'Deep Sea Tooth', 'Thick Club', 'Protective Pads'];
+				if (!nonBurn.includes(target.item)) item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Incinerate', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	pissongrave: {
+		name: "Piss on Grave",
+		type: "Lemon",
+		category: "Special",
+		basePower: 95,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "OHKOs Margaret Thatcher.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Steam Eruption", target);
+		},
+		onModifyMove(move, pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.baseSpecies == "Margaret Thatcher")  move.ohko = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	formofthestrawberryelephant: {
+		name: "Form of the strawberry elephant",
+		type: "Silly",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 5,
+		shortDesc: "Raises Attack, Sp. Attack, Speed, accuracy by 1. User loses 1/8 HP.",
+		priority: 0,
+		flags: {snatch: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Bulk Up", target);
+		},
+		onTry(source) {
+			if (source.hp <= (source.maxhp / 8) || source.maxhp === 1) return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
+			delete move.boosts;
+		},
+		onHit(pokemon) {
+			this.directDamage(pokemon.maxhp / 8);
+		},
+		boosts: {
+			atk: 1,
+			spa: 1,
+			spe: 1,
+			accuracy: 1,
+		},
+		secondary: null,
+		target: "self",
+	},
+	thief: {
+		inherit: true,
+		shortDesc: "Steels the target's item.",
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (!item) return;
+			const ironball = this.dex.items.get('Iron Ball');
+			this.add('-enditem', target, item.name, '[from] move: Thief', '[of] ' + source, "[silent]");
+			this.add('-item', target, ironball, '[from] move: Thief', '[of] ' + target, "[silent]");
+			target.setItem(ironball);
+			this.add("-message", `${source.name} steeled ${target.name}'s ${item}!`);
+		}
+	},
+	swiftsquirt: {
+		name: "Swift Squirt",
+		type: "Lemon",
+		category: "Special",
+		basePower: 40,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "High critical hit ratio.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Water Shuriken", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	courtchange: {
+		inherit: true,
+		onHitField(target, source) {
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			];
+			let success = false;
+			const sourceSideConditions = source.side.sideConditions;
+			const targetSideConditions = source.side.foe.sideConditions;
+			const sourceTemp: typeof sourceSideConditions = {};
+			const targetTemp: typeof targetSideConditions = {};
+			for (const id in sourceSideConditions) {
+				if (!sideConditions.includes(id)) continue;
+				sourceTemp[id] = sourceSideConditions[id];
+				delete sourceSideConditions[id];
+				success = true;
+			}
+			for (const id in targetSideConditions) {
+				if (!sideConditions.includes(id)) continue;
+				targetTemp[id] = targetSideConditions[id];
+				delete targetSideConditions[id];
+				success = true;
+			}
+			if (target.side.fishingTokens > 0 || source.side.fishingTokens > 0) {
+				const tempT = target.side.fishingTokens;
+				const tempS = source.side.fishingTokens;
+				target.side.removeFishingTokens(tempT);
+				target.side.addFishingTokens(tempS);
+				source.side.removeFishingTokens(tempS);
+				source.side.addFishingTokens(tempT);
+			}
+			for (const id in sourceTemp) {
+				targetSideConditions[id] = sourceTemp[id];
+			}
+			for (const id in targetTemp) {
+				sourceSideConditions[id] = targetTemp[id];
+			}
+			this.add('-swapsideconditions');
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
+	},
+	lethalhug: {
+		name: "Lethal Hug",
+		type: "Silly",
+		category: "Physical",
+		basePower: 90,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "No additional effect.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Body Slam", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	brainrotcudgel: {
+		name: "Brainrot Cudgel",
+		type: "Silly",
+		category: "Physical",
+		basePower: 50,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Always results in a critical hit.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		willCrit: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ivy Cudgel Rock", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
 	
 	//Silly shit
 	attract: {

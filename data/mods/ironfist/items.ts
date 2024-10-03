@@ -327,6 +327,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	//slate 4
 	deeznuts: {
 		name: "Deez NUts",
+		spritenum: 292,
 		fling: {
 			basePower: 280,
 			onHit(target, source, move) {
@@ -381,5 +382,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Lemon",
 		itemUser: ["Silvally-Lemon"],
+	},
+	fishyseed: {
+		name: "Fishy Seed",
+		shortDesc: "If the terrain is Fishy Terrain, raises holder's Spe by 1 stage. Single use.",
+		spritenum: 666,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('fishyterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('fishyterrain')) {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		rating: 3,
 	},
 }

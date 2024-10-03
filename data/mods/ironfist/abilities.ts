@@ -875,6 +875,37 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Clownery",
 		shortDesc: "This Pokemon moves last in its priority bracket, but is immune to Normal/Fighting.",
 	},
+	zesty: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Lemon' || move.type === 'Silly') {
+				return this.chainModify(1.3);
+			}
+		},
+		flags: {},
+		name: "Zesty",
+		shortDesc: "This Pokemon's Lemon/Silly-type moves have 1.3x power.",
+	},
+	lemonade: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			this.add('-start', source, 'typechange', 'Lemon');
+		},
+		flags: {},
+		name: "Lemonade",
+		shortDesc: "If this Pokémon is damaged by an attack, the attacker becomes an Lemon-type.",
+	},
+	wreckingball: {
+		onTryHit(pokemon) {
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		flags: {},
+		name: "Wrecking Ball",
+		shortDesc: "This Pokemon's moves destroy screens.",
+
+	},
 
 	//vanilla
 	mimicry: {
