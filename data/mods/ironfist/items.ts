@@ -405,4 +405,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		rating: 3,
 	},
+	cornerstonemask: {
+		inherit: true,
+		shortDesc: "Boogerpon-CLOWNerstone: moves have 1.2x power.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Boogerpon-CLOWNerstone')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies === 'Boogerpon-CLOWNerstone') return false;
+			return true;
+		},
+		forcedForme: "Boogerpon-CLOWNerstone",
+		itemUser: ["Boogerpon-CLOWNerstone"],
+	},
 }

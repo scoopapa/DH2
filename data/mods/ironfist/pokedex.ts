@@ -22,7 +22,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Poison", "Water"],
 		baseStats: {hp: 152, atk: 142, def: 53, spa: 50, spd: 63, spe: 35},
-		abilities: {0: "Merciless", 1: "Limber", H: "Degenerator"},
+		abilities: {0: "Merciless", 1: "Gex Server", H: "Degenerator"},
 	},
 	silcoon: {
 		inherit: true,
@@ -128,7 +128,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sylveon",
 		types: ["Fairy"],
 		baseStats: {hp: 60, atk: 130, def: 110, spa: 65, spd: 65, spe: 95},
-		abilities: {0: "Cute Charm", 1: "MILF", H: "Pixilate"},
+		abilities: {0: "Gex Server", 1: "MILF", H: "Pixilate"},
 	},
 	ohmyrod: {
 		num: 1016,
@@ -231,7 +231,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Melmetal 2",
 		types: ["Steel"],
 		baseStats: {hp: 135, atk: 144, def: 144, spa: 80, spd: 65, spe: 34},
-		abilities: {0: "Iron Fist"},
+		abilities: {0: "Iron Fist", H: "Gex Server"},
 		weightkg: 802.0,
 	},
 	pidown: {
@@ -557,7 +557,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Enamorus-Therian",
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 74, atk: 105, def: 110, spa: 135, spd: 100, spe: 46},
-		abilities: {0: "Overcoat"},
+		abilities: {0: "Overcoat", H: "Gex Server"},
 		weightkg: 48.0,
 	},
 	pokestarfisherman: {
@@ -693,7 +693,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Margaret Thatcher",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 120, atk: 80, def: 90, spa: 80, spd: 70, spe: 69},
-		abilities: {0: "Poison Puppeteer", H: "Iron Lady"},
+		abilities: {0: "Poison Puppeteer", 1: "Gex Server", H: "Iron Lady"},
 		weightkg: 81.0,
 	},
 	fleshvaliant: {
@@ -805,6 +805,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
 		abilities: {0: "Get Silly"},
 		weightkg: 39.8,
+		requiredItem: "Cornerstone Mask",
 	},
 	keisbergif: {
 		num: 1008,
@@ -852,7 +853,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Dracolition",
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 112, atk: 128, def: 90, spa: 60, spd: 85, spe: 40},
-		abilities: {0: "Wrecking Ball", 1: "Intimidate", H: "Dragons Maw"},
+		abilities: {0: "Wrecking Ball", 1: "Intimidate", H: "Dragon\'s Maw"},
 		weightkg: 235.4,
 	},
 }
