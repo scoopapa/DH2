@@ -110,7 +110,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Jankster",
-		shortDesc: "When this Pokemon is damaged by an attack, it swaps its corresponding attack stat with the attacker.",
+		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
 	},
 	jumpscare: {
 		onStart(pokemon) {
@@ -235,7 +235,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Onder Guard",
-		shortDesc: "This Pokemon's Defense is raised by 1 and its Special Defense is lowered by 1, or vice versa, when it is damaged by an opponent's move.",
+		shortDesc: "When his Pokemon is hit, Def +1/SpD -1 or vice versa.",
 	},
 	pinfiltrator: {
 		onModifyMove(move) {

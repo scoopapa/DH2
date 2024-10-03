@@ -282,7 +282,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 30,
 		name: "Yveltal",
 		types: ["Ghost", "Dragon", "Flying"],
-		baseStats: {hp: 106, atk: 91, def: 85, spa: 91, spd: 88, spe: 79},
+		baseStats: {hp: 116, atk: 91, def: 95, spa: 91, spd: 98, spe: 79},
 		abilities: {0: "Dark Aura", H: "Intimidate"},
 	},
 	zoroarkhisui: {
@@ -591,7 +591,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Yveltal",
 		forme: "Shrunken",
 		types: ["Ghost", "Dragon", "Flying"],
-		baseStats: {hp: 106, atk: 46, def: 43, spa: 46, spd: 43, spe: 39},
+		baseStats: {hp: 116, atk: 46, def: 48, spa: 46, spd: 49, spe: 39},
 		abilities: {0: "Dark Aura", H: "Intimidate"},
 		battleOnly: "Yveltal",
 	},
