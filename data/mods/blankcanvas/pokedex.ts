@@ -209,7 +209,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	llanfairwyrm: {
 		num: 9027,
-		species: "Llanfairwyrm",
+		name: "Llanfairwyrm",
 		types: ["Dragon"],
 		baseStats: {hp: 85, atk: 120, def: 90, spa: 55, spd: 90, spe: 70},
 		abilities: {0: "Rough Skin"},
@@ -217,7 +217,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	frostengu: {
 		num: 9028,
-		species: "Frostengu",
+		name: "Frostengu",
 		types: ["Fighting", "Ice"],
 		baseStats: {hp: 50, atk: 110, def: 50, spa: 110, spd: 50, spe: 90},
 		abilities: {0: "No Guard"},
@@ -225,7 +225,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	bulionage: {
 		num: 9029,
-		species: "Bulionage",
+		name: "Bulionage",
 		types: ["Dark", "Water"],
 		baseStats: {hp: 85, atk: 100, def: 85, spa: 40, spd: 100, spe: 50},
 		abilities: {0: "Strong Jaw", H: "White Smoke"},
@@ -233,7 +233,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	yamateraph: {
 		num: 9030,
-		species: "Yamateraph",
+		name: "Yamateraph",
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 90, atk: 110, def: 80, spa: 15, spd: 80, spe: 105},
 		abilities: {0: "Psychic Surge"},
@@ -241,7 +241,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	bugswarm: {
 		num: 9031,
-		species: "Bugswarm",
+		name: "Bugswarm",
 		types: ["Fire", "Bug"],
 		baseStats: {hp: 100, atk: 90, def: 70, spa: 80, spd: 70, spe: 60},
 		abilities: {0: "Triage"},
