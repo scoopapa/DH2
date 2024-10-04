@@ -773,6 +773,27 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
+	applekinggalar: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	swoltres: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	orthaconda: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	girachamorigin: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	girachamoriginmega: {
+		tier: "Uber",
+		requiredItem: "Medichamite",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -887,6 +908,10 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	chinpass: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	applipokegalar: {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
