@@ -91,8 +91,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			status: 'par',
 		},
 		onHit(target) {
-			if (target.status === 'par') target.cureStatus();
-			target.addVolatile('confusion');
+			if (target.status === 'par') target.addVolatile('confusion');
 		},
 		target: "normal",
 		type: "Dragon",
