@@ -120,4 +120,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poliorre: {
 		tier: "RegEvo",
 	},
+	drifloonjohto: {
+		tier: "RegEvo NFE",
+	},
+	drifblimjohto: {
+		tier: "RegEvo NFE",
+	},
+	melklim: {
+		tier: "RegEvo",
+	},
+	pachirisuunova: {
+		tier: "RegEvo NFE",
+	},
+	pachiro: {
+		tier: "RegEvo",
+	},
+	glameowunova: {
+		tier: "RegEvo NFE",
+	},
+	puruglyunova: {
+		tier: "RegEvo NFE",
+	},
+	purrfect: {
+		tier: "RegEvo",
+	},
 };
