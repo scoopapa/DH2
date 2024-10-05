@@ -147,8 +147,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	drifloon: {
 		inherit: true,
-		otherFormes: ["Drifloon-Johto"],
-		formeOrder: ["Drifloon", "Drifloon-Johto"],
+		otherFormes: ["Drifloon-Johto", "Drifloon-Alola"],
+		formeOrder: ["Drifloon", "Drifloon-Johto", "Drifloon-Alola"],
 	},
 	drifloonjohto: {
 		num: 425,
@@ -166,8 +166,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	drifblim: {
 		inherit: true,
-		otherFormes: ["Drifloon-Johto"],
-		formeOrder: ["Drifloon", "Drifloon-Johto"],
+		otherFormes: ["Drifblim-Johto", "Drifblim-Alola"],
+		formeOrder: ["Drifblim", "Drifblim-Johto", "Drifblim-Alola"],
 	},
 	drifblimjohto: {
 		num: 426,
@@ -376,6 +376,50 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 	// Kalos Dex
 	// Alola Dex
+
+	drifloonalola: {
+		num: 425,
+		name: "Drifloon-Alola",
+		baseSpecies: "Drifloon",
+		forme: "Alola",
+		types: ["Water", "Ghost"],
+		baseStats: {hp: 100, atk: 75, def: 44, spa: 40, spd: 34, spe: 65},
+		abilities: {0: "Cursed Body", 1: "Water Veil", H: "Immunity"},
+		heightm: 0.4,
+		weightkg: 1.2,
+		color: "Purple",
+		evos: ["Drifblim-Alola"],
+		eggGroups: ["Amorphous"],
+	},
+	drifblimalola: {
+		num: 426,
+		name: "Drifblim-Alola",
+		baseSpecies: "Drifblim",
+		forme: "Alola",
+		types: ["Water", "Ghost"],
+		baseStats: {hp: 140, atk: 100, def: 64, spa: 65, spd: 64, spe: 75},
+		abilities: {0: "Cursed Body", 1: "Water Veil", H: "Immunity"},
+		heightm: 1.2,
+		weightkg: 15,
+		color: "Purple",
+		prevo: "Drifloon-Alola",
+		evoLevel: 28,
+		evos: ["Yachtergeist"],
+		eggGroups: ["Amorphous"],
+	},
+	yachtergeist: {
+		num: -21,
+		name: "Yachtergeist",
+		types: ["Water", "Ghost"],
+		baseStats: {hp: 165, atk: 107, def: 84, spa: 60, spd: 64, spe: 65},
+		abilities: {0: "Swift Swim", 1: "Water Veil", H: "Steam Engine"},
+		heightm: 1.2,
+		weightkg: 581.6,
+		color: "Purple",
+		prevo: "Drifblim-Alola",
+		eggGroups: ["Amorphous"],
+	},
+
 	// Galar Dex
 	
 	rotom: {
@@ -811,6 +855,37 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		evoMove: "Toxic",
 		eggGroups: ["Field", "Fairy"],
 	},
+	emolga: {
+		inherit: true,
+		otherFormes: ["Emolga-Ultra"],
+		formeOrder: ["Emolga", "Emolga-Ultra"],
+	},
+	emolgaultra: {
+		num: 587,
+		name: "Emolga-Ultra",
+		baseSpecies: "Emolga",
+		forme: "Ultra",
+		types: ["Electric", "Poison"],
+		baseStats: {hp: 55, atk: 95, def: 60, spa: 55, spd: 60, spe: 103},
+		abilities: {0: "Frenzy Virus", H: "Regenerator"},
+		heightm: 0.4,
+		weightkg: 5,
+		color: "White",
+		eggGroups: ["Field"],
+		evos: ["Jinrolga"],
+	},
+	jinrolga: {
+		num: -22,
+		name: "Jinrolga",
+		types: ["Electric", "Poison"],
+		baseStats: {hp: 75, atk: 115, def: 70, spa: 75, spd: 70, spe: 103},
+		abilities: {0: "Frenzy Virus", H: "Regenerator"},
+		heightm: 0.91,
+		weightkg: 26.39,
+		color: "White",
+		eggGroups: ["Field"],
+		prevo: "Emolga-Ultra",
+	},
 
 	// Paradox Dex
 
@@ -845,5 +920,48 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Stufful-Ancient",
 		evoLevel: 27,
 		eggGroups: ["Field"],
+	},
+
+	// Lental Dex
+
+	lickitung: {
+		inherit: true,
+		evos: ["Lickilicky", "Lickilicky-Lental"],
+	},
+	lickilicky: {
+		inherit: true,
+		otherFormes: ["Lickilicky-Lental"],
+		formeOrder: ["Lickilicky", "Lickilicky-Lental"],
+	},
+	lickilickylental: {
+		num: 463,
+		name: "Lickilicky-Lental",
+		baseSpecies: "Lickilicky",
+		forme: "Lental",
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 110, atk: 95, def: 85, spa: 50, spd: 95, spe: 80},
+		abilities: {0: "Own Tempo", 1: "Sand Rush", H: "Cloud Nine"},
+		heightm: 1.7,
+		weightkg: 140,
+		color: "Pink",
+		prevo: "Lickitung",
+		evoType: "levelMove",
+		evoMove: "Rollout",
+		eggGroups: ["Monster"],
+		evos: ["Anolicky"],
+	},
+	anolicky: {
+		num: -23,
+		name: "Anolicky",
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 110, atk: 110, def: 75, spa: 50, spd: 100, spe: 103},
+		abilities: {0: "Unburden", 1: "Sand Rush", H: "Cloud Nine"},
+		heightm: 1.7,
+		weightkg: 64.6,
+		color: "Pink",
+		prevo: "Lickilicky-Lental",
+		evoType: "levelMove",
+		evoMove: "Rollout",
+		eggGroups: ["Monster"],
 	},
 };

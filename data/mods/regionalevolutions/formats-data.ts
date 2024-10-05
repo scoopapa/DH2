@@ -144,4 +144,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	purrfect: {
 		tier: "RegEvo",
 	},
+	drifloonalola: {
+		tier: "RegEvo NFE",
+	},
+	drifblimalola: {
+		tier: "RegEvo NFE",
+	},
+	yachtergeist: {
+		tier: "RegEvo",
+	},
+	emolgaultra: {
+		tier: "RegEvo NFE",
+	},
+	jinrolga: {
+		tier: "RegEvo",
+	},
+	lickitung: {
+		tier: "RegEvo NFE",
+	},
+	lickilickylental: {
+		tier: "RegEvo NFE",
+	},
+	anolicky: {
+		tier: "RegEvo",
+	},
 };
