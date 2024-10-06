@@ -149,7 +149,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2019,
 		name: "Crolegion",
 		types: ["Dark"],
-		baseStats: {hp: 110, atk: 120, def: 80, spa: 75, spd: 75, spe: 75},
+		baseStats: {hp: 110, atk: 125, def: 80, spa: 75, spd: 75, spe: 75},
 		abilities: {0: "Intimidate", H: "Supreme Overlord"},
 		weightkg: 241,
 	},

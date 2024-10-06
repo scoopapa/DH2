@@ -542,6 +542,7 @@ export const Learnsets = {
 			endure: ["9L1"],
 			uturn: ["9L1"],
 			leafstorm: ["9L1"],
+			leechseed: ["9L1"],
 			energyball: ["9L1"],
 			solarbeam: ["9L1"],
 			hurricane: ["9L1"],
