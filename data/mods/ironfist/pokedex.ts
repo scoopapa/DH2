@@ -28,6 +28,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 1004,
 		name: "Silcoon",
+		fish: true,
 		types: ["Ground", "Flying"],
 		baseStats: {hp: 89, atk: 145, def: 90, spa: 105, spd: 80, spe: 91},
 		abilities: {0: "toxic masculinity"},
@@ -776,6 +777,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	zestii: {
 		num: 1004,
 		name: "Zestii",
+		diamondHand: true,
 		types: ["Lemon"],
 		baseStats: {hp: 80, atk: 65, def: 90, spa: 120, spd: 125, spe: 95},
 		abilities: {0: "Lemon Squeezy"},
@@ -843,6 +845,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	lemonfish: {
 		num: 1012,
 		name: "Lemon Fish",
+		fish: true,
 		types: ["Lemon", "Water"],
 		baseStats: {hp: 100, atk: 105, def: 80, spa: 60, spd: 60, spe: 80},
 		abilities: {0: "Swift Swim", 1: "Ripen", H: "Lemonade"},
