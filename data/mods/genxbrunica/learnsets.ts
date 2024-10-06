@@ -11174,6 +11174,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			destinybond: ["9E"],
 			doubleedge: ["9E"],
 			thrash: ["9E"],
+			icefang: ["9E"],
+			iciclecrash: ["9E"],
 			waterpulse: ["9E","9T"],
 			takedown: ["9M"],
 			bulkup: ["9M"],

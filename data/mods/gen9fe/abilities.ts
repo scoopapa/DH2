@@ -3790,6 +3790,129 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Sturdy Shock",
 	},
+	moltenglue: {
+		shortDesc: "Sticky Hold + Flame Body",
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb' || this.activeMove.ignoreAbility) return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Molten Glue');
+				return false;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.trySetStatus('brn', target);
+			}
+		},
+		flags: {},
+		name: "Molten Glue",
+	},
+	bullettime: {
+		name: "Bullet Time",
+		shortDesc: "Own Tempo + Bulletproof",
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Bullet Time');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Bullet Time');
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Bullet Time');
+				return null;
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Bullet Time', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Bullet Time', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+	},
+	badapple: {
+		name: "Bad Apple",
+		shortDesc: "Own Tempo + Thick Fat",
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Bad Apple');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Bad Apple');
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Bad Apple', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Bad Apple', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+	},
+	sandworm: {
+		name: "Sandworm",
+		shortDesc: "33% chance to cure status at end of turn, 100% instead in Sandstorm",
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && (this.field.isWeather('sandstorm') || this.randomChance(33, 100))) {
+				this.debug('shed skin');
+				this.add('-activate', pokemon, 'ability: Sandworm');
+				pokemon.cureStatus();
+			}
+		},
+		flags: {},
+	},
+	anointed: {
+		name: "Anointed",
+		shortDesc: "Telepathy + Levitate",
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Anointed');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
 	innerfocus: {

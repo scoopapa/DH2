@@ -29,7 +29,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	wizhazard: {
 		tier: "BC",
 	},
-	the729frontfacingpumpkins: {
+	jackoswarm: {
 		tier: "BC",
 	},
 	kadraoke: {
@@ -90,6 +90,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BC",
 	},
 	bugswarm: {
+		tier: "BC",
+	},
+	freightmare: {
+		tier: "BC",
+	},
+	brasspecter: {
+		tier: "BC",
+	},
+	copperhead: {
+		tier: "BC",
+	},
+	thaumaton: {
 		tier: "BC",
 	},
 };
