@@ -138,7 +138,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		randomBattleLevel: 75,
 	},
 	solvaliantmega: {
-		tier: "FEOU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		randomBattleMoves: ["moonblast", "knockoff", "closecombat", "fireblast"],
 		randomBattleLevel: 73,
@@ -639,7 +639,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	magnegiri: {
-		tier: "FEUU",
+		tier: "FEUUBL",
 		doublesTier: "DOU",
 	},
 	celeblim: {
@@ -761,7 +761,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
-	donphurott: {
+	donphurotthisui: {
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},

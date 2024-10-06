@@ -1,4 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	//slate 1
 	kunai: {
 		name: "Kunai",
 		fling: {
@@ -16,7 +17,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 640,
 		gen: 6,
-		shortDesc: "If the holder uses 3 consecutive attacking moves, it gains +1 Defense and Special Defense.",
+		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Defense and Sp. Defense.",
 		rating: 3,
 	},
 	fishhook: {
@@ -45,7 +46,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 270,
-		shortDesc: "Prevents opposing Water-types from switching out while holder is active. Holder cannot use Grass or Electric-type moves.",
+		shortDesc: "Traps opposing Water-types. Holder cannot use Grass or Electric-type moves.",
 		gen: 4,
 		rating: 3,
 	},
@@ -59,7 +60,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
-			if (target.useItem()) {
+			if (!['oblivious', 'unaware'].includes(source.ability) && target.useItem()) {
 				this.add('-message', `baseball this guy`);
 				return null;
 			}
@@ -83,7 +84,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		onPrepareHit(source, target, move) {
-			if (move.flags['punch'] && move.name !== "Double Iron Bash") {
+			if (move.flags['punch'] && move.priority <= 0 && move.name !== "Double Iron Bash") {
 				this.actions.useMove("Double Iron Bash", source, target);
 				return null;
 			}
@@ -97,7 +98,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	kinglerite: {
 		name: "Kinglerite",
 		shortDesc: "If held by a Kingler, this item allows it to Mega Evolve in battle.",
-		spritenum: 605,
 		megaStone: "Kingler-Mega",
 		megaEvolves: "Kingler",
 		itemUser: ["Kingler"],
@@ -106,6 +106,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 	},
+
+	//slate 2
 	balanceboard: {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
@@ -192,7 +194,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('nervecharm');
 			}
 		},
-		beforeTurnCallback(pokemon) {
+		onBeforeTurn(pokemon) {
 			if (pokemon.removeVolatile('nervecharm')) {
 				console.log("adding quickguard");
 				pokemon.side.addSideCondition('quickguard');
@@ -201,21 +203,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		condition: {},
 	},
-	cornerstonemask: {
-		inherit: true,
-		shortDesc: "Ougayporn-Comerstone: 1.2x power attacks.",
-		rating: 3,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Ougayporn-Comerstone') return false;
-			return true;
-		},
-		forcedForme: "Ougayporn-Comerstone",
-		itemUser: ["Ougayporn-Comerstone"],
-	},
 	electrodite: {
 		name: "Electrodite",
 		shortDesc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",
-		spritenum: 628,
 		megaStone: "Electrode-Mega",
 		megaEvolves: "Electrode",
 		itemUser: ["Electrode"],
@@ -223,5 +213,212 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+	},
+
+	//slate 3
+	aguavberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spd') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	figyberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'atk') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	iapapaberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'def') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	magoberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spe') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	wikiberry: {
+		inherit: true,
+		shortDesc: "Restores 60% max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp * .6)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp * .6);
+			if (pokemon.getNature().minus === 'spa') {
+				pokemon.addVolatile('confusion');
+			}
+		},
+	},
+	zeldaniumz: {
+		name: "Zeldanium Z",
+		shortDesc: "If held by a Zelda with Triple Arrows, it can use Arrows of Light.",
+		spritenum: 651,
+		onTakeItem: false,
+		zMove: "Arrows of Light",
+		zMoveFrom: "Triple Arrows",
+		itemUser: ["Zelda"],
+	},
+	moltresite: {
+		name: "Moltresite",
+		shortDesc: "If held by a Moltres, this item allows it to Mega Evolve in battle.",
+		megaStone: "Moltres-Mega",
+		megaEvolves: "Moltres",
+		itemUser: ["Moltres"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	impidimpite: {
+		name: "Impidimpite",
+		shortDesc: "If held by an Impidimp, this item allows it to Mega Evolve in battle.",
+		megaStone: "Impidimp-Mega",
+		megaEvolves: "Impidimp",
+		itemUser: ["Impidimp"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	fleshvaliantite: {
+		name: "Fleshvaliantite",
+		shortDesc: "If held by a Flesh Valiant, this item allows it to Mega Evolve in battle.",
+		megaStone: "Flesh Valiant-Mega",
+		megaEvolves: "Flesh Valiant",
+		itemUser: ["Flesh Valiant"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+
+	//slate 4
+	deeznuts: {
+		name: "Deez NUts",
+		spritenum: 292,
+		fling: {
+			basePower: 280,
+			onHit(target, source, move) {
+				if (move) {
+					this.heal(target.baseMaxhp);
+				}
+			},
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.bst <= 280 || ['Inkay'].includes(pokemon.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "This Pokemon's stats are doubled if their BST is 280 or less, or Inkay/Richard Petty.",
+		rating: 3,
+	},
+	lemonmemory: {
+		name: "Lemon Memory",
+		shortDesc: "Holder's Multi-Attack is Lemon type.",
+		spritenum: 679,
+		onMemory: 'Lemon',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Lemon",
+		itemUser: ["Silvally-Lemon"],
+	},
+	fishyseed: {
+		name: "Fishy Seed",
+		shortDesc: "If the terrain is Fishy Terrain, raises holder's Spe by 1 stage. Single use.",
+		spritenum: 666,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('fishyterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('fishyterrain')) {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		rating: 3,
+	},
+	cornerstonemask: {
+		inherit: true,
+		shortDesc: "Boogerpon-CLOWNerstone: moves have 1.2x power.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Boogerpon-CLOWNerstone')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies === 'Boogerpon-CLOWNerstone') return false;
+			return true;
+		},
+		forcedForme: "Boogerpon-CLOWNerstone",
+		itemUser: ["Boogerpon-CLOWNerstone"],
 	},
 }

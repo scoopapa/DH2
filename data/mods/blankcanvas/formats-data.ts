@@ -62,4 +62,34 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	florustitia: {
 		tier: "BC",
 	},
+	primordialith: {
+		tier: "BC",
+	},
+	faeruin: {
+		tier: "BC",
+	},
+	versalyre: {
+		tier: "BC",
+	},
+	capricorrie: {
+		tier: "BC",
+	},
+	reversadusa: {
+		tier: "BC",
+	},
+	llanfairwyrm: {
+		tier: "BC",
+	},
+	frostengu: {
+		tier: "BC",
+	},
+	bulionage: {
+		tier: "BC",
+	},
+	yamateraph: {
+		tier: "BC",
+	},
+	bugswarm: {
+		tier: "BC",
+	},
 };

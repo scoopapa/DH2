@@ -1496,7 +1496,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if (this.hasAbility(['levitate', 'soaringspirit']) && !this.battle.suppressingAbility(this)) return null;
+			if ((this.hasAbility(['levitate', 'soaringspirit']) || (this.species.name === 'Fulmenops-Stormy')
+				&& this.hasAbility('weatherflux')) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
 			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them

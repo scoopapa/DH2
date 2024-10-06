@@ -107,15 +107,79 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	traike: {
-		tier: "Banned Lol",
-		doublesTier: "DOU",
-	},
 	pidown: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
 	silvally: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallybug: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallydark: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallydragon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyelectric: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyfairy: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyfighting: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyfire: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyflying: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyghost: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallygrass: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyground: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyice: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallypoison: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallypsychic: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallyrock: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallysteel: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallywater: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
@@ -219,15 +283,183 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	ougayporncomerstone: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
 	palpitoadissocool: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
 	spewpa: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	moltresmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	jirachitwo: {
+		tier: "Gone!",
+		doublesTier: "DOU",
+	},
+	shinxfishing: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	conquescape: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	daiyafia: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	metapod: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	kakuna: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	enamorustherian: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	pokestarfisherman: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	magnegiri: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	mario: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	contamicow: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	whonhef: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fishfactory: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	'cowboy_bandido': {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	basculinbluestriped: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	pokestargiant: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	richardpetty: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	impidimp: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	impidimpmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fishingzombie: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	pokestarmt: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	margaretthatcher: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fleshvaliant: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fleshvaliantmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	abomasnow: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	komala: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	inkay: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallylemon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	ronaldreagan: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	limelips: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemotic: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	zestii: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	sunflora: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	rawringmoon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	boogerponclownerstone: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	keisbergif: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	indeedeem: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	applesnewestemoji: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	cinderace: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemonfish: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	dracolition: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

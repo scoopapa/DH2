@@ -81,13 +81,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	altariamega: {
 		inherit: true,
 		types: ["Dragon", "Fairy"],
-		baseStats: {hp: 75, atk: 70, def: 95, spa: 140, spd: 115, spe: 95},
+		baseStats: {hp: 75, atk: 90, def: 90, spa: 140, spd: 115, spe: 80},
 		abilities: {0: "Weather Report"},
 	},	
 	sceptilemega: {
 		inherit: true,
 		types: ["Grass", "Dragon"],
-		baseStats: {hp: 75, atk: 95, def: 79, spa: 145, spd: 99, spe: 142},
+		baseStats: {hp: 70, atk: 95, def: 79, spa: 145, spd: 99, spe: 142},
 		abilities: {0: "Armor Tail"},
 	},	
 	swampertmega: {
@@ -156,7 +156,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ampharosmega: {
 		inherit: true,
 		types: ["Electric", "Dragon"],
-		baseStats: {hp: 90, atk: 95, def: 95, spa: 165, spd: 115, spe: 55},
+		baseStats: {hp: 90, atk: 95, def: 95, spa: 165, spd: 110, spe: 55},
 		abilities: {0: "Mega Launcher"},
 	},
 	gyaradosmega: {
@@ -191,7 +191,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	kangaskhanmega: {
 		inherit: true,
 		types: ["Normal", "Ground"],
-		baseStats: {hp: 105, atk: 135, def: 105, spa: 40, spd: 105, spe: 100},
+		baseStats: {hp: 105, atk: 125, def: 105, spa: 50, spd: 105, spe: 100},
 	},
 	salamencemega: {
 		inherit: true,

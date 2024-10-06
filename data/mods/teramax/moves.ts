@@ -288,6 +288,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Normal",
 	},
+	overdrive: {
+		inherit: true,
+		basePower: 85,
+		desc: "This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes.",
+		shortDesc: "Physical if Atk > SpA. Hits foe(s).",
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+	},
+	
 	grassknot: {
 		inherit: true,
 		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
@@ -529,11 +539,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	gmaxdepletion: {
 		num: 1000,
 		accuracy: true,
-		basePower: 140,
+		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, each Pokemon on the opposing side loses 2 PP from its last move used, even if they have a substitute.",
-		shortDesc: "Lowers the PP of the target's last move by 2.",
+		desc: "If this move is successful, each Pokemon on the opposing side loses 2 PP from its last move used, even if they have a substitute. This Pokemon heals the total PP of the target's moves * 2 in HP.",
+		shortDesc: "'-2 PP for target. Heals total PP of target * 2 in HP.",
 		name: "G-Max Depletion",
 		pp: 5,
 		priority: 0,
@@ -542,6 +552,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.foes()) {
+					for (const moveSlot of pokemon.moveSlots) {
+						const targetmove = this.dex.moves.get(moveSlot.move);
+						const movePP = targetmove.pp;
+						const damage = this.heal(movePP * 2, source, source);
+						if (damage) {
+							this.add('-heal', source, source.getHealth, '[from] move: G-Max Depletion');
+						}
+					}
 					let move: Move | ActiveMove | null = pokemon.lastMove;
 					if (!move || move.isZ) continue;
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
@@ -691,17 +709,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	gmaxhydrosnipe: {
 		num: 1000,
 		accuracy: true,
-		basePower: 150,
+		basePower: 80,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "This move and its effects ignore the Abilities of other Pokemon.",
-		shortDesc: "Ignores the Abilities of other Pokemon.",
+		desc: "Fails if the target did not select a physical attack, special attack, or Me First for use this turn, or if the target moves before the user.",
+		shortDesc: "Usually goes first. Fails if target is not attacking.",
 		name: "G-Max Hydrosnipe",
 		pp: 5,
-		priority: 0,
+		priority: 1,
 		flags: {},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
 		isMax: "Inteleon",
-		ignoreAbility: true,
 		secondary: null,
 		target: "adjacentFoe",
 		type: "Water",
@@ -1051,7 +1075,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the target becomes poisoned or paralyzed, even if they have a substitute.",
+		desc: "If this move is successful, the target becomes poisoned (if user is Toxtricity-Amped) or paralyzed (if user is Toxtricity-Low-Key), even if they have a substitute.",
 		shortDesc: "Inflicts either poison or paralysis on target.",
 		name: "G-Max Stun Shock",
 		pp: 10,
@@ -1061,14 +1085,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.foes()) {
-					const result = this.random(2);
-					if (result === 0) {
+					if (source.baseSpecies.forme === 'Low-Key') {
 						pokemon.trySetStatus('par', source);
 					} else {
 						pokemon.trySetStatus('psn', source);
 					}
 				}
 			},
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.name === 'Toxtricity') { 
+				move.category = 'Physical';
+			}
 		},
 		secondary: null,
 		target: "adjacentFoe",
@@ -1140,8 +1168,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, prevents the target from switching out, even if they have a substitute. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
-		shortDesc: "Prevents the target from switching out.",
+		desc: "If this move is successful, there is a 30% chance to poison the target, even if they have a substitute.",
+		shortDesc: "30% chance to poison the target.",
 		name: "G-Max Terror",
 		pp: 10,
 		priority: 0,
@@ -1150,7 +1178,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.foes()) {
-					pokemon.addVolatile('trapped', source, null, 'trapper');
+					if (this.randomChance(3, 10)) {
+						pokemon.trySetStatus('psn', source);
+					}
 				}
 			},
 		},
@@ -1242,8 +1272,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the target becomes burned, even if they have a substitute.",
-		shortDesc: "Burns the target.",
+		desc: "If this move is successful, the target becomes burned, even if they have a substitute. This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes.",
+		shortDesc: "Burns the target. Physical if Atk > SpA.",
 		name: "G-Max Wildfire",
 		pp: 5,
 		priority: 0,
@@ -1255,6 +1285,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					pokemon.trySetStatus('brn', source);
 				}
 			},
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		secondary: null,
 		target: "adjacentFoe",

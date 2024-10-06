@@ -791,6 +791,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	yanma: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	yanmaloria: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	yanmega: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	yanmazure: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 	feebas: {
 		tier: "Brunica LC",
 		doublesTier: "DOU",
@@ -1007,7 +1023,30 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
-
+	stegsaw: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	stegohaul: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	raphlete: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	raptorelay: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	atollodon: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	fulmenops: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 
 
 	akulut: {

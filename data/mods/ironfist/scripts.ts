@@ -329,8 +329,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 			}
 
-			const type = pokemon.teraType;
-			if (type === 'Bug') {
+			let type = pokemon.teraType;
+			let canTera = false;
+			if (pokemon.set.ability === 'I Love Fishing') {
+				canTera = true;
+				type = 'Water';
+			}
+			if (type === 'Bug' || canTera) {
 				this.battle.add('-terastallize', pokemon, type);
 				pokemon.terastallized = type;
 				for (const ally of pokemon.side.pokemon) {
@@ -355,7 +360,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				this.battle.runEvent('AfterTerastallization', pokemon);
 			} else {
-				pokemon.addVolatile('bigbutton');
+				if(!pokemon.volatiles['bigbutton']) pokemon.addVolatile('bigbutton');
 			}
 		}
 	},
@@ -429,13 +434,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 		addFishingTokens(amount: number) {
+			if(amount === 0) return;
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
+			if(this.battle.field.isTerrain('fishingterrain')) amount *= 2;
 			this.fishingTokens += amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} added to ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 		},
 		removeFishingTokens(amount: number) {
+			if(amount === 0) return;
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
 			if (amount > this.fishingTokens) {
 				//this.add('-message', `There weren't enough fishing tokens on the field!`);

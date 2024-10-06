@@ -207,6 +207,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hatterene").learnset.belch = ["9L1"];
 		this.modData("Learnsets", "copperajah").learnset.powerwhip = ["9L1"];
 		this.modData("Learnsets", "copperajah").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "charizard").learnset.smog = ["9L1"];
+		this.modData("Learnsets", "charizard").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "gengar").learnset.aurasphere = ["9L1"];
+		this.modData("Learnsets", "gengar").learnset.chillyreception = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.icepunch = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "toxtricity").learnset.needlearm = ["9L1"];
+		this.modData("Learnsets", "toxtricitylowkey").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "toxtricitylowkey").learnset.slackoff = ["9L1"];
+		this.modData("Learnsets", "toxtricitylowkey").learnset.icywind = ["9L1"];
+		this.modData("Learnsets", "duraludon").learnset.powergem = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -333,7 +344,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							(move.name === 'False Surrender' && pokemon.baseSpecies.baseSpecies === 'Grimmsnarl') ||
 							(move.name === 'Draining Kiss' && pokemon.baseSpecies.baseSpecies === 'Alcremie') ||
 							(move.name === 'Heavy Slam' && pokemon.baseSpecies.baseSpecies === 'Copperajah') ||
-							(move.name === 'Draco Meteor' && pokemon.baseSpecies.baseSpecies === 'Excadrill') ||
+							(move.name === 'Draco Meteor' && pokemon.baseSpecies.baseSpecies === 'Duraludon') ||
 							(move.name === 'Wicked Blow' && pokemon.baseSpecies.baseSpecies === 'Urshifu') ||
 							(move.name === 'Surging Strikes' && pokemon.baseSpecies.baseSpecies === 'Urshifu')) maxMove = gMaxMove;
 					}
