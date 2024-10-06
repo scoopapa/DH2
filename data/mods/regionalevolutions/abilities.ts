@@ -40,4 +40,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 2,
 		num: -2,
 	},
+	frenzyvirus: {
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.randomChance(3, 10)) {
+					target.addVolatile('taunt');
+				}
+			}
+		},
+		flags: {},
+		name: "Frenzy Virus",
+		desc: "This Pokemon's contact moves have a 30% chance of inflicting Taunt. This effect comes after a move's inherent secondary effect chance.",
+		shortDesc: "This Pokemon's contact moves have a 30% chance of inflicting Taunt.",
+		rating: 2,
+		num: -3,
+	},
 };

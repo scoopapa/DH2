@@ -120,4 +120,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poliorre: {
 		tier: "RegEvo",
 	},
+	drifloonjohto: {
+		tier: "RegEvo NFE",
+	},
+	drifblimjohto: {
+		tier: "RegEvo NFE",
+	},
+	melklim: {
+		tier: "RegEvo",
+	},
+	pachirisuunova: {
+		tier: "RegEvo NFE",
+	},
+	pachiro: {
+		tier: "RegEvo",
+	},
+	glameowunova: {
+		tier: "RegEvo NFE",
+	},
+	puruglyunova: {
+		tier: "RegEvo NFE",
+	},
+	purrfect: {
+		tier: "RegEvo",
+	},
+	drifloonalola: {
+		tier: "RegEvo NFE",
+	},
+	drifblimalola: {
+		tier: "RegEvo NFE",
+	},
+	yachtergeist: {
+		tier: "RegEvo",
+	},
+	emolgaultra: {
+		tier: "RegEvo NFE",
+	},
+	jinrolga: {
+		tier: "RegEvo",
+	},
+	lickitung: {
+		tier: "RegEvo NFE",
+	},
+	lickilickylental: {
+		tier: "RegEvo NFE",
+	},
+	anolicky: {
+		tier: "RegEvo",
+	},
 };
