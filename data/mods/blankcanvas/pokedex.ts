@@ -79,9 +79,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Magic Bounce", H: "Battle Armor"},
 		weightkg: 69,
 	},
-	the729frontfacingpumpkins: {
+	jackoswarm: {
 		num: 9011,
-		name: "the729frontfacingpumpkins",
+		name: "Jack-o-swarm",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 90, atk: 50, def: 95, spa: 70, spd: 90, spe: 70},
 		abilities: {0: "Pickpocket", H: "Rough Skin"},
