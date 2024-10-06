@@ -408,7 +408,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			terablast: ["9L1"],
 		},
 	},
-	the729frontfacingpumpkins: {
+	jackoswarm: {
 		learnset: {
 			flashcannon: ["9L1"],
 			airslash: ["9L1"],
