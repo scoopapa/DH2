@@ -412,13 +412,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return critRatio + 1;
 		},
 		onSourceDamagingHit(damage, target, source, move) {
-			if (source.getMoveHitData(move).crit) {
-				this.boost({spe: -1}, target, source, null, true);
+			if (target.getMoveHitData(move).crit) {
+				this.boost({def: -1}, target, source, null, true);
 			}
 		},
 		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-activate', target, 'ability: Get Silly');
 				source.addVolatile('clownnose');
 				return target.hp - 2;
 			}
@@ -848,6 +849,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lemonsqueezy: {
 		onDamagingHit(damage, target, source, effect) {
+			this.add('-activate', source, 'ability: Lemon Squeezy');
 			this.add('-activate', source, 'move: Aromatherapy');
 			for (const ally of source.side.pokemon) {
 				if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {

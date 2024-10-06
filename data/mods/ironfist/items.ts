@@ -29,7 +29,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	fishhook: {
 		name: "Fish Hook",
 		fling: {
-			basePower: 90,
+			basePower: 10,
+			effect(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
 		},
 		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hasType('Water') && pokemon.isAdjacent(this.effectState.target)) {
@@ -397,12 +400,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('fishyterrain')) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('fishingterrain')) {
 				pokemon.useItem();
 			}
 		},
 		onTerrainChange(pokemon) {
-			if (this.field.isTerrain('fishyterrain')) {
+			if (this.field.isTerrain('fishingterrain')) {
 				pokemon.useItem();
 			}
 		},
