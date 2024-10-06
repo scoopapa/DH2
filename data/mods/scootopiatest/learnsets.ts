@@ -496,6 +496,28 @@ export const Learnsets = {
 			gigaimpact: ["9L1"],
 		},
 	},
+	himalao: {
+		learnset: {
+			substitute: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			round: ["9L1"],
+			endure: ["9L1"],
+			closecombat: ["9L1"],
+			tripleaxel: ["9L1"],
+			icespinner: ["9L1"],
+			icepunch: ["9L1"],
+			iceshard: ["9L1"],
+			drainpunch: ["9L1"],
+			icehammer: ["9L1"],
+			hammerarm: ["9L1"],
+			knockoff: ["9L1"],
+			powerwhip: ["9L1"],
+			bulkup: ["9L1"],
+			swordsdance: ["9L1"],
+		},
+	},
 	stonehusk: {
 		learnset: {
 			substitute: ["9L1"],
