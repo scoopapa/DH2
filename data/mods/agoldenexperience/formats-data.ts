@@ -3187,7 +3187,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	greninja: {
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	greninjaash: {
@@ -4471,7 +4471,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	meowscarada: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	fuecoco: {
