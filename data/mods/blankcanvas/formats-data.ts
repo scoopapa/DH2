@@ -92,4 +92,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bugswarm: {
 		tier: "BC",
 	},
+	freightmare: {
+		tier: "BC",
+	},
+	brasspecter: {
+		tier: "BC",
+	},
+	copperhead: {
+		tier: "BC",
+	},
+	thaumaton: {
+		tier: "BC",
+	},
 };
