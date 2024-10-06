@@ -946,6 +946,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	poisonpuppeteer: {
 		inherit: true,
+		shortDesc: "Thatcher: If this Pokemon poisons a target, the target also becomes confused.",
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source.baseSpecies.name !== "Margaret Thatcher") return;
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
