@@ -380,4 +380,17 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		gen: 9,
 		desc: "Hattepon-Cornerstone: 1.2x power attacks; Terastallize to gain Embody Aspect.",
 	},
+	medichamite: {
+		name: "Medichamite",
+		spritenum: 599,
+		megaStone: "Giracham-Origin-Mega",
+		megaEvolves: "Giracham-Origin",
+		itemUser: ["Giracham-Origin"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 665,
+		desc: "If held by Giracham-Origin, this item allows it to Mega Evolve in battle.",
+	},
 };

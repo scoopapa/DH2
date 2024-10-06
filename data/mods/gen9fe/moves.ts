@@ -83,7 +83,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','airbornearmor','aircontrol','holygrail','risingtension','freeflight','hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject']))
+				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','airbornearmor','aircontrol','holygrail','risingtension','freeflight','hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject','anointed']))
 										|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity'));
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
@@ -113,63 +113,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	switcheroo: {
 		inherit: true,
 		onTryImmunity(target) {
-			return !target.hasAbility(['stickyhold','armourlock']);
+			return !target.hasAbility(['stickyhold','armourlock','moltenglue']);
 		},
 	},
 	trick: {
 		inherit: true,
 		onTryImmunity(target) {
-			return !target.hasAbility(['stickyhold','armourlock']);
-		},
-	},
-	disable: {
-		inherit: true,
-		condition: {
-			duration: 5,
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(pokemon, source, effect) {
-				// The target hasn't taken its turn, or Cursed Body activated and the move was not used through Dancer or Instruct
-				if (
-					this.queue.willMove(pokemon) ||
-					(pokemon === this.activePokemon && this.activeMove && !this.activeMove.isExternal)
-				) {
-					this.effectState.duration--;
-				}
-				if (!pokemon.lastMove) {
-					this.debug(`Pokemon hasn't moved yet`);
-					return false;
-				}
-				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === pokemon.lastMove.id && !moveSlot.pp) {
-						this.debug('Move out of PP');
-						return false;
-					}
-				}
-				if (effect.effectType === 'Ability') {
-					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name, '[from] ability: ' + effect.name, '[of] ' + source);
-				} else {
-					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name);
-				}
-				this.effectState.move = pokemon.lastMove.id;
-			},
-			onResidualOrder: 17,
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Disable');
-			},
-			onBeforeMovePriority: 7,
-			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && move.id === this.effectState.move) {
-					this.add('cant', attacker, 'Disable', move);
-					return false;
-				}
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
+			return !target.hasAbility(['stickyhold','armourlock','moltenglue']);
 		},
 	},
 	rest: {
@@ -253,7 +203,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	mistyterrain: {
 		inherit: true,
 		condition: {
-			inherit: true,
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
