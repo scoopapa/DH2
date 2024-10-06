@@ -443,7 +443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	indeedeem: {
+	indeedee: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

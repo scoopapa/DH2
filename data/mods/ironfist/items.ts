@@ -1,4 +1,10 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	//vanilla items
+	berryjuice: {
+		inherit: true,
+		rating: 0,
+	},
+	
 	//slate 1
 	kunai: {
 		name: "Kunai",

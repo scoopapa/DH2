@@ -6047,7 +6047,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			growth: ["9L1"],
 			headsmash: ["9L1"],
 			holdhands: ["9L1"],
-			judgement: ["9L1"],
+			judgment: ["9L1"],
 			megapunch: ["9L1"],
 			metronome: ["9L1"],
 			playnice: ["9L1"],
@@ -6696,7 +6696,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			yawn: ["9L1"],
 			zenheadbutt: ["9L1"],
 			fishingterrain: ["9L1"],
-			trangenderoperationsonillegalaliens: ["9L1"],
+			genderaffirmingcare: ["9L1"],
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
@@ -7342,7 +7342,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 		},
 	},
-	indeedeem: {
+	indeedee: {
 		learnset: {
 			afteryou: ["9L1"],
 			allyswitch: ["9L1"],

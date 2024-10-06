@@ -1597,7 +1597,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Lemon Acid",
-		shortDesc: "100% chance to lower the target’s Special Defense by one stage.",
+		shortDesc: "100% chance to lower the target’s Sp. Defense by one stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1936,7 +1936,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Steel",
+		type: "Silly",
 	},
 	freakout: {
 		name: "Freak Out",
