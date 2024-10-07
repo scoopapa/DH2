@@ -314,6 +314,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Purifying Salt"},
 		weightkg: 120,
 	},
+	himalao: {
+		num: 2054,
+		name: "Himalao",
+		types: ["Fighting", "Ice"],
+		baseStats: {hp: 75, atk: 110, def: 95, spa: 55, spd: 65, spe: 100},
+		abilities: {0: "Ice Body", 1: "Iron Fist", H: "Long Reach"},
+		weightkg: 153,
+	},
 	stonehusk: {
 		num: 2040,
 		name: "Stone Husk",
@@ -366,7 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2046,
 		name: "Skawamud",
 		types: ["Ground"],
-		baseStats: {hp: 100, atk: 120, def: 100, spa: 100, spd: 80, spe: 80},
+		baseStats: {hp: 100, atk: 110, def: 110, spa: 100, spd: 80, spe: 80},
 		abilities: {0: "Tellurian"},
 		weightkg: 451,
 	},

@@ -174,6 +174,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	quadringo: {
 		tier: "Scoo",
 		doublesTier: "DOU",
+	},	
+	himalao: {
+		tier: "Scoo",
+		doublesTier: "DOU",
 	},
 	zygola: {
 		tier: "Scoo",
