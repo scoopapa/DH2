@@ -1,8 +1,8 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
-	standard: {
+	standardmg2: {
 		effectType: 'ValidatorRule',
-		name: 'Standard',
-		ruleset: ['Obtainable', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+		name: 'Standard MG2',
+		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 		banlist: [
 			'Hypnosis + Mean Look',
 			'Hypnosis + Spider Web',
@@ -15,6 +15,37 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Spore + Mean Look',
 			'Spore + Spider Web',
 			'Berserk Gene',
+			'Unreleased',
+			'Unobtainable',
+			'Nonexistent',
 		],
 	},
+	/*
+	obtainablemiscmg2: {
+		effectType: 'ValidatorRule',
+		name: 'Obtainable Misc MG2',
+		desc: "Validate all obtainability things that aren't moves/abilities (Gender, Events, duplicate moves).",
+		onChangeSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (species.gender) {
+				if (set.gender !== species.gender) {
+					set.gender = species.gender;
+				}
+			} else {
+				if (set.gender !== 'M' && set.gender !== 'F') {
+					set.gender = '';
+				}
+			}
+			if (set.moves) {
+				const hasMove: {[k: string]: true} = {};
+				for (const moveId of set.moves) {
+					const move = this.dex.moves.get(moveId);
+					const moveid = move.id;
+					if (hasMove[moveid]) return [`${species.baseSpecies} has multiple copies of ${move.name}.`];
+					hasMove[moveid] = true;
+				}
+			}
+		},
+	},
+ */
 };
