@@ -22,5 +22,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'chienpao').learnset.iceshard;
 		this.modData("Learnsets", "chiyu").learnset.flipturn = ["9L1"];
 		this.modData("Learnsets", "chiyu").learnset.strengthsap = ["9L1"];
+		
+		this.modData("Learnsets", "deoxys").learnset.foulplay = ["9L1"];
+		this.modData("Learnsets", "deoxys").learnset.bodypress = ["9L1"];
+		delete this.modData('Learnsets', 'deoxys').learnset.zapcannon;
+		delete this.modData('Learnsets', 'deoxys').learnset.dynamicpunch;
+		delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
+		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
 	},
 };
