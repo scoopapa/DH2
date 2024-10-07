@@ -14,6 +14,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Sleep Powder + Spider Web',
 			'Spore + Mean Look',
 			'Spore + Spider Web',
+			'Berserk Gene',
 		],
 	},
 };
