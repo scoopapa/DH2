@@ -1167,7 +1167,7 @@ export class TeamValidator {
 				problems.push(`${name} has an HP DV of ${hpDV}, but its Atk, Def, Spe, and Spc DVs give it an HP DV of ${expectedHpDV}.`);
 			}
 			if (ivs.spa !== ivs.spd) {
-				if (dex.gen === 2) {
+				if (dex.currentMod !== 'moderngen2' && dex.gen === 2) {
 					problems.push(`${name} has different SpA and SpD DVs, which is not possible in Gen 2.`);
 				} else {
 					ivs.spd = ivs.spa;
@@ -1229,7 +1229,7 @@ export class TeamValidator {
 			}
 			if (dex.gen <= 2) {
 				if (set.evs.spa !== set.evs.spd) {
-					if (dex.gen === 2) {
+					if (dex.currentMod !== 'moderngen2' && dex.gen === 2) {
 						problems.push(`${name} has different SpA and SpD EVs, which is not possible in Gen 2.`);
 					} else {
 						set.evs.spd = set.evs.spa;
