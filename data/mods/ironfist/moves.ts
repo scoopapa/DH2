@@ -257,7 +257,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon) {
 			for (const target of pokemon.foes()) {
-				if (target.baseSpecies == "Goomba")  move.ohko = true;
+				if (target.baseSpecies == "Goomba") {
+					move.ohko = true;
+					move.accuracy = true;
+				}
 			}
 		},
 		target: "normal",
@@ -1597,7 +1600,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Lemon Acid",
-		shortDesc: "100% chance to lower the target’s Special Defense by one stage.",
+		shortDesc: "100% chance to lower the target’s Sp. Defense by one stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1809,12 +1812,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Psycho Cut", target);
 		},
-		onModifyMove(move, pokemon, target) {
-			if (target) {
-				for (i in target.boosts) {
-					if (target.boosts[i] < 0) {
-						move.priority = 1;
-						return;
+		onModifyPriority(priority, source) {
+			for (const target of source.foes()) {
+				if (target) {
+					const boosts: SparseBoostsTable = {};
+					let i: boostID;
+					for (i in target.boosts) {
+						if (target.boosts[i] < 0) {
+							return priority + 1;
+						}
 					}
 				}
 			}
@@ -1936,7 +1942,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Steel",
+		type: "Silly",
 	},
 	freakout: {
 		name: "Freak Out",
@@ -1988,11 +1994,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				let statMinus: BoostID;
 				for (statMinus in pokemon.boosts) {
 					if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-					if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
+					if (pokemon.boosts[statMinus] > -6) {
 						stats.push(statMinus);
 					}
 				}
-				randomStat = stats.length ? this.sample(stats) : undefined;
+				let randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
 				if (randomStat) boost[randomStat] = -1;
 
 				this.boost(boost, pokemon, pokemon);
@@ -2048,7 +2054,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon) {
 			for (const target of pokemon.foes()) {
-				if (target.baseSpecies == "Margaret Thatcher")  move.ohko = true;
+				if (target.baseSpecies == "Margaret Thatcher") {
+					move.ohko = true;
+					move.accuracy = true;
+				}
 			}
 		},
 		secondary: null,
@@ -2107,8 +2116,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "High critical hit ratio.",
-		priority: 0,
+		shortDesc: "Usually moves first. High critical hit ratio.",
+		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		critRatio: 2,
 		onPrepareHit(target, pokemon, move) {
