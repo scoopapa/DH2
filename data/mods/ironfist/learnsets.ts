@@ -3299,7 +3299,14 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			thunderwave: ["9L1"],
 			toxic: ["9L1"],
 			toxicspikes: ["9L1"],
-			gen9universals: ["9L1"],
+			endure: ["9L1"],
+			facade: ["9L1"],
+			gigaimpact: ["9L1"],
+			hyperbeam: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			substitute: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
@@ -5844,7 +5851,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 		},
 	},
-	'cowboy_bandido': {
+	cowboybandido: {
 		learnset: {
 			amnesia: ["9L1"],
 			assurance: ["9L1"],

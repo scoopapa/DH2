@@ -347,7 +347,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	'cowboy_bandido': {
+	cowboybandido: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
