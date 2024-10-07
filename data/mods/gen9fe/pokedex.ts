@@ -1560,7 +1560,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 	girachamoriginmega: {
 		num: 133, 
 		//fusion: ["Giratina-Origin", "Medicham-Mega"],
-		name: "Giracham-Origin",
+		name: "Giracham-Origin-Mega",
 		baseSpecies: "Giracham-Origin",
 		forme: "Mega",
 		types: ["Ghost", "Fighting"],
