@@ -170,7 +170,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		heightm: 0.3,
 		weightkg: 3.2,
 		baseStats: {hp: 40, atk: 20, def: 20, spa: 35, spd: 30, spe: 50},
-		abilities: {0: "Keen Eye", H: "Big Pecks"},
+		abilities: {0: "Tinted Lens", H: "Run Away"},
 		evos: ["Falsalys"],
 	},
 	falsalys: {
