@@ -2,7 +2,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 	standard: {
 		effectType: 'ValidatorRule',
 		name: 'Standard',
-		ruleset: ['Obtainable', '!Obtainable Misc', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 		banlist: [
 			'Hypnosis + Mean Look',
 			'Hypnosis + Spider Web',
@@ -15,6 +15,9 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Spore + Mean Look',
 			'Spore + Spider Web',
 			'Berserk Gene',
+			'Unreleased',
+			'Unobtainable',
+			'Nonexistent',
 		],
 	},
 	/*
