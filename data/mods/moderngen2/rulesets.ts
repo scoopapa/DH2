@@ -1,7 +1,7 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
-	standard: {
+	standardmg2: {
 		effectType: 'ValidatorRule',
-		name: 'Standard',
+		name: 'Standard MG2',
 		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 		banlist: [
 			'Hypnosis + Mean Look',
