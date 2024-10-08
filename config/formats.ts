@@ -768,7 +768,8 @@ export const Formats: FormatList = [
 		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Silvally Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
-		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z'],
+		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
+		'Abomasite'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -1494,7 +1495,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'gen9vaporemons',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
-		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard', 'Damp Rock'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Fling + Segin Star Shard', /*'Damp Rock'*/],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -4621,7 +4622,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+		ruleset: ['Standard MG2', '+No Ability', '-All Abilities'],
 		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],
 	},
 	{
@@ -4631,7 +4632,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+		ruleset: ['Standard', '+No Ability', '-All Abilities'],
 		banlist: ['AG', 'Fake Out', 'Baton Pass', 'Rusted Sword'],
 		teambuilderFormat: 'Uber',
 	},
@@ -4642,7 +4643,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', 'Little Cup', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+		ruleset: ['Standard', 'Little Cup', '+No Ability', '-All Abilities'],
 		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out', 'Sonic Boom', 'Dragon Rage'],
 	},
 	{

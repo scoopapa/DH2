@@ -1050,7 +1050,7 @@ export class TeamValidator {
 
 		const allowAVs = ruleTable.has('allowavs');
 		const evLimit = ruleTable.evLimit;
-		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc')) || dex.currentMod === 'moderngen1';
+		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc')) || dex.currentMod === 'moderngen1' || dex.currentMod === 'moderngen2';
 
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, evLimit === null ? 252 : 0);
 		if (!set.ivs) set.ivs = TeamValidator.fillStats(null, 31);
@@ -1163,11 +1163,11 @@ export class TeamValidator {
 			const expectedHpDV = (atkDV % 2) * 8 + (defDV % 2) * 4 + (speDV % 2) * 2 + (spcDV % 2);
 			if (ivs.hp === -1) ivs.hp = expectedHpDV * 2;
 			const hpDV = Math.floor(ivs.hp / 2);
-			if (expectedHpDV !== hpDV) {
+			if ((expectedHpDV !== hpDV) && dex.currentMod !== 'moderngen2') {
 				problems.push(`${name} has an HP DV of ${hpDV}, but its Atk, Def, Spe, and Spc DVs give it an HP DV of ${expectedHpDV}.`);
 			}
 			if (ivs.spa !== ivs.spd) {
-				if (dex.gen === 2) {
+				if (dex.currentMod !== 'moderngen2' && dex.gen === 2) {
 					problems.push(`${name} has different SpA and SpD DVs, which is not possible in Gen 2.`);
 				} else {
 					ivs.spd = ivs.spa;
@@ -1229,7 +1229,7 @@ export class TeamValidator {
 			}
 			if (dex.gen <= 2) {
 				if (set.evs.spa !== set.evs.spd) {
-					if (dex.gen === 2) {
+					if (dex.currentMod !== 'moderngen2' && dex.gen === 2) {
 						problems.push(`${name} has different SpA and SpD EVs, which is not possible in Gen 2.`);
 					} else {
 						set.evs.spd = set.evs.spa;
