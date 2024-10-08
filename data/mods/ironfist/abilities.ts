@@ -625,7 +625,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "River Thief",
-		shortDesc: "Speed Storm Drain + using a Dark-type move against a Water-type Pokemon steals that side's tokens.",
+		shortDesc: "Speed Storm Drain. Dark moves steal tokens from Water-types.",
 	},
 	fishysurge: {
 		onStart(source) {
