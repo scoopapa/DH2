@@ -1662,7 +1662,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	infernape: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	piplup: {
 		tier: "LC",
@@ -2506,7 +2506,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	thundurus: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	thundurustherian: {
 		tier: "UU",
