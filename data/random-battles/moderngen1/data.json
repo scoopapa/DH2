@@ -45,7 +45,8 @@
     },
     "raichualola": {
         "level": 86,
-        "moves": ["surf", "voltswitch", "thunderwave", "psychic"]
+        "moves": ["surf", "voltswitch", "thunderwave"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
     },
     "sandslash": {
         "level": 84,
@@ -90,7 +91,8 @@
     },
     "venomoth": {
         "level": 92,
-        "moves": ["psychic", "quiverdance", "stunspore", "roost"]
+        "moves": ["quiverdance", "stunspore", "roost"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
     },
     "dugtrio": {
         "level": 90,
@@ -194,11 +196,13 @@
     },
     "gengar": {
         "level": 88,
-        "moves": ["psychic", "firepunch", "destinybond", "thunderwave"]
+        "moves": ["firepunch", "destinybond", "thunderwave"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
     },
     "hypno": {
         "level": 90,
-        "moves": ["psychic", "thunderwave", "firepunch", "calmmind"]
+        "moves": ["psychic", "thunderwave", "firepunch", "calmmind"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
     },
     "kingler": {
         "level": 92,
@@ -305,8 +309,9 @@
     },
     "lapras": {
         "level": 86,
-        "moves": ["surf", "hydropump", "healbell"],
-        "essentialMoves": ["blizzard", "thunderbolt"]
+        "moves": ["healbell"],
+        "essentialMoves": ["blizzard", "thunderbolt"],
+        "exclusiveMoves": ["hydropump", "hydropump", "surf"]
     },
     "vaporeon": {
         "level": 84,
@@ -346,7 +351,7 @@
     "articunogalar": {
         "level": 86,
         "moves": ["recover", "uturn", "calmmind"],
-        "exclusiveMoves": ["freezingglare", "psychic"]
+        "exclusiveMoves": ["freezingglare", "psychic", "psychicnoise"]
     },
     "zapdos": {
         "level": 82,
@@ -403,8 +408,9 @@
  },
     "noctowl": {
         "level": 90,
-        "moves": ["psychic", "bodyslam", "nastyplot"],
-	"essentialMoves": ["heatwave", "roost"]
+        "moves": ["bodyslam", "nastyplot"],
+	"essentialMoves": ["heatwave", "roost"],
+    "exclusiveMoves": ["psychic", "psychicnoise"]
  },
     "ledian": {
         "level": 96,
@@ -470,7 +476,8 @@
 },
     "espeon": {
          "level": 84,
-         "moves": ["psychic", "thunderwave", "healbell", "morningsun"]
+         "moves": ["thunderwave", "healbell", "morningsun"],
+         "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "umbreon": {
 	"level": 86,
@@ -678,7 +685,8 @@
     "gardevoir": {
         "level": 86,
         "moves": ["healbell", "destinybond", "firepunch"],
-	"essentialMoves": ["psychic", "thunderwave"]
+	"essentialMoves": ["thunderwave"],
+    "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "masquerain": {
         "level": 90,
@@ -777,7 +785,8 @@
 },
     "grumpig": {
         "level": 88,
-        "moves": ["psychic", "firepunch", "thunderwave", "healbell"]
+        "moves": ["firepunch", "thunderwave", "healbell"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "spinda": {
         "level": 100,
@@ -865,12 +874,14 @@
 },
     "chimecho": {
         "level": 88,
-        "moves": ["psychic", "grassknot", "healbell", "thunderwave"]
+        "moves": ["grassknot", "healbell", "thunderwave"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "absol": {
         "level": 90,
         "moves": ["superpower", "fireblast", "blizzard", "thunderwave"],
-        "exclusiveMoves": ["darkpulse", "suckerpunch"]
+        "essentialMoves": ["nightslash"],
+        "comboMoves": ["nastyplot", "suckerpunch", "fireblast", "blizzard"]
 },
     "glalie": {
         "level": 88,
@@ -960,7 +971,7 @@
         "moves": ["psychoboost", "superpower", "signalbeam", "thunderwave"]
 },
     "deoxysdefense": {
-        "level": 80,
+        "level": 78,
         "moves": ["amnesia", "agility", "storedpower", "recover"]
 },
     "deoxysspeed": {
@@ -1086,7 +1097,7 @@
 },
     "bronzong": {
         "level": 84,
-        "moves": ["psychic", "earthquake", "bodyslam", "explosion"],
+        "moves": ["psychicnoise", "earthquake", "bodyslam", "explosion"],
         "essentialMoves": ["steelbeam"]
 },
     "chatot": {
@@ -1098,7 +1109,7 @@
         "moves": ["bodyslam", "nightshade", "destinybond", "suckerpunch"]
 },
     "garchomp": {
-        "level": 80,
+        "level": 81,
         "moves": ["earthquake", "stoneedge", "fireblast", "dracometeor"]
 },
     "lucario": {
@@ -1133,7 +1144,7 @@
         "moves": ["blizzard", "leafstorm", "earthquake", "synthesis"]
 },
     "weavile": {
-        "level": 84,
+        "level": 82,
         "moves": ["swordsdance", "reversal", "hyperbeam", "endure"]
 },
     "magnezone": {
@@ -1175,7 +1186,8 @@
 },
     "yanmega": {
         "level": 90,
-        "moves": ["aircutter", "uturn", "psychic", "roost"]
+        "moves": ["aircutter", "uturn", "roost"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "leafeon": {
         "level": 86,
@@ -1507,12 +1519,14 @@
 },
     "gothitelle": {
         "level": 88,
-        "moves": ["psychic", "thunderbolt", "thunderwave", "healbell"]
+        "moves": ["thunderbolt", "thunderwave", "healbell"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "reuniclus": {
         "level": 82,
-        "moves": ["storedpower", "recover", "calmmind"],
-	"exclusiveMoves": ["irondefense", "thunderwave"]
+        "moves": ["psychic", "psychicnoise", "storedpower"],
+        "essentialmoves": ["recover", "calmmind", "thunderwave"],
+        "comboMoves": ["storedpower", "irondefense", "calmmind", "recover"]
 },
     "swanna": {
         "level": 88,
@@ -1736,7 +1750,8 @@
 },
     "delphox": {
         "level": 86,
-        "moves": ["fireblast", "psychic", "grassknot", "magiccoat"]
+        "moves": ["fireblast", "grassknot", "magiccoat"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "greninja": {
         "level": 82,
@@ -1761,7 +1776,7 @@
     "florges": {
         "level": 86,
         "moves": ["synthesis", "aromatherapy", "batonpass"],
-        "exclusiveMoves": ["moonblast", "secretpower"]
+        "exclusiveMoves": ["moonblast", "secretpower", "psychicnoise"]
 },
     "gogoat": {
         "level": 86,
@@ -1777,7 +1792,8 @@
 },
     "meowstic": {
         "level": 86,
-        "moves": ["psychic", "healbell", "thunderwave"],
+        "moves": ["psychic", "psychicnoise"],
+        "essentialmoves": ["healbell", "thunderwave"],
         "exclusiveMoves": ["thunderbolt", "batonpass"]
 },
     "doublade": {
@@ -1901,7 +1917,7 @@
 },
     "yveltal": {
         "level": 80,
-        "moves": ["acrobatics", "oblivionwing", "oblivionwing"],
+        "moves": ["acrobatics", "hurricane", "oblivionwing", "oblivionwing"],
         "essentialMoves": ["roost", "honeclaws"],
         "exclusiveMoves": ["heatwave", "focusblast"],
         "comboMoves": ["acrobatics", "heatwave", "roost", "uturn"]
@@ -1924,7 +1940,8 @@
 },
     "hoopa": {
         "level": 84,
-        "moves": ["psychic", "firepunch", "destinybond", "thunderwave"]
+        "moves": ["firepunch", "destinybond", "thunderwave"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "hoopaunbound": {
         "level": 84,
@@ -1991,7 +2008,8 @@
 },
     "ribombee": {
         "level": 88,
-        "moves": ["moonblast", "uturn", "aromatherapy", "stunspore"]
+        "moves": ["uturn", "aromatherapy", "stunspore"],
+        "exclusiveMoves": ["moonblast", "psychicnoise"]
 },
     "lycanroc": {
         "level": 82,
@@ -2046,7 +2064,8 @@
 },
     "oranguru": {
         "level": 88,
-        "moves": ["psychic", "earthquake", "thunderbolt", "painsplit"]
+        "moves": ["earthquake", "thunderbolt", "painsplit"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "passimian": {
         "level": 86,
@@ -2097,7 +2116,7 @@
     "bruxish": {
         "level": 88,
         "moves": ["superfang", "flipturn", "psychic"],
-	"exclusiveMoves": ["hydropump", "surf"]
+	"exclusiveMoves": ["hydropump", "hydropump", "surf", "wavecrash"]
 },
     "drampa": {
         "level": 84,
@@ -2289,7 +2308,8 @@
 },
     "toxtricity": {
         "level": 86,
-        "moves": ["voltswitch", "sludgewave", "thunderwave", "boomburst"]
+        "moves": ["voltswitch", "sludgewave", "thunderwave"],
+        "exclusiveMoves": ["psychicnoise", "boomburst"]
 },
     "centiskorch": {
         "level": 88,
@@ -2307,7 +2327,7 @@
     "hatterene": {
         "level": 86,
         "moves": ["thunderwave", "mysticalfire", "aromatherapy"],
-	"exclusiveMoves": ["psychic", "psychocut"]
+	"exclusiveMoves": ["psychic", "psychocut", "psychicnoise"]
 },
     "grimmsnarl": {
         "level": 84,
@@ -2367,7 +2387,8 @@
 },
     "indeedee": {
         "level": 88,
-        "moves": ["psychic", "mysticalfire", "futuresight", "aromatherapy"]
+        "moves": ["mysticalfire", "futuresight", "aromatherapy"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "indeedeef": {
         "level": 88,
@@ -2404,7 +2425,7 @@
 },
     "zacian": {
         "level": 72,
-        "exclusiveMoves": ["swordsdance", "moonblast", "closecombat"],
+        "essentialMoves": ["swordsdance", "moonblast", "closecombat"],
         "moves": ["steelbeam", "quickattack"]
 },
     "zamazenta": {
@@ -2462,7 +2483,8 @@
 },
     "wyrdeer": {
         "level": 86,
-        "moves": ["return", "psychic", "earthquake", "thunderwave"]
+        "moves": ["return", "earthquake", "thunderwave"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "kleavor": {
         "level": 86,
@@ -2609,7 +2631,8 @@
 },
     "rabsca": {
         "level": 88,
-        "moves": ["psychic", "energyball", "recover", "calmmind"]
+        "moves": ["energyball", "recover", "calmmind"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "espathra": {
         "level": 88,
@@ -2661,7 +2684,7 @@
         "moves": ["earthquake", "superpower", "amnesia", "blizzard"]
 },
     "veluza": {
-        "level": 86,
+        "level": 84,
         "moves": ["filletaway", "storedpower", "hydropump", "blizzard"]
 },
     "dondozo": {
@@ -2774,7 +2797,7 @@
         "moves": ["stoneedge", "earthquake", "uturn", "dracometeor"]
 },
     "ironvaliant": {
-        "level": 76,
+        "level": 78,
         "moves": ["thunderwave"],
         "essentialMoves": ["closecombat", "moonblast"],
         "exclusiveMoves": ["icepunch", "swordsdance"],
@@ -2808,8 +2831,9 @@
         "moves": ["closecombat", "sludgewave", "bodyslam", "bulkup"]
 },
     "munkidori": {
-        "level": 86,
-        "moves": ["psychic", "nightshade", "uturn", "acidspray"]
+        "level": 88,
+        "moves": ["nightshade", "uturn", "acidspray"],
+        "exclusiveMoves": ["psychic", "psychicnoise"]
 },
     "fezandipiti": {
         "level": 84,
@@ -2824,7 +2848,7 @@
         "moves": ["steelbeam", "earthquake", "dracometeor", "thunderwave"]
 },
     "hydrapple": {
-        "level": 84,
+        "level": 82,
         "moves": ["dracometeor", "leafstorm", "earthquake", "recover"]
 },
     "gougingfire": {
