@@ -1,4 +1,4 @@
-export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	accumulate: {
 		desc: "If this Pokémon is a Mega Brambleghast, it calls for help and changes form at the end of each full turn it has been on the field, building up to Mega Brambleghast (Tangled Form) over five turns.",
 		shortDesc: "More Brambleghast tangle up at the end of each turn.",
@@ -32,9 +32,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.baseMaxhp = Math.floor(Math.floor(
 				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 			) * pokemon.level / 100 + 10);
-      // no HP change unlike Wishiwashi
+			// no HP change unlike Wishiwashi
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Accumulate",
 		rating: 5,
 		num: -2001,
@@ -63,7 +63,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	pavise: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {
-				if (!this.boost({spa: 1})) {
+				if (!this.boost({ spa: 1 })) {
 					this.add('-immune', target, '[from] ability: Pavise');
 				}
 				return null;
@@ -80,7 +80,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.effectState.target;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		desc: "This Pokemon is immune to Dark-type moves and raises its Special Attack by 1 stage when hit by a Dark-type move. If this Pokemon is not the target of a single-target Dark-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
 		shortDesc: "This Pokemon draws Dark moves to itself to raise Sp. Atk by 1; Dark immunity.",
 		name: "Pavise",
@@ -110,7 +110,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({spe: -1}, target, pokemon, null, true);
+					this.boost({ spe: -1 }, target, pokemon, null, true);
 					target.addVolatile('tarslosh');
 				}
 			}
@@ -302,7 +302,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return damage / 2;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Powder Coat",
 		desc: "This Pokemon takes 1/2 damages from indirect damage and water type moves.",
 		shortDesc: "This Pokemon takes 1/2 damages from indirect damage and water type moves.",
@@ -385,7 +385,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target.hasType('Poison') && target.isAdjacent(this.effectState.target)) {
 					target.setType(target.getTypes(true).map(type => type === "Poison" ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Toxic Drain', '[of] ' + pokemon);
-					this.boost({spa: 1}, pokemon);
+					this.boost({ spa: 1 }, pokemon);
 					this.add('-activate', this.effectState.target, 'ability: Toxic Drain');
 				}
 			}
@@ -518,7 +518,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			attacker.storedStats.atk = newatk;
 			attacker.storedStats.spa = newspa;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Twin Heart",
 		rating: 4,
 		num: -29,
@@ -526,7 +526,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	sugarrush: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') {
-				if (!this.boost({spe: 12})) {
+				if (!this.boost({ spe: 12 })) {
 					this.add('-immune', target, '[from] ability: Sugar Rush');
 				}
 				target.addVolatile('sugarrush');
@@ -537,13 +537,66 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (pokemon.volatiles['sugarrush']) {
-				this.boost({spe: -2}, pokemon);
+				this.boost({ spe: -2 }, pokemon);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Sugar Rush",
 		shortDesc: "When hit by a fairy type move, gain +12 speed, which will then decrease by 2 stages at the end of every turn until the user switches out. Fairy Immunity.",
 		rating: 3,
 		num: -30,
+	},
+	residualdrain: {
+		desc: "Every time another Pokémon is damaged indirectly, this Pokémon's HP is restored by the same amount.",
+		shortDesc: "Heals from the indirect damage dealt to others.",
+		onAnyDamage(damage, target, source, effect) {
+			const pokemon = this.effectState.target;
+			if (effect.effectType !== 'Move' && target !== pokemon && effect.id !== 'leechseed') {
+				pokemon.heal(damage);
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+		},
+		name: "Residual Drain",
+		rating: 4,
+		num: -31,
+	},
+	agitation: {
+		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
+		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
+		onAnyBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			if (!target || !source || target === source || source !== this.effectState.target) return; // doesn't work on itself
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
+				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+			}
+		},
+		name: "Agitation",
+		rating: 3,
+		num: -32,
+	},
+	vengeful: {
+		desc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters).",
+		shortDesc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters)."
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling Stomping Tantrum BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling ', move, ' BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onModifyAtkPriority: 5,
+		name: "Vengeful",
+		rating: 3,
+		num: -33,
 	},
 };
