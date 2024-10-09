@@ -587,7 +587,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			return move.basePower;
 		},
-		onModifyAtkPriority: 5,
 		name: "Vengeful",
 		rating: 3,
 		num: -33,
