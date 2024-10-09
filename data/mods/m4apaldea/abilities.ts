@@ -394,7 +394,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -26,
 	},
-	congestion: {
+	congestion: { //rn it only works with one move at a time; will have to correct that
 		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
 		shortDesc: "Status moves don't effect until the user switches out.",
 		onBeforeMove(source, target, move) {
@@ -579,13 +579,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	vengeful: {
 		desc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters).",
 		shortDesc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters)."
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.moveLastTurnResult === false) {
-				this.debug('doubling Stomping Tantrum BP due to previous move failure');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (pokemon.moveLastTurnResult === false) {
