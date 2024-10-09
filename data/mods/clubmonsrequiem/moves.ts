@@ -550,8 +550,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Brutal Swing', target);
 		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) this.heal(target.lastDamagedBy.damage)
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp) {
+				this.heal(target.hp, source)
+			}
 		},
 		secondary: null,
 		target: "normal",
