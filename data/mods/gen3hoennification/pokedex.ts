@@ -7967,7 +7967,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 				"spe": 110
 		},
 		"abilities": {
-				"0": "Levivate"
+				"0": "Levitate"
 		},
 		"weightkg": 40.5,
 		"prevo": "Haunter",
