@@ -306,7 +306,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? source.switchFlag = true : null;
+			const move = action?.choice === 'move' ? action.move : null;
 			console.log(move.category);
 			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
 				return false;
