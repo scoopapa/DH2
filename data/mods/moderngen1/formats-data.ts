@@ -737,7 +737,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	omastar: {
-		tier: "Uber",
+		tier: "UU",
 	},
 	kabuto: {
 		tier: "LC",
