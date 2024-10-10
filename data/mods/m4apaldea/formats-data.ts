@@ -679,4 +679,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	farigirafmega: {tier: "Mega"},
 	farigirafmeganocturnal: {tier: "Mega"},
 
+	tentacool: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	tentacruel: {tier: "Paldea", doublesTier: "Paldea"},
+
+	joltik: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	galvantula: {tier: "Paldea", doublesTier: "Paldea"},
+
+	golett: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	golurk: {tier: "Paldea", doublesTier: "Paldea"},
+
 };
