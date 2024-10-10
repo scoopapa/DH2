@@ -463,7 +463,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cloyster: {
-		tier: "Uber",
+		tier: "UU",
 	},
 	gastly: {
 		tier: "LC",
@@ -1570,7 +1570,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	gorebyss: {
-		tier: "Uber",
+		tier: "UU",
 	},
 	relicanth: {
 		tier: "UU",
@@ -2208,10 +2208,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	basculegion: {
-		tier: "UU",
+		tier: "Uber",
 	},
 	basculegionf: {
-		tier: "UU",
+		tier: "Uber",
 	},
 	sandile: {
 		tier: "LC",
