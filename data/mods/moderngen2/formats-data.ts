@@ -4926,7 +4926,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zeraora: {
 		inherit: true,
 		gen: 2,
-		tier: "OU",
+		tier: "Uber",
 	},
 	meltan: {
 		inherit: true,
