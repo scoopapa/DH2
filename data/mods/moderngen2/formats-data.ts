@@ -4930,11 +4930,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	meltan: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 		tier: "OU",
 	},
 	melmetal: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 		tier: "OU",
 	},
