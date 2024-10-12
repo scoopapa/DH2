@@ -1222,7 +1222,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					flags: {allyanim: 1, futuremove: 1},
 					ignoreImmunity: false,
 					onPrepareHit(target, source, move) {
-						this.attrLastMove('[still]');
 						this.add('-anim', source, "Sandsear Storm", target);
 						this.field.setWeather('sandstorm');
 					},
@@ -1342,7 +1341,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					ignoreImmunity: false,
 					status: 'tox',
 					onPrepareHit(target, source, move) {
-						this.attrLastMove('[still]');
 						this.add('-anim', source, "Corrosive Gas", target);
 					},
 					boosts: {
