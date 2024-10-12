@@ -109,6 +109,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			delete this.effectState.stalled;
 		},
   		*/
+		onBeforeMove(target, source, move) {
+			if (move.category === 'Status') {
+				this.useMove(move, target, source);
+			}
+		},
 		onFractionalPriority: -0.1,
 		flags: {},
 		shortDesc: "(Non-functional Placeholder) This Pokemon's status moves are used twice, but it usually moves last.",
