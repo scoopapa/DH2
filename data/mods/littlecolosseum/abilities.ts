@@ -111,7 +111,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
   		*/
 		onBeforeMove(target, source, move) {
 			if (move.category === 'Status') {
-				this.useMove(move, target, source);
+				this.actions.useMove(move, target, source);
 			}
 		},
 		onFractionalPriority: -0.1,
