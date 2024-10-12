@@ -9368,7 +9368,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 6},
+			{generation: 1, level: 5},
 		],
 	},
 	kadabra: {
@@ -9699,7 +9699,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 15},
+			{generation: 1, level: 5},
 		],
 	},
 	machoke: {
@@ -10007,7 +10007,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 10, gender: "M", moves: ["1L1"], pokeball: "pokeball"},
 		],
 		encounters: [
-			{generation: 1, level: 12},
+			{generation: 1, level: 5},
 			{generation: 2, level: 3},
 		],
 	},
@@ -11011,7 +11011,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 28},
+			{generation: 1, level: 5},
 		],
 	},
 	ponytagalar: {
@@ -11337,7 +11337,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 30, moves: ["1L1"], pokeball: "cherishball"},
 		],
 		encounters: [
-			{generation: 1, level: 15},
+			{generation: 1, level: 5},
 		],
 	},
 	slowpokegalar: {
@@ -12016,7 +12016,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 16},
+			{generation: 1, level: 5},
 		],
 	},
 	magneton: {
@@ -12488,7 +12488,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 18},
+			{generation: 1, level: 5},
 			{generation: 2, level: 4},
 		],
 	},
@@ -12682,7 +12682,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 23, abilities: ["1L1"], moves: ["1L1"]},
 		],
 		encounters: [
-			{generation: 1, level: 22},
+			{generation: 1, level: 5},
 		],
 	},
 	dewgong: {
@@ -12881,7 +12881,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 23, moves: ["1L1"]},
 		],
 		encounters: [
-			{generation: 1, level: 23},
+			{generation: 1, level: 5},
 		],
 	},
 	grimeralola: {
@@ -13290,7 +13290,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 29, abilities: ["1L1"], moves: ["1L1"]},
 		],
 		encounters: [
-			{generation: 1, level: 10},
+			{generation: 1, level: 5},
 		],
 	},
 	cloyster: {
@@ -13488,7 +13488,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 18},
+			{generation: 1, level: 5},
 		],
 	},
 	haunter: {
@@ -13833,7 +13833,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wideguard: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 13},
+			{generation: 1, level: 5},
 		],
 	},
 	steelix: {
@@ -14059,7 +14059,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 5, shiny: 1, abilities: ["1L1"], moves: ["1L1"], pokeball: "pokeball"},
 		],
 		encounters: [
-			{generation: 1, level: 9},
+			{generation: 1, level: 5},
 		],
 	},
 	hypno: {
@@ -14276,7 +14276,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			xscissor: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 10},
+			{generation: 1, level: 5},
 		],
 	},
 	kingler: {
@@ -14448,7 +14448,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 19, moves: ["1L1"]},
 		],
 		encounters: [
-			{generation: 1, level: 14},
+			{generation: 1, level: 5},
 			{generation: 1, level: 40},
 		],
 	},
@@ -14737,7 +14737,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 5, shiny: 1, moves: ["1L1"], pokeball: "pokeball"},
 		],
 		encounters: [
-			{generation: 1, level: 20},
+			{generation: 1, level: 5},
 		],
 	},
 	exeggutor: {
@@ -15067,7 +15067,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 16},
+			{generation: 1, level: 5},
 		],
 	},
 	marowak: {
@@ -16069,7 +16069,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 30},
+			{generation: 1, level: 5},
 		],
 	},
 	weezing: {
@@ -16345,7 +16345,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 20},
+			{generation: 1, level: 5},
 		],
 	},
 	rhydon: {
@@ -16853,7 +16853,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 8, level: 7, moves: ["1L1"], pokeball: "cherishball"},
 		],
 		encounters: [
-			{generation: 1, level: 7},
+			{generation: 1, level: 5},
 		],
 	},
 	blissey: {
@@ -17082,7 +17082,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 3, level: 30, abilities: ["1L1"], moves: ["1L1"]},
 		],
 		encounters: [
-			{generation: 1, level: 13},
+			{generation: 1, level: 5},
 		],
 	},
 	tangrowth: {
@@ -18432,7 +18432,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 30, moves: ["1L1"], pokeball: "cherishball"},
 		],
 		encounters: [
-			{generation: 1, level: 15},
+			{generation: 1, level: 5},
 			{generation: 1, level: 25},
 		],
 	},
@@ -20190,7 +20190,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 8, level: 5, gender: "M", nature: "Docile", abilities: ["1L1"], moves: ["1L1"], pokeball: "cherishball"},
 		],
 		encounters: [
-			{generation: 1, level: 25},
+			{generation: 1, level: 5},
 		],
 	},
 	eeveestarter: {
@@ -21060,7 +21060,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 8, level: 25, isHidden: true, moves: ["1L1"], pokeball: "pokeball"},
 		],
 		encounters: [
-			{generation: 1, level: 18},
+			{generation: 1, level: 5},
 		],
 	},
 	porygon2: {
@@ -21318,7 +21318,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 15, gender: "M", abilities: ["1L1"], moves: ["1L1"], pokeball: "cherishball"},
 		],
 		encounters: [
-			{generation: 1, level: 30},
+			{generation: 1, level: 5},
 		],
 	},
 	omastar: {
@@ -21501,7 +21501,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 15, gender: "M", abilities: ["1L1"], moves: ["1L1"], pokeball: "cherishball"},
 		],
 		encounters: [
-			{generation: 1, level: 30},
+			{generation: 1, level: 5},
 		],
 	},
 	kabutops: {
@@ -22596,7 +22596,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["1L1"],
 		},
 		encounters: [
-			{generation: 1, level: 10},
+			{generation: 1, level: 5},
 		],
 	},
 	dragonair: {
