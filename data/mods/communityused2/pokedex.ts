@@ -169,7 +169,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Beartunnd",
 		types: ["Ice"],
 		baseStats: { hp: 125, atk: 135, def: 102, spa: 46, spd: 92, spe: 50 },
-		abilities: { 0: "Ice Body", 1: "Snow Cloak", H: "Overconfidence" },
+		abilities: { 0: "Snow Cloak", 1: "Overconfidence", H: "Ice Body" },
 		weightkg: 300,
 		prevo: "Beartic",
 	},
