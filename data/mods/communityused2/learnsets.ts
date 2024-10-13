@@ -78,7 +78,7 @@ export const Learnsets = {
 	terablast: ["9L1"],
 	thief: ["9L1"],
 	thunderbolt: ["9L1"],
-	thunderwave: ["9L1"],
+	//thunderwave: ["9L1"],
 	toxic: ["9L1"],
 	uturn: ["9L1"],
 	vacuumwave: ["9L1"],
@@ -223,7 +223,7 @@ export const Learnsets = {
 	heatwave: ["9L1"],
 	hex: ["9L1"],
 	hurricane: ["9L1"],
-	hydropump: ["9L1"],
+	//hydropump: ["9L1"],
 	hypervoice: ["9L1"],
 	//painsplit: ["9L1"],
 			peck: ["9L1"],
@@ -245,8 +245,8 @@ export const Learnsets = {
 	//swordsdance: ["9L1"],
 	tailwind: ["9L1"],
 	taunt: ["9L1"],
-	thunder: ["9L1"],
-	thunderbolt: ["9L1"],
+	//thunder: ["9L1"],
+	//thunderbolt: ["9L1"],
 	toxic: ["9L1"],
 	trick: ["9L1"],
 	trickroom: ["9L1"],
@@ -794,6 +794,7 @@ export const Learnsets = {
 	twister: ["9L1"],
 	venomdrench: ["9L1"],
 	venoshock: ["9L1"],
+		heatcrash: ["9L1"],
 	}
 	},
 	drakkrab: {
@@ -1962,7 +1963,7 @@ export const Learnsets = {
 	flameburst: ["9L1"],
 	flamethrower: ["9L1"],
 	flareblitz: ["9L1"],
-	flipturn: ["9L1"],
+	//flipturn: ["9L1"],
 	followme: ["9L1"],
 	gigaimpact: ["9L1"],
 	gust: ["9L1"],
@@ -2339,6 +2340,7 @@ export const Learnsets = {
 	torment: ["9L1"],
 	upperhand: ["9L1"],
 	willowisp: ["9L1"],
+	morningsun: ["9L1"],
 	}
 	},
 	bicunnin: {
@@ -2409,6 +2411,7 @@ export const Learnsets = {
 	uturn: ["9L1"],
 	whirlwind: ["9L1"],
 	workup: ["9L1"],
+	knockoff: ["9L1"],
 	}
 	},
 	bjorniorite: {
@@ -2459,7 +2462,7 @@ export const Learnsets = {
 	powergem: ["9L1"],
 	protect: ["9L1"],
 	psychicfangs: ["9L1"],
-	rapidspin: ["9L1"],
+	//rapidspin: ["9L1"],
 	recover: ["9L1"],
 	reflect: ["9L1"],
 	rockpolish: ["9L1"],
@@ -2658,7 +2661,7 @@ export const Learnsets = {
 			workup: ["9L1"],
 			leafstorm: ["9L1"],
 			energyball: ["9L1"],
-
+	aromatherapy: ["9L1"],
 	}},
 	dracolition: {
 	learnset: {
@@ -2678,7 +2681,7 @@ export const Learnsets = {
 	doubleteam: ["9L1"],
 	dragonbreath: ["9L1"],
 	dragonclaw: ["9L1"],
-	dragondance: ["9L1"],
+	//dragondance: ["9L1"],
 	dragonrage: ["9L1"],
 	dragonrush: ["9L1"],
 	dragontail: ["9L1"],
@@ -3082,7 +3085,7 @@ export const Learnsets = {
 	naturalgift: ["9L1"],
 	protect: ["9L1"],
 	psychicfangs: ["9L1"],
-	rapidspin: ["9L1"],
+	//rapidspin: ["9L1"],
 	recover: ["9L1"],
 	reflect: ["9L1"],
 	rockpolish: ["9L1"],
@@ -3832,7 +3835,7 @@ export const Learnsets = {
 	flameburst: ["9L1"],
 	flamethrower: ["9L1"],
 	flareblitz: ["9L1"],
-	flipturn: ["9L1"],
+	//flipturn: ["9L1"],
 	followme: ["9L1"],
 	gust: ["9L1"],
 	helpinghand: ["9L1"],
