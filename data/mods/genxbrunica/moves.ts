@@ -549,6 +549,46 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Rock",
 	},
+	dragonsdrone: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "Has a 20% chance to confuse the target.",
+		shortDesc: "20% chance to confuse the foe(s).",
+		name: "Dragon's Drone",
+		pp: 10,
+		priority: 0,
+		flags: {sound: 1, protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Clanging Scales');
+		},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
+		target: "allAdjacentFoes",
+		type: "Dragon",
+	},
+	mindlance: {
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		desc: "After using this move, for 3 turns, the user cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the user is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the user uses Baton Pass while under this effect, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball negate this effect. The user will not gain this effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
+		shortDesc: "Applies Telekinesis to the user if successful.",
+		name: "Mind Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Psycho Boost');
+		},
+		self: {
+			volatileStatus: 'telekinesis',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
 	
 	//Balm Moves
 	magneticupdraft: {
@@ -3641,7 +3681,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Steady Stream",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[anim] Sparkling Aria');
 		},

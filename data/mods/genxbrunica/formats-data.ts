@@ -1047,6 +1047,38 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
+	blurkey: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	spookey: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	turkiere: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lapras: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	beaugarn: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	noibat: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	noivern: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	tinozous: {
+		tier: "Brunica Uber",
+		doublesTier: "DOU",
+	},
 
 
 	akulut: {

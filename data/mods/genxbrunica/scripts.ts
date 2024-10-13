@@ -47,6 +47,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset.frustration = ["9M"];
 				learnset['return'] = ["9M"];
 				learnset.takedown = ["9M"];
+				learnset.doubleteam = ["9M"];
+				//Now let's free the ones that were TMs/Tutors in past gens and Brunica but not SV
+				learnset.honeclaws &&= ["9M"];
+				learnset.safeguard &&= ["9M"];
+				learnset.attract &&= ["9M"];
+				learnset.roost &&= ["9M"];
+				learnset.steelwing &&= ["9M"];
+				learnset.explosion &&= ["9M"];
+				learnset.retaliate &&= ["9M"];
+				learnset.bounce &&= ["9T"];
+				learnset.irontail &&= ["9T"];
+				learnset.signalbeam &&= ["9T"];
+				learnset.steelroller &&= ["9T"];
+				learnset.superpower &&= ["9T"];
 				continue;
 			}
 			
@@ -523,6 +537,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets","kirlia").learnset.healingnature = ["9L1"];
 		this.modData("Learnsets","gardevoir").learnset.healingnature = ["9L1"];
 		this.modData("Learnsets","gallade").learnset.healingnature = ["9L1"];
+		
+		//noibat line
+		this.modData("Learnsets","noibat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets","noivern").learnset.drainfang = ["9M"];
 		
 	},
 	runAction(action) {
