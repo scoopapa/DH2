@@ -564,6 +564,17 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, notransform: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Weather Flux",
 	},
+	strongwill: {
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Strong Will",
+		shortDesc: "If this Pokemon is statused, its Special Defense is multiplied by 1.5.",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,

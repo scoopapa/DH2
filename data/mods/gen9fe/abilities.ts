@@ -3250,7 +3250,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Shear Strength",
 	},
 	suppressivefire: {
-		shortDesc: "Flash Fire + Filter",
+		shortDesc: "Filter + x1.5 to Fire after hit by SE",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Filter neutralize');
@@ -3268,7 +3268,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(target) {
-				this.add('-start', target, 'ability: Suppressive Fire');
+				this.add('-ability', target, 'Suppressive Fire');
+				this.add('-start', target, 'Flash Fire', '[silent]');
+				this.add('-message', `The power of ${target.name}'s Fire-type moves rose!`);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
@@ -3630,7 +3632,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
 				if (effect.effectType === 'Move') {
 					const effectHolder = this.effectState.target;
-					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
+					this.add('-block', target, 'ability: Unstoppable', '[of] ' + effectHolder);
 				}
 				return null;
 			}
