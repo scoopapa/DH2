@@ -74,7 +74,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 90
 	},
 	cherubi: {
-		tier: "DoNU UUBL",
+		tier: "DoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["sunnyday", "gigadrain", "weatherball", "growth"],
 		//randomBattleLevel: 84
@@ -138,7 +138,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	happiny: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["seismictoss", "rest", "sleeptalk", "thunderwave"],
 		//randomBattleLevel: 86
@@ -521,17 +521,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["spikes", /*"aquajet",*/ "taunt", /*"leechlife",*/ "bugbuzz", "scald"]
 	},
 	wooloo: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["facade", "counter", "thunderwave", "rest", "sleeptalk"]
 	},
 	wooper: {
-		tier: "DoNU",
+		tier: "DoNU UU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "scald", "earthquake", "liquidation", "curse", "recover"]
 	},
 	wooperpaldea: {
-		tier: "DoNU UU",
+		tier: "DoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["toxic", "spikes", "toxicspikes", "earthquake", "poisonjab", "recover"]
 	},
@@ -579,7 +579,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleMoves:
 	},
 	snorunt: {
-		tier: "DoNU",
+		tier: "DoNU UUBL",
 		isNonstandard: null,
 		//randomBattleMoves:
 	},
