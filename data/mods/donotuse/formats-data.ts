@@ -583,6 +583,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 		//randomBattleMoves:
 	},
+	swablu: {
+		tier: "DoNU",
+		isNonstandard: null,
+	},
 
 // Ubers
 	smeargle: {
@@ -774,6 +778,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	glalie: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	altaria: {
 		tier: "OU",
 		isNonstandard: null,
 	},
