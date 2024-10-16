@@ -2456,8 +2456,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	steamyscales: {
 		shortDesc: "Multiscale effects. Damage from Water and Fire is halved.",
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= target.maxhp || ['Water', 'Fire'].includes(move.type)) {
+			if (target.hp >= target.maxhp) {
 				this.debug('Steamy Scales weaken');
 				return this.chainModify(0.5);
 			}
