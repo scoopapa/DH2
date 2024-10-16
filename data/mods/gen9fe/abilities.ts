@@ -1813,7 +1813,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility(['burningpetals','suppressivefire']) {
+				if (move.type === 'Fire' && attacker.hasAbility(['burningpetals','suppressivefire'])) {
 					this.debug('Burning Petals boost');
 					return this.chainModify(1.5);
 				}
