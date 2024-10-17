@@ -117,6 +117,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//slate 2
+	boosterenergy: {
+		name: "Booster Energy",
+		spritenum: 0, // TODO
+		onUpdate(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (pokemon.hasAbility('protosynthesis') && !pokemon.volatiles['protosynthesis'] && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				pokemon.addVolatile('protosynthesis');
+			}
+			if (pokemon.hasAbility('protostasis') && !pokemon.volatiles['protostasis'] && !this.field.isWeather('snow') && pokemon.useItem()) {
+				pokemon.addVolatile('protostasis');
+			}
+			if (pokemon.hasAbility('quarkdrive') && !pokemon.volatiles['quarkdrive'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('quarkdrive');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.tags.includes("Paradox")) return false;
+			return true;
+		},
+		num: 1880,
+		desc: "Activates the Paradox Abilities. Single use.",
+		gen: 9,
+	},
+	
 	balanceboard: {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",

@@ -267,6 +267,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
+	splash: {
+		inherit: true,
+		shortDesc: "Feebas: remove all tokens and gain +1 Atk/Def/SpA/SpD/Spe.",
+		onTryHit(target, source, move) {
+			if(target.baseSpecies.baseSpecies === 'Feebas') {
+				const targetSide = target.side;
+				if(targetSide.fishingTokens > 0) {
+					const boosts = Math.min(targetSide.fishingTokens, 6);
+					target.side.removeFishingTokens(targetSide.fishingTokens);
+					this.boost({atk: boosts, def: boosts, spa: boosts, spd: boosts, spe: boosts}, target, target, move);
+				} else targetSide.addFishingTokens(1);
+			} else this.add('-nothing');
+		},
+	},
 	silcoonblast: {
 		accuracy: true,
 		basePower: 0,

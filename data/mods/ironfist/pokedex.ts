@@ -158,6 +158,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 89, atk: 93, def: 69, spa: 119, spd: 111, spe: 109},
 		abilities: {0: "Protostasis"},
 		weightkg: 36.0,
+		tags: ["Paradox"],
 	},
 	archeops: {
 		inherit: true,
