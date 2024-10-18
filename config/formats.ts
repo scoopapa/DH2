@@ -1001,7 +1001,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
-			'Koraidon', 'Miraidon',
+			'Koraidon', 'Miraidon', 'Pecharunt',
 		],
 		mod: 'm4apaldea',
 		onValidateTeam(team, format) {
