@@ -122,6 +122,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			substitute: ["9L1"],
 			terablast: ["9L1"],
 			waterfall: ["9L1"],
+			bulkup: ["9L1"],
 		},
 	},
 	drakkannon: {
@@ -146,6 +147,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			sludgebomb: ["9L1"],
 		},
 	},
 	arsenstorm: {
@@ -328,7 +330,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			alluringvoice: ["9L1"],
 			lunge: ["9L1"],
 			bugbuzz: ["9L1"],
-			quiverdance: ["9L1"],
+			//quiverdance: ["9L1"],
 			drainingkiss: ["9L1"],
 			mysticalfire: ["9L1"],
 			stickyweb: ["9L1"],
@@ -710,6 +712,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			defog: ["9L1"],
+			icepunch: ["9L1"],
+			spiritbreak: ["9L1"],
 		},
 	},
 	florustitia: {
@@ -989,6 +994,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			slackoff: ["9L1"],
 		},
 	},
 	yamateraph: {
@@ -1017,7 +1023,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			firepunch: ["9L1"],
 			flamethrower: ["9L1"],
-			bitterblade: ["9L1"],
+			//bitterblade: ["9L1"],
 			lunge: ["9L1"],
 			bugbuzz: ["9L1"],
 			leechlife: ["9L1"],
