@@ -172,7 +172,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Primordialith",
 		types: ["Rock"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 35, spd: 90, spe: 30},
-		abilities: {0: "Sand Stream"},
+		abilities: {0: "Sand Stream", H: "Vital Spirit"},
 		weightkg: 90,
 	},
 	faeruin: {
@@ -196,7 +196,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Capricorrie",
 		types: ["Ice", "Ground"],
 		baseStats: {hp: 100, atk: 110, def: 80, spa: 50, spd: 70, spe: 90},
-		abilities: {0: "Snow Warning"},
+		abilities: {0: "Snow Warning", H: "Vital Spirit"},
 		weightkg: 146,
 	},
 	reversadusa: {
@@ -236,7 +236,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Yamateraph",
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 90, atk: 110, def: 80, spa: 15, spd: 80, spe: 105},
-		abilities: {0: "Psychic Surge"},
+		abilities: {0: "Psychic Surge", H: "Vital Spirit"},
 		weightkg: 255,
 	},
 	bugswarm: {
