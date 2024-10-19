@@ -1,7 +1,7 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	charizard: {
 		tier: "UU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	raichu: {
 		tier: "RU",
