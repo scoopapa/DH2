@@ -775,7 +775,14 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: "National Dex",
 		mod: 'littleestcup',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		ruleset: [
+				'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause',
+				'Character Clause', 'Soup Clause', 'Disadvantage Clause', 'Day One Clause', 'Pivot Clause', 'Sweeper Clause',
+				'Level Clause', 'Anti-Homophobia Clause', 'Awesome Bug Facts Clause', 'Big Recoil Clause', 'China Clause', 'Claus Clause',
+				'Claws Clause', 'Compatibility Clause', 'Focus Clause', 'Handicap Clause', 'Imprison Clause', 'Jumpfart Clause', 'Kunai Clause',
+				'Luck of the Irish Clause', 'Move Degradation Clause', 'Non-Volatile Status Clause', 'Recovery Moves Clause', 'Sigma Male Clause',
+				'Squawk Clause', 'The Beaf Cultist Clause', 'Two Bird One Stone', 'Upside-Down Power', 'big dog Clause', 'Moniker Clause',
+				],
 		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
 	},
 	{
