@@ -338,7 +338,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	dugtrionite: {
 		name: "Dugtrionite",
 		spritenum: 578,
-		megaStone: "Dugtrio-Mega-Alola",
+		megaStone: "Dugtrio-Alola-Mega",
 		megaEvolves: "Dugtrio-Alola",
 		itemUser: ["Dugtrio-Alola"],
 		onTakeItem(item, source) {
