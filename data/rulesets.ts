@@ -3180,8 +3180,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onSwitchIn(pokemon) {
 			const tier = pokemon.species.tier;
-			if (tier !== 'OU') {
-				this.add('-message', `Level Clause activated! (er, tried to...)`);
+			if (tier === 'UU' || tier === 'RUBL') {
+				this.add('-message', `This Pokemon is Level 105! (well, it's supposed to be...)`);
+			} else if (tier === 'RU' || tier === 'NUBL') {
+				this.add('-message', `This Pokemon is Level 110! (well, it's supposed to be...)`);
+			} else if (tier === 'NU' || tier === 'PUBL') {
+				this.add('-message', `This Pokemon is Level 115! (well, it's supposed to be...)`);
+			} else if (tier === 'PU' || tier === 'ZUBL') {
+				this.add('-message', `This Pokemon is Level 120! (well, it's supposed to be...)`);
+			} else if (tier === 'ZU') {
+				this.add('-message', `This Pokemon is Level 125! (well, it's supposed to be...)`);
+			} else if (tier === 'NFE' || tier === 'LC') {
+				this.add('-message', `This Pokemon is Level 130! (well, it's supposed to be...)`);
 			}
 		},
         onModifyAtkPriority: 99,
@@ -3483,11 +3493,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             const nature = this.dex.natures.get(set.nature);
             if (!nature.plus) return;
             const species = this.dex.species.get(set.species);
-            if (species.gender) {
-                if (species.gender === 'M') return [`${species.baseSpecies} is illegal due to Sigma Male Clause.`];
-            } else if (set.gender !== 'F') {
+            if (set.gender) {
+                if (set.gender === 'M') return [`${species.baseSpecies} is illegal due to Sigma Male Clause.`];
+            }/* else if (set.gender !== 'F') {
                 set.gender = 'F';
-            }
+            }*/
         },
 	},
     squawkclause: {
