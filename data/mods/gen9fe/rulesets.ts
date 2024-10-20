@@ -172,7 +172,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				  pokemon.canTerastallize = null;
 				}
 			}
-			this.add('rule', 'Terastal Clause: Only Pok&eacute;mon with Tera forms can Terastallize');
+			this.add('rule', 'Terastal Clause: Only Pok\u00E9mon with Tera forms can Terastallize');
 		},
 	},
 	outerastalclause: {
@@ -185,7 +185,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 				  pokemon.canTerastallize = null;
 				}
 			}
-			this.add('rule', 'OU Terastal Clause: Only Pok&eacute;mon with Tera forms can Terastallize');
+			this.add('rule', 'OU Terastal Clause: Only Pok\u00E9mon with Tera forms can Terastallize');
 		},
 	},
 };
