@@ -15,7 +15,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		return item.megaStone;
 	},
-	pokemon: {
+	pokemon: { 
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!this.battle.dex.types.isName(type)) {
