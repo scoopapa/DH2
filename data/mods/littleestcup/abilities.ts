@@ -2464,11 +2464,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 40,
 	},
 	magnetpull: {
-		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
-				pokemon.tryTrap(true);
-			}
-		},
+        onFoeTrapPokemon(pokemon) {
+            if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
+                pokemon.tryTrap(true);
+                if (this.ruleTable.has('thebeafcultistclause') && pokemon.trapped && !pokemon.maybetrapped) {
+                        this.add('-message', this.effectState.target + "'s side forfeited due to " + pokemon + " attempting to switch out from Magnet Pull.");
+                        this.win(pokemon.side);
+                }
+            }
+        },
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
 			if (!source || !pokemon.isAdjacent(source)) return;
@@ -4806,7 +4810,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, target) {
 			if (typeof accuracy !== 'number') return;
-			if (target?.volatiles['confusion']) {
+			if (target?.status === 'confusion') {
 				this.debug('Tangled Feet - decreasing accuracy');
 				return this.chainModify(0.5);
 			}
