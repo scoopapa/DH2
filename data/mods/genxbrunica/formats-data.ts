@@ -1085,7 +1085,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica Uber",
 		doublesTier: "DOU",
 	},
-	wendora: {
+	kaiwakaw: {
 		tier: "Brunica Uber",
 		doublesTier: "DOU",
 	},
