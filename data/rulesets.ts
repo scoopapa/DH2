@@ -3066,6 +3066,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				pokemon.maybeTrapped = true;
 			}
 		},
+		/*onSwitchIn(pokemon) {
+			for (const target of pokemon.foes()) {
+				const source = this.effectState.target;
+				if (!source || !pokemon.isAdjacent(source)) return;
+				if (this.dex.getEffectiveness(source.types[0], pokemon.types[0]) > 0 || this.dex.getEffectiveness(pokemon.types[0], source.types[0]) < 0) {
+					this.add('-message', `${pokemon} is petrified at its matchup!`);
+				}
+			}
+		},*/
     },
     dayoneclause: {
 		effectType: 'ValidatorRule',
@@ -3102,7 +3111,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
                   move.selfdestruct = "ifHit";
                   move.runningAway = true;
                 } else {
-					source.m.pivots[foes]++;
+					source.m.pivots[foe]++;
                 }
             }
         },
@@ -3265,7 +3274,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	clausclause: {
 		effectType: 'Rule',
 		name: 'Claus Clause',
-		//desc: "All non-fixed damagining moves hit twice, with the second hit dealing 0.25x damage.",
+		//desc: "All non-fixed damaging moves hit twice when used twice in a row, with the second hit dealing 0.25x damage.",
 		onBegin() {
 			this.add('rule', 'Claus Clause: What does this do?');
 		},
@@ -3275,9 +3284,12 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
 				'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst',
 			].includes(move.id)) return;
-			if (!move.spreadHit && !move.isZ && !move.isMax) {
-				move.multihit = 2;
-				move.multihitType = 'parentalbond';
+			if (move.id === source.lastMove) {
+				if (!move.spreadHit && !move.isZ && !move.isMax) {
+					this.add('-message', `${source} is a pro at using ${move}!`);
+					move.multihit = 2;
+					move.multihitType = 'parentalbond';
+				}
 			}
 		},
 	},
@@ -3575,11 +3587,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
         onModifyMove(move, pokemon, target) {
             if (move.category === 'Physical') {
                 move.overrideOffensiveStat = 'spa';
-                this.add('-message', `Upside-Down Power activated!`);
+                this.add('-message', `This physical attack works off of Special Attack!`);
             }
             else if (move.category === 'Special') {
                 move.overrideOffensiveStat = 'atk';
-                this.add('-message', `Upside-Down Power activated!`);
+                this.add('-message', `This special attack works off of Attack!`);
 
             }
         },
@@ -3628,6 +3640,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (typeof accuracy !== 'number') return;
 			this.debug('compoundeyes - enhancing accuracy');
 			return this.chainModify([5325, 4096]);
+		},
+		onSwitchIn(pokemon, source, effect) {
+            this.add('-message', `Your vision feels sharper today...`);
 		},
 	},
 };
