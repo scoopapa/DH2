@@ -3305,7 +3305,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'shadowclaw', 'dragonclaw', 'crushclaw', 'direclaw', 'metalclaw', 'honeclaws'
 			].includes(move.id)) {
 				source.addVolatile('ability:toughclaws');
-                this.add('-message', `Claws Clause activated!`);
+                this.add('-message', `${source} now has the effects of Tough Claws!`);
 			}
 		},
 	},
