@@ -1658,7 +1658,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			//closecombat: ["9L1"],
 		},
 	},
-	wendora: {
+	kaiwakaw: {
 		learnset: {
 			astonish: ["9L1"],
 			gust: ["9L1"],
