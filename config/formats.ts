@@ -706,7 +706,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'genxbrunica',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Akulut', 'Wendora', 'Lutakon', 'Lutakon-Awakened'], //Ubers
+		banlist: ['Akulut', /*'Wendora',*/ 'Lutakon', 'Lutakon-Awakened'], //Ubers
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
