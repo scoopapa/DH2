@@ -539,7 +539,7 @@ export const Scripts: BattleScriptsData = {
 		},
 		terastallize(pokemon: Pokemon) {
 			pokemon.addVolatile('dynamax');
-			this.battle.add('-message', `${pokemon.name} Dynamaxed due to big dog Clause!`);
+			this.battle.add('-message', `big dog Clause activated!`);
 			for (const ally of pokemon.side.pokemon) {
 				ally.canTerastallize = null;
 			}

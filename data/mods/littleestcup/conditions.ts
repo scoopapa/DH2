@@ -927,7 +927,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				].includes(effect.id)) { //decide whether misty should count later
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectState.target, effect, '[of] ' + target);
-				this.add('-message', `This move failed because of Big Recoil Clause!`);
+				this.add('-message', `Big Recoil Clause activated!`);
 				return false;
 			}
 		},
@@ -958,7 +958,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (matchings.includes(pokemon.species.id)) {
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'monikerboost' + this.effectState.bestStat);
-				this.add('-message', `This Pokemon's highest stat is boosted due to Moniker Clause!`);
+				this.add('-message', `Moniker Clause activated!`);
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -1112,7 +1112,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				 'slam','stunspore','sweetkiss','blizzard','focusblast','hurricane','thunder',
 				 'dynamicpunch','inferno','zapcannon','smog','hypnosis','grasswhistle','sing','supersonic'].includes(move.id))
 			{
-				this.add('-message', `This move always hits due to Focus Clause!`);
+				this.add('-message', `Focus Clause activated!`);
 				return true;
 			}
 		},
