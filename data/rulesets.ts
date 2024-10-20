@@ -3284,7 +3284,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
 				'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst',
 			].includes(move.id)) return;
-			if (move.id === source.lastMove) {
+			if (move.id === source.lastMove.id) {
 				if (!move.spreadHit && !move.isZ && !move.isMax) {
 					this.add('-message', `${source} is a pro at using ${move}!`);
 					move.multihit = 2;
