@@ -3278,7 +3278,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onBegin() {
 			this.add('rule', 'Claus Clause: What does this do?');
 		},
-		onPrepareHit(source, target, move) {
+		onTryMove(source, target, move) {
+			this.effectState.move = this.activeMove.id;
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if ([
 				'endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
@@ -3286,7 +3287,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			].includes(move.id)) return;
 			if (move.id === source.lastMove.id) {
 				if (!move.spreadHit && !move.isZ && !move.isMax) {
-					this.add('-message', `${source} is a pro at using ${move}!`);
+					this.add('-message', `${source} is a pro at using the move ${source.lastMove} it used last turn, so it will now hit twice!`);
 					move.multihit = 2;
 					move.multihitType = 'parentalbond';
 				}
@@ -3416,22 +3417,27 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	luckoftheirishclause: {
 		effectType: 'Rule',
 		name: 'Luck of the Irish Clause',
-		//desc: "All Pokemon innately have Serene Grace and Super Luck.",
+		//desc: "All Green Pokemon innately have Serene Grace and Super Luck.",
 		onBegin() {
 			this.add('rule', 'Luck of the Irish Clause: What does this do?');
 		},
-		onModifyMovePriority: -2,
-		onModifyMove(move) {
-			if (move.secondaries) {
-				this.debug('doubling secondary chance');
-				for (const secondary of move.secondaries) {
-					if (secondary.chance) secondary.chance *= 2;
-				}
+		onSwitchIn(pokemon, source, effect) {
+			const green = [
+				'appletun','applin','araquanid','arboliva','axew','basculegion','basculin','bayleef','bellibolt',
+				'bellossom','bellsprout','breloom','bronzong','bronzor','bulbasaur','cacnea','cacturne','calyrex',
+				'capsakid','charjabug','chesnaught','chespin','chewtle','chikorita','comfey','copperajah','cottonee',
+				'cyclizar','dewpider','dipplin','dolliv','dragapult','drakloak','drednaw','dreepy','duosion','flapple',
+				'floragato','flygon','fraxure','golett','golurk','grimer-alola','grookey','grotle','grovyle','gulpin',
+				'hawlucha','hydrapple','ironleaves','ironthorns','ivysaur','larvitar','leafeon','lilligant','lilligant-hisui',
+				'lombre','lotad','ludicolo','meganium','meowscarada','muk-alola','ogerpon','petilil','politoed','poltchageist',
+				'quilladin','rabsca','rayquaza','regidrago','reuniclus','rillaboom','sandaconda','sceptile','scovillain','scyther',
+				'serperior','servine','shaymin','silicobra','sinistcha','skiploom','smoliv','snivy','solosis','spidops','spinarak',
+				'sprigatito','squawkabilly','swadloon','thwackey','tornadus','torterra','treecko','tropius','turtwig','tyranitar',
+				'venusaur','vibrava','victreebel','virizion','weepinbell','whimsicott','yanmega',
+			];
+			if (green.includes(pokemon.species.id)) {
+				pokemon.addVolatile('lucky');
 			}
-			if (move.self?.chance) move.self.chance *= 2;
-		},
-		onModifyCritRatio(critRatio) {
-			return critRatio + 1;
 		},
 	},
 	movedegradationclause: { // ask kirby about the healing move degradation
@@ -3642,7 +3648,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return this.chainModify([5325, 4096]);
 		},
 		onSwitchIn(pokemon, source, effect) {
-            this.add('-message', `Your vision feels sharper today...`);
+            this.add('-message', `${pokemon}'s vision feels sharper today...`);
 		},
 	},
 };
