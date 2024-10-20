@@ -1578,10 +1578,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 582.3,
 		eggGroups: ["Undiscovered"],
 	},
-	//Defense and HP have +5 as placeholder distribution for the missing BST
-	wendora: {
+	kaiwakaw: {
 		num: -2,
-		name: "Wendora",
+		name: "Kaiwakaw",
 		types: ["Ghost", "Ice"],
 		gender: "N",
 		baseStats: {hp: 95, atk: 102, def: 95, spa: 134, spd: 130, spe: 124},
@@ -1590,7 +1589,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 259.4,
 		eggGroups: ["Undiscovered"],
 	},
-	//Defense and Speed have +10 as placeholder distribution for Lutakon's missing BST
 	lutakon: {
 		num: -3,
 		name: "Lutakon",
