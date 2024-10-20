@@ -3000,17 +3000,17 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
                 }
                 set.name ||= set.species;
                 if (set.species.replace(letters,'')) {
-                    illegalReasons.push(set.species + ' is a forbidden species due to the presence of characters outside the alphabet, which is banned by Character Clause.');
+                    illegalReasons.push(set.species + ' is a forbidden species due to Character Clause.');
                 }
                 if (set.item.replace(letters,'')) {
-                    illegalReasons.push(set.name + '\'s item ' + set.item + ' is forbidden due to the presence of characters outside the alphabet, which is banned by Character Clause.');
+                    illegalReasons.push(set.name + '\'s item ' + set.item + ' is forbidden due to Character Clause.');
                 }
                 if (set.ability.replace(letters,'')) {
-                    illegalReasons.push(set.name + '\'s ability ' + set.ability + ' is forbidden due to the presence of characters outside the alphabet, which is banned by Character Clause.');
+                    illegalReasons.push(set.name + '\'s ability ' + set.ability + ' is forbidden due to Character Clause.');
                 }
                                 for (const move of set.moves) {
                     if (move.replace(letters,'')) {
-                        illegalReasons.push(set.name + '\'s move ' + move + ' is forbidden due to the presence of characters outside the alphabet, which is banned by Character Clause.');
+                        illegalReasons.push(set.name + '\'s move ' + move + ' is forbidden due to Character Clause.');
                     }
                 }
             }
@@ -3038,7 +3038,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             const reasons = [];
             for (const letter in letters) {
                 if (letters[letter].length > 1) {
-                      reasons.push('The letter ' + letter + ' is repeated as the first letter across the following species, which is banned by Soup Clause: ' + letters[letter]);
+                      reasons.push('This combination of Pokemon is banned due to Soup Clause.');
                 }
             }
             return reasons;
@@ -3079,7 +3079,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             for (const set of team) {
                 if (letter === set.species.toLowerCase().charAt(0)) return;
             }
-            return "No Pokémon species on the team was found starting with the letter " + letter + ", which the current day of the week starts with. You need one due to Day One Clause.";
+            return "Due to Day One Clause, this team is illegal.";
         },
     },
     pivotclause: {
@@ -3108,7 +3108,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
         },
         onAfterMoveSecondarySelf(target, source, move) {
             if (!source.hp && move.runningAway) {
-                this.add('-message', `${source.name} has abandoned its team!`);
+                this.add('-message', `Pivot Clause activated!`);
             }
         },
     },
@@ -3139,7 +3139,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				  if (reset) {
 						source.setBoost(sourceboosts);
 						this.add('-clearpositiveboost', source, source);
-						this.add('-message', `This Pokemon lost its boosts due to Sweeper Clause!`);
+						this.add('-message', `Sweeper Clause activated!`);
 					}
 				}
 			}
@@ -3180,8 +3180,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onSwitchIn(pokemon) {
 			const tier = pokemon.species.tier;
-			if (tier !== 'OU') {
-				this.add('-message', `(Due to Level Clause, this Pokemon should be a signficantly higher level due to being in ${tier}, but we haven't gotten it working yet!)`);
+			if (tier === 'UU' || tier === 'RUBL') {
+				this.add('-message', `This Pokemon is Level 105! (well, it's supposed to be...)`);
+			} else if (tier === 'RU' || tier === 'NUBL') {
+				this.add('-message', `This Pokemon is Level 110! (well, it's supposed to be...)`);
+			} else if (tier === 'NU' || tier === 'PUBL') {
+				this.add('-message', `This Pokemon is Level 115! (well, it's supposed to be...)`);
+			} else if (tier === 'PU' || tier === 'ZUBL') {
+				this.add('-message', `This Pokemon is Level 120! (well, it's supposed to be...)`);
+			} else if (tier === 'ZU') {
+				this.add('-message', `This Pokemon is Level 125! (well, it's supposed to be...)`);
+			} else if (tier === 'NFE' || tier === 'LC') {
+				this.add('-message', `This Pokemon is Level 130! (well, it's supposed to be...)`);
 			}
 		},
         onModifyAtkPriority: 99,
@@ -3214,8 +3224,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Ferrothorn') {
+				this.add('-message', `Anti-Homophobia Clause activated!`);
 				this.actions.useMove("Explosion", pokemon);
-				this.add('-message', `Ferrothorn blew up (or tried to) because of Anti-Homophobia Clause!`);
 			}
 		},
 	},
@@ -3245,7 +3255,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					const ev = set.evs[stat];
 					if (ev < 4) {
 						return [
-							"Every Pokemon must have at least 4 EVs in every stat due to China Clause.",
+							"One of your Pokemon is Illegal due to China Clause.",
 						];
 					}
 				}
@@ -3283,7 +3293,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'shadowclaw', 'dragonclaw', 'crushclaw', 'direclaw', 'metalclaw', 'honeclaws'
 			].includes(move.id)) {
 				source.addVolatile('ability:toughclaws');
-                this.add('-message', `This Pokemon's contact moves are now boosted by Claws Clause!`);
+                this.add('-message', `Claws Clause activated!`);
 			}
 		},
 	},
@@ -3314,7 +3324,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				 'dynamicpunch','inferno','zapcannon','smog','hypnosis','grasswhistle','sing','supersonic'].includes(move.id))
 			{
                 move.accuracy = true;
-                this.add('-message', `${move} always hits due to Focus Clause!`);
+                this.add('-message', `Focus Clause activated!`);
             }
         },
 	},
@@ -3330,7 +3340,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             const benched = '';
             if (!boostVal || (pokemon.side.pokemon.length - 1 > pokemon.side.totalFainted)) return;
             this.boost({atk: boostVal, def: boostVal, spa: boostVal, spd: boostVal, spe: boostVal}, pokemon, pokemon);
-			this.add('-message', `This Pokemon's stats were boosted by Handicap Clause!`);
+			this.add('-message', `Handicap Clause activated!`);
 		},
 	},
 	imprisonclause: {
@@ -3382,10 +3392,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				const spd = source.getStat('spd', false, true);
 				if (def && def >= spd) {
 					this.boost({def: 1});
-					this.add('-message', `This Pokemon's stats were boosted by Kunai Clause!`);
+					this.add('-message', `Kunai Clause activated!`);
 				} else if (spd) {
 					this.boost({spd: 1});
-					this.add('-message', `This Pokemon's stats were boosted by Kunai Clause!`);
+					this.add('-message', `Kunai Clause activated!`);
 				}
 				source.kunai = 0;
 			}
@@ -3466,7 +3476,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				}
 				if (healers > 1) {
 					return [
-						`Multiple Pokemon have 50% healing moves, which is banned by Recovery Moves Clause.`,
+						`This team is illegal due to Recovery Moves Clause.`,
 					];
 				}
 			}
@@ -3483,11 +3493,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             const nature = this.dex.natures.get(set.nature);
             if (!nature.plus) return;
             const species = this.dex.species.get(set.species);
-            if (species.gender) {
-                if (species.gender === 'M') return [`${species.baseSpecies}, whose species is male only, does not have a neutral nature, which is banned by Sigma Male Clause.`];
-            } else if (set.gender !== 'F') {
+            if (set.gender) {
+                if (set.gender === 'M') return [`${species.baseSpecies} is illegal due to Sigma Male Clause.`];
+            }/* else if (set.gender !== 'F') {
                 set.gender = 'F';
-            }
+            }*/
         },
 	},
     squawkclause: {
@@ -3502,7 +3512,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				if (this.dex.species.get(set.species).types.includes('Flying')) return;
             }
             return [
-                `Because of Squawk Clause, your team must have a Flying-type on it.`,
+                `Because of Squawk Clause, your team is illegal.`,
             ];
         },
     },
@@ -3532,7 +3542,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             }
             if ((birds === 2) && (stones !== 1)) {
                 return [
-                    `Because you have exactly two Flying-types, under Two Bird One Stone your team must have exactly 1 Rock-type.`,
+                    `Because of Two Birds One Stone, this team is illegal.`,
                 ];
             }
         },
@@ -3565,11 +3575,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
         onModifyMove(move, pokemon, target) {
             if (move.category === 'Physical') {
                 move.overrideOffensiveStat = 'spa';
-                this.add('-message', `This move went off of the user's SpA due to Upside-Down Power!`);
+                this.add('-message', `Upside-Down Power activated!`);
             }
             else if (move.category === 'Special') {
                 move.overrideOffensiveStat = 'atk';
-                this.add('-message', `This move went off of the user's Atk due to Upside-Down Power!`);
+                this.add('-message', `Upside-Down Power activated!`);
 
             }
         },
