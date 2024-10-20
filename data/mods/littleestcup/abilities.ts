@@ -2468,7 +2468,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
             if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
                 pokemon.tryTrap(true);
                 if (this.ruleTable.has('thebeafcultistclause') && pokemon.trapped && !pokemon.maybetrapped) {
-                        this.add('-message', this.effectState.target + "'s side forfeited due to " + pokemon + " attempting to switch out from Magnet Pull.");
+                        this.add('-message', this.effectState.target + "'s side forfeited due to " + pokemon + " attempting to switch out from Magnet Pull. Magnet Pull's effect is disallowed by The Beaf Cultist Clause.");
                         this.win(pokemon.side);
                 }
             }

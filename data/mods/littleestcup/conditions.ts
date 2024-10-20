@@ -953,7 +953,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (matchings.includes(pokemon.species.id)) {
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
@@ -981,7 +981,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (this.effectState.bestStat !== 'atk') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1009,7 +1009,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos',	'scovillain',					
 			];
 			if (this.effectState.bestStat !== 'def') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1037,7 +1037,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos',	'scovillain',					
 			];
 			if (this.effectState.bestStat !== 'spa') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1065,7 +1065,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos',	'scovillain',					
 			];
 			if (this.effectState.bestStat !== 'spd') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1092,7 +1092,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (this.effectState.bestStat !== 'spe') return;
 			if (matchings.includes(pokemon.species.id)) {

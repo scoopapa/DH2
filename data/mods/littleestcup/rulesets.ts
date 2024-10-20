@@ -2983,7 +2983,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			// Ability persists through switching
 			pokemon.baseAbility = pokemon.ability;
 		},
-	},
+	},/*
     characterclause: {
         effectType: 'ValidatorRule',
         name: 'Character Clause',
@@ -3222,17 +3222,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		name: 'Awesome Bug Facts Clause',
 		//desc: "Every Pokemon has the effects of Compound Eyes innately.",
 		onBegin() {
-			for (const pokemon of this.getAllPokemon()) {
+			/*for (const pokemon of this.getAllPokemon()) {
 				pokemon.addVolatile('ability:compoundeyes');
 			}
 			this.add('rule', 'Awesome Bug Facts Clause: What does this do?');
 		},
-		/*onSourceModifyAccuracyPriority: -1,
-		onSourceModifyAccuracy(accuracy) {
+		onAccuracy(accuracy, target, source, move) {
 			if (typeof accuracy !== 'number') return;
 			this.debug('compoundeyes - enhancing accuracy');
 			return this.chainModify([5325, 4096]);
-		},*/
+		},
 	},
 	bigrecoilclause: {
 		effectType: 'Rule',
@@ -3569,7 +3568,6 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
             }
         },
 		// still can't get actual dynamax to work so i'm sticking it to tera instead
-		
     },
     upsidedownpower: {
         effectType: 'Rule',
@@ -3616,11 +3614,11 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos',						
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (matchings.includes(pokemon.species.id)) {
 				pokemon.addVolatile('monikerboost');
 			}
 		},
-	},
+	},*/
 };
