@@ -3066,6 +3066,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				pokemon.maybeTrapped = true;
 			}
 		},
+		/*onSwitchIn(pokemon) {
+			for (const target of pokemon.foes()) {
+				const source = this.effectState.target;
+				if (!source || !pokemon.isAdjacent(source)) return;
+				if (this.dex.getEffectiveness(source.types[0], pokemon.types[0]) > 0 || this.dex.getEffectiveness(pokemon.types[0], source.types[0]) < 0) {
+					this.add('-message', `${pokemon} is petrified at its matchup!`);
+				}
+			}
+		},*/
     },
     dayoneclause: {
 		effectType: 'ValidatorRule',
@@ -3102,7 +3111,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
                   move.selfdestruct = "ifHit";
                   move.runningAway = true;
                 } else {
-					source.m.pivots[foes]++;
+					source.m.pivots[foe]++;
                 }
             }
         },
@@ -3265,19 +3274,23 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	clausclause: {
 		effectType: 'Rule',
 		name: 'Claus Clause',
-		//desc: "All non-fixed damagining moves hit twice, with the second hit dealing 0.25x damage.",
+		//desc: "All non-fixed damaging moves hit twice when used twice in a row, with the second hit dealing 0.25x damage.",
 		onBegin() {
 			this.add('rule', 'Claus Clause: What does this do?');
 		},
-		onPrepareHit(source, target, move) {
+		onTryMove(source, target, move) {
+			this.effectState.move = this.activeMove.id;
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if ([
 				'endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
 				'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst',
 			].includes(move.id)) return;
-			if (!move.spreadHit && !move.isZ && !move.isMax) {
-				move.multihit = 2;
-				move.multihitType = 'parentalbond';
+			if (move.id === source.lastMove.id) {
+				if (!move.spreadHit && !move.isZ && !move.isMax) {
+					this.add('-message', `${source} is a pro at using the move ${source.lastMove} it used last turn, so it will now hit twice!`);
+					move.multihit = 2;
+					move.multihitType = 'parentalbond';
+				}
 			}
 		},
 	},
@@ -3293,7 +3306,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'shadowclaw', 'dragonclaw', 'crushclaw', 'direclaw', 'metalclaw', 'honeclaws'
 			].includes(move.id)) {
 				source.addVolatile('ability:toughclaws');
-                this.add('-message', `Claws Clause activated!`);
+                this.add('-message', `${source} now has the effects of Tough Claws!`);
 			}
 		},
 	},
@@ -3404,22 +3417,27 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	luckoftheirishclause: {
 		effectType: 'Rule',
 		name: 'Luck of the Irish Clause',
-		//desc: "All Pokemon innately have Serene Grace and Super Luck.",
+		//desc: "All Green Pokemon innately have Serene Grace and Super Luck.",
 		onBegin() {
 			this.add('rule', 'Luck of the Irish Clause: What does this do?');
 		},
-		onModifyMovePriority: -2,
-		onModifyMove(move) {
-			if (move.secondaries) {
-				this.debug('doubling secondary chance');
-				for (const secondary of move.secondaries) {
-					if (secondary.chance) secondary.chance *= 2;
-				}
+		onSwitchIn(pokemon, source, effect) {
+			const green = [
+				'appletun','applin','araquanid','arboliva','axew','basculegion','basculin','bayleef','bellibolt',
+				'bellossom','bellsprout','breloom','bronzong','bronzor','bulbasaur','cacnea','cacturne','calyrex',
+				'capsakid','charjabug','chesnaught','chespin','chewtle','chikorita','comfey','copperajah','cottonee',
+				'cyclizar','dewpider','dipplin','dolliv','dragapult','drakloak','drednaw','dreepy','duosion','flapple',
+				'floragato','flygon','fraxure','golett','golurk','grimer-alola','grookey','grotle','grovyle','gulpin',
+				'hawlucha','hydrapple','ironleaves','ironthorns','ivysaur','larvitar','leafeon','lilligant','lilligant-hisui',
+				'lombre','lotad','ludicolo','meganium','meowscarada','muk-alola','ogerpon','petilil','politoed','poltchageist',
+				'quilladin','rabsca','rayquaza','regidrago','reuniclus','rillaboom','sandaconda','sceptile','scovillain','scyther',
+				'serperior','servine','shaymin','silicobra','sinistcha','skiploom','smoliv','snivy','solosis','spidops','spinarak',
+				'sprigatito','squawkabilly','swadloon','thwackey','tornadus','torterra','treecko','tropius','turtwig','tyranitar',
+				'venusaur','vibrava','victreebel','virizion','weepinbell','whimsicott','yanmega',
+			];
+			if (green.includes(pokemon.species.id)) {
+				pokemon.addVolatile('lucky');
 			}
-			if (move.self?.chance) move.self.chance *= 2;
-		},
-		onModifyCritRatio(critRatio) {
-			return critRatio + 1;
 		},
 	},
 	movedegradationclause: { // ask kirby about the healing move degradation
@@ -3575,11 +3593,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
         onModifyMove(move, pokemon, target) {
             if (move.category === 'Physical') {
                 move.overrideOffensiveStat = 'spa';
-                this.add('-message', `Upside-Down Power activated!`);
+                this.add('-message', `This physical attack works off of Special Attack!`);
             }
             else if (move.category === 'Special') {
                 move.overrideOffensiveStat = 'atk';
-                this.add('-message', `Upside-Down Power activated!`);
+                this.add('-message', `This special attack works off of Attack!`);
 
             }
         },
@@ -3628,6 +3646,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (typeof accuracy !== 'number') return;
 			this.debug('compoundeyes - enhancing accuracy');
 			return this.chainModify([5325, 4096]);
+		},
+		onSwitchIn(pokemon, source, effect) {
+            this.add('-message', `${pokemon}'s vision feels sharper today...`);
 		},
 	},
 };

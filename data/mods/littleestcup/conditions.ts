@@ -163,6 +163,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// this is a volatile status
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
+			this.add('-message', `Non-Volatile Status Clause activated!`);
 			if (sourceEffect?.id === 'lockedmove') {
 				this.add('-start', target, 'confusion', '[fatigue]');
 			} else if (sourceEffect?.effectType === 'Ability') {
@@ -1115,6 +1116,25 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-message', `Focus Clause activated!`);
 				return true;
 			}
+		},
+	},
+	lucky: {
+		name: 'lucky',
+		onStart(pokemon, source, effect) {
+			this.add('-message', `${pokemon} is feeling lucky!`);
+		},
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+			if (move.self?.chance) move.self.chance *= 2;
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
 		},
 	},
 };

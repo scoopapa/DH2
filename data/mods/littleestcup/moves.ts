@@ -3508,7 +3508,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onTryHit(target, source, move) {
 			if (!source.hasType('Ghost')) {
-				delete move.volatileStatus;
+				delete move.status;
 				delete move.onHit;
 				move.self = {boosts: {spe: -1, atk: 1, def: 1}};
 			} else if (move.status && target.status === 'curse') {
@@ -3522,6 +3522,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			effectType: 'Status',
 			onStart(pokemon, source) {
 				this.add('-start', pokemon, 'Curse', '[of] ' + source);
+				this.add('-message', `Non-Volatile Status Clause activated!`);
 			},
 			onResidualOrder: 12,
 			onResidual(pokemon) {
