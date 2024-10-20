@@ -163,6 +163,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// this is a volatile status
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
+			this.add('-message', `Non-Volatile Status Clause activated!`);
 			if (sourceEffect?.id === 'lockedmove') {
 				this.add('-start', target, 'confusion', '[fatigue]');
 			} else if (sourceEffect?.effectType === 'Ability') {
