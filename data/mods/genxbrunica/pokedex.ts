@@ -1536,7 +1536,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Beaugarn"],
 	},
 	beaugarn: {
-		num: 1560,
+		num: 1561,
 		name: "Beaugarn",
 		types: ["Water", "Ice"],
 		baseStats: {hp: 150, atk: 90, def: 100, spa: 90, spd: 110, spe: 60},
@@ -1553,7 +1553,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Tinozous"],
 	},
 	tinozous: {
-		num: 1561,
+		num: 1562,
 		name: "Tinozous",
 		types: ["Flying", "Dragon"],
 		baseStats: {hp: 90, atk: 88, def: 95, spa: 112, spd: 90, spe: 125},
@@ -1578,10 +1578,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 582.3,
 		eggGroups: ["Undiscovered"],
 	},
-	//Defense and HP have +5 as placeholder distribution for the missing BST
-	wendora: {
+	kaiwakaw: {
 		num: -2,
-		name: "Wendora",
+		name: "Kaiwakaw",
 		types: ["Ghost", "Ice"],
 		gender: "N",
 		baseStats: {hp: 95, atk: 102, def: 95, spa: 134, spd: 130, spe: 124},
@@ -1590,7 +1589,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 259.4,
 		eggGroups: ["Undiscovered"],
 	},
-	//Defense and Speed have +10 as placeholder distribution for Lutakon's missing BST
 	lutakon: {
 		num: -3,
 		name: "Lutakon",
