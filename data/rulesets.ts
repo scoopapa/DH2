@@ -3422,20 +3422,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Luck of the Irish Clause: What does this do?');
 		},
 		onSwitchIn(pokemon, source, effect) {
-			const green = [
-				'appletun','applin','araquanid','arboliva','axew','basculegion','basculin','bayleef','bellibolt',
-				'bellossom','bellsprout','breloom','bronzong','bronzor','bulbasaur','cacnea','cacturne','calyrex',
-				'capsakid','charjabug','chesnaught','chespin','chewtle','chikorita','comfey','copperajah','cottonee',
-				'cyclizar','dewpider','dipplin','dolliv','dragapult','drakloak','drednaw','dreepy','duosion','flapple',
-				'floragato','flygon','fraxure','golett','golurk','grimer-alola','grookey','grotle','grovyle','gulpin',
-				'hawlucha','hydrapple','ironleaves','ironthorns','ivysaur','larvitar','leafeon','lilligant','lilligant-hisui',
-				'lombre','lotad','ludicolo','meganium','meowscarada','muk-alola','ogerpon','petilil','politoed','poltchageist',
-				'quilladin','rabsca','rayquaza','regidrago','reuniclus','rillaboom','sandaconda','sceptile','scovillain','scyther',
-				'serperior','servine','shaymin','silicobra','sinistcha','skiploom','smoliv','snivy','solosis','spidops','spinarak',
-				'sprigatito','squawkabilly','swadloon','thwackey','tornadus','torterra','treecko','tropius','turtwig','tyranitar',
-				'venusaur','vibrava','victreebel','virizion','weepinbell','whimsicott','yanmega',
-			];
-			if (green.includes(pokemon.species.id)) {
+			if (pokemon.species.color === 'Green') {
 				pokemon.addVolatile('lucky');
 			}
 		},
@@ -3618,7 +3605,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
 				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
 				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
-				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'reigsteel',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
 				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
 				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
 				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
