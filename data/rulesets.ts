@@ -3444,8 +3444,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
         },
         onTryHeal(damage, target, source, effect) {
             if (!effect || effect.effectType !== 'Move' || effect.category !== 'Status' || target !== source) return;
-            const healingPenalty = pokemon.m.consecutiveHealing;
-            pokemon.m.consecutiveHealing++;
+            const healingPenalty = source.m.consecutiveHealing;
+            source.m.consecutiveHealing++;
             if (!healingPenalty) return;
             let healingPenaltyMultiplier = 1;
             for (let i = 0; i < healingPenalty; i++) {
