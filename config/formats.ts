@@ -1190,6 +1190,14 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 6] NEXT OU",
+		mod: 'gennext',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Obtainable', 'Standard NEXT', 'Team Preview'],
+		banlist: ['Uber'],
+	},
+	{
 	  name: "[Gen 9] OU Theorymons",
      desc: '<b>[Gen 9] OU Theorymons</b>: Fixing niche and unseen Pokemon in the SV OU Metagame with small buffs.',
 	  threads: [
