@@ -161,7 +161,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 	confusion: {
 		name: 'confusion',
 		// this is a volatile status
+		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
+			this.add('-message', `Non-Volatile Status Clause activated!`);
 			if (sourceEffect?.id === 'lockedmove') {
 				this.add('-start', target, 'confusion', '[fatigue]');
 			} else if (sourceEffect?.effectType === 'Ability') {
@@ -177,9 +179,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 3,
 		onBeforeMove(pokemon) {
-			pokemon.volatiles['confusion'].time--;
-			if (!pokemon.volatiles['confusion'].time) {
-				pokemon.removeVolatile('confusion');
+			pokemon.statusState.time--;
+			if (!pokemon.statusState.time) {
+				pokemon.cureStatus();
 				return;
 			}
 			this.add('-activate', pokemon, 'confusion');
@@ -879,6 +881,58 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return bp;
 		},
 	},
+	movedegradation: {
+		name: 'Move Degradation',
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
+			if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+				this.effectState.numConsecutive++;
+			} else if (pokemon.volatiles['twoturnmove']) {
+				if (this.effectState.lastMove !== move.id) {
+					this.effectState.numConsecutive = 1;
+				} else {
+					this.effectState.numConsecutive++;
+				}
+			} else {
+				this.effectState.numConsecutive = 0;
+			}
+			this.effectState.lastMove = move.id;
+		},
+		onModifyDamage(damage, source, target, move) {
+			const dmgMod = [4096, 3686, 3276, 2867, 2457, 2048];
+			const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+			this.debug(`Current movedegradation boost: ${dmgMod[numConsecutive]}/4096`);
+			return this.chainModify([dmgMod[numConsecutive], 4096]);
+		},
+	}, /*
+	upsidedownpower: {
+		name: 'Upside-Down Power',
+		onModifyMove(move, pokemon, target) {
+			if (move.category === 'Physical') {
+				move.overrideOffensiveStat = 'spa';
+				this.add('-message', `This move went off of the user's SpA due to Upside-Down Power!`);
+			}
+			if (move.category === 'Special') {
+				move.overrideOffensiveStat = 'atk';
+				this.add('-message', `This move went off of the user's Atk due to Upside-Down Power!`);
+
+			}
+		},
+	},*/
+	bigrecoil: {
+		name: 'Big Recoil',
+		onAnyTryMove(target, source, effect) {
+			if ([
+				'explosion', 'mindblown', 'mistyexplosion', 'selfdestruct', 'steelbeam',
+				'chloroblast', 'memento', 'finalgambit', 'lunardance', 'healingwish',
+				].includes(effect.id)) { //decide whether misty should count later
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, effect, '[of] ' + target);
+				this.add('-message', `Big Recoil Clause activated!`);
+				return false;
+			}
+		},
+	},
 	monikerboost: {
 		name: 'Moniker Boost',
 		onStart(pokemon, source, effect) {
@@ -900,10 +954,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',						
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (matchings.includes(pokemon.species.id)) {
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
@@ -931,10 +982,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (this.effectState.bestStat !== 'atk') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -962,10 +1010,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'miraidon', 'ogerpon', 'terapagos',	'scovillain',					
 			];
 			if (this.effectState.bestStat !== 'def') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -993,10 +1038,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',				
+				'miraidon', 'ogerpon', 'terapagos',	'scovillain',					
 			];
 			if (this.effectState.bestStat !== 'spa') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1024,10 +1066,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'miraidon', 'ogerpon', 'terapagos',	'scovillain',					
 			];
 			if (this.effectState.bestStat !== 'spd') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1054,16 +1093,48 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
-				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain',						
 			];
 			if (this.effectState.bestStat !== 'spe') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker spe boost');
 				return this.chainModify(1.5);
 			}
+		},
+	},
+	focusclause: {
+		name: 'focusclause',
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (['bleakwindstorm','crosschop','gunkshot','headsmash','hydropump','darkvoid',
+				 'sandsearstorm','springtimestorm','stoneedge','wildboltstorm','furyswipes','kinesis','submission','lovelykiss',
+				 'magmastorm','sleeppowder','dragonrush','eggbomb','irontail','megakick','poisonpowder',
+				 'slam','stunspore','sweetkiss','blizzard','focusblast','hurricane','thunder',
+				 'dynamicpunch','inferno','zapcannon','smog','hypnosis','grasswhistle','sing','supersonic'].includes(move.id))
+			{
+				this.add('-message', `Focus Clause activated!`);
+				return true;
+			}
+		},
+	},
+	lucky: {
+		name: 'lucky',
+		onStart(pokemon, source, effect) {
+			this.add('-message', `${pokemon} is feeling lucky!`);
+		},
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+			if (move.self?.chance) move.self.chance *= 2;
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
 		},
 	},
 };

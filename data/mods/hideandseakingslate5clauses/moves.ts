@@ -982,7 +982,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Fighting",
@@ -2527,7 +2527,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		noSketch: true,
 		secondary: {
 			chance: 100,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "any",
 		type: "Flying",
@@ -2916,7 +2916,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
-		volatileStatus: 'confusion',
+		status: 'confusion',
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -2935,7 +2935,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Psychic",
@@ -3498,7 +3498,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {bypasssub: 1, metronome: 1},
-		volatileStatus: 'curse',
+		status: 'curse',
 		onModifyMove(move, source, target) {
 			if (!source.hasType('Ghost')) {
 				move.target = move.nonGhostTarget as MoveTarget;
@@ -3508,10 +3508,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onTryHit(target, source, move) {
 			if (!source.hasType('Ghost')) {
-				delete move.volatileStatus;
+				delete move.status;
 				delete move.onHit;
 				move.self = {boosts: {spe: -1, atk: 1, def: 1}};
-			} else if (move.volatileStatus && target.volatiles['curse']) {
+			} else if (move.status && target.status === 'curse') {
 				return false;
 			}
 		},
@@ -3519,8 +3519,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.directDamage(source.maxhp / 2, source, source);
 		},
 		condition: {
+			effectType: 'Status',
 			onStart(pokemon, source) {
 				this.add('-start', pokemon, 'Curse', '[of] ' + source);
+				this.add('-message', `Non-Volatile Status Clause activated!`);
 			},
 			onResidualOrder: 12,
 			onResidual(pokemon) {
@@ -4085,7 +4087,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
 		secondary: {
 			chance: 20,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Normal",
@@ -4701,7 +4703,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Fighting",
@@ -6141,7 +6143,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
-		volatileStatus: 'confusion',
+		status: 'confusion',
 		boosts: {
 			spa: 1,
 		},
@@ -9685,7 +9687,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "any",
 		type: "Flying",
@@ -11466,7 +11468,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		noSketch: true,
 		secondary: {
 			chance: 30,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Fairy",
@@ -15065,7 +15067,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Psychic",
@@ -16354,7 +16356,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 20,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Normal",
@@ -17659,7 +17661,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Bug",
@@ -19576,7 +19578,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 20,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "normal",
 		type: "Fairy",
@@ -19963,7 +19965,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		volatileStatus: 'confusion',
+		status: 'confusion',
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -20029,7 +20031,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
-		volatileStatus: 'confusion',
+		status: 'confusion',
 		boosts: {
 			atk: 2,
 		},
@@ -20075,7 +20077,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
-		volatileStatus: 'confusion',
+		status: 'confusion',
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -20613,7 +20615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1, metronome: 1},
-		volatileStatus: 'confusion',
+		status: 'confusion',
 		secondary: null,
 		target: "allAdjacent",
 		type: "Normal",
@@ -22216,7 +22218,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
 		secondary: {
 			chance: 20,
-			volatileStatus: 'confusion',
+			status: 'confusion',
 		},
 		target: "any",
 		type: "Water",
@@ -22904,54 +22906,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-	},
-	
-// big dog
-	bigdogtime: {
-		shortDesc: "Allows big dog Clause to work.",
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "big dog time",
-		pp: 1,
-		priority: 0,
-		flags: {},
-		noSketch: true,
-		sideCondition: 'bigdogtime',
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: big dog time');
-				this.add('-message', `Who let let the dogs out? They can Dynamax, you know!`);
-				if (side.sideConditions['dynamaxused']) {
-					side.dynamaxUsed = true;
-				} else {
-					side.dynamaxUsed = false;				
-				}
-			},
-			onSideResidualOrder: 26,
-			onSideResidualSubOrder: 2,
-			onSideEnd(side) {
-				this.add('-sideend', side, 'move: big dog time');
-			},
-		},
-		secondary: null,
-		target: "allySide",
-		type: "Normal",
-	},
-	dynamaxused: {
-		shortDesc: "Prevents Dynamax from being used multiple times.",
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Dynamax Used",
-		pp: 5,
-		priority: 0,
-		flags: {},
-		noSketch: true,
-		sideCondition: 'dynamaxused',
-		condition: {},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
 	},
 };
