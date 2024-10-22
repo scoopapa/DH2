@@ -59,4 +59,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "Uber",
 	},
+
+	// Showing Genesects in builder
+	genesectdouse: {
+		inherit: true,
+		tier: "OU",
+	},
+	genesectchill: {
+		inherit: true,
+		tier: "OU",
+	},
+	genesectshock: {
+		inherit: true,
+		tier: "OU",
+	},
+	genesectburn: {
+		inherit: true,
+		tier: "OU",
+	},
 };
