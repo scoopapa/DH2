@@ -104,4 +104,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	thaumaton: {
 		tier: "BC",
 	},
+	sculptera: {
+		tier: "BC",
+	},
+	lavalisk: {
+		tier: "BC",
+	},
+	martorse: {
+		tier: "BC",
+	},
+	parasike: {
+		tier: "BC",
+	},
 };
