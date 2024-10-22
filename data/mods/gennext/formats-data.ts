@@ -60,7 +60,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Uber",
 	},
 
-	// Showing Genesects in builder
+	// Showing Genesects in builder, legalizing Floette-E as intended
 	genesectdouse: {
 		inherit: true,
 		tier: "OU",
@@ -75,6 +75,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	genesectburn: {
 		inherit: true,
+		tier: "OU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
 		tier: "OU",
 	},
 };
