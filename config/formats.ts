@@ -1081,6 +1081,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Beedrillite'
 		],
+		teambuilderFormat: "National Dex",
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};

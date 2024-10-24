@@ -293,7 +293,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
    accelgor: {
 		tier: "MetaMons",
 	},
-   dachsbun: {
+  dachsbun: {
 		tier: "MetaMons",
 	},
 	lickilicky: {
@@ -321,6 +321,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MetaMons",
 	},
 	raticatealola: {
+		tier: "MetaMons",
+	},
+	rotomheatgen9: {
+		tier: "MetaMons",
+	},
+	milotic: {
+		tier: "MetaMons",
+	},
+	staraptor: {
 		tier: "MetaMons",
 	},
 };
