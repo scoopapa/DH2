@@ -902,8 +902,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',						
+				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
+				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
+				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
+				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
+				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',					
 			];
 			if (matchings.includes(pokemon.species.id)) {
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
@@ -933,8 +937,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
+				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
+				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
+				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
+				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',				
 			];
 			if (this.effectState.bestStat !== 'atk') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -964,8 +972,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
+				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
+				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
+				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
+				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',			
 			];
 			if (this.effectState.bestStat !== 'def') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -995,8 +1007,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',				
+				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
+				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
+				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
+				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
+				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',			
 			];
 			if (this.effectState.bestStat !== 'spa') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1026,8 +1042,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
+				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
+				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
+				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
+				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',				
 			];
 			if (this.effectState.bestStat !== 'spd') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1056,8 +1076,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',
+				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
+				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
+				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
+				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
+				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',
 			];
 			if (this.effectState.bestStat !== 'spe') return;
 			if (matchings.includes(pokemon.species.id)) {
