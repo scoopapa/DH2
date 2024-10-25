@@ -3031,7 +3031,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',
 			];
 			for (const pokemon of this.getAllPokemon()) {
 				if (matchings.includes(pokemon.species.id)) {
