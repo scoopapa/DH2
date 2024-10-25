@@ -903,7 +903,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',						
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			if (matchings.includes(pokemon.species.id)) {
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
@@ -934,7 +934,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			if (this.effectState.bestStat !== 'atk') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -965,7 +965,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			if (this.effectState.bestStat !== 'def') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -996,7 +996,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',				
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			if (this.effectState.bestStat !== 'spa') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1027,7 +1027,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			if (this.effectState.bestStat !== 'spd') return;
 			if (matchings.includes(pokemon.species.id)) {
@@ -1057,7 +1057,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			if (this.effectState.bestStat !== 'spe') return;
 			if (matchings.includes(pokemon.species.id)) {
