@@ -3030,12 +3030,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
 				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
-				'zygarde10', 'terapagosterastal', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'ogerponwellspring', 'ogerponcornerstone',
-				'terapagosstellar', 'genesectburn', 'genesectchill', 'genesectshock', 'genesectshock', 'zygardecomplete',
-				'dialgaorigin', 'palkiaorigin', 'cherrimsunshine', 'hoopaunbound', 'magearnaoriginal', 'rotommow',
-				'rotomfan', 'zaciancrowned', 'zamazentacrowned', 'morpekohangry', 'kyuremblack', 'kyuremwhite',
-				'deoxysattack', 'kyogreprimal', 'groudonprimal', 'butterfreegmax',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
 			];
 			for (const pokemon of this.getAllPokemon()) {
 				if (matchings.includes(pokemon.species.id)) {
