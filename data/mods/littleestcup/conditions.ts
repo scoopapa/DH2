@@ -901,7 +901,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
 				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',						
 			];
@@ -932,7 +932,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
 				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
 			];
@@ -963,7 +963,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
 				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
 			];
@@ -994,7 +994,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
 				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',				
 			];
@@ -1025,7 +1025,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
 				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',					
 			];
@@ -1055,7 +1055,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
 				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega',
 			];
