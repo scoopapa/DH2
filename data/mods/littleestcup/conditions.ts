@@ -939,7 +939,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectState.bestStat !== 'atk') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker atk boost');
-				return this.chainModify(1.5);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifyDefPriority: 6,
@@ -970,7 +970,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectState.bestStat !== 'def') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker def boost');
-				return this.chainModify(1.5);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -1001,7 +1001,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectState.bestStat !== 'spa') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker spa boost');
-				return this.chainModify(1.5);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifySpDPriority: 6,
@@ -1032,7 +1032,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectState.bestStat !== 'spd') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker spd boost');
-				return this.chainModify(1.5);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifySpe(spe, pokemon) {
