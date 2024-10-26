@@ -3009,7 +3009,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'Rule',
 		name: 'Moniker Clause',
 		onBegin() {
-			this.add('rule', 'Moniker Clause: Gives Pokemon whose names in English and Japanese match a 1.5x boost to their highest stat');
+			this.add('rule', 'Moniker Clause: Gives Pokemon whose names in English and Japanese match a 1.3x (1.5x if Speed) boost to their highest stat');
 			const matchings = [
 				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
 				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
