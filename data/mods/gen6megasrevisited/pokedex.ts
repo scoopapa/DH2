@@ -245,5 +245,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rayquazamega: {
 		inherit: true,
 		requiredItem: "Meteorite",
+		requiredMove: null,
 	},
 };
