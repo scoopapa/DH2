@@ -1591,8 +1591,8 @@ export class RandomTeams {
 		return [pokemonPool, baseSpeciesPool];
 	}
 
-	randomSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./sets.json');
-	randomDoublesSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./doubles-sets.json');
+	randomSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./random-sets.json');
+	randomDoublesSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./random-doubles-sets.json');
 
 	randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
