@@ -607,7 +607,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 
 // Ubers
 	smeargle: {
-		tier: "DoNU Uber",
+		tier: "DoNU",
+		isNonstandard: null,
+	},
+	pokestarsmeargle: {
+		tier: "DoNU",
 		isNonstandard: null,
 	},
 	wishiwashi: {
@@ -619,11 +623,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: null,
 	},
 	dewpider: {
-		tier: "DoNU Uber",
+		tier: "DoNU",
 		isNonstandard: null,
 	},
 	flittle: {
-		tier: "DoNU Uber",
+		tier: "DoNU",
 		isNonstandard: null,
 	},
 	zigzagoon: {
