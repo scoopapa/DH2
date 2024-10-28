@@ -510,7 +510,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	electrodehisui: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	exeggcute: {
 		tier: "LC",
@@ -1503,6 +1503,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	castform: {
 		tier: "UU",
 	},
+	castformrainy: {
+		isNonstandard: "Unobtainable",
+		tier: "Illegal",
+	},
+	castformsnowy: {
+		isNonstandard: "Unobtainable",
+		tier: "Illegal",
+	},
+	castformsunny: {
+		isNonstandard: "Unobtainable",
+		tier: "Illegal",
+	},
 	kecleon: {
 		tier: "UU",
 	},
@@ -1657,7 +1669,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	deoxysdefense: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	deoxysspeed: {
 		tier: "Uber",
@@ -2657,7 +2669,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	floetteeternal: {
-		tier: "UU",
+		isNonstandard: "Unobtainable",
+		tier: "Illegal",
 	},
 	florges: {
 		tier: "UU",
