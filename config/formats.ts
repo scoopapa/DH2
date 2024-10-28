@@ -492,7 +492,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3749356/">Do Not Use: The Pet Mod: The Musical</a>`,
 		],
 		mod: 'donotusetmptm',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause', 'Data Mod'],
 		teambuilderFormat: 'National Dex',
 		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody'],
 		unbanlist: ['Assist'],
