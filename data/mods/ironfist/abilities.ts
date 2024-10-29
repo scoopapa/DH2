@@ -23,6 +23,14 @@ export function getName(name: string): string {
 }
 
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	/*
+	placeholder: {
+		
+		flags: {},
+		name: "",
+		shortDesc: "",
+	},
+	*/
   	//slate 1
 	ultraluck: {
 		onModifyCritRatio(critRatio) {
@@ -35,12 +43,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp * 0.28, target, pokemon);
+				this.damage(target.baseMaxhp * 0.27, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 28% of their max HP.",
+		shortDesc: "When the user switches out, damage active opponents by 27% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
@@ -808,12 +816,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//slate 4
 	reaganomics: {
 		onStart(pokemon) {
+			if (pokemon.reagan) return;
+			pokemon.reagan = true;
 			if(pokemon.side.fishingTokens > 0) pokemon.side.addFishingTokens(pokemon.side.fishingTokens);
 			if(this.randomChance(1, 8192)) pokemon.side.foe.addFishingTokens(1);
 		},
 		flags: {},
 		name: "Reaganomics",
-		shortDesc: "On switchin, this Pokemon doubles its side's Fishing tokens. 1/8192 chance for opp's side to get 1.",
+		shortDesc: "On switchin, side's Fishing tokens x2. 1/8192 chance for +1 token for the foe. Once per battle.",
 	},
 	gexserver: {
 		onStart(pokemon) {
@@ -836,10 +846,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon) {
 				this.add('-message', `${pokemon.name} was hacked!`);
 			},
-			onPrepareHit(source, target, move) {
+			onModifyPriority(priority, pokemon, target, move) {
 				if (this.randomChance(3, 10)) {
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|https://twitter.com/Duo__M2`);
 					if (target) target.addVolatile('gexserver');
+					return priority - 6;
 				}
 			},
 		},
@@ -909,6 +920,155 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 	},
 
+	//slate 5
+	crossover: {
+		onModifyPriority(priority, pokemon, target, move) {
+			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyafia",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun & plusle!"];
+			if (!target || target === pokemon) {
+				if (!pokemon.adjacentFoes().length) return;
+				target = this.sample(pokemon.adjacentFoes());
+			}
+			if (nonVanilla.includes(target.baseSpecies.name)) return priority + 1;
+		},
+		flags: {},
+		name: "Crossover",
+		shortDesc: "This Pokemon's moves have +1 priority against Fakemon.",
+	},
+	whatthesigma: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Silly') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: What the Sigma');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "What the Sigma",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Silly move; Silly immunity.",
+	},
+	steadfast: {
+		inherit: true,
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') {
+				this.boost({spe: 1});
+				return null;
+			}
+		},
+		shortDesc: "If this Pokemon were to flinch, its Speed is raised by 1 instead.",
+	},
+	justified: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Justified');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Justified",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Dark move; Silly immunity.",
+	},
+	bonappetit: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.side.fishingTokens > 0) {
+				pokemon.side.removeFishingTokens(1);
+				this.heal(pokemon.baseMaxhp / 10);
+			}
+		},
+		flags: {},
+		name: "Bon Appetit",
+		shortDesc: "At the end of each turn, consume 1 Fishing Token to heal 1/10 max HP.",
+	},
+	thepearlhand: {
+		onStart(pokemon) {
+			const diamondHandFainted = pokemon.side.foe.pokemon.filter(p => p.fainted && p.baseSpecies.diamondHand);
+			if (diamondHandFainted.length) {
+				this.add('-activate', pokemon, 'ability: The Pearl Hand');
+				const fallen = Math.min(diamondHandFainted.length, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			} else this.boost({spe: -2}, pokemon);
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`The Pearl Hand boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "The Pearl Hand",
+		shortDesc: "+10% move BP per fainted Diamond Hand on foe side (max 5). Else -2 Spe.",
+	},
+	theevergrowinghungerofcapitalism: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if(target.side.fishingTokens > 0) {
+				target.side.removeFishingTokens(1);
+				source.side.addFishingTokens(1);
+			} else this.boost({spd: 1}, source, source);
+		},
+		flags: {},
+		name: "The Ever-Growing Hunger of Capitalism™",
+		shortDesc: "This Pokemon's attacks steal one token. If there are none, +1 SpD instead.",
+	},
+	katabaticwinds: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.field.getPseudoWeather('gravity') && move.type === 'Flying' && target !== source) {
+				this.add('-immune', target, '[from] ability: Katabatic Winds');
+				return null;
+			}
+		},
+		flags: {},
+		name: "Katabatic Winds",
+		shortDesc: "This Pokemon is immune to Flying-type moves in Gravity.",
+	},
+	bestfriends: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+			move.multihit = 2;
+			move.multihitType = 'bestfriends';
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'bestfriends' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		flags: {},
+		name: "best friends <3",
+		shortDesc: "This Pokemon's moves hit twice at 0.49x power.",
+	},
+	honorstudent: {
+		onStart(pokemon) {
+			let activated = false;
+			const diamondHand = pokemon.side.pokemon.filter(p => !p.fainted && p.baseSpecies.diamondHand);
+			for (const target of pokemon.adjacentFoes()) {
+				if (diamondHand.length > 1) {
+					console.log(diamondHand.length);
+					this.add('-ability', pokemon, 'Honor Student');
+					activated = true;
+					this.damage(0.02 * diamondHand.length * target.baseMaxhp, pokemon, pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Honor Student",
+		shortDesc: "On switchin, opposing Pokemon lose 2% max HP for each other Diamond Hand member.",
+	},
+	
 	//vanilla
 	mimicry: {
 		inherit: true,

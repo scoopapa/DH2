@@ -49,7 +49,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.id);
-				if (move.type === 'Electric' || move.type === 'Grass') {
+				if (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Lemon') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -454,5 +454,56 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		forcedForme: "Boogerpon-CLOWNerstone",
 		itemUser: ["Boogerpon-CLOWNerstone"],
+	},
+
+	//slate 5
+	covertcloak: {
+		inherit: true,
+		shortDesc: "Holder nullifies all secondary effects of another Pokemon's attack.",
+		onTakeItem: false,
+		onModifySecondaries(secondaries) {
+			return secondaries.filter(effect => !!effect.cloak);
+		},
+		rating: 3,
+	},
+	sillymemory: {
+		name: "Silly Memory",
+		shortDesc: "Holder's Multi-Attack is Silly type.",
+		spritenum: 679,
+		onMemory: 'Silly',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Silly",
+		itemUser: ["Silvally-Silly"],
+	},
+	stellariumz: {
+		name: "Stellarium Z",
+		shortDesc: "If holder has an attacking move, this item allows it to use a Stellar Z-Move.",
+		spritenum: 633,
+		onMemory: 'Stellar',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Stellar",
+		forcedForme: "Silvally-Stellar",
+		rating: 3,
+	},
+	bigbuttonbutton: {
+		name: "Big Button Button",
+		spritenum: 118,
+		fling: {
+			basePower: 60,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if(!source.volatiles['bigbutton']) {
+				target.useItem();
+				source.addVolatile('bigbutton');
+			}
+		},
+		shortDesc: "On hit, force the opponent to use Big Button. Single use.",
+		rating: 3,
 	},
 }
