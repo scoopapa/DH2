@@ -1079,8 +1079,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica Uber",
 		doublesTier: "DOU",
 	},
-
-
+	lakegishi: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	plowudji: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	magesym: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	manasym: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 	akulut: {
 		tier: "Brunica Uber",
 		doublesTier: "DOU",
@@ -1095,6 +1109,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lutakonawakened: {
 		tier: "Brunica Uber",
+		doublesTier: "DOU",
+	},
+	luckini: {
+		tier: "Brunica Uber",
+		doublesTier: "DOU",
+	},
+	girachi: {
+		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
 };

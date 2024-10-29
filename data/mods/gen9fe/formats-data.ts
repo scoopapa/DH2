@@ -794,6 +794,22 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		requiredItem: "Medichamite",
 		doublesTier: "DOU",
 	},
+	eldetini: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	tinkophlosionhisui: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	glimmocruel: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	diafetchd: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -912,6 +928,18 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	applipokegalar: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	tinkaquil: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	tinkalava: {
+		tier: "FENFE",
+		doublesTier: "DOU",
+	},
+	glimmcool: {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
