@@ -2111,7 +2111,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 	},
-	thief: {
+	/*thief: {
 		inherit: true,
 		shortDesc: "Steels the target's item.",
 		onAfterHit(target, source) {
@@ -2123,7 +2123,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			target.setItem(ironball);
 			this.add("-message", `${source.name} steeled ${target.name}'s ${item}!`);
 		}
-	},
+	},*/
 	swiftsquirt: {
 		name: "Swift Squirt",
 		type: "Lemon",
@@ -2262,8 +2262,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	balatroblast: {
 		name: "Balatro Blast",
 		type: "Silly",
-		category: "40",
-		basePower: 0,
+		category: "Special",
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower + 20 * pokemon.side.getSideCondition('trumpcard').effectState.layers;
+			this.debug('BP: ' + bp);
+			return bp;
+		},
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "+20 power for each ally that has used Trump Card.",
@@ -2317,8 +2322,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Tar Shot", target);
 		},
 		onAfterHit(target, source, move) {
-			if (source.hasType('Lemon') || source.baseSpecies.fish) {
-				source.trySetStatus('brn');
+			if (target.hasType('Lemon') || target.baseSpecies.fish) {
+				target.trySetStatus('brn');
 			}
 		},
 		secondary: null,
@@ -2410,6 +2415,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Bonemerang", target);
 		},
 		multihit: 2,
+		secondary: null,
+		target: "normal",
+	},
+	teratriplebasedballbarrage: {
+		name: "Tera Triple Basedball Barrage",
+		type: "Stellar",
+		category: "Physical",
+		basePower: 1,
+		accuracy: true,
+		pp: 1,
+		shortDesc: "",
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Astral Barrage", target);
+		},
+		isZ: "stellariumz",
 		secondary: null,
 		target: "normal",
 	},
@@ -2692,4 +2715,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	gmaxcuddle: null,
+	trumpcard: {
+		inherit: true,
+		onAfterHit(target, source, move) {
+			source.side.addSideCondition('trumpcard');
+		},
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Trump Card');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				this.effectState.layers++;
+			},
+		},
+	},
 }
