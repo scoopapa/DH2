@@ -2220,6 +2220,111 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
+	//slate 5
+	maldfist: {
+		name: "Mald Fist",
+		type: "Ghost",
+		category: "Physical",
+		accuracy: 100,
+		pp: 10,
+		basePower: 50,
+		shortDesc: "+10 power for each PP used.",
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 10 * (pp - moveSlot.pp);
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Rage Fist", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	airhorn: {
+		name: "Air Horn",
+		type: "Silly",
+		category: "Special",
+		basePower: 55,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Guaranteed crit if either Pokemon used Big Button.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1,},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Boomburst", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if(pokemon.volatiles['bigbutton'] || target.volatiles['bigbutton']) move.willCrit = true;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	balatroblast: {
+		name: "Balatro Blast",
+		type: "Silly",
+		category: "40",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "+20 power for each ally that has used Trump Card.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Hyper Beam", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fiendfire: {
+		name: "Fiend Fire",
+		type: "Fire",
+		category: "Special",
+		basePower: 50,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Consumes user's tokens; hits for that many tokens, max 4.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Magma Storm", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			const pokeSide = pokemon.side;
+			if(pokeSide.fishingTokens > 0) {
+				const hits = Math.min(pokeSide.fishingTokens, 4);
+				pokeSide.removeFishingTokens(pokeSide.fishingTokens);
+				move.multihit = hits;
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	jurassicfeast: {
+		name: "Jurassic Feast",
+		type: "Rock",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Always crits. Burns Lemon-type or fish Pokemon.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		willCrit: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tar Shot", target);
+		},
+		onAfterHit(target, source, move) {
+			if (source.hasType('Lemon') || source.baseSpecies.fish) {
+				source.trySetStatus('brn');
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	
 	//Silly shit
 	attract: {
 		inherit: true,
