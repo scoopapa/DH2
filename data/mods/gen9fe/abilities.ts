@@ -3890,6 +3890,101 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 	},
+	hopestar: {
+		name: "Hope Star",
+		shortDesc: "Regenerator + Victory Star",
+		onAnyModifyAccuracyPriority: -1,
+		onAnyModifyAccuracy(accuracy, target, source) {
+			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number') {
+				return this.chainModify([4506, 4096]);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+	},
+	frisktaker: {
+		name: "Frisk Taker",
+		shortDesc: "Frisk + Mold Breaker",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Frisk Taker');
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk Taker', '[of] ' + pokemon);
+				}
+			}
+		},
+		flags: {},
+	},
+	hotpockets: {
+		name: "Hot Pockets",
+		shortDesc: "Blaze + Pickpocket. Incoming Fire moves activate Pickpocket.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move && (move.flags['contact'] || move.type === 'Fire')) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Hot Pockets', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Hot Pockets', '[of] ' + source);
+			}
+		},
+		flags: {},
+	},
+	myceliumwaste: {
+		name: "Mycelium Waste",
+		shortDesc: "Physical and Status moves go last in their priority bracket.",
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category !== 'Special') {
+				return -0.1;
+			}
+		},
+		flags: {},
+	},
+	menacing: {
+		shortDesc: "Defiant + Pressure",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Menacing');
+		},
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) return;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					this.boost({atk: 2}, target, target, null, false, true);
+					return;
+				}
+			}
+		},
+		flags: {},
+		name: "Menacing",
+	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives
 	innerfocus: {
