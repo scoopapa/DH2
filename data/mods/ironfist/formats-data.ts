@@ -103,6 +103,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	melmetal2: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -219,6 +220,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	smelmetal: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -283,10 +285,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	ougayporncomerstone: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
 	palpitoadissocool: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -295,12 +293,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	moltresmega: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
 	jirachitwo: {
-		tier: "IF",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	shinxfishing: {
@@ -351,7 +350,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	'cowboy_bandido': {
+	cowboybandido: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
@@ -383,7 +382,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	mt: {
+	pokestarmt: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
@@ -408,6 +407,116 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	inkay: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallylemon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	
+	ronaldreagan: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	limelips: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemotic: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	zestii: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	sunflora: {
+		tier: "Gone!",
+		doublesTier: "DOU",
+	},
+	rawringmoon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	boogerponclownerstone: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	keisbergif: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	indeedee: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	applesnewestemoji: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	cinderace: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemonfish: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	dracolition: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+
+	goddease: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	jableye: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	kyrum: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	raccoon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lucariocalm: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	nedontrol: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	princirang: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	ironclown: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	thepearlhand: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	mcfish: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	applwirm: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	minunplusle: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallystellar: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

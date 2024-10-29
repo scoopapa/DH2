@@ -47,6 +47,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				learnset.frustration = ["9M"];
 				learnset['return'] = ["9M"];
 				learnset.takedown = ["9M"];
+				learnset.doubleteam = ["9M"];
+				//Now let's free the ones that were TMs/Tutors in past gens and Brunica but not SV
+				learnset.honeclaws &&= ["9M"];
+				learnset.safeguard &&= ["9M"];
+				learnset.attract &&= ["9M"];
+				learnset.roost &&= ["9M"];
+				learnset.steelwing &&= ["9M"];
+				learnset.explosion &&= ["9M"];
+				learnset.retaliate &&= ["9M"];
+				learnset.bounce &&= ["9T"];
+				learnset.irontail &&= ["9T"];
+				learnset.signalbeam &&= ["9T"];
+				learnset.steelroller &&= ["9T"];
+				learnset.superpower &&= ["9T"];
 				continue;
 			}
 			
@@ -523,6 +537,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets","kirlia").learnset.healingnature = ["9L1"];
 		this.modData("Learnsets","gardevoir").learnset.healingnature = ["9L1"];
 		this.modData("Learnsets","gallade").learnset.healingnature = ["9L1"];
+		
+		//noibat line
+		this.modData("Learnsets","noibat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets","noivern").learnset.drainfang = ["9M"];
 		
 	},
 	runAction(action) {
@@ -1496,7 +1514,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if (this.hasAbility(['levitate', 'soaringspirit']) && !this.battle.suppressingAbility(this)) return null;
+			if ((this.hasAbility(['levitate', 'soaringspirit']) || (this.species.name === 'Fulmenops-Stormy')
+				&& this.hasAbility('weatherflux')) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
 			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them

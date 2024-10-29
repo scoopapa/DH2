@@ -155,9 +155,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Flower Veil"},
 		weightkg: 999.9,
 	},
+	charizard: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 99, def: 85, spa: 109, spd: 85, spe: 113},
+	},
 	charizardgmax: {
 		inherit: true,
-		abilities: {0: "Mold Breaker"},
+		baseStats: {hp: 78, atk: 99, def: 85, spa: 109, spd: 85, spe: 113},
+		abilities: {0: "Battle Bond (Charizard)"},
 		weightkg: 999.9,
 	},
 	blastoisegmax: {
@@ -192,9 +197,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Scrappy"},
 		weightkg: 999.9,
 	},
+	gengar: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 65, def: 70, spa: 135, spd: 85, spe: 120},
+		abilities: {0: "Levitate"},
+	},
 	gengargmax: {
 		inherit: true,
-		abilities: {0: "Mummy"},
+		baseStats: {hp: 60, atk: 65, def: 70, spa: 135, spd: 85, spe: 120},
+		abilities: {0: "Corrosion"},
 		weightkg: 999.9,
 	},
 	kingler: {
@@ -255,9 +266,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Magic Guard"},
 		weightkg: 999.9,
 	},
+	inteleon: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 90, def: 85, spa: 125, spd: 65, spe: 110},
+		abilities: {0: "Torrent", H: "Super Luck"},
+	},
 	inteleongmax: {
 		inherit: true,
-		abilities: {0: "Storm Drain"},
+		baseStats: {hp: 70, atk: 90, def: 85, spa: 125, spd: 65, spe: 110},
+		abilities: {0: "Stakeout"},
 		weightkg: 999.9,
 	},
 	corviknightgmax: {
@@ -332,13 +349,25 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Sand Rush"},
 		weightkg: 999.9,
 	},
+	toxtricity: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 118, def: 70, spa: 118, spd: 70, spe: 86},
+		abilities: {0: "Punk Rock", 1: "Iron Fist", H: "Technician"},
+	},
+	toxtricitylowkey: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 78, def: 90, spa: 129, spd: 90, spe: 75},
+		abilities: {0: "Punk Rock", 1: "Storm Drain", H: "Technician"},
+	},
 	toxtricitygmax: {
 		inherit: true,
-		abilities: {0: "Electromorphosis"},
+		baseStats: {hp: 75, atk: 118, def: 70, spa: 118, spd: 70, spe: 86},
+		abilities: {0: "Merciless"},
 		weightkg: 999.9,
 	},
 	toxtricitylowkeygmax: {
 		inherit: true,
+		baseStats: {hp: 75, atk: 78, def: 90, spa: 129, spd: 90, spe: 75},
 		abilities: {0: "Electromorphosis"},
 		weightkg: 999.9,
 	},
@@ -390,9 +419,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Bulletproof"},
 		weightkg: 999.9,
 	},
+	duraludon: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 95, def: 115, spa: 110, spd: 60, spe: 85},
+		abilities: {0: "Light Metal", 1: "Bulletproof", H: "Stalwart"},
+	},
 	duraludongmax: {
 		inherit: true,
-		abilities: {0: "Pressure"},
+		baseStats: {hp: 70, atk: 95, def: 115, spa: 110, spd: 60, spe: 85},
+		abilities: {0: "Unaware"},
 		weightkg: 999.9,
 	},
 	urshifugmax: {

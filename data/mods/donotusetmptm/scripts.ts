@@ -29,5 +29,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "snom").learnset.swift = ["9L1"];
 		this.modData("Learnsets", "snom").learnset.waterpulse = ["9L1"];
 		this.modData("Learnsets", "snom").learnset.weatherball = ["9L1"];
+		delete this.modData('Learnsets', 'flittle').learnset.agility;
+		delete this.modData('Learnsets', 'smeargle').learnset.sketch;
+		this.modData("Learnsets", "dewpider").learnset.silktrap = ["9L1"];
+		this.modData("Learnsets", "dewpider").learnset.toxicthread = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.airslash = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.bravebird = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "diglettalola").learnset.voltswitch = ["9L1"];
+		this.modData("Learnsets", "diglettalola").learnset.rapidspin = ["9L1"];
 	},
 };

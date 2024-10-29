@@ -33,12 +33,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Tapu Lop, this item allows it to Mega Evolve in battle.",
 	},
 	redorb: {
-		name: "Red Orb",
-		spritenum: 390,
+		inherit: true,
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
-			} else if (pokemon.isActive && pokemon.baseSpecies.name === 'Grousle') {
+			if (pokemon.isActive && ['Groudon', 'Grousle'].includes(pokemon.baseSpecies.name)) {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
@@ -50,19 +47,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Groudon' || source.baseSpecies.baseSpecies === 'Grousle') return false;
-			return true;
+			return !(['Groudon', 'Grousle'].includes(source.baseSpecies.baseSpecies))
 		},
 		itemUser: ["Groudon", "Grousle"],
-		num: 534,
 	},
 	blueorb: {
-		name: "Blue Orb",
-		spritenum: 41,
+		inherit: true,
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
-			} else if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyottler') {
+			if (pokemon.isActive && ['Kyogre', 'Kyottler'].includes(pokemon.baseSpecies.name)) {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
@@ -74,11 +66,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Kyogre' || source.baseSpecies.baseSpecies === 'Kyottler') return false;
-			return true;
+			return !(['Kyogre', 'Kyottler'].includes(source.baseSpecies.baseSpecies))
 		},
 		itemUser: ["Kyogre", "Kyottler"],
-		num: 535,
 	},
 	pidgeotite: {
 		name: "Pidgeotite",

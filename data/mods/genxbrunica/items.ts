@@ -187,6 +187,95 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		shortDesc: "Evolves Doltoise into Sagachelys when traded.",
 	},
+	syncstone: {
+		name: "Sync Stone",
+		fling: {
+			basePower: 30,
+		},
+		shortDesc: "First non-multistrike move becomes 90BP. Single use.",
+		onBasePowerPriority: 99,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move && !move.multihit && move.id !== 'fling' && pokemon.useItem()) return 90;
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 100, boosts: {atk: 1, spa: 1}});
+		},
+	},
+	boostingbismuth: {
+		name: "Boosting Bismuth",
+		fling: {
+			basePower: 20,
+		},
+		shortDesc: "First +1 boost(s) doubled. Single use.",
+		onChangeBoost(boost, target, source, effect) {
+			let used = false;
+			console.log("Source is " + source + ", target is " + target);
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i] === 1 && (used || target.useItem())) {
+					boost[i] = 2;
+					used = true;
+				}
+			}
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({
+				chance: 100, 
+				onHit() {
+					target.clearBoosts();
+					this.add('-clearboost', target);
+				},
+				}
+			);
+		},
+	},
+	lethargytablet: {
+		name: "Lethargy Tablet",
+		fling: {
+			basePower: 50,
+		},
+		shortDesc: "+1 Priority moves from any Pokemon become -7 instead.",
+		onAnyModifyPriority(priority, pokemon, target, move) {
+			if (priority > 0.1 && priority <= 1.1) return priority - 8;
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 100, boosts: {spe: -2}});
+		},
+	},
+	platefossil: {
+		name: "Plate Fossil",
+		fling: {
+			basePower: 50,
+		},
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 100, boosts: {def: -1}});
+		},
+		shortDesc: "Can be revived into Stegsaw.",
+	},
+	talonfossil: {
+		name: "Talon Fossil",
+		fling: {
+			basePower: 50,
+			volatileStatus: 'flinch',
+		},
+		shortDesc: "Can be revived into Raphlete.",
+	},
+	hornfossil: {
+		name: "Horn Fossil",
+		fling: {
+			basePower: 80,
+			status: 'par',
+		},
+		shortDesc: "Can be revived into Fulmenops.",
+	},
 	
 	//Type Balms
 	normalbalm: {

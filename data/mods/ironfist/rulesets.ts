@@ -7,8 +7,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.add('rule', 'Silvally Clause: You can use up to 6 Silvally');
 		},
 		onSwitchIn(pokemon) {
+			console.log(pokemon.set.nature);
 			if (pokemon.big) {
 				pokemon.addVolatile('bigbutton');
+			}
+			if (pokemon.set.nature === 'Serious') {
+				if (!pokemon.addType('Serious')) return false;
+				this.add('-start', pokemon, 'typeadd', 'Serious');
 			}
 		},
 		onValidateTeam(team, format) {

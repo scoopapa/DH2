@@ -118,7 +118,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
@@ -1724,8 +1724,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	fortunomorphosis: {
 		shortDesc: "This Pokemon gains the Laser Focus effect when it takes a hit from an attack.",
-	  onDamagingHitOrder: 1,
-	  onDamagingHit(damage, target, source, move) {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
 			target.addVolatile('laserfocus');
 		},
 		flags: {},
@@ -1733,17 +1733,29 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 	},
 	burningpetals: {
-		shortDesc: "Flash Fire effects + Allied Fire-types can't have stats lowered or be statused.",
+		shortDesc: "Allied Fire-types status/stat drop/Fire immune; Gains x1.5 to Fire on activation.",
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fire') {
+			if (target !== source && move.type === 'Fire' && target.hasType('Fire')) {
 				move.accuracy = true;
 				if (!target.addVolatile('burningpetals')) {
-					this.add('-immune', target, '[from] ability: Burning Petals');
+					this.add('-block', target, 'ability: Burning Petals', '[of] ' + target)
+					this.add('-message', `${target.name} is surrounded by burning petals!`);
 				}
 				return null;
 			}
 		},
-		onAllyBoost(boost, target, source, effect) {
+		onAllyTryHitSide(target, source, move) {
+			if (!target.isAlly(source) && move.type === 'Fire' && target.hasType('Fire')) {
+				move.accuracy = true;
+				const effectHolder = this.effectState.target;
+				if (!effectHolder.addVolatile('burningpetals')) {
+					this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder)
+					this.add('-message', `${target.name} is surrounded by burning petals!`);
+				}
+				return null;
+			}
+		},
+		onAllyTryBoost(boost, target, source, effect) {
 			if ((source && target === source) || !target.hasType('Fire')) return;
 			let showMsg = false;
 			let i: BoostName;
@@ -1755,7 +1767,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
 				const effectHolder = this.effectState.target;
-				if (!effectHolder.addVolatile('burningpetals')) this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+				if (!effectHolder.addVolatile('burningpetals')) {
+					this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+					this.add('-message', `${target.name} is surrounded by burning petals!`);
+				}
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
@@ -1763,7 +1778,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.debug('interrupting setStatus with Burning Petals');
 				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
-					if (!effectHolder.addVolatile('burningpetals')) this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+					if (!effectHolder.addVolatile('burningpetals')) {
+						this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
+						this.add('-message', `${target.name} is surrounded by burning petals!`);
+					}
 				}
 				return null;
 			}
@@ -1782,24 +1800,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		condition: {
 			noCopy: true,
 			onStart(target) {
-				this.add('-start', target, 'ability: Burning Petals');
+				this.add('-ability', target, target.getAbility().name);
+				this.add('-start', target, 'Flash Fire', '[silent]');
+				this.add('-message', `The power of ${target.name}'s Fire-type moves rose!`);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility('burningpetals')) {
+				if (move.type === 'Fire' && attacker.hasAbility(['burningpetals','suppressivefire'])) {
 					this.debug('Burning Petals boost');
 					return this.chainModify(1.5);
 				}
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility('burningpetals')) {
+				if (move.type === 'Fire' && attacker.hasAbility(['burningpetals','suppressivefire'])) {
 					this.debug('Burning Petals boost');
 					return this.chainModify(1.5);
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'ability: Burning Petals', '[silent]');
+				this.add('-end', target, 'Flash Fire', '[silent]');
 			},
 		},
 		flags: {breakable: 1},
@@ -1808,7 +1828,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	snowblind: {
 		shortDesc: "Snow Warning + Unseen Fist",
-	   onStart(source) {
+		onStart(source) {
 			this.field.setWeather('snow');
 		},
 		onModifyMove(move) {
@@ -1894,7 +1914,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	glacialfocus: {
 		shortDesc: "This Pokemon can't be flinched or have its Evasion lowered.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.evasion && boost.evasion < 0) {
 				delete boost.evasion;
@@ -2072,7 +2092,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const pillageAbil = pokemon.getAbility();
 			const ability = target.getAbility();
 			if (!this.runEvent('SetAbility', target, pokemon, this.effect, pillageAbil)
-			   || !this.runEvent('SetAbility', pokemon, pokemon, this.effect, ability)) return;
+				|| !this.runEvent('SetAbility', pokemon, pokemon, this.effect, ability)) return;
 			this.add('-ability', pokemon, 'Pillage');
 			this.add('-activate', pokemon, 'move: Skill Swap', ability, pillageAbil, '[of] ' + target);
 			this.singleEvent('End', pillageAbil, pillageAbil.abilityState, pokemon);
@@ -2395,7 +2415,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 	},
 	lawnmowerofruin: {
-	   shortDesc: "Sap Sipper + Vessel of Ruin",
+		shortDesc: "Sap Sipper + Vessel of Ruin",
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Lawnmower of Ruin');
@@ -2426,7 +2446,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Lawnmower of Ruin",
 	},
 	barbedchain: {
-	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
+		shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak') || !target.hp || !this.checkMoveMakesContact(move, target, source)) return; 
@@ -2435,23 +2455,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Barbed Chain",
 	},
 	steamyscales: {
-	   shortDesc: "Steam Engine + Multiscale",
-		onDamagingHit(damage, target, source, move) {
-			if (['Water', 'Fire'].includes(move.type)) {
-				this.boost({spe: 6});
+		shortDesc: "Multiscale effects. Damage from Water and Fire is halved.",
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Water') {
+				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= target.maxhp && !move.ignoreAbility) {
+			if (target.hp >= target.maxhp) {
 				this.debug('Steamy Scales weaken');
 				return this.chainModify(0.5);
 			}
 		},
-		flags: {},
+		flags: {breakable: 1},
 		name: "Steamy Scales",
 	},
 	marvelsteam: {
-	   shortDesc: "When hit by a damaging Water or Fire-type move, +6 to Def and Spe.",
+		shortDesc: "When hit by a damaging Water or Fire-type move, +6 to Def and Spe.",
 		onDamagingHit(damage, target, source, move) {
 			if (['Water', 'Fire'].includes(move.type)) {
 				this.boost({def: 6, spe: 6});
@@ -2461,7 +2482,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Marvel Steam",
 	},
 	hellkite: {
-	   shortDesc: "Levitate effects + 1.5x power to Dragon and Ground moves.",
+		shortDesc: "Levitate effects + 1.5x power to Dragon and Ground moves.",
 		//floatation under scripts.ts
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -2745,7 +2766,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4.5,
 	},*/
 	firedup: {
-		shortDesc: "Side protected from Fire and Priority moves; It's own have x1.5 power.",
+		shortDesc: "Side protected from Fire and Priority moves; x1.5 power on priority.",
 		onFoeTryMove(target, source, move) {
 			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
@@ -2760,14 +2781,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire' || move.priority > 0.1) {
+			if (move.priority > 0.1) {
 				this.debug('Fired Up boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire' || move.priority > 0.1) {
+			if (move.priority > 0.1) {
 				this.debug('Fired Up boost');
 				return this.chainModify(1.5);
 			}
@@ -3148,7 +3169,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Daunting Storm",
 	},
 	magnetize: {
-		shortDesc: "Galvanize + Levitate",
+		shortDesc: "Galvanize + Levitate + x1.2 power to Ground.",
 		//levitate's airborneness in scripts.ts/pokemon#IsGrounded()
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -3162,7 +3183,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect || move.type === 'Ground') return this.chainModify([4915, 4096]);
 		},
 		flags: {breakable: 1},
 		name: "Magnetize",
@@ -3230,43 +3251,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Shear Strength",
 	},
 	suppressivefire: {
-		shortDesc: "Flash Fire + Filter",
+		shortDesc: "Filter + Flash Fire",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Filter neutralize');
 				return this.chainModify(0.75);
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				target.addVolatile('suppressivefire');
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('burningpetals')) {
+					this.add('-immune', target, '[from] ability: Suppressive Fire');
+				}
+				return null;
 			}
 		},
 		onEnd(pokemon) {
-			pokemon.removeVolatile('suppressivefire');
-		},
-		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(target) {
-				this.add('-start', target, 'ability: Suppressive Fire');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility('suppressivefire')) {
-					this.debug('Flash Fire boost');
-					return this.chainModify(1.5);
-				}
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility('suppressivefire')) {
-					this.debug('Flash Fire boost');
-					return this.chainModify(1.5);
-				}
-			},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Suppressive Fire', '[silent]');
-			},
+			pokemon.removeVolatile('burningpetals');
 		},
 		flags: {breakable: 1},
 		name: "Suppressive Fire",
@@ -3424,7 +3426,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Unidentified Flying Object",
 	},
 	roughimage: {
-		shortDesc: "Illusion effects. Breaking the illusion damages the attacker for 12.5% of Max HP.",
+		shortDesc: "Illusion effects. This Pokemon's Speed is boosted by 1 each turn while Illusion is active.",
 		onBeforeSwitchIn(pokemon) {
 			pokemon.illusion = null;
 			// yes, you can Illusion an active pokemon but only if it's to your right
@@ -3604,7 +3606,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
 				if (effect.effectType === 'Move') {
 					const effectHolder = this.effectState.target;
-					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
+					this.add('-block', target, 'ability: Unstoppable', '[of] ' + effectHolder);
+					this.add('-message', `${target.name} is unstoppable!`);
 				}
 				return null;
 			}
@@ -3763,6 +3766,224 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 		name: "Sturdy Shock",
+	},
+	moltenglue: {
+		shortDesc: "Sticky Hold + Flame Body",
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb' || this.activeMove.ignoreAbility) return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Molten Glue');
+				return false;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(3, 10)) {
+				source.trySetStatus('brn', target);
+			}
+		},
+		flags: {},
+		name: "Molten Glue",
+	},
+	bullettime: {
+		name: "Bullet Time",
+		shortDesc: "Own Tempo + Bulletproof",
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Bullet Time');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Bullet Time');
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Bullet Time');
+				return null;
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Bullet Time', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Bullet Time', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+	},
+	badapple: {
+		name: "Bad Apple",
+		shortDesc: "Own Tempo + Thick Fat",
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Bad Apple');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Bad Apple');
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor','Daunting Storm','Toxic Attitude'].includes(effect.name)) {
+				if (boost.atk) {
+					delete boost.atk;
+					this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Bad Apple', '[of] ' + target);
+				}
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Bad Apple', '[of] ' + target);
+			}
+		},
+		flags: {breakable: 1},
+	},
+	sandworm: {
+		name: "Sandworm",
+		shortDesc: "33% chance to cure status at end of turn, 100% instead in Sandstorm",
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && (this.field.isWeather('sandstorm') || this.randomChance(33, 100))) {
+				this.debug('shed skin');
+				this.add('-activate', pokemon, 'ability: Sandworm');
+				pokemon.cureStatus();
+			}
+		},
+		flags: {},
+	},
+	anointed: {
+		name: "Anointed",
+		shortDesc: "Telepathy + Levitate",
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Anointed');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+	},
+	hopestar: {
+		name: "Hope Star",
+		shortDesc: "Regenerator + Victory Star",
+		onAnyModifyAccuracyPriority: -1,
+		onAnyModifyAccuracy(accuracy, target, source) {
+			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number') {
+				return this.chainModify([4506, 4096]);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {},
+	},
+	frisktaker: {
+		name: "Frisk Taker",
+		shortDesc: "Frisk + Mold Breaker",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Frisk Taker');
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk Taker', '[of] ' + pokemon);
+				}
+			}
+		},
+		flags: {},
+	},
+	hotpockets: {
+		name: "Hot Pockets",
+		shortDesc: "Blaze + Pickpocket. Incoming Fire moves activate Pickpocket.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move && (move.flags['contact'] || move.type === 'Fire')) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Hot Pockets', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Hot Pockets', '[of] ' + source);
+			}
+		},
+		flags: {},
+	},
+	myceliumwaste: {
+		name: "Mycelium Waste",
+		shortDesc: "Physical and Status moves go last in their priority bracket.",
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category !== 'Special') {
+				return -0.1;
+			}
+		},
+		flags: {},
+	},
+	menacing: {
+		shortDesc: "Defiant + Pressure",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Menacing');
+		},
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) return;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					this.boost({atk: 2}, target, target, null, false, true);
+					return;
+				}
+			}
+		},
+		flags: {},
+		name: "Menacing",
 	},
 	//Vanilla abilities
 	//Extending Inner Focus's Intimidate immunity to derivatives

@@ -461,7 +461,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[anim] Power Gem');
+			this.attrLastMove('[anim] Luster Purge');
 		},
 		secondary: {
 			chance: 40,
@@ -502,6 +502,191 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
 		type: "Water",
+	},
+	thorntail: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Thorn Tail",
+		desc: "Has a 10% chance to inflict Leech Seed on the target and a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio. 10% chance to inflict Leech Seed.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Ivy Cudgel');
+		},
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		onModifyMove(move, pokemon, target) {
+			if (!target.hasType('Grass')) {
+				(move.secondaries ||= []).push({chance: 10, volatileStatus: 'leechseed'});
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
+	tailsmash: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
+		isViable: true,
+		name: "Tail Smash",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Ivy Cudgel Rock');
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	dragonsdrone: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "Has a 20% chance to confuse the target.",
+		shortDesc: "20% chance to confuse the foe(s).",
+		name: "Dragon's Drone",
+		pp: 10,
+		priority: 0,
+		flags: {sound: 1, protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Clanging Scales');
+		},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
+		target: "allAdjacentFoes",
+		type: "Dragon",
+	},
+	mindlance: {
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		desc: "After using this move, for 3 turns, the user cannot avoid any attacks made against it, other than OHKO moves, as long as it remains active. During the effect, the user is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the user uses Baton Pass while under this effect, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball negate this effect. The user will not gain this effect if its species is Diglett, Dugtrio, Alolan Diglett, Alolan Dugtrio, Sandygast, Palossand, or Gengar while Mega-Evolved. Mega Gengar cannot be under this effect by any means.",
+		shortDesc: "Applies Telekinesis to the user if successful.",
+		name: "Mind Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Psycho Boost');
+		},
+		self: {
+			volatileStatus: 'telekinesis',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	lratio: {
+		accuracy: true,
+		basePower: 90,
+		category: "Special",
+		desc: "This move does not check accuracy. Has a 20% chance to lower the target's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage. This move becomes a physical attack that makes contact if the value of ((((2 * the user's level / 5 + 2) * 90 * X) / Y) / 50), where X is the user's Attack stat and Y is the target's Defense stat, is greater than the same value where X is the user's Special Attack stat and Y is the target's Special Defense stat. Otherwise, it becomes a Wind attack. No stat modifiers other than stat stage changes are considered for this purpose. If the two values are equal, this move chooses a damage category at random.",
+		shortDesc: "Can't miss. 20% -1 all foe(s) stats. Physical+Contact if stronger, else Wind.",
+		name: "L+Ratio",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		onPrepareHit(target, source, move) {
+			if (!source.isAlly(target)) {
+				this.attrLastMove('[anim] ' + (move.category === 'Physical' ? 'Headlong Rush' : 'Hurricane'));
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.random(2) === 0)) {
+				move.category = 'Physical';
+				move.flags.contact = 1;
+			} else {
+				move.flags.wind = 1;
+			}
+		},
+		onHit(target, source, move) {
+			// Shell Side Arm normally reveals its category via animation on cart, but doesn't play either custom animation against allies
+			if (!source.isAlly(target)) this.hint(move.category + " L+Ratio");
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " L+Ratio");
+		},
+		secondary: {
+			chance: 20,
+			boosts: {
+				atk: -1,
+				def: -1,
+				spa: -1,
+				spd: -1,
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Fairy",
+	},
+	goldenrush: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Golden Rush",
+		desc: "Raises the Attack, Defense, Special Attack, and Special Defense of the Pokemon in the target's position by two stages two turns after this move is used. Fails if this move, Future Sight, Doom Desire, or Idle Thunder is already in effect for the target's position.",
+		shortDesc: "+2 Atk/Def/SpA/SpD to allied position two turns after being used.",
+		pp: 5,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'goldenrush',
+				source: source,
+				moveData: {
+					id: 'goldenrush',
+					name: "Golden Rush",
+					accuracy: true,
+					basePower: 0,
+					category: "Status",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					effectType: 'Move',
+					type: 'Ground',
+					boosts: {
+						atk: 2,
+						def: 2,
+						spa: 2,
+						spd: 2,
+					},
+				},
+			});
+			this.add('-start', source, 'move: Golden Rush');
+			this.add('-message', `${source.name} has started a Gold Rush!`);
+			return this.NOT_FAIL;
+		},
+		boosts: {
+			atk: 2,
+			def: 2,
+			spa: 2,
+			spd: 2,
+		},
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Ground",
 	},
 	
 	//Balm Moves
@@ -1427,6 +1612,56 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+	},
+	lusciouslake: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Luscious Lake",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, failcopycat: 1},
+		desc: "This move's power is equal to 1.5 times the base move's power. For 5 turns, all Fire-type attacks used by any active Pokemon have their power multiplied by 0.33. If used while Grassy Terrain or Nature Field is active, then upon using this move a swamp appears on the target's side for 4 turns, which quarters the Speed of each Pokemon on that side.",
+		shortDesc: "x1.5 base move power; Sets Water Sport and (in Grassy Terrain) swamp.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Seed Flare');
+		},
+		pseudoWeather: 'watersport',
+		onModifyMove(move) {
+			if (this.field.isTerrain('grassyterrain')) {
+				move.sideCondition = 'grasspledge';
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Grass",
+	},
+	prolificplow: {
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		name: "Prolific Plow",
+		pp: 5,
+		priority: 0,
+		flags: {nosketch: 1, protect: 1, failcopycat: 1},
+		desc: "Power is equal to 1.5 times the base move's power. Raises the Attack, Special Attack, and Speed of all active Grass-type Pokemon on the field by 2 stages if Grassy Terrain or Nature Field is active or 1 stage if not.",
+		shortDesc: "x1.5 base move power; +1 Atk/SpA/Spe to Grass-types, +2 instead in Grassy Terrain",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[anim] Land\'s Wrath');
+		},
+		onAfterHit(target, source, move) {
+			const targets: Pokemon[] = [];
+			const boost = this.field.isTerrain(['grassyterrain','guardianofnature']) ? 2 : 1;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasType('Grass')) {
+					// This move affects every Grass-type Pokemon in play.
+					this.boost(pokemon.isGrounded() ? {atk: boost, spa: boost} : {atk: 1, spa: 1}, pokemon, source);
+				}
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Grass",
 	},
 	
 	//Interacting with new Brunician mechanics
@@ -2726,9 +2961,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			noCopy: true,
 			onStart(pokemon) {
 				let applies = !(
-					!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','soaringspirit'])
-									  || this.getAllActive().some(target => target.hasAbility('treetopper')))
-						|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')
+					!(
+					pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','soaringspirit'])
+						|| (pokemon.species.name === 'Fulmenops-Stormy' && pokemon.hasAbility('weatherflux'))
+						|| (this.getAllActive().some(target => target.hasAbility('treetopper'))
+								&& !['Diglett','Dugtrio','Sandygast','Palossand'].includes(pokemon.baseSpecies.baseSpecies))
+					) || pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')
 				);
 				//TODO: Exclude Diglett/Sandygast lines/MGengar from Tree-Topper check
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
@@ -2827,6 +3065,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		isNonstandard: null,
 	},
 	autotomize: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	luckychant: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -3592,7 +3834,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Steady Stream",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[anim] Sparkling Aria');
 		},

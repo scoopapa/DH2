@@ -599,10 +599,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
 			this.debug('Hazardous Waste damage boost');
-			return Math.min(400, 50 + 50 * allLayers);
+			return Math.min(200, 50 + 50 * allLayers);
 		},
 		category: "Physical",
-		shortDesc: "+50 power for each hazard layer on the field. Caps at 400.",
+		shortDesc: "+50 power for each hazard layer on the field. Caps at 200.",
 		name: "Hazardous Waste",
 		pp: 10,
 		priority: 0,
@@ -1090,14 +1090,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	washaway: {
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Special",
-	   shortDesc: "Removes hazards and terrains, then forces out target.",
+	   shortDesc: "Removes hazards and terrains.",
 		name: "Wash Away",
 		pp: 10,
-		priority: -6,
+		priority: 0,
 		flags: {protect: 1, mirror: 1, noassist: 1, failcopycat: 1},
-		forceSwitch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Surf", target);
@@ -1223,7 +1222,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					flags: {allyanim: 1, futuremove: 1},
 					ignoreImmunity: false,
 					onPrepareHit(target, source, move) {
-						this.attrLastMove('[still]');
 						this.add('-anim', source, "Sandsear Storm", target);
 						this.field.setWeather('sandstorm');
 					},
@@ -1343,7 +1341,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					ignoreImmunity: false,
 					status: 'tox',
 					onPrepareHit(target, source, move) {
-						this.attrLastMove('[still]');
 						this.add('-anim', source, "Corrosive Gas", target);
 					},
 					boosts: {

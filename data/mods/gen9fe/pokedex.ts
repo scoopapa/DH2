@@ -276,7 +276,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		num: 21,
 		name: "Lashiram",
 		types: ["Steel", "Dragon"],
-		baseStats: {hp: 95, atk: 110, def: 120, spa: 100, spd: 85, spe: 60},
+		baseStats: {hp: 95, atk: 110, def: 120, spa: 100, spd: 85, spe: 65},
 		abilities: {0: "Molten Core"},
 		weightkg: 225,
 	},
@@ -474,6 +474,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
  // fusion: ['Iron Bundle', 'Basculegion-F'],
 		num: 34,
 		name: "Iron Legion",
+		gender: "F",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 88, atk: 92, def: 90, spa: 112, spd: 68, spe: 110}, 
 		abilities: {0: "Circuit Breaker"},
@@ -839,7 +840,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		num: 58,
 		name: "Dragocoal",
 		types: ["Fire", "Dragon"],
-		baseStats: {hp: 100, atk: 120, def: 110, spa: 90, spd: 95, spe: 55}, 
+		baseStats: {hp: 110, atk: 107, def: 107, spa: 100, spd: 95, spe: 55}, 
 		abilities: {0: "Steamy Scales"},
 		weightkg: 260.3,
 		// prevo: "Dragocar",
@@ -862,8 +863,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 75, atk: 70, def: 95, spa: 120, spd: 145, spe: 90}, 
 		abilities: {0: "Winter Storm"}, 
 		weightkg: 112.8,
-	 },
-	 weezalunabloodmoon: {
+	},
+	weezalunabloodmoon: {
 		num: 61, 
 		//fusion: ["Weezing", "Ursaluna-Bloodmoon"],
 		name: "Weezaluna-Bloodmoon", 
@@ -873,8 +874,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Air Control"}, 
 		weightkg: 171.3,
 		//prevo: "Koffursa",
-	 },
-	 amigotrioalola: {
+	},
+	amigotrioalola: {
 		num: 62, 
 		//fusion: ["Dugtrio-Alola", "Flamigo"],
 		name: "Amigotrio-Alola", 
@@ -882,7 +883,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 60, atk: 110, def: 70, spa: 65, spd: 70, spe: 105}, 
 		abilities: {0: "Lively Locks"}, 
 		weightkg: 51.8,
-	 },
+	},
 	conkelbun: {
 		num: 63, 
 		//fusion: ["Conkeldurr", "Dachsbun"],
@@ -892,29 +893,29 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Well-Baked Flame Orb"}, 
 		weightkg: 51,
 		//prevo: "Timdough",
-	 },
-	 empoliaryhisui: {
+	},
+	empoliaryhisui: {
 		num: 64, 
 		//fusion: ["Braviary-Hisui", "Empoleon"],
 		name: "Empoliary-Hisui", 
-		 gender: "M",
+		gender: "M",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 104, atk: 84, def: 79, spa: 111, spd: 95, spe: 65}, 
 		abilities: {0: "Sharp Goggles"}, 
 		weightkg: 64,
-		 //prevo: "Ruffleplup",
-	 },
-	 ironmatcha: {
+		//prevo: "Ruffleplup",
+	},
+	ironmatcha: {
 		num: 65, 
 		//fusion: ["Iron Moth", "Sinistcha"],
 		name: "Iron Matcha", 
-		 gender: "N",
+		gender: "N",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 80, atk: 66, def: 90, spa: 130, spd: 100, spe: 90}, 
 		abilities: {0: "Heatproof Drive"}, 
 		weightkg: 19.1,
 		tags: ["Paradox"],
-	 },
+	},
 	anoraidon: {
 		num: 66, 
 		//fusion: ["Anorith", "Koraidon"],
@@ -923,7 +924,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 75, atk: 125, def: 85, spa: 65, spd: 75, spe: 105}, 
 		abilities: {0: "Drizzle"}, 
 		weightkg: 157.7,
-	 },
+	},
 	aerowake: {
 		num: 67, 
 		//fusion: ["Aerodactyl", "Walking Wake"],
@@ -935,8 +936,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Aero Wake-Mega"],
 		formeOrder: ["Aero Wake", "Aero Wake-Mega"],
 		tags: ["Paradox"],
-	 },
-	 aerowakemega: {
+	},
+	aerowakemega: {
 		num: 67, 
 		//fusion: ["Aerodactyl-Mega", "Walking Wake"],
 		name: "Aero Wake-Mega", 
@@ -949,7 +950,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		requiredItem: "Aerodactylite",
 		battleOnly: "Aero Wake",
 		tags: ["Paradox"],
-	 },
+	},
 		deoxyslashspeed: {
 		num: 68, 
 		//fusion: ["Deoxys-Speed", "Aegislash"],
@@ -961,8 +962,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 56.9,
 		otherFormes: ["Deoxyslash-Speed-Blade"],
 		formeOrder: ["Deoxyslash-Speed", "Deoxyslash-Speed-Blade"],
-	 },
-	 deoxyslashspeedblade: {
+	},
+	deoxyslashspeedblade: {
 		num: 68, 
 		//fusion: ["Deoxys-Speed", "Aegislash"],
 		name: "Deoxyslash-Speed-Blade", 
@@ -974,7 +975,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 56.9,
 		requiredAbility: "Forced Fencer",
 		battleOnly: "Deoxyslash-Speed",
-	 },
+	},
 	overgyara: {
 		num: 69,
 		//fusion: ["Overqwil", "Gyarados"],
@@ -986,8 +987,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 119.4,
 		otherFormes: ["Overgyara-Mega"],
 		formeOrder: ["Overgyara", "Overgyara-Mega"],
-	 },
-	 overgyaramega: {
+	},
+	overgyaramega: {
 		num: 69, 
 		//fusion: ["Overqwil", "Gyarados-Mega"],
 		name: "Overgyara-Mega", 
@@ -999,7 +1000,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 189.4,
 		requiredItem: "Gyaradosite",
 		battleOnly: "Overgyara",
-	 },
+	},
 	chomptry: {
 		num: 70, 
 		//fusion: ["Garchomp", "Shiftry"],
@@ -1011,8 +1012,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 77.3,
 		otherFormes: ["Chomptry-Mega"],
 		formeOrder: ["Chomptry", "Chomptry-Mega"],
-	 },
-	 chomptrymega: {
+	},
+	chomptrymega: {
 		num: 70, 
 		//fusion: ["Garchomp-Mega", "Shiftry"],
 		name: "Chomptry-Mega", 
@@ -1024,33 +1025,33 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 77.3,
 		requiredItem: "Garchompite",
 		battleOnly: "Chomptry",
-	 },
-	 lelecunogalar: {
+	},
+	lelecunogalar: {
 		num: 71, 
 		//fusion: ["Tapu Lele", "Articuno-Galar"],
 		name: "Lelecuno-Galar", 
-		 gender: "N",
+		gender: "N",
 		types: ["Psychic", "Fairy"],
 		baseStats: {hp: 80, atk: 85, def: 85, spa: 137, spd: 107, spe: 99}, 
 		abilities: {0: "Mind Domain"}, 
 		weightkg: 34.7,
-	 },
+	},
 	farinape: {
 		num: 72, 
 		//fusion: ["Farigiraf", "Infernape"],
 		name: "Farinape", 
 		types: ["Normal", "Fighting"],
-		baseStats: {hp: 100, atk: 100, def: 70, spa: 110, spd: 70, spe: 95}, 
+		baseStats: {hp: 100, atk: 100, def: 70, spa: 110, spd: 70, spe: 84}, 
 		abilities: {0: "Fired Up"}, 
 		//prevo: "Chimcharig"
 		weightkg: 107.5,
-	 },
-	 sneasel: {
-		 inherit: true,
-		 otherFormes: ["Sneasel-Hisui", "Sneasel-Prime"],
-		 formeOrder: ["Sneasel", "Sneasel-Hisui", "Sneasel-Prime"],
-	 },
-	 sneaselprime: {
+	},
+	sneasel: {
+		inherit: true,
+		otherFormes: ["Sneasel-Hisui", "Sneasel-Prime"],
+		formeOrder: ["Sneasel", "Sneasel-Hisui", "Sneasel-Prime"],
+	},
+	sneaselprime: {
 		num: 215, 
 		//fusion: ["Sneasel", "Sneasel-Hisui"],
 		name: "Sneasel-Prime", 
@@ -1060,17 +1061,17 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 60, atk: 115, def: 55, spa: 35, spd: 85, spe: 120}, 
 		abilities: {0: "Inner Focus"}, 
 		weightkg: 27.5,
-	 },
-	 brambleshao: {
+	},
+	brambleshao: {
 		num: 101, 
 		//fusion: ["Mienshao", "Brambleghast"],
 		name: "Brambleshao", 
 		types: ["Fighting", "Grass"],
-		baseStats: {hp: 60, atk: 125, def: 65, spa: 90, spd: 65, spe: 109}, 
+		baseStats: {hp: 60, atk: 125, def: 65, spa: 90, spd: 65, spe: 104}, 
 		abilities: {0: "Storm Clinic"}, 
 		weightkg: 20.8,
-	 },
-	 eisephalon: {
+	},
+	eisephalon: {
 		num: 102, 
 		//fusion: ["Eiscue", "Blacephalon"],
 		name: "Eisephalon", 
@@ -1080,8 +1081,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Eisephalon-No-Face"],
 		formeOrder: ["Eisephalon", "Eisephalon-No-Face"],
 		weightkg: 51,
-	 },
-	 eisephalonnoface: {
+	},
+	eisephalonnoface: {
 		num: 102, 
 		//fusion: ["Eiscue", "Blacephalon"],
 		name: "Eisephalon-No-Face", 
@@ -1094,8 +1095,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		formeOrder: ["Eisephalon", "Eisephalon-No-Face"],
 		weightkg: 51,
 		battleOnly: "Eisephalon",
-	 },
-	 frosgambit: {
+	},
+	frosgambit: {
 		num: 103, 
 		//fusion: ["Froslass", "Kingambit"],
 		name: "Frosgambit", 
@@ -1104,8 +1105,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 95, atk: 110, def: 95, spa: 70, spd: 80, spe: 80}, 
 		abilities: {0: "Emperor's Clothes"}, 
 		weightkg: 73.3,
-	 },
-	 kabupult: {
+	},
+	kabupult: {
 		num: 104, 
 		//fusion: ["Kabutops", "Dragapult"],
 		name: "Kabupult", 
@@ -1113,8 +1114,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 80, atk: 117, def: 90, spa: 82, spd: 80, spe: 115}, 
 		abilities: {0: "No Nonsense"}, 
 		weightkg: 45.3,
-	 },
-	 magnegiri: {
+	},
+	magnegiri: {
 		num: 105, 
 		//fusion: ["Magnezone", "Tatsugiri"],
 		name: "Magnegiri", 
@@ -1122,8 +1123,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 70, atk: 60, def: 90, spa: 125, spd: 95, spe: 80}, 
 		abilities: {0: "Magnetic Storm"}, 
 		weightkg: 94,
-	 },
-	 celeblim: {
+	},
+	celeblim: {
 		num: 106, 
 		//fusion: ["Celesteela", "Drifblim"],
 		name: "Celeblim", 
@@ -1131,8 +1132,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 127, atk: 97, def: 73, spa: 101, spd: 79, spe: 71}, 
 		abilities: {0: "Ultra Shackles"}, 
 		weightkg: 507.5,
-	 },
-	 tentazor: {
+	},
+	tentazor: {
 		num: 107, 
 		//fusion: ["Tentacruel", "Scizor"],
 		name: "Tentazor", 
@@ -1142,8 +1143,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 86.5,
 		otherFormes: ["Tentazor-Mega"],
 		formeOrder: ["Tentazor", "Tentazor-Mega"]
-	 },
-	 tentazormega: {
+	},
+	tentazormega: {
 		num: 107, 
 		//fusion: ["Tentacruel", "Scizor"],
 		name: "Tentazor-Mega",
@@ -1154,17 +1155,17 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Technician"}, 
 		weightkg: 93.5,
 		requiredItem: "Scizorite",
-	 },
-	 golegonalola: {
+	},
+	golegonalola: {
 		num: 108, 
 		//fusion: ["Golem-Alola", "Flygon"],
 		name: "Golegon-Alola", 
 		types: ["Ground", "Electric"],
-		baseStats: {hp: 80, atk: 120, def: 105, spa: 70, spd: 75, spe: 75}, 
+		baseStats: {hp: 80, atk: 120, def: 105, spa: 67, spd: 72, spe: 82}, 
 		abilities: {0: "Magnetize"}, 
 		weightkg: 199,
-	 },
-	 maractorustherian: {
+	},
+	maractorustherian: {
 		num: 109, 
 		//fusion: ["Maractus", "Landorus-Therian"],
 		name: "Maractorus-Therian", 
@@ -1173,8 +1174,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 90, atk: 115, def: 80, spa: 105, spd: 75, spe: 80}, 
 		abilities: {0: "Daunting Storm"}, 
 		weightkg: 48,
-	 },
-	 necroqueen: {
+	},
+	necroqueen: {
 		num: 110, 
 		//fusion: ["Nidoqueen", "Necrozma"],
 		name: "Necroqueen",
@@ -1183,8 +1184,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 101, atk: 101, def: 97, spa: 103, spd: 89, spe: 79}, 
 		abilities: {0: "Shear Strength"}, 
 		weightkg: 145,
-	 },
-	 mrheat: {
+	},
+	mrheat: {
 		num: 111, 
 		//fusion: ["Mr. Mime", "Heatran"],
 		name: "Mr. Heat", 
@@ -1192,8 +1193,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 75, atk: 67, def: 85, spa: 115, spd: 123, spe: 83}, 
 		abilities: {0: "Suppressive Fire"}, 
 		weightkg: 242.3,
-	 },
-	 aerodirge: {
+	},
+	aerodirge: {
 		num: 112, 
 		//fusion: ["Aerodactyl", "Skeledirge"],
 		name: "Aerodirge", 
@@ -1203,8 +1204,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 192.8,
 		otherFormes: ["Aerodirge-Mega"],
 		formeOrder: ["Aerodirge", "Aerodirge-Mega"]
-	 },
-	 aerodirgemega: {
+	},
+	aerodirgemega: {
 		num: 112, 
 		//fusion: ["Aerodactyl", "Skeledirge"],
 		name: "Aerodirge-Mega",
@@ -1215,8 +1216,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Tough Claws"}, 
 		weightkg: 212.8,
 		requiredItem: "Aerodactylite",
-	 },
-	 hydrapao: {
+	},
+	hydrapao: {
 		num: 113, 
 		//fusion: ["Hydrapple", "Chien-Pao"],
 		name: "Hydra-Pao", 
@@ -1224,8 +1225,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 93, atk: 100, def: 95, spa: 112, spd: 72, spe: 102}, 
 		abilities: {0: "Apple of Ruin"}, 
 		weightkg: 122.6,
-	 },
-	 sirbundle: {
+	},
+	sirbundle: {
 		num: 114, 
 		//fusion: ["Sirfetch\'d", "Iron Bundle"],
 		name: "Sir Bundle", 
@@ -1233,8 +1234,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 60, atk: 110, def: 104, spa: 106, spd: 72, spe: 104}, 
 		abilities: {0: "Innovate"}, 
 		weightkg: 64,
-	 },
-	 buzzscor: {
+	},
+	buzzscor: {
 		num: 115, 
 		//fusion: ["Buzzwole", "Gliscor"],
 		name: "Buzzscor", 
@@ -1242,7 +1243,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 91, atk: 119, def: 133, spa: 53, spd: 67, spe: 89}, 
 		abilities: {0: "Best Boost"}, 
 		weightkg: 188.1,
-	 },
+	},
 	hattepon: {
 		num: 116,
 		//fusion: ["Hatterene", "Ogerpon"],
@@ -1388,8 +1389,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 95, atk: 71, def: 115, spa: 95, spd: 90, spe: 80}, 
 		abilities: {0: "Unidentified Flying Object"}, 
 		weightkg: 84.2,
-	 },
-	 zorosharkhisui: {
+	},
+	zorosharkhisui: {
 		num: 119, 
 		//fusion: ["Zoroark-Hisui", "Sharpedo"],
 		name: "Zoroshark-Hisui", 
@@ -1399,8 +1400,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Zoroshark-Hisui-Mega"],
 		formeOrder: ["Zoroshark-Hisui", "Zoroshark-Hisui-Mega"],
 		weightkg: 80.9,
-	 },
-	 zorosharkhisuimega: {
+	},
+	zorosharkhisuimega: {
 		num: 119, 
 		//fusion: ["Zoroark-Hisui", "Sharpedo-Mega"],
 		name: "Zoroshark-Hisui-Mega",
@@ -1411,18 +1412,18 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Strong Jaw"}, 
 		requiredItem: "Sharpedonite",
 		weightkg: 122.4,
-	 },
-	 bombirdus: {
+	},
+	bombirdus: {
 		num: 120, 
 		//fusion: ["Bombirdier", "Tornadus"],
 		name: "Bombirdus", 
 		types: ["Flying", "Dark"],
 		gender: "M",
-		baseStats: {hp: 75, atk: 110, def: 77, spa: 92, spd: 85, spe: 101}, 
+		baseStats: {hp: 75, atk: 115, def: 77, spa: 92, spd: 85, spe: 101}, 
 		abilities: {0: "Prank Rock"}, 
 		weightkg: 53,
-	 },
-	 scoliraptor: {
+	},
+	scoliraptor: {
 		num: 121, 
 		//fusion: ["Scolipede", "Staraptor"],
 		name: "Scoliraptor", 
@@ -1430,8 +1431,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 75, atk: 120, def: 80, spa: 55, spd: 65, spe: 106}, 
 		abilities: {0: "Toxic Attitude"}, 
 		weightkg: 112.7,
-	 },
-	 worupt: {
+	},
+	worupt: {
 		num: 122, 
 		//fusion: ["Wo-Chien", "Camerupt"],
 		name: "Wo-Rupt", 
@@ -1441,10 +1442,10 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Wo-Rupt-Mega"],
 		formeOrder: ["Wo-Rupt", "Wo-Rupt-Mega"],
 		weightkg: 147.1,
-	 },
-	 woruptmega: {
+	},
+	woruptmega: {
 		num: 122, 
-		//fusion: ["Zoroark-Hisui", "Sharpedo-Mega"],
+		//fusion: ["Wo-Chien", "Camerupt-Mega"],
 		name: "Wo-Rupt-Mega",
 		baseSpecies: "Wo-Rupt",
 		forme: "Mega",
@@ -1453,8 +1454,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Sheer Force"},
 		requiredItem: "Cameruptite",
 		weightkg: 247.6,
-	 },
-	 aromalge: {
+	},
+	aromalge: {
 		num: 123, 
 		//fusion: ["Aromatisse", "Dragalge"],
 		name: "Aromalge", 
@@ -1462,8 +1463,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 85, atk: 73, def: 85, spa: 110, spd: 106, spe: 38}, 
 		abilities: {0: "Unstoppable"}, 
 		weightkg: 48.5,
-	 },
-	 crawnacl: {
+	},
+	crawnacl: {
 		num: 124, 
 		//fusion: ["Crawdaunt", "Garganacl"],
 		name: "Crawnacl", 
@@ -1471,8 +1472,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 81, atk: 120, def: 107, spa: 67, spd: 72, spe: 55}, 
 		abilities: {0: "Salted Lobster"}, 
 		weightkg: 136.4,
-	 },
-	 tapusala: {
+	},
+	tapusala: {
 		num: 125, 
 		//fusion: ["Salazzle", "Tapu Fini"],
 		name: "Tapu Sala", 
@@ -1481,8 +1482,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 71, atk: 69, def: 90, spa: 103, spd: 110, spe: 101}, 
 		abilities: {0: "Miasma"}, 
 		weightkg: 21.7,
-	 },
-	 jirabsca: {
+	},
+	jirabsca: {
 		num: 126, 
 		//fusion: ["Jirachi", "Rabsca"],
 		name: "Jirabsca", 
@@ -1490,8 +1491,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 87, atk: 75, def: 92, spa: 109, spd: 100, spe: 72}, 
 		abilities: {0: "Serene Sync"}, 
 		weightkg: 2.3,
-	 },
-	 donphurotthisui: {
+	},
+	donphurotthisui: {
 		num: 127, 
 		//fusion: ["Samurott-Hisui", "Donphan"],
 		name: "Donphurott-Hisui", 
@@ -1499,8 +1500,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 100, atk: 115, def: 100, spa: 80, spd: 65, spe: 70}, 
 		abilities: {0: "Weathered Waves"}, 
 		weightkg: 89.1,
-	 },
-	 regithorn: {
+	},
+	regithorn: {
 		num: 128, 
 		//fusion: ["Regieleki", "Ferrothorn"],
 		name: "Regithorn", 
@@ -1508,8 +1509,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 77, atk: 97, def: 110, spa: 77, spd: 83, spe: 110}, 
 		abilities: {0: "Electric Fence"}, 
 		weightkg: 127.5,
-	 },
-	 lanpass: {
+	},
+	lanpass: {
 		num: 129, 
 		//fusion: ["Lanturn", "Probopass"],
 		name: "Lanpass", 
@@ -1517,7 +1518,93 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		baseStats: {hp: 92, atk: 56, def: 101, spa: 95, spd: 113, spe: 53}, 
 		abilities: {0: "Sturdy Shock"}, 
 		weightkg: 181.2,
-	 },
+	},
+	swoltres: {
+		num: 130, 
+		//fusion: ["Swalot", "Moltres"],
+		name: "Swoltres", 
+		types: ["Poison", "Fire"],
+		baseStats: {hp: 100, atk: 90, def: 90, spa: 100, spd: 85, spe: 75}, 
+		abilities: {0: "Molten Glue"}, 
+		weightkg: 70,
+	},
+	applekinggalar: {
+		num: 131, 
+		//fusion: ["Appletun", "Slowking-Galar"],
+		name: "Appleking-Galar", 
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 105, atk: 75, def: 90, spa: 105, spd: 95, spe: 30}, 
+		abilities: {0: "Bad Apple"}, 
+		weightkg: 46.3,
+	},
+	orthaconda: {
+		num: 132, 
+		//fusion: ["Orthworm", "Sandaconda"],
+		name: "Orthaconda", 
+		types: ["Steel", "Ground"],
+		baseStats: {hp: 75, atk: 100, def: 135, spa: 62, spd: 70, spe: 68}, 
+		abilities: {0: "Sandworm"}, 
+		weightkg: 187.8,
+	},
+	girachamorigin: {
+		num: 133, 
+		//fusion: ["Giratina-Origin", "Medicham"],
+		name: "Giracham-Origin", 
+		types: ["Ghost", "Fighting"],
+		baseStats: {hp: 105, atk: 90, def: 87, spa: 90, spd: 87, spe: 85}, 
+		abilities: {0: "Anointed"}, 
+		otherFormes: ["Giracham-Origin-Mega"],
+		formeOrder: ["Giracham-Origin", "Giracham-Origin-Mega"],
+		weightkg: 340.8,
+	},
+	girachamoriginmega: {
+		num: 133, 
+		//fusion: ["Giratina-Origin", "Medicham-Mega"],
+		name: "Giracham-Origin-Mega",
+		baseSpecies: "Giracham-Origin",
+		forme: "Mega",
+		types: ["Ghost", "Fighting"],
+		baseStats: {hp: 105, atk: 130, def: 97, spa: 110, spd: 97, spe: 105}, 
+		abilities: {0: "Pure Power"},
+		requiredItem: "Medichamite",
+		weightkg: 340.8,
+	},
+	eldetini: {
+		num: 134, 
+		//fusion: ["Eldegoss", "Victini"],
+		name: "Eldetini", 
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 80, atk: 75, def: 95, spa: 95, spd: 110, spe: 95}, 
+		abilities: {0: "Hope Star"}, 
+		weightkg: 3.3,
+	},
+	tinkophlosionhisui: {
+		num: 135, 
+		//fusion: ["Tinkaton", "Typhlosion-Hisui"],
+		name: "Tinkophlosion-Hisui", 
+		types: ["Fairy", "Ghost"],
+		baseStats: {hp: 80, atk: 79, def: 80, spa: 105, spd: 100, spe: 94}, 
+		abilities: {0: "Frisk Taker"}, 
+		weightkg: 91.3,
+	},
+	glimmocruel: {
+		num: 136, 
+		//fusion: ["Toedscruel", "Glimmora"],
+		name: "Glimmocruel", 
+		types: ["Ground", "Rock"],
+		baseStats: {hp: 81, atk: 62, def: 77, spa: 109, spd: 100, spe: 109}, 
+		abilities: {0: "Mycelium Waste"}, 
+		weightkg: 51.5,
+	},
+	diafetchd: {
+		num: 137,
+		//fusion: ["Dialga", "Farfetch'd"],
+		name: "Diafetch'd", 
+		types: ["Steel", "Flying"],
+		baseStats: {hp: 80, atk: 105, def: 96, spa: 104, spd: 85, spe: 75}, 
+		abilities: {0: "Menacing"}, 
+		weightkg: 349,
+	},
 	
 // LCs and NFEs
 	varantis: {
@@ -1768,7 +1855,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Feisty Tempo"}, 
 		weightkg: 11.7,
 		evos: ["Conkelbun"],
-	 },
+	},
 	ruffleplup: {
 		num: 1025, 
 		//fusion: ["Piplup", "Rufflet"],
@@ -1779,8 +1866,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Angry Bird"}, 
 		weightkg: 7.9,
 		evos: ["Empoliary-Hisui"],
-	 },
-	 fishkarphisui: {
+	},
+	fishkarphisui: {
 		num: 1026, 
 		//fusion: ["Qwilfish-Hisui", "Magikarp"],
 		name: "Fishkarp-Hisui", 
@@ -1789,7 +1876,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Fishy Threat"}, 
 		weightkg: 6.9,
 		evos: ["Overgyara"],
-	 },
+	},
 	seeble: {
 		num: 1027, 
 		//fusion: ["Gible", "Seedot"],
@@ -1799,7 +1886,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Sand Rush"}, 
 		weightkg: 12.3,
 		evos: ["Nuzbite"],
-	 },
+	},
 	nuzbite: {
 		num: 1028, 
 		//fusion: ["Gabite", "Nuzleaf"],
@@ -1810,7 +1897,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		weightkg: 42,
 		//prevo: "Seeble",
 		evos: ["Chomptry"],
-	 },
+	},
 	chimcharig: {
 		num: 1029, 
 		//fusion: ["Chimchar", "Girafarig"],
@@ -1820,7 +1907,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Fire Drinker"}, 
 		weightkg: 23.8,
 		evos: ["Farinape"],
-	 },
+	},
 	bramblefoo: {
 		num: 1101, 
 		//fusion: ["Bramblin", "Mienfoo"],
@@ -1830,8 +1917,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Storm Clinic"}, 
 		weightkg: 10.3,
 		evos: ["Brambleshao"],
-	 },
-	 pawnrunt: {
+	},
+	pawnrunt: {
 		num: 1102, 
 		//fusion: ["Pawniard", "Snorunt"],
 		name: "Pawnrunt", 
@@ -1840,8 +1927,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Erratic"}, 
 		evos: ["Frosgambit"],
 		weightkg: 13.5,
-	 },
-	 kabeepy: {
+	},
+	kabeepy: {
 		num: 1103, 
 		//fusion: ["Kabuto", "Dreepy"],
 		name: "Kabeepy", 
@@ -1850,8 +1937,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "No Nonsense"}, 
 		evos: ["Kabupult"],
 		weightkg: 6.8,
-	 },
-	 tentather: {
+	},
+	tentather: {
 		num: 1104, 
 		//fusion: ["Tentacool", "Scyther"],
 		name: "Tentather", 
@@ -1860,8 +1947,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Hydrotechnic"}, 
 		weightkg: 50.8,
 		evos: ["Tentazor"],
-	 },
-	 geopinchalola: {
+	},
+	geopinchalola: {
 		num: 1105, 
 		//fusion: ["Trapinch", "Geodude-Alola"],
 		name: "Geopinch-Alola", 
@@ -1870,8 +1957,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Magnetic Force"}, 
 		weightkg: 17.7,
 		evos: ["Vibraveler-Alola"],
-	 },
-	 vibraveleralola: {
+	},
+	vibraveleralola: {
 		num: 1106, 
 		//fusion: ["Vibrava", "Graveler-Alola"],
 		name: "Vibraveler-Alola", 
@@ -1880,8 +1967,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Magnetize"}, 
 		weightkg: 62.7,
 		evos: ["Golegon-Alola"],
-	 },
-	 zorvanhahisui: {
+	},
+	zorvanhahisui: {
 		num: 1107, 
 		//fusion: ["Zorua-Hisui", "Carvanha"],
 		name: "Zorvanha-Hisui", 
@@ -1890,8 +1977,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Rough Image"}, 
 		weightkg: 16.7,
 		evos: ["Zoroshark-Hisui"],
-	 },
-	 starpede: {
+	},
+	starpede: {
 		num: 1108, 
 		//fusion: ["Venipede", "Starly"],
 		name: "Starpede", 
@@ -1900,8 +1987,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Quick Wit"}, 
 		weightkg: 3.7,
 		evos: ["Whirlavia"],
-	 },
-	 whirlavia: {
+	},
+	whirlavia: {
 		num: 1109, 
 		//fusion: ["Whirlipede", "Staravia"],
 		name: "Whirlavia", 
@@ -1910,8 +1997,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Toxic Attitude"}, 
 		weightkg: 37,
 		evos: ["Scoliraptor"],
-	 },
-	 watmoo: {
+	},
+	watmoo: {
 		num: 1110, 
 		//fusion: ["Wattrel", "Jangmo-o"],
 		name: "Watmo-o", 
@@ -1920,7 +2007,7 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Rogue"}, 
 		weightkg: 16.7,
 		evos: ["Kilommo-o-Totem"],
-	 },
+	},
 	spritkelp: {
 		num: 1111, 
 		//fusion: ["Spritzee", "Skrelp"],
@@ -1930,8 +2017,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Unstoppable"}, 
 		weightkg: 3.9,
 		evos: ["Aromalge"],
-	 },
-	 naclphish: {
+	},
+	naclphish: {
 		num: 1112, 
 		//fusion: ["Corphish", "Nacli"],
 		name: "Naclphish", 
@@ -1940,8 +2027,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Salted Lobster"}, 
 		weightkg: 13.7,
 		evos: ["Crawnacl"],
-	 },
-	 phanpott: {
+	},
+	phanpott: {
 		num: 1113, 
 		//fusion: ["Phanpy", "Oshawott"],
 		name: "Phanpott", 
@@ -1950,8 +2037,8 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Shell Fishing"}, 
 		weightkg: 19.7,
 		evos: ["Donphurott-Hisui"],
-	 },
-	 chinpass: {
+	},
+	chinpass: {
 		num: 1114, 
 		//fusion: ["Chinchou", "Nosepass"],
 		name: "Chinpass", 
@@ -1960,5 +2047,45 @@ export const Pokedex: import('../../../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Sturdy Shock"}, 
 		weightkg: 19.7,
 		evos: ["Lanpass"],
-	 },
+	},
+	applipokegalar: {
+		num: 1115, 
+		//fusion: ["Applin", "Slowpoke-Galar"],
+		name: "Applipoke-Galar", 
+		types: ["Grass", "Psychic"],
+		baseStats: {hp: 65, atk: 55, def: 75, spa: 40, spd: 40, spe: 20}, 
+		abilities: {0: "Bullet Time"}, 
+		weightkg: 18.3,
+		evos: ["Appleking-Galar"],
+	},
+	tinkaquil: {
+		num: 1116,
+		//fusion: ["Tinkatink", "Cyndaquil"],
+		name: "Tinkaquil", 
+		types: ["Fairy", "Fire"],
+		baseStats: {hp: 48, atk: 48, def: 48, spa: 48, spd: 58, spe: 68}, 
+		abilities: {0: "Hot Pockets"}, 
+		weightkg: 8.4,
+		evos: ["Tinkalava"],
+	},
+	tinkalava: {
+		num: 1117, 
+		//fusion: ["Tinkatuff", "Quilava"],
+		name: "Tinkalava", 
+		types: ["Fairy", "Fire"],
+		baseStats: {hp: 61, atk: 59, def: 57, spa: 69, spd: 77, spe: 81}, 
+		abilities: {0: "Hot Pockets"}, 
+		weightkg: 39.1,
+		evos: ["Tinkophlosion-Hisui"],
+	},
+	glimmcool: {
+		num: 1118, 
+		//fusion: ["Toedscool", "Glimmet"],
+		name: "Glimmcool", 
+		types: ["Ground", "Rock"],
+		baseStats: {hp: 50, atk: 38, def: 38, spa: 77, spd: 80, spe: 65}, 
+		abilities: {0: "Mycelium Waste"}, 
+		weightkg: 20.5,
+		evos: ["Glimmocruel"],
+	},
 };

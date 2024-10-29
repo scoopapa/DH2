@@ -194,7 +194,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					// but before any multipliers like Agility or Choice Scarf
 					// Ties go to whichever Pokemon has had the ability for the least amount of time
 					dancers.sort(
-						(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+						(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
 					);
 					const targetOf1stDance = this.battle.activeTarget!;
 					for (const dancer of dancers) {
@@ -512,7 +512,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject'])) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject','anointed'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
 			if ('magnetrise' in this.volatiles/*) return false;

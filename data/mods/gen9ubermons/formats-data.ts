@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	bulbasaur: {
 		inherit: true,
 		tier: "LC",
@@ -957,7 +957,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zapdosgalar: {
 		inherit: true,
-		tier: "UU",
+		tier: "UUBL",
 	},
 	moltres: {
 		inherit: true,
@@ -1269,7 +1269,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	heracrossmega: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "UU",
 	},
 	sneasel: {
 		inherit: true,
@@ -1417,7 +1417,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tyranitar: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	tyranitarmega: {
 		inherit: true,
@@ -1481,7 +1481,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	swampertmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	poochyena: {
 		inherit: true,
@@ -1593,7 +1593,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gallademega: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "UU",
 	},
 	surskit: {
 		inherit: true,
@@ -1685,7 +1685,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mawilemega: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 	},
 	aron: {
 		inherit: true,
@@ -2097,11 +2097,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	deoxys: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	deoxysattack: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	deoxysdefense: {
 		inherit: true,
@@ -2109,7 +2109,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	deoxysspeed: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	turtwig: {
 		inherit: true,
@@ -2469,7 +2469,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darkrai: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	shaymin: {
 		inherit: true,
@@ -2497,7 +2497,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	serperior: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	tepig: {
 		inherit: true,
@@ -2917,7 +2917,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	amoonguss: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 	},
 	frillish: {
 		inherit: true,
@@ -3637,7 +3637,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ribombee: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	rockruff: {
 		inherit: true,
@@ -3893,7 +3893,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tapubulu: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	tapufini: {
 		inherit: true,
@@ -3981,11 +3981,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	blacephalon: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "UU",
 	},
 	zeraora: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	meltan: {
 		inherit: true,
@@ -4357,7 +4357,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	enamorus: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "UU",
 	},
 	enamorustherian: {
 		inherit: true,
@@ -4713,7 +4713,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	chienpao: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	wochien: {
 		inherit: true,
@@ -4721,7 +4721,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	chiyu: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	koraidon: {
 		inherit: true,
@@ -4765,7 +4765,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kingambit: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	clodsire: {
 		inherit: true,
@@ -4845,7 +4845,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gougingfire: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ragingbolt: {
 		inherit: true,
