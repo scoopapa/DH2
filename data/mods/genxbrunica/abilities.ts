@@ -575,6 +575,51 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Strong Will",
 		shortDesc: "If this Pokemon is statused, its Special Defense is multiplied by 1.5.",
 	},
+	forewarn: {
+		inherit: true,
+		shortDesc: "On switch-in, alerted to foes' highest power move and gains +1 Def or SpD.",
+		onStart(pokemon) {
+			let warnMoves: (Move | Pokemon | string)[][] = [];
+			let warnBp = 1;
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					let bp = move.basePower || 80;
+					if (move.ohko) bp = 150;
+					else if (['counter', 'metalburst', 'mirrorcoat'].includes(move.id)) bp = 120;
+					else if (bp === 1) bp = 80;
+					if (bp > warnBp) {
+						warnMoves = [[move, target]];
+						warnBp = bp;
+					} else if (bp === warnBp) {
+						warnMoves.push([move, target]);
+					}
+				}
+			}
+			if (!warnMoves.length) return;
+			const [warnMoveName, warnTarget] = this.sample(warnMoves);
+			//The [MOVE] part of Forewarn's text data is taken literally for whatever reason when I override it like this
+			//So I commented out the activate bit (it still counts as an activation when boosting)
+			
+			//this.add('-activate', pokemon, 'ability: Forewarn', warnMoveName, '[of] ' + warnTarget);
+			this.boost({[warnMoveName.category === 'Physical' ? 'def' : 'spd']: 1}, pokemon);
+			this.add('-message', `${warnTarget.name}'s ${warnMoveName.name} was revealed!`);
+		},
+	},
+	luckystar: {
+		shortDesc: "Allies have +2 critrate and deal x1.5 damage with crits.",
+		onAllyModifyCritRatio(critRatio) {
+			return critRatio + 2;
+		},
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit && source && source.side === this.effectState.target.side) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Lucky Star",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,

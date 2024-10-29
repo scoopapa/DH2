@@ -1,9 +1,20 @@
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	//new mons
 	
-	//(The last dex number in Desvega went to Virulope, which sits at 1457, so Feathfir will pick up from there)
-	feathfir: {
+	//(The last dex number in Desvega went to Virulope, which sits at 1457, so Luckini will pick up from there)
+	luckini: {
 		num: 1458,
+		name: "Luckini",
+		types: ["Fairy", "Electric"],
+		gender: "N",
+		baseStats: {hp: 99, atk: 99, def: 99, spa: 99, spd: 99, spe: 105},
+		abilities: {0: "Lucky Star"},
+		heightm: 0.8,
+		weightkg: 8,
+		eggGroups: ["Undiscovered"],
+	},
+	feathfir: {
+		num: 1459,
 		name: "Feathfir",
 		types: ["Grass"],
 		baseStats: {hp: 48, atk: 35, def: 50, spa: 65, spd: 69, spe: 43},
@@ -15,7 +26,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass", "Flying"],
 	},
 	avilament: {
-		num: 1459,
+		num: 1460,
 		name: "Avilament",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 63, atk: 50, def: 65, spa: 85, spd: 94, spe: 58},
@@ -29,7 +40,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass", "Flying"],
 	},
 	photalohm: {
-		num: 1460,
+		num: 1461,
 		name: "Photalohm",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 78, atk: 70, def: 80, spa: 105, spd: 124, spe: 73},
@@ -42,7 +53,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass", "Flying"],
 	},
 	mousinder: {
-		num: 1461,
+		num: 1462,
 		name: "Mousinder",
 		types: ["Fire"],
 		baseStats: {hp: 60, atk: 68, def: 45, spa: 45, spd: 35, spe: 57},
@@ -54,7 +65,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	gerblaze: {
-		num: 1462,
+		num: 1463,
 		name: "Gerblaze",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 80, atk: 98, def: 60, spa: 60, spd: 50, spe: 67},
@@ -68,7 +79,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	smeltusk: {
-		num: 1463,
+		num: 1464,
 		name: "Smeltusk",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 100, atk: 118, def: 80, spa: 80, spd: 70, spe: 82},
@@ -81,7 +92,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	lochitten: {
-		num: 1464,
+		num: 1465,
 		name: "Lochitten",
 		types: ["Water"],
 		baseStats: {hp: 45, atk: 60, def: 45, spa: 40, spd: 50, spe: 70},
@@ -93,7 +104,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	tidalynx: {
-		num: 1465,
+		num: 1466,
 		name: "Tidalynx",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 60, atk: 80, def: 60, spa: 50, spd: 70, spe: 95},
@@ -107,7 +118,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	panthoard: {
-		num: 1466,
+		num: 1467,
 		name: "Panthoard",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 75, atk: 105, def: 75, spa: 65, spd: 90, spe: 120},
@@ -120,7 +131,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	spikatye: {
-		num: 1467,
+		num: 1468,
 		name: "Spikatye",
 		types: ["Normal"],
 		heightm: 0.5,
@@ -130,7 +141,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Shankupine"],
 	},
 	shankupine: {
-		num: 1468,
+		num: 1469,
 		name: "Shankupine",
 		types: ["Normal", "Steel"],
 		heightm: 1,
@@ -141,7 +152,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 20,
 	},
 	mustelive: {
-		num: 1469,
+		num: 1470,
 		name: "Mustelive",
 		types: ["Dark"],
 		heightm: 0.4,
@@ -152,7 +163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	carcajab: {
-		num: 1470,
+		num: 1471,
 		name: "Carcajab",
 		types: ["Dark", "Fighting"],
 		heightm: 0.4,
@@ -164,7 +175,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	mimagg: {
-		num: 1471,
+		num: 1472,
 		name: "Mimagg",
 		types: ["Bug", "Dark"],
 		heightm: 0.3,
@@ -174,7 +185,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Falsalys"],
 	},
 	falsalys: {
-		num: 1472,
+		num: 1473,
 		name: "Falsalys",
 		types: ["Bug", "Dark"],
 		heightm: 0.6,
@@ -186,7 +197,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Thrumbug"],
 	},
 	thrumbug: {
-		num: 1473,
+		num: 1474,
 		name: "Thrumbug",
 		types: ["Bug", "Dark"],
 		heightm: 1,
@@ -197,7 +208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 10,
 	},
 	jadarva: {
-		num: 1474,
+		num: 1475,
 		name: "Jadarva",
 		types: ["Bug"],
 		heightm: 0.3,
@@ -208,7 +219,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Bug", "Mineral"],
 	},
 	agrimrald: {
-		num: 1475,
+		num: 1476,
 		name: "Agrimrald",
 		types: ["Bug", "Rock"],
 		heightm: 0.9,
@@ -220,7 +231,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Bug", "Mineral"],
 	},
 	blabberjay: {
-		num: 1476,
+		num: 1477,
 		name: "Blabberjay",
 		types: ["Normal", "Flying"],
 		heightm: 0.2,
@@ -230,7 +241,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Flatterjay"],
 	},
 	flatterjay: {
-		num: 1477,
+		num: 1478,
 		name: "Flatterjay",
 		types: ["Dark", "Flying"],
 		heightm: 0.7,
@@ -242,7 +253,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Sparajay"],
 	},
 	sparajay: {
-		num: 1478,
+		num: 1479,
 		name: "Sparajay",
 		types: ["Dark", "Flying"],
 		heightm: 1.3,
@@ -253,7 +264,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 34,
 	},
 	frostern: {
-		num: 1479,
+		num: 1480,
 		name: "Frostern",
 		types: ["Flying"],
 		heightm: 0.3,
@@ -264,7 +275,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Flying", "Water 1"],
 	},
 	froskua: {
-		num: 1480,
+		num: 1481,
 		name: "Froskua",
 		types: ["Flying", "Ice"],
 		heightm: 1.2,
@@ -276,7 +287,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Flying", "Water 1"],
 	},
 	anageshi: {
-		num: 1481,
+		num: 1482,
 		name: "Anageshi",
 		types: ["Electric", "Ground"],
 		heightm: 0.5,
@@ -286,7 +297,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Harihoru"],
 	},
 	harihoru: {
-		num: 1482,
+		num: 1483,
 		name: "Harihoru",
 		types: ["Electric", "Ground"],
 		heightm: 1,
@@ -297,7 +308,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 30,
 	},
 	ferrustle: {
-		num: 1483,
+		num: 1484,
 		name: "Ferrustle",
 		types: ["Normal"],
 		baseStats: {hp: 40, atk: 35, def: 30, spa: 35, spd: 40, spe: 75},
@@ -308,7 +319,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	mustelone: {
-		num: 1484,
+		num: 1485,
 		name: "Mustelone",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 65, atk: 55, def: 70, spa: 95, spd: 70, spe: 120},
@@ -320,7 +331,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	sugacer: {
-		num: 1485,
+		num: 1486,
 		name: "Sugacer",
 		types: ["Grass"],
 		baseStats: {hp: 55, atk: 42, def: 50, spa: 78, spd: 50, spe: 45},
@@ -331,7 +342,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass"],
 	},
 	saccharup: {
-		num: 1486,
+		num: 1487,
 		name: "Saccharup",
 		types: ["Grass"],
 		baseStats: {hp: 60, atk: 53, def: 74, spa: 92, spd: 74, spe: 62},
@@ -344,7 +355,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass"],
 	},
 	syruptitious: {
-		num: 1487,
+		num: 1488,
 		name: "Syruptitious",
 		types: ["Grass", "Dark"],
 		baseStats: {hp: 75, atk: 76, def: 90, spa: 110, spd: 84, spe: 85},
@@ -356,7 +367,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass"],
 	},
 	hawkward: {
-		num: 1488,
+		num: 1489,
 		name: "Hawkward",
 		types: ["Flying", "Psychic"],
 		baseStats: {hp: 40, atk: 50, def: 80, spa: 105, spd: 50, spe: 80},
@@ -367,7 +378,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Flying"],
 	},
 	hawkular: {
-		num: 1489,
+		num: 1490,
 		name: "Hawkular",
 		types: ["Flying", "Psychic"],
 		baseStats: {hp: 60, atk: 70, def: 100, spa: 125, spd: 70, spe: 100},
@@ -379,7 +390,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Flying"],
 	},
 	qimmiqua: {
-		num: 1490,
+		num: 1491,
 		name: "Qimmiqua",
 		types: ["Normal", "Water"],
 		baseStats: {hp: 60, atk: 55, def: 45, spa: 55, spd: 45, spe: 55},
@@ -390,7 +401,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Water 1"],
 	},
 	splabrashor: {
-		num: 1491,
+		num: 1492,
 		name: "Splabrashor",
 		types: ["Fighting", "Water"],
 		baseStats: {hp: 65, atk: 110, def: 70, spa: 80, spd: 60, spe: 100},
@@ -403,7 +414,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Water 1"],
 	},
 	newflowake: {
-		num: 1492,
+		num: 1493,
 		name: "Newflowake",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 100, atk: 60, def: 110, spa: 70, spd: 80, spe: 65},
@@ -416,7 +427,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Water 1"],
 	},
 	sleddo: {
-		num: 1493,
+		num: 1494,
 		name: "Sleddo",
 		types: ["Ice", "Ground"],
 		baseStats: {hp: 66, atk: 65, def: 48, spa: 62, spd: 67, spe: 52},
@@ -427,7 +438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	gogoxen: {
-		num: 1494,
+		num: 1495,
 		name: "Gogoxen",
 		types: ["Ice", "Ground"],
 		baseStats: {hp: 123, atk: 110, def: 67, spa: 87, spd: 86, spe: 58},
@@ -438,7 +449,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	bigsoot: {
-		num: 1495,
+		num: 1496,
 		name: "Bigsoot",
 		types: ["Fire"],
 		baseStats: {hp: 50, atk: 52, def: 65, spa: 60, spd: 45, spe: 43},
@@ -449,7 +460,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	detonape: {
-		num: 1496,
+		num: 1497,
 		name: "Detonape",
 		types: ["Fire", "Poison"],
 		baseStats: {hp: 65, atk: 68, def: 85, spa: 82, spd: 55, spe: 60},
@@ -462,7 +473,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	blastquatch: {
-		num: 1497,
+		num: 1498,
 		name: "Blastquatch",
 		types: ["Fire", "Poison"],
 		baseStats: {hp: 85, atk: 82, def: 115, spa: 108, spd: 65, spe: 75},
@@ -492,7 +503,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	alicheron: {
-		num: 1498,
+		num: 1499,
 		name: "Alicheron",
 		types: ["Steel", "Fighting"],
 		baseStats: {hp: 65, atk: 120, def: 105, spa: 60, spd: 60, spe: 90},
@@ -504,7 +515,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 40,
 	},
 	amotilus: {
-		num: 1499,
+		num: 1500,
 		name: "Amotilus",
 		types: ["Rock"],
 		baseStats: {hp: 45, atk: 50, def: 70, spa: 50, spd: 70, spe: 30},
@@ -515,7 +526,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Raatilus", "Blootilus", "Yleltilus", "Acktilus", "Whitilus"],
 	},
 	raatilus: {
-		num: 1500,
+		num: 1501,
 		name: "Raatilus",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 60, atk: 150, def: 80, spa: 70, spd: 70, spe: 70},
@@ -528,7 +539,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoCondition: "Play the Red Flute",
 	},
 	blootilus: {
-		num: 1501,
+		num: 1502,
 		name: "Blootilus",
 		types: ["Rock", "Water"],
 		baseStats: {hp: 60, atk: 70, def: 70, spa: 80, spd: 150, spe: 70},
@@ -541,7 +552,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoCondition: "Play the Blue Flute",
 	},
 	yleltilus: {
-		num: 1502,
+		num: 1503,
 		name: "Yleltilus",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 60, atk: 80, def: 70, spa: 70, spd: 70, spe: 150},
@@ -554,7 +565,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoCondition: "Play the Yellow Flute",
 	},
 	acktilus: {
-		num: 1503,
+		num: 1504,
 		name: "Acktilus",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 60, atk: 70, def: 150, spa: 70, spd: 70, spe: 80},
@@ -567,7 +578,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoCondition: "Play the Black Flute",
 	},
 	whitilus: {
-		num: 1504,
+		num: 1505,
 		name: "Whitilus",
 		types: ["Rock", "Psychic"],
 		baseStats: {hp: 60, atk: 70, def: 70, spa: 150, spd: 80, spe: 70},
@@ -580,7 +591,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoCondition: "Play the White Flute",
 	},
 	komantile: {
-		num: 1505,
+		num: 1506,
 		name: "Komantile",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 65, atk: 112, def: 60, spa: 50, spd: 115, spe: 96},
@@ -590,7 +601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Mineral"],
 	},
 	amphipool: {
-		num: 1506,
+		num: 1507,
 		name: "Amphipool",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 90, atk: 60, def: 60, spa: 60, spd: 60, spe: 30},
@@ -600,7 +611,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Talitrident"],
 	},
 	talitrident: {
-		num: 1507,
+		num: 1508,
 		name: "Talitrident",
 		types: ["Bug", "Water"],
 		baseStats: {hp: 110, atk: 100, def: 80, spa: 90, spd: 60, spe: 30},
@@ -611,7 +622,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 25,
 	},
 	skarmini: {
-		num: 1508,
+		num: 1509,
 		name: "Skarmini",
 		types: ["Steel", "Flying"],
 		baseStats: {hp: 45, atk: 70, def: 120, spa: 20, spd: 50, spe: 50},
@@ -630,7 +641,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoItem: "Metal Coat",
 	},
 	trippletop: {
-		num: 1509,
+		num: 1510,
 		name: "Trippletop",
 		types: ["Rock"],
 		baseStats: {hp: 120, atk: 40, def: 133, spa: 95, spd: 91, spe: 23},
@@ -639,7 +650,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 210,
 	},
 	sowlixi: {
-		num: 1510,
+		num: 1511,
 		name: "Sowlixi",
 		types: ["Grass"],
 		gender: "F",
@@ -651,7 +662,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Fairy", "Grass"],
 	},
 	gartifoli: {
-		num: 1511,
+		num: 1512,
 		name: "Gartifoli",
 		types: ["Grass"],
 		gender: "F",
@@ -665,7 +676,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Fairy", "Grass"],
 	},
 	violagarie: {
-		num: 1512,
+		num: 1513,
 		name: "Violagarie",
 		types: ["Grass", "Ground"],
 		gender: "F",
@@ -696,7 +707,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Dragon", "Monster"],
 	},
 	drudraigoch: {
-		num: 1513,
+		num: 1514,
 		name: "Drudraigoch",
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 107, atk: 125, def: 85, spa: 100, spd: 85, spe: 48},
@@ -709,7 +720,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Dragon", "Monster"],
 	},
 	mimikursa: {
-		num: 1514,
+		num: 1515,
 		name: "Mimikursa",
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 39, atk: 63, def: 56, spa: 35, spd: 74, spe: 63},
@@ -720,7 +731,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Amorphous"],
 	},
 	mimiring: {
-		num: 1515,
+		num: 1516,
 		name: "Mimiring",
 		types: ["Ghost", "Normal"],
 		baseStats: {hp: 57, atk: 95, def: 85, spa: 53, spd: 110, spe: 100},
@@ -732,7 +743,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Amorphous"],
 	},
 	mimiluna: {
-		num: 1516,
+		num: 1517,
 		name: "Mimiluna",
 		types: ["Ghost", "Ground"],
 		baseStats: {hp: 62, atk: 105, def: 94, spa: 58, spd: 121, spe: 110},
@@ -745,7 +756,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Amorphous"],
 	},
 	mimilunabloodmoon: {
-		num: 1516,
+		num: 1517,
 		name: "Mimiluna-Bloodmoon",
 		baseSpecies: "Mimiluna",
 		forme: "Bloodmoon",
@@ -760,7 +771,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Amorphous"],
 	},
 	garoupe: {
-		num: 1517,
+		num: 1518,
 		name: "Garoupe",
 		types: ["Dark", "Electric"],
 		baseStats: {hp: 75, atk: 105, def: 66, spa: 45, spd: 100, spe: 101},
@@ -770,7 +781,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Human-Like", "Monster"],
 	},
 	xuehseng: {
-		num: 1518,
+		num: 1519,
 		name: "Xuehseng",
 		types: ["Grass"],
 		baseStats: {hp: 50, atk: 30, def: 65, spa: 50, spd: 60, spe: 45},
@@ -781,7 +792,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass"],
 	},
 	yiseng: {
-		num: 1519,
+		num: 1520,
 		name: "Yiseng",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 95, atk: 60, def: 85, spa: 100, spd: 120, spe: 55},
@@ -794,7 +805,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Grass"],
 	},
 	moskitoski: {
-		num: 1520,
+		num: 1521,
 		name: "Moskitoski",
 		baseForme: "Solo",
 		types: ["Bug", "Dark"],
@@ -807,7 +818,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Moskitoski", "Moskitoski-Swarm"],
 	},
 	moskitoskiswarm: {
-		num: 1520,
+		num: 1521,
 		name: "Moskitoski-Swarm",
 		baseSpecies: "Moskitoski",
 		forme: "Swarm",
@@ -821,7 +832,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		battleOnly: "Moskitoski",
 	},
 	frostabone: {
-		num: 1521,
+		num: 1522,
 		name: "Frostabone",
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 101, atk: 107, def: 63, spa: 57, spd: 103, spe: 61},
@@ -868,7 +879,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	cninapse: {
-		num: 1522,
+		num: 1523,
 		name: "Cninapse",
 		types: ["Ice", "Psychic"],
 		baseStats: {hp: 42, atk: 50, def: 52, spa: 67, spd: 55, spe: 39},
@@ -878,7 +889,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Cryophtore"],
 	},
 	cryophtore: {
-		num: 1523,
+		num: 1524,
 		name: "Cryophtore",
 		types: ["Ice", "Psychic"],
 		baseStats: {hp: 72, atk: 68, def: 100, spa: 125, spd: 101, spe: 44},
@@ -894,7 +905,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Brrrmanook"],
 	},
 	brrrmanook: {
-		num: 1524,
+		num: 1525,
 		name: "Brrrmanook",
 		types: ["Ice", "Ghost"],
 		baseStats: {hp: 100, atk: 130, def: 80, spa: 90, spd: 90, spe: 55},
@@ -908,7 +919,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	rafskull: {
-		num: 1525,
+		num: 1526,
 		name: "Rafskull",
 		types: ["Ghost"],
 		baseStats: {hp: 50, atk: 44, def: 50, spa: 64, spd: 44, spe: 42},
@@ -919,7 +930,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Amorphous"],
 	},
 	phantooneer: {
-		num: 1526,
+		num: 1527,
 		name: "Phantooneer",
 		types: ["Ghost", "Fire"],
 		baseStats: {hp: 69, atk: 64, def: 79, spa: 92, spd: 68, spe: 72},
@@ -932,7 +943,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Amorphous"],
 	},
 	spectraleon: {
-		num: 1527,
+		num: 1528,
 		name: "Spectraleon",
 		types: ["Ghost", "Fire"],
 		baseStats: {hp: 79, atk: 74, def: 94, spa: 114, spd: 78, spe: 85},
@@ -968,7 +979,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1"],
 	},
 	pantaray: {
-		num: 1528,
+		num: 1529,
 		name: "Pantaray",
 		types: ["Ghost", "Electric"],
 		baseStats: {hp: 105, atk: 100, def: 80, spa: 40, spd: 150, spe: 55},
@@ -981,7 +992,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1"],
 	},
 	cruxdisc: {
-		num: 1529,
+		num: 1530,
 		name: "Cruxdisc",
 		types: ["Electric", "Fairy"],
 		genderRatio: {M: 0.25, F: 0.75},
@@ -1010,7 +1021,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Human-Like"],
 	},
 	frostloc: {
-		num: 1530,
+		num: 1531,
 		name: "Frostloc",
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 70, atk: 118, def: 60, spa: 90, spd: 50, spe: 92},
@@ -1042,7 +1053,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Mineral"],
 	},
 	wreckitanic: {
-		num: 1531,
+		num: 1532,
 		name: "Wreckitanic",
 		types: ["Ghost", "Steel"],
 		gender: "N",
@@ -1074,7 +1085,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	houndread: {
-		num: 1532,
+		num: 1533,
 		name: "Houndread",
 		types: ["Ghost", "Poison"],
 		baseStats: {hp: 75, atk: 120, def: 50, spa: 80, spd: 60, spe: 115},
@@ -1091,7 +1102,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Antiqualik"],
 	},
 	antiqualik: {
-		num: 1533,
+		num: 1534,
 		name: "Antiqualik",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 100, atk: 110, def: 130, spa: 50, spd: 70, spe: 75},
@@ -1104,7 +1115,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Water 2"],
 	},
 	lymerin: {
-		num: 1534,
+		num: 1535,
 		name: "Lymerin",
 		types: ["Water", "Fighting"],
 		gender: "F",
@@ -1117,7 +1128,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Lymerin", "Lymerin-Mermaid", "Lymerin-Fish", "Lymerin-Ningyo"],
 	},
 	lymerinmermaid: {
-		num: 1534,
+		num: 1535,
 		name: "Lymerin-Mermaid",
 		baseSpecies: "Lymerin",
 		forme: "Mermaid",
@@ -1131,7 +1142,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		changesFrom: "Lymerin",
 	},
 	lymerinfish: {
-		num: 1534,
+		num: 1535,
 		name: "Lymerin-Fish",
 		baseSpecies: "Lymerin",
 		forme: "Fish",
@@ -1145,7 +1156,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		changesFrom: "Lymerin",
 	},
 	lymerinningyo: {
-		num: 1534,
+		num: 1535,
 		name: "Lymerin-Ningyo",
 		baseSpecies: "Lymerin",
 		forme: "Ningyo",
@@ -1159,7 +1170,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		changesFrom: "Lymerin",
 	},
 	kelpony: {
-		num: 1535,
+		num: 1536,
 		name: "Kelpony",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 45, atk: 65, def: 40, spa: 50, spd: 50, spe: 60},
@@ -1169,7 +1180,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Kelpurion"],
 	},
 	kelpurion: {
-		num: 1536,
+		num: 1537,
 		name: "Kelpurion",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 85, atk: 110, def: 70, spa: 70, spd: 80, spe: 105},
@@ -1181,7 +1192,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoItem: "Water Stone",
 	},
 	oculeye: {
-		num: 1537,
+		num: 1538,
 		name: "Oculeye",
 		types: ["Water"],
 		baseStats: {hp: 54, atk: 28, def: 37, spa: 47, spd: 47, spe: 72},
@@ -1191,7 +1202,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Telebyss"],
 	},
 	telebyss: {
-		num: 1538,
+		num: 1539,
 		name: "Telebyss",
 		types: ["Water"],
 		baseStats: {hp: 131, atk: 43, def: 77, spa: 75, spd: 111, spe: 57},
@@ -1241,7 +1252,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Amorphous"],
 	},
 	prawdet: {
-		num: 1539,
+		num: 1540,
 		name: "Prawdet",
 		types: ["Water"],
 		baseStats: {hp: 55, atk: 40, def: 60, spa: 70, spd: 50, spe: 45},
@@ -1252,7 +1263,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Water 3"],
 	},
 	lobswab: {
-		num: 1540,
+		num: 1541,
 		name: "Lobswab",
 		types: ["Water", "Rock"],
 		baseStats: {hp: 70, atk: 55, def: 75, spa: 85, spd: 70, spe: 55},
@@ -1265,7 +1276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Water 3"],
 	},
 	capstacian: {
-		num: 1541,
+		num: 1542,
 		name: "Capstacian",
 		types: ["Water", "Rock"],
 		baseStats: {hp: 85, atk: 80, def: 95, spa: 110, spd: 85, spe: 70},
@@ -1278,7 +1289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Water 3"],
 	},
 	canlumi: {
-		num: 1542,
+		num: 1543,
 		name: "Canlumi",
 		types: ["Fairy", "Rock"],
 		gender: "F",
@@ -1290,7 +1301,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Fairy", "Mineral"],
 	},
 	paynaimo: {
-		num: 1543,
+		num: 1544,
 		name: "Paynaimo",
 		types: ["Fairy", "Rock"],
 		gender: "F",
@@ -1303,7 +1314,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Fairy", "Mineral"],
 	},
 	squamsy: {
-		num: 1544,
+		num: 1545,
 		name: "Squamsy",
 		types: ["Fighting"],
 		baseStats: {hp: 25, atk: 20, def: 30, spa: 35, spd: 20, spe: 70},
@@ -1314,7 +1325,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Dragon"],
 	},
 	azdharsha: {
-		num: 1545,
+		num: 1546,
 		name: "Azdharsha",
 		types: ["Fighting"],
 		baseStats: {hp: 85, atk: 80, def: 110, spa: 125, spd: 80, spe: 45},
@@ -1327,7 +1338,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Dragon"],
 	},
 	frydgety: {
-		num: 1546,
+		num: 1547,
 		name: "Frydgety",
 		types: ["Ice"],
 		baseStats: {hp: 20, atk: 15, def: 55, spa: 30, spd: 30, spe: 50},
@@ -1338,7 +1349,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 2", "Dragon"],
 	},
 	icypenser: {
-		num: 1547,
+		num: 1548,
 		name: "Icypenser",
 		types: ["Ice"],
 		baseStats: {hp: 83, atk: 54, def: 90, spa: 132, spd: 85, spe: 81},
@@ -1351,7 +1362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 2", "Dragon"],
 	},
 	loathon: {
-		num: 1548,
+		num: 1549,
 		name: "Loathon",
 		types: ["Fairy"],
 		baseStats: {hp: 30, atk: 20, def: 55, spa: 20, spd: 35, spe: 40},
@@ -1362,7 +1373,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Dragon"],
 	},
 	adoraboa: {
-		num: 1549,
+		num: 1550,
 		name: "Adoraboa",
 		types: ["Fairy"],
 		baseStats: {hp: 80, atk: 80, def: 105, spa: 80, spd: 85, spe: 95},
@@ -1375,7 +1386,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Dragon"],
 	},
 	doltoise: {
-		num: 1550,
+		num: 1551,
 		name: "Doltoise",
 		types: ["Rock"],
 		baseStats: {hp: 35, atk: 20, def: 50, spa: 35, spd: 50, spe: 10},
@@ -1386,7 +1397,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Water 1"],
 	},
 	sagachelys: {
-		num: 1551,
+		num: 1552,
 		name: "Sagachelys",
 		types: ["Rock"],
 		baseStats: {hp: 90, atk: 40, def: 130, spa: 120, spd: 130, spe: 15},
@@ -1399,7 +1410,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field", "Water 1"],
 	},
 	stegsaw: {
-		num: 1552,
+		num: 1553,
 		name: "Stegsaw",
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 70, atk: 60, def: 80, spa: 30, spd: 80, spe: 30},
@@ -1410,7 +1421,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Monster", "Field"],
 	},
 	stegohaul: {
-		num: 1553,
+		num: 1554,
 		name: "Stegohaul",
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 95, atk: 100, def: 105, spa: 50, spd: 105, spe: 40},
@@ -1422,7 +1433,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Monster", "Field"],
 	},
 	raphlete: {
-		num: 1554,
+		num: 1555,
 		name: "Raphlete",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 50, atk: 90, def: 60, spa: 30, spd: 40, spe: 70},
@@ -1433,7 +1444,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Monster", "Flying"],
 	},
 	raptorelay: {
-		num: 1555,
+		num: 1556,
 		name: "Raptorelay",
 		types: ["Rock", "Fire"],
 		baseStats: {hp: 80, atk: 110, def: 70, spa: 65, spd: 70, spe: 100},
@@ -1445,7 +1456,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Monster", "Flying"],
 	},
 	atollodon: {
-		num: 1556,
+		num: 1557,
 		name: "Atollodon",
 		baseForme: "Surfaced",
 		types: ["Rock", "Water"],
@@ -1458,7 +1469,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Water 2"],
 	},
 	atollodonsubmerged: {
-		num: 1556,
+		num: 1557,
 		name: "Atollodon-Submerged",
 		baseSpecies: "Atollodon",
 		forme: "Submerged",
@@ -1472,7 +1483,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		battleOnly: "Atollodon",
 	},
 	fulmenops: {
-		num: 1557,
+		num: 1558,
 		name: "Fulmenops",
 		baseForme: "Balmy",
 		types: ["Rock", "Electric"],
@@ -1485,7 +1496,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Field"],
 	},
 	fulmenopsstormy: {
-		num: 1557,
+		num: 1558,
 		name: "Fulmenops-Stormy",
 		baseSpecies: "Fulmenops",
 		forme: "Stormy",
@@ -1499,7 +1510,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		battleOnly: "Fulmenops",
 	},
 	blurkey: {
-		num: 1558,
+		num: 1559,
 		name: "Blurkey",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 55, atk: 65, def: 35, spa: 35, spd: 65, spe: 45},
@@ -1509,7 +1520,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Spookey"],
 	},
 	spookey: {
-		num: 1559,
+		num: 1560,
 		name: "Spookey",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 65, atk: 85, def: 55, spa: 55, spd: 85, spe: 75},
@@ -1521,7 +1532,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Turkiere"],
 	},
 	turkiere: {
-		num: 1560,
+		num: 1561,
 		name: "Turkiere",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 105, atk: 130, def: 75, spa: 75, spd: 130, spe: 85},
@@ -1536,7 +1547,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Beaugarn"],
 	},
 	beaugarn: {
-		num: 1561,
+		num: 1562,
 		name: "Beaugarn",
 		types: ["Water", "Ice"],
 		baseStats: {hp: 150, atk: 90, def: 100, spa: 90, spd: 110, spe: 60},
@@ -1553,7 +1564,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Tinozous"],
 	},
 	tinozous: {
-		num: 1562,
+		num: 1563,
 		name: "Tinozous",
 		types: ["Flying", "Dragon"],
 		baseStats: {hp: 90, atk: 88, def: 95, spa: 112, spd: 90, spe: 125},
@@ -1564,11 +1575,48 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 64,
 		evoCondition: "with a Pokemon in the party that has Soundproof",
 	},
-
-
-	//Dex nums for the Elders of Nature are placeholders
+	lakegishi: {
+		num: 1564,
+		name: "Lakegishi",
+		types: ["Water"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 130, def: 83, spa: 90, spd: 77, spe: 90},
+		abilities: {0: "Hydrosynthesis", H: "Grass Pelt"},
+		heightm: 1.2,
+		weightkg: 164.2,
+		eggGroups: ["Undiscovered"],
+	},
+	plowudji: {
+		num: 1565,
+		name: "Plowudji",
+		types: ["Ground"],
+		gender: "N",
+		baseStats: {hp: 100, atk: 90, def: 130, spa: 77, spd: 83, spe: 90},
+		abilities: {0: "Unaware", H: "Grass Pelt"},
+		heightm: 1.1,
+		weightkg: 195.6,
+		eggGroups: ["Undiscovered"],
+	},
+	magesym: {
+		num: 1566,
+		name: "Magesym",
+		types: ["Ground", "Psychic"],
+		gender: "M",
+		baseStats: {hp: 120, atk: 100, def: 85, spa: 115, spd: 90, spe: 70},
+		abilities: {0: "Forewarn"},
+		eggGroups: ["Undiscovered"],
+	},
+	manasym: {
+		num: 1567,
+		name: "Manasym",
+		types: ["Dark", "Psychic"],
+		gender: "M",
+		baseStats: {hp: 100, atk: 120, def: 90, spa: 85, spd: 70, spe: 115},
+		abilities: {0: "Forewarn"},
+		eggGroups: ["Undiscovered"],
+	},
 	akulut: {
-		num: -1,
+		num: 1568,
 		name: "Akulut",
 		types: ["Dark", "Water"],
 		gender: "N",
@@ -1579,7 +1627,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 	},
 	kaiwakaw: {
-		num: -2,
+		num: 1569,
 		name: "Kaiwakaw",
 		types: ["Ghost", "Ice"],
 		gender: "N",
@@ -1590,7 +1638,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 	},
 	lutakon: {
-		num: -3,
+		num: 1570,
 		name: "Lutakon",
 		baseForme: "Resting",
 		types: ["Grass"],
@@ -1604,7 +1652,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 	},
 	lutakonawakened: {
-		num: -3,
+		num: 1570,
 		name: "Lutakon-Awakened",
 		baseSpecies: "Lutakon",
 		forme: "Awakened",
@@ -1618,6 +1666,18 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		requiredItem: "Awakening Seed",
 		changesFrom: "Lutakon",
 	},
+	girachi: {
+		num: 1571,
+		name: "Girachi",
+		types: ["Ground", "Fairy"],
+		gender: "N",
+		baseStats: {hp: 110, atk: 90, def: 110, spa: 90, spd: 110, spe: 90},
+		abilities: {0: "Clear Body"},
+		heightm: 0.3,
+		weightkg: 1.1,
+		eggGroups: ["Undiscovered"],
+	},
+
 	//Undexited mons from previous iterations + Modified mons
 	
 	kindread: {
