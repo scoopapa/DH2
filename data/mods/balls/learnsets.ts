@@ -376,7 +376,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			darkpulse: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			energyball: ["9L1"],
-			expandingforce: ["9L1"],
 			flashcannon: ["9L1"],
 			focusblast: ["9L1"],
 			futuresight: ["9L1"],
