@@ -7754,7 +7754,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			dig: ["9L1"],
 			doubleteam: ["9L1"],
 			doubleedge: ["9L1"],
-			doubleedge: ["9L1"],
 			dragondance: ["9L1"],
 			drainpunch: ["9L1"],
 			dreameater: ["9L1"],

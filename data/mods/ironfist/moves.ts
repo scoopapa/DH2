@@ -2722,7 +2722,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onSideStart(side) {
-				this.add('-sidestart', side, 'Trump Card');
+				//this.add('-sidestart', side, 'Trump Card');
 				this.effectState.layers = 1;
 			},
 			onSideRestart(side) {

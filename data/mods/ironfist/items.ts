@@ -498,7 +498,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onDamagingHit(damage, target, source, move) {
-			if(!source.volatiles['bigbutton']) {
+			if(!source.volatiles['bigbutton'] && source.set.teraType !== "Bug") {
 				target.useItem();
 				source.addVolatile('bigbutton');
 			}
