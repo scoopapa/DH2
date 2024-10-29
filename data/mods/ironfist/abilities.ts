@@ -23,6 +23,14 @@ export function getName(name: string): string {
 }
 
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	/*
+	placeholder: {
+		
+		flags: {},
+		name: "",
+		shortDesc: "",
+	},
+	*/
   	//slate 1
 	ultraluck: {
 		onModifyCritRatio(critRatio) {
@@ -908,6 +916,70 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's moves destroy screens.",
 
 	},
+
+	//slate 5
+	crossover: {
+		onModifyPriority(priority, pokemon, target, move) {
+			const nonVanilla = ['Anarlvet', 'Kingler-Mega', 'microwave', 'Lytlegai', 'Ohmyrod', 'Big Crammer', 'Samurott-Sinnoh', 'Goomba', 'Fridgile', 'Melmetal 2', 'Pidown', 'Kurayami', 'Zelda', 'Drigike', 'Phish', 'Smelmetal', 'Bondra', 'Tangette-Eternal', 'Donmigo', 'Dragoone', 'Collachet', 'Guiltrism', 'Swooliobat', 'Electrode-Mega', 'Mario Kart Wii', 'Impalpitoad', 'Scrubby', 'palpitoad is so cool', 'Moltres-Mega', 'Jirachitwo', 'Shinx-Fishing', 'Conquescape', 'Daiyafia', 'Pokestar Fisherman', 'Magnegiri', 'mario', 'Contamicow', 'Whonhef', 'Fish Factory', 'cowboy_bandido', 'Pokestar Giant', 'Richard Petty', 'Impidimp-Mega', 'Lemon', 'Fishing Zombie', 'MT', 'Margaret Thatcher', 'Flesh Valiant', 'Flesh Valiant-Mega'];
+			if (nonVanilla.includes(target.baseSpecies)) return priority + 1;
+		},
+		flags: {},
+		name: "Crossover",
+		shortDesc: "This Pokemon's moves have +1 priority against Fakemon.",
+	},
+	whatthesigma: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Silly') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: What the Sigma');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "What the Sigma",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Silly move; Silly immunity.",
+	},
+	steadfast: {
+		inherit: true,
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') {
+				this.boost({spe: 1});
+				return null;
+			}
+		},
+		shortDesc: "If this Pokemon were to flinch, its Speed is raised by 1 instead.",
+	},
+	justified: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Justified');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Justified",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Dark move; Silly immunity.",
+	},
+	bonappetit: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.side.fishingTokens > 0) {
+				this.add('-activate', pokemon, 'ability: Bon Appetit');
+				pokemon.side.removeFishingTokens(1);
+				this.heal(pokemon.baseMaxhp / 10);
+			}
+		},
+		flags: {},
+		name: "Bon Appetit",
+		shortDesc: "At the end of each turn, consume 1 Fishing Token to heal 1/10 max HP.",
+	},
+	
 
 	//vanilla
 	mimicry: {

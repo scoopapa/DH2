@@ -2324,6 +2324,95 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	singleironbash: {
+		name: "Single Iron Bash",
+		type: "Steel",
+		category: "Physical",
+		basePower: 111,
+		accuracy: true,
+		pp: 11,
+		noPPBoosts: true,
+		shortDesc: "11% chance to make the target flinch.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Double Iron Bash", target);
+		},
+		secondary: {
+			chance: 11,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+	},
+	handofspace: {
+		name: "Hand of Space",
+		type: "Water",
+		category: "Special",
+		basePower: 100,
+		basePowerCallback(pokemon, target, move) {
+			if(target.baseSpecies.diamondHand) return move.basePower * 1.5;
+			return move.basePower;
+		},
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Deals 1.5x damage to Diamond Hand members.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Spacial Rend", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fishburn: {
+		name: "Fish Burn",
+		type: "Fire",
+		category: "Special",
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			const targetSide = target.side;
+			if (targetSide.fishingTokens > 0) {
+				const tokens = Math.min(targetSide.fishingTokens, 5);
+				targetSide.removeFishingTokens(tokens);
+				return move.basePower - 10 * tokens;
+			}
+			return move.basePower;
+		},
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Removes up to 5 tokens; -10 BP for each. Hits fish supereffectively.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Burn Up", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+		    if(target.baseSpecies.fish) return 1;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	enchantedboomerang: {
+		name: "Enchanted Boomerang",
+		type: "Fairy",
+		category: "Physical",
+		basePower: 50,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits twice.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Bonemerang", target);
+		},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+	},
 	
 	//Silly shit
 	attract: {
