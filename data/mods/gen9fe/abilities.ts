@@ -3915,6 +3915,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
 		flags: {},
 	},
 	hotpockets: {
