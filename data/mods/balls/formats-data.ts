@@ -55,7 +55,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	"moon": {
+	"themoon": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},

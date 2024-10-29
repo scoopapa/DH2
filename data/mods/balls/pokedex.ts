@@ -51,7 +51,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 7,
 		name: "Watermelon",
 		types: ["Water"],
-		baseStats: {hp: 200, atk: 80, def: 80, spa: 120, spd: 80, spe: 40},
+		baseStats: {hp: 180, atk: 80, def: 80, spa: 120, spd: 80, spe: 60},
 		abilities: {0: "Drizzle", 1: "Water Absorb", H: "Unaware"},
 		weightkg: 25,
 	},
@@ -83,8 +83,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 11,
 		name: "Crystalball",
 		types: ["Psychic"],
-		baseStats: {hp: 100, atk: 50, def: 100, spa: 165, spd: 135, spe: 50},
-		abilities: {0: "Synchronize", 1: "Forewarn", H: "Analytic"},
+		baseStats: {hp: 100, atk: 60, def: 100, spa: 155, spd: 135, spe: 50},
+		abilities: {0: "Psychic Surge", 1: "Forewarn", H: "Analytic"},
 		weightkg: 21,
 	},
 	"8ball": {
@@ -111,9 +111,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mirror Armor", 1: "Soundproof", H: "Levitate"},
 		weightkg: 42,
 	},
-	"moon": {
+	"themoon": {
 		num: 15,
-		name: "Moon",
+		name: "TheMoon",
 		types: ["Ghost"],
 		baseStats: {hp: 150, atk: 160, def: 180, spa: 40, spd: 50, spe: 20},
 		abilities: {0: "Rocky Payload", 1: "Unnerve", H: "Pressure"},
