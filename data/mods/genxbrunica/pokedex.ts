@@ -1604,6 +1604,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gender: "M",
 		baseStats: {hp: 120, atk: 100, def: 85, spa: 115, spd: 90, spe: 70},
 		abilities: {0: "Forewarn"},
+		heightm: 2,
+		weightkg: 121,
 		eggGroups: ["Undiscovered"],
 	},
 	manasym: {
@@ -1613,6 +1615,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gender: "M",
 		baseStats: {hp: 100, atk: 120, def: 90, spa: 85, spd: 70, spe: 115},
 		abilities: {0: "Forewarn"},
+		heightm: 2,
+		weightkg: 90.3,
 		eggGroups: ["Undiscovered"],
 	},
 	akulut: {
