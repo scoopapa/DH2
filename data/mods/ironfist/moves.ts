@@ -2265,7 +2265,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
-			const bp = move.basePower + 20 * pokemon.side.getSideCondition('trumpcard').effectState.layers;
+			const trumpCardUsers = pokemon.side.pokemon.filter(ally => ally.usedTrumpCard);
+			const bp = move.basePower + 20 * trumpCardUsers;
 			this.debug('BP: ' + bp);
 			return bp;
 		},
@@ -2717,17 +2718,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	gmaxcuddle: null,
 	trumpcard: {
 		inherit: true,
-		onAfterHit(target, source, move) {
-			source.side.addSideCondition('trumpcard');
-		},
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'Trump Card');
-				this.effectState.layers = 1;
-			},
-			onSideRestart(side) {
-				this.effectState.layers++;
-			},
+		onPrepareHit(pokemon) {
+			pokemon.usedTrumpCard = true;
 		},
 	},
 }
