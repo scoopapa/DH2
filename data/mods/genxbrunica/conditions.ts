@@ -111,6 +111,8 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 				icypenser: 'Cryptic Chill',
 				adoraboa: 'Sneaky Squeeze',
 				sagachelys: 'Pearl of Wisdom',
+				lakegishi: 'Luscious Lake',
+				plowudji: 'Prolific Plow',
 			};
 			const species = target.species.id;
 			//...All this to adjust the PP. 

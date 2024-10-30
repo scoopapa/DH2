@@ -288,6 +288,46 @@ export const Formats: FormatList = [
         },
     },
 	{
+		name: "[Gen 9] Blindsided Draft",
+		mod: "g9blindsided",
+		desc: `<b>[Gen 9] Blindsided</b>: the monkey has awoken part draft`,
+    threads: [
+      `&bullet; <a href="https://docs.google.com/spreadsheets/d/1263L6g2BPzf4eQQNfqJrp2FO1UMtGdxWXcyfz9OBqkM/edit#gid=1545907772">spreadsheet</a>`,
+     ],
+    ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+		banlist: [
+			'Shed Tail', 'Last Respects', 'Baton Pass',
+
+			  // i apologize
+
+			'Karate Chop', 'Double Slap', 'Comet Punch', 'Razor Wind', 'Jump Kick', 'Rolling Kick', 'Twineedle', 'Sonic Boom', 'Submission', 'Dragon Rage', 'Meditate',
+			'Rage', 'Barrier', 'Bide', 'Mirror Move', 'Egg Bomb', 'Bone Club', 'Clamp', 'Skull Bash', 'Spike Cannon', 'Constrict', 'Kinesis', 'Barrage', 'Lovely Kiss',
+			'Bubble', 'Dizzy Punch', 'Flash', 'Psywave', 'Bonemerang', 'Hyper Fang', 'Sharpen', 'Spider Web', 'Mind Reader', 'Nightmare', 'Feint Attack', 'Octazooka', 
+			'Foresight', 'Return', 'Frustration', 'Magnitude', 'Pursuit', 'Vital Throw', 'Hidden Power', 'Hail', 'Smelling Salts', 'Nature Power', 'Assist', 'Magic Coat', 
+			'Revenge', 'Refresh', 'Grudge', 'Snatch', 'Secret Power', 'Camouflage', 'Mud Sport', 'Ice Ball', 'Needle Arm', 'Aromatherapy', 'Odor Sleuth', 'Silver Wind', 
+			'Grass Whistle', 'Signal Beam', 'Sky Uppercut', 'Water Sport', 'Miracle Eye', 'Wake-Up Slap', 'Natural Gift', 'Embargo', 'Psycho Shift', 'Trump Card', 
+			'Heal Block', 'Wring Out', 'Lucky Chant', 'Me First', 'Punishment', 'Mud Bomb', 'Mirror Shot', 'Rock Climb', 'Magnet Bomb', 'Captivate', 'Chatter', 
+			'Heal Order', 'Ominous Wind', 'Autotomize', 'Telekinesis', 'Storm Throw', 'Flame Burst', 'Synchronoise', 'Chip Away', 'Sky Drop', 'Bestow', 'Dual Chop', 
+			'Heart Stamp', 'Leaf Tornado', 'Steamroller', 'Head Charge', 'Gear Grind', 'Searing Shot', 'Techno Blast', 'Mat Block', 'Rototiller',	'Trick-or-Treat', 
+			'Ion Deluge', 'Forest\'s Curse', 'Crafty Shield', 'Flower Shield', 'Electrify', 'King\'s Shield', 'Venom Drench', 'Powder',	'Geomancy', 'Power-Up Punch', 
+			'Oblivion Wing', 'Thousand Arrows', 'Thousand Waves', 'Land\'s Wrath', 'Light of Ruin', 'Spotlight', 'Laser Focus', 'Gear Up', 'Anchor Shot', 'Purify', 
+			'Core Enforcer', 'Shell Trap', 'Shadow Bone', 'Spectral Thief', 'Nature\'s Madness', 'Multi-Attack', 'Mind Blown', 'Plasma Fists', 'Double Iron Bash', 
+			'Max Guard', 'Octolock', 'Bolt Beak', 'Fishious Rend', 'Snap Trap', 'Aura Wheel', 'Obstruct', 'Meteor Assault', 'Eternabeam',
+			
+			'Aparism', 'Chalquine', 'Driveel', 'Drukrackoon', 'Jerboulda', 'Molar Bear', 'Moriwarty', 'Notfly', 'Polarpants', 'Shadellisk', 'Stringle', 
+		],
+    onValidateTeam(team, format) {
+      let speciesTable = {};
+      let allowedTiers = ['hi', 'C'];
+				for (const set of team) {
+					let template = this.dex.species.get(set.species);
+          if ((template.tier !== 'hi') && (template.tier !== 'C')) {
+            return [set.species + ' is not legal in [Gen 9] Blindsided.'];
+          }
+        }
+     },
+	},
+	{
 		name: "[Gen 1] Burgundy Version",
 		desc: `<b>[Gen 1] Burgundy Version</b>: An expansion of the Gen 1 OU metagame that changes some mechanics and adds new Pokemon and moves, both original and from later gens.`,
 		threads: [
@@ -452,7 +492,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3749356/">Do Not Use: The Pet Mod: The Musical</a>`,
 		],
 		mod: 'donotusetmptm',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause', 'Data Mod'],
 		teambuilderFormat: 'National Dex',
 		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody'],
 		unbanlist: ['Assist'],
@@ -667,7 +707,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'genxbrunica',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
-		banlist: ['Akulut', 'Wendora', 'Lutakon', 'Lutakon-Awakened'], //Ubers
+		banlist: ['Akulut', 'Kaiwakaw', 'Lutakon', 'Lutakon-Awakened', 'Tinozous'], //Ubers
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -736,8 +776,11 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: "National Dex",
 		mod: 'littleestcup',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'big dog Clause', 'Moniker Clause'],
+		banlist: [
+			'Uber', 'AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Houndoominite',
+		],
 	},
 	{
 		name: "[Gen 9] Hidden Gems",
@@ -962,7 +1005,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
-			'Koraidon', 'Miraidon',
+			'Koraidon', 'Miraidon', 'Pecharunt',
 		],
 		mod: 'm4apaldea',
 		onValidateTeam(team, format) {
@@ -1038,6 +1081,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Beedrillite'
 		],
+		teambuilderFormat: "National Dex",
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
@@ -1146,6 +1190,14 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 6] NEXT OU",
+		mod: 'gennext',
+		searchShow: false,
+		challengeShow: false,
+		ruleset: ['Obtainable', 'Standard NEXT', 'Team Preview'],
+		banlist: ['Uber'],
 	},
 	{
 	  name: "[Gen 9] OU Theorymons",
@@ -4402,6 +4454,38 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 6] TPDP AAA",
+		mod: 'tpdp',
+		debug: true,
+		desc: `a close approximation of Touhou Puppet Dance Performance`,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', '!Obtainable Abilities'],
+		banlist: ['Boundary Trance', 'Dream Shard',
+		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Poison Labyrinth', 'Adverse Wind', //trapping
+		'Moody',
+		'Backup Plan', //baton pass
+		
+		'Power Suika', 'Power Yukari', 'Power Miko', 'Assist Akyuu', //mons
+		'Miracle Mallet', 'Unique Shield', 'Forward Dash', 'Up Tempo', 'Good Management', 'Usurpation', //stat boosting
+		'Hobgoblin', 'Shadow Stitch', 'Frail Health', 'Vanishing Act', //misc
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['TPDP OU', 'TPDP LC'];
+			let natures = ['Red', 'Blue', 'Black', 'Green', 'White'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not allowed in TPDP.'];
+				}
+				if (!natures.includes(set.nature)) {
+					return [set.nature + ' is not a valid nature in TPDP. Hint: to set Red, Blue, Black, White, or Green nature, use the Import/Export button.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 6] TPDP Stylemons",
 		mod: 'tpdp',
 		debug: true,
@@ -4572,7 +4656,7 @@ export const Formats: FormatList = [
 		mod: 'moderngen1',
 		searchShow: false,
 		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
-		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],
+		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Shell Smash', 'Teeter Dance', 'Flatter'],
 	},
 	{
 		name: "[Gen 1] Modern Gen 1 Randbats",
@@ -4582,7 +4666,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen1',
 		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Freeze Clause Mod', 'Cancel Mod'],
 	},
 	{
 		name: "[Gen 1] Modern Gen 1 Ubers",

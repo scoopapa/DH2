@@ -971,7 +971,7 @@ export class TeamValidator {
 				problems.push(`${name} has a Gen 4 ability and isn't evolved - it can't use moves from Gen 3.`);
 			}
 			const canUseAbilityPatch = dex.gen >= 8 && format.mod !== 'gen8dlc1';
-			if (setSources.isHidden && !canUseAbilityPatch && setSources.maxSourceGen() < 5) {
+			if (setSources.isHidden && !canUseAbilityPatch && setSources.maxSourceGen() < 5 && this.dex.currentMod !== 'moderngen3' && this.dex.currentMod !== 'moderngen4' && this.dex.currentMod !== 'gen3tradebacks' && this.dex.currentMod !== 'gen3plus' && this.dex.currentMod !== 'gen3hoennification') {
 				problems.push(`${name} has a Hidden Ability - it can't use moves from before Gen 5.`);
 			}
 			if (
@@ -1163,7 +1163,7 @@ export class TeamValidator {
 			const expectedHpDV = (atkDV % 2) * 8 + (defDV % 2) * 4 + (speDV % 2) * 2 + (spcDV % 2);
 			if (ivs.hp === -1) ivs.hp = expectedHpDV * 2;
 			const hpDV = Math.floor(ivs.hp / 2);
-			if ((expectedHpDV !== hpDV) && dex.currentMod !== 'moderngen2') {
+			if ((expectedHpDV !== hpDV) && dex.currentMod !== 'moderngen2' && dex.currentMod !== 'moderngen1') {
 				problems.push(`${name} has an HP DV of ${hpDV}, but its Atk, Def, Spe, and Spc DVs give it an HP DV of ${expectedHpDV}.`);
 			}
 			if (ivs.spa !== ivs.spd) {

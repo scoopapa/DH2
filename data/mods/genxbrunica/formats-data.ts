@@ -1047,13 +1047,59 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
-
-
+	blurkey: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	spookey: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	turkiere: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	lapras: {
+		tier: "Brunica NFE",
+		doublesTier: "DOU",
+	},
+	beaugarn: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	noibat: {
+		tier: "Brunica LC",
+		doublesTier: "DOU",
+	},
+	noivern: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	tinozous: {
+		tier: "Brunica Uber",
+		doublesTier: "DOU",
+	},
+	lakegishi: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	plowudji: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	magesym: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
+	manasym: {
+		tier: "Brunica OU",
+		doublesTier: "DOU",
+	},
 	akulut: {
 		tier: "Brunica Uber",
 		doublesTier: "DOU",
 	},
-	wendora: {
+	kaiwakaw: {
 		tier: "Brunica Uber",
 		doublesTier: "DOU",
 	},
@@ -1063,6 +1109,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lutakonawakened: {
 		tier: "Brunica Uber",
+		doublesTier: "DOU",
+	},
+	luckini: {
+		tier: "Brunica Uber",
+		doublesTier: "DOU",
+	},
+	girachi: {
+		tier: "Brunica OU",
 		doublesTier: "DOU",
 	},
 };

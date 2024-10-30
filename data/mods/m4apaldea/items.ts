@@ -338,7 +338,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	dugtrionite: {
 		name: "Dugtrionite",
 		spritenum: 578,
-		megaStone: "Dugtrio-Mega-Alola",
+		megaStone: "Dugtrio-Alola-Mega",
 		megaEvolves: "Dugtrio-Alola",
 		itemUser: ["Dugtrio-Alola"],
 		onTakeItem(item, source) {
@@ -376,5 +376,47 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -2027,
 		gen: 8,
 		desc: "If held by a Hydrapple, this item allows it to Mega Evolve in battle.",
+	},
+	tentacruelinite: {
+		name: "Tentacruelinite",
+		spritenum: 578,
+		megaStone: "Tentacruel-Mega",
+		megaEvolves: "Tentacruel",
+		itemUser: ["Tentacruel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2028,
+		gen: 8,
+		desc: "If held by a Tentacruel, this item allows it to Mega Evolve in battle.",
+	},
+	galvantulinite: {
+		name: "Galvantulinite",
+		spritenum: 578,
+		megaStone: "Galvantula-Mega",
+		megaEvolves: "Galvantula",
+		itemUser: ["Galvantula"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2029,
+		gen: 8,
+		desc: "If held by a Galvantula, this item allows it to Mega Evolve in battle.",
+	},
+	golurkite: {
+		name: "Golurkite",
+		spritenum: 578,
+		megaStone: "Golurk-Mega",
+		megaEvolves: "Golurk",
+		itemUser: ["Golurk"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2030,
+		gen: 8,
+		desc: "If held by a Golurk, this item allows it to Mega Evolve in battle.",
 	},
 };

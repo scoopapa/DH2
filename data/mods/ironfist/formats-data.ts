@@ -103,6 +103,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	melmetal2: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -219,6 +220,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	smelmetal: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -291,6 +293,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	moltresmega: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -411,6 +414,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
 	ronaldreagan: {
 		tier: "IF",
 		doublesTier: "DOU",
@@ -428,7 +432,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	sunflora: {
-		tier: "IF",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	rawringmoon: {
@@ -460,6 +464,63 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	dracolition: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+
+	goddease: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	jableye: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	kyrum: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	raccoon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lucariocalm: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	nedontrol: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	princirang: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	ironclown: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	thepearlhand: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	mcfish: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	applwirm: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	minunplusle: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallystellar: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	silvallysilly: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

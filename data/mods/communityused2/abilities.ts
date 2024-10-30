@@ -48,7 +48,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onDamagingHit(damage, target, source, move) {
 			const side = source.isAlly(target) ? source.side.foe : source.side;
 			const stealthRocks = side.sideConditions['stealthrock'];
-			if ((!stealthRocks)) {
+			if ((!stealthRocks) && this.checkMoveMakesContact(move, source, target)) {
 				this.add('-activate', target, 'ability: Brittle Crystals');
 				side.addSideCondition('stealthrock', target);
 				this.damage(target.baseMaxhp / 8, target, target);
@@ -56,7 +56,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		flags: { breakable: 1 },
 		name: "Brittle Crystals",
-		shortDesc: "When hit by an attack, set up Stealth Rock on the opposing side. User takes 12.5%.",
+		shortDesc: "When hit by a contact move, set up Rocks on the opposing side. User takes 12.5%.",
 	},
 	dreamrunner: {
 		onModifySpePriority: 5,
@@ -185,15 +185,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			onEnd(target) {
 				this.add('-end', target, 'Phase In');
 			},
-			onSourceModifyDamage(damage, source, target, move) {
-				let mod = 1;
-				if (move.flags['contact']) mod /= 2;
-				return this.chainModify(mod);
-			},
+			//onSourceModifyDamage(damage, source, target, move) {
+			//	let mod = 1;
+			//	if (move.flags['contact']) mod /= 2;
+			//	return this.chainModify(mod);
+			//},
 		},
 		flags: {breakable: 1},
 		name: "Phase In",
-		shortDesc: "For 5 turns, halves speed and attack of user, and take half damage from contact moves.",
+		shortDesc: "For 5 turns, halves speed and attack of user.",
+		//shortDesc: "For 5 turns, halves speed and attack of user, and take half damage from contact moves.",
 
 	},
 	rooted: {

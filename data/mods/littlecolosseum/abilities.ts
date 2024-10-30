@@ -91,27 +91,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 	},
 	stall: {
-		/*
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (!move || !target || source.switchFlag === true) return;
-			if (this.effectState.stalled) return;
+		onBeforeMove(target, source, move) {
 			if (move.category === 'Status') {
-				this.add('-activate', source, 'ability: Stall');
-				// add message here later
-				const repeatMove = this.dex.getActiveMove(move.id);
-				this.actions.useMove(repeatMove, source, target);
-				this.effectState.stalled = true;
-				return;
+				this.actions.useMove(move, target, source);
 			}
 		},
-		onResidualOrder: 29,
-		onResidual(pokemon) {
-			delete this.effectState.stalled;
-		},
-  		*/
 		onFractionalPriority: -0.1,
 		flags: {},
-		shortDesc: "(Non-functional Placeholder) This Pokemon's status moves are used twice, but it usually moves last.",
+		shortDesc: "This Pokemon's status moves are used twice, but it usually moves last.",
 		name: "Stall",
 		rating: 1,
 		num: 100,

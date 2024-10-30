@@ -435,4 +435,37 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Hydrapplinite",
 		megaCreator: "jazzmat",
 	},
+
+	// slate 9
+
+	tentacruel: {
+		inherit: true,
+		mega: "tentacruelmega",
+		megaName: "Tentacruel-Mega",
+		megaAbility: {0: "Residual Drain"},
+		megaStats: {hp: 80, atk: 70, def: 98, spa: 130, spd: 120, spe: 117},
+		megaStone: "Tentacruelinite",
+		megaCreator: "Lord Pxperto & BlueRay",
+	},
+
+	galvantula: {
+		inherit: true,
+		mega: "galvantulamega",
+		megaName: "Galvantula-Mega",
+		megaAbility: {0: "Agitation"},
+		megaStats: {hp: 70, atk: 87, def: 70, spa: 127, spd: 80, spe: 138},
+		megaStone: "Galvantulinite",
+		movepoolAdditions: ["strengthsap"],
+		megaCreator: "jazzmat",
+	},
+
+	golurk: {
+		inherit: true,
+		mega: "golurkmega",
+		megaName: "Golurk-Mega",
+		megaAbility: {0: "Vengeful"},
+		megaStats: {hp: 89, atk: 144, def: 120, spa: 55, spd: 110, spe: 65},
+		megaStone: "Golurkite",
+		megaCreator: "okispokis",
+	},
 };

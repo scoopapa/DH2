@@ -22905,4 +22905,53 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	
+// big dog
+	bigdogtime: {
+		shortDesc: "Allows big dog Clause to work.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "big dog time",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		noSketch: true,
+		sideCondition: 'bigdogtime',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: big dog time');
+				this.add('-message', `Who let let the dogs out? They can Dynamax, you know!`);
+				if (side.sideConditions['dynamaxused']) {
+					side.dynamaxUsed = true;
+				} else {
+					side.dynamaxUsed = false;				
+				}
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: big dog time');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Normal",
+	},
+	dynamaxused: {
+		shortDesc: "Prevents Dynamax from being used multiple times.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Dynamax Used",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		noSketch: true,
+		sideCondition: 'dynamaxused',
+		condition: {},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 };
