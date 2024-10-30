@@ -520,4 +520,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	silvallysilly: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 }
