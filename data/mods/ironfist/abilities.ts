@@ -848,7 +848,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyPriority(priority, pokemon, target, move) {
 				if (this.randomChance(3, 10)) {
-					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|https://twitter.com/Duo__M2`);
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 					if (target) target.addVolatile('gexserver');
 					return priority - 6;
 				}
@@ -906,7 +906,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Lemonade",
-		shortDesc: "If this Pokémon is damaged by an attack, the attacker becomes an Lemon-type.",
+		shortDesc: "If this Pokémon is damaged by an attack, the attacker becomes a Lemon-type.",
 	},
 	wreckingball: {
 		onTryHit(pokemon) {
