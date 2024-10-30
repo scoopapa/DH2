@@ -746,81 +746,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 	},
 
-	silvallybug: {
-		inherit: true,
-		fish: true,
-	},
-	silvallydark: {
-		inherit: true,
-		fish: true,
-	},
-	silvallydragon: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyelectric: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyfairy: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyfighting: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyfire: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyflying: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyghost: {
-		inherit: true,
-		fish: true,
-	},
-	silvallygrass: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyground: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyice: {
-		inherit: true,
-		fish: true,
-	},
-	silvallypoison: {
-		inherit: true,
-		fish: true,
-	},
-	silvallypsychic: {
-		inherit: true,
-		fish: true,
-	},
-	silvallyrock: {
-		inherit: true,
-		fish: true,
-	},
-	silvallysteel: {
-		inherit: true,
-		fish: true,
-	},
-	silvallywater: {
-		inherit: true,
-		fish: true,
-	},
 	silvallylemon: {
 		num: 1029,
 		name: "Silvally-Lemon",
 		baseSpecies: "Silvally",
 		forme: "Lemon",
 		types: ["Lemon"],
-		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "RKS System"},
 		requiredItem: "Lemon Memory",
@@ -937,30 +868,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 235.4,
 	},
 
-	silvallysilly: {
-		num: 1029,
-		name: "Silvally-Silly",
-		baseSpecies: "Silvally",
-		forme: "Silly",
-		types: ["Silly"],
-		fish: true,
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
-		requiredItem: "Silly Memory",
-		changesFrom: "Silvally",
-	},
-	silvallystellar: {
-		num: 1029,
-		name: "Silvally-Stellar",
-		baseSpecies: "Silvally",
-		forme: "Stellar",
-		types: ["Stellar"],
-		fish: true,
-		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
-		requiredItem: ["Stellar Memory", "Stellarium Z"],
-		changesFrom: "Silvally",
-	},
 	goddease: {
 		num: 1001,
 		species: "Goddease",
