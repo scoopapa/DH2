@@ -976,7 +976,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.side.fishingTokens > 0) {
+			if (pokemon.hp < pokemon.baseMaxhp && pokemon.side.fishingTokens > 0) {
 				pokemon.side.removeFishingTokens(1);
 				this.heal(pokemon.baseMaxhp / 10);
 			}
