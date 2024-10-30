@@ -1049,9 +1049,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hustle", H: "Katabatic Winds"},
 		weightkg: 7.2,
 	},
-	minunplusle: {
+	minunandplusled: {
 		num: 1012,
-		name: "minun&plusle",
+		name: "minun and plusle :D",
 		types: ["Electric", "Electric"],
 		baseStats: {hp: 120, atk: 90, def: 90, spa: 160, spd: 160, spe: 190},
 		abilities: {0: "best friends"},

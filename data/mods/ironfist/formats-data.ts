@@ -512,7 +512,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	minunplusle: {
+	minunandplusled: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

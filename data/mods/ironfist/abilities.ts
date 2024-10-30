@@ -1015,7 +1015,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(target.side.fishingTokens > 0) {
 				target.side.removeFishingTokens(1);
 				source.side.addFishingTokens(1);
-			} else this.boost({spd: 1}, source, source);
+			} else this.boost({spe: 1}, source, source);
 		},
 		flags: {},
 		name: "The Ever-Growing Hunger of Capitalism™",
