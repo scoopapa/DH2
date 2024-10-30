@@ -1068,6 +1068,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Honor Student",
 		shortDesc: "On switchin, opposing Pokemon lose 2% max HP for each other Diamond Hand member.",
 	},
+	jankster: {
+		onDamagingHit(damage, target, source, move) {
+			this.add('-ability', target, 'Jankster');
+			if (move.category === 'Physical') {
+				const newatk = target.storedStats.atk;
+				target.storedStats.atk = source.storedStats.atk;
+				source.storedStats.atk = newatk;
+				this.add('-message', `${target.name}'s and ${target.name}'s Attack were swapped!`);
+			} else {
+				const newspa = target.storedStats.spa;
+				target.storedStats.spa = newspa;
+				source.storedStats.spa = newspa;
+				this.add('-message', `${target.name}'s and ${target.name}'s Special Attack were swapped!`);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Jankster",
+		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
+	},
 	
 	//vanilla
 	mimicry: {
