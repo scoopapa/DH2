@@ -868,6 +868,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 235.4,
 	},
 
+	silvallystellar: {
+		num: 1029,
+		name: "Silvally-Stellar",
+		baseSpecies: "Silvally",
+		forme: "Stellar",
+		types: ["Stellar"],
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
+		abilities: {0: "RKS System"},
+		requiredItem: ["Stellar Memory", "Stellarium Z"],
+		changesFrom: "Silvally",
+	},
 	goddease: {
 		num: 1001,
 		species: "Goddease",
