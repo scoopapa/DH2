@@ -138,6 +138,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	toxapex: {
@@ -844,6 +845,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			campfire: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	glaceon: {
@@ -959,6 +962,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	lytlegai: {
@@ -1162,6 +1166,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	ohmyrod: {
@@ -1269,6 +1274,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			ohmygoooodwaaaaaaaaaanisfokifnouh: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	bigcrammer: {
@@ -1737,6 +1743,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	wyrdeer: {
@@ -1945,6 +1953,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			corrosivegus: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	fridgile: {
@@ -2611,6 +2620,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zestycutter: ["9L1"],
 			zingzap: ["9L1"],
 			awesomeearthquake: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	
@@ -2866,6 +2876,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			gofish: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	vivillonplainshigh: {
@@ -3032,6 +3043,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	kurayami: {
@@ -3294,6 +3307,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	sentret: {
@@ -3628,6 +3642,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			formofthestrawberryelephant: ["9L1"],
 			lethalhug: ["9L1"],
+			airhorn: ["9L1"],
+			balatroblast: ["9L1"],
 		},
 	},
 	starmie: {
@@ -3867,6 +3883,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			substitute: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	tangetteeternal: {
@@ -5415,6 +5432,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			recover: ["9L1"],
 			partingshot: ["9L1"],
 			heartswap: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	metapod: {
@@ -6167,6 +6185,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	lemon: {
@@ -6203,6 +6222,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			pissongrave: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	fishingzombie: {
@@ -6352,6 +6372,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			corrosivegus: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	fleshvaliant: {
@@ -6866,6 +6887,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			balatroblast: ["9L1"],
 		},
 	},
 	limelips: {
@@ -7135,6 +7157,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	rawringmoon: {
@@ -7214,6 +7238,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			lethalhug: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	boogerponclownerstone: {
@@ -7363,6 +7388,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			lethalhug: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			airhorn: ["9L1"],
+			balatroblast: ["9L1"],
 		},
 	},
 	indeedee: {
@@ -7435,6 +7462,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	applesnewestemoji: {
@@ -7475,6 +7503,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			pissongrave: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			airhorn: ["9L1"],
+			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	cinderace: {
@@ -7567,6 +7598,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	lemonfish: {
