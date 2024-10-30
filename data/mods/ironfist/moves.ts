@@ -1895,7 +1895,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'Throw Em A Mug', '[silent]');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.diamondHand) this.heal(pokemon.maxhp * 0.3);
+				if (pokemon.baseSpecies.diamondHand) this.heal(pokemon.maxhp * 0.3);
 				pokemon.side.removeSideCondition('throwemamug');
 				this.add('-sideend', pokemon.side, 'move: Throw Em A Mug', '[of] ' + pokemon, '[silent]');
 			},

@@ -860,10 +860,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lemonsqueezy: {
 		onDamagingHit(damage, target, source, effect) {
-			this.add('-activate', source, 'ability: Lemon Squeezy');
-			this.add('-activate', source, 'move: Aromatherapy');
-			for (const ally of source.side.pokemon) {
-				if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+			this.add('-activate', target, 'ability: Lemon Squeezy');
+			this.add('-activate', target, 'move: Aromatherapy');
+			for (const ally of target.side.pokemon) {
+				if (ally !== target && (ally.volatiles['substitute'] && !move.infiltrates)) {
 					continue;
 				}
 				ally.cureStatus();
@@ -1054,13 +1054,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	honorstudent: {
 		onStart(pokemon) {
 			let activated = false;
-			const diamondHand = pokemon.side.pokemon.filter(p => !p.fainted && p.baseSpecies.diamondHand);
+			const diamondHand = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.baseSpecies.diamondHand);
 			for (const target of pokemon.adjacentFoes()) {
-				if (diamondHand.length > 1) {
+				if (diamondHand.length > 0) {
 					console.log(diamondHand.length);
 					this.add('-ability', pokemon, 'Honor Student');
 					activated = true;
-					this.damage(0.02 * diamondHand.length * target.baseMaxhp, pokemon, pokemon);
+					this.damage(0.02 * diamondHand.length * target.baseMaxhp, target, pokemon);
 				}
 			}
 		},
