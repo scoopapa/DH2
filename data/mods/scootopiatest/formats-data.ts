@@ -63,7 +63,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
-	molatreme: {
+	duratreme: {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},

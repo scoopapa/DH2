@@ -3399,7 +3399,7 @@ export const Formats: FormatList = [
 					'Snow Cloak', 'Sand Veil'],
 		unbanlist: ["Arbrella-North", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Sturgard",
 					"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Barbolt", "Lunacal",
-					"Eleqwil", "Molatreme", "Dojodo", "Nunopod", "Zeploom", "Velocipasta", "Crolegion", "Cinnastar",
+					"Eleqwil", "Duratreme", "Dojodo", "Nunopod", "Zeploom", "Velocipasta", "Crolegion", "Cinnastar",
 					"Coraking", "Volvolpa", "Harzodia", "Cyllindrake", "Alliglacier", "Electangle", "Pyrove", "Soleron",
 					"Soleron-Awakened", "Zephyrmine", "Boreasel", "Elemadillo", "Axolacred", "Skawamud",
 					"Noxon", "Xiphoil", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", "Himalao",

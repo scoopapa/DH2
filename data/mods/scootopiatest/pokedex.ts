@@ -129,9 +129,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Barbs", H: "Good as Gold"},
 		weightkg: 85,
 	},
-	molatreme: {
+	duratreme: {
 		num: 2017,
-		name: "Molatreme",
+		name: "duratreme",
 		types: ["Normal"],
 		baseStats: {hp: 70, atk: 95, def: 80, spa: 55, spd: 90, spe: 95},
 		abilities: {0: "Hustle", 1: "Fur Coat", H: "Magic Guard"},
