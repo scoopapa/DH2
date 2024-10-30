@@ -3160,7 +3160,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Water Absorb');
+					this.add('-immune', target, '[from] ability: Daunting Storm');
 				}
 				return null;
 			}
@@ -3914,6 +3914,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-item', target, target.getItem().name, '[from] ability: Frisk Taker', '[of] ' + pokemon);
 				}
 			}
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
 		},
 		flags: {},
 	},

@@ -599,12 +599,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (!warnMoves.length) return;
 			const [warnMoveName, warnTarget] = this.sample(warnMoves);
-			//The [MOVE] part of Forewarn's text data is taken literally for whatever reason when I override it like this
-			//So I commented out the activate bit (it still counts as an activation when boosting)
 			
-			//this.add('-activate', pokemon, 'ability: Forewarn', warnMoveName, '[of] ' + warnTarget);
+			this.add('-activate', pokemon, 'ability: Forewarn', warnMoveName, '[of] ' + warnTarget);
 			this.boost({[warnMoveName.category === 'Physical' ? 'def' : 'spd']: 1}, pokemon);
-			this.add('-message', `${warnTarget.name}'s ${warnMoveName.name} was revealed!`);
 		},
 	},
 	luckystar: {
