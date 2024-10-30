@@ -963,7 +963,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	goddease: {
 		num: 1001,
-		species: "Goddease",
+		name: "Goddease",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 80, atk: 120, def: 100, spa: 90, spd: 140, spe: 70},
 		abilities: {0: "Pressure"},
@@ -971,7 +971,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jableye: {
 		num: 1002,
-		species: "Jableye",
+		name: "Jableye",
 		types: ["Ghost", "Dark", "Poison"],
 		baseStats: {hp: 75, atk: 75, def: 100, spa: 75, spd: 100, spe: 50},
 		abilities: {0: "Justified", H: "Jankster"},
@@ -979,7 +979,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	kyrum: {
 		num: 1003,
-		species: "Kyrum",
+		name: "Kyrum",
 		types: ["Bug", "Dark"],
 		baseStats: {hp: 71, atk: 102, def: 78, spa: 52, spd: 55, spe: 92},
 		abilities: {0: "Swarm", 1: "Tinted Lens", H: "Pressure"},
@@ -987,7 +987,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	raccoon: {
 		num: 1004,
-		species: "Raccoon",
+		name: "Raccoon",
 		types: ["Dark", "Silly"],
 		baseStats: {hp: 75, atk: 100, def: 70, spa: 63, spd: 75, spe: 102},
 		abilities: {0: "Pickpocket", 1: "Parting Gift", H: "Prankster"},
@@ -995,7 +995,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lucariocalm: {
 		num: 1005,
-		species: "Lucario-Calm",
+		name: "Lucario-Calm",
 		types: ["Fighting", "Psychic", "Steel"],
 		baseStats: {hp: 70, atk: 115, def: 70, spa: 105, spd: 70, spe: 105},
 		abilities: {0: "Steadfast", 1: "Inner Focus", H: "Justified"},
@@ -1003,7 +1003,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	nedontrol: {
 		num: 1006,
-		species: "Nedontrol",
+		name: "Nedontrol",
 		types: ["Rock"],
 		baseStats: {hp: 126, atk: 92, def: 120, spa: 52, spd: 131, spe: 54},
 		abilities: {0: "Bon Appetit"},
@@ -1011,7 +1011,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	princirang: {
 		num: 1007,
-		species: "Princirang",
+		name: "Princirang",
 		types: ["Fairy"],
 		baseStats: {hp: 98, atk: 93, def: 86, spa: 83, spd: 80, spe: 135},
 		abilities: {0: "Honor Student"},
@@ -1019,7 +1019,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ironclown: {
 		num: 1008,
-		species: "Iron Clown",
+		name: "Iron Clown",
 		types: ["Steel", "Silly"],
 		baseStats: {hp: 90, atk: 72, def: 100, spa: 122, spd: 108, spe: 98},
 		abilities: {0: "Quark Drive", H: "Get Silly"},
@@ -1027,7 +1027,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	thepearlhand: {
 		num: 1009,
-		species: "The Pearl Hand",
+		name: "The Pearl Hand",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 50, atk: 100, def: 100, spa: 100, spd: 100, spe: 125},
 		abilities: {0: "The Pearl Hand"},
@@ -1035,7 +1035,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mcfish: {
 		num: 1010,
-		species: "McFish",
+		name: "McFish",
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 125, atk: 125, def: 90, spa: 50, spd: 90, spe: 60},
 		abilities: {0: "The Ever-Growing Hunger of Capitalism™"},
@@ -1043,7 +1043,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	applwirm: {
 		num: 1011,
-		species: "Applwirm",
+		name: "Applwirm",
 		types: ["Ground", "Bug"],
 		baseStats: {hp: 70, atk: 105, def: 70, spa: 75, spd: 70, spe: 115},
 		abilities: {0: "Hustle", H: "Katabatic Winds"},
@@ -1051,7 +1051,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	minunplusle: {
 		num: 1012,
-		species: "minun&plusle",
+		name: "minun&plusle",
 		types: ["Electric", "Electric"],
 		baseStats: {hp: 120, atk: 90, def: 90, spa: 160, spd: 160, spe: 190},
 		abilities: {0: "best friends <3"},
