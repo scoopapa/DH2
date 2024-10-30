@@ -1,4 +1,6 @@
 export const Aliases: {[alias: string]: string} = {
+	menacing: null,
+	
 	weezer: "Weezaluna-Bloodmoon",
 	toedi: "Toedieleki",
 	wereallyletamonnamed: "Anoraidon",
