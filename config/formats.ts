@@ -4516,7 +4516,7 @@ export const Formats: FormatList = [
 		'Backup Plan', //baton pass
 		
 		'Power Suika', 'Power Yukari', 'Power Miko', 'Assist Akyuu', //mons
-		'Miracle Mallet', 'Unique Shield', 'Forward Dash', 'Up Tempo', 'Good Management', 'Usurpation', //stat boosting
+		'Miracle Mallet', 'Unique Shield', 'Forward Dash', 'Up Tempo', 'Good Management', 'Usurpation', 'Boundary Blurrer', 'Boundary Savior', //stat boosting
 		'Hobgoblin', 'Shadow Stitch', 'Frail Health', 'Vanishing Act', //misc
 		],
 		onValidateTeam(team, format) {
