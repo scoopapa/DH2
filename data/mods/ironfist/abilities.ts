@@ -1048,7 +1048,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "best friends <3",
+		name: "best friends",
 		shortDesc: "This Pokemon's moves hit twice at 0.49x power.",
 	},
 	honorstudent: {

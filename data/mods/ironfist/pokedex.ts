@@ -815,7 +815,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 	},
 	silvallylemon: {
-		num: 1029,
+		num: 773,
 		name: "Silvally-Lemon",
 		baseSpecies: "Silvally",
 		forme: "Lemon",
@@ -938,7 +938,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	silvallysilly: {
-		num: 1029,
+		num: 773,
 		name: "Silvally-Silly",
 		baseSpecies: "Silvally",
 		forme: "Silly",
@@ -950,7 +950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Silvally",
 	},
 	silvallystellar: {
-		num: 1029,
+		num: 773,
 		name: "Silvally-Stellar",
 		baseSpecies: "Silvally",
 		forme: "Stellar",
@@ -958,7 +958,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "RKS System"},
-		requiredItem: ["Stellar Memory", "Stellarium Z"],
+		requiredItem: "Stellarium Z",
 		changesFrom: "Silvally",
 	},
 	goddease: {
@@ -1054,7 +1054,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "minun&plusle",
 		types: ["Electric", "Electric"],
 		baseStats: {hp: 120, atk: 90, def: 90, spa: 160, spd: 160, spe: 190},
-		abilities: {0: "best friends <3"},
+		abilities: {0: "best friends"},
 		weightkg: 8.4,
 	},
 }
