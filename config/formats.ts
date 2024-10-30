@@ -3890,11 +3890,11 @@ export const Formats: FormatList = [
 		mod: 'gen6mixandmegasrevisited',
 		ruleset: ['Standard', 'Swagger Clause', 'Mega Data Mod'],
 		banlist: [
-			'Medichamite', 'Glalitite', 'Altarianite',
+			'Medichamite', 'Glalitite', 'Altarianite', 'Mawilite',
 		],
 		restricted: [
 			'Arceus', 'Cresselia', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Normal', 'Deoxys-Speed', 'Dialga', 'Dragonite', 'Genesect',
-			'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lucario', 'Lugia', 'Manaphy', 'Mewtwo',
+			'Giratina', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Manaphy', 'Mewtwo',
 			'Palkia', 'Rayquaza', 'Regigigas', 'Reshiram', 'Shaymin-Sky', 'Slaking', 'Xerneas', 'Yveltal', 'Zekrom',
 		],
 		onValidateTeam(team) {
