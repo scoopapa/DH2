@@ -179,6 +179,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
+	kasappa: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	enkappa: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
 	zygola: {
 		tier: "Scoo",
 		doublesTier: "DOU",

@@ -239,7 +239,6 @@ export const Learnsets = {
 			highhorsepower: ["9L1"],
 			knockoff: ["9L1"],
 			thunderfang: ["9L1"],
-			aquatail: ["9L1"],
 			crunch: ["9L1"],
 			wish: ["9L1"],
 			taunt: ["9L1"],
@@ -523,6 +522,14 @@ export const Learnsets = {
 			hyperbeam: ["9L1"],
 			gigaimpact: ["9L1"],
 		},
+	},
+	kasappa: {
+		learnset: {
+		},
+	},
+	enkappa: {
+		learnset: {
+			},
 	},
 	himalao: {
 		learnset: {
@@ -892,7 +899,6 @@ export const Learnsets = {
 			shadowsneak: ["9L1"],
 			dracometeor: ["9L1"],
 			dragonpulse: ["9L1"],
-			selfdestruct: ["9L1"],
 			shadowball: ["9L1"],
 			hex: ["9L1"],
 			ominouswind: ["9L1"],
