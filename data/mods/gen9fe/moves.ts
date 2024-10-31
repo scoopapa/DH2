@@ -181,6 +181,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	vcreate: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	searingshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ivycudgel: {
 		inherit: true,
 		onModifyType(move, pokemon) {

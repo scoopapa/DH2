@@ -228,7 +228,8 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	rotomc: "Rotom-Mow",
 	rotomcut: "Rotom-Mow",
 	rotomf: "Rotom-Frost",
-	fridge: "Rotom-Frost",
+	//BANDAID SOLUTION, UNCOMMENT IF THIS IS RESOLVED
+	//fridge: "Rotom-Frost",
 	rotomh: "Rotom-Heat",
 	rotoms: "Rotom-Fan",
 	rotomspin: "Rotom-Fan",
@@ -1161,7 +1162,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	lsf: "Let's Snuggle Forever",
 	ltbts: "Light That Burns the Sky",
 	malicious: "Malicious Moonsault",
-	menacing: "Menacing Moonraze Maelstrom",
+	//menacing: "Menacing Moonraze Maelstrom",
 	mmm: "Menacing Moonraze Maelstrom",
 	moonsault: "Malicious Moonsault",
 	oceanic: "Oceanic Operetta",
