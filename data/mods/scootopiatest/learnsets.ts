@@ -239,7 +239,6 @@ export const Learnsets = {
 			highhorsepower: ["9L1"],
 			knockoff: ["9L1"],
 			thunderfang: ["9L1"],
-			aquatail: ["9L1"],
 			crunch: ["9L1"],
 			wish: ["9L1"],
 			taunt: ["9L1"],
