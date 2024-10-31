@@ -404,6 +404,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	scyther: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	scizor: {tier: "Paldea", doublesTier: "Paldea"},
+	kleavor: {tier: "Paldea", doublesTier: "Paldea"},
 
 	heracross: {tier: "Paldea", doublesTier: "Paldea"},
 
@@ -687,5 +688,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	golett: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	golurk: {tier: "Paldea", doublesTier: "Paldea"},
+
+	tepig: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	pignite: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	emboar: {tier: "Paldea", doublesTier: "Paldea"},
 
 };
