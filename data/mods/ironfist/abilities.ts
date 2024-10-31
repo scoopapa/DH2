@@ -848,7 +848,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyPriority(priority, pokemon, target, move) {
 				if (this.randomChance(3, 10)) {
-					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|https://twitter.com/Duo__M2`);
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 					if (target) target.addVolatile('gexserver');
 					return priority - 6;
 				}
@@ -860,10 +860,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lemonsqueezy: {
 		onDamagingHit(damage, target, source, effect) {
-			this.add('-activate', source, 'ability: Lemon Squeezy');
-			this.add('-activate', source, 'move: Aromatherapy');
-			for (const ally of source.side.pokemon) {
-				if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+			this.add('-activate', target, 'ability: Lemon Squeezy');
+			this.add('-activate', target, 'move: Aromatherapy');
+			for (const ally of target.side.pokemon) {
+				if (ally !== target && (ally.volatiles['substitute'] && !move.infiltrates)) {
 					continue;
 				}
 				ally.cureStatus();
@@ -906,7 +906,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Lemonade",
-		shortDesc: "If this Pokémon is damaged by an attack, the attacker becomes an Lemon-type.",
+		shortDesc: "If this Pokémon is damaged by an attack, the attacker becomes a Lemon-type.",
 	},
 	wreckingball: {
 		onTryHit(pokemon) {
@@ -970,13 +970,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Justified",
-		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Dark move; Silly immunity.",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Dark move; Dark immunity.",
 	},
 	bonappetit: {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.side.fishingTokens > 0) {
+			if (pokemon.hp < pokemon.baseMaxhp && pokemon.side.fishingTokens > 0) {
 				pokemon.side.removeFishingTokens(1);
 				this.heal(pokemon.baseMaxhp / 10);
 			}
@@ -1015,7 +1015,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(target.side.fishingTokens > 0) {
 				target.side.removeFishingTokens(1);
 				source.side.addFishingTokens(1);
-			} else this.boost({spd: 1}, source, source);
+			} else this.boost({spe: 1}, source, source);
 		},
 		flags: {},
 		name: "The Ever-Growing Hunger of Capitalism™",
@@ -1048,25 +1048,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
-		name: "best friends <3",
+		name: "best friends",
 		shortDesc: "This Pokemon's moves hit twice at 0.49x power.",
 	},
 	honorstudent: {
 		onStart(pokemon) {
 			let activated = false;
-			const diamondHand = pokemon.side.pokemon.filter(p => !p.fainted && p.baseSpecies.diamondHand);
+			const diamondHand = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.baseSpecies.diamondHand);
 			for (const target of pokemon.adjacentFoes()) {
-				if (diamondHand.length > 1) {
+				if (diamondHand.length > 0) {
 					console.log(diamondHand.length);
 					this.add('-ability', pokemon, 'Honor Student');
 					activated = true;
-					this.damage(0.02 * diamondHand.length * target.baseMaxhp, pokemon, pokemon);
+					this.damage(0.02 * diamondHand.length * target.baseMaxhp, target, pokemon);
 				}
 			}
 		},
 		flags: {},
 		name: "Honor Student",
 		shortDesc: "On switchin, opposing Pokemon lose 2% max HP for each other Diamond Hand member.",
+	},
+	jankster: {
+		onDamagingHit(damage, target, source, move) {
+			this.add('-ability', target, 'Jankster');
+			if (move.category === 'Physical') {
+				const newatk = target.storedStats.atk;
+				target.storedStats.atk = source.storedStats.atk;
+				source.storedStats.atk = newatk;
+				this.add('-message', `${target.name}'s and ${target.name}'s Attack were swapped!`);
+			} else {
+				const newspa = target.storedStats.spa;
+				target.storedStats.spa = newspa;
+				source.storedStats.spa = newspa;
+				this.add('-message', `${target.name}'s and ${target.name}'s Special Attack were swapped!`);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Jankster",
+		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
 	},
 	
 	//vanilla

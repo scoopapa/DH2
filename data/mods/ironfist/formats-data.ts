@@ -432,7 +432,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	sunflora: {
-		tier: "Gone!",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	rawringmoon: {
@@ -512,7 +512,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	minunplusle: {
+	minunandplusled: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

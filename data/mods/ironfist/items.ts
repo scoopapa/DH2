@@ -496,6 +496,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 118,
 		fling: {
 			basePower: 60,
+			volatileStatus: 'bigbutton',
 		},
 		onDamagingHit(damage, target, source, move) {
 			if(!source.volatiles['bigbutton'] && source.set.teraType !== "Bug") {
