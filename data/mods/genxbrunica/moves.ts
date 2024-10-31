@@ -601,7 +601,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, defrost: 1},
 		onPrepareHit(target, source, move) {
 			if (!source.isAlly(target)) {
-				this.attrLastMove('[anim] ' + (move.category === 'Physical' ? 'Headlong Rush' : 'Hurricane'));
+				this.attrLastMove('[anim] ' + (move.category === 'Physical' ? 'Zen Headbutt' : 'Hurricane'));
 			}
 		},
 		onModifyMove(move, pokemon, target) {
@@ -1655,7 +1655,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasType('Grass')) {
 					// This move affects every Grass-type Pokemon in play.
-					this.boost(pokemon.isGrounded() ? {atk: boost, spa: boost} : {atk: 1, spa: 1}, pokemon, source);
+					this.boost(pokemon.isGrounded() ? {atk: boost, spa: boost, spe: boost} : {atk: 1, spa: 1, spe: 1}, pokemon, source);
 				}
 			}
 		},
@@ -3042,6 +3042,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},*/
+	geomancy: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	//misc movexit undoing
 	frustration: {
