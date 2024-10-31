@@ -318,6 +318,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 80, spa: 50, spd: 80, spe: 15},
 		abilities: {0: "Quark Drive"},
 		weightkg: 888,
+		tags: ["Paradox"],
 	},
 	searytch: {
 		num: 9041,
