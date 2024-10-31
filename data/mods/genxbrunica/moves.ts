@@ -3042,6 +3042,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},*/
+	geomancy: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	//misc movexit undoing
 	frustration: {
