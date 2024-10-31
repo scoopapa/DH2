@@ -1004,6 +1004,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nedontrol: {
 		num: 1006,
 		name: "Nedontrol",
+		gender: "M",
 		types: ["Rock"],
 		baseStats: {hp: 126, atk: 92, def: 120, spa: 52, spd: 131, spe: 54},
 		abilities: {0: "Bon Appetit"},
@@ -1012,6 +1013,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	princirang: {
 		num: 1007,
 		name: "Princirang",
+		gender: "F",
 		types: ["Fairy"],
 		baseStats: {hp: 98, atk: 93, def: 86, spa: 83, spd: 80, spe: 135},
 		abilities: {0: "Honor Student"},

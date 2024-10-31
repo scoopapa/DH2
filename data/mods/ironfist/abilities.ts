@@ -970,7 +970,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Justified",
-		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Dark move; Silly immunity.",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Dark move; Dark immunity.",
 	},
 	bonappetit: {
 		onResidualOrder: 28,
