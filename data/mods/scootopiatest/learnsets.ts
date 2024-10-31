@@ -524,6 +524,14 @@ export const Learnsets = {
 			gigaimpact: ["9L1"],
 		},
 	},
+	kasappa: {
+		learnset: {
+		},
+	},
+	enkappa: {
+		learnset: {
+			},
+	},
 	himalao: {
 		learnset: {
 			substitute: ["9L1"],
