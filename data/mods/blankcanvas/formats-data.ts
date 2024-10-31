@@ -116,4 +116,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	parasike: {
 		tier: "BC",
 	},
+	massassin: {
+		tier: "BC",
+	},
+	searytch: {
+		tier: "BC",
+	},
+	jokerpent: {
+		tier: "BC",
+	},
 };
