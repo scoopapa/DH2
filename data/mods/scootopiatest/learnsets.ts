@@ -892,7 +892,6 @@ export const Learnsets = {
 			shadowsneak: ["9L1"],
 			dracometeor: ["9L1"],
 			dragonpulse: ["9L1"],
-			selfdestruct: ["9L1"],
 			shadowball: ["9L1"],
 			hex: ["9L1"],
 			ominouswind: ["9L1"],
