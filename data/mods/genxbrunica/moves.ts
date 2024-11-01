@@ -1628,7 +1628,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		pseudoWeather: 'watersport',
 		onModifyMove(move) {
-			if (this.field.isTerrain('grassyterrain')) {
+			if (this.field.isTerrain(['grassyterrain','guardianofnature'])) {
 				move.sideCondition = 'grasspledge';
 			}
 		},
