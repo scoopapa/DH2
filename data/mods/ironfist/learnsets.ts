@@ -8661,7 +8661,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			toxic: ["9L1"],
 		},
 	},
-	minunplusle: {
+	minunplusled: {
 		learnset: {
 			agility: ["9L1"],
 			alluringvoice: ["9L1"],
