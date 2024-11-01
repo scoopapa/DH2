@@ -215,7 +215,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			haze: ["1L54"],
 			toxic: ["1M"],
 			horndrill: ["1M"],
-			slash: ["1M"],
 			takedown: ["1M"],
 			doubleedge: ["1M"],
 			icebeam: ["1M"],
