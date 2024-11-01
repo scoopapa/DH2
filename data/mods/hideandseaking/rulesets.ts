@@ -2995,11 +2995,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             }
         },
 		onSwitchIn(pokemon, source, effect) {
-			if (pokemon.m.dog) {
+			if (pokemon.m.dog && !pokemon.side.sideConditions['dynamaxused']) {
 				pokemon.side.addSideCondition('bigdogtime');
 			}
 		},
 		onSwitchOut(pokemon, source, effect) {
+			if (pokemon.m.dog) {
+				pokemon.side.removeSideCondition('bigdogtime');
+			}
+		},
+		onFaint(pokemon) {
 			if (pokemon.m.dog) {
 				pokemon.side.removeSideCondition('bigdogtime');
 			}
