@@ -35,6 +35,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "sunflora").learnset.willowisp = ["3L1"];
 		this.modData("Learnsets", "sunflora").learnset.overheat = ["3L1"];
 		this.modData("Learnsets", "flygon").learnset.signalbeam = ["3L1"];
+		this.modData("Learnsets", "flygon").learnset.swordsdance = ["3L1"];
 		this.modData("Learnsets", "walrein").learnset.slackoff = ["3L1"];
 		this.modData("Learnsets", "cradily").learnset.leechseed = ["3L1"];
 		this.modData("Learnsets", "typhlosion").learnset.superpower = ["3L1"];
