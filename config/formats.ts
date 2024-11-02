@@ -2484,10 +2484,18 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
-		name: "[Gen 3] ADV DX",
+		name: "[Gen 3] ADV DX OU",
 		mod: 'gen3advdx',
 		ruleset: ['Standard', 'Freeze Clause Mod', 'Data Mod'],
-		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew'],
+	},
+	{
+		name: "[Gen 3] ADV DX Doubles",
+		mod: 'gen3advdx',
+		gameType: 'doubles',
+		ruleset: ['Standard', 'Freeze Clause Mod', 'Data Mod', '!Switch Priority Clause Mod'],
+		banlist: ['Uber', 'Quick Claw', 'Soul Dew', 'Explosion', 'Self-Destruct', 'Swagger'],
+		unbanlist: ['Wobbuffet', 'Wynaut'],
 	},
 	{
 		name: "[Gen 3] ADV Tradebacks",
