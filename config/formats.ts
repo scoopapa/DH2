@@ -494,7 +494,7 @@ export const Formats: FormatList = [
 		mod: 'donotusetmptm',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause', 'Data Mod'],
 		teambuilderFormat: 'National Dex',
-		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody'],
+		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody', 'Cute Charm'],
 		unbanlist: ['Assist'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -2681,7 +2681,7 @@ export const Formats: FormatList = [
 		mod: 'donotuse',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Terastal Clause', 'Z-Move Clause'],
 		teambuilderFormat: 'National Dex',
-		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody'],
+		banlist: ['Huge Power', 'Pure Power', 'Shadow Tag', 'Arena Trap', 'Baton Pass', 'Moody', 'Cute Charm'],
 		unbanlist: ['Assist'],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
