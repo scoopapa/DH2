@@ -2315,13 +2315,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Always crits. Burns Lemon-type or fish Pokemon.",
+		shortDesc: "Always crits and burns Lemon-type or fish Pokemon.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		willCrit: true,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Tar Shot", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if(target.hasType('Lemon') || target.baseSpecies.fish) move.willCrit = true;
 		},
 		onAfterHit(target, source, move) {
 			if (target.hasType('Lemon') || target.baseSpecies.fish) {
