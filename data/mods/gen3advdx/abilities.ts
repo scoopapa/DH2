@@ -108,6 +108,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2.5,
 		num: 212,
 		shortDesc: "This Pokemon can poison and hit Poison moves on a Pokemon regardless of its typing.",
+		gen: 3,
 	},
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
