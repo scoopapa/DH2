@@ -44,4 +44,24 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	meanlook: {
+		num: 212,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mean Look",
+		pp: 5,
+		priority: 0,
+		flags: {reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+  			if (!target.hasAbility('runaway')) {
+				return target.addVolatile('trapped', source, move, 'trapper');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spd: 1}},
+		contestType: "Beautiful",
+	},
 };
