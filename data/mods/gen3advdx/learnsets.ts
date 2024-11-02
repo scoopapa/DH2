@@ -1,5 +1,5 @@
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
-	missingno: {
+/*	missingno: {
 		learnset: {
 			inherit: true,
 			blizzard: ["3M"],
@@ -12895,7 +12895,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			{generation: 3, level: 40},
 		],
 		eventOnly: true,
-	},
+	},*/
 // New
 	snover: {
 		learnset: {
