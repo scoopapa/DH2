@@ -837,21 +837,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-immune', target);
 				} else {
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
-					target.addVolatile('gexserver');
+					target.addVolatile('ability:hacked');
 				}
 			}
-		},
-		condition: {
-			onStart(pokemon) {
-				this.add('-message', `${pokemon.name} was hacked!`);
-			},
-			onModifyPriority(priority, pokemon, target, move) {
-				if (this.randomChance(3, 10)) {
-					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
-					if (target) target.addVolatile('gexserver');
-					return priority - 6;
-				}
-			},
 		},
 		flags: {},
 		name: "Gex Server",
@@ -1132,5 +1120,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.addVolatile('confusion');
 			}
 		},
+	},
+
+	//fake ability
+	hacked: {
+		onStart(pokemon) {
+			this.add('-message', `${pokemon.name} was hacked!`);
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			if (this.randomChance(3, 10)) {
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
+				if (target) target.addVolatile('ability:hacked');
+				return priority - 6;
+			}
+		},
+		flags: {},
+		name: "Hacked",
 	},
 }
