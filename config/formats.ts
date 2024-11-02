@@ -2484,6 +2484,12 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
+		name: "[Gen 3] ADV DX",
+		mod: 'gen3advdx',
+		ruleset: ['Standard', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
+	},
+	{
 		name: "[Gen 3] ADV Tradebacks",
 		mod: 'gen3tradebacks',
 		ruleset: ['Standard', 'Baton Pass Mod', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
