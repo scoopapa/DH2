@@ -836,7 +836,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.add('-activate', target, 'ability: Gex Server');
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 					target.addVolatile('gexserver');
 				}
