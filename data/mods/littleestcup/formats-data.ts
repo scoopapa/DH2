@@ -3157,7 +3157,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kyurem: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "Uber",
 	},
 	kyuremblack: {
 		inherit: true,
