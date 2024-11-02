@@ -13081,6 +13081,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			torment: ["3L1"],
 			toxic: ["3L1"],
 			uproar: ["3L1"],
+			volttackle: ["3L1"],
 		},
 	},
 	rhyperior: {
@@ -13569,6 +13570,9 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thrash: ["3L1"],
 			twister: ["3L1"],
 			visegrip: ["3L1"],
+			firepunch: ["3L1"],
+			thunderpunch: ["3L1"],
+			earthquake: ["3L1"],
 		},
 	},
 	chespin: {
