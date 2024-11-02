@@ -69448,7 +69448,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			magicalleaf: ["9M", "9L1", "7L1", "6L1"],
 			magiccoat: ["7T", "6T"],
 			metronome: ["9M"],
-			mistyexplosion: ["9M"],
+			//mistyexplosion: ["9M"],
 			mistyterrain: ["9M", "9L1", "7L1", "6L1"],
 			moonblast: ["9L5", "7L1", "6L1"],
 			naturepower: ["7M", "6M"],
