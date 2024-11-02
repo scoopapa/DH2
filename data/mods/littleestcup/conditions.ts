@@ -742,6 +742,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectState.turns = 0;
 			pokemon.removeVolatile('minimize');
 			pokemon.removeVolatile('substitute');
+			pokemon.side.addSideCondition('dynamaxused', pokemon);
 			if (pokemon.volatiles['torment']) {
 				delete pokemon.volatiles['torment'];
 				this.add('-end', pokemon, 'Torment', '[silent]');
@@ -901,9 +902,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',						
 			];
 			if (matchings.includes(pokemon.species.id)) {
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
@@ -932,14 +933,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',			
 			];
 			if (this.effectState.bestStat !== 'atk') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker atk boost');
-				return this.chainModify([5325, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifyDefPriority: 6,
@@ -963,14 +964,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',				
 			];
 			if (this.effectState.bestStat !== 'def') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker def boost');
-				return this.chainModify([5325, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -994,14 +995,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',			
 			];
 			if (this.effectState.bestStat !== 'spa') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker spa boost');
-				return this.chainModify([5325, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 6,
@@ -1025,14 +1026,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',				
 			];
 			if (this.effectState.bestStat !== 'spd') return;
 			if (matchings.includes(pokemon.species.id)) {
 				this.debug('Moniker spd boost');
-				return this.chainModify([5325, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpe(spe, pokemon) {
@@ -1055,9 +1056,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',
 			];
 			if (this.effectState.bestStat !== 'spe') return;
 			if (matchings.includes(pokemon.species.id)) {
