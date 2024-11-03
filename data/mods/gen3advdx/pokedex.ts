@@ -88,7 +88,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	swampert: {
 		inherit: true,
-		abilities: {0: "Torrent", 1: "Rain Dish"},
+		abilities: {0: "Torrent", 1: "Damp"},
 	},
 	blaziken: {
 		inherit: true,
