@@ -44,6 +44,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 105, atk: 65, def: 65, spa: 115, spd: 95, spe: 30},
+		abilities: {0: "Chlorophyll"},
   },
 	castformsunny: {
 		inherit: true,
@@ -570,10 +571,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Inner Focus"},
 	},
-	stantler: {
-		inherit: true,
-		abilities: {0: "Intimidate"},
-	},
 	murkrow: {
 		inherit: true,
 		abilities: {0: "Insomnia"},
@@ -654,10 +651,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Effect Spore"},
 	},
-	poochyena: {
-		inherit: true,
-		abilities: {0: "Intimidate"},
-	},
 	porygon: {
 		inherit: true,
 		abilities: {0: "Trace"},
@@ -665,10 +658,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	porygon2: {
 		inherit: true,
 		abilities: {0: "Trace"},
-	},
-	sunflora: {
-		inherit: true,
-		abilities: {0: "Chlorophyll"},
 	},
 	sunkern: {
 		inherit: true,
