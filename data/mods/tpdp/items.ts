@@ -1285,17 +1285,20 @@ export const Items: {[k: string]: ModdedItemData} = {
 	purifycharm: {
 		name: "Purify Charm",
 		shortDesc: "When held, if the holder's stats are lowered, the lowered stats will be reverted.",
-		isBerry: true,
-		onAfterBoost(boost, target, source, effect) {
-			const revertBoosts:Partial<BoostsTable> = {};
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
 			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					revertBoosts[i]! = boost[i]! * -1;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					activate = true;
+					boosts[i] = 0;
 				}
 			}
-			this.boost(revertBoosts);
-			target.eatItem();
+			if (activate && pokemon.useItem()) {
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+			}
 		},
 	},
 	quartzhairpin: {

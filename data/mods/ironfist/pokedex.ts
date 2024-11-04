@@ -815,7 +815,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 	},
 	silvallylemon: {
-		num: 1029,
+		num: 773,
 		name: "Silvally-Lemon",
 		baseSpecies: "Silvally",
 		forme: "Lemon",
@@ -938,7 +938,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	silvallysilly: {
-		num: 1029,
+		num: 773,
 		name: "Silvally-Silly",
 		baseSpecies: "Silvally",
 		forme: "Silly",
@@ -950,7 +950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		changesFrom: "Silvally",
 	},
 	silvallystellar: {
-		num: 1029,
+		num: 773,
 		name: "Silvally-Stellar",
 		baseSpecies: "Silvally",
 		forme: "Stellar",
@@ -958,7 +958,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "RKS System"},
-		requiredItem: ["Stellar Memory", "Stellarium Z"],
+		requiredItem: "Stellarium Z",
 		changesFrom: "Silvally",
 	},
 	goddease: {
@@ -1004,6 +1004,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nedontrol: {
 		num: 1006,
 		name: "Nedontrol",
+		gender: "M",
 		types: ["Rock"],
 		baseStats: {hp: 126, atk: 92, def: 120, spa: 52, spd: 131, spe: 54},
 		abilities: {0: "Bon Appetit"},
@@ -1012,6 +1013,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	princirang: {
 		num: 1007,
 		name: "Princirang",
+		gender: "F",
 		types: ["Fairy"],
 		baseStats: {hp: 98, atk: 93, def: 86, spa: 83, spd: 80, spe: 135},
 		abilities: {0: "Honor Student"},
@@ -1049,12 +1051,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hustle", H: "Katabatic Winds"},
 		weightkg: 7.2,
 	},
-	minunplusle: {
+	minunandplusled: {
 		num: 1012,
-		name: "minun&plusle",
+		name: "minun and plusle :D",
 		types: ["Electric", "Electric"],
 		baseStats: {hp: 120, atk: 90, def: 90, spa: 160, spd: 160, spe: 190},
-		abilities: {0: "best friends <3"},
+		abilities: {0: "best friends"},
 		weightkg: 8.4,
 	},
 }

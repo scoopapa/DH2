@@ -2995,11 +2995,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             }
         },
 		onSwitchIn(pokemon, source, effect) {
-			if (pokemon.m.dog) {
+			if (pokemon.m.dog && !pokemon.side.sideConditions['dynamaxused']) {
 				pokemon.side.addSideCondition('bigdogtime');
 			}
 		},
 		onSwitchOut(pokemon, source, effect) {
+			if (pokemon.m.dog) {
+				pokemon.side.removeSideCondition('bigdogtime');
+			}
+		},
+		onFaint(pokemon) {
 			if (pokemon.m.dog) {
 				pokemon.side.removeSideCondition('bigdogtime');
 			}
@@ -3009,7 +3014,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'Rule',
 		name: 'Moniker Clause',
 		onBegin() {
-			this.add('rule', 'Moniker Clause: Gives Pokemon whose names in English and Japanese match a 1.3x (1.5x if Speed) boost to their highest stat');
+			this.add('rule', 'Moniker Clause: Gives Pokemon whose names in English and Japanese match a 1.5x boost to their highest stat');
 			const matchings = [
 				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
 				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
@@ -3029,9 +3034,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
 				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
 				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
-				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotomfrost', 'zoruahisui', 'zoroarkhisui',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
 				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
-				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'dianciemega', 'florges',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',
 			];
 			for (const pokemon of this.getAllPokemon()) {
 				if (matchings.includes(pokemon.species.id)) {

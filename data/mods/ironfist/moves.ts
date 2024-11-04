@@ -1895,7 +1895,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'Throw Em A Mug', '[silent]');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.diamondHand) this.heal(pokemon.maxhp * 0.3);
+				if (pokemon.baseSpecies.diamondHand) this.heal(pokemon.maxhp * 0.3);
 				pokemon.side.removeSideCondition('throwemamug');
 				this.add('-sideend', pokemon.side, 'move: Throw Em A Mug', '[of] ' + pokemon, '[silent]');
 			},
@@ -2230,7 +2230,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 50,
 		shortDesc: "+10 power for each PP used.",
 		basePowerCallback(pokemon, target, move) {
-			return move.basePower + 10 * (pp - moveSlot.pp);
+			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
+			return move.basePower + 10 * (move.pp - moveSlot.pp);
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -2314,13 +2315,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Always crits. Burns Lemon-type or fish Pokemon.",
+		shortDesc: "Always crits and burns Lemon-type or fish Pokemon.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		willCrit: true,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Tar Shot", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if(target.hasType('Lemon') || target.baseSpecies.fish) move.willCrit = true;
 		},
 		onAfterHit(target, source, move) {
 			if (target.hasType('Lemon') || target.baseSpecies.fish) {

@@ -131,11 +131,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	duratreme: {
 		num: 2017,
-		name: "duratreme",
+		name: "Duratreme",
 		types: ["Normal"],
-		baseStats: {hp: 70, atk: 95, def: 80, spa: 55, spd: 90, spe: 95},
-		abilities: {0: "Hustle", 1: "Fur Coat", H: "Magic Guard"},
-		weightkg: 25,
+		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 63},
+		abilities: {0: "Strong Jaw", 1: "Hydration", H: "Poison Heal"},
+		weightkg: 125,
 	},
 	velocipasta: {
 		num: 2018,
@@ -320,6 +320,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Ice"],
 		baseStats: {hp: 75, atk: 110, def: 95, spa: 55, spd: 65, spe: 100},
 		abilities: {0: "Ice Body", 1: "Iron Fist", H: "Long Reach"},
+		weightkg: 153,
+	},
+	kasappa: {
+		num: 2055,
+		name: "Kassapa",
+		types: ["Ice", "Dark"],
+		baseStats: {hp: 70, atk: 75, def: 85, spa: 105, spd: 90, spe: 105},
+		abilities: {0: "Snow Cloak", 1: "Water Absorb", H: "Prankster"},
+		weightkg: 153,
+	},
+	enkappa: {
+		num: 2056,
+		name: "Enkappa",
+		types: ["Ice", "Steel"],
+		baseStats: {hp: 85, atk: 105, def: 155, spa: 105, spd: 65, spe: 15},
+		abilities: {0: "Ice Body", 1: "Water Absorb", H: "Ice Scales"},
 		weightkg: 153,
 	},
 	stonehusk: {
