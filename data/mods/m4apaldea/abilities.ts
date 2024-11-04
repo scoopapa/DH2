@@ -628,12 +628,47 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	frostaura: {
 		shortDesc: "Turns all Water-type Pokémon into Ice-type Pokémon, and Water-type moves into Ice-type moves until a thawing move is used.",
 		desc: "While this Pokémon is on the field, all Water-type Pokémon become Ice-type Pokémon, and all Water-type moves become Ice-type moves. This effect ends when a thawing move is used.",
-		onUpdate(pokemon) {
+		onStart(pokemon) {
+			let activated = false;
 			for (const target of this.getAllActive()) {
-				if (!target || target === pokemon) continue;
-				if (target.hasType('Water') && target.isAdjacent(this.effectState.target)) {
-					target.setType(target.getTypes(true).map(type => type === "Water" ? "Ice" : type));
-					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Frost Aura', '[of] ' + pokemon);
+				if (target === pokemon) continue;
+				if (!target.hasType('Water')) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Frost Aura', 'boost');
+					activated = true;
+				}
+				else {
+					target.addVolatile('frostaura');
+				}
+			}
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Frost', '[from] ability: Frost Aura', '[of] ' + source);
+			},
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				const noModifyType = [
+					'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				];
+				if (move.type === 'Water' && !noModifyType.includes(move.id) &&
+					!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Ice';
+					move.typeChangerBoosted = this.effect;
+				}
+			},
+			onUpdate(pokemon) {
+				for (const target of this.getAllActive()) {
+					if (!target || target === pokemon) continue;
+					if (target.hasType('Water') && target.isAdjacent(this.effectState.target)) {
+						target.setType(target.getTypes(true).map(type => type === "Water" ? "Ice" : type));
+						this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Frost Aura', '[of] ' + pokemon);
+					}
+				}
+			},
+			onAfterMoveSecondary(target, source, move) {
+				if (move.flags['defrost']) {
+					target.removeVolatile('frostaura');
 				}
 			}
 		},
