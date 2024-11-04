@@ -1127,11 +1127,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} was hacked!`);
 		},
-		onModifyPriority(priority, pokemon, target, move) {
+		
+		onBeforeMove(pokemon, target, move) {
+			const action = this.queue.willMove(pokemon);
+			console.log(action);
+			if (!action) return;
+
+			action.order = 201;
 			if (this.randomChance(3, 10)) {
 				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 				if (target) target.addVolatile('ability:hacked');
-				return priority - 6;
+				move.priority -= 6;
 			}
 		},
 		flags: {},
