@@ -53,7 +53,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "G-Max Steelsurge", target);
 		},
 		onEffectiveness(typeMod, target, type) {
-		    return 1;
+		    if(target.baseSpecies.types[0] === type) return 1;
+			else return 0;
 		},
 		selfBoost: {
 			boosts: {
@@ -2229,6 +2230,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		basePower: 50,
 		shortDesc: "+10 power for each PP used.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1, contact: 1},
 		basePowerCallback(pokemon, target, move) {
 			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
 			return move.basePower + 10 * (move.pp - moveSlot.pp);
