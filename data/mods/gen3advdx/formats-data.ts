@@ -1614,4 +1614,32 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Uber",
 		doublesTier: "DUber",
 	},
+	gliscor: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chingling: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	munchlax: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	happiny: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	mimejr: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	bonsly: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	budew: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
 };
