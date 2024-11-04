@@ -330,6 +330,40 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Insomnia"},
 		gen: 3,
 	},
+	gliscor: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Sand Veil"},
+		gen: 3,
+	},
+	chingling: {
+		inherit: true,
+		gen: 3,
+	},
+	munchlax: {
+		inherit: true,
+		abilities: {0: "Immunity", 1: "Thick Fat"},
+		gen: 3,
+	},
+	happiny: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Serene Grace"},
+		gen: 3,
+	},
+	mimejr: {
+		inherit: true,
+		abilities: {0: "Soundproof"},
+		gen: 3,
+	},
+	bonsly: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Rock Head"},
+		gen: 3,
+	},
+	budew: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Poison Point"},
+		gen: 3,
+	},
 
 	// me when
 	breloom: {
@@ -414,15 +448,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	cleffa: {
 		inherit: true,
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Cute Charm"},
 	},
 	clefairy: {
 		inherit: true,
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Cute Charm"},
 	},
 	clefable: {
 		inherit: true,
-		abilities: {0: "Magic Guard"},
+		abilities: {0: "Cute Charm"},
 	},
 	snubbull: {
 		inherit: true,
