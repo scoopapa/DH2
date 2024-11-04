@@ -213,7 +213,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	nidoking: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	cleffa: {
 		inherit: true,
@@ -3993,7 +3993,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	melmetal: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	grookey: {
 		inherit: true,
