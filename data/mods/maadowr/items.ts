@@ -2016,7 +2016,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 3,
 		rating: 3,
 	},
-	magoBerry: {
+	magoberry: {
 		name: "Mago Berry",
 		spritenum: 274,
 		isBerry: true,
