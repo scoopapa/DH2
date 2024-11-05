@@ -38,7 +38,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
-	   	shortDesc: "Lowers target's Def by 1 stage, 2 in Tailwind.",
+	   shortDesc: "Lowers target's Def by 1 stage, 2 in Tailwind.",
 		name: "Clive Jump",
 		pp: 10,
 		priority: 0,
@@ -195,7 +195,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		shortDesc: "Type varies based on the user's primary type. Hits foes.",
+		shortDesc: "Type based on user's primary type. Hits foes.",
 		name: "Dispersion",
 		pp: 15,
 		priority: 0,
@@ -225,7 +225,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			return Math.min(350, 50 + 50 * pokemon.timesAttacked);
 		},
 		category: "Physical",
-		shortDesc: "Works like Rage Fist but isn't a punch move.",
+		shortDesc: "Like Rage Fist but no punch move.",
 		name: "Enraged Assault",
 		pp: 10,
 		priority: 0,
@@ -325,7 +325,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	// end
 
-	// start: yet to consider Instruct due to list
+	// start:
 	gigavolt: {
 		num: -11,
 		accuracy: 100,
@@ -450,7 +450,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 140,
 		category: "Physical",
-		shortDesc: "Causes Intimidate if user gets interrupted.",
+		shortDesc: "-1 Atk to attacker's side if interrupted.",
 		name: "Hasami-waza",
 		pp: 5,
 		priority: -3,
@@ -1522,7 +1522,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 
 			// Determine the best stat to boost
-			const stats: Array<StatIDExceptHP> = ['atk', 'spa', 'def', 'spd', 'spe']; // List of stats to consider
+			const stats: Array<StatIDExceptHP> = ['atk', 'def', 'spa', 'spd', 'spe']; // List of stats to consider
 			let bestStat: StatIDExceptHP = stats[0]; // Initialize with the first stat
 			let highestValue = lastFaintedDark.getStat(bestStat); // Get the initial highest value
 	
@@ -1572,7 +1572,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
            				this.add('-fail', source, 'move: Exhume'); // No available foes
         			}
         		break;
-				case 'allAdjacent':
+				// case any is important because without it, user will use distance moves against itself, such as Brave Bird...
+				case 'any':
+					const anyTarget = source.side.foe.active.filter(target => target && !target.fainted);
+					if (anyTarget.length > 0) {
+						const randomTarget = anyTarget[Math.floor(Math.random() * anyTarget.length)];
+						this.actions.useMove(moveData.id, source, randomTarget);
+					} else {
+						this.add('-fail', source, 'move: Exhume');
+					}
+				break;
+				/*case 'allAdjacent':
         			// Affects all adjacent Pokémon (both allies and foes)
         			const adjacentTargets = source.side.active.filter(target => target && !target.fainted);
         			for (const target of adjacentTargets) {
@@ -1588,7 +1598,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
         		break;
     			case 'all':
         			this.actions.useMove(moveData.id, source, null); // Affects everyone; null can be used for moves that don't require a target
-        		break;
+        		break;*/
 				default:
        			 	// Default case; use the original target if no specific case matches
         			this.actions.useMove(moveData.id, source, target);
