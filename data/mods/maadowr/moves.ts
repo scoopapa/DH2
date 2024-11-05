@@ -1302,10 +1302,49 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 20,  
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onModifyPriority(priority, source, target, move) {  
-			if (target.status === 'psn' || target.status === 'tox') {  
-				return priority + 1; 
-			}
+		beforeTurnCallback(pokemon) {
+			//	console.log(`Reactive Poison beforeTurnCallback - Checking targets for ${pokemon.name}`);
+				for (const target of pokemon.side.foe.active) {
+					if (target && !target.fainted && (target.status === 'psn' || target.status === 'tox')) {
+						target.addVolatile('reactivepoisontarget', pokemon);
+			//			console.log(`Reactive Poison - Added 'reactivepoisontarget' volatile to ${target.name}`);
+						this.add('-message', `${pokemon.name} is eyeing ${target.name} for a swift strike!`);
+					}
+				}
+			},
+		
+			onModifyPriority(priority, source, target) {
+			//	console.log(`Reactive Poison onModifyPriority - Checking priority for ${source.name} against ${target?.name}`);
+				// Check if any opponent has the 'reactivepoisontarget' volatile
+				for (const foe of source.side.foe.active) {
+					if (foe && foe.volatiles['reactivepoisontarget']) {
+			//			console.log(`Reactive Poison - Priority increased to ${priority + 1} against ${foe.name}`);
+						return priority + 1;
+					}
+				}
+			//	console.log(`Reactive Poison - Priority unchanged: ${priority}`);
+				return priority;
+			},
+		
+			onPrepareHit(target, source, move) {
+			//	console.log(`Reactive Poison onPrepareHit - Preparing hit from ${source.name} to ${target.name}`);
+				this.attrLastMove('[still]');
+				if (target.volatiles['reactivepoisontarget']) {
+			//		console.log(`Reactive Poison - Target has 'reactivepoisontarget' volatile, showing Focus Energy animation`);
+					this.add('-anim', source, "Focus Energy");
+				}
+				this.add('-anim', source, "Venoshock", target);
+			},
+		
+			condition: {
+				duration: 1,
+				onStart(pokemon, source) {
+			//		console.log(`Reactive Poison - Volatile 'reactivepoisontarget' started on ${pokemon.name}`);
+					this.debug(`Reactive Poison - Volatile 'reactivepoisontarget' started on ${pokemon.name}`);
+				},
+			//	onEnd(pokemon) {
+			//		console.log(`Reactive Poison - Volatile 'reactivepoisontarget' ended on ${pokemon.name}`);
+			//	},
 		},
 		secondary: null,
 		target: "normal",
