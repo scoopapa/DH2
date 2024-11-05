@@ -3954,6 +3954,9 @@ export const Formats: FormatList = [
 			'Focus Sash', 'Leftovers', 'Life Orb', 'Belly Drum', 'Calm Mind', 'Nasty Plot', 'Azumarill', 'Blaziken', 'Deoxys-Defense', 'Greninja',
 			'Heatran', 'Kleavor', 'Kommo-o', 'Meowscarada', 'Moltres-Galar', 'Ninetales-Alola', 'Pecharunt', 'Politoed', 'Sinistcha', 'Skarmory',
 			'Ursaluna', 'Zapdos-Base',
+			
+			//Pokébilities bans
+			'Conkeldurr', 'Excadrill', 'Porygon-Z',
 		],
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
