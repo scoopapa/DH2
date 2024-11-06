@@ -150,6 +150,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 1007,
 	},
+	/*
 	intimidate: {
 		onStart(pokemon) {
 			let activated = false;
@@ -168,6 +169,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Intimidate",
 		shortDesc: "On switch-in, lowers the Attack and Sp. Attack of opponents by 1 stage.",
+		rating: 3.5,
+		num: 22,
+	},
+	*/
+	intimidate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else if (target.volatiles['intimidate']) {
+					return false;
+				} else {
+					target.addVolatile('intimidate');
+				}
+			}
+		},
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.add('-start', target, 'Intimidated');
+				this.boost({atk: -1, spa: -1}, target, null);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Intimidated');
+			},
+		},		
+		flags: {},
+		name: "Intimidate",
+		shortDesc: "On switch-in, inflicts \"Intimidated\" condition on an opponent, which lowers Attack and Sp. Attack by 1 stage.",
 		rating: 3.5,
 		num: 22,
 	},

@@ -509,7 +509,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplenormalbreak: {
 		num: 1037,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Normal Break",
 		shortDesc: "Hits 3 times.",
@@ -524,7 +524,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplenormalblast: {
 		num: 1038,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Normal Blast",
 		shortDesc: "Hits 3 times.",
@@ -539,7 +539,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplefirebreak: {
 		num: 1039,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Fire Break",
 		shortDesc: "Hits 3 times.",
@@ -554,7 +554,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplefireblast: {
 		num: 1040,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Fire Blast",
 		shortDesc: "Hits 3 times.",
@@ -569,7 +569,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplewaterbreak: {
 		num: 1041,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Water Break",
 		shortDesc: "Hits 3 times.",
@@ -584,7 +584,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplewaterblast: {
 		num: 1042,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Water Blast",
 		shortDesc: "Hits 3 times.",
@@ -599,7 +599,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplegrassbreak: {
 		num: 1043,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Grass Break",
 		shortDesc: "Hits 3 times.",
@@ -614,7 +614,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplegrassblast: {
 		num: 1044,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Grass Blast",
 		shortDesc: "Hits 3 times.",
@@ -629,7 +629,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleelectricbreak: {
 		num: 1045,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Electric Break",
 		shortDesc: "Hits 3 times.",
@@ -644,7 +644,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleelectricblast: {
 		num: 1046,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Electric Blast",
 		shortDesc: "Hits 3 times.",
@@ -659,7 +659,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleicebreak: {
 		num: 1047,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Ice Break",
 		shortDesc: "Hits 3 times.",
@@ -674,7 +674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleiceblast: {
 		num: 1048,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Ice Blast",
 		shortDesc: "Hits 3 times.",
@@ -689,7 +689,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplefightingbreak: {
 		num: 1049,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Fighting Break",
 		shortDesc: "Hits 3 times.",
@@ -704,7 +704,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplefightingblast: {
 		num: 1050,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Fighting Blast",
 		shortDesc: "Hits 3 times.",
@@ -719,7 +719,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplepoisonbreak: {
 		num: 1051,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Poison Break",
 		shortDesc: "Hits 3 times.",
@@ -734,7 +734,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplepoisonblast: {
 		num: 1052,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Poison Blast",
 		shortDesc: "Hits 3 times.",
@@ -749,7 +749,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplegroundbreak: {
 		num: 1053,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Ground Break",
 		shortDesc: "Hits 3 times.",
@@ -764,7 +764,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplegroundblast: {
 		num: 1054,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Ground Blast",
 		shortDesc: "Hits 3 times.",
@@ -779,7 +779,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleflyingbreak: {
 		num: 1055,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Flying Break",
 		shortDesc: "Hits 3 times.",
@@ -794,7 +794,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleflyingblast: {
 		num: 1056,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Flying Blast",
 		shortDesc: "Hits 3 times.",
@@ -809,7 +809,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplepsychicbreak: {
 		num: 1057,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Psychic Break",
 		shortDesc: "Hits 3 times.",
@@ -824,7 +824,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplepsychicblast: {
 		num: 1058,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Psychic Blast",
 		shortDesc: "Hits 3 times.",
@@ -839,7 +839,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplebugbreak: {
 		num: 1059,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Bug Break",
 		shortDesc: "Hits 3 times.",
@@ -854,7 +854,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplebugblast: {
 		num: 1060,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Bug Blast",
 		shortDesc: "Hits 3 times.",
@@ -869,7 +869,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplerockbreak: {
 		num: 1061,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Rock Break",
 		shortDesc: "Hits 3 times.",
@@ -884,7 +884,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplerockblast: {
 		num: 1062,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Rock Blast",
 		shortDesc: "Hits 3 times.",
@@ -899,7 +899,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleghostbreak: {
 		num: 1063,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Ghost Break",
 		shortDesc: "Hits 3 times.",
@@ -914,7 +914,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleghostblast: {
 		num: 1064,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Ghost Blast",
 		shortDesc: "Hits 3 times.",
@@ -929,7 +929,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripledragonbreak: {
 		num: 1065,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Dragon Break",
 		shortDesc: "Hits 3 times.",
@@ -944,7 +944,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripledragonblast: {
 		num: 1066,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Dragon Blast",
 		shortDesc: "Hits 3 times.",
@@ -959,7 +959,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripledarkbreak: {
 		num: 1067,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Dark Break",
 		shortDesc: "Hits 3 times.",
@@ -974,7 +974,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripledarkblast: {
 		num: 1068,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Dark Blast",
 		shortDesc: "Hits 3 times.",
@@ -989,7 +989,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplesteelbreak: {
 		num: 1069,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Steel Break",
 		shortDesc: "Hits 3 times.",
@@ -1004,7 +1004,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplesteelblast: {
 		num: 1070,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Steel Blast",
 		shortDesc: "Hits 3 times.",
@@ -1019,7 +1019,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplefairybreak: {
 		num: 1071,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Fairy Break",
 		shortDesc: "Hits 3 times.",
@@ -1034,7 +1034,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	triplefairyblast: {
 		num: 1072,
 		accuracy: 90,
-		basePower: 33,
+		basePower: 30,
 		category: "Special",
 		name: "Triple Fairy Blast",
 		shortDesc: "Hits 3 times.",
@@ -1593,7 +1593,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	remove: {
 		num: 1109,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 35,
 		category: "Special",
 		name: "Remove",
 		shortDesc: "Removes hazards/trapping/Leech Seed, +1 Spe. Physical if Atk > Sp. Atk.",
@@ -1651,7 +1651,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	eject: {
 		num: 1110,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 35,
 		category: "Special",
 		name: "Eject",
 		shortDesc: "Forces the target to switch to a random ally. Physical if Atk > Sp. Atk. -6 Priority.",
