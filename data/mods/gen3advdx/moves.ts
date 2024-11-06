@@ -1,10 +1,10 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	wingattack: {
-    inherit: true,
+    	inherit: true,
 		basePower: 75,
 	},
 	leafblade: {
-    inherit: true,
+    	inherit: true,
 		basePower: 85,
 	},
 	hail: {
@@ -63,5 +63,26 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
+	},
+	watershuriken: {
+    	inherit: true,
+		category: "Special",
+		gen: 3,
+		isNonstandard: null,
+	},
+	spikyshield: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
+	},
+	mysticalfire: {
+    	inherit: true,
+		basePower: 75,
+		gen: 3,
+		isNonstandard: null,
+	},
+	mysticalfire: {
+    	inherit: true,
+		accuracy: 100,
 	},
 };
