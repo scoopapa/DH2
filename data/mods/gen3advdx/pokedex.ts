@@ -667,4 +667,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Chlorophyll"},
 	},
+	shellder: {
+		inherit: true,
+		abilities: {0: "Shell Armor"},
+	},
+	cloyster: {
+		inherit: true,
+		abilities: {0: "Shell Armor"},
+	},
 };
