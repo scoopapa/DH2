@@ -13573,6 +13573,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			firepunch: ["3L1"],
 			thunderpunch: ["3L1"],
 			earthquake: ["3L1"],
+			hiddenpower: ["3L1"],
 		},
 	},
 	chespin: {
@@ -13769,6 +13770,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunderpunch: ["3L1"],
 			toxic: ["3L1"],
 			vinewhip: ["3L1"],
+			spikyshield: ["3L1"],
 		},
 	},
 	froakie: {
@@ -13932,6 +13934,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			waterpulse: ["3L1"],
 			watersport: ["3L1"],
 			waterfall: ["3L1"],
+			watershuriken: ["3L1"],
 		},
 	},
 	fennekin: {
@@ -14090,6 +14093,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trick: ["3L1"],
 			willowisp: ["3L1"],
 			wish: ["3L1"],
+			mysticalfire: ["3L1"],
 		},
 	},
 	magnezone: {
@@ -15309,6 +15313,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunderwave: ["3L1"],
 			thunderbolt: ["3L1"],
 			zapcannon: ["3L1"],
+			hiddenpower: ["3L1"],
 		},
 	},
 /*rotomheat: {
