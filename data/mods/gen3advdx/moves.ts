@@ -81,7 +81,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		gen: 3,
 		isNonstandard: null,
 	},
-	mysticalfire: {
+	glare: {
     	inherit: true,
 		accuracy: 100,
 	},
