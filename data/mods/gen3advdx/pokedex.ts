@@ -323,7 +323,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	yanmega: {
 		inherit: true,
-		abilities: {0: "Speed Boost"},
+		abilities: {0: "Speed Boost", 1: "Compound Eyes"},
 		gen: 3,
 	},
 	honchkrow: {
