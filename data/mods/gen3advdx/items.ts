@@ -14,6 +14,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 268,
 		gen: 3,
 	},
+	/*
 	damprock: {
 		inherit: true,
 		isNonstandard: null,
@@ -34,6 +35,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: null,
 		gen: 3,
 	},
+ 	*/
 	bigroot: {
 		inherit: true,
 		isNonstandard: null,
