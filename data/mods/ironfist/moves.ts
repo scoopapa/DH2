@@ -2444,6 +2444,110 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	
+	//slate 6
+	ironfist: {
+		name: "Iron Fist",
+		type: "Steel",
+		category: "Physical",
+		basePower: 90,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Raises user's and target's Defense by 1.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Double Iron Bash", target);
+		},
+		boosts: {
+			def: 1,
+		},
+		self: {
+			boosts: {
+				def: 1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	fertilesoil: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fertile Soil",
+		shortDesc: "Inflicts foes with Leech seed on switchin. Single use.",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'fertilesoil',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Fertile Soil');
+			},
+			onEntryHazard(pokemon) {
+				if(!pokemon.hasType('Grass')) pokemon.addVolatile('leechseed');
+				pokemon.side.removeSideCondition('fertilesoil');
+				this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	epicbeam: {
+		name: "Epic Beam",
+		type: "Ice",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 40,
+		shortDesc: "Epic Beam",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Prismatic Laser", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			move.category = 'Special';
+			move.basePower = 300;
+		},
+		slotCondition: 'epicbeam',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose an unfainted party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// sacrificing implemented in side.ts, kind of
+		},
+		secondary: null,
+		target: "normal",
+	},
+	homerun: {
+		name: "Home Run",
+		type: "Silly",
+		category: "Physical",
+		basePower: 40,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Usually goes first. Power doubles if the target is Baseballed.",
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Brutal Swing", target);
+		},
+		onBasePower(basePower, pokemon, target) {
+			if(target.status === 'baseball') return this.chainModify(2);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	
 	//Silly shit
 	attract: {
 		inherit: true,

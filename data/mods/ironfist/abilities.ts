@@ -1075,6 +1075,80 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
 	},
 	
+	//slate 6
+	acidicdrizzle: {
+		onStart(source) {
+			this.field.setWeather('acidrain');
+		},
+		flags: {},
+		name: "Acidic Drizzle",
+		shortDesc: "On switchin, this Pokemon sets Acid Rain.",
+	},
+	madscientist: {
+		onStart(source) {
+			source.side.addSideCondition('madnesscounter');
+		},
+		flags: {},
+		name: "Mad Scientist",
+		shortDesc: "On switchin, this Pokemon adds a Madness Counter to its side.",
+	},
+	divininghorn: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			const disasters = ["Rock Side", "Earthquake", "Magnitude", "Muddy Water", "Surf", "Hurricane", "Thunder", "Blizzard", "Draco Meteor", "Heat Wave", "Inferno", "Eruption", "Avalanche", "Whirlwind", "Bleakwind Storm", "Sandsear Storm", "Windbolt Storm", "Springtide Storm", "Lava Plume", "Twister", "Magma Storm"];
+			if (disasters.contains(move)) {
+				this.add('-immune', target, '[from] ability: Divining Horn');
+				return null;
+			}
+		},
+		//effects of weather in scripts/pokemon
+		flags: {breakable: 1},
+		name: "Divining Horn",
+		shortDesc: "This Pokemon and its allies are immune to disasters and hazards, and ignore weather.",
+	},
+	hoennstan: {
+		onStart(pokemon) {
+			const hoenn = pokemon.side.pokemon.filter(p => p.baseSpecies.gen === 3).length;
+			if (hoenn) {
+				this.add('-activate', pokemon, 'ability: Hoenn Stan');
+				const hoenn = Math.min(hoenn, 5);
+				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
+				this.effectState.hoenn = hoenn;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `hoenn${this.effectState.hoenn}`, '[silent]');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (this.effectState.hoenn) {
+				return this.chainModify(1 + 0.15 * this.effectState.hoenn);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (this.effectState.hoenn) {
+				return this.chainModify(1 + 0.15 * this.effectState.hoenn);
+			}
+		},
+		flags: {},
+		name: "Hoenn Stan",
+		shortDesc: "This Pokemon's Atk/Spa gain 15% for each Gen 3 ally.",
+	},
+	zombiesonyourlawn: {
+		onStart(source) {
+			this.add('-message', 'The angry ghost returns to haunt Iron Fist...');
+			this.field.setWeather('graveyard');
+		},
+		flags: {},
+		name: "Acidic Drizzle",
+		shortDesc: "On switchin, this Pokemon sets Acid Rain.",
+	},
+	
 	//vanilla
 	mimicry: {
 		inherit: true,
