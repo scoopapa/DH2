@@ -60,15 +60,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onModifySpe(spe, pokemon) {
-			return this.chainModify(1.25);
+			return this.chainModify(1.2);
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			return this.chainModify(0.75);
+			return this.chainModify(0.8);
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			return this.chainModify(0.75);
+			return this.chainModify(0.8);
 		},
 		num: -3,
 		gen: 9,
