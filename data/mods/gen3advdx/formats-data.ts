@@ -40,7 +40,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	regidrago: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	chespin: {
@@ -1483,7 +1483,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	duskull: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "DUU",
 	},
 	dusclops: {
