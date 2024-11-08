@@ -1044,7 +1044,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const diamondHand = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.baseSpecies.diamondHand);
 			for (const target of pokemon.adjacentFoes()) {
 				if (diamondHand.length > 0) {
-					console.log(diamondHand.length);
 					this.add('-ability', pokemon, 'Honor Student');
 					activated = true;
 					this.damage(0.02 * diamondHand.length * target.baseMaxhp, target, pokemon);
@@ -1106,6 +1105,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		//effects of weather in scripts/pokemon
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'graveyard') return false;
+		},
 		flags: {breakable: 1},
 		name: "Divining Horn",
 		shortDesc: "This Pokemon and its allies are immune to disasters and hazards, and ignore weather.",
@@ -1145,8 +1147,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setWeather('graveyard');
 		},
 		flags: {},
-		name: "Acidic Drizzle",
-		shortDesc: "On switchin, this Pokemon sets Acid Rain.",
+		name: "Zombies on Your Lawn",
+		shortDesc: "On switchin, this Pokemon sets Graveyard.",
 	},
 	
 	//vanilla
@@ -1204,7 +1206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		onBeforeMove(pokemon, target, move) {
 			const action = this.queue.willMove(pokemon);
-			console.log(action);
+			//console.log(action);
 			if (!action) return;
 
 			action.order = 201;

@@ -13,7 +13,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.kunai === undefined) source.kunai = 0;
-			console.log(source.kunai);
 			if (move.category !== 'Status') source.kunai ++;
 			else source.kunai = 0;
 			if (source.kunai >= 3) {
@@ -98,10 +97,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return null;
 			}
 		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (target.volatiles['ingrain'] || target.volatiles['smackdown'] || this.field.getPseudoWeather('gravity')) return;
+			if (move.type === 'Ground' && target.hasType('Flying')) return 0;
+		},
+		// airborneness negation implemented in sim/pokemon.js:Pokemon#isGrounded
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
+		},
 		flags: {},
 		name: "Iron Fist",
 		rating: 3,
-		shortDesc: "All punching moves turn into Double Iron Bash.",
+		shortDesc: "Iron Ball + all punching moves turn into Double Iron Bash.",
 		num: 89,
 	},
 	kinglerite: {
@@ -230,7 +238,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBeforeTurn(pokemon) {
 			if (pokemon.removeVolatile('nervecharm')) {
-				console.log("adding quickguard");
 				pokemon.side.addSideCondition('quickguard');
 			}
 			pokemon.addVolatile('nervecharm');
@@ -506,5 +513,112 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		shortDesc: "On hit, force the opponent to use Big Button. Single use.",
 		rating: 3,
+	},
+
+	//slate 6
+	boxofonedozenstarvingcrazedweasels: {
+		name: "Box of One Dozen Starving, Crazed Weasels",
+		shortDesc: "Cannot be removed. Attackers lose 1/8 max HP per turn if they try to.",
+		rating: 3,
+		onTakeItem: false,
+		onHit(target, source, move) {
+			if (['corrosivegas', 'covet', 'knockoff', 'switcheroo', 'thief', 'trick'].includes(move.id)) {
+				source.addVolatile('boxofonedozenstarvingcrazedweasels');
+				return;
+			}
+			if (target !== source && !source.item) {
+				if (source.hasAbility('pickpocket') && move.flags.contact) {
+					source.addVolatile('boxofonedozenstarvingcrazedweasels');
+					return;
+				}
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Box of One Dozen Starving, Crazed Weasels');
+			},
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 8);
+			},
+		},
+	},
+	shuriken: {
+		name: "Shuriken",
+		fling: {
+			basePower: 90,
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source.shuriken === undefined) source.shuriken = 0;
+			if (move.category !== 'Status') source.shuriken ++;
+			else source.shuriken = 0;
+			if (source.shuriken >= 3) {
+				this.boost({def: 1, spd: 1});
+				source.shuriken = 0;
+			}
+		},
+		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Attack and Sp. Attack.",
+		rating: 3,
+	},
+	tubeofonebillionlemons: {
+		name: "Tube of One Billion Lemons",
+		shortDesc: "Holder's Lemon-type attacks have 1.2x power.",
+		spritenum: 60,
+		rating: 3,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Lemon') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+	},
+	comicallylargespoon: {
+		name: "Comically Large Spoon",
+		shortDesc: "Holder's Silly-type attacks have 1.2x power.",
+		spritenum: 520,
+		rating: 3,
+		fling: {
+			basePower: 80,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Silly') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+	},
+	bobscurse: {
+		name: "Bob\'s Curse",
+		shortDesc: "Holder's bullet attacks have 1.2x power and have a 30% chance to badly poison.",
+		rating: 3,
+		spritenum: 660,
+		fling: {
+			basePower: 90,
+			secondary: {
+				chance: 30,
+				status: 'psn',
+			},
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['bullet']) {
+				this.debug('Adding Stench flinch');
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.status === 'tox') return;
+				}
+				move.secondaries.push({
+					chance: 30,
+					status: 'tox',
+				});
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 	},
 }

@@ -70,6 +70,14 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	//slate 3
 	sunnyday: {
 		inherit: true,
+		//slate 6
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
+			if (move.type === 'Fire') {
+				this.debug('Sunny Day fire boost');
+				return this.chainModify(1.5);
+			}
+		},
 		onFieldStart(battle, source, effect) {
 			if (battle.terrain === 'fishingterrain') {
 				this.add('-message', 'The fishing terrain blocked out the sun!');
@@ -85,10 +93,91 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	},
 	raindance: {
 		inherit: true,
+		//slate 6
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
+			if (move.type === 'Water') {
+				this.debug('Rain water boost');
+				return this.chainModify(1.5);
+			}
+		},
 		onFieldResidual() {
 			this.add('-weather', 'RainDance', '[upkeep]');
 			if (this.field.isTerrain('fishingterrain')) this.effectState.duration ++;
 			this.eachEvent('Weather');
+		},
+	},
+
+	//slate 6
+	acidrain: {
+		name: 'Acid Rain',
+		effectType: 'Weather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('acidrockorsomethingidfk')) {
+				return 8;
+			}
+			return 5;
+		},
+		onFieldStart(field, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'Acid Rain', '[from] ability: ' + effect.name, '[of] ' + source);
+			} else {
+				this.add('-weather', 'Acid Rain');
+			}
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Acid Rain', '[upkeep]');
+			if (this.field.isWeather('Acid Rain')) this.eachEvent('Weather');
+			for (const side of this.sides) {
+				side.removeFishingTokens(1);
+			}
+		},
+		onWeather(target) {
+			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16);
+			else if(['Water', 'Steel'].contains(target.types) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 8);
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
+		},
+	},
+	graveyard: {
+		name: 'Graveyard',
+		effectType: 'Weather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('bonerockorsomethingidfk')) {
+				return 8;
+			}
+			return 5;
+		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
+			if (move.type === 'Ghost') {
+				this.debug('Graveyard ghost boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onFieldStart(field, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'Graveyard', '[from] ability: ' + effect.name, '[of] ' + source);
+			} else {
+				this.add('-weather', 'Graveyard');
+			}
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Graveyard', '[upkeep]');
+			if (this.field.isWeather('Graveyard')) this.eachEvent('Weather');
+		},
+		onWeather(target) {
+			this.damage(target.baseMaxhp / 8);
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
 		},
 	},
 }

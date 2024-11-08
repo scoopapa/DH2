@@ -42,7 +42,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
   	pog: {
 		accuracy: 100,
-		basePower: 40,
+		basePower: 60,
 		category: "Physical",
 		name: "POG",
 		pp: 10,
@@ -56,39 +56,41 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		    if(target.baseSpecies.types[0] === type) return 1;
 			else return 0;
 		},
-		selfBoost: {
-			boosts: {
-				atk: 1,
-			},
-		},
-		status: 'par',
 		target: "normal",
 		type: "Steel",
-		shortDesc: "Always super-effective. Always paralyzes. Raises user's attack by one stage.",
+		shortDesc: "Always super-effective.",
 		contestType: "Beautiful",
 	},
   	velvetblade: {
 		accuracy: 100,
-		basePower: 100,
+		basePower: 90,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Night Slash", target);
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Payback NOT boosted');
-				return move.basePower;
-			}
-			this.debug('Payback damage boost');
-			return move.willCrit = true;
 		},
 		category: "Physical",
 		name: "Velvet Blade",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onModifyMove(move, pokemon, target) {
+            let newMoveName;
+			let activated = false;
+            for (const moveSlot of pokemon.moveSlots) {
+                const temp = this.dex.moves.get(moveSlot.id);
+                if (temp.category === 'Status') {
+                    newMoveName = temp.name;
+					activated = true;
+                    break;
+                }
+            }
+            if(activated) move.name = newMoveName;
+			else move.basePower /= 2;
+        },
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		shortDesc: "If user moved after target, always crits.",
+		shortDesc: "Disguises as the user's first Status move. Else halved power.",
 		contestType: "Tough",
 	},
   	mogoff: {
@@ -322,7 +324,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
-			console.log(move.category);
 			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
 				return false;
 			}
@@ -2486,9 +2487,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'Fertile Soil');
 			},
 			onEntryHazard(pokemon) {
-				if(!pokemon.hasType('Grass')) pokemon.addVolatile('leechseed');
-				pokemon.side.removeSideCondition('fertilesoil');
-				this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
+				if(!pokemon.hasType('Grass')) {
+					pokemon.addVolatile('leechseed');
+					pokemon.side.removeSideCondition('fertilesoil');
+					this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
+				}
 			},
 		},
 		secondary: null,
@@ -2507,6 +2510,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Epic Beam",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTry(source) {
+			if (source.side.pokemonLeft > 1) return;
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Epic Beam');
+			return null;
+		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Prismatic Laser", target);
@@ -2515,7 +2524,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			move.category = 'Special';
 			move.basePower = 300;
 		},
-		slotCondition: 'epicbeam',
+		onAfterHit(target, source) {
+			source.side.addSlotCondition(source, 'epicbeam');
+		},
 		// No this not a real switchout move
 		// This is needed to trigger a switch protocol to choose an unfainted party member
 		// Feel free to refactor
@@ -2546,6 +2557,101 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
+	},
+	chaospotion: {
+		name: "Chaos Potion",
+		type: "Psychic",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "Turns the user into a random Pokemon.",
+		priority: 2,
+		flags: {snatch: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Transform", target);
+		},
+		onHit(pokemon) {
+			if (!pokemon.hp) return;
+            const pokemons = this.dex.species.all();
+			const randomPokemon = this.sample(pokemons);
+            pokemon.formeChange(randomPokemon);
+			this.add('-message', `${pokemon.name} transformed into ${randomPokemon}!`);
+		},
+		secondary: null,
+		target: "self",
+	},
+	justicepotion: {
+		name: "Justice Potion",
+		type: "Psychic",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "Turns the target into a random Pokemon.",
+		priority: -2,
+		flags: {protect: 1, mirror: 1, reflectable: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Acid Spray", target);
+		},
+		onHit(pokemon) {
+			if (!pokemon.hp) return;
+            const pokemons = this.dex.species.all();
+            const randomPokemon = this.sample(pokemons);
+            pokemon.formeChange(randomPokemon);
+			this.add('-message', `${pokemon.name} transformed into ${randomPokemon}!`);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	graveyard: {
+		name: "Graveyard",
+		type: "Ghost",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 5,
+		shortDesc: "For 5 turns, +Ghost and damages non-Ghost/Darks.",
+		priority: 0,
+		flags: {metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sunny Day", target);
+		},
+		weather: 'graveyard',
+		secondary: null,
+		target: "all",
+	},
+	pieblast: {
+		name: "Pie Blast",
+		type: "Silly",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "100% chance to lower the target's Speed by 1.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Mind Blown", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+	},
+	multiattack: {
+		inherit: true,
+		shortDesc: "Type = Memory. Special if user's Sp. Atk > Atk.",
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
 	},
 	
 	//Silly shit
