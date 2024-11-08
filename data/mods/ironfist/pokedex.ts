@@ -505,6 +505,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	jirachitwo: {
 		num: 1059,
 		name: "Jirachitwo",
+		gen: 3,
 		types: ["Psychic", "Ground"],
 		baseStats: {hp: 95, atk: 95, def: 100, spa: 95, spd: 100, spe: 70},
 		abilities: {0: "Benevolent Blessing"},
@@ -1055,6 +1056,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	minunandplusled: {
 		num: 1012,
 		name: "minun and plusle :D",
+		gen: 3,
 		types: ["Electric", "Electric"],
 		baseStats: {hp: 75, atk: 50, def: 50, spa: 100, spd: 100, spe: 125},
 		abilities: {0: "best friends"},
