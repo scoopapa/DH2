@@ -677,7 +677,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lemon",
 		types: ["Lemon"],
 		baseStats: {hp: 70, atk: 75, def: 90, spa: 107, spd: 120, spe: 55},
-		abilities: {0: "Mold Breaker", 1: "Ripen", H: "Alpha Sigma Rizz"},
+		abilities: {0: "Mold Breaker", 1: "Ripen", H: "Acidic Drizzle"},
 		weightkg: 0.1,
 	},
 	fishingzombie: {
