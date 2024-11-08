@@ -1707,6 +1707,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(target) {
 			target.gender = (target.gender === 'F') ? 'M' : 'F';
+			target.trans = true;
 			this.add('-message', `${target.name} is now ${(target.gender === 'M') ? 'male' : 'female'}!`);
 		},
 		secondary: null,
@@ -2527,9 +2528,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onAfterHit(target, source) {
 			source.side.addSlotCondition(source, 'epicbeam');
 		},
-		// No this not a real switchout move
-		// This is needed to trigger a switch protocol to choose an unfainted party member
-		// Feel free to refactor
+		// wtf
 		selfSwitch: true,
 		condition: {
 			duration: 1,
@@ -2653,6 +2652,41 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
 	},
+	citrusbomb: {
+		accuracy: 85,
+		basePower: 60,
+		category: "Special",
+		name: "Citrus Bomb",
+		shortDesc: "Target's accuracy is lowered by 1 stage for 3 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		condition: {
+			noCopy: true,
+			duration: 4,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Citrus Bomb');
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive) {
+					pokemon.removeVolatile('citrusbomb');
+				}
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				this.boost({accuracy: -1}, pokemon, this.effectState.source);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Citrus Bomb', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'citrusbomb',
+		},
+		target: "normal",
+		type: "Lemon",
+	},
 	
 	//Silly shit
 	attract: {
@@ -2767,6 +2801,93 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		type: "Silly",
 	},
+
+	//disaster shit
+	rockslide: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+	earthquake: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
+	},
+	magnitude: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
+	},
+	muddywater: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
+	},
+	surf: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, disaster: 1},
+	},
+	hurricane: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	thunder: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+	blizzard: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	dracometeor: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+	heatwave: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	inferno: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+	eruption: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+	avalanche: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, contact: 1, metronome: 1, disaster: 1},
+	},
+	whirlwind: {
+		inherit: true,
+		flags: {reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, noassist: 1, failcopycat: 1, wind: 1, disaster: 1},
+	},
+	bleakwindstorm: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	sandsearstorm: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	windboltstorm: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	springtidestorm: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	lavaplume: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+	twister: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+	},
+	magmastorm: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+	},
+
 
 	//fake moves
 	abomacarespikes: {

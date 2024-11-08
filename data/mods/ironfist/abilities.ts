@@ -43,12 +43,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp * 0.27, target, pokemon);
+				this.damage(target.baseMaxhp * 0.26, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 27% of their max HP.",
+		shortDesc: "When the user switches out, damage active opponents by 26% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
@@ -1098,8 +1098,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			const disasters = ["Rock Side", "Earthquake", "Magnitude", "Muddy Water", "Surf", "Hurricane", "Thunder", "Blizzard", "Draco Meteor", "Heat Wave", "Inferno", "Eruption", "Avalanche", "Whirlwind", "Bleakwind Storm", "Sandsear Storm", "Windbolt Storm", "Springtide Storm", "Lava Plume", "Twister", "Magma Storm"];
-			if (disasters.contains(move)) {
+			if (move.flags['disaster']) {
 				this.add('-immune', target, '[from] ability: Divining Horn');
 				return null;
 			}
@@ -1149,6 +1148,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Zombies on Your Lawn",
 		shortDesc: "On switchin, this Pokemon sets Graveyard.",
+	},
+	supersoursyrup: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Supersour Syrup', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Supersour Syrup",
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
 	},
 	
 	//vanilla
