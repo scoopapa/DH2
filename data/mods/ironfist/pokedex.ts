@@ -971,6 +971,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jableye: {
 		num: 1002,
+		gen: 3,
 		name: "Jableye",
 		types: ["Ghost", "Dark", "Poison"],
 		baseStats: {hp: 75, atk: 75, def: 100, spa: 75, spd: 100, spe: 50},
@@ -1127,5 +1128,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pressure", H: "Static"},
 		weightkg: 52.6,
 	},
-
+	solarbean: {
+		num: 1005,
+		name: "Solar Bean",
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 85, atk: 110, def: 75, spa: 110, spd: 110, spe: 50},
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Drought"},
+		weightkg: 8.5,
+	},
 }
