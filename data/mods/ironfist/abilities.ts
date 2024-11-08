@@ -1105,7 +1105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		//effects of weather in scripts/pokemon
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm' || type === 'hail' || type === 'graveyard') return false;
+			if (type === 'sandstorm' || type === 'hail' || type === 'acidrain' || type === 'graveyard') return false;
 		},
 		flags: {breakable: 1},
 		name: "Divining Horn",
