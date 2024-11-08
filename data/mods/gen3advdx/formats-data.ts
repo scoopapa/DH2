@@ -1483,11 +1483,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	duskull: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DUU",
 	},
 	dusclops: {
-		tier: "UUBL",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	tropius: {
