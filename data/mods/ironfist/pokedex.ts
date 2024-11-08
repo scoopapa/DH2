@@ -505,6 +505,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	jirachitwo: {
 		num: 1059,
 		name: "Jirachitwo",
+		gen: 3,
 		types: ["Psychic", "Ground"],
 		baseStats: {hp: 95, atk: 95, def: 100, spa: 95, spd: 100, spe: 70},
 		abilities: {0: "Benevolent Blessing"},
@@ -676,7 +677,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lemon",
 		types: ["Lemon"],
 		baseStats: {hp: 70, atk: 75, def: 90, spa: 107, spd: 120, spe: 55},
-		abilities: {0: "Mold Breaker", 1: "Ripen", H: "Alpha Sigma Rizz"},
+		abilities: {0: "Mold Breaker", 1: "Ripen", H: "Acidic Drizzle"},
 		weightkg: 0.1,
 	},
 	fishingzombie: {
@@ -971,6 +972,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	jableye: {
 		num: 1002,
+		gen: 3,
 		name: "Jableye",
 		types: ["Ghost", "Dark", "Poison"],
 		baseStats: {hp: 75, atk: 75, def: 100, spa: 75, spd: 100, spe: 50},
@@ -1054,6 +1056,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	minunandplusled: {
 		num: 1012,
 		name: "minun and plusle :D",
+		gen: 3,
 		types: ["Electric", "Electric"],
 		baseStats: {hp: 75, atk: 50, def: 50, spa: 100, spd: 100, spe: 125},
 		abilities: {0: "best friends"},
@@ -1127,5 +1130,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pressure", H: "Static"},
 		weightkg: 52.6,
 	},
-
+	solarbean: {
+		num: 1005,
+		name: "Solar Bean",
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 85, atk: 110, def: 75, spa: 110, spd: 110, spe: 50},
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Drought"},
+		weightkg: 8.5,
+	},
 }

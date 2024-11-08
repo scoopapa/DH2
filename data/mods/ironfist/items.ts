@@ -522,7 +522,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 		onTakeItem: false,
 		onHit(target, source, move) {
-			if (['corrosivegas', 'covet', 'knockoff', 'switcheroo', 'thief', 'trick'].includes(move.id)) {
+			if (['corrosivegas', 'covet', 'knockoff', 'switcheroo', 'thief', 'trick', 'incinerate'].includes(move.id)) {
 				source.addVolatile('boxofonedozenstarvingcrazedweasels');
 				return;
 			}
