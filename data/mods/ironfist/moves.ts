@@ -3077,7 +3077,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'snow':
 				move.type = 'Ice';
 				break;
-			case 'graveyard:
+			case 'graveyard':
 				move.type = 'Ghost';
 				break;
 			}
