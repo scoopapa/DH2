@@ -43,12 +43,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp * 0.27, target, pokemon);
+				this.damage(target.baseMaxhp * 0.26, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 27% of their max HP.",
+		shortDesc: "When the user switches out, damage active opponents by 26% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
@@ -836,23 +836,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.add('-activate', target, 'ability: Gex Server');
 					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
-					target.addVolatile('gexserver');
+					target.addVolatile('ability:hacked');
 				}
 			}
-		},
-		condition: {
-			onStart(pokemon) {
-				this.add('-message', `${pokemon.name} was hacked!`);
-			},
-			onModifyPriority(priority, pokemon, target, move) {
-				if (this.randomChance(3, 10)) {
-					this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
-					if (target) target.addVolatile('gexserver');
-					return priority - 6;
-				}
-			},
 		},
 		flags: {},
 		name: "Gex Server",
@@ -1057,7 +1044,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const diamondHand = pokemon.side.pokemon.filter(p => p !== pokemon && !p.fainted && p.baseSpecies.diamondHand);
 			for (const target of pokemon.adjacentFoes()) {
 				if (diamondHand.length > 0) {
-					console.log(diamondHand.length);
 					this.add('-ability', pokemon, 'Honor Student');
 					activated = true;
 					this.damage(0.02 * diamondHand.length * target.baseMaxhp, target, pokemon);
@@ -1086,6 +1072,101 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Jankster",
 		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
+	},
+	
+	//slate 6
+	acidicdrizzle: {
+		onStart(source) {
+			this.field.setWeather('acidrain');
+		},
+		flags: {},
+		name: "Acidic Drizzle",
+		shortDesc: "On switchin, this Pokemon sets Acid Rain.",
+	},
+	madscientist: {
+		onStart(source) {
+			source.side.addSideCondition('madnesscounter');
+		},
+		flags: {},
+		name: "Mad Scientist",
+		shortDesc: "On switchin, this Pokemon adds a Madness Counter to its side.",
+	},
+	divininghorn: {
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.flags['disaster']) {
+				this.add('-immune', target, '[from] ability: Divining Horn');
+				return null;
+			}
+		},
+		//effects of weather in scripts/pokemon
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'acidrain' || type === 'graveyard') return false;
+		},
+		flags: {breakable: 1},
+		name: "Divining Horn",
+		shortDesc: "This Pokemon and its allies are immune to disasters and hazards, and ignore weather.",
+	},
+	hoennstan: {
+		onStart(pokemon) {
+			const hoenn = pokemon.side.pokemon.filter(p => p.baseSpecies.gen === 3).length;
+			if (hoenn) {
+				this.add('-activate', pokemon, 'ability: Hoenn Stan');
+				const hoenn = Math.min(hoenn, 5);
+				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
+				this.effectState.hoenn = hoenn;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `hoenn${this.effectState.hoenn}`, '[silent]');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (this.effectState.hoenn) {
+				return this.chainModify(1 + 0.15 * this.effectState.hoenn);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (this.effectState.hoenn) {
+				return this.chainModify(1 + 0.15 * this.effectState.hoenn);
+			}
+		},
+		flags: {},
+		name: "Hoenn Stan",
+		shortDesc: "This Pokemon's Atk/Spa gain 15% for each Gen 3 ally.",
+	},
+	zombiesonyourlawn: {
+		onStart(source) {
+			this.add('-message', 'The angry ghost returns to haunt Iron Fist...');
+			this.field.setWeather('graveyard');
+		},
+		flags: {},
+		name: "Zombies on Your Lawn",
+		shortDesc: "On switchin, this Pokemon sets Graveyard.",
+	},
+	supersoursyrup: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Supersour Syrup', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Supersour Syrup",
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
 	},
 	
 	//vanilla
@@ -1133,5 +1214,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.addVolatile('confusion');
 			}
 		},
+	},
+
+	//fake ability
+	hacked: {
+		onStart(pokemon) {
+			this.add('-message', `${pokemon.name} was hacked!`);
+		},
+		
+		onBeforeMove(pokemon, target, move) {
+			const action = this.queue.willMove(pokemon);
+			//console.log(action);
+			if (!action) return;
+
+			action.order = 201;
+			if (this.randomChance(3, 10)) {
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
+				if (target) target.addVolatile('ability:hacked');
+				move.priority -= 6;
+			}
+		},
+		flags: {},
+		name: "Hacked",
 	},
 }
