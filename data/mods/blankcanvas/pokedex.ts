@@ -351,6 +351,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 95, def: 107, spa: 47, spd: 71, spe: 103},
 		abilities: {0: "Protosynthesis"},
 		weightkg: 674.5,
+		tags: ["Paradox"],
 	},
 	craggon: {
 		num: 9044,
