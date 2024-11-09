@@ -2657,6 +2657,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
+	
 	melmetal2: {
 		learnset: {
 			acidarmor: ["9L1"],
@@ -5134,6 +5135,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
+	
 	jirachitwo: {
 		learnset: {
 			aerialace: ["9L1"],
@@ -5937,7 +5939,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
-	cowboy_bandido: {
+	cowboybandido: {
 		learnset: {
 			amnesia: ["9L1"],
 			assurance: ["9L1"],
@@ -6906,6 +6908,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
+	
 	ronaldreagan: {
 		learnset: {
 			spacelaser: ["9L1"],
@@ -7811,6 +7814,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
+	
 	goddease: {
 		learnset: {
 			facade: ["9L1"],
@@ -8843,6 +8847,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
+	
 	traike: {
 		learnset: {
 			attract: ["9L1"],
