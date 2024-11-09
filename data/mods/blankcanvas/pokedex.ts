@@ -336,4 +336,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unaware"},
 		weightkg: 67,
 	},
+	socknbuskn: {
+		num: 9043,
+		name: "Socknbuskn",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 95, atk: 95, def: 75, spa: 40, spd: 70, spe: 110},
+		abilities: {0: "Scrappy"},
+		weightkg: 65,
+	},
+	sleetshell: {
+		num: 9045,
+		name: "Sleet Shell",
+		types: ["Ice", "Steel"],
+		baseStats: {hp: 83, atk: 95, def: 107, spa: 47, spd: 71, spe: 103},
+		abilities: {0: "Protosynthesis"},
+		weightkg: 674.5,
+	},
+	craggon: {
+		num: 9044,
+		name: "Craggon",
+		types: ["Dragon", "Ground"],
+		baseStats: {hp: 120, atk: 81, def: 81, spa: 82, spd: 81, spe: 100},
+		abilities: {0: "Natural Cure", H: "Emergency Exit"},
+		weightkg: 404,
+	},
 };
