@@ -76,7 +76,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	icicle: {
 		accuracy: 100,
 		basePower: 70,
-		category: "Physical",
+		category: "Special",
 		shortDesc: "High critical hit ratio.",
 		name: "Icicle",
 		pp: 15,
