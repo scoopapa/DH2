@@ -338,7 +338,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	socknbuskn: {
 		num: 9043,
-		name: "Socknbuskn",
+		name: "Socknbusk\u2019n",
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 95, atk: 95, def: 75, spa: 40, spd: 70, spe: 110},
 		abilities: {0: "Scrappy"},
