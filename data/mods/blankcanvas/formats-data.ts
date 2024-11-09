@@ -125,4 +125,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	jokerpent: {
 		tier: "BC",
 	},
+	socknbuskn: {
+		tier: "BC",
+	},
+	sleetshell: {
+		tier: "BC",
+	},
+	craggon: {
+		tier: "BC",
+	},
 };
