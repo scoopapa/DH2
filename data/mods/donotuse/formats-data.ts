@@ -797,7 +797,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		isNonstandard: null,
 	},
-	sliggo: {
+	sliggoo: {
 		tier: "OU",
 		isNonstandard: null,
 	},
