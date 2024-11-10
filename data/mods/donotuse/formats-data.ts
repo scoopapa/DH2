@@ -619,6 +619,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleMoves: ["earthquake", "rockslide", "suckerpunch", "swordsdance", "pursuit", "ironhead"],
 		//randomBattleLevel: 82
 	},
+	gulpin: {
+		tier: "DoNU Uber",
+		isNonstandard: null,
+	},
+	goomy: {
+		tier: "DoNU Uber",
+		isNonstandard: null,
+	},
 	
 // Needed for Eviolite to work
 	bibarel: {
@@ -782,6 +790,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	altaria: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	swalot: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	sliggo: {
 		tier: "OU",
 		isNonstandard: null,
 	},
