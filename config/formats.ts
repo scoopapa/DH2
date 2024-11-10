@@ -2694,7 +2694,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{
+	/*{
 		name: "[Gen 9] Do Not Use UU",
 		desc: [
 			"<b>Do Not Use</b>: A National Dex metagame where only Pokemon with 280 BST or less are allowed."
@@ -2714,6 +2714,32 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in [Gen 9] Do Not Use UU.'];
+				}
+			}
+		},
+	},*/
+	{
+		name: "[Gen 9] Do Not Use VGC",
+		desc: [
+			"<b>Do Not Use</b>: A National Dex VGC metagame where only Pokemon with 280 BST or less are allowed. Certain Pokemon have been added as restricteds."
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-do-not-use.3734326/">Do Not Use</a>`,
+		],
+		mod: 'donotuse',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Data Mod', 'Force Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', 'Best of = 3', 'Limit One Restricted'],
+		restricted: ['Cottonee', 'Dewpider', 'Diglett-Alola', 'Flittle', 'Gulpin', 'Nidoran-M', 'Wattrel', 'Wingull', 'Zigzagoon'],
+		teambuilderFormat: 'National Dex',
+		banlist: ['Huge Power', 'Pure Power', 'Smeargle', 'Wishiwashi', 'Goomy'],
+		unbanlist: ['Assist'],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['DoNU Uber', 'DoNU', 'DoNU UUBL', 'DoNU UU', 'DoNU RUBL', 'DoNU RU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in [Gen 9] Do Not Use VGC.'];
 				}
 			}
 		},
