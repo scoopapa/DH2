@@ -1,5 +1,12 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	//Zamazenta
+	gougingfire: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	darkrai: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
 	deoxysspeed: {
 		tier: "OU",
 		natDexTier: "OU",
