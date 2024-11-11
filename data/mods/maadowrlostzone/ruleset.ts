@@ -6,7 +6,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		onBegin() {
 		//	this.add(`raw|<img src="https://raw.githubusercontent.com/scoopapa/DH/master/data/mods/m4av6/sprites/m4a_banner.png" height="65" width="381">`);
 			this.add('-message', `Welcome to Lost Zone!`);
-			this.add('-message', `Lost Zone is a new region based on cryptids, myths, and spiritualism. It features the Territorial mechanic!`);
+			this.add('-message', `Lost Zone is Ma'adowr's dark history based on cryptids, myths, and spiritualism. It features the System mechanic!`);
 			this.add('-message', `You can find my thread and metagame resources here in the near future:`);
 		//	this.add('-message', `https://www.smogon.com/forums/threads/3671140/`);
 		},
