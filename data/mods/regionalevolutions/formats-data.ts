@@ -168,4 +168,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	anolicky: {
 		tier: "RegEvo",
 	},
+	tadbulbdistorted: {
+		tier: "RegEvo NFE",
+	},
+	bellitoxin: {
+		tier: "RegEvo",
+	},
 };

@@ -15,6 +15,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		natDexTier: "OU",
 	},
+	kingambit: {
+		tier: "OU",
+		natDexTier: "OU",
+	},
 	melmetal: {
 		tier: "OU",
 		natDexTier: "OU",

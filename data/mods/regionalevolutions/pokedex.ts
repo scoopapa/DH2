@@ -796,6 +796,40 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 
 	// Distortion World Dex
+	tadbulb: {
+		inherit: true,
+		otherFormes: ["Tadbulb-Distorted"],
+		formeOrder: ["Tadbulb", "Tadbulb-Distorted"],
+	},
+	tadbulbdistorted: {
+		num: 938,
+		name: "Tadbulb-Distorted",
+		baseSpecies: "Tadbulb",
+		forme: "Distorted",
+		types: ["Poison", "Ground"],
+		baseStats: {hp: 61, atk: 31, def: 41, spa: 59, spd: 35, spe: 45},
+		abilities: {0: "Own Tempo", 1: "Unaware", H: "Damp"},
+		heightm: 0.3,
+		weightkg: 0.4,
+		color: "Yellow",
+		evos: ["Bellitoxin"],
+		eggGroups: ["Water 1"],
+	},
+	bellitoxin: {
+		num: -24,
+		name: "Bellitoxin",
+		types: ["Poison", "Ground"],
+		baseStats: {hp: 109, atk: 100, def: 98, spa: 60, spd: 83, spe: 45},
+		abilities: {0: "Poison Point", 1: "Unaware", H: "Damp"},
+		heightm: 1.2,
+		weightkg: 60,
+		color: "Green",
+		prevo: "Tadbulb-Distorted",
+		evoType: "useItem",
+		evoItem: "Thunder Stone",
+		eggGroups: ["Water 1"],
+	},
+
 	// Ultra Space Dex
 
 	snubbull: {
