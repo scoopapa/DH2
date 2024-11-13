@@ -1419,6 +1419,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	springtidestorm: {
 		inherit: true,
 		basePower: 120,
+		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
 		shortDesc: "30% chance to lower the foe(s) Attack by 1. Rain: can't miss.",
 		onModifyMove(move, pokemon, target) {
 			switch (target?.effectiveWeather()) {
@@ -2868,10 +2869,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
 	},
 	windboltstorm: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
-	},
-	springtidestorm: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
 	},
