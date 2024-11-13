@@ -194,7 +194,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	bigstick: {
 		onResidual(pokemon) {
 			if(pokemon.adjacentFoes().length == 0) return;
-			let target = target = this.sample(pokemon.adjacentFoes());;
+			let target = this.sample(pokemon.adjacentFoes());
 			const branchpoke = this.dex.getActiveMove('branchpoke');
 			this.actions.useMove(branchpoke, pokemon, target);
 		},
@@ -296,5 +296,205 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Clinch",
 		shortDesc: "This Pokemon's charge moves fully charge and hit a target switching out.",
+	},
+	colorwheel: {
+		onResidual(pokemon) {
+			this.add('-ability', pokemon, 'ability: Prismatic');
+			const types = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting',
+						   'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 
+						   'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
+			const possibleTypes = types.filter(type => !pokemon.types.includes(type));
+			const newType1 = types[types.indexOf(pokemon.types[0]) + 1];
+			const newType2 = pokemon.types[1] !== '' ? types[types.indexOf(pokemon.types[1]) + 1] : '';
+			const newTypes = [newType1, newType2];
+			if(pokemon.setType(newTypes)) this.add('-start', pokemon, 'typechange', newTypes.join('/'));
+		},
+		flags: {},
+		name: "Color Wheel",
+		shortDesc: "This Pokemon changes type(s) to the next one(s) alphabetically at the end of each turn.",
+	},
+	comeback: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.activeMoveActions <= 1) return this.chainModify(1.3);
+		},
+		flags: {},
+		name: "Comeback",
+		shortDesc: "For the first turn after this Pokemon is active, its attacks have 1.3x power.",
+	},
+	contagious: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target.status && !source.status && this.checkMoveMakesContact(move, source, target, true)) {
+				source.setStatus(target.status);
+				target.cureStatus();
+			}
+		},
+		flags: {},
+		name: "Contagious",
+		shortDesc: "This Pokemon's non-volatile statuses transfer to Pokemon making contact with it.",
+	},
+	countermeasures: {
+		//coded in scripts/actions/secondaries
+		flags: {},
+		name: "Countermeasures",
+		shortDesc: "When an attacker's secondary activates, it loses HP equal to 100 - secondary chance.",
+	},
+	crumble: {
+		onFaint(pokemon) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const stealthrock = side.sideConditions['stealthrock'];
+			if (!stealthrock) {
+				this.add('-activate', target, 'ability: Crumble');
+				side.addSideCondition('stealthrock', target);
+			}
+		},
+		flags: {},
+		name: "Crumble",
+		shortDesc: "This Pokemon sets Stealth Rock upon fainting.",
+	},
+	dewdrop: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && ['Grass', 'Water', 'Fairy'].includes(move.type)) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Dewdrop",
+		shortDesc: "This Pokemon's Grass/Water/Fairy moves have 1.2x power.",
+	},
+	diceroller: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if(!move.flags['bullet']) return;
+			const stats: BoostID[] = [];
+			let stat: BoostID;
+			for (stat in target.boosts) {
+				if (target.boosts[stat] < 6) {
+					stats.push(stat);
+				}
+			}
+			if (stats.length) {
+				let randomStat = this.sample(stats);
+				const boost: SparseBoostsTable = {};
+				boost[randomStat] = 1;
+				this.boost(boost);
+				randomStat = this.sample(stats);
+				boost[randomStat] = 1;
+				this.boost(boost);
+			} else return;
+		},
+		flags: {},
+		name: "Dice Roller",
+		shortDesc: "This Pokemon boosts random stats by 1 twice after using a bullet move.",
+	},
+	diseased: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+
+			if (this.randomChance(3, 10)) {
+				target.trySetStatus('psn', source);
+			}
+		},
+		flags: {},
+		name: "Diseased",
+		shortDesc: "This Pokemon's moves have a 30% chance to poison, but it loses 1/8 max HP every turn.",
+	},
+	drawfour: {
+		shortDesc: "After knocking out target, if user knows less than 12 moves, it learns target's moves.",
+		onModifyDamage(damage, source, target, move) {
+			if (damage >= target.hp) {
+				for (const moveSlot of target.moveSlots) {
+					if (moveSlot === null) return;
+					if (source.moveSlots.length < 12) {
+						this.attrLastMove('[still]');
+						if (source.moveSlots.length < 0) return false;
+						const learnedMove = {
+							move: this.dex.moves.get(moveSlot.id),
+							id: moveSlot.id,
+							pp: moveSlot.pp,
+							maxpp: moveSlot.pp,
+							target: moveSlot.target,
+							disabled: false,
+							used: false,
+						};
+						source.moveSlots[source.moveSlots.length] = learnedMove;
+						source.baseMoveSlots[source.moveSlots.length - 1] = learnedMove;
+					}
+				}
+			}
+		},
+		name: "Draw Four",
+	},
+	electromagneticmanipulation: {
+		onUpdate(pokemon) {
+			console.log(pokemon.adjacentFoes());
+			if (pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (!target || target.types[0] === 'Electric') return;
+			target.addVolatile('electromagneticmanipulation');
+		},
+		condition: {
+			onStart(pokemon) {
+				let types = pokemon.types.length === 2 ? ['Electric', pokemon.types[1]] : ['Electric'];
+				pokemon.setType(types.join('/'));
+				this.add('-start', pokemon, 'typechange', types.join('/'));
+			},
+		},
+		flags: {},
+		name: "Electromagnetic Manipulation",
+		shortDesc: "While this Pokemon is active, the foe's primary type is Electric.",
+	},
+	exhaust: {
+		
+		flags: {},
+		name: "Exhaust",
+		shortDesc: "While this Pokemon is active, opponents switching out lose 5 PP on the last move they used.",
+	},
+	firstclassticket: {
+		onAfterMove(target, source, move) {
+			if (move.type === 'Flying') {
+				this.heal(target.baseMaxhp / 4);
+			}
+		},
+		name: "First-Class Ticket",
+		shortDesc: "This Pokemon's Flying-type moves heal it for 1/4 max HP.",
+	},
+	fumigation: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			const poisongas = this.dex.getActiveMove('poisongas');
+			this.actions.useMove(poisongas, target, source);
+		},
+		flags: {},
+		name: "Fumigation",
+		shortDesc: "When this Pokemon is damaged by a move, it uses Poison Gas against the attacker.",
+	},
+	gangster: {
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.type === 'Dark' || move.type === 'Fighting') {
+				return 0.1;
+			}
+		},
+		flags: {},
+		name: "Gangster",
+		shortDesc: "This Pokemon's Dark/Fighting moves go first in its priority bracket.",
+	},
+	hibernation: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if(pokemon.status === 'slp') this.boost({def: 1, spd: 1});
+		},
+		flags: {},
+		name: "Hibernation",
+		shortDesc: "This Pokemon's Def/SpD are raised by 1 each turn while asleep.",
 	},
 }
