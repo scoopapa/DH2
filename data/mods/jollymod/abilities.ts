@@ -36,6 +36,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyType(move, pokemon) {
 			if (move.flags['sound']) {
 				move.type = 'Ice';
+				move.kindanice = true;
 			}
 		},
 		flags: {},

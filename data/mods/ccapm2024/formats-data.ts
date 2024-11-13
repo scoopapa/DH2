@@ -299,7 +299,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jirachitwo: {
-		tier: "Usurper of the Wheel",
+		tier: "Gone!",
 		doublesTier: "DOU",
 	},
 	shinxfishing: {
@@ -432,7 +432,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	sunflora: {
-		tier: "Gone!",
+		tier: "IF",
 		doublesTier: "DOU",
 	},
 	rawringmoon: {
@@ -524,41 +524,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-
-	traike: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	groudon: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	drliberty: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	absol: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	sunfloragrave: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	ironboulder: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	hydralemon: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	zapdos: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	solarbean: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-};
+}
