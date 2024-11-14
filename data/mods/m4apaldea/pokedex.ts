@@ -277,7 +277,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaName: "Ninetales-Mega",
 		megaAbility: {0: "Wandering Spirit"},
 		megaStats: {hp: 73, atk: 76, def: 105, spa: 101, spd: 130, spe: 120},
-		megaStone: "Ninetalinite",
+		megaStone: "Ninetalesite",
 		megaCreator: "DrPumpkinz",
 	},
 
@@ -370,5 +370,138 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStats: {hp: 80, atk: 135, def: 134, spa: 70, spd: 116, spe: 115},
 		megaStone: "Ogerponite",
 		megaCreator: "jazzmat",
+	},
+
+	// slate 8
+
+	dugtrioalola: {
+		inherit: true,
+		mega: "dugtrioalolamega",
+		megaName: "Dugtrio-Alola-Mega",
+		megaType: ["Ground", "Steel"],
+		megaAbility: {0: "Fur Coat"},
+		megaStats: {hp: 35, atk: 110, def: 110, spa: 60, spd: 80, spe: 130},
+		megaStone: "Dugtrionite",
+		movepoolAdditions: ["painsplit", "thunderwave", "taunt"],
+		megaCreator: "LordThemberchaud",
+	},
+
+	farigiraf: {
+		inherit: true,
+		otherFormes: [
+			"Farigiraf-Mega", "Farigiraf-Mega-Nocturnal"
+		],
+		formeOrder: [
+			"Farigiraf", "Farigiraf-Mega", "Farigiraf-Mega-Nocturnal"
+		],
+		movepoolAdditions: ["superpower"],
+	},
+	farigirafmega: {
+		num: 981,
+		name: "Farigiraf-Mega",
+		baseSpecies: "Farigiraf",
+		forme: "Mega",
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
+		abilities: {0: "Twin Heart"},
+		heightm: 1.8,
+		weightkg: 50,
+		eggGroups: ["Field"],
+		megaCreator: "Lysion",
+	},
+	farigirafmeganocturnal: {
+		num: 981,
+		name: "Farigiraf-Mega-Nocturnal",
+		baseSpecies: "Farigiraf",
+		forme: "Mega-Nocturnal",
+		types: ["Normal", "Dark"],
+		baseStats: {hp: 120, atk: 100, def: 100, spa: 140, spd: 100, spe: 60},
+		abilities: {0: "Twin Heart"},
+		heightm: 1.8,
+		weightkg: 50,
+		eggGroups: ["Field"],
+		requiredAbility: "Twin Heart",
+		battleOnly: "Farigiraf-Mega",
+		megaCreator: "Lysion",
+	},
+
+	hydrapple: {
+		inherit: true,
+		mega: "hydrapplemega",
+		megaName: "Hydrapple-Mega",
+		megaType: ["Grass", "Dragon"],
+		megaAbility: {0: "Sugar Rush"},
+		megaStats: {hp: 106, atk: 100, def: 150, spa: 130, spd: 110, spe: 44},
+		megaStone: "Hydrapplinite",
+		megaCreator: "jazzmat",
+	},
+
+	// slate 9
+
+	tentacruel: {
+		inherit: true,
+		mega: "tentacruelmega",
+		megaName: "Tentacruel-Mega",
+		megaAbility: {0: "Residual Drain"},
+		megaStats: {hp: 80, atk: 70, def: 98, spa: 130, spd: 120, spe: 117},
+		megaStone: "Tentacruelinite",
+		megaCreator: "Lord Pxperto & BlueRay",
+	},
+
+	galvantula: {
+		inherit: true,
+		mega: "galvantulamega",
+		megaName: "Galvantula-Mega",
+		megaAbility: {0: "Agitation"},
+		megaStats: {hp: 70, atk: 87, def: 70, spa: 127, spd: 80, spe: 138},
+		megaStone: "Galvantulinite",
+		movepoolAdditions: ["strengthsap"],
+		megaCreator: "jazzmat",
+	},
+
+	golurk: {
+		inherit: true,
+		mega: "golurkmega",
+		megaName: "Golurk-Mega",
+		megaAbility: {0: "Vengeful"},
+		megaStats: {hp: 89, atk: 144, def: 120, spa: 55, spd: 110, spe: 65},
+		megaStone: "Golurkite",
+		megaCreator: "okispokis",
+	},
+
+	// slate 10
+
+	emboar: {
+		inherit: true,
+		mega: "emboarmega",
+		megaName: "Emboar-Mega",
+		megaAbility: {0: "Inner Fortitude"},
+		megaStats: {hp: 110, atk: 143, def: 80, spa: 115, spd: 115, spe: 65},
+		megaStone: "Emboarite",
+		megaCreator: "War Incarnate",
+		megaWeight: 490,
+	},
+
+	beartic: {
+		inherit: true,
+		mega: "bearticmega",
+		megaName: "Beartic-Mega",
+		megaAbility: {0: "Frost Aura"},
+		megaStats: {hp: 95, atk: 140, def: 98, spa: 70, spd: 98, spe: 104},
+		megaStone: "Beartite",
+		movepoolAdditions: ["fakeout", "icespinner", "slackoff"],
+		megaCreator: "lydian",
+		megaWeight: 350,
+	},
+
+	kleavor: {
+		inherit: true,
+		mega: "kleavormega",
+		megaName: "Kleavor-Mega",
+		megaAbility: {0: "Defiant"},
+		megaStats: {hp: 70, atk: 165, def: 120, spa: 45, spd: 95, spe: 105},
+		megaStone: "Kleavorite",
+		movepoolAdditions: ["roost"],
+		megaCreator: "Lysion",
 	},
 };

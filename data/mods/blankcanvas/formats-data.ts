@@ -29,7 +29,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	wizhazard: {
 		tier: "BC",
 	},
-	the729frontfacingpumpkins: {
+	jackoswarm: {
 		tier: "BC",
 	},
 	kadraoke: {
@@ -60,6 +60,78 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BC",
 	},
 	florustitia: {
+		tier: "BC",
+	},
+	primordialith: {
+		tier: "BC",
+	},
+	faeruin: {
+		tier: "BC",
+	},
+	versalyre: {
+		tier: "BC",
+	},
+	capricorrie: {
+		tier: "BC",
+	},
+	reversadusa: {
+		tier: "BC",
+	},
+	llanfairwyrm: {
+		tier: "BC",
+	},
+	frostengu: {
+		tier: "BC",
+	},
+	bulionage: {
+		tier: "BC",
+	},
+	yamateraph: {
+		tier: "BC",
+	},
+	bugswarm: {
+		tier: "BC",
+	},
+	freightmare: {
+		tier: "BC",
+	},
+	brasspecter: {
+		tier: "BC",
+	},
+	copperhead: {
+		tier: "BC",
+	},
+	thaumaton: {
+		tier: "BC",
+	},
+	sculptera: {
+		tier: "BC",
+	},
+	lavalisk: {
+		tier: "BC",
+	},
+	martorse: {
+		tier: "BC",
+	},
+	parasike: {
+		tier: "BC",
+	},
+	massassin: {
+		tier: "BC",
+	},
+	searytch: {
+		tier: "BC",
+	},
+	jokerpent: {
+		tier: "BC",
+	},
+	socknbuskn: {
+		tier: "BC",
+	},
+	sleetshell: {
+		tier: "BC",
+	},
+	craggon: {
 		tier: "BC",
 	},
 };

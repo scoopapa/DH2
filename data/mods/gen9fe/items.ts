@@ -35,8 +35,8 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife',
 											'prehistorichunter', 'ancientmarble']) { 
 					if (pokemon.hasAbility(proto)) {
-						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
-							pokemon.addVolatile(proto);
+						if (!(pokemon.volatiles['protosynthesis'] || pokemon.volatiles[proto]) && pokemon.useItem()) {
+							pokemon.addVolatile(['openingact','weightoflife','prehistorichunter'].includes(proto) ? proto : 'protosynthesis');
 						}
 						return;
 					}
@@ -44,18 +44,18 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
-											'faultyphoton', 'firewall', 'innovate']) { 
+											'faultyphoton', 'firewall', 'innovate', 'baryonblade']) { 
 					if (pokemon.hasAbility(quark)) {
-						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
-							pokemon.addVolatile(quark);
+						if (!(pokemon.volatiles['quarkdrive'] || pokemon.volatiles[quark]) && pokemon.useItem()) {
+							pokemon.addVolatile(['lightdrive','baryonblade','circuitbreaker'].includes(quark) ? quark : 'quarkdrive');
 						}
 						return;
 					}
 				}
 			}
-			if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
+			/*if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
 				pokemon.addVolatile('systempurge');
-			}
+			}*/
 		},
 		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
@@ -379,5 +379,18 @@ export const Items: import('../../../sim/dex-items').ItemDataTable = {
 		num: 2406,
 		gen: 9,
 		desc: "Hattepon-Cornerstone: 1.2x power attacks; Terastallize to gain Embody Aspect.",
+	},
+	medichamite: {
+		name: "Medichamite",
+		spritenum: 599,
+		megaStone: "Giracham-Origin-Mega",
+		megaEvolves: "Giracham-Origin",
+		itemUser: ["Giracham-Origin"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 665,
+		desc: "If held by Giracham-Origin, this item allows it to Mega Evolve in battle.",
 	},
 };

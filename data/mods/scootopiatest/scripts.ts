@@ -128,8 +128,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lunacal").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "lunacal").learnset.rainofmeteors = ["9L1"];
 		// Eleqwil
-		// Molatreme
-		this.modData("Learnsets", "molatreme").learnset.rebalance = ["9L1"];
+		// duratreme
+		this.modData("Learnsets", "duratreme").learnset.rebalance = ["9L1"];
 		// Velocipasta
 		this.modData("Learnsets", "velocipasta").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "velocipasta").learnset.silentdomain = ["9L1"];

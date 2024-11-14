@@ -138,7 +138,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		randomBattleLevel: 75,
 	},
 	solvaliantmega: {
-		tier: "FEOU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		randomBattleMoves: ["moonblast", "knockoff", "closecombat", "fireblast"],
 		randomBattleLevel: 73,
@@ -639,7 +639,7 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		doublesTier: "DOU",
 	},
 	magnegiri: {
-		tier: "FEUU",
+		tier: "FEUUBL",
 		doublesTier: "DOU",
 	},
 	celeblim: {
@@ -753,6 +753,63 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FEUU",
 		doublesTier: "DOU",
 	},
+	tapusala: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	jirabsca: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	donphurotthisui: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	regithorn: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	lanpass: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	applekinggalar: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	swoltres: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	orthaconda: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	girachamorigin: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	girachamoriginmega: {
+		tier: "Uber",
+		requiredItem: "Medichamite",
+		doublesTier: "DOU",
+	},
+	eldetini: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	tinkophlosionhisui: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	glimmocruel: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
+	diafetchd: {
+		tier: "FEUU",
+		doublesTier: "DOU",
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -862,4 +919,29 @@ export const FormatsData: import('../../../sim/dex-species').SpeciesFormatsDataT
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
+	phanpott: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	chinpass: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	applipokegalar: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	tinkaquil: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	tinkalava: {
+		tier: "FENFE",
+		doublesTier: "DOU",
+	},
+	glimmcool: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+
 };

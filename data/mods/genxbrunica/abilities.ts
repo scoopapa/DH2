@@ -495,6 +495,128 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Rip Current",
 	},
+	thagomizer: {
+		shortDesc: "x1.2 power to caudal(/tail) attacks.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.category === 'Status') return;
+			const moveid = move.id;
+			if (moveid.startsWith('tail') || moveid.endsWith('tail') || 
+				['powerwhip','firelash','slam','breakingswipe'].includes(moveid)) {
+				this.debug('Thagomizer boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Thagomizer",
+	},
+	receiver: {
+		inherit: true,
+		shortDesc: "This Pokemon copies the Ability of an ally that fainted this turn.",
+		onSwitchIn(pokemon) {
+			if (!pokemon.hp) return;
+			const faintedTeammate = pokemon.side.faintedThisTurn;
+			if (faintedTeammate) {
+				const ability = faintedTeammate.getAbility();
+				if (ability.flags['noreceiver'] || ability.id === 'noability') return;
+				if (pokemon.setAbility(ability)) {
+					this.add('-ability', pokemon, 'Receiver');
+					this.add('-ability', pokemon, ability.name);
+				}
+			}
+		},
+	},
+	deepdive: {
+		shortDesc: "Atollodon: After damaging with Water, change to Submerged. Surfaced takes x0.5 from non-contact, Submerged is immune to Grass.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (source.species.name === 'Atollodon' && move.type === 'Water' && !source.transformed) {
+				source.formeChange('Atollodon-Submerged');
+			}
+		},
+		onSourceBasePowerPriority: 21,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (defender.species.name === 'Atollodon' && !move.flags['contact']) {
+				return this.chainModify(0.5);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (pokemon.species.name === 'Atollodon-Submerged' && move.type === 'Grass') {
+				this.add('-immune', pokemon, '[from] ability: Deep Dive');
+				return null;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, notransform: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Deep Dive",
+	},
+	weatherflux: {
+		shortDesc: "Fulmenops: After damaging with Electric, change to Stormy. Balmy takes x0.5 from non-contact, Stormy is airborne.",
+		onSourceDamagingHit(damage, target, source, move) {
+			if (source.species.name === 'Fulmenops' && move.type === 'Electric' && !source.transformed) {
+				source.formeChange('Fulmenops-Stormy');
+			}
+		},
+		onSourceBasePowerPriority: 21,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (defender.species.name === 'Fulmenops' && !move.flags['contact']) {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, notransform: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Weather Flux",
+	},
+	strongwill: {
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Strong Will",
+		shortDesc: "If this Pokemon is statused, its Special Defense is multiplied by 1.5.",
+	},
+	forewarn: {
+		inherit: true,
+		shortDesc: "On switch-in, alerted to foes' highest power move and gains +1 Def or SpD.",
+		onStart(pokemon) {
+			let warnMoves: (Move | Pokemon | string)[][] = [];
+			let warnBp = 1;
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					let bp = move.basePower || 80;
+					if (move.ohko) bp = 150;
+					else if (['counter', 'metalburst', 'mirrorcoat'].includes(move.id)) bp = 120;
+					else if (bp === 1) bp = 80;
+					if (bp > warnBp) {
+						warnMoves = [[move, target]];
+						warnBp = bp;
+					} else if (bp === warnBp) {
+						warnMoves.push([move, target]);
+					}
+				}
+			}
+			if (!warnMoves.length) return;
+			const [warnMoveName, warnTarget] = this.sample(warnMoves);
+			
+			this.add('-activate', pokemon, 'ability: Forewarn', warnMoveName, '[of] ' + warnTarget);
+			this.boost({[warnMoveName.category === 'Physical' ? 'def' : 'spd']: 1}, pokemon);
+		},
+	},
+	luckystar: {
+		shortDesc: "Allies have +2 critrate and deal x1.5 damage with crits.",
+		onAllyModifyCritRatio(critRatio) {
+			return critRatio + 2;
+		},
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit && source && source.side === this.effectState.target.side) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Lucky Star",
+	},
 	//Interacts with custom Brunician mechanics
 	grasspelt: {
 		inherit: true,
@@ -1224,28 +1346,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 	},
 	thoughtful: {
-		shortDesc: "Placeholder, does nothing right now.",
-		/* shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team. 
-		onStart(pokemon) {
+		 shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team.",
+		 onStart(pokemon) {
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
-				if (!pokemon.side.pokemon[i]) continue;
-				if (!pokemon.side.pokemon[i].fainted) break;
+				if (pokemon.side.pokemon[i] && !pokemon.side.pokemon[i].fainted) break;
 			}
 			
 			if (!pokemon.side.pokemon[i]) return;
 			let chosenTeammate = pokemon.side.pokemon[i];
-			if (pokemon === chosenTeammate) return;
-			if (chosenTeammate.species.num === 493 || chosenTeammate.species.num === 773) return;
+			if (pokemon === chosenTeammate/*) return;
+			if (*/ || [493,773].includes(chosenTeammate.species.num)) return;
 			
 			let newBaseTypes = chosenTeammate.getTypes().filter(type => type !== '???');
-			if (!newBaseTypes.length) return;
-			this.add('-start', pokemon, 'typechange', '[from] ability: Thoughtful');
-			pokemon.setType(newBaseTypes);
+			if (!newBaseTypes.length || !pokemon.setType(newBaseTypes)) return;
+			this.add('-start', pokemon, 'typechange',  newBaseTypes.join('/'), '[from] ability: Thoughtful');
 		},
-		*/
 		name: "Thoughtful",
-		rating: 0.1,
 	},
 	stonehouse: {
 		shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.",
@@ -1273,7 +1390,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onAnyAccuracyPriority: -1,
 		onAnyAccuracy(accuracy, target, source, move) {
-			//If the first condition is met it returns true, otherwise the accuracy is untouched
+			//If the first set of conditions is met it returns true, otherwise the accuracy is untouched
 			return (move && !move.ohko && !target.isGrounded()
 					  && !['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies)
 					  && target.baseSpecies.name !== 'Gengar-Mega'

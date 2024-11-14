@@ -1308,6 +1308,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'honchkrow').learnset.partingshot = ['9L1'];
     this.modData('Learnsets', 'skuntank').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'skuntank').learnset.swordsdance = ['9L1'];
+    this.modData('Learnsets', 'bronzong').learnset.recover = ['9L1'];
+    this.modData('Learnsets', 'bronzong').learnset.healbell = ['9L1'];
+    this.modData('Learnsets', 'bronzong').learnset.teleport = ['9L1'];
     this.modData('Learnsets', 'spiritomb').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'chatot').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'lucario').learnset.synchronoise = ['9L1'];
@@ -1492,9 +1495,11 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'aurorus').learnset.powergem = ['9L1'];
     this.modData('Learnsets', 'sylveon').learnset.sparklyswirl = ['9L1'];
     this.modData('Learnsets', 'sylveon').learnset.moonlight = ['9L1'];
+    delete this.modData('Learnsets', 'goomy').learnset.lifedew;
+    delete this.modData('Learnsets', 'sliggoohisui').learnset.lifedew;
+    delete this.modData('Learnsets', 'goodrahisui').learnset.lifedew;
     this.modData('Learnsets', 'goodra').learnset.purify = ['9L1'];
     this.modData('Learnsets', 'goodrahisui').learnset.steelroller = ['9L1'];
-    delete this.modData('Learnsets', 'goodrahisui').learnset.lifedew;
     this.modData('Learnsets', 'gourgeist').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'gourgeist').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'avalugg').learnset.liquidation = ['9L1'];
@@ -1544,6 +1549,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'stakataka').learnset.zawall = ['9M'];
     this.modData('Learnsets', 'blacephalon').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'blacephalon').learnset.shadowsneak = ['9L1'];
+    delete this.modData('Learnsets', 'poipole').learnset.nastyplot;
+    delete this.modData('Learnsets', 'naganadel').learnset.nastyplot;
+    this.modData('Learnsets', 'naganadel').learnset.roost = ['9L1'];
 
     // Gen 8:
     this.modData('Learnsets', 'inteleon').learnset.aurasphere = ['9M'];

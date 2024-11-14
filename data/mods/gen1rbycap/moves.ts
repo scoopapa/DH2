@@ -73,4 +73,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 		gen: 1,
 	},
+	icicle: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "High critical hit ratio.",
+		name: "Icicle",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icicle Crash", target);
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
 };

@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+  	gen: 8,
+	inherit: 'gen8',
 	init() {
 		// Automatically construct fusion learnsets! (Thank u scoopapa)
 		for (const id in this.dataCache.Pokedex) { // check the dex for fusions
@@ -51,123 +53,183 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
+
+		const species = pokemon.baseSpecies;
+		const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
-			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+			pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
 		) {
 			return altForme.name;
 		}
-		/*
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
-			return "Silvino-Bug-Mega";
+		if (item.megaStone === species.name) return null;
+		switch (species.name) {
+			/*case "Silvino-Bug":
+				if (item.name === "Audinite") {
+					return "Silvino-Bug-Mega";
+				}
+				return null;
+			case "Silvino-Dark":
+				if (item.name === "Audinite") {
+					return "Silvino-Dark-Mega";
+				}
+				return null;
+			case "Silvino-Dragon":
+				if (item.name === "Audinite") {
+					return "Silvino-Dragon-Mega";
+				}
+				return null;
+			case "Silvino-Electric":
+				if (item.name === "Audinite") {
+					return "Silvino-Electric-Mega";
+				}
+				return null;
+			case "Silvino-Fairy":
+				if (item.name === "Audinite") {
+					return "Silvino-Fairy-Mega";
+				}
+				return null;
+			case "Silvino-Fighting":
+				if (item.name === "Audinite") {
+					return "Silvino-Fighting-Mega";
+				}
+				return null;
+			case "Silvino-Fire":
+				if (item.name === "Audinite") {
+					return "Silvino-Fire-Mega";
+				}
+				return null;
+			case "Silvino-Flying":
+				if (item.name === "Audinite") {
+					return "Silvino-Flying-Mega";
+				}
+				return null;
+			case "Silvino-Ghost":
+				if (item.name === "Audinite") {
+					return "Silvino-Ghost-Mega";
+				}
+				return null;
+			case "Silvino-Grass":
+				if (item.name === "Audinite") {
+					return "Silvino-Grass-Mega";
+				}
+				return null;
+			case "Silvino-Ground":
+				if (item.name === "Audinite") {
+					return "Silvino-Ground-Mega";
+				}
+				return null;
+			case "Silvino-Ice":
+				if (item.name === "Audinite") {
+					return "Silvino-Ice-Mega";
+				}
+				return null;
+			case "Silvino-Poison":
+				if (item.name === "Audinite") {
+					return "Silvino-Poison-Mega";
+				}
+				return null;
+			case "Silvino-Psychic":
+				if (item.name === "Audinite") {
+					return "Silvino-Psychic-Mega";
+				}
+				return null;
+			case "Silvino-Rock":
+				if (item.name === "Audinite") {
+					return "Silvino-Rock-Mega";
+				}
+				return null;
+			case "Silvino-Steel":
+				if (item.name === "Audinite") {
+					return "Silvino-Steel-Mega";
+				}
+				return null;
+			case "Silvino-Water":
+				if (item.name === "Audinite") {
+					return "Silvino-Water-Mega";
+				}
+				return null;*/
+			case "Absable":
+				if (item.name === "Sablenite") {
+					return "Absable-Mega-Y";
+				}
+				return null;
+			case "Sablemime":
+				if (item.name === "Sablenite") {
+					return "Sablemime-Mega";
+				}
+				return null;
+			case "Goatitar":
+				if (item.name === "Tyranitarite") {
+					return "Goatitar-Mega";
+				}
+				return null;
+			case "Duramaw":
+				if (item.name === "Mawilite") {
+					return "Duramaw-Mega";
+				}
+				return null;
+			case "Goodevoir":
+				if (item.name === "Gardevoirite") {
+					return "Goodevoir-Mega";
+				}
+				return null;
+			case "Audiyem":
+				if (item.name === "Audinite") {
+					return "Audiyem-Mega";
+				}
+				return null;
+			case "Cleracross":
+				if (item.name === "Heracronite") {
+					return "Cleracross-Mega";
+				}
+				return null;
+			case "Rhychomp":
+				if (item.name === "Garchompite") {
+					return "Rhychomp-Mega";
+				}
+				return null;
+			case "Gastrocham":
+				if (item.name === "Medichamite") {
+					return "Rhychomp-Mega";
+				}
+				return null;
+			case "Herasir":
+				if (item.name === "Heracronite") {
+					return "Herasir-Mega-X";
+				}
+				if (item.name === "Pinsirite") {
+					return "Herasir-Mega-Y";
+				}
+				return null;
+			case "Wishirupti":
+				if (item.name === "Cameruptite") {
+					return "Wishirupti-Mega";
+				}
+				return null;
+			case "Wishirupti-School":
+				if (item.name === "Cameruptite") {
+					return "Wishirupti-School-Mega";
+				}
+				return null;
+			case "Impert-Female":
+				if (item.name === "Swampertite") {
+					return "Impert-Female-Mega";
+				}
+				return null;
+			case "Salasian-Alola":
+				if (item.name === "Salamencite") {
+					return "Salasian-Alola-Mega";
+				}
+				return null;
 		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Dark") {
-			return "Silvino-Dark-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Dragon") {
-			return "Silvino-Dragon-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Electric") {
-			return "Silvino-Electric-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Fairy") {
-			return "Silvino-Fairy-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Fighting") {
-			return "Silvino-Fighting-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Fire") {
-			return "Silvino-Fire-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Flying") {
-			return "Silvino-Flying-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Ghost") {
-			return "Silvino-Ghost-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Grass") {
-			return "Silvino-Grass-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Ground") {
-			return "Silvino-Ground-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Ice") {
-			return "Silvino-Ice-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Poison") {
-			return "Silvino-Poison-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Psychic") {
-			return "Silvino-Psychic-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Rock") {
-			return "Silvino-Rock-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Steel") {
-			return "Silvino-Steel-Mega";
-		}
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Water") {
-			return "Silvino-Water-Mega";
-		}
-	*/
-		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Absable") {
-			return "Absable-Mega-Y";
+		
+		if (item.megaEvolves === species.baseSpecies) {
+			return item.megaStone;
 		}
 
-		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sablemime") {
-			return "Sablemime-Mega";
-		}
-
-		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableior-Meteor") {
-			return "Sableior-Meteor-Mega";
-		}
-
-		if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Goatitar") {
-			return "Goatitar-Mega";
-		}
-
-		if (item.name === "Mawilite" && pokemon.baseSpecies.name === "Duramaw") {
-			return "Duramaw-Mega";
-		}
-
-		if (item.name === "Gardevoirite" && pokemon.baseSpecies.name === "Goodevoir") {
-			return "Goodevoir-Mega";
-		}
-
-		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
-			return "Audiyem-Mega";
-		}
-		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Cleracross") {
-			return "Cleracross-Mega";
-		}
-		if (item.name === "Garchompite" && pokemon.baseSpecies.name === "Rhychomp") {
-			return "Rhychomp-Mega";
-		}
-		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Gastrocham") {
-			return "Gastrocham-Mega";
-		}
-		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Herasir") {
-			return "Herasir-Mega-X";
-		}
-		if (item.name === "Pinsirite" && pokemon.baseSpecies.name === "Herasir") {
-			return "Herasir-Mega-Y";
-		}
-		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti") {
-			return "Wishirupti-Mega";
-		}
-		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti-School") {
-			return "Wishirupti-School-Mega";
-		}
-		if (item.name === "Swampertite" && pokemon.baseSpecies.name === "Impert-Female") {
-			return "Impert-Female-Mega";
-		}
-		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Salasian-Alola") {
-			return "Salasian-Alola-Mega";
-		}
-
-		return item.megaStone;
+		return null;
 	},
 
 	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
@@ -262,8 +324,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (moveDidSomething && !move.isExternal) {
 			const dancers = [];
 			for (const currentPoke of this.getAllActive()) {
-				if (pokemon === currentPoke) continue;
-				if (!currentPoke.isSemiInvulnerable() && (move.flags['dance'] && currentPoke.hasAbility('dancer')) || (move.category === 'Status' && currentPoke.hasAbility('parroting'))) {
+				if (pokemon !== currentPoke && !currentPoke.isSemiInvulnerable() 
+					&& (currentPoke.hasAbility('dancer') && move.flags['dance']) 
+						|| (currentPoke.hasAbility('parroting') && move.category === 'Status')
+						|| (currentPoke.hasAbility('toxinreplica') && (
+							(move.secondaries && move.secondaries.some(secondary => ['psn','tox'].includes(secondary.status)))
+							|| (move.status && ['psn','tox'].includes(move.status))
+							))
+					) {
 					dancers.push(currentPoke);
 				}
 			}
@@ -272,7 +340,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// but before any multipliers like Agility or Choice Scarf
 			// Ties go to whichever Pokemon has had the ability for the least amount of time
 			dancers.sort(
-				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+				(a, b) => a.storedStats['spe'] - b.storedStats['spe'] || b.abilityOrder - a.abilityOrder
 			);
 			for (const dancer of dancers) {
 				if (this.faintMessages()) break;
@@ -294,104 +362,40 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!this.battle.dex.types.isName(type)) {
-				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;
-
-			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
-			let isGrounded;
-			if (type === 'Ground') {
-				isGrounded = this.isGrounded(!negateResult);
-				if (isGrounded === null) {
-					if (message) {
-						if (this.hasAbility('magneticwaves')) {
-							this.battle.add('-immune', this, '[from] ability: Magnetic Waves');
-						} else if (this.hasAbility('leviflame')) {
-							this.battle.add('-immune', this, '[from] ability: Leviflame');
-						} else if (this.hasAbility('levitability')) {
-							this.battle.add('-immune', this, '[from] ability: Levitability');
-						} else if (this.hasAbility('stickyfloat')) {
-							this.battle.add('-immune', this, '[from] ability: Sticky Float');
-						} else if (this.hasAbility('etativel')) {
-							this.battle.add('-immune', this, '[from] ability: Etativel');
-						} else if (this.hasAbility('lighthearted')) {
-							this.battle.add('-immune', this, '[from] ability: Lighthearted');
-						} else if (this.hasAbility('clearlyfloating')) {
-							this.battle.add('-immune', this, '[from] ability: Clearly Floating');
-						} else if (this.hasAbility('floatguise')) {
-							this.battle.add('-immune', this, '[from] ability: Float Guise');
-						} else if (this.hasAbility('aerialbreak')) {
-							this.battle.add('-immune', this, '[from] ability: Aerial Break');
-						} else if (this.hasAbility('levimetal')) {
-							this.battle.add('-immune', this, '[from] ability: Levimetal');
-						} else if (this.hasAbility('hoverboard')) {
-							this.battle.add('-immune', this, '[from] ability: Hoverboard');
-						} else if (this.hasAbility('levistatic')) {
-							this.battle.add('-immune', this, '[from] ability: Levistatic');
-						} else if (this.hasAbility('lovelessfloat')) {
-							this.battle.add('-immune', this, '[from] ability: Loveless Float');
-						} else if (this.hasAbility('ghoulaway')) {
-							this.battle.add('-immune', this, '[from] ability: Ghoul Away');
-						} else if (this.hasAbility('spiritascent')) {
-							this.battle.add('-immune', this, '[from] ability: Spirit Ascent');
-						} else if (this.hasAbility('testcram')) {
-							this.battle.add('-immune', this, '[from] ability: Test Cram');
-						} else if (this.hasAbility('floatingreach')) {
-							this.battle.add('-immune', this, '[from] ability: Floating Reach');
-						} else {
-							this.battle.add('-immune', this, '[from] ability: Levitate');
-						}
-					}
-					return false;
-				}
-			}
-			if (!negateResult) return true;
-			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
-				if (message) {
+	
+			const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
+			const notImmune = type === 'Ground' ?
+				this.isGrounded(negateImmunity) :
+				negateImmunity || this.battle.dex.getImmunity(type, this);
+			if (notImmune) return true;
+			if (message) {
+				if (notImmune === null) {
+					this.battle.add('-immune', this, '[from] ability: ' + this.getAbility().name);
+				} else {
 					this.battle.add('-immune', this);
 				}
-				return false;
 			}
-			return true;
+			return false;
 		},
-
-
 		isGrounded(negateImmunity = false) {
-			if ('gravity' in this.battle.field.pseudoWeather) return true;
-			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
-			if ('smackdown' in this.volatiles) return true;
+			if ('gravity' in this.battle.field.pseudoWeather/*) return true;
+			if (*/|| 'ingrain' in this.volatiles/* && this.battle.gen >= 4) return true;
+			if (*/|| 'smackdown' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility('levitate') ||
-				this.hasAbility('magneticwaves') ||
-				this.hasAbility('leviflame') ||
-				this.hasAbility('levitability') ||
-				this.hasAbility('stickyfloat') ||
-				this.hasAbility('etativel') ||
-				this.hasAbility('lighthearted') ||
-				this.hasAbility('clearlyfloating') ||
-				this.hasAbility('floatguise') ||
-				this.hasAbility('aerialbreak') ||
-				this.hasAbility('levimetal') ||
-				this.hasAbility('hoverboard') ||
-				this.hasAbility('levistatic') ||
-				this.hasAbility('ghoulaway') ||
-				this.hasAbility('spiritascent') ||
-				this.hasAbility('testcram') ||
-				this.hasAbility('floatingreach') ||
-				this.hasAbility('lovelessfloat')) &&
-
-				!this.battle.suppressingAttackEvents()
+				(this.hasAbility(['feelnopain','magneticwaves','stickyfloat','etativel','lighthearted','leviflame','levitability','feelsomepain','aerialbreak','floatguise','clearlyfloating','hoverboard','levimetal','levistatic','lovelessfloat','testcram','floatingreach','spiritascent','ghoulaway'])) &&
+				!this.battle.suppressingAbility(this)
 			) return null;
-			if ('magnetrise' in this.volatiles) return false;
-			if ('telekinesis' in this.volatiles) return false;
+			if ('magnetrise' in this.volatiles/*) return false;
+			if (*/|| 'telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
-		},
-
+		 },
 
 		ignoringAbility() {
 			// Check if any active pokemon have the ability Neutralizing Gas
@@ -399,16 +403,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			let lemegeton = false;
 			for (const pokemon of this.battle.getAllActive()) {
 				// can't use hasAbility because it would lead to infinite recursion
-				if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+				if ((pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID)) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
 					neutralizinggas = true;
-					lemegeton = true;
 					break;
 				}
 			}
 
 			return !!(
 				(this.battle.gen >= 5 && !this.isActive) ||
-                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (lemegeton && this.ability !== ('lemegeton' as ID))) &&
+                ((this.volatiles['gastroacid'] || this.volatiles['sturdymold'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID) && this.ability !== ('lemegeton' as ID))) &&
                 !this.getAbility().isPermanent
                 )
 			);
@@ -423,10 +426,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  if (!this.hp) return false;
 			  status = this.battle.dex.conditions.get(status);
 			  if (this.battle.event) {
-				if (!source) source = this.battle.event.source;
-				if (!sourceEffect) sourceEffect = this.battle.effect;
+				source ||= this.battle.event.source || this;
+				sourceEffect ||= this.battle.effect;
 			  }
-			  if (!source) source = this;
+			  else if (!source) source = this;
 
 			  if (this.status === status.id) {
 				if ((sourceEffect as Move)?.status === this.status) {
@@ -542,10 +545,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		if (isCrit && !suppressMessages) this.add('-crit', target);
 
-		if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse') || pokemon.hasAbility('phoenicoid'))) {
-			if (this.gen < 6 || move.id !== 'facade') {
+		if (pokemon.status === 'brn' && move.category === 'Physical' && move.id !== 'facade' && !(pokemon.hasAbility(['guts','gutsyjaw','wetfilling','rumenramming','gutsguard','courageous','ultraimpulse','phoenicoid']))) {
+			//if (this.gen < 6 || move.id !== 'facade') {
 				baseDamage = this.modify(baseDamage, 0.5);
-			}
+			//}
 		}
 
 		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
@@ -901,35 +904,34 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			pokemon.getItem().id === 'ultranecroziumz') {
 			return "Necrozma-Ultra";
 		}
-		if (['Noze-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
-			pokemon.getItem().id === 'depletedultranecroziumz') {
-			return "Noze-Ultra";
-		}
-		if (['Phancrozma-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
-			pokemon.getItem().id === 'depletedultranecroziumz') {
-			return "Phancrozma-Ultra";
+		if (pokemon.getItem().id === 'depletedultranecroziumz') {
+			if (['Noze-Dawn-Wings'].includes(pokemon.baseSpecies.name)) {
+				return "Noze-Ultra";
+			}
+			if (['Phancrozma-Dawn-Wings'].includes(pokemon.baseSpecies.name)) {
+				return "Phancrozma-Ultra";
+			}
 		}
 		return null;
 	},
 	hitStepTryImmunity(targets, pokemon, move) {
 		const hitResults = [];
 		for (const [i, target] of targets.entries()) {
-			if (this.gen >= 6 && move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
+			if (/*this.gen >= 6 &&*/ move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
 				this.debug('natural powder immunity');
 				this.add('-immune', target);
-				hitResults[i] = false;
 			} else if (!this.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
 				this.add('-immune', target);
-				hitResults[i] = false;
-			} else if (this.gen >= 7 && move.pranksterBoosted && (pokemon.hasAbility('prankster') || pokemon.hasAbility('notfunny') || pokemon.hasAbility('darkhumour') || pokemon.hasAbility('flashyjokes') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('creepy')) &&
+			} else if (/*this.gen >= 7 && */move.pranksterBoosted && (pokemon.hasAbility(['prankster','notfunny','darkhumour','flashyjokes','lighthearted','creepy'])) &&
 				targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
 				this.debug('natural prankster immunity');
 				if (!target.illusion) this.hint("Since gen 7, Dark is immune to Prankster moves.");
 				this.add('-immune', target);
-				hitResults[i] = false;
 			} else {
 				hitResults[i] = true;
+				continue;
 			}
+			hitResults[i] = false;
 		}
 		return hitResults;
 	},

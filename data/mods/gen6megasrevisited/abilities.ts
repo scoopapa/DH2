@@ -2,7 +2,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	merciless: {
 		shortDesc: "This Pokemon's attacks are critical hits if the target is statused.",
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox', 'brn', 'frz', 'slp', 'par'].includes(target.status) /* && !target.hasAbility('neutralizinggas') */) return 5;
+			if (target?.status) return 5;
 		},
 		name: "Merciless",
 		rating: 1.5,
@@ -10,23 +10,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 6,
 	},
 	pocketdimension: {
-	  shortDesc: "This Pokemon switches out after using a status move.",
-	  onModifyMove(move, pokemon) {
+		shortDesc: "This Pokemon switches out after using a status move.",
+		onModifyMove(move, pokemon) {
 			if (move.category === 'Status') {
-			  move.selfSwitch = true;
-			  this.add('-ability', pokemon, 'Pocket Dimension');
+				move.selfSwitch = true;
+				this.add('-ability', pokemon, 'Pocket Dimension');
+				this.add('-message', `${pokemon.name} will switch out if this moves lands!`);
 			}
-	  },
-	  name: "Pocket Dimension",
-	  rating: 4.5,
-    },
+		},
+		name: "Pocket Dimension",
+		rating: 4.5,
+	},
 	grassysurge: {
 		inherit: true,
-		gen: 6,	
+		gen: 6,
 	},
 	mistysurge: {
 		inherit: true,
-		gen: 6,	
+		gen: 6,
 	},
 	neutralizinggas: {
 		inherit: true,
@@ -53,38 +54,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 6,
 	},
 	nostalgiatrip: {
-    shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves are Special.",
+		shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves are Special.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Nostalgia Trip');
 			this.add('-message', `This Pokemon is experiencing a nostalgia trip!`);
 		},
 		onModifyMovePriority: 8,
 		onModifyMove(move, pokemon) {
-			if ((move.type === 'Fire' || move.type === 'Water' || move.type === 'Grass' || move.type === 'Electric' || move.type === 'Dark' || move.type === 'Psychic' || move.type === 'Dragon' || move.type === 'Fairy')  && move.category === 'Physical') move.category = 'Special';
-			if ((move.type === 'Normal' || move.type === 'Fighting' || move.type === 'Flying' || move.type === 'Ground' || move.type === 'Rock' || move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Poison' || move.type === 'Steel')  && move.category === 'Special') move.category = 'Physical';
+			if (move.category === "Status") return;
+			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy'].includes(move.type)) {
+				move.category = "Special";
+			} else {
+				move.category = "Physical";
+			}
 		},
 		name: "Nostalgia Trip",
 		rating: 4,
 		gen: 6,
 	},
 	weatherreport: {
-    onBeforeMovePriority: 0.5,
+		onBeforeMovePriority: 0.5,
 		onBeforeMove(target, source, move) {
-        if (move.type === 'Fire') {
-  				this.field.setWeather('sunnyday');
-        }
-        else if (move.type === 'Water') {
-  				this.field.setWeather('raindance');
-        }
-      },
+			if (move.type === 'Fire') {
+				this.field.setWeather('sunnyday');
+			} else if (move.type === 'Water') {
+				this.field.setWeather('raindance');
+			}
+		},
 		name: "Weather Report",
 		shortDesc: "Before using a Water or Fire-type move, this Pokemon sets Rain Dance or Sunny Day respectively.",
 		rating: 4,
 		gen: 6,
-	},	
+	},
 	armortail: {
 		inherit: true,
-		gen: 6,	
+		gen: 6,
 	},
 	brainpower: {
 		onModifySpAPriority: 5,
@@ -92,12 +96,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(2);
 		},
 		name: "Brain Power",
-    shortDesc: "This Pokemon's Special Attack is doubled.",
+		shortDesc: "This Pokemon's Special Attack is doubled.",
 		rating: 5,
 	},
 	neuroforce: {
 		inherit: true,
-		gen: 6,	
+		gen: 6,
 	},
 	bugzapper: {
 		onTryHit(target, source, move) {
@@ -109,7 +113,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Bug Zapper",
-    	shortDesc: "This Pokemon is immune to Bug-type moves and traps the foe it hit by one.",
+		shortDesc: "This Pokemon is immune to Bug-type moves and traps the foe if hit by one.",
 		rating: 5,
 	},
 	exoskeleton: {
@@ -119,16 +123,45 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Exoskeleton",
-    	shortDesc: "This Pokemon takes halved damage from physical moves; Hazard immunity.",
+		shortDesc: "This Pokemon receives 1/2 damage from physical attacks; Hazard immunity.",
 		rating: 4,
 	},
 	icescales: {
 		inherit: true,
-		gen: 6,	
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Ice Scales boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Ice Scales boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		shortDesc: "This Pokemon receives 1/2 damage from special attacks. Ice moves have 1.5x power. Hail immunity.",
+		gen: 6,
 	},
 	eartheater: {
 		inherit: true,
-		gen: 6,	
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
+				this.heal(damage);
+				return false;
+			}
+		},
+		shortDesc: "Heals 1/4 of its max HP when hit by Ground; Ground immunity. Healed by Spikes and Stealth Rock.",
+		gen: 6,
+	},
+	toxicchain: {
+		inherit: true,
+		gen: 6,
 	},
 	shellejection: {
 		onModifyMovePriority: -1,
@@ -136,8 +169,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Special') {
 				attacker.addVolatile('shellejection');
 				this.add('-ability', attacker, 'Shell Ejection');
-				this.add('-message', `Slowbro is getting ready to leave the battlefield!`);
-				this.add('-message', `Slowbro can no longer use status moves!`);
+				this.add('-message', `${attacker.name} is getting ready to leave the battlefield!`);
+				this.add('-message', `${attacker.name} can no longer use status moves!`);
 			}
 		},
 		condition: {
@@ -150,39 +183,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					}
 				}
 			},
+			onSwitchOut(pokemon) {
+				pokemon.heal(pokemon.baseMaxhp / 3);
+			},
 			onEnd(pokemon) {
 				this.add('-ability', pokemon, 'Shell Ejection');
-				this.add('-message', `Slowbro ejected itself from its shell!`);
-				pokemon.switchFlag = true;				
+				this.add('-message', `${pokemon.name} ejected itself from its shell!`);
+				pokemon.heal(pokemon.baseMaxhp / 3);
+				pokemon.switchFlag = true;
 			},
 		},
 		name: "Shell Ejection",
 		rating: 3.5,
 		gen: 6,
-    shortDesc: "After using a Special move, this Pokemon switches out at the end of the next turn and it can't use status moves.",
+		shortDesc: "On using Special move: switching heals 1/3, can't use status, switches out at end of next turn.",
 	},
 	sharpness: {
 		inherit: true,
-		gen: 6,	
+		gen: 6,
 	},
 	dauntlessshield: {
 		onStart(pokemon) {
 			this.boost({def: 1}, pokemon);
 			pokemon.addVolatile('dauntlessshield');
-			this.add('-message', `${pokemon.name} has its shield up!`);
 		},
-		condition: {
-			duration: 2,
-			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Dauntless Shield');
-				this.add('-message', `${pokemon.name} lowered its shield!`);
-				this.boost({def: -1}, pokemon);
-			},
+		onResidualOrder: 6,
+		onResidual(pokemon) {
+			if (pokemon.positiveBoosts()) {
+				this.heal(pokemon.baseMaxhp / 16);
+				this.add('-message', `${pokemon.name}'s shield gives it strength!`);
+			}
 		},
 		name: "Dauntless Shield",
-		rating: 3.5,
+		rating: 5,
 		num: 235,
-    shortDesc: "+1 Defense on switch-in. Boost goes away at the end of the next turn.",
+		shortDesc: "+1 Defense on switch-in. Heals 1/16 of max HP if it has a positive boost.",
 		gen: 6,
 	},
 	confidence: {
@@ -193,20 +228,42 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Confidence",
 		rating: 3,
-    shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage if it attacks and KOes another Pokemon.",
+		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage if it attacks and KOes another Pokemon.",
 		gen: 6,
 	},
 	electricsurge: {
 		inherit: true,
-		gen: 6,		
-	},				
+		gen: 6,
+	},
 	goodasgold: {
 		inherit: true,
-		gen: 6,		
+		gen: 6,
 	},
 	opportunist: {
 		inherit: true,
-		gen: 6,																
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
+			let i: BoostID;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					activate = true;
+					boosts[i] = 0;
+				}
+			}
+			if (this.effectState.herb) return;
+			if (activate) {
+				pokemon.setBoost(boosts);
+				this.effectState.herb = true;
+				this.add('-ability', pokemon, 'Opportunist');
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.herb;
+		},
+		shortDesc: "Copies foe's stat gains as they happen. Resets negative stat changes once per switch-in.",
+		gen: 6,
 	},
 	intoxicate: {
 		onModifyTypePriority: -1,
@@ -262,16 +319,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if ([
 				'endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage',
-				'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst'
+				'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst',
 			].includes(move.id)) return;
 			if (!move.spreadHit && !move.isZ && !move.isMax) {
 				move.multihit = 2;
 				move.multihitType = 'parentalbond';
 			}
-		},
-		onBasePowerPriority: 7,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
@@ -281,10 +334,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Parental Bond",
 		rating: 4.5,
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered.",
 		num: 184,
 	},
 
-// for ngas
+	// for ngas
 	galewings: {
 		// for ngas
 		inherit: true,

@@ -404,6 +404,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	scyther: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	scizor: {tier: "Paldea", doublesTier: "Paldea"},
+	kleavor: {tier: "Paldea", doublesTier: "Paldea"},
 
 	heracross: {tier: "Paldea", doublesTier: "Paldea"},
 
@@ -675,5 +676,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pecharunt: {tier: "Paldea", doublesTier: "Paldea"},
 
 	terapagos: {tier: "Paldea", doublesTier: "Paldea"},
+
+	farigirafmega: {tier: "Mega"},
+	farigirafmeganocturnal: {tier: "Mega"},
+
+	tentacool: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	tentacruel: {tier: "Paldea", doublesTier: "Paldea"},
+
+	joltik: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	galvantula: {tier: "Paldea", doublesTier: "Paldea"},
+
+	golett: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	golurk: {tier: "Paldea", doublesTier: "Paldea"},
+
+	tepig: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	pignite: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	emboar: {tier: "Paldea", doublesTier: "Paldea"},
 
 };

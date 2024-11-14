@@ -1008,7 +1008,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		onAfterMove(source, target, move) {
-			if (target.fainted) return;
+			if (target === source) return;
 	
 			const stats = ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion'] as const;
 			type BoostStatistics = typeof stats[number];

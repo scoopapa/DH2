@@ -303,7 +303,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	alakazammega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	machop: {
 		tier: "LC"
@@ -426,7 +426,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	gengarmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	onix: {
 		tier: "LC"

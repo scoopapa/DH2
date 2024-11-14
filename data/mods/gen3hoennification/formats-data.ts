@@ -303,7 +303,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	alakazammega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	machop: {
 		tier: "LC"

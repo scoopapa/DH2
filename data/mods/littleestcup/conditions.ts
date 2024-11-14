@@ -742,6 +742,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectState.turns = 0;
 			pokemon.removeVolatile('minimize');
 			pokemon.removeVolatile('substitute');
+			pokemon.side.addSideCondition('dynamaxused', pokemon);
 			if (pokemon.volatiles['torment']) {
 				delete pokemon.volatiles['torment'];
 				this.add('-end', pokemon, 'Torment', '[silent]');
@@ -877,6 +878,193 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			source.removeVolatile('rolloutstorage');
 			return bp;
+		},
+	},
+	monikerboost: {
+		name: 'Moniker Boost',
+		onStart(pokemon, source, effect) {
+			const matchings = [
+				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
+				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
+				'dugtrio', 'golduck', 'mankey', 'ponyta', 'shellder', 'kingler', 'seadra', 'starmie',
+				'gyarados', 'porygon', 'kabuto', 'kabutops', 'mewtwo', 'mew', 'meganium', 'ariados',
+				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
+				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
+				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
+				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
+				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
+				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+				'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'victini', 'munna', 'musharna',
+				'archen', 'zorua', 'zoroark', 'swanna', 'emolga', 'terrakion', 'virizion', 'reshiram',
+				'zekrom', 'kyurem', 'keldeo', 'meloetta', 'genesect', 'floette', 'gogoat', 'dedenne',
+				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
+				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
+				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',						
+			];
+			if (matchings.includes(pokemon.species.id)) {
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'monikerboost' + this.effectState.bestStat);
+				this.add('-message', `Moniker Clause activated!`);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			const matchings = [
+				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
+				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
+				'dugtrio', 'golduck', 'mankey', 'ponyta', 'shellder', 'kingler', 'seadra', 'starmie',
+				'gyarados', 'porygon', 'kabuto', 'kabutops', 'mewtwo', 'mew', 'meganium', 'ariados',
+				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
+				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
+				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
+				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
+				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
+				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+				'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'victini', 'munna', 'musharna',
+				'archen', 'zorua', 'zoroark', 'swanna', 'emolga', 'terrakion', 'virizion', 'reshiram',
+				'zekrom', 'kyurem', 'keldeo', 'meloetta', 'genesect', 'floette', 'gogoat', 'dedenne',
+				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
+				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
+				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',			
+			];
+			if (this.effectState.bestStat !== 'atk') return;
+			if (matchings.includes(pokemon.species.id)) {
+				this.debug('Moniker atk boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			const matchings = [
+				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
+				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
+				'dugtrio', 'golduck', 'mankey', 'ponyta', 'shellder', 'kingler', 'seadra', 'starmie',
+				'gyarados', 'porygon', 'kabuto', 'kabutops', 'mewtwo', 'mew', 'meganium', 'ariados',
+				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
+				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
+				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
+				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
+				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
+				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+				'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'victini', 'munna', 'musharna',
+				'archen', 'zorua', 'zoroark', 'swanna', 'emolga', 'terrakion', 'virizion', 'reshiram',
+				'zekrom', 'kyurem', 'keldeo', 'meloetta', 'genesect', 'floette', 'gogoat', 'dedenne',
+				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
+				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
+				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',				
+			];
+			if (this.effectState.bestStat !== 'def') return;
+			if (matchings.includes(pokemon.species.id)) {
+				this.debug('Moniker def boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			const matchings = [
+				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
+				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
+				'dugtrio', 'golduck', 'mankey', 'ponyta', 'shellder', 'kingler', 'seadra', 'starmie',
+				'gyarados', 'porygon', 'kabuto', 'kabutops', 'mewtwo', 'mew', 'meganium', 'ariados',
+				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
+				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
+				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
+				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
+				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
+				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+				'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'victini', 'munna', 'musharna',
+				'archen', 'zorua', 'zoroark', 'swanna', 'emolga', 'terrakion', 'virizion', 'reshiram',
+				'zekrom', 'kyurem', 'keldeo', 'meloetta', 'genesect', 'floette', 'gogoat', 'dedenne',
+				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
+				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
+				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',			
+			];
+			if (this.effectState.bestStat !== 'spa') return;
+			if (matchings.includes(pokemon.species.id)) {
+				this.debug('Moniker spa boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 6,
+		onModifySpD(spd, pokemon) {
+			const matchings = [
+				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
+				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
+				'dugtrio', 'golduck', 'mankey', 'ponyta', 'shellder', 'kingler', 'seadra', 'starmie',
+				'gyarados', 'porygon', 'kabuto', 'kabutops', 'mewtwo', 'mew', 'meganium', 'ariados',
+				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
+				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
+				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
+				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
+				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
+				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+				'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'victini', 'munna', 'musharna',
+				'archen', 'zorua', 'zoroark', 'swanna', 'emolga', 'terrakion', 'virizion', 'reshiram',
+				'zekrom', 'kyurem', 'keldeo', 'meloetta', 'genesect', 'floette', 'gogoat', 'dedenne',
+				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
+				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
+				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',				
+			];
+			if (this.effectState.bestStat !== 'spd') return;
+			if (matchings.includes(pokemon.species.id)) {
+				this.debug('Moniker spd boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			const matchings = [
+				'caterpie', 'butterfree', 'arbok', 'pikachu', 'raichu', 'nidoranf', 'nidorina', 'nidoqueen',
+				'nidoranm', 'nidorino', 'nidoking', 'zubat', 'golbat', 'crobat', 'paras', 'parasect',
+				'dugtrio', 'golduck', 'mankey', 'ponyta', 'shellder', 'kingler', 'seadra', 'starmie',
+				'gyarados', 'porygon', 'kabuto', 'kabutops', 'mewtwo', 'mew', 'meganium', 'ariados',
+				'pichu', 'delibird', 'kingdra', 'porygon2', 'elekid', 'miltank', 'raikou', 'entei',			
+				'suicune', 'lugia', 'celebi', 'pelipper', 'ralts', 'kirlia', 'nosepass', 'minun',
+				'illumise', 'roselia', 'vibrava', 'flygon', 'zangoose', 'lunatone', 'solrock', 'armaldo',
+				'tropius', 'absol', 'huntail', 'metang', 'metagross', 'regirock', 'regice', 'registeel',
+				'latias', 'latios', 'kyogre', 'groudon', 'rayquaza', 'jirachi', 'deoxys', 'luxio',
+				'roserade', 'pachirisu', 'cherrim', 'skuntank', 'riolu', 'lucario', 'hippopotas', 'togekiss',
+				'porygonz', 'rotom', 'dialga', 'palkia', 'heatran', 'regigigas', 'giratina', 'cresselia',
+				'phione', 'manaphy', 'darkrai', 'shaymin', 'arceus', 'victini', 'munna', 'musharna',
+				'archen', 'zorua', 'zoroark', 'swanna', 'emolga', 'terrakion', 'virizion', 'reshiram',
+				'zekrom', 'kyurem', 'keldeo', 'meloetta', 'genesect', 'floette', 'gogoat', 'dedenne',
+				'xerneas', 'yveltal', 'zygarde', 'diancie', 'hoopa', 'volcanion', 'typenull', 'togedemaru',
+				'cosmog', 'solgaleo', 'lunala', 'necrozma', 'magearna', 'marshadow', 'zeraora', 'meltan',			
+				'melmetal', 'morpeko', 'duraludon', 'zacian', 'zamazenta', 'zarude', 'regieleki', 'koraidon',			
+				'miraidon', 'ogerpon', 'terapagos', 'scovillain', 'raichualola', 'dugtrioalola', 'ponytagalar',
+				'deoxysspeed', 'deoxysdefense', 'rotomwash', 'rotomheat', 'rotommow', 'zoruahisui', 'zoroarkhisui',
+				'zygarde10', 'terapagosterastal', 'eeveegmax', 'mewtwomegax', 'mewtwomegay', 'absolmega', 'metagrossmega',
+				'lucariomega', 'floetteeternal', 'latiasmega', 'latiosmega', 'florges', 'dianciemega',
+			];
+			if (this.effectState.bestStat !== 'spe') return;
+			if (matchings.includes(pokemon.species.id)) {
+				this.debug('Moniker spe boost');
+				return this.chainModify(1.5);
+			}
 		},
 	},
 };

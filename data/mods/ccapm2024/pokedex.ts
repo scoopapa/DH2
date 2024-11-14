@@ -88,7 +88,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Nectaregal",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 80, atk: 45, def: 80, spa: 90, spd: 100, spe: 70},
-		abilities: {0: "E", 1: "M", H: "Manip"},
+		abilities: {0: "Electromagnetic Manipulation"},
 	},
 	nummanutts: {
 		num: 1014,
@@ -298,7 +298,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Buffball",
 		types: ["Fighting", "Bug"],
 		baseStats: {hp: 101, atk: 127, def: 71, spa: 103, spd: 71, spe: 97},
-		abilities: {0: "Preperation"},
+		abilities: {0: "Preparation"},
 	},
 	rootfraction: {
 		num: 1044,

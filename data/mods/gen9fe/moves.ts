@@ -83,7 +83,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','airbornearmor','aircontrol','holygrail','risingtension','freeflight','hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject']))
+				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','airbornearmor','aircontrol','holygrail','risingtension','freeflight','hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject','anointed']))
 										|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity'));
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
@@ -113,63 +113,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	switcheroo: {
 		inherit: true,
 		onTryImmunity(target) {
-			return !target.hasAbility(['stickyhold','armourlock']);
+			return !target.hasAbility(['stickyhold','armourlock','moltenglue']);
 		},
 	},
 	trick: {
 		inherit: true,
 		onTryImmunity(target) {
-			return !target.hasAbility(['stickyhold','armourlock']);
-		},
-	},
-	disable: {
-		inherit: true,
-		condition: {
-			duration: 5,
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(pokemon, source, effect) {
-				// The target hasn't taken its turn, or Cursed Body activated and the move was not used through Dancer or Instruct
-				if (
-					this.queue.willMove(pokemon) ||
-					(pokemon === this.activePokemon && this.activeMove && !this.activeMove.isExternal)
-				) {
-					this.effectState.duration--;
-				}
-				if (!pokemon.lastMove) {
-					this.debug(`Pokemon hasn't moved yet`);
-					return false;
-				}
-				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === pokemon.lastMove.id && !moveSlot.pp) {
-						this.debug('Move out of PP');
-						return false;
-					}
-				}
-				if (effect.effectType === 'Ability') {
-					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name, '[from] ability: ' + effect.name, '[of] ' + source);
-				} else {
-					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name);
-				}
-				this.effectState.move = pokemon.lastMove.id;
-			},
-			onResidualOrder: 17,
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Disable');
-			},
-			onBeforeMovePriority: 7,
-			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && move.id === this.effectState.move) {
-					this.add('cant', attacker, 'Disable', move);
-					return false;
-				}
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
+			return !target.hasAbility(['stickyhold','armourlock','moltenglue']);
 		},
 	},
 	rest: {
@@ -231,6 +181,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	vcreate: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	searingshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	ivycudgel: {
 		inherit: true,
 		onModifyType(move, pokemon) {
@@ -248,6 +206,51 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Rock';
 				break;
 			}
+		},
+	},
+	mistyterrain: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable() ||
+					(['psn','tox'].includes(status.id) && source && source.hasAbility('miasma'))) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (target.isGrounded() && !target.isSemiInvulnerable() && status.id === 'confusion') {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'Misty Terrain');
+			},
 		},
 	},
 };

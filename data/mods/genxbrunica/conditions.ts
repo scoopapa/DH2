@@ -22,7 +22,6 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 		},
 	},
-	//There was an error so this edit to accommodate for Cloning Genes is being archived
 	
 	twoturnmove: {
 		// Cloning Genes
@@ -100,6 +99,20 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 				talonflame: 'Bright Wing',
 				milotic: 'Sea Monster',
 				kelpurion: 'Sunblast',
+				kirlia: 'Spiritual Embrace',
+				gardevoir: 'Spiritual Embrace',
+				gallade: 'Spiritual Embrace',
+				meowth: 'Go West, Young Feline',
+				persian: 'Go West, Young Feline',
+				pikachu: '100,000 Volt Kahuna Wave',
+				raichu: '100,000 Volt Kahuna Wave',
+				raichualola: '100,000 Volt Kahuna Wave',
+				azdharsha: 'Furious Flare',
+				icypenser: 'Cryptic Chill',
+				adoraboa: 'Sneaky Squeeze',
+				sagachelys: 'Pearl of Wisdom',
+				lakegishi: 'Luscious Lake',
+				plowudji: 'Prolific Plow',
 			};
 			const species = target.species.id;
 			//...All this to adjust the PP. 

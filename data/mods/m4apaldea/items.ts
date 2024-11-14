@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2001,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Quaquaval, this item allows it to Mega Evolve in battle.",
 	},
 	brambleghite: {
@@ -24,7 +24,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2002,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Brambleghast, this item allows it to Mega Evolve in battle.",
 	},
 	lokixite: {
@@ -38,7 +38,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2003,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Lokix, this item allows it to Mega Evolve in battle.",
 	},
 	grumpignite: {
@@ -52,7 +52,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2004,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Grumpig, this item allows it to Mega Evolve in battle.",
 	},
 	dachsbunite: {
@@ -66,7 +66,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2005,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Dachsbun, this item allows it to Mega Evolve in battle.",
 	},
 	arbolivanite: {
@@ -80,7 +80,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2006,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Arboliva, this item allows it to Mega Evolve in battle.",
 	},
 	donphanite: {
@@ -94,7 +94,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2007,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Donphan, this item allows it to Mega Evolve in battle.",
 	},
 	armarouginite: {
@@ -108,7 +108,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2008,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Armarouge, this item allows it to Mega Evolve in battle.",
 	},
 	tinkatonite: {
@@ -122,7 +122,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2009,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Tinkaton, this item allows it to Mega Evolve in battle.",
 	},
 	coalossalite: {
@@ -136,7 +136,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2010,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Coalossal, this item allows it to Mega Evolve in battle.",
 	},
 	revavroomite: {
@@ -150,7 +150,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2011,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Revavroom, this item allows it to Mega Evolve in battle.",
 	},
 	cyclizite: {
@@ -164,7 +164,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2012,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Cyclizar, this item allows it to Mega Evolve in battle.",
 	},
 	pawmite: {
@@ -178,7 +178,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2013,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Pawmot, this item allows it to Mega Evolve in battle.",
 	},
 	grafaiaite: {
@@ -192,7 +192,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2014,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Grafaiai, this item allows it to Mega Evolve in battle.",
 	},
 	cetitanite: {
@@ -206,21 +206,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2015,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Cetitan, this item allows it to Mega Evolve in battle.",
 	},
-	ninetalinite: {
-		name: "Ninetalinite",
+	ninetalesite: {
+		name: "Ninetalesite",
 		spritenum: 578,
 		megaStone: "Ninetales-Mega",
 		megaEvolves: "Ninetales",
 		itemUser: ["Ninetales"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name.startsWith('Ninetales')) return false;
 			return true;
 		},
 		num: -2016,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Ninetales, this item allows it to Mega Evolve in battle.",
 	},
 	noctowlite: {
@@ -234,7 +234,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2017,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Noctowl, this item allows it to Mega Evolve in battle.",
 	},
 	hatterenite: {
@@ -248,7 +248,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2018,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Hatterene, this item allows it to Mega Evolve in battle.",
 	},
 	ribombinite: {
@@ -262,7 +262,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2019,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Ribombee, this item allows it to Mega Evolve in battle.",
 	},
 	bombirdite: {
@@ -276,7 +276,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2020,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Bombirdier, this item allows it to Mega Evolve in battle.",
 	},
 	fezandipitite: {
@@ -290,7 +290,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2021,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Fezandipiti, this item allows it to Mega Evolve in battle.",
 	},
 	milotinite: {
@@ -304,7 +304,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2022,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Milotic, this item allows it to Mega Evolve in battle.",
 	},
 	probopassite: {
@@ -318,7 +318,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2023,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Probopass, this item allows it to Mega Evolve in battle.",
 	},
 	ogerponite: {
@@ -332,7 +332,133 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: -2024,
-		gen: 8,
+		gen: 9,
 		desc: "If held by a Ogerpon, this item allows it to Mega Evolve in battle.",
+	},
+	dugtrionite: {
+		name: "Dugtrionite",
+		spritenum: 578,
+		megaStone: "Dugtrio-Alola-Mega",
+		megaEvolves: "Dugtrio-Alola",
+		itemUser: ["Dugtrio-Alola"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2025,
+		gen: 9,
+		desc: "If held by a Dugtrio-Alola, this item allows it to Mega Evolve in battle.",
+	},
+	farigirafite: {
+		name: "Farigirafite",
+		spritenum: 578,
+		megaStone: "Farigiraf-Mega",
+		megaEvolves: "Farigiraf",
+		itemUser: ["Farigiraf"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2026,
+		gen: 9,
+		desc: "If held by a Farigiraf, this item allows it to Mega Evolve in battle.",
+	},
+	hydrapplinite: {
+		name: "Hydrapplinite",
+		spritenum: 578,
+		megaStone: "Hydrapple-Mega",
+		megaEvolves: "Hydrapple",
+		itemUser: ["Hydrapple"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2027,
+		gen: 9,
+		desc: "If held by a Hydrapple, this item allows it to Mega Evolve in battle.",
+	},
+	tentacruelinite: {
+		name: "Tentacruelinite",
+		spritenum: 578,
+		megaStone: "Tentacruel-Mega",
+		megaEvolves: "Tentacruel",
+		itemUser: ["Tentacruel"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2028,
+		gen: 9,
+		desc: "If held by a Tentacruel, this item allows it to Mega Evolve in battle.",
+	},
+	galvantulinite: {
+		name: "Galvantulinite",
+		spritenum: 578,
+		megaStone: "Galvantula-Mega",
+		megaEvolves: "Galvantula",
+		itemUser: ["Galvantula"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2029,
+		gen: 9,
+		desc: "If held by a Galvantula, this item allows it to Mega Evolve in battle.",
+	},
+	golurkite: {
+		name: "Golurkite",
+		spritenum: 578,
+		megaStone: "Golurk-Mega",
+		megaEvolves: "Golurk",
+		itemUser: ["Golurk"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2030,
+		gen: 9,
+		desc: "If held by a Golurk, this item allows it to Mega Evolve in battle.",
+	},
+	emboarite: { 
+		name: "Emboarite",
+		spritenum: 578,
+		megaStone: "Emboar-Mega",
+		megaEvolves: "Emboar",
+		itemUser: ["Emboar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2031,
+		gen: 9,
+		desc: "If held by a Emboar, this item allows it to Mega Evolve in battle.",
+	},
+	beartite: { 
+		name: "Beartite",
+		spritenum: 578,
+		megaStone: "Beartic-Mega",
+		megaEvolves: "Beartic",
+		itemUser: ["Beartic"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2032,
+		gen: 9,
+		desc: "If held by a Beartic, this item allows it to Mega Evolve in battle.",
+	},
+	kleavorite: { 
+		name: "Kleavorite",
+		spritenum: 578,
+		megaStone: "Kleavor-Mega",
+		megaEvolves: "Kleavor",
+		itemUser: ["Kleavor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2033,
+		gen: 9,
+		desc: "If held by a Kleavor, this item allows it to Mega Evolve in battle.",
 	},
 };
