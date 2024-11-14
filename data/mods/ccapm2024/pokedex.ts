@@ -88,7 +88,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Nectaregal",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 80, atk: 45, def: 80, spa: 90, spd: 100, spe: 70},
-		abilities: {0: "E", 1: "M", H: "Manip"},
+		abilities: {0: "Electromagnetic Manipulation"},
 	},
 	nummanutts: {
 		num: 1014,
