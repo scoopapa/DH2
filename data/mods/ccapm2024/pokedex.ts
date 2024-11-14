@@ -298,7 +298,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		species: "Buffball",
 		types: ["Fighting", "Bug"],
 		baseStats: {hp: 101, atk: 127, def: 71, spa: 103, spd: 71, spe: 97},
-		abilities: {0: "Preperation"},
+		abilities: {0: "Preparation"},
 	},
 	rootfraction: {
 		num: 1044,
