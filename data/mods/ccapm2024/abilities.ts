@@ -785,7 +785,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Preparation",
-		shortDesc: "Deals 1.3x damage the turn after using a status move.",
+		shortDesc: "Deals 2x damage the turn after using a status move.",
 	},
 	puppetmaster: {
 		onSwitchIn(pokemon) {
