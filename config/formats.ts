@@ -337,16 +337,16 @@ export const Formats: FormatList = [
 		],
 		mod: 'ccapm2024',
 		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Silvally Clause', 'Sleep Clause Mod', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['IF'];
+			let allowedTiers = ['CCAPM2024'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					//return [set.species + ' is not legal in CCAPM 2024.'];
+					return [set.species + ' is not legal in CCAPM 2024.'];
 				}
 			}
 		},

@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-		spreetah: {
+	spreetah: {
 		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
