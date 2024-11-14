@@ -210,7 +210,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', pokemon, 'Bloodsucking');
 					activated = true;
 				}
-				//use move
+				pokemon.addVolatile('bloodsucking');
+				this.actions.useMove('leechlife', pokemon, target);
 			}
 		},
 		flags: {},
@@ -452,7 +453,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "While this Pokemon is active, the foe's primary type is Electric.",
 	},
 	exhaust: {
-		
+		onFoeSwitchOut(pokemon) {
+			if (!pokemon.lastMoveUsed) return;
+			const moveUsed = pokemon.lastMoveUsed;
+			const moveIndex = pokemon.moves.indexOf(moveUsed.id);
+			console.log(pokemon.moveSlots[moveIndex]);
+			pokemon.moveSlots[moveIndex].pp -= 5;
+		},
 		flags: {},
 		name: "Exhaust",
 		shortDesc: "While this Pokemon is active, opponents switching out lose 5 PP on the last move they used.",
@@ -496,5 +503,450 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Hibernation",
 		shortDesc: "This Pokemon's Def/SpD are raised by 1 each turn while asleep.",
+	},
+	ironfistening: {
+		onStart(source) {
+			source.side.addFishingTokens(1);
+		},
+		flags: {},
+		name: "Iron Fistening",
+	},
+	magicmissile: {
+		/*
+		Need to test:
+		- any Berry
+		- Toxic Orb, Flame Orb or Light Ball (just one they're the same code)
+		- White Herb
+		- Mental Herb
+		- um, I guess making sure Razor Claw or Razor Fang (just one they're the same code) doesn't immediately crash,
+		but it would be basically impossible for them to cause a flinch in a singles context
+		(how does this behave with Instruct? maybe you could test with that if you're doing the doubles format Aquatic mentioned)
+		*/
+		name: "Magic Missile",
+		//shortDesc: "If hit by a contact move while holding an item: lose item, apply item Fling effects, attacker loses 1/4 max HP. If hitting a foe with a contact move while not holding an item: steals the foe's item.",
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Magic Missile', '[of] ' + target);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.isSemiInvulnerable()) return;
+			if (target.ignoringItem()) return false;
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
+			if (item.id && !item.megaStone) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				target.addVolatile('fling');
+				if (item.is
+				) {
+					if (this.singleEvent('Eat', item, null, source, null, null)) {
+						this.runEvent('EatItem', source, null, null, item);
+						if (item.id === 'leppaberry') source.staleness = 'external';
+					}
+					if (item.onEat) source.ateBerry = true;
+				} else if (item.id === 'mentalherb') {
+					const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
+					for (const firstCondition of conditions) {
+						if (source.volatiles[firstCondition]) {
+							for (const secondCondition of conditions) {
+								source.removeVolatile(secondCondition);
+								if (firstCondition === 'attract' && secondCondition === 'attract') {
+									this.add('-end', source, 'move: Attract', '[from] item: Mental Herb');
+								}
+							}
+							return;
+						}
+					}
+				} else if (item.id === 'whiteherb') {
+					let activate = false;
+					const boosts: SparseBoostsTable = {};
+					let i: BoostName;
+					for (i in source.boosts) {
+						if (source.boosts[i] < 0) {
+							activate = true;
+							boosts[i] = 0;
+						}
+					}
+					if (activate) {
+						source.setBoost(boosts);
+						this.add('-clearnegativeboost', source, '[silent]');
+					}
+				} else {
+					if (item.fling && item.fling.status) {
+						source.trySetStatus(item.fling.status, target);
+					} else if (item.fling && item.fling.volatileStatus) {
+						source.addVolatile(item.fling.volatileStatus, target);
+					}
+				}
+			}
+		},
+	},
+	medic: {
+		onSwitchOut(pokemon) {
+			pokemon.side.addSideCondition('medic');
+		},
+		flags: {},
+		name: "Medic",
+		shortDesc: "Upon switching out, the replacement heals 1/6 max HP and has its status cured.",
+	},
+	mindbloom: {
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Status' && move.target === 'normal') {
+				move.boosts = {
+					spd: -1,
+				};
+			}
+		},
+		onAfterMove(target, source, move) {
+			if (move.category === 'Status') {
+				
+			}
+		},
+		flags: {},
+		name: "Mind Bloom",
+		shortDesc: "This Pokemon's status moves lower the opponent's Sp. Def by 1.",
+	},
+	momentum: {
+		name: "Momentum",
+		shortDesc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
+		flags: {},
+		onStart(pokemon) {
+			pokemon.addVolatile('momentum');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectState.lastMove = '';
+				this.effectState.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasItem('momentum')) {
+					pokemon.removeVolatile('momentum');
+					return;
+				}
+				if (move.callsMove) return;
+				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectState.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove']) {
+					if (this.effectState.lastMove !== move.id) {
+						this.effectState.numConsecutive = 1;
+					} else {
+						this.effectState.numConsecutive++;
+					}
+				} else {
+					this.effectState.numConsecutive = 0;
+				}
+				this.effectState.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				this.debug(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
+				return this.chainModify([dmgMod[numConsecutive], 4096]);
+			},
+		},
+	},
+	nightlight: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark' || move.type === 'Ghost') {
+				this.debug('Night Light weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark' || move.type === 'Ghost') {
+				this.debug('Night Light weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Night Light",
+		shortDesc: "This Pokemon takes halved damage from Dark and Ghost-type moves.",
+	},
+	nightmarch: {
+		onBasePower(basePower, pokemon, target, move) {
+			const allies = pokemon.side.pokemon.filter(p => p != pokemon && p.set.moves.toString().indexOf(move) != -1);
+			return basePower += 20 * allies.length;
+		},
+		name: "Night March",
+		shortDesc: "This Pokemon's attacks gain +20 power for each ally that also has that move.",
+	},
+	nocturnal: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Nocturnal');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Nocturnal",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dark moves; Dark immunity.",
+	},
+	outclass: {
+		onSourceHit(target, source, move) {
+			if (!move || !target || source.types[1] || target.hasItem('terashard')) return;
+			if (source.volatiles['outclass'] && !source.side.removeFishingTokens(1)) return;
+			let targetType = target.types[0];
+			if (target !== source && move.category !== 'Status' &&
+				 !source.hasType(targetType) && source.addType(targetType) && targetType !== '???') {
+					target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
+					this.add('-start', target, 'typechange', target.types.join('/'));
+					this.add('-start', source, 'typeadd', targetType, '[from] ability: Outclass');
+					source.addVolatile('outclass');			
+				}
+		},
+		condition: {},
+		flags: {},
+		name: "Outclass",
+		shortDesc: "If this Pokemon has one type, it steals the primary typing off a Pokemon it hits with an attack.",
+		rating: 4,
+	},
+	peckingorder: {
+		name: "Pecking Order",
+		shortDesc: "On switch-in, this Pokemon lowers the Defense of adjacent opponents by 1 stage.",
+		flags: {},
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Pecking Order', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({def: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+	},
+	polychrome: {
+		onBasePower(basePower, pokemon, target, move) {
+			if(!pokemon.hasType(move.type)) return this.chainModify(1.25);
+		},
+		name: "Polychrome",
+		shortDesc: "This Pokemon's non-STAB moves have 1.25x power.",
+	},
+	precognition: {
+		onBeforeTurn(pokemon) {
+			if(pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			const targetAction = this.queue.willMove(target);
+			if (!targetAction) return;
+			const pokemonAction = this.queue.willMove(pokemon);
+			const targetMove = this.dex.getActiveMove(targetAction.move.id);
+			const pokemonMove = this.dex.getActiveMove(pokemonAction.move.id);
+			if (!pokemon.volatiles['substitute'] && targetMove.type === pokemonMove.type) {
+				const substitute = this.dex.getActiveMove('substitute');
+				this.actions.useMove(substitute, pokemon, pokemon);
+			}
+		},
+		flags: {},
+		name: "Precognition",
+		shortDesc: "If a foe selects the same type move as the user, the user uses Substitute at the beginning of the turn."
+	},
+	preeminence: {
+		onModifyPriority(priority, pokemon, target, move) {
+			const basePowerAfterMultiplier = this.modify(move.basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Preeminence boost');
+				return priority + 1;
+			}
+		},
+		flags: {},
+		name: "Preeminence",
+		shortDesc: "This Pokemon's moves of 60 power or less have +1 priority, including Struggle.",
+	},
+	preparation: {
+		onAfterMove(source, target, move) {
+			if (move.category === 'Status' && move.name !== 'Substitute' && !move.stallingMove) {
+				source.addVolatile('preparation');
+			}
+		},
+		condition: {
+			duration: 2,
+			onBasePower(basePower, attacker, defender, move) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Preparation",
+		shortDesc: "Deals 1.3x damage the turn after using a status move.",
+	},
+	puppetmaster: {
+		onSwitchIn(pokemon) {
+			this.effectState.puppetmaster = pokemon;
+		},
+		onAnyPrepareHitPriority: -1,
+		onAnyPrepareHit(source, target, move) {
+			const puppetmaster = this.effectState.puppetmaster;
+			console.log(move.sourceEffect);
+			if (!move || move.name !== 'Substitute' || move.isZ || move.isMax || move.sourceEffect === 'puppetmaster') return;
+			this.actions.useMove(move.id, puppetmaster);
+			return null;
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.adjacentFoes().length == 0) return;
+			let target = this.sample(pokemon.adjacentFoes());
+			if (target.volatiles['substitute']) this.damage(target.baseMaxhp / 8, target, pokemon);
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true) && this.randomChance(1, 1000)) {
+				source.formeChange('Cradily');
+			}
+		},
+		flags: {},
+		name: "Puppet Master",
+		shortDesc: "This Pokemon steals foes' Substitute. Foes under Substitute lose 1/5 max HP per turn.",
+	},
+	quickthinking: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					return this.chainModify(1.3);
+				}
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.queue.willMove(target)) {
+				this.debug('Slow and Steady neutralize');
+				return this.chainModify(0.7);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Quick Thinking",
+		shortDesc: "This Pokemon deals 1.3x damage when moving first and takes 0.7x damage when moving last.",
+	},
+	refraction: {
+		onStart(pokemon) {
+			pokemon.side.addSideCondition('waterpledge');
+		},
+		flags: {},
+		name: "Refraction",
+		shortDesc: "On switchin, this Pokemon sets Rainbow on its side.",
+	},
+	royalguard: {
+        onStart(pokemon) {
+			if (pokemon.royalguard) return;
+			pokemon.royalguard = true;
+            this.actions.useMove("substitute", pokemon);
+        },
+        name: "Royal Guard",
+        shortDesc: "On switchin, this Pokemon uses Substitute. Once per battle.",
+    },
+	sealedoff: {
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Sealed Off');
+			this.actions.useMove("imprison", pokemon);
+		},
+        name: "Sealed Off",
+        shortDesc: "On switchin, this Pokemon uses Imprison.",
+    },
+	searingremark: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['sound'] && this.randomChance(3, 10)) {
+				if (!target.hasAbility('shielddust') && !target.hasItem('covertcloak')) target.trySetStatus('brn', source);
+			}
+		},
+		flags: {},
+		name: "Searing Remark",
+		shortDesc: "This Pokemon's sound moves have a 30% of burning the target.",
+	},
+	selfrepair: {
+		onAfterMove(target, source, move) {
+			if (move.category === 'Status') {
+				this.heal(target.baseMaxhp / 4);
+			}
+		},
+		name: "Self-Repair",
+		shortDesc: "This Pokemon heals 25% its max HP after using a Status move.",
+	},
+	snowhazard: {
+		onDamagingHit(damage, target, source, move) {
+			this.field.setWeather('snow');
+		},
+		flags: {},
+		name: "Snowhazard",
+		shortDesc: "When this Pokemon is hit by an attack, the effect of Snow begins."
+	},
+	spinthewheel: {
+		onResidual(pokemon) {
+			const metronome = this.dex.getActiveMove('metronome');
+			this.actions.useMove(metronome, pokemon);
+		},
+		flags: {},
+		name: "Spin the Wheel",
+		shortDesc: "This Pokemon uses Metronome at the end of each turn."
+	},
+	statleeching: {
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Opportunist' || effect?.name === 'Stat Leeching' || effect?.name === 'Mirror Herb') return;
+			const pokemon = this.effectState.target;
+			const boosts: Partial<BoostsTable> = {};
+			let i: BoostID;
+			for (i in boost) {
+				boosts[i] = -boost[i];
+			}
+			if (Object.keys(boosts).length < 1) return;
+			this.boost(boosts, pokemon);
+		},
+		flags: {},
+		name: "Stat Leeching",
+		shortDesc: "This Pokemon gains the opposite stat change as opposing Pokemon."
+	},
+	strongbreeze: {
+        onStart(pokemon) {
+			if (pokemon.strongbreeze) return;
+			pokemon.strongbreeze = true;
+            pokemon.side.addSideCondition('tailwind');
+        },
+        name: "Strong Breeze",
+        shortDesc: "On switchin, this Pokemon sets Tailwind. Once per battle.",
+    },
+	superrod: {
+		onAfterMove(target, source, move) {
+			if (move.type === 'Flying' && target.side.fishingTokens > 0) {
+				this.heal(target.baseMaxhp / 16 * target.side.fishingTokens);
+			}
+		},
+		name: "Super Rod",
+		shortDesc: "This Pokemon's Water-type moves heal it for 1/16 max HP for each Fishing Token.",
+	},
+	treasurecraze: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target) return;
+			this.boost({atk: 2}, pokemon, pokemon, null, false, true);
+		},
+		onTakeItem(item, pokemon) {
+			this.boost({atk: 2}, pokemon, pokemon, null, false, true);
+		},
+		flags: {},
+		name: "Treasure Craze",
+		shortDesc: "When this Pokemon loses its held item, its Attack is raised by 2.",
+	},
+	troubled: {
+		onModifyMove(move, pokemon) {
+			move.flags.cantusetwice = 1;
+		},
+		name: "Troubled",
+		shortDesc: "This Pokemon cannot use the same move twice in a row.",
 	},
 }

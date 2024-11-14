@@ -1,527 +1,254 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	melmetal: {
-		tier: "IF",
+		spreetah: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	ninjask: {
-		tier: "IF",
+	raintoad: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	toxapex: {
-		tier: "IF",
+	pomegrenade: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silcoon: {
-		tier: "IF",
+	surfsurge: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	togedemaru: {
-		tier: "IF",
+	anxiousoil: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	bramblin: {
-		tier: "IF",
+	depresloth: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	anarlvet: {
-		tier: "IF",
+	obsallas: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	gholdengo: {
-		tier: "IF",
+	nharboard: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	kingler: {
-		tier: "IF",
+	lampyre: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	kinglermega: {
-		tier: "IF",
+	noyew: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	feebas: {
-		tier: "IF",
+	underhazard: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	microwave: {
-		tier: "IF",
+	bleyabat: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	glaceon: {
-		tier: "IF",
+	nectaregal: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	lytlegai: {
-		tier: "IF",
+	nummanutts: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	sylveon: {
-		tier: "IF",
+	mosstrosity: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	ohmyrod: {
-		tier: "IF",
+	faellen: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	celesteela: {
-		tier: "IF",
+	nucleophage: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	bigcrammer: {
-		tier: "IF",
+	tardeblade: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	archeops: {
-		tier: "IF",
+	bugsome: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	runerigus: {
-		tier: "IF",
+	pestifer: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	crabominable: {
-		tier: "IF",
+	fungemory: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	samurottsinnoh: {
-		tier: "IF",
+	guarden: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	wyrdeer: {
-		tier: "IF",
+	hawksectiff: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	goomba: {
-		tier: "IF",
+	boogeymancer: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	fridgile: {
-		tier: "IF",
+	cliffilisk: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	zaciancrowned: {
-		tier: "IF",
+	aesap: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	
-	melmetal2: {
-		tier: "IF",
+	delirirak: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	pidown: {
-		tier: "IF",
+	lazahrusk: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvally: {
-		tier: "IF",
+	cogwyld: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallybug: {
-		tier: "IF",
+	folibower: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallydark: {
-		tier: "IF",
+	araquisis: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallydragon: {
-		tier: "IF",
+	liwyzard: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyelectric: {
-		tier: "IF",
+	shail: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyfairy: {
-		tier: "IF",
+	fightinfly: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyfighting: {
-		tier: "IF",
+	arthrostrike: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyfire: {
-		tier: "IF",
+	magmouth: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyflying: {
-		tier: "IF",
+	orchidauntless: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyghost: {
-		tier: "IF",
+	boillusk: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallygrass: {
-		tier: "IF",
+	minkai: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyground: {
-		tier: "IF",
+	shurifluri: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyice: {
-		tier: "IF",
+	roolette: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallypoison: {
-		tier: "IF",
+	frenzaiai: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallypsychic: {
-		tier: "IF",
+	buffball: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallyrock: {
-		tier: "IF",
+	rootfraction: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallysteel: {
-		tier: "IF",
+	remnant: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	silvallywater: {
-		tier: "IF",
+	marlord: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	vivillonplainshigh: {
-		tier: "IF",
+	marsonmallow: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	moltres: {
-		tier: "IF",
+	trawlutre: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	kurayami: {
-		tier: "IF",
+	manticrash: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	hitmontop: {
-		tier: "IF",
+	ichthyocorn: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	zelda: {
-		tier: "IF",
+	cryobser: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	cascoon: {
-		tier: "IF",
+	skibidragon: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	sentret: {
-		tier: "IF",
+	tuxquito: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	drigike: {
-		tier: "IF",
+	cosmole: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	phish: {
-		tier: "IF",
+	suragon: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	
-	smelmetal: {
-		tier: "IF",
+	shufflux: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	starmie: {
-		tier: "IF",
+	mindwyrm: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	victreebel: {
-		tier: "IF",
+	crashtank: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	bondra: {
-		tier: "IF",
+	leviadon: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	tangetteeternal: {
-		tier: "IF",
+	oonoonsi: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	donmigo: {
-		tier: "IF",
+	contradox: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	dragoone: {
-		tier: "IF",
+	roddammit: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
-	collachet: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	guiltrism: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	swampert: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	swooliobat: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	electrode: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	electrodemega: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	mariokartwii: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	impalpitoad: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	scrubby: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	palpitoadissocool: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	spewpa: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	
-	moltresmega: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	jirachitwo: {
-		tier: "Gone!",
-		doublesTier: "DOU",
-	},
-	shinxfishing: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	conquescape: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	daiyafia: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	metapod: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	kakuna: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	enamorustherian: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	pokestarfisherman: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	magnegiri: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	mario: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	contamicow: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	whonhef: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	fishfactory: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	cowboybandido: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	basculinbluestriped: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	pokestargiant: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	richardpetty: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	impidimp: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	impidimpmega: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	lemon: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	fishingzombie: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	pokestarmt: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	margaretthatcher: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	fleshvaliant: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	fleshvaliantmega: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	abomasnow: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	komala: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	inkay: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	silvallylemon: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	
-	ronaldreagan: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	limelips: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	lemotic: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	zestii: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	sunflora: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	rawringmoon: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	boogerponclownerstone: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	keisbergif: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	indeedee: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	applesnewestemoji: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	cinderace: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	lemonfish: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	dracolition: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-
-	goddease: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	jableye: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	kyrum: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	raccoon: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	lucariocalm: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	nedontrol: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	princirang: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	ironclown: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	thepearlhand: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	mcfish: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	applwirm: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	minunandplusled: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	silvallystellar: {
-		tier: "IF",
-		doublesTier: "DOU",
-	},
-	silvallysilly: {
-		tier: "IF",
+	rizzquaza: {
+		tier: "CCAPM2024",
 		doublesTier: "DOU",
 	},
 }
