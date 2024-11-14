@@ -4336,7 +4336,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
 				pokemon.addVolatile('prototoxin');
-			} else if (!pokemon.volatiles['prototoxin']?.fromBooster) {
+			} else if (!pokemon.volatiles['prototoxin']?.fromBooster && pokemon.status !== 'psn' && pokemon.status !== 'tox') {
 				pokemon.removeVolatile('prototoxin');
 			}
 		},
