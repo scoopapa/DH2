@@ -3506,7 +3506,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			//blast: ["9L1"],
 			bodyslam: ["9L1"],
 			boomburst: ["9L1"],
-			camoflauge: ["9L1"],
+			camouflage: ["9L1"],
 			chipaway: ["9L1"],
 			coil: ["9L1"],
 			confide: ["9L1"],
