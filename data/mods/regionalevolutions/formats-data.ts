@@ -174,4 +174,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bellitoxin: {
 		tier: "RegEvo",
 	},
+	turtonatorjohto: {
+		tier: "RegEvo NFE",
+	},
+	coramata: {
+		tier: "RegEvo",
+	},
 };
