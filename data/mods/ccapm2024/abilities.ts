@@ -510,6 +510,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Iron Fistening",
+		shortDesc: "On switchin, this Pokemon's side gains a Fishing Token.",
 	},
 	magicmissile: {
 		/*
@@ -696,7 +697,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	outclass: {
 		onSourceHit(target, source, move) {
-			if (!move || !target || source.types[1] || target.hasItem('terashard')) return;
+			if (!move || !target) return;
 			if (source.volatiles['outclass'] && !source.side.removeFishingTokens(1)) return;
 			let targetType = target.types[0];
 			if (target !== source && move.category !== 'Status' &&

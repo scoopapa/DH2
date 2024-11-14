@@ -67,7 +67,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Noyew",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 64, atk: 51, def: 116, spa: 51, spd: 116, spe: 42},
-		abilities: {0: "Back at Ya"},
+		abilities: {0: "Back at Ya!"},
 	},
 	underhazard: {
 		num: 1011,
