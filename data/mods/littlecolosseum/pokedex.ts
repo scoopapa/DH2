@@ -81,4 +81,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 65, def: 65, spa: 55, spd: 55, spe: 55},
 		abilities: {0: "Bulletproof", 1: "Overcoat", H: "Marvel Scale"},
 	},
+	mareep: {
+		inherit: true,
+		types: ["Electric", "Grass"],
+		baseStats: {hp: 55, atk: 40, def: 40, spa: 65, spd: 60, spe: 35},
+		abilities: {0: "Static", H: "Fluffy Charger"},
+	},
+	cetoddle: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Sheer Force", H: "Sliding Whale"},
+	},
 };

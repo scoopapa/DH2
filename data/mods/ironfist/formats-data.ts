@@ -299,7 +299,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jirachitwo: {
-		tier: "Usurper of the Wheel",
+		tier: "UoTW",
 		doublesTier: "DOU",
 	},
 	shinxfishing: {
@@ -561,4 +561,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-}
+};

@@ -52,7 +52,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "jangmoo").learnset.heartswap = ["9L1"];
 		this.modData("Learnsets", "jangmoo").learnset.drainingkiss = ["9L1"];
 		this.modData("Learnsets", "jangmoo").learnset.playrough = ["9L1"];
-		this.modData("Learnsets", "jangmoo").learnset.slackoff = ["9L1"];		
+		this.modData("Learnsets", "jangmoo").learnset.slackoff = ["9L1"];
+		delete this.modData('Learnsets', 'cetoddle').learnset.iciclespear;
+		delete this.modData('Learnsets', 'cetoddle').learnset.earthquake;
+		delete this.modData('Learnsets', 'cetoddle').learnset.superpower;
+		delete this.modData('Learnsets', 'cetoddle').learnset.knockoff;
+		this.modData("Learnsets", "cetoddle").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "mareep").learnset.bodypress = ["9L1"];
+		this.modData("Learnsets", "mareep").learnset.gigadrain = ["9L1"];
+		this.modData("Learnsets", "mareep").learnset.worryseed = ["9L1"];
+		this.modData("Learnsets", "mareep").learnset.slackoff = ["9L1"];
 	},
 	pokemon: { 
 		runImmunity(type: string, message?: string | boolean) {

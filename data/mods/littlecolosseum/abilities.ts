@@ -132,4 +132,37 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Go with the Flow",
 		rating: 4,
 	},
+	slidingwhale: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather(['hail', 'snow'])) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		shortDesc: "Effects of Slush Rush and Aftermath.",
+		name: "Sliding Whale",
+		rating: 3,
+	},
+	fluffycharger: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('charge');
+		},
+		flags: {breakable: 1},
+		shortDesc: "Effects of Fluffy and Electromorphosis.",
+		name: "Fluffy Charger",
+		rating: 4,
+	},
 };

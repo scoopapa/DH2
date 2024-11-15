@@ -1237,4 +1237,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Hacked",
 	},
-}
+};
