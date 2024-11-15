@@ -1011,43 +1011,43 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return item !== 'airballoon';
 		},
 		getSwitchRequestData(forAlly?: boolean) {
-		const entry: AnyObject = {
-			ident: this.fullname,
-			details: this.details,
-			condition: this.getHealth().secret,
-			active: (this.position < this.side.active.length),
-			stats: {
-				atk: this.baseStoredStats['atk'],
-				def: this.baseStoredStats['def'],
-				spa: this.baseStoredStats['spa'],
-				spd: this.baseStoredStats['spd'],
-				spe: this.baseStoredStats['spe'],
-			},
-			moves: this[forAlly ? 'baseMoves' : 'moves'].map(move => {
-				if (move === 'hiddenpower') {
-					return move + toID(this.hpType) + (this.battle.gen < 6 ? '' : this.hpPower);
-				}
-				if (move === 'frustration' || move === 'return') {
-					const basePowerCallback = this.battle.dex.moves.get(move).basePowerCallback as (pokemon: Pokemon) => number;
-					return move + basePowerCallback(this);
-				}
-				return move;
-			}),
-			baseAbility: this.baseAbility,
-			item: this.item,
-			pokeball: this.pokeball,
-		};
-		if (this.battle.gen > 6) entry.ability = this.ability;
-		if (this.battle.gen >= 9) {
-			entry.commanding = !!this.volatiles['commanding'] && !this.fainted;
-			entry.reviving = this.isActive && !!this.side.slotConditions[this.position]['revivalblessing'];
-			entry.sacrificing = this.isActive && !!this.side.slotConditions[this.position]['epicbeam'];
+			const entry: AnyObject = {
+				ident: this.fullname,
+				details: this.details,
+				condition: this.getHealth().secret,
+				active: (this.position < this.side.active.length),
+				stats: {
+					atk: this.baseStoredStats['atk'],
+					def: this.baseStoredStats['def'],
+					spa: this.baseStoredStats['spa'],
+					spd: this.baseStoredStats['spd'],
+					spe: this.baseStoredStats['spe'],
+				},
+				moves: this[forAlly ? 'baseMoves' : 'moves'].map(move => {
+					if (move === 'hiddenpower') {
+						return move + this.toID(this.hpType) + (this.battle.gen < 6 ? '' : this.hpPower);
+					}
+					if (move === 'frustration' || move === 'return') {
+						const basePowerCallback = this.battle.dex.moves.get(move).basePowerCallback as (pokemon: Pokemon) => number;
+						return move + basePowerCallback(this);
+					}
+					return move;
+				}),
+				baseAbility: this.baseAbility,
+				item: this.item,
+				pokeball: this.pokeball,
+			};
+			if (this.battle.gen > 6) entry.ability = this.ability;
+			if (this.battle.gen >= 9) {
+				entry.commanding = !!this.volatiles['commanding'] && !this.fainted;
+				entry.reviving = this.isActive && !!this.side.slotConditions[this.position]['revivalblessing'];
+				entry.sacrificing = this.isActive && !!this.side.slotConditions[this.position]['epicbeam'];
+			}
+			if (this.battle.gen === 9) {
+				entry.teraType = this.teraType;
+				entry.terastallized = this.terastallized || '';
+			}
+			return entry;
 		}
-		if (this.battle.gen === 9) {
-			entry.teraType = this.teraType;
-			entry.terastallized = this.terastallized || '';
-		}
-		return entry;
-	}
 	},
 };
