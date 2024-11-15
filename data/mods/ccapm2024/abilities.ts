@@ -210,7 +210,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					activated = true;
 				}
 				pokemon.addVolatile('bloodsucking');
-				this.actions.useMove('leechlife', pokemon, target);
+				const leechlife = this.dex.getActiveMove('leechlife');
+				this.actions.useMove(leechlife, pokemon, target);
 			}
 		},
 		flags: {},
@@ -218,7 +219,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals half the damage dealt.",
 	},
 	braceforimpact: {
-		name: "Brace For Impact",
+		name: "Brace for Impact",
 		shortDesc: "This Pokemon takes half damage from attacks when switching in.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (!target.activeTurns) {

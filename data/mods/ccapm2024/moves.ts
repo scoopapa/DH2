@@ -23,6 +23,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (!pokemon.volatiles['bloodsucking']) return;
 			move.basePower = 20;
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+			pokemon.removeVolatile('bloodsucking');
 		},
 	},
 }
