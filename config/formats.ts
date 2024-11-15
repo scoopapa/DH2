@@ -377,7 +377,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'ccapm2024',
 		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Terastal Clause'],
 		banlist: [],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

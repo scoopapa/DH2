@@ -207,7 +207,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Bloodsucking');
 					activated = true;
 				}
 				pokemon.addVolatile('bloodsucking');
@@ -371,7 +370,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
-				if (target.boosts[stat] < 6) {
+				if (source.boosts[stat] < 6) {
 					stats.push(stat);
 				}
 			}
@@ -381,7 +380,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boost[randomStat] = 1;
 				randomStat = this.sample(stats);
 				boost[randomStat] = 1;
-				this.boost(boost);
+				this.boost(boost, source, source);
 			} else return;
 		},
 		flags: {},
