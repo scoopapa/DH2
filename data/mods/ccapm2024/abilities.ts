@@ -214,7 +214,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bloodsucking",
-		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals half the damage dealt.",
+		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals equal to the damage dealt.",
 	},
 	braceforimpact: {
 		name: "Brace for Impact",

@@ -137,6 +137,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	toxapex: {
@@ -970,6 +971,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	lytlegai: {
@@ -1175,6 +1177,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	ohmyrod: {
@@ -1284,6 +1287,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	bigcrammer: {
@@ -1967,6 +1971,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			corrosivegus: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	fridgile: {
@@ -2654,6 +2659,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zingzap: ["9L1"],
 			awesomeearthquake: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	
@@ -2911,6 +2917,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	vivillonplainshigh: {
@@ -3338,6 +3345,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	sentret: {
@@ -3556,6 +3564,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 		},
 	},
+	
 	smelmetal: {
 		learnset: {
 			acidarmor: ["9L1"],
@@ -3676,6 +3685,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			formofthestrawberryelephant: ["9L1"],
 			lethalhug: ["9L1"],
 			epicbeam: ["9L1"],
+			balatroblast: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	starmie: {
@@ -5482,6 +5493,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			partingshot: ["9L1"],
 			heartswap: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	metapod: {
@@ -6246,6 +6258,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	lemon: {
@@ -6284,6 +6297,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			pissongrave: ["9L1"],
 			fertilesoil: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	fishingzombie: {
@@ -6436,6 +6450,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			corrosivegus: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	fleshvaliant: {
@@ -6954,6 +6969,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			epicbeam: ["9L1"],
+			balatroblast: ["9L1"],
 		},
 	},
 	limelips: {
@@ -7308,6 +7324,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	boogerponclownerstone: {
@@ -7461,6 +7478,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			homerun: ["9L1"],
 			epicbeam: ["9L1"],
+			balatroblast: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	indeedee: {
@@ -7536,6 +7555,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			pieblast: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	applesnewestemoji: {
@@ -7578,6 +7598,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fisheater: ["9L1"],
 			fertilesoil: ["9L1"],
 			epicbeam: ["9L1"],
+			airhorn: ["9L1"],
 		},
 	},
 	cinderace: {

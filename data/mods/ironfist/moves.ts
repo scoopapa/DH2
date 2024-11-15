@@ -2236,6 +2236,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1, contact: 1},
 		basePowerCallback(pokemon, target, move) {
+			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
 			return move.basePower + 10 * (move.pp - moveSlot.pp);
 		},
@@ -2490,7 +2491,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if(!pokemon.hasType('Grass')) {
-					pokemon.addVolatile('leechseed');
+					if(pokemon.adjacentFoes().length == 0) return;
+					const target = this.sample(pokemon.adjacentFoes());
+					pokemon.addVolatile('leechseed', target);
 					pokemon.side.removeSideCondition('fertilesoil');
 					this.add('-sideend', pokemon.side, 'move: Fertile Soil', '[of] ' + pokemon);
 				}
@@ -2909,6 +2912,35 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allySide",
 		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	madnesscounter: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Madness Counter",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
+		sideCondition: 'madnesscounter',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Madness Counter');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.baseSpecies.diamondHand) {
+					const bestStat = pokemon.getBestStat(true, true);
+					this.boost({[bestStat]: 1}, pokemon);
+					pokemon.side.removeSideCondition('madnesscounter');
+					this.add('-sideend', pokemon.side, 'move: Madness Counter', '[of] ' + pokemon);
+				}
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
