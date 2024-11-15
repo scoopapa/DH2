@@ -461,4 +461,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Kleavor, this item allows it to Mega Evolve in battle.",
 	},
+	slitherite: { 
+		name: "Slitherwite",
+		spritenum: 578,
+		megaStone: "Slither Wing-Mega",
+		megaEvolves: "Slither Wing",
+		itemUser: ["Slither Wing"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2034,
+		gen: 9,
+		desc: "If held by a Slither Wing, this item allows it to Mega Evolve in battle.",
+	},
+	thornite: { 
+		name: "Thornite",
+		spritenum: 578,
+		megaStone: "Iron Thorns-Mega",
+		megaEvolves: "Iron Thorns",
+		itemUser: ["Iron Thorns"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2035,
+		gen: 9,
+		desc: "If held by a Iron Thorns, this item allows it to Mega Evolve in battle.",
+	},
+	wochienite: { 
+		name: "Wochienite",
+		spritenum: 578,
+		megaStone: "Wo-Chien-Mega",
+		megaEvolves: "Wo-Chien",
+		itemUser: ["Wo-Chien"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2036,
+		gen: 9,
+		desc: "If held by a Wo-Chien, this item allows it to Mega Evolve in battle.",
+	},
 };
