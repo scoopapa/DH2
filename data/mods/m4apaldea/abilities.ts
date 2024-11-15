@@ -676,4 +676,27 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -35,
 	},
+	grudgefultablets: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Grudgeful Tablets');
+		},
+		onBasePowerPriority: 6,
+		onBasePower(basePower, attacker, defender, move) {
+			const abilityHolder = this.effectState.target;
+			if (attacker.hasAbility('Grudgeful Tablets')) return;
+			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
+			if (move.ruinedAtk !== abilityHolder) return;
+			if (defender.getMoveHitData(move).typeMod > 0) {
+				this.debug('Grudgeful Tablets drop');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {},
+		shortDesc: "All other Pokémon without this ability deal 3/4 damage with Super Effective hits.",
+		desc: "All other Pokémon without this ability deal 3/4 damage with Super Effective hits.",
+		name: "Grudgeful Tablets",
+		rating: 4.5,
+		num: -36,
+	},
 };

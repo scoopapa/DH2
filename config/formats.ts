@@ -2514,25 +2514,6 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
 	},
 	{
-		name: "[Gen 9] ASoDH",
-		desc: 'Another Solomod on DH (by Lysio & Akira)',
-		threads: [],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass'],
-		teambuilderFormat: 'National Dex',
-		onValidateTeam(team, format) {
-			let speciesTable = {};
-			let allowedTiers = ['ASODH', 'ASODH NFE'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in ASoDH.'];
-				}
-			}
-		},
-		mod: 'asodh',
-	},
-	{
 		name: "[Gen 9] Balls",
 		mod: 'balls',
 		desc: `A hilarious metagame filled with nothing but balls.`,
