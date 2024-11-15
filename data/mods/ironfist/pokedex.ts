@@ -888,7 +888,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
 		abilities: {0: "Get Silly"},
 		weightkg: 39.8,
-		requiredItem: "Cornerstone Mask",
 	},
 	keisbergif: {
 		name: "Keisberg-IF",
