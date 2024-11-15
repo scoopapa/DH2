@@ -4161,7 +4161,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711011/">Shared Power</a>`,
 		],
 
-		mod: 'sharedpowerironfist',
+		//mod: 'sharedpowerironfist',
+		mod: 'ironfist',
 		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Silvally Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
