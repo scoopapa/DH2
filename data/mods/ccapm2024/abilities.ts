@@ -179,14 +179,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's non-HP stats are reduced by 5% each turn.",
 	},
 	bathroombreak: {
-		onModifyMove(move, pokemon) {
-			if (move.type === 'Water') move.switchFlag = true;
+		onAfterMove(target, source, move) {
+			if (move.type === 'Water') target.switchFlag = true;
 		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Water') {
-				target.switchFlag = true;
-			}
+			if (move.type === 'Water') target.switchFlag = true;
 		},
 		name: "Bathroom Break",
 		shortDesc: "This Pokemon switches out when using or hit by a Water move.",
@@ -216,7 +214,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bloodsucking",
-		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals half the damage dealt.",
+		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals equal to the damage dealt.",
 	},
 	braceforimpact: {
 		name: "Brace for Impact",

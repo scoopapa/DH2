@@ -1061,12 +1061,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newatk = target.storedStats.atk;
 				target.storedStats.atk = source.storedStats.atk;
 				source.storedStats.atk = newatk;
-				this.add('-message', `${target.name}'s and ${target.name}'s Attack were swapped!`);
+				this.add('-message', `${target.name}'s and ${source.name}'s Attack were swapped!`);
 			} else {
 				const newspa = target.storedStats.spa;
-				target.storedStats.spa = newspa;
+				target.storedStats.spa = source.storedStats.spa;
 				source.storedStats.spa = newspa;
-				this.add('-message', `${target.name}'s and ${target.name}'s Special Attack were swapped!`);
+				this.add('-message', `${target.name}'s and ${source.name}'s Special Attack were swapped!`);
 			}
 		},
 		flags: {breakable: 1},
@@ -1086,6 +1086,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	madscientist: {
 		onStart(source) {
 			source.side.addSideCondition('madnesscounter');
+			console.log(source.side.sideConditions);
 		},
 		flags: {},
 		name: "Mad Scientist",
@@ -1113,10 +1114,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hoennstan: {
 		onStart(pokemon) {
-			const hoenn = pokemon.side.pokemon.filter(p => p.baseSpecies.gen === 3).length;
+			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && p.baseSpecies.gen === 3).length;
 			if (hoenn) {
 				this.add('-activate', pokemon, 'ability: Hoenn Stan');
-				const hoenn = Math.min(hoenn, 5);
+				hoenn = Math.min(hoenn, 5);
 				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
 				this.effectState.hoenn = hoenn;
 			}

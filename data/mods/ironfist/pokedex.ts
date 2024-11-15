@@ -9,6 +9,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ninjask: {
 		inherit: true,
+		gen: 3,
 		name: "Ninjask",
 		num: -2,
 		types: ["Bug", "Flying"],
@@ -26,6 +27,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	silcoon: {
 		inherit: true,
+		gen: 3,
 		name: "Silcoon",
 		num: -4,
 		fish: true,
@@ -92,6 +94,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	feebas: {
 		inherit: true,
+		gen: 3,
 		name: "Feebas",
 		num: -11,
 		fish: true,
@@ -301,6 +304,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cascoon: {
 		inherit: true,
+		gen: 3,
 		name: "Cascoon",
 		num: -34,
 		types: ["Bug", "Fairy"],
@@ -1070,6 +1074,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	groudon: {
 		inherit: true,
+		gen: 3,
 		name: "Groudon",
 		num: -113,
 		types: ["Ground"],
@@ -1088,6 +1093,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	absol: {
 		inherit: true,
 		name: "Absol",
+		gen: 3,
 		num: -115,
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 94, atk: 104, def: 74, spa: 104, spd: 74, spe: 114},

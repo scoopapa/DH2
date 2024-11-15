@@ -136,8 +136,8 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 		onWeather(target) {
-			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16);
-			else if(['Water', 'Steel'].contains(target.types) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 8);
+			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16, target, target);
+			else if(['Water', 'Steel'].includes(target.types) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 8);
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
