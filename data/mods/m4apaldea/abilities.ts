@@ -684,7 +684,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 6,
 		onBasePower(basePower, attacker, defender, move) {
 			const abilityHolder = this.effectState.target;
-			if (attacker.hasAbility('Grudgeful Tablets')) return;
+			if (defender.hasAbility('Grudgeful Tablets')) return;
 			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
 			if (move.ruinedAtk !== abilityHolder) return;
 			if (defender.getMoveHitData(move).typeMod > 0) {
