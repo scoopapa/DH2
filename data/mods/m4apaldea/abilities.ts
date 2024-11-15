@@ -681,13 +681,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Grudgeful Tablets');
 		},
-		onBasePowerPriority: 6,
-		onBasePower(basePower, attacker, defender, move) {
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
 			const abilityHolder = this.effectState.target;
-			if (defender.hasAbility('Grudgeful Tablets')) return;
+			if (source.hasAbility('Grudgeful Tablets')) return;
 			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
 			if (move.ruinedAtk !== abilityHolder) return;
-			if (defender.getMoveHitData(move).typeMod > 0) {
+			if (source.getMoveHitData(move).typeMod > 0) {
 				this.debug('Grudgeful Tablets drop');
 				return this.chainModify(0.75);
 			}
