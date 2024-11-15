@@ -207,11 +207,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Bloodsucking');
 					activated = true;
 				}
 				pokemon.addVolatile('bloodsucking');
-				this.actions.useMove('leechlife', pokemon, target);
+				const leechlife = this.dex.getActiveMove('leechlife');
+				this.actions.useMove(leechlife, pokemon, target);
 			}
 		},
 		flags: {},
@@ -219,7 +219,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals half the damage dealt.",
 	},
 	braceforimpact: {
-		name: "Brace For Impact",
+		name: "Brace for Impact",
 		shortDesc: "This Pokemon takes half damage from attacks when switching in.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (!target.activeTurns) {
@@ -371,7 +371,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
-				if (target.boosts[stat] < 6) {
+				if (source.boosts[stat] < 6) {
 					stats.push(stat);
 				}
 			}
@@ -379,10 +379,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				let randomStat = this.sample(stats);
 				const boost: SparseBoostsTable = {};
 				boost[randomStat] = 1;
-				this.boost(boost);
 				randomStat = this.sample(stats);
 				boost[randomStat] = 1;
-				this.boost(boost);
+				this.boost(boost, source, source);
 			} else return;
 		},
 		flags: {},
@@ -510,6 +509,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Iron Fistening",
+		shortDesc: "On switchin, this Pokemon's side gains a Fishing Token.",
 	},
 	magicmissile: {
 		/*
@@ -695,24 +695,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dark moves; Dark immunity.",
 	},
 	outclass: {
-		onSourceHit(target, source, move) {
-			if (!move || !target || source.types[1] || target.hasItem('terashard')) return;
-			if (source.volatiles['outclass'] && !source.side.removeFishingTokens(1)) return;
-			let targetType = target.types[0];
-			if (target !== source && move.category !== 'Status' &&
-				 !source.hasType(targetType) && source.addType(targetType) && targetType !== '???') {
-					target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
-					this.add('-start', target, 'typechange', target.types.join('/'));
-					this.add('-start', source, 'typeadd', targetType, '[from] ability: Outclass');
-					source.addVolatile('outclass');			
-				}
-		},
-		condition: {},
-		flags: {},
-		name: "Outclass",
-		shortDesc: "If this Pokemon has one type, it steals the primary typing off a Pokemon it hits with an attack.",
-		rating: 4,
-	},
+        onSourceHit(target, source, move) {
+            if (!move || !target || target.hasItem('terashard')) return;
+            let targetType = target.types[0];
+            let sourceSecondaryType = '???'
+            if (source.types[1]) sourceSecondaryType = source.types[1];
+            if (target !== source && move.category !== 'Status' &&
+                 !source.hasType(targetType) && targetType !== '???' &&
+                 !(source.volatiles['outclass'] && !source.side.removeFishingTokens(1))) {
+                    source.setType([source.types[0]]);
+                    if (source.addType(targetType)) {
+                        target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
+                        this.add('-start', target, 'typechange', target.types.join('/'));
+                        this.add('-start', source, 'typeadd', targetType, '[from] ability: Outclass');
+                        source.addVolatile('outclass');
+                    }
+                    else {
+                        this.debug('Failed to take target type.');
+                        if (sourceSecondaryType !== '???') source.setType([source.types[0], sourceSecondaryType]);
+                    }
+                }
+        },
+        condition: {},
+        flags: {},
+        name: "Outclass",
+        shortDesc: "Fishing token or first contact: steals target primary type and replaces its own secondary type.",
+        rating: 4,
+    },
 	peckingorder: {
 		name: "Pecking Order",
 		shortDesc: "On switch-in, this Pokemon lowers the Defense of adjacent opponents by 1 stage.",
@@ -784,7 +793,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Preparation",
-		shortDesc: "Deals 1.3x damage the turn after using a status move.",
+		shortDesc: "Deals 2x damage the turn after using a status move.",
 	},
 	puppetmaster: {
 		onSwitchIn(pokemon) {
