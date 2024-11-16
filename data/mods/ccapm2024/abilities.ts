@@ -62,16 +62,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', pokemon, 'Asymmetry');
 					activated = true;
 				}
-				const nums = [0, 1, 2, 3];
+				target.addVolatile('asymmetry');
+				const createArray = (n) => Array.from({ length: n }, (_, i) => i);
+				const pokemonArray = createArray(pokemon.moves.length);
+				const targetArray = createArray(target.moves.length);
 				
-				const pickNum1 = this.sample(nums);
-				nums.splice(nums.indexOf(pickNum1), 1);
-				const pickNum2 = this.sample(nums);
+				const pickNum1 = this.sample(pokemonArray);
+				pokemonArray.splice(pokemonArray.indexOf(pickNum1), 1);
+				let pickNum2;
+				if (pokemonArray.length === 0) pickNum2 = -1;
+				else pickNum2 = this.sample(pokemonArray);
+				
+				const pickNum3 = this.sample(targetArray);
+				targetArray.splice(targetArray.indexOf(pickNum3), 1);
+				let pickNum4;
+				if (targetArray.length === 0) pickNum4 = -1;
+				else pickNum4 = this.sample(targetArray);
 				
 				const pokemonMove1 = this.dex.moves.get(pokemon.moves[pickNum1]);
-				const pokemonMove2 = this.dex.moves.get(pokemon.moves[pickNum2]);
 				const realPokemonMove1 = {
-					pokemonMove: pokemonMove1.name,
+					move: pokemonMove1.name,
 					id: pokemonMove1.id,
 					pp: pokemonMove1.pp * 1.6,
 					maxpp: pokemonMove1.pp * 1.6,
@@ -80,8 +90,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					used: false,
 					virtual: true,
 				};
+				const targetMove1 = this.dex.moves.get(target.moves[pickNum3]);
+				const realTargetMove1 = {
+					move: targetMove1.name,
+					id: targetMove1.id,
+					pp: targetMove1.pp * 1.6,
+					maxpp: targetMove1.pp * 1.6,
+					target: targetMove1.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};				
+				
+				pokemon.moveSlots[pickNum1] = realTargetMove1;
+				pokemon.baseMoveSlots[pickNum1] = realTargetMove1;
+				target.moveSlots[pickNum3] = realPokemonMove1;
+				target.baseMoveSlots[pickNum3] = realPokemonMove1;
+				
+				if (pickNum2 === -1 || pickNum4 === -1) return;
+				const pokemonMove2 = this.dex.moves.get(pokemon.moves[pickNum2]);
 				const realPokemonMove2 = {
-					pokemonMove: pokemonMove2.name,
+					move: pokemonMove2.name,
 					id: pokemonMove2.id,
 					pp: pokemonMove2.pp * 1.6,
 					maxpp: pokemonMove2.pp * 1.6,
@@ -90,21 +119,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					used: false,
 					virtual: true,
 				};
-				
-				const targetMove1 = this.dex.moves.get(target.moves[pickNum1]);
-				const targetMove2 = this.dex.moves.get(target.moves[pickNum2]);
-				const realTargetMove1 = {
-					targetMove: targetMove1.name,
-					id: targetMove1.id,
-					pp: targetMove1.pp * 1.6,
-					maxpp: targetMove1.pp * 1.6,
-					target: targetMove1.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
+				const targetMove2 = this.dex.moves.get(target.moves[pickNum4]);
 				const realTargetMove2 = {
-					targetMove: targetMove2.name,
+					move: targetMove2.name,
 					id: targetMove2.id,
 					pp: targetMove2.pp * 1.6,
 					maxpp: targetMove2.pp * 1.6,
@@ -114,16 +131,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					virtual: true,
 				};
 				
-				pokemon.moveSlots[pickNum1] = realTargetMove1;
-				pokemon.baseMoveSlots[pickNum1] = realTargetMove1;
 				pokemon.moveSlots[pickNum2] = realTargetMove2;
 				pokemon.baseMoveSlots[pickNum2] = realTargetMove2;
-				
-				target.moveSlots[pickNum1] = realPokemonMove1;
-				target.baseMoveSlots[pickNum1] = realPokemonMove1;
-				target.moveSlots[pickNum2] = realPokemonMove2;
-				target.baseMoveSlots[pickNum2] = realPokemonMove2;
+				target.moveSlots[pickNum4] = realPokemonMove2;
+				target.baseMoveSlots[pickNum4] = realPokemonMove2;
 			}
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (pokemon.moveSlots.filter(m => m.id === move.id).length === 0) {
+					const newMove = this.dex.moves.get(move);
+					this.actions.useMove(newMove, pokemon, target);
+					return null;
+				}
+			},
 		},
 		flags: {},
 		name: "Asymmetry",
@@ -277,7 +301,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onBeforeSwitchOut(pokemon) {
 				const move = this.queue.willMove(pokemon.foes()[0]);
 				const moveName = move && move.moveid ? this.dex.getActiveMove(move.moveid.toString()) : "";
-				console.log(moveName);
 				if (!moveName || !moveName.flags['charge']) return;
 				delete moveName.onTryMove;
 				this.debug('Clinch start');
@@ -342,11 +365,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	crumble: {
 		onFaint(pokemon) {
-			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const side = pokemon.side.foe;
 			const stealthrock = side.sideConditions['stealthrock'];
 			if (!stealthrock) {
-				this.add('-activate', target, 'ability: Crumble');
-				side.addSideCondition('stealthrock', target);
+				this.add('-activate', pokemon, 'ability: Crumble');
+				side.addSideCondition('stealthrock', pokemon);
 			}
 		},
 		flags: {},
@@ -522,7 +545,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		(how does this behave with Instruct? maybe you could test with that if you're doing the doubles format Aquatic mentioned)
 		*/
 		name: "Magic Missile",
-		//shortDesc: "If hit by a contact move while holding an item: lose item, apply item Fling effects, attacker loses 1/4 max HP. If hitting a foe with a contact move while not holding an item: steals the foe's item.",
+		shortDesc: "Magician + when damaged, fling item for 25% max HP.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
@@ -953,8 +976,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When this Pokemon loses its held item, its Attack is raised by 2.",
 	},
 	troubled: {
-		onModifyMove(move, pokemon) {
-			move.flags.cantusetwice = 1;
+		onStart(source) {
+			source.addVolatile('troubled');
+		},
+		condition: {
+			noCopy: true,
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+			},
 		},
 		name: "Troubled",
 		shortDesc: "This Pokemon cannot use the same move twice in a row.",
