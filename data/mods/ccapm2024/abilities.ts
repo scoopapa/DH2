@@ -204,7 +204,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bathroombreak: {
 		onAfterMove(target, source, move) {
-			if (move.type === 'Water') target.switchFlag = true;
+			if (move.type === 'Water') {
+				this.add('-activate', target, 'ability: Bathroom Break');
+				target.switchFlag = true;
+			}
 		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -949,6 +952,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart(pokemon) {
 			if (pokemon.strongbreeze) return;
 			pokemon.strongbreeze = true;
+			this.add('-activate', pokemon, 'ability: Strong Breeze');
             pokemon.side.addSideCondition('tailwind');
         },
         name: "Strong Breeze",
