@@ -1408,7 +1408,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			round: ["9L1"],
 			thunder: ["9L1"],
 			thunderbolt: ["9L1"],
-			elecroweb: ["9L1"],
+			electroweb: ["9L1"],
 			overheat: ["9L1"],
 			voltswitch: ["9L1"],
 			facade: ["9L1"],

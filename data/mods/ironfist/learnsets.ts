@@ -58,7 +58,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	ninjask: {
 		learnset: {
-			inherit: true,
 			absorb: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
@@ -6695,7 +6694,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mudslap: ["9L1"],
 			naturalgift: ["9L1"],
 			outrage: ["9L1"],
-			permafrost: ["9L1"],
 			powdersnow: ["9L1"],
 			protect: ["9L1"],
 			raindance: ["9L1"],
