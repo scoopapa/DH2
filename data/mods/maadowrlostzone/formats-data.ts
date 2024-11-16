@@ -39,6 +39,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},	
+	matokodaascend: {
+		tier: "Mega",
+		doublesTier: "Mega",
+	},	
   	arbarnacle: {
 		tier: "LZ",
 		doublesTier: "LZ",
@@ -335,6 +339,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
+	piahchiascend: {
+		tier: "Mega",
+		doublesTier: "Mega",
+	},	
 	hinmira0: {
 		tier: "LZ NFE",
 		doublesTier: "LZ NFE",
@@ -351,6 +359,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
+	qwilinhascend: {
+		tier: "Mega",
+		doublesTier: "Mega",
+	},	
     frayva: {
 		tier: "LZ",
 		doublesTier: "LZ",
@@ -431,6 +443,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
+	zantuiascend: {
+		tier: "Mega",
+		doublesTier: "Mega",
+	},	
 	churipple0: {
 		tier: "LZ NFE",
 		doublesTier: "LZ NFE",
@@ -851,6 +867,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
+	sentinoyleascend: {
+		tier: "Mega",
+		doublesTier: "Mega",
+	},	
 	litanite: {
 		tier: "LZ NFE",
 		doublesTier: "LZ NFE",
@@ -931,6 +951,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
+	dustformsunny: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformrainy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsnowy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dustformsandy: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	baragon: {
 		tier: "LZ",
 		doublesTier: "LZ",
@@ -979,6 +1015,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LZ",
 		doublesTier: "LZ",
 	},
+	chiwengardascend: {
+		tier: "Mega",
+		doublesTier: "Mega",
+	},	
 	kingkong: {
 		tier: "LZ",
 		doublesTier: "LZ",
