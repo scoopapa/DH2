@@ -326,7 +326,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Marsonmallow",
 		types: ["Fairy", "Fire"],
 		baseStats: {hp: 72, atk: 107, def: 96, spa: 91, spd: 136, spe: 23},
-		abilities: {0: "Big Stick"},
+		abilities: {0: "big stick"},
 	},
 	trawlutre: {
 		num: 1048,
