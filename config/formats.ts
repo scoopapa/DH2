@@ -4153,7 +4153,7 @@ export const Formats: FormatList = [
 			}
 			pokemon.m.innates = undefined;
 		},
-	},
+	},/* temporarily removing just to see if iron fist's client starts working again
 	{
 		name: "[Gen 9] Iron Fist Shared Power",
 		desc: `Once a Pok&eacute;mon switches in, its ability is shared with the rest of the team.`,
@@ -4174,7 +4174,7 @@ export const Formats: FormatList = [
 			}
 		},
 		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
+			/**@type {{[k: string]: true}}*//*
 			let speciesTable = {};
 			let allowedTiers = ['IF'];
 			for (const set of team) {
@@ -4222,7 +4222,7 @@ export const Formats: FormatList = [
 				pokemon.addVolatile(effect);
 			}
 		},
-	},
+	},*/
 	{
 		name: "[Gen 9] Balls Mix and Mega",
 		desc: `Mega evolve any Pok&eacute;mon with any mega stone, or transform them with Primal orbs, Origin orbs, and Rusted items with no limit. Mega and Primal boosts based on form changes from gen 7.`,
