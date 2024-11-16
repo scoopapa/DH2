@@ -828,7 +828,7 @@ export const Formats: FormatList = [
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
 		],
-		mod: 'ironfist',
+		mod: 'sharedpowerironfist',
 		teambuilderFormat: "National Dex",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Silvally Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
