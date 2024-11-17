@@ -1502,7 +1502,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Fish Eater",
-		shortDesc: "-50% fishing tokens; 1/16 heal, +1 stockpile each.",
+		shortDesc: "-50% foe's fishing tokens; 1/16 heal, +1 stockpile each.",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, fishing: 1},
@@ -1510,12 +1510,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Life Dew", pokemon);
 		},
-		onTry(source) {
-			return (source.side.fishingTokens && source.side.fishingTokens > 0);
+		onTry(source, target) {
+			return (target.side.fishingTokens && target.side.fishingTokens > 0);
 		},
 		onHit(target, source, move) {
-			const tokens = Math.ceil(source.side.fishingTokens / 2);
-			const success = source.side.removeFishingTokens(tokens);
+			const tokens = Math.ceil(target.side.fishingTokens / 2);
+			const success = target.side.removeFishingTokens(tokens);
 			if (success) {
 				for (let i = 0; i < Math.min(3, tokens); i ++) {
 					source.addVolatile('stockpile');
@@ -1525,7 +1525,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return success;
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Normal",
 	},
 	fishingterrain: {
@@ -3211,6 +3211,47 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return this.NOT_FAIL;
 			}
 			return success;
+		},
+	},
+	stockpile: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(target, source, effect) {
+				this.effectState.layers = 1;
+				this.effectState.def = 0;
+				this.effectState.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				console.log(effect.id);
+				if (effect.id === 'fisheater') return;
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+			},
+			onRestart(target, source, effect) {
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				if (effect.id === 'fisheater') return;
+				const curDef = target.boosts.def;
+				const curSpD = target.boosts.spd;
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+			},
+			onEnd(target) {
+				if (this.effectState.def || this.effectState.spd) {
+					const boosts: SparseBoostsTable = {};
+					if (this.effectState.def) boosts.def = this.effectState.def;
+					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					this.boost(boosts, target, target);
+				}
+				this.add('-end', target, 'Stockpile');
+				if (this.effectState.def !== this.effectState.layers * -1 || this.effectState.spd !== this.effectState.layers * -1) {
+					this.hint("In Gen 7, Stockpile keeps track of how many times it successfully altered each stat individually.");
+				}
+			},
 		},
 	},
 };
