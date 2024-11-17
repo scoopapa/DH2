@@ -1514,6 +1514,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return (target.side.fishingTokens && target.side.fishingTokens > 0);
 		},
 		onHit(target, source, move) {
+			if (target.side.fishingTokens <= 0) return false;
 			const tokens = Math.ceil(target.side.fishingTokens / 2);
 			const success = target.side.removeFishingTokens(tokens);
 			if (success) {
