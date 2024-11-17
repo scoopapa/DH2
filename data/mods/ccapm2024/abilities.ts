@@ -204,7 +204,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bathroombreak: {
 		onAfterMove(target, source, move) {
-			if (move.type === 'Water') target.switchFlag = true;
+			if (move.type === 'Water') {
+				this.add('-activate', target, 'ability: Bathroom Break');
+				target.switchFlag = true;
+			}
 		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -290,6 +293,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeMove(source, target, move) {
 			if (move.volatileStatus === "twoturnmove") {
 				delete move.volatileStatus;
+				move.accuracy = true;
 			}
 		},
 		onTryHit(source, target) {
@@ -626,9 +630,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				};
 			}
 		},
-		onAfterMove(target, source, move) {
+		onAfterMove(pokemon, source, move) {
 			if (move.category === 'Status') {
-				
+				if (pokemon.adjacentFoes().length == 0) return;
+				let target = this.sample(pokemon.adjacentFoes());
+				this.boost({spd: -1}, target, pokemon, null, true);
 			}
 		},
 		flags: {},
@@ -772,7 +778,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	precognition: {
 		onBeforeTurn(pokemon) {
-			if(pokemon.adjacentFoes().length == 0) return;
+			if (pokemon.adjacentFoes().length == 0) return;
 			let target = this.sample(pokemon.adjacentFoes());
 			const targetAction = this.queue.willMove(target);
 			if (!targetAction) return;
@@ -946,6 +952,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart(pokemon) {
 			if (pokemon.strongbreeze) return;
 			pokemon.strongbreeze = true;
+			this.add('-activate', pokemon, 'ability: Strong Breeze');
             pokemon.side.addSideCondition('tailwind');
         },
         name: "Strong Breeze",
