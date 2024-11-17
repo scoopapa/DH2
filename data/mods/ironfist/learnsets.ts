@@ -8210,7 +8210,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			snowscape: ["9L1"],
 			soak: ["9L1"],
 			splash: ["9L1"],
-			stuffcheecks: ["9L1"],
+			stuffcheeks: ["9L1"],
 			substitute: ["9L1"],
 			suckerpunch: ["9L1"],
 			superfang: ["9L1"],

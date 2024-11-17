@@ -3223,7 +3223,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.effectState.def = 0;
 				this.effectState.spd = 0;
 				this.add('-start', target, 'stockpile' + this.effectState.layers);
-				console.log(effect.id);
 				if (effect.id === 'fisheater') return;
 				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: 1, spd: 1}, target, target);
