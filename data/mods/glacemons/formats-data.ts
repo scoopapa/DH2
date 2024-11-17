@@ -4871,8 +4871,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "RU",
 	},
-	gholdengo: {
-		tier: "OU",
-		natDexTier: "OU",
-	},
 };
