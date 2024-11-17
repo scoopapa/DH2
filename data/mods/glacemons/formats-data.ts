@@ -4449,7 +4449,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	espathra: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	wiglett: {
 		inherit: true,
