@@ -790,8 +790,10 @@ export const Formats: FormatList = [
 			}
 		},
 	},{
-		name: "[Gen 9] Glacemons",
-		desc: ``,
+		name: "[Gen 9] GlaceMons",
+		desc: [
+			"<b>GlaceMons</b>: The fourth mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for Gen 9 NatDex OU (and new items, abilities and moves are added) without changing base stats.",
+		],
 		threads: [
 			`&bullet; <a href="">Spreadsheet for the mod</a>`,
 		],
