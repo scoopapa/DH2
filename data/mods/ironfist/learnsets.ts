@@ -856,6 +856,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	glaceon: {
@@ -1763,6 +1764,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	wyrdeer: {
@@ -3088,6 +3090,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	kurayami: {
@@ -7612,6 +7615,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			airhorn: ["9L1"],
 			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	cinderace: {
@@ -9742,6 +9746,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			blastburn: ["9L1"],
 			incinerate: ["9L1"],
 			fiendfire: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 };
