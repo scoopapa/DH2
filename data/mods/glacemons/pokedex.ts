@@ -151,4 +151,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Route Closed", 1: "Overcoat", H: "Weak Armor"},
 	},
+	mamoswine: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Route Closed", H: "Thick Fat"},
+	},
 };
