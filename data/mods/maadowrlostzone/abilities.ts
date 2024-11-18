@@ -124,24 +124,44 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
    buzz: {
 		desc: "When this Pokémon uses a Sound move, the target(s) will be inflicted with a Torment effect.",
 		shortDesc: "Inflicts Torment effect if the Pokémon uses a Sound move.",
-		onAfterMove(source, target, move) {
-			// Check if the move is a Sound move
-			if (move.flags['sound']) {
-				// Handle moves that affect all Pokémon on the field
-				if (move.target === 'all' || move.target === 'allAdjacent' || move.target === 'allAdjacentFoes') {
+		onAfterMove(source: Pokemon, target: Pokemon, move: ActiveMove) {
+			if (!move.flags['sound']) return;
+	
+			const applyTorment = (pokemon: Pokemon) => {
+				if (pokemon && !pokemon.hasAbility('soundproof') && !pokemon.volatiles['torment'] && !pokemon.volatiles['stall']) {
+					pokemon.addVolatile('torment');
+					this.add('-start', pokemon, 'Torment', '[from] ability: Buzz');
+				}
+			};
+	
+			switch (move.target) {
+				case 'all':
 					for (const pokemon of this.getAllActive()) {
-						if (pokemon && !pokemon.hasAbility('soundproof') && !pokemon.volatiles['torment']) { // removed "&& pokemon !== source" to see what happens
-							pokemon.addVolatile('torment');
-							this.add('-start', pokemon, 'Torment', '[from] ability: Buzz');
+						applyTorment(pokemon);
+					}
+					break;
+				case 'allAdjacent':
+					for (const adjacent of this.getAllActive()) {
+						if (adjacent !== source && adjacent.isAdjacent(source)) {
+							applyTorment(adjacent);
 						}
 					}
-				} else {
-					if (target && !target.hasAbility('soundproof') && !target.volatiles['torment']) {
-						// If the move targets a single Pokémon
-						target.addVolatile('torment');
-						this.add('-start', target, 'Torment', '[from] ability: Buzz');
+					break;
+				case 'allAdjacentFoes':
+					for (const foe of source.foes()) {
+						if (foe.isAdjacent(source)) {
+							applyTorment(foe);
+						}
 					}
-				}
+					break;
+				case 'normal':
+					applyTorment(target);
+					break;
+				case 'self':
+					applyTorment(source);
+					break;
+				default:
+					console.log(`Unhandled move target: ${move.target}`); // notifier in case there's a type of Sound move I forgot to handle
 			}
 		},
 		flags: {},
@@ -1761,31 +1781,51 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// end
 
 	// start
-	resonance: {
+	concordia: {
 		desc: "When this Pokémon uses a Sound move, the target(s) will be inflicted with a Torment effect.",
 		shortDesc: "Inflicts Torment effect if the Pokémon uses a Sound move.",
-		onAfterMove(source, target, move) {
-			// Check if the move is a Sound move
-			if (move.flags['sound']) {
-				// Handle moves that affect all Pokémon on the field
-				if (move.target === 'all' || move.target === 'allAdjacent' || move.target === 'allAdjacentFoes') {
+		onAfterMove(source: Pokemon, target: Pokemon, move: ActiveMove) {
+			if (!move.flags['sound']) return;
+	
+			const applyTorment = (pokemon: Pokemon) => {
+				if (pokemon && !pokemon.hasAbility('soundproof') && !pokemon.volatiles['torment'] && !pokemon.volatiles['stall']) {
+					pokemon.addVolatile('torment');
+					this.add('-start', pokemon, 'Torment', '[from] ability: Concordia');
+				}
+			};
+	
+			switch (move.target) {
+				case 'all':
 					for (const pokemon of this.getAllActive()) {
-						if (pokemon && !pokemon.hasAbility('soundproof') && !pokemon.volatiles['torment']) {
-							pokemon.addVolatile('torment');
-							this.add('-start', pokemon, 'Torment', '[from] ability: Resonance');
+						applyTorment(pokemon);
+					}
+					break;
+				case 'allAdjacent':
+					for (const adjacent of this.getAllActive()) {
+						if (adjacent !== source && adjacent.isAdjacent(source)) {
+							applyTorment(adjacent);
 						}
 					}
-				} else {
-					if (target && !target.hasAbility('soundproof') && !target.volatiles['torment']) {
-						// If the move targets a single Pokémon
-						target.addVolatile('torment');
-						this.add('-start', target, 'Torment', '[from] ability: Resonance');
+					break;
+				case 'allAdjacentFoes':
+					for (const foe of source.foes()) {
+						if (foe.isAdjacent(source)) {
+							applyTorment(foe);
+						}
 					}
-				}
+					break;
+				case 'normal':
+					applyTorment(target);
+					break;
+				case 'self':
+					applyTorment(source);
+					break;
+				default:
+					console.log(`Unhandled move target: ${move.target}`); // notifier in case there's a type of Sound move I forgot to handle
 			}
 		},
 		flags: {},
-	    name: "Resonance",
+	    name: "Concordia",
 		rating: 3,
 		num: -51,
 	},	
