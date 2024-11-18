@@ -193,13 +193,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onHit(target, move) {
 			if (target.getAbility().flags['cantsuppress']) return;
-			if (!move.flags['contact']) return;
-			target.addVolatile('gastroacid');
+			if (move.flags['contact']) {
+				target.addVolatile('gastroacid');
+			}
 		},
 		onAfterSubDamage(damage, target, move) {
 			if (target.getAbility().flags['cantsuppress']) return;
-			if (!move.flags['contact']) return;
-			target.addVolatile('gastroacid');
+			if (move.flags['contact']) {
+				target.addVolatile('gastroacid');
+			}
 		},
 		num: -3,
 		gen: 9,
