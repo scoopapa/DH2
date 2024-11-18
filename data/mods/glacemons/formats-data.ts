@@ -885,7 +885,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	umbreon: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	leafeon: {
 		inherit: true,
@@ -3157,11 +3157,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kyurem: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "OU",
 	},
 	kyuremblack: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	kyuremwhite: {
 		inherit: true,
@@ -3769,75 +3769,75 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	silvally: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallybug: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallydark: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallydragon: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyelectric: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyfairy: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyfighting: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyfire: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyflying: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyghost: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallygrass: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyground: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyice: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallypoison: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallypsychic: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallyrock: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallysteel: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	silvallywater: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	minior: {
 		inherit: true,
