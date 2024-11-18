@@ -62,113 +62,127 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	bugmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Bug type.",
+		shortDesc: "Reduces damage taken from Bug-type moves by 0.67x. Holder's Multi-Attack is Bug type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Bug') return this.chainModify(0.67);
 		},
 	},
 	dragonmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Dragon type.",
+		shortDesc: "Reduces damage taken from Dragon-type moves by 0.67x. Holder's Multi-Attack is Dragon type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Dragon') return this.chainModify(0.67);
 		},
 	},
 	electricmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Electric type.",
+		shortDesc: "Reduces damage taken from Electric-type moves by 0.67x. Holder's Multi-Attack is Electric type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Electric') return this.chainModify(0.67);
 		},
 	},
 	fightingmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Fighting type.",
+		shortDesc: "Reduces damage taken from Figthing-type moves by 0.67x. Holder's Multi-Attack is Figthing type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Figthing') return this.chainModify(0.67);
 		},
 	},
 	firememory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Fire type.",
+		shortDesc: "Reduces damage taken from Fire-type moves by 0.67x. Holder's Multi-Attack is Fire type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Fire') return this.chainModify(0.67);
 		},
 	},
 	flyingmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Flying type.",
+		shortDesc: "Reduces damage taken from Flying-type moves by 0.67x. Holder's Multi-Attack is Flying type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Flying') return this.chainModify(0.67);
 		},
 	},
 	ghostmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Ghost type.",
+		shortDesc: "Reduces damage taken from Ghost-type moves by 0.67x. Holder's Multi-Attack is Ghost type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Ghost') return this.chainModify(0.67);
 		},
 	},
 	grassmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Grass type.",
+		shortDesc: "Reduces damage taken from Grass-type moves by 0.67x. Holder's Multi-Attack is Grass type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Grass') return this.chainModify(0.67);
 		},
 	},
 	groundmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Ground type.",
+		shortDesc: "Reduces damage taken from Ground-type moves by 0.67x. Holder's Multi-Attack is Ground type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Ground') return this.chainModify(0.67);
 		},
 	},
 	icememory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Ice type.",
+		shortDesc: "Reduces damage taken from Ice-type moves by 0.67x. Holder's Multi-Attack is Ice type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Ice') return this.chainModify(0.67);
 		},
 	},
 	poisonmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Poison type.",
+		shortDesc: "Reduces damage taken from Poison-type moves by 0.67x. Holder's Multi-Attack is Poison type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Poison') return this.chainModify(0.67);
 		},
 	},
 	psychicmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Psychic type.",
+		shortDesc: "Reduces damage taken from Psychic-type moves by 0.67x. Holder's Multi-Attack is Psychic type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Psychic') return this.chainModify(0.67);
 		},
 	},
 	rockmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Rock type.",
+		shortDesc: "Reduces damage taken from Rock-type moves by 0.67x. Holder's Multi-Attack is Rock type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Rock') return this.chainModify(0.67);
 		},
 	},
 	steelmemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Steel type.",
+		shortDesc: "Reduces damage taken from Steel-type moves by 0.67x. Holder's Multi-Attack is Steel type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Steel') return this.chainModify(0.67);
 		},
 	},
 	watermemory: {
 		inherit: true,
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Water type.",
+		shortDesc: "Reduces damage taken from Water-type moves by 0.67x. Holder's Multi-Attack is Water type.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Water') return this.chainModify(0.67);
+		},
+	},
+	fairymemory: {
+		inherit: true,
+		shortDesc: "Reduces damage taken from Fairy-type moves by 0.67x. Holder's Multi-Attack is Fairy type.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fairy') return this.chainModify(0.67);
+		},
+	},
+	darkmemory: {
+		inherit: true,
+		shortDesc: "Reduces damage taken from Dark-type moves by 0.67x. Holder's Multi-Attack is Dark type.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dark') return this.chainModify(0.67);
 		},
 	},
 	normalmemory: {
 		name: "Normal Memory",
 		onMemory: 'Normal',
-		shortDesc: "Reduces damage taken from moves of their corresponding type by 0.67x. Holder's Multi-Attack is Normal type.",
+		shortDesc: "Reduces damage taken from Normal-type moves by 0.67x. Holder's Multi-Attack is Normal type.",
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
@@ -178,6 +192,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Normal') return this.chainModify(0.67);
 		},
+		forcedForme: "Silvally",
 		gen: 9,
 		num: -2,
 	},
