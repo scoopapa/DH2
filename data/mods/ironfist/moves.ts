@@ -157,7 +157,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fishing Minigame",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, fishing: 1,},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Anchor Shot", target);
@@ -224,7 +224,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "If user is under 50% max HP, paralyzes the opponent.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, fishing: 1,},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Snipe Shot", target);
@@ -272,6 +272,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	splash: {
 		inherit: true,
+		flags: {snatch: 1, fishing: 1, metronome: 1},
 		shortDesc: "Feebas: remove all tokens and gain +1 Atk/Def/SpA/SpD/Spe.",
 		onTryHit(target, source, move) {
 			if(target.baseSpecies.baseSpecies === 'Feebas') {
@@ -1514,7 +1515,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return (target.side.fishingTokens && target.side.fishingTokens > 0);
 		},
 		onHit(target, source, move) {
-			if (!target.side.fishingTokens || target.side.fishingTokens <= 0) return false;
+			if (!target.side.fishingTokens || target.side.fishingTokens <= 0 || source.volatiles['stockpile3']) return false;
 			const tokens = Math.ceil(target.side.fishingTokens / 2);
 			const success = target.side.removeFishingTokens(tokens);
 			if (success) {
@@ -2238,7 +2239,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1, contact: 1},
 		basePowerCallback(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
-			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
+			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
 			return move.basePower + 10 * (move.pp - moveSlot.pp);
 		},
 		onPrepareHit(target, pokemon, move) {
@@ -2872,7 +2873,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
 	},
-	windboltstorm: {
+	wildboltstorm: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
 	},
