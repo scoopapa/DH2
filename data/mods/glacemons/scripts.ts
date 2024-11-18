@@ -109,5 +109,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'kyurem').learnset.dragondance;
 		delete this.modData('Learnsets', 'kyurem').learnset.iciclespear;
 		delete this.modData('Learnsets', 'kyurem').learnset.scaleshot;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.dragondance;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.iciclespear;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.scaleshot;
 	}
 };
