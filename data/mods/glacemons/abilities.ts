@@ -15,8 +15,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
 	},
 	velocity: {
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
+		onModifyMove(move) {
 			if (move.flags['contact']) {
 				move.useSourceSpeedAsOffensive = true;
 			}
