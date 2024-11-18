@@ -42,6 +42,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Gem", target);
+			this.add('-anim', source, "Hurricane", target);
+		},
 		onModifyPriority(priority, source, target, move) {
 			if (this.field.isWeather('sandstorm')) {
 				return priority + 1;
@@ -63,6 +68,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aromatherapy", source);
+			this.add('-anim', source, "Double-Edge", target);
+		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) pokemon.cureStatus();;
 		},
