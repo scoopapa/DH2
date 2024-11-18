@@ -206,15 +206,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (pokemon.getAbility().flags['cantsuppress']) return;
 			pokemon.addVolatile('gastroacid');
 		},
-		onHit(target, move) {
+		onSourceDamagingHit(damage, target, source, move) {
 			if (target.getAbility().flags['cantsuppress']) return;
-			if (move.flags['contact']) {
+			if (this.checkMoveMakesContact(move, target, source)) {
 				target.addVolatile('gastroacid');
 			}
 		},
-		onAfterSubDamage(damage, target, move) {
+		onAfterSubDamage(damage, target, source, move) {
 			if (target.getAbility().flags['cantsuppress']) return;
-			if (move.flags['contact']) {
+			if (this.checkMoveMakesContact(move, target, source)) {
 				target.addVolatile('gastroacid');
 			}
 		},
