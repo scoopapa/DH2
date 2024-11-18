@@ -855,6 +855,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	glaceon: {
@@ -1761,6 +1762,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	wyrdeer: {
@@ -3085,6 +3087,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	kurayami: {
@@ -3929,6 +3932,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			protect: ["9L1"],
 			rest: ["9L1"],
 			epicbeam: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	tangetteeternal: {
@@ -7599,6 +7603,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fertilesoil: ["9L1"],
 			epicbeam: ["9L1"],
 			airhorn: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	cinderace: {
@@ -7692,6 +7697,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			epicbeam: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 	lemonfish: {
@@ -9727,6 +9733,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			inferno: ["9L1"],
 			blastburn: ["9L1"],
 			incinerate: ["9L1"],
+			fiendfire: ["9L1"],
 		},
 	},
 };
