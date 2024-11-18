@@ -1108,7 +1108,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mega",
 		types: ["Water", "Ice"],
 		baseStats: {hp: 130, atk: 85, def: 100, spa: 135, spd: 115, spe: 70},
-		abilities: {0: "Resonance"},
+		abilities: {0: "Concordia"},
 		heightm: 2.5,
 		weightkg: 220,
 		color: "Blue",
