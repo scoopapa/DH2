@@ -17,7 +17,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	velocity: {
 		onModifyMove(move) {
 			if (move.flags['contact']) {
-				move.useSourceSpeedAsOffensive = true;
+				move.overrideOffensiveStat = 'spe';
 			}
 		},
 		flags: {},
