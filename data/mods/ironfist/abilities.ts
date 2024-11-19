@@ -482,7 +482,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(this.randomChance(1, 20)) pokemon.setStatus('slp');
 			if(this.randomChance(1, 100)) {
 				for (const target of pokemon.adjacentFoes()) {
-					this.actions.useMove('selfdestruct', pokemon, target);
+					this.actions.useMove('finalgambit', pokemon, target);
 				}
 			}
 		},

@@ -873,6 +873,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	refraction: {
 		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Refraction');
 			pokemon.side.addSideCondition('waterpledge');
 		},
 		flags: {},

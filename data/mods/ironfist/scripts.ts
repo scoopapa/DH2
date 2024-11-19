@@ -964,7 +964,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 		addFishingTokens(amount: number) {
-			if(amount === 0) return;
+			if (amount === 0 || Number.isNaN(amount)) return false;
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
 			if(this.battle.field.isTerrain('fishingterrain')) amount *= 2;
 			this.fishingTokens += amount;
@@ -973,8 +973,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 		},
 		removeFishingTokens(amount: number) {
-			if(amount === 0) return;
-			if(this.fishingTokens === undefined) this.fishingTokens = 0;
+			if (amount === 0 || Number.isNaN(amount)) return false;
+			if (this.fishingTokens === undefined) this.fishingTokens = 0;
 			if (amount > this.fishingTokens) {
 				//this.add('-message', `There weren't enough fishing tokens on the field!`);
 				return false;
