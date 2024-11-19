@@ -96,4 +96,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: -4,
 		num: 112,
 	},
+	suller: {
+		// Implemented in sim/pokemon.js:Pokemon#setStatus
+		flags: {},
+		name: "Suller",
+		rating: 2.5,
+		num: -5,
+		shortDesc: "This Pokemon can make a Pokemon fall asleep regardless of its immunities.",
+	},
 };

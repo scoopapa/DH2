@@ -258,6 +258,62 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 
 	// Sinnoh Dex
+
+	salandit: {
+		inherit: true,
+		otherFormes: ["Salandit-Sinnoh"],
+		formeOrder: ["Salandit", "Salandit-Sinnoh"],
+	},
+	salanditsinnoh: {
+		num: 757,
+		name: "Salandit-Sinnoh",
+		baseSpecies: "Salandit",
+		forme: "Sinnoh",
+		types: ["Dragon", "Fairy"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 48, atk: 44, def: 40, spa: 71, spd: 77, spe: 40},
+		abilities: {0: "Suller", H: "Oblivious"},
+		heightm: 0.6,
+		weightkg: 4.8,
+		color: "Black",
+		evos: ["Salazzle"],
+		eggGroups: ["Monster", "Dragon"],
+	},
+	salazzle: {
+		inherit: true,
+		otherFormes: ["Salazzle-Sinnoh"],
+		formeOrder: ["Salazzle", "Salazzle-Sinnoh"],
+	},
+	salazzlesinnoh: {
+		num: 758,
+		name: "Salazzle-Sinnoh",
+		baseSpecies: "Salazzle",
+		forme: "Sinnoh",
+		types: ["Dragon", "Fairy"],
+		gender: "F",
+		baseStats: {hp: 68, atk: 64, def: 60, spa: 111, spd: 117, spe: 60},
+		abilities: {0: "Suller", H: "Oblivious"},
+		heightm: 1.2,
+		weightkg: 22.2,
+		color: "Black",
+		prevo: "Salandit-Sinnoh",
+		evoLevel: 33,
+		eggGroups: ["Monster", "Dragon"],
+		evos: ["Altilazzle"],
+	},
+	altilazzle: {
+		num: -25,
+		name: "Altilazzle",
+		types: ["Dragon", "Fairy"],
+		gender: "F",
+		baseStats: {hp: 78, atk: 69, def: 65, spa: 131, spd: 137, spe: 80},
+		abilities: {0: "Suller", H: "Dazzling"},
+		heightm: 2.1,
+		weightkg: 81,
+		color: "Black",
+		eggGroups: ["Monster", "Dragon"],
+		prevo: "Salazzle-Sinnoh",
+	},
 	// Hisui Dex
 
 	shroomish: {

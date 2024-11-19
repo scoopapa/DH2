@@ -180,4 +180,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	coramata: {
 		tier: "RegEvo",
 	},
+	salanditsinnoh: {
+		tier: "RegEvo NFE",
+	},
+	salazzlesinnoh: {
+		tier: "RegEvo NFE",
+	},
+	altilazzle: {
+		tier: "RegEvo",
+	},
 };
