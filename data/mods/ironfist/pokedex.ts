@@ -421,6 +421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Swampert",
 		num: -47,
 		fish: true,
+		gen: 3,
 		types: ["Water", "Ground"],
 		baseStats: {hp: 100, atk: 110, def: 90, spa: 75, spd: 90, spe: 60},
 		abilities: {0: "Torrent", H: "Steel Drummer"},

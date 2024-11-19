@@ -4,6 +4,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		rating: 0,
 	},
+	terrainextender: {
+		inherit: true,
+		shortDesc: "Holder's use of Electric/Grassy/Misty/Psychic/Fishy Terrain lasts 8 turns instead of 5.",
+	},
 	
 	//slate 1
 	kunai: {

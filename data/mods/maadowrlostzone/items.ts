@@ -774,7 +774,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 					pokemon.side.addSideCondition('qwilinhiumtrigger');
 					this.add('-sidestart', pokemon.side, 'Qwilinhium');
 					this.add('-anim', pokemon, "Geomancy");
-					this.add('-message', `The Qwilinhium has been activated on ${pokemon.side.name}'s side! Pokémon can't raise their stats.`);
+					this.add('-message', `The Qwilinhium has been activated on ${pokemon.side.name}'s side! Pokémon with stat drops take 25% less damage from a move.`);
 				}
 			}
 		},
