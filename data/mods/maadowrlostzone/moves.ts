@@ -3515,6 +3515,33 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Rock",
 		contestType: "Cool",
 	},
+	//
+	bridgeassembly: {
+		num: -146,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Sand: +1 SpD; Sun: +1 Def.",
+		name: "Bridge Assembly",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-message', `${source.name} assembles its body!`);
+			this.add('-anim', source, "Core Enforcer", target);
+		},
+		onAfterMove(attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				this.boost({spd: 1}, attacker, attacker, move);
+			} else if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+				this.boost({def: 1}, attacker, attacker, move);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
 	// end
 
 	// start
