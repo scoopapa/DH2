@@ -17,6 +17,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'roggenrola').learnset.pebblestorm = ['9M'];
 		this.modData('Learnsets', 'ironthorns').learnset.pebblestorm = ['9M'];
 		this.modData('Learnsets', 'rockruff').learnset.pebblestorm = ['9M'];
+		this.modData('Learnsets', 'lycanrocdusk').learnset.pebblestorm = ['9M'];
 		this.modData('Learnsets', 'minior').learnset.pebblestorm = ['9M'];
 		this.modData('Learnsets', 'regirock').learnset.pebblestorm = ['9M'];
 		this.modData('Learnsets', 'cranidos').learnset.pebblestorm = ['9M'];
