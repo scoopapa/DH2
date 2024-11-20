@@ -519,7 +519,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		mod: 'm4akalos',
+		mod: 'dlcmons',
 	},
 	{
 		name: "[Gen 9] Dollhouse",
