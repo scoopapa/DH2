@@ -507,7 +507,7 @@ export const Formats: FormatList = [
 			'Aegislash', 'Hoopa-Unbound', 'Greninja', 'Mawilite',
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
-			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+			'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
