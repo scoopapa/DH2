@@ -31,6 +31,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "mareep").learnset.risingvoltage = ['9M'];
 		this.modData("Learnsets", "medicham").learnset.channeling = ['9M'];
 		this.modData("Learnsets", "natu").learnset.destinybond = ['9M'];
+		this.modData("Learnsets", "natu").learnset.mindbend = ['9M'];
 		this.modData("Learnsets", "nidoking").learnset.acidicterrain = ['9M'];
 		this.modData("Learnsets", "nidoking").learnset.oilspill = ['9M'];
 		this.modData("Learnsets", "nidoking").learnset.reactivepoison = ['9M'];
