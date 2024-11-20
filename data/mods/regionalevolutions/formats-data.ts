@@ -189,4 +189,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	altilazzle: {
 		tier: "RegEvo",
 	},
+	bounsweetorre: {
+		tier: "RegEvo NFE",
+	},
+	steeneeorre: {
+		tier: "RegEvo NFE",
+	},
+	tsarvyrn: {
+		tier: "RegEvo",
+	},
+	pikipek: {
+		tier: "RegEvo NFE",
+	},
+	trumbeaksinnoh: {
+		tier: "RegEvo NFE",
+	},
+	crimsoyal: {
+		tier: "RegEvo",
+	},
 };
