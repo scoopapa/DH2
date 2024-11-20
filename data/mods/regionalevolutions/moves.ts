@@ -157,8 +157,29 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		desc: "Fails unless the user is hit by a physical attack from an opponent this turn before it can execute the move. If the user was hit and has not fainted, it attacks immediately after being hit, and the effect ends. If the opponent's physical attack had a secondary effect removed by the Sheer Force Ability, it does not count for the purposes of this effect.",
 		shortDesc: "User must take physical damage before moving.",
 
-		start: "  [POKEMON] set a shell trap!",
-		prepare: "  [POKEMON] set a shell trap!",
-		cant: "[POKEMON]'s shell trap didn't work!",
+		start: "  [POKEMON] set a coral trap!",
+		prepare: "  [POKEMON] set a coral trap!",
+		cant: "[POKEMON]'s coral trap didn't work!",
+	},
+	deafeningroar: {
+		num: -7,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Deafening Roar",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "allAdjacent",
+		type: "Dragon",
+		contestType: "Tough",
+		desc: "Hits all adjacent Pokémon and has a 10% chance of lowering the target's SpD by one stage.",
+		shortDesc: "10% chance of lowering target's SpD. Hits adjacent Pokemon.",
 	},
 };

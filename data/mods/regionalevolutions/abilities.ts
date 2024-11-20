@@ -97,7 +97,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 112,
 	},
 	suller: {
-		// Implemented in sim/pokemon.js:Pokemon#setStatus
+		// Implemented in scripts.ts
 		flags: {},
 		name: "Suller",
 		rating: 2.5,

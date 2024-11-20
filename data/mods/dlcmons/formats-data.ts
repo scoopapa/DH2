@@ -682,6 +682,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	shuppet: {tier: "Kalos (NFE)"},
 	banette: {tier: "Kalos"},
+	banettemega: {tier: "Kalos"},
 
 	zorua: {tier: "Kalos (NFE)"},
 	zoroark: {tier: "Kalos"},
@@ -708,6 +709,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	swablu: {tier: "Kalos (NFE)"},
 	altaria: {tier: "Kalos"},
+	altariamega: {tier: "Kalos"},
 
 	druddigon: {tier: "Kalos"},
 
