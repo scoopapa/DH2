@@ -505,7 +505,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'AG', 'Uber',
 			'Aegislash', 'Hoopa-Unbound', 'Greninja', 'Mawilite',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'Arena Trap', 'Power Construct', 'Shadow Tag',
 			'Baton Pass',
 			'King\'s Rock', 'Razor Fang', 'Quick Claw',
 		],
