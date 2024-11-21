@@ -250,7 +250,7 @@ export const Items: {[k: string]: ModdedItemData} = {
         onTakeItem(item, pokemon, source) {
             if (!this.activeMove) throw new Error("Battle.activeMove is null");
             if (!pokemon.hp) return;
-            if ((source && source !== pokemon)) {
+            if ((source && source !== pokemon) || this.activeMove.id === 'knockoff' || this.activeMove.id === 'thief' || this.activeMove.id === 'switcheroo' || this.activeMove.id === 'trick') {
                 if (!this.boost({spe: -1}, source)) {
                     this.add('-activate', pokemon, 'item: Honey');
                 }
