@@ -2265,10 +2265,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -59,
 	},
 	splitsystem: {
-		shortDesc: "Old gen phys/spec split.",
+		shortDesc: "Old gen phys/spec split. +20% boost.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
-		//	const originalCategory = move.category; // New line
+			const originalCategory = move.category; // New line
 			switch (move.type) {
 				case 'Grass':
 				case 'Fire':
@@ -2293,11 +2293,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					move.category = 'Physical';
 					break;
 			}
-			/*// Apply 20% boost only if the category has changed
+			// Apply 20% boost only if the category has changed
 			if (move.category !== originalCategory) {
 				move.basePower = Math.floor(move.basePower * 1.2);
 				this.add('-message', `Split System boosted ${move.name}'s power!`);
-			}*/
+			}
 		},
 		name: "Split System",
 		rating: 2,
