@@ -57,6 +57,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         this.modData("Learnsets", "slaking").learnset.fakeout = ['9M'];
         this.modData("Learnsets", "slaking").learnset.feint = ['9M'];
 		this.modData("Learnsets", "slaking").learnset.rampage = ['9M'];
+		this.modData("Learnsets", "steelix").learnset.headlongrush = ['9M'];
 		this.modData("Learnsets", "zubat").learnset.acidicterrain = ['9M'];
 		this.modData("Learnsets", "zubat").learnset.reactivepoison = ['9M'];
 	//	delete this.modData('Learnsets', "smeargle").learnset.magicpowder;
