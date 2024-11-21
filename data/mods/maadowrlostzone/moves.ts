@@ -3162,9 +3162,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	equilibrium: {
 		num: -137,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 50,
 		category: "Special",
-		shortDesc: "Photon Geyser effect.",
+		shortDesc: "Special or physical, opposite in follow-up.",
 		name: "Equilibrium",
 		pp: 10,
 		priority: 0,
@@ -3177,8 +3177,57 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Focus Energy");
 			this.add('-anim', source, "Psycho Boost", target);
 		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.category === 'Physical') {
+				this.boost({atk: -1}, source);
+					this.actions.useMove('equilibrium2', source, target);
+			} else {
+				this.boost({spa: -1}, source);
+					this.actions.useMove('equilibrium3', source, target);
+			}
+		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	equilibrium2: {
+		num: -1037,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "Special version.",
+		name: "Equilibrium",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	equilibrium3: {
+		num: -1038,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Physical version.",
+		name: "Equilibrium",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
 	},
