@@ -2234,7 +2234,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mega",
 		types: ["Ground"],
 		baseStats: {hp: 72, atk: 137, def: 155, spa: 75, spd: 85, spe: 86},
-		abilities: {0: "Desert Gales"},
+		abilities: {0: "Split System"},
 		heightm: 5.6,
 		weightkg: 92.1,
 		color: "Green",
