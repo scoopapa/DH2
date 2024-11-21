@@ -2183,7 +2183,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Rock", "Flying"],
 		gender: "N",
-		baseStats: {hp: 97, atk: 132, def: 140, spa: 35, spd: 86, spe: 80},
+		baseStats: {hp: 97, atk: 132, def: 140, spa: 65, spd: 86, spe: 50},
 		abilities: {0: "Transmutation"},
 	//	category: "Kaiju",
 		heightm: 16.5,
