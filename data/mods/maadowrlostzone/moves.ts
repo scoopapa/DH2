@@ -3631,6 +3631,42 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	//
+	excavation: {
+		num: -149,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Excavation",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "+50 damage for each recovered item.",
+		basePowerCallback(pokemon, target, move) {
+			// Recount recovered items
+			const targets = this.getAllActive().filter(pokemon => 
+				pokemon && !pokemon.fainted && !pokemon.item // Only Pokémon without items
+			);
+		
+			let recoveredCount = 0; // Local variable to track recovered items
+		
+			for (const pokemon of targets) {
+				if (this.actions.useMove('Recycle', pokemon)) {
+					recoveredCount++;
+				}
+			}
+		
+			// Calculate new base power based on the recount
+			const newBasePower = this.clampIntRange(move.basePower + (50 * recoveredCount), 0, 200);
+			
+		//	console.log(`Excavation: Base power calculated as ${newBasePower} (Recovered items: ${recoveredCount}).`);
+			return newBasePower;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
 	// end
 
 	// start
