@@ -2232,7 +2232,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		category: "Physical",
 		accuracy: 100,
-		pp: 10,
+		pp: 16,
+		noPPBoosts: true,
 		basePower: 50,
 		shortDesc: "+10 power for each PP used.",
 		priority: 0,
@@ -2240,8 +2241,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
-			console.log(move.basePower + 10 * (move.pp - moveSlot.pp));
-			return move.basePower + 10 * (move.pp - moveSlot.pp);
+			return move.basePower + 10 * (move.pp - moveSlot.pp - 1);
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
