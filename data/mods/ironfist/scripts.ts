@@ -907,9 +907,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// Should always subtract, but stop at 0 to prevent errors.
 				this.choice.forcedSwitchesLeft = this.battle.clampIntRange(this.choice.forcedSwitchesLeft - 1, 0);
 				pokemon.switchFlag = false;
-				pokemon.side.pokemonLeft--;
-				targetPokemon.fainted = true;
-				this.battle.add('faint', (targetPokemon.toString().slice(0, 2) + "a" + targetPokemon.toString().slice(2)));
+				this.battle.faint(targetPokemon, targetPokemon, this.battle.dex.moves.get('epicbeam'));
 				this.choice.actions.push({
 					choice: 'epicbeam',
 					pokemon,
