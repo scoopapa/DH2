@@ -316,7 +316,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Force switches target. Fails if target is not attacking.",
 		pp: 5,
 		priority: 1,
-		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, fishing: 1,},
 		forceSwitch: true,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -2240,6 +2240,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
+			console.log(move.basePower + 10 * (move.pp - moveSlot.pp));
 			return move.basePower + 10 * (move.pp - moveSlot.pp);
 		},
 		onPrepareHit(target, pokemon, move) {
