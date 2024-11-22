@@ -1006,7 +1006,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "The Ever-Growing Hunger of Capitalism™",
-		shortDesc: "This Pokemon's attacks steal one token. If there are none, +1 SpD instead.",
+		shortDesc: "This Pokemon's attacks steal one token. If there are none, +1 Spe instead.",
 	},
 	katabaticwinds: {
 		onTryHitPriority: 1,
@@ -1052,7 +1052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Honor Student",
-		shortDesc: "On switchin, opposing Pokemon lose 2% max HP for each other Diamond Hand member.",
+		shortDesc: "On switchin, foes lose 2% max HP for each other allied Diamond Hand member.",
 	},
 	jankster: {
 		onDamagingHit(damage, target, source, move) {
