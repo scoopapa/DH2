@@ -316,7 +316,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Force switches target. Fails if target is not attacking.",
 		pp: 5,
 		priority: 1,
-		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, fishing: 1,},
 		forceSwitch: true,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -1620,7 +1620,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Lemon Acid",
-		shortDesc: "100% chance to lower the target’s Sp. Defense by one stage.",
+		shortDesc: "100% chance to lower the target’s Sp. Def by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1883,7 +1883,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 10,
-		shortDesc: "User switches out. Diamond Hand: 30% heal.",
+		shortDesc: "User switches out. Incoming Diamond Hand: 30% heal.",
 		priority: -2,
 		flags: {metronome: 1},
 		onTry(source) {
@@ -2232,7 +2232,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		category: "Physical",
 		accuracy: 100,
-		pp: 10,
+		pp: 16,
+		noPPBoosts: true,
 		basePower: 50,
 		shortDesc: "+10 power for each PP used.",
 		priority: 0,
@@ -2240,7 +2241,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
-			return move.basePower + 10 * (move.pp - moveSlot.pp);
+			return move.basePower + 10 * (move.pp - moveSlot.pp - 1);
 		},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
@@ -2550,7 +2551,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		accuracy: 100,
 		pp: 15,
-		shortDesc: "Usually goes first. Power doubles if the target is Baseballed.",
+		shortDesc: "Usually goes first. 2x power if target is Baseballed.",
 		priority: 1,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {

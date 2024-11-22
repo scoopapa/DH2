@@ -56,7 +56,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		},
 		onBasePower(basePower, pokemon, target, move) {
 			const boostedMoves = [
-				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault'
+				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'supercellslam'
 			];
 			if (boostedMoves.includes(move.id)) {
 				return this.chainModify(2);

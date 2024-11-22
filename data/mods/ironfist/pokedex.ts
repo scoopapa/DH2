@@ -1006,6 +1006,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	nedontrol: {
 		name: "Nedontrol",
+		diamondHand: true,
 		num: -105,
 		gender: "M",
 		types: ["Rock"],
@@ -1015,6 +1016,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	princirang: {
 		name: "Princirang",
+		diamondHand: true,
 		num: -106,
 		gender: "F",
 		types: ["Fairy"],
@@ -1084,6 +1086,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	drliberty: {
 		name: "Dr. Liberty",
+		diamondHand: true,
 		num: -114,
 		types: ["Psychic"],
 		baseStats: {hp: 89, atk: 71, def: 78, spa: 120, spd: 117, spe: 100},
