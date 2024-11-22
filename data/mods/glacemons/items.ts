@@ -233,28 +233,29 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	honey: {
-		name: "Honey",
-		fling: {
-			basePower: 30,
-		},
-		num: -5,
-		gen: 9,
-    	shortDesc: "When this Pokemon's HP drops below 50%, restores 25% HP. The item is then consumed. This item cannot be removed from the holder unless it is consumed. Any attempt to remove/steal this item lowers the attacker's Speed by one stage.",
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp / 4);
-		},
-		onTakeItem(item, pokemon, source) {
-			if (!this.activeMove) throw new Error("Battle.activeMove is null");
-			if (!pokemon.hp) return;
-			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
-				if (!this.boost({spe: 1})) {
-					this.add('-activate', pokemon, 'item: Honey');
-				}
-				return false;
-			}
-		},
-	},
+        name: "Honey",
+        fling: {
+            basePower: 30,
+        },
+        num: -5,
+        gen: 9,
+        shortDesc: "When this Pokemon's HP drops below 50%, restores 25% HP. The item is then consumed. This item cannot be removed from the holder unless it is consumed. Any attempt to remove/steal this item lowers the attacker's Speed by one stage.",
+        onUpdate(pokemon) {
+                if (pokemon.hp <= pokemon.maxhp / 2) {
+                    if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4) && pokemon.useItem()) {
+                            this.heal(pokemon.baseMaxhp / 4);
+                    }
+                }
+      },
+        onTakeItem(item, pokemon, source) {
+            if (!this.activeMove) throw new Error("Battle.activeMove is null");
+            if (!pokemon.hp) return;
+            if ((source && source !== pokemon) || this.activeMove.id === 'knockoff' || this.activeMove.id === 'thief' || this.activeMove.id === 'switcheroo' || this.activeMove.id === 'trick') {
+                if (!this.boost({spe: -1}, source)) {
+                    this.add('-activate', pokemon, 'item: Honey');
+                }
+                return false;
+            }
+        },
+    },
 };
