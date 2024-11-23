@@ -346,7 +346,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mega",
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 60, atk: 45, def: 140, spa: 120, spd: 150, spe: 90},
-		abilities: {0: "Graviton"},
+		abilities: {0: "G-Force"},
 		heightm: 0.4,
 		weightkg: 40.8,
 		color: "Red",
