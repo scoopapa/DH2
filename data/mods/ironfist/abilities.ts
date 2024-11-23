@@ -534,7 +534,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	thediamondhand: {
 		onStart(pokemon) {
-			const diamondHand = pokemon.side.pokemon.filter(p => !p.fainted && p.baseSpecies.diamondHand);
+			const diamondHand = pokemon.side.pokemon.filter(p => p != pokemon && !p.fainted && p.baseSpecies.diamondHand);
 			if (diamondHand.length > 0) {
 				this.add('-activate', pokemon, 'ability: The Diamond Hand');
 				this.add('-start', pokemon, `diamondHand${diamondHand.length}`, '[silent]');
@@ -550,7 +550,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "The Diamond Hand",
-		shortDesc: "This Pokemon's Atk/SpA -1, but crit rate +1 for each unfainted Diamond Hand ally.",
+		shortDesc: "This Pokemon's Atk/SpA -1, but crit rate +1 for each other unfainted Diamond Hand ally.",
 	},
 	ilovefishing: {
 		onBasePowerPriority: 19,
@@ -1139,7 +1139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Hoenn Stan",
-		shortDesc: "This Pokemon's Atk/Spa gain 15% for each Gen 3 ally.",
+		shortDesc: "This Pokemon's Atk/SpA gain 15% for each other Gen 3 ally.",
 	},
 	zombiesonyourlawn: {
 		onStart(source) {

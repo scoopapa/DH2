@@ -374,7 +374,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Deez NUts",
 		spritenum: 292,
 		fling: {
-			basePower: 280,
+			basePower: 200,
 			onHit(target, source, move) {
 				if (move) {
 					this.heal(target.baseMaxhp);

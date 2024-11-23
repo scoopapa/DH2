@@ -140,14 +140,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Lovely Kiss", target);
 		},
 		secondary: {
-			chance: 70,
+			chance: 10,
 			boosts: {
 				spe: -1,
 			},
 		},
 		target: "normal",
 		type: "Fairy",
-		shortDesc: "Usually moves first. 70% chance to lower target's speed by 1.",
+		shortDesc: "Usually moves first. 10% chance to lower target's Speed by 1.",
 		contestType: "Cool",
 	},
   	fishingminigame: {
@@ -1357,12 +1357,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		basePower: 100,
 		basePowerCallback(pokemon, target, move) {
-			const allies = pokemon.side.pokemon.filter(ally => !ally.fainted && ally.diamondHand);
+			const allies = pokemon.side.pokemon.filter(ally => ally != pokemon && !ally.fainted && ally.diamondHand);
 			return 100 + 10 * allies;
 		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "+10 power for each unfainted allied Diamond Hand.",
+		shortDesc: "+10 BP per other unfainted allied Diamond Hand",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
