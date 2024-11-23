@@ -3231,13 +3231,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Dragon",
 		contestType: "Cool",
 	},
-	stellarfission: {
+	stellarfusion: {
 		num: -138,
-		accuracy: 90,
+		accuracy: 95,
 		basePower: 150,
 		category: "Special",
 		shortDesc: "Type dependent; hits all others; recharge.",
-		name: "Stellar Fission",
+		name: "Stellar Fusion",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1},
