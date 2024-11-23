@@ -39,6 +39,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         this.modData("Learnsets", "nidoqueen").learnset.milkdrink = ['9M'];
 		this.modData("Learnsets", "nidoqueen").learnset.oilspill = ['9M'];
 		this.modData("Learnsets", "nidoqueen").learnset.reactivepoison = ['9M'];
+		this.modData("Learnsets", "orbeetle").learnset.brainage = ['9M'];
 		this.modData("Learnsets", "poochyena").learnset.jawlock = ['9M'];
 		this.modData("Learnsets", "sandaconda").learnset.sandgeyser = ['9M'];
 		this.modData("Learnsets", "sandaconda").learnset.weatherball = ['9M'];
