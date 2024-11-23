@@ -974,6 +974,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	thepearlhand: {
 		onStart(pokemon) {
+			const diamondHand = pokemon.side.foe.pokemon.filter(p => p.baseSpecies.diamondHand);
+			if (diamondHand.length === 0) return;
 			const diamondHandFainted = pokemon.side.foe.pokemon.filter(p => p.fainted && p.baseSpecies.diamondHand);
 			if (diamondHandFainted.length) {
 				this.add('-activate', pokemon, 'ability: The Pearl Hand');
