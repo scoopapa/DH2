@@ -3403,6 +3403,22 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Ponymon",
+		mod: 'ponymonshowdown',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Data Mod'],
+		banlist: ['ND Uber', 'ND AG'],
+		unbanlist: ['Annihilape', 'Baxcalibur', 'Dragapult', 'Genesect', 'Gholdengo', 'Gouging Fire', 'Kingambit', 'Melmetal', 'Regieleki', 'Roaring Moon', 'Shedinja', 'Spectrier', 'Terapagos', 'Ursaluna-Bloodmoon', 'Walking Wake'],
+		teambuilderFormat: 'National Dex',
+	},
+	{
+		name: "[Gen 9] Ponymon Ubers",
+		mod: 'ponymonshowdown',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'OU Terastal Clause', 'Sleep Clause Mod', 'Data Mod'],
+		banlist: ['ND AG'],
+		unbanlist: ['Koraidon', 'Miraidon', 'Shedinja', 'Xerneas'],
+		teambuilderFormat: 'National Dex Ubers',
+	},
+	{
 		name: "[Gen 9] National Dex Strongest State",
 		threads: [
 		],
