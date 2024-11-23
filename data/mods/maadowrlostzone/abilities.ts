@@ -1876,9 +1876,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},*/
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			// If the user has Must Recharge after using a move
-			if (this.field.getPseudoWeather('gravity') && pokemon.volatiles['mustrecharge'] && !pokemon.volatiles['starforceactivated']) {
+			if (this.field.getPseudoWeather('gravity') && pokemon.volatiles['mustrecharge']) {
 				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon);
-				pokemon.addVolatile('starforceactivated');
 			}
 		},
 		flags: {},
@@ -2268,6 +2267,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "Old gen phys/spec split. +20% boost.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
+		if (move.category !== 'Status') {
 			const originalCategory = move.category; // New line
 			switch (move.type) {
 				case 'Grass':
@@ -2298,6 +2298,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				move.basePower = Math.floor(move.basePower * 1.2);
 				this.add('-message', `Split System boosted ${move.name}'s power!`);
 			}
+		}
 		},
 		name: "Split System",
 		rating: 2,
@@ -2362,6 +2363,44 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Soothing Gift",
 		rating: 5,
 		num: -62,
+	},
+	//
+	gforce: {
+		desc: "On switch-in, user sets Gravity. This remains in effect until user is no longer active.",
+		shortDesc: "Perma Gravity if user active.",
+		onStart(source) {
+			if (this.field.getPseudoWeather('gravity')) {
+				this.add('-ability', source, 'G-Force');
+				this.add('-message', `${source.name} twisted the dimensions!`);
+				this.hint("G-Force doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.gravity.source = source;
+				this.field.pseudoWeather.gravity.duration = 0;
+			} else {
+				this.add('-ability', source, 'G-Force');
+				this.field.addPseudoWeather('gravity');
+				this.hint("G-Force doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.gravity.duration = 0;
+			}
+		},
+		onAnyTryMove(target, source, move) {
+			if (['gravity'].includes(move.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: G-Force', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('gforce')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('gravity');
+		},
+		name: "G-Force",
+		rating: 4.5,
+		num: -63,
 	},
 	// end
 
