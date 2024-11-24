@@ -3125,11 +3125,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	corrosivesilt: {
 		num: -136,
 		accuracy: 95,
-		basePower: 100,
+		basePower: 90,
 		category: "Physical",
 		shortDesc: "Terrain to Acidic; Poison/Ground.",
 		name: "Corrosive Silt",
-		pp: 5,
+		pp: 10,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Ground', type);
@@ -3233,7 +3233,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	stellarfusion: {
 		num: -138,
-		accuracy: 95,
+		accuracy: 90,
 		basePower: 150,
 		category: "Special",
 		shortDesc: "Type dependent; hits all others; recharge.",
