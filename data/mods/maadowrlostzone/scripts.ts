@@ -15,6 +15,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         this.modData("Learnsets", "bastiodon").learnset.blockage = ['9M'];
         this.modData("Learnsets", "bouffalant").learnset.quickattack = ['9M'];
 		this.modData("Learnsets", "bouffalant").learnset.rampage = ['9M'];
+		this.modData("Learnsets", "cherrim").learnset.encore = ['9M'];
 		this.modData("Learnsets", "cherrim").learnset.springbloom = ['9M'];
 		this.modData("Learnsets", "croagunk").learnset.acidicterrain = ['9M'];
 		this.modData("Learnsets", "croagunk").learnset.oilspill = ['9M'];
