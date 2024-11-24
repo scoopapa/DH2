@@ -142,4 +142,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ghost",
 		contestType: "Tough",
 	},
+	shelltrap: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
+	},
 };
