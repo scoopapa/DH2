@@ -1662,9 +1662,25 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "OU",
 	},
+	crabrawler: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
 	crabominable: {
 		tier: "UU",
 		doublesTier: "UU",
+	},
+	pansage: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	pansear: {
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	panpour: {
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	simipour: {
 		tier: "RU",
