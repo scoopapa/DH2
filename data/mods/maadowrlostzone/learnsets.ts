@@ -4039,7 +4039,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	sandirash: {
 		learnset: {
 			banefulbunker: ["9M"],
-			barbbarrage: ["9M"],
+			excavation: ["9M"],
 			mortalspin: ["9M"],
 		},
 	},
