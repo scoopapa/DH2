@@ -561,4 +561,29 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+	
+	hiveweb: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	syndcant: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fishmarketing3: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lemonganium: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	carnivineif: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	grumpig: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 };
