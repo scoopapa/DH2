@@ -52,13 +52,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.id);
-				if (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Lemon') {
+				if (move.category !== 'Status' && (move.type === 'Electric' || move.type === 'Grass' || move.type === 'Lemon')) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
 		},
 		num: 270,
-		shortDesc: "Traps opposing Water-types. Holder cannot use Grass or Electric-type moves.",
+		shortDesc: "Traps opposing Water-types. Holder cannot use Grass/Electric/Lemon-type attacks.",
 		gen: 4,
 		rating: 3,
 	},
@@ -499,7 +499,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem: false,
 		zMove: true,
 		zMoveType: "Stellar",
-		forcedForme: "Silvally-Stellar",
 		rating: 3,
 	},
 	bigbuttonbutton: {
@@ -622,6 +621,55 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.flags['bullet']) {
 				return this.chainModify([4915, 4096]);
 			}
+		},
+	},
+
+	//slate 7
+	nomelberry: {
+		inherit: true,
+		shortDesc: "Halves damage taken from a supereffective Lemon-type attack. Single use.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Lemon' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+		isNonstandard: null,
+	},
+	cornnberry: {
+		inherit: true,
+		shortDesc: "Halves damage taken from a supereffective Silly-type attack. Single use.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Silly' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+		isNonstandard: null,
+	},
+	grimrock: {
+		name: "Grim Rock",
+		shortDesc: "Holder's use of Graveyard lasts 8 turns instead of 5.",
+		spritenum: 379,
+		fling: {
+			basePower: 60,
+			onHit(target, source) {
+				this.damage(target.baseMaxhp / 8, target, source);
+			},
 		},
 	},
 }
