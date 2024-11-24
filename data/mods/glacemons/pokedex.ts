@@ -1,8 +1,9 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
+	// Slate 1
 	umbreon: {
 		inherit: true,
 		types: ["Dark", "Poison"],
-		abilities: {0: "Magic Guard", H: "Natural Cure"},
+		abilities: {0: "Synchronize", H: "Natural Cure"},
 	},
 	// Protean
 	croagunk: {
@@ -154,5 +155,47 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	mamoswine: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Route Closed", H: "Thick Fat"},
+	},
+	// Slate 2
+	enamorus: {
+		inherit: true,
+		abilities: {0: "Trace", H: "Contrary"},
+	},
+	enamorustherian: {
+		inherit: true,
+		abilities: {0: "Multiscale"},
+	},
+	genesect: {
+		inherit: true,
+		abilities: {0: "Neuroforce"},
+	},
+	genesectdouse: {
+		inherit: true,
+		abilities: {0: "Storm Drain"},
+	},
+	genesectshock: {
+		inherit: true,
+		abilities: {0: "Transistor"},
+	},
+	genesectburn: {
+		inherit: true,
+		abilities: {0: "Intimidate"},
+	},
+	genesectchill: {
+		inherit: true,
+		abilities: {0: "Refrigerate"},
+	},
+	necrozma: {
+		inherit: true,
+		types: ["Psychic", "Dragon"],
+		abilities: {0: "Prism Armor", H: "Download"},
+	},
+	skarmory: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Sturdy", H: "Iron Barbs"},
+	},
+	sceptilemega: {
+		inherit: true,
+		abilities: {0: "Mega Launcher"},
 	},
 };

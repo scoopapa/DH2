@@ -258,4 +258,73 @@ export const Items: {[k: string]: ModdedItemData} = {
             }
         },
     },
+	trainingwheels: {
+		name: "Training Wheels",
+		spritenum: 130,
+		fling: {
+			basePower: 40,
+		},
+		onModifySpePriority: 2,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: -6,
+		gen: 9,
+		rating: 3,
+		shortDesc: "If holder's species can evolve, its Speed is 1.5x.",
+	},
+	palettecleanser: {
+		name: "Palette Cleanser",
+		spritenum: 717,
+		fling: {
+			basePower: 10,
+			effect(pokemon) {
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] != 0) {
+						activate = true;
+						boosts[i] = 0;
+					}
+				}
+				if (activate) {
+					pokemon.setBoost(boosts);
+					this.add('-clearboost', pokemon, '[silent]');
+				}
+			},
+		},
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
+			let i: BoostID;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] != 0) {
+					activate = true;
+					boosts[i] = 0;
+				}
+			}
+			if (activate && pokemon.useItem()) {
+				pokemon.setBoost(boosts);
+				this.add('-clearboost', pokemon, '[silent]');
+			}
+		},
+		num: -6,
+		gen: 9,
+		shortDesc: "If the user has a stat dropped or raised, remove all stat changes for itself.",
+	},
+	mewniumz: {
+		inherit: true,
+		zMoveFrom: "Expanding Force",
+		isNonstandard: null,
+		onModifySpAPriority: 5,
+		onModifySpA(spa, attacker, defender, move) {
+			if (this.field.isTerrain('psychicterrain')) {
+				this.debug('Mewnium Z boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
 };

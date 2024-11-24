@@ -99,7 +99,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'rapidashgalar').learnset.salvestrike = ['9M'];
 		// Slate 1 adjustments
 		this.modData('Learnsets', 'umbreon').learnset.knockoff = ['9M'];
-		this.modData('Learnsets', 'umbreon').learnset.scorchingsands = ['9M'];
+		// this.modData('Learnsets', 'umbreon').learnset.scorchingsands = ['9M'];
 		this.modData('Learnsets', 'umbreon').learnset.slackoff = ['9M'];
 		this.modData("Learnsets", "silvally").learnset.knockoff = ["9L1"];
 		this.modData("Learnsets", "silvally").learnset.roost = ["9L1"];
@@ -140,5 +140,31 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'kyuremblack').learnset.dragondance;
 		delete this.modData('Learnsets', 'kyuremblack').learnset.iciclespear;
 		delete this.modData('Learnsets', 'kyuremblack').learnset.scaleshot;
+		// Slate 2 adjustments
+		this.modData('Learnsets', 'enamorus').learnset.nastyplot = ['9M'];
+		this.modData('Learnsets', 'enamorus').learnset.acrobatics = ['9M'];
+		this.modData('Learnsets', 'enamorus').learnset.knockoff = ['9M'];
+		this.modData("Learnsets", "enamorus").learnset.sludgewave = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.skyattack = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.storedpower = ["9L1"];
+		this.modData("Learnsets", "enamorus").learnset.morningsun = ["9L1"];
+		this.modData("Learnsets", "genesect").learnset.firstimpression = ["9L1"];
+		this.modData("Learnsets", "genesect").learnset.pounce = ["9L1"];
+		delete this.modData('Learnsets', 'genesect').learnset.shiftgear;
+		delete this.modData('Learnsets', 'genesect').learnset.honeclaws;
+		delete this.modData('Learnsets', 'genesect').learnset.rockpolish;
+		delete this.modData('Learnsets', 'genesect').learnset.selfdestruct;
+		delete this.modData('Learnsets', 'genesect').learnset.explosion;
+		this.modData("Learnsets", "necrozma").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "necrozma").learnset.dragonclaw = ["9L1"];
+		this.modData("Learnsets", "necrozma").learnset.psychicnoise = ["9L1"];
+		this.modData("Learnsets", "necrozma").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "necrozma").learnset.scaleshot = ["9L1"];
+		this.modData("Learnsets", "skarmory").learnset.beakblast = ["9L1"];
+		this.modData("Learnsets", "sceptile").learnset.glare = ["9L1"];
+		this.modData("Learnsets", "sceptile").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "sceptile").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "sceptile").learnset.aurasphere = ["9L1"];
 	}
 };
