@@ -2932,14 +2932,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	hurricane: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, distance: 1, wind: 1, metronome: 1, disaster: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+			case 'acidrain':
+				move.accuracy = 50;
+				break;
+			}
+		},
 	},
 	thunder: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+			case 'acidrain':
+				move.accuracy = 50;
+				break;
+			}
+		},
 	},
 	blizzard: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, wind: 1, metronome: 1, disaster: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'hail':
+			case 'snow':
+				move.accuracy = true;
+				break;
+			case 'acidrain':
+				move.accuracy = 50;
+				break;
+			}
+		},
 	},
 	dracometeor: {
 		inherit: true,
@@ -3449,52 +3486,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
-			}
-		},
-	},
-	hurricane: {
-		inherit: true,
-		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
-			case 'raindance':
-			case 'primordialsea':
-				move.accuracy = true;
-				break;
-			case 'sunnyday':
-			case 'desolateland':
-			case 'acidrain':
-				move.accuracy = 50;
-				break;
-			}
-		},
-	},
-	thunder: {
-		inherit: true,
-		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
-			case 'raindance':
-			case 'primordialsea':
-				move.accuracy = true;
-				break;
-			case 'sunnyday':
-			case 'desolateland':
-			case 'acidrain':
-				move.accuracy = 50;
-				break;
-			}
-		},
-	},
-	blizzard: {
-		inherit: true,
-		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
-			case 'hail':
-			case 'snow':
-				move.accuracy = true;
-				break;
-			case 'acidrain':
-				move.accuracy = 50;
-				break;
 			}
 		},
 	},
