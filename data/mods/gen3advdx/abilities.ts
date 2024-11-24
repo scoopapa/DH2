@@ -177,4 +177,17 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		gen: 3,
 	},
+	magmaarmor: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true) && (source.hasType('Fire') || source.status === 'brn')) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		flags: {},
+		name: "Magma Armor",
+		rating: 0.5,
+		num: 40,
+		shortDesc: "Fire or burned foes making contact with this Pokemon lose 1/4 of their max HP.",
+	},
 };
