@@ -130,4 +130,51 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 5,
 		num: 71,
 	},
+  disguise: {
+		inherit: true,
+		gen: 3,
+	},
+  slushrush: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather(['hail', 'snow'])) {
+				return this.chainModify(2);
+			}
+		},
+		gen: 3,
+	},
+	frisk: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', '[of] ' + pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Frisk",
+		rating: 1.5,
+		num: 119,
+		gen: 3,
+	},
+  dryskin: {
+		inherit: true,
+		gen: 3,
+	},
+  solidrock: {
+		inherit: true,
+		gen: 3,
+	},
+  infiltrator: {
+		inherit: true,
+		gen: 3,
+	},
+  longreach: {
+		inherit: true,
+		gen: 3,
+	},
+  poisontouch: {
+		inherit: true,
+		gen: 3,
+	},
 };
