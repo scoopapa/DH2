@@ -26,6 +26,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         this.modData("Learnsets", "eelektross").learnset.shortcircuit = ['9M'];
 		this.modData("Learnsets", "flabebe").learnset.lifedew = ['9M'];
 		this.modData("Learnsets", "flabebe").learnset.tailwind = ['9M'];
+		this.modData("Learnsets", "flygon").learnset.sandpit = ['9M'];
 		this.modData("Learnsets", "goomy").learnset.acidicterrain = ['9M'];
 		this.modData("Learnsets", "goomy").learnset.oilspill = ['9M'];
 		this.modData("Learnsets", "goomy").learnset.reactivepoison = ['9M'];
