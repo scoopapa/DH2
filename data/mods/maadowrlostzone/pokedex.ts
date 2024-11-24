@@ -2269,7 +2269,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Ground"],
 		baseStats: {hp: 50, atk: 75, def: 85, spa: 20, spd: 30, spe: 40},
-		abilities: {0: "Sand Veil", 1: "Merciless", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Grass Pelt", H: "Sand Rush"},
 		heightm: 0.6,
 		weightkg: 12,
 		color: "Yellow",
@@ -2285,7 +2285,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Ground"],
 
 		baseStats: {hp: 75, atk: 100, def: 110, spa: 45, spd: 55, spe: 65},
-		abilities: {0: "Sand Veil", 1: "Merciless", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Grass Pelt", H: "Sand Rush"},
 		heightm: 1,
 		weightkg: 29.5,
 		color: "Yellow",
@@ -2303,7 +2303,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Ground"],
 		
 		baseStats: {hp: 90, atk: 115, def: 125, spa: 60, spd: 70, spe: 80},
-		abilities: {0: "Grassy Surge", 1: "Merciless", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Grassy Surge", H: "Sand Rush"},
 		heightm: 1.7,
 		weightkg: 43.5,
 		color: "Yellow",
