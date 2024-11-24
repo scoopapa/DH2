@@ -123,7 +123,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "Has 33% recoil. 30% to burn foe.",
+		shortDesc: "Has 33% recoil. 30% chance to burn foe.",
 		viable: true,
 		name: "Wrath Rush",
 		pp: 5,
