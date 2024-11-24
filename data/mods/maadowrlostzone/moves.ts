@@ -3632,6 +3632,36 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	//
+	springbloom: {
+		num: -148,  
+		accuracy: 95,  
+		basePower: 50,  
+		shortDesc: "Lowers targets' Spe by 1, 2 in Sun.",
+		name: "Spring Bloom",  
+		category: "Special",
+		pp: 10,  
+		priority: 0,  
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+        	this.attrLastMove('[still]');
+        	this.add('-anim', source, "Bloom Doom", target);
+    	},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+			  // Check if Tailwind is active on the user's side
+				if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+					this.boost({spe: -2}, target);
+				} else {
+					this.boost({spe: -1}, target);
+				}
+			},
+		},
+		target: "allAdjacentFoes",  
+		type: "Grass",  
+		contestType: "Beautiful", 
+	},
+	//
 	excavation: {
 		num: -149,
 		accuracy: 100,
