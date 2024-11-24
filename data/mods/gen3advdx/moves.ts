@@ -12,6 +12,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "For 5 turns, hail falls. Ice: 1.5x SpA.",
 		isNonstandard: null,
 		name: "Hail",
 		pp: 10,
@@ -29,6 +30,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 70,
 		basePower: 110,
 		category: "Special",
+		shortDesc: "Can't miss in Hail.",
 		name: "Blizzard",
 		pp: 5,
 		priority: 0,
@@ -63,6 +65,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	watershuriken: {
     	inherit: true,
+		shortDesc: "Hits 3 times. High critical hit ratio.",
 		pp: 5,
 		category: "Special",
 		gen: 3,
@@ -107,6 +110,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	poisonfang: {
     	inherit: true,
+		shortDesc: "50% chance to badly poison foe.",
 		secondary: {
 			chance: 50,
 			status: 'tox',
@@ -114,6 +118,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	volttackle: {
     	inherit: true,
+		shortDesc: "Has 33% recoil. 30% chance to paralyze foe.",
 		secondary: {
 			chance: 30,
 			status: 'par',
