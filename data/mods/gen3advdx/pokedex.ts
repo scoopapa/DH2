@@ -444,10 +444,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	mimikyu: {
 		inherit: true,
+		types: ["Normal", "Ghost"],
 		gen: 3,
 	},
 	mimikyubusted: {
 		inherit: true,
+		types: ["Normal", "Ghost"],
 		gen: 3,
 	},
 
