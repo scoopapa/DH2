@@ -199,23 +199,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 119,
 		gen: 3,
 	},
-  dryskin: {
+  	dryskin: {
 		inherit: true,
 		gen: 3,
 	},
-  solidrock: {
+  	solidrock: {
 		inherit: true,
 		gen: 3,
 	},
-  infiltrator: {
+  	infiltrator: {
 		inherit: true,
 		gen: 3,
 	},
-  longreach: {
+  	longreach: {
 		inherit: true,
 		gen: 3,
 	},
-  poisontouch: {
+  	poisontouch: {
 		inherit: true,
 		gen: 3,
 	},
@@ -231,5 +231,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 0.5,
 		num: 40,
 		shortDesc: "Fire or burned foes making contact with this Pokemon lose 1/4 of their max HP.",
+	},
+  	hydration: {
+		inherit: true,
+		gen: 3,
 	},
 };
