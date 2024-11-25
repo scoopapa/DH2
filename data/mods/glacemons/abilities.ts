@@ -175,6 +175,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	rkssystem: {
 		inherit: true,
+		flags: {}, // yes deleting the flags is an ugly way to do it but I need to find a better one lol
 		onStart(pokemon) {
 			const allTypes = {
 				"Normal": "Tough Claws", 
