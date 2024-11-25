@@ -105,7 +105,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	microwave: {
 		name: "microwave",
 		num: -12,
-		types: ["Fire", "Steel"],
+		types: ["Fire", "Steel", "Electric"],
 		baseStats: {hp: 51, atk: 89, def: 121, spa: 113, spd: 177, spe: 49},
 		abilities: {0: "Motor Drive", 1: "Parting Gift", H: "Transistor"},
 		weightkg: 150.0,
