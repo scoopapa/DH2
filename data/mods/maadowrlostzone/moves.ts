@@ -3697,6 +3697,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Ground",
 		contestType: "Tough",
 	},
+	//
+	hazardstinger: {
+		num: -151,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "User and target recharge.",
+		name: "Hazard Stinger",
+		pp: 5,
+		priority: 0,
+		flags: {recharge: 1, contact: 1, protect: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-message', `${source.name} is about to stun the target!`);
+			this.add('-anim', source, "Fell Stinger", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		volatileStatus: 'mustrecharge',
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
 	// end
 
 	// start
