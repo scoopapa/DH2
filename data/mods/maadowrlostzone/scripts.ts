@@ -13,6 +13,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "avalugg").learnset.lifedew = ['9M'];
 		this.modData("Learnsets", "banette").learnset.copycat = ['9M'];
         this.modData("Learnsets", "bastiodon").learnset.blockage = ['9M'];
+		this.modData("Learnsets", "beedrill").learnset.hazardstinger = ['9M'];
         this.modData("Learnsets", "bouffalant").learnset.quickattack = ['9M'];
 		this.modData("Learnsets", "bouffalant").learnset.rampage = ['9M'];
 		this.modData("Learnsets", "cherrim").learnset.encore = ['9M'];
