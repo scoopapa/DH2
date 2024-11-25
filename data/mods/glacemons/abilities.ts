@@ -200,7 +200,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log("This Pokemon has the item: " + item);			
 			console.log("Does it have a Memory? Answer: " + item.name.includes("Memory"));
 			if (!item.name.includes("Memory")) return;
+			console.log("It has the type: " + pokemon.types[0]);	
 			const abilityToGive = allTypes[pokemon.types[0]];
+			console.log("It will get: " + abilityToGive);	
 			const oldAbility = pokemon.setAbility(abilityToGive);
 			if (oldAbility) {
 				this.add('-ability', pokemon, abilityToGive, '[from] ability: RKS System');
