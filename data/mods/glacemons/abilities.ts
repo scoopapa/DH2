@@ -190,7 +190,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				"Steel": "Iron Fist",
 				"Fairy": "Pastel Veil"
 			};
+			console.log("The current type of Memory is " + pokemon.item.onMemory);
 			if (!pokemon.item.onMemory) return;
+			console.log("Bis repetita: " + pokemon.item.onMemory);
 			const abilityToGive = allTypes[pokemon.item.onMemory];
 			const oldAbility = pokemon.setAbility(abilityToGive);
 			if (oldAbility) {
@@ -199,5 +201,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			return oldAbility as false | null;
 		}
+	},
+	hospitality: {
+		onStart(pokemon) {
+			for (const ally of pokemon.adjacentAllies()) {
+				this.heal(ally.baseMaxhp / 4, ally, pokemon);
+			}
+		},
+		flags: {},
+		name: "Hospitality",
+		rating: 0,
+		num: 299,
 	},
 };
