@@ -1021,6 +1021,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 		learnset: {
 			applebuck: ["9L1"],
 			bulkup: ["9L1"],
+			earthquake: ["9M"],
+			rapidspin: ["9M"],
 			heavyslam: ["9L1"],
 			irondefense: ["9M"],
 			trailblaze: ["9M"],
@@ -1546,6 +1548,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			headlongrush: ["9L1"],
 			earthquake: ["9M"],
 			trailblaze: ["9M"],
+			rapidspin: ["9M"],
 			bulkup: ["9M"],
 			irondefense: ["9M"],
 			stoneedge: ["9M"],
