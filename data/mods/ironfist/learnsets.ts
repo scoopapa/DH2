@@ -233,6 +233,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
+			hoenn: ["9L1"],
 			block: ["9L1"],
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -712,6 +713,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
+			hoenn: ["9L1"],
 			attract: ["9L1"],
 			blizzard: ["9L1"],
 			brine: ["9L1"],
@@ -3324,6 +3326,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	cascoon: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			bugbite: ["9L1"],
 			electroweb: ["9L1"],
 			harden: ["9L1"],
@@ -4484,6 +4487,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
+			hoenn: ["9L1"],
 			amnesia: ["9L1"],
 			ancientpower: ["9L1"],
 			aquatail: ["9L1"],
@@ -5188,6 +5192,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	
 	jirachitwo: {
 		learnset: {
+			hoenn: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
 			amnesia: ["9L1"],
@@ -8007,6 +8012,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	jableye: {
 		learnset: {
+			hoenn: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
 			astonish: ["9L1"],
@@ -9034,6 +9040,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	groudon: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			fishburn: ["9L1"],
 			aerialace: ["9L1"],
 			ancientpower: ["9L1"],
@@ -9249,6 +9256,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	absol: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			clash: ["9L1"],
 			aerialace: ["9L1"],
 			airslash: ["9L1"],
@@ -9907,7 +9915,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			floralhealing: ["9L1"],
 		},
 	},
-	syndcant: {
+	syndicant: {
 		learnset: {
 			diamondhand: ["9L1"],
 			anofferyoucantrefuse: ["9L1"],

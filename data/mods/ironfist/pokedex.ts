@@ -1177,9 +1177,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Honeyed Web", 1: "Shield Dust", H: "Compound Eyes"},
 		weightkg: 9.1,
 	},
-	syndcant: {
+	syndicant: {
 		num: -125,
-		name: "Syndcan\'T",
+		name: "Syndican\'T",
 		diamondHand: true,
 		types: ["Bug"],
 		baseStats: {hp: 129, atk: 97, def: 91, spa: 95, spd: 89, spe: 74},
@@ -1214,6 +1214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: -121,
 		name: "Grumpig",
+		gen: 3,
 		types: ["Psychic"],
 		baseStats: {hp: 125, atk: 40, def: 100, spa: 110, spd: 115, spe: 70},
 		abilities: {0: "Pure Power", 1: "Thick Fat", H: "Gluttony"},

@@ -566,7 +566,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	syndcant: {
+	syndicant: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
