@@ -1695,7 +1695,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "RU",
 	},
 	mimikyu: {
-		tier: "RU",
-		doublesTier: "RU",
+		tier: "OU",
+		doublesTier: "OU",
 	},
 };

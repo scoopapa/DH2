@@ -386,6 +386,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Slush Rush"},
 		gen: 3,
 	},
+	leafeon: {
+		inherit: true,
+		abilities: {0: "Chlorophyll"},
+		gen: 3,
+	},
 	manaphy: {
 		inherit: true,
 		abilities: {0: "Hydration"},
@@ -612,7 +617,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	nidoking: {
 		inherit: true,
-		abilities: {0: "Poison Point", 1: "Poison Touch"},
+		abilities: {0: "Poison Touch"},
 	},
 	meowth: {
 		inherit: true,
