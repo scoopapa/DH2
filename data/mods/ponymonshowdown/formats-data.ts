@@ -54,11 +54,6 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
-	spikefuture: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
-	},
 	starlightglimmer: {
 		tier: "OU",
 		doublesTier: "DOU",
