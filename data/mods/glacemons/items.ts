@@ -327,4 +327,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 	},
+	specialteraorb: {
+		name: "Special Tera Orb",
+		onStart(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Terapagos') {
+				if (pokemon.species.id !== 'terapagosstellar') pokemon.formeChange('Terapagos-Stellar');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Terapagos' || source.baseSpecies.baseSpecies === 'Terapagos-Terastal' || source.baseSpecies.baseSpecies === 'Terapagos-Stellar') return false;
+			return true;
+		},
+		gen: 9,
+		desc: "If holder is a Terapagos, it becomes Stella form. It is Stellar type.",
+		num: -7,
+	},
 };

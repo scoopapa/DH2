@@ -206,15 +206,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			return oldAbility as false | null;
 		}
 	},
-	hospitality: { // WIP
-		onStart(pokemon) {
-			for (const ally of pokemon.adjacentAllies()) {
-				this.heal(ally.baseMaxhp / 4, ally, pokemon);
-			}
+	hospitality: {
+		inherit: true,
+		volatileStatus: 'hospitality',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Aqua Ring');
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
 		},
-		flags: {},
-		name: "Hospitality",
-		rating: 0,
-		num: 299,
 	},
 };
