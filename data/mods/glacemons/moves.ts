@@ -1,10 +1,10 @@
-export const Moves: { [moveid: string]: ModdedMoveData } = {
+export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	worryseed: {
 		inherit: true,
 		basePower: 80,
 		category: "Physical",
 		pp: 15,
-		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, allyanim: 1, metronome: 1 },
 		onTryImmunity(target) {
 			return;
 		},
@@ -59,7 +59,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Pebble Storm",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Power Gem", target);
@@ -85,7 +85,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Salve Strike",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aromatherapy", source);
@@ -106,6 +106,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 30,
 		priority: 1,
 		secondary: null,
+		desc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 	flameburst: {
 		inherit: true,
@@ -113,6 +115,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		isNonstandard: null,
 		pp: 30,
 		priority: 1,
+		desc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 	overvoltrail: {
 		num: -3,
@@ -122,8 +126,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Overvolt Rail",
 		pp: 10,
 		priority: 1,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		recoil: [33, 100],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zap Cannon", source);
+			this.add('-anim', source, "Zap Cannon", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
@@ -139,7 +148,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Mental Gymnastics",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		overrideOffensiveStat: 'spd',
 		secondary: null,
 		target: "normal",
@@ -155,7 +164,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Railgun",
 		pp: 15,
 		priority: -3,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, bullet: 1},
+		flags: { protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, bullet: 1 },
 		priorityChargeCallback(pokemon) {
 			pokemon.addVolatile('railgun');
 		},
@@ -182,5 +191,195 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		shortDesc: "Paralyzes on contact with the user before it moves.",
 
 		start: "  [POKEMON] started heating up its railgun!",
+	},
+
+	// Solar Power section
+	morningsun: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (pokemon.ability === 'Solar Power') factor = 0.667;
+			else {
+				switch (pokemon.effectiveWeather()) {
+					case 'sunnyday':
+					case 'desolateland':
+						factor = 0.667;
+						break;
+					case 'raindance':
+					case 'primordialsea':
+					case 'sandstorm':
+					case 'hail':
+					case 'snow':
+						factor = 0.25;
+						break;
+				}
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (pokemon.ability === 'Solar Power') factor = 0.667;
+			else {
+				switch (pokemon.effectiveWeather()) {
+					case 'sunnyday':
+					case 'desolateland':
+						factor = 0.667;
+						break;
+					case 'raindance':
+					case 'primordialsea':
+					case 'sandstorm':
+					case 'hail':
+					case 'snow':
+						factor = 0.25;
+						break;
+				}
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	synthesis: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (pokemon.ability === 'Solar Power') factor = 0.667;
+			else {
+				switch (pokemon.effectiveWeather()) {
+					case 'sunnyday':
+					case 'desolateland':
+						factor = 0.667;
+						break;
+					case 'raindance':
+					case 'primordialsea':
+					case 'sandstorm':
+					case 'hail':
+					case 'snow':
+						factor = 0.25;
+						break;
+				}
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	growth: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || pokemon.ability === 'Solar Power') move.boosts = {atk: 2, spa: 2};
+		},
+	},
+	weatherball: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.ability === 'Solar Power') move.type = 'Fire';
+			else {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.type = 'Fire';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.type = 'Water';
+					break;
+				case 'sandstorm':
+					move.type = 'Rock';
+					break;
+				case 'hail':
+				case 'snow':
+					move.type = 'Ice';
+					break;
+				}}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.ability === 'Solar Power') move.basePower *= 2;
+			else {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.basePower *= 2;
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.basePower *= 2;
+					break;
+				case 'sandstorm':
+					move.basePower *= 2;
+					break;
+				case 'hail':
+				case 'snow':
+					move.basePower *= 2;
+					break;
+				}}
+			this.debug('BP: ' + move.basePower);
+		},
+	},
+	solarbeam: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather() || attacker.ability === 'Solar Power')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	solarblade: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || attacker.ability === 'Solar Power') {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && pokemon.ability !== 'Solar Power') {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
 	},
 };

@@ -124,6 +124,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		num: -3,
 	},
+	solarpower: {
+		inherit: true,
+		// All effects are coded on the moves in moves.ts
+		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if the Pokemon is holding a Utility Umbrella. This Pokemon's moves behave as if Sunny Day is always active.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn. Pokemon's moves act as if Sunny Day is always active.",
+	},
 	battlearmor: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
@@ -190,10 +196,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				"Steel": "Iron Fist",
 				"Fairy": "Pastel Veil"
 			};
-			console.log("The current type of Memory is " + pokemon.item.onMemory);
-			if (!pokemon.item.onMemory) return;
-			console.log("Bis repetita: " + pokemon.item.onMemory);
-			const abilityToGive = allTypes[pokemon.item.onMemory];
+			if (!pokemon.item.name.includes("Memory")) return;
+			const abilityToGive = allTypes[pokemon.types[0]];
 			const oldAbility = pokemon.setAbility(abilityToGive);
 			if (oldAbility) {
 				this.add('-ability', pokemon, abilityToGive, '[from] ability: RKS System');
@@ -202,7 +206,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			return oldAbility as false | null;
 		}
 	},
-	hospitality: {
+	hospitality: { // WIP
 		onStart(pokemon) {
 			for (const ally of pokemon.adjacentAllies()) {
 				this.heal(ally.baseMaxhp / 4, ally, pokemon);
