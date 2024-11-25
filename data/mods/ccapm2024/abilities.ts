@@ -62,16 +62,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-ability', pokemon, 'Asymmetry');
 					activated = true;
 				}
-				const nums = [0, 1, 2, 3];
+				target.addVolatile('asymmetry');
+				const createArray = (n) => Array.from({ length: n }, (_, i) => i);
+				const pokemonArray = createArray(pokemon.moves.length);
+				const targetArray = createArray(target.moves.length);
 				
-				const pickNum1 = this.sample(nums);
-				nums.splice(nums.indexOf(pickNum1), 1);
-				const pickNum2 = this.sample(nums);
+				const pickNum1 = this.sample(pokemonArray);
+				pokemonArray.splice(pokemonArray.indexOf(pickNum1), 1);
+				let pickNum2;
+				if (pokemonArray.length === 0) pickNum2 = -1;
+				else pickNum2 = this.sample(pokemonArray);
+				
+				const pickNum3 = this.sample(targetArray);
+				targetArray.splice(targetArray.indexOf(pickNum3), 1);
+				let pickNum4;
+				if (targetArray.length === 0) pickNum4 = -1;
+				else pickNum4 = this.sample(targetArray);
 				
 				const pokemonMove1 = this.dex.moves.get(pokemon.moves[pickNum1]);
-				const pokemonMove2 = this.dex.moves.get(pokemon.moves[pickNum2]);
 				const realPokemonMove1 = {
-					pokemonMove: pokemonMove1.name,
+					move: pokemonMove1.name,
 					id: pokemonMove1.id,
 					pp: pokemonMove1.pp * 1.6,
 					maxpp: pokemonMove1.pp * 1.6,
@@ -80,8 +90,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					used: false,
 					virtual: true,
 				};
+				const targetMove1 = this.dex.moves.get(target.moves[pickNum3]);
+				const realTargetMove1 = {
+					move: targetMove1.name,
+					id: targetMove1.id,
+					pp: targetMove1.pp * 1.6,
+					maxpp: targetMove1.pp * 1.6,
+					target: targetMove1.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};				
+				
+				pokemon.moveSlots[pickNum1] = realTargetMove1;
+				pokemon.baseMoveSlots[pickNum1] = realTargetMove1;
+				target.moveSlots[pickNum3] = realPokemonMove1;
+				target.baseMoveSlots[pickNum3] = realPokemonMove1;
+				
+				if (pickNum2 === -1 || pickNum4 === -1) return;
+				const pokemonMove2 = this.dex.moves.get(pokemon.moves[pickNum2]);
 				const realPokemonMove2 = {
-					pokemonMove: pokemonMove2.name,
+					move: pokemonMove2.name,
 					id: pokemonMove2.id,
 					pp: pokemonMove2.pp * 1.6,
 					maxpp: pokemonMove2.pp * 1.6,
@@ -90,21 +119,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					used: false,
 					virtual: true,
 				};
-				
-				const targetMove1 = this.dex.moves.get(target.moves[pickNum1]);
-				const targetMove2 = this.dex.moves.get(target.moves[pickNum2]);
-				const realTargetMove1 = {
-					targetMove: targetMove1.name,
-					id: targetMove1.id,
-					pp: targetMove1.pp * 1.6,
-					maxpp: targetMove1.pp * 1.6,
-					target: targetMove1.target,
-					disabled: false,
-					used: false,
-					virtual: true,
-				};
+				const targetMove2 = this.dex.moves.get(target.moves[pickNum4]);
 				const realTargetMove2 = {
-					targetMove: targetMove2.name,
+					move: targetMove2.name,
 					id: targetMove2.id,
 					pp: targetMove2.pp * 1.6,
 					maxpp: targetMove2.pp * 1.6,
@@ -114,16 +131,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					virtual: true,
 				};
 				
-				pokemon.moveSlots[pickNum1] = realTargetMove1;
-				pokemon.baseMoveSlots[pickNum1] = realTargetMove1;
 				pokemon.moveSlots[pickNum2] = realTargetMove2;
 				pokemon.baseMoveSlots[pickNum2] = realTargetMove2;
-				
-				target.moveSlots[pickNum1] = realPokemonMove1;
-				target.baseMoveSlots[pickNum1] = realPokemonMove1;
-				target.moveSlots[pickNum2] = realPokemonMove2;
-				target.baseMoveSlots[pickNum2] = realPokemonMove2;
+				target.moveSlots[pickNum4] = realPokemonMove2;
+				target.baseMoveSlots[pickNum4] = realPokemonMove2;
 			}
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (pokemon.moveSlots.filter(m => m.id === move.id).length === 0) {
+					const newMove = this.dex.moves.get(move);
+					this.actions.useMove(newMove, pokemon, target);
+					return null;
+				}
+			},
 		},
 		flags: {},
 		name: "Asymmetry",
@@ -179,14 +203,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's non-HP stats are reduced by 5% each turn.",
 	},
 	bathroombreak: {
-		onModifyMove(move, pokemon) {
-			if (move.type === 'Water') move.switchFlag = true;
+		onAfterMove(target, source, move) {
+			if (move.type === 'Water') {
+				this.add('-activate', target, 'ability: Bathroom Break');
+				target.switchFlag = true;
+			}
 		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Water') {
-				target.switchFlag = true;
-			}
+			if (move.type === 'Water') target.switchFlag = true;
 		},
 		name: "Bathroom Break",
 		shortDesc: "This Pokemon switches out when using or hit by a Water move.",
@@ -207,19 +232,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Bloodsucking');
 					activated = true;
 				}
 				pokemon.addVolatile('bloodsucking');
-				this.actions.useMove('leechlife', pokemon, target);
+				const leechlife = this.dex.getActiveMove('leechlife');
+				this.actions.useMove(leechlife, pokemon, target);
 			}
 		},
 		flags: {},
 		name: "Bloodsucking",
-		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals half the damage dealt.",
+		shortDesc: "On switchin, this Pokemon uses a 20 BP Bug move and heals equal to the damage dealt.",
 	},
 	braceforimpact: {
-		name: "Brace For Impact",
+		name: "Brace for Impact",
 		shortDesc: "This Pokemon takes half damage from attacks when switching in.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (!target.activeTurns) {
@@ -268,6 +293,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBeforeMove(source, target, move) {
 			if (move.volatileStatus === "twoturnmove") {
 				delete move.volatileStatus;
+				move.accuracy = true;
 			}
 		},
 		onTryHit(source, target) {
@@ -278,7 +304,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onBeforeSwitchOut(pokemon) {
 				const move = this.queue.willMove(pokemon.foes()[0]);
 				const moveName = move && move.moveid ? this.dex.getActiveMove(move.moveid.toString()) : "";
-				console.log(moveName);
 				if (!moveName || !moveName.flags['charge']) return;
 				delete moveName.onTryMove;
 				this.debug('Clinch start');
@@ -343,11 +368,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	crumble: {
 		onFaint(pokemon) {
-			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const side = pokemon.side.foe;
 			const stealthrock = side.sideConditions['stealthrock'];
 			if (!stealthrock) {
-				this.add('-activate', target, 'ability: Crumble');
-				side.addSideCondition('stealthrock', target);
+				this.add('-activate', pokemon, 'ability: Crumble');
+				side.addSideCondition('stealthrock', pokemon);
 			}
 		},
 		flags: {},
@@ -371,7 +396,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
-				if (target.boosts[stat] < 6) {
+				if (source.boosts[stat] < 6) {
 					stats.push(stat);
 				}
 			}
@@ -379,10 +404,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				let randomStat = this.sample(stats);
 				const boost: SparseBoostsTable = {};
 				boost[randomStat] = 1;
-				this.boost(boost);
 				randomStat = this.sample(stats);
 				boost[randomStat] = 1;
-				this.boost(boost);
+				this.boost(boost, source, source);
 			} else return;
 		},
 		flags: {},
@@ -510,6 +534,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Iron Fistening",
+		shortDesc: "On switchin, this Pokemon's side gains a Fishing Token.",
 	},
 	magicmissile: {
 		/*
@@ -523,7 +548,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		(how does this behave with Instruct? maybe you could test with that if you're doing the doubles format Aquatic mentioned)
 		*/
 		name: "Magic Missile",
-		//shortDesc: "If hit by a contact move while holding an item: lose item, apply item Fling effects, attacker loses 1/4 max HP. If hitting a foe with a contact move while not holding an item: steals the foe's item.",
+		shortDesc: "Magician + when damaged, fling item for 25% max HP.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
@@ -605,9 +630,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				};
 			}
 		},
-		onAfterMove(target, source, move) {
+		onAfterMove(pokemon, source, move) {
 			if (move.category === 'Status') {
-				
+				if (pokemon.adjacentFoes().length == 0) return;
+				let target = this.sample(pokemon.adjacentFoes());
+				this.boost({spd: -1}, target, pokemon, null, true);
 			}
 		},
 		flags: {},
@@ -695,24 +722,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Dark moves; Dark immunity.",
 	},
 	outclass: {
-		onSourceHit(target, source, move) {
-			if (!move || !target || source.types[1] || target.hasItem('terashard')) return;
-			if (source.volatiles['outclass'] && !source.side.removeFishingTokens(1)) return;
-			let targetType = target.types[0];
-			if (target !== source && move.category !== 'Status' &&
-				 !source.hasType(targetType) && source.addType(targetType) && targetType !== '???') {
-					target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
-					this.add('-start', target, 'typechange', target.types.join('/'));
-					this.add('-start', source, 'typeadd', targetType, '[from] ability: Outclass');
-					source.addVolatile('outclass');			
-				}
-		},
-		condition: {},
-		flags: {},
-		name: "Outclass",
-		shortDesc: "If this Pokemon has one type, it steals the primary typing off a Pokemon it hits with an attack.",
-		rating: 4,
-	},
+        onSourceHit(target, source, move) {
+            if (!move || !target || target.hasItem('terashard')) return;
+            let targetType = target.types[0];
+            let sourceSecondaryType = '???'
+            if (source.types[1]) sourceSecondaryType = source.types[1];
+            if (target !== source && move.category !== 'Status' &&
+                 !source.hasType(targetType) && targetType !== '???' &&
+                 !(source.volatiles['outclass'] && !source.side.removeFishingTokens(1))) {
+                    source.setType([source.types[0]]);
+                    if (source.addType(targetType)) {
+                        target.setType(target.getTypes(true).map(type => type === targetType ? "???" : type));
+                        this.add('-start', target, 'typechange', target.types.join('/'));
+                        this.add('-start', source, 'typeadd', targetType, '[from] ability: Outclass');
+                        source.addVolatile('outclass');
+                    }
+                    else {
+                        this.debug('Failed to take target type.');
+                        if (sourceSecondaryType !== '???') source.setType([source.types[0], sourceSecondaryType]);
+                    }
+                }
+        },
+        condition: {},
+        flags: {},
+        name: "Outclass",
+        shortDesc: "Fishing token or first contact: steals target primary type and replaces its own secondary type.",
+        rating: 4,
+    },
 	peckingorder: {
 		name: "Pecking Order",
 		shortDesc: "On switch-in, this Pokemon lowers the Defense of adjacent opponents by 1 stage.",
@@ -742,7 +778,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	precognition: {
 		onBeforeTurn(pokemon) {
-			if(pokemon.adjacentFoes().length == 0) return;
+			if (pokemon.adjacentFoes().length == 0) return;
 			let target = this.sample(pokemon.adjacentFoes());
 			const targetAction = this.queue.willMove(target);
 			if (!targetAction) return;
@@ -784,7 +820,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Preparation",
-		shortDesc: "Deals 1.3x damage the turn after using a status move.",
+		shortDesc: "Deals 2x damage the turn after using a status move.",
 	},
 	puppetmaster: {
 		onSwitchIn(pokemon) {
@@ -837,6 +873,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	refraction: {
 		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Refraction');
 			pokemon.side.addSideCondition('waterpledge');
 		},
 		flags: {},
@@ -916,6 +953,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart(pokemon) {
 			if (pokemon.strongbreeze) return;
 			pokemon.strongbreeze = true;
+			this.add('-activate', pokemon, 'ability: Strong Breeze');
             pokemon.side.addSideCondition('tailwind');
         },
         name: "Strong Breeze",
@@ -943,8 +981,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When this Pokemon loses its held item, its Attack is raised by 2.",
 	},
 	troubled: {
-		onModifyMove(move, pokemon) {
-			move.flags.cantusetwice = 1;
+		onStart(source) {
+			source.addVolatile('troubled');
+		},
+		condition: {
+			noCopy: true,
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+			},
 		},
 		name: "Troubled",
 		shortDesc: "This Pokemon cannot use the same move twice in a row.",

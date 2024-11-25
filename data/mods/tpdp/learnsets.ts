@@ -21677,6 +21677,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			illusionsign: ["6M"],
 			soundsign: ["6M"],
 			warpedsign: ["6M"],
+			smashspin: ["6M"],
 		}
 	},
 	normalraiko: {

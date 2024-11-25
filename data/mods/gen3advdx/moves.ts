@@ -12,6 +12,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "For 5 turns, hail falls. Ice: 1.5x SpA.",
 		isNonstandard: null,
 		name: "Hail",
 		pp: 10,
@@ -29,6 +30,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 70,
 		basePower: 110,
 		category: "Special",
+		shortDesc: "Can't miss in Hail.",
 		name: "Blizzard",
 		pp: 5,
 		priority: 0,
@@ -36,10 +38,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onModifyMove(move) {
 			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
 		},
-		secondary: {
-			chance: 10,
-			status: 'frz',
-		},
+		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
@@ -66,8 +65,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	watershuriken: {
     	inherit: true,
+		shortDesc: "Hits 3 times. High critical hit ratio.",
+		pp: 5,
 		category: "Special",
 		gen: 3,
+		multihit: 3,
+		critRatio: 2,
 		isNonstandard: null,
 	},
 	spikyshield: {
@@ -84,5 +87,69 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	glare: {
     	inherit: true,
 		accuracy: 100,
+	},
+	bulletpunch: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
+	},
+	healingwish: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
+	},
+	obstruct: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
+	},
+	rockpolish: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
+	},
+	poisonfang: {
+    	inherit: true,
+		shortDesc: "50% chance to badly poison foe.",
+		secondary: {
+			chance: 50,
+			status: 'tox',
+		},
+	},
+	volttackle: {
+    	inherit: true,
+		shortDesc: "Has 33% recoil. 30% chance to paralyze foe.",
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+	},
+	wrathrush: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Has 33% recoil. 30% chance to burn foe.",
+		viable: true,
+		name: "Wrath Rush",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Outrage", target);
+		},
+		recoil: [33, 100],
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+	},
+	shelltrap: {
+    	inherit: true,
+		gen: 3,
+		isNonstandard: null,
 	},
 };

@@ -332,6 +332,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	},
 	normal: {
 		damageTaken: {
+			graveyard: 3,
 			Bug: 0,
 			Dark: 0,
 			Dragon: 0,
@@ -548,6 +549,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	},
 	silly: {
 		damageTaken: {
+			confusion: 3,
 			Bug: 1,
 			Dark: 2,
 			Dragon: 0,

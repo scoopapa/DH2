@@ -907,9 +907,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// Should always subtract, but stop at 0 to prevent errors.
 				this.choice.forcedSwitchesLeft = this.battle.clampIntRange(this.choice.forcedSwitchesLeft - 1, 0);
 				pokemon.switchFlag = false;
-				pokemon.side.pokemonLeft--;
-				targetPokemon.fainted = true;
-				this.battle.add('faint', (targetPokemon.toString().slice(0, 2) + "a" + targetPokemon.toString().slice(2)));
+				this.battle.faint(targetPokemon, targetPokemon, this.battle.dex.moves.get('epicbeam'));
 				this.choice.actions.push({
 					choice: 'epicbeam',
 					pokemon,
@@ -964,21 +962,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 		addFishingTokens(amount: number) {
-			if(amount === 0) return;
+			if (amount === 0 || Number.isNaN(amount)) return false;
 			if(this.fishingTokens === undefined) this.fishingTokens = 0;
-			if(this.battle.field.isTerrain('fishingterrain')) amount *= 2;
 			this.fishingTokens += amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} added to ${this.name}'s side!`);
 			this.battle.hint(`They now have ${this.fishingTokens} tokens.`);
 		},
 		removeFishingTokens(amount: number) {
-			if(amount === 0) return;
-			if(this.fishingTokens === undefined) this.fishingTokens = 0;
-			if (amount > this.fishingTokens) {
-				//this.add('-message', `There weren't enough fishing tokens on the field!`);
-				return false;
-			}
+			if (this.fishingTokens === undefined) this.fishingTokens = 0;
+			if (amount === 0 || Number.isNaN(amount) || amount > this.fishingTokens) return false;
+			if (this.field.isWeather('acidrain')) amount ++;
 			this.fishingTokens -= amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} removed from ${this.name}'s side!`);
@@ -999,7 +993,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 			if ('smackdown' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
-			if (item === 'ironball') return true;
+			if (item === 'ironball' || item === 'itemfist') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
@@ -1010,44 +1004,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
-		getSwitchRequestData(forAlly?: boolean) {
-		const entry: AnyObject = {
-			ident: this.fullname,
-			details: this.details,
-			condition: this.getHealth().secret,
-			active: (this.position < this.side.active.length),
-			stats: {
-				atk: this.baseStoredStats['atk'],
-				def: this.baseStoredStats['def'],
-				spa: this.baseStoredStats['spa'],
-				spd: this.baseStoredStats['spd'],
-				spe: this.baseStoredStats['spe'],
-			},
-			moves: this[forAlly ? 'baseMoves' : 'moves'].map(move => {
-				if (move === 'hiddenpower') {
-					return move + toID(this.hpType) + (this.battle.gen < 6 ? '' : this.hpPower);
-				}
-				if (move === 'frustration' || move === 'return') {
-					const basePowerCallback = this.battle.dex.moves.get(move).basePowerCallback as (pokemon: Pokemon) => number;
-					return move + basePowerCallback(this);
-				}
-				return move;
-			}),
-			baseAbility: this.baseAbility,
-			item: this.item,
-			pokeball: this.pokeball,
-		};
-		if (this.battle.gen > 6) entry.ability = this.ability;
-		if (this.battle.gen >= 9) {
-			entry.commanding = !!this.volatiles['commanding'] && !this.fainted;
-			entry.reviving = this.isActive && !!this.side.slotConditions[this.position]['revivalblessing'];
-			entry.sacrificing = this.isActive && !!this.side.slotConditions[this.position]['epicbeam'];
-		}
-		if (this.battle.gen === 9) {
-			entry.teraType = this.teraType;
-			entry.terastallized = this.terastallized || '';
-		}
-		return entry;
-	}
 	},
 };

@@ -9,6 +9,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ninjask: {
 		inherit: true,
+		gen: 3,
 		name: "Ninjask",
 		num: -2,
 		types: ["Bug", "Flying"],
@@ -26,6 +27,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	silcoon: {
 		inherit: true,
+		gen: 3,
 		name: "Silcoon",
 		num: -4,
 		fish: true,
@@ -92,6 +94,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	feebas: {
 		inherit: true,
+		gen: 3,
 		name: "Feebas",
 		num: -11,
 		fish: true,
@@ -103,7 +106,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "microwave",
 		num: -12,
 		types: ["Fire", "Steel"],
-		baseStats: {hp: 41, atk: 79, def: 177, spa: 123, spd: 111, spe: 69},
+		baseStats: {hp: 51, atk: 89, def: 121, spa: 113, spd: 177, spe: 49},
 		abilities: {0: "Motor Drive", 1: "Parting Gift", H: "Transistor"},
 		weightkg: 150.0,
 	},
@@ -127,6 +130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sylveon: {
 		inherit: true,
 		name: "Sylveon",
+		trans: true,
 		num: -15,
 		types: ["Fairy"],
 		baseStats: {hp: 60, atk: 130, def: 110, spa: 65, spd: 65, spe: 95},
@@ -138,7 +142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Water", "Grass"],
 		baseStats: {hp: 75, atk: 130, def: 134, spa: 95, spd: 86, spe: 45},
-		abilities: {0: "Water Absorb", H: "Innards Out"},
+		abilities: {0: "Water Absorb", H: "Innings Out"},
 		weightkg: 96.9,
 	},
 	celesteela: {
@@ -191,6 +195,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Samurott-Sinnoh",
 		num: -22,
 		fish: true,
+		trans: true,
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 80, atk: 105, def: 80, spa: 70, spd: 75, spe: 115},
 		abilities: {0: "Blaze", H: "Sharpness"},
@@ -207,17 +212,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	goomba: {
 		name: "Goomba",
 		num: -24,
+		trans: true,
 		types: ["Poison", "Normal"],
 		baseStats: {hp: 80, atk: 95, def: 80, spa: 95, spd: 80, spe: 55},
-		abilities: {0: "Strong Jaw", 1: "Innards Out", H: "Sheer Force", S: "Intimidate"},
+		abilities: {0: "Strong Jaw", 1: "Innings Out", H: "Sheer Force", S: "Intimidate"},
 		weightkg: 138.0,
 	},
 	fridgile: {
 		name: "Fridgile",
 		num: -25,
 		types: ["Ice", "Rock"],
-		baseStats: {hp: 255, atk: 75, def: 25, spa: 75, spd: 25, spe: 75},
-		abilities: {0: "Snow Warning", 1: "Sand Stream", H: "Innards Out"},
+		baseStats: {hp: 255, atk: 35, def: 45, spa: 75, spd: 45, spe: 100},
+		abilities: {0: "Snow Warning", 1: "Sand Stream", H: "Innings Out"},
 		weightkg: 1.0,
 	},
 	zaciancrowned: {
@@ -226,8 +232,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: null,
 		battleOnly: null,
 		name: "Zacian-Crowned",
+		trans: true,
 		num: -26,
-		abilities: {0: "Identity Crisis"},	
+		abilities: {0: "Stall", H: "Identity Crisis"},	
 	},
 	
 	melmetal2: {
@@ -249,6 +256,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	silvally: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fairy", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Lemon", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Silly", "Silvally-Steel", "Silvally-Water"],
 		formeOrder: [
 			"Silvally", "Silvally-Fighting", "Silvally-Flying", "Silvally-Poison", "Silvally-Ground", "Silvally-Rock", "Silvally-Bug", "Silvally-Ghost", "Silvally-Steel",
@@ -293,6 +301,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zelda: {
 		name: "Zelda",
+		trans: true,
 		num: -33,
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 90, atk: 115, def: 90, spa: 90, spd: 80, spe: 100},
@@ -301,6 +310,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cascoon: {
 		inherit: true,
+		gen: 3,
 		name: "Cascoon",
 		num: -34,
 		types: ["Bug", "Fairy"],
@@ -347,7 +357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -39,
 		fish: true,
 		types: ["Water", "Psychic"],
-		baseStats: {hp: 60, atk: 75, def: 85, spa: 100, spd: 110, spe: 115},
+		baseStats: {hp: 60, atk: 85, def: 90, spa: 115, spd: 110, spe: 115},
 		abilities: {0: "Illuminate", 1: "Natural Cure", H: "Analytic"},
 		weightkg: 80.0,
 	},
@@ -417,6 +427,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Swampert",
 		num: -47,
 		fish: true,
+		gen: 3,
 		types: ["Water", "Ground"],
 		baseStats: {hp: 100, atk: 110, def: 90, spa: 75, spd: 90, spe: 60},
 		abilities: {0: "Torrent", H: "Steel Drummer"},
@@ -426,7 +437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Swooliobat",
 		num: -48,
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 77, atk: 57, def: 105, spa: 77, spd: 105, spe: 114},
+		baseStats: {hp: 97, atk: 57, def: 105, spa: 107, spd: 105, spe: 64},
 		abilities: {0: "Unaware", 1: "Klutz", H: "Oblivious"},
 		weightkg: 325.5,
 	},
@@ -631,7 +642,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -71,
 		fish: true,
 		types: ["Water"],
-		baseStats: {hp: 70, atk: 92, def: 65, spa: 80, spd: 55, spe: 98},
+		baseStats: {hp: 85, atk: 92, def: 95, spa: 90, spd: 95, spe: 98},
 		abilities: {0: "Rock Head", 1: "Adaptability", H: "Fishy Surge"},
 		weightkg: 18.0,
 	},
@@ -750,70 +761,87 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	silvallybug: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallydark: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallydragon: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyelectric: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyfairy: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyfighting: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyfire: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyflying: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyghost: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallygrass: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyground: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyice: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallypoison: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallypsychic: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallyrock: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallysteel: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallywater: {
 		inherit: true,
 		fish: true,
+		abilities: {0: "Stall", H: "RKS System"},
 	},
 	silvallylemon: {
 		name: "Silvally-Lemon",
@@ -822,7 +850,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Lemon"],
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
+		abilities: {0: "Stall", H: "RKS System"},
 		requiredItem: "Lemon Memory",
 		changesFrom: "Silvally",
 	},
@@ -884,7 +912,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 84, spa: 60, spd: 96, spe: 110},
 		abilities: {0: "Get Silly"},
 		weightkg: 39.8,
-		requiredItem: "Cornerstone Mask",
 	},
 	keisbergif: {
 		name: "Keisberg-IF",
@@ -944,7 +971,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Silly"],
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
+		abilities: {0: "Stall", H: "RKS System"},
 		requiredItem: "Silly Memory",
 		changesFrom: "Silvally",
 	},
@@ -955,8 +982,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Stellar"],
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
-		requiredItem: "Stellarium Z",
+		abilities: {0: "Stall", H: "RKS System"},
+		//requiredItem: "Stellarium Z",
 		changesFrom: "Silvally",
 	},
 	goddease: {
@@ -1002,15 +1029,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	nedontrol: {
 		name: "Nedontrol",
+		diamondHand: true,
 		num: -105,
 		gender: "M",
 		types: ["Rock"],
-		baseStats: {hp: 126, atk: 92, def: 120, spa: 52, spd: 131, spe: 54},
+		baseStats: {hp: 116, atk: 95, def: 15, spa: 74, spd: 121, spe: 54},
 		abilities: {0: "Bon Appetit"},
 		weightkg: 434.5,
 	},
 	princirang: {
 		name: "Princirang",
+		diamondHand: true,
 		num: -106,
 		gender: "F",
 		types: ["Fairy"],
@@ -1062,6 +1091,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	traike: {
 		name: "Traike",
+		trans: true,
 		num: -112,
 		types: ["Fighting", "Electric"],
 		baseStats: {hp: 75, atk: 130, def: 50, spa: 115, spd: 50, spe: 95},
@@ -1070,6 +1100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	groudon: {
 		inherit: true,
+		gen: 3,
 		name: "Groudon",
 		num: -113,
 		types: ["Ground"],
@@ -1079,6 +1110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	drliberty: {
 		name: "Dr. Liberty",
+		diamondHand: true,
 		num: -114,
 		types: ["Psychic"],
 		baseStats: {hp: 89, atk: 71, def: 78, spa: 120, spd: 117, spe: 100},
@@ -1088,6 +1120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	absol: {
 		inherit: true,
 		name: "Absol",
+		gen: 3,
 		num: -115,
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 94, atk: 104, def: 74, spa: 104, spd: 74, spe: 114},
@@ -1134,5 +1167,56 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 110, def: 75, spa: 110, spd: 110, spe: 50},
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Drought"},
 		weightkg: 8.5,
+	},
+	
+	hiveweb: {
+		num: -126,
+		name: "Hiveweb",
+		types: ["Bug", "Normal"],
+		baseStats: {hp: 85, atk: 90, def: 90, spa: 90, spd: 100, spe: 55},
+		abilities: {0: "Honeyed Web", 1: "Shield Dust", H: "Compound Eyes"},
+		weightkg: 9.1,
+	},
+	syndcant: {
+		num: -125,
+		name: "Syndcan\'T",
+		diamondHand: true,
+		types: ["Bug"],
+		baseStats: {hp: 129, atk: 97, def: 91, spa: 95, spd: 89, spe: 74},
+		abilities: {0: "Eusociality"},
+		weightkg: 128.4,
+	},
+	fishmarketing3: {
+		num: -124,
+		name: "Fish Marketing 3",
+		types: ["Psychic", "Electric"],
+		baseStats: {hp: 90, atk: 50, def: 60, spa: 125, spd: 70, spe: 115},
+		abilities: {0: "buy fish"},
+		weightkg: 0.1,
+	},
+	lemonganium: {
+		num: -123,
+		name: "Lemonganium",
+		types: ["Lemon"],
+		baseStats: {hp: 80, atk: 82, def: 100, spa: 83, spd: 100, spe: 80},
+		abilities: {0: "Sour Hour", H: "Unaware"},
+		weightkg: 100.5,
+	},
+	carnivineif: {
+		num: -122,
+		name: "Carnivine-IF",
+		types: ["Fairy", "Silly"],
+		baseStats: {hp: 99, atk: 117, def: 86, spa: 84, spd: 86, spe: 58},
+		abilities: {0: "Ghoul Gobbler", H: "What the Sigma"},
+		weightkg: 35.6,
+	},
+	grumpig: {
+		inherit: true,
+		num: -121,
+		name: "Grumpig",
+		types: ["Psychic"],
+		baseStats: {hp: 125, atk: 40, def: 100, spa: 110, spd: 115, spe: 70},
+		abilities: {0: "Pure Power", 1: "Thick Fat", H: "Gluttony"},
+		weightkg: 71.5,
 	},
 };

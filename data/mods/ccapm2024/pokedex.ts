@@ -67,7 +67,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Noyew",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 64, atk: 51, def: 116, spa: 51, spd: 116, spe: 42},
-		abilities: {0: "Back at Ya"},
+		abilities: {0: "Back at Ya!"},
 	},
 	underhazard: {
 		num: 1011,
@@ -326,7 +326,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Marsonmallow",
 		types: ["Fairy", "Fire"],
 		baseStats: {hp: 72, atk: 107, def: 96, spa: 91, spd: 136, spe: 23},
-		abilities: {0: "Big Stick"},
+		abilities: {0: "big stick"},
 	},
 	trawlutre: {
 		num: 1048,

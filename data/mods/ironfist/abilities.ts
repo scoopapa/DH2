@@ -254,11 +254,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	illuminate: {
 		onStart(pokemon) {
-			this.boost({accuracy: 1}, pokemon);
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Illuminate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({evasion: -2}, target, pokemon, null, true);
+					this.boost({accuracy: 1}, pokemon);
+				}
+			}
 		},
 		flags: {},
 		name: "Illuminate",
-		shortDesc: "On switch-in, this Pokemon's accuracy is raised by one stage.",
+		shortDesc: "On switch-in, this Pokemon's accuracy +1 and foe(s)' evasion -2.",
 	},
 	flyeater: {
 		onTryHit(target, source, move) {
@@ -482,7 +494,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if(this.randomChance(1, 20)) pokemon.setStatus('slp');
 			if(this.randomChance(1, 100)) {
 				for (const target of pokemon.adjacentFoes()) {
-					this.actions.useMove('selfdestruct', pokemon, target);
+					this.actions.useMove('finalgambit', pokemon, target);
 				}
 			}
 		},
@@ -504,20 +516,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	rkssystem: {
 		inherit: true,
-		shortDesc: "RKS System + Magic Guard + Technician",
+		shortDesc: "RKS System + Magic Guard",
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move') {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;
-			}
-		},
-		onBasePowerPriority: 30,
-		onBasePower(basePower, attacker, defender, move) {
-			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			this.debug('Base Power: ' + basePowerAfterMultiplier);
-			if (basePowerAfterMultiplier <= 60) {
-				this.debug('Technician boost');
-				return this.chainModify(1.5);
 			}
 		},
 	},
@@ -534,7 +537,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	thediamondhand: {
 		onStart(pokemon) {
-			const diamondHand = pokemon.side.pokemon.filter(p => !p.fainted && p.baseSpecies.diamondHand);
+			const diamondHand = pokemon.side.pokemon.filter(p => p != pokemon && !p.fainted && p.baseSpecies.diamondHand);
 			if (diamondHand.length > 0) {
 				this.add('-activate', pokemon, 'ability: The Diamond Hand');
 				this.add('-start', pokemon, `diamondHand${diamondHand.length}`, '[silent]');
@@ -550,7 +553,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "The Diamond Hand",
-		shortDesc: "This Pokemon's Atk/SpA -1, but crit rate +1 for each unfainted Diamond Hand ally.",
+		shortDesc: "This Pokemon's Atk/SpA -1, but crit rate +1 for each other unfainted Diamond Hand ally.",
 	},
 	ilovefishing: {
 		onBasePowerPriority: 19,
@@ -615,25 +618,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Magnetic Storm",
 	},
 	riverthief: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
-				if (!this.boost({spe: 1})) {
-					this.add('-immune', target, '[from] ability: River Thief');
-				}
-				return null;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.baseSpecies.fish || source.hasType('Water')) {
+				this.debug('River Thief neutralize');
+				return this.chainModify(0.75);
 			}
 		},
-		onSourceDamagingHit(damage, target, source, move) {
-			if (move.type === 'Dark' && target.hasType('Water') && target.side.fishingTokens) {
-				this.add('-activate', source, 'ability: River Thief');
-				const tokens = target.side.fishingTokens;
-				target.side.removeFishingTokens(tokens);
-				source.side.addFishingTokens(tokens);
+		onModifyDamage(damage, source, target, move) {
+			if (move && source.baseSpecies.fish || source.hasType('Water')) {
+				return this.chainModify([5120, 4096]);
 			}
 		},
 		flags: {breakable: 1},
 		name: "River Thief",
-		shortDesc: "Speed Storm Drain. Dark moves steal tokens from Water-types.",
+		shortDesc: "Takes 0.75x damage from Fish/Water Pokemon and deals 1.25x damage to them.",
 	},
 	fishysurge: {
 		onStart(source) {
@@ -799,7 +797,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bramblinmentality: {
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Bramblin Mentality');
+			if (pokemon.side.faintedThisTurn && ['bramblin', 'abomasnow'].includes(pokemon.side.faintedThisTurn.baseSpecies.id)) this.boost({atk: 1, spe: 1}, pokemon);
 		},
 		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
@@ -810,7 +808,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Bramblin Mentality",
-		shortDesc: "Comatose",
+		shortDesc: "Comatose; +1 Atk/Spe when replacing a fainted Bramblin/Abomasnow.",
 	},
 
 	//slate 4
@@ -974,6 +972,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	thepearlhand: {
 		onStart(pokemon) {
+			const diamondHand = pokemon.side.foe.pokemon.filter(p => p.baseSpecies.diamondHand);
+			if (diamondHand.length === 0) return;
 			const diamondHandFainted = pokemon.side.foe.pokemon.filter(p => p.fainted && p.baseSpecies.diamondHand);
 			if (diamondHandFainted.length) {
 				this.add('-activate', pokemon, 'ability: The Pearl Hand');
@@ -1006,7 +1006,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "The Ever-Growing Hunger of Capitalism™",
-		shortDesc: "This Pokemon's attacks steal one token. If there are none, +1 SpD instead.",
+		shortDesc: "This Pokemon's attacks steal one token. If there are none, +1 Spe instead.",
 	},
 	katabaticwinds: {
 		onTryHitPriority: 1,
@@ -1052,7 +1052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Honor Student",
-		shortDesc: "On switchin, opposing Pokemon lose 2% max HP for each other Diamond Hand member.",
+		shortDesc: "On switchin, foes lose 2% max HP for each other allied Diamond Hand member.",
 	},
 	jankster: {
 		onDamagingHit(damage, target, source, move) {
@@ -1061,12 +1061,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const newatk = target.storedStats.atk;
 				target.storedStats.atk = source.storedStats.atk;
 				source.storedStats.atk = newatk;
-				this.add('-message', `${target.name}'s and ${target.name}'s Attack were swapped!`);
+				this.add('-message', `${target.name}'s and ${source.name}'s Attack were swapped!`);
 			} else {
 				const newspa = target.storedStats.spa;
-				target.storedStats.spa = newspa;
+				target.storedStats.spa = source.storedStats.spa;
 				source.storedStats.spa = newspa;
-				this.add('-message', `${target.name}'s and ${target.name}'s Special Attack were swapped!`);
+				this.add('-message', `${target.name}'s and ${source.name}'s Special Attack were swapped!`);
 			}
 		},
 		flags: {breakable: 1},
@@ -1075,6 +1075,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	//slate 6
+	honeyedweb: {
+		onDamagingHit(damage, target, source, effect) {
+			this.heal(target.baseMaxhp / 8);
+		},
+		flags: {},
+		name: "Honeyed Web",
+		shortDesc: "This Pokemon heals 1/8 max HP after being damaged by an attack.",
+	},
 	acidicdrizzle: {
 		onStart(source) {
 			this.field.setWeather('acidrain');
@@ -1086,6 +1094,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	madscientist: {
 		onStart(source) {
 			source.side.addSideCondition('madnesscounter');
+			console.log(source.side.sideConditions);
 		},
 		flags: {},
 		name: "Mad Scientist",
@@ -1113,10 +1122,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hoennstan: {
 		onStart(pokemon) {
-			const hoenn = pokemon.side.pokemon.filter(p => p.baseSpecies.gen === 3).length;
+			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && p.baseSpecies.gen === 3).length;
 			if (hoenn) {
 				this.add('-activate', pokemon, 'ability: Hoenn Stan');
-				const hoenn = Math.min(hoenn, 5);
+				hoenn = Math.min(hoenn, 5);
 				this.add('-start', pokemon, `hoenn${hoenn}`, '[silent]');
 				this.effectState.hoenn = hoenn;
 			}
@@ -1138,7 +1147,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Hoenn Stan",
-		shortDesc: "This Pokemon's Atk/Spa gain 15% for each Gen 3 ally.",
+		shortDesc: "This Pokemon's Atk/SpA gain 15% for each other Gen 3 ally.",
 	},
 	zombiesonyourlawn: {
 		onStart(source) {
@@ -1167,6 +1176,73 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Supersour Syrup",
 		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+	},
+	
+	//slate 7
+	inningsout: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp) {
+				source.trySetStatus('baseball', target);
+			}
+		},
+		flags: {},
+		name: "Innings Out",
+		shortDesc: "If this Pokemon is KOed with a move, that move's user gets Baseballed.",
+	},
+	eusociality: {
+		onFaint(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				this.actions.useMove('pounce', pokemon, target);
+			}
+		},
+		flags: {},
+		name: "Eusociality",
+		shortDesc: "When this Pokemon's HP drops to 0, it uses Pounce before fainting.",
+	},
+	buyfish: {
+		onSourceDamagingHit(damage, target, source, move) {
+			source.side.addFishingTokens(1);
+		},
+		flags: {},
+		name: "Buy Fish",
+		shortDesc: "This Pokemon's attacks add one token to its side.",
+	},
+	sourhour: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Grass') { // hardcode
+				move.type = 'Lemon';
+			}
+		},
+		flags: {},
+		name: "Sour Hour",
+		shortDesc: "This Pokemon's Grass-type moves are Lemon-type.",
+	},
+	ghoulgobbler: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true) && (source.hasType('Dark') || source.hasType('Ghost'))) {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true) && (source.hasType('Dark') || source.hasType('Ghost'))) {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'graveyard') return false;
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'graveyard') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Ghoul Gobbler",
+		shortDesc: "This Pokemon's heals 1/16 max HP upon contact with a Dark/Ghost Pokemon, or in Graveyard.",
 	},
 	
 	//vanilla
