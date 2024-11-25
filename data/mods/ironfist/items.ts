@@ -8,6 +8,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		shortDesc: "Holder's use of Electric/Grassy/Misty/Psychic/Fishy Terrain lasts 8 turns instead of 5.",
 	},
+	lustrousglobe: {
+		inherit: true,
+		shortDesc: "The Pearl Hand: Water- and Dragon-type attacks have 1.2x power.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if ([484, -108].includes(user.baseSpecies.num) && (move.type === 'Water' || move.type === 'Dragon')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ([484, -108].includes(source?.baseSpecies.num) || [484, -108].includes(pokemon.baseSpecies.num)) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Palkia-Origin", "The Pearl Hand"],
+	},
+	lustrousorb: {
+		inherit: true,
+		shortDesc: "The Pearl Hand: Water- and Dragon-type attacks have 1.2x power.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if ([484, -108].includes(user.baseSpecies.num) && (move.type === 'Water' || move.type === 'Dragon')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		itemUser: ["Palkia-Origin", "The Pearl Hand"],
+	},
 	
 	//slate 1
 	kunai: {
