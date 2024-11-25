@@ -3563,7 +3563,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	flygon: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Tinted Lens"},
+		abilities: {0: "Levitate", 1: "Coordination", H: "Tinted Lens"},
 	},
 	// end
 
