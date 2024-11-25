@@ -2402,6 +2402,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 4.5,
 		num: -63,
 	},
+	//
+	coordination: {
+		shortDesc: "Boosts Bug moves by 50% on user's side.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Coordination boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Coordination",
+		rating: 3.5,
+		num: -64,
+	},
 	// end
 
 	// start: modifying vanilla abilities
