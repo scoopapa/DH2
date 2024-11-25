@@ -330,7 +330,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	specialteraorb: {
 		name: "Special Tera Orb",
 		onStart(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Terapagos') {
+			if (pokemon.isActive && (pokemon.baseSpecies.name === 'Terapagos' || pokemon.baseSpecies.name === 'Terapagos-Terastal')) {
 				if (pokemon.species.id !== 'terapagosstellar') pokemon.formeChange('Terapagos-Stellar');
 			}
 		},
