@@ -3556,7 +3556,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// start
 	turtonator: {
 		inherit: true,
-		abilities: {0: "Shell Armor", 1: "Anger Shell", H: "Neutralizing Gas"},
+		abilities: {0: "Shell Armor", 1: "White Smoke", H: "Neutralizing Gas"},
 	},
 	// end
 
