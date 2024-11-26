@@ -198,7 +198,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				"Fairy": "Pastel Veil"
 			};
 			const item = pokemon.getItem();
-			if (!item.name.includes("Memory")) return;
+			if (!item.onMemory) return;
 			const abilityToGive = allTypes[pokemon.types[0]];
 			const oldAbility = pokemon.setAbility(abilityToGive);
 			if (oldAbility) {

@@ -343,4 +343,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "If holder is a Terapagos, it becomes Stella form. It is Stellar type.",
 		num: -7,
 	},
+
+	// Z-move section for Silvally
+	grassiumz: {
+		inherit: true,
+		onMemory: "Grass",
+	},
 };

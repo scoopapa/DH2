@@ -202,4 +202,239 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		types: ["Stellar"],
 	},
+	// Hospitality
+	audinomega: {
+		inherit: true,
+		abilities: {0: "Hospitality"},
+	},
+	happiny: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Serene Grace", H: "Hospitality"},
+	},
+	chansey: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Serene Grace", H: "Hospitality"},
+	},
+	blissey: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Serene Grace", H: "Hospitality"},
+	},
+	appletun: {
+		inherit: true,
+		abilities: {0: "Ripen", 1: "Hospitality", H: "Thick Fat"},
+	},
+	alcremie: {
+		inherit: true,
+		abilities: {0: "Hospitality", H: "Aroma Veil"},
+	},
+	aromatisse: {
+		inherit: true,
+		abilities: {0: "Hospitality", H: "Aroma Veil"},
+	},
+
+	// Solar Power
+	oddish: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Run Away"},
+	},
+	gloom: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Stench"},
+	},
+	vileplume: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Effect Spore"},
+	},
+	bellossom: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Healer"},
+	},
+	exeggcute: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Harvest"},
+	},
+	exeggutor: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Harvest"},
+	},
+	exeggutoralola: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Solar Power", H: "Harvest"},
+	},
+	lilligant: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Own Tempo", H: "Solar Power"},
+	},
+	lilliganthisui: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Hustle", H: "Solar Power"},
+	},
+	roserade: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Solar Power", H: "Technician"},
+	},
+	arboliva: {
+		inherit: true,
+		abilities: {0: "Seed Sower", 1: "Solar Power", H: "Harvest"},
+	},
+	scovillain: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Insomnia", H: "Solar Power"},
+	},
+	leafeon: {
+		inherit: true,
+		abilities: {0: "Solar Power", H: "Chlorophyll"},
+	},
+	shaymin: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Solar Power"},
+	},
+	shayminsky: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Solar Power"},
+	},
+	victreebel: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Gluttony"},
+	},
+	zarude: {
+		inherit: true,
+		abilities: {0: "Leaf Guard", H: "Solar Power"},
+	},
+	zarudedada: {
+		inherit: true,
+		abilities: {0: "Leaf Guard", H: "Solar Power"},
+	},
+	camerupt: {
+		inherit: true,
+		abilities: {0: "Solar Power", 1: "Solid Rock", H: "Anger Point"},
+	},
+
+	// Honey Gather
+	heracross: {
+		inherit: true,
+		abilities: {0: "Honey Gather", 1: "Guts", H: "Moxie"},
+	},
+	beautifly: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Honey Gather", H: "Rivalry"},
+	},
+	dustox: {
+		inherit: true,
+		abilities: {0: "Shield Dust", 1: "Honey Gather", H: "Compound Eyes"},
+	},
+	vespiquen: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Honey Gather", H: "Unnerve"},
+	},
+	wormadam: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+	},
+	wormadamsandy: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+	},
+	wormadamtrash: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Honey Gather", H: "Overcoat"},
+	},
+	mothim: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Honey Gather", H: "Tinted Lens"},
+	},
+	ursaring: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Quick Feet", H: "Honey Gather"},
+	},
+	ursaluna: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Bulletproof", H: "Honey Gather"},
+	},
+	ambipom: {
+		inherit: true,
+		abilities: {0: "Technician", 1: "Honey Gather", H: "Skill Link"},
+	},
+
+	// Run It Back
+	celebi: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Run It Back"},
+	},
+	beheeyem: {
+		inherit: true,
+		abilities: {0: "Run It Back", 1: "Synchronize", H: "Analytic"},
+	},
+	malamar: {
+		inherit: true,
+		abilities: {0: "Contrary", 1: "Run It Back", H: "Infiltrator"},
+	},
+	banette: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Frisk", H: "Run It Back"},
+	},
+	oranguru: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Run It Back", H: "Symbiosis"},
+	},
+	accelgor: {
+		inherit: true,
+		abilities: {0: "Run It Back", 1: "Sticky Hold", H: "Unburden"},
+	},
+	jynx: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Run It Back", H: "Dry Skin"},
+	},
+	jumpluff: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Run It Back", H: "Infiltrator"},
+	},
+	grafaiai: {
+		inherit: true,
+		abilities: {0: "Unburden", 1: "Run It Back", H: "Prankster"},
+	},
+	togedemaru: {
+		inherit: true,
+		abilities: {0: "Iron Barbs", 1: "Lightning Rod", H: "Run It Back"},
+	},
+	whimsicott: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Infiltrator", H: "Run It Back"},
+	},
+
+	// Shell Armor
+	rhyperior: {
+		inherit: true,
+		abilities: {0: "Shell Armor", 1: "Solid Rock", H: "Reckless"},
+	},
+
+	// Anticipation
+	mew: {
+		inherit: true,
+		abilities: {0: "Synchronize", H: "Anticipation"},
+	},
+	absol: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Super Luck", H: "Justified"},
+	},
+	medicham: {
+		inherit: true,
+		abilities: {0: "Pure Power", 1: "Anticipation", H: "Telepathy"},
+	},
+	musharna: {
+		inherit: true,
+		abilities: {0: "Forewarn", 1: "Synchronize", H: "Anticipation"},
+	},
+	avalugg: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Ice Body", H: "Sturdy"},
+	},
+	kommoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Anticipation"},
+	},
+	weavile: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Anticipation", H: "Pickpocket"},
+	},
 };
