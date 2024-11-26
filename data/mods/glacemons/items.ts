@@ -1,4 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: { [k: string]: ModdedItemData; } = {
 	crystalcrown: {
 		name: "Crystal Crown",
 		num: -1,
@@ -221,7 +221,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: -3,
 		gen: 9,
 	},
-	iceaxe:{
+	iceaxe: {
 		name: "Ice Axe",
 		shortDesc: "The holder's Ice moves are guaranteed to critically hit while Snow is active.",
 		onModifyMove(move) {
@@ -233,31 +233,31 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	honey: {
-        name: "Honey",
-        fling: {
-            basePower: 30,
-        },
-        num: -5,
-        gen: 9,
-        shortDesc: "When this Pokemon's HP drops below 50%, restores 25% HP. The item is then consumed. This item cannot be removed from the holder unless it is consumed. Any attempt to remove/steal this item lowers the attacker's Speed by one stage.",
-        onUpdate(pokemon) {
-                if (pokemon.hp <= pokemon.maxhp / 2) {
-                    if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4) && pokemon.useItem()) {
-                            this.heal(pokemon.baseMaxhp / 4);
-                    }
-                }
-      },
-        onTakeItem(item, pokemon, source) {
-            if (!this.activeMove) throw new Error("Battle.activeMove is null");
-            if (!pokemon.hp) return;
-            if ((source && source !== pokemon) || this.activeMove.id === 'knockoff' || this.activeMove.id === 'thief' || this.activeMove.id === 'switcheroo' || this.activeMove.id === 'trick') {
-                if (!this.boost({spe: -1}, source)) {
-                    this.add('-activate', pokemon, 'item: Honey');
-                }
-                return false;
-            }
-        },
-    },
+		name: "Honey",
+		fling: {
+			basePower: 30,
+		},
+		num: -5,
+		gen: 9,
+		shortDesc: "When this Pokemon's HP drops below 50%, restores 25% HP. The item is then consumed. This item cannot be removed from the holder unless it is consumed. Any attempt to remove/steal this item lowers the attacker's Speed by one stage.",
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4) && pokemon.useItem()) {
+					this.heal(pokemon.baseMaxhp / 4);
+				}
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp) return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff' || this.activeMove.id === 'thief' || this.activeMove.id === 'switcheroo' || this.activeMove.id === 'trick') {
+				if (!this.boost({ spe: -1 }, source)) {
+					this.add('-activate', pokemon, 'item: Honey');
+				}
+				return false;
+			}
+		},
+	},
 	trainingwheels: {
 		name: "Training Wheels",
 		spritenum: 130,
@@ -331,7 +331,16 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Special Tera Orb",
 		onStart(pokemon) {
 			if (pokemon.isActive && (pokemon.baseSpecies.name === 'Terapagos' || pokemon.baseSpecies.name === 'Terapagos-Terastal')) {
-				if (pokemon.species.id !== 'terapagosstellar') pokemon.formeChange('Terapagos-Stellar');
+				if (pokemon.species.id !== 'terapagosstellar') {
+					pokemon.formeChange('Terapagos-Stellar');
+					pokemon.baseMaxhp = Math.floor(Math.floor(
+						2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+					) * pokemon.level / 100 + 10);
+					const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+					pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+					pokemon.maxhp = newMaxHP;
+					this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				}
 			}
 		},
 		onTakeItem(item, source) {

@@ -193,6 +193,20 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		start: "  [POKEMON] started heating up its railgun!",
 	},
 
+	// Run It Back
+	encore: {
+		inherit: true,
+		condition: {
+			duration: 3,
+            durationCallback(target, source, effect) {
+                if (effect?.name === "Run It Back") {
+                    return 1;
+                }
+                return 3;
+            },
+		},
+	},
+
 	// Solar Power section
 	morningsun: {
 		inherit: true,

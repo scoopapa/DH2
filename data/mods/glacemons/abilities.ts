@@ -87,50 +87,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		condition: {
-			duration: 1,
-			noCopy: true, // doesn't get copied by Z-Baton Pass
-			onStart(target) {
-				let move: Move | ActiveMove | null = target.lastMove;
-				if (!move || target.volatiles['dynamax']) return false;
-
-				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
-				const moveIndex = target.moves.indexOf(move.id);
-				if (move.isZ || move.flags['failencore'] || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
-					// it failed
-					return false;
-				}
-				this.effectState.move = move.id;
-				this.add('-start', target, 'Encore');
-				if (!this.queue.willMove(target)) {
-					this.effectState.duration++;
-				}
-			},
-			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectState.move) return this.effectState.move;
-			},
-			onResidualOrder: 16,
-			onResidual(target) {
-				if (!target.moves.includes(this.effectState.move) ||
-					target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
-					// early termination if you run out of PP
-					target.removeVolatile('encore');
-				}
-			},
-			onEnd(target) {
-				this.add('-end', target, 'Encore');
-			},
-			onDisableMove(pokemon) {
-				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
-					return;
-				}
-				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectState.move) {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
-		},
 		flags: {},
 		name: "Run It Back",
 		shortDesc: "On switch-in, encore the opponents for one turn.",
