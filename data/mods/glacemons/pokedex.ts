@@ -16,7 +16,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	alcremie: {
 		inherit: true,
-		abilities: {0: "Sweet Veil", 1: "Protean", H: "Aroma Veil"},
+		abilities: {0: "Hospitality", 1: "Protean", H: "Aroma Veil"},
 	},
 	octillery: {
 		inherit: true,
@@ -130,7 +130,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	rhyperior: {
 		inherit: true,
-		abilities: {0: "Route Closed", 1: "Solid Rock", H: "Reckless"},
+		abilities: {0: "Route Closed", 1: "Solid Rock", H: "Shell Armor"},
 	},
 	obstagoon: {
 		inherit: true,
@@ -222,10 +222,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	appletun: {
 		inherit: true,
 		abilities: {0: "Ripen", 1: "Hospitality", H: "Thick Fat"},
-	},
-	alcremie: {
-		inherit: true,
-		abilities: {0: "Hospitality", H: "Aroma Veil"},
 	},
 	aromatisse: {
 		inherit: true,
@@ -400,12 +396,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	whimsicott: {
 		inherit: true,
 		abilities: {0: "Prankster", 1: "Infiltrator", H: "Run It Back"},
-	},
-
-	// Shell Armor
-	rhyperior: {
-		inherit: true,
-		abilities: {0: "Shell Armor", 1: "Solid Rock", H: "Reckless"},
 	},
 
 	// Anticipation
