@@ -349,7 +349,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		gen: 9,
 		itemUser: ["Terapagos"],
-		desc: "If holder is a Terapagos, it becomes Stella form. It is Stellar type.",
+		desc: "If holder is a Terapagos, it becomes Stellar form. It is Stellar type.",
 		num: -7,
 	},
 

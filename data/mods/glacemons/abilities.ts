@@ -196,7 +196,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			onResidual(pokemon) {
 				if (pokemon.volatiles['healoneturn']) {
 					this.heal(pokemon.baseMaxhp / 16);
-					pokemon.removeVolatile('healoneturn'),
+					pokemon.removeVolatile('healoneturn');
 				}
 			},
 		},
