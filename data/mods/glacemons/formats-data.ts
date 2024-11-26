@@ -4863,10 +4863,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "OU",
 	},
-	terapagosstellar: {
-		inherit: true,
-		tier: "Illegal",
-	},
+	// terapagosstellar: {
+	// 	inherit: true,
+	// 	tier: "Illegal",
+	// },
 	pecharunt: {
 		inherit: true,
 		tier: "RU",

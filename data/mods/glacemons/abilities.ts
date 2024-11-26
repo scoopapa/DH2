@@ -235,4 +235,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "User and switch-in restore 1/16 Max HP at end of each turn.",
 	},
+	terashift: {
+		inherit: true,
+		onPreStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos') return;
+			if (pokemon.getItem() === 'Special Tera Orb') return ;
+			if (pokemon.species.forme !== 'Terastal') {
+				this.add('-activate', pokemon, 'ability: Tera Shift');
+				pokemon.formeChange('Terapagos-Terastal', this.effect, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+		},
+	},
 };
