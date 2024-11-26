@@ -1957,7 +1957,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Crobat",
 
 		types: ["Poison", "Flying"],
-		baseStats: {hp: 80, atk: 90, def: 80, spa: 70, spd: 80, spe: 130},
+		baseStats: {hp: 85, atk: 90, def: 80, spa: 70, spd: 80, spe: 130},
 		abilities: {0: "Inner Focus", H: "Infiltrator"},
 	//	movepoolDeletions: ["frustration", "hiddenpower", "return"],
 	//	category: "Bat",
@@ -1978,7 +1978,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Crobat",
 		forme: "Mega",
 		types: ["Poison", "Flying"],
-		baseStats: {hp: 80, atk: 120, def: 95, spa: 90, spd: 95, spe: 150},
+		baseStats: {hp: 85, atk: 120, def: 95, spa: 90, spd: 95, spe: 150},
 	//	category: "Bat",
 		abilities: {0: "Vampirism"},
 		heightm: 2.0,
