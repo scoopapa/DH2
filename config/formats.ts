@@ -27,6 +27,13 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
+		name: "[Gen 9] GG's Battle Format",
+        desc: `Test description. Update when you can!`,
+		mod: 'ggsbattleformat',
+		teambuilderFormat: 'National Dex',
+		ruleset: ['Standard NatDex'],
+	},
+	{
 		name: "[Gen 9] Alternatium EX",
 		desc: `<b>Alternatium EX</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
 		threads: [
@@ -4098,12 +4105,6 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'UU',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
 		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Dancing Shoes', 'Fling + Segin Star Shard', 'Damp Rock'],
-	},
-	{
-		name: "[Gen 9] GG's Battle Format",
-        desc: `Test description. Update when you can!`,
-		mod: 'ggsbattleformat',
-		ruleset: ['Standard NatDex'],
 	},
 
 	///////////////////////////////////////////////////////////////
