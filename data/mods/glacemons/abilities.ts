@@ -147,7 +147,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {}, // yes deleting the flags is an ugly way to do it but I need to find a better one lol
 		onStart(pokemon) {
 			const allTypes = {
-				"Normal": "Tough Claws", 
+				"Normal": "Tough Claws",
 				"Grass": "Overgrow",
 				"Fire": "Blaze",
 				"Water": "Torrent",
@@ -179,14 +179,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	hospitality: {
 		inherit: true,
-		volatileStatus: 'hospitality',
+		onResidualOrder: 6,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'hospitality');
+		},
 		condition: {
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Hospitality');
+			onSwap(target) {
+				if (!target.fainted) {
+					target.addVolatile('healoneturn');
+					target.side.removeSlotCondition(target, 'hospitality');
+				}
 			},
-			onResidualOrder: 6,
 			onResidual(pokemon) {
-				this.heal(pokemon.baseMaxhp / 16);
+				if (pokemon.volatiles['healoneturn']) {
+					this.heal(pokemon.baseMaxhp / 16);
+					pokemon.removeVolatile('healoneturn'),
+				}
 			},
 		},
 		shortDesc: "User and switch-in restore 1/16 Max HP at end of each turn.",
@@ -195,7 +206,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onPreStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos') return;
-			if (pokemon.getItem() === 'Special Tera Orb') return ;
+			if (pokemon.getItem() === 'Special Tera Orb') return;
 			if (pokemon.species.forme !== 'Terastal') {
 				this.add('-activate', pokemon, 'ability: Tera Shift');
 				pokemon.formeChange('Terapagos-Terastal', this.effect, true);
