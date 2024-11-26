@@ -73,7 +73,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 118,
 	},
 	runitback: {
-		volatileStatus: 'encore',
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Run It Back');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					target.addVolatile('encore');
+				}
+			}
+		},
 		condition: {
 			duration: 1,
 			noCopy: true, // doesn't get copied by Z-Baton Pass
@@ -213,12 +226,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		volatileStatus: 'hospitality',
 		condition: {
 			onStart(pokemon) {
-				this.add('-start', pokemon, 'Aqua Ring');
+				this.add('-start', pokemon, 'Hospitality');
 			},
 			onResidualOrder: 6,
 			onResidual(pokemon) {
 				this.heal(pokemon.baseMaxhp / 16);
 			},
 		},
+		shortDesc: "User and switch-in restore 1/16 Max HP at end of each turn.",
 	},
 };

@@ -345,8 +345,68 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 
 	// Z-move section for Silvally
+	buginiumz: {
+		inherit: true,
+		onMemory: "Bug",
+	},
+	darkiniumz: {
+		inherit: true,
+		onMemory: "Dark",
+	},
+	dragoniumz: {
+		inherit: true,
+		onMemory: "Dragon",
+	},
+	electriumz: {
+		inherit: true,
+		onMemory: "Electric",
+	},
+	fairiumz: {
+		inherit: true,
+		onMemory: "Fairy",
+	},
+	fightiniumz: {
+		inherit: true,
+		onMemory: "Fighting",
+	},
+	firiumz: {
+		inherit: true,
+		onMemory: "Fire",
+	},
+	ghostiumz: {
+		inherit: true,
+		onMemory: "Ghost",
+	},
 	grassiumz: {
 		inherit: true,
 		onMemory: "Grass",
+	},
+	groundiumz: {
+		inherit: true,
+		onMemory: "Ground",
+	},
+	iciumz: {
+		inherit: true,
+		onMemory: "Ice",
+	},
+	poisoniumz: {
+		inherit: true,
+		onMemory: "Poison",
+	},
+	psychiumz: {
+		inherit: true,
+		onMemory: "Psychic",
+	},
+	rockiumz: {
+		inherit: true,
+		onMemory: "Rock",
+	},
+	steeliumz: {
+		inherit: true,
+		onMemory: "Steel",
+	},
+	wateriumz: {
+		inherit: true,
+		onMemory: "Water",
 	},
 };
