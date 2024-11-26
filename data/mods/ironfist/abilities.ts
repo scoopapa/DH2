@@ -980,22 +980,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const fallen = Math.min(diamondHandFainted.length, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
+				this.boost({atk: fallen, spa: fallen});
 			} else this.boost({spe: -2}, pokemon);
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 		},
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.fallen) {
-				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`The Pearl Hand boost: ${powMod[this.effectState.fallen]}/4096`);
-				return this.chainModify([powMod[this.effectState.fallen], 4096]);
-			}
-		},
 		flags: {},
 		name: "The Pearl Hand",
-		shortDesc: "+10% move BP per fainted Diamond Hand on foe side (max 5). Else -2 Spe.",
+		shortDesc: "+1 Atk/SpA per fainted Diamond Hand on foe side (max 5). Else -2 Spe.",
 	},
 	theevergrowinghungerofcapitalism: {
 		onSourceDamagingHit(damage, target, source, move) {
