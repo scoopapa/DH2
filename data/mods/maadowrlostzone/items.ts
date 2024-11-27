@@ -1050,7 +1050,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 646,
 		onTakeItem: false,
 		num: -1246,
-		desc: "Ghost and Dark Pokémon do 1/8 chip damage and recover. Does not affect themselves.",
+		desc: "Ghost and Dark Pokémon do 1/8 chip damage and recover if at or below 50% HP, else 1/16. Does not affect themselves.",
 		 // Check if the item can be activated
 		onUpdate(pokemon) {
 			if (!pokemon.side.sideConditions['cursesystemtrigger']) {
@@ -1062,7 +1062,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 					pokemon.side.addSideCondition('cursesystemtrigger');
 					this.add('-sidestart', pokemon.side, 'Curse System');
 					this.add('-anim', pokemon, "Geomancy");
-					this.add('-message', `The Curse System has been activated on ${pokemon.side.name}'s side! Ghost and Dark Pokémon do 1/8 chip damage and recover. Does not affect themselves.`);
+					this.add('-message', `The Curse System has been activated on ${pokemon.side.name}'s side! Ghost and Dark Pokémon do 1/8 chip damage and recover if at or below 50% HP, else 1/16. Does not affect themselves.`);
 				}
 			}
 		},
