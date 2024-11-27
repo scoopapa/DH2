@@ -212,7 +212,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (pokemon.ability === 'Solar Power') factor = 0.667;
+			if (pokemon.hasAbility('solarpower')) factor = 0.667;
 			else {
 				switch (pokemon.effectiveWeather()) {
 					case 'sunnyday':
@@ -240,7 +240,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (pokemon.ability === 'Solar Power') factor = 0.667;
+			if (pokemon.hasAbility('solarpower')) factor = 0.667;
 			else {
 				switch (pokemon.effectiveWeather()) {
 					case 'sunnyday':
@@ -268,7 +268,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (pokemon.ability === 'Solar Power') factor = 0.667;
+			if (pokemon.hasAbility('solarpower')) factor = 0.667;
 			else {
 				switch (pokemon.effectiveWeather()) {
 					case 'sunnyday':
@@ -295,13 +295,13 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	growth: {
 		inherit: true,
 		onModifyMove(move, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || pokemon.ability === 'Solar Power') move.boosts = {atk: 2, spa: 2};
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || pokemon.hasAbility('solarpower')) move.boosts = {atk: 2, spa: 2};
 		},
 	},
 	weatherball: {
 		inherit: true,
 		onModifyType(move, pokemon) {
-			if (pokemon.ability === 'Solar Power') move.type = 'Fire';
+			if (pokemon.hasAbility('solarpower')) move.type = 'Fire';
 			else {
 				switch (pokemon.effectiveWeather()) {
 				case 'sunnyday':
@@ -322,7 +322,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}}
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.ability === 'Solar Power') move.basePower *= 2;
+			if (pokemon.hasAbility('solarpower')) move.basePower *= 2;
 			else {
 				switch (pokemon.effectiveWeather()) {
 				case 'sunnyday':
@@ -351,7 +351,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather() || attacker.ability === 'Solar Power')) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || attacker.hasAbility('solarpower')) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -364,7 +364,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		onBasePower(basePower, pokemon, target) {
 			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !pokemon.hasAbility('solarpower')) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -377,7 +377,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || attacker.ability === 'Solar Power') {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || attacker.hasAbility('solarpower')) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -390,7 +390,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		onBasePower(basePower, pokemon, target) {
 			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather()) && pokemon.ability !== 'Solar Power') {
+			if (weakWeathers.includes(pokemon.effectiveWeather()) && !pokemon.hasAbility('solarpower')) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
