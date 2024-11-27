@@ -12,6 +12,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	//	this.modData("Learnsets", "aurorus").learnset.timecompressor = ['9M'];
 		this.modData("Learnsets", "avalugg").learnset.lifedew = ['9M'];
 		this.modData("Learnsets", "banette").learnset.copycat = ['9M'];
+		this.modData("Learnsets", "banette").learnset.stringshot = ['9M'];
         this.modData("Learnsets", "bastiodon").learnset.blockage = ['9M'];
 		this.modData("Learnsets", "beedrill").learnset.hazardstinger = ['9M'];
         this.modData("Learnsets", "bouffalant").learnset.quickattack = ['9M'];
@@ -65,7 +66,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "turtonator").learnset.acidicterrain = ['9M'];
 		this.modData("Learnsets", "turtonator").learnset.oilspill = ['9M'];
 		this.modData("Learnsets", "turtonator").learnset.reactivepoison = ['9M'];
-		this.modData("Learnsets", "turtonator").learnset.stealthrock = ['9M'];
 		this.modData("Learnsets", "zubat").learnset.acidicterrain = ['9M'];
 		this.modData("Learnsets", "zubat").learnset.reactivepoison = ['9M'];
 	//	delete this.modData('Learnsets', "smeargle").learnset.magicpowder;
