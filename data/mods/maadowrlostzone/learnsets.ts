@@ -1849,6 +1849,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	ursilkith: {
 		learnset: {
 			ancientpower: ["9M"],
+			auroraveil: ["9M"],
 			avalanche: ["9M"],
 			blizzard: ["9M"],
 			brainage: ["9M"],
@@ -1858,7 +1859,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9M"],
 			frostbite: ["9M"],
 			frostbreath: ["9M"],
-			gossamerveil: ["9M"],
 			icebeam: ["9M"],
 			iceshard: ["9M"],
 			iciclecrash: ["9M"],
@@ -1868,6 +1868,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			leechlife: ["9M"],
 			meteorbeam: ["9M"],
 			nastyplot: ["9M"],
+			nebulasnare: ["9M"],
 			pinmissile: ["9M"],
 			protect: ["9M"],
 			recover: ["9M"],
@@ -1885,7 +1886,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			stoneedge: ["9M"],
 			substitute: ["9M"],
 			toxic: ["9M"],
-			toxicspikes: ["9M"],
 			trickroom: ["9M"],
 			wideguard: ["9M"],
 		},
