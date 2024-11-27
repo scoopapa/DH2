@@ -155,7 +155,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	backatya: {
 		onDamagingHit(damage, target, source, move) {
-			this.add('-activate', source, 'ability: Back at Ya!');
 			this.damage(target.getUndynamaxedHP(damage * 2), source, target);
 		},
 		flags: {},
@@ -783,6 +782,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const targetAction = this.queue.willMove(target);
 			if (!targetAction) return;
 			const pokemonAction = this.queue.willMove(pokemon);
+			if (!pokemonAction) return;
 			const targetMove = this.dex.getActiveMove(targetAction.move.id);
 			const pokemonMove = this.dex.getActiveMove(pokemonAction.move.id);
 			if (!pokemon.volatiles['substitute'] && targetMove.type === pokemonMove.type) {
