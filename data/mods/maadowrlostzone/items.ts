@@ -375,6 +375,40 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// end
 
 	// start
+	goodrite: {
+		name: "Goodrite",
+		spritenum: 589,
+		megaStone: "Goodra-Mega",
+		megaEvolves: "Goodra",
+		itemUser: ["Goodra"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1218,
+		gen: 9,
+		desc: "If held by a Goodra, this item allows it to Mega Evolve in battle.",
+	},
+	// end
+
+	// start
+	centiskorchite: {
+		name: "Centiskorchite",
+		spritenum: 625,
+		megaStone: "Centiskorch-Mega",
+		megaEvolves: "Centiskorch",
+		itemUser: ["Centiskorch"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1219,
+		gen: 9,
+		desc: "If held by a Centiskorch, this item allows it to Mega Evolve in battle.",
+	},
+	// end
+
+	// start
 	starvial: {
 		name: "Star Vial",
 		spritenum: 709,
