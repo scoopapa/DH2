@@ -3832,26 +3832,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Tough",
 	},
 	//
-	gossamerveil: {
+	nebulasnare: {
 		num: -152,
-		accuracy: 90,
+		accuracy: 85,
 		basePower: 100,
 		category: "Physical",
-		name: "Gossamer Veil",
+		shortDesc: "Sets Toxic Spikes after hitting foes.",
+		name: "Nebula Snare",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aurora Veil");
+			this.add('-anim', source, "String Shot", target);
+		},
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('spikes');
+					side.addSideCondition('toxicspikes');
 				}
 			}
 		},
 		onAfterSubDamage(damage, target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('spikes');
+					side.addSideCondition('toxicspikes');
 				}
 			}
 		},
