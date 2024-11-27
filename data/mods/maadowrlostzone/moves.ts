@@ -2075,22 +2075,34 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacentFoes",
 		type: "Fighting",
 	},
-	crossbeam: {
+	trivoltcascade: {
 		num: -109,
-		accuracy: 80,
-		basePower: 100,
+		accuracy: 90,
+		basePower: 30,
 		category: "Physical",
-		shortDesc: "+1 crit ratio.",
-		name: "Cross Beam",
+		shortDesc: "30% to brn, par, frz. Each hit can miss.",
+		name: "Tri-Volt Cascade",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bolt Strike", target);
+			this.add('-anim', source, "Tri Attack", target);
 		},
-		critRatio: 2,
-		secondary: null,
+	//	critRatio: 2,
+		secondary: {
+			chance: 30,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				} else {
+					target.trySetStatus('frz', source);
+				}
+			},
+		},
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
