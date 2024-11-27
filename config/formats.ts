@@ -30,8 +30,9 @@ export const Formats: FormatList = [
 		name: "[Gen 9] GG's Battle Format",
         desc: `Test description. Update when you can!`,
 		mod: 'ggsbattleformat',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod'],
 		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+		banlist: ['Eternatus-Eternamax'],
 	},
 	{
 		name: "[Gen 9] Alternatium EX",
