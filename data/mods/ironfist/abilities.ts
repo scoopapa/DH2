@@ -1198,7 +1198,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			source.side.addFishingTokens(1);
 		},
 		flags: {},
-		name: "Buy Fish",
+		name: "buy fish",
 		shortDesc: "This Pokemon's attacks add one token to its side.",
 	},
 	sourhour: {
