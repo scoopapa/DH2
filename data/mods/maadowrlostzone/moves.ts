@@ -2099,7 +2099,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	darkmatter: {
 		num: -110,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			const yourSide = pokemon.side;
 			const targetSide = target.side;
@@ -2121,10 +2121,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
 			this.debug('Dark Matter damage boost');
-			return Math.min(400, 80 + 20 * allLayers);
+			return Math.min(850, 50 + 50 * allLayers); // 400, 80, 20
 		},
 		category: "Special",
-		shortDesc: "+20 for each hazard on the field.",
+		shortDesc: "+50 for each hazard on the field.",
 		name: "Dark Matter",
 		pp: 10,
 		priority: 0,
@@ -2153,7 +2153,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (targetSide.sideConditions['toxicspikes']) {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
-			const bp = Math.min(400, 80 + 20 * allLayers);
+			const bp = Math.min(850, 50 + 50 * allLayers); // 400, 80, 20
 			this.add('-message', `Dark Matter currently has a BP of ${bp}!`);
 		},
 		secondary: null,
