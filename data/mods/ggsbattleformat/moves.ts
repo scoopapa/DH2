@@ -5,7 +5,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 30,
 		category: "Physical",
 		desc: "The user performs a well timed triple attack, hitting the target from below three times in a row.",
-		shortDesc: "Contact, Hits 3 times",
+		shortDesc: "Hits 3 times.",
 		name: "Triple Dig",
 		pp: 10,
 		priority: 0,
