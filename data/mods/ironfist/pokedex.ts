@@ -105,9 +105,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	microwave: {
 		name: "microwave",
 		num: -12,
-		types: ["Fire", "Steel"],
+		types: ["Fire", "Steel", "Electric"],
 		baseStats: {hp: 51, atk: 89, def: 121, spa: 113, spd: 177, spe: 49},
-		abilities: {0: "Motor Drive", 1: "Parting Gift", H: "Transistor"},
+		abilities: {0: "Lightning Rod", 1: "Parting Gift", H: "Transistor"},
 		weightkg: 150.0,
 	},
 	glaceon: {
@@ -1033,7 +1033,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -105,
 		gender: "M",
 		types: ["Rock"],
-		baseStats: {hp: 116, atk: 95, def: 15, spa: 74, spd: 121, spe: 54},
+		baseStats: {hp: 116, atk: 95, def: 115, spa: 74, spd: 121, spe: 54},
 		abilities: {0: "Bon Appetit"},
 		weightkg: 434.5,
 	},
@@ -1177,9 +1177,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Honeyed Web", 1: "Shield Dust", H: "Compound Eyes"},
 		weightkg: 9.1,
 	},
-	syndcant: {
+	syndicant: {
 		num: -125,
-		name: "Syndcan\'T",
+		name: "Syndican\'T",
 		diamondHand: true,
 		types: ["Bug"],
 		baseStats: {hp: 129, atk: 97, def: 91, spa: 95, spd: 89, spe: 74},
@@ -1214,6 +1214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: -121,
 		name: "Grumpig",
+		gen: 3,
 		types: ["Psychic"],
 		baseStats: {hp: 125, atk: 40, def: 100, spa: 110, spd: 115, spe: 70},
 		abilities: {0: "Pure Power", 1: "Thick Fat", H: "Gluttony"},

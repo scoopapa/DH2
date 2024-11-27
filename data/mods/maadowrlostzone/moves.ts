@@ -2053,7 +2053,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	// Cosmic Ripples, -108
+	cosmicripples: {
+		num: -108,
+		accuracy: 90,
+		basePower: 50,
+		basePowerCallback(pokemon) {
+			return Math.min(200, 50 + 50 * pokemon.timesAttacked);
+		},
+		category: "Special",
+		shortDesc: "+50 per hit; spread; -4 prio.",
+		name: "Cosmic Ripples",
+		pp: 5,
+		priority: -4,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flash", target);
+			this.add('-anim', source, "Mind Blown", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fighting",
+	},
 	crossbeam: {
 		num: -109,
 		accuracy: 80,
@@ -2577,7 +2598,76 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Electric",
 	},
-	// Moon Graze, -123
+	moongraze: {
+		num: -123,
+		accuracy: 90,
+		basePower: 100,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			const rolloutData = pokemon.volatiles['moongraze'];
+			if (rolloutData?.hitCount) {
+				bp *= Math.pow(2, rolloutData.contactHitCount);
+			}
+			if (rolloutData && pokemon.status !== 'slp') {
+				rolloutData.hitCount++;
+				rolloutData.contactHitCount++;
+				if (rolloutData.hitCount < 3) {
+					rolloutData.duration = 2;
+				}
+			}
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			this.debug("BP: " + bp);
+			return bp;
+		},
+		category: "Physical",
+		shortDesc: "Rollout effect.",
+		name: "Moon Graze",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, mirror: 1, metronome: 1, failinstruct: 1, noparentalbond: 1},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.volatiles['moongraze'] || pokemon.status === 'slp' || !target) return;
+			pokemon.addVolatile('moongraze');
+			// @ts-ignore
+			// TS thinks pokemon.volatiles['rollout'] doesn't exist because of the condition on the return above
+			// but it does exist now because addVolatile created it
+			pokemon.volatiles['moongraze'].targetSlot = move.sourceEffect ? pokemon.lastMoveTargetLoc : pokemon.getLocOf(target);
+		},
+		onAfterMove(source, target, move) {
+			const rolloutData = source.volatiles["moongraze"];
+			if (
+				rolloutData &&
+				rolloutData.hitCount === 3 &&
+				rolloutData.contactHitCount < 3
+				// this conditions can only be met in gen7 and gen8dlc1
+				// see `disguise` and `iceface` abilities in the resp mod folders
+			) {
+				source.addVolatile("moongrazestorage");
+				source.volatiles["moongrazestorage"].contactHitCount =
+					rolloutData.contactHitCount;
+			}
+		},
+		condition: {
+			duration: 1,
+			onLockMove: 'moongraze',
+			onStart() {
+				this.effectState.hitCount = 0;
+				this.effectState.contactHitCount = 0;
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['moongraze'];
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+	},
 	plantpathogens: {
 		num: -124,
 		accuracy: true,
@@ -3125,11 +3215,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	corrosivesilt: {
 		num: -136,
 		accuracy: 95,
-		basePower: 100,
+		basePower: 90,
 		category: "Physical",
 		shortDesc: "Terrain to Acidic; Poison/Ground.",
 		name: "Corrosive Silt",
-		pp: 5,
+		pp: 10,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Ground', type);
@@ -3162,9 +3252,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	equilibrium: {
 		num: -137,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 50,
 		category: "Special",
-		shortDesc: "Photon Geyser effect.",
+		shortDesc: "Special or physical, opposite in follow-up.",
 		name: "Equilibrium",
 		pp: 10,
 		priority: 0,
@@ -3177,18 +3267,67 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Focus Energy");
 			this.add('-anim', source, "Psycho Boost", target);
 		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.category === 'Physical') {
+				this.boost({atk: -1}, source);
+					this.actions.useMove('equilibrium2', source, target);
+			} else {
+				this.boost({spa: -1}, source);
+					this.actions.useMove('equilibrium3', source, target);
+			}
+		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
 	},
-	stellarfission: {
+	equilibrium2: {
+		num: -1037,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "Special version.",
+		name: "Equilibrium",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	equilibrium3: {
+		num: -1038,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Physical version.",
+		name: "Equilibrium",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	stellarfusion: {
 		num: -138,
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
 		shortDesc: "Type dependent; hits all others; recharge.",
-		name: "Stellar Fission",
+		name: "Stellar Fusion",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1},
@@ -3514,6 +3653,192 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+	},
+	//
+	bridgeassembly: {
+		num: -146,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Sand: +1 SpD; Sun: +1 Def.",
+		name: "Bridge Assembly",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-message', `${source.name} assembles its body!`);
+			this.add('-anim', source, "Core Enforcer", target);
+		},
+		onAfterMove(attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				this.boost({spd: 1}, attacker, attacker, move);
+			} else if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+				this.boost({def: 1}, attacker, attacker, move);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	//
+	mindbend: {
+		num: -147,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon) {
+			const ratio = Math.max(Math.floor(pokemon.hp * 48 / pokemon.maxhp), 1);
+			let bp;
+			if (ratio < 2) {
+				bp = 200;
+			} else if (ratio < 5) {
+				bp = 150;
+			} else if (ratio < 10) {
+				bp = 100;
+			} else if (ratio < 17) {
+				bp = 80;
+			} else if (ratio < 33) {
+				bp = 40;
+			} else {
+				bp = 20;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		category: "Special",
+		shortDesc: "Psychic type Reversal.",
+		name: "Mind Bend",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-message', `${source.name} bends reality!`);
+			this.add('-anim', source, "Genesis Supernova", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	//
+	springbloom: {
+		num: -148,  
+		accuracy: 95,  
+		basePower: 50,  
+		shortDesc: "Lowers targets' Spe by 1, 2 in Sun.",
+		name: "Spring Bloom",  
+		category: "Special",
+		pp: 10,  
+		priority: 0,  
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+        	this.attrLastMove('[still]');
+        	this.add('-anim', source, "Bloom Doom", target);
+    	},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+			  // Check if Tailwind is active on the user's side
+				if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+					this.boost({spe: -2}, target);
+				} else {
+					this.boost({spe: -1}, target);
+				}
+			},
+		},
+		target: "allAdjacentFoes",  
+		type: "Grass",  
+		contestType: "Beautiful", 
+	},
+	//
+	excavation: {
+		num: -149,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Excavation",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		shortDesc: "+50 damage for each recovered item.",
+		basePowerCallback(pokemon, target, move) {
+			// Recount recovered items
+			const targets = this.getAllActive().filter(pokemon => 
+				pokemon && !pokemon.fainted && !pokemon.item // Only Pokémon without items
+			);
+		
+			let recoveredCount = 0; // Local variable to track recovered items
+		
+			for (const pokemon of targets) {
+				if (this.actions.useMove('Recycle', pokemon)) {
+					recoveredCount++;
+				}
+			}
+		
+			// Calculate new base power based on the recount
+			const newBasePower = this.clampIntRange(move.basePower + (50 * recoveredCount), 0, 200);
+			
+		//	console.log(`Excavation: Base power calculated as ${newBasePower} (Recovered items: ${recoveredCount}).`);
+			return newBasePower;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	//
+	hazardstinger: {
+		num: -151,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "User and target recharge.",
+		name: "Hazard Stinger",
+		pp: 5,
+		priority: 0,
+		flags: {recharge: 1, contact: 1, protect: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-message', `${source.name} is about to stun the target!`);
+			this.add('-anim', source, "Fell Stinger", target);
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		volatileStatus: 'mustrecharge',
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	//
+	gossamerveil: {
+		num: -152,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Gossamer Veil",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "allAdjacentFoes",
+		type: "Bug",
 	},
 	// end
 
@@ -4224,6 +4549,151 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		target: "normal",
+	},
+	// Gravitational Pull, Sticky Residues
+	gmaxsteelsurge: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Steelsurge');
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The sharp spikes are surrounding ${active.name}!`);
+					}
+				}
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || (pokemon.hasAbility('gravitationalpull') && !pokemon.ignoringAbility())) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+				}
+				// Ice Face and Disguise correctly get typed damage from Stealth Rock
+				// because Stealth Rock bypasses Substitute.
+				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
+				// so we're going to test the damage of a Steel-type Stealth Rock instead.
+				const steelHazard = this.dex.getActiveMove('Stealth Rock');
+				steelHazard.type = 'Steel';
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+	},
+	spikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The spikes are surrounding ${active.name}!`);
+					}
+				}
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || (pokemon.hasAbility('gravitationalpull') && !pokemon.ignoringAbility())) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+				}
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
+	},
+	stealthrock: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The pointed stones are surrounding ${active.name}!`);
+					}
+				}
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || (pokemon.hasAbility('gravitationalpull') && !pokemon.ignoringAbility())) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+				}
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The sticky web is surrounding ${active.name}!`);
+					}
+				}
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || (pokemon.hasAbility('gravitationalpull') && !pokemon.ignoringAbility())) return;
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull')) return;
+				}
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	toxicspikes: {
+		inherit: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers = 1;
+				for (const active of this.getAllActive()) {
+					if (active.volatiles['gravitationalpull']) {
+						this.add('-ability', active, 'Gravitational Pull');
+						this.add('-message', `The toxic spikes are surrounding ${active.name}!`);
+					}
+				}
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 2) return false;
+				this.add('-sidestart', side, 'move: Toxic Spikes');
+				this.effectState.layers++;
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasType('Poison') && !this.field.getPseudoWeather('stickyresidues')) {
+					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
+					pokemon.side.removeSideCondition('toxicspikes');
+				} else if (
+					pokemon.hasType('Steel') || pokemon.hasType('Poison') ||
+					pokemon.hasItem('heavydutyboots') || (pokemon.hasAbility('gravitationalpull') && !pokemon.ignoringAbility())
+							 ) {
+					return;
+				} else {
+					for (const active of this.getAllActive()) {
+						if (active.hasAbility('gravitationalpull')) return;
+					}
+					if (this.effectState.layers >= 2) {
+						pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+					} else {
+						pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+					}
+				}
+			},
+		},
 	},
 	// end
 

@@ -1484,7 +1484,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// end
 
 	// start
-	gravitationalpull: {
+	cosmicpull: {
 		shortDesc: "No Guard, but cannot be suppressed.",
 		onAnyInvulnerabilityPriority: 1,
 		onAnyInvulnerability(target, source, move) {
@@ -1497,13 +1497,60 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			return accuracy;
 		},
 		flags: {failskillswap: 1, cantsuppress: 1},
-		name: "Gravitational Pull",
+		name: "Cosmic Pull",
 		rating: 4,
 		num: -41,
 	},
 	// end
 
-	// start, Lunar Particles, -42
+	// start
+	lunarparticles: {
+		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team lowers the attacker's Spe. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
+		shortDesc: "Stat reduction: contact lowers attacker's Spe.",
+		name: "Lunar Particles",
+		onTryBoost(boost: Partial<BoostsTable>, target: Pokemon, source: Pokemon, effect: Effect) {
+			for (const i in boost) {
+				if ((boost as any)[i] < 0) {
+					let num = (boost as any)[i];
+					while (num !== 0) {
+						target.side.addSideCondition('lunarparticles');
+						num++;
+					}
+				}
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(side) {
+				this.add('-ability', this.effectState.source, 'Lunar Particles');
+				this.add('-message', `The gravity around ${this.effectState.source.name}'s team increased!`);
+				this.hint(`During Lunar Particles, making contact with a Pokémon on ${this.effectState.source.name}'s team will result in Spe drop!`);
+				this.hint(`The effect is extended each time ${this.effectState.source.name}'s stats are lowered!`);
+				this.effectState.duration = 2;
+			},
+			onRestart(side) {
+				this.effectState.duration++;
+			},
+			onHit(target, source, move) {
+				if (target.side === this.effectState.target && move.flags['contact']) {
+					this.boost({spe: -1}, source);
+				}
+			},
+			onResidualOrder: 10,
+			onResidual(side) {
+				if (this.effectState.duration > 1) {
+					this.add('-message', `There are ${this.effectState.duration} turns left of Lunar Particles!`);
+				} else if (this.effectState.duration === 1) {
+					this.add('-message', `There is one turn left of Lunar Particles!`);
+				}
+			},
+			onEnd(side) {
+				this.add('-message', `The gravity around ${this.effectState.source.name}'s team wore off!`);
+			},
+		},
+		rating: 3.5,
+		num: -42,
+	},
 	// end
 
 	// start
@@ -1831,8 +1878,54 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},	
 	// end	
 
-	// start, Solar Flare, -52
-
+	// start
+	solarflare: {
+		desc: "After any of this Pokémon's stats is reduced, making contact with a Pokémon on its team burns the attacker. The duration is one turn for each stat stage that was reduced, and the duration is extended if stats are reduced again while it is already in effect.",
+		shortDesc: "Stat reduction: contact burns attacker.",
+		name: "Solar Flare",
+		onTryBoost(boost: Partial<BoostsTable>, target: Pokemon, source: Pokemon, effect: Effect) {
+			for (const i in boost) {
+				if ((boost as any)[i] < 0) {
+					let num = (boost as any)[i];
+					while (num !== 0) {
+						target.side.addSideCondition('solarflare');
+						num++;
+					}
+				}
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(side) {
+				this.add('-ability', this.effectState.source, 'Solar Flare');
+				this.add('-message', `The air around ${this.effectState.source.name}'s team was superheated!`);
+				this.hint(`During Solar Flare, making contact with a Pokémon on ${this.effectState.source.name}'s team will result in a burn!`);
+				this.hint(`The effect is extended each time ${this.effectState.source.name}'s stats are lowered!`);
+				this.effectState.duration = 2;
+			},
+			onRestart(side) {
+				this.effectState.duration++;
+			},
+			onHit(target, source, move) {
+				if (target.side === this.effectState.target && move.flags['contact']) {
+					source.trySetStatus('brn', target);
+				}
+			},
+			onResidualOrder: 10,
+			onResidual(side) {
+				if (this.effectState.duration > 1) {
+					this.add('-message', `There are ${this.effectState.duration} turns left of Solar Flare!`);
+				} else if (this.effectState.duration === 1) {
+					this.add('-message', `There is one turn left of Solar Flare!`);
+				}
+			},
+			onEnd(side) {
+				this.add('-message', `The air around ${this.effectState.source.name}'s team cooled down!`);
+			},
+		},
+		rating: 3.5,
+		num: -52,
+	},
 	// end
 
 	// start, Star Force, -53
@@ -1876,9 +1969,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},*/
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			// If the user has Must Recharge after using a move
-			if (this.field.getPseudoWeather('gravity') && pokemon.volatiles['mustrecharge'] && !pokemon.volatiles['starforceactivated']) {
+			if (this.field.getPseudoWeather('gravity') && pokemon.volatiles['mustrecharge']) {
 				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon);
-				pokemon.addVolatile('starforceactivated');
 			}
 		},
 		flags: {},
@@ -2265,10 +2357,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -59,
 	},
 	splitsystem: {
-		shortDesc: "Old gen phys/spec split.",
+		shortDesc: "Old gen phys/spec split. +20% boost.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
-		//	const originalCategory = move.category; // New line
+		if (move.category !== 'Status') {
+			const originalCategory = move.category; // New line
 			switch (move.type) {
 				case 'Grass':
 				case 'Fire':
@@ -2293,11 +2386,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					move.category = 'Physical';
 					break;
 			}
-			/*// Apply 20% boost only if the category has changed
+			// Apply 20% boost only if the category has changed
 			if (move.category !== originalCategory) {
 				move.basePower = Math.floor(move.basePower * 1.2);
 				this.add('-message', `Split System boosted ${move.name}'s power!`);
-			}*/
+			}
+		}
 		},
 		name: "Split System",
 		rating: 2,
@@ -2362,6 +2456,190 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Soothing Gift",
 		rating: 5,
 		num: -62,
+	},
+	//
+	gforce: {
+		desc: "On switch-in, user sets Gravity. This remains in effect until user is no longer active.",
+		shortDesc: "Perma Gravity if user active.",
+		onStart(source) {
+			if (this.field.getPseudoWeather('gravity')) {
+				this.add('-ability', source, 'G-Force');
+				this.add('-message', `${source.name} twisted the dimensions!`);
+				this.hint("G-Force doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.gravity.source = source;
+				this.field.pseudoWeather.gravity.duration = 0;
+			} else {
+				this.add('-ability', source, 'G-Force');
+				this.field.addPseudoWeather('gravity');
+				this.hint("G-Force doesn't wear off until the user leaves the field!");
+				this.field.pseudoWeather.gravity.duration = 0;
+			}
+		},
+		onAnyTryMove(target, source, move) {
+			if (['gravity'].includes(move.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: G-Force', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('gforce')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('gravity');
+		},
+		name: "G-Force",
+		rating: 4.5,
+		num: -63,
+	},
+	//
+	coordination: {
+		shortDesc: "Boosts Bug moves by 50% on user's side.",
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Coordination boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Coordination",
+		rating: 3.5,
+		num: -64,
+	},
+	//
+	gravitationalpull: {
+		desc: "This Pokémon is immune to all entry hazards and incorporates them into its body. Pokémon making contact with this Pokémon are affected by all of the hazards on both sides of the field, in the same way as if they had switched in.",
+		shortDesc: "Hazard immunity. Attacked = hazard effect.",
+		name: "Gravitational Pull",
+		onStart(pokemon) {
+			for (const active of this.getAllActive()) {
+				if (active.volatiles['gravitationalpull']) {
+					active.removeVolatile('gravitationalpull');
+				}
+			}
+			pokemon.addVolatile('gravitationalpull');
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['gravitationalpull']) return;
+			for (const active of this.getAllActive()) {
+				if (active.volatiles['gravitationalpull']) {
+					return;
+				}
+			}
+			pokemon.addVolatile('gravitationalpull');
+		},
+		onEnd(pokemon) {
+			if (pokemon.volatiles['gravitationalpull']) {
+				pokemon.removeVolatile('gravitationalpull');
+				for (const active of this.getAllActive()) {
+					if (active.hasAbility('gravitationalpull') && active !== pokemon) {
+						active.addVolatile('gravitationalpull');
+						return;
+					}
+				}
+				const hazards = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const sideCondition of hazards) {
+					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+						this.add('-message', `The hazards on the field returned to their original positions!`);
+						return;
+					}
+				}
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'ability: Gravitational Pull');
+				const hazards = [
+					'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				];
+				for (const sideCondition of hazards) {
+					if (pokemon.side.getSideCondition(sideCondition) || pokemon.side.foe.getSideCondition(sideCondition)) {
+						this.add('-message', `The hazards on the field are surrounding ${pokemon.name}!`);
+						return;
+					}
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'ability: Gravitational Pull', '[silent]');
+			},
+			onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+			//	if (move.flags['contact']) {
+					let success = undefined;
+					if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['spikes']) {
+							layers += target.side.sideConditions['spikes'].layers;
+						}
+						if (target.side.foe.sideConditions['spikes']) {
+							layers += target.side.foe.sideConditions['spikes'].layers;
+						}
+						const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
+						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
+						// this.add('-message', `${source.name} was hurt by the spikes!`);
+					}
+					if (target.side.getSideCondition('toxicspikes') || target.side.foe.getSideCondition('toxicspikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['toxicspikes']) {
+							layers += target.side.sideConditions['toxicspikes'].layers;
+						}
+						if (target.side.foe.sideConditions['toxicspikes']) {
+							layers += target.side.foe.sideConditions['toxicspikes'].layers;
+						}
+						if (layers >= 2) {
+							source.trySetStatus('tox', target);
+						} else {
+							source.trySetStatus('psn', target);
+						}
+					}
+					if (target.side.getSideCondition('stealthrock') || target.side.foe.getSideCondition('stealthrock')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						const typeMod = this.clampIntRange(source.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
+						// this.add('-message', `Pointed stones dug into ${source.name}!`);
+					}
+					if (target.side.getSideCondition('stickyweb') || target.side.foe.getSideCondition('stickyweb')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						this.add('-activate', source, 'move: Sticky Web');
+						this.boost({spe: -1}, source, target, this.dex.getActiveMove('stickyweb'));
+					}
+					if (target.side.getSideCondition('gmaxsteelsurge') || target.side.foe.getSideCondition('gmaxsteelsurge')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						const steelHazard = this.dex.getActiveMove('Stealth Rock');
+						steelHazard.type = 'Steel';
+						const typeMod = this.clampIntRange(source.runEffectiveness(steelHazard), -6, 6);
+						this.damage(source.maxhp * Math.pow(2, typeMod) / 8, source, target);
+						// this.add('-message', `${source.name} was hurt by the sharp spikes!`);
+					}
+				}
+		//	},
+		},
+	//	hazardImmune: true,
+		rating: 3,
+		num: -65,
 	},
 	// end
 

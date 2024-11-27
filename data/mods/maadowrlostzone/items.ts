@@ -594,13 +594,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 			return true;
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.side.sideConditions['lzstartertrigger']) {
+			if (!pokemon.side.sideConditions['lzstartersystemtrigger']) {
 				// list
 			//	if (pokemon.side.sideConditions['matokodiumtrigger']) {
 			//		return;
 			//	}
 				if (pokemon.species.name === 'Matokoda-Ascend') {
-					pokemon.side.addSideCondition('lzstartertrigger');
+					pokemon.side.addSideCondition('lzstartersystemtrigger');
 					this.add('-sidestart', pokemon.side, 'Matokodium');
 					this.add('-anim', pokemon, "Geomancy");
 					this.add('-message', `The Matokodium has been activated on ${pokemon.side.name}'s side! System effects are now suppressed.`);
@@ -641,13 +641,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 			return true;
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.side.sideConditions['lzstartertrigger']) {
+			if (!pokemon.side.sideConditions['lzstartersystemtrigger']) {
 				// list
 			//	if (pokemon.side.sideConditions['matokodiumtrigger']) {
 			//		return;
 			//	}
 				if (pokemon.species.name === 'Piahchi-Ascend') {
-					pokemon.side.addSideCondition('lzstartertrigger');
+					pokemon.side.addSideCondition('lzstartersystemtrigger');
 					this.add('-sidestart', pokemon.side, 'Piahchium');
 					this.add('-anim', pokemon, "Geomancy");
 					this.add('-message', `The Piahchium has been activated on ${pokemon.side.name}'s side! System effects are now suppressed.`);
