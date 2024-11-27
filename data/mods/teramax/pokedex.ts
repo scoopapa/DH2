@@ -43,12 +43,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	stonjourner: {
 		inherit: true,
 		types: ["Rock", "Ground"],
-		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 60, spe: 80},
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 60, spe: 95},
 	},
 	falinks: {
 		inherit: true,
 		types: ["Fighting", "Rock"],
-		baseStats: {hp: 65, atk: 115, def: 100, spa: 70, spd: 60, spe: 110},
+		baseStats: {hp: 90, atk: 115, def: 100, spa: 70, spd: 60, spe: 110},
 		abilities: {0: "Battle Armor", 1: "Technician", H: "Defiant"},
 	},
 	scovillain: {
@@ -69,12 +69,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	eiscue: {
 		inherit: true,
 		types: ["Ice", "Ground"],
-		baseStats: {hp: 75, atk: 110, def: 130, spa: 65, spd: 130, spe: 50},
+		baseStats: {hp: 75, atk: 120, def: 130, spa: 65, spd: 130, spe: 50},
 	},
 	eiscuenoice: {
 		inherit: true,
 		types: ["Ice", "Ground"],
-		baseStats: {hp: 75, atk: 110, def: 90, spa: 65, spd: 70, spe: 130},
+		baseStats: {hp: 75, atk: 120, def: 90, spa: 65, spd: 70, spe: 130},
 	},
 	tatsugiri: {
 		inherit: true,
@@ -104,8 +104,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	revavroom: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 119, def: 110, spa: 54, spd: 77, spe: 100},
-		abilities: {0: "Overcoat", 1: "Neutralizing Gas", H: "Filter"},
+		baseStats: {hp: 80, atk: 119, def: 110, spa: 54, spd: 97, spe: 100},
+		abilities: {0: "Self-Repair", 1: "Neutralizing Gas", H: "Filter"},
 	},
 	kilowattrel: {
 		inherit: true,
@@ -119,8 +119,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	ninjask: {
 		inherit: true,
 		types: ["Bug", "Ground"],
-		baseStats: {hp: 81, atk: 110, def: 45, spa: 50, spd: 50, spe: 160},
-		abilities: {0: "Speed Boost", 1: "Sharpness", H: "Infiltrator"},
+		baseStats: {hp: 81, atk: 115, def: 60, spa: 50, spd: 50, spe: 160},
+		abilities: {0: "Speed Boost", 1: "Tough Claws", H: "Infiltrator"},
 	},
 	frosmoth: {
 		inherit: true,
@@ -147,6 +147,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	ironleaves: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 130, def: 88, spa: 60, spd: 108, spe: 114},
+	},
+	staraptor: {
+		inherit: true,
+		types: ["Fighting", "Flying"],
+		baseStats: {hp: 85, atk: 109, def: 81, spa: 50, spd: 60, spe: 100},
 	},
 
 // GMaxes and Buffs to GMax base forms
