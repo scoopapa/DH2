@@ -4913,17 +4913,33 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
+	ogerpontealtera: {
+		inherit: true,
+		tier: "Illegal",
+	},
 	ogerponwellspring: {
 		tier: "OU",
 		doublesTier: "DOU",
+	},
+	ogerponwellspringtera: {
+		inherit: true,
+		tier: "Illegal",
 	},
 	ogerponhearthflame: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	ogerponhearthflametera: {
+		inherit: true,
+		tier: "Illegal",
+	},
 	ogerponcornerstone: {
 		tier: "UU",
 		doublesTier: "DUU",
+	},
+	ogerponcornerstonetera: {
+		inherit: true,
+		tier: "Illegal",
 	},
 	archaludon: {
 		tier: "OU",
@@ -4952,6 +4968,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	terapagos: {
 		tier: "RU",
 		doublesTier: "DUU",
+	},
+	terapagosstellar: {
+		inherit: true,
+		tier: "Illegal",
 	},
 	pecharunt: {
 		tier: "UU",

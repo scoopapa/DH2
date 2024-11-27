@@ -531,10 +531,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Insomnia", 1: "Frisk"},
 	},
-	camerupt: {
-		inherit: true,
-		abilities: {0: "Magma Armor", 1: "Solid Rock"},
-	},
 	numel: {
 		inherit: true,
 		abilities: {0: "Oblivious"},

@@ -303,4 +303,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		shortDesc: "This Pokemon heals 1/3 of its max when switching out. At full HP: Survives hit at 1 HP.",
 	},
+	selfrepair: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category === 'Status') {
+				this.heal(pokemon.baseMaxhp / 4);
+			}
+		},
+		flags: {},
+		name: "Self-Repair",
+		rating: 3,
+		shortDesc: "When this Pokemon uses a status move, this Pokemon heals 25% of its max HP.",
+	},
 };
