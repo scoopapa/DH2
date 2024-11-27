@@ -1220,8 +1220,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSourceDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target, true) && (source.hasType('Dark') || source.hasType('Ghost'))) {
-				this.heal(target.baseMaxhp / 16);
+			if (this.checkMoveMakesContact(move, source, target, true) && (target.hasType('Dark') || target.hasType('Ghost'))) {
+				this.heal(source.baseMaxhp / 16, source);
 			}
 		},
 		onImmunity(type, pokemon) {

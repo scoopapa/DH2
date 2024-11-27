@@ -134,7 +134,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		},
 		onWeather(target) {
 			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16, target, target);
-			else if(['Water', 'Steel'].includes(target.types) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 16);
+			else if((target.hasType('Water') || target.hasType('Steel')) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
@@ -173,8 +173,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (this.field.isWeather('Graveyard')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.add('-message', `${target.name} was attacked by the zombies!`);
-			this.damage(target.baseMaxhp / 16);
+			if(!target.hasAbility('magicguard') && 
+			   !target.hasAbility('ghoulgobbler') &&
+			   !target.hasAbility('rkssystem')) {
+				this.add('-message', `${target.name} was attacked by the zombies!`);
+				this.damage(target.baseMaxhp / 16);
+			}
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none', '[silent]');

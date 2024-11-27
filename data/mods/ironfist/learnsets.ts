@@ -10038,6 +10038,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			waterpulse: ["9L1"],
 			surf: ["9L1"],
+			buyfish: ["9L1"],
 		},
 	},
 	lemonganium: {
