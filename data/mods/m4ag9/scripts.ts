@@ -148,11 +148,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
 		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
 		if (item.name === "Toxtricitite" && pokemon.species.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
-		if (item.name === "Ninetalesite") {
-			if (pokemon.species.name === "Ninetales-Alola") return "Ninetales-Alola-Mega";
-			else return null;
-		}
-		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return null;
+		if (item.name === "Ninetalesite" && pokemon.species.name === "Ninetales-Alola") return "Ninetales-Alola-Mega";
+		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return "Dugtrio-Alola-Mega";
 		if (item.name === "Rapidashinite" && pokemon.species.name === "Rapidash-Galar") return null;
 		if (item.name === "Wormadamite") {
 			if (pokemon.species.name === "Wormadam-Sandy") return "Wormadam-Sandy-Mega";
