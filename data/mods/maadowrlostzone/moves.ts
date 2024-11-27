@@ -2213,9 +2213,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	drainingstab: {
 		num: -113,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 70,
 		category: "Physical",
-		shortDesc: "Steals target's ability.",
+		shortDesc: "Weakens target, boosts user.",
 		name: "Draining Stab",
 		pp: 10,
 		priority: 0,
@@ -2224,7 +2224,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Jab", target);
 		},
-		onHit(target, source) {
+		/*onHit(target, source) {
 			// Attempt to suppress the target's ability
 			if (!target.getAbility().flags['cantsuppress']) {
 				target.addVolatile('gastroacid'); // Suppress target's ability
@@ -2234,6 +2234,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
             	if (oldAbility) {
                 	this.add('-ability', source, source.getAbility().name, '[from] move: Draining Stab', '[of] ' + target);
             	}
+			}
+		},*/
+		onHit(target, source) {
+			if (!target) return;        
+			// Determine the best stat of the target
+			const bestStat = target.getBestStat(false, true) as keyof BoostsTable;
+	
+			// Create boosts object to lower the best stat
+			const targetBoosts: Partial<BoostsTable> = {};
+			targetBoosts[bestStat] = -1;
+			
+			// Apply the stat drop to the target
+			const success = this.boost(targetBoosts, target, source, null, false, true);
+			
+			// If the stat drop was successful, boost the same stat for the user
+			if (success) {
+				const sourceBoosts: Partial<BoostsTable> = {};
+				sourceBoosts[bestStat] = 1;
+				this.boost(sourceBoosts, source);
 			}
 		},
 		secondary: null,
@@ -2278,7 +2297,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Ethereal Scales",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, powder:1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Moonlight");
