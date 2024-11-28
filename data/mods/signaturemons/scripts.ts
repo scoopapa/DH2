@@ -5,7 +5,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ["Sign", "NoSign"],
 	},*/
 	init() {
-		//New signature moves (by dex number order)
+		//Add signature moves to learnsets (by dex number order)
+		//Gen 1
+		this.modData('Learnsets', 'venusaur').learnset.greatflower = ['9L1'];
+		this.modData('Learnsets', 'charizard').learnset.greatflame = ['9L1'];
+		this.modData('Learnsets', 'blastoise').learnset.greatflood = ['9L1'];
 		this.modData('Learnsets', 'dugtrio').learnset.tripledig = ['9L1'];
+		this.modData('Learnsets', 'dugtrioalola').learnset.tripledig = ['9L1'];
 	}
 };
