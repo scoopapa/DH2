@@ -857,6 +857,41 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	centiskorch: {
+		num: 851,
+		name: "Centiskorch",
+		types: ["Fire", "Bug"],
+		baseStats: {hp: 100, atk: 115, def: 65, spa: 90, spd: 90, spe: 65},
+		abilities: {0: "Flash Fire", 1: "White Smoke", H: "Flame Body"},
+		heightm: 3,
+		weightkg: 120,
+		color: "Red",
+		eggGroups: ["Bug"],
+
+		otherFormes: ["Centiskorch-Mega"],
+		formeOrder: ["Centiskorch", "Centiskorch-Mega"],
+		prevo: "Sizzlipede",
+		evoLevel: 28,
+		canGigantamax: "G-Max Centiferno",
+	},
+	centiskorchmega: {
+		num: 851,
+		name: "Centiskorch-Mega",
+
+		baseSpecies: "Centiskorch",
+		forme: "Mega",
+		types: ["Fire", "Bug"],
+		baseStats: {hp: 100, atk: 155, def: 85, spa: 90, spd: 110, spe: 85},
+		abilities: {0: "Burning Train"},
+		heightm: 4.5,
+		weightkg: 180.0,
+		color: "Red",
+		eggGroups: ["Bug"],
+		requiredItem: "Centiskorchite",
+	},
+	// end
+
+	// start
 	piahchi0: {
 		num: -1036,
 		name: "Piahchi-0",
@@ -2991,6 +3026,43 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// end
 
 	// start
+	goodra: {
+		num: 706,
+		name: "Goodra",
+
+		types: ["Dragon"],
+		baseStats: {hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80},
+		abilities: {0: "Sap Sipper", 1: "Hydration", H: "Gooey"},
+		heightm: 2,
+		weightkg: 150.5,
+		color: "Purple",
+		eggGroups: ["Dragon"],
+
+		prevo: "Sliggoo",
+		evoLevel: 50,
+		evoCondition: "during rain",
+		otherFormes: ["Goodra-Mega", "Goodra-Hisui"],
+		formeOrder: ["Goodra", "Goodra-Mega", "Goodra-Hisui"],
+	},
+	goodramega: {
+		num: 706,
+		name: "Goodra-Mega",
+
+		baseSpecies: "Goodra",
+		forme: "Mega",
+		types: ["Dragon"],
+		baseStats: {hp: 90, atk: 100, def: 90, spa: 150, spd: 180, spe: 90},
+		abilities: {0: "Gooey Essence"},
+		heightm: 2,
+		weightkg: 150.5,
+		color: "Purple",
+		eggGroups: ["Dragon"],
+
+		requiredItem: "Goodrite",
+	},
+	// end
+
+	// start
 	durassat: {
 		num: -1113,
 		name: "Durassat",
@@ -3558,6 +3630,22 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	turtonator: {
 		inherit: true,
 		abilities: {0: "Shell Armor", 1: "White Smoke", H: "Neutralizing Gas"},
+		evos: ["Turtonox"],
+	},
+	turtonox: {
+		num: -1132,
+		name: "Turtonox",
+		types: ["Fire", "Dragon"],
+		baseStats: {hp: 85, atk: 88, def: 145, spa: 101, spd: 95, spe: 31},
+		abilities: {0: "Shell Armor", 1: "Toxic Debris", H: "Neutralizing Gas"},
+		heightm: 2.2,
+		weightkg: 253.8,
+		color: "Red",
+		eggGroups: ["Monster", "Dragon"],
+
+		prevo: "Turtonator",
+		evoLevel: 48,
+		//	creator: "BlueRay",
 	},
 	// end
 

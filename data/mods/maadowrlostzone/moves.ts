@@ -2075,22 +2075,34 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacentFoes",
 		type: "Fighting",
 	},
-	crossbeam: {
+	trivoltcascade: {
 		num: -109,
-		accuracy: 80,
-		basePower: 100,
+		accuracy: 90,
+		basePower: 30,
 		category: "Physical",
-		shortDesc: "+1 crit ratio.",
-		name: "Cross Beam",
+		shortDesc: "30% to brn, par, frz. Each hit can miss.",
+		name: "Tri-Volt Cascade",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bolt Strike", target);
+			this.add('-anim', source, "Tri Attack", target);
 		},
-		critRatio: 2,
-		secondary: null,
+	//	critRatio: 2,
+		secondary: {
+			chance: 30,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				} else {
+					target.trySetStatus('frz', source);
+				}
+			},
+		},
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
@@ -2099,7 +2111,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	darkmatter: {
 		num: -110,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			const yourSide = pokemon.side;
 			const targetSide = target.side;
@@ -2121,10 +2133,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
 			this.debug('Dark Matter damage boost');
-			return Math.min(400, 80 + 20 * allLayers);
+			return Math.min(850, 50 + 50 * allLayers); // 400, 80, 20
 		},
 		category: "Special",
-		shortDesc: "+20 for each hazard on the field.",
+		shortDesc: "+50 for each hazard on the field.",
 		name: "Dark Matter",
 		pp: 10,
 		priority: 0,
@@ -2153,7 +2165,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (targetSide.sideConditions['toxicspikes']) {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
-			const bp = Math.min(400, 80 + 20 * allLayers);
+			const bp = Math.min(850, 50 + 50 * allLayers); // 400, 80, 20
 			this.add('-message', `Dark Matter currently has a BP of ${bp}!`);
 		},
 		secondary: null,
@@ -2213,9 +2225,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	drainingstab: {
 		num: -113,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 70,
 		category: "Physical",
-		shortDesc: "Steals target's ability.",
+		shortDesc: "Weakens target, boosts user.",
 		name: "Draining Stab",
 		pp: 10,
 		priority: 0,
@@ -2224,7 +2236,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Jab", target);
 		},
-		onHit(target, source) {
+		/*onHit(target, source) {
 			// Attempt to suppress the target's ability
 			if (!target.getAbility().flags['cantsuppress']) {
 				target.addVolatile('gastroacid'); // Suppress target's ability
@@ -2234,6 +2246,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
             	if (oldAbility) {
                 	this.add('-ability', source, source.getAbility().name, '[from] move: Draining Stab', '[of] ' + target);
             	}
+			}
+		},*/
+		onHit(target, source) {
+			if (!target) return;        
+			// Determine the best stat of the target
+			const bestStat = target.getBestStat(false, true) as keyof BoostsTable;
+	
+			// Create boosts object to lower the best stat
+			const targetBoosts: Partial<BoostsTable> = {};
+			targetBoosts[bestStat] = -1;
+			
+			// Apply the stat drop to the target
+			const success = this.boost(targetBoosts, target, source, null, false, true);
+			
+			// If the stat drop was successful, boost the same stat for the user
+			if (success) {
+				const sourceBoosts: Partial<BoostsTable> = {};
+				sourceBoosts[bestStat] = 1;
+				this.boost(sourceBoosts, source);
 			}
 		},
 		secondary: null,
@@ -2278,7 +2309,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Ethereal Scales",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, powder:1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Moonlight");
@@ -3813,26 +3844,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Tough",
 	},
 	//
-	gossamerveil: {
+	nebulasnare: {
 		num: -152,
-		accuracy: 90,
+		accuracy: 85,
 		basePower: 100,
 		category: "Physical",
-		name: "Gossamer Veil",
+		shortDesc: "Sets Toxic Spikes after hitting foes.",
+		name: "Nebula Snare",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aurora Veil");
+			this.add('-anim', source, "String Shot", target);
+		},
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('spikes');
+					side.addSideCondition('toxicspikes');
 				}
 			}
 		},
 		onAfterSubDamage(damage, target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('spikes');
+					side.addSideCondition('toxicspikes');
 				}
 			}
 		},
