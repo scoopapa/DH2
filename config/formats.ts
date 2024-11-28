@@ -2376,9 +2376,7 @@ export const Formats: FormatList = [
         desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
 		mod: 'signaturemons',
 		teambuilderFormat: "National Dex AG",
-		searchShow: false,
 		ruleset: ['Standard NatDex', 'Event Moves Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
-		banlist: ['Eternatus-Eternamax'], //That may not even be necessary - Check Floette
 	},
 	{
 		name: "[Gen 9] A Golden Experience",
