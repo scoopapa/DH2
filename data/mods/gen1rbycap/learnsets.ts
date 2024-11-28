@@ -240,4 +240,28 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
+	sparophim: {
+		learnset: {
+			drillpeck: ["1M"],
+			agility: ["1M"],
+			skyattack: ["1M"],
+			doubleedge: ["1M"],
+			hyperbeam: ["1M"],
+			rest: ["1M"],
+			substitute: ["1M"],
+			psychic: ["1M"],
+			reflect: ["1M"],
+			thunderwave: ["1M"],
+			swordsdance: ["1M"],
+			bide: ["1M"],
+			doubleteam: ["1M"],
+			mimic: ["1M"],
+			rage: ["1M"],
+			toxic: ["1M"],
+			takedown: ["1M"],
+		},
+		encounters: [
+			{generation: 1, level: 5},
+		],
+	},
 };
