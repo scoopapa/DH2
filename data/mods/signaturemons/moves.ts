@@ -84,4 +84,44 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 	},
+	//Tentacruel
+	//Toedscruel
+	tentaclelock: {
+		num: 0,
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Tentacle Lock",
+		desc: "The user extends its tentacles to catch its target and prevent them from fleeing. This move raises the user's Sp. Attack and lowers the target's Sp. Defense every turn.",
+		shortDesc: "Traps foe. SpD -1 on foe and SpA +1 on user each turn",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryImmunity(target) {
+			return this.dex.getImmunity('trapped', target);
+		},
+		volatileStatus: 'tentaclelock',
+		condition: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'move: TentacleLock', '[of] ' + source);
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				const source = this.effectState.source;
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+					delete pokemon.volatiles['tentaclelock'];
+					this.add('-end', pokemon, 'Tentacle Lock', '[partiallytrapped]', '[silent]');
+					return;
+				}
+				this.boost({spd: -1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
+				source.boost({spa: +1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
+			},
+			onTrapPokemon(pokemon) {
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "normal",
+	},
 };
