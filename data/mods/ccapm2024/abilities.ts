@@ -411,7 +411,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Dice Roller",
-		shortDesc: "This Pokemon boosts random stats by 1 twice after using a bullet move.",
+		shortDesc: "This Pokemon boosts random stats (not eva) by 1 twice after using a bullet move.",
 	},
 	diseased: {
 		onResidualOrder: 28,
