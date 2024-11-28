@@ -27,12 +27,13 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
-		name: "[Gen 9] GG's Battle Format",
-        desc: `Test description. Update when you can!`,
+		name: "[Gen 9] National Dex Signaturemons",
+        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
 		mod: 'ggsbattleformat',
 		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
-		banlist: ['Eternatus-Eternamax'],
+		searchShow: false,
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+		banlist: ['Eternatus-Eternamax'], //That may not even be necessary - Check Floette
 	},
 	{
 		name: "[Gen 9] Alternatium EX",
