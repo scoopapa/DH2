@@ -29,7 +29,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] National Dex Signaturemons",
         desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
-		mod: 'ggsbattleformat',
+		mod: 'signaturemons',
 		teambuilderFormat: "National Dex",
 		searchShow: false,
 		ruleset: ['Standard NatDex', 'Event Moves Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
