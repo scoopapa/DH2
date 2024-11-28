@@ -27,15 +27,6 @@ export const Formats: FormatList = [
 		// name: "gen9petmods",
 	},
 	{
-		name: "[Gen 9] National Dex Signaturemons",
-        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
-		mod: 'signaturemons',
-		teambuilderFormat: "National Dex",
-		searchShow: false,
-		ruleset: ['Standard NatDex', 'Event Moves Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
-		banlist: ['Eternatus-Eternamax'], //That may not even be necessary - Check Floette
-	},
-	{
 		name: "[Gen 9] Alternatium EX",
 		desc: `<b>Alternatium EX</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
 		threads: [
@@ -2379,6 +2370,15 @@ export const Formats: FormatList = [
 	{
 		section: "Solomods",
 		column: 2,
+	},
+	{
+		name: "[Gen 9] National Dex Signaturemons",
+        desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
+		mod: 'signaturemons',
+		teambuilderFormat: "National Dex AG",
+		searchShow: false,
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+		banlist: ['Eternatus-Eternamax'], //That may not even be necessary - Check Floette
 	},
 	{
 		name: "[Gen 9] A Golden Experience",
