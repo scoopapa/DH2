@@ -306,7 +306,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 					boosts[i] = 0;
 				}
 			}
-			if (activate && pokemon.useItem()) {
+			if (activate) {
 				pokemon.setBoost(boosts);
 				this.add('-clearboost', pokemon, '[silent]');
 			}
@@ -326,6 +326,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify([5325, 4096]);
 			}
 		},
+		shortDesc: "If held by a Mew with Expanding Force, it can use Genesis Supernova. 30% power boost in Psychci Terrain.",
 	},
 	specialteraorb: {
 		name: "Special Tera Orb",
