@@ -971,8 +971,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 		removeFishingTokens(amount: number) {
 			if (this.fishingTokens === undefined) this.fishingTokens = 0;
+			if (this.battle.field.isWeather('acidrain')) amount ++;
 			if (amount === 0 || Number.isNaN(amount) || amount > this.fishingTokens) return false;
-			if (this.field.isWeather('acidrain')) amount ++;
 			this.fishingTokens -= amount;
 			const word = (amount === 1) ? 'token was' : 'tokens were';
 			this.battle.add('-message', `${amount} fishing ${word} removed from ${this.name}'s side!`);
