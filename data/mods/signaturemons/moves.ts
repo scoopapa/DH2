@@ -148,4 +148,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
+	//Froslass
+	curseofsnow: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Curse of Snow",
+		desc: "The user casts a freezing curse to deal damage and lower the target's Special Attack. This move has more effects is the target is of the opposite gender to the user.",
+		shortDesc: "SpA -1. If target is of opposite gender : also Atk -1, SpD -1, Spe -1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if ((pokemon.gender === 'M' && target.gender === 'F') || (pokemon.gender === 'F' && target.gender === 'M')) {
+				move.boosts = {
+					atk: -1,
+					spa: -1,
+					spd: -1,
+					spe: -1,
+				};
+			}
+		},
+		boosts: {
+			spa: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
 };

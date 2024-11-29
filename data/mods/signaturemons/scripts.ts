@@ -17,6 +17,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		//Gen 3
 		this.modData('Learnsets', 'zangoose').learnset.whiteclaw = ['9L1'];
 
+		//Gen 4
+		this.modData('Learnsets', 'froslass').learnset.curseofsnow = ['9L1'];
+
 		//Gen 9
 		this.modData('Learnsets', 'toedscruel').learnset.tentaclelock = ['9L1'];
 	}
