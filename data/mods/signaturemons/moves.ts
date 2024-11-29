@@ -176,7 +176,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					if (move.flags['failcopycat'] || move.isZ || move.isMax) {
 						return false;
 					}
-					this.actions.useMove(move.id, source);
+					this.actions.useMove(move.id, target);
 				}
 				return this.NOT_FAIL;
 			},
