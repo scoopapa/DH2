@@ -133,6 +133,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Spin To Win",
+		desc: "The user takes a bizarre spinning stance to evade all forms of damage. Any move that makes direct contact is reflected back at the attacker.",
+		shortDesc: "Protects from all moves. Copies moves that make contact.",
 		pp: 10,
 		priority: 4,
 		flags: {noassist: 1, failcopycat: 1},
