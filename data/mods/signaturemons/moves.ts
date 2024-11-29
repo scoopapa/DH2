@@ -84,7 +84,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 	},
-	//Tentacruel
+	//Tentacruel - TOFIX
 	//Toedscruel
 	tentaclelock: {
 		num: 0,
@@ -108,13 +108,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 14,
 			onResidual(pokemon) {
 				const source = this.effectState.source;
+				const target = this.getAtSlot(pokemon.volatiles['tentaclelock'].sourceSlot);
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['tentaclelock'];
 					this.add('-end', pokemon, 'Tentacle Lock', '[partiallytrapped]', '[silent]');
 					return;
 				}
-				this.boost({spd: -1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
-				source.boost({spa: +1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
+				const debuff = this.boost({spd: -1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
+				if (debuff) {
+					this.boost({spa: +1}, pokemon, target, this.dex.getActiveMove('tentaclelock')); //TODO: Should boost the user
+				}
 			},
 			onTrapPokemon(pokemon) {
 				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
