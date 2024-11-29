@@ -395,7 +395,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Derpy Hooves",
 		types: ["Flying"],
 		gender: "F",
-		baseStats: {hp: 125, atk: 60, def: 100, spa: 55, spd: 100, spe: 60},
+		baseStats: {hp: 140, atk: 75, def: 105, spa: 65, spd: 105, spe: 60},
 		abilities: {0: "Unaware", 1: "Simple", H: "Regenerator"},
 		heightm: 1.2,
 		weightkg: 54,
