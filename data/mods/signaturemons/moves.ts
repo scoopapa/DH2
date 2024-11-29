@@ -126,6 +126,73 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "normal",
 	},
+	//Spinda
+	spintowin: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spin To Win",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'spintowin',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					//This is the part where Spinda copies the move it got hit with
+					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+					if (move.flags['failcopycat'] || move.isZ || move.isMax) {
+						return false;
+					}
+					this.actions.useMove(move.id, pokemon);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					//If protection broken, Spinda gets confused
+					source.trySetStatus('confusion', source);
+				}
+			},
+		},
+		onMoveFail(target, source, move) {
+			//This is the part where Spinda gets confused if the move fails
+			source.trySetStatus('confusion', source);
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
 	//Zangoose
 	whiteclaw: {
 		num: 0,
