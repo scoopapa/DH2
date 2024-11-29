@@ -108,7 +108,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 14,
 			onResidual(pokemon) {
 				const source = this.effectState.source;
-				const target = this.getAtSlot(pokemon.volatiles['tentaclelock'].sourceSlot);
+				//const target = this.getAtSlot(pokemon.volatiles['tentaclelock'].sourceSlot);
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['tentaclelock'];
 					this.add('-end', pokemon, 'Tentacle Lock', '[partiallytrapped]', '[silent]');
@@ -116,7 +116,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				const debuff = this.boost({spd: -1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
 				if (debuff) {
-					this.boost({spa: +1}, pokemon, target, this.dex.getActiveMove('tentaclelock')); //TODO: Should boost the user
+					this.boost({spa: +1}, source, pokemon, this.dex.getActiveMove('tentaclelock')); //TODO: Should boost the user
 				}
 			},
 			onTrapPokemon(pokemon) {
