@@ -84,7 +84,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 	},
-	//Tentacruel - TOFIX
+	//Tentacruel
 	//Toedscruel
 	tentaclelock: {
 		num: 0,
@@ -108,7 +108,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 14,
 			onResidual(pokemon) {
 				const source = this.effectState.source;
-				//const target = this.getAtSlot(pokemon.volatiles['tentaclelock'].sourceSlot);
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['tentaclelock'];
 					this.add('-end', pokemon, 'Tentacle Lock', '[partiallytrapped]', '[silent]');
@@ -116,7 +115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				const debuff = this.boost({spd: -1}, pokemon, source, this.dex.getActiveMove('tentaclelock'));
 				if (debuff) {
-					this.boost({spa: +1}, source, pokemon, this.dex.getActiveMove('tentaclelock')); //TODO: Should boost the user
+					this.boost({spa: +1}, source, pokemon, this.dex.getActiveMove('tentaclelock'));
 				}
 			},
 			onTrapPokemon(pokemon) {
@@ -126,5 +125,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "normal",
+	},
+	//Zangoose
+	whiteclaw: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "White Claw",
+		desc: "The user lacerates its foe with honed white-hot claws. This move is super effective on Poison types and may burn the target.",
+		shortDesc: "10% chance of Burn. Super effective against Poison-types.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Normal",
 	},
 };
