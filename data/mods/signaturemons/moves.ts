@@ -185,15 +185,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			//If protection broken, Spinda gets confused
 			/*onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					const result = target.setStatus('confusion', source, move);
+					const result = target.addVolatile('confusion', source, move);
 					if (!result) return result;
 				}
 			},*/
 		},
-		//This is the part where Spinda gets confused if the move fails
-		/*onMoveFail(target, source, move) {
-			const result = target.setStatus('confusion', source, move);
+		//This is the part where the user gets confused if the move fails
+		onMoveFail(target, source, move) {
+			const result = target.addVolatile('confusion', source, move);
 			if (!result) return result;
+		},
+		/*onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (target.moveThisTurnResult === false) {
+				this.chance = 100;
+				this.volatileStatus = 'confusion',
+			}
 		},*/
 		secondary: null,
 		target: "self",
