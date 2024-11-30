@@ -1,137 +1,137 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	piss: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	snabterra: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	drakkannon: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	arsenstorm: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	badjur: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	vipult: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	fettogre: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	crystuit: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	monmothra: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	wizhazard: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	jackoswarm: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	kadraoke: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	karmalice: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	goblantern: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	hippaint: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	pinaturbo: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	eolikopter: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	mohawtter: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	arachnode: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	blobbiam: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	florustitia: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	primordialith: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	faeruin: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	versalyre: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	capricorrie: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	reversadusa: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	llanfairwyrm: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	frostengu: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	bulionage: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	yamateraph: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	bugswarm: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	freightmare: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	brasspecter: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	copperhead: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	thaumaton: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	sculptera: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	lavalisk: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	martorse: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	parasike: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	massassin: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	searytch: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	jokerpent: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	socknbuskn: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	sleetshell: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 	craggon: {
-		tier: "BC",
+		tier: "BC UU",
 	},
 };
