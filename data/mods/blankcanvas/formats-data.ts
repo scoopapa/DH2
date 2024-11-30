@@ -134,4 +134,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	craggon: {
 		tier: "BC UU",
 	},
+
+	// Meta B
+	flarenheit: {
+		tier: "BC OU",
+	},
+	groundead: {
+		tier: "BC OU",
+	},
+	actaniathan: {
+		tier: "BC OU",
+	},
 };
