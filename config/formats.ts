@@ -132,7 +132,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Blank Canvas",
+		name: "[Gen 9] Blank Canvas Meta A",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3748841/">Blank Canvas</a>`,
 		],
@@ -142,11 +142,31 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['BC'];
+			let allowedTiers = ['BC UU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Blank Canvas.'];
+					return [set.species + ' is not legal in Blank Canvas Meta A.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Blank Canvas Meta B",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3748841/">Blank Canvas</a>`,
+		],
+		mod: 'blankcanvas',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['BC OU', 'BC UU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Blank Canvas Meta B.'];
 				}
 			}
 		},
