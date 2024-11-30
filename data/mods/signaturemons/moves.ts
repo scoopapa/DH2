@@ -137,7 +137,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Protects from all moves. Copies moves that make contact.",
 		pp: 10,
 		priority: 4,
-		flags: {noassist: 1, failcopycat: 1},
+		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
 		stallingMove: true,
 		volatileStatus: 'spintowin',
 		onPrepareHit(pokemon) {
@@ -172,11 +172,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				if (this.checkMoveMakesContact(move, source, target)) {
 					//This is the part where Spinda copies the move it got hit with
+					//const move = target.lastMove;
+					//Get the base move in case of Z-move or Max move
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
-					if (move.flags['failcopycat'] || move.isZ || move.isMax) {
+					if (!move.flags['mirror'] || move.flags['failcopycat'] || move.isZ || move.isMax) {
 						return false;
 					}
-					this.actions.useMove(move.id, target);
+					//this.actions.useMove(move.id, target); Old code
+					this.actions.useMove(move.id, target, source);
+					return null; //Not sure if this on is needed here
 				}
 				return this.NOT_FAIL;
 			},

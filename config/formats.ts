@@ -2372,11 +2372,11 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
-		name: "[Gen 9] National Dex Signaturemons",
+		name: "[Gen 9] Signaturemons",
         desc: `National Dex solomod where new Signature moves are introduced for fully-evolved Pokémon that don't have any.`,
 		mod: 'signaturemons',
 		teambuilderFormat: "National Dex AG",
-		ruleset: ['Standard NatDex', 'Event Moves Clause', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'Event Moves Clause', 'Species Clause', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 9] A Golden Experience",
