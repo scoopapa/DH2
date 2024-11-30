@@ -172,31 +172,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				if (this.checkMoveMakesContact(move, source, target)) {
 					//This is the part where Spinda copies the move it got hit with
-					//const move = target.lastMove;
 					//Get the base move in case of Z-move or Max move
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 					if (!move.flags['mirror'] || move.flags['failcopycat'] || move.isZ || move.isMax) {
 						return false;
 					}
-					//this.actions.useMove(move.id, target); Old code
 					this.actions.useMove(move.id, target, source);
-					return null; //Not sure if this on is needed here
+					return null;
 				}
 				return this.NOT_FAIL;
 			},
-			onHit(target, source, move) {
+			//If protection broken, Spinda gets confused
+			/*onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					//If protection broken, Spinda gets confused
 					const result = target.setStatus('confusion', source, move);
 					if (!result) return result;
 				}
-			},
+			},*/
 		},
-		onMoveFail(target, source, move) {
-			//This is the part where Spinda gets confused if the move fails
+		//This is the part where Spinda gets confused if the move fails
+		/*onMoveFail(target, source, move) {
 			const result = target.setStatus('confusion', source, move);
 			if (!result) return result;
-		},
+		},*/
 		secondary: null,
 		target: "self",
 		type: "Normal",
