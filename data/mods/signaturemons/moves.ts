@@ -187,13 +187,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
 					//If protection broken, Spinda gets confused
-					source.trySetStatus('confusion', source);
+					const result = target.setStatus('confusion', source, move);
+					if (!result) return result;
 				}
 			},
 		},
 		onMoveFail(target, source, move) {
 			//This is the part where Spinda gets confused if the move fails
-			source.trySetStatus('confusion', source);
+			const result = target.setStatus('confusion', source, move);
+			if (!result) return result;
 		},
 		secondary: null,
 		target: "self",
