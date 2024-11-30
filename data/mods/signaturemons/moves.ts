@@ -170,7 +170,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				if (this.checkMoveMakesContact(move, source, target)) {
+				if (move.category === 'Status' || target.volatiles['mustrecharge']) {
+					return false;
+				} else /*if (this.checkMoveMakesContact(move, source, target))*/ {
 					//This is the part where Spinda copies the move it got hit with
 					//Get the base move in case of Z-move or Max move
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
@@ -178,11 +180,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						return false;
 					}
 					this.actions.useMove(move.id, target, source);
-					return null;
+					//return null;
 				}
 				return this.NOT_FAIL;
 			},
-			//If protection broken, Spinda gets confused
+			//If protection broken, Spinda gets confused - Irrelevent
 			/*onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
 					const result = target.addVolatile('confusion', source, move);
@@ -195,12 +197,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const result = target.addVolatile('confusion', source, move);
 			if (!result) return result;
 		},
-		/*onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (target.moveThisTurnResult === false) {
-				this.chance = 100;
-				this.volatileStatus = 'confusion',
-			}
-		},*/
 		secondary: null,
 		target: "self",
 		type: "Normal",
