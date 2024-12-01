@@ -17,7 +17,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},*/
 
-	//New signature moves by National Dex order
+	//New signature moves by implementation order
 	//Venusaur
 	greatflower: {
 		num: 3000,
@@ -228,7 +228,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Curse of Snow",
 		desc: "The user casts a freezing curse to deal damage and lower the target's Special Attack. This move has more effects is the target is of the opposite gender to the user.",
-		shortDesc: "SpA -1. If target is of opposite gender : also Atk -1, SpD -1, Spe -1.",
+		shortDesc: "SpA -1. If target is of opposite gender : also Atk -1, Spe -1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -237,7 +237,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.boosts = {
 					atk: -1,
 					spa: -1,
-					spd: -1,
 					spe: -1,
 				};
 			}
@@ -248,5 +247,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+	},
+	//Roserade
+	secretthorns: {
+		num: 3008,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Secret Thorns",
+		desc: "The user poisons its foe using one of their special flowers. The effects of the move changes depending on the target's remaining HP.",
+		shortDesc: "Poison & Atk -1. If target HP < 50%: Bad Poison & Heal Block",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target.hp * 2 <= target.maxhp) {
+				move.boosts = {};
+				move.status = 'tox';
+				move.volatileStatus = 'healblock';
+			}
+		},
+		status: 'psn',
+		boosts: {
+			atk: -1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
 	},
 };
