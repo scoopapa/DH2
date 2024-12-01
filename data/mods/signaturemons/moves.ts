@@ -20,7 +20,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//New signature moves by National Dex order
 	//Venusaur
 	greatflower: {
-		num: 0,
+		num: 3000,
 		accuracy: true,
 		basePower: 100,
 		category: "Special",
@@ -36,7 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	//Charizard
 	greatflame: {
-		num: 0,
+		num: 3001,
 		accuracy: true,
 		basePower: 100,
 		category: "Special",
@@ -52,7 +52,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	//Blastoise
 	greatflood: {
-		num: 0,
+		num: 3002,
 		accuracy: true,
 		basePower: 100,
 		category: "Special",
@@ -69,7 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//Dugtrio
 	//Dugtrio-Alola
 	tripledig: {
-		num: 0,
+		num: 3003,
 		accuracy: 95,
 		basePower: 30,
 		category: "Physical",
@@ -87,7 +87,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	//Tentacruel
 	//Toedscruel
 	tentaclelock: {
-		num: 0,
+		num: 3004,
 		accuracy: 90,
 		basePower: 0,
 		category: "Status",
@@ -128,13 +128,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	//Spinda
 	spintowin: {
-		num: 0,
+		num: 3005,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Spin To Win",
-		desc: "The user takes a bizarre spinning stance to evade all forms of damage. Any move that makes direct contact is reflected back at the attacker.",
-		shortDesc: "Protects from all moves. Copies moves that make contact.",
+		desc: "The user takes a bizarre spinning stance to evade all forms of damage. Any damaging move that attempts to hit the user is reflected back at the attacker.",
+		shortDesc: "Protects from all moves. Copies moves that targets user.",
 		pp: 10,
 		priority: 4,
 		flags: {failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
@@ -170,9 +170,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				if (move.category === 'Status' || target.volatiles['mustrecharge']) {
-					return false;
-				} else /*if (this.checkMoveMakesContact(move, source, target))*/ {
+				if (move.category !== 'Status' || target.volatiles['mustrecharge']) {
 					//This is the part where Spinda copies the move it got hit with
 					//Get the base move in case of Z-move or Max move
 					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
@@ -180,11 +178,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						return false;
 					}
 					this.actions.useMove(move.id, target, source);
-					//return null;
 				}
 				return this.NOT_FAIL;
 			},
-			//If protection broken, Spinda gets confused - Irrelevent
+			//If protection broken, Spinda gets confused - Irrelevent?
 			/*onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
 					const result = target.addVolatile('confusion', source, move);
@@ -203,7 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	//Zangoose
 	whiteclaw: {
-		num: 0,
+		num: 3006,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -225,7 +222,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	//Froslass
 	curseofsnow: {
-		num: 0,
+		num: 3007,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
