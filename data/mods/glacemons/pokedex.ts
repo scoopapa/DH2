@@ -415,10 +415,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Forewarn", 1: "Synchronize", H: "Anticipation"},
 	},
-	avalugg: {
-		inherit: true,
-		abilities: {0: "Anticipation", 1: "Ice Body", H: "Sturdy"},
-	},
 	kommoo: {
 		inherit: true,
 		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Anticipation"},
@@ -522,5 +518,40 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	steelixmega: {
 		inherit: true,
 		abilities: {0: "Rough Skin"},
+	},
+	taurospaldeacombat: {
+		inherit: true,
+		types: ["Fighting", "Fairy"],
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Pixilate"},
+	},
+	taurospaldeablaze: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Flame Body"},
+	},
+	taurospaldeaaqua: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Water Absorb"},
+	},
+	wochien: {
+		inherit: true,
+		types: ["Dark", "Ghost"],
+	},
+	glaceon: {
+		inherit: true,
+		types: ["Ice", "Ground"],
+		abilities: {0: "Ice Scales", H: "Ice Body"},
+	},
+	manectricmega: {
+		inherit: true,
+		types: ["Electric", "Fire"],
+	},
+	avalugg: {
+		inherit: true,
+		types: ["Ice", "Fighting"],
+		abilities: {0: "Anticipation", 1: "Ice Body", H: "Sturdy"},
+	},
+	avalugghisui: {
+		inherit: true,
+		types: ["Ice", "Ground"],
 	},
 };

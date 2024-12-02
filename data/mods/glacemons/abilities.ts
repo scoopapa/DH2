@@ -236,9 +236,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	longreach: {
 		inherit: true,
+		onModifyMove(move) {
+			delete move.flags['contact'];
+			move.flags['longreach'] = true;
+		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (!move.flags['contact']) {
+			if (!move.flags['contact'] && !move.flags['longreach']) {
 				return this.chainModify([4915, 4096]);
 			}
 		},

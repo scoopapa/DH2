@@ -544,13 +544,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 15,
 		priority: 0,
 		flags: { snatch: 1, metronome: 1 },
-		onBasePower(basePower, source, target, move) {
-			const targetAtk = target.storedStats.atk;
-			const sourceAtk = source.storedStats.atk;
-			if (targetAtk >= sourceAtk) {
-				return this.chainModify(2);
-			}
-		},
 		onTryHit(target, source, move) {
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
