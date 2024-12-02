@@ -358,7 +358,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		shortDesc: "1.1x power if user is burn/poison/paralyzed.",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon) {
 			if (pokemon.status && pokemon.status !== 'slp') {
 				return this.chainModify(1.1);
