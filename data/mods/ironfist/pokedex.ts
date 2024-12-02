@@ -438,7 +438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -48,
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 97, atk: 57, def: 105, spa: 107, spd: 105, spe: 64},
-		abilities: {0: "Unaware", 1: "Klutz", H: "Oblivious"},
+		abilities: {0: "Unaware", 1: "Klutz", H: "Prankster"},
 		weightkg: 325.5,
 	},
 	electrode: {
