@@ -3413,9 +3413,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Ponymon Ubers",
 		mod: 'ponymonshowdown',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'OU Terastal Clause', 'Sleep Clause Mod', 'Data Mod'],
-		banlist: ['ND AG'],
-		unbanlist: ['Koraidon', 'Miraidon', 'Shedinja', 'Xerneas'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Ubers Terastal Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Rayquaza Clause'],
+		banlist: ['Calyrex-Shadow', 'Gengarite'],
 		teambuilderFormat: 'National Dex Ubers',
 	},
 	{
