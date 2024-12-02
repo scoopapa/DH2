@@ -485,7 +485,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 			onAfterMoveSecondarySelfPriority: -1,
 			onAfterMoveSecondarySelf(pokemon, target, move) {
-				if (move.category === 'Status') {
+				if (move.category === 'Status' && move.id !== 'selfrepair') {
 					this.heal(pokemon.baseMaxhp / 4);
 				}
 			},
