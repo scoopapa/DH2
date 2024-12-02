@@ -379,7 +379,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	jumpluff: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Run It Back", H: "Infiltrator"}, // supposed to get Wind Rider
+		abilities: {0: "Wind Rider", 1: "Run It Back", H: "Infiltrator"}, 
 	},
 	grafaiai: {
 		inherit: true,
@@ -644,18 +644,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Pressure", H: "Long Reach"},
 	},
-	deoxysattack: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
-	},
-	deoxysdefense: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
-	},
-	deoxysspeed: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
-	},
+	// deoxysattack: {
+	// 	inherit: true,
+	// 	abilities: {0: "Pressure", H: "Long Reach"},
+	// },
+	// deoxysdefense: {
+	// 	inherit: true,
+	// 	abilities: {0: "Pressure", H: "Long Reach"},
+	// },
+	// deoxysspeed: {
+	// 	inherit: true,
+	// 	abilities: {0: "Pressure", H: "Long Reach"},
+	// },
 	minccino: {
 		inherit: true,
 		abilities: {0: "Long Reach", 1: "Technician", H: "Skill Link"},

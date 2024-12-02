@@ -466,12 +466,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		desc: "Deals an additional 1/8th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
 		shortDesc: "Deals an additional 1/8th of the opponents health on a successful hit. High critical hit ratio.",
 	},
-	selfrepair: {
+	selfrepairing: {
 		num: -6,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Self-Repair",
+		name: "Self-Repairing",
 		pp: 15,
 		priority: 0,
 		flags: { snatch: 1, heal: 1, bypasssub: 1 },
@@ -481,7 +481,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.add('-singlemove', pokemon, 'Self-Repair');
+				this.add('-singlemove', pokemon, 'Self-Repairing');
 			},
 			onAfterMoveSecondarySelfPriority: -1,
 			onAfterMoveSecondarySelf(pokemon, target, move) {
@@ -492,7 +492,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		onBeforeMovePriority: 100,
 		onBeforeMove(pokemon) {
-			this.debug('removing Self Repair before attack');
+			this.debug('removing Self Repairing before attack');
 			pokemon.removeVolatile('selfrepair');
 		},
 		onPrepareHit(target, source, move) {

@@ -732,4 +732,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mewtwomegax: {tier: "Uber"},
 	mewtwomegay: {tier: "Uber"},
 
+	// DLC
+
+	// Slate 1
+	regirockkalos: {tier: "Kalos"},
+	regicekalos: {tier: "Kalos"},
+	registeelkalos: {tier: "Kalos"},
+	regigigas: {tier: "Kalos"},
+
 };
