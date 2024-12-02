@@ -311,5 +311,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'klang').learnset.overvoltrail = ['9L1'];
 		this.modData('Learnsets', 'klinklang').learnset.overvoltrail = ['9L1'];
 		this.modData('Learnsets', 'bellibolt').learnset.overvoltrail = ['9L1'];
+		// Slate 3 adjustments
+		this.modData('Learnsets', 'steelix').learnset.uturn = ['9M'];
+		this.modData('Learnsets', 'steelix').learnset.shoreup = ['9M'];
+		this.modData('Learnsets', 'steelix').learnset.anchorshot = ['9M'];
+		this.modData("Learnsets", "steelix").learnset.glare = ['9L1'];
+		this.modData("Learnsets", "steelix").learnset.spikes = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.stealthrock = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.closecombat = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.earthquake = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.stoneedge = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.boomburst = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.dragondance = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.healbell = ['9L1'];
+		this.modData("Learnsets", "silvally").learnset.taunt = ['9L1'];
 	}
 };

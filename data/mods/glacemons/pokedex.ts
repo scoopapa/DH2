@@ -514,4 +514,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: null,
 		requiredItems: ["Water Memory", "Waterium Z"],
 	},
+	// Slate 3
+	steelix: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Route Closed", H: "Sheer Force"},
+	},
+	steelixmega: {
+		inherit: true,
+		abilities: {0: "Rough Skin"},
+	},
 };
