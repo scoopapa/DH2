@@ -144,10 +144,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Route Closed"},
 	},
-	snorlax: {
-		inherit: true,
-		abilities: {0: "Route Closed", 1: "Thick Fat", H: "Gluttony"},
-	},
 	mandibuzz: {
 		inherit: true,
 		abilities: {0: "Route Closed", 1: "Overcoat", H: "Weak Armor"},
@@ -192,7 +188,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	skarmory: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Sturdy", H: "Iron Barbs"},
+		abilities: {0: "Early Bird", 1: "Sturdy", H: "Iron Barbs"},
 	},
 	sceptilemega: {
 		inherit: true,
@@ -243,7 +239,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	bellossom: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Healer"},
+		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Wind Power"},
 	},
 	exeggcute: {
 		inherit: true,
@@ -259,7 +255,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	lilligant: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Own Tempo", H: "Solar Power"},
+		abilities: {0: "Wind Power", 1: "Own Tempo", H: "Solar Power"},
 	},
 	lilliganthisui: {
 		inherit: true,
@@ -287,7 +283,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	shayminsky: {
 		inherit: true,
-		abilities: {0: "Serene Grace", H: "Solar Power"},
+		abilities: {0: "Serene Grace", 1: "Wind Power", H: "Solar Power"},
 	},
 	victreebel: {
 		inherit: true,
@@ -383,7 +379,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	jumpluff: {
 		inherit: true,
-		abilities: {0: "Chlorophyll", 1: "Run It Back", H: "Infiltrator"},
+		abilities: {0: "Chlorophyll", 1: "Run It Back", H: "Infiltrator"}, // supposed to get Wind Rider
 	},
 	grafaiai: {
 		inherit: true,
@@ -393,9 +389,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Iron Barbs", 1: "Lightning Rod", H: "Run It Back"},
 	},
+	cottonee: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Wind Power", H: "Run It Back"},
+	},
 	whimsicott: {
 		inherit: true,
-		abilities: {0: "Prankster", 1: "Infiltrator", H: "Run It Back"},
+		abilities: {0: "Prankster", 1: "Wind Power", H: "Run It Back"},
 	},
 
 	// Anticipation
@@ -411,9 +411,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Pure Power", 1: "Anticipation", H: "Telepathy"},
 	},
+	munna: {
+		inherit: true,
+		abilities: {0: "Comatose", 1: "Synchronize", H: "Anticipation"},
+	},
 	musharna: {
 		inherit: true,
-		abilities: {0: "Forewarn", 1: "Synchronize", H: "Anticipation"},
+		abilities: {0: "Comatose", 1: "Synchronize", H: "Anticipation"},
 	},
 	kommoo: {
 		inherit: true,
@@ -553,5 +557,309 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	avalugghisui: {
 		inherit: true,
 		types: ["Ice", "Ground"],
+	},
+	// Liquid Body
+	grimer: {
+		inherit: true,
+		abilities: {0: "Liquid Body", 1: "Sticky Hold", H: "Poison Touch"},
+	},
+	grimeralola: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Liquid Body", H: "Power of Alchemy"},
+	},
+	muk: {
+		inherit: true,
+		abilities: {0: "Liquid Body", 1: "Sticky Hold", H: "Poison Touch"},
+	},
+	mukalola: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Liquid Body", H: "Power of Alchemy"},
+	},
+	gulpin: {
+		inherit: true,
+		abilities: {0: "Liquid Ooze", 1: "Sticky Hold", H: "Liquid Body"},
+	},
+	swalot: {
+		inherit: true,
+		abilities: {0: "Liquid Ooze", 1: "Sticky Hold", H: "Liquid Body"},
+	},
+	solosis: {
+		inherit: true,
+		abilities: {0: "Liquid Body", 1: "Magic Guard", H: "Regenerator"},
+	},
+	duosion: {
+		inherit: true,
+		abilities: {0: "Liquid Body", 1: "Magic Guard", H: "Regenerator"},
+	},
+	reuniclus: {
+		inherit: true,
+		abilities: {0: "Liquid Body", 1: "Magic Guard", H: "Regenerator"},
+	},
+	sinistea: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Liquid Body", H: "Cursed Body"},
+	},
+	sinisteaantique: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Liquid Body", H: "Cursed Body"},
+	},
+	polteageist: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Liquid Body", H: "Cursed Body"},
+	},
+	polteageistantique: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Liquid Body", H: "Cursed Body"},
+	},
+	dewpider: {
+		inherit: true,
+		abilities: {0: "Water Bubble", 1: "Liquid Body", H: "Water Absorb"},
+	},
+	araquanid: {
+		inherit: true,
+		abilities: {0: "Water Bubble", 1: "Liquid Body", H: "Water Absorb"},
+	},
+	frillish: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Cursed Body", H: "Liquid Body"},
+	},
+	jellicent: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Cursed Body", H: "Liquid Body"},
+	},
+	meltan: {
+		inherit: true,
+		abilities: {0: "Magnet Pull", H: "Liquid Body"},
+	},
+	// Long Reach
+	mienfoo: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Regenerator", H: "Long Reach"},
+	},
+	mienshao: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Regenerator", H: "Long Reach"},
+	},
+	deoxys: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
+	deoxysattack: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
+	deoxysdefense: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
+	deoxysspeed: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
+	minccino: {
+		inherit: true,
+		abilities: {0: "Long Reach", 1: "Technician", H: "Skill Link"},
+	},
+	cinccino: {
+		inherit: true,
+		abilities: {0: "Long Reach", 1: "Technician", H: "Skill Link"},
+	},
+	magby: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Long Reach", H: "Vital Spirit"},
+	},
+	magmar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Long Reach", H: "Vital Spirit"},
+	},
+	magmortar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Long Reach", H: "Vital Spirit"},
+	},
+	hoopa: {
+		inherit: true,
+		abilities: {0: "Magician", H: "Long Reach"},
+	},
+	hoopaunbound: {
+		inherit: true,
+		abilities: {0: "Magician", H: "Long Reach"},
+	},
+	ironhands: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Long Reach"},
+	},
+	hitmonlee: {
+		inherit: true,
+		abilities: {0: "Long Reach", 1: "Reckless", H: "Unburden"},
+	},
+	// Emergency Exit
+	cyclizar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Emergency Exit", H: "Regenerator"},
+	},
+	noivern: {
+		inherit: true,
+		abilities: {0: "Wind Power", 1: "Infiltrator", H: "Emergency Exit"},
+	},
+	vibrava: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Emergency Exit"},
+	},
+	flygon: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Emergency Exit"},
+	},
+	rapidash: {
+		inherit: true,
+		abilities: {0: "Emergency Exit", 1: "Flash Fire", H: "Flame Body"},
+	},
+	slitherwing: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Emergency Exit"},
+	},
+	gogoat: {
+		inherit: true,
+		abilities: {0: "Sap Sipper", 1: "Emergency Exit", H: "Grass Pelt"},
+	},
+	// Aftermath
+	ferrothorn: {
+		inherit: true,
+		abilities: {0: "Iron Barbs", 1: "Aftermath", H: "Anticipation"},
+	},
+	forretress: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Aftermath", H: "Overcoat"},
+	},
+	koffing: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Aftermath"},
+	},
+	weezing: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Aftermath"},
+	},
+	spiritomb: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Aftermath", H: "Infiltrator"},
+	},
+	// Early Bird
+	archen: {
+		inherit: true,
+		abilities: {0: "Defeatist", H: "Early Bird"},
+	},
+	archeops: {
+		inherit: true,
+		abilities: {0: "Defeatist", H: "Early Bird"},
+	},
+	tyrunt: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Early Bird", H: "Sturdy"},
+	},
+	tyrantrum: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Early Bird", H: "Rock Head"},
+	},
+	// Comatose
+	slowbro: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Comatose", H: "Regenerator"},
+	},
+	slowbrogalar: {
+		inherit: true,
+		abilities: {0: "Quick Draw", 1: "Comatose", H: "Regenerator"},
+	},
+	snorlax: {
+		inherit: true,
+		abilities: {0: "Comatose", 1: "Thick Fat", H: "Gluttony"},
+	},
+	shiinotic: {
+		inherit: true,
+		abilities: {0: "Illuminate", 1: "Effect Spore", H: "Comatose"},
+	},
+	corsolagalar: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Comatose", H: "Cursed Body"},
+	},
+	cursola: {
+		inherit: true,
+		abilities: {0: "Weak Armor", 1: "Comatose", H: "Perish Body"},
+	},
+	jirachi: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Comatose"},
+	},
+	cresselia: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Comatose"},
+	},
+	darkrai: {
+		inherit: true,
+		abilities: {0: "Bad Dreams", H: "Comatose"},
+	},
+	// Wind Power
+	pelipper: {
+		inherit: true,
+		abilities: {0: "Wind Power", 1: "Drizzle", H: "Rain Dish"},
+	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Wind Power", H: "Unnerve"},
+	},
+	toedscruel: {
+		inherit: true,
+		abilities: {0: "Mycelium Might", H: "Wind Power"},
+	},
+	togekiss: {
+		inherit: true,
+		abilities: {0: "Wind Power", 1: "Serene Grace", H: "Super Luck"},
+	},
+	tornadus: {
+		inherit: true,
+		abilities: {0: "Prankster", H: "Wind Power"},
+	},
+	thundurus: {
+		inherit: true,
+		abilities: {0: "Prankster", H: "Wind Power"},
+	},
+	braviaryhisui: {
+		inherit: true,
+		abilities: {0: "Wind Power", 1: "Sheer Force", H: "Tinted Lens"},
+	},
+	// Wind Rider
+	braviary: {
+		inherit: true,
+		abilities: {0: "Wind Rider", 1: "Sheer Force", H: "Defiant"},
+	},
+	leavanny: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Wind Rider"},
+	},
+	carnivine: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Wind Rider"},
+	},
+	flapple: {
+		inherit: true,
+		abilities: {0: "Ripen", 1: "Wind Rider", H: "Hustle"},
+	},
+	zubat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Wind Rider", H: "Infiltrator"},
+	},
+	golbat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Wind Rider", H: "Infiltrator"},
+	},
+	crobat: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Wind Rider", H: "Infiltrator"},
+	},
+	dragonite: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Wind Rider", H: "Multiscale"},
+	},
+	landorus: {
+		inherit: true,
+		abilities: {0: "Sand Force", H: "Wind Rider"},
 	},
 };

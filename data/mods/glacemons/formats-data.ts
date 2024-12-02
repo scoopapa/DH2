@@ -3149,7 +3149,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	landorus: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	landorustherian: {
 		inherit: true,

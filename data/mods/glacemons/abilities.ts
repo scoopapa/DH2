@@ -148,7 +148,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(pokemon) {
 			const allTypes = {
 				"Normal": "Tough Claws",
-				"Grass": "Overgrow",
+				"Grass": "Wind Rider",
 				"Fire": "Blaze",
 				"Water": "Torrent",
 				"Electric": "Download",
@@ -156,7 +156,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				"Fighting": "Scrappy",
 				"Poison": "Regenerator",
 				"Ground": "Rocky Payload",
-				"Flying": "Air Lock",
+				"Flying": "Early Bird",
 				"Psychic": "Magic Bounce",
 				"Bug": "Tinted Lens",
 				"Rock": "Solid Rock",
@@ -242,10 +242,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (!move.flags['contact'] && !move.flags['longreach']) {
+			if (!move.flags['contact'] && move.flags['longreach']) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
+		shortDesc: "This Pokemon's attacks that make contact do not make contact and have 1.2x power.",
 	},
 	emergencyexit: {
 		inherit: true,
