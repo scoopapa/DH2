@@ -233,6 +233,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
+			hoenn: ["9L1"],
 			block: ["9L1"],
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -712,6 +713,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
+			hoenn: ["9L1"],
 			attract: ["9L1"],
 			blizzard: ["9L1"],
 			brine: ["9L1"],
@@ -2328,21 +2330,21 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			hex: ["9L1"],
 			hiddenpower: ["9L1"],
 			hiddenpowerbug: ["9L1"],
-			hiddendark: ["9L1"],
-			hiddendragon: ["9L1"],
-			hiddenelectric: ["9L1"],
-			hiddenfighting: ["9L1"],
-			hiddenfire: ["9L1"],
-			hiddenflying: ["9L1"],
-			hiddenghost: ["9L1"],
-			hiddengrass: ["9L1"],
-			hiddenground: ["9L1"],
-			hiddenice: ["9L1"],
-			hiddenpoison: ["9L1"],
-			hiddenpsychic: ["9L1"],
-			hiddenrock: ["9L1"],
-			hiddensteel: ["9L1"],
-			hiddenwater: ["9L1"],
+			hiddenpowerdark: ["9L1"],
+			hiddenpowerdragon: ["9L1"],
+			hiddenpowerelectric: ["9L1"],
+			hiddenpowerfighting: ["9L1"],
+			hiddenpowerfire: ["9L1"],
+			hiddenpowerflying: ["9L1"],
+			hiddenpowerghost: ["9L1"],
+			hiddenpowergrass: ["9L1"],
+			hiddenpowerground: ["9L1"],
+			hiddenpowerice: ["9L1"],
+			hiddenpowerpoison: ["9L1"],
+			hiddenpowerpsychic: ["9L1"],
+			hiddenpowerrock: ["9L1"],
+			hiddenpowersteel: ["9L1"],
+			hiddenpowerwater: ["9L1"],
 			highhorsepower: ["9L1"],
 			highjumpkick: ["9L1"],
 			holdback: ["9L1"],
@@ -2506,7 +2508,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			return: ["9L1"],
 			revelationdance: ["9L1"],
 			risingvoltage: ["9L1"],
-			roartime: ["9L1"],
+			roaroftime: ["9L1"],
 			rockblast: ["9L1"],
 			rockclimb: ["9L1"],
 			rockslide: ["9L1"],
@@ -2930,6 +2932,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			airhorn: ["9L1"],
+			gofish: ["9L1"],
 		},
 	},
 	vivillonplainshigh: {
@@ -3324,6 +3327,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	cascoon: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			bugbite: ["9L1"],
 			electroweb: ["9L1"],
 			harden: ["9L1"],
@@ -4484,6 +4488,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
+			hoenn: ["9L1"],
 			amnesia: ["9L1"],
 			ancientpower: ["9L1"],
 			aquatail: ["9L1"],
@@ -5188,6 +5193,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	
 	jirachitwo: {
 		learnset: {
+			hoenn: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
 			amnesia: ["9L1"],
@@ -8007,6 +8013,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	jableye: {
 		learnset: {
+			hoenn: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
 			astonish: ["9L1"],
@@ -9034,6 +9041,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	groudon: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			fishburn: ["9L1"],
 			aerialace: ["9L1"],
 			ancientpower: ["9L1"],
@@ -9249,6 +9257,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	absol: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			clash: ["9L1"],
 			aerialace: ["9L1"],
 			airslash: ["9L1"],
@@ -9907,7 +9916,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			floralhealing: ["9L1"],
 		},
 	},
-	syndcant: {
+	syndicant: {
 		learnset: {
 			diamondhand: ["9L1"],
 			anofferyoucantrefuse: ["9L1"],

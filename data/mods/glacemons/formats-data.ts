@@ -1357,7 +1357,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	skarmory: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	houndour: {
 		inherit: true,
@@ -1449,7 +1449,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sceptilemega: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	torchic: {
 		inherit: true,
@@ -3177,23 +3177,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	genesect: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	genesectburn: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	genesectchill: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	genesectdouse: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	genesectshock: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	chespin: {
 		inherit: true,
@@ -3945,7 +3945,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	necrozma: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	necrozmaduskmane: {
 		inherit: true,
@@ -4357,11 +4357,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	enamorus: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	enamorustherian: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	sprigatito: {
 		inherit: true,
@@ -4821,7 +4821,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	ogerponhearthflametera: {
 		inherit: true,
@@ -4863,10 +4863,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "OU",
 	},
-	terapagosstellar: {
-		inherit: true,
-		tier: "Illegal",
-	},
+	// terapagosstellar: {
+	// 	inherit: true,
+	// 	tier: "Illegal",
+	// },
 	pecharunt: {
 		inherit: true,
 		tier: "RU",

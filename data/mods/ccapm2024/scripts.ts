@@ -27,7 +27,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						secondaryRoll < (secondaryOverflow ? secondary.chance % 256 : secondary.chance)) {
 						let flag = true;
 						let canSetStatus = function (status, target, pokemon) {
-							if (target.status) return false;
+							if (!target || target === false || target.status) return false;
 							let cantStatus = {
 								brn: ['Fire', 'comatose', 'waterveil', 'waterbubble'],
 								frz: ['Ice', 'comatose', 'magmaarmor'],

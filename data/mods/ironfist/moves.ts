@@ -1536,8 +1536,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return this.chainModify(mod);
 			},
-			onAfterHit(target, source, move) {
-				if (move.flags['fishing']) source.side.addFishingTokens(1);
+			onAfterMove(target, source, move) {
+				if (move.flags['fishing']) target.side.addFishingTokens(1);
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
