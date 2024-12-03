@@ -296,6 +296,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2,
 		num: 106,
 	},
+	bulletproof: {
+		inherit: true,
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.name === 'Aftermath') {
+				return false;
+			}
+		},
+	},
 	earlybird: {
 		inherit: true,
 		shortDesc: "This Pokemon is guaranted to wake up next turn.",
