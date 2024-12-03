@@ -2066,7 +2066,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	biterelay: {
 		num: -107,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 75,
 		category: "Physical",
 		shortDesc: "Facade + Psycho Shift.",
 		name: "Bite Relay",
