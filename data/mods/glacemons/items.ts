@@ -393,18 +393,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		rating: 3,
 		shortDesc: "If this Pokemon is targeted by a priority move, the move fails and the attacker is forced to switch out. Single-use.",
 	},
-	scoutingvisitor: {
-		name: "Scouting Visitor",
+	scoutingvisor: {
+		name: "Scouting Visor",
 		fling: {
 			basePower: 10,
 		},
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod > 0) {
 				if (source.hasType('Psychic')) {
-					return this.chainModify(1.3);
+					return this.chainModify([5324, 4096]);
 				}
 				else {
-					return this.chainModify(0.67);
+					return this.chainModify([2731, 4096]);
 				}
 			}
 		},
