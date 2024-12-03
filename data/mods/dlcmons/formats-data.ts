@@ -575,6 +575,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	floatzel: {tier: "Kalos"},
 
 	basculin: {tier: "Kalos"},
+	basculinbluestriped: {tier: "Kalos"},
 
 	phantump: {tier: "Kalos (NFE)"},
 	trevenant: {tier: "Kalos"},
@@ -731,5 +732,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mewtwo: {tier: "Uber"},
 	mewtwomegax: {tier: "Uber"},
 	mewtwomegay: {tier: "Uber"},
+
+	// DLC
+
+	// Slate 1
+	regirockkalos: {tier: "Kalos"},
+	regicekalos: {tier: "Kalos"},
+	registeelkalos: {tier: "Kalos"},
+	regigigas: {tier: "Kalos"},
 
 };
