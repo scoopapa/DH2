@@ -237,8 +237,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	longreach: {
 		inherit: true,
 		onModifyMove(move) {
-			delete move.flags['contact'];
-			move.flags['longreach'] = true;
+			if (move.flags['contact']) {
+				move.flags.longreach = true;
+				delete move.flags['contact'];
+			}
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
@@ -253,6 +255,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onEmergencyExit(target) {},
 		onAfterBoost(boost, target, source, effect) {
 			if (this.activeMove?.id === 'partingshot') return;
+			if (source && target !== source) return;
 			let eject = false;
 			let i: BoostID;
 			for (i in boost) {
@@ -275,10 +278,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	aftermath: {
 		inherit: true,
-		onDamagingHitOrder: 1,
+		/*onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!target.hp) {
 				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},*/
+		onFaint(pokemon) {
+			for (const target of this.getAllActive()) {
+				this.damage(target.baseMaxhp / 4, target, pokemon);
 			}
 		},
 		flags: {},
