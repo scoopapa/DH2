@@ -477,7 +477,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		flags: { snatch: 1, heal: 1, bypasssub: 1 },
 		heal: [1, 3],
 		self: {
-			volatileStatus: 'selfrepair',
+			volatileStatus: 'selfrepairing',
 		},
 		condition: {
 			onStart(pokemon) {
@@ -485,7 +485,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 			onAfterMoveSecondarySelfPriority: -1,
 			onAfterMoveSecondarySelf(pokemon, target, move) {
-				if (move.category === 'Status' && move.id !== 'selfrepair') {
+				if (move.category === 'Status' && move.id !== 'selfrepairing') {
 					this.heal(pokemon.baseMaxhp / 4);
 				}
 			},
@@ -493,7 +493,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onBeforeMovePriority: 100,
 		onBeforeMove(pokemon) {
 			this.debug('removing Self Repairing before attack');
-			pokemon.removeVolatile('selfrepair');
+			pokemon.removeVolatile('selfrepairing');
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
