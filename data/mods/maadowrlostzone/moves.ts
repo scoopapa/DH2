@@ -1256,13 +1256,53 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "No effect at the moment.",
+		shortDesc: "Life Dew + Mental Herb effect.",
 		name: "Ascension",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, metronome: 1},		
+		flags: {snatch: 1, heal: 1, bypasssub: 1, metronome: 1},		
+		onHit(pokemon) {
+			// Healing for the user
+			if (pokemon.hp < pokemon.maxhp) {
+				const healAmount = pokemon.maxhp / 4;
+				pokemon.heal(healAmount);
+				this.add('-heal', pokemon, pokemon.getHealth, healAmount);
+			}
+
+			const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
+				for (const firstCondition of conditions) {
+					if (pokemon.volatiles[firstCondition]) {
+						for (const secondCondition of conditions) {
+							pokemon.removeVolatile(secondCondition);
+							if (firstCondition === 'attract' && secondCondition === 'attract') {
+								this.add('-end', pokemon, 'move: Attract', '[from] move: Ascension');
+							}
+						}
+						return;
+					}
+				}
+		
+			// Access the ally (assuming the ally is the other Pokémon in the same team)
+			const ally = pokemon.side.active.find(p => p !== pokemon);
+		
+			// Clear mental effects for the ally
+			if (ally) {
+				const conditions = ['attract', 'taunt', 'encore', 'torment', 'disable', 'healblock'];
+				for (const firstCondition of conditions) {
+					if (ally.volatiles[firstCondition]) {
+						for (const secondCondition of conditions) {
+							ally.removeVolatile(secondCondition);
+							if (firstCondition === 'attract' && secondCondition === 'attract') {
+								this.add('-end', ally, 'move: Attract', '[from] move: Ascension');
+							}
+						}
+						return;
+					}
+				}
+			}		
+		},
 		secondary: null,
-		target: "normal",
+		target: "allies",
 		type: "Grass",
 		contestType: "Beautiful",
 	},
