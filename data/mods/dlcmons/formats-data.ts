@@ -575,6 +575,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	floatzel: {tier: "Kalos"},
 
 	basculin: {tier: "Kalos"},
+	basculinbluestriped: {tier: "Kalos"},
 
 	phantump: {tier: "Kalos (NFE)"},
 	trevenant: {tier: "Kalos"},

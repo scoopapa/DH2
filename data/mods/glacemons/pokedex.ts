@@ -644,18 +644,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Pressure", H: "Long Reach"},
 	},
-	// deoxysattack: {
-	// 	inherit: true,
-	// 	abilities: {0: "Pressure", H: "Long Reach"},
-	// },
-	// deoxysdefense: {
-	// 	inherit: true,
-	// 	abilities: {0: "Pressure", H: "Long Reach"},
-	// },
-	// deoxysspeed: {
-	// 	inherit: true,
-	// 	abilities: {0: "Pressure", H: "Long Reach"},
-	// },
+	deoxysattack: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
+	deoxysdefense: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
+	deoxysspeed: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Long Reach"},
+	},
 	minccino: {
 		inherit: true,
 		abilities: {0: "Long Reach", 1: "Technician", H: "Skill Link"},
