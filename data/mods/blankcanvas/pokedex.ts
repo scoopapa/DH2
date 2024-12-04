@@ -365,7 +365,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	// Meta B
 	flarenheit: {
 		num: 9045,
-		species: "Flarenheit",
+		name: "Flarenheit",
 		types: ["Ice", "Fire"],
 		baseStats: {hp: 55, atk: 110, def: 50, spa: 70, spd: 40, spe: 130},
 		abilities: {0: "Moxie", 1: "Motor Drive", H: "Surge Surfer"},
@@ -373,7 +373,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	groundead: {
 		num: 9046,
-		species: "Groundead",
+		name: "Groundead",
 		types: ["Ground", "Ghost"],
 		baseStats: {hp: 80, atk: 115, def: 110, spa: 50, spd: 80, spe: 50},
 		abilities: {0: "Misty Surge", 1: "Solid Rock", H: "Earth Eater"},
@@ -381,7 +381,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	actaniathan: {
 		num: 9047,
-		species: "Actaniathan",
+		name: "Actaniathan",
 		types: ["Water", "Steel"],
 		baseStats: {hp: 100, atk: 40, def: 90, spa: 105, spd: 110, spe: 50},
 		abilities: {0: "Torrent", H: "Lightning Rod"},
