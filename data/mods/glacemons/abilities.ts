@@ -270,6 +270,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					for (const pokemon of this.getAllActive()) {
 						if (pokemon.switchFlag === true) return;
 					}
+					this.add('-ability', target, 'Emergency Exit');
 					target.switchFlag = true;
 				}
 			}
