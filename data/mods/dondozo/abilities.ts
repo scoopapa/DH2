@@ -280,6 +280,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			const source = this.effectState.target;
+			if (!source) return;
 			for (const target of source.side.foe.active) {
 				target.removeVolatile('gastroacid');
 				target.removeVolatile('fishingseason');
