@@ -562,7 +562,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Bulk Up", source);
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Fighting",
 		zMove: { boost: { atk: 1 } },
 		contestType: "Cool",
