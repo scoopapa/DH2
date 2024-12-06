@@ -545,7 +545,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { snatch: 1, metronome: 1 },
 		onTryHit(target, source, move) {
-			if (target.lastMove.id === 'flexoff') {
+			if (target.lastMove && target.lastMove.id === 'flexoff') {
 				return false;
 			}
 			const targetAtk = target.storedStats.atk;
