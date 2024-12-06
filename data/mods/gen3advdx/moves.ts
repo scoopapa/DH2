@@ -63,6 +63,47 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
 	},
+	spiderweb: {
+		num: 169,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Spider Web",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+  			if (!target.hasAbility('runaway')) {
+				return target.addVolatile('trapped', source, move, 'trapper');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	block: {
+		num: 335,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Block",
+		pp: 5,
+		priority: 0,
+		flags: {reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+  			if (!target.hasAbility('runaway')) {
+				return target.addVolatile('trapped', source, move, 'trapper');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {def: 1}},
+		contestType: "Cute",
+	},
 	watershuriken: {
     	inherit: true,
 		shortDesc: "Hits 3 times. High critical hit ratio.",
