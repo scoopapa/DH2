@@ -545,6 +545,13 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { snatch: 1, metronome: 1 },
 		onTryHit(target, source, move) {
+			// check if the move has been used this turn
+			if (target.lastMove === move.id) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				this.add('-anim', source, "Flex", source);
+				return null;
+			}
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
 			console.log("Source is " + source + " and target is " + target);
