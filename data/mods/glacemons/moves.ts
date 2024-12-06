@@ -547,6 +547,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onTryHit(target, source, move) {
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
+			console.log("Source is " + source + " and target is " + target);
 			if (sourceAtk >= targetAtk) {
 				console.log("I boost!");
 				this.boost({atk: 2, def: 2}, source, source);
