@@ -593,20 +593,14 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	greatandpowerfulexit: {
 		num: -13,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 65,
 		category: "Physical",
 		name: "Great and Powerful Exit",
-		desc: "This move doubles in base power if under Midnight Terrain.",
-		shortDesc: "2x power under Midnight Terrain.",
+		desc: "User switches out.",
+		shortDesc: "User switches out.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onBasePower(basePower, source) {
-			if (this.field.isTerrain('midnightterrain') && source.isGrounded()) {
-				this.debug('terrain buff');
-				return this.chainModify(2);
-			}
-		},
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
@@ -972,7 +966,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	ornithianblade: {
 		num: -32,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 70,
 		category: "Physical",
 		name: "Ornithian Blade",
 		desc: "This move ignores the target’s abilities.",
