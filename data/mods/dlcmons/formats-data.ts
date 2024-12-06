@@ -628,6 +628,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vanillish: {tier: "Kalos (NFE)"},
 	vanilluxe: {tier: "Kalos"},
 
+	vanillitekalos: {tier: "Kalos (NFE)"},
+	vanillishkalos: {tier: "Kalos (NFE)"},
+	vanilluxekalos: {tier: "Kalos"},
+
 	snover: {tier: "Kalos (NFE)"},
 	abomasnow: {tier: "Kalos"},
 	abomasnowmega: {tier: "Kalos"},
@@ -635,7 +639,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	delibird: {tier: "Kalos"},
 
 	sneasel: {tier: "Kalos (NFE)"},
-	weavile: {tier: "Kalos"}, // most likely Uber soon
+	weavile: {tier: "Kalos"},
 
 	timburr: {tier: "Kalos (NFE)"},
 	gurdurr: {tier: "Kalos (NFE)"},
