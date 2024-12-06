@@ -548,10 +548,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
 			if (sourceAtk >= targetAtk) {
-				this.boost({atk: -1, spa: -1}, source, source);
+				this.boost({atk: 2, def: 2}, source, source);
 			}
 			else if (sourceAtk < targetAtk){
-				this.boost({atk: 2, def: 2}, target, source);
+				this.boost({atk: 2, def: 2}, source, target);
 			}
 		},
 		onPrepareHit(target, source, move) {

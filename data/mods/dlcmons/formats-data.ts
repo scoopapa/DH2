@@ -746,4 +746,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	registeelkalos: {tier: "Kalos"},
 	regigigas: {tier: "Kalos"},
 
+	glimmetkalos: {tier: "Kalos (NFE)"},
+	glimmorakalos: {tier: "Kalos (NFE)"},
+	glimmaltis: {tier: "Kalos"},
+
 };
