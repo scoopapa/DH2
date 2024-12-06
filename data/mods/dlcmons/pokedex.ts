@@ -60,5 +60,32 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
+	skitty: {
+		inherit: true,
+		evos: ["Delcatty", "Delcatty-Kalos"],
+	},
+	delcatty: {
+		inherit: true,
+		otherFormes: ["Delcatty-Kalos"],
+		formeOrder: ["Delcatty", "Delcatty-Kalos"],
+	},
+	delcattykalos: {
+		num: 301,
+		name: "Delcatty-Kalos",
+		baseSpecies: "Delcatty",
+		forme: "Kalos",
+		types: ["Fairy", "Fire"],
+		genderRatio: {M: 0.25, F: 0.75},
+		baseStats: {hp: 90, atk: 45, def: 80, spa: 45, spd: 80, spe: 45},
+		abilities: {0: "Cute Charm", 1: "Illuminate", H: "Light Power"},
+		heightm: 1.1,
+		weightkg: 32.6,
+		color: "Purple",
+		prevo: "Skitty",
+		evoType: "useItem",
+		evoItem: "Moon Stone",
+		evoRegion: "Kalos",
+		eggGroups: ["Field", "Fairy"],
+	},
 
 };

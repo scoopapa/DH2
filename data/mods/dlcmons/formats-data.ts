@@ -122,6 +122,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	skitty: {tier: "Kalos (NFE)"},
 	delcatty: {tier: "Kalos"},
+	delcattykalos: {tier: "Kalos"},
 
 	bulbasaur: {tier: "Kalos (NFE)"},
 	ivysaur: {tier: "Kalos (NFE)"},

@@ -514,7 +514,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	gravelgrater: {
 		num: -7,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 30,
 		category: "Physical",
 		shortDesc: "Hits twice. Lowers the target's Def after each hit.",
@@ -548,12 +548,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
 			if (sourceAtk >= targetAtk) {
-				move.self = { boosts: { atk: 2, def: 2 } };
+				// move.self = { boosts: { atk: 2, def: 2 } };
+				source.boosts = { atk: 2, def: 2 };
 			}
 			else {
-				move.target = "normal";
-				move.self = null;
-				move.boosts = { atk: 2, def: 2 };
+				// move.target = "normal";
+				// move.self = null;
+				// move.boosts = { atk: 2, def: 2 };
+				target.boosts = { atk: 2, def: 2 };
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -573,12 +575,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		shortDesc: "Hits three times, which each hit having a 10% to paralyze the target.",
+		shortDesc: "Hits three times, with each hit having a 10% to paralyze the target.",
 		isViable: true,
 		name: "Ion Saw",
 		pp: 10,
 		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1 },
+		flags: { slicing: 1, protect: 1, mirror: 1 },
 		multihit: 3,
 		secondary: {
 			chance: 10,
