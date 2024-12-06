@@ -545,22 +545,16 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { snatch: 1, metronome: 1 },
 		onTryHit(target, source, move) {
-			// check if the move has been used this turn
-			if (target.lastMove === move.id) {
-				this.add('-fail', source);
-				this.attrLastMove('[still]');
-				this.add('-anim', source, "Flex", source);
-				return null;
+			if (target.lastMove.id === 'flexoff') {
+				return false;
 			}
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
-			console.log("Source is " + source + " and target is " + target);
 			if (sourceAtk >= targetAtk) {
 				console.log("I boost!");
 				this.boost({atk: 2, def: 2}, source, source);
 			}
 			else if (sourceAtk < targetAtk){
-				console.log("I don't boost, I'm weak! " + target + "does more damage than" + source);
 				this.boost({atk: 2, def: 2}, target, source);
 			}
 		},
