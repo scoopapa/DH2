@@ -554,7 +554,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			}
 			else if (sourceAtk < targetAtk){
 				console.log("I don't boost, I'm weak! " + target + "does more damage than" + source);
-				this.boost({atk: 2, def: 2}, source, target);
+				this.boost({atk: 2, def: 2}, target, source);
 			}
 		},
 		onPrepareHit(target, source, move) {
