@@ -525,6 +525,11 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		multihit: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ancient Power", target);
+			this.add('-anim', source, "Gear Grind", target);
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
