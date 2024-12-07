@@ -139,6 +139,30 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
+		onAnySwitchIn(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						const sourceDef = pokemon.storedStats.def;
+						const sourceSpD = pokemon.storedStats.spd;
+						if (sourceDef >= sourceSpD) {
+							this.boost({ def: 1 }, pokemon);
+						}
+						else {
+							this.boost({ spd: 1 }, pokemon);
+						}
+						this.add('-ability', pokemon, 'Anticipation');
+						return;
+					}
+				}
+			}
+		},
 		desc: "On switch-in, this Pokemon is alerted and raises its highest defense stat by 1 if any opposing Pokemon has an attack that is super effective against this Pokemon, or an OHKO move. This effect considers any move that deals direct damage as an attacking move of its respective type, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
 		shortDesc: "On switch-in, this Pokemon shudders if any foe has a supereffective or OHKO move. Raises its highest defense stat by 1.",
 	},
