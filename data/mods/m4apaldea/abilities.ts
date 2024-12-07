@@ -593,7 +593,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters).",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (pokemon.moveLastTurnResult === false) {
+			if (attacker.moveLastTurnResult === false) {
 				this.debug('doubling ', move, ' BP due to previous move failure');
 				return move.basePower * 2;
 			}
