@@ -5,16 +5,19 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["Energy Ball", "Sludge Bomb", "Sunny Day", "Weather Ball"],
+                "abilities": ["Chlorophyll"],
                 "teraTypes": ["Fire"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "abilities": ["Chlorophyll", "Overgrow"],
                 "teraTypes": ["Steel", "Water"]
             },
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "abilities": ["Chlorophyll", "Overgrow"],
                 "teraTypes": ["Dark", "Steel", "Water"]
             }
         ]
@@ -3079,7 +3082,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Body Slam", "Giga Impact", "Knock Off", "Earthquake", "Heat Crash", "Heavy Slam"],
+                "movepool": ["Body Slam", "Drain Punch", "Knock Off", "Earthquake", "Heat Crash", "Heavy Slam"],
                 "teraTypes": ["Ghost"]
             },
             {
@@ -3471,7 +3474,7 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Aqua Jet", "Knock Off", "Liquidation", "Megahorn", "Sacred Sword", "Swords Dance"],
                 "teraTypes": ["Dark", "Water"]
-            },
+            }
         ]
     },
     "samurotthisui": {
@@ -5626,7 +5629,7 @@
                 "role": "Fast Attacker",
                 "movepool": ["Astral Barrage", "Nasty Plot", "Pollen Puff", "Psycho Boost"],
                 "teraTypes": ["Dark", "Ghost"]
-            }
+            },
             {
                 "role": "Wallbreaker",
                 "movepool": ["Astral Barrage", "Trick", "Pollen Puff", "Psycho Boost"],
@@ -6759,7 +6762,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Encore", "Ivy Cudgel", "Spikes", "Synthesis", "U-turn", "Wood Hammer"],
+                "movepool": ["Encore", "Ivy Cudgel", "Spikes", "Jungle Healing", "U-turn", "Wood Hammer"],
                 "teraTypes": ["Water"]
             },
             {
@@ -6784,7 +6787,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Encore", "Ivy Cudgel", "Power Whip", "Spikes", "Superpower", "Synthesis"],
+                "movepool": ["Encore", "Ivy Cudgel", "Power Whip", "Spikes", "Superpower", "Jungle Healing"],
                 "teraTypes": ["Rock"]
             },
             {
