@@ -122,6 +122,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	skitty: {tier: "Kalos (NFE)"},
 	delcatty: {tier: "Kalos"},
+	delcattykalos: {tier: "Kalos"},
 
 	bulbasaur: {tier: "Kalos (NFE)"},
 	ivysaur: {tier: "Kalos (NFE)"},
@@ -627,6 +628,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vanillish: {tier: "Kalos (NFE)"},
 	vanilluxe: {tier: "Kalos"},
 
+	vanillitekalos: {tier: "Kalos (NFE)"},
+	vanillishkalos: {tier: "Kalos (NFE)"},
+	vanilluxekalos: {tier: "Kalos"},
+
 	snover: {tier: "Kalos (NFE)"},
 	abomasnow: {tier: "Kalos"},
 	abomasnowmega: {tier: "Kalos"},
@@ -634,7 +639,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	delibird: {tier: "Kalos"},
 
 	sneasel: {tier: "Kalos (NFE)"},
-	weavile: {tier: "Kalos"}, // most likely Uber soon
+	weavile: {tier: "Kalos"},
 
 	timburr: {tier: "Kalos (NFE)"},
 	gurdurr: {tier: "Kalos (NFE)"},
@@ -740,5 +745,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	regicekalos: {tier: "Kalos"},
 	registeelkalos: {tier: "Kalos"},
 	regigigas: {tier: "Kalos"},
+
+	glimmetkalos: {tier: "Kalos (NFE)"},
+	glimmorakalos: {tier: "Kalos (NFE)"},
+	glimmaltis: {tier: "Kalos"},
 
 };

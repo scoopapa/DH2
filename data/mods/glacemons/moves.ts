@@ -153,6 +153,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		flags: { protect: 1, mirror: 1 },
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Revelation Dance", source);
 			this.add('-anim', source, "Psychic Noise", target);
 		},
 		overrideOffensiveStat: 'spd',
@@ -514,7 +515,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	gravelgrater: {
 		num: -7,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 30,
 		category: "Physical",
 		shortDesc: "Hits twice. Lowers the target's Def after each hit.",
@@ -545,23 +546,25 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: { snatch: 1, metronome: 1 },
 		onTryHit(target, source, move) {
+			if (target.lastMove && target.lastMove.id === 'flexoff') {
+				return false;
+			}
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
 			if (sourceAtk >= targetAtk) {
-				move.self = { boosts: { atk: 2, def: 2 } };
+				this.boost({atk: 2, def: 2}, source, source);
 			}
-			else {
-				move.target = "normal";
-				move.self = null;
-				move.boosts = { atk: 2, def: 2 };
+			else if (sourceAtk < targetAtk){
+				this.boost({atk: 2, def: 2}, target, source);
 			}
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bulk Up", source);
+			this.add('-anim', target, "Bulk Up", target);
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Fighting",
 		zMove: { boost: { atk: 1 } },
 		contestType: "Cool",
@@ -573,16 +576,25 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		shortDesc: "Hits three times, which each hit having a 10% to paralyze the target.",
+		shortDesc: "Hits three times, with each hit having a 10% to paralyze the target.",
 		isViable: true,
 		name: "Ion Saw",
 		pp: 10,
 		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1 },
+		flags: { slicing: 1, protect: 1, mirror: 1 },
 		multihit: 3,
 		secondary: {
 			chance: 10,
 			status: 'par',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ion Deluge", source);
+			this.add('-anim', source, "Ion Deluge", source);
+			this.add('-anim', source, "Ion Deluge", source);
+			this.add('-anim', source, "Slash", target);
+			this.add('-anim', source, "Slash", target);
+			this.add('-anim', source, "Slash", target);
 		},
 		target: "normal",
 		type: "Electric",
