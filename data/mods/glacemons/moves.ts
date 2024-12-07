@@ -153,6 +153,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		flags: { protect: 1, mirror: 1 },
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
+			this.add('-anim', source, "Revelation Dance", source);
 			this.add('-anim', source, "Psychic Noise", target);
 		},
 		overrideOffensiveStat: 'spd',
@@ -551,7 +552,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
 			if (sourceAtk >= targetAtk) {
-				console.log("I boost!");
 				this.boost({atk: 2, def: 2}, source, source);
 			}
 			else if (sourceAtk < targetAtk){
@@ -561,6 +561,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bulk Up", source);
+			this.add('-anim', target, "Bulk Up", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -585,6 +586,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: {
 			chance: 10,
 			status: 'par',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ion Deluge", source);
+			this.add('-anim', source, "Ion Deluge", source);
+			this.add('-anim', source, "Ion Deluge", source);
+			this.add('-anim', source, "Slash", target);
+			this.add('-anim', source, "Slash", target);
+			this.add('-anim', source, "Slash", target);
 		},
 		target: "normal",
 		type: "Electric",
