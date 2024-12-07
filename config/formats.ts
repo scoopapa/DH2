@@ -3122,13 +3122,13 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 2] GSC Doubles",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3755811/">Thread on Smogon</a>`,
 		],
 
 		mod: 'gen2doubles',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
-		banlist: ['Uber'],
+		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
 	},
     {
 		name: "[Gen 3] Hoennification",
