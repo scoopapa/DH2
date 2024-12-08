@@ -228,7 +228,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.flags['contact']) mod /= 2;
 			return this.chainModify(mod);
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Liquid Body",
 		desc: "This Pokemon receives 1/2 damage from contact moves, but double damage from Water moves.",
 		shortDesc: "This Pokemon takes 1/2 damage from contact moves, 2x damage from Water moves.",
@@ -253,7 +253,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	emergencyexit: {
 		inherit: true,
-		onEmergencyExit(target) {},
+		onEmergencyExit(target) { },
 		onAfterBoost(boost, target, source, effect) {
 			if (this.activeMove?.id === 'partingshot') return;
 			if (source && target !== source) return;
@@ -347,15 +347,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onDamagingHit(damage, target, source, move) {},
+		onDamagingHit(damage, target, source, move) { },
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm')) {
-				this.boost({spa: 1}, pokemon, pokemon);
+				this.boost({ spa: 1 }, pokemon, pokemon);
 			}
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['wind']) {
-				if (!this.boost({spa: 1}, target, target)) {
+				if (!this.boost({ spa: 1 }, target, target)) {
 					this.add('-immune', target, '[from] ability: Wind Rider');
 				}
 				return null;
@@ -364,7 +364,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
 			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
-				this.boost({spa: 1}, pokemon, pokemon);
+				this.boost({ spa: 1 }, pokemon, pokemon);
 			}
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
@@ -377,16 +377,163 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['tailwind'] || this.field.isWeather('sandstorm')) {
-				this.boost({atk: 1}, pokemon, pokemon);
+				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
 			if (sideCondition.id === 'tailwind' || this.field.isWeather('sandstorm')) {
-				this.boost({atk: 1}, pokemon, pokemon);
+				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
 		shortDesc: "Attack raised by 1 if hit by a wind move, if Tailwind begins, or if Sandstorm is active. Wind move and Sandstorm immunity.",
+	},
+	// Slate 4
+	merciless: {
+		inherit: true,
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox', 'brn', 'par'].includes(target.status)) return 5;
+		},
+		shortDesc: "This Pokemon's attacks are critical hits if the target is poisoned, burned or paralyzed.",
+	},
+	telepathy: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			let reduced = true;
+			for (const target of this.getAllActive()) {
+				if (target === source) continue;
+				if (this.queue.willMove(target)) {
+					reduced = false;
+					break;
+				}
+			}
+			if (reduced) {
+				this.debug('Telepathy reduction');
+				return this.chainModify(0.75);
+			}
+		},
+		shortDesc: "This Pokemon takes 25% less damage from attacks that go before it.",
+	},
+	deliquesce: {
+		num: -5,
+		name: "Deliquesce",
+		shortDesc: "On switch in, adds the Water type to the user. Has no effect if the user is already that type.",
+		onStart(pokemon) {
+			if (!pokemon.hasType('Water')) {
+				this.add('-start', pokemon, 'typeadd', 'Water', '[from] ability: Deliquesce');
+			}
+		},
+		rating: 3,
+	},
+	evanesce: {
+		num: -6,
+		name: "Evanesce",
+		shortDesc: "On switch in, adds the Ghost type to the user. Has no effect if the user is already that type.",
+		onStart(pokemon) {
+			if (!pokemon.hasType('Ghost')) {
+				this.add('-start', pokemon, 'typeadd', 'Ghost', '[from] ability: Evanesce');
+			}
+		},
+		rating: 3,
+	},
+	flouresce: {
+		num: -7,
+		name: "Flouresce",
+		shortDesc: "On switch in, adds the Electric type to the user. Has no effect if the user is already that type.",
+		onStart(pokemon) {
+			if (!pokemon.hasType('Electric')) {
+				this.add('-start', pokemon, 'typeadd', 'Electric', '[from] ability: Flouresce');
+			}
+		},
+		rating: 3,
+	},
+	indancesce: {
+		num: -8,
+		name: "Indancesce",
+		shortDesc: "On switch in, adds the Fire type to the user. Has no effect if the user is already that type.",
+		onStart(pokemon) {
+			if (!pokemon.hasType('Fire')) {
+				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Indancesce');
+			}
+		},
+		rating: 3,
+	},
+	quickdraw: {
+		inherit: true,
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (this.effectState.quickdraw) return;
+			this.effectState.quickdraw = true;
+				this.add('-activate', pokemon, 'ability: Quick Draw');
+				return 0.1;
+		},
+		onSwitchIn(pokemon) {
+			if (this.effectState.quickdraw) {
+				delete this.effectState.quickdraw;
+			}			
+		},
+		shortDesc: "On the first turn the wielder is active, it moves first within its priority bracket.",
+	},
+	daredevil: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.accuracy <= 85) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Daredevil",
+		shortDesc: "Moves with 85% accuracy or less are powered up by 30%.",
+		rating: 3.5,
+		num: 181,
+	},
+	lightmetal: {
+		inerhit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Heavy Metal weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Heavy Metal weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		desc: "This Pokemon's weight is halved, rounded down to a tenth of a kilogram. This effect is calculated after the effect of Autotomize, and before the effect of Float Stone. A Pokemon's weight will not drop below 0.1 kg. If a Pokemon uses a Dark-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "This Pokemon's weight is halved. Dark-type moves against this Pokemon deal damage with a halved offensive stat.",
+	},
+	heavymetal: {
+		inerhit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Heavy Metal weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost') {
+				this.debug('Heavy Metal weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		desc: "This Pokemon's weight is doubled. This effect is calculated after the effect of Autotomize, and before the effect of Float Stone. If a Pokemon uses a Ghost-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "This Pokemon's weight is doubled. Ghost-type moves against this Pokemon deal damage with a halved offensive stat.",
+	},
+	soulheart: {
+		inherit: true,
+		onAnyFaintPriority: 1,
+		onAnyFaint() {
+			if (this.effectState.target.swordBoost) return;
+			this.effectState.target.swordBoost = true;
+			this.boost({spa: 1}, this.effectState.target);
+		},
+		shortDesc: "This Pokemon's Special Attack is raised by 1 stage when another Pokemon faints. Once per battle.",
 	},
 };

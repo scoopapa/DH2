@@ -277,14 +277,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Solar Power", H: "Chlorophyll"},
 	},
-	shaymin: {
-		inherit: true,
-		abilities: {0: "Natural Cure", H: "Solar Power"},
-	},
-	shayminsky: {
-		inherit: true,
-		abilities: {0: "Serene Grace", 1: "Wind Power", H: "Solar Power"},
-	},
 	victreebel: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Gluttony"},
@@ -862,4 +854,33 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Sand Force", H: "Wind Rider"},
 	},
+
+	// Slate 4
+	haxorus: {
+		inherit: true,
+		types: ["Dragon", "Steel"],
+		abilities: {0: "No Guard", 1: "Mold Breaker", H: "Emergency Exit"},
+	},
+	drapion: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Tough Claws", H: "Sand Rush"},
+	},
+	shaymin: {
+		inherit: true,
+		types: ["Grass", "Ground"],
+		abilities: {0: "Poison Heal", 1: "Serene Grace", H: "Solar Power"},
+	},
+	shayminsky: {
+		inherit: true,
+		abilities: {0: "No Guard", 1: "Wind Power", H: "Solar Power"},
+	},
+	goodra: {
+		inherit: true,
+		types: ["Dragon", "Water"],
+		abilities: {0: "Sap Sipper", 1: "Poison Heal", H: "Gooey"},
+	},
+	golisopod: {
+		inherit: true,
+		abilities: {0: "Emergency Exit", 1: "Shell Armor", H: "Regenerator"},
+	},	
 };
