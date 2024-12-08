@@ -144,7 +144,82 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	
+	iceball: {
+		inherit: true,
+		isViable: true,
+		isNonstandard: null,
+		accuracy: 100,
+		shortDesc: "Power doubles with each consecutive use.",
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			const iceballData = pokemon.volatiles['iceball'];
+			if (iceballData?.hitCount) {
+				bp *= Math.pow(2, iceballData.contactHitCount);
+			}
+			if (iceballData && pokemon.status !== 'slp') {
+				iceballData.hitCount++;
+				iceballData.contactHitCount++;
+				if (iceballData.hitCount < 5) {
+					iceballData.duration = 2;
+				}
+			}
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			if (this.field.pseudoWeather.whiteout) {
+				bp *= 2;
+			}
+			return bp;
+		},
+		condition: {
+			duration: 1,
+			onStart() {
+				this.effectState.hitCount = 0;
+				this.effectState.contactHitCount = 0;
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['iceball'];
+				}
+			},
+		},
+	},
+	icebeam: {
+		inherit: true,
+		shortDesc: "20% chance to frostbite the target.",
+		secondary: {
+			chance: 20,
+			status: 'fsb',
+		},
+	},
+	iceburn: {
+		name: "Ice Burn",
+		type: "Ice",
+		category: "Special",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits Ice neutrally. 10% chance to burn the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Ice') return 0;
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+	},
+	icefang: {
+		inherit: true,
+		shortDesc: "Target loses 1/16 max HP.",
+		onHit(target, source) {
+			this.damage(target.baseMaxhp / 16, source, source);
+		},
+		secondary: null,
+	},
 	
 	snowballfight: {
 		name: "Snowball Fight",
