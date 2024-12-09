@@ -671,14 +671,22 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 35,
 		pp: 10,
 		multihit: 3,
-		onEffectiveness(typeMod, target, type, move) { // WIP
-			if (move.hit !== 3) return;
-			if (type === 'Normal') return 0;
+		onEffectiveness(typeMod, target, type, move) { 
+			if (move.hit > 3) return;
+			var hitEffectiveness;
+			switch (move.hit) {
+				case 1:
+					hitEffectiveness = this.dex.getEffectiveness('Ice', type);					
+					break;
+				case 2:
+					hitEffectiveness = this.dex.getEffectiveness('Fire', type);					
+					break;
+				case 3:
+					hitEffectiveness = this.dex.getEffectiveness('Electric', type);					
+					break;
+			}
+			return typeMod * hitEffectiveness;
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		contestType: "Beautiful",
 		shortDesc: "Hits 3 times, each with the type effectiveness of Ice, Fire, and Electric, yet still only receiving a STAB boost from normal types. Each hit has a chance of 10% chance to freeze, burn, and paralyse, respectively.",
 	},
 	squall: {
