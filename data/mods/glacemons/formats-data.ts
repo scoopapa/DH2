@@ -833,15 +833,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	taurospaldeacombat: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	taurospaldeablaze: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	taurospaldeaaqua: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	magikarp: {
 		inherit: true,
