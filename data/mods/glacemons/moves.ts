@@ -668,7 +668,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	// Slate 4
 	triattack: {
 		inherit: true,
-		basePower: 35,
+		basePower: 30,
 		pp: 10,
 		multihit: 3,
 		onEffectiveness(typeMod, target, type, move) { 
