@@ -571,7 +571,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	vitalspark: {
 		num: -1016,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 70,
 		category: "Special",
 		name: "Vital Spark",
 		pp: 10,
