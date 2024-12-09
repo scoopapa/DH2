@@ -71,6 +71,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 
 			return move.basePower * boost;
 		},
+		onHit(target, source, move) {
+			this.field.addPseudoWeather('trickroom');
+		},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -80,7 +83,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		shortDesc: "50% damage boost in Trick Room or harsh sunlight.",
+		shortDesc: "Deals +50% damage in TR/Sun. Sets TR.",
 
 	},
 	blindingblitz: {
@@ -562,7 +565,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
-		shortDesc: "Super-effective against Steel-types. If it hits a Poison, they instead heal 25% HP.",
+		shortDesc: "SE vs. Steels. Heals Poison-types by 25%.",
 
 	},
 	vitalspark: {
@@ -666,6 +669,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		condition: {
 			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
 			onSideStart(side, source) {
 				this.add('-sidestart', side, 'move: Dust Veil');
 			},
@@ -684,7 +693,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "allySide",
 		type: "Ground",
-		shortDesc: "Increases damage output of your side by 1.3x.",
+		shortDesc: "Sand: Damage dealt x1.3, 5 turns (8 Light Clay)",
 	},
 	devour: {
 		num: -1020,
@@ -703,6 +712,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
+		shortDesc: "Can't be used twice in a row.",
 	},
 	defog: {
 		inherit: true,
