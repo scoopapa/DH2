@@ -413,7 +413,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: { hp: 102, atk: 128, def: 90, spa: 60, spd: 85, spe: 40 },
 		abilities: { 0: "Wrecking Ball", 1: "Intimidate", H: "Dragon's Maw" },
 		prevo: "Destructagon",
-		weightkg: 2,
+		weightkg: 999.9,
 	},
 	fryce: {
 		num: -1045,
@@ -605,7 +605,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		prevo: "Demopprentice",
 		evoLevel: 42,
 		evos: ["Dracolition"],
-		weightkg: 1100,
+		weightkg: 600,
 	},
 	demopprentice: {
 		num: -1064,
@@ -615,7 +615,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: { 0: "Light Metal", 1: "Hustle", H: "Dragon's Maw" },
 		evoLevel: 32,
 		evos: ["Destructagon"],
-		weightkg: 600,
+		weightkg: 2,
 	},
 	gullet: {
 		num: -1065,
