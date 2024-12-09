@@ -256,6 +256,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 80,
 		category: "Physical",
 		shortDesc: "Raises Atk by 1, hits turn 2.",
+		isNonstandard: null,
 		name: "Razor Wind",
 		pp: 15,
 		priority: 0,
