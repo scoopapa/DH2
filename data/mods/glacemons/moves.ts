@@ -672,7 +672,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 10,
 		multihit: 3,
 		onEffectiveness(typeMod, target, type, move) { // WIP
-			if (move.hit < 3) return;
+			if (move.hit !== 3) return;
 			if (type === 'Normal') return 0;
 		},
 		secondary: null,
@@ -699,12 +699,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Ion Deluge", source);
-			this.add('-anim', source, "Ion Deluge", source);
-			this.add('-anim', source, "Ion Deluge", source);
-			this.add('-anim', source, "Slash", target);
-			this.add('-anim', source, "Slash", target);
-			this.add('-anim', source, "Slash", target);
+			this.add('-anim', source, "Hurricane", target);
 		},
 		secondary: null,
 		target: "normal",

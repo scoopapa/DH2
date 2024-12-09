@@ -778,7 +778,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	jirachi: {
 		inherit: true,
-		abilities: {0: "Serene Grace", H: "Comatose"},
+		abilities: {0: "Serene Grace", 1: "Comatose", H: "Light Metal"},
 	},
 	cresselia: {
 		inherit: true,
@@ -883,4 +883,138 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Emergency Exit", 1: "Shell Armor", H: "Regenerator"},
 	},	
+	// Merciless
+	houndour: {
+		inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Merciless"},
+	},
+	houndoom: {
+		inherit: true,
+		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Merciless"},
+	},
+	pinsir: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Merciless", H: "Moxie"},
+	},
+	corphish: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Merciless", H: "Adaptability"},
+	},
+	crawdaunt: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Merciless", H: "Adaptability"},
+	},
+	brutebonnet: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Merciless"},
+	},
+	// Merciless: :Duskull: / :dusclops: / :Dusknoir:, :stunky: / :Skuntank: (replaces Keen Eye), :bellsprout: / :weepinbell: / :Victreebell: (replaces Gluttony).
+	pancham: {
+		inherit: true,
+		abilities: {0: "Iron Fist", 1: "Merciless", H: "Scrappy"},
+	},
+	pangoro: {
+		inherit: true,
+		abilities: {0: "Iron Fist", 1: "Merciless", H: "Scrappy"},
+	},
+	shinx: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Intimidate", H: "Guts"},
+	},
+	luxio: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Intimidate", H: "Guts"},
+	},
+	luxray: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Intimidate", H: "Guts"},
+	},
+	elekid: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Merciless", H: "Vital Spirit"},
+	},
+	electabuzz: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Merciless", H: "Vital Spirit"},
+	},
+	electivire: {
+		inherit: true,
+		abilities: {0: "Motor Drive", 1: "Merciless", H: "Vital Spirit"},
+	},
+	typhlosionhisui: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Merciless"},
+	},
+
+	// Deliquesce: :Tadbulb: / :bellibolt: (replaces Damp), :dratini: / :dragonair:, :wooper-paldea: / :clodsire: (replaces poison point), :Masquerain:, :Stunfisk:, :Stunfisk-hisui:, :Dragalgae:, :Clobbopus: / :grapploct:, :Pincurchin:, :Qwilfish: / :Qwilfish-hisui: / :Overqwil: (replaces poison point), :Genesect-Douse: (replaces Storm Drain), :Corsola-Galar: / Cursola (replaces Weak Armor).
+
+	// Evanesce: :Absol: (replaces justified), :vulpix: / :ninetales:, :vulpix-alola: / :ninetales-alola:, :tentacool: / :tentacruel: (replaces clear body), Darkrai, :Hypno: (replaces Inner Focus:, :Lunatone:, :Glameow: / :Purugly: (replaces Own Tempo).
+
+	// Flouresce: :Porygon: / :porygon2: / :porygon-z:, :Klink: / :klang: / :klinklang: (replaces Clear Body), :Nosepass: / :probopass: (replaces Sand Force), :Staryu: / :starmie: (replaces illuminate), :Genesect-Shock: (replaces Transitor).
+
+	// Indancesce: :Koffing: / :weezing: (replaces Stench), :Darumaka-Galar: / :Darmanitan-Galar:, :Solrock:, :Pumpkaboo: / :gourgeist: (replaces Insomnia), :Blitzle: / :Zebstrika: (replaces Lightning Rod), :Genesect-Burn:, :Remoraid: / :Octillery: (replaces Sniper), :snubbull: / :Granbull: (replaces Run Away and Quick Feet).
+
+	// Quick Draw: Old Distribution + :Cacnea: / :cacturne: , :farfetch'd: (Replaces Inner Focus), :farfetch'd-galar: / :sirfetch'd:, :karrablast: / :escavalier: (replaces No Guard / Overcoat), :Oshawott: / :dewott: / :samurott: , :Clauncher: / :Clawitzer:, :Vikavolt:, :Squawkabilly-blue: (replaces Guts) / :squawkabilly-yellow: (replaces Sheer Force)
+
+	// Daredevil: Aerodactyl:(replaces Pressure), :Lycanroc-Midnight:(replaces Keen Eye), :Wattrel: / :Kilowattrel: (replaces Competitive), :Rhyhorn: / :Rhydon: / :Rhyperior:(replaces Reckless / Solid Rock), :Terrakion:
+	cyndaquil: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Daredevil"},
+	},
+	quilava: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Daredevil"},
+	},
+	typhlosion: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Daredevil"},
+	},
+
+	// Light Metal
+	celesteela: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Light Metal"},
+	},
+	gimmighoul: {
+		inherit: true,
+		abilities: {0: "Rattled", H: "Light Metal"},
+	},
+	gimmighoulroaming: {
+		inherit: true,
+		abilities: {0: "Run Away", H: "Light Metal"},
+	},
+	gholdengo: {
+		inherit: true,
+		abilities: {0: "Good as Gold", H: "Light Metal"},
+	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Light Metal"},
+	},
+	klefki: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Light Metal", H: "Magician"},
+	},
+	// Heavy Metal
+	melmetal: {
+		inherit: true,
+		abilities: {0: "Iron Fist", H: "Heavy Metal"},
+	},
+	// Soul-Heart
+	phione: {
+		inherit: true,
+		abilities: {0: "Hydration", H: "Soul-Heart"},
+	},
+	manaphy: {
+		inherit: true,
+		abilities: {0: "Hydration", H: "Soul-Heart"},
+	},
+	woobat: {
+		inherit: true,
+		abilities: {0: "Unaware", 1: "Soul-Heart", H: "Simple"},
+	},
+	swoobat: {
+		inherit: true,
+		abilities: {0: "Unaware", 1: "Soul-Heart", H: "Simple"},
+	},
 };
