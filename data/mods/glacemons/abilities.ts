@@ -489,7 +489,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 181,
 	},
 	lightmetal: {
-		inerhit: true,
+		inherit: true,
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Dark') {
@@ -508,7 +508,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's weight is halved. Dark-type moves against this Pokemon deal damage with a halved offensive stat.",
 	},
 	heavymetal: {
-		inerhit: true,
+		inherit: true,
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ghost') {
