@@ -538,7 +538,10 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -12,
 		name: "Knights Armor",
 		fling: {
-			basePower: 30,
+			basePower: 200,
+			self: {
+				volatileStatus: 'mustrecharge',
+			},
 		},
 		shortDesc: "This Pokemon takes 0.75x damage if hazards are up on this Pokémon’s side. This Pokemon is grounded",
 		onSourceModifyDamage(damage, source, target, move) {
