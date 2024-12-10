@@ -557,10 +557,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			const targetAtk = target.storedStats.atk;
 			const sourceAtk = source.storedStats.atk;
 			if (sourceAtk >= targetAtk) {
-				this.boost({atk: 2, def: 2}, source, source);
+				this.boost({ atk: 2, def: 2 }, source, source);
 			}
-			else if (sourceAtk < targetAtk){
-				this.boost({atk: 2, def: 2}, target, source);
+			else if (sourceAtk < targetAtk) {
+				this.boost({ atk: 2, def: 2 }, target, source);
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -664,5 +664,204 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			return success;
 		},
 		shortDesc: "Reforms the ground and causes stealth rocks, terrain, leech seed to be destroyed.",
+	},
+	// Slate 4
+	triattack: {
+		inherit: true,
+		basePower: 30,
+		pp: 10,
+		multihit: 3,
+		onEffectiveness(typeMod, target, type, move) { 
+			if (move.hit > 3) return;
+			var hitEffectiveness;
+			switch (move.hit) {
+				case 1:
+					hitEffectiveness = this.dex.getEffectiveness('Ice', type);					
+					break;
+				case 2:
+					hitEffectiveness = this.dex.getEffectiveness('Fire', type);					
+					break;
+				case 3:
+					hitEffectiveness = this.dex.getEffectiveness('Electric', type);					
+					break;
+			}
+			return typeMod * hitEffectiveness;
+		},
+		shortDesc: "Hits 3 times, each with the type effectiveness of Ice, Fire, and Electric, yet still only receiving a STAB boost from normal types. Each hit has a chance of 10% chance to freeze, burn, and paralyse, respectively.",
+	},
+	squall: {
+		num: -11,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Squall",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, wind: 1 },
+		onBasePower(basePower, pokemon, target) {
+			const boostWeathers = ['sandstorm', 'hail', 'snow'];
+			if (boostWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('boostfrom weather');
+				return this.chainModify(1.5);
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Tough",
+		shortDesc: "This move's power is multiplied by 1.5x if used in snow or a sandstorm.",
+	},
+	petroleumblast: {
+		num: -12,
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+		name: "Petroleum Blast",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
+		volatileStatus: 'tarshot',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tar Shot", source);
+			this.add('-anim', source, "Dragon Pulse", target);
+			this.add('-anim', source, "Tar Shot", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Rock",
+		contestType: "Beautiful",
+		shortDesc: "Applies Tar Shot to the target. Hits both foes.",
+	},
+	firefang: {
+		inherit: true,
+		pp: 20,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fire Fang damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Fire Fang NOT boosted');
+			return move.basePower;
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'brn',
+			},
+		],
+		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to burn the target.",
+		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to burn.",
+	},
+	thunderfang: {
+		inherit: true,
+		pp: 20,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Thunder Fang damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Thunder Fang NOT boosted');
+			return move.basePower;
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'par',
+			},
+		],
+		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to paralyze the target.",
+		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to paralyze.",
+	},
+	icefang: {
+		inherit: true,
+		pp: 20,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Ice Fang damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Ice Fang NOT boosted');
+			return move.basePower;
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'frz',
+			},
+		],
+		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to freeze the target.",
+		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to freeze.",
+	},
+	poisonfang: {
+		inherit: true,
+		accuracy: 95,
+		basePower: 65,
+		pp: 20,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Poison Fang damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Poison Fang NOT boosted');
+			return move.basePower;
+		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'psn',
+			},
+		],
+		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to poison the target.",
+		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to poison.",
+	},
+	fishiousrend: {
+		inherit: true,
+		accuracy: 95,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -1,
+			},
+		},
+		pp: 20,
+		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "Power is 1.5x if user moves before the target. 30% chance to lower the target's Speed by 1.",
+	},
+	hyperfang: {
+		inherit: true,
+		type: "Fighting",
+		accuracy: 95,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Hyper Fang damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Hyper Fang NOT boosted');
+			return move.basePower;
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
+		pp: 20,
+		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Atk by 1 stage.",
+		shortDesc: "Power is 1.5x if user moves before the target. 30% chance to lower the target's Atk by 1.",
 	},
 };

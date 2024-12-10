@@ -587,9 +587,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([0x14CC, 0x1000]);
+			return this.chainModify(1.3);
 		},
-		desc: "Holder's move have 1.2x BP, but it can't use the same move twice in a row.",
+		desc: "Holder's move have 1.3x BP, but it can't use the same move twice in a row.",
 		num: -40,
 		gen: 9,
 	},

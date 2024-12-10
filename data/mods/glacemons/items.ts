@@ -387,7 +387,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				}
 				return false;
 			}
-		},		
+		},
 		num: -8,
 		gen: 9,
 		rating: 3,
@@ -435,7 +435,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		boosts: {
 			spa: 1,
 		},
-		shortDesc: "Holder is immune to Ground-type attacks. Pops when holder is hit and raises Special Attack by 1.", 
+		shortDesc: "Holder is immune to Ground-type attacks. Pops when holder is hit and raises Special Attack by 1.",
 	},
 	absorbbulb: {
 		inherit: true,
@@ -445,7 +445,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder is immune to Water-type attacks. Pops when holder is hit and raises Special Attack by 1.", 
+		shortDesc: "Holder is immune to Water-type attacks. Pops when holder is hit and raises Special Attack by 1.",
 	},
 	cellbattery: {
 		inherit: true,
@@ -455,7 +455,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder is immune to Electric-type attacks. Pops when holder is hit and raises Attack by 1.", 
+		shortDesc: "Holder is immune to Electric-type attacks. Pops when holder is hit and raises Attack by 1.",
 	},
 	snowball: {
 		inherit: true,
@@ -465,14 +465,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder is immune to Ice-type attacks. Pops when holder is hit and raises Attack by 1.", 
+		shortDesc: "Holder is immune to Ice-type attacks. Pops when holder is hit and raises Attack by 1.",
 	},
 	indecisiveorb: {
 		name: "Indecisive Orb",
 		fling: {
 			basePower: 30,
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove: function (pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
@@ -492,6 +492,72 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		shortDesc: "Holder may switch out even when trapped by another Pokemon, or by Ingrain. If the holder of this item is targeted by Pursuit as they switch out, the move fails and this item is consumed.",
 	},
+	// Slate 4
+	machobrace: {
+		inherit: true,
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hasType('Fighting')) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Fighting')) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasType('Fighting')) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.id === 'fling') {
+				move.basePower *= 1.5;
+			}
+		},
+		shortDesc: "If held by Fighting types or Pokémon with the ability Klutz, boosts the Attack and Defense stats by 1.3. If held by any other Pokémon, halves user's speed instead. Fling boosted by 1.5 if used.",
+	},
+	cursedbranch: {
+		num: -11,
+		name: "Cursed Branch",
+		fling: {
+			basePower: 30,
+		},
+		shortDesc: "On switch in, adds the Grass type to the user. Has no effect if the user is already that type.",
+		onStart(pokemon) {
+			if (!pokemon.hasType('Grass')) {
+				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Cursed Branch');
+			}
+		},
+		rating: 3,
+	},
+	knightsarmor: {
+		num: -12,
+		name: "Knights Armor",
+		fling: {
+			basePower: 200,
+			self: {
+				volatileStatus: 'mustrecharge',
+			},
+		},
+		shortDesc: "This Pokemon takes 0.75x damage if hazards are up on this Pokémon’s side. This Pokemon is grounded",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.side.getSideCondition('stealthrock') || source.side.getSideCondition('spikes') || source.side.getSideCondition('toxicspikes') || source.side.getSideCondition('stickyweb')) {
+				return this.chainModify(0.75);
+			}
+		},
+	},
+	laggingtail: {
+		inherit: true,
+		shortDesc: "Holder moves last in its priority bracket, but its moves have their power boosted by 30%.",
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify([5324, 4096]);
+		},
+	},
+
 
 	// Z-move section for Silvally
 	buginiumz: {
