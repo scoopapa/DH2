@@ -928,7 +928,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	inteleon: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	greedent: {
