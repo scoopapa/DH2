@@ -844,7 +844,7 @@ export class RandomTeams {
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (
-					types.includes(moveType) && (move.priority > 0 || (moveid === 'grassyglide' && (abilities.includes('Grassy Surge') || abilities.includes('Grass Pelt'))) &&
+					types.includes(moveType) && (move.priority > 0 || (moveid === 'grassyglide' && (abilities.includes('Grassy Surge') || abilities.includes('Grass Pelt')))) &&
 					(move.basePower || move.basePowerCallback)
 				) {
 					priorityMoves.push(moveid);
