@@ -405,7 +405,7 @@ export class RandomTeams {
 				if (move.flags['bite']) counter.add('strongjaw');
 				if (move.flags['punch']) counter.add('ironfist');
 				if (move.flags['sound']) counter.add('sound');
-				if (move.priority > 0 || (moveid === 'grassyglide' && (abilities.includes('Grassy Surge') || abilities.includes('Grass Pelt'))) {
+				if (move.priority > 0 || (moveid === 'grassyglide' && (abilities.includes('Grassy Surge') || abilities.includes('Grass Pelt')))) {
 					counter.add('priority');
 				}
 			}
