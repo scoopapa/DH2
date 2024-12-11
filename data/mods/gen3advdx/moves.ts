@@ -253,9 +253,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	razorwind: {
 		num: 13,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 100,
 		category: "Physical",
-		shortDesc: "Raises Atk by 1, hits turn 2.",
+		shortDesc: "Raises Atk by 1 on turn 1. Hits turn 2.",
 		isNonstandard: null,
 		name: "Razor Wind",
 		pp: 15,
