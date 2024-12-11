@@ -62,7 +62,7 @@ type MoveEnforcementChecker = (
 
 // Moves that restore HP:
 const RECOVERY_MOVES = [
-	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'strengthsap', 'synthesis',
+	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'strengthsap', 'synthesis', 'lifedew', 'junglehealing', 'rebuild', 'rekindle',
 ];
 // Moves that drop stats:
 const CONTRARY_MOVES = [
@@ -91,7 +91,7 @@ const SETUP = [
 	'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'takeheart', 'tidyup', 'trailblaze', 'workup', 'victorydance',
 ];
 const SPEED_CONTROL = [
-	'electroweb', 'glare', 'icywind', 'lowsweep', 'quash', 'stringshot', 'tailwind', 'thunderwave', 'trickroom',
+	'glare', 'icywind', 'lowsweep', 'quash', 'stringshot', 'tailwind', 'thunderwave', 'trickroom', 'rootpull',
 ];
 // Moves that shouldn't be the only STAB moves:
 const NO_STAB = [
@@ -99,11 +99,11 @@ const NO_STAB = [
 	'dragontail', 'doomdesire', 'electroweb', 'eruption', 'explosion', 'fakeout', 'feint', 'flamecharge', 'flipturn', 'futuresight',
 	'grassyglide', 'iceshard', 'icywind', 'incinerate', 'infestation', 'machpunch', 'meteorbeam', 'mortalspin', 'nuzzle', 'pluck', 'pursuit',
 	'quickattack', 'rapidspin', 'reversal', 'selfdestruct', 'shadowsneak', 'skydrop', 'snarl', 'strugglebug', 'suckerpunch', 'uturn',
-	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout',
+	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout', 'snatch',
 ];
 // Hazard-setting moves
 const HAZARDS = [
-	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes',
+	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes', 'healingstones',
 ];
 // Protect and its variants
 const PROTECT_MOVES = [
@@ -111,7 +111,7 @@ const PROTECT_MOVES = [
 ];
 // Moves that switch the user out
 const PIVOT_MOVES = [
-	'chillyreception', 'flipturn', 'partingshot', 'shedtail', 'teleport', 'uturn', 'voltswitch',
+	'chillyreception', 'flipturn', 'partingshot', 'shedtail', 'teleport', 'uturn', 'voltswitch', 'rollout', 'round',
 ];
 
 // Moves that should be paired together when possible
@@ -405,7 +405,7 @@ export class RandomTeams {
 				if (move.flags['bite']) counter.add('strongjaw');
 				if (move.flags['punch']) counter.add('ironfist');
 				if (move.flags['sound']) counter.add('sound');
-				if (move.priority > 0 || (moveid === 'grassyglide' && abilities.includes('Grassy Surge'))) {
+				if (move.priority > 0 || (moveid === 'grassyglide' && (abilities.includes('Grassy Surge') || abilities.includes('Grass Pelt'))) {
 					counter.add('priority');
 				}
 			}
@@ -561,7 +561,7 @@ export class RandomTeams {
 			['aquajet', 'flipturn'],
 			['gigadrain', 'leafstorm'],
 			['powerwhip', 'hornleech'],
-			[['airslash', 'bravebird', 'hurricane'], ['airslash', 'bravebird', 'hurricane']],
+			[['airslash', 'bravebird', 'hurricane', 'windbreaker'], ['airslash', 'bravebird', 'hurricane', 'windbreaker']],
 			['knockoff', 'foulplay'],
 			['throatchop', ['crunch', 'lashout']],
 			['doubleedge', ['bodyslam', 'headbutt']],
@@ -573,9 +573,15 @@ export class RandomTeams {
 			['aurasphere', 'focusblast'],
 			['closecombat', 'drainpunch'],
 			['bugbite', 'pounce'],
-			[['dragonpulse', 'spacialrend'], 'dracometeor'],
+			[['dragonpulse', 'spacialrend', 'dragonrage'], 'dracometeor'],
 			['heavyslam', 'flashcannon'],
 			['alluringvoice', 'dazzlinggleam'],
+			['washaway', ['scald', 'hydropump']],
+			['falsesurrender', 'knockoff'],
+			['peekaboo', 'playrough'],
+			['latentvenom', 'futuresight'],
+			['drainpunch', 'stormthrow'],
+			['snatch', 'suckerpunch'],
 
 			// These status moves are redundant with each other
 			['taunt', 'disable'],
@@ -768,6 +774,14 @@ export class RandomTeams {
 				counter = this.addMove('defog', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
 			}
+			if (movePool.includes('washaway')) {
+				counter = this.addMove('washaway', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
+			if (movePool.includes('shelter')) {
+				counter = this.addMove('shelter', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
 		}
 
 		// Enforce Knock Off on pure Normal- and Fighting-types in singles
@@ -830,7 +844,7 @@ export class RandomTeams {
 				const move = this.dex.moves.get(moveid);
 				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (
-					types.includes(moveType) && (move.priority > 0 || (moveid === 'grassyglide' && abilities.includes('Grassy Surge'))) &&
+					types.includes(moveType) && (move.priority > 0 || (moveid === 'grassyglide' && (abilities.includes('Grassy Surge') || abilities.includes('Grass Pelt'))) &&
 					(move.basePower || move.basePowerCallback)
 				) {
 					priorityMoves.push(moveid);
@@ -1072,7 +1086,9 @@ export class RandomTeams {
 		if (species.id === 'swampert' && (counter.get('Water') || moves.has('flipturn'))) return 'Torrent';
 		if (species.id === 'toucannon' && counter.get('skilllink')) return 'Skill Link';
 		if (abilities.includes('Slush Rush') && moves.has('snowscape')) return 'Slush Rush';
-		if (species.id === 'golduck' && teamDetails.rain) return 'Swift Swim';
+		if (species.id === 'golduck' || species.id === 'vaporeon') return 'Mud Wash';
+		if (species.id === 'dodrio') return 'Muscle Memory';
+		if (species.id === 'wochien') return 'Shield Dust';
 
 		// ffa abilities that differ from doubles
 		if (this.format.gameType === 'freeforall') {
