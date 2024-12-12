@@ -432,8 +432,28 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	airballoon: {
 		inherit: true,
-		boosts: {
-			spa: 1,
+		onStart(target) {
+			if (!target.ignoringItem() && !this.field.getPseudoWeather('gravity')) {
+				this.add('-item', target, 'Air Balloon');
+			}
+		},
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Air Balloon');
+			this.boost({spa: 1});
+			target.item = '';
+			target.itemState = {id: '', target};
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Air Balloon');
+				this.boost({spa: 1});
+				target.item = '';
+				target.itemState = {id: '', target};
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
+			}
 		},
 		shortDesc: "Holder is immune to Ground-type attacks. Pops when holder is hit and raises Special Attack by 1.",
 	},
@@ -528,7 +548,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		shortDesc: "On switch in, adds the Grass type to the user. Has no effect if the user is already that type.",
 		onStart(pokemon) {
-			if (!pokemon.hasType('Grass')) {
+			if (pokemon.addType('Grass')) {
 				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Cursed Branch');
 			}
 		},
@@ -536,16 +556,17 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	knightsarmor: {
 		num: -12,
-		name: "Knights Armor",
+		name: "Knight's Armor",
 		fling: {
 			basePower: 200,
 			self: {
 				volatileStatus: 'mustrecharge',
 			},
 		},
+		// airborneness negation implemented in scripts.ts
 		shortDesc: "This Pokemon takes 0.75x damage if hazards are up on this Pokémon’s side. This Pokemon is grounded",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.side.getSideCondition('stealthrock') || source.side.getSideCondition('spikes') || source.side.getSideCondition('toxicspikes') || source.side.getSideCondition('stickyweb')) {
+			if (target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb')) {
 				return this.chainModify(0.75);
 			}
 		},
