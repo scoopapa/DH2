@@ -674,25 +674,41 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onEffectiveness(typeMod, target, type, move) { 
 			if (move.hit > 3) return;
 			var hitEffectiveness;
+			var immunity = 0;
 			switch (move.hit) {
 				case 1:
 					hitEffectiveness = this.dex.getEffectiveness('Ice', type);
-					this.add('-anim', target, "Sheer Cold", source);
+					// if (!this.dex.getImmunity('Ice', target)) immunity = -0.5;
 					break;
 				case 2:
 					hitEffectiveness = this.dex.getEffectiveness('Fire', type);
-					this.add('-anim', target, "Will-O-Wisp", source);
+					// if (!this.dex.getImmunity('Fire', target)) immunity = -0.5;
 					break;
 				case 3:
 					hitEffectiveness = this.dex.getEffectiveness('Electric', type);
-					this.add('-anim', target, "Thunder Wave", source);
+					// if (!this.dex.getImmunity('Electric', target)) immunity = -0.5;
 					break;
 			}
-			return hitEffectiveness;
+			return hitEffectiveness + immunity;
+		},
+		onAfterHit(target, source, move) {
+			switch (move.hit) {
+				case 1:
+					this.add('-anim', target, "Flamethrower", target);
+					break;
+				case 2: 
+					this.add('-anim', target, "Electro Ball", target);
+					break;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tri Attack", target);
+			this.add('-anim', target, "Ice Beam", target);
 		},
 		secondary: {
 			chance: 10,
-			onHit(target, source) {
+			onHit(target, source, move) {
 				switch (move.hit) {
 					case 1:
 						target.trySetStatus('frz', source);
