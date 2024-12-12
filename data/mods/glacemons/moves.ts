@@ -678,15 +678,15 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			switch (move.hit) {
 				case 1:
 					hitEffectiveness = this.dex.getEffectiveness('Ice', type);
-					// if (!this.dex.getImmunity('Ice', target)) immunity = -0.5;
+					if (!this.dex.getImmunity('Ice', target)) immunity = -0.5;
 					break;
 				case 2:
 					hitEffectiveness = this.dex.getEffectiveness('Fire', type);
-					// if (!this.dex.getImmunity('Fire', target)) immunity = -0.5;
+					if (!this.dex.getImmunity('Fire', target)) immunity = -0.5;
 					break;
 				case 3:
 					hitEffectiveness = this.dex.getEffectiveness('Electric', type);
-					// if (!this.dex.getImmunity('Electric', target)) immunity = -0.5;
+					if (!this.dex.getImmunity('Electric', target)) immunity = -0.5;
 					break;
 			}
 			return hitEffectiveness + immunity;
