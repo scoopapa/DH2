@@ -676,16 +676,35 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			var hitEffectiveness;
 			switch (move.hit) {
 				case 1:
-					hitEffectiveness = this.dex.getEffectiveness('Ice', type);					
+					hitEffectiveness = this.dex.getEffectiveness('Ice', type);
+					this.add('-anim', target, "Sheer Cold", source);
 					break;
 				case 2:
-					hitEffectiveness = this.dex.getEffectiveness('Fire', type);					
+					hitEffectiveness = this.dex.getEffectiveness('Fire', type);
+					this.add('-anim', target, "Will-O-Wisp", source);
 					break;
 				case 3:
-					hitEffectiveness = this.dex.getEffectiveness('Electric', type);					
+					hitEffectiveness = this.dex.getEffectiveness('Electric', type);
+					this.add('-anim', target, "Thunder Wave", source);
 					break;
 			}
-			return typeMod * hitEffectiveness;
+			return hitEffectiveness;
+		},
+		secondary: {
+			chance: 10,
+			onHit(target, source) {
+				switch (move.hit) {
+					case 1:
+						target.trySetStatus('frz', source);
+						break;
+					case 2: 
+						target.trySetStatus('brn', source);
+						break;
+					case 3: 
+						target.trySetStatus('par', source);
+						break;
+				}
+			},
 		},
 		shortDesc: "Hits 3 times, each with the type effectiveness of Ice, Fire, and Electric, yet still only receiving a STAB boost from normal types. Each hit has a chance of 10% chance to freeze, burn, and paralyse, respectively.",
 	},
@@ -721,7 +740,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 95,
 		category: "Special",
 		name: "Petroleum Blast",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
 		volatileStatus: 'tarshot',
