@@ -134,15 +134,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	rhyhorn: {
 		inherit: true,
-		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Dardevil"},
+		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Daredevil"},
 	},
 	rhydon: {
 		inherit: true,
-		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Dardevil"},
+		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Daredevil"},
 	},
 	rhyperior: {
 		inherit: true,
-		abilities: {0: "Route Closed", 1: "Dardevil", H: "Battle Armor"},
+		abilities: {0: "Route Closed", 1: "Daredevil", H: "Battle Armor"},
 	},
 	obstagoon: {
 		inherit: true,
