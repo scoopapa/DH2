@@ -278,13 +278,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If this Pokemon lowers any of its own stat stages, it switches to a chosen ally.",
 	},
 	aftermath: {
-		inherit: true,
-		/*onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
-			if (!target.hp) {
-				this.damage(source.baseMaxhp / 4, source, target);
-			}
-		},*/
 		onFaint(pokemon) {
 			for (const target of this.getAllActive()) {
 				this.damage(target.baseMaxhp / 4, target, pokemon);
