@@ -4,7 +4,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['IF'],
+		customTiers: ['JM'],
 	},	
 	
 	init() {
@@ -97,7 +97,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			basePower = 60;
 		}
 
-		const level = source.level;
+		let level = source.level;
 
 		const attacker = move.overrideOffensivePokemon === 'target' ? target : source;
 		const defender = move.overrideDefensivePokemon === 'source' ? source : target;

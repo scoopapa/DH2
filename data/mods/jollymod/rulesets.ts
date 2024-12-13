@@ -1,6 +1,5 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
 	jollymod: {
-		effectType: 'ValidatorRule',
 		name: 'Jollymod',
 		desc: "Jollymod",
 		onBegin() {
