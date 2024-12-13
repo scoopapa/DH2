@@ -674,18 +674,53 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onEffectiveness(typeMod, target, type, move) { 
 			if (move.hit > 3) return;
 			var hitEffectiveness;
+			var immunity = 0;
 			switch (move.hit) {
 				case 1:
-					hitEffectiveness = this.dex.getEffectiveness('Ice', type);					
+					hitEffectiveness = this.dex.getEffectiveness('Ice', type);
+					if (!this.dex.getImmunity('Ice', target)) immunity = -0.5;
 					break;
 				case 2:
-					hitEffectiveness = this.dex.getEffectiveness('Fire', type);					
+					hitEffectiveness = this.dex.getEffectiveness('Fire', type);
+					if (!this.dex.getImmunity('Fire', target)) immunity = -0.5;
 					break;
 				case 3:
-					hitEffectiveness = this.dex.getEffectiveness('Electric', type);					
+					hitEffectiveness = this.dex.getEffectiveness('Electric', type);
+					if (!this.dex.getImmunity('Electric', target)) immunity = -0.5;
 					break;
 			}
-			return typeMod * hitEffectiveness;
+			return hitEffectiveness + immunity;
+		},
+		onAfterHit(target, source, move) {
+			switch (move.hit) {
+				case 1:
+					this.add('-anim', target, "Flamethrower", target);
+					break;
+				case 2: 
+					this.add('-anim', target, "Electro Ball", target);
+					break;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tri Attack", target);
+			this.add('-anim', target, "Ice Beam", target);
+		},
+		secondary: {
+			chance: 10,
+			onHit(target, source, move) {
+				switch (move.hit) {
+					case 1:
+						target.trySetStatus('frz', source);
+						break;
+					case 2: 
+						target.trySetStatus('brn', source);
+						break;
+					case 3: 
+						target.trySetStatus('par', source);
+						break;
+				}
+			},
 		},
 		shortDesc: "Hits 3 times, each with the type effectiveness of Ice, Fire, and Electric, yet still only receiving a STAB boost from normal types. Each hit has a chance of 10% chance to freeze, burn, and paralyse, respectively.",
 	},
@@ -721,7 +756,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 95,
 		category: "Special",
 		name: "Petroleum Blast",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
 		volatileStatus: 'tarshot',
@@ -863,5 +898,62 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 20,
 		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Atk by 1 stage.",
 		shortDesc: "Power is 1.5x if user moves before the target. 30% chance to lower the target's Atk by 1.",
+	},
+	// Handling Cursed Branch
+	fling: {
+		num: 374,
+		accuracy: 100,
+		basePower: 0,
+		category: "Physical",
+		name: "Fling",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1, noparentalbond: 1},
+		onPrepareHit(target, source, move) {
+			if (source.ignoringItem()) return false;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+			if (!item.fling) return false;
+			move.basePower = item.fling.basePower;
+			this.debug('BP: ' + move.basePower);
+			if (item.isBerry) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Eat', item, null, foe, null, null)) {
+						this.runEvent('EatItem', foe, null, null, item);
+						if (item.id === 'leppaberry') foe.staleness = 'external';
+					}
+					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.fling.effect) {
+				move.onHit = item.fling.effect;
+			} else {
+				if (!move.secondaries) move.secondaries = [];
+				if (item.fling.status) {
+					move.secondaries.push({status: item.fling.status});
+				} else if (item.fling.volatileStatus) {
+					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+				}
+			}
+			source.addVolatile('fling');
+		},
+		condition: {
+			onUpdate(pokemon) {
+				const item = pokemon.getItem();
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.add('-enditem', pokemon, item.name, '[from] move: Fling');
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+				pokemon.removeVolatile('fling');
+			},
+		},
+		onHit(target, source) {
+			const item = source.getItem();
+			if (item.id === 'cursedbranch' && target.addType('Grass')) this.add('-start', target, 'typeadd', 'Grass', '[from] item: Cursed Branch');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Cute",
 	},
 };

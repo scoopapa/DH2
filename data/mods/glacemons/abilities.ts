@@ -134,7 +134,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 						else {
 							this.boost({ spd: 1 }, pokemon);
 						}
-						this.add('-ability', pokemon, 'Anticipation');
 						return;
 					}
 				}
@@ -420,7 +419,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Deliquesce",
 		shortDesc: "On switch in, adds the Water type to the user. Has no effect if the user is already that type.",
 		onStart(pokemon) {
-			if (!pokemon.hasType('Water')) {
+			if (pokemon.addType('Water')) {
 				this.add('-start', pokemon, 'typeadd', 'Water', '[from] ability: Deliquesce');
 			}
 		},
@@ -431,7 +430,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Evanesce",
 		shortDesc: "On switch in, adds the Ghost type to the user. Has no effect if the user is already that type.",
 		onStart(pokemon) {
-			if (!pokemon.hasType('Ghost')) {
+			if (pokemon.addType('Ghost')) {
 				this.add('-start', pokemon, 'typeadd', 'Ghost', '[from] ability: Evanesce');
 			}
 		},
@@ -442,7 +441,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Flouresce",
 		shortDesc: "On switch in, adds the Electric type to the user. Has no effect if the user is already that type.",
 		onStart(pokemon) {
-			if (!pokemon.hasType('Electric')) {
+			if (pokemon.addType('Electric')) {
 				this.add('-start', pokemon, 'typeadd', 'Electric', '[from] ability: Flouresce');
 			}
 		},
@@ -453,7 +452,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Indancesce",
 		shortDesc: "On switch in, adds the Fire type to the user. Has no effect if the user is already that type.",
 		onStart(pokemon) {
-			if (!pokemon.hasType('Fire')) {
+			if (pokemon.addType('Fire')) {
 				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Indancesce');
 			}
 		},
