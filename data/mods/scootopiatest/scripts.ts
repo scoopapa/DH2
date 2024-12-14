@@ -114,8 +114,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "efflor").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "efflor").learnset.blessedfield = ["9L1"];
 		// Whiscamp
-		this.modData("Learnsets", "whiscamp").learnset.rebalance = ["9L1"];
-		this.modData("Learnsets", "whiscamp").learnset.chaoticterrain = ["9L1"];
+		this.modData("Learnsets", "barbolt").learnset.rebalance = ["9L1"];
+		this.modData("Learnsets", "barbolt").learnset.chaoticterrain = ["9L1"];
 		// Axolacred
 		this.modData("Learnsets", "axolacred").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "axolacred").learnset.rebalance = ["9L1"];
