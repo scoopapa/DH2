@@ -601,7 +601,6 @@ export const Learnsets = {
 			darkpulse: ["9L1"],
 			hydropump: ["9L1"],
 			surf: ["9L1"],
-			curse: ["9L1"],
 			auroraveil: ["9L1"],
 			encore: ["9L1"],
 			taunt: ["9L1"],
