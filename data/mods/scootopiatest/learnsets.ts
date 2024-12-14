@@ -481,7 +481,6 @@ export const Learnsets = {
 			swordsdance: ["9L1"],
 			dragondance: ["9L1"],
 			curse: ["9L1"],
-			slackoff: ["9L1"],
 			frostbreath: ["9L1"],
 			iceball: ["9L1"],
 			aurorabeam: ["9L1"],
