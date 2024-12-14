@@ -578,13 +578,46 @@ export const Learnsets = {
 	},
 	kasappa: {
 		learnset: {
-			
+			substitute: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			round: ["9L1"],
+			endure: ["9L1"],
 		},
 	},
 	enkappa: {
 		learnset: {
-			
+			icespinner: ["9L1"],
+			avalanche: ["9L1"],
+			gyroball: ["9L1"],
+			heavyslam: ["9L1"],
+			earthquake: ["9L1"],
+			bodypress: ["9L1"],
+			liquidation: ["9L1"],
+			flipturn: ["9L1"],
+			rapidspin: ["9L1"],
+			icebeam: ["9L1"],
+			freezedry: ["9L1"],
+			darkpulse: ["9L1"],
+			hydropump: ["9L1"],
+			surf: ["9L1"],
+			curse: ["9L1"],
+			auroraveil: ["9L1"],
+			encore: ["9L1"],
+			taunt: ["9L1"],
+			curse: ["9L1"],
+			stealthrock: ["9L1"],
+			irondefense: ["9L1"],
+			metalburst: ["9L1"],
+			substitute: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			round: ["9L1"],
+			endure: ["9L1"],
 		},
+
 	},
 	himalao: {
 		learnset: {
