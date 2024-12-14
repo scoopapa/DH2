@@ -465,11 +465,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	iconoblast: {
 		num: 851,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		name: "Iconoblast",
 		shortDesc: "Sets World Effect from user's moveset.",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, mustpressure: 1},
 		onPrepareHit(target, source, move) {

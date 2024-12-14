@@ -3621,10 +3621,10 @@ export const Formats: FormatList = [
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 
 					'Snow Cloak', 'Sand Veil'],
 		unbanlist: ["Arbrella-North", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Sturgard", "Enkappa",
-					"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Barbolt", "Lunacal",
+					"Embuck", "Cindoe", "Cobracotta", "Minillow", "Crossont", "Torgeist", "Barbolt", "Lunacal", "Blunderbusk"
 					"Eleqwil", "Duratreme", "Dojodo", "Nunopod", "Zeploom", "Velocipasta", "Crolegion", "Cinnastar",
-					"Coraking", "Volvolpa", "Harzodia", "Cyllindrake", "Alliglacier", "Electangle", "Pyrove", "Soleron",
-					"Soleron-Awakened", "Zephyrmine", "Boreasel", "Elemadillo", "Axolacred", "Skawamud", "Kasappa",
+					"Coraking", "Harzodia", "Cyllindrake", "Electangle", "Pyrove", "Soleron", "Jaegorm", "Jaegorm-Collective",
+					"Soleron-Awakened", "Zephyrmine", "Boreasel", "Elemadillo", "Axolacred", "Skawamud",
 					"Noxon", "Xiphoil", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", "Himalao",
 					"Zygola", "Cyrome", "Cyrome-Book", "Stone Husk", "Corundell", "Quadringo",
 					"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
