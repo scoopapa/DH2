@@ -633,7 +633,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (targetSide.sideConditions['toxicspikes']) {
 				allLayers += targetSide.sideConditions['toxicspikes'].layers;
 			}
-			const bp = Math.min(400, 50 + 50 * allLayers);
+			const bp = Math.min(200, 50 + 50 * allLayers);
 			this.add('-message', `Hazardous Waste currently has a BP of ${bp}!`);
 		},
 		secondary: null,
