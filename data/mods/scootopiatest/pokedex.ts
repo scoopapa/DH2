@@ -53,8 +53,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2007,
 		name: "Minillow",
 		types: ["Water", "Fairy"],
-		baseStats: {hp: 75, atk: 60, def: 75, spa: 95, spd: 100, spe: 85},
-		abilities: {0: "Swift Swim", 1: "Dazzling", H: "Adaptability"},
+		baseStats: {hp: 75, atk: 75, def: 85, spa: 95, spd: 110, spe: 65},
+		abilities: {0: "Swift Swim", 1: "Dazzling", H: "Magic Guard"},
 		weightkg: 22,
 	},
 	sturgard: {
@@ -117,7 +117,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2015,
 		name: "Lunacal",
 		types: ["Dark", "Fairy"],
-		baseStats: {hp: 65, atk: 75, def: 70, spa: 115, spd: 90, spe: 110},
+		baseStats: {hp: 65, atk: 75, def: 70, spa: 100, spd: 90, spe: 125},
 		abilities: {0: "Infiltrator"},
 		weightkg: 38,
 	},
@@ -132,7 +132,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	duratreme: {
 		num: 2017,
 		name: "Duratreme",
-		types: ["Normal"],
+		types: ["Normal", "Water"],
 		baseStats: {hp: 102, atk: 103, def: 101, spa: 74, spd: 67, spe: 63},
 		abilities: {0: "Strong Jaw", 1: "Hydration", H: "Poison Heal"},
 		weightkg: 125,
