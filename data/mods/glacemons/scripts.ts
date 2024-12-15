@@ -16,6 +16,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	}
 	},
 	init() {
+		// Other Nerfs or Buffs
+		delete this.modData('Learnsets', 'shaymin').learnset.grasswhistle;
+		delete this.modData('Learnsets', 'goomy').learnset.curse;
 		// Slate 1 moves
 		// Worry Seed
 		this.modData('Learnsets', 'wochien').learnset.worryseed = ['9M'];
@@ -795,7 +798,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'drapion').learnset.crosschop = ['9L1'];
 		this.modData('Learnsets', 'drapion').learnset.gunkshot = ['9L1'];
 		this.modData('Learnsets', 'drapion').learnset.jawlock = ['9L1'];
-		this.modData('Learnsets', 'drapion').learnset.powertrip = ['9L1'];
 		this.modData('Learnsets', 'drapion').learnset.shoreup = ['9L1'];
 		this.modData('Learnsets', 'drapion').learnset.suckerpunch = ['9L1'];
 		this.modData('Learnsets', 'shaymin').learnset.refresh = ['9L1'];
