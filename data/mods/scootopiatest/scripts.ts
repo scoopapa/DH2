@@ -140,6 +140,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "celespirit").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "celespirit").learnset.stellaralignment = ["9L1"];
 		// Elemadillo
+		this.modData("Learnsets", "elemadillo").learnset.earthpower = ["9L1"];
 		// Cinnastar
 		this.modData("Learnsets", "cinnastar").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "cinnastar").learnset.stellaralignment = ["9L1"];
