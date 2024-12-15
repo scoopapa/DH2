@@ -387,4 +387,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Torrent", H: "Lightning Rod"},
 		weightkg: 800,
 	},
+	deadward: {
+		num: 1201,
+		name: "Deadward",
+		types: ["Dark", "Flying"],
+		baseStats: {hp: 90, atk: 100, def: 85, spa: 40, spd: 90, spe: 110},
+		abilities: {0: "Filter", H: "Intimidate"},
+		weightkg: 66.6,
+	},
+	obaki: {
+		num: 1202,
+		name: "Obaki",
+		types: ["Fighting", "Ghost"],
+		baseStats: {hp: 85, atk: 75, def: 65, spa: 125, spd: 105, spe: 55},
+		abilities: {0: "Purifying Salt"},
+		weightkg: 40,
+	},
+	sylravage: {
+		num: 1203,
+		name: "Sylravage",
+		types: ["Poison", "Fighting"],
+		baseStats: {hp: 103, atk: 110, def: 86, spa: 41, spd: 80, spe: 80},
+		abilities: {0: "Defiant", H: "Grassy Surge"},
+		weightkg: 72,
+	},
 };
