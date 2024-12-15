@@ -145,4 +145,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	actaniathan: {
 		tier: "BC OU",
 	},
+	deadward: {
+		tier: "BC OU",
+	},
+	obaki: {
+		tier: "BC OU",
+	},
+	sylravage: {
+		tier: "BC OU",
+	},
 };
