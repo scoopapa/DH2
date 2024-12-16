@@ -98,6 +98,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onBasePower(basePower, pokemon) {
 			if (pokemon.status && pokemon.status !== 'slp', 'frz') {
 				return this.chainModify(1.5);
+			}
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
