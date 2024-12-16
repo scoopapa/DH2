@@ -19,6 +19,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Other Nerfs or Buffs
 		delete this.modData('Learnsets', 'shaymin').learnset.grasswhistle;
 		delete this.modData('Learnsets', 'goomy').learnset.curse;
+		delete this.modData('Learnsets', 'sliggoo').learnset.curse;
+		delete this.modData('Learnsets', 'goodra').learnset.curse;
+		delete this.modData('Learnsets', 'sliggoohisui').learnset.curse;
+		delete this.modData('Learnsets', 'goodrahisui').learnset.curse;
 		// Slate 1 moves
 		// Worry Seed
 		this.modData('Learnsets', 'wochien').learnset.worryseed = ['9M'];
