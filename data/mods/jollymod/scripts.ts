@@ -1,3 +1,4 @@
+import {Pokemon} from '../../../sim/pokemon';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
@@ -187,23 +188,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.add('-message', "But there was no one home...");
 				return;
 			}
-			const n = this.random(100);
+			const n = this.battle.random(100);
 			const pokemon = this.active[0];
 			if (n < 40) {
 				this.battle.add('-message', `Santa gave ${this.name} coal!`);
-				this.add('-anim', pokemon, "G-Max Volcalith", pokemon);
+				this.battle.add('-anim', pokemon, "G-Max Volcalith", pokemon);
 				this.addSideCondition('gmaxvolcalith');
 			} else if (n < 60) {
 				this.battle.add('-message', `Santa lectured ${pokemon.name} about right and wrong!`);
 				const bestStat = pokemon.getBestStat(true, true);
-				this.boost({[bestStat]: -1}, pokemon);
+				this.battle.boost({[bestStat]: -1}, pokemon);
 			} else if (n < 80) {
 				this.battle.add('-message', `Santa sent a chilling breeze!`);
 				this.battle.add('-message', `${pokemon.name} became weak to Ice!`);
 				pokemon.addVolatile('hypothermia');
 			} else if (n < 90) {
 				this.battle.add('-message', `Santa passed down chilling judgement!`);
-				const newMove = this.dex.getActiveMove('judgment');
+				const newMove = this.battle.dex.getActiveMove('judgment');
 				const newSet = {
 					name: 'Mew',
 					species: 'Mew',
@@ -223,11 +224,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					level: 100
 				};
 				const newMon = new Pokemon(newSet, pokemon.side);
-				this.add('-anim', pokemon, "Judgment", pokemon);
+				this.battle.add('-anim', pokemon, "Judgment", pokemon);
 				this.actions.useMove(newMove, newMon, pokemon);
 			} else if (n < 95) {
 				this.battle.add('-message', `Santa gave ${this.name} coal!`);
-				this.add('-anim', pokemon, "Stealth Rock", pokemon);
+				this.battle.add('-anim', pokemon, "Stealth Rock", pokemon);
 				this.addSideCondition('stealthrock');
 			} else if (n < 99) {
 				this.battle.add('-message', `Santa sent a chilling breeze!`);
@@ -235,15 +236,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.setStatus('frz');
 			} else {
 				this.battle.add('-message', `Santa took out his hammer!`);
-				const newMove = this.dex.getActiveMove('gigatonhammer');
+				const newMove = this.battle.dex.getActiveMove('gigatonhammer');
 				const newSet = {
 					name: 'Mew',
 					species: 'Mew',
-					item: 'Icicle Plate',
+					item: 'Metal Coat',
 					ability: 'Static',
 					moves: [ 'Gigaton Hammer' ],
-					nature: 'Serious',
-					evs: { hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85 },
+					nature: 'Adamant',
+					evs: { hp: 252, atk: 252, def: 4, spa: 0, spd: 0, spe: 0 },
 					gender: 'N',
 					ivs: { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 },
 					happiness: 255,
@@ -255,7 +256,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					level: 100
 				};
 				const newMon = new Pokemon(newSet, pokemon.side);
-				this.add('-anim', pokemon, "Gigaton Hammer", pokemon);
+				this.battle.add('-anim', pokemon, "Gigaton Hammer", pokemon);
 				this.actions.useMove(newMove, newMon, pokemon);
 			}
 		},
