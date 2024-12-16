@@ -737,7 +737,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		shortDesc: "Hits as Ice, Electric, Fire. 10% for para/burn/freeze.",
+		shortDesc: "Hits as Ice, Electric, Fire. 10% for freeze/para/burn.",
 	},
 	squall: {
 		num: -11,
