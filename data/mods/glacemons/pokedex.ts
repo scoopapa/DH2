@@ -3,7 +3,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	umbreon: {
 		inherit: true,
 		types: ["Dark", "Poison"],
-		abilities: {0: "Synchronize", H: "Natural Cure"},
+		abilities: {0: "Magic Guard", H: "Natural Cure"},
 	},
 	// Protean
 	croagunk: {
