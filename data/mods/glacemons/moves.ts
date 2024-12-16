@@ -1,8 +1,8 @@
 export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	worryseed: {
 		inherit: true,
-		basePower: 80,
-		category: "Physical",
+		basePower: 90,
+		category: "Special",
 		pp: 15,
 		flags: { protect: 1, mirror: 1, allyanim: 1, metronome: 1 },
 		onTryImmunity(target) {
@@ -28,6 +28,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 10,
 	},
 	recover: {
+		inherit: true,
+		pp: 10,
+	},
+	rest: {
 		inherit: true,
 		pp: 10,
 	},
@@ -80,7 +84,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	salvestrike: {
 		num: -2,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Physical",
 		name: "Salve Strike",
 		pp: 15,
@@ -91,18 +95,25 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Aromatherapy", source);
 			this.add('-anim', source, "Double-Edge", target);
 		},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status && pokemon.status !== 'slp', 'frz') {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) pokemon.cureStatus();;
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
 		},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
-		desc: "Heals the user's status if this move knocks out the target.",
-		shortDesc: "Heals the user's status if this KOes the target.",
+		desc: "1.5x power if user is statused; heals status.",
+		shortDesc: "1.5x power if user is statused; heals status.",
 	},
 	twister: {
 		inherit: true,
+		basePower: 60,
 		viable: true,
 		pp: 30,
 		priority: 1,
@@ -455,7 +466,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			}
 		},
 		desc: "Deals an additional 1/8th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
-		shortDesc: "Deals an additional 1/8th of the opponents health on a successful hit. High critical hit ratio.",
+		shortDesc: "1st hit: High critical hit ratio. 2nd hit: 1/8 max HP.",
 	},
 	psychocut: {
 		inherit: true,
@@ -465,7 +476,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			}
 		},
 		desc: "Deals an additional 1/8th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
-		shortDesc: "Deals an additional 1/8th of the opponents health on a successful hit. High critical hit ratio.",
+		shortDesc: "1st hit: High critical hit ratio. 2nd hit: 1/8 max HP.",
 	},
 	selfrepairing: {
 		num: -6,
@@ -473,7 +484,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 0,
 		category: "Status",
 		name: "Self-Repairing",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: { snatch: 1, heal: 1, bypasssub: 1 },
 		heal: [1, 3],
@@ -502,7 +513,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Recover", source);
 		},
 		rating: 3,
-		shortDesc: "Heals 33% of HP. When this Pokemon uses a status move, this Pokemon heals 25% of its max HP.",
+		desc: "Heals 33% of HP. When this Pokemon uses a status move, this Pokemon heals 25% of its max HP.",
+		shortDesc: "Heals 1/3 max HP; 1/4 extra after status move.",
 		secondary: null,
 		target: "allies",
 		type: "Steel",
@@ -511,6 +523,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		basePower: 60,
 		flags: { contact: 1, protect: 1, mirror: 1 },
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
 		isViable: true,
 	},
 	gravelgrater: {
@@ -574,14 +590,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		zMove: { boost: { atk: 1 } },
 		contestType: "Cool",
 		desc: "The Pokémon with the highest Attack stat on the field gets a +2 stat boost to their Attack and Defense. Stat boosts, items and abilities are not taken into account, fails if move was previously used in the same turn.",
-		shortDesc: "The Pokémon with the highest Attack stat on the field gets a +2 stat boost to their Attack and Defense.",
+		shortDesc: "Pokémon with highest Attack stat: +2 Atk, +2 Def.",
 	},
 	ionsaw: {
 		num: -9,
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		shortDesc: "Hits three times, with each hit having a 10% to paralyze the target.",
+		shortDesc: "Hits three times. 10% to paralyze the target.",
 		isViable: true,
 		name: "Ion Saw",
 		pp: 10,
@@ -608,7 +624,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	},
 	landswrath: {
 		inherit: true,
-		basePower: 60,
+		basePower: 70,
 		onAfterHit(target, pokemon, move) {
 			let success = false;
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
@@ -663,7 +679,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.field.clearTerrain();
 			return success;
 		},
-		shortDesc: "Reforms the ground and causes stealth rocks, terrain, leech seed to be destroyed.",
+		shortDesc: "Free user from hazards/terrain/bind/Leech Seed.",
 	},
 	// Slate 4
 	triattack: {
@@ -722,7 +738,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-		shortDesc: "Hits 3 times, each with the type effectiveness of Ice, Fire, and Electric, yet still only receiving a STAB boost from normal types. Each hit has a chance of 10% chance to freeze, burn, and paralyse, respectively.",
+		shortDesc: "Hits as Ice, Electric, Fire. 10% for freeze/para/burn.",
 	},
 	squall: {
 		num: -11,
@@ -748,7 +764,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "This move's power is multiplied by 1.5x if used in snow or a sandstorm.",
+		shortDesc: "1.5x power if used under Snow or Sandstorm.",
 	},
 	petroleumblast: {
 		num: -12,
@@ -790,7 +806,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		],
 		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to burn the target.",
-		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to burn.",
+		shortDesc: "1.5x power if user moves before target. 10% burn.",
 	},
 	thunderfang: {
 		inherit: true,
@@ -810,7 +826,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		],
 		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to paralyze the target.",
-		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to paralyze.",
+		shortDesc: "1.5x power if user moves before target. 10% para.",
 	},
 	icefang: {
 		inherit: true,
@@ -830,7 +846,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		],
 		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to freeze the target.",
-		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to freeze.",
+		shortDesc: "1.5x power if user moves before target. 10% freeze.",
 	},
 	poisonfang: {
 		inherit: true,
@@ -852,7 +868,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		],
 		desc: "Power is 1.5x if user moves before the target. Has a 10% chance to poison the target.",
-		shortDesc: "Power is 1.5x if user moves before the target. 10% chance to poison.",
+		shortDesc: "1.5x power if user moves before target. 10% poison.",
 	},
 	fishiousrend: {
 		inherit: true,
@@ -874,7 +890,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		pp: 20,
 		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Speed by 1 stage.",
-		shortDesc: "Power is 1.5x if user moves before the target. 30% chance to lower the target's Speed by 1.",
+		shortDesc: "1.5x power if user moves before target. 30% -1 Spe.",
 	},
 	hyperfang: {
 		inherit: true,
@@ -897,7 +913,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		pp: 20,
 		desc: "Power is 1.5x if user moves before the target. Has a 30% chance to lower the target's Atk by 1 stage.",
-		shortDesc: "Power is 1.5x if user moves before the target. 30% chance to lower the target's Atk by 1.",
+		shortDesc: "1.5x power if user moves before target. 30% -1 Atk.",
 	},
 	// Handling Cursed Branch
 	fling: {
