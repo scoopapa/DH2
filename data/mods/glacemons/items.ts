@@ -335,7 +335,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -5,
 		gen: 9,
-		shortDesc: "When this Pokemon's HP drops below 50%, restores 25% HP. The item is then consumed. This item cannot be removed from the holder unless it is consumed. Any attempt to remove/steal this item lowers the attacker's Speed by one stage.",
+		shortDesc: "Restores 1/3 max HP when at 1/2 max HP or less once, -1 Spe vs. Knock Off.",
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4) && pokemon.useItem()) {
@@ -422,7 +422,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify([5325, 4096]);
 			}
 		},
-		shortDesc: "If held by a Mew with Expanding Force, it can use Genesis Supernova. 30% power boost in Psychci Terrain.",
+		shortDesc: "If Mew: Expanding Force becomes Genesis Supernova. 1.3x boost in Psychic Terrain.",
 	},
 	specialteraorb: {
 		name: "Special Tera Orb",
@@ -457,7 +457,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(1.2);
 			}
 		},
-		shortDesc: "Holder is immune to powder moves and damage from Sandstorm or Hail. The accuracy of attacks by the holder is 1.2x.",
+		shortDesc: "Powder and Sandstorm immunity. The accuracy of attacks by the holder is 1.2x.",
 	},
 	speedingticket: {
 		name: "Speeding Ticket",
@@ -487,7 +487,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -8,
 		gen: 9,
 		rating: 3,
-		shortDesc: "If this Pokemon is targeted by a priority move, the move fails and the attacker is forced to switch out. Single-use.",
+		shortDesc: "Priority immunity; attacker is forced to switch out if triggered. Single-use.",
 	},
 	scoutingvisor: {
 		name: "Scouting Visor",
@@ -507,12 +507,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -9,
 		gen: 9,
 		rating: 3,
-		shortDesc: "If the holder is a Psychic-type, its super effective moves deal 1.3x damage. If the holder is not a Psychic-type, its super effective moves deal 0.67x damage.",
+		shortDesc: "If Psychic-type, super effective moves deal 1.3x damage. If not: 0.67x damage.",
 	},
 	utilityumbrella: {
 		inherit: true,
 		desc: "The holder ignores rain- and sun-based effects. Damage and accuracy calculations from attacks used by the holder are affected by rain and sun, but not attacks used against the holder. The holder takes 3/4 damage and ignores secondary effects while in weathers or terrains.",
-		shortDesc: "The holder ignores rain- and sun-based effects. Takes 3/4 damages and ignore secondary effects while in weathers or terrains.",
+		shortDesc: "Ignores weather; 3/4 damage and ignore secondary effects under weather/terrain.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (this.field.isWeather() || this.field.isTerrain()) {
 				this.debug('Utility Umbrella neutralize');
@@ -551,7 +551,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 			}
 		},
-		shortDesc: "Holder is immune to Ground-type attacks. Pops when holder is hit and raises Special Attack by 1.",
+		shortDesc: "Holder is immune to Ground-type attacks. Once popped: +1 SpA.",
 	},
 	absorbbulb: {
 		inherit: true,
@@ -561,7 +561,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder is immune to Water-type attacks. Pops when holder is hit and raises Special Attack by 1.",
+		shortDesc: "Holder is immune to Water-type attacks. Once popped: +1 SpA.",
 	},
 	cellbattery: {
 		inherit: true,
@@ -571,7 +571,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder is immune to Electric-type attacks. Pops when holder is hit and raises Attack by 1.",
+		shortDesc: "Holder is immune to Electric-type attacks. Once broken: +1 Atk.",
 	},
 	snowball: {
 		inherit: true,
@@ -581,7 +581,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder is immune to Ice-type attacks. Pops when holder is hit and raises Attack by 1.",
+		shortDesc: "Holder is immune to Ice-type attacks. Once broken: +1 Atk.",
 	},
 	indecisiveorb: {
 		name: "Indecisive Orb",
@@ -606,7 +606,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder may switch out even when trapped by another Pokemon, or by Ingrain. If the holder of this item is targeted by Pursuit as they switch out, the move fails and this item is consumed.",
+		shortDesc: "Holder may switch out even when trapped by another Pokemon, or by Ingrain and Pursuit.",
 	},
 	// Slate 4
 	machobrace: {
@@ -634,7 +634,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				move.basePower *= 1.5;
 			}
 		},
-		shortDesc: "If held by Fighting types or Pokémon with the ability Klutz, boosts the Attack and Defense stats by 1.3. If held by any other Pokémon, halves user's speed instead. Fling boosted by 1.5 if used.",
+		shortDesc: "If Fighting-type or Klutz: 1.3x Atk/Def. If not: 1/2 Spe. 1.5x Fling BP.",
 	},
 	cursedbranch: {
 		num: -11,
@@ -642,7 +642,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 30,
 		},
-		shortDesc: "On switch in, adds the Grass type to the user. Has no effect if the user is already that type.",
+		shortDesc: "On switch in, adds Grass type to holder. No effect if holder is Grass type",
 		onStart(pokemon) {
 			if (pokemon.addType('Grass')) {
 				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Cursed Branch');
@@ -660,7 +660,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			},
 		},
 		// airborneness negation implemented in scripts.ts
-		shortDesc: "This Pokemon takes 0.75x damage if hazards are up on this Pokémon’s side. This Pokemon is grounded",
+		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb')) {
 				return this.chainModify(0.75);
