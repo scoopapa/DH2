@@ -28,8 +28,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {},
 		name: "Velocity",
-		shortDesc: "This Pokemon's contact moves use its Speed for damage calculation. Doesn't take Speed boost into account in the damage calculation.",
-		desc: "This Pokemon's contact moves use its Speed for damage calculation, without Speed boosts.",
+		desc: "This Pokemon's contact moves use its Speed for damage calculation. Doesn't take Speed boost into account in the damage calculation.",
+		shortDesc: "This Pokemon's contact moves use its Speed for damage calculation without Speed boosts.",
 		rating: 3.5,
 		num: -1,
 	},
@@ -45,13 +45,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: { breakable: 1 },
 		name: "Route Closed",
 		desc: "This Pokemon is immune to pivot moves and restores 1/4 of its maximum HP, rounded down, when hit by a pivot move. The opponent does not get switched out by its pivot move if used on a Pokémon with this ability. Ex. Landorus-T uses U-Turn on Pokemon with this ability, the Pokemon with the ability is healed 25% HP and Landorus does not get switched out by the move.",
-		shortDesc: "This Pokemon is immune to pivot moves and restores 1/4 of its maximum HP when hit by a pivot move. Blocks pivoting.",
+		shortDesc: "Pivot move immunity; restores 1/4 of its maximum HP when hit by a pivot move.",
 		rating: 3.5,
 		num: -2,
 	},
 	honeygather: {
 		name: "Honey Gather",
-		shortDesc: "At the end of each turn, if this Pokemon has no item, 50% chance to get Honey, 100% chance in Misty Terrain.",
+		shortDesc: "If this Pokemon has no item, 50% chance to get Honey. 100% chance in Misty Terrain.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -97,21 +97,21 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		// All effects are coded on the moves in moves.ts
 		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if the Pokemon is holding a Utility Umbrella. This Pokemon's moves behave as if Sunny Day is always active.",
-		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn. Pokemon's moves act as if Sunny Day is always active.",
+		shortDesc: "1.5x Sp. Atk and 1/8 max HP lost per turn under Sunny Day; moves act as if under Sun.",
 	},
 	battlearmor: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			return this.chainModify(0.8);
 		},
-		shortDesc: "This Pokemon cannot be struck by a critical hit. Damage taken from attacks is reduced by 20%.",
+		shortDesc: "Critical hit immunity. Damage taken from attacks is reduced by 20%.",
 	},
 	shellarmor: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			return this.chainModify(0.8);
 		},
-		shortDesc: "This Pokemon cannot be struck by a critical hit. Damage taken from attacks is reduced by 20%.",
+		shortDesc: "Critical hit immunity. Damage taken from attacks is reduced by 20%.",
 	},
 	anticipation: {
 		inherit: true,
@@ -140,7 +140,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		desc: "On switch-in, this Pokemon is alerted and raises its highest defense stat by 1 if any opposing Pokemon has an attack that is super effective against this Pokemon, or an OHKO move. This effect considers any move that deals direct damage as an attacking move of its respective type, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
-		shortDesc: "On switch-in, this Pokemon shudders if any foe has a supereffective or OHKO move. Raises its highest defense stat by 1.",
+		shortDesc: "Shudders if any foe has a supereffective/OHKO move. Raises its highest defense stat by 1.",
 	},
 	rkssystem: {
 		inherit: true,
@@ -332,7 +332,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		desc: "This Pokemon is considered to be asleep and cannot become affected by a non-volatile status condition or Yawn. This Pokemon cannot be infatuated or taunted. Gaining this Ability while infatuated or taunted cures it. This Pokemon is immune to the effect of the Intimidate Ability.",
-		shortDesc: "This Pokemon cannot be statused, and is considered to be asleep. This Pokemon cannot be infatuated or taunted. Immune to Intimidate.",
+		shortDesc: "Status immunity; Pokemon is considered asleep. Intimidate/infatuation/Taunt immunity.",
 	},
 	windpower: {
 		inherit: true,
@@ -360,7 +360,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Sp.Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "Sp.Atk raised by 1 if hit by a wind move, if Tailwind begins, or if Sandstorm is active. Wind move and Sandstorm immunity.",
+		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 SpA. Wind move/Sand immunity.",
 	},
 	windrider: {
 		inherit: true,
@@ -379,7 +379,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move, when Tailwind begins on this Pokemon's side, or when Sandstorm is active. Sandstorm immunity.",
-		shortDesc: "Attack raised by 1 if hit by a wind move, if Tailwind begins, or if Sandstorm is active. Wind move and Sandstorm immunity.",
+		shortDesc: "If hit by a wind move or under Tailwind/Sandstorm: +1 Atk. Wind move/Sand immunity.",
 	},
 	// Slate 4
 	merciless: {
@@ -410,7 +410,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	deliquesce: {
 		num: -5,
 		name: "Deliquesce",
-		shortDesc: "On switch in, adds the Water type to the user. Has no effect if the user is already that type.",
+		shortDesc: "On switch in, adds Water type to the user. Has no effect if the user is Water-type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Water')) {
 				this.add('-start', pokemon, 'typeadd', 'Water', '[from] ability: Deliquesce');
@@ -421,7 +421,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	evanesce: {
 		num: -6,
 		name: "Evanesce",
-		shortDesc: "On switch in, adds the Ghost type to the user. Has no effect if the user is already that type.",
+		shortDesc: "On switch in, adds Ghost type to the user. Has no effect if the user is Ghost-type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Ghost')) {
 				this.add('-start', pokemon, 'typeadd', 'Ghost', '[from] ability: Evanesce');
@@ -432,7 +432,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	flouresce: {
 		num: -7,
 		name: "Flouresce",
-		shortDesc: "On switch in, adds the Electric type to the user. Has no effect if the user is already that type.",
+		shortDesc: "On switch in, adds Electric type to the user. Has no effect if the user is Electric-type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Electric')) {
 				this.add('-start', pokemon, 'typeadd', 'Electric', '[from] ability: Flouresce');
@@ -443,7 +443,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	indancesce: {
 		num: -8,
 		name: "Indancesce",
-		shortDesc: "On switch in, adds the Fire type to the user. Has no effect if the user is already that type.",
+		shortDesc: "On switch in, adds Fire type to the user. Has no effect if the user is Fire-type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Fire')) {
 				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Indancesce');
@@ -497,7 +497,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		desc: "This Pokemon's weight is halved, rounded down to a tenth of a kilogram. This effect is calculated after the effect of Autotomize, and before the effect of Float Stone. A Pokemon's weight will not drop below 0.1 kg. If a Pokemon uses a Dark-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "This Pokemon's weight is halved. Dark-type moves against this Pokemon deal damage with a halved offensive stat.",
+		shortDesc: "This Pokemon's weight is halved. Takes 1/2 damage from Dark-type moves.",
 	},
 	heavymetal: {
 		inherit: true,
@@ -516,7 +516,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		desc: "This Pokemon's weight is doubled. This effect is calculated after the effect of Autotomize, and before the effect of Float Stone. If a Pokemon uses a Ghost-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "This Pokemon's weight is doubled. Ghost-type moves against this Pokemon deal damage with a halved offensive stat.",
+		shortDesc: "This Pokemon's weight is doubled. Takes 1/2 damage from Ghost-type moves.",
 	},
 	soulheart: {
 		inherit: true,
@@ -526,6 +526,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.effectState.target.swordBoost = true;
 			this.boost({spa: 1}, this.effectState.target);
 		},
-		shortDesc: "This Pokemon's Special Attack is raised by 1 stage when another Pokemon faints. Once per battle.",
+		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage when other Pokemon faint. Once per battle.",
 	},
 };
