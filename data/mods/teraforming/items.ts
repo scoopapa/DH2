@@ -102,7 +102,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	  			}
       	}
 		},
-		// itemUser: [],
+		itemUser: ["Ogerpon"],
 		num: -1001,
 		gen: 9,
 		desc: "Allows certain Pokemon to Terastallize.",
