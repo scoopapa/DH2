@@ -669,7 +669,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	laggingtail: {
 		inherit: true,
-		shortDesc: "Holder moves last in its priority bracket, but its moves have their power boosted by 30%.",
+		shortDesc: "Moves last in priority bracket, but attacks have their power boosted by 30%.",
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify([5324, 4096]);
 		},
