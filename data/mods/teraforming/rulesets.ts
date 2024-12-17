@@ -22,7 +22,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 					this.add('-start', pokemon, 'typechange', pokemon.illusion.getTypes(true).join('/'), '[silent]');
 				}
 			} else {
-				if (pokemon.species.forme.startsWith('Mega') || pokemon.illusion.species.forme.startsWith('Tera') || 
+				if (pokemon.species.forme.startsWith('Mega') || pokemon.species.forme.startsWith('Tera') || 
 					 pokemon.species.forme.startsWith('Ultra')
 					) {
 					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
@@ -32,7 +32,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) {
 				if (
-					target.species.forme.startsWith('Mega') || target.illusion.species.forme.startsWith('Tera') ||
+					target.species.forme.startsWith('Mega') || target.species.forme.startsWith('Tera') ||
 					target.species.forme.startsWith('Ultra')
 				) {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
