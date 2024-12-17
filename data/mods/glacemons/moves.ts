@@ -172,7 +172,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Psychic",
 		desc: "Damage is calculated using the user's Sp. Defense stat as its Sp. Attack, including stat stage changes. Other effects that modify the Sp. Attack stat are used as normal.",
-		shortDesc: "Uses user's Sp. Def stat as Sp. Atk in damage calculation.",
+		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 	},
 	railgun: {
 		num: -5,
