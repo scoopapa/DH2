@@ -329,7 +329,51 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			return false;
-		}
+		},
+		heal(damage: number, target?: Pokemon, source: Pokemon | null = null, effect: 'drain' | Effect | null = null) {
+			if (this.event) {
+				target ||= this.event.target;
+				source ||= this.event.source;
+				effect ||= this.effect;
+			}
+			if (effect === 'drain') effect = this.dex.conditions.getByID(effect as ID);
+			if (damage && damage <= 1) damage = 1;
+			damage = this.trunc(damage);
+			// for things like Liquid Ooze, the Heal event still happens when nothing is healed.
+			damage = this.runEvent('TryHeal', target, source, effect, damage);
+			if (!damage) return damage;
+			if (!target?.hp) return false;
+			if (!target.isActive) return false;
+			if (target.hp >= target.maxhp) return false;
+			const finalDamage = target.heal(damage, source, effect);
+			switch (effect?.id) {
+			case 'leechseed':
+			case 'rest':
+				this.add('-heal', target, target.getHealth, '[silent]');
+				break;
+			case 'drain':
+				this.add('-heal', target, target.getHealth, '[from] drain', '[of] ' + source);
+				break;
+			case 'wish':
+				break;
+			case 'zpower':
+				this.add('-heal', target, target.getHealth, '[zeffect]');
+				break;
+			default:
+				if (!effect) break;
+				if (effect.effectType === 'Move') {
+					this.add('-heal', target, target.getHealth);
+				} else if (source && source !== target) {
+					this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname, '[of] ' + source);
+				} else {
+					this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname);
+				}
+				break;
+			}
+			this.runEvent('Heal', target, source, effect, finalDamage);
+			target.addVolatile('healed');
+			return finalDamage;
+		},
 	},
 	queue: {
 		resolveAction(action: ActionChoice, midTurn = false): Action[] {
