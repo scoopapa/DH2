@@ -1264,11 +1264,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bloodlinespellblazeball: {
 		onStart(pokemon) {
-			//gonna do this later lol...
+			for (const move of pokemon.moveSlots) {
+				if (move.id === 'blazeball') return;
+			}
+			const blazeball = this.dex.moves.get('blazeball');
+			const newMove = {
+				move: blazeball.name,
+				id: blazeball.id,
+				pp: blazeball.pp * 1.6,
+				maxpp: blazeball.pp * 1.6,
+				target: blazeball.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			pokemon.moveSlots[pokemon.moveSlots.length] = newMove;
+			pokemon.baseMoveSlots[pokemon.baseMoveSlots.length] = newMove;
 		},
 		flags: {},
 		name: "Bloodline Spell: Blazeball",
-		shortDesc: "This Pokemon has Blazeball as a fifth moveslot.",
+		shortDesc: "This Pokemon has Blazeball as an additional moveslot.",
 	},
 	unitedparty: {
 		onStart(pokemon) {

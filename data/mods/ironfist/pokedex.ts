@@ -10,6 +10,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ninjask: {
 		inherit: true,
 		gen: 3,
+		copen: true,
 		name: "Ninjask",
 		num: -2,
 		types: ["Bug", "Flying"],
@@ -329,6 +330,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	drigike: {
 		name: "Drigike",
+		copen: true,
 		num: -36,
 		types: ["Rock"],
 		baseStats: {hp: 65, atk: 80, def: 60, spa: 135, spd: 65, spe: 80},
@@ -373,6 +375,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	bondra: {
 		name: "Bondra",
+		copen: true,
 		num: -41,
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 103, atk: 113, def: 93, spa: 43, spd: 93, spe: 113},
@@ -608,6 +611,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	contamicow: {
 		name: "Contamicow",
+		copen: true,
 		num: -67,
 		types: ["Dark", "Poison"],
 		baseStats: {hp: 80, atk: 110, def: 73, spa: 73, spd: 120, spe: 79},
@@ -615,6 +619,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	whonhef: {
 		name: "Whonhef",
+		copen: true,
 		num: -68,
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 80, atk: 110, def: 73, spa: 73, spd: 120, spe: 79},
@@ -1263,13 +1268,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Soruarc",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 55, atk: 75, def: 70, spa: 125, spd: 80, spe: 105},
-		abilities: {0: "Bloodline Spell", H: "Fireball"},
+		abilities: {0: "Bloodline Spell: Blazeball"},
 		weightkg: 66.0,
 	},
 	emolga: {
 		inherit: true,
 		num: -997,
 		name: "Emolga",
+		copen: true,
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 55, atk: 75, def: 60, spa: 75, spd: 60, spe: 104},
 		abilities: {0: "United Party"},

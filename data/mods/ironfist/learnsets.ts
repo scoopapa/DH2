@@ -869,6 +869,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			doubleshock: ["9L1"],
 			lemonacid: ["9L1"],
 			blazeball: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	glaceon: {
@@ -1312,6 +1313,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			dragonbreath: ["9L1"],
 			dragonpulse: ["9L1"],
 			twister: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	bigcrammer: {
@@ -1389,6 +1391,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	archeops: {
@@ -3625,6 +3628,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	
@@ -5504,6 +5508,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	conquescape: {
@@ -8895,6 +8900,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			vicegrip: ["9L1"],
 			metalclaw: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	mcfish: {
@@ -9078,6 +9084,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			watersport: ["9L1"],
 			liondeluge: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	
@@ -9782,6 +9789,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	zapdos: {
@@ -10183,6 +10191,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			waterpulse: ["9L1"],
 			surf: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	lemonganium: {
@@ -11089,7 +11098,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9L1"],
 			endure: ["9L1"],
 			facade: ["9L1"],
-			helpinghand: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],

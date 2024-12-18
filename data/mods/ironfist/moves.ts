@@ -1,3 +1,26 @@
+import {FS} from '../../../lib';
+import {toID} from '../../../sim/dex-data';
+import {Pokemon} from "../../../sim/pokemon";
+
+// Similar to User.usergroups. Cannot import here due to users.ts requiring Chat
+// This also acts as a cache, meaning ranks will only update when a hotpatch/restart occurs
+const usergroups: {[userid: string]: string} = {};
+const usergroupData = FS('config/usergroups.csv').readIfExistsSync().split('\n');
+for (const row of usergroupData) {
+	if (!toID(row)) continue;
+
+	const cells = row.split(',');
+	if (cells.length > 3) throw new Error(`Invalid entry when parsing usergroups.csv`);
+	usergroups[toID(cells[0])] = cells[1].trim() || ' ';
+}
+
+export function getName(name: string): string {
+	const userid = toID(name);
+	if (!userid) throw new Error('No/Invalid name passed to getSymbol');
+
+	const group = usergroups[userid] || ' ';
+	return group + name;
+}
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	/*
 	placeholder: {
@@ -2933,7 +2956,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Burn Up", target);
 		},
 		onAfterHit(target, source, move) {
-			if (source.hp && move.target != 'self') {
+			if (source.hp && source.lastMove.target != 'self') {
 				move.target = 'self';
 				this.actions.useMove(move.id, source, source);
 			}
@@ -3016,9 +3039,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Thunderous Kick", target);
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|shut up idiot ジェイ絵ジェ (ZEKROM KICK)`);
 		},
 		onAfterMoveSecondarySelf(target, source, move) {
-			if (source.species.id !== 'zekrom') source.formeChange('Zekrom', this.effect, false, '0', '[msg]');
+			if (target.species.id !== 'zekrom') target.formeChange('Zekrom', this.effect, false, '0', '[msg]');
 		},
 		secondary: null,
 		target: "normal",
