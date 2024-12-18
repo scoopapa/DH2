@@ -156,7 +156,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	coraking: {
 		num: 2020,
 		name: "Coraking",
-		types: ["Water", "Rock"],
+		types: ["Rock", "Water"],
 		baseStats: {hp: 140, atk: 125, def: 125, spa: 65, spd: 55, spe: 35},
 		abilities: {0: "Lightning Rod", 1: "Battle Armor", H: "Pressure"},
 		weightkg: 457,

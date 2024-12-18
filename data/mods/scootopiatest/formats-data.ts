@@ -215,6 +215,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
+	sumolug: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
 	// flocuranexus: {
 		// tier: "Scoo",
 		// doublesTier: "DOU",
@@ -227,12 +231,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
-	// cyromeauthor: {
-		// tier: "Scoo",
-		// doublesTier: "DOU",
-	// },
-	// flocuranexus: {
-		// tier: "Illegal",
-		// doublesTier: "Illegal",
-	// },
+	cyromeauthor: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cyromepage: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };

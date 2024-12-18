@@ -235,5 +235,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Cyrome-Author
 		// Krachiten
 		this.modData("Learnsets", "krachiten").learnset.wavecrash = ["9L1"];
+		// Scalaron
+		this.modData("Learnsets", "scalaron").learnset.lavaplume = ["9L1"];
 	}
 };

@@ -18,6 +18,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
 				if (pokemon.hasAbility("overcoat")) dmgDiv = 16;
 				this.damage(pokemon.maxhp / dmgDiv);
+				pokemon.m.fieldTurns = 0;
 			},
 			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
@@ -66,7 +67,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 0,
 			onSwitchIn(pokemon) {
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon,'blessedfield')) return;
-				// if (pokemon.hasAbility("Overcoat")) return;
 				this.heal(pokemon.maxhp / 8);
 			},
 			onFieldStart(field, source, effect) {
