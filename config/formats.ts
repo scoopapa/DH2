@@ -3178,8 +3178,6 @@ export const Formats: FormatList = [
         onValidateTeam(team, format) {
             /**@type {{[k: string]: true}} */
             let speciesTable = {};
-            let f = false;
-            let ff = false;
             for (const set of team) {
                 let template = this.dex.species.get(set.species);
                 if (template.tier !== 'JM') {
