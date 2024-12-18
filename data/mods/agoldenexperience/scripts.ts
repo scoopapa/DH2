@@ -1541,9 +1541,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'drampa').learnset.chillyreception = ['9L1'];
     this.modData('Learnsets', 'mimikyu').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'solgaleo').learnset.swordsdance = ['9L1'];
-    delete this.modData('Learnsets', 'pheromosa').learnset.drillrun;
-    delete this.modData('Learnsets', 'pheromosa').learnset.tripleaxel;
-    delete this.modData('Learnsets', 'pheromosa').learnset.quiverdance;
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['9L1'];
     delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
     delete this.modData('Learnsets', 'magearna').learnset.storedpower;
