@@ -2245,27 +2245,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	genesect: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 115, def: 95, spa: 115, spd: 95, spe: 99},
 		abilities: {0: "Analytic"},
 	},
 	genesectdouse: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 125, def: 105, spa: 125, spd: 105, spe: 109},
-		abilities: {0: "Water Absorb"},
+		baseStats: {hp: 71, atk: 130, def: 105, spa: 130, spd: 105, spe: 109},
+		abilities: {0: "Storm Drain"},
 	},
 	genesectshock: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 129},
+		baseStats: {hp: 71, atk: 125, def: 100, spa: 125, spd: 100, spe: 129},
 		abilities: {0: "Motor Drive"},
 	},
 	genesectburn: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 120, def: 115, spa: 120, spd: 115, spe: 99},
+		baseStats: {hp: 71, atk: 125, def: 115, spa: 125, spd: 115, spe: 99},
 		abilities: {0: "Flash Fire"},
 	},
 	genesectchill: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 135, def: 95, spa: 135, spd: 95, spe: 109},
+		baseStats: {hp: 71, atk: 135, def: 100, spa: 135, spd: 100, spe: 109},
 		abilities: {0: "Refrigerate"},
 	},
 
@@ -2991,10 +2990,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	lunala: {
 		inherit: true,
 		baseStats: {hp: 137, atk: 89, def: 107, spa: 137, spd: 113, spe: 97},
-	},
-	pheromosa: {
-		inherit: true,
-		baseStats: {hp: 71, atk: 127, def: 53, spa: 127, spd: 53, spe: 139},
 	},
 	xurkitree: {
 		inherit: true,
