@@ -62,7 +62,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	spearow: {
 		inherit: true,
-		evos: ["Spearow", "Spearow-Kalos"],
+		otherFormes: ["Spearow-Kalos"],
+		formeOrder: ["Spearow", "Spearow-Kalos"],
 	},
 	spearowkalos: {
 		num: 21,
@@ -80,7 +81,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	fearow: {
 		inherit: true,
-		evos: ["Fearow", "Fearow-Kalos"],
+		otherFormes: ["Fearow-Kalos"],
+		formeOrder: ["Fearow", "Fearow-Kalos"],
 	},
 	fearowkalos: {
 		num: 22,
