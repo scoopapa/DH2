@@ -1111,7 +1111,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mew: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	chikorita: {
 		inherit: true,
