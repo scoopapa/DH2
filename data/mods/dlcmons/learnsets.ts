@@ -360,7 +360,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			nastyplot: ["6L1"],
 			spikes: ["6L1"],
 			suckerpunch: ["6L1"],
-			fly: ["6M", "5M", "4M", "3M"],
+			fly: ["6L1"],
 		},
 	},
 	delcattykalos: {

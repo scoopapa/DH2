@@ -37,13 +37,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -2,
 	},
 	seedsower: {
-		onDamagingHit(damage, target, source, move) {
-			this.field.setTerrain('grassyterrain');
-		},
-		flags: {},
-		name: "Seed Sower",
-		rating: 2.5,
-		num: 269,
+		inherit: true,
+		isNonstandard: null,
+		gen: 6,
 	},
 	flowergift: {
 		inherit: true,
