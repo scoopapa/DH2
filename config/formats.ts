@@ -3629,7 +3629,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/scootopia.3742131/post-10103602">Thread</a>`,
 		],
 		mod: "scootopiatest",
-		ruleset: ['Standard NatDex', 'Crystal Heart', 'Wild Heart', 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule', 'Super Type Clause'],
+		ruleset: ['Standard NatDex', /*'Crystal Heart', 'Wild Heart',*/ 'Terastal Clause', 'Z-Move Clause', 'Data Mod', 'Super Type Moves Rule', 'Super Type Clause'],
 		banlist: ['All Pokemon', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Double Team', 
 					'Snow Cloak', 'Sand Veil'],
 		unbanlist: ["Arbrella-North", "Krachiten", "Scalaron", "Rantler", "Woolora", "Albatrygon", "Sturgard", "Enkappa",
