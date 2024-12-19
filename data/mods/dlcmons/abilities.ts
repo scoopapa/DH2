@@ -36,6 +36,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: -2,
 	},
+	seedsower: {
+		onDamagingHit(damage, target, source, move) {
+			this.field.setTerrain('grassyterrain');
+		},
+		flags: {},
+		name: "Seed Sower",
+		rating: 2.5,
+		num: 269,
+	},
 	flowergift: {
 		inherit: true,
 		onStart(pokemon) {
