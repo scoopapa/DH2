@@ -972,4 +972,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Dark",
 		contestType: "Cute",
 	},
+	terastarstorm: {
+		inherit: true,
+		basePower: 100,
+	},
 };
