@@ -1368,6 +1368,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regigigas').learnset.dragonhammer = ['9L1'];
     this.modData('Learnsets', 'regigigas').learnset.meteormash = ['9L1'];
     this.modData('Learnsets', 'regigigas').learnset.slackoff = ['9L1'];
+    this.modData('Learnsets', 'shaymin').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'giratina').learnset.teleport = ['9L1'];
 
     // Gen 5:
@@ -1540,9 +1541,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'drampa').learnset.chillyreception = ['9L1'];
     this.modData('Learnsets', 'mimikyu').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'solgaleo').learnset.swordsdance = ['9L1'];
-    delete this.modData('Learnsets', 'pheromosa').learnset.drillrun;
-    delete this.modData('Learnsets', 'pheromosa').learnset.tripleaxel;
-    delete this.modData('Learnsets', 'pheromosa').learnset.quiverdance;
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['9L1'];
     delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
     delete this.modData('Learnsets', 'magearna').learnset.storedpower;
@@ -1647,6 +1645,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.roost = ['9L1'];
+    this.modData('Learnsets', 'ironthorns').learnset.shiftgear = ['9L1'];
     this.modData('Learnsets', 'wochien').learnset.synthesis = ['9L1'];
     this.modData('Learnsets', 'okidogi').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
@@ -1656,7 +1655,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'ragingbolt').learnset.calmmind;
     delete this.modData('Learnsets', 'flittle').learnset.storedpower;
     delete this.modData('Learnsets', 'espathra').learnset.storedpower;
-    delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
     delete this.modData('Learnsets', 'gimmighoul').learnset.nastyplot;
     delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
 
