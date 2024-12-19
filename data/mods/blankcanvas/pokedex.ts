@@ -388,7 +388,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 800,
 	},
 	deadward: {
-		num: 1201,
+		num: 9048,
 		name: "Deadward",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 90, atk: 100, def: 85, spa: 40, spd: 90, spe: 110},
@@ -396,7 +396,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 66.6,
 	},
 	obaki: {
-		num: 1202,
+		num: 9049,
 		name: "Obaki",
 		types: ["Fighting", "Ghost"],
 		baseStats: {hp: 85, atk: 75, def: 65, spa: 125, spd: 105, spe: 55},
@@ -404,11 +404,36 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 	},
 	sylravage: {
-		num: 1203,
+		num: 9050,
 		name: "Sylravage",
 		types: ["Poison", "Fighting"],
 		baseStats: {hp: 103, atk: 110, def: 86, spa: 41, spd: 80, spe: 80},
 		abilities: {0: "Defiant", H: "Grassy Surge"},
 		weightkg: 72,
 	},
+	twinkaton: {
+		num: 9051,
+		name: "Twinkaton",
+		types: ["Fairy", "Steel"],
+		baseStats: {hp: 90, atk: 75, def: 75, spa: 75, spd: 120, spe: 45},
+		abilities: {0: "Mold Breaker", H: "Filter"},
+		weightkg: 90,
+	},
+	fausteil: {
+		num: 9052,
+		name: "Fausteil",
+		types: ["Fire", "Flying"],
+		baseStats: {hp: 110, atk: 90, def: 80, spa: 35, spd: 110, spe: 50},
+		abilities: {0: "Flame Body"},
+		weightkg: 26,
+	},
+	geoporka: {
+		num: 9053,
+		name: "Geoporka",
+		types: ["Grass", "Normal"],
+		baseStats: {hp: 100, atk: 85, def: 90, spa: 70, spd: 110, spe: 45},
+		abilities: {0: "Thick Fat"},
+		weightkg: 38,
+	},
+
 };
