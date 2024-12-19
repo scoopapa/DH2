@@ -154,4 +154,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sylravage: {
 		tier: "BC OU",
 	},
+	twinkaton: {
+		tier: "BC OU",
+	},
+	fausteil: {
+		tier: "BC OU",
+	},
+	geoporka: {
+		tier: "BC OU",
+	},
 };
