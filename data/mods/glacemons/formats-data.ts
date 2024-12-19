@@ -589,7 +589,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	steelix: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	steelixmega: {
 		inherit: true,

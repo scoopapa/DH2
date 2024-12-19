@@ -668,6 +668,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	spearow: {tier: "Kalos (NFE)"},
 	fearow: {tier: "Kalos"},
+	spearowkalos: {tier: "Kalos (NFE)"},
+	fearowkalos: {tier: "Kalos (NFE)"},
+	monrow: {tier: "Kalos"},
 
 	cryogonal: {tier: "Kalos"},
 
