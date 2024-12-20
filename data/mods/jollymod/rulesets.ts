@@ -3,7 +3,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		name: 'Jolly',
 		desc: "Jollymod",
 		onBegin() {
-			this.add('rule', 'Jollymod');
+			this.add('rule', 'Jollymod', 'uh santas really mad rn');
 		},
 		onResidual(pokemon) {
 			console.log(pokemon.side.active);
