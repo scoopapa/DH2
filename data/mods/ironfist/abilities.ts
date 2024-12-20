@@ -1297,7 +1297,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "United Party",
-		shortDesc: "Field effects have 1 extra turn per Copen Pokemon.",
+		shortDesc: "(Non-functional) Field effects have 1 extra turn per Copen Pokemon.",
 	},
 	bathroombreak: {
 		onDamagingHitOrder: 1,
