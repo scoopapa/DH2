@@ -2918,8 +2918,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	twineedle: {
 		inherit: true,
 		shortDesc: "Hits 2-5 times. 20% chance to poison regardless of typing.",
-		//corrosion effect in scripts/pokemon/setStatus
 		multihit: [2, 5],
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('twineedle');
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onStart(target) {
+				target.addVolatile('ability:corrosion');
+			},
+			onEnd(target) {
+				target.removeVolatile('ability:corrosion');
+			},
+		},
 	},
 	wariopicrosspuzzle4g: {
 		name: "Wario Picross Puzzle 4G",
