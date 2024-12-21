@@ -1,6 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	inherit: 'gen8',
-	gen: 8,
+	gen: 6,
+	inherit: 'gen6',
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
