@@ -30,7 +30,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			target.removeVolatile(this.effectState.move);
 		},
 		onLockMove() { // if the ability is Swift Retreat, the Pokemon can switch out
-			if (this.hasAbility('swiftretreat').onLockMove) return;
+			if (this.dex.hasAbility('swiftretreat').onLockMove) return;
 			return this.effectState.move;
 		},
 		onMoveAborted(pokemon) {
