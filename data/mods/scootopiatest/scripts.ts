@@ -232,6 +232,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "cyromebook").learnset.silentdomain = ["9L1"];
 		this.modData("Learnsets", "cyromebook").learnset.stellaralignment = ["9L1"];
 		// Cyrome-Scribe
+		this.modData("Learnsets", "cyrome").learnset.rebalance = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.legacyshade = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.iconoblast = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.chaoticterrain = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.chaoticweather = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.rainofmeteors = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.rainofdew = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.cursedfield = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.blessedfield = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.silentdomain = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.stellaralignment = ["9L1"];
 		// Cyrome-Author
 		// Krachiten
 		this.modData("Learnsets", "krachiten").learnset.wavecrash = ["9L1"];

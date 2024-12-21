@@ -147,6 +147,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
+	silvuna: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
 	nunopod: {
 		tier: "Scoo",
 		doublesTier: "DOU",
@@ -179,10 +183,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
-	kasappa: {
-		tier: "Scoo",
-		doublesTier: "DOU",
-	},
+	// kasappa: {
+		// tier: "Scoo",
+		// doublesTier: "DOU",
+	// },
 	enkappa: {
 		tier: "Scoo",
 		doublesTier: "DOU",
