@@ -1,4 +1,11 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+	swiftretreat: {
+		name: "Swift Retreat",
+		desc: "This Pokemon can choose to switch out on the second turn of moves with a charge turn of invulnerability instead of attacking. This list does not include Sky Drop.",
+		shortDesc: "This Pokemon can choose to switch out on the second turn of a two-turn move.",
+		num: -1,
+		rating: 3,
+	},
 	lightpower: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
@@ -8,6 +15,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's Special Attack is doubled.",
 		rating: 5,
 		num: -2,
+	},
+	seedsower: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 6,
 	},
 	flowergift: {
 		inherit: true,
