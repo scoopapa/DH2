@@ -180,7 +180,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Activates the Paradox Abilities. Single use.",
 		gen: 9,
 	},
-	
 	balanceboard: {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
@@ -812,6 +811,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.flags['foot']) {
 				return this.chainModify([5325, 4096]);
 			}
+		},
+	},
+	fudgesaurite: {
+		name: "Fudgesaurite",
+		shortDesc: "If held by a Fudgesaur, this item allows it to Mega Evolve in battle.",
+		megaStone: "Fudgesaur-Mega",
+		megaEvolves: "Fudgesaur",
+		itemUser: ["Fudgesaur"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 }

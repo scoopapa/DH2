@@ -1090,7 +1090,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 	},
 	field: {
+		inherit: true,
 		setWeather(status: string | Condition, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
+			console.log(status);
 			status = this.battle.dex.conditions.get(status);
 			if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
 			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
@@ -1144,6 +1146,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 		setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
+			console.log(status);
 			status = this.battle.dex.conditions.get(status);
 			if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
 			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
@@ -1177,6 +1180,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		source: Pokemon | 'debug' | null = null,
 		sourceEffect: Effect | null = null
 		): boolean {
+			console.log(status);
 			if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
 			if (source === 'debug') source = this.battle.sides[0].active[0];
 			status = this.battle.dex.conditions.get(status);
