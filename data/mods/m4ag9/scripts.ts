@@ -85,7 +85,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				newMega.requiredItem = pokemon.megaStone || null;
 				if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { };
 
-				if (uber.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
+				if (uber9.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
 				else {
 					megaList.push(pokemon.mega);
 					if (megaViabilityList9.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Popular Megas";
