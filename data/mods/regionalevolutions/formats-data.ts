@@ -207,4 +207,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crimsoyal: {
 		tier: "RegEvo",
 	},
+
+	vanillitekitakami: {
+		tier: "RegEvo NFE",
+	},
+	vanillishkitakami: {
+		tier: "RegEvo NFE",
+	},
+	sundilluxe: {
+		tier: "RegEvo",
+	},
 };
