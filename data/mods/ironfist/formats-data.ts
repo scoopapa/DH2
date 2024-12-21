@@ -586,4 +586,57 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+
+	impromancer: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	panderdragoon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	soruarc: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	emolga: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	skibidragon: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	hitmontopmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	porygonz: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	porygonmegaz: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	furumo: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	manmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fudgesaur: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	fudgesaurmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	darkpoison: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 };

@@ -18,7 +18,29 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 	*/
+	//new moves
+	freezerburn: {
+		name: "Freezer Burn",
+		type: "Ice",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "30% chance to burn the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Glacial Lance", target);
+		},
+		secondary: {
+			chance: 30,
+			secondary: 'brn',
+		},
+		target: "normal",
+	},
 	
+	//changed ice moves
 	aurorabeam: {
 		num: 802,
 		accuracy: 100,
@@ -102,6 +124,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			status: 'fsb',
 		},
 	},
+	chillyreception: {
+		inherit: true,
+		shortDesc: "Lowers the target's Spe by 1. User switches out.",
+		weather: null,
+		boosts: {
+			spe: -1,
+		},
+	},
 	freezeshock: {
 		accuracy: 100,
 		basePower: 70,
@@ -133,6 +163,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Ice",
 	},
+	freezyfrost: {
+		inherit: true,
+		isNonstandard: null,
+		basePower: 90,
+		accuracy: 100,
+	},
 	glaciallance: {
 		inherit: true,
 		shortDesc: "Lowers the user's Atk and Sp. Def by 1.",
@@ -144,8 +180,186 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
+	iceball: {
+		inherit: true,
+		isViable: true,
+		isNonstandard: null,
+		accuracy: 100,
+		shortDesc: "Power doubles with each consecutive use.",
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			const iceballData = pokemon.volatiles['iceball'];
+			if (iceballData?.hitCount) {
+				bp *= Math.pow(2, iceballData.contactHitCount);
+			}
+			if (iceballData && pokemon.status !== 'slp') {
+				iceballData.hitCount++;
+				iceballData.contactHitCount++;
+				if (iceballData.hitCount < 5) {
+					iceballData.duration = 2;
+				}
+			}
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			if (this.field.pseudoWeather.whiteout) {
+				bp *= 2;
+			}
+			return bp;
+		},
+		condition: {
+			duration: 1,
+			onStart() {
+				this.effectState.hitCount = 0;
+				this.effectState.contactHitCount = 0;
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['iceball'];
+				}
+			},
+		},
+	},
+	icebeam: {
+		inherit: true,
+		shortDesc: "20% chance to frostbite the target.",
+		secondary: {
+			chance: 20,
+			status: 'fsb',
+		},
+	},
+	iceburn: {
+		name: "Ice Burn",
+		type: "Ice",
+		category: "Special",
+		basePower: 70,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits Ice neutrally. 10% chance to burn the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Ice') return 0;
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+	},
+	icefang: {
+		inherit: true,
+		shortDesc: "Target loses 1/16 max HP.",
+		onHit(target, source) {
+			this.damage(target.baseMaxhp / 16, source, source);
+		},
+		secondary: null,
+	},
+	icepunch: {
+		inherit: true,
+		shortDesc: "User recovers 50% of the damage dealt.",
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+	},
+	icehammer: {
+		inherit: true,
+		accuracy: 100,
+		shortDesc: "User's Spe -1. 100% to lower target's Def by 1.",
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+	},
+	iceshard: {
+		inherit: true,
+		shortDesc: "+1 priority. Doubled damage against statused targets.",
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+	},
+	icywind: {
+		inherit: true,
+		basePower: 70,
+		shortDesc: "100% chance to lower the target's Spe by 2.",
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -2,
+			},
+		},
+	},
+	mountaingale: {
+		inherit: true,
+		shortDesc: "If the target resists this attack, set Tailwind.",
+		onHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod < 0) {
+				source.addSideCondition("tailwind");
+			}
+		},
+		secondary: null,
+	},
+	powdersnow: {
+		inherit: true,
+		shortDesc: "Usually goes first.",
+		priority: 1,
+		secondary: null,
+	},
+	present: {
+		inherit: true,
+		shortDesc: "Uses Gen 2 damage calculation. 25% chance to heal instead.",
+		type: 'Ice',
+		category: 'Special',
+		accuracy: 100,
+		onModifyMove(move, pokemon, target) {
+			const rand = this.random(4);
+			if (rand < 1) {
+				move.heal = [1, 4];
+				move.infiltrates = true;
+				move.flags.nice = 1;
+			}
+		}
+	},
+	sheercold: {
+		name: "Sheer Cold",
+		type: "Ice",
+		category: "Status",
+		basePower: 0,
+		accuracy: 85,
+		pp: 20,
+		shortDesc: "Frostbites the target.",
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sheer Cold", target);
+		},
+		status: 'fsb',
+		secondary: null,
+		target: "normal",
+	},
 	
+	//other
+	synthesis: {
+		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
+		heal: [1, 2],
+	},
+	floatyfall: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
+	//nice moves
 	snowballfight: {
 		name: "Snowball Fight",
 		type: "Ice",
@@ -164,6 +378,79 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	niceball: {
+		accuracy: 100,
+		basePower: 15,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			const iceballData = pokemon.volatiles['niceball'];
+			if (iceballData?.hitCount) {
+				bp *= Math.pow(2, iceballData.contactHitCount);
+			}
+			if (iceballData && pokemon.status !== 'slp') {
+				iceballData.hitCount++;
+				iceballData.contactHitCount++;
+				if (iceballData.hitCount < 5) {
+					iceballData.duration = 2;
+				}
+			}
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			this.debug("BP: " + bp);
+			return bp;
+		},
+		category: "Physical",
+		name: "Nice Ball",
+		shortDesc: "Doubles in power with consecutive uses.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, failinstruct: 1, bullet: 1, noparentalbond: 1, nice: 1,},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Ball", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.volatiles['niceball'] || pokemon.status === 'slp' || !target) return;
+			pokemon.addVolatile('niceball');
+			// @ts-ignore
+			// TS thinks pokemon.volatiles['iceball'] doesn't exist because of the condition on the return above
+			// but it does exist now because addVolatile created it
+			pokemon.volatiles['niceball'].targetSlot = move.sourceEffect ? pokemon.lastMoveTargetLoc : pokemon.getLocOf(target);
+		},
+		onAfterMove(source, target, move) {
+			const niceballData = source.volatiles["niceball"];
+			if (
+				niceballData &&
+				niceballData.hitCount === 5 &&
+				niceballData.contactHitCount < 5
+				// this conditions can only be met in gen7 and gen8dlc1
+				// see `disguise` and `iceface` abilities in the resp mod folders
+			) {
+				source.addVolatile("rolloutstorage");
+				source.volatiles["rolloutstorage"].contactHitCount =
+				niceballData.contactHitCount;
+			}
+		},
+
+		condition: {
+			duration: 1,
+			onStart() {
+				this.effectState.hitCount = 0;
+				this.effectState.contactHitCount = 0;
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['niceball'];
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Stellar",
+		contestType: "Beautiful",
+	},
 	nicebeam: {
 		accuracy: 100,
 		basePower: 45,
@@ -173,6 +460,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, nice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Beam", target);
+		},
 		secondary: {
 			chance: 10,
 			status: 'frz',
@@ -183,20 +474,110 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	niceburn: {
 		accuracy: 100,
-		basePower: 45,
+		basePower: 40,
 		category: "Special",
 		name: "Nice Burn",
 		shortDesc: "30% chance to burn the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, nice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Burn", target);
+		},
 		secondary: {
-			chance: 10,
-			status: 'frz',
+			chance: 30,
+			status: 'brn',
 		},
 		target: "normal",
 		type: "Stellar",
 		contestType: "Beautiful",
+	},
+	nicefang: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Nice Fang",
+		shortDesc: "Target loses 1/16 max HP.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1, nice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Fang", target);
+		},
+		onHit(target, source) {
+			this.damage(target.baseMaxhp / 16, source, source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Stellar",
+		contestType: "Cool",
+	},
+	nicepunch: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Nice Punch",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, punch: 1,heal: 1, nice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Punch", target);
+		},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Stellar",
+		contestType: "Cool",
+	},
+	nicehammer: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Nice Hammer",
+		shortDesc: "User's Spe -1. 100% to lower target's Def by 1.",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, punch: 1,nice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Hammer", target);
+		},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Stellar",
+		contestType: "Cool",
+	},
+	niceshard: {
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		name: "Nice Shard",
+		shortDesc: "Usually moves first.",
+		pp: 30,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, nice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Ice Shard", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Stellar",
+		contestType: "Cool",
 	},
 	nicespinner: {
 		name: "Nice Spinner",
