@@ -49,7 +49,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'],
 	},
 	init() {
-		if (this.dataCache.Pokedex.raichumega) return; // don't bother generating the dex if it's already stored!
+		if (this.dataCache.Pokedex.quaquavalmega) return; // don't bother generating the dex if it's already stored!
 		let megaList = [];
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
