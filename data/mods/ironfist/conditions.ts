@@ -26,6 +26,14 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	baseball: {
 		name: 'baseball',
 		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			this.add('-message', 'baseball this guy');
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'baseball', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('-status', target, 'baseball');
+			}
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
   			return this.chainModify(0.75);
@@ -51,15 +59,22 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (['grassknot', 'lowkick'].includes(move.id)) {
-				return this.chainModify(2);
+				return 120;
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
+			if(target.volatiles['bigbutton']) return;
 			const boostedMoves = [
-				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'supercellslam'
+				'aerialace', 'aquatail', 'crabhammer', 'forcepalm', 'furyattack', 'gigaimpact', 'heatcrash', 'heavyslam', 'highhorsepower', 'irontail', 'lethalhug', 'meteormash', 'nuzzle', 'peck', 'playrough', 'slam', 'strugglebug', 'visegrip'
 			];
-			if (boostedMoves.includes(move.id)) {
-				return this.chainModify(2);
+			const minimizeMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'supercellslam',
+				];
+			if (boostedMoves.includes(move.id) || minimizeMoves.includes(move.id)) {
+				move.accuracy = true;
+				if (['heatcrash', 'heavyslam'].includes(move.id)) return 120;
+				if (move.basePower < 60) return this.chainModify(2);
+				if (minimizeMoves.includes(move.id)) return this.chainModify(1.5);
 			}
 		},
 		onEnd(pokemon) {
@@ -145,7 +160,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('grimrock')) {
+			if (source?.hasItem('bonerockorsomethingidfk')) {
 				return 8;
 			}
 			return 5;

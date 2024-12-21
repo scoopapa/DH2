@@ -1,14 +1,13 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
-	jollymod: {
-		effectType: 'ValidatorRule',
-		name: 'Jollymod',
+	jolly: {
+		name: 'Jolly',
 		desc: "Jollymod",
 		onBegin() {
-			this.add('rule', 'Jollymod');
+			this.add('rule', 'Jollymod', 'uh santas really mad rn');
 		},
 		onResidual(pokemon) {
 			console.log(pokemon.side.active);
-			if(pokemon.side.active) punish(pokemon.side);
+			if(pokemon.side.active) pokemon.side.punish();
 		},
 	},
 };
