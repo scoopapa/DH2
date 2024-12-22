@@ -990,7 +990,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			let factor = [1,3];
 			if (this.field.isWeather('sandstorm')) {
 				factor = [2,3];
-			},
+			}
 			//no clue if this is needed, so imma comment it out for now
 //			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 //			if (!success) {
