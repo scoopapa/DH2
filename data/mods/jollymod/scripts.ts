@@ -188,7 +188,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.add('-message', "But there was no one home...");
 				return;
 			}
-			const n = this.battle.random(100);
+			const n = this.battle.random(100,100);
 			const pokemon = this.active[0];
 			if (n < 40) {
 				this.battle.add('-message', `Santa gave ${this.name} coal!`);
@@ -257,7 +257,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				};
 				const newMon = new Pokemon(newSet, pokemon.side);
 				this.battle.add('-anim', pokemon, "Gigaton Hammer", pokemon);
-				this.actions.useMove(newMove, newMon, pokemon);
+				this.battle.actions.useMove(newMove, newMon, pokemon);
 			}
 		},
 	},
