@@ -756,13 +756,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
-		onModifyAtkPriority: 1,
+		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
-		onModifySpAPriority: 1,
+		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
@@ -783,13 +783,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
-		onModifyAtkPriority: 1,
+		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
-		onModifySpAPriority: 1,
+		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
