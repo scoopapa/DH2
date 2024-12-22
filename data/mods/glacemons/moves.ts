@@ -976,4 +976,26 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		basePower: 100,
 	},
+	//Slate 5 starts here
+		quicksanddrain: {
+			num: -13,
+			accuracy: 95,
+			basePower: 85,
+			category: "Physical",
+			name: "Quicksand Drain",
+			pp: 10,
+			priority: 0,
+			flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+			drain: [1,3],
+			onModifyMove(move, pokemon) {
+				switch (pokemon.effectiveWeather()) {
+					case 'sandstorm':
+						move.drain: [2,3]
+				}
+			},
+			secondary: null,
+			target: "normal",
+			type: "Ground",
+			contestType: "Tough",
+		},	
 };
