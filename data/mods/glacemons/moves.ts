@@ -998,8 +998,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 //				return this.NOT_FAIL;
 //			}
 //			return success;
-			drain: factor,
-		},
+			drain: 'factor',
+			},
 		secondary: {
 			chance: 10,
 			boosts: {
