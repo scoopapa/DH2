@@ -999,7 +999,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 //			}
 //			return success;
 			drain: 'factor',
-			},
+		},
 		secondary: {
 			chance: 10,
 			boosts: {
