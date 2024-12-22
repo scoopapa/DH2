@@ -998,4 +998,23 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Ground",
 		contestType: "Tough",
 	},	
+		chickendance: {
+		num: -14,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Chicken Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1, metronome: 1},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
 };
