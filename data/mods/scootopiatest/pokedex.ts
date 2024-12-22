@@ -53,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2007,
 		name: "Minillow",
 		types: ["Water", "Fairy"],
-		baseStats: {hp: 75, atk: 75, def: 85, spa: 95, spd: 110, spe: 65},
+		baseStats: {hp: 75, atk: 75, def: 85, spa: 90, spd: 110, spe: 65},
 		abilities: {0: "Swift Swim", 1: "Dazzling", H: "Magic Guard"},
 		weightkg: 22,
 	},
