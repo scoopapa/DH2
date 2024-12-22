@@ -285,6 +285,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 	},
+	icespinner: {
+		inherit: true,
+		shortDesc: "Doubles in power if a terrain is active.",
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+				this.debug('BP doubled in Terrain');
+			}
+		},
+		onAfterHit: null,
+		onAfterSubDamage: null,
+	},
 	icywind: {
 		inherit: true,
 		basePower: 70,
@@ -295,6 +307,53 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				spe: -2,
 			},
 		},
+	},
+	mist: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mist",
+		shortDesc: "5 turns. Grounded: +Dark power, 50% drain.",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		terrain: 'scarletmist',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dark' && attacker.isGrounded()) {
+					this.debug('scarletmist boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.category !== 'Status' && !move.drain && pokemon.isGrounded) move.drain = [1, 2];
+			}
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Scarlet Mist', '[from] ability: ' + effect.name, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Scarlet Mist');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Scarlet Mist');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ice",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
 	},
 	mountaingale: {
 		inherit: true,
@@ -586,21 +645,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Ends the effects of terrain.",
+		shortDesc: "Doubles in power if a terrain is active.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, nice: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Ice Spinner", target);
 		},
-		onAfterHit(target, source) {
-			if (source.hp) {
-				this.field.clearTerrain();
-			}
-		},
-		onAfterSubDamage(damage, target, source) {
-			if (source.hp) {
-				this.field.clearTerrain();
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+				this.debug('BP doubled in Terrain');
 			}
 		},
 		secondary: null,
