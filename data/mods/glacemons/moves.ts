@@ -998,7 +998,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Ground",
 		contestType: "Tough",
 	},	
-		chickendance: {
+	chickendance: {
 		num: -14,
 		accuracy: true,
 		basePower: 0,
@@ -1016,5 +1016,52 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Flying",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
+	},
+	sandsearstorm: {
+		inherit: true,
+		basePower: 110,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland', 'sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+	},
+	wildboltstorm: {
+		inherit: true,
+		basePower: 110,
+		category: "Physical",
+		onModifyMove(move, pokemon, target) {
+			if (target && ['raindance', 'primordialsea', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+	},
+	bleakwindstorm: {
+		inherit: true,
+		basePower: 110,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['raindance', 'primordialsea', 'sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+	},
+	springtidestorm: {
+		inherit: true,
+		basePower: 110,
+		category: "Physical",
+		pp: 10,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+		secondary: {
+			chance: 30,
+			self:{
+				boosts: {
+					atk: -1,
+				},
+			},
+		},
 	},
 };
