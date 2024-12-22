@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	berryjuice: {
+	gingerbreadman: {
 		name: "Gingerbread Man",
 		shortDesc: "Holder heals 100 HP at 1/2 or less max HP. Single use.",
 		rating: 3,

@@ -169,6 +169,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		accuracy: 100,
 	},
+	frostbreath: {
+		inherit: true,
+		shortDesc: "Always crits. High SSR critical hit ratio.",
+		onBasePower(basePower, pokemon) {
+			if (this.randomChance(1, 4)) {
+				this.add('-message', 'SSR critical hit!');
+				return this.chainModify(3);
+			}
+		},
+	},
 	glaciallance: {
 		inherit: true,
 		shortDesc: "Lowers the user's Atk and Sp. Def by 1.",
@@ -179,6 +189,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				spd: -1,
 			},
 		},
+	},
+	hail: {
+		accuracy: 90,
+		basePower: 20,
+		category: "Special",
+		name: "Hail",
+		shortDesc: "Hits 10 times. Each hit can miss.",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 10,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Ice",
 	},
 	iceball: {
 		inherit: true,
@@ -250,11 +275,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	icefang: {
 		inherit: true,
-		shortDesc: "Target loses 1/16 max HP.",
-		onHit(target, source) {
-			this.damage(target.baseMaxhp / 16, source, source);
+		basePower: 20,
+		accuracy: 100,
+		shortDesc: "100% chance to frostbite the target.",
+		secondary: {
+			chance: 100,
+			status: 'fsb',
 		},
-		secondary: null,
 	},
 	icepunch: {
 		inherit: true,
@@ -345,6 +372,60 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		status: 'fsb',
 		secondary: null,
 		target: "normal",
+	},
+	snowscape: {
+		category: "Status",
+		name: "Snow's Cape",
+		shortDesc: "Protects from damaging attacks. Contact: fsb."
+		pp: 10,
+		priority: 4,
+		flags: {metronome: 1, noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'snowscape',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('brn', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('fsb', target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
 	},
 	
 	//other
