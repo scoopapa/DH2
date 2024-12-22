@@ -986,14 +986,26 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
-		drain: [1,3],
-		onModifyMove(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
-				case 'sandstorm':
-					move.drain: [2,3]
-			}
+		onHit(pokemon) {
+			let factor = [1,3];
+			if (this.field.isWeather('sandstorm')) {
+				factor = [2,3];
+			},
+			//no clue if this is needed, so imma comment it out for now
+//			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+//			if (!success) {
+//				this.add('-fail', pokemon, 'heal');
+//				return this.NOT_FAIL;
+//			}
+//			return success;
+			drain: factor,
 		},
-		secondary: null,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
