@@ -2131,7 +2131,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	memetchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			faketears: ["9L1"],
 			firepunch: ["9L1"],
 			icepunch: ["9L1"],
