@@ -2925,9 +2925,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "(DUU)",
 		natDexTier: "OU",
 	},
-	samurotthisuitera: {
-		tier: "OU",
-	},
 	patrat: {
 		isNonstandard: "Past",
 		tier: "Illegal",
