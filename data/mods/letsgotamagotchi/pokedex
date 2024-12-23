@@ -1093,6 +1093,7 @@ mametchi: {
 	},
 	moriritchi: {
 		num: 157,
+		moripakucoffret: true,
 		name: "Moriritchi",
 		types: ["Fairy", "Normal"],
 		baseStats: {hp: 135, atk: 75, def: 75, spa: 75, spd: 75, spe: 75},
@@ -1499,6 +1500,7 @@ mametchi: {
 	},
 	coffretchi: {
 		num: 215,
+      moripakucoffret: true,
 		name: "Coffretchi",
 		types: ["Fairy"],
 		baseStats: {hp: 89, atk: 64, def: 90, spa: 81, spd: 100, spe: 86},
@@ -1541,6 +1543,7 @@ mametchi: {
 	},
 	candypakupaku: {
 		num: 221,
+      moripakucoffret: true,
 		name: "Candy Pakupaku",
 		types: ["Fairy"],
 		baseStats: {hp: 93, atk: 74, def: 98, spa: 80, spd: 100, spe: 65},
