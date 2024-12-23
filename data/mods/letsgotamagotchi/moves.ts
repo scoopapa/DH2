@@ -14,7 +14,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Fairyl",
+		type: "Fairy",
 		contestType: "Cool",
 	},
 
@@ -39,33 +39,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			volatileStatus: 'flinch',
 		},
 		target: "normal",
-		type: "Darkl",
+		type: "Dark",
 		contestType: "Cute",
-	},
-
-	lovelyday: {
-		num: 3398,
-                       shortDesc: "20% chance to make males fall in love.",
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Lovely Day",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, sound: 1, mirror: 1, metronome: 1},
-		self: {
-			onHit(source) {
-if (this.randomChance(2, 10)) {
-				for (const pokemon of source.foes()) {
-					pokemon.addVolatile('attract');
-                                               }
-				}
-			},
-		},
-		secondary:null
-		target: "normal",
-		type: "Fairy",
-		contestType: "Tough",
 	},
 
 	melodywaltz: {
@@ -167,13 +142,13 @@ condition: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	kirakira☆dream: {
+	kirakiradream: {
 		num: 1229,
                         shortDesc: "Cannot miss.",
 		accuracy: true,
 		basePower: 90,
 		category: "Special",
-		name: "Kirakira☆Dream",
+		name: "KirakiraDream",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, sound: 1, mirror: 1, metronome: 1},
@@ -396,5 +371,29 @@ alienlaser: {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+	},
+	lovelyday: {
+		num: 3398,
+                       shortDesc: "20% chance to make males fall in love.",
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Lovely Day",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, sound: 1, mirror: 1, metronome: 1},
+		self: {
+			onHit(source) {
+				if (this.randomChance(2, 10)) {
+					for (const pokemon of source.foes()) {
+						pokemon.addVolatile('attract');
+               }
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
 	},
 }
