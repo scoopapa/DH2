@@ -12,12 +12,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			volatileStatus: 'gigatonhammer',
 		},
-		condition: {
-			duration: 2,
-			onModifyPriority(priority, source, target, move) {
-				return priority + 1;
-			},
-		},
+		condition: {},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
