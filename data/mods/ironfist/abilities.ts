@@ -1057,7 +1057,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Jankster",
-		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
+		shortDesc: "When this Pokemon is hit, it splits its corresponding attack stat with the attacker.",
 	},
 	
 	//slate 6
@@ -1136,7 +1136,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Hoenn Stan",
-		shortDesc: "This Pokemon's Atk/SpA gain 15% for each other Gen 3 ally.",
+		shortDesc: "This Pokemon's Atk/SpA gain 15% for each other fainted Gen 3 ally.",
 	},
 	zombiesonyourlawn: {
 		onStart(source) {

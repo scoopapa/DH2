@@ -101,6 +101,42 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fightning Rod",
 		shortDesc: "This Pokemon draws Fighting moves to itself to raise Atk by 1; Fighting immunity.",
 	},
+	ghostofchristmaspast: {
+		onBeforeSwitchIn(pokemon) {
+			pokemon.illusion = null;
+			// yes, you can Illusion an active pokemon but only if it's to your right
+			for (let i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				const possibleTarget = pokemon.side.pokemon[i];
+				if (!possibleTarget.fainted) {
+					// If Ogerpon is in the last slot while the Illusion Pokemon is Terastallized
+					// Illusion will not disguise as anything
+					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Ogerpon') {
+						pokemon.illusion = possibleTarget;
+					}
+					break;
+				}
+			}
+		},
+		onEnd(pokemon) {
+			if (pokemon.illusion) {
+				this.debug('illusion cleared');
+				pokemon.illusion = null;
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details);
+				this.add('-end', pokemon, 'Illusion');
+				if (this.ruleTable.has('illusionlevelmod')) {
+					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
+				}
+			}
+		},
+		onFaint(pokemon) {
+			pokemon.illusion = null;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Ghost of Christmas Past",
+		shortDesc: "This Pokemon appears as the last Pokemon in the party.",
+	},
 	ghostofchristmaspresent: {
 		onBasePowerPriority: 24,
 		onBasePower(basePower, attacker, defender, move) {

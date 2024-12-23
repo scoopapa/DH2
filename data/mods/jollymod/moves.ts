@@ -589,7 +589,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	tarshot: {
 		inherit: true,
-		category: 'Special',
+		category: "Special",
 		basePower: 40,
 		pp: 15,
 		flags: {protect: 1, bullet: 1, mirror: 1, metronome: 1},
