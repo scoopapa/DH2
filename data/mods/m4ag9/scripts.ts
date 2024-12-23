@@ -49,7 +49,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'],
 	},
 	init() {
-		if (this.dataCache.Pokedex.raichumega) return; // don't bother generating the dex if it's already stored!
+		if (this.dataCache.Pokedex.quaquavalmega) return; // don't bother generating the dex if it's already stored!
 		let megaList = [];
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
@@ -85,7 +85,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				newMega.requiredItem = pokemon.megaStone || null;
 				if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { };
 
-				if (uber.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
+				if (uber9.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
 				else {
 					megaList.push(pokemon.mega);
 					if (megaViabilityList9.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Popular Megas";

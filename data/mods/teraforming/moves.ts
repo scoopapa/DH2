@@ -1,5 +1,6 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
-  teraused: {
+	// non-new moves
+	teraused: {
 		shortDesc: "Prevents Terastalization from being used multiple times.",
 		accuracy: true,
 		basePower: 0,
