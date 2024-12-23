@@ -23,7 +23,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			duration: 1,
 			onStart(pokemon) {
 				this.add('-ability', pokemon, 'Uptime');
-				this.add('-message', `{$pokemon.name}'s next move will have +1 priority!`);
+				this.add('-message', `${pokemon.name}'s next move will have +1 priority!`);
 			},
 			onModifyPriority(priority, pokemon, target, move) {
 				return priority + 1;
