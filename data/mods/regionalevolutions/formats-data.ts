@@ -245,4 +245,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	calcismith: {
 		tier: "RegEvo",
 	},
+	blipbug: {
+		tier: "RegEvo NFE",
+	},
+	dottleralola: {
+		tier: "RegEvo NFE",
+	},
+	orebeetle: {
+		tier: "RegEvo",
+	},
+	numelpaldea: {
+		tier: "RegEvo NFE",
+	},
+	camystic: {
+		tier: "RegEvo",
+	},
 };
