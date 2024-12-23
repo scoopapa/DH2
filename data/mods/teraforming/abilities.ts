@@ -12,12 +12,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "Every time this Pokemon successfully uses a sound move, it heals 12.5% of its max HP.",
 	},
 	uptime: {
-		onModifyPriority(priority, pokemon, target, move) { 
-      // TO-DO add Taunt but only when the Uptime mon has a status move and Heal Block when it has a healing move
-      // Also add having an Assault Vest + status move
-			if (pokemon.disableMove) { 
-        		return priority + 1;
-      	}
+		onUpdate(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.disabled) {
+					pokemon.addVolatile('uptime');
+				}
+			}
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-message', `{$pokemon.name}'s next move will have +1 priority!`);
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				return priority + 1;
+			},
 		},
 		flags: {},
 		name: "Uptime",
