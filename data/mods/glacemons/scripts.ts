@@ -996,8 +996,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ironmoth').learnset.willowisp = ['9L1'];
 		this.modData('Learnsets', 'ironleaves').learnset.powerwhip = ['9L1'];
 		this.modData('Learnsets', 'ironleaves').learnset.uturn = ['9L1'];
-		this.modData('Learnsets', 'ironjugulis').learnsets.defog = ['9L1'];
-		this.modData('Learnsets', 'ironthorns').learnsets.knockoff = ['9L1'];
-		this.modData('Learnsets', 'ironbundle').learnsets.surf = ['9L1'];
+		this.modData('Learnsets', 'ironjugulis').learnset.defog = ['9L1'];
+		this.modData('Learnsets', 'ironthorns').learnset.knockoff = ['9L1'];
+		this.modData('Learnsets', 'ironbundle').learnset.surf = ['9L1'];
 	}
 };
