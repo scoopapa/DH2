@@ -109,6 +109,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			dragonbreath: ["9L1"],
 			dragondance: ["9L1"],
 			dragoncheer: ["9L1"],
+			mountaingale: ["9L1"],
 		},
 	},
 	beartic: {
@@ -319,6 +320,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			octazooka: ["9L1"],
 			chillyreception: ["9L1"],
 			icefang: ["9L1"],
+			glaciate: ["9L1"],
+			present: ["9L1"],
 		},
 	},
 	delibird: {
@@ -430,6 +433,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			roost: ["9L1"],
 			partingshot: ["9L1"],
 			uturn: ["9L1"],
+			mountaingale: ["9L1"],
 		},
 	},
 	eiscue: {
@@ -735,6 +739,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			relicsong: ["9L1"],
 			freezerburn: ["9L1"],
 			strengthsap: ["9L1"],
+			glaciate: ["9L1"],
 		},
 	},
 	ferricphantom: {
@@ -857,6 +862,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			memento: ["9L1"],
 			partingshot: ["9L1"],
 			strengthsap: ["9L1"],
+			glaciallance: ["9L1"],
 		},
 	},
 	grimmsnarl: {
@@ -951,6 +957,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			icywind: ["9L1"],
 			haze: ["9L1"],
 			pursuit: ["9L1"],
+			present: ["9L1"],
 		},
 	},
 	hisuiansneasel: {
@@ -1031,6 +1038,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			freezedry: ["9L1"],
 			icywind: ["9L1"],
 			haze: ["9L1"],
+			glaciallance: ["9L1"],
 		},
 	},
 	ironbundle: {
@@ -1092,6 +1100,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			roost: ["9L1"],
 			spikes: ["9L1"],
 			rapidspin: ["9L1"],
+			freezeshock: ["9L1"],
 		},
 	},
 	jolliv: {
@@ -1145,6 +1154,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			icywind: ["9L1"],
 			haze: ["9L1"],
 			sheercold: ["9L1"],
+			stealthrock: ["9L1"],
 		},
 	},
 	krampus: {
@@ -1198,6 +1208,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			hyperbeam: ["9L1"],
 			facade: ["9L1"],
 			doubleedge: ["9L1"],
+			present: ["9L1"],
 		},
 	},
 	lavalugg: {
@@ -1291,6 +1302,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			flamethrower: ["9L1"],
 			mysticalfire: ["9L1"],
 			willowisp: ["9L1"],
+			mountaingale: ["9L1"],
 		},
 	},
 	mariahcarey: {
@@ -1500,6 +1512,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			recover: ["9L1"],
 			mysticalfire: ["9L1"],
 			psychic: ["9L1"],
+			glaciate: ["9L1"],
 		},
 	},
 	onzong: {
@@ -1753,6 +1766,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			freezedry: ["9L1"],
 			icywind: ["9L1"],
 			haze: ["9L1"],
+			stealthrock: ["9L1"],
+			freezeshock: ["9L1"],
 		},
 	},
 	quagsirefrozen: {
@@ -1865,6 +1880,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			whirlpool: ["9L1"],
 			yawn: ["9L1"],
 			freezerburn: ["9L1"],
+			chillyreception: ["9L1"],
 		},
 	},
 	regiceiceiceice: {
@@ -1879,6 +1895,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
 			bulldoze: ["9L1"],
+			calmmind: ["9L1"],
 			chargebeam: ["9L1"],
 			confide: ["9L1"],
 			counter: ["9L1"],
@@ -1955,6 +1972,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zapcannon: ["9L1"],
 			freezerburn: ["9L1"],
 			recover: ["9L1"],
+			glaciate: ["9L1"],
+			present: ["9L1"],
 		},
 	},
 	sceptile: {
@@ -2397,6 +2416,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			bugbuzz: ["9L1"],
 			infestation: ["9L1"],
 			courtchange: ["9L1"],
+			glaciate: ["9L1"],
+			chillyreception: ["9L1"],
 		},
 	},
 	wyrdeer: {
@@ -2531,6 +2552,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			tailwind: ["9L1"],
 			slackoff: ["9L1"],
 			rapidspin: ["9L1"],
+			mountaingale: ["9L1"],
+			present: ["9L1"],
 		},
 	},
 	xurkitree: {
@@ -2610,6 +2633,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			leechseed: ["9L1"],
 			synthesis: ["9L1"],
 			grassyterrain: ["9L1"],
+			freezeshock: ["9L1"],
 		},
 	},
 	yogonal: {
@@ -2767,6 +2791,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			iceburn: ["9L1"],
 			slackoff: ["9L1"],
 			courtchange: ["9L1"],
+			mountaingale: ["9L1"],
+			chillyreception: ["9L1"],
 		},
 	},
 };
