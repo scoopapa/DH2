@@ -1317,7 +1317,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Battle Armor"},
+		abilities: {0: "Protosynthesis", 1: "Dry Skin"},
 	},
 	ragingbolt: {
 		inherit: true,
@@ -1374,5 +1374,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	ironbundle: {
 		inherit: true,
 		abilities: {0: "Quark Drive", 1: "Tangled Feet"},
+	},
+	latiasmega: {
+		inherit: true,
+		abilities: {0: "Moody"}
 	},
 };
