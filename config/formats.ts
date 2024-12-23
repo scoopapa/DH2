@@ -5115,7 +5115,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard MG2', '+No Ability', '-All Abilities'],
+		ruleset: ['Standard MG2', '+No Ability', '-All Abilities', 'Gems Clause'],
 		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],
 	},
 	{
@@ -5125,7 +5125,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', '+No Ability', '-All Abilities'],
+		ruleset: ['Standard', '+No Ability', '-All Abilities', 'Gems Clause'],
 		banlist: ['AG', 'Fake Out', 'Baton Pass', 'Rusted Sword'],
 		teambuilderFormat: 'Uber',
 	},
@@ -5136,7 +5136,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', 'Little Cup', '+No Ability', '-All Abilities'],
+		ruleset: ['Standard', 'Little Cup', '+No Ability', '-All Abilities', 'Gems Clause'],
 		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out', 'Sonic Boom', 'Dragon Rage'],
 	},
 	{
@@ -5146,7 +5146,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen3',
 		searchShow: false,
-		ruleset: ['Standard', 'Z-Move Clause'],
+		ruleset: ['Standard', 'Z-Move Clause', 'Gems Clause'],
 		banlist: ['AG', 'Uber', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush', 'Power Construct', 'Battle Bond', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Shed Tail'],
 	},
 	{
@@ -5156,7 +5156,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen3',
 		searchShow: false,
-		ruleset: ['Standard', 'Z-Move Clause'],
+		ruleset: ['Standard', 'Z-Move Clause', 'Gems Clause'],
 		banlist: ['AG'],
 		teambuilderFormat: 'Uber',
 	},
@@ -5167,7 +5167,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2birds',
 		searchShow: false,
-		ruleset: ['Standard', 'Z-Move Clause', '!Obtainable Abilities'], // temporary until I can figure why HAs work in MG3 but not here
+		ruleset: ['Standard', 'Z-Move Clause', '!Obtainable Abilities', 'Gems Clause'], // temporary until I can figure why HAs work in MG3 but not here
 		banlist: [
 			'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush',
 			'Power Construct', 'Battle Bond', 'King\'s Rock', 'Razor Fang', 'Soul Dew', 'Shed Tail',
@@ -5190,7 +5190,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen4',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Z-Move Clause'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Z-Move Clause', 'Gems Clause'],
 		banlist: ['AG', 'Uber', 'Arena Trap', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew'],
 	},
 	{
@@ -5200,7 +5200,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen4',
 		searchShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Gems Clause'],
 		banlist: ['AG'],
 		teambuilderFormat: 'Uber',
 	},
