@@ -186,7 +186,6 @@ yumekirabag: {
 			}
 			this.add('-copyboost', source, target, '[from] move: Psych Up');
 let success = false;
-			let i: BoostID;
 			for (i in target.boosts) {
 				if (target.boosts[i] === 0) continue;
 				target.boosts[i] = -target.boosts[i];
