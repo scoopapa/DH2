@@ -217,4 +217,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sundilluxe: {
 		tier: "RegEvo",
 	},
+	staryudistorted: {
+		tier: "RegEvo NFE",
+	},
+	starmiedistorted: {
+		tier: "RegEvo NFE",
+	},
+	stargoneion: {
+		tier: "RegEvo NFE",
+	},
+	miniorhoenn: {
+		tier: "RegEvo NFE",
+	},
+	miniorhoennmeteor: {},
+	awaitstrollite: {
+		tier: "RegEvo",
+	},
 };
