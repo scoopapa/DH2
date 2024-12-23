@@ -105,13 +105,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback: null,
 		onEffectiveness(typeMod, target, type) {
 			const source = this.effectState.source;
-			const damagedByTarget = source.attackedBy.some(
+			console.log(source);
+			/*const damagedByTarget = source.attackedBy.some(
 				p => p.source === target && p.damage > 0 && p.thisTurn
 			);
 			if (damagedByTarget) {
 				if (target.baseSpecies.types[0] === type) return 1;
 				else return 0;
-			}
+			}*/
 		},
 	},
 	blizzard: {
@@ -504,8 +505,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Triple Axel + on miss, use a Gen 6 sigmove.",
 		onMoveFail(target, source, move) {
 			const moves = ['lightofruin', 'kingsshield', 'fairylock', 'forestscurse', 'trickortreat', 'geomancy', 'oblivionwing', 'landswrath', 'coreenforcer', 'thousandarrows', 'thousandwaves', 'diamondstorm', 'hyperspacehole', 'hyperspacefury', 'steameruption'];
-			const move = this.dex.moves.get(this.sample(moves));
-			this.actions.useMove(move, pokemon);
+			const newMove = this.dex.moves.get(this.sample(moves));
+			this.actions.useMove(newMove, pokemon);
 		},
 	},
 	
