@@ -9,8 +9,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
-		self: {
-			volatileStatus: 'gigatonhammer',
+		onHit(target, source, move) {
+			return source.addVolatile('gigatonhammer', source, move);
 		},
 		condition: {},
 		secondary: null,
@@ -26,8 +26,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
-		self: {
-			volatileStatus: 'gigatonhammer',
+		onHit(target, source, move) {
+			return source.addVolatile('gigatonhammer', source, move);
 		},
 		secondary: null,
 		target: "normal",
