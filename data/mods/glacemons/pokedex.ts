@@ -209,6 +209,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	terapagosstellar: {
 		inherit: true,
 		types: ["Stellar"],
+		requiredItem: "Special Tera Orb",
 	},
 	// Hospitality
 	audinomega: {
