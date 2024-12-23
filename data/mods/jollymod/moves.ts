@@ -603,7 +603,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 15,
-		shortDesc: "Gives the user a Gingerbread Man. Contact: brn, foe gains Gingerbread Man.",
+		shortDesc: "Gains a Gingerbread Man. Contact: brn, foe gains Gingerbread Man.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, nice: 1, snatch: 1},
 		priorityChargeCallback(pokemon) {

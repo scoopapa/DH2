@@ -1,4 +1,5 @@
 import {Pokemon} from '../../../sim/pokemon';
+import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
@@ -9,7 +10,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	
 	init() {
-		
+		for (const pokemon in Dex.data.Pokedex){
+			if (pokemon in Dex.data.Learnsets && this.modData('Learnsets', pokemon).learnset) {
+				this.modData("Learnsets", pokemon).learnset.bakecookie = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.buildsnowman = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.christmastree = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.cookiesandmilk = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.hug = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.niceball = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.nicebeam = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.nicefang = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.nicehammer = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.nicepunch = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.niceshard = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.nicespinner = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.sharesnack = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.snowballfight = ["9L1"];
+			}
+		}
 	},
 	battle: {
 	},
