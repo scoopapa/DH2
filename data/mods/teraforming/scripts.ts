@@ -1,13 +1,13 @@
 export const Scripts: ModdedBattleScriptsData = {
+	init() {
+		this.modData("Learnsets", "skeledirge").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "tinkaton").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "tinkaton").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "samurotthisui").learnset.bitterblade = ["9L1"];
+		this.modData("Learnsets", "samurotthisui").learnset.ragingfury = ["9L1"];
+	},
 	actions: {
 		inherit: true,
-		init() {
-			this.modData("Learnsets", "skeledirge").learnset.healbell = ["9L1"];
-			this.modData("Learnsets", "tinkaton").learnset.wish = ["9L1"];
-			this.modData("Learnsets", "tinkaton").learnset.flipturn = ["9L1"];
-			this.modData("Learnsets", "samurotthisui").learnset.bitterblade = ["9L1"];
-			this.modData("Learnsets", "samurotthisui").learnset.ragingfury = ["9L1"];
-		},
 		terastallize(pokemon: Pokemon) {
 	  		if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
 	  			this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
