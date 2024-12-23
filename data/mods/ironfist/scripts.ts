@@ -16,6 +16,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.modData("Learnsets", pokemon).learnset.mewing = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.epicbeam = ["9L1"];
 				this.modData("Learnsets", pokemon).learnset.bigbash = ["9L1"];
+				const mon = Dex.species.get(pokemon);
+				if(!mon.types.includes('Water') && !mon.types.includes('Steel')) this.modData("Learnsets", pokemon).learnset.fisheater = ["9L1"];
 			}
 		}
 	},
