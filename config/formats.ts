@@ -2905,6 +2905,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
     {
  		name: "[Gen 9] Earth & Sky Horizons OU",
  		desc: `The metagame based on Pok&eacute;mon Earth & Sky, a set of theoretical games created by En Passant, with the Horizons Expansion for Gen 9.`,
