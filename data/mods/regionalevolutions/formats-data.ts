@@ -233,4 +233,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	awaitstrollite: {
 		tier: "RegEvo",
 	},
+	yanmaorre: {
+		tier: "RegEvo NFE",
+	},
+	yanfuego: {
+		tier: "RegEvo",
+	},
+	applinultra: {
+		tier: "RegEvo NFE",
+	},
+	calcismith: {
+		tier: "RegEvo",
+	},
 };
