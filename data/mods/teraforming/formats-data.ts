@@ -1,4 +1,16 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
+	// TeraForms
+	samurotthisuitera: {
+		tier: "OU",
+	},
+	skeledirgetera: {
+		tier: "OU",
+	},
+	tinkatontera: {
+		tier: "OU",
+	},
+	
+	// Other
 	bulbasaur: {
 		tier: "LC",
 	},
@@ -2912,6 +2924,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "(DUU)",
 		natDexTier: "OU",
+	},
+	samurotthisuitera: {
+		tier: "OU",
 	},
 	patrat: {
 		isNonstandard: "Past",
