@@ -3207,6 +3207,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	girafatak: {
 		learnset: {
 			closecombat: ["9L1"],
+			suckerpunch: ["9L1"],
 		},
 	},
 	sylvardian: {

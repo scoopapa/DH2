@@ -117,11 +117,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	kleavor: {
-		inherit: true,
-		abilities: {0: "Swarm", 1: "Sheer Force", H: "Sharpness"},
-		isNonstandard: null,
-	},
+	// Kleavor is later
 	ursaluna: {
 		inherit: true,
 		isNonstandard: null,
@@ -654,6 +650,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	kleavor: {
 		inherit: true,
+		abilities: {0: "Swarm", 1: "Sheer Force", H: "Sharpness"},
+		isNonstandard: null,
 		mega: "kleavormega",
 		megaName: "Kleavor-Mega",
 		megaAbility: {0: "Defiant"},

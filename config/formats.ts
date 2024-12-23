@@ -563,6 +563,16 @@ export const Formats: FormatList = [
 			'Zacian', 'Zamazenta', 'Eternatus', 'Zarude', 'Calyrex',
 			'Koraidon', 'Miraidon',
 		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+					return [set.species + ' is not a part of the Kalos Pokédex.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Dollhouse",

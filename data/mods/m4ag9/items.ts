@@ -1,4 +1,12 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	// Gen 9 stuff
+	griseousorb: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {},
+		forcedForme: null,
+		itemUser: ["Giratina"],
+	},
+	// Mega stones
 	quaquavalite: {
 		name: "Quaquavalite",
 		spritenum: 578,

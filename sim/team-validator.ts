@@ -2525,7 +2525,7 @@ export class TeamValidator {
 
 				const canUseAbilityPatch = dex.gen >= 8 && format.mod !== 'gen8dlc1';
 				if (
-					learnedGen < 7 && setSources.isHidden && !canUseAbilityPatch &&
+					learnedGen < dex.gen && setSources.isHidden && !canUseAbilityPatch &&
 					!dex.mod('gen' + learnedGen).species.get(baseSpecies.name).abilities['H']
 				) {
 					cantLearnReason = `can only be learned in gens without Hidden Abilities.`;
