@@ -23,161 +23,62 @@ export function getName(name: string): string {
 }
 
 export const Conditions: {[id: string]: ModdedConditionData} = {
-	baseball: {
-		name: 'baseball',
+	snow: {
+		name: 'Snow',
+		effectType: 'Weather',
+		duration: 0,
+		onFieldStart(field, source, effect) {
+			this.add('-weather', 'Snow');
+			this.effectState.cooldown = 5;
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Snow', '[upkeep]');
+			if (this.field.isWeather('snow')) this.eachEvent('Weather');
+			
+			let probability = 4;
+			if (this.field.pseudoWeather.milkandcookies) probability = 2;
+			if (this.effectState.cooldown === 0 && this.randomChance(1, probability)) {
+				this.add('-message', 'Santa came to visit!');
+				const side1 = this.sides[0];
+				const side2 = this.sides[1];
+				
+				if (side1.karma > side2.karma) {
+					side1.reward();
+					side2.punish();
+				} else if (side2.karma > side1.karma){
+					side2.reward();
+					side1.punish();
+				} else {
+					this.add('-message', 'Both sides have the same karma, so Santa left.');
+				}
+				this.effectState.cooldown = 5;
+			} else if (this.effectState.cooldown !== 0) this.effectState.cooldown --;
+		},
+	},
+	fsb: {
+		name: 'fsb',
+		start: "  [Pokemon] was chilled!",
+		alreadyStarted: "  [POKEMON] is already chilled!",
+		end: "  [POKEMON] warmed up!",
+		endFromItem: "  [POKEMON]'s [ITEM] warmed it up!",
+		endFromMove: "  [POKEMON]'s [MOVE] warmed it up!",
+		cant: "[POKEMON] is chilled!",
 		effectType: 'Status',
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, pokemon) {
-  			return this.chainModify(0.75);
-  		},
-		onModifySpAPriority: 1,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
+			} else {
+				this.add('-status', target, 'frz', '[silent]');
+			}
+			this.add('-message', `${target.name} was frostbitten!`);
+		},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 16);
+		},
 		onModifySpA(spa, pokemon) {
-  			return this.chainModify(0.75);
-  		},
-		onTryHit(source, target, move) {
-			if (move.flags['sound']) {
-				this.add('-fail', target);
-        		this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|Shut Up‼️`);
-				return null;
-			}
-		},
-	},
-	bigbutton: {
-		inherit: true,
-		duration: null,
-		onStart(pokemon) {
-			if (!pokemon.big) pokemon.big = true;
-			this.add('-start', pokemon, 'Dynamax', '[silent]');
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (['grassknot', 'lowkick'].includes(move.id)) {
-				return this.chainModify(2);
-			}
-		},
-		onBasePower(basePower, pokemon, target, move) {
-			const boostedMoves = [
-				'astonish', 'extrasensory', 'needlearm', 'stomp', 'steamroller', 'bodyslam', 'shadowforce', 'phantomforce', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault'
-			];
-			if (boostedMoves.includes(move.id)) {
-				return this.chainModify(2);
-			}
-		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, 'Dynamax', '[silent]');
-		}
-	},
-
-	//slate 3
-	sunnyday: {
-		inherit: true,
-		//slate 6
-		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
-			if (move.type === 'Fire') {
-				this.debug('Sunny Day fire boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onFieldStart(battle, source, effect) {
-			if (battle.terrain === 'fishingterrain') {
-				this.add('-message', 'The fishing terrain blocked out the sun!');
-				return;
-			}
-			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, '[of] ' + source);
-			} else {
-				this.add('-weather', 'SunnyDay');
-			}
-		},
-	},
-	raindance: {
-		inherit: true,
-		//slate 6
-		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
-			if (move.type === 'Water') {
-				this.debug('Rain water boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onFieldResidual() {
-			this.add('-weather', 'RainDance', '[upkeep]');
-			if (this.field.isTerrain('fishingterrain')) this.effectState.duration ++;
-			this.eachEvent('Weather');
-		},
-	},
-
-	//slate 6
-	acidrain: {
-		name: 'Acid Rain',
-		effectType: 'Weather',
-		duration: 5,
-		durationCallback(source, effect) {
-			if (source?.hasItem('acidrockorsomethingidfk')) {
-				return 8;
-			}
-			return 5;
-		},
-		onFieldStart(field, source, effect) {
-			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Acid Rain', '[from] ability: ' + effect.name, '[of] ' + source);
-			} else {
-				this.add('-weather', 'Acid Rain');
-			}
-		},
-		onFieldResidualOrder: 1,
-		onFieldResidual() {
-			this.add('-weather', 'Acid Rain', '[upkeep]');
-			if (this.field.isWeather('Acid Rain')) this.eachEvent('Weather');
-			for (const side of this.sides) {
-				side.removeFishingTokens(1);
-			}
-		},
-		onWeather(target) {
-			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16);
-			else if(['Water', 'Steel'].contains(target.types) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 8);
-		},
-		onFieldEnd() {
-			this.add('-weather', 'none');
-		},
-	},
-	graveyard: {
-		name: 'Graveyard',
-		effectType: 'Weather',
-		duration: 5,
-		durationCallback(source, effect) {
-			if (source?.hasItem('bonerockorsomethingidfk')) {
-				return 8;
-			}
-			return 5;
-		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
-			if (move.type === 'Ghost') {
-				this.debug('Graveyard ghost boost');
-				return this.chainModify(1.3);
-			}
-		},
-		onFieldStart(field, source, effect) {
-			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Graveyard', '[from] ability: ' + effect.name, '[of] ' + source);
-			} else {
-				this.add('-weather', 'Graveyard');
-			}
-		},
-		onFieldResidualOrder: 1,
-		onFieldResidual() {
-			this.add('-weather', 'Graveyard', '[upkeep]');
-			if (this.field.isWeather('Graveyard')) this.eachEvent('Weather');
-		},
-		onWeather(target) {
-			this.damage(target.baseMaxhp / 8);
-		},
-		onFieldEnd() {
-			this.add('-weather', 'none');
+			return this.chainModify(0.5);
 		},
 	},
 }

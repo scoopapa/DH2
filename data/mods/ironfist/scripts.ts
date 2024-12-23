@@ -1,3 +1,4 @@
+import {Dex} from '../../../sim/dex';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
@@ -8,7 +9,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},	
 	
 	init() {
-		
+		for (const pokemon in Dex.data.Pokedex){
+			if (pokemon in Dex.data.Learnsets && this.modData('Learnsets', pokemon).learnset) {
+				this.modData("Learnsets", pokemon).learnset.fishingterrain = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.holdhands = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.mewing = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.epicbeam = ["9L1"];
+				this.modData("Learnsets", pokemon).learnset.bigbash = ["9L1"];
+				const mon = Dex.species.get(pokemon);
+				if(!mon.types.includes('Water') && !mon.types.includes('Steel')) this.modData("Learnsets", pokemon).learnset.fisheater = ["9L1"];
+			}
+		}
 	},
 	battle: {
 		runAction(action: Action) {
