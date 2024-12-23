@@ -94,7 +94,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: 658,
 		onTakeItem: false,
 		onStart(pokemon) {
-			if (['Ogerpon'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton'].includes(pokemon.baseSpecies.baseSpecies)) {
 	  			if (pokemon.side.sideConditions['teraused']) {
 	  				pokemon.canTerastallize = null;
 	  			} else {
@@ -102,7 +102,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	  			}
       	}
 		},
-		itemUser: ["Ogerpon"],
+		itemUser: ["Ogerpon", "Skeledirge", "Samurott-Hisui", "Tinkaton"],
 		num: -1001,
 		gen: 9,
 		desc: "Allows certain Pokemon to Terastallize.",
@@ -113,7 +113,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: 345,
 		onTakeItem: false,
 		onStart(pokemon) {
-			if (['Ogerpon'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton'].includes(pokemon.baseSpecies.baseSpecies)) {
 	  			if (pokemon.side.sideConditions['teraused']) {
 	  				pokemon.canTerastallize = null;
 	  			} else {
