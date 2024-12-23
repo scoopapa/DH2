@@ -193,26 +193,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 5,
 	},
-	sleeptalk: {
-		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
-	},
 	softboiled: {
 		inherit: true,
 		pp: 5,
-	},
-	stickyweb: {
-		inherit: true,
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Sticky Web');
-			},
-			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
-			},
-		},
 	},
 	wickedblow: {
 		inherit: true,
@@ -398,6 +381,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	sleeptalk: {
 		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		onTry(source) {
 			let usable = false;
 			for (const opponent of source.adjacentFoes()) {
