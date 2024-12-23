@@ -260,4 +260,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	camystic: {
 		tier: "RegEvo",
 	},
+	wooloodistorted: {
+		tier: "RegEvo NFE",
+	},
+	dubwooldistorted: {
+		tier: "RegEvo NFE",
+	},
+	dushugura: {
+		tier: "RegEvo",
+	},
+	ekanslental: {
+		tier: "RegEvo NFE",
+	},
+	arboklental: {
+		tier: "RegEvo NFE",
+	},
+	kobralleh: {
+		tier: "RegEvo",
+	},
 };
