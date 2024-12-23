@@ -1,5 +1,225 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-  // completely just being lazy and copying everything about the main mod's hazards for the hazardImmune flag; will change if it causes problems
+	// Gen 9 stuff
+	allyswitch: {
+		inherit: true,
+		onPrepareHit(pokemon) {
+			return pokemon.addVolatile('allyswitch');
+		},
+	},
+	assist: {
+		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	auroraveil: {
+		inherit: true,
+		onTry() {
+			return this.field.isWeather(['hail', 'snow']);
+		},
+	},
+	belch: {
+		inherit: true,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	blizzard: {
+		inherit: true,
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
+		},
+	},
+	celebrate: {
+		inherit: true,
+		flags: {nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	charge: {
+		inherit: true,
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Electromorphosis', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Electromorphosis', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Charge', '[silent]');
+			},
+		},
+	},
+	chatter: {
+		inherit: true,
+		flags: {
+			protect: 1, mirror: 1, sound: 1, distance: 1, bypasssub: 1,
+			nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1,
+		},
+	},
+	copycat: {
+		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	curse: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (!source.hasType('Ghost')) {
+				move.target = move.nonGhostTarget as MoveTarget;
+			} else if (source.isAlly(target)) {
+				move.target = 'randomNormal';
+			}
+		},
+		target: "normal",
+	},
+	darkvoid: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, nosketch: 1},
+	},
+	dragonhammer: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+	},
+	eternabeam: {
+		inherit: true,
+		flags: {recharge: 1, protect: 1, mirror: 1},
+	},
+	fly: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	futuresight: {
+		inherit: true,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+	},
+	glaciallance: {
+		inherit: true,
+		basePower: 120,
+	},
+	grassyglide: {
+		inherit: true,
+		basePower: 55,
+	},
+	holdhands: {
+		inherit: true,
+		flags: {bypasssub: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	hyperspacefury: {
+		inherit: true,
+		flags: {mirror: 1, bypasssub: 1, nosketch: 1},
+	},
+	lusterpurge: {
+		inherit: true,
+		basePower: 95,
+	},
+	mefirst: {
+		inherit: true,
+		flags: {
+			protect: 1, bypasssub: 1,
+			failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1,
+		},
+	},
+	metronome: {
+		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	milkdrink: {
+		inherit: true,
+		pp: 5,
+	},
+	mirrorcoat: {
+		inherit: true,
+		flags: {protect: 1, failmefirst: 1, noassist: 1},
+	},
+	mirrormove: {
+		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	mistball: {
+		inherit: true,
+		basePower: 95,
+	},
+	naturepower: {
+		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	recover: {
+		inherit: true,
+		pp: 5,
+	},
+	rest: {
+		inherit: true,
+		pp: 5,
+	},
+	roost: {
+		inherit: true,
+		pp: 5,
+	},
+	shoreup: {
+		inherit: true,
+		pp: 5,
+	},
+	slackoff: {
+		inherit: true,
+		pp: 5,
+	},
+	sleeptalk: {
+		inherit: true,
+		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+	},
+	softboiled: {
+		inherit: true,
+		pp: 5,
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
+			},
+		},
+	},
+	wickedblow: {
+		inherit: true,
+		basePower: 75,
+	},
+	// Modifs for the new stuff
+	// completely just being lazy and copying everything about the main mod's hazards for the hazardImmune flag; will change if it causes problems
 	gmaxsteelsurge: {
 		inherit: true,
 		condition: {
