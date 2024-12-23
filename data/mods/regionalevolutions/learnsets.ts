@@ -816,7 +816,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			trickroom: ["9M"],
 			weatherball: ["9M", "8M", "7E", "6E", "5E", "4E"],
 			willowisp: ["9M", "8M", "7M", "6M", "5M", "4M"],
-			mildrink: ["9M"],
+			milkdrink: ["9M"],
 			torment: ["9M"],
 			// bodyslam: ["9M"],
 		},
