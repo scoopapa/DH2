@@ -106,7 +106,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: -1001,
 		gen: 9,
 		desc: "Allows certain Pokemon to Terastallize.",
-    rating: 3,
+    	rating: 3,
 	},
 	pokeball: {
 		name: "Poke Ball",
@@ -125,6 +125,30 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 1,
 		isPokeball: true,
 		desc: "Allows certain Pokemon to Terastallize.",
-    rating: 3,
+    	rating: 3,
+	},
+	stellarorb: {
+		name: "Stellar Orb",
+		spritenum: 742,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Terapagos') {
+	  			if (pokemon.side.sideConditions['teraused']) {
+	  				pokemon.canTerastallize = null;
+	  			} else {
+	        		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+	  			}
+      	}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Terapagos') return false;
+			return true;
+		},
+		itemUser: ["Terapagos", "Terapagos-Terastal"],
+		num: -1002,
+		gen: 9,
+		desc: "Terapagos: Terastallize to gain Stellar form and Teraform Zero.",
 	},
 };
