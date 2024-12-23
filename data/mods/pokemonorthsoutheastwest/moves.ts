@@ -36,8 +36,6 @@ monkeystaff: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-
-	},
 	dropoff: {
 		num: 8910,
                        shortDesc: "Discard’s the user’s item to increase their highest stat by 2.",
