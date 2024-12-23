@@ -6,7 +6,15 @@ const uber9 = [
 	// M4A first
 	"butterfreemega", "cinderacemega", "dragapultmega", "clefablemega", "dodriomega", "empoleonmega", "hydreigonmega", "slowkinggalarmega",
 	// Natdex second
-	"alakazammega", "annihilape", "baxcalibur", "blastoisemega", "blazikenmega", "chienpao", "chiyu", "darmanitangalar", "deoxysattack", "deoxysspeed", "deoxys", "dialga", "dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "koraidon", "kyogre", "kyogreprimal", "kyurem", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "miraidon", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "solgaleo", "spectrier", "tornadustherian", "urshifu", "xerneas", "yveltal", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", "calyrexice", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "fluttermane", "espathra", "ironbundle", "ursalunabloodmoon", "palafin",
+	"alakazammega", "annihilape", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", 
+	"arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy",
+	"baxcalibur", "blastoisemega", "blazikenmega", "calyrexice", "chienpao", "chiyu", "darkrai", "darmanitangalar", "deoxys", "deoxysattack", "dialga", 
+	"dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "koraidon", "kyogre", "kyogreprimal", 
+	"kyurem", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", 
+	"mewtwomegax", "mewtwomegay", "miraidon", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", 
+	"salamencemega", "shayminsky", "solgaleo", "spectrier", "tornadustherian", "urshifu", "xerneas", "yveltal", "zamazentacrowned", "zekrom", "zygarde", 
+	"zygardecomplete", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "fluttermane", "espathra", "ironbundle", 
+	"ursalunabloodmoon", "palafin",
 ];
 const viabilityList9 = [
 	"alomomola", "amoonguss", "blaziken", "blissey", "buzzwole",
@@ -15,9 +23,9 @@ const viabilityList9 = [
 	"landorustherian", "latias", "magnezone", "melmetal", "mew", "moltres", "nidoqueen", "pelipper", "regieleki", "rillaboom", "rotomwash", "scizor",
 	"serperior", "skarmory", "slowbro", "slowking", "slowkinggalar", "tangrowth", "tapubulu", "tapufini", "tapukoko", "thundurus", "torkoal",
 	"toxapex", "tyranitar", "urshifurapidstrike", "victini", "volcanion", "volcarona", "weavile", "zapdos", "zapdosgalar", "zeraora",
-	"ceruledge", "clodsire", "darkrai", "garganacl", "glimmora", "gougingfire", "greattusk", "hatterene", "ironcrown", "irontreads",
+	"ceruledge", "clodsire", "garganacl", "glimmora", "gougingfire", "greattusk", "hatterene", "ironcrown", "irontreads",
 	"ironvaliant", "ogerponheartflame", "ogerponwellspring", "ragingbolt", "samurotthisui", "zamazenta", "tapulele", "tinglu", "walkingwake", "gholdengo",
-	'roaringmoon',
+	'roaringmoon', "deoxysspeed", 
 ];
 const megaViabilityList9 = [
 	"araquanidmega", "bastiodonmega", "bibarelmega", "chandeluremega", "conkeldurrmega", "corviknightmega", "dhelmisemega", "dragalgemega",
