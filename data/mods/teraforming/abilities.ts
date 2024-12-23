@@ -21,6 +21,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			) { 
         		return priority + 1;
       	}
+			if (pokemon.lastMove.id === 'gigatonhammer' || pokemon.lastMove.id === 'bloodmoon') {
+				return priority + 1;
+			}
 		},
 		flags: {},
 		name: "Uptime",
