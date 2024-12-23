@@ -1379,4 +1379,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Moody"}
 	},
+	latiosmega: {
+		inherit: true,
+		abilities: {0: "Moody"}
+	},
 };
