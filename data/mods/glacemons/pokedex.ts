@@ -1348,4 +1348,81 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Unaware", 1: "Soul-Heart", H: "Simple"},
 	},
+	//slate 5
+	pecharunt: {
+		inherit: true,
+		abilities: {0: "Poison Puppeteer", H: "Merciless"},
+	},
+	mantine: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Water Absorb", H: "Unaware"},
+	},
+	greattusk: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Dry Skin"},
+	},
+	ragingbolt: {
+		inherit: true,
+		abilties: {0: "Protosynthesis", 1: "Pressure"},
+	},
+	sandyshocks: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Solar Power"},
+	},
+	screamtail: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Pixilate"},
+	},
+	fluttermane: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Pixilate"},
+	},
+	roaringmoon: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Infiltrator"},
+	},
+	walkingwake: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Pressure"},
+	},
+	gougingfire: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", 1: "Pressure"},
+	},
+	ironvaliant: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Mold Breaker"},
+	},
+	ironboulder: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Sturdy"},
+	},
+	ironmoth: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Levitate"},
+	},
+	ironleaves: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Long Reach"},
+	},
+	ironjugulis: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Wind Power"},
+	},
+	ironthorns: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Earth Eater"},
+	},
+	ironbundle: {
+		inherit: true,
+		abilities: {0: "Quark Drive", 1: "Tangled Feet"},
+	},
+	latiasmega: {
+		inherit: true,
+		abilities: {0: "Moody"}
+	},
+	latiosmega: {
+		inherit: true,
+		abilities: {0: "Moody"}
+	},
 };

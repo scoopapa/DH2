@@ -962,5 +962,42 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'slitherwing').learnset.hyperfang = ['9L1'];
 		this.modData('Learnsets', 'scraggy').learnset.hyperfang = ['9L1'];
 		this.modData('Learnsets', 'zamazenta').learnset.hyperfang = ['9L1'];
+		//slate 5
+		//pecharunt's moves
+		this.modData('Learnsets', 'pecharunt').learnset.banefulbunker = ['9L1'];
+		this.modData('Learnsets', 'pecharunt').learnset.toxicspikes = ['9L1'];
+		this.modData('Learnsets', 'pecharunt').learnset.earthpower = ['9L1'];
+		this.modData('Learnsets', 'pecharunt').learnset.thunderwave = ['9L1'];
+		this.modData('Learnsets', 'pecharunt').learnset.knockoff = ['9L1'];
+		this.modData('Learnsets', 'pecharunt').learnset.mortalspin = ['9L1'];
+		//mantine's moves
+		this.modData('Learnsets', 'mantine').learnset.dragontail = ['9L1'];
+		this.modData('Learnsets', 'mantine').learnset.flipturn = ['9L1'];
+		this.modData('Learnsets', 'mantine').learnset.healbell = ['9L1'];
+		this.modData('Learnsets', 'mantine').learnset.knockoff = ['9L1'];
+		this.modData('Learnsets', 'mantine').learnset.refresh = ['9L1'];
+		this.modData('Learnsets', 'mantine').learnset.snatch = ['9L1'];
+		//paradox mons's moves
+		this.modData('Learnsets', 'greattusk').learnset.morningsun = ['9L1'];
+		this.modData('Learnsets', 'ragingbolt').learnset.paraboliccharge = ['9L1'];
+		this.modData('Learnsets', 'sandyshocks').learnset.rapidspin = ['9L1'];
+		this.modData('Learnsets', 'sandyshocks').learnset.shoreup = ['9L1'];
+		this.modData('Learnsets', 'sandyshocks').learnset.weatherball = ['9L1'];
+		this.modData('Learnsets', 'screamtail').learnset.teleport = ['9L1'];
+		this.modData('Learnsets', 'fluttermane').learnset.healingwish = ['9L1'];
+		this.modData('Learnsets', 'roaringmoon').learnset.defog = ['9L1'];
+		this.modData('Learnsets', 'roaringmoon').learnset.partingshot = ['9L1'];
+		this.modData('Learnsets', 'walkingwake').learnset.taunt = ['9L1'];
+		this.modData('Learnsets', 'gougingfire').learnset.willowisp = ['9L1'];
+		this.modData('Learnsets', 'ironvaliant').learnset.salvestrike = ['9L1'];
+		this.modData('Learnsets', 'ironboulder').learnset.explosion = ['9L1'];
+		this.modData('Learnsets', 'ironboulder').learnset.stealthrock = ['9L1'];
+		this.modData('Learnsets', 'ironmoth').learnset.selfrepairing = ['9L1'];
+		this.modData('Learnsets', 'ironmoth').learnset.willowisp = ['9L1'];
+		this.modData('Learnsets', 'ironleaves').learnset.powerwhip = ['9L1'];
+		this.modData('Learnsets', 'ironleaves').learnset.uturn = ['9L1'];
+		this.modData('Learnsets', 'ironjugulis').learnset.defog = ['9L1'];
+		this.modData('Learnsets', 'ironthorns').learnset.knockoff = ['9L1'];
+		this.modData('Learnsets', 'ironbundle').learnset.surf = ['9L1'];
 	}
 };
