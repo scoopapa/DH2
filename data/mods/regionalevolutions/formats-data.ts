@@ -230,7 +230,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RegEvo NFE",
 	},
 	miniorhoennmeteor: {},
-	awaitstrollite: {
+	astrollite: {
 		tier: "RegEvo",
 	},
 	yanmaorre: {
