@@ -15,10 +15,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyPriority(priority, pokemon, target, move) { 
       // TO-DO add Taunt but only when the Uptime mon has a status move and Heal Block when it has a healing move
       // Also add having an Assault Vest + status move
-			if (pokemon.volatiles['disable'] || pokemon.volatiles['encore'] || pokemon.volatiles['choicelock'] ||
-          pokemon.volatiles['torment']) { 
-        return priority + 1;
-      }
+			if (
+				pokemon.volatiles['disable'] || pokemon.volatiles['encore'] || pokemon.volatiles['choicelock'] ||
+         	pokemon.volatiles['torment'] || pokemon.volatiles['gigatonhammer']
+			) { 
+        		return priority + 1;
+      	}
 		},
 		flags: {},
 		name: "Uptime",
