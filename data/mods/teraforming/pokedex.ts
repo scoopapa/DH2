@@ -23,7 +23,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 326.5,
 		eggGroups: ["Field"],
 		requiredItem: "Tera Shard",
-		changesFrom: "Skeledirge",
+		battleOnly: "Skeledirge",
 		forceTeraType: "Grass",
 	},
 	samurotthisui: {
@@ -43,7 +43,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 58.2,
 		eggGroups: ["Field"],
 		requiredItem: "Tera Shard",
-		changesFrom: "Samurott-Hisui",
+		battleOnly: "Samurott-Hisui",
 		forceTeraType: "Fire",
 	},
 	tinkaton: {
@@ -65,7 +65,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 112.8,
 		eggGroups: ["Fairy"],
 		requiredItem: "Tera Shard",
-		changesFrom: "Tinkaton",
+		battleOnly: "Tinkaton",
 		forceTeraType: "Water",
 	},
 };
