@@ -551,9 +551,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifySpe(spe, pokemon) {
 			return this.chainModify(1.1);
 		},
-		// now we change the nature
-		onResidualOrder: 26,
-		onResidual(pokemon) {
+		onStart(pokemon) {
 			pokemon.nature = 'Serious';
 		},
 		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
