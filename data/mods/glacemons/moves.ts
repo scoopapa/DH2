@@ -977,62 +977,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 100,
 	},
 	//Slate 5 starts here
-	quicksanddrain: {
-		num: -13,
-		accuracy: 95,
-		basePower: 85,
-		category: "Physical",
-		name: "Quicksand Drain",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
-		drain: [1,3],
-		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
-			case 'sandstorm':
-					move.drain = [2,3]
-				break;
-			}
-		},
-//		if (this.field.isWeather('sandstorm')) {
-//			drain: [2,3]
-//		},
-//no clue if this is needed, so imma comment it out for now
-//			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
-//			if (!success) {
-//				this.add('-fail', pokemon, 'heal');
-//				return this.NOT_FAIL;
-//			}
-//			return success;
-		secondary: {
-			chance: 10,
-			boosts: {
-				spe: -1,
-			},
-		},
-		target: "normal",
-		type: "Ground",
-		contestType: "Tough",
-	},	
-	chickendance: {
-		num: -14,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Chicken Dance",
-		pp: 20,
-		priority: 0,
-		flags: {snatch: 1, dance: 1, metronome: 1},
-		boosts: {
-			spa: 1,
-			spe: 1,
-		},
-		secondary: null,
-		target: "self",
-		type: "Flying",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Cool",
-	},
 	sandsearstorm: {
 		inherit: true,
 		basePower: 110,
@@ -1079,5 +1023,117 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				},
 			},
 		},
+	},
+	quicksanddrain: {
+		num: -13,
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+		name: "Quicksand Drain",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1,3],
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'sandstorm':
+					move.drain = [2,3]
+				break;
+			}
+		},
+//		if (this.field.isWeather('sandstorm')) {
+//			drain: [2,3]
+//		},
+//no clue if this is needed, so imma comment it out for now
+//			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+//			if (!success) {
+//				this.add('-fail', pokemon, 'heal');
+//				return this.NOT_FAIL;
+//			}
+//			return success;
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},	
+	scythelimbs: {
+		num: -14,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Scythe Limbs",
+		pp: 5,
+		priority: 0,
+		multihit: 2,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		self: {
+			boosts: {
+				atk: -1,
+			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "X-Scissor", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	chickendance: {
+		num: -15,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Chicken Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1, metronome: 1},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Revelation Dance", source);
+			this.add('-anim', source, "Roost", source);
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+		desc: "Raises the user's Sp. Attack and Speed by 1 stage.",
+		shortDesc: "Raises the user's Sp. Atk and Speed by 1.",
+	},
+	chakrabullets: {
+		num: -16,
+		accuracy: 100,
+		basePower: 20,
+		category: "Special",
+		name: "Chakra Bullets",
+		pp: 10,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 5],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aura Sphere", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.boosts.spa > 0) {
+				move.multihit = [4, 5];
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+		shortDesc: "Hits 2-5 times in one turn. If user is at +1 Sp. Atk or more, hits 4-5 times.",
 	},
 };

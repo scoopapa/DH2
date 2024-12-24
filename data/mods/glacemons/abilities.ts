@@ -478,7 +478,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Daredevil",
 		shortDesc: "Moves with 85% accuracy or less are powered up by 30%.",
 		rating: 3.5,
-		num: 181,
+		num: -9,
 	},
 	lightmetal: {
 		inherit: true,
@@ -527,5 +527,78 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.boost({spa: 1}, this.effectState.target);
 		},
 		shortDesc: "This Pokemon's SpA is raised by 1 stage when other Pokemon faint. Once per switch-in.",
+	},
+	// Slate 5
+	moody: { // WIP
+		inherit: true,
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.1);
+		},
+		// now we change the nature
+		onResidualOrder: 26,
+		onResidual(pokemon) {
+			pokemon.nature = 'Serious';
+		},
+		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
+	},
+	middleeight: {
+		shortDesc: "If Meloetta: switches to Pirouette form before using a Physical move, and to Aria form before using a Special move.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Meloetta' || attacker.transformed) return;
+			if (move.category === 'Status') return;
+			const targetForme = (move.category === 'Special' ? 'Meloetta' : 'Meloetta-Pirouette');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Middle Eight",
+		rating: 4,
+		num: -10,
+	},
+	sinister: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Sinister');
+				}
+				return null;
+			}
+		},
+		name: "Sinister",
+		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
+		rating: 3.5,
+		num: -46,
+	},
+	stancechange: {
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Aegislash' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
+			if (targetForme === 'Aegislash-Blade') move.basePower = move.basePower * 1.2;
+			if (targetForme === 'Aegislash') this.heal(attacker.baseMaxhp / 8);
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Stance Change",
+		rating: 4,
+		num: 176,
 	},
 };

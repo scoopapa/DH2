@@ -304,11 +304,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	zarude: {
 		inherit: true,
-		abilities: {0: "Leaf Guard", H: "Solar Power"},
+		abilities: {0: "Leaf Guard", 1: "Moody", H: "Solar Power"},
 	},
 	zarudedada: {
 		inherit: true,
-		abilities: {0: "Leaf Guard", H: "Solar Power"},
+		abilities: {0: "Leaf Guard", 1: "Moody", H: "Solar Power"},
 	},
 	camerupt: {
 		inherit: true,
@@ -364,7 +364,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Run It Back
 	celebi: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Run It Back"},
+		abilities: {0: "Natural Cure", 1: "Moody", H: "Run It Back"},
 	},
 	beheeyem: {
 		inherit: true,
@@ -414,7 +414,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Anticipation
 	mew: {
 		inherit: true,
-		abilities: {0: "Synchronize", H: "Anticipation"},
+		abilities: {0: "Synchronize", 1: "Moody", H: "Anticipation"},
 	},
 	absol: {
 		inherit: true,
@@ -431,10 +431,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	musharna: {
 		inherit: true,
 		abilities: {0: "Comatose", 1: "Synchronize", H: "Anticipation"},
-	},
-	kommoo: {
-		inherit: true,
-		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Anticipation"},
 	},
 	weavile: {
 		inherit: true,
@@ -786,7 +782,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	spiritomb: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Aftermath", H: "Infiltrator"},
+		abilities: {0: "Pressure", 1: "Aftermath", H: "Sinister"},
 	},
 	// Early Bird
 	archen: {
@@ -832,7 +828,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	jirachi: {
 		inherit: true,
-		abilities: {0: "Serene Grace", 1: "Comatose", H: "Light Metal"},
+		abilities: {0: "Serene Grace", 1: "Moody", H: "Light Metal"},
 	},
 	cresselia: {
 		inherit: true,
@@ -922,7 +918,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	shaymin: {
 		inherit: true,
 		types: ["Grass", "Ground"],
-		abilities: {0: "Poison Heal", 1: "Serene Grace", H: "Solar Power"},
+		abilities: {0: "Poison Heal", 1: "Moody", H: "Solar Power"},
 	},
 	shayminsky: {
 		inherit: true,
@@ -1000,15 +996,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	duskull: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Merciless", H: "Frisk"},
+		abilities: {0: "Levitate", 1: "Merciless", H: "Sinister"},
 	},
 	dusclops: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Merciless", H: "Frisk"},
+		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister"},
 	},
 	dusknoir: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Merciless", H: "Frisk"},
+		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister"},
 	},
 	stunky: {
 		inherit: true,
@@ -1100,9 +1096,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Evanesce", 1: "Liquid Ooze", H: "Rain Dish"},
 	},
+	drowzee: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Sinister", H: "Evanesce"},
+	},
 	hypno: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Evanesce"},
+		abilities: {0: "Insomnia", 1: "Sinister", H: "Evanesce"},
 	},
 	lunatone: {
 		inherit: true,
@@ -1334,11 +1334,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Soul-Heart
 	phione: {
 		inherit: true,
-		abilities: {0: "Hydration", H: "Soul-Heart"},
+		abilities: {0: "Hydration", 1: "Moody", H: "Soul-Heart"},
 	},
 	manaphy: {
 		inherit: true,
-		abilities: {0: "Hydration", H: "Soul-Heart"},
+		abilities: {0: "Hydration", 1: "Moody", H: "Soul-Heart"},
 	},
 	woobat: {
 		inherit: true,
@@ -1417,6 +1417,35 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Quark Drive", 1: "Tangled Feet"},
 	},
+	aegislashblade: {
+		inherit: true,
+		types: ["Fighting", "Ghost"],
+	},
+	// Moody
+	uxie: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Moody"},
+	},
+	mesprit: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Moody"},
+	},
+	azelf: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Moody"},
+	},
+	victini: {
+		inherit: true,
+		abilities: {0: "Victory Star", H: "Moody"},
+	},
+	volcanion: {
+		inherit: true,
+		abilities: {0: "Water Absorb", H: "Moody"},
+	},
+	kommoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Moody"},
+	},
 	latiasmega: {
 		inherit: true,
 		abilities: {0: "Moody"}
@@ -1424,5 +1453,46 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	latiosmega: {
 		inherit: true,
 		abilities: {0: "Moody"}
+	},
+	// Sinister
+	guzzlord: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Sinister"},
+	},
+	deino: {
+		inherit: true,
+		abilities: {0: "Hustle", H: "Sinister"},
+	},
+	zweilous: {
+		inherit: true,
+		abilities: {0: "Hustle", H: "Sinister"},
+	},
+	hydreigon: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Sinister"},
+	},
+	poochyena: {
+		inherit: true,
+		abilities: {0: "Run Away", 1: "Sinister", H: "Rattled"},
+	},
+	mightyena: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Sinister", H: "Moxie"},
+	},
+	spinarak: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Insomnia", H: "Sinister"},
+	},
+	ariados: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Insomnia", H: "Sinister"},
+	},
+	salandit: {
+		inherit: true,
+		abilities: {0: "Corrosion", 1: "Sinister", H: "Oblivious"},
+	},
+	salazzle: {
+		inherit: true,
+		abilities: {0: "Corrosion", 1: "Sinister", H: "Oblivious"},
 	},
 };
