@@ -693,14 +693,14 @@ mametchi: {
 		baseStats: {hp: 63, atk: 99, def: 109, spa: 92, spd: 107, spe: 40},
 		abilities: {0: "Rivalry", 1: "Dazzling", H: "Unnerve"},
 	},
-	minotchi: {
-		num: 88,
-		name: "Minotchi",
-		gender: "M",
-		types: ["Bug"],
-		baseStats: {hp: 98, atk: 68, def: 99, spa: 76, spd: 97, spe: 72},
-		abilities: {0: "Shed Skin", 1: "Tangled Feet", H: "Unburden"},
-	},
+	// minotchi: {
+	// 	num: 88,
+	// 	name: "Minotchi",
+	// 	gender: "M",
+	// 	types: ["Bug"],
+	// 	baseStats: {hp: 98, atk: 68, def: 99, spa: 76, spd: 97, spe: 72},
+	// 	abilities: {0: "Shed Skin", 1: "Tangled Feet", H: "Unburden"},
+	// },
 	pukatchi: {
 		num: 89,
 		name: "Pukatchi",
@@ -1199,8 +1199,8 @@ mametchi: {
 	dazzlilitchi: {
 		num: 151,
 		name: "Dazzlilitchi",
-		gender: "F",
-		gender: "M",
+		// gender: "F",
+		// gender: "M",
 		types: ["Fairy", "Normal"],
 		baseStats: {hp: 95, atk: 40, def: 75, spa: 105, spd: 100, spe: 95},
 		abilities: {0: "Punk Rock", 1: "Dazzling", H: "Steadfast"},
