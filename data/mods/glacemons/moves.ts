@@ -687,7 +687,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 30,
 		pp: 10,
 		multihit: 3,
-		onEffectiveness(typeMod, target, type, move) { 
+		onEffectiveness(typeMod, target, type, move) {
 			if (move.hit > 3) return;
 			var hitEffectiveness;
 			var immunity = 0;
@@ -712,7 +712,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				case 1:
 					this.add('-anim', target, "Flamethrower", target);
 					break;
-				case 2: 
+				case 2:
 					this.add('-anim', target, "Electro Ball", target);
 					break;
 			}
@@ -729,10 +729,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 					case 1:
 						target.trySetStatus('frz', source);
 						break;
-					case 2: 
+					case 2:
 						target.trySetStatus('brn', source);
 						break;
-					case 3: 
+					case 3:
 						target.trySetStatus('par', source);
 						break;
 				}
@@ -924,7 +924,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: "Fling",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1, noparentalbond: 1},
+		flags: { protect: 1, mirror: 1, allyanim: 1, metronome: 1, noparentalbond: 1 },
 		onPrepareHit(target, source, move) {
 			if (source.ignoringItem()) return false;
 			const item = source.getItem();
@@ -945,9 +945,9 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			} else {
 				if (!move.secondaries) move.secondaries = [];
 				if (item.fling.status) {
-					move.secondaries.push({status: item.fling.status});
+					move.secondaries.push({ status: item.fling.status });
 				} else if (item.fling.volatileStatus) {
-					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+					move.secondaries.push({ volatileStatus: item.fling.volatileStatus });
 				}
 			}
 			source.addVolatile('fling');
@@ -1017,7 +1017,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		secondary: {
 			chance: 30,
-			self:{
+			self: {
 				boosts: {
 					atk: -1,
 				},
@@ -1032,36 +1032,40 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: "Quicksand Drain",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
-		drain: [1,3],
+		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1 },
+		drain: [1, 3],
 		onModifyMove(move, pokemon, target) {
 			switch (target?.effectiveWeather()) {
-			case 'sandstorm':
-					move.drain = [2,3]
-				break;
+				case 'sandstorm':
+					move.drain = [2, 3];
+					break;
 			}
 		},
-//		if (this.field.isWeather('sandstorm')) {
-//			drain: [2,3]
-//		},
-//no clue if this is needed, so imma comment it out for now
-//			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
-//			if (!success) {
-//				this.add('-fail', pokemon, 'heal');
-//				return this.NOT_FAIL;
-//			}
-//			return success;
+		//		if (this.field.isWeather('sandstorm')) {
+		//			drain: [2,3]
+		//		},
+		//no clue if this is needed, so imma comment it out for now
+		//			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+		//			if (!success) {
+		//				this.add('-fail', pokemon, 'heal');
+		//				return this.NOT_FAIL;
+		//			}
+		//			return success;
 		secondary: {
 			chance: 10,
 			boosts: {
 				spe: -1,
 			},
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scorching Sands", target);
+		},
 		shortDesc: "User recovers 33% of the damage dealt. Heals 2/3 of the damage dealt in Sandstorm. 10% chance to lower the target's Speed by 1.",
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-	},	
+	},
 	scythelimbs: {
 		num: -14,
 		accuracy: 100,
@@ -1071,7 +1075,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		priority: 0,
 		multihit: 2,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onModifyMove(move, pokemon, defender) {
+			if (!defender.activeTurns) {
+				move.boosts = {atk: 0};
+			}
+		},
 		self: {
 			boosts: {
 				atk: -1,
@@ -1095,7 +1104,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: "Chicken Dance",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1, dance: 1, metronome: 1},
+		flags: { snatch: 1, dance: 1, metronome: 1 },
 		boosts: {
 			spa: 1,
 			spe: 1,
@@ -1108,7 +1117,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: null,
 		target: "self",
 		type: "Flying",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Cool",
 		desc: "Raises the user's Sp. Attack and Speed by 1 stage.",
 		shortDesc: "Raises the user's Sp. Atk and Speed by 1.",
@@ -1121,7 +1130,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: "Chakra Bullets",
 		pp: 10,
 		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { bullet: 1, protect: 1, mirror: 1, metronome: 1 },
 		multihit: [2, 5],
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
