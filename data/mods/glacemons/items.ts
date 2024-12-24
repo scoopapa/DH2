@@ -817,7 +817,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (pokemon.baseSpecies.forme === 'Pikachu-Alola' && move.type === 'Normal' && !noModifyType.includes(move.id) &&
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' && pokemon.baseSpecies.forme === 'Alola' && move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Psychic';
 				move.typeChangerBoosted = this.effect;
