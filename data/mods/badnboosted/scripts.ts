@@ -10,7 +10,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (statsData.spa <= 70) this.data.Pokedex[id].baseStats.spa *= 2;
 			if (statsData.spd <= 70) this.data.Pokedex[id].baseStats.spd *= 2;
 			if (statsData.spe <= 70) this.data.Pokedex[id].baseStats.spe *= 2;
-			console.log(this.data.Pokedex[id].id + " has an HP of " + this.data.Pokedex[id].baseStats.hp);
 		}
 	},
 };
