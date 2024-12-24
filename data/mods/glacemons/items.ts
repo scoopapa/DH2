@@ -770,10 +770,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		inherit: true,
 		shortDesc: "If Pikachu: 2x Atk, SpA, Def, SpD. Changes type and ability.",
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Pikachu') return;
 			let newAbility;
 			let newType;
-			console.log(pokemon.baseSpecies.forme);
 			switch (pokemon.baseSpecies.forme) {
 				case 'Original':
 					newAbility = 'Run It Back';
@@ -853,7 +852,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		inherit: true,
 		shortDesc: "If Pikachu: 2x Atk, SpA, Def, SpD. Changes type and ability.",
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Pikachu') return;
 			let newAbility;
 			let newType;
 			switch (pokemon.baseSpecies.forme) {
