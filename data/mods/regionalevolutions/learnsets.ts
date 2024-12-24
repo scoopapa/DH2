@@ -1010,6 +1010,12 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["8M", "7M"],
 		},
 	},
+	coramata: {
+		learnset: {
+			powergem: ["9L1"],
+			wavecrash: ["9L1"],
+			irondefense: ["9L1"],
+	},
 	
 	// Hoenn Dex
 	diodactyl: {
@@ -1331,7 +1337,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		},
 	},
 	altilazzle: {
-		learnsets: {
+		learnset: {
 			cosmicpower: ["9M"],
 			meteormash: ["9M"],
 			flashcannon: ["9M"],
@@ -1797,7 +1803,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 
 	// Unova Dex
 
-	pachirisu: {
+	pachirisuunova: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9M"],
@@ -2109,7 +2115,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			pounce: ["7L50", "6L50"],
 			lunge: ["7L50", "6L50"],
 			// thief: ["7L50", "6L50"],
-			elementalfangs: ["7L50", "6L50"],
+			icefang: ["7L50", "6L50"],
+			thunderfang: ["7L50", "6L50"],
+			firefang: ["7L50", "6L50"],
 			lowsweep: ["7L50", "6L50"],
 			// uturn: ["7L50", "6L50"],
 			bulkup: ["7L50", "6L50"],
