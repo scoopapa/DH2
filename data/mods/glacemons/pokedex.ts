@@ -1359,63 +1359,63 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Dry Skin"},
+		abilities: {0: "Protosynthesis", H: "Dry Skin"},
 	},
 	ragingbolt: {
 		inherit: true,
-		abilties: {0: "Protosynthesis", 1: "Pressure"},
+		abilties: {0: "Protosynthesis", H: "Pressure"},
 	},
 	sandyshocks: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Solar Power"},
+		abilities: {0: "Protosynthesis", H: "Solar Power"},
 	},
 	screamtail: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Pixilate"},
+		abilities: {0: "Protosynthesis", H: "Pixilate"},
 	},
 	fluttermane: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Pixilate"},
+		abilities: {0: "Protosynthesis", H: "Trace"},
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Infiltrator"},
+		abilities: {0: "Protosynthesis", H: "Infiltrator"},
 	},
 	walkingwake: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Pressure"},
+		abilities: {0: "Protosynthesis", H: "Pressure"},
 	},
 	gougingfire: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", 1: "Pressure"},
+		abilities: {0: "Protosynthesis", H: "Pressure"},
 	},
 	ironvaliant: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Mold Breaker"},
+		abilities: {0: "Quark Drive", H: "Moody"},
 	},
 	ironboulder: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Sturdy"},
+		abilities: {0: "Quark Drive", H: "Sturdy"},
 	},
 	ironmoth: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Levitate"},
+		abilities: {0: "Quark Drive", H: "Levitate"},
 	},
 	ironleaves: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Long Reach"},
+		abilities: {0: "Quark Drive", H: "Long Reach"},
 	},
 	ironjugulis: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Wind Power"},
+		abilities: {0: "Quark Drive", H: "Wind Power"},
 	},
 	ironthorns: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Earth Eater"},
+		abilities: {0: "Quark Drive", H: "Earth Eater"},
 	},
 	ironbundle: {
 		inherit: true,
-		abilities: {0: "Quark Drive", 1: "Tangled Feet"},
+		abilities: {0: "Quark Drive", H: "Tangled Feet"},
 	},
 	aegislashblade: {
 		inherit: true,

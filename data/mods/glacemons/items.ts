@@ -773,6 +773,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') return;
 			let newAbility;
 			let newType;
+			console.log(pokemon.baseSpecies.forme);
 			switch (pokemon.baseSpecies.forme) {
 				case 'Original':
 					newAbility = 'Run It Back';

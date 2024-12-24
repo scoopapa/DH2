@@ -1057,6 +1057,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				spe: -1,
 			},
 		},
+		shortDesc: "User recovers 33% of the damage dealt. Heals 2/3 of the damage dealt in Sandstorm. 10% chance to lower the target's Speed by 1.",
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
@@ -1080,6 +1081,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "X-Scissor", target);
 		},
+		shortDesc: "Hits Twice. This Pokémon’s attack is lowered by 1 per hit This effect is ignored if the opponent is switching out",
 		secondary: null,
 		target: "normal",
 		type: "Bug",
