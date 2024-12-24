@@ -10491,7 +10491,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			firespin: ["9L1"],
 			flamecharge: ["9L1"],
 			flamethrower: ["9L1"],
-			fireblatz: ["9L1"],
+			fireblast: ["9L1"],
 			flareblitz: ["9L1"],
 			sunnyday: ["9L1"],
 			willowisp: ["9L1"],

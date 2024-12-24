@@ -4,6 +4,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['Let's Go! Tamagotchi!', 'Let's Go! Tamagotchi! Doubles'],
+		customTiers: ['Lets Go! Tamagotchi!', 'Lets Go! Tamagotchi! Doubles'],
 	},
 };

@@ -1057,17 +1057,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Jankster",
-		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
+		shortDesc: "When this Pokemon is hit, it splits its corresponding attack stat with the attacker.",
 	},
 	
 	//slate 6
 	honeyedweb: {
 		onDamagingHit(damage, target, source, effect) {
-			this.heal(target.baseMaxhp / 8);
+			this.heal(target.baseMaxhp / 8, target);
+			for (const allyActive of pokemon.adjacentAllies()) {
+                this.heal(allyActive.baseMaxhp / 8, allyActive);
+            }
 		},
 		flags: {},
 		name: "Honeyed Web",
-		shortDesc: "This Pokemon heals 1/8 max HP after being damaged by an attack.",
+		shortDesc: "This Pokemon and its allies heal 1/8 max HP on hit.",
 	},
 	acidicdrizzle: {
 		onStart(source) {
@@ -1133,7 +1136,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Hoenn Stan",
-		shortDesc: "This Pokemon's Atk/SpA gain 15% for each other Gen 3 ally.",
+		shortDesc: "This Pokemon's Atk/SpA gain 15% for each other fainted Gen 3 ally.",
 	},
 	zombiesonyourlawn: {
 		onStart(source) {
@@ -1383,7 +1386,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Pristine Dessert",
 		shortDesc: "This Pokemon is immune to Bug/Grass, but has halved Spe for 3 turns.",
 	},
-	disgustingrevoltingdessert: {
+	disgustingrepulsivedessert: {
 		onStart(pokemon) {
 			pokemon.addVolatile('ability:aromaveil');
 		},

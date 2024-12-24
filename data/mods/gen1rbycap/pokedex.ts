@@ -1,4 +1,17 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	spriguin: {
+		num: 3000,
+		name: "Spriguin",
+		types: ["Grass", "Ice"],
+		baseStats: {hp: 80, atk: 60, def: 40, spa: 75, spd: 75, spe: 40},
+		abilities: {0: "No Ability"},
+		heightm: 0.7,
+		weightkg: 31,
+		color: "Green",
+		evos: ["Pineguin"],
+		eggGroups: ["Water 1", "Grass"],
+		gen: 1,
+	},
 	pineguin: {
 		num: 2000,
 		name: "Pineguin",
@@ -8,6 +21,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 3.2,
 		weightkg: 106,
 		color: "Green",
+		prevo: "Spriguin",
+		evoLevel: 29,
 		eggGroups: ["Water 1", "Grass"],
 		gen: 1,
 	},

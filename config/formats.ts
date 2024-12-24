@@ -1602,7 +1602,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'teraforming',
 		ruleset: ['Standard', 'Terastal Clause', 'Sleep Moves Clause', '!Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Stellar Orb'],
 	},
 	{
 		name: "[Gen 9] TeraMax",
@@ -2876,6 +2876,46 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects'],
 	},
+	{
+		name: "[Gen 9] Pokémon North, South, East, West",
+		desc: 'The largest sprite project ever is now the largest Solomod ever...eventually. Content gradually releases in waves!',
+		threads: [
+			`&bullet; <a href="https://https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10197171"></a>`,
+		],
+		mod: 'pokemonorthsoutheastwest',
+		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Pokémon North, South, East, and West OU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Pokémon North, South, East, and West.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Pokémon Lets Go! Tamagotchi!",
+		desc: 'They did not deserve to be forgotten to Digimon...a Solomod that contains three hundred adult form Tamagotchi!',
+		threads: [
+		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-9#post-10311554"></a>`,
+		],
+		mod: 'letsgotamagotchi',
+		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Lets Go! Tamagotchi!'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not a Tamagotchi.'];
+				}
+			}
+		},
+	},
     {
  		name: "[Gen 9] Earth & Sky Horizons OU",
  		desc: `The metagame based on Pok&eacute;mon Earth & Sky, a set of theoretical games created by En Passant, with the Horizons Expansion for Gen 9.`,
@@ -3266,8 +3306,8 @@ export const Formats: FormatList = [
         threads: [
             `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
               ],
-        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Jolly'],
-        banlist: [],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Jolly'],
+        banlist: ['Avalanche'],
 		teambuilderFormat: "National Dex",
         onValidateTeam(team, format) {
             /**@type {{[k: string]: true}} */

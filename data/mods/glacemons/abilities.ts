@@ -526,6 +526,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.effectState.target.swordBoost = true;
 			this.boost({spa: 1}, this.effectState.target);
 		},
-		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage when other Pokemon faint. Once per battle.",
+		shortDesc: "This Pokemon's SpA is raised by 1 stage when other Pokemon faint. Once per switch-in.",
 	},
 };

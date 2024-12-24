@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	berryjuice: {
+	gingerbreadman: {
 		name: "Gingerbread Man",
 		shortDesc: "Holder heals 100 HP at 1/2 or less max HP. Single use.",
 		rating: 3,
@@ -99,5 +99,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+	},
+	lightball: {
+		inherit: true,
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Holiday"],
 	},
 }

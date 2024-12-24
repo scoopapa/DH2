@@ -976,4 +976,108 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		basePower: 100,
 	},
+	//Slate 5 starts here
+	quicksanddrain: {
+		num: -13,
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+		name: "Quicksand Drain",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1,3],
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'sandstorm':
+					move.drain = [2,3]
+				break;
+			}
+		},
+//		if (this.field.isWeather('sandstorm')) {
+//			drain: [2,3]
+//		},
+//no clue if this is needed, so imma comment it out for now
+//			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+//			if (!success) {
+//				this.add('-fail', pokemon, 'heal');
+//				return this.NOT_FAIL;
+//			}
+//			return success;
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},	
+	chickendance: {
+		num: -14,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Chicken Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1, metronome: 1},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	sandsearstorm: {
+		inherit: true,
+		basePower: 110,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland', 'sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+	},
+	wildboltstorm: {
+		inherit: true,
+		basePower: 110,
+		category: "Physical",
+		onModifyMove(move, pokemon, target) {
+			if (target && ['raindance', 'primordialsea', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+	},
+	bleakwindstorm: {
+		inherit: true,
+		basePower: 110,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['raindance', 'primordialsea', 'sandstorm'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+	},
+	springtidestorm: {
+		inherit: true,
+		basePower: 110,
+		category: "Physical",
+		pp: 10,
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland', 'snowscape', 'hail'].includes(target.effectiveWeather())) {
+				move.accuracy = true;
+			}
+		},
+		secondary: {
+			chance: 30,
+			self:{
+				boosts: {
+					atk: -1,
+				},
+			},
+		},
+	},
 };

@@ -2,7 +2,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	crystalcrown: {
 		name: "Crystal Crown",
 		num: -1,
-		shortDesc: "Holder takes 0.67x damage from Z-Moves, Mega-Evolved Pokemon, Dynamaxed Pokemon and Terastallized Pokemon.",
+		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera Pokemon. Attacker loses 1/8 max HP.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
 				return this.chainModify(0.67);
@@ -642,7 +642,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 30,
 		},
-		shortDesc: "On switch in, adds Grass type to holder. No effect if holder is Grass type",
+		shortDesc: "On switch in, adds Grass type to holder. No effect if holder is Grass type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Grass')) {
 				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Cursed Branch');
@@ -740,5 +740,60 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	wateriumz: {
 		inherit: true,
 		onMemory: "Water",
+	},
+	//slate 5 
+	pikaniumz: {
+		inherit : true,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+	},
+	pikashuniumz: {
+		inherit : true,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 };

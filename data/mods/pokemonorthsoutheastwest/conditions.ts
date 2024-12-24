@@ -36,7 +36,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-weather', 'none');
 		},
 onFoeTryMove(target, source, move) {
-if (pokemon.hasType('Dark') {
+if (pokemon.hasType('Dark')) {
 			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 				return;
