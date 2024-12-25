@@ -342,6 +342,7 @@ export const Learnsets = {
 	velocipasta: {
 		learnset: {
 			substitute: ["9L1"],
+			spikes: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
