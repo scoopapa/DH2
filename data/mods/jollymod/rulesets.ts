@@ -17,6 +17,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (move.flags['extranice']) source.side.addKarma(2);
 			else if (move.flags['nice']) source.side.addKarma(1);
 			else if (move.flags['kindanice']) source.side.addKarma(0.5);
+			else if (move.flags['neutral']) return;
 			else if (move.flags['naughty']) source.side.removeKarma(2);
 			else if (move.category !== 'Status') source.side.removeKarma(1);
 		},

@@ -1881,6 +1881,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			yawn: ["9L1"],
 			freezerburn: ["9L1"],
 			chillyreception: ["9L1"],
+			sheercold: ["9L1"],
 		},
 	},
 	regiceiceiceice: {
@@ -1974,6 +1975,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			recover: ["9L1"],
 			glaciate: ["9L1"],
 			present: ["9L1"],
+			sheercold: ["9L1"],
 		},
 	},
 	sceptile: {
