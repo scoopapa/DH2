@@ -1,4 +1,8 @@
 export const Scripts: ModdedBattleScriptsData = {
+	teambuilderConfig: {
+		// only to specify the order of custom tiers
+		customTiers: ['Tera'],
+	},
 	init() {
 		this.modData("Learnsets", "skeledirge").learnset.healbell = ["9L1"];
 		this.modData("Learnsets", "tinkaton").learnset.wish = ["9L1"];

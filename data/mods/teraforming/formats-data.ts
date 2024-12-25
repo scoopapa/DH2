@@ -1,13 +1,22 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// TeraForms
 	samurotthisuitera: {
-		tier: "OU",
+		tier: "Tera",
 	},
 	skeledirgetera: {
-		tier: "OU",
+		tier: "Tera",
 	},
 	tinkatontera: {
-		tier: "OU",
+		tier: "Tera",
+	},
+	ogerpontealtera: {
+		tier: "Tera",
+	},
+	ogerponwellspringtera: {
+		tier: "Tera",
+	},
+	ogerponcornerstonetera: {
+		tier: "Tera",
 	},
 	
 	// Other
