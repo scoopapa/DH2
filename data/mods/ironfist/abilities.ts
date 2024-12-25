@@ -1294,7 +1294,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (copen.length > 0) {
 				this.add('-activate', pokemon, 'ability: United Party');
 				this.add('-start', pokemon, `copen${copen.length}`, '[silent]');
-				this.effectState.copen = copen.length;
+				pokemon.copen = copen.length;
 			}
 			//effects in respective fields (gonna do this later lol...)
 		},

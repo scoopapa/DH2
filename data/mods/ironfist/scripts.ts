@@ -1066,7 +1066,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.sideConditions[status.id].duration =
 					status.durationCallback.call(this.battle, this.active[0], source, sourceEffect);
 			}
-			if (source.hasAbility('unitedparty') && status.duration && this.effectState.copen) status.duration += (status.id === 'tailwind') ? Math.floor(this.effectState.copen / 2) : this.effectState.copen; 
+			if (source.hasAbility('unitedparty') && status.duration && source.copen) this.sideConditions[status.id].duration += (status.id === 'tailwind') ? Math.floor(source.copen / 2) : source.copen; 
 			if (!this.battle.singleEvent('SideStart', status, this.sideConditions[status.id], this, source, sourceEffect)) {
 				delete this.sideConditions[status.id];
 				return false;
@@ -1139,7 +1139,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.weatherState.source = source;
 				this.weatherState.sourceSlot = source.getSlot();
 				console.log(this.effectState.copen);
-				if (source.hasAbility('unitedparty') && status.duration && this.effectState.copen) status.duration += this.effectState.copen; 
+				if (source.hasAbility('unitedparty') && status.duration && source.copen) status.duration += source.copen; 
 			}
 			if (status.duration) {
 				this.weatherState.duration = status.duration;
