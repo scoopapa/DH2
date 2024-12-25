@@ -2918,7 +2918,7 @@ export const Formats: FormatList = [
 		threads: [
 		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-9#post-10311554"></a>`,
 		],
-		mod: 'letsgotamagotchi',
+		mod: 'tamagotchi',
 		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
