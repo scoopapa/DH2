@@ -445,6 +445,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaAbility: {0: "Residual Drain"},
 		megaStats: {hp: 80, atk: 70, def: 98, spa: 130, spd: 120, spe: 117},
 		megaStone: "Tentacruelinite",
+		movepoolAdditions: ["scald"],
 		megaCreator: "Lord Pxperto & BlueRay",
 	},
 

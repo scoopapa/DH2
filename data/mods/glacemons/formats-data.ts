@@ -1353,7 +1353,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mantine: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 	},
 	skarmory: {
 		inherit: true,
@@ -4869,6 +4869,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	// },
 	pecharunt: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "OU",
 	},
 };
