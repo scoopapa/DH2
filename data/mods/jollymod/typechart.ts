@@ -2,7 +2,6 @@ export const TypeChart: {[k: string]: ModdedTypeData | null} = {
 	ice: {
 		damageTaken: {
 			hail: 3,
-			frz: 3,
 			fsb: 3,
 			Bug: 0,
 			Dark: 0,

@@ -378,23 +378,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return false;
 			}
 			
-			
-
-			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
-				// the game currently never ignores immunities
-				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
-					this.battle.debug('immune to status');
-					if ((sourceEffect as Move)?.status) {
-						this.battle.add('-immune', this);
-					}
-					return false;
-				}
-			}
 			if (!ignoreImmunities && status.id &&
 					!(source?.hasAbility('permafrost') && ['frz', 'fsb'].includes(status.id))) {
 				// the game currently never ignores immunities
-				if (!this.runStatusImmunity('frz')) {
+				if (!this.runStatusImmunity('fsb')) {
 					this.battle.debug('immune to status');
 					if ((sourceEffect as Move)?.status) {
 						this.battle.add('-immune', this);
