@@ -562,7 +562,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			if (this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -588,7 +588,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			if (this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			if (this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');

@@ -126,7 +126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Eleqwil",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 80, atk: 105, def: 115, spa: 85, spd: 85, spe: 35},
-		abilities: {0: "Iron Barbs", H: "Good as Gold"},
+		abilities: {0: "Iron Barbs", 1: "Bulletproof", H: "Good as Gold"},
 		weightkg: 85,
 	},
 	duratreme: {
