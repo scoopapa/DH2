@@ -972,7 +972,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Nice Spinner",
 		type: "Stellar",
 		category: "Physical",
-		basePower: 0,
+		basePower: 40,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Doubles in power if a terrain is active.",
