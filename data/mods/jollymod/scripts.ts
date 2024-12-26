@@ -217,6 +217,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.add('-message', "But there was no one home...");
 				return;
 			}
+			//const n = 1;
 			const n = this.battle.random(100);
 			const pokemon = this.active[0];
 			if (n < 30) {
@@ -224,7 +225,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if(!pokemon.item) this.battle.add('-message', `But ${pokemon.name} didn't have room for one!`);
 				else {
 					const items = ['aguavberry', 'figyberry', 'iapapaberry', 'magoberry', 'wikiberry', 'sitrusberry', 'lumberry', 'custapberry', 'salacberry', 'starfberry', 'keeberry', 'marangaberry', 'jabocaberry', 'rowapberry', 'candycane', 'gingerbreadman', 'pokedoll'];
-					const item = this.dex.items.get(this.sample(items));
+					const item = this.battle.dex.items.get(this.sample(items));
 					this.add('-item', pokemon, item, '[from] move: Bake Cookie', '[of] ' + pokemon);
 					target.setItem(item);
 				}
