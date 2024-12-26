@@ -140,7 +140,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		flags: {},
 		name: "Iron Fist",
 		rating: 3,
-		shortDesc: "Iron Ball + all punching moves turn into Double Iron Bash.",
+		shortDesc: "Iron Ball + all 0 priority punching moves turn into Double Iron Bash.",
 		num: 89,
 	},
 	kinglerite: {
