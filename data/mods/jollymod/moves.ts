@@ -1113,4 +1113,36 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 	},
+	hypothermia: {
+		name: "Hypothermia",
+		type: "Dark",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		volatileStatus: 'hypothermia',
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.battle.add('-message', `${pokemon.name} became weaker to Ice!`);
+				this.add('-start', pokemon, 'Hypothermia', '[silent]');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Ice') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
 }

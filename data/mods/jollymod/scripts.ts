@@ -226,7 +226,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				else {
 					const items = ['aguavberry', 'figyberry', 'iapapaberry', 'magoberry', 'wikiberry', 'sitrusberry', 'lumberry', 'custapberry', 'salacberry', 'starfberry', 'keeberry', 'marangaberry', 'jabocaberry', 'rowapberry', 'candycane', 'gingerbreadman', 'pokedoll'];
 					const item = this.battle.dex.items.get(this.sample(items));
-					this.add('-item', pokemon, item, '[from] move: Bake Cookie', '[of] ' + pokemon);
+					this.add('-item', pokemon, item);
 					target.setItem(item);
 				}
 			} else if (n < 50) {
@@ -286,7 +286,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.battle.boost({[bestStat]: -1}, pokemon);
 			} else if (n < 80) {
 				this.battle.add('-message', `Santa sent a chilling breeze!`);
-				this.battle.add('-message', `${pokemon.name} became weak to Ice!`);
 				pokemon.addVolatile('hypothermia');
 			} else if (n < 90) {
 				this.battle.add('-message', `Santa passed down chilling judgement!`);
