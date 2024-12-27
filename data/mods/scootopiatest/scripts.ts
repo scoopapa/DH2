@@ -126,6 +126,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Lunacal
 		this.modData("Learnsets", "lunacal").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "lunacal").learnset.rainofmeteors = ["9L1"];
+		this.modData("Learnsets", "lunacal").learnset.rebalance = ["9L1"];
 		// Eleqwil
 		// Duratreme
 		this.modData("Learnsets", "duratreme").learnset.rebalance = ["9L1"];
@@ -218,6 +219,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Flocura
 		this.modData("Learnsets", "flocura").learnset.chaoticterrain = ["9L1"];
 		this.modData("Learnsets", "flocura").learnset.silentdomain = ["9L1"];
+		this.modData("Learnsets", "flocura").learnset.rebalance = ["9L1"];
 		// Flocura-Nexus
 		// Cyrome-Book
 		this.modData("Learnsets", "cyromebook").learnset.rebalance = ["9L1"];
