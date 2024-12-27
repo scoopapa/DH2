@@ -66,11 +66,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		cant: "[POKEMON] is chilled!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
-			} else {
-				this.add('-status', target, 'frz', '[silent]');
-			}
+			this.add('-start', target, 'Frostbite', '[silent]');
 			this.add('-message', `${target.name} was frostbitten!`);
 		},
 		onResidualOrder: 9,

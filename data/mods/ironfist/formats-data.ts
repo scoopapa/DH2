@@ -623,7 +623,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	manmega: {
+	megaman: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

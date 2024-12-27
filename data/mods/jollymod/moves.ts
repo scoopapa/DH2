@@ -360,33 +360,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
 		terrain: 'scarletmist',
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasItem('terrainextender')) {
-					return 8;
-				}
-				return 5;
-			},
-			onBasePowerPriority: 6,
-			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Dark' && attacker.isGrounded()) {
-					this.debug('scarletmist boost');
-					return this.chainModify([5325, 4096]);
-				}
-			},
-			onModifyMove(move, pokemon, target) {
-				if (move.category !== 'Status' && !move.drain && pokemon.isGrounded) move.drain = [1, 2];
-			},
-			onFieldStart(field, source, effect) {
-				this.add('-message', `${source.name} released the Scarlet Mist!`);
-			},
-			onFieldResidualOrder: 27,
-			onFieldResidualSubOrder: 7,
-			onFieldEnd() {
-				this.add('-message', 'The scarlet mist dissipated.');
-			},
-		},
 		secondary: null,
 		target: "all",
 		type: "Ice",
@@ -678,11 +651,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.removeVolatile('buildsnowman');
 				}
 			},
+			onModifyMove(move, pokemon) {
+				if (['branchpoke', 'powdersnow'].includes(move.id) && !pokemon.set.moves.includes(move.id)) move.flags.neutral = 1;
+			},
 			onResidualOrder: 14,
 			onResidual(pokemon) {
 				const moves = ['branchpoke', 'powdersnow'];
 				const move = this.dex.moves.get(this.sample(moves));
-				move.flags.neutral = 1;
 				this.actions.useMove(move, pokemon);
 			},
 			onEnd(pokemon) {
@@ -690,7 +665,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	christmastree: {
 		name: "Christmas Tree",
@@ -870,7 +845,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 45,
 		category: "Special",
 		name: "Nice Beam",
-		shortDesc: "10% chance to freeze the target.",
+		shortDesc: "20% chance to frostbite the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, nice: 1},
@@ -879,8 +854,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Ice Beam", target);
 		},
 		secondary: {
-			chance: 10,
-			status: 'frz',
+			chance: 20,
+			status: 'fsb',
 		},
 		target: "normal",
 		type: "Stellar",
@@ -997,7 +972,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Nice Spinner",
 		type: "Stellar",
 		category: "Physical",
-		basePower: 0,
+		basePower: 40,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Doubles in power if a terrain is active.",
@@ -1090,5 +1065,84 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.boost({[bestStat]: 1}, target);
 		},
 		boosts: null,
+	},
+
+	//fakemoves
+	scarletmist: {
+		name: "Scarlet Mist",
+		type: "Dark",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		terrain: 'scarletmist',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dark' && attacker.isGrounded()) {
+					this.debug('scarletmist boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.category !== 'Status' && !move.drain && pokemon.isGrounded) move.drain = [1, 2];
+			},
+			onFieldStart(field, source, effect) {
+				this.add('-message', `${source.name} released the Scarlet Mist!`);
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-message', 'The scarlet mist dissipated.');
+			},
+		},
+		secondary: null,
+		target: "normal",
+	},
+	hypothermia: {
+		name: "Hypothermia",
+		type: "Dark",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		volatileStatus: 'hypothermia',
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.battle.add('-message', `${pokemon.name} became weaker to Ice!`);
+				this.add('-start', pokemon, 'Hypothermia', '[silent]');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Ice') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		secondary: null,
+		target: "normal",
 	},
 }
