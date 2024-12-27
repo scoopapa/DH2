@@ -435,5 +435,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Thick Fat"},
 		weightkg: 38,
 	},
-
+	seaode: {
+		num: 1201,
+		name: "Seaode",
+		types: ["Rock", "Water"],
+		baseStats: {hp: 70, atk: 115, def: 100, spa: 40, spd: 70, spe: 110},
+		abilities: {0: "Rock Head"},
+		weightkg: 121,
+	},
+	plasmage: {
+		num: 1202,
+		name: "Plasmage",
+		types: ["Psychic", "Electric"],
+		baseStats: {hp: 100, atk: 55, def: 70, spa: 105, spd: 75, spe: 115},
+		abilities: {0: "Magician"},
+		weightkg: 85,
+	},
+	porcupyre: {
+		num: 1203,
+		name: "Porcupyre",
+		types: ["Dark", "Fire"],
+		baseStats: {hp: 90, atk: 90, def: 125, spa: 40, spd: 80, spe: 70},
+		abilities: {0: "Bulletproof", H: "Rough Skin"},
+		weightkg: 66.6,
+	},
 };
