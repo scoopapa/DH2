@@ -222,7 +222,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			const pokemon = this.active[0];
 			if (n < 30) {
 				this.battle.add('-message', `Santa gave ${pokemon.name} a snack!`);
-				if(!pokemon.item) this.battle.add('-message', `But ${pokemon.name} didn't have room for one!`);
+				if(pokemon.item) this.battle.add('-message', `But ${pokemon.name} didn't have room for one!`);
 				else {
 					const items = ['aguavberry', 'figyberry', 'iapapaberry', 'magoberry', 'wikiberry', 'sitrusberry', 'lumberry', 'custapberry', 'salacberry', 'starfberry', 'keeberry', 'marangaberry', 'jabocaberry', 'rowapberry', 'candycane', 'gingerbreadman', 'pokedoll'];
 					const item = this.battle.dex.items.get(this.sample(items));
