@@ -571,7 +571,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -10,
 	},
-	sinister: {
+	sinisterthoughts: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -580,7 +580,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return null;
 			}
 		},
-		name: "Sinister",
+		name: "Sinister Thoughts",
 		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
 		rating: 3.5,
 		num: -46,

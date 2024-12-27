@@ -782,7 +782,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	spiritomb: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Aftermath", H: "Sinister"},
+		abilities: {0: "Pressure", 1: "Aftermath", H: "Sinister Thoughts"},
 	},
 	// Early Bird
 	archen: {
@@ -996,15 +996,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	duskull: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Merciless", H: "Sinister"},
+		abilities: {0: "Levitate", 1: "Merciless", H: "Sinister Thoughts"},
 	},
 	dusclops: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister"},
+		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister Thoughts"},
 	},
 	dusknoir: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister"},
+		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister Thoughts"},
 	},
 	stunky: {
 		inherit: true,
@@ -1098,11 +1098,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	drowzee: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Sinister", H: "Evanesce"},
+		abilities: {0: "Insomnia", 1: "Sinister Thoughts", H: "Evanesce"},
 	},
 	hypno: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Sinister", H: "Evanesce"},
+		abilities: {0: "Insomnia", 1: "Sinister Thoughts", H: "Evanesce"},
 	},
 	lunatone: {
 		inherit: true,
@@ -1454,45 +1454,45 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Moody"}
 	},
-	// Sinister
+	// Sinister Thoughts
 	guzzlord: {
 		inherit: true,
-		abilities: {0: "Beast Boost", H: "Sinister"},
+		abilities: {0: "Beast Boost", H: "Sinister Thoughts"},
 	},
 	deino: {
 		inherit: true,
-		abilities: {0: "Hustle", H: "Sinister"},
+		abilities: {0: "Hustle", H: "Sinister Thoughts"},
 	},
 	zweilous: {
 		inherit: true,
-		abilities: {0: "Hustle", H: "Sinister"},
+		abilities: {0: "Hustle", H: "Sinister Thoughts"},
 	},
 	hydreigon: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Sinister"},
+		abilities: {0: "Levitate", H: "Sinister Thoughts"},
 	},
 	poochyena: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Sinister", H: "Rattled"},
+		abilities: {0: "Run Away", 1: "Sinister Thoughts", H: "Rattled"},
 	},
 	mightyena: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Sinister", H: "Moxie"},
+		abilities: {0: "Intimidate", 1: "Sinister Thoughts", H: "Moxie"},
 	},
 	spinarak: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Insomnia", H: "Sinister"},
+		abilities: {0: "Swarm", 1: "Insomnia", H: "Sinister Thoughts"},
 	},
 	ariados: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Insomnia", H: "Sinister"},
+		abilities: {0: "Swarm", 1: "Insomnia", H: "Sinister Thoughts"},
 	},
 	salandit: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sinister", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Sinister Thoughts", H: "Oblivious"},
 	},
 	salazzle: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sinister", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Sinister Thoughts", H: "Oblivious"},
 	},
 };
