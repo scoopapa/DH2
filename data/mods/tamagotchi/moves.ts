@@ -411,7 +411,7 @@ alienlaser: {
 				this.add('-sidestart', side, 'Device Counter');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasType('Fairy') {
+				if (pokemon.hasType('Fairy')) {
 					const bestStat = pokemon.getBestStat(true, true);
 					this.boost({[bestStat]: 1}, pokemon);
 					pokemon.side.removeSideCondition('devicecounter');
