@@ -930,8 +930,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 	},
-	nautilusshell: {
-		name: "Nautilus Shell",
+	friedrice: {
+		name: "Fried Rice",
 		fling: {
 			basePower: 30,
 		},
@@ -942,7 +942,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer' && pokemon.addType('Dragon')) {
-				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Nautilus Shell');
+				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Fried Rice');
 			}
 		},
 		onModifySpePriority: 5,

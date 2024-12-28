@@ -3373,7 +3373,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	clawitzer: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	helioptile: {
 		inherit: true,
