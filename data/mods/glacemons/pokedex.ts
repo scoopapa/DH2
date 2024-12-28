@@ -1363,7 +1363,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	ragingbolt: {
 		inherit: true,
-		abilties: {0: "Protosynthesis", H: "Pressure"},
+		abilities: {0: "Protosynthesis", H: "Pressure"},
 	},
 	sandyshocks: {
 		inherit: true,
@@ -1494,5 +1494,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	salazzle: {
 		inherit: true,
 		abilities: {0: "Corrosion", 1: "Sinister Thoughts", H: "Oblivious"},
+	},
+	// Middle Eight
+	meloetta: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Middle Eight"},
 	},
 };
