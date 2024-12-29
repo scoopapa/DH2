@@ -5423,7 +5423,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Apple Acid", "Draco Meteor", "Dragon Pulse", "Leech Seed", "Recover"],
+                "movepool": ["Apple Acid", "Draco Meteor", "Dragon Rage", "Leech Seed", "Recover"],
                 "teraTypes": ["Steel"]
             }
         ]
@@ -6638,13 +6638,13 @@
             {
                 "role": "Bulky Setup",
                 "movepool": ["Bulk Up", "Close Combat", "Earthquake", "Ice Spinner", "Rapid Spin"],
-                "abilities": ["Protosynthesis"],
+                "abilities": ["Protocrysalis"],
                 "teraTypes": ["Ground", "Steel"]
             },
             {
                 "role": "Bulky Support",
                 "movepool": ["Close Combat", "Headlong Rush", "Ice Spinner", "Knock Off", "Rapid Spin", "Stealth Rock"],
-                "abilities": ["Protosynthesis"],
+                "abilities": ["Protocrysalis"],
                 "teraTypes": ["Ground", "Steel"]
             },
             {
