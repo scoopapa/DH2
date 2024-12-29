@@ -555,6 +555,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log(pokemon + "'s nature is " + pokemon.getNature().name);
 			console.log(pokemon + "'s Speed is " + pokemon.storedStats.spe);
 			pokemon.set.nature = 'Serious';
+			pokemon.set.nature.plus = null;
+			pokemon.set.nature.minus = null;
 			console.log("Now, " + pokemon + "'s nature is " + pokemon.getNature().name);
 			console.log("And " + pokemon + "'s Speed is " + pokemon.storedStats.spe);
 		},
