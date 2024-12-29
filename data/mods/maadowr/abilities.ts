@@ -371,6 +371,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	// start
 	inoculum: {
 		name: "Inoculum",
+		shortDesc: "Heatproof for user and ally.",
 		onAnyModifyDamage(damage, source, target, effect) {
 			if (source && effect && effect.effectType === 'Move' && effect.type === 'Fire') {
 				if (target === this.effectState.target || target.isAlly(this.effectState.target)) {
