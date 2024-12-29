@@ -91,7 +91,7 @@ const NO_STAB = [
 	'dragontail', 'doomdesire', 'electroweb', 'eruption', 'explosion', 'fakeout', 'feint', 'flamecharge', 'flipturn', 'futuresight',
 	'grassyglide', 'iceshard', 'icywind', 'incinerate', 'infestation', 'machpunch', 'meteorbeam', 'mortalspin', 'nuzzle', 'pluck', 'pursuit',
 	'quickattack', 'rapidspin', 'reversal', 'selfdestruct', 'shadowsneak', 'skydrop', 'snarl', 'strugglebug', 'suckerpunch', 'uturn',
-	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout', 'snatch',
+	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout', 'snatch', 'skullbash',
 ];
 // Hazard-setting moves
 const HAZARDS = [
@@ -1413,7 +1413,7 @@ export class RandomTeams {
 			return (moves.has('closecombat') || moves.has('leafstorm')) ? 'White Herb' : 'Sitrus Berry';
 		}
 		if (moves.has('shellsmash') && ability !== 'Weak Armor') return 'White Herb';
-		if (moves.has('meteorbeam') || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
+		if (moves.has('skullbash') || (moves.has('meteorbeam') && !teamDetails.sand) || (moves.has('electroshot') && !teamDetails.rain)) return 'Power Herb';
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
 		if (ability === 'Gluttony') return `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
