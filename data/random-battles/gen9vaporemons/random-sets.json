@@ -10,13 +10,13 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Giga Drain", "Leech Seed", "Sleep Powder", "Sludge Bomb", "Substitute"],
+                "movepool": ["Giga Drain", "Leech Seed", "Stun Spore", "Sludge Bomb", "Substitute"],
                 "abilities": ["Chlorophyll", "Overgrow"],
                 "teraTypes": ["Steel", "Water"]
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sleep Powder", "Sludge Bomb", "Synthesis", "Toxic"],
+                "movepool": ["Earth Power", "Energy Ball", "Knock Off", "Sludge Bomb", "Synthesis", "Toxic"],
                 "abilities": ["Chlorophyll", "Overgrow"],
                 "teraTypes": ["Dark", "Steel", "Water"]
             }
@@ -686,7 +686,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Giga Drain", "Leech Seed", "Psychic Noise", "Sleep Powder", "Substitute"],
+                "movepool": ["Giga Drain", "Leech Seed", "Psychic Noise", "Stun Spore", "Substitute"],
                 "abilities": ["Synchronize", "Seed Sower"],
                 "teraTypes": ["Steel"]
             },
@@ -1572,7 +1572,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Lava Plume", "Power Gem", "Recover", "Stealth Rock", "Yawn", "Shelter"],
+                "movepool": ["Lava Plume", "Power Gem", "Recover", "Stealth Rock", "Shelter"],
                 "teraTypes": ["Dragon", "Grass"]
             }
         ]
@@ -2108,7 +2108,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Earthquake", "Lava Plume", "Shelter", "Solar Beam", "Stealth Rock", "Yawn"],
+                "movepool": ["Earthquake", "Lava Plume", "Shelter", "Solar Beam", "Stealth Rock", "Body Press"],
                 "teraTypes": ["Dragon", "Grass"]
             }
         ]
@@ -4505,13 +4505,8 @@
         "sets": [
             {
                 "role": "Fast Bulky Setup",
-                "movepool": ["Bug Buzz", "Energy Ball", "Hurricane", "Quiver Dance", "Sleep Powder", "Substitute"],
+                "movepool": ["Bug Buzz", "Energy Ball", "Hurricane", "Quiver Dance", "Substitute"],
                 "teraTypes": ["Flying"]
-            },
-            {
-                "role": "Tera Blast user",
-                "movepool": ["Hurricane", "Quiver Dance", "Sleep Powder", "Substitute", "Tera Blast"],
-                "teraTypes": ["Ground"]
             }
         ]
     },
@@ -4560,7 +4555,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Alluring Voice", "Light Screen", "Psychic Noise", "Reflect", "Thunder Wave", "Yawn"],
+                "movepool": ["Alluring Voice", "Light Screen", "Psychic Noise", "Reflect", "Thunder Wave", "Baton Pass"],
                 "teraTypes": ["Fairy"]
             }
         ]
@@ -6302,7 +6297,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Earth Power", "Giga Drain", "Knock Off", "Leaf Storm", "Rapid Spin", "Spore", "Toxic"],
+                "movepool": ["Earth Power", "Giga Drain", "Knock Off", "Leaf Storm", "Rapid Spin", "Toxic"],
                 "teraTypes": ["Water"]
             }
         ]
@@ -6660,7 +6655,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Close Combat", "Crunch", "Root Pull", "Spore", "Sucker Punch", "Jungle Healing"],
+                "movepool": ["Close Combat", "Crunch", "Root Pull", "Sucker Punch", "Jungle Healing"],
                 "abilities": ["Seed Sower"],
                 "teraTypes": ["Dark", "Fighting"]
             }
