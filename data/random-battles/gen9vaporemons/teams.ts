@@ -1165,8 +1165,8 @@ export class RandomTeams {
 		if (species.id === 'charizard' && role === 'Fast Attacker') return 'Charizardite Shard Y';
 		if (species.id === 'charizard' && role === 'Setup Sweeper') return 'Charizardite Shard X';
 		if (species.id === 'smeargle') return 'Focus Sash';
-		if (species.id === 'hippowdon' && this.randomChance(1, 2)) ? 'Leftovers' : 'Walkie-Talkie';
-		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) ? 'Heavy-Duty Boots' : 'Tera Shard';
+		if (species.id === 'hippowdon' && this.randomChance(1, 2)) return 'Walkie-Talkie';
+		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) return 'Tera Shard';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
@@ -1968,7 +1968,7 @@ export class RandomTeams {
 			const happiness = this.random(256);
 
 			// Random shininess
-			const shiny = this.randomChance(1, 1024);
+			const shiny = this.randomChance(1, 134);
 
 			const set: RandomTeamsTypes.RandomSet = {
 				name: species.baseSpecies,
@@ -2324,7 +2324,7 @@ export class RandomTeams {
 			const happiness = this.random(256);
 
 			// Random shininess
-			const shiny = this.randomChance(1, 1024);
+			const shiny = this.randomChance(1, 134);
 
 			const set: PokemonSet = {
 				name: species.baseSpecies,
@@ -2467,7 +2467,7 @@ export class RandomTeams {
 			gender:	setData.set.gender || species.gender || (this.randomChance(1, 2) ? "M" : "F"),
 			item: this.sampleIfArray(setData.set.item) || "",
 			ability: this.sampleIfArray(setData.set.ability),
-			shiny: this.randomChance(1, 1024),
+			shiny: this.randomChance(1, 134),
 			level: 50,
 			happiness: 255,
 			evs: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...setData.set.evs},
