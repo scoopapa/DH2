@@ -54,7 +54,7 @@ type MoveEnforcementChecker = (
 
 // Moves that restore HP:
 const RECOVERY_MOVES = [
-	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'strengthsap', 'synthesis',
+	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'strengthsap', 'synthesis', 'lifedew', 'rebuild', 'junglehealing', 'rekindle',
 ];
 // Moves that drop stats:
 const CONTRARY_MOVES = [
@@ -66,7 +66,7 @@ const PHYSICAL_SETUP = [
 ];
 // Moves which boost Special Attack:
 const SPECIAL_SETUP = [
-	'calmmind', 'chargebeam', 'geomancy', 'nastyplot', 'quiverdance', 'tailglow', 'torchsong',
+	'calmmind', 'chargebeam', 'geomancy', 'nastyplot', 'quiverdance', 'tailglow', 'torchsong', 'takeheart',
 ];
 // Moves that boost Attack AND Special Attack:
 const MIXED_SETUP = [
@@ -80,10 +80,10 @@ const SPEED_SETUP = [
 const SETUP = [
 	'acidarmor', 'agility', 'autotomize', 'bellydrum', 'bulkup', 'calmmind', 'clangoroussoul', 'coil', 'cosmicpower', 'curse',
 	'dragondance', 'flamecharge', 'growth', 'honeclaws', 'howl', 'irondefense', 'meditate', 'nastyplot', 'noretreat', 'poweruppunch',
-	'quiverdance', 'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'tidyup', 'trailblaze', 'workup', 'victorydance',
+	'quiverdance', 'rockpolish', 'shellsmash', 'shiftgear', 'swordsdance', 'tailglow', 'tidyup', 'trailblaze', 'workup', 'victorydance', 'takeheart',
 ];
 const SPEED_CONTROL = [
-	'electroweb', 'glare', 'icywind', 'lowsweep', 'quash', 'rocktomb', 'stringshot', 'tailwind', 'thunderwave', 'trickroom',
+	'electroweb', 'glare', 'icywind', 'lowsweep', 'quash', 'rocktomb', 'stringshot', 'tailwind', 'thunderwave', 'trickroom', 'rootpull',
 ];
 // Moves that shouldn't be the only STAB moves:
 const NO_STAB = [
@@ -91,11 +91,11 @@ const NO_STAB = [
 	'dragontail', 'doomdesire', 'electroweb', 'eruption', 'explosion', 'fakeout', 'feint', 'flamecharge', 'flipturn', 'futuresight',
 	'grassyglide', 'iceshard', 'icywind', 'incinerate', 'infestation', 'machpunch', 'meteorbeam', 'mortalspin', 'nuzzle', 'pluck', 'pursuit',
 	'quickattack', 'rapidspin', 'reversal', 'selfdestruct', 'shadowsneak', 'skydrop', 'snarl', 'strugglebug', 'suckerpunch', 'uturn',
-	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout',
+	'vacuumwave', 'voltswitch', 'watershuriken', 'waterspout', 'snatch',
 ];
 // Hazard-setting moves
 const HAZARDS = [
-	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes',
+	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes', 'healingstones',
 ];
 // Protect and its variants
 const PROTECT_MOVES = [
@@ -103,7 +103,7 @@ const PROTECT_MOVES = [
 ];
 // Moves that switch the user out
 const PIVOT_MOVES = [
-	'chillyreception', 'flipturn', 'partingshot', 'shedtail', 'teleport', 'uturn', 'voltswitch',
+	'chillyreception', 'flipturn', 'partingshot', 'shedtail', 'teleport', 'uturn', 'voltswitch', 'rollout', 'round',
 ];
 
 // Moves that should be paired together when possible
@@ -541,7 +541,7 @@ export class RandomTeams {
 			['aquajet', 'flipturn'],
 			['gigadrain', 'leafstorm'],
 			['powerwhip', 'hornleech'],
-			[['airslash', 'bravebird', 'hurricane'], ['airslash', 'bravebird', 'hurricane']],
+			[['airslash', 'bravebird', 'hurricane', 'windbreaker'], ['airslash', 'bravebird', 'hurricane', 'windbreaker']],
 			['knockoff', 'foulplay'],
 			['throatchop', ['crunch', 'lashout']],
 			['doubleedge', ['bodyslam', 'headbutt']],
@@ -552,8 +552,14 @@ export class RandomTeams {
 			['aurasphere', 'focusblast'],
 			['closecombat', 'drainpunch'],
 			['bugbite', 'pounce'],
-			[['dragonpulse', 'spacialrend'], 'dracometeor'],
+			[['dragonpulse', 'spacialrend', 'dragonrage'], 'dracometeor'],
 			['alluringvoice', 'dazzlinggleam'],
+			['washaway', ['scald', 'hydropump']],
+			['falsesurrender', 'knockoff'],
+			['peekaboo', 'playrough'],
+			['latentvenom', 'futuresight'],
+			['drainpunch', 'stormthrow'],
+			['snatch', 'suckerpunch'],
 
 			// These status moves are redundant with each other
 			['taunt', 'disable'],
@@ -748,6 +754,14 @@ export class RandomTeams {
 			}
 			if (movePool.includes('defog')) {
 				counter = this.addMove('defog', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
+			if (movePool.includes('washaway')) {
+				counter = this.addMove('washaway', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
+			if (movePool.includes('shelter')) {
+				counter = this.addMove('shelter', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
 			}
 		}
@@ -1149,12 +1163,11 @@ export class RandomTeams {
 		if (abilityData.length <= 1) return abilityData[0].name;
 
 		// Hard-code abilities here
-		if (species.id === 'florges') return 'Flower Veil';
+		if (species.id === 'florges') return 'Grass Pelt';
 		if (species.id === 'bombirdier' && !counter.get('Rock')) return 'Big Pecks';
 		if (species.id === 'scovillain') return 'Chlorophyll';
 		if (species.id === 'empoleon') return 'Competitive';
 		if (species.id === 'swampert' && !counter.get('Water') && !moves.has('flipturn')) return 'Damp';
-		if (species.id === 'dodrio') return 'Early Bird';
 		if (species.id === 'chandelure') return 'Flash Fire';
 		if (species.id === 'golemalola' && moves.has('doubleedge')) return 'Galvanize';
 		if (abilities.has('Guts') && (moves.has('facade') || moves.has('sleeptalk') || species.id === 'gurdurr')) return 'Guts';
@@ -1169,6 +1182,10 @@ export class RandomTeams {
 		if (species.id === 'dipplin') return 'Sticky Hold';
 		if (species.id === 'breloom' || species.id === 'cinccino') return 'Technician';
 		if (species.id === 'shiftry' && moves.has('tailwind')) return 'Wind Rider';
+		if (species.id === 'golduck' || species.id === 'vaporeon') return 'Mud Wash';
+		if (species.id === 'dodrio') return 'Muscle Memory';
+		if (species.id === 'wochien') return 'Shield Dust';
+		if ((species.id === 'farigiraf' && role === 'Fast Support') || species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Cud Chew';
 
 		// singles
 		if (!isDoubles) {
@@ -1291,7 +1308,28 @@ export class RandomTeams {
 		role: RandomTeamsTypes.Role,
 	) {
 		if (!isDoubles) {
-			if (role === 'Fast Bulky Setup' && (ability === 'Quark Drive' || ability === 'Protosynthesis')) {
+			if (
+				(species.id === 'greattusk' && ability === 'Protocrysalis') || 
+				(species.id === 'brutebonnet' && ability === 'Protosmosis') || 
+				(species.id === 'sandyshocks' && ability === 'Protocrysalis') || 
+				(species.id === 'screamtail' && ability === 'Protosmosis') || 
+				(species.id === 'fluttermane' && ability === 'Protostasis') || 
+				(species.id === 'slitherwing' && ability === 'Protosynthesis') || 
+				(species.id === 'roaringmoon' && ability === 'Protostasis') || 
+				(species.id === 'walkingwake' && ability === 'Protosynthesis') || 
+				(species.id === 'irontreads' && ability === 'Rune Drive') || 
+				(species.id === 'ironvaliant' && ability === 'Rune Drive') || 
+				(species.id === 'ironmoth' && ability === 'Photon Drive') || 
+				(species.id === 'ironhands' && ability === 'Photon Drive') || 
+				(species.id === 'ironjugulis' && ability === 'Neuron Drive') || 
+				(species.id === 'ironthorns' && ability === 'Quark Drive') || 
+				(species.id === 'ironbundle' && ability === 'Neuron Drive') || 
+				(species.id === 'ironleaves' && ability === 'Quark Drive') || 
+				(species.id === 'ironcrown' && ability === 'Quark Drive') || 
+				(species.id === 'ironboulder' && ability === 'Quark Drive') || 
+				(species.id === 'gougingfire' && ability === 'Protosynthesis') || 
+				(species.id === 'ragingbolt' && ability === 'Protosynthesis')
+			) {
 				return 'Booster Energy';
 			}
 			if (species.id === 'lokix') {
@@ -1311,6 +1349,14 @@ export class RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
+		if (species.id === 'wiggltuff') return 'Tuffy-Tuff';
+		if (species.id === 'diancie') return 'Diancite Stone Fragment';
+		if (species.id === 'palafin') return 'Hero\'s Bubble';
+		if (species.id === 'spiritomb' && role !== 'Wallbreaker') return 'Odd Keystone';
+		if (species.id === 'charizard' && role === 'Fast Attacker') return 'Charizardite Shard Y';
+		if (species.id === 'charizard' && role === 'Setup Sweeper') return 'Charizardite Shard X';
+		if (species.id === 'hippowdon' && this.randomChance(1, 2)) return 'Walkie-Talkie';
+		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) return 'Tera Shard';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
@@ -1332,11 +1378,16 @@ export class RandomTeams {
 		) return 'Heavy-Duty Boots';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
-			['Cheek Pouch', 'Cud Chew', 'Harvest', 'Ripen'].some(m => ability === m) ||
+			['Cheek Pouch', 'Harvest', 'Ripen'].some(m => ability === m) ||
 			moves.has('bellydrum') || moves.has('filletaway')
 		) {
 			return 'Sitrus Berry';
 		}
+		if (species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Aguav Berry';
+		if (species.id === 'trevenant' && role === 'Wallbreaker') return 'Liechi Berry';
+		if (species.id === 'farigiraf' && role === 'Fast Support') return 'Starf Berry';
+		if (species.id === 'klefki' && role === 'Bulky Setup') return 'Kee Berry';
+		if (species.id === 'landorus' && role === 'Fast Bulky Setup') return 'Lansat Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
@@ -1366,6 +1417,12 @@ export class RandomTeams {
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
 		if (ability === 'Gluttony') return `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
+		if (
+			species.id === 'wochien' || species.id === 'porygonz' || species.id === 'garganacl' || species.id === 'avalugg' ||
+			species.id === 'coalossal' || (species.id === 'rayquaza' && role === 'Fast Attacker') ||
+			(species.id === 'hydreigon' && role === 'Setup Sweeper') || (species.id === 'slitherwing' && role === 'Bulky Setup') ||
+			(species.id === 'ironvaliant' && role === 'Fast Bulky Setup')
+		) return 'Tera Shard';
 		if (
 			moves.has('rest') && !moves.has('sleeptalk') &&
 			ability !== 'Natural Cure' && ability !== 'Shed Skin'
