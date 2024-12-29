@@ -553,7 +553,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onStart(pokemon) {
 			console.log(pokemon + "'s nature is " + pokemon.getNature().name);
-			pokemon.nature = 'Serious';
+			pokemon.set.nature = 'Serious';
 			console.log("Now, " + pokemon + "'s nature is " + pokemon.getNature().name);
 		},
 		onResidual(pokemon) {},
