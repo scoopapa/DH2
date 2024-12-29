@@ -552,9 +552,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			return this.chainModify(1.1);
 		},
 		onStart(pokemon) {
-			console.log(pokemon + "'s nature is " + pokemon.nature);
+			console.log(pokemon + "'s nature is " + pokemon.getNature().name);
 			pokemon.nature = 'Serious';
-			console.log("Now, " + pokemon + "'s nature is " + pokemon.nature);
+			console.log("Now, " + pokemon + "'s nature is " + pokemon.getNature().name);
 		},
 		onResidual(pokemon) {},
 		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",

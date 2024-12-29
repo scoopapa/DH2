@@ -613,18 +613,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		inherit: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hasType('Fighting')) {
+			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
 				return this.chainModify(1.3);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			if (pokemon.hasType('Fighting')) {
+			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
 				return this.chainModify(1.3);
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (!pokemon.hasType('Fighting')) {
+			if (!pokemon.hasType('Fighting') && !pokemon.hasAbility('Klutz')) {
 				return this.chainModify(0.5);
 			}
 		},
