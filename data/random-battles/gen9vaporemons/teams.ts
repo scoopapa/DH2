@@ -1157,7 +1157,15 @@ export class RandomTeams {
 		if (role === 'AV Pivot') return 'Assault Vest';
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
+		if (species.id === 'wiggltuff') return 'Tuffy-Tuff';
+		if (species.id === 'diancie') return 'Diancite Stone Fragment';
+		if (species.id === 'palafin') return 'Hero\'s Bubble';
+		if (species.id === 'spiritomb' && role !== 'Wallbreaker') return 'Odd Keystone';
+		if (species.id === 'charizard' && role === 'Fast Attacker') return 'Charizardite Shard Y';
+		if (species.id === 'charizard' && role === 'Setup Sweeper') return 'Charizardite Shard X';
 		if (species.id === 'smeargle') return 'Focus Sash';
+		if (species.id === 'hippowdon' && this.randomChance(1, 2)) ? 'Leftovers' : 'Walkie-Talkie';
+		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) ? 'Heavy-Duty Boots' : 'Tera Shard';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
@@ -1179,11 +1187,16 @@ export class RandomTeams {
 		) return 'Heavy-Duty Boots';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
-			['Cheek Pouch', 'Cud Chew', 'Harvest', 'Ripen'].some(m => ability === m) ||
+			['Cheek Pouch', 'Harvest', 'Ripen'].some(m => ability === m) ||
 			moves.has('bellydrum') || moves.has('filletaway')
 		) {
 			return 'Sitrus Berry';
 		}
+		if (species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Aguav Berry';
+		if (species.id === 'trevenant' && role === 'Wallbreaker') return 'Liechi Berry';
+		if (species.id === 'farigiraf' && role === 'Fast Support') return 'Starf Berry';
+		if (species.id === 'klefki' && role === 'Bulky Setup') return 'Kee Berry';
+		if (species.id === 'landorus' && role === 'Fast Bulky Setup') return 'Lansat Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
@@ -1213,6 +1226,12 @@ export class RandomTeams {
 		if (moves.has('acrobatics') && ability !== 'Protosynthesis') return '';
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
 		if (ability === 'Gluttony') return `${this.sample(['Aguav', 'Figy', 'Iapapa', 'Mago', 'Wiki'])} Berry`;
+		if (
+			species.id === 'wochien' || species.id === 'porygonz' || species.id === 'garganacl' || species.id === 'avalugg' ||
+			species.id === 'coalossal' || (species.id === 'rayquaza' && role === 'Fast Attacker') ||
+			(species.id === 'hydreigon' && role === 'Setup Sweeper') || (species.id === 'slitherwing' && role === 'Bulky Setup') ||
+			(species.id === 'ironvaliant' && role === 'Fast Bulky Setup')
+		) return 'Tera Shard';
 		if (
 			moves.has('rest') && !moves.has('sleeptalk') &&
 			ability !== 'Natural Cure' && ability !== 'Shed Skin'
