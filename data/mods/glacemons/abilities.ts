@@ -553,8 +553,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onStart(pokemon) {
 			console.log(pokemon + "'s nature is " + pokemon.getNature().name);
+			console.log(pokemon + "'s Speed is " + pokemon.storedStats.spe);
 			pokemon.set.nature = 'Serious';
 			console.log("Now, " + pokemon + "'s nature is " + pokemon.getNature().name);
+			console.log("And " + pokemon + "'s Speed is " + pokemon.storedStats.spe);
 		},
 		onResidual(pokemon) {},
 		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
