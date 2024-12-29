@@ -4822,7 +4822,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Leaf Blade", "Poltergeist", "Shadow Sneak", "Swords Dance"],
+                "movepool": ["Leaf Storm", "Shadow Ball", "Vacuum Wave", "Roost"],
                 "teraTypes": ["Ghost"]
             }
         ]
@@ -4832,7 +4832,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Defog", "Knock Off", "Leaf Blade", "Roost", "Sucker Punch", "Swords Dance", "Triple Arrows", "U-turn"],
+                "movepool": ["Defog", "Knock Off", "Poltergeist", "Roost", "Sucker Punch", "Swords Dance", "Triple Arrows", "U-turn"],
                 "teraTypes": ["Steel"]
             }
         ]
