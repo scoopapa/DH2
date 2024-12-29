@@ -1424,7 +1424,7 @@ export class RandomTeams {
 			(species.id === 'ironvaliant' && role === 'Fast Bulky Setup')
 		) return 'Tera Shard';
 		if (
-			(species.id === 'darkrai' && role === 'Fast Attacker') || (species.id === 'magearna' && role === 'Bulky Setup')
+			(species.id === 'darkrai' && role === 'Fast Attacker') || (species.id === 'magearna' && role === 'Bulky Setup') ||
 			(species.id === 'dragonite' && role === 'Setup Sweeper') || (species.id === 'deoxysattack' && role === 'Wallbreaker') ||
 			(species.id === 'deoxysspeed' && role === 'Setup Sweeper')
 		) return 'Tie-Dye Band';
