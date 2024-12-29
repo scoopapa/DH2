@@ -1089,6 +1089,7 @@ export class RandomTeams {
 		if (species.id === 'golduck' || species.id === 'vaporeon') return 'Mud Wash';
 		if (species.id === 'dodrio') return 'Muscle Memory';
 		if (species.id === 'wochien') return 'Shield Dust';
+		if ((species.id === 'farigiraf' && role === 'Fast Support') || species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Cud Chew';
 
 		// ffa abilities that differ from doubles
 		if (this.format.gameType === 'freeforall') {
