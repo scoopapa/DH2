@@ -987,20 +987,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onAfterMega(pokemon) {
-			console.log(pokemon.set.ability);
-			console.log(pokemon.baseSpecies.baseSpecies.abilities);
-			console.log(pokemon.baseSpecies.abilities);
-			// let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-			// console.log("The ability is " + newAbility);
-			// const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
-			console.log(pokemon.set.ability);
-			console.log(pokemon.baseSpecies.baseSpecies.abilities);
-			console.log(pokemon.baseSpecies.abilities);
-		// 	let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-		// 	console.log("The ability is " + newAbility);
-		// 	const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
 		num: -15,
