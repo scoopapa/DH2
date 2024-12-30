@@ -987,12 +987,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onAfterMega(pokemon) {
-			let newAbility = pokemon.baseSpecies.baseSpecies.abilities['0'];
+			let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			console.log("The ability is " + newAbility);
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
-			let newAbility = pokemon.baseSpecies.baseSpecies.abilities['0'];
+			let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
@@ -1007,21 +1007,21 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onAfterMega(pokemon) {
 			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities['1']) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['0'];
+			if (!pokemon.baseSpecies.baseSpecies.abilities[1]) {
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			}
 			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['1'];
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[1];
 			}
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
 			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities['1']) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['0'];
+			if (!pokemon.baseSpecies.baseSpecies.abilities[1]) {
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			}
 			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['1'];
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[1];
 			}
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
@@ -1037,21 +1037,21 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onAfterMega(pokemon) {
 			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities['H']) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['0'];
+			if (!pokemon.baseSpecies.baseSpecies.abilities[H]) {
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			}
 			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['H'];
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[H];
 			}
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
 			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities['H']) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['0'];
+			if (!pokemon.baseSpecies.baseSpecies.abilities[H]) {
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			}
 			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities['H'];
+				newAbility = pokemon.baseSpecies.baseSpecies.abilities[H];
 			}
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
