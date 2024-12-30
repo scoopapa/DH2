@@ -4224,13 +4224,13 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Close Combat", "Earthquake", "Stone Edge", "Swords Dance"],
+                "movepool": ["Close Combat", "Earthquake", "Chisel", "Swords Dance"],
                 "abilities": ["Muscle Memory"],
                 "teraTypes": ["Fighting", "Ground"]
             },
             {
                 "role": "Wallbreaker",
-                "movepool": ["Close Combat", "Earthquake", "Iron Head", "Stone Edge"],
+                "movepool": ["Close Combat", "Earthquake", "Iron Head", "Chisel", "Accelerock"],
                 "abilities": ["Muscle Memory"],
                 "teraTypes": ["Fighting", "Ground"]
             }
