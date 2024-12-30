@@ -139,7 +139,22 @@ export const Scripts: ModdedBattleScriptsData = {
 	
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
-		}
+		},
+
+		canMegaEvo(pokemon) {
+			const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
+			const item = pokemon.getItem();
+			if (
+			  altForme?.isMega && altForme?.requiredMove &&
+			  pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
+			) {
+			  return altForme.name;
+			}
+			if (altForme?.isMega && (item.name === 'Parallel Mega Orb 0' || item.name === 'Parallel Mega Orb 1' || item.name === 'Parallel Mega Orb H')) {
+				return altForme.name;
+			}
+			return item.megaStone;
+		  },
 	},
 
 	init() {
