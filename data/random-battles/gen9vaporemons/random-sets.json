@@ -1835,6 +1835,16 @@
             }
         ]
     },
+    "combusken": {
+        "level": 93,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Close Combat", "Flare Blitz", "Protect", "Swords Dance"],
+                "teraTypes": ["Dark", "Fighting"]
+            }
+        ]
+    },
     "blaziken": {
         "level": 76,
         "sets": [
