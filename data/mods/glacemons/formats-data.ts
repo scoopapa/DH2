@@ -725,7 +725,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kangaskhanmega: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	horsea: {
 		inherit: true,
@@ -2021,7 +2021,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	salamencemega: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	beldum: {
 		inherit: true,
@@ -2037,7 +2037,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	metagrossmega: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	regirock: {
 		inherit: true,
