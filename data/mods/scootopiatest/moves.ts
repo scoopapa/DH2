@@ -68,6 +68,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon,'blessedfield')) return;
 				this.heal(pokemon.maxhp / 8);
+				pokemon.m.fieldTurns = 0;
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
@@ -132,8 +133,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.m.fieldTurns = 0;
 				}
 				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofmeteors')) return;
-				let dmgDiv = 8;
-				if (pokemon.hasAbility("overcoat") || pokemon.hasType("Rock") || pokemon.hasType("Steel")) dmgDiv = 16;
+				let dmgDiv = 16;
 				console.log(dmgDiv + ' ' + pokemon.name);
 				this.damage(pokemon.maxhp / dmgDiv);
 			},
@@ -788,18 +788,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 10,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	sleeppowder: {
 		inherit: true,
 		pp: 15,
 		accuracy: 90,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	hypnosis: {
 		inherit: true,
 		pp: 20,
 		accuracy: 85,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	grasswhistle: {
 		inherit: true,
@@ -807,6 +810,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 25,
 		accuracy: 80,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	
 	

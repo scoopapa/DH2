@@ -62,6 +62,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				case 'rainofmeteors':
 					if ( ability == 'celestial' 
 						|| ability == 'fallingstar' 
+						|| ability == 'overcoat'
+						|| pokemon.hasType("Fairy")
 					) return true;
 				break;
 				case 'blessedfield':
@@ -103,6 +105,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "harzodia").learnset.stellaralignment = ["9L1"];
 		// Minillow
 		this.modData("Learnsets", "minillow").learnset.rebalance = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.healingwish = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.whirlwind = ["9L1"];
+		delete this.modData("Learnsets", "minillow").learnset.calmmind;
 		// Sturgard
 		this.modData("Learnsets", "sturgard").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "sturgard").learnset.rainofdew = ["9L1"];
