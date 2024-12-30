@@ -577,7 +577,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gengar: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "(OU)",
 	},
 	gengarmega: {
 		inherit: true,
@@ -1509,7 +1509,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	obstagoon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	wurmple: {
 		inherit: true,
@@ -2325,7 +2325,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	garchompmega: {
 		inherit: true,
-		tier: "(OU)",
+		tier: "OU",
 	},
 	riolu: {
 		inherit: true,
@@ -2345,7 +2345,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hippowdon: {
 		inherit: true,
-		tier: "UU",
+		tier: "(OU)",
 	},
 	skorupi: {
 		inherit: true,
@@ -3561,7 +3561,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	incineroar: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	popplio: {
 		inherit: true,
@@ -3985,7 +3985,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zeraora: {
 		inherit: true,
-		tier: "UU",
+		tier: "(OU)",
 	},
 	meltan: {
 		inherit: true,
