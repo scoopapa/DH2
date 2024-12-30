@@ -986,11 +986,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			if (source.canMegaEvo) return false;
 			return true;
 		},
-		// onAfterMega(pokemon) {
-		// 	let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-		// 	console.log("The ability is " + newAbility);
-		// 	const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-		// },
+		onAfterMega(pokemon) {
+			console.log(pokemon.baseSpecies.baseSpecies.abilities);
+			console.log(pokemon.baseSpecies.abilities);
+			// let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
+			// console.log("The ability is " + newAbility);
+			// const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+		},
 		onStart(pokemon) {
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
