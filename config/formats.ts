@@ -4261,7 +4261,7 @@ export const Formats: FormatList = [
 		},
 	},*/
 	{
-		name: "[Gen 9] VaporeMons Random Battle",
+		name: "[Gen 9] VaporeMons Random Battle (Beta)",
 		desc: [
 			"<b>VaporeMons</b>: The third mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
 		],
