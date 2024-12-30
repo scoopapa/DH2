@@ -452,7 +452,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Rebalance",
 		accuracy: 100,
 		basePower: 110,
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTry(pokemon) {
