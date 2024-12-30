@@ -450,6 +450,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Clears World Effects. Fails if no World Effect",
 		category: "Special",
 		name: "Rebalance",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Expanding Force ' + move.type);
+		},
 		accuracy: 100,
 		basePower: 110,
 		pp: 10,
@@ -465,7 +468,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(pokemon));
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacent",
 		type: "Psychic",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
@@ -508,6 +511,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "User switches. Sets World Effect from user's moveset.",
 		category: "Status",
 		name: "Legacy Shade",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Chilly Reception ' + move.type);
+		},
 		pp: 5,
 		priority: 0,
 		flags: {},
@@ -627,7 +633,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.type = 'Ice';
 				break;
 			}
-			if (move.type == 'Normal' && this.dex.dataCache.scootopia.getWorldEffect() === 'rainofdew') move.type = 'Water';
+			if (move.type == 'Normal' && this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'rainofdew') move.type = 'Water';
 		},
 		onModifyMove(move, pokemon) {
 			switch (pokemon.effectiveWeather()) {
@@ -648,7 +654,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				break;
 			}
 			this.debug('BP: ' + move.basePower);
-			if (move.basePower == 50 && this.dex.dataCache.scootopia.getWorldEffect() === 'rainofdew') move.basePower *= 2;
+			if (move.basePower == 50 && this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'rainofdew') move.basePower *= 2;
 		},
 	},
 	
@@ -659,7 +665,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect(attacker) === 'stellaralignment') {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -679,7 +685,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect() === 'stellaralignment') {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect(attacker) === 'stellaralignment') {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
