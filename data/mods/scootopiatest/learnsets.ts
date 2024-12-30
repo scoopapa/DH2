@@ -96,6 +96,7 @@ export const Learnsets = {
 	},
 	sturgard: {
 		learnset: {
+			facade: ["9L1"],
 			substitute: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
@@ -129,6 +130,7 @@ export const Learnsets = {
 	barbolt: {
 		learnset: {
 			substitute: ["9L1"],
+			facade: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -196,6 +198,7 @@ export const Learnsets = {
 	eleqwil: {
 		learnset: {
 			substitute: ["9L1"],
+			facade: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -430,6 +433,7 @@ export const Learnsets = {
 			assurance: ["9L1"],
 			hyperbeam: ["9L1"],
 			gigaimpact: ["9L1"],
+			facade: ["9L1"],
 		},
 	},
 	coraking: {
@@ -538,6 +542,7 @@ export const Learnsets = {
 	pyrove: {
 		learnset: {
 			substitute: ["9L1"],
+			facade: ["9L1"],
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -627,6 +632,7 @@ export const Learnsets = {
 			acidarmor: ["9L1"],
 			corrosivegas: ["9L1"],
 			rebalance: ["9L1"],
+			facade: ["9L1"],
 		},
 	},
 	enkappa: {
@@ -663,6 +669,7 @@ export const Learnsets = {
 			sleeptalk: ["9L1"],
 			round: ["9L1"],
 			endure: ["9L1"],
+			facade: ["9L1"],
 		},
 	},
 	himalao: {
@@ -701,6 +708,7 @@ export const Learnsets = {
 			powdersnow: ["9L1"],
 			karatechop: ["9L1"],
 			submission: ["9L1"],
+			facade: ["9L1"],
 		},
 	},
 	stonehusk: {
@@ -744,6 +752,7 @@ export const Learnsets = {
 			explosion: ["9L1"],
 			swordsdance: ["9L1"],
 			rockwrecker: ["9L1"],
+			facade: ["9L1"],
 		},
 	},
 	zephyrmine: {
@@ -781,6 +790,7 @@ export const Learnsets = {
 			sunnyday: ["9L1"],
 			ancientpower: ["9L1"],
 			defog: ["9L1"],
+			facade: ["9L1"],
 		},
 	},
 	boreasel: {
@@ -791,6 +801,7 @@ export const Learnsets = {
 			sleeptalk: ["9L1"],
 			round: ["9L1"],
 			endure: ["9L1"],
+			facade: ["9L1"],
 			icebeam: ["9L1"],
 			blizzard: ["9L1"],
 			hurricane: ["9L1"],
@@ -822,6 +833,7 @@ export const Learnsets = {
 		learnset: {
 			taunt: ["9L1"],
 			imprison: ["9L1"],
+			facade: ["9L1"],
 			trickroom: ["9L1"],
 			lightscreen: ["9L1"],
 			reflect: ["9L1"],
@@ -893,6 +905,7 @@ export const Learnsets = {
 			superpower: ["9L1"],
 			stoneedge: ["9L1"],
 			rockslide: ["9L1"],
+			facade: ["9L1"],
 			heavyslam: ["9L1"],
 			flashcannon: ["9L1"],
 			ironhead: ["9L1"],
@@ -942,6 +955,7 @@ export const Learnsets = {
 			sleeptalk: ["9L1"],
 			round: ["9L1"],
 			endure: ["9L1"],
+			facade: ["9L1"],
 			knockoff: ["9L1"],
 			suckerpunch: ["9L1"],
 			darkestlariat: ["9L1"],
@@ -974,6 +988,7 @@ export const Learnsets = {
 			sleeptalk: ["9L1"],
 			round: ["9L1"],
 			endure: ["9L1"],
+			facade: ["9L1"],
 			dualwingbeat: ["9L1"],
 			acrobatics: ["9L1"],
 			liquidation: ["9L1"],
@@ -1027,6 +1042,7 @@ export const Learnsets = {
 			doubleedge: ["9L1"],
 			shadowsneak: ["9L1"],
 			dracometeor: ["9L1"],
+			facade: ["9L1"],
 			dragonpulse: ["9L1"],
 			shadowball: ["9L1"],
 			hex: ["9L1"],
@@ -1051,6 +1067,7 @@ export const Learnsets = {
 			mistyterrain: ["9L1"],
 			psychicterrain: ["9L1"],
 			ancientpower: ["9L1"],
+			teleport: ["9L1"],
 		},
 	},
 	cyromebook: {
@@ -1078,6 +1095,7 @@ export const Learnsets = {
 			mysticalfire: ["9L1"],
 			calmmind: ["9L1"],
 			trickroom: ["9L1"],
+			facade: ["9L1"],
 			willowisp: ["9L1"],
 			partingshot: ["9L1"],
 			destinybond: ["9L1"],
@@ -1090,11 +1108,48 @@ export const Learnsets = {
 			mistyterrain: ["9L1"],
 			psychicterrain: ["9L1"],
 			ancientpower: ["9L1"],
+			teleport: ["9L1"],
 		},
 	},
 	cyromeauthor: {
 		learnset: {
-
+			substitute: ["9L1"],
+			protect: ["9L1"],
+			rest: ["9L1"],
+			sleeptalk: ["9L1"],
+			round: ["9L1"],
+			endure: ["9L1"],
+			poltergeist: ["9L1"],
+			shadowclaw: ["9L1"],
+			doubleedge: ["9L1"],
+			shadowsneak: ["9L1"],
+			dracometeor: ["9L1"],
+			dragonpulse: ["9L1"],
+			shadowball: ["9L1"],
+			hex: ["9L1"],
+			ominouswind: ["9L1"],
+			triattack: ["9L1"],
+			hypervoice: ["9L1"],
+			hyperbeam: ["9L1"],
+			gigaimpact: ["9L1"],
+			wringout: ["9L1"],
+			mysticalfire: ["9L1"],
+			calmmind: ["9L1"],
+			trickroom: ["9L1"],
+			facade: ["9L1"],
+			willowisp: ["9L1"],
+			partingshot: ["9L1"],
+			destinybond: ["9L1"],
+			raindance: ["9L1"],
+			sunnyday: ["9L1"],
+			snowscape: ["9L1"],
+			sandstorm: ["9L1"],
+			grassyterrain: ["9L1"],
+			electricterrain: ["9L1"],
+			mistyterrain: ["9L1"],
+			psychicterrain: ["9L1"],
+			ancientpower: ["9L1"],
+			teleport: ["9L1"],
 		},
 	},
 
