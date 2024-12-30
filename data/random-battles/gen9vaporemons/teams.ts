@@ -1426,7 +1426,7 @@ export class RandomTeams {
 		if (
 			(species.id === 'darkrai' && role === 'Fast Attacker') || (species.id === 'magearna' && role === 'Bulky Setup') ||
 			(species.id === 'dragonite' && role === 'Setup Sweeper') || (species.id === 'deoxysattack' && role === 'Wallbreaker') ||
-			(species.id === 'deoxysspeed' && role === 'Setup Sweeper')
+			(species.id === 'deoxysspeed' && role === 'Setup Sweeper') || (species.id === 'dragapult' && role === 'Wallbreaker')
 		) return 'Tie-Dye Band';
 		if (
 			moves.has('rest') && !moves.has('sleeptalk') &&
