@@ -980,8 +980,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		shortDesc: "User's physical and special moves can't miss, but their secondary effects are removed.",
 	},
 	// Slate 6
-	parallelmegaorb0: { 
-		name: "Parallel Mega Orb 0",
+	parallelmegaorb: { 
+		name: "Parallel Mega Orb",
 		onTakeItem(item, source) {
 			if (source.canMegaEvo) return false;
 			return true;
@@ -996,66 +996,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
 		num: -15,
-		gen: 9,
-	},
-	parallelmegaorb1: { 
-		name: "Parallel Mega Orb 1",
-		onTakeItem(item, source) {
-			if (source.canMegaEvo) return false;
-			return true;
-		},
-		onAfterMega(pokemon) {
-			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities[1]) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-			}
-			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[1];
-			}
-			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-		},
-		onStart(pokemon) {
-			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities[1]) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-			}
-			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[1];
-			}
-			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-		},
-		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-		num: -16,
-		gen: 9,
-	},
-	parallelmegaorbH: { 
-		name: "Parallel Mega Orb H",
-		onTakeItem(item, source) {
-			if (source.canMegaEvo) return false;
-			return true;
-		},
-		onAfterMega(pokemon) {
-			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities[H]) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-			}
-			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[H];
-			}
-			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-		},
-		onStart(pokemon) {
-			let newAbility;
-			if (!pokemon.baseSpecies.baseSpecies.abilities[H]) {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
-			}
-			else {
-				newAbility = pokemon.baseSpecies.baseSpecies.abilities[H];
-			}
-			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
-		},
-		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-		num: -17,
 		gen: 9,
 	},
 	legendplate: {
@@ -1084,7 +1024,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(1.2);
 			}
 		},
-		num: -18,
+		num: -16,
 		gen: 9,
 		shortDesc: "Holder becomes its Tera Type on switch-in. Moves of the new type are x1.2. STABs are x1.2 if the new type is Stellar.",
 		rating: 3,
@@ -1108,7 +1048,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				move.category = 'Physical';
 			}
 		},
-		num: -19,
+		num: -17,
 		shortDesc: "Holder's ball/bomb moves have 1.3x power, and are physical.",
 		gen: 9,
 	},
@@ -1125,7 +1065,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		rating: 3,
-		num: -20,
+		num: -18,
 	},
 	neutralizer: {
 		fling: {
@@ -1141,7 +1081,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		name: "Neutralizer",
 		rating: 4,
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
-		num: -21,
+		num: -19,
 	},
 	greniniumz: {
 		name: "Greninium Z",
@@ -1153,7 +1093,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onAfterMove(pokemon) {
 			pokemon.formeChange('Greninja-Ash');
 		},
-		num: -23,
+		num: -21,
 		gen: 9,
 		shortDesc: "If held by a Greninja-Bond with Water Shuriken, it can use Bond Slicing Shuriken. After the Z-move is used, transforms into Greninja-Ash.",
 	},
