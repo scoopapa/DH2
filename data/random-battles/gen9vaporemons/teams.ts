@@ -1184,6 +1184,7 @@ export class RandomTeams {
 		if (species.id === 'shiftry' && moves.has('tailwind')) return 'Wind Rider';
 		if (species.id === 'golduck' || species.id === 'vaporeon') return 'Mud Wash';
 		if (species.id === 'dodrio') return 'Muscle Memory';
+		if (species.id === 'minior') return 'Cloud Nine';
 		if (species.id === 'wochien') return 'Shield Dust';
 		if ((species.id === 'farigiraf' && role === 'Fast Support') || species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Cud Chew';
 
