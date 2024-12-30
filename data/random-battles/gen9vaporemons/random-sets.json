@@ -6036,7 +6036,7 @@
             },
             {
                 "role": "Bulky Support",
-                "movepool": ["Hex", "Slack Off", "Torch Song", "Will-O-Wisp"],
+                "movepool": ["Hex", "Rekindle", "Torch Song", "Will-O-Wisp"],
                 "teraTypes": ["Ghost", "Water"]
             }
         ]
@@ -6081,7 +6081,7 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Circle Throw", "Knock Off", "Spikes", "Sticky Web", "Toxic Spikes", "U-turn"],
+                "movepool": ["Circle Throw", "Knock Off", "Spikes", "Electroweb", "Toxic Spikes", "U-turn"],
                 "teraTypes": ["Ghost"]
             }
         ]
@@ -6337,12 +6337,12 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Crabhammer", "High Horsepower", "Knock Off", "Stealth Rock", "Stone Edge"],
+                "movepool": ["Crabhammer", "High Horsepower", "Knock Off", "Stealth Rock", "Stone Edge", "Accelerock"],
                 "teraTypes": ["Dark", "Ground", "Rock", "Water"]
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Crabhammer", "High Horsepower", "Knock Off", "Stone Edge", "Swords Dance"],
+                "movepool": ["Crabhammer", "High Horsepower", "Knock Off", "Stone Edge", "Swords Dance", "Accelerock"],
                 "teraTypes": ["Dark", "Ground", "Rock", "Water"]
             }
         ]
@@ -6357,7 +6357,7 @@
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["Energy Ball", "Flamethrower", "Leaf Storm", "Overheat"],
+                "movepool": ["Energy Ball", "Flamethrower", "Rollout", "Overheat"],
                 "teraTypes": ["Fire", "Grass"]
             },
             {
@@ -6372,12 +6372,12 @@
         "sets": [
             {
                 "role": "Bulky Support",
-                "movepool": ["Bug Buzz", "Earth Power", "Psychic", "Revival Blessing", "Trick Room"],
+                "movepool": ["Bug Buzz", "Earth Power", "Psychic", "Revival Blessing", "Trick Room", "Rollout"],
                 "teraTypes": ["Steel"]
             },
             {
                 "role": "Bulky Setup",
-                "movepool": ["Bug Buzz", "Calm Mind", "Earth Power", "Psychic", "Psyshock", "Recover"],
+                "movepool": ["Bug Buzz", "Calm Mind", "Earth Power", "Psycho Boost", "Recover"],
                 "teraTypes": ["Ground", "Steel", "Water"]
             }
         ]
@@ -6459,7 +6459,62 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Gunk Shot", "High Horsepower", "Iron Head", "Shift Gear"],
+                "movepool": ["Noxious Torque", "High Horsepower", "Sharpnel Shot", "Shift Gear"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "revavroomcaph": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Noxious Torque", "High Horsepower", "Combat Torque", "Shift Gear"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "revavroomnavi": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Noxious Torque", "High Horsepower", "Combat Torque", "Shift Gear"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "revavroomschedar": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Blazing Torque", "High Horsepower", "Combat Torque", "Shift Gear"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "revavroomsegin": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Wicked Torque", "High Horsepower", "Noxious Torque", "Shift Gear"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "revavroomruchbah": {
+        "level": 79,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Magical Torque", "High Horsepower", "Combat Torque", "Shift Gear"],
+                "teraTypes": ["Ground"]
+            },
+            {
+                "role": "Fast Support",
+                "movepool": ["Magical Torque", "High Horsepower", "Rapid Spin", "Rollout"],
                 "teraTypes": ["Ground"]
             }
         ]
@@ -6621,7 +6676,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Earthquake", "Glare", "Headbutt", "Roost"],
+                "movepool": ["Earthquake", "Glare", "Headbutt", "Roost", "Rollout"],
                 "teraTypes": ["Ghost", "Ground"]
             },
             {
@@ -7008,7 +7063,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Collision Course", "Flare Blitz", "Outrage", "U-turn"],
+                "movepool": ["Collision Course", "Flare Blitz", "Outrage", "Rollout"],
                 "teraTypes": ["Fire"]
             },
             {
@@ -7023,12 +7078,12 @@
         "sets": [
             {
                 "role": "Fast Bulky Setup",
-                "movepool": ["Calm Mind", "Draco Meteor", "Electro Drift", "Substitute"],
+                "movepool": ["Calm Mind", "Draco Meteor", "Software Crash", "Substitute"],
                 "teraTypes": ["Electric"]
             },
             {
                 "role": "Fast Attacker",
-                "movepool": ["Draco Meteor", "Electro Drift", "Overheat", "Volt Switch"],
+                "movepool": ["Draco Meteor", "Software Crash", "Overheat", "Volt Switch"],
                 "teraTypes": ["Electric"]
             }
         ]
@@ -7226,12 +7281,12 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Close Combat", "Mighty Cleave", "Swords Dance", "Zen Headbutt"],
+                "movepool": ["Sacred Sword", "Mighty Cleave", "Swords Dance", "Cutting Remark"],
                 "teraTypes": ["Fighting"]
             },
             {
-                "role": "Bulky Setup",
-                "movepool": ["Close Combat", "Mighty Cleave", "Swords Dance", "Zen Headbutt"],
+                "role": "Fast Support",
+                "movepool": ["Sacred Sword", "Stone Axe", "Rollout", "Zen Headbutt"],
                 "teraTypes": ["Fighting"]
             }
         ]
@@ -7241,13 +7296,13 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Calm Mind", "Focus Blast", "Psyshock", "Tachyon Cutter", "Volt Switch"],
+                "movepool": ["Calm Mind", "Focus Blast", "Psycho Boost", "Tachyon Cutter", "Volt Switch"],
                 "teraTypes": ["Fighting", "Steel"]
             }
         ]
     },
     "terapagos": {
-        "level": 74,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -7256,7 +7311,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Calm Mind", "Earth Power", "Rapid Spin", "Rest", "Tera Starstorm"],
+                "movepool": ["Rock Polish", "Earth Power", "Meteor Beam", "Tera Starstorm"],
                 "teraTypes": ["Stellar"]
             }
         ]
