@@ -1383,6 +1383,7 @@ export class RandomTeams {
 		) {
 			return 'Sitrus Berry';
 		}
+		if (species.id === 'scyther' || (species.id === 'scizor' && role === 'Wallbreaker') || species.id === 'kleavor') return 'Mantis Claw';
 		if (species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Aguav Berry';
 		if (species.id === 'trevenant' && role === 'Wallbreaker') return 'Liechi Berry';
 		if (species.id === 'farigiraf' && role === 'Fast Support') return 'Starf Berry';
@@ -1399,7 +1400,6 @@ export class RandomTeams {
 			}
 		}
 		if (counter.get('Status') && (species.name === 'Latias' || species.name === 'Latios')) return 'Soul Dew';
-		if (species.id === 'scyther' && !isDoubles) return (isLead && !moves.has('uturn')) ? 'Eviolite' : 'Heavy-Duty Boots';
 		if (species.nfe) return 'Eviolite';
 		if (ability === 'Poison Heal') return 'Toxic Orb';
 		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
