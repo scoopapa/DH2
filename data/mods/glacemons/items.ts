@@ -987,6 +987,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onAfterMega(pokemon) {
+			console.log(pokemon.baseSpecies.baseSpecies);
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
 			// let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
@@ -994,6 +995,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			// const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
+			console.log(pokemon.baseSpecies.baseSpecies);
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
 		// 	let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
