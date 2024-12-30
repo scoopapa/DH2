@@ -987,16 +987,20 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onAfterMega(pokemon) {
+			let theBaseSpecies = pokemon.baseSpecies.baseSpecies;
 			console.log(pokemon.baseSpecies.baseSpecies);
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
+			console.log(theBaseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
 			// let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			// console.log("The ability is " + newAbility);
 			// const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
+			let theBaseSpecies = pokemon.baseSpecies.baseSpecies;
 			console.log(pokemon.baseSpecies.baseSpecies);
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
+			console.log(theBaseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
 		// 	let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 		// 	console.log("The ability is " + newAbility);
