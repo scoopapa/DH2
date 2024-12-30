@@ -987,20 +987,16 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			return true;
 		},
 		onAfterMega(pokemon) {
-			let theBaseSpecies = pokemon.baseSpecies.baseSpecies;
-			console.log(pokemon.baseSpecies.baseSpecies);
+			console.log(pokemon.set.ability);
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
-			console.log(theBaseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
 			// let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 			// console.log("The ability is " + newAbility);
 			// const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
-			let theBaseSpecies = pokemon.baseSpecies.baseSpecies;
-			console.log(pokemon.baseSpecies.baseSpecies);
+			console.log(pokemon.set.ability);
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
-			console.log(theBaseSpecies.abilities);
 			console.log(pokemon.baseSpecies.abilities);
 		// 	let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 		// 	console.log("The ability is " + newAbility);
@@ -1138,6 +1134,22 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		rating: 3,
 		num: -20,
+	},
+	neutralizer: {
+		fling: {
+			basePower: 20,
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.dex.getEffectiveness(move, target) === -1) return;
+			return 0;
+		},
+		// Implemented in scripts.js
+		name: "Neutralizer",
+		rating: 4,
+		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
+		num: -21,
 	},
 	greniniumz: {
 		name: "Greninium Z",

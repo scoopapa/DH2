@@ -14,7 +14,17 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
-		}
+		},
+		runEffectiveness(move: ActiveMove) {
+			let totalTypeMod = 0;
+			for (const type of this.getTypes()) {
+				let typeMod = this.battle.dex.getEffectiveness(move, type);
+				typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
+				totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
+			}
+			if (this.hasItem('Neutralizer') && totalTypeMod > 0) return 0;
+			return totalTypeMod;
+		},
 	},
 
 	actions: {
