@@ -1124,4 +1124,33 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		shortDesc: "Holder's ball/bomb moves have 1.3x power, and are physical.",
 		gen: 9,
 	},
+	gooditem: {
+		name: "Good Item",
+		shortDesc: "Turns into a random item from the Popular Items section.",
+		onStart(pokemon) {
+			const itemList = ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'starfberry', 'choiceband', 'choicespecs', 'choicescarf', 'rockyhelmet', 'heavydutyboots', 'assaultvest', 'cursedbranch', 'lifeorb', 'expertbelt'];
+			const itemIndex = this.random(itemList.length);
+			const itemMade = itemList[itemIndex];
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(itemMade);
+				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Good Item');
+			}
+		},
+		rating: 3,
+		num: -20,
+	},
+	greniniumz: {
+		name: "Greninium Z",
+		spritenum: 652,
+		onTakeItem: false,
+		zMove: "Bond Slicing Shuriken",
+		zMoveFrom: "Water Shuriken",
+		itemUser: ["Greninja-Bond"],
+		onAfterMove(pokemon) {
+			pokemon.formeChange('Greninja-Ash');
+		},
+		num: -23,
+		gen: 9,
+		shortDesc: "If held by a Greninja-Bond with Water Shuriken, it can use Bond Slicing Shuriken. After the Z-move is used, transforms into Greninja-Ash.",
+	},
 };
