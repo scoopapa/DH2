@@ -4390,7 +4390,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			grassknot: ["9L1"],
 			gunkshot: ["9L1"],
 			helpinghand: ["9L1"],
-			irontail: ["9L1"],
 			lastresort: ["9L1"],
 			lemonbash: ["9L1"],
 			naturalgift: ["9L1"],

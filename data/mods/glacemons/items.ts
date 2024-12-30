@@ -993,6 +993,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		// },
 		onStart(pokemon) {
 			console.log(pokemon.baseSpecies.baseSpecies.abilities);
+			console.log(pokemon.baseSpecies.abilities);
 		// 	let newAbility = pokemon.baseSpecies.baseSpecies.abilities[0];
 		// 	console.log("The ability is " + newAbility);
 		// 	const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
