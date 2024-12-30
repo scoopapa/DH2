@@ -383,7 +383,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Corundell",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 75, atk: 105, def: 130, spa: 105, spd: 80, spe: 105},
-		abilities: {0: "Protosynthesis", H: "Lightning Rod"},
+		abilities: {0: "Protosynthesis", H: "Sand Spit"},
 		weightkg: 137,
 	},
 	quadringo: {
@@ -391,7 +391,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Quadringo",
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 80, atk: 120, def: 95, spa: 100, spd: 120, spe: 85},
-		abilities: {0: "Hydration", 1: "Pastel Veil", H: "Inner Focus"},
+		abilities: {0: "Hydration", 1: "Pastel Veil", H: "Overcoat"},
 		weightkg: 156,
 	},
 	zygola: {
