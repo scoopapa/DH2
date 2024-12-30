@@ -988,6 +988,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onAfterMega(pokemon) {
 			let newAbility = pokemon.baseSpecies.abilities['0'];
+			console.log("The ability is " + newAbility);
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		onStart(pokemon) {
@@ -1025,7 +1026,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-		num: -15,
+		num: -16,
 		gen: 9,
 	},
 	parallelmegaorbH: { 
@@ -1055,7 +1056,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
-		num: -15,
+		num: -17,
 		gen: 9,
 	},
 	legendplate: {
@@ -1084,7 +1085,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(1.2);
 			}
 		},
-		num: -16,
+		num: -18,
 		gen: 9,
 		shortDesc: "Holder becomes its Tera Type on switch-in. Moves of the new type are x1.2. STABs are x1.2 if the new type is Stellar.",
 		rating: 3,
@@ -1108,7 +1109,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				move.category = 'Physical';
 			}
 		},
-		num: -17,
+		num: -19,
 		shortDesc: "Holder's ball/bomb moves have 1.3x power, and are physical.",
 		gen: 9,
 	},
