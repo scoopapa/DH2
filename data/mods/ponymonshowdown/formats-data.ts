@@ -4473,7 +4473,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	palafin: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	smoliv: {
 		inherit: true,
