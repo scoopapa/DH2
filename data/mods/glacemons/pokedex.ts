@@ -782,7 +782,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Early Bird
 	archen: {
 		inherit: true,
-		abilities: {0: "Defeatist", 1: "Early Bird", H: "Aerodynamicist},
+		abilities: {0: "Defeatist", 1: "Early Bird", H: "Aerodynamicist"},
 	},
 	archeops: {
 		inherit: true,
