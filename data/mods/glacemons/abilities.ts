@@ -149,7 +149,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const allTypes = {
 				"Normal": "Tough Claws",
 				"Grass": "Wind Rider",
-				"Fire": "Flash Fire",
+				"Fire": "Pyre",
 				"Water": "Water Absorb",
 				"Electric": "Download",
 				"Ice": "Ice Scales",
