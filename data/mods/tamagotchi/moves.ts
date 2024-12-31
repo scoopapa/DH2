@@ -395,4 +395,34 @@ alienlaser: {
 		type: "Fairy",
 		contestType: "Tough",
 	},
+		devicecounter: {
+		accuracy: true,
+			shortDesc: "Powers up fairies that land on this. Not an actual move.",
+		basePower: 0,
+		category: "Status",
+		name: "Device Counter",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1},
+		sideCondition: 'devicecounter',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Device Counter');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasType('Fairy')) {
+					const bestStat = pokemon.getBestStat(true, true);
+					this.boost({[bestStat]: 1}, pokemon);
+					pokemon.side.removeSideCondition('devicecounter');
+					this.add('-sideend', pokemon.side, 'move: Device Counter', '[of] ' + pokemon);
+				}
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
 }

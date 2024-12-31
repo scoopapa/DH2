@@ -1,4 +1,28 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+	arcanerush: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "Always crits in Electric Terrain. Sets Electric Terrain if not up.",
+		name: "Arcane Rush",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		terrain: 'electricterrain',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dynamax Cannon", target);
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				move.willCrit = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
 	// non-new moves
 	teraused: {
 		shortDesc: "Prevents Terastalization from being used multiple times.",
@@ -8,7 +32,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Tera Used",
 		pp: 5,
 		priority: 0,
-		flags: {},
+		flags: {nosketch: 1},
 		sideCondition: 'teraused',
 		condition: {},
 		secondary: null,

@@ -289,10 +289,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zenmode: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zen Galarian Darmanitan' || pokemon.transformed) {
+			if (target.baseSpecies.baseSpecies !== 'Zen Galarian Darmanitan' || target.transformed) {
 				return;
 			}
-			if (pokemon.species.id !== 'zengalariandarmanitanzen') pokemon.formeChange('Zen Galarian Darmanitan-Zen');
+			if (target.species.id !== 'zengalariandarmanitanzen') target.formeChange('Zen Galarian Darmanitan-Zen');
 		},
 		name: "Zen Mode",
 		shortDesc: "If Zen Galarian Darmanitan, change Mode to Zen when damaged by an attack.",

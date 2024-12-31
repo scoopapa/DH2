@@ -372,7 +372,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status' && target.getMoveHitData(move).typeMod < 0) {
-				source.addSideCondition("tailwind");
+				source.side.addSideCondition("tailwind");
 			}
 		},
 		secondary: null,
