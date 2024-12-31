@@ -124,7 +124,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		forme: "Tera",
 		types: ["Steel", "Psychic"],
 		gender: "N",
-		baseStats: {hp: 80, atk: 150, def: 145, spa: 115, spd: 90, spe: 70},
+		baseStats: {hp: 80, atk: 150, def: 150, spa: 110, spd: 90, spe: 70},
 		abilities: {0: "Technician"},
 		heightm: 2.5,
 		weightkg: 942.9,
