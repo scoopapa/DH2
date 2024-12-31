@@ -1358,7 +1358,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Dry Skin"},
+		abilities: {0: "Protosynthesis", H: "Rough Skin"},
 	},
 	ragingbolt: {
 		inherit: true,
