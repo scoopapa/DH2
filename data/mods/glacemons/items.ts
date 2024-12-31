@@ -1083,6 +1083,21 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
 		num: -19,
 	},
+	dreamcatcher: {
+		name: "Dream Catcher",
+		fling: {
+			basePower: 60,
+		},
+		onSourceHit(target, source, move) {
+			if (source.status === 'slp') {
+				this.add('-activate', source, 'item: Dream Catcher');
+				this.actions.useMove('sleeptalk', this.effectState.target); 
+			}
+		},
+		num: -20,
+		gen: 9,
+		shortDesc: "If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
+	},
 	greniniumz: {
 		name: "Greninium Z",
 		spritenum: 652,
