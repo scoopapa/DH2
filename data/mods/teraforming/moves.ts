@@ -2,7 +2,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	arcanerush: {
 		accuracy: 100,
 		basePower: 70,
-		category: "Physical",
+		category: "Special",
 		shortDesc: "Always crits in Electric Terrain. Sets Electric Terrain if not up.",
 		name: "Arcane Rush",
 		pp: 5,
