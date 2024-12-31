@@ -1360,6 +1360,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Bulletproof + Gluttony + Quick Feet",
 	},
 	pristinedessert: {
+		onTryHit(target, source, move) {
+			if (['Bug', 'Grass'].includes(move.type) && target !== source) {
+				this.add('-immune', target, '[from] ability: Pristine Dessert');
+				return null;
+			}
+		},
 		onStart(pokemon) {
 			pokemon.addVolatile('pristinedessert');
 		},
