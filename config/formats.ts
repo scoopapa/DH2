@@ -3559,7 +3559,7 @@ export const Formats: FormatList = [
 		mod: 'ponymonshowdown',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: ['Darkrai', 'ND Uber', 'ND AG'],
-		unbanlist: ['Annihilape', 'Baxcalibur', 'Dragapult', 'Genesect', 'Gholdengo', 'Gouging Fire', 'Kingambit', 'Melmetal', 'Regieleki', 'Roaring Moon', 'Shedinja', 'Spectrier', 'Terapagos', 'Ursaluna-Bloodmoon', 'Walking Wake'],
+		unbanlist: ['Annihilape', 'Baxcalibur', 'Dragapult', 'Genesect', 'Gholdengo', 'Gouging Fire', 'Kingambit', 'Melmetal', 'Palafin', 'Regieleki', 'Roaring Moon', 'Shedinja', 'Spectrier', 'Terapagos', 'Ursaluna-Bloodmoon', 'Walking Wake'],
 		teambuilderFormat: 'National Dex',
 	},
 	{
