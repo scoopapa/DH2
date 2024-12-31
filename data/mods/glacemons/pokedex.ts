@@ -99,10 +99,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Overgrow", H: "Velocity"},
 	},
-	sceptile: {
-		inherit: true,
-		abilities: {0: "Overgrow", H: "Velocity"},
-	},
 	klink: {
 		inherit: true,
 		abilities: {0: "Velocity", 1: "Minus", H: "Flouresce"},
@@ -143,10 +139,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	rhyperior: {
 		inherit: true,
 		abilities: {0: "Route Closed", 1: "Daredevil", H: "Battle Armor"},
-	},
-	obstagoon: {
-		inherit: true,
-		abilities: {0: "Reckless", 1: "Guts", H: "Route Closed"},
 	},
 	dwebble: {
 		inherit: true,
@@ -202,9 +194,16 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Early Bird", 1: "Sturdy", H: "Iron Barbs"},
 	},
+	sceptile: {
+		inherit: true,
+		types: ["Grass", "Dragon"],
+		abilities: {0: "Overgrow", H: "Velocity"},
+	},
 	sceptilemega: {
 		inherit: true,
 		abilities: {0: "Mega Launcher"},
+		requiredItem: null,
+		requiredItems: ["Sceptilite", "Parallel Mega Orb"],
 	},
 	terapagosstellar: {
 		inherit: true,
@@ -212,10 +211,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Special Tera Orb",
 	},
 	// Hospitality
-	audinomega: {
-		inherit: true,
-		abilities: {0: "Hospitality"},
-	},
 	happiny: {
 		inherit: true,
 		abilities: {0: "Natural Cure", 1: "Serene Grace", H: "Hospitality"},
@@ -572,6 +567,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	steelixmega: {
 		inherit: true,
 		abilities: {0: "Rough Skin"},
+		requiredItem: null,
+		requiredItems: ["Steelixite", "Parallel Mega Orb"],
 	},
 	taurospaldeacombat: {
 		inherit: true,
@@ -598,6 +595,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	manectricmega: {
 		inherit: true,
 		types: ["Electric", "Fire"],
+		requiredItem: null,
+		requiredItems: ["Manectite", "Parallel Mega Orb"],
 	},
 	avalugg: {
 		inherit: true,
@@ -1363,7 +1362,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	ragingbolt: {
 		inherit: true,
-		abilties: {0: "Protosynthesis", H: "Pressure"},
+		abilities: {0: "Protosynthesis", H: "Pressure"},
 	},
 	sandyshocks: {
 		inherit: true,
@@ -1446,14 +1445,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Moody"},
 	},
-	latiasmega: {
-		inherit: true,
-		abilities: {0: "Moody"}
-	},
-	latiosmega: {
-		inherit: true,
-		abilities: {0: "Moody"}
-	},
 	// Sinister Thoughts
 	guzzlord: {
 		inherit: true,
@@ -1494,5 +1485,260 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	salazzle: {
 		inherit: true,
 		abilities: {0: "Corrosion", 1: "Sinister Thoughts", H: "Oblivious"},
+	},
+	// Middle Eight
+	meloetta: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Middle Eight"},
+	},
+	meloettapirouette: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Middle Eight"},
+	},
+	// Slate 6 adjustments
+	zeraora: {
+		inherit: true,
+		types: ["Electric", "Rock"],
+		abilities: {0: "Volt Absorb", H: "Technician"},
+	},
+	hippowdon: {
+		inherit: true,
+		abilities: {0: "Sand Stream", 1: "Moody", H: "Sand Force"},
+	},
+	gengar: {
+		inherit: true,
+		abilities: {0: "Levitate"},
+	},
+	obstagoon: {
+		inherit: true,
+		abilities: {0: "Reckless", 1: "Guts", H: "Moody"},
+	},
+	// Parallel Mega Orb section
+	venusaurmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Venusaurite", "Parallel Mega Orb"],
+	},
+	charizardmegax: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Charizardite X", "Parallel Mega Orb"],
+	},
+	charizardmegay: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Charizardite Y", "Parallel Mega Orb"],
+	},
+	blastoisemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Blastoisinite", "Parallel Mega Orb"],
+	},
+	beedrillmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Beedrillite", "Parallel Mega Orb"],
+	},
+	pidgeotmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Pidgeotite", "Parallel Mega Orb"],
+	},
+	alakazammega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Alakazite", "Parallel Mega Orb"],
+	},
+	slowbromega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Slowbronite", "Parallel Mega Orb"],
+	},
+	gengarmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Gengarite", "Parallel Mega Orb"],
+	},
+	kangaskhanmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Kangaskhanite", "Parallel Mega Orb"],
+	},
+	pinsirmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Pinsirite", "Parallel Mega Orb"],
+	},
+	gyaradosmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Gyaradosite", "Parallel Mega Orb"],
+	},
+	aerodactylmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Aerodactylite", "Parallel Mega Orb"],
+	},
+	mewtwomegax: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Mewtwonite X", "Parallel Mega Orb"],
+	},
+	mewtwomegay: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Mewtwonite Y", "Parallel Mega Orb"],
+	},
+	ampharosmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Ampharosite", "Parallel Mega Orb"],
+	},
+	scizormega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Scizorite", "Parallel Mega Orb"],
+	},
+	heracrossmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Heracronite", "Parallel Mega Orb"],
+	},
+	houndoommega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Houndoominite", "Parallel Mega Orb"],
+	},
+	tyranitarmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Tyranitarite", "Parallel Mega Orb"],
+	},
+	blazikenmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Blazikenite", "Parallel Mega Orb"],
+	},
+	swampertmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Swampertite", "Parallel Mega Orb"],
+	},
+	gardevoirmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Gardevoirite", "Parallel Mega Orb"],
+	},
+	sableyemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Sablenite", "Parallel Mega Orb"],
+	},
+	mawilemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Mawilite", "Parallel Mega Orb"],
+	},
+	aggronmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Aggronite", "Parallel Mega Orb"],
+	},
+	medichammega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Medichamite", "Parallel Mega Orb"],
+	},
+	sharpedomega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Sharpedonite", "Parallel Mega Orb"],
+	},
+	cameruptmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Cameruptite", "Parallel Mega Orb"],
+	},
+	altariamega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Altarianite", "Parallel Mega Orb"],
+	},
+	banettemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Banettite", "Parallel Mega Orb"],
+	},
+	absolmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Absolite", "Parallel Mega Orb"],
+	},
+	glaliemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Glalitite", "Parallel Mega Orb"],
+	},
+	salamencemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Salamencite", "Parallel Mega Orb"],
+	},
+	metagrossmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Metagrossite", "Parallel Mega Orb"],
+	},
+	latiasmega: {
+		inherit: true,
+		abilities: {0: "Moody"},
+		requiredItem: null,
+		requiredItems: ["Latiasite", "Parallel Mega Orb"],
+	},
+	latiosmega: {
+		inherit: true,
+		abilities: {0: "Moody"},
+		requiredItem: null,
+		requiredItems: ["Latiosite", "Parallel Mega Orb"],
+	},
+	rayquazamega: {
+		inherit: true,
+		requiredItem: "Parallel Mega Orb",
+	},
+	lopunnymega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Lopunnite", "Parallel Mega Orb"],
+	},
+	garchompmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Garchompite", "Parallel Mega Orb"],
+	},
+	lucariomega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Lucarionite", "Parallel Mega Orb"],
+	},
+	abomasnowmega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Abomasite", "Parallel Mega Orb"],
+	},
+	gallademega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Galladite", "Parallel Mega Orb"],
+	},
+	audinomega: {
+		inherit: true,
+		abilities: {0: "Hospitality"},
+		requiredItem: null,
+		requiredItems: ["Audinite", "Parallel Mega Orb"],
+	},
+	dianciemega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Diancite", "Parallel Mega Orb"],
 	},
 };

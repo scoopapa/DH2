@@ -533,26 +533,43 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			return this.chainModify(1.1);
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'atk') return;
+			if (natMinus === 'atk') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			return this.chainModify(1.1);
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'def') return;
+			if (natMinus === 'def') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			return this.chainModify(1.1);
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'spa') return;
+			if (natMinus === 'spa') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
-			return this.chainModify(1.1);
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'spd') return;
+			if (natMinus === 'spd') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
-			return this.chainModify(1.1);
-		},
-		onStart(pokemon) {
-			pokemon.nature = 'Serious';
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'spe') return;
+			if (natMinus === 'spe') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
 		},
 		onResidual(pokemon) {},
 		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
@@ -583,10 +600,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Sinister Thoughts",
 		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
 		rating: 3.5,
-		num: -46,
+		num: -11,
 	},
 	stancechange: {
-		onModifyMovePriority: 1,
+		inherit: true,
 		onModifyMove(move, attacker, defender) {
 			if (attacker.species.baseSpecies !== 'Aegislash' || attacker.transformed) return;
 			if (move.category === 'Status' && move.id !== 'kingsshield') return;
@@ -596,8 +613,110 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Stance Change",
+	},
+	aerodynamism: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				if (!this.boost({ spe: 1 }, target, target)) {
+					this.add('-immune', target, '[from] ability: Aerodynamism');
+				}
+				return null;
+			}
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, move) {
+			if (move && move.flags['wind']) return true;
+			return accuracy;
+		},
+		desc: "This Pokemon's Wind moves do not miss, and this Pokemon is immune to wind moves and raises its Speed by 1 stage when hit by a wind move.",
+		shortDesc: "Wind moves do not miss; if hit by a wind move: +1 Spe. Wind move immunity.",
+		name: "Aerodynamism",
 		rating: 4,
-		num: 176,
+		num: -12,
+	},
+	pyre: {
+		onStart(pokemon, target) {
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Pyre');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen && move.type === 'Fire') {
+				const powMod = [4096, 4915, 5734, 6554, 7373, 8192];
+				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "Pyre",
+		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
+		shortDesc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
+		rating: 4,
+		num: -13,
+	},
+	forewarn: {
+		inherit: true,
+		onStart(pokemon) {},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Psychic' || move.type === 'Dark') return this.chainModify([0x1333, 0x1000]);
+		},
+		onAfterMove(target, source, move) {
+			if (!move || !target || !target.hp) return;
+			if (target !== source && target.hp && move.type === 'Dark') {
+				this.actions.useMove('futuresight', this.effectState.target); 
+			}
+		},
+		shortDesc: "This Pokemon's Psychic and Dark moves have 1.2x power. Whenever this Pokemon uses a Dark-type move, it will also set Future Sight.",
+	},
+	sniper: {
+		inherit: true,
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Sniper boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		shortDesc: "If this Pokemon strikes with a critical hit, the damage is multiplied by 1.5. +1 crit ratio.",
+	},
+	unconcerned: {
+		name: "Unconcerned",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unconcernedUser = this.effectState.target;
+			if (unconcernedUser === this.activePokemon) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['spd'] = 0;
+				//boosts['spe'] = 0;
+				boosts['accuracy'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unconcernedUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
+		rating: 4,
+		num: -14,
 	},
 };

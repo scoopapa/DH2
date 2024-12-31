@@ -613,18 +613,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		inherit: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hasType('Fighting')) {
+			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
 				return this.chainModify(1.3);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			if (pokemon.hasType('Fighting')) {
+			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
 				return this.chainModify(1.3);
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (!pokemon.hasType('Fighting')) {
+			if (!pokemon.hasType('Fighting') && !pokemon.hasAbility('Klutz')) {
 				return this.chainModify(0.5);
 			}
 		},
@@ -930,8 +930,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 	},
-	nautilusshell: {
-		name: "Nautilus Shell",
+	friedrice: {
+		name: "Fried Rice",
 		fling: {
 			basePower: 30,
 		},
@@ -942,7 +942,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer' && pokemon.addType('Dragon')) {
-				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Nautilus Shell');
+				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Fried Rice');
 			}
 		},
 		onModifySpePriority: 5,
@@ -978,5 +978,123 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		shortDesc: "User's physical and special moves can't miss, but their secondary effects are removed.",
+	},
+	// Slate 6
+	parallelmegaorb: { 
+		name: "Parallel Mega Orb",
+		onTakeItem(item, source) {
+			if (source.canMegaEvo) return false;
+			return true;
+		},
+		onAfterMega(pokemon) {
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+		},
+		onStart(pokemon) {
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+		},
+		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
+		num: -15,
+		gen: 9,
+	},
+	legendplate: {
+		name: "Legend Plate",
+		spritenum: 658,
+		onTakeItem: false,
+		onStart(pokemon) {
+			const type = pokemon.teraType;
+			this.add('-item', pokemon, 'Legend Plate');
+			this.add('-anim', pokemon, "Cosmic Power", pokemon);
+			if (type && type !== '???') {
+				if (!pokemon.setType(type)) return;
+				this.add('-start', pokemon, 'typechange', type, '[from] item: Legend Plate');
+			}
+			this.add('-message', `${pokemon.name}'s Legend Plate changed its type!`);
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'soak' || move.id === 'magicpowder') {
+				this.add('-immune', pokemon, '[from] item: Legend Plate');
+				return null;
+			}
+		},
+		onModifyBasePowerPriority: 22,
+		onModifyBasePower(basePower, attacker, defender, move) {
+			if ((move.stab && attacker.teraType === 'Stellar') || move.type === attacker.teraType) {
+				return this.chainModify(1.2);
+			}
+		},
+		num: -16,
+		gen: 9,
+		shortDesc: "Holder becomes its Tera Type on switch-in. Moves of the new type are x1.2. STABs are x1.2 if the new type is Stellar.",
+		rating: 3,
+	},
+	baseball: {
+		name: "Baseball",
+		fling: {
+			basePower: 50,
+			secondary: {
+				chance: 100,
+				volatileStatus: 'flinch',
+			},
+		},
+		onBasePower(basePower, source, target, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyMove(move) {
+			if (move.flags['bullet']) {
+				move.category = 'Physical';
+			}
+		},
+		num: -17,
+		shortDesc: "Holder's ball/bomb moves have 1.3x power, and are physical.",
+		gen: 9,
+	},
+	gooditem: {
+		name: "Good Item",
+		shortDesc: "Turns into a random item from the Popular Items section.",
+		onStart(pokemon) {
+			const itemList = ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'starfberry', 'choiceband', 'choicespecs', 'choicescarf', 'rockyhelmet', 'heavydutyboots', 'assaultvest', 'cursedbranch', 'lifeorb', 'expertbelt'];
+			const itemIndex = this.random(itemList.length);
+			const itemMade = itemList[itemIndex];
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(itemMade);
+				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Good Item');
+			}
+		},
+		rating: 3,
+		num: -18,
+	},
+	neutralizer: {
+		fling: {
+			basePower: 20,
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.dex.getEffectiveness(move, target) === -1) return;
+			return 0;
+		},
+		// Implemented in scripts.js
+		name: "Neutralizer",
+		rating: 4,
+		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
+		num: -19,
+	},
+	greniniumz: {
+		name: "Greninium Z",
+		spritenum: 652,
+		onTakeItem: false,
+		zMove: "Bond Slicing Shuriken",
+		zMoveFrom: "Water Shuriken",
+		itemUser: ["Greninja-Bond"],
+		onAfterMove(pokemon) {
+			pokemon.formeChange('Greninja-Ash');
+		},
+		num: -21,
+		gen: 9,
+		shortDesc: "If held by a Greninja-Bond with Water Shuriken, it can use Bond Slicing Shuriken. After the Z-move is used, transforms into Greninja-Ash.",
 	},
 };
