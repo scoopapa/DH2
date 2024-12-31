@@ -1567,11 +1567,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	braixen: {
 		inherit: true,
-		abilities: {0: "Blaze", 1:, H: "Forewarn"},
+		abilities: {0: "Blaze", H: "Forewarn"},
 	},
 	delphox: {
 		inherit: true,
-		abilities: {0: "Blaze", 1:, H: "Forewarn"},
+		abilities: {0: "Blaze", H: "Forewarn"},
 	},
 	smoochum: {
 		inherit: true,
