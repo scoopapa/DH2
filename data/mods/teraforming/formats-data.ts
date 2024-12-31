@@ -18,6 +18,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ogerponcornerstonetera: {
 		tier: "Tera",
 	},
+	blisseytera: {
+		tier: "Tera",
+	},
+	pincurchintera: {
+		tier: "Tera",
+	},
+	metagrosstera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
