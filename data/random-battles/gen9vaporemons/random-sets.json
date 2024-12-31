@@ -2425,7 +2425,12 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Calm Mind", "Ice Beam", "Origin Pulse", "Thunder", "Water Spout"],
+                "movepool": ["Calm Mind", "Ice Beam", "Origin Pulse", "Thunder"],
+                "teraTypes": ["Water"]
+            },
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Ice Beam", "Origin Pulse", "Thunder", "Water Spout"],
                 "teraTypes": ["Water"]
             }
         ]
