@@ -1130,7 +1130,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'mantine').learnset.refresh = ['9L1'];
 		this.modData('Learnsets', 'mantine').learnset.snatch = ['9L1'];
 		//paradox mons's moves
-		this.modData('Learnsets', 'greattusk').learnset.morningsun = ['9L1'];
 		this.modData('Learnsets', 'ragingbolt').learnset.paraboliccharge = ['9L1'];
 		this.modData('Learnsets', 'sandyshocks').learnset.rapidspin = ['9L1'];
 		this.modData('Learnsets', 'sandyshocks').learnset.shoreup = ['9L1'];
@@ -1373,7 +1372,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hippowdon').learnset.taunt = ['9L1'];
 		this.modData('Learnsets', 'gengar').learnset.icebeam = ['9L1'];
 		this.modData('Learnsets', 'gengar').learnset.partingshot = ['9L1'];
-		delete this.modData('Learnsets', 'gengar').learnset.nastyplot;
 		this.modData('Learnsets', 'obstagoon').learnset.fakeout = ['9L1'];
 		this.modData('Learnsets', 'obstagoon').learnset.extremespeed = ['9L1'];
 		this.modData('Learnsets', 'obstagoon').learnset.toxic = ['9L1'];
