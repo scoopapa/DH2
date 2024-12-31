@@ -2633,7 +2633,7 @@ export const Formats: FormatList = [
 		desc: `Base stats of 70 and lower get doubled.`,
 		mod: 'badnboosted',
 		ruleset: ['Standard'],
-		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects'],
+		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power'],
 	},
 	{
 		name: "[Gen 9] Bad 'n Boosted Hackmons Cup",
