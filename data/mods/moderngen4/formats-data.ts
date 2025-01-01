@@ -36,7 +36,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	charizardmegay: {
 		inherit: true,
 		gen: 4,
-		tier: "RU",
+		tier: "Uber",
 	},
 	squirtle: {
 		inherit: true,
@@ -454,7 +454,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	alakazam: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 	},
 	alakazammega: {
 		inherit: true,
@@ -568,7 +568,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	slowkinggalar: {
 		inherit: true,
 		gen: 4,
-		tier: "RU",
+		tier: "OU",
 	},
 	magnemite: {
 		inherit: true,
@@ -2908,7 +2908,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	azelf: {
 		inherit: true,
 		gen: 4,
-		tier: "RU",
+		tier: "UU",
 	},
 	dialga: {
 		inherit: true,
@@ -2963,7 +2963,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	manaphy: {
 		inherit: true,
 		gen: 4,
-		tier: "RU",
+		tier: "Uber",
 	},
 	darkrai: {
 		inherit: true,
@@ -4806,7 +4806,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tapulele: {
 		inherit: true,
 		gen: 4,
-		tier: "RU",
+		tier: "Uber",
 	},
 	tapubulu: {
 		inherit: true,
@@ -5463,7 +5463,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	quaxwell: {
 		inherit: true,
 		gen: 4,
-		tier: "RU",
+		tier: "NFE",
 	},
 	quaquaval: {
 		inherit: true,
@@ -5848,7 +5848,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ironthorns: {
 		inherit: true,
 		gen: 4,
-		tier: "UU",
+		tier: "RU",
 	},
 	ironbundle: {
 		inherit: true,
