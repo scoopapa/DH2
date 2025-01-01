@@ -1898,5 +1898,46 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	hariyama: {
 		inherit: true,
 		abilities: {0: "Thick Fat", 1: "Guts", H: "Unconcerned"},
+=======
+//making the pikachu forms have unreleased hiddens in a similar fashion as silvally
+	pikachu: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Tough Claws"},
+		unreleasedHidden: true,
+	},
+	pikachuoriginal: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Run It Back"},
+		unreleasedHidden: true,
+	},
+	pikachuhoenn: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Technician"},
+		unreleasedHidden: true,
+	},
+	pikachusinnoh: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Technician"},
+		unreleasedHidden: true,
+	},
+	pikachuunova: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Intimidate"},
+		unreleasedHidden: true,
+	},
+	pikachukalos: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Mold Breaker"},
+		unreleasedHidden: true,
+	},
+	pikachualola: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Psychic Surge"},
+		unreleasedHidden: true,
+	},
+	pikachuworld: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Lightning Rod", H: "Aerilate"},
+		unreleasedHidden: true,
 	},
 };
