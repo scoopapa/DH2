@@ -1898,7 +1898,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	hariyama: {
 		inherit: true,
 		abilities: {0: "Thick Fat", 1: "Guts", H: "Unconcerned"},
-=======
 //making the pikachu forms have unreleased hiddens in a similar fashion as silvally
 	pikachu: {
 		inherit: true,
