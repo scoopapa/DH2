@@ -1164,7 +1164,7 @@ export class RandomTeams {
 
 		// Hard-code abilities here
 		if (species.id === 'florges') return 'Grass Pelt';
-		if (species.id === 'bombirdier' && !counter.get('Rock')) return 'Big Pecks';
+		if (species.id === 'bombirdier' && !counter.get('Rock')) return 'Gale Wings';
 		if (species.id === 'scovillain') return 'Chlorophyll';
 		if (species.id === 'empoleon') return 'Competitive';
 		if (species.id === 'swampert' && !counter.get('Water') && !moves.has('flipturn')) return 'Damp';
@@ -1186,6 +1186,7 @@ export class RandomTeams {
 		if (species.id === 'dodrio') return 'Muscle Memory';
 		if (species.id === 'minior') return 'Cloud Nine';
 		if (species.id === 'wochien') return 'Shield Dust';
+		if (species.id === 'politoed' || species.id === 'pelipper') return 'Drizzle';
 		if ((species.id === 'farigiraf' && role === 'Fast Support') || species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Cud Chew';
 
 		// singles
@@ -1350,7 +1351,7 @@ export class RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
-		if (species.id === 'wiggltuff') return 'Tuffy-Tuff';
+		if (species.id === 'wigglytuff') return 'Tuffy-Tuff';
 		if (species.id === 'diancie') return 'Diancite Stone Fragment';
 		if (species.id === 'palafin') return 'Hero\'s Bubble';
 		if (species.id === 'spiritomb' && role !== 'Wallbreaker') return 'Odd Keystone';
