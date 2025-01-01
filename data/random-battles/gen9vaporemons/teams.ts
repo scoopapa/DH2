@@ -1390,6 +1390,7 @@ export class RandomTeams {
 		if (species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Aguav Berry';
 		if (species.id === 'trevenant' && role === 'Wallbreaker') return 'Liechi Berry';
 		if (species.id === 'farigiraf' && role === 'Fast Support') return 'Starf Berry';
+		if (ability === 'Cud Chew') return 'Figy Berry';
 		if (species.id === 'klefki' && role === 'Bulky Setup') return 'Kee Berry';
 		if (species.id === 'landorus' && role === 'Fast Bulky Setup') return 'Lansat Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -1438,7 +1439,7 @@ export class RandomTeams {
 			return 'Chesto Berry';
 		}
 		if (
-			species.id !== 'yanmega' &&
+			species.id !== 'yanmega' && ability !== 'Smelt' &&
 			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
 		) return 'Heavy-Duty Boots';
 	}
