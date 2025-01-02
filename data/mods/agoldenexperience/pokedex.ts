@@ -2194,15 +2194,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	deino: {
 		inherit: true,
-		abilities: {0: "Hustle", H: "Strong Jaw"},
+		abilities: {0: "Hustle", 1: "Unconcerned", H: "Strong Jaw"},
 	},
 	zweilous: {
 		inherit: true,
-		abilities: {0: "Hustle", H: "Strong Jaw"},
+		abilities: {0: "Hustle", 1: "Unconcerned", H: "Strong Jaw"},
 	},
 	hydreigon: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Berserk"},
+		abilities: {0: "Levitate", 1: "Unconcerned", H: "Berserk"},
 	},
 	cobalion: {
 		inherit: true,
@@ -3364,10 +3364,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Unburden", H: "Sharpness"},
 	},
-	kingambit: {
-		inherit: true,
-		abilities: {0: "Defiant", 1: "Sharpness", H: "Pressure"},
-	},
+	// kingambit: {
+	// 	inherit: true,
+	// 	abilities: {0: "Defiant", 1: "Sharpness", H: "Pressure"},
+	// },
 	greattusk: {
 		inherit: true,
 		abilities: {0: "Protosynthesis", H: "Rock Head"},
