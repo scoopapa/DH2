@@ -160,7 +160,21 @@ export const Scripts: ModdedBattleScriptsData = {
 			) {
 				return altForme.name;
 			}
-			if (altForme?.isMega && (item.name === 'Parallel Mega Orb 0' || item.name === 'Parallel Mega Orb 1' || item.name === 'Parallel Mega Orb H')) {
+			let physicalTypes = ['Bug', 'Fighting', 'Flying', 'Ghost', 'Ground', 'Normal', 'Poison', 'Rock', 'Steel'];
+			let specialTypes = ['Dark', 'Dragon', 'Electric', 'Fairy', 'Fire', 'Grass', 'Ice', 'Psychic', 'Water'];
+			if (item.name === "Parallel Mega Orb" && pokemon.baseSpecies.name === "Charizard" && pokemon.set.hpType && pokemon.set.hpType in physicalTypes) {
+			  return "Charizard-Mega-X";
+			}
+			else if (item.name === "Parallel Mega Orb" && pokemon.baseSpecies.name === "Charizard" && pokemon.set.hpType && pokemon.set.hpType in specialTypes) {
+				return "Charizard-Mega-Y";
+			}
+			else if (item.name === "Parallel Mega Orb" && pokemon.baseSpecies.name === "Mewtwo" && pokemon.set.hpType && pokemon.set.hpType in physicalTypes) {
+				return "Mewtwo-Mega-X";
+			}
+			else if (item.name === "Parallel Mega Orb" && pokemon.baseSpecies.name === "Mewtwo" && pokemon.set.hpType && pokemon.set.hpType in specialTypes) {
+				return "Mewtwo-Mega-Y";
+			}
+			else if (altForme?.isMega && (item.name === 'Parallel Mega Orb')) {
 				return altForme.name;
 			}
 			return item.megaStone;
