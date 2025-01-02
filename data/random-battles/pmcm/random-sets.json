@@ -11,7 +11,7 @@
         ]
     },
     "golemalola": {
-        "level": 92,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -57,7 +57,7 @@
         ]
     },
     "mamoswine": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -103,6 +103,50 @@
                 "movepool": ["Brave Bird", "Flare Blitz", "Wood Hammer", "Wave Crash", "Defog", "U-Turn"],
                 "abilities": ["Magic Guard"],
                 "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "illumise": {
+        "level": 92,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Bug Buzz", "Calm Mind", "Ice Beam", "Thunderbolt"],
+                "abilities": ["Call Volbeat"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+    "volbeat": {
+        "level": 90,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Lunge", "Dragon Hammer", "Earthquake"],
+                "abilities": ["Call Illumise"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+    "abomasnow": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Aurora Veil", "Blizzard", "Apple Acid", "Parting Shot"],
+                "abilities": ["Snow Warning"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+    "abomasnowmega": {
+        "level": 82,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Glacial Lance", "Wood Hammer", "Earthquake", "Ice Shard", "Snowscape"],
+                "abilities": ["Snow Warning"],
+                "teraTypes": ["Grass"]
             }
         ]
     }

@@ -8,6 +8,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ceruledge: {tier: "PMCM"},
 	carbink: {tier: "PMCM"},
 	moltres: {tier: "PMCM"},
-
+	illumise: {tier: "PMCM"},
+	volbeat: {tier: "PMCM"},
+	abomasnow: {tier: "PMCM"},
+	abomasnowmega: {tier: "PMCM"},
 	
 };

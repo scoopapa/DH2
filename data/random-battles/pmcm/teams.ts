@@ -1660,7 +1660,8 @@ export class RandomTeams {
 				// Prevent multiple megas
 				if (hasMega && species.isMega) continue;
 				// Prevent base forme, if a mega is available
-				if (canMega && !species.isMega) continue;
+				// Added Abomasnow exception
+				if (canMega && !species.isMega && species.id !== 'abomasnow') continue;
 				currentSpeciesPool.push(species);
 			}
 			const species = this.sample(currentSpeciesPool);

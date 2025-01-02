@@ -19,5 +19,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'moltres').learnset.wavecrash = ['9L1'];
 		this.modData('Learnsets', 'moltres').learnset.defog = ['9L1'];
 
+		this.modData('Learnsets', 'illumise').learnset.calmmind = ['9L1'];
+		this.modData('Learnsets', 'illumise').learnset.thunderbolt = ['9L1'];
+		this.modData('Learnsets', 'illumise').learnset.icebeam = ['9L1'];
+
+		this.modData('Learnsets', 'volbeat').learnset.dragondance = ['9L1'];
+		this.modData('Learnsets', 'volbeat').learnset.dragonhammer = ['9L1'];
+		this.modData('Learnsets', 'volbeat').learnset.earthquake = ['9L1'];
+
+		this.modData('Learnsets', 'abomasnow').learnset.glaciallance = ['9L1'];
+		this.modData('Learnsets', 'abomasnow').learnset.appleacid = ['9L1'];
+		this.modData('Learnsets', 'abomasnow').learnset.partingshot = ['9L1'];
+
 	},
 };
