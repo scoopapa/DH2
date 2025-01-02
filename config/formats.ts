@@ -3547,7 +3547,7 @@ export const Formats: FormatList = [
 		ruleset: ['Data Mod'],
 		banlist: [],
 		unbanlist: ['Mewtwo', 'Mew'],
-  },
+    },
 	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
@@ -3557,6 +3557,13 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
+	},
+	{
+		name: "[Gen 9] Pet Mods Chat Mod Rands",
+		desc: `A Random Battles Solomood made via the Pet Mods chatroom on Showdown.`,
+		mod: 'pmcm',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
 	},
 	{
 		name: "[Gen 9] Ponymon",
