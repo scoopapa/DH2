@@ -1164,7 +1164,7 @@ export class RandomTeams {
 
 		// Hard-code abilities here
 		if (species.id === 'florges') return 'Grass Pelt';
-		if (species.id === 'bombirdier' && !counter.get('Rock')) return 'Big Pecks';
+		if (species.id === 'bombirdier' && !counter.get('Rock')) return 'Gale Wings';
 		if (species.id === 'scovillain') return 'Chlorophyll';
 		if (species.id === 'empoleon') return 'Competitive';
 		if (species.id === 'swampert' && !counter.get('Water') && !moves.has('flipturn')) return 'Damp';
@@ -1186,8 +1186,10 @@ export class RandomTeams {
 		if (species.id === 'dodrio') return 'Muscle Memory';
 		if (species.id === 'minior') return 'Cloud Nine';
 		if (species.id === 'wochien') return 'Shield Dust';
+		if (species.id === 'politoed' || species.id === 'pelipper') return 'Drizzle';
 		if ((species.id === 'farigiraf' && role === 'Fast Support') || species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Cud Chew';
-
+		if (species.id === 'irontreads' && role === 'Bulky Support') return 'Momentum';
+		
 		// singles
 		if (!isDoubles) {
 			if (species.id === 'hypno') return 'Insomnia';
@@ -1310,15 +1312,15 @@ export class RandomTeams {
 	) {
 		if (!isDoubles) {
 			if (
-				(species.id === 'greattusk' && ability === 'Protocrysalis') || 
-				(species.id === 'brutebonnet' && ability === 'Protosmosis') || 
-				(species.id === 'sandyshocks' && ability === 'Protocrysalis') || 
-				(species.id === 'screamtail' && ability === 'Protosmosis') || 
-				(species.id === 'fluttermane' && ability === 'Protostasis') || 
-				(species.id === 'slitherwing' && ability === 'Protosynthesis') || 
-				(species.id === 'roaringmoon' && ability === 'Protostasis') || 
-				(species.id === 'walkingwake' && ability === 'Protosynthesis') || 
-				(species.id === 'irontreads' && ability === 'Rune Drive') || 
+				(species.id === 'greattusk' && ability === 'Protocrysalis' && !teamDetails.sand) || 
+				(species.id === 'brutebonnet' && ability === 'Protosmosis' && !teamDetails.rain) || 
+				(species.id === 'sandyshocks' && ability === 'Protocrysalis' && !teamDetails.sand) || 
+				(species.id === 'screamtail' && ability === 'Protosmosis' && !teamDetails.rain) || 
+				(species.id === 'fluttermane' && ability === 'Protostasis' && !teamDetails.snow) || 
+				(species.id === 'slitherwing' && ability === 'Protosynthesis' && !teamDetails.sun) || 
+				(species.id === 'roaringmoon' && ability === 'Protostasis' && !teamDetails.snow) || 
+				(species.id === 'walkingwake' && ability === 'Protosynthesis' && !teamDetails.sun) || 
+				(species.id === 'irontreads' && ability === 'Rune Drive' && !teamDetails.sand) || 
 				(species.id === 'ironvaliant' && ability === 'Rune Drive') || 
 				(species.id === 'ironmoth' && ability === 'Photon Drive') || 
 				(species.id === 'ironhands' && ability === 'Photon Drive') || 
@@ -1328,8 +1330,8 @@ export class RandomTeams {
 				(species.id === 'ironleaves' && ability === 'Quark Drive') || 
 				(species.id === 'ironcrown' && ability === 'Quark Drive') || 
 				(species.id === 'ironboulder' && ability === 'Quark Drive') || 
-				(species.id === 'gougingfire' && ability === 'Protosynthesis') || 
-				(species.id === 'ragingbolt' && ability === 'Protosynthesis')
+				(species.id === 'gougingfire' && ability === 'Protosynthesis' && !teamDetails.sun) || 
+				(species.id === 'ragingbolt' && ability === 'Protosynthesis' && !teamDetails.sun)
 			) {
 				return 'Booster Energy';
 			}
@@ -1350,7 +1352,7 @@ export class RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
-		if (species.id === 'wiggltuff') return 'Tuffy-Tuff';
+		if (species.id === 'wigglytuff') return 'Tuffy-Tuff';
 		if (species.id === 'diancie') return 'Diancite Stone Fragment';
 		if (species.id === 'palafin') return 'Hero\'s Bubble';
 		if (species.id === 'spiritomb' && role !== 'Wallbreaker') return 'Odd Keystone';
@@ -1388,6 +1390,7 @@ export class RandomTeams {
 		if (species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Aguav Berry';
 		if (species.id === 'trevenant' && role === 'Wallbreaker') return 'Liechi Berry';
 		if (species.id === 'farigiraf' && role === 'Fast Support') return 'Starf Berry';
+		if (ability === 'Cud Chew') return 'Figy Berry';
 		if (species.id === 'klefki' && role === 'Bulky Setup') return 'Kee Berry';
 		if (species.id === 'landorus' && role === 'Fast Bulky Setup') return 'Lansat Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -1436,7 +1439,7 @@ export class RandomTeams {
 			return 'Chesto Berry';
 		}
 		if (
-			species.id !== 'yanmega' &&
+			species.id !== 'yanmega' && ability !== 'Smelt' &&
 			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
 		) return 'Heavy-Duty Boots';
 	}

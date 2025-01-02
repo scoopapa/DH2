@@ -7093,7 +7093,7 @@
         "sets": [
             {
                 "role": "Fast Bulky Setup",
-                "movepool": ["Calm Mind", "Draco Meteor", "Software Crash", "Substitute"],
+                "movepool": ["Calm Mind", "Draco Meteor", "Software Crash", "Substitute", "Dragon Rage"],
                 "teraTypes": ["Electric"]
             },
             {
