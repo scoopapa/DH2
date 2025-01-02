@@ -612,6 +612,15 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Ebb and Flow",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/.3748857/">Ebb and Flow</a>`,
+		],
+		mod: 'ebbandflow',
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
+	},
+	{
 		name: "[Gen 9] Elimination War",
 		mod: 'eliminationwar',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
@@ -626,15 +635,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
-		{
-		name: "[Gen 9] Ebb and Flow",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/.3748857/">Ebb and Flow</a>`,
-		],
-		mod: 'ebbandflow',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody'],
 	},
 	{
 		name: "[Gen 9] Eramons",
@@ -1522,37 +1522,6 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'setinstone',
-	},
-	{
-		name: "[Gen 9] National Dex BH",
-		desc: `Balanced Hackmons with National Dex elements mixed in.`,
-		mod: 'gen9',
-		searchShow: false,
-		ruleset: ['-Nonexistent', 'Standard NatDex', 'Forme Clause', 'Sleep Moves Clause', 'Ability Clause = 2', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'CFZ Clause', 'Terastal Clause', '!Obtainable'],
-		banlist: [
-			'Cramorant-Gorging', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Eternatus-Eternamax', 'Greninja-Ash', 'Groudon-Primal', 'Rayquaza-Mega', 'Shedinja', 'Arena Trap',
-			'Contrary', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Pure Power', 'Shadow Tag',
-			'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite', 'Berserk Gene', 'Belly Drum', 'Bolt Beak', 'Ceaseless Edge', 'Chatter', 'Double Iron Bash', 'Electrify',
-			'Last Respects', 'Octolock', 'Rage Fist', 'Revival Blessing', 'Shed Tail', 'Shell Smash', 'Comatose + Sleep Talk', 'Imprison + Transform',
-		],
-		restricted: ['Arceus'],
-		onValidateTeam(team, format) {
-			// baseSpecies:count
-			const restrictedPokemonCount = new this.dex.Multiset<string>();
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				if (!this.ruleTable.isRestrictedSpecies(species)) continue;
-				restrictedPokemonCount.add(species.baseSpecies);
-			}
-			for (const [baseSpecies, count] of restrictedPokemonCount) {
-				if (count > 1) {
-					return [
-						`You are limited to one ${baseSpecies} forme.`,
-						`(You have ${count} ${baseSpecies} forme${count === 1 ? '' : 's'}.)`,
-					];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Secret Santa",
@@ -2897,46 +2866,6 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects'],
 	},
-	{
-		name: "[Gen 9] Pokémon North, South, East, West",
-		desc: 'The largest sprite project ever is now the largest Solomod ever...eventually. Content gradually releases in waves!',
-		threads: [
-			`&bullet; <a href="https://https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10197171"></a>`,
-		],
-		mod: 'pokemonorthsoutheastwest',
-		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['NSEW'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Pokémon North, South, East, and West.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Pokémon Go! Go! Tamagotchi!",
-		desc: 'They did not deserve to be forgotten to Digimon...a Solomod that contains three hundred adult form Tamagotchi!',
-		threads: [
-		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-9#post-10311554"></a>`,
-		],
-		mod: 'tamagotchi',
-		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['Go! Go! Tamagotchi!'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not a Tamagotchi.'];
-				}
-			}
-		},
-	},
     {
  		name: "[Gen 9] Earth & Sky Horizons OU",
  		desc: `The metagame based on Pok&eacute;mon Earth & Sky, a set of theoretical games created by En Passant, with the Horizons Expansion for Gen 9.`,
@@ -3559,11 +3488,62 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Patratdex Doubles",
+		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
+		mod: 'patratdex',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Realmon Clause'],
+		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
+		onSwitchIn(pokemon) {
+      	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},
+	{
 		name: "[Gen 9] Pet Mods Chat Mod Rands",
 		desc: `A Random Battles Solomood made via the Pet Mods chatroom on Showdown.`,
 		mod: 'pmcm',
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 9] Pokémon North, South, East, West",
+		desc: 'The largest sprite project ever is now the largest Solomod ever...eventually. Content gradually releases in waves!',
+		threads: [
+			`&bullet; <a href="https://https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10197171"></a>`,
+		],
+		mod: 'pokemonorthsoutheastwest',
+		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['NSEW'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Pokémon North, South, East, and West.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Pokémon Go! Go! Tamagotchi!",
+		desc: 'They did not deserve to be forgotten to Digimon...a Solomod that contains three hundred adult form Tamagotchi!',
+		threads: [
+		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-9#post-10311554"></a>`,
+		],
+		mod: 'tamagotchi',
+		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Go! Go! Tamagotchi!'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not a Tamagotchi.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Ponymon",
@@ -3601,17 +3581,6 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Moves Clause'],
 		banlist: ['AG', 'Baton Pass', 'Blizzard', 'Moody'],
 		teambuilderFormat: 'National Dex Uber',
-	},
-	{
-		name: "[Gen 9] Patratdex Doubles",
-		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
-		mod: 'patratdex',
-		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Realmon Clause'],
-		banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
-		onSwitchIn(pokemon) {
-      	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
 	},
 	{
 		name: "[Gen 9] PokeMorty",
@@ -4624,6 +4593,37 @@ export const Formats: FormatList = [
 
 		mod: 'gen9',
 		ruleset: ['Standard NatDex'],
+	},
+	{
+		name: "[Gen 9] National Dex BH",
+		desc: `Balanced Hackmons with National Dex elements mixed in.`,
+		mod: 'gen9',
+		searchShow: false,
+		ruleset: ['-Nonexistent', 'Standard NatDex', 'Forme Clause', 'Sleep Moves Clause', 'Ability Clause = 2', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'CFZ Clause', 'Terastal Clause', '!Obtainable'],
+		banlist: [
+			'Cramorant-Gorging', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Eternatus-Eternamax', 'Greninja-Ash', 'Groudon-Primal', 'Rayquaza-Mega', 'Shedinja', 'Arena Trap',
+			'Contrary', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Pure Power', 'Shadow Tag',
+			'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite', 'Berserk Gene', 'Belly Drum', 'Bolt Beak', 'Ceaseless Edge', 'Chatter', 'Double Iron Bash', 'Electrify',
+			'Last Respects', 'Octolock', 'Rage Fist', 'Revival Blessing', 'Shed Tail', 'Shell Smash', 'Comatose + Sleep Talk', 'Imprison + Transform',
+		],
+		restricted: ['Arceus'],
+		onValidateTeam(team, format) {
+			// baseSpecies:count
+			const restrictedPokemonCount = new this.dex.Multiset<string>();
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (!this.ruleTable.isRestrictedSpecies(species)) continue;
+				restrictedPokemonCount.add(species.baseSpecies);
+			}
+			for (const [baseSpecies, count] of restrictedPokemonCount) {
+				if (count > 1) {
+					return [
+						`You are limited to one ${baseSpecies} forme.`,
+						`(You have ${count} ${baseSpecies} forme${count === 1 ? '' : 's'}.)`,
+					];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Triples",
