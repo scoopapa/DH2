@@ -174,7 +174,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			else if (item.name === "Parallel Mega Orb" && pokemon.baseSpecies.name === "Mewtwo" && pokemon.set.hpType && pokemon.set.hpType in specialTypes) {
 				return "Mewtwo-Mega-Y";
 			}
-			if (altForme?.isMega && (item.name === 'Parallel Mega Orb')) {
+			else if (altForme?.isMega && (item.name === 'Parallel Mega Orb')) {
 				return altForme.name;
 			}
 			return item.megaStone;
