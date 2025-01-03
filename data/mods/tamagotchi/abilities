@@ -1,8 +1,8 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	moripakucoffret: {
 		onStart(pokemon) {
-			const diamondHand = pokemon.side.pokemon.filter(p => p != pokemon && !p.fainted && p.baseSpecies.moripakucoffret);
-			if (diamondHand.length > 0) {
+			const moripakuCoffret = pokemon.side.pokemon.filter(p => p != pokemon && !p.fainted && p.baseSpecies.moripakucoffret);
+			if (moripakuCoffret.length > 0) {
 				this.add('-activate', pokemon, 'ability: MoriPakuCoffret');
 				this.boost({atk: 1 * moripakucoffret.length, spd: -1 * moripakucoffret.length, def: 1 * moripakucoffret.length}, pokemon, pokemon);
 			}
