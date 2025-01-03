@@ -3177,7 +3177,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	genesect: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectburn: {
 		inherit: true,
@@ -4541,7 +4541,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	baxcalibur: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tatsugiri: {
 		inherit: true,
