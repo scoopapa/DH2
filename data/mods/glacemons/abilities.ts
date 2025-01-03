@@ -641,8 +641,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -12,
 	},
 	pyre: {
-		onStart(pokemon, target) {
-			if (target.side.totalFainted) {
+		onStart(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target && target.side.totalFainted) {
 				this.add('-activate', pokemon, 'ability: Pyre');
 				const fallen = Math.min(target.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
@@ -656,7 +657,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.effectState.fallen && move.type === 'Fire') {
 				const powMod = [4096, 4915, 5734, 6554, 7373, 8192];
-				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				this.debug(`Pyre boost: ${powMod[this.effectState.fallen]}/4096`);
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
 		},
