@@ -510,4 +510,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
+	clusterexplosion: {
+		num: 153.5,
+		accuracy: 100,
+		basePower: 250,
+		category: "Physical",
+		name: "Cluster Explosion",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Splintered Stormshards", pokemon);
+		},
+		onTryMove(source, target, move) {
+			if (!move.hasSheerForce) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
 };
