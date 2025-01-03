@@ -1189,6 +1189,15 @@ export class RandomTeams {
 		if (species.id === 'politoed' || species.id === 'pelipper') return 'Drizzle';
 		if ((species.id === 'farigiraf' && role === 'Fast Support') || species.id === 'taurospaldeablaze' || species.id === 'ampharos') return 'Cud Chew';
 		if (species.id === 'irontreads' && role === 'Bulky Support') return 'Momentum';
+		if (species.id === 'lilligant' && role === 'Setup Sweeper') return 'Healer';
+		if (species.id === 'lilligant' && role === 'Wallbreaker') return 'Sheer Heart';
+		if (species.id === 'abomasnow') return 'Snow Warning';
+		if (species.id === 'gallade' && (role === 'Setup Sweeper' || role === 'Fast Attacker')) return 'Sharpness';
+		if (species.id === 'gallade' && role === 'Bulky Setup') return 'Steadfast';
+		if (species.id === 'comfey' && role === 'Bulky Setup') return 'Triage';
+		if (species.id === 'lucario' && role === 'Fast Attacker') return 'Steadfast';
+		if (species.id === 'articuno') return 'Gale Wings';
+		if (species.id === 'landorus' && !teamDetails.sand) return 'Cloud Nine';
 		
 		// singles
 		if (!isDoubles) {
@@ -1358,7 +1367,7 @@ export class RandomTeams {
 		if (species.id === 'spiritomb' && role !== 'Wallbreaker') return 'Odd Keystone';
 		if (species.id === 'charizard' && role === 'Fast Attacker') return 'Charizardite Shard Y';
 		if (species.id === 'charizard' && role === 'Setup Sweeper') return 'Charizardite Shard X';
-		if (species.id === 'hippowdon' && this.randomChance(1, 2)) return 'Walkie-Talkie';
+		if (species.id === 'hippowdon' && moves.has('roar')) return 'Walkie-Talkie';
 		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) return 'Tera Shard';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
@@ -1377,7 +1386,7 @@ export class RandomTeams {
 		if (species.id === 'rampardos' && (role === 'Fast Attacker' || isDoubles)) return 'Choice Scarf';
 		if (
 			moves.has('courtchange') ||
-			!isDoubles && (species.id === 'luvdisc' || (species.id === 'terapagos' && !moves.has('rest')))
+			!isDoubles && (species.id === 'luvdisc' || (species.id === 'terapagos' && !moves.has('meteorbeam')))
 		) return 'Heavy-Duty Boots';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (
