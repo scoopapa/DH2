@@ -1917,7 +1917,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	pikachusinnoh: {
 		inherit: true,
-		abilities: {0: "Static", 1: "Lightning Rod", H: "Technician"},
+		abilities: {0: "Static", 1: "Lightning Rod", H: "No Guard"},
 		unreleasedHidden: true,
 	},
 	pikachuunova: {

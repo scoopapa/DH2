@@ -137,27 +137,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pikachuoriginal: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	pikachuhoenn: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	pikachusinnoh: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	pikachuunova: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	pikachukalos: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	pikachualola: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	pikachupartner: {
 		inherit: true,
@@ -165,7 +165,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pikachuworld: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	raichu: {
 		inherit: true,
@@ -3001,7 +3001,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	haxorus: {
 		inherit: true,
-		tier: "OU",
+		tier: "(OU)",
 	},
 	cubchoo: {
 		inherit: true,
@@ -4861,12 +4861,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	terapagos: {
 		inherit: true,
-		tier: "OU",
+		tier: "(OU)",
 	},
-	// terapagosstellar: {
-	// 	inherit: true,
-	// 	tier: "Illegal",
-	// },
 	pecharunt: {
 		inherit: true,
 		tier: "(OU)",
