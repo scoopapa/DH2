@@ -516,6 +516,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 250,
 		category: "Physical",
 		name: "Cluster Explosion",
+		shortDesc: "Hits adjacent Pokemon. Sets Spikes. User faints.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
