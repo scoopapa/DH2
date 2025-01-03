@@ -5159,7 +5159,7 @@
                 "teraTypes": ["Fairy", "Poison", "Steel"]
             },
             {
-                "role": "Tera Blast user",
+                "role": "Fast Support",
                 "movepool": ["Alluring Voice", "U-turn", "Synthesis", "Healing Stones"],
                 "teraTypes": ["Ground"]
             }
