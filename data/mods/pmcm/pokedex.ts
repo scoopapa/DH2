@@ -1,3 +1,5 @@
+import { inherits } from "util";
+
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	volcarona: {
 		inherit: true,
@@ -27,5 +29,21 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	moltres: {
 		inherit: true,
 		abilities: {0: "Magic Guard"},
+	},
+	illumise: {
+		inherit: true,
+		abilities: {0: "Call Volbeat"},
+	},
+	volbeat: {
+		inherit: true,
+		abilities: {0: "Call Illumise"},
+	},
+	abomasnow: {
+		inherit: true,
+	},
+	abomasnowmega: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 132, def: 105, spa: 92, spd: 105, spe: 70},
+		abilities: {0: "Slush Rush"},
 	},
 };

@@ -193,99 +193,99 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 	},
 	fryce: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	puerbear: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	cubzu: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	sparkkit: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	ugling: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	dragylis: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	gryrm: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	snugbug: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	bjorgnite: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	bjorgneiss: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	healogi: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
-	grNFEsy: {
+	grousy: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	wilticease: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	toxivalla: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	copepond: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	crovert: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	dissecrow: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	shrimpow: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	destructagon: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	demopprentice: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	gullet: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	vintree: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	chickle: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	amareem: {
 		tier: "CU2 NFE",
-		dNFEblesTier: "DCU2 NFE",
+		doublesTier: "DCU2 NFE",
 	},
 	polipidmega: {
 		tier: "CU2 OU",
