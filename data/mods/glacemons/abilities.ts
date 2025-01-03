@@ -630,8 +630,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			return accuracy;
 		},
 		onSourceModifyAccuracyPriority: -1,
-		onSourceModifyAccuracy(accuracy, move) {
-			if (move && move.flags['wind']) return true;
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.flags['wind'] && typeof accuracy === 'number') return true;
 			return accuracy;
 		},
 		desc: "This Pokemon's Wind moves do not miss, and this Pokemon is immune to wind moves and raises its Speed by 1 stage when hit by a wind move.",
