@@ -79,4 +79,36 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+	fujitong: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	phynosca: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	guanrong: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	chromium: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	hantage: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	wakadigz: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	sharkoyudo: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	chújikon: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }
