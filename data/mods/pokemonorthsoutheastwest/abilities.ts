@@ -13,4 +13,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		num: 49,
 	},
+	prediction: {
+		 shortDesc: "This Pokémon uses Future Sight when sent out.",
+		onStart(pokemon) {
+				for (const target of pokemon.adjacentFoes()) {
+				this.actions.useMove('futuresight', pokemon, target);
+			}
+		},
+		flags: {},
+		name: "Prediction",
+		rating: 0.5,
+		num: 1047,
+	},
 }
