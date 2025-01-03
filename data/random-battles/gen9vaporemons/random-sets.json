@@ -3820,6 +3820,11 @@
                 "role": "Setup Sweeper",
                 "movepool": ["Giga Drain", "Pollen Puff", "Quiver Dance", "Alluring Voice"],
                 "teraTypes": ["Fire", "Rock"]
+            },
+            {
+                "role": "Wallbreaker",
+                "movepool": ["Healing Wish", "Pollen Puff", "Leaf Storm", "Alluring Voice"],
+                "teraTypes": ["Fire", "Rock"]
             }
         ]
     },
