@@ -163,7 +163,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	fujitong: {
 		num: 21,
-		species: "Fujitong",
+		name: "Fujitong",
 		types: ["Rock", "Psychic"],
 		baseStats: {hp: 108, atk: 110, def: 111, spa: 102, spd: 102, spe: 17},
 		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Prediction"},
@@ -171,7 +171,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	phynosca: {
 		num: 22,
-		species: "Phynosca",
+		name: "Phynosca",
 		types: ["Steel", "Bug"],
 		baseStats: {hp: 130, atk: 150, def: 70, spa: 20, spd: 70, spe: 110},
 		abilities: {0: "Sturdy", 1: "Sharpness", H: "Dry Skin"},
@@ -179,7 +179,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	guanrong: {
 		num: 23,
-		species: "Guanrong",
+		name: "Guanrong",
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 117, atk: 140, def: 88, spa: 90, spd: 85, spe: 32},
 		abilities: {0: "Sturdy", 1: "Steam Engine", H: "Sheer Force"},
@@ -187,7 +187,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	chromium: {
 		num: 24,
-		species: "Chromium",
+		name: "Chromium",
 		types: ["Steel", "Dragon"],
 		baseStats: {hp: 95, atk: 55, def: 100, spa: 120, spd: 95, spe: 75},
 		abilities: {0: "Steely Spirit", 1: "Dragons Maw", H: "Clear Body"},
@@ -195,7 +195,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	hantage: {
 		num: 25,
-		species: "Hantage",
+		name: "Hantage",
 		types: ["Dragon", "Rock"],
 		baseStats: {hp: 70, atk: 90, def: 102, spa: 100, spd: 103, spe: 88},
 		abilities: {0: "Sand Force", 1: "Symbiosis", H: "Stakeout"},
@@ -203,7 +203,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	wakadigz: {
 		num: 26,
-		species: "Wakadigz",
+		name: "Wakadigz",
 		types: ["Ground", "Rock"],
 		baseStats: {hp: 53, atk: 134, def: 81, spa: 30, spd: 89, spe: 134},
 		abilities: {0: "Guts", 1: "Sand Rush", H: "Overcoat"},
@@ -211,7 +211,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	sharkoyudo: {
 		num: 27,
-		species: "Sharkoyudo",
+		name: "Sharkoyudo",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 98, atk: 121, def: 75, spa: 70, spd: 74, spe: 111},
 		abilities: {0: "Strong Jaw", 1: "Intimidate", H: "Hydration"},
@@ -219,7 +219,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	chújikon: {
 		num: 28,
-		species: "Chújikon",
+		name: "Chújikon",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 102, atk: 130, def: 81, spa: 45, spd: 77, spe: 75},
 		abilities: {0: "Steadfast", 1: "Regenerator", H: "Rivalry"},
