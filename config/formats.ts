@@ -3512,11 +3512,11 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10197171"></a>`,
 		],
 		mod: 'pokemonorthsoutheastwest',
-		ruleset: ['Standard', 'Data Mod', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['NSEW'];
+			let allowedTiers = ['NSEW','NSEW2'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
