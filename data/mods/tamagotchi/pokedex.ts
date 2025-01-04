@@ -715,7 +715,7 @@ mametchi: {
 		gender: "F",
 		types: ["Fire", "Dragon"],
 		baseStats: {hp: 98, atk: 62, def: 91, spa: 99, spd: 100, spe: 60},
-		abilities: {0: "Dragons Maw", 1: "Flash Fire", H: "Anger Point"},
+		abilities: {0: "Dragon's Maw", 1: "Flash Fire", H: "Anger Point"},
 	},
 	yattatchi: {
 		num: 91,
@@ -2141,7 +2141,7 @@ mametchi: {
 		gender: "F",
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 56, atk: 148, def: 125, spa: 58, spd: 48, spe: 75},
-		abilities: {0: "Dragons Maw", 1: "Marvel Scale", H: "Flash Fire"},
+		abilities: {0: "Dragon's Maw", 1: "Marvel Scale", H: "Flash Fire"},
 	},
 	wawatchi: {
 		num: 269,
