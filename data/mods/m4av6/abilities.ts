@@ -2161,6 +2161,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					delete move.selfdestruct;
 				}
 				console.log("I won't explode!");
+				console.log("Does " + move + " have recoil? " + move.recoil);
+				console.log("Does " + move + " have mind blown recoil? " + move.mindBlownRecoil);
+				console.log("Does " + move + " selfdestruct? " + move.selfdestruct);
 			}
 		},
 		onPrepareHit(target, source, move) {
