@@ -2167,6 +2167,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				console.log("Does " + move + " have recoil? " + move.recoil);
 				console.log("Does " + move + " have mind blown recoil? " + move.mindBlownRecoil);
 				console.log("Does " + move + " selfdestruct? " + move.selfdestruct);
+				console.log("Does " + move + " have recoil? " + this.effectState.target.volatiles['implode'].recoil);
+				console.log("Does " + move + " have mind blown recoil? " + this.effectState.target.volatiles['implode'].mindBlownRecoil);
+				console.log("Does " + move + " selfdestruct? " + this.effectState.target.volatiles['implode'].selfdestruct);
 			}
 		},
 		onPrepareHit(target, source, move) {
