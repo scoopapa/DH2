@@ -2178,15 +2178,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 1,
-			onAfterMove(source, target, move) {
-				let willFaint = true;
+			onAfterMove(source, target, move) { // problem: the recently KO'd target doesn't show up as one of the targets
+			// onAfterMove(source, target, move) {
 				console.log("All active Pokémon: " + this.getAllActive());
+				console.log("Target: " + target);
 				for (const pokemon of this.getAllActive()) {
 					console.log("'sup, this is " + pokemon);
 					// if (pokemon === source) continue;
 					if (pokemon !== source && !pokemon.hp) {
 						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
-						willFaint = false;
 						source.removeVolatile('implode');
 						return;
 					}
