@@ -2178,22 +2178,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 1,
-			onAfterMove(source, target, move) { // problem: the recently KO'd target doesn't show up as one of the targets
-			// onAfterMove(source, target, move) {
-				console.log("All active Pokémon: " + this.getAllActive());
-				console.log("Target: " + target);
-				for (const pokemon of this.getAllActive()) {
-					console.log("'sup, this is " + pokemon);
-					// if (pokemon === source) continue;
-					if (pokemon !== source && !pokemon.hp) {
-						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
-						source.removeVolatile('implode');
-						return;
-					}
-					else if (pokemon !== source && pokemon.hp) {
-						console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
-					}
-					console.log("Print me please!");
+			onAfterMove(source, target, move) { // Will do that another way, maybe there is better
+				// for (const pokemon of this.getAllActive()) {
+				// 	console.log("'sup, this is " + pokemon);
+				// 	// if (pokemon === source) continue;
+				// 	if (pokemon !== source && !pokemon.hp) {
+				// 		console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
+				// 		source.removeVolatile('implode');
+				// 		return;
+				// 	}
+				// 	else if (pokemon !== source && pokemon.hp) {
+				// 		console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
+				// 	}
+				// 	console.log("Print me please!");
+				// }
+				if (target !== source && !target.hp) {
+					console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
+					source.removeVolatile('implode');
+					return;
+				}
+				else if (target !== source && target.hp) {
+					console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
 				}
 				console.log("I'm still here!");
 				if (this.effectState.recoil && move.totalDamage) {
