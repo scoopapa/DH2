@@ -2191,6 +2191,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
 					}
 				}
+				console.log("I'm still here!");
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
 					this.damage(this.clampIntRange(Math.round((this.activeMove.totalDamage as number) * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
