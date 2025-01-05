@@ -2181,13 +2181,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onAfterMove(source, target, move) {
 				for (const pokemon of this.getAllActive()) {
 					console.log("'sup, this is " + pokemon);
-					if (pokemon === source) return;
-					if (!pokemon.hp) {
+					if (pokemon === source) continue;
+					else if (!pokemon.hp) {
 						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
 						source.removeVolatile('implode');
 						return;
 					}
-					if (pokemon.hp) {
+					else if (pokemon.hp) {
 						console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
 					}
 				}
