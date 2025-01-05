@@ -6,5 +6,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customTiers: ['Kalos', 'Kalos (NFE)', 'Kalos Uber'],
 		customDoublesTiers: ['Kalos', 'Kalos (NFE)'],
 	},
+	actions: {
+		inherit: true,
+	},
 	init() {},
 };

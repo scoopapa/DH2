@@ -2160,6 +2160,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.effectState.target.volatiles['implode'].selfdestruct = move.selfdestruct;
 					delete move.selfdestruct;
 				}
+				console.log("I won't explode!");
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -2172,6 +2173,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon === source) continue;
 					if (!pokemon.hp) {
+						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
 						source.removeVolatile('implode');
 						return;
 					}
@@ -2184,6 +2186,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
 				}
 				if (this.effectState.selfdestruct) {
+					console.log("I'm exploding!");
 					this.faint(source, source, this.effectState.move);
 				}
 				source.removeVolatile('implode');
