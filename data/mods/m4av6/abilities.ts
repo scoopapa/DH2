@@ -2178,29 +2178,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 1,
-			onAfterMove(source, target, move) { // Will do that another way, maybe there is better
-				// for (const pokemon of this.getAllActive()) {
-				// 	console.log("'sup, this is " + pokemon);
-				// 	// if (pokemon === source) continue;
-				// 	if (pokemon !== source && !pokemon.hp) {
-				// 		console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
-				// 		source.removeVolatile('implode');
-				// 		return;
-				// 	}
-				// 	else if (pokemon !== source && pokemon.hp) {
-				// 		console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
-				// 	}
-				// 	console.log("Print me please!");
-				// }
+			onAfterMove(source, target, move) { 
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon !== source && !pokemon.hp) {
+						source.removeVolatile('implode');
+						return;
+					}
+				}
 				if (target !== source && !target.hp) {
-					console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
 					source.removeVolatile('implode');
 					return;
 				}
-				else if (target !== source && target.hp) {
-					console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
-				}
-				console.log("I'm still here!");
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
 					this.damage(this.clampIntRange(Math.round((this.activeMove.totalDamage as number) * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
@@ -2209,7 +2197,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
 				}
 				if (this.effectState.selfdestruct) {
-					console.log("I'm exploding!");
 					this.faint(source, source, this.effectState.move);
 				}
 				source.removeVolatile('implode');
