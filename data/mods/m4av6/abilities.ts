@@ -2149,6 +2149,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves as long as a target is successfully KOed.",
 		shortDesc: "If it KOs a target, ignores recoil and self-KO effects of that move.",
 		onModifyMove(move) {
+			console.log("Does " + move + " have recoil? " + move.recoil);
+			console.log("Does " + move + " have mind blown recoil? " + move.mindBlownRecoil);
+			console.log("Does " + move + " selfdestruct? " + move.selfdestruct);
 			if (move.recoil || move.mindBlownRecoil || (move.selfdestruct && move.selfdestruct === 'always')) {
 				this.effectState.target.addVolatile('implode');
 				this.effectState.target.volatiles['implode'].move = move;
