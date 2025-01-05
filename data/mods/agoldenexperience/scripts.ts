@@ -1659,14 +1659,12 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'tinkaton').learnset.thunderpunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
     this.modData('Learnsets', 'wugtrio').learnset.flipturn = ['9L1'];
-    delete this.modData('Learnsets', 'dondozo').learnset.curse;
     this.modData('Learnsets', 'greattusk').learnset.submission = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.seismictoss = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.softboiled = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.followme = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.afteryou = ['9L1'];
     this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
-    delete this.modData('Learnsets', 'brutebonnet').learnset.spore;
     this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
