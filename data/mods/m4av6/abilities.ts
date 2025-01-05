@@ -2180,12 +2180,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 1,
 			onAfterMove(source, target, move) {
 				for (const pokemon of this.getAllActive()) {
-					console.log("'sup");
+					console.log("'sup, this is " + pokemon);
 					if (pokemon === source) continue;
 					if (!pokemon.hp) {
 						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
 						source.removeVolatile('implode');
 						return;
+					}
+					if (pokemon.hp) {
+						console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
 					}
 				}
 				if (this.effectState.recoil && move.totalDamage) {
