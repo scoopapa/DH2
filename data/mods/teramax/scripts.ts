@@ -188,6 +188,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ninjask").learnset.aquacutter = ["9L1"];
 		this.modData("Learnsets", "ninjask").learnset.drillrun = ["9L1"];
 		this.modData("Learnsets", "ninjask").learnset.stoneedge = ["9L1"];
+		this.modData("Learnsets", "ninjask").learnset.highhorsepower = ["9L1"];
 		this.modData("Learnsets", "frosmoth").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "frosmoth").learnset.thunder = ["9L1"];
 		this.modData("Learnsets", "frosmoth").learnset.thunderbolt = ["9L1"];
