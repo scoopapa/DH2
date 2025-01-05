@@ -2182,14 +2182,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				let willFaint = true;
 				for (const pokemon of this.getAllActive()) {
 					console.log("'sup, this is " + pokemon);
-					if (pokemon === source) continue;
-					else if (!pokemon.hp) {
+					// if (pokemon === source) continue;
+					if (pokemon !== source && !pokemon.hp) {
 						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
 						willFaint = false;
 						source.removeVolatile('implode');
 						return;
 					}
-					else if (pokemon.hp) {
+					else if (pokemon !== source && pokemon.hp) {
 						console.log("I'M STILL STANDING! YEAH, YEAH, YEAH!");
 					}
 					console.log("Print me please!");
