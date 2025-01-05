@@ -2180,6 +2180,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 1,
 			onAfterMove(source, target, move) {
 				let willFaint = true;
+				console.log("All active Pokémon: " + this.getAllActive());
 				for (const pokemon of this.getAllActive()) {
 					console.log("'sup, this is " + pokemon);
 					// if (pokemon === source) continue;
