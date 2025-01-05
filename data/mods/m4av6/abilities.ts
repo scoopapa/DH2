@@ -2171,6 +2171,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 1,
 			onAfterMove(source, target, move) {
 				for (const pokemon of this.getAllActive()) {
+					console.log("'sup");
 					if (pokemon === source) continue;
 					if (!pokemon.hp) {
 						console.log("DIE MONSTER! YOU DON'T BELONG IN THIS WORLD!");
