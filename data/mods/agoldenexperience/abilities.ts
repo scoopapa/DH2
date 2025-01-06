@@ -328,7 +328,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2,
 		num: -17,
 	},
-	nevergonnagiveyouup: {
+	rickroll: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
 		shortDesc: "Ignores recoil and self-KO effects of that move.",
 		onModifyMove(move) {
@@ -344,7 +344,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		name: "Never Gonna Give You Up",
+		name: "Rick Roll",
 		rating: 4,
 		num: -18,
 	},
@@ -660,7 +660,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	boarding: {
 		onBasePower(basePower, pokemon, target) {
-			if (target.trapped) {
+			if (target.volatiles['trapped']) {
 				return this.chainModify(1.25);
 			}
 		},
@@ -2540,6 +2540,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's delayed moves have 1.5x power. Wish heals for 50% more HP.",
 		name: "Karma",
 		rating: 3,
-		num: 178,
+		num: -76,
+	},
+	souldevourer: {
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.volatiles['trapped']) {
+					const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+					if (damage) {
+						this.heal(damage, target, pokemon);
+					}
+				}
+			}
+		},
+		flags: {},
+		desc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		shortDesc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		name: "Soul Devourer",
+		rating: 3,
+		num: -77,
 	},
 };
