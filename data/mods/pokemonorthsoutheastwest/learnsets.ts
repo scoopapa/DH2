@@ -1898,7 +1898,6 @@ vikarlarzhu: {
 			spikes: ["9L1"],
 			acrobatics: ["9L1"],
 			focusblast: ["9L1"],
-			closecombat: ["9L1"],
 			drainpunch: ["9L1"],
 			highjumpkick: ["9L1"],
 			triplekick: ["9L1"],
