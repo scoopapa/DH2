@@ -911,4 +911,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
+
+	octillery: {
+		tier: "OU",
+		isNonstandard: null,
+	},
+	steelix: {
+		tier: "OU",
+		isNonstandard: null,
+	},
 };
