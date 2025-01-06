@@ -151,7 +151,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Cats",
 		doublesTier: "Cats",
 	},
-	meowsticfemale: {
+	meowsticf: {
 		tier: "Cats",
 		doublesTier: "Cats",
 	},
