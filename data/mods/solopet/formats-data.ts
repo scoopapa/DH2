@@ -871,6 +871,26 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Rodent",
 		doublesTier: "Rodent",
 	},
+	azumarill: {
+		tier: "Rodent",
+		doublesTier: "Rodent",
+	},
+	diggersby: {
+		tier: "Rodent",
+		doublesTier: "Rodent",
+	},
+	lopunny: {
+		tier: "Rodent",
+		doublesTier: "Rodent",
+	},
+	victini: {
+		tier: "Rodent",
+		doublesTier: "Rodent",
+	},
+	cinderace: {
+		tier: "Rodent",
+		doublesTier: "Rodent",
+	},
 	blastoise: {
 		tier: "Turtle",
 		doublesTier: "Turtle",
