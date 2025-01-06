@@ -2247,7 +2247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Dancer"},
 		requiredMove: null,
-		battleOnly: "Meloetta-Pirouette",
+		battleOnly: null,
 	},
 	genesect: {
 		inherit: true,
