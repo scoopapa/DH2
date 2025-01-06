@@ -76,7 +76,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Yinghuci",
 		types: ["Dragon"],
 		baseStats: {hp: 114, atk: 105, def: 85, spa: 106, spd: 74, spe: 70},
-		abilities: {0: "Dragons Maw", 1: "Multiscale", H: "Intimidate"},
+		abilities: {0: "Dragon's Maw", 1: "Multiscale", H: "Intimidate"},
 		weightkg: 13.4,
 	},
 	takizuka: {
@@ -190,7 +190,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Chromium",
 		types: ["Steel", "Dragon"],
 		baseStats: {hp: 95, atk: 55, def: 100, spa: 120, spd: 95, spe: 75},
-		abilities: {0: "Steely Spirit", 1: "Dragons Maw", H: "Clear Body"},
+		abilities: {0: "Steely Spirit", 1: "Dragon's Maw", H: "Clear Body"},
 		weightkg: 17.4,
 	},
 	hantage: {
@@ -217,9 +217,9 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Strong Jaw", 1: "Intimidate", H: "Hydration"},
 		weightkg: 7.5,
 	},
-	chújikon: {
+	chujikon: {
 		num: 28,
-		name: "Chújikon",
+		name: "Chujikon",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 102, atk: 130, def: 81, spa: 45, spd: 77, spe: 75},
 		abilities: {0: "Steadfast", 1: "Regenerator", H: "Rivalry"},

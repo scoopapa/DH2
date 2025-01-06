@@ -107,7 +107,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW2",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
-	chújikon: {
+	chujikon: {
 		tier: "NSEW2",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},

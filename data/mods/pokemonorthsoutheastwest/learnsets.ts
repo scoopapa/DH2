@@ -1862,7 +1862,7 @@ vikarlarzhu: {
 			eastseawave: ["9L1"],
 		},
 	},
-	chújikon: {
+	chujikon: {
 		learnset: {
 			pound: ["9L1"],
 			growth: ["9L1"],
