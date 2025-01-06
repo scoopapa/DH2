@@ -2689,6 +2689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	silvallybug: {
 		inherit: true,
 		requiredItem: null,
+		changesFrom: null,
 	},
 	silvallydark: {
 		num: 773,
