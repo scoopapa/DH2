@@ -2411,7 +2411,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	trevenant: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 110, def: 116, spa: 45, spd: 82, spe: 56},
+		baseStats: {hp: 85, atk: 120, def: 106, spa: 45, spd: 82, spe: 56},
+		abilities: {0: "Natural Cure", 1: "Tough Claws", H: "Harvest"},
 	},
 	pumpkaboo: {
 		inherit: true,
@@ -2990,6 +2991,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	sirfetchd: {
 		inherit: true,
 		types: ["Fighting", "Flying"],
+		abilities: {0: "Sniper", H: "Sharpness"},
 	},
 	mrrime: {
 		inherit: true,

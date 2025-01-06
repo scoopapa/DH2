@@ -2855,6 +2855,12 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
+	meteorassault: {
+		inherit: true,
+		flags: {cantusetwice: 1, slicing: 1, protect: 1, mirror: 1, failinstruct: 1},
+		self: null,
+		shortDesc: "Cannot be selected the turn after it's used.",
+	},
 
 	// Identity Card field
 

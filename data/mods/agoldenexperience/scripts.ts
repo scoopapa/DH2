@@ -759,6 +759,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'annihilape').learnset.punishingblow = ['9L1'];
     this.modData('Learnsets', 'slendawful').learnset.punishingblow = ['9L1'];
     this.modData('Learnsets', 'paranormear').learnset.punishingblow = ['9L1'];
+    this.modData('Learnsets', 'trevenant').learnset.punishingblow = ['9M'];
 
     // condensate 
     this.modData('Learnsets', 'ninetalesalola').learnset.condensate = ['9L1'];
@@ -1533,6 +1534,8 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'goodrahisui').learnset.lifedew;
     this.modData('Learnsets', 'goodra').learnset.purify = ['9L1'];
     this.modData('Learnsets', 'goodrahisui').learnset.steelroller = ['9L1'];
+    this.modData('Learnsets', 'trevenant').learnset.highhorsepower = ['9L1'];
+    this.modData('Learnsets', 'trevenant').learnset.shadowsneak = ['9L1'];
     this.modData('Learnsets', 'gourgeist').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'gourgeist').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'avalugg').learnset.liquidation = ['9L1'];
@@ -1617,6 +1620,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'obstagoon').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'perrserker').learnset.bulletpunch = ['9L1'];
     this.modData('Learnsets', 'cursola').learnset.trickroom = ['9L1'];
+    this.modData('Learnsets', 'sirfetchd').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'runerigus').learnset.painsplit = ['9L1'];
     this.modData('Learnsets', 'alcremie').learnset.moonblast = ['9L1'];
     this.modData('Learnsets', 'falinks').learnset.sacredsword = ['9L1'];
