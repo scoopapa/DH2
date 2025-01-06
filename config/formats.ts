@@ -3725,7 +3725,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects',
 			'Shed Tail', 'Power Construct', 'Sneasler', 'Mewtwo', 'Zacian', 'Zamazenta', 'Naganadel', 'Palkia-Origin', 'Spectrier', 'Chi-Yu',
-			'Dracovish', 'Dragapult', 'Roaring Moon', 'Groudon', 'Miraidon', 'Koraidon', 'Zygarde-Base', 'Rayquaza',
+			'Dracovish', 'Dragapult', 'Roaring Moon', 'Groudon', 'Miraidon', 'Koraidon', 'Zygarde-Base', 'Rayquaza', 'Battle Bond', 'Greninja-Bond',
 		],
 		onValidateTeam(team, format, teamHas) {
 			/**@type {{[k: string]: true}} */
