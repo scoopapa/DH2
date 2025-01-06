@@ -2692,23 +2692,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Water",
 		contestType: "Cool",
 	},
-	// electroshot: {
-	// 	inherit: true,
-	// 	onTryMove(attacker, defender, move) {
-	// 		if (attacker.removeVolatile(move.id)) {
-	// 			return;
-	// 		}
-	// 		this.add('-prepare', attacker, move.name);
-	// 		this.boost({ spa: 1 }, attacker, attacker, move);
-	// 		if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-	// 			return;
-	// 		}
-	// 		attacker.addVolatile('twoturnmove', defender);
-	// 		return null;
-	// 	},
-	// 	desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
-	// 	shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
-	// },
 	natureswrath: {
 		num: -63,
 		accuracy: 100,
@@ -2802,6 +2785,81 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		desc: "Has a 100% chance to raise the user's Special Attack by 1 stage.",
 		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
+	},
+	waterpulse: {
+		inherit: true,
+		basePower: 80,
+	},
+	shadowpunch: {
+		inherit: true,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'healblock',
+		},
+		desc: "For 2 turns, the target is prevented from restoring any HP as long as it remains active. During the effect, healing and draining moves are unusable, and Abilities and items that grant healing will not heal the user. If an affected Pokemon uses Baton Pass, the replacement will remain unable to restore its HP. Pain Split and the Regenerator Ability are unaffected. Does not check accuracy.",
+		shortDesc: "For 2 turns, the target is prevented from healing. Does not check accuracy.",
+	},
+	healblock: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Psychic Noise" || effect?.name === "Shadow Punch") {
+					return 2;
+				}
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Heal Block');
+					return 7;
+				}
+				return 5;
+			},
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'move: Heal Block');
+				source.moveThisTurnResult = true;
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
+			onResidualOrder: 20,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Heal Block');
+			},
+			onTryHeal(damage, target, source, effect) {
+				if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
+				return false;
+			},
+			onRestart(target, source, effect) {
+				if (effect?.name === 'Psychic Noise') return;
+
+				this.add('-fail', target, 'move: Heal Block'); // Succeeds to supress downstream messages
+				if (!source.moveThisTurnResult) {
+					source.moveThisTurnResult = false;
+				}
+			},
+		},
+	},
+	meteorassault: {
+		inherit: true,
+		flags: {cantusetwice: 1, slicing: 1, protect: 1, mirror: 1, failinstruct: 1},
+		self: null,
+		shortDesc: "Cannot be selected the turn after it's used.",
 	},
 
 	// Identity Card field
