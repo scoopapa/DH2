@@ -459,4 +459,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bulletproof", H: "Rough Skin"},
 		weightkg: 66.6,
 	},
+	bellolysk: {
+		num: 1201,
+		name: "Bellolysk",
+		types: ["Dragon", "Steel"],
+		baseStats: {hp: 100, atk: 85, def: 85, spa: 85, spd: 75, spe: 70},
+		abilities: {0: "Magic Guard", H: "Multiscale"},
+		weightkg: 999,
+	},
+	tryonite: {
+		num: 1202,
+		name: "Tryonite",
+		types: ["Bug", "Rock"],
+		baseStats: {hp: 75, atk: 75, def: 80, spa: 90, spd: 105, spe: 70},
+		abilities: {0: "Drought", H: "Sturdy"},
+		weightkg: 7,
+	},
+	scarachnid: {
+		num: 1203,
+		name: "Scarachnid",
+		types: ["Ghost", "Bug"],
+		baseStats: {hp: 81, atk: 112, def: 70, spa: 31, spd: 70, spe: 121},
+		abilities: {0: "Regenerator", H: "Perish Body"},
+		weightkg: 14,
+	},
 };
