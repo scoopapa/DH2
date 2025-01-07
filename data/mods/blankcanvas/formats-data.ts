@@ -172,4 +172,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	porcupyre: {
 		tier: "BC OU",
 	},
+	bellolysk: {
+		tier: "BC OU",
+	},
+	tryonite: {
+		tier: "BC OU",
+	},
+	scarachnid: {
+		tier: "BC OU",
+	},
 };
