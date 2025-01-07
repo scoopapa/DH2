@@ -1204,6 +1204,7 @@ export class RandomTeams {
 		if (species.id === 'ironvaliant' && role === 'Fast Bulky Setup') return 'Outclass';
 		if (species.id === 'torkoal') return 'Drought';
 		if (species.id === 'screamtail') return 'Cute Charm';
+		if (species.id === 'milotic' && role === 'Setup Sweeper') return 'Sheer Heart';
 		
 		// singles
 		if (!isDoubles) {
@@ -1375,6 +1376,7 @@ export class RandomTeams {
 		if (species.id === 'charizard' && role === 'Setup Sweeper') return 'Charizardite Shard X';
 		if (species.id === 'hippowdon' && moves.has('roar')) return 'Walkie-Talkie';
 		if (species.id === 'hydrapple' && role === 'Bulky Support' && this.randomChance(1, 2)) return 'Tera Shard';
+		if (species.id === 'milotic' && role === 'Setup Sweeper') return 'Life Orb';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
