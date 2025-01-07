@@ -1174,7 +1174,7 @@ export class RandomTeams {
 		if (species.id === 'copperajah' && moves.has('heavyslam')) return 'Heavy Metal';
 		if (species.id === 'jumpluff') return 'Infiltrator';
 		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Keen Eye';
-		if (species.id === 'reuniclus' && role === 'AV Pivot') return 'Regenerator';
+		if ((species.id === 'reuniclus' && role === 'AV Pivot') || species.id === 'alomomola') return 'Regenerator';
 		if (species.id === 'reuniclus' && role !== 'AV Pivot') return 'Magic Guard';
 		if (species.id === 'smeargle' && !counter.get('technician')) return 'Own Tempo';
 		if (species.id === 'zebstrika') return (moves.has('wildcharge')) ? 'Sap Sipper' : 'Lightning Rod';
@@ -1202,6 +1202,8 @@ export class RandomTeams {
 		if (species.id === 'chesnaught') return 'Seed Sower';
 		if (species.id === 'pyroar' && !teamDetails.sand) return 'Supreme Overlord';
 		if (species.id === 'ironvaliant' && role === 'Fast Bulky Setup') return 'Outclass';
+		if (species.id === 'torkoal') return 'Drought';
+		if (species.id === 'screamtail') return 'Cute Charm';
 		
 		// singles
 		if (!isDoubles) {
@@ -1452,8 +1454,8 @@ export class RandomTeams {
 			return 'Chesto Berry';
 		}
 		if (
-			species.id !== 'yanmega' && ability !== 'Smelt' &&
-			this.dex.getEffectiveness('Rock', species) >= 2 && (!types.includes('Flying') || !isDoubles)
+			species.id !== 'yanmega' && 
+			this.dex.getEffectiveness('Rock', species) >= 2 && ability !== 'Smelt' && (!types.includes('Flying') || !isDoubles)
 		) return 'Heavy-Duty Boots';
 	}
 
