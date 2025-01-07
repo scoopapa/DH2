@@ -1104,8 +1104,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		zMove: "Bond Slicing Shuriken",
 		zMoveFrom: "Water Shuriken",
 		itemUser: ["Greninja-Bond"],
-		onAfterMove(pokemon) {
-			pokemon.formeChange('Greninja-Ash');
+		onAfterMove(pokemon, target, move) {
+			if (move.id === 'bondingslicingshuriken') pokemon.formeChange('Greninja-Ash');
 		},
 		num: -21,
 		gen: 9,
