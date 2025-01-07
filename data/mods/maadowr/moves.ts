@@ -377,7 +377,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		category: "Physical",
 		shortDesc: "Removes target's Steel-type.",
 		name: "Golddigger",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
@@ -1510,7 +1510,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "Combo attack: Escavalier, double damage; Grapplin, heals.",
+		shortDesc: "Combo attack: Double damage for second attacker.",
 		name: "Pincer Attack",
 		pp: 10,
 		priority: 0,
@@ -1763,7 +1763,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		category: "Special",
 		pp: 10,  
 		priority: 0,  
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, nosketch: 1}, // for tournament purpose only, nosketch
 		secondary: null,  
 		target: "allAdjacentFoes",  
 		type: "Bug",  
