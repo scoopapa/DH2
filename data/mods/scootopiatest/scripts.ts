@@ -33,6 +33,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
+		scoot.scootopia.resetWorldEffectTurns = function(pokemon) {
+			let currentF = "none";
+			if (scoot.scootopia.getWorldEffect) currentF = scoot.scootopia.getWorldEffect;
+			pokemon.m.lastField = currentF;
+			pokemon.m.fieldTurns = 0;
+		}
 		scoot.scootopia.getImmunity = function(pokemon, w) {
 			if (!w) w = scoot.scootopia.getWorldEffect(pokemon);
 			if (!w) return false;
@@ -62,6 +68,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				case 'rainofmeteors':
 					if ( ability == 'celestial' 
 						|| ability == 'fallingstar' 
+						// || ability == 'overcoat'
+						// || pokemon.hasType("Fairy")
 					) return true;
 				break;
 				case 'blessedfield':
@@ -101,8 +109,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Harzodia
 		this.modData("Learnsets", "harzodia").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "harzodia").learnset.stellaralignment = ["9L1"];
+		this.modData("Learnsets", "harzodia").learnset.rebalance = ["9L1"];
 		// Minillow
 		this.modData("Learnsets", "minillow").learnset.rebalance = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.healingwish = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "minillow").learnset.whirlwind = ["9L1"];
+		delete this.modData("Learnsets", "minillow").learnset.calmmind;
 		// Sturgard
 		this.modData("Learnsets", "sturgard").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "sturgard").learnset.rainofdew = ["9L1"];
@@ -140,7 +154,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "celespirit").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "celespirit").learnset.stellaralignment = ["9L1"];
 		// Elemadillo
-		this.modData("Learnsets", "elemadillo").learnset.earthpower = ["9L1"];
+		// this.modData("Learnsets", "elemadillo").learnset.earthpower = ["9L1"];
 		// Cinnastar
 		this.modData("Learnsets", "cinnastar").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "cinnastar").learnset.stellaralignment = ["9L1"];
@@ -154,6 +168,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "embuck").learnset.chaoticterrain = ["9L1"];
 		// Cindoe
 		this.modData("Learnsets", "cindoe").learnset.chaoticterrain = ["9L1"];
+		this.modData("Learnsets", "cindoe").learnset.rebalance = ["9L1"];
 		// Cobracotta
 		// Cyllindrake
 		this.modData("Learnsets", "cyllindrake").learnset.rainofmeteors = ["9L1"];
@@ -164,13 +179,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Blunderbusk
 		this.modData("Learnsets", "blunderbusk").learnset.rebalance = ["9L1"];
 		// Dracoil
-		this.modData("Learnsets", "dracoil").learnset.rebalance = ["9L1"];
 		this.modData("Learnsets", "dracoil").learnset.chaoticweather = ["9L1"];
 		// Enkappa
 		// Zeploom
 		this.modData("Learnsets", "zeploom").learnset.blessedfield = ["9L1"];
+		this.modData("Learnsets", "zeploom").learnset.rebalance = ["9L1"];
 		// Jamborai
 		this.modData("Learnsets", "jamborai").learnset.silentdomain = ["9L1"];
+		this.modData("Learnsets", "jamborai").learnset.rebalance = ["9L1"];
 		// Avastar
 		this.modData("Learnsets", "avastar").learnset.stellaralignment = ["9L1"];
 		// Nunopod
@@ -182,6 +198,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Zephyrmine
 		this.modData("Learnsets", "zephyrmine").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "zephyrmine").learnset.rainofdew = ["9L1"];
+		this.modData("Learnsets", "zephyrmine").learnset.rebalance = ["9L1"];
 		// Boreasel
 		this.modData("Learnsets", "boreasel").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "boreasel").learnset.chaoticweather = ["9L1"];
@@ -194,21 +211,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "zygola").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "zygola").learnset.silentdomain = ["9L1"];
 		this.modData("Learnsets", "zygola").learnset.stellaralignment = ["9L1"];
+		this.modData("Learnsets", "efflor").learnset.rebalance = ["9L1"];
 		// Skawamud
 		this.modData("Learnsets", "skawamud").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "skawamud").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "skawamud").learnset.cursedfield = ["9L1"];
 		this.modData("Learnsets", "skawamud").learnset.blessedfield = ["9L1"];
+		this.modData("Learnsets", "efflor").learnset.rebalance = ["9L1"];
 		// Noxon
 		this.modData("Learnsets", "noxon").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "noxon").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "noxon").learnset.chaoticweather = ["9L1"];
 		this.modData("Learnsets", "noxon").learnset.chaoticterrain = ["9L1"];
+		this.modData("Learnsets", "efflor").learnset.rebalance = ["9L1"];
 		// Xiphoil
 		this.modData("Learnsets", "xiphoil").learnset.legacyshade = ["9L1"];
 		this.modData("Learnsets", "xiphoil").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "xiphoil").learnset.rainofmeteors = ["9L1"];
 		this.modData("Learnsets", "xiphoil").learnset.rainofdew = ["9L1"];
+		this.modData("Learnsets", "efflor").learnset.rebalance = ["9L1"];
 		// Saphor
 		this.modData("Learnsets", "saphor").learnset.iconoblast = ["9L1"];
 		this.modData("Learnsets", "saphor").learnset.blessedfield = ["9L1"];
@@ -218,6 +239,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// Flocura
 		this.modData("Learnsets", "flocura").learnset.chaoticterrain = ["9L1"];
 		this.modData("Learnsets", "flocura").learnset.silentdomain = ["9L1"];
+		this.modData("Learnsets", "flocura").learnset.rebalance = ["9L1"];
 		// Flocura-Nexus
 		// Cyrome-Book
 		this.modData("Learnsets", "cyromebook").learnset.rebalance = ["9L1"];
@@ -232,6 +254,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "cyromebook").learnset.silentdomain = ["9L1"];
 		this.modData("Learnsets", "cyromebook").learnset.stellaralignment = ["9L1"];
 		// Cyrome-Scribe
+		this.modData("Learnsets", "cyrome").learnset.rebalance = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.legacyshade = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.iconoblast = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.chaoticterrain = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.chaoticweather = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.rainofmeteors = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.rainofdew = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.cursedfield = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.blessedfield = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.silentdomain = ["9L1"];
+		this.modData("Learnsets", "cyrome").learnset.stellaralignment = ["9L1"];
 		// Cyrome-Author
 		// Krachiten
 		this.modData("Learnsets", "krachiten").learnset.wavecrash = ["9L1"];

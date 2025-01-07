@@ -94,7 +94,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: 658,
 		onTakeItem: false,
 		onStart(pokemon) {
-			if (['Ogerpon'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton', 'Pincurchin', 'Metagross', 'Blissey'].includes(pokemon.baseSpecies.baseSpecies)) {
 	  			if (pokemon.side.sideConditions['teraused']) {
 	  				pokemon.canTerastallize = null;
 	  			} else {
@@ -102,18 +102,18 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	  			}
       	}
 		},
-		itemUser: ["Ogerpon"],
+		itemUser: ["Ogerpon", "Skeledirge", "Samurott-Hisui", "Tinkaton", "Pincurchin", "Metagross", "Blissey"],
 		num: -1001,
 		gen: 9,
 		desc: "Allows certain Pokemon to Terastallize.",
-    rating: 3,
+    	rating: 3,
 	},
 	pokeball: {
 		name: "Poke Ball",
 		spritenum: 345,
 		onTakeItem: false,
 		onStart(pokemon) {
-			if (['Ogerpon'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (['Ogerpon', 'Skeledirge', 'Samurott', 'Tinkaton', 'Pincurchin', 'Metagross', 'Blissey'].includes(pokemon.baseSpecies.baseSpecies)) {
 	  			if (pokemon.side.sideConditions['teraused']) {
 	  				pokemon.canTerastallize = null;
 	  			} else {
@@ -125,6 +125,30 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 1,
 		isPokeball: true,
 		desc: "Allows certain Pokemon to Terastallize.",
-    rating: 3,
+    	rating: 3,
+	},
+	stellarorb: {
+		name: "Stellar Orb",
+		spritenum: 742,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Terapagos') {
+	  			if (pokemon.side.sideConditions['teraused']) {
+	  				pokemon.canTerastallize = null;
+	  			} else {
+	        		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+	  			}
+      	}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Terapagos') return false;
+			return true;
+		},
+		itemUser: ["Terapagos", "Terapagos-Terastal"],
+		num: -1002,
+		gen: 9,
+		desc: "Terapagos: Terastallize to gain Stellar form and Teraform Zero.",
 	},
 };

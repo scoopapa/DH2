@@ -163,4 +163,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	geoporka: {
 		tier: "BC OU",
 	},
+	seaode: {
+		tier: "BC OU",
+	},
+	plasmage: {
+		tier: "BC OU",
+	},
+	porcupyre: {
+		tier: "BC OU",
+	},
+	bellolysk: {
+		tier: "BC OU",
+	},
+	tryonite: {
+		tier: "BC OU",
+	},
+	scarachnid: {
+		tier: "BC OU",
+	},
 };

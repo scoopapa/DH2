@@ -2,13 +2,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	crystalcrown: {
 		name: "Crystal Crown",
 		num: -1,
-		shortDesc: "Holder takes 0.67x damage from Z-Moves, Mega-Evolved Pokemon, Dynamaxed Pokemon and Terastallized Pokemon.",
+		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera Pokemon. Attacker loses 1/8 max HP.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
 				return this.chainModify(0.67);
 			}
 		},
-				onDamagingHitOrder: 2,
+		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
 				this.damage(source.baseMaxhp / 8, source, target);
@@ -536,18 +536,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
 		onDamagingHit(damage, target, source, move) {
 			this.add('-enditem', target, 'Air Balloon');
-			this.boost({spa: 1});
+			this.boost({ spa: 1 });
 			target.item = '';
-			target.itemState = {id: '', target};
+			target.itemState = { id: '', target };
 			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
 			this.debug('effect: ' + effect.id);
 			if (effect.effectType === 'Move') {
 				this.add('-enditem', target, 'Air Balloon');
-				this.boost({spa: 1});
+				this.boost({ spa: 1 });
 				target.item = '';
-				target.itemState = {id: '', target};
+				target.itemState = { id: '', target };
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 			}
 		},
@@ -613,18 +613,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		inherit: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hasType('Fighting')) {
+			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
 				return this.chainModify(1.3);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			if (pokemon.hasType('Fighting')) {
+			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
 				return this.chainModify(1.3);
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (!pokemon.hasType('Fighting')) {
+			if (!pokemon.hasType('Fighting') && !pokemon.hasAbility('Klutz')) {
 				return this.chainModify(0.5);
 			}
 		},
@@ -642,7 +642,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 30,
 		},
-		shortDesc: "On switch in, adds Grass type to holder. No effect if holder is Grass type",
+		shortDesc: "On switch in, adds Grass type to holder. No effect if holder is Grass type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Grass')) {
 				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Cursed Branch');
@@ -740,5 +740,376 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	wateriumz: {
 		inherit: true,
 		onMemory: "Water",
+	},
+
+	//slate 5 
+	puppetstrings: {
+		fling: {
+			basePower: 10,
+		},
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !source.volatiles['substitute']) return;
+			move.multihit = 2;
+			move.multihitType = 'parentalbond';
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2 && source.volatiles['substitute']) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		desc: "If this Pokemon has a Substitute, its damaging moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect Doom Desire, Dragon Darts, Dynamax Cannon, Endeavor, Explosion, Final Gambit, Fling, Future Sight, Ice Ball, Rollout, Self-Destruct, any multi-hit move, any move that has multiple targets, or any two-turn move.",
+		shortDesc: "This Pokemon's damaging moves hit twice if it has a Substitute. The second hit has its damage quartered.",
+		flags: {},
+		name: "Puppet Strings",
+		num: -14,
+	},
+	pikaniumz: {
+		inherit: true,
+		shortDesc: "If Pikachu: 2x Atk, SpA, Def, SpD. Changes type and ability.",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Pikachu') return;
+			let newAbility;
+			let newType;
+			switch (pokemon.baseSpecies.forme) {
+				case 'Original':
+					newAbility = 'Run It Back';
+					newType = 'Fairy';
+					break;
+				case 'Hoenn':
+					newAbility = 'Technician';
+					newType = 'Water';
+					break;
+				case 'Sinnoh':
+					newAbility = 'No Guard';
+					newType = 'Steel';
+					break;
+				case 'Unova':
+					newAbility = 'Intimidate';
+					newType = 'Fighting';
+					break;
+				case 'Kalos':
+					newAbility = 'Mold Breaker';
+					newType = 'Dark';
+					break;
+				case 'Alola':
+					newAbility = 'Psychic Surge';
+					newType = 'Psychic';
+					break;
+				case 'World':
+					newAbility = 'Aerilate';
+					newType = 'Flying';
+					break;
+				default:
+					newAbility = 'Tough Claws';
+					newType = 'Normal';
+					break;
+			}
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' && pokemon.addType(newType)) {
+				this.add('-start', pokemon, 'typeadd', newType, '[from] item: Pikanium Z');
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' && pokemon.baseSpecies.forme === 'Alola' && move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Psychic';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+	},
+	pikashuniumz: {
+		inherit: true,
+		shortDesc: "If Pikachu: 2x Atk, SpA, Def, SpD. Changes type and ability.",
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Pikachu') return;
+			let newAbility;
+			let newType;
+			switch (pokemon.baseSpecies.forme) {
+				case 'Original':
+					newAbility = 'Run It Back';
+					newType = 'Fairy';
+					break;
+				case 'Hoenn':
+					newAbility = 'Technician';
+					newType = 'Water';
+					break;
+				case 'Sinnoh':
+					newAbility = 'No Guard';
+					newType = 'Steel';
+					break;
+				case 'Unova':
+					newAbility = 'Intimidate';
+					newType = 'Fighting';
+					break;
+				case 'Kalos':
+					newAbility = 'Mold Breaker';
+					newType = 'Dark';
+					break;
+				case 'Alola':
+					newAbility = 'Psychic Surge';
+					newType = 'Psychic';
+					break;
+				case 'World':
+					newAbility = 'Aerilate';
+					newType = 'Flying';
+					break;
+				default:
+					newAbility = 'Tough Claws';
+					newType = 'Normal';
+					break;
+			}
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' && pokemon.addType(newType)) {
+				this.add('-start', pokemon, 'typeadd', newType, '[from] item: Pikanium Z');
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (pokemon.baseSpecies.forme === 'Pikachu-Alola' && move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Psychic';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+				return this.chainModify(2);
+			}
+		},
+	},
+	friedrice: {
+		name: "Fried Rice",
+		fling: {
+			basePower: 30,
+		},
+		onModifyMove(move) {
+			if (move.id === 'waterpulse') {
+				move.basePower = this.chainModify(1.2);
+			}
+		},
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer' && pokemon.addType('Dragon')) {
+				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Fried Rice');
+			}
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer') return this.chainModify(1.5);
+		},
+		shortDesc: "Water Pulse's damage is x1.2. If Clawitzer: becomes Water/Dragon, and Speed is 1.5x.",
+		num: -14,
+	},
+	ringtarget: {
+		inherit: true,
+		fling: {
+			basePower: 60,
+			secondary: {
+				chance: 100,
+				evasion: -1,
+			},
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && move.category !== 'Status') {
+				return true;
+			}
+			return accuracy;
+		},
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		shortDesc: "User's physical and special moves can't miss, but their secondary effects are removed.",
+	},
+	// Slate 6
+	parallelmegaorb: { 
+		name: "Parallel Mega Orb",
+		onTakeItem(item, source) {
+			if (source.canMegaEvo) return false;
+			return true;
+		},
+		onAfterMega(pokemon) {
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+		},
+		onStart(pokemon) {
+			let newAbility = pokemon.set.ability
+			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+		},
+		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
+		num: -15,
+		gen: 9,
+	},
+	legendplate: {
+		name: "Legend Plate",
+		spritenum: 658,
+		onTakeItem: false,
+		onStart(pokemon) {
+			const type = pokemon.teraType;
+			this.add('-item', pokemon, 'Legend Plate');
+			this.add('-anim', pokemon, "Cosmic Power", pokemon);
+			if (type && type !== '???') {
+				if (!pokemon.setType(type)) return;
+				this.add('-start', pokemon, 'typechange', type, '[from] item: Legend Plate');
+			}
+			this.add('-message', `${pokemon.name}'s Legend Plate changed its type!`);
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'soak' || move.id === 'magicpowder') {
+				this.add('-immune', pokemon, '[from] item: Legend Plate');
+				return null;
+			}
+		},
+		onModifyBasePowerPriority: 22,
+		onModifyBasePower(basePower, attacker, defender, move) {
+			if ((move.stab && attacker.teraType === 'Stellar') || move.type === attacker.teraType) {
+				return this.chainModify(1.2);
+			}
+		},
+		num: -16,
+		gen: 9,
+		shortDesc: "Holder becomes its Tera Type on switch-in. Moves of the new type are x1.2. STABs are x1.2 if the new type is Stellar.",
+		rating: 3,
+	},
+	baseball: {
+		name: "Baseball",
+		fling: {
+			basePower: 50,
+			secondary: {
+				chance: 100,
+				volatileStatus: 'flinch',
+			},
+		},
+		onBasePower(basePower, source, target, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyMove(move) {
+			if (move.flags['bullet']) {
+				move.category = 'Physical';
+			}
+		},
+		num: -17,
+		shortDesc: "Holder's ball/bomb moves have 1.3x power, and are physical.",
+		gen: 9,
+	},
+	gooditem: {
+		name: "Good Item",
+		shortDesc: "Turns into a random item from the Popular Items section.",
+		onStart(pokemon) {
+			const itemList = ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'starfberry', 'choiceband', 'choicespecs', 'choicescarf', 'rockyhelmet', 'heavydutyboots', 'assaultvest', 'cursedbranch', 'lifeorb', 'expertbelt'];
+			const itemIndex = this.random(itemList.length);
+			const itemMade = itemList[itemIndex];
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(itemMade);
+				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Good Item');
+			}
+		},
+		rating: 3,
+		num: -18,
+	},
+	neutralizer: {
+		fling: {
+			basePower: 20,
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (!target.runImmunity(move.type)) return;
+			if (this.dex.getEffectiveness(move, target) === -1) return;
+			return 0;
+		},
+		// Implemented in scripts.js
+		name: "Neutralizer",
+		rating: 4,
+		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
+		num: -19,
+	},
+	dreamcatcher: {
+		name: "Dream Catcher",
+		fling: {
+			basePower: 60,
+		},
+		onSourceHit(target, source, move) {
+			if (source.status === 'slp') {
+				this.add('-activate', source, 'item: Dream Catcher');
+				this.actions.useMove('sleeptalk', this.effectState.target); 
+			}
+		},
+		num: -20,
+		gen: 9,
+		shortDesc: "If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
+	},
+	greniniumz: {
+		name: "Greninium Z",
+		spritenum: 652,
+		onTakeItem: false,
+		zMove: "Bond Slicing Shuriken",
+		zMoveFrom: "Water Shuriken",
+		itemUser: ["Greninja-Bond"],
+		onAfterMove(pokemon) {
+			pokemon.formeChange('Greninja-Ash');
+		},
+		num: -21,
+		gen: 9,
+		shortDesc: "If held by a Greninja-Bond with Water Shuriken, it can use Bond Slicing Shuriken. After the Z-move is used, transforms into Greninja-Ash.",
 	},
 };

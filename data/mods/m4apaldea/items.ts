@@ -461,7 +461,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Kleavor, this item allows it to Mega Evolve in battle.",
 	},
-	slitherite: { 
+	slitherwite: { 
 		name: "Slitherwite",
 		spritenum: 578,
 		megaStone: "Slither Wing-Mega",

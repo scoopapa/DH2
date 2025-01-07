@@ -1,3 +1,26 @@
+import {FS} from '../../../lib';
+import {toID} from '../../../sim/dex-data';
+import {Pokemon} from "../../../sim/pokemon";
+
+// Similar to User.usergroups. Cannot import here due to users.ts requiring Chat
+// This also acts as a cache, meaning ranks will only update when a hotpatch/restart occurs
+const usergroups: {[userid: string]: string} = {};
+const usergroupData = FS('config/usergroups.csv').readIfExistsSync().split('\n');
+for (const row of usergroupData) {
+	if (!toID(row)) continue;
+
+	const cells = row.split(',');
+	if (cells.length > 3) throw new Error(`Invalid entry when parsing usergroups.csv`);
+	usergroups[toID(cells[0])] = cells[1].trim() || ' ';
+}
+
+export function getName(name: string): string {
+	const userid = toID(name);
+	if (!userid) throw new Error('No/Invalid name passed to getSymbol');
+
+	const group = usergroups[userid] || ' ';
+	return group + name;
+}
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	/*
 	placeholder: {
@@ -203,7 +226,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Triple Kick", target);
@@ -313,7 +336,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Go Fish",
-		shortDesc: "Force switches target. Fails if target is not attacking.",
+		shortDesc: "Spends 1 token to switch target. Fails if target is not attacking.",
 		pp: 5,
 		priority: 1,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, fishing: 1,},
@@ -325,7 +348,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge'] || !source.removeFishingTokens(1)) {
 				return false;
 			}
 		},
@@ -1111,9 +1134,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	diamondhatchet: {
 		accuracy: 100,
 		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.volatiles['bigbutton']) return 120;
+			return 80;
+		},
 		category: "Physical",
 		name: "Diamond Hatchet",
-		shortDesc: "20% chance to make the target flinch.",
+		shortDesc: "20% chance to make the target flinch. Big: 120 BP.",
 		pp: 10,
 		priority: 0,
 		flags: {slicing: 1, protect: 1, mirror: 1, metronome: 1},
@@ -1958,15 +1985,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 85,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "10% chance to lower target's Defense by 1 stage.​",
+		shortDesc: "50% chance to lower target's Def by 1 stage, 100% if target healed.​",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			//this.add('-anim', pokemon, "", target);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (target.volatiles['healed']) {
+				move.secondary.chance = 100;
+			}
+		},
 		secondary: {
-			chance: 10,
+			chance: 50,
 			boosts: {
 				def: -1,
 			},
@@ -2181,14 +2213,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Silly",
 		category: "Physical",
 		basePower: 90,
-		accuracy: 100,
-		pp: 15,
-		shortDesc: "No additional effect.",
+		accuracy: 10001,
+		pp: 10,
+		shortDesc: "User recovers 1/8 max HP if this KOs a target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Body Slam", target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.heal(pokemon.maxhp / 6, pokemon, target, move);
 		},
 		secondary: null,
 		target: "normal",
@@ -2794,7 +2829,304 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 	},
 	
-	//Silly shit
+	//slate 8
+	necromancy: {
+		name: "Necromancy",
+		type: "Ghost",
+		category: "Special",
+		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			return 30 * Math.min(pokemon.side.totalFainted, 5);
+		},
+		accuracy: 70,
+		pp: 5,
+		shortDesc: "+30 power for each fainted ally. Graveyard: can't miss.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTryMove(attacker, defender, move) {
+			return attacker.side.totalFainted > 0;
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Last Respects", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+				case 'graveyard':
+					move.accuracy = true;
+					break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	snowflakeshuriken: {
+		name: "Snowflake Shuriken",
+		type: "Ice",
+		category: "Special",
+		basePower: 20,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Usually goes first. Hits 3 times.",
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Icicle Spear", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	wildhunt: {
+		name: "Wild Hunt",
+		type: "Fairy",
+		category: "Physical",
+		basePower: 120,
+		accuracy: 85,
+		pp: 10,
+		shortDesc: "No additional effect.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Power Whip", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	flytrap: {
+		name: "Flytrap",
+		type: "Grass",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Super effective against Bug-types.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Snap Trap", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Bug') return 1;
+		},
+		secondary: null,
+		target: "normal",
+	},
+	twineedle: {
+		inherit: true,
+		shortDesc: "Hits 2-5 times. 20% chance to poison regardless of typing.",
+		multihit: [2, 5],
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('twineedle');
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onStart(target) {
+				target.addVolatile('ability:corrosion');
+			},
+			onEnd(target) {
+				target.removeVolatile('ability:corrosion');
+			},
+		},
+	},
+	wariopicrosspuzzle4g: {
+		name: "Wario Picross Puzzle 4G",
+		type: "Rock",
+		category: "Special",
+		basePower: 95,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "10% chance to Baseball the target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Power Gem", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'baseball',
+		},
+		target: "normal",
+	},
+	blazeball: {
+		name: "Blazeball",
+		type: "Fire",
+		category: "Special",
+		basePower: 140,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "User hits self and target.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Burn Up", target);
+		},
+		onAfterHit(target, source, move) {
+			if (source.hp && source.lastMove.target != 'self') {
+				move.target = 'self';
+				this.actions.useMove(move.id, source, source);
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+	perfectfreeze: {
+		num: -1012,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Perfect Freeze",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, recharge: 1 },
+		secondary: {
+			chance: 100,
+			status: 'frz',
+		},
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Sheer Cold', target);
+		},
+		/*mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				const hpBeforeRecoil = pokemon.hp;
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Perfect Freeze'), true);
+				if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
+		},*/
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+		shortDesc: "100% chance to freeze. User must recharge.",
+
+	},
+	energytank: {
+		name: "Energy Tank",
+		type: "Steel",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 10,
+		shortDesc: "Heals 1/3 max HP, Endure. Cannot be selected twice in a row.",
+		priority: 3,
+		flags: {snatch: 1, metronome: 1, cantusetwice: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Synthesis", pokemon);
+		},
+		heal: [1, 3],
+		volatileStatus: 'endure',
+		secondary: null,
+		target: "self",
+	},
+	zekromkick: {
+		name: "Zekrom Kick",
+		type: "Dragon",
+		category: "Physical",
+		basePower: 45,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.id === 'zekrom') return move.basePower * 2;
+			return move.basePower;
+		},
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Doubled power if user is Zekrom. Otherwise transforms into Zekrom.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Thunderous Kick", target);
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|shut up idiot ジェイ絵ジェ (ZEKROM KICK)`);
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (target.species.id !== 'zekrom') target.formeChange('Zekrom', this.effect, false, '0', '[msg]');
+		},
+		secondary: null,
+		target: "normal",
+	},
+	bakingblast: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Baking Blast",
+		shortDesc: "+2 SpD on contact with user before it moves.",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, bullet: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('bakingblast');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Baking Blast');
+			},
+			onHit(target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.boost({spd: 2}, target);
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('beakblast')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('bakingblast');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Silly",
+		contestType: "Tough",
+	},
+	deathgrip: {
+		num: 3015,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Prevents the target from using pivoting moves.",
+		name: "Death Grip",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Octolock", target);
+		},
+		volatileStatus: 'deathgrip',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Death Grip');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.selfSwitch) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	
+	//silly shit
 	attract: {
 		inherit: true,
 		type: "Silly",
@@ -3027,6 +3359,60 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, disaster: 1},
 	},
 	
+	//foot shit
+	axekick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	blazekick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	doublekick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	highjumpkick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	jumpkick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	megakick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	pyroball: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	stomp: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	stompingtantrum: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	thunderouskick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	triplekick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	tropkick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	rollingkick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, foot: 1},
+	},
+	
 	//fake moves
 	abomacarespikes: {
 		accuracy: true,
@@ -3110,6 +3496,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		pp: 1,
 		shortDesc: "Designates Fish Pokemon",
+		viable: false,
 		priority: 0,
 		flags: {},
 		onPrepareHit(target, pokemon, move) {
@@ -3127,6 +3514,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		pp: 1,
 		shortDesc: "Designates Diamond Hand Pokemon",
+		viable: false,
 		priority: 0,
 		flags: {},
 		onPrepareHit(target, pokemon, move) {
@@ -3144,6 +3532,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		pp: 1,
 		shortDesc: "Designates Hoenn Pokemon",
+		viable: false,
 		priority: 0,
 		flags: {},
 		onPrepareHit(target, pokemon, move) {
@@ -3161,6 +3550,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		pp: 1,
 		shortDesc: "Designates Trans Pokemon",
+		viable: false,
+		priority: 0,
+		flags: {},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+	copen: {
+		name: "Copen",
+		type: "Poison",
+		category: "Status",
+		basePower: 0,
+		accuracy: true,
+		pp: 1,
+		shortDesc: "Designates Copen Pokemon",
+		viable: false,
 		priority: 0,
 		flags: {},
 		onPrepareHit(target, pokemon, move) {
@@ -3186,6 +3594,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move = 'psychic';
 			} else if (this.field.isTerrain('fishingterrain')) {
 				move = 'fishingmetagame';
+			} else if (this.field.isTerrain('frigidterrain')) {
+				move = 'icebeam';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -3227,7 +3637,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						source.side.addFishingTokens(1);
 					},
 				});
-			}
+			} else if (this.field.isTerrain('frigidterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'frz',
+				});
+			} 
 		},
 	},
 	terrainpulse: {
@@ -3249,6 +3664,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				break;
 			case 'fishingterrain':
 				move.type = 'Water';
+				break;
+			case 'frigidterrain':
+				move.type = 'Ice';
 				break;
 			}
 		},

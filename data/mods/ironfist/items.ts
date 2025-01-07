@@ -101,7 +101,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
 			if (!['oblivious', 'unaware'].includes(source.ability) && target.useItem()) {
-				this.add('-message', `baseball this guy`);
 				return null;
 			}
 		},
@@ -141,7 +140,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		flags: {},
 		name: "Iron Fist",
 		rating: 3,
-		shortDesc: "Iron Ball + all punching moves turn into Double Iron Bash.",
+		shortDesc: "Iron Ball + all 0 priority punching moves turn into Double Iron Bash.",
 		num: 89,
 	},
 	kinglerite: {
@@ -181,7 +180,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Activates the Paradox Abilities. Single use.",
 		gen: 9,
 	},
-	
 	balanceboard: {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
@@ -411,31 +409,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.species.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.species.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.species.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.species.bst <= 280 || ['Inkay', 'Richard Petty'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpePriority: 1,
 		onModifySpe(spe, pokemon) {
-			if (pokemon.baseSpecies.bst <= 280 || ['Inkay'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.species.bst <= 280 || ['Inkay'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
@@ -689,8 +687,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat() { },
 		isNonstandard: null,
 	},
-	grimrock: {
-		name: "Grim Rock",
+	bonerockorsomethingidfk: {
+		name: "bonerockorsomethingidfk",
 		shortDesc: "Holder's use of Graveyard lasts 8 turns instead of 5.",
 		spritenum: 379,
 		fling: {
@@ -698,6 +696,144 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			onHit(target, source) {
 				this.damage(target.baseMaxhp / 8, target, source);
 			},
+		},
+	},
+
+	//slate 8
+	purposefullymutilatedjpgoftheinexplicableframedphotoofsonicthehedgehogandshadowthehedgehog: { //wtf
+		name: "Purposefully Mutilated JPG of the Inexplicable Framed Photo of Sonic the Hedgehog and Shadow the Hedgehog",
+		shortDesc: "On switchin, block one stat drop/status infliction, but hit self in confusion afterward.",
+		onStart(pokemon) {
+			pokemon.addVolatile('purposefullymutilatedjpgoftheinexplicableframedphotoofsonicthehedgehogandshadowthehedgehog');
+		},
+		fling: {
+			basePower: 85,
+			onHit(target, source) {
+				target.addVolatile('purposefullymutilatedjpgoftheinexplicableframedphotoofsonicthehedgehogandshadowthehedgehog');
+			},
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Artifact');
+			},
+			onTryBoost(boost, target, source, effect) {
+				if (source && target === source) return;
+				let showMsg = false;
+				let i: BoostID;
+				for (i in boost) {
+					if (boost[i]! < 0) {
+						delete boost[i];
+						showMsg = true;
+					}
+				}
+				if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+					this.add("-fail", target, "unboost", '[from] item: Purposefully Mutilated JPG of the Inexplicable Framed Photo of Sonic the Hedgehog and Shadow the Hedgehog', '[of] ' + target);
+					target.removeVolatile('purposefullymutilatedjpgoftheinexplicableframedphotoofsonicthehedgehogandshadowthehedgehog');
+				}
+			},
+			onSetStatus(status, target, source, effect) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] item: Purposefully Mutilated JPG of the Inexplicable Framed Photo of Sonic the Hedgehog and Shadow the Hedgehog', '[of] ' + target);
+				}
+				target.removeVolatile('purposefullymutilatedjpgoftheinexplicableframedphotoofsonicthehedgehogandshadowthehedgehog');
+				return false;
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Artifact');
+				this.activeTarget = pokemon;
+				const damage = this.actions.getConfusionDamage(pokemon, 40);
+				if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+				const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
+				this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+			},
+		},
+	},
+	hitmontopite: {
+		name: "Hitmontopite",
+		shortDesc: "If held by a Hitmontop, this item allows it to Mega Evolve in battle.",
+		megaStone: "Hitmontop-Mega",
+		megaEvolves: "Hitmontop",
+		itemUser: ["Hitmontop"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	goombosscrown: {
+		name: "Goomboss Crown",
+		shortDesc: "Goomba: all abilities active at once, cannot have its abilities changed.",
+		onStart(target) {
+			if (target.baseSpecies.baseSpecies != 'Goomba') return;
+			this.add('-item', target, 'Goomboss Crown');
+			target.m.innates = Object.keys(target.species.abilities)
+					.map(key => this.toID(target.species.abilities[key as "0" | "1" | "H" | "S"]))
+					.filter(ability => ability !== target.ability);
+			if (target.m.innates) {
+				for (const innate of target.m.innates) {
+					if (target.hasAbility(innate)) continue;
+					target.addVolatile("ability:" + innate, target);
+				}
+			}
+		},
+		onSetAbility(ability, target, source, effect) {
+			if (target.baseSpecies.baseSpecies != 'Goomba') return;
+			if (effect && effect.effectType === 'Ability' && effect.name !== 'Trace') {
+				this.add('-ability', source, effect);
+			}
+			this.add('-block', target, 'item: Goomboss Crown');
+			return null;
+		},
+		itemUser: ["Goomba"],
+		onTakeItem(item, source) {
+			if (item.itemUser === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	shoe: {
+		name: "Shoe",
+		shortDesc: "Holder's foot attacks have 1.3x power and 1.5x accuracy.",
+		rating: 3,
+		spritenum: 660,
+		fling: {
+			basePower: 90,
+			onModifyType(move, pokemon) {
+				move.type = 'Fighting';
+			},
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['foot']) {
+				if (typeof accuracy !== 'number') return;
+				return this.chainModify(1.5);
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.flags['foot']) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
+	fudgesaurite: {
+		name: "Fudgesaurite",
+		shortDesc: "If held by a Fudgesaur, this item allows it to Mega Evolve in battle.",
+		megaStone: "Fudgesaur-Mega",
+		megaEvolves: "Fudgesaur",
+		itemUser: ["Fudgesaur"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
+	porygonitez: {
+		name: "Porygonite-Z",
+		shortDesc: "If held by a Porygon-Z, this item allows it to Mega Evolve in battle.",
+		spritenum: 578,
+		megaStone: "Porygon-Z-Mega",
+		megaEvolves: "Porygon-Z",
+		itemUser: ["Porygon-Z"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
 		},
 	},
 }

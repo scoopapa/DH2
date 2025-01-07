@@ -801,4 +801,74 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 	},
+
+	// Silvally Memories section
+	bugmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	dragonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	electricmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fightingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	firememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	flyingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	ghostmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	grassmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	groundmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	icememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	poisonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	psychicmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	rockmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	steelmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	watermemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fairymemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	darkmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
 }
