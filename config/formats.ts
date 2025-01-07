@@ -3316,11 +3316,11 @@ export const Formats: FormatList = [
 								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Espathra', 'Gengarite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Chantyrus Engraving', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Magic Powder', 'Pursuit', 'Return'],
+		banlist: ['Arena Trap', 'Ill Wind', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Baxcalibur', 'Espathra', 'Gengarite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Chantyrus Engraving', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Magic Powder', 'Pursuit', 'Return'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
+			let allowedTiers = ['MD', 'MD NFE']; // 'EXP'
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3353,7 +3353,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
+			let allowedTiers = ['MD', 'MD NFE']; // 'EXP'
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3387,7 +3387,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE', 'MD Ubers', 'EXP', 'EXP2'];
+			let allowedTiers = ['MD', 'MD NFE', 'MD Ubers', 'EXP2']; // 'EXP'
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
