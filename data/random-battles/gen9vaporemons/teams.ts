@@ -1174,7 +1174,8 @@ export class RandomTeams {
 		if (species.id === 'copperajah' && moves.has('heavyslam')) return 'Heavy Metal';
 		if (species.id === 'jumpluff') return 'Infiltrator';
 		if (species.id === 'toucannon' && !counter.get('skilllink')) return 'Keen Eye';
-		if (species.id === 'reuniclus') return 'Magic Guard';
+		if (species.id === 'reuniclus' && role === 'AV Pivot') return 'Regenerator';
+		if (species.id === 'reuniclus' && role !== 'AV Pivot') return 'Magic Guard';
 		if (species.id === 'smeargle' && !counter.get('technician')) return 'Own Tempo';
 		if (species.id === 'zebstrika') return (moves.has('wildcharge')) ? 'Sap Sipper' : 'Lightning Rod';
 		if (species.id === 'sandaconda' || (species.id === 'scrafty' && moves.has('rest'))) return 'Shed Skin';
@@ -1198,6 +1199,9 @@ export class RandomTeams {
 		if (species.id === 'lucario' && role === 'Fast Attacker') return 'Steadfast';
 		if (species.id === 'articuno') return 'Gale Wings';
 		if (species.id === 'landorus' && !teamDetails.sand) return 'Cloud Nine';
+		if (species.id === 'chesnaught') return 'Seed Sower';
+		if (species.id === 'pyroar' && !teamDetails.sand) return 'Supreme Overlord';
+		if (species.id === 'ironvaliant' && role === 'Fast Bulky Setup') return 'Outclass';
 		
 		// singles
 		if (!isDoubles) {
