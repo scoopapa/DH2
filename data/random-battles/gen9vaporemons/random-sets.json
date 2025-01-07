@@ -2249,7 +2249,7 @@
             },
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Dragon Dancer", "Hydro Pump", "Moonblast", "Ice Beam"],
+                "movepool": ["Dragon Dance", "Hydro Pump", "Moonblast", "Ice Beam"],
                 "abilities": ["Sheer Heart"],
                 "teraTypes": ["Dragon", "Steel"]
             }
