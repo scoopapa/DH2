@@ -566,7 +566,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 		},
-		flags: {},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -14,
@@ -624,7 +624,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 
 	// start: 
 	rewind: {
-		shortDesc: "Recovers items on user's side if at 50% or below.",
+		shortDesc: "Recovers items on user's side if at 50% or below due to attacker.",
 		onDamage(damage, target, source, effect) {
 			// Check if the target's HP is brought to 50% or below after damage is applied
 			if (target.hp - damage <= target.maxhp / 2) {
