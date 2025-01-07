@@ -935,14 +935,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 30,
 		},
-		onModifyMove(move) {
-			if (move.id === 'waterpulse') {
-				move.basePower = this.chainModify(1.2);
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.id === 'waterpulse') return this.chainModify([4915, 4096]);
 		},
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer' && pokemon.addType('Dragon')) {
-				this.add('-start', pokemon, 'typeadd', 'Grass', '[from] item: Fried Rice');
+				this.add('-start', pokemon, 'typeadd', 'Dragon', '[from] item: Fried Rice');
 			}
 		},
 		onModifySpePriority: 5,
