@@ -1292,7 +1292,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stone Axe", target);
 		},
-		onModifyBasePower(basePower, source, target, move) {
+		onBasePower(basePower, source, target, move) {
 			if (target.volatiles['disable']) {
 				return this.chainModify(1.5);
 			}
