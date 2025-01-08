@@ -1082,24 +1082,24 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
 		num: -19,
 	},
-	dreamcatcher: {
-		name: "Dream Catcher",
-		fling: {
-			basePower: 60,
-		},
-		onSourceHit(target, source, move) {
-			//need to find a way to prevent infinites while still applying it next turn,
-			//as using let to set a variable doesnt actually work to stop the infinite,
-			//and im pretty sure using var would just mess things up big time
-			if (source.status === 'slp') {
-				this.add('-activate', source, 'item: Dream Catcher');
-				this.actions.useMove('sleeptalk'); 
-			}
-		},
-		num: -20,
-		gen: 9,
-		shortDesc: "If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
-	},
+	// dreamcatcher: { // WIP, doesn't work currently
+	// 	name: "Dream Catcher",
+	// 	fling: {
+	// 		basePower: 60,
+	// 	},
+	// 	onSourceHit(target, source, move) {
+	// 		//need to find a way to prevent infinites while still applying it next turn,
+	// 		//as using let to set a variable doesnt actually work to stop the infinite,
+	// 		//and im pretty sure using var would just mess things up big time
+	// 		if (source.status === 'slp') {
+	// 			this.add('-activate', source, 'item: Dream Catcher');
+	// 			this.actions.useMove('sleeptalk'); 
+	// 		}
+	// 	},
+	// 	num: -20,
+	// 	gen: 9,
+	// 	shortDesc: "If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
+	// },
 	greniniumz: {
 		name: "Greninium Z",
 		spritenum: 652,
