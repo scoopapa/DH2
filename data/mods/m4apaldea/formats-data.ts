@@ -645,9 +645,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	munkidori: {tier: "Paldea", doublesTier: "Paldea"},
 
 	ogerpon: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerpontealtera: {tier: "Illegal", doublesTier: "Illegal"},
 	ogerponhearthflame: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponhearthflametera: {tier: "Illegal", doublesTier: "Illegal"},
 	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponwellspringtera: {tier: "Illegal", doublesTier: "Illegal"},
 	ogerponcornerstone: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponcornerstonetera: {tier: "Illegal", doublesTier: "Illegal"},
 
 	feebas: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	milotic: {tier: "Paldea", doublesTier: "Paldea"},
@@ -676,6 +680,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pecharunt: {tier: "Paldea", doublesTier: "Paldea"},
 
 	terapagos: {tier: "Paldea", doublesTier: "Paldea"},
+	terapagosstellar: {tier: "Illegal", doublesTier: "Illegal"},
 
 	farigirafmega: {tier: "Mega"},
 	farigirafmeganocturnal: {tier: "Mega"},
