@@ -642,8 +642,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	pyre: {
 		onStart(pokemon) {
-			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
-			if (target && target.side.totalFainted) {
+			//const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (pokemon.side.totalFainted) {
 				this.add('-activate', pokemon, 'ability: Pyre');
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
