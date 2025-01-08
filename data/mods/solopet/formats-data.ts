@@ -95,6 +95,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "Birds",
 		doublesTier: "Birds",
 	},
+	skarmory: {
+		tier: "Birds",
+		doublesTier: "Birds",
+	},
+	bombirdier: {
+		tier: "Birds",
+		doublesTier: "Birds",
+	},
 	persian: {
 		tier: "Cats",
 		doublesTier: "Cats",
@@ -788,6 +796,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "Rock",
 	},
 	garganacl: {
+		tier: "Rock",
+		doublesTier: "Rock",
+	},
+	glimmora: {
+		tier: "Rock",
+		doublesTier: "Rock",
+	},
+	regidrago: {
 		tier: "Rock",
 		doublesTier: "Rock",
 	},
