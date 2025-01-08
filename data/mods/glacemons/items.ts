@@ -1088,9 +1088,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			basePower: 60,
 		},
 		onSourceHit(target, source, move) {
+			//need to find a way to prevent infinites while still applying it next turn,
+			//as using let to set a variable doesnt actually work to stop the infinite,
+			//and im pretty sure using var would just mess things up big time
 			if (source.status === 'slp') {
 				this.add('-activate', source, 'item: Dream Catcher');
-				this.actions.useMove('sleeptalk', this.effectState.target); 
+				this.actions.useMove('sleeptalk'); 
 			}
 		},
 		num: -20,
