@@ -158,9 +158,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "slitherwing").learnset.rocktomb = ["9L1"];
 		this.modData("Learnsets", "slitherwing").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "slitherwing").learnset.stoneedge = ["9L1"];
-		this.modData("Learnsets", "slitherwing").learnset.strugglebug = ["9L1"];
+		this.modData("Learnsets", "slitherwing").learnset.strugglebug = ["9L1"];*/
 		delete this.modData('Learnsets', 'slitherwing').learnset.acrobatics;
-		delete this.modData('Learnsets', 'slitherwing').learnset.highhorsepower;*/
+		delete this.modData('Learnsets', 'slitherwing').learnset.highhorsepower;
 		this.modData("Learnsets", "slitherwing").learnset.victorydance = ["9L1"];
 		this.modData("Learnsets", "slitherwing").learnset.burningbulwark = ["9L1"];
 		this.modData("Learnsets", "slitherwing").learnset.firelash = ["9L1"];
