@@ -1585,7 +1585,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['TMFE', 'TMNFE', "TMLC"];
+			let allowedTiers = ['TMOU', 'TMFE', 'TMNFE', "TMLC"];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3316,11 +3316,11 @@ export const Formats: FormatList = [
 								`&bullet; <a href="https://docs.google.com/spreadsheets/d/1fE71uVoWpYSGSncowLJ6yc9gzfUdYYj9khn23r7gCtM/edit?gid=168383836#gid=168383836">Spreadsheet</a>`,
 		      ],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Espathra', 'Gengarite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Chantyrus Engraving', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Magic Powder', 'Pursuit', 'Return'],
+		banlist: ['Arena Trap', 'Ill Wind', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Baton Pass', 'Baxcalibur', 'Espathra', 'Gengarite', 'Lucarionite', 'Mawilite', 'Metagrossite', 'Sablenite', 'Chantyrus Engraving', 'Frustration', 'Hail', 'Hidden Power', 'Last Respects', 'Magic Powder', 'Pursuit', 'Return'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
+			let allowedTiers = ['MD', 'MD NFE']; // 'EXP'
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3353,7 +3353,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE', 'EXP'];
+			let allowedTiers = ['MD', 'MD NFE']; // 'EXP'
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3387,7 +3387,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['MD', 'MD NFE', 'MD Ubers', 'EXP', 'EXP2'];
+			let allowedTiers = ['MD', 'MD NFE', 'MD Ubers', 'EXP2']; // 'EXP'
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3426,6 +3426,40 @@ export const Formats: FormatList = [
 		mod: "megamania",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
 		banlist: ['ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Kings Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
+		name: "[Gen 9] Monopet",
+		desc: [
+			`<b>Monopet</b>: A Gen 9 Solomod where you can only use teams consisting of the same kind of pet.`,
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10394103">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1P1yLe5b8Wy15v9zL0iAfa4P4rtd1K72YgMx8EZu_FbY/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'solopet',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects',
+			'Shed Tail', 'Power Construct', 'Sneasler', 'Mewtwo', 'Zacian', 'Zamazenta', 'Naganadel', 'Palkia-Origin', 'Spectrier', 'Chi-Yu',
+			'Dracovish', 'Dragapult', 'Roaring Moon', 'Groudon', 'Miraidon', 'Koraidon', 'Zygarde-Base', 'Rayquaza', 'Battle Bond', 'Greninja-Bond',
+		],
+		onValidateTeam(team, format, teamHas) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let era : string[] = [];
+			let allowedTiers = ['Birds', 'Cats', 'Dogs', 'Farm', 'Fish', 'Fox', 'Frog', 'Lizard', 'Rock', 'Rodent', 'Turtle'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				let tier = template.tier;
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Solopet.'];
+				}
+				if (!(era.includes(tier))) {
+					era.push(tier)
+				}
+			}
+			if (era.length > 1) return ['Each Pokemon needs to be from the same category.'];
+		},
 	},
 	{
 		name: "[Gen 9] Monster Hunter AG",
@@ -3710,40 +3744,6 @@ export const Formats: FormatList = [
 		"Noxon", "Xiphoil", "Jamborai", "Dracoil", "Celespirit", "Noxtrice", "Avastar", "Himalao",
 		"Zygola", "Cyrome", "Cyrome-Book", "Stone Husk", "Corundell", "Quadringo", "Kodokai",
 		"Saphor", "Fenreil", "Efflor", "Flocura", "Flocura-Nexus"],
-	},
-	{
-		name: "[Gen 9] Solopet",
-		desc: [
-			`<b>Solopet</b>: A Gen 9 Solomod where you can only use teams consisting of the same kind of pet.`,
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10394103">Post in the Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1P1yLe5b8Wy15v9zL0iAfa4P4rtd1K72YgMx8EZu_FbY/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'solopet',
-		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: [
-			'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects',
-			'Shed Tail', 'Power Construct', 'Sneasler', 'Mewtwo', 'Zacian', 'Zamazenta', 'Naganadel', 'Palkia-Origin', 'Spectrier', 'Chi-Yu',
-			'Dracovish', 'Dragapult', 'Roaring Moon', 'Groudon', 'Miraidon', 'Koraidon', 'Zygarde-Base', 'Rayquaza', 'Battle Bond', 'Greninja-Bond',
-		],
-		onValidateTeam(team, format, teamHas) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let era : string[] = [];
-			let allowedTiers = ['Birds', 'Cats', 'Dogs', 'Farm', 'Fish', 'Fox', 'Frog', 'Lizard', 'Rock', 'Rodent', 'Turtle'];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				let tier = template.tier;
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Solopet.'];
-				}
-				if (!(era.includes(tier))) {
-					era.push(tier)
-				}
-			}
-			if (era.length > 1) return ['Each Pokemon needs to be from the same category.'];
-		},
 	},
 	{
         name: "[Gen 9] Spookymod",

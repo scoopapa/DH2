@@ -566,7 +566,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 		},
-		flags: {},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -14,

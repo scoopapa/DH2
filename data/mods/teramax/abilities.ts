@@ -215,7 +215,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		num: 243,
 		shortDesc: "Burn immunity. Takes 0.5x from Fire/Water & summons Sun. 2x power on Fire.",
-	},
+	},/*
 	galewings: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
@@ -237,6 +237,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 177,
 		shortDesc: "This Pokemon's Flying-type moves have 1.3x power if the user moves first.",
+	},*/
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			for (const poke of this.getAllActive()) {
+				if (poke.hasAbility('counteract') && poke.side.id !== pokemon.side.id && !poke.abilityState.ending) {
+					return;
+				}
+			}
+			if (move?.type === 'Flying' && pokemon.hp >= pokemon.maxhp / 2) return priority + 1;
+		},
+		flags: {},
+		name: "Gale Wings",
+		shortDesc: "If this Pokemon has 50% of its max HP or more, its Flying-type moves have their priority increased by 1.",
+		rating: 3,
+		num: 177,
 	},
 	myceliummight: {
 		inherit: true,
