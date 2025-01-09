@@ -17,10 +17,10 @@ const uber9 = [
 	"yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
 ];
 const viabilityList9 = [
-	"alomomola", "archaludon", "ceruledge", "clodsire", "corviknight", "dragapult", "dragonite", "ferrothorn", "garchomp", "garganacl", "gholdengo", "glimmora", 
+	"alomomola", "clodsire", "corviknight", "dragapult", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
 	"gliscor", "greattusk", "hatterene", "heatran", "ironcrown", "irontreads", "ironvaliant", "kartana", "kingambit", "kyurem", "landorustherian", "melmetal", 
-	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "regieleki", "rillaboom", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
-	"terapagos", "terapagosterastal", "toxapex", "ursaluna", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
+	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
+	"terapagos", "terapagosterastal", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
 const megaViabilityList9 = [
 	"araquanidmega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremega", "charizardmegay", "cinderacemega", "clefablemega", "conkeldurrmega", 
