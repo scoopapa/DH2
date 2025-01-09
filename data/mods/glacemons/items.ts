@@ -1099,9 +1099,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onOverrideAction(pokemon, target, move) {
 			if (pokemon.status === 'slp') {
 				this.add('-activate', pokemon, 'item: Dream Catcher');
-				// calling sleep talk
-				const sleeptalk = this.dex.getMove('sleeptalk');
-				return sleeptalk;
+				this.actions.useMove('sleeptalk'); 
 			}
 		},
 		num: -20,
