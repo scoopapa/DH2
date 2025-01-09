@@ -1099,13 +1099,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onOverrideAction(pokemon, target, move) {
 			if (pokemon.status === 'slp') {
 				this.add('-activate', pokemon, 'item: Dream Catcher');
-				const move = this.dex.getActiveMove('sleeptalk');
-				return move;
+				return this.dex.getActiveMove('sleeptalk');
 			}
 		},
 		num: -20,
 		gen: 9,
-		shortDesc: "If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
+		shortDesc: "(Not working) If the holder is asleep, Sleep Talk is used before an attack is selected by the holder. Does not work with Circle Throw, Dragon Tail, Roar, or Whirlwind.",
 	},
 	greniniumz: {
 		name: "Greninium Z",
