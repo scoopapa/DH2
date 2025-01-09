@@ -646,7 +646,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	ogerpon: {tier: "Paldea", doublesTier: "Paldea"},
 	ogerpontealtera: {tier: "Illegal", doublesTier: "Illegal"},
-	ogerponhearthflame: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponhearthflame: {tier: "Uber", doublesTier: "Paldea"},
 	ogerponhearthflametera: {tier: "Illegal", doublesTier: "Illegal"},
 	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
 	ogerponwellspringtera: {tier: "Illegal", doublesTier: "Illegal"},
@@ -668,7 +668,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	duraludon: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	archaludon: {tier: "Paldea", doublesTier: "Paldea"},
 
-	gougingfire: {tier: "Paldea", doublesTier: "Paldea"},
+	gougingfire: {tier: "Uber", doublesTier: "Paldea"},
 	ragingbolt: {tier: "Paldea", doublesTier: "Paldea"},
 
 	ironcrown: {tier: "Paldea", doublesTier: "Paldea"},
