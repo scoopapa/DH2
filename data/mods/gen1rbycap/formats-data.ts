@@ -25,6 +25,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	probosicle: {
 		tier: "OU",
 	},
+	spariel: {
+		tier: "LC",
+	},
 	sparophim: {
 		tier: "OU",
 	},
