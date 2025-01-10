@@ -24,6 +24,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "pincurchin").learnset.encore = ["9L1"];
 		this.modData("Learnsets", "metagross").learnset.twinbeam = ["9L1"];
 		this.modData("Learnsets", "metagross").learnset.avalanche = ["9L1"];
+		this.modData("Learnsets", "mabosstiff").learnset.pursuit = ["9L1"];
+		this.modData("Learnsets", "mabosstiff").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "mabosstiff").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "mabosstiff").learnset.poisonfang = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -84,6 +88,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Blissey') {
 				const tera = pokemon.species.id === 'blissey' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Mabosstiff') {
+				const tera = pokemon.species.id === 'mabosstiff' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Hydrapple') {
+				const tera = pokemon.species.id === 'hydrapple' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Pawmot') {
+				const tera = pokemon.species.id === 'pawmot' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
