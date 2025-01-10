@@ -86,6 +86,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		gen: 1,
 	},
+	spariel: {
+		num: 3007,
+		name: "Spariel",
+		types: ["Psychic", "Flying"],
+		baseStats: {hp: 58, atk: 61, def: 44, spa: 61, spd: 61, spe: 52},
+		abilities: {0: "No Ability"},
+		heightm: 0.1, // placeholder
+		weightkg: 0.1, // placeholder
+		color: "Purple",
+		evos: ["Sparophim"],
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
 	sparophim: {
 		num: 2006,
 		name: "Sparophim",

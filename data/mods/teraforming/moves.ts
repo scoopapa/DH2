@@ -24,6 +24,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		contestType: "Cool",
 	},
 	// non-new moves
+	pursuit: {
+		inherit: true,
+    	isNonstandard: null,
+	},
 	teraused: {
 		shortDesc: "Prevents Terastalization from being used multiple times.",
 		accuracy: true,
