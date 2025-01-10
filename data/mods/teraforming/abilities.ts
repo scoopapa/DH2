@@ -56,7 +56,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	energizer: {
 		name: "Energizer",
-	   onFaint(pokemon) {
+	   onSwitchOut(pokemon) {
 			pokemon.side.addSlotCondition(pokemon, 'energizer');
 	   },
 	   condition: {
