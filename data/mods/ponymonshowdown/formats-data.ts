@@ -4341,7 +4341,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	spectrier: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	calyrex: {
 		inherit: true,
