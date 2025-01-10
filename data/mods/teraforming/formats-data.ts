@@ -27,6 +27,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	metagrosstera: {
 		tier: "Tera",
 	},
+	mabosstifftera: {
+		tier: "Tera",
+	},
+	pawmottera: {
+		tier: "Tera",
+	},
+	hydrappletera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
