@@ -332,7 +332,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	parasect: {
-		tier: "ZU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	venonat: {
