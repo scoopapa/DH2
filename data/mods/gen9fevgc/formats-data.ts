@@ -120,7 +120,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Reg A",
 		doublesTier: "Reg A",
 	},
-	toxtricorioampedpompom: {
+	toxtricorio: {
 		tier: "Reg A",
 		doublesTier: "Reg A",
 	},
