@@ -3931,7 +3931,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			wildcharge: ["9L1"],
 		},
 	},
-	toxtricorioampedpompom: {
+	toxtricorio: {
 		learnset: {
 			acid: ["9L1"],
 			acidspray: ["9L1"],

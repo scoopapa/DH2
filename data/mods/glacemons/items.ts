@@ -982,8 +982,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	parallelmegaorb: { 
 		name: "Parallel Mega Orb",
 		onTakeItem(item, source) {
-			if (source.canMegaEvo) return false;
-			return true;
+			return false;
 		},
 		onAfterMega(pokemon) {
 			let newAbility = pokemon.set.ability
@@ -1058,7 +1057,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const itemList = ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'starfberry', 'choiceband', 'choicespecs', 'choicescarf', 'rockyhelmet', 'heavydutyboots', 'assaultvest', 'cursedbranch', 'lifeorb', 'expertbelt'];
 			const itemIndex = this.random(itemList.length);
 			const itemMade = itemList[itemIndex];
-			if (pokemon.hp && !pokemon.item) {
+			if (pokemon.hp) {
 				pokemon.setItem(itemMade);
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Good Item');
 			}
@@ -1087,15 +1086,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 60,
 		},
-		// onSourceHit(target, source, move) {
-		// 	//need to find a way to prevent infinites while still applying it next turn,
-		// 	//as using let to set a variable doesnt actually work to stop the infinite,
-		// 	//and im pretty sure using var would just mess things up big time
-		// 	if (source.status === 'slp') {
-		// 		this.add('-activate', source, 'item: Dream Catcher');
-		// 		this.actions.useMove('sleeptalk'); 
-		// 	}
-		// },
 		onOverrideAction(pokemon, target, move) {
 			if (pokemon.status === 'slp') {
 				this.add('-activate', pokemon, 'item: Dream Catcher');
