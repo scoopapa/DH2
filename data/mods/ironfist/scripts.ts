@@ -560,6 +560,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const spreadModifier = move.spreadModifier || (this.battle.gameType === 'freeforall' ? 0.5 : 0.75);
 				this.battle.debug('Spread modifier: ' + spreadModifier);
 				baseDamage = this.battle.modify(baseDamage, spreadModifier);
+				if (move.multihitType === 'bestfriends') {
+					// Best Friends modifier
+					this.battle.debug("Best Friends modifier: 0.49");
+					baseDamage = this.battle.modify(baseDamage, 0.49);
+				}
 			} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
 				// Parental Bond modifier
 				const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;

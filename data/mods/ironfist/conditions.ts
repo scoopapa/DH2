@@ -68,14 +68,24 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				'aerialace', 'aquatail', 'crabhammer', 'forcepalm', 'furyattack', 'gigaimpact', 'heatcrash', 'heavyslam', 'highhorsepower', 'irontail', 'lethalhug', 'meteormash', 'nuzzle', 'peck', 'playrough', 'slam', 'strugglebug', 'visegrip'
 			];
 			const minimizeMoves = [
-					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'supercellslam',
-				];
+				'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'supercellslam',
+			];
 			if (boostedMoves.includes(move.id) || minimizeMoves.includes(move.id)) {
 				move.accuracy = true;
 				if (['heatcrash', 'heavyslam'].includes(move.id)) return 120;
 				if (move.basePower < 60) return this.chainModify(2);
 				if (minimizeMoves.includes(move.id)) return this.chainModify(1.5);
 			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target.volatiles['bigbutton']) return;
+			const boostedMoves = [
+				'aerialace', 'aquatail', 'crabhammer', 'forcepalm', 'furyattack', 'gigaimpact', 'heatcrash', 'heavyslam', 'highhorsepower', 'irontail', 'lethalhug', 'meteormash', 'nuzzle', 'peck', 'playrough', 'slam', 'strugglebug', 'visegrip'
+			];
+			const minimizeMoves = [
+				'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'supercellslam',
+			];
+			if (boostedMoves.includes(move.id) || minimizeMoves.includes(move.id)) move.accuracy = true;
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Dynamax', '[silent]');

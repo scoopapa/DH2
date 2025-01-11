@@ -189,7 +189,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Water",
 		contestType: "Tough",
 		shortDesc: "Prevents the target from switching out.",
@@ -1446,7 +1446,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Arrows of Light",
 		type: "Fighting",
 		category: "Physical",
-		basePower: 0,
+		basePower: 185,
 		accuracy: 100,
 		pp: 1,
 		shortDesc: "User gains the Laser Focus effect.",
@@ -3593,7 +3593,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			} else if (this.field.isTerrain('psychicterrain')) {
 				move = 'psychic';
 			} else if (this.field.isTerrain('fishingterrain')) {
-				move = 'fishingmetagame';
+				move = 'fishingminigame';
 			} else if (this.field.isTerrain('frigidterrain')) {
 				move = 'icebeam';
 			}
