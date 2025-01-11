@@ -526,6 +526,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		baseStats: {hp: 90, atk: 92, def: 95, spa: 92, spd: 105, spe: 20},
 	},
+	abomasnowmega: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 132, def: 105, spa: 132, spd: 115, spe: 20},
+	},
 	skiversnow: {
 		name: "Skiversnow",
 		copyData: "Abomasnow",
