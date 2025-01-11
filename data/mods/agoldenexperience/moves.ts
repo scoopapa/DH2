@@ -2861,6 +2861,80 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		self: null,
 		shortDesc: "Cannot be selected the turn after it's used.",
 	},
+	fishiousrend: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || !this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		desc: "Power doubles if the user moves after the target.",
+		shortDesc: "Power doubles if user moves after the target.",
+	},
+	psyblade: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			return basePower;
+		},
+		terrain: 'electricterrain',
+		shortDesc: "Sets Electric Terrain upon use.",
+		desc: "Sets Electric Terrain upon use.",
+	},
+	revivalblessing: {
+		inherit: true,
+		flags: {heal: 1, noassist: 1},
+	},
+	fatbombing: {
+		num: -65,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Fat Bombing",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, metronome: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'fatbombing',
+				source: source,
+				moveData: {
+					id: 'fatbombing',
+					name: "Fat Bombing",
+					accuracy: 100,
+					basePower: 100,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Rock',
+				},
+			});
+			this.add('-start', source, 'move: Fat Bombing');
+			return this.NOT_FAIL;
+		},
+		onBasePower(basePower) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(2);
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Blast", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+		desc: "This move deals double damage if used under Gravity. Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
+		shortDesc: "Double damage if used under Gravity. Hits two turns after being used.",
+	},
 
 	// Identity Card field
 	soak: {
@@ -2985,32 +3059,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				}
 			},
 		},
-	},
-	fishiousrend: {
-		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || !this.queue.willMove(target)) {
-				this.debug('Fishious Rend damage boost');
-				return move.basePower * 2;
-			}
-			this.debug('Fishious Rend NOT boosted');
-			return move.basePower;
-		},
-		desc: "Power doubles if the user moves after the target.",
-		shortDesc: "Power doubles if user moves after the target.",
-	},
-	psyblade: {
-		inherit: true,
-		onBasePower(basePower, source) {
-			return basePower;
-		},
-		terrain: 'electricterrain',
-		shortDesc: "Sets Electric Terrain upon use.",
-		desc: "Sets Electric Terrain upon use.",
-	},
-	revivalblessing: {
-		inherit: true,
-		flags: {heal: 1, noassist: 1},
 	},
 
 	// Karma field

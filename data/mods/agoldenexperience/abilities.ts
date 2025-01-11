@@ -893,11 +893,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -46,
 	},
 	blowhole: {
-		desc: "When this Pokemon uses a Water move, it sets Rain Dance. Water Spout is always at max BP.",
-		shortDesc: "Sets Rain Dance when using a Water move. Water Spout is at max BP.",
+		desc: "Before this Pokemon uses Water Spout, it sets Rain Dance. Water Spout is always at max BP.",
+		shortDesc: "Sets Rain Dance before using Water Spout. Water Spout is at max BP.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (move.type === 'Water' && this.field.getWeather().id !== 'raindance') {
+			if (move.id === 'waterspout' && this.field.getWeather().id !== 'raindance') {
 				this.field.setWeather('raindance');
 			}
 		},
@@ -2548,9 +2548,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.volatiles['trapped']) {
-					const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+					const damage = this.damage(pokemon.baseMaxhp / 8, target, pokemon);
 					if (damage) {
-						this.heal(damage, target, pokemon);
+						this.heal(damage, pokemon, pokemon);
 					}
 				}
 			}
@@ -2579,5 +2579,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -78,
 		desc: "This Pokemon is immune to hazards. When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move. This effect is prevented if the move had a secondary effect removed by the Sheer Force Ability. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
 		shortDesc: "Immune to hazards. This Pokemon switches out when it reaches 1/2 or less of its maximum HP.",
+	},
+	rockypayload: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "This Pokemon's Speed is x1.5 under Gravity, and this Pokemon's offensive stat is multiplied by 1.5 while using a Rock-type attack.",
 	},
 };
