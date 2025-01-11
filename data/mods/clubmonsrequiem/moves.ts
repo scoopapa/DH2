@@ -5,7 +5,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	waterpulse: {
 		inherit: true,
-		basePower: 75,
+		basePower: 90,
 	},
 	hiddenpower: {
 		inherit: true,
@@ -467,6 +467,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	syrupbomb: {
 		inherit: true,
+		basePower: 80,
 		accuracy: 100,
 		shortDesc: "Lowers Speed by 2 stages for 3 turns.",
 		condition: {
