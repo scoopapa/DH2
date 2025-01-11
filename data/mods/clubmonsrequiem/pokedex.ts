@@ -25,6 +25,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Ice Body", H: "Pale Winds"},
 	},
+	claydol: {
+		inherit: true,
+		abilities: {0: "Psychovalence"},
+	},
 	falinkshammer: {
 		name: "Falinks-Hammer",
 		baseSpecies: "Falinks",
