@@ -75,6 +75,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: 3000,
 	},
+	psychovalence: {
+		onStart(pokemon) {
+			pokemon.addVolatile('magnetrise');
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon?.volatiles['magnetrise']) {
+				pokemon.heal(pokemon.baseMaxhp / 3);
+			}
+		},
+		name: "Psychovalence",
+		shortDesc: "On entry, user will set Magnet Rise; if Magnet Rise is still active upon switch-out, the user's HP heals by 1/3.",
+		rating: 3,
+		num: 3000,
+	},
 	thermalexpansion: {
 		onDamage(damage, target, source, effect) {
 			if (!target.hasType('Ice')) return;
