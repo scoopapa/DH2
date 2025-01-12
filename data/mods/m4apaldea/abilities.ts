@@ -279,8 +279,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log("Is there the volatile?" + source.volatiles['hairtrigger']);
 			if (source.volatiles['hairtrigger']) {
 				source.removeVolatile('hairtrigger');
-				return priority + 0.1;
+				priority = priority + 0.1;
 			}
+			return priority;
 		},
 		desc: "The user moves first in their priority bracket on the first turn after switching in.",
 		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
