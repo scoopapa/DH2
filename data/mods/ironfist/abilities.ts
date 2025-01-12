@@ -794,13 +794,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bramblinmentality: {
 		onStart(pokemon) {
+			pokemon.addVolatile('ability:comatose');
 			if (pokemon.side.faintedThisTurn && ['bramblin', 'abomasnow'].includes(pokemon.side.faintedThisTurn.baseSpecies.id)) this.boost({atk: 1, spe: 1}, pokemon);
-		},
-		onSetStatus(status, target, source, effect) {
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Bramblin Mentality');
-			}
-			return false;
 		},
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},

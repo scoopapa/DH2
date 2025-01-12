@@ -3045,7 +3045,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		accuracy: 100,
 		pp: 15,
-		shortDesc: "Doubled power if user is Zekrom. Otherwise transforms into Zekrom.",
+		shortDesc: "Zekrom: 2x power. Else transforms into Zekrom.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
