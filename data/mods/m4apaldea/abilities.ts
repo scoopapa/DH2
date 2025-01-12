@@ -269,19 +269,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		// 	if (pokemon.activeMoveActions > 1) return;
 		// 	pokemon.addVolatile('hairtrigger');
 		// },
-		onAfterMega(pokemon) {
-			if (pokemon.activeMoveActions <= 1) pokemon.addVolatile('hairtrigger');
-			console.log("Does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
-		},
-		onStart(pokemon) {
-			if (pokemon.activeMoveActions <= 2) pokemon.addVolatile('hairtrigger'); // ugly way to do so but whatever
-			console.log("Does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
-		},
+		// onAfterMega(pokemon) {
+		// 	if (pokemon.activeMoveActions <= 1) pokemon.addVolatile('hairtrigger');
+		// 	console.log("Does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
+		// },
+		// onStart(pokemon) {
+		// 	if (pokemon.activeMoveActions <= 2) pokemon.addVolatile('hairtrigger'); // ugly way to do so but whatever
+		// 	console.log("Does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
+		// },
+		// onModifyPriority(priority, pokemon, target, move) {
+		// 	console.log("We're adjusting priority for the move " + move + ", does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
+		// 	if (pokemon.volatiles['hairtrigger']) {
+		// 		priority = priority + 0.1;
+		// 		pokemon.removeVolatile('hairtrigger');
+		// 	}
+		// 	return priority;
+		// },
 		onModifyPriority(priority, pokemon, target, move) {
-			console.log("We're adjusting priority for the move " + move + ", does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
-			if (pokemon.volatiles['hairtrigger']) {
-				priority = priority + 0.1;
-				pokemon.removeVolatile('hairtrigger');
+			if (pokemon.activeMoveActions <= 1) {
+				return priority + 0.1;
 			}
 			return priority;
 		},
