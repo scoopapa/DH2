@@ -278,6 +278,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			console.log("Does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
 		},
 		onModifyPriority(priority, pokemon, target, move) {
+			console.log("We're adjusting priority, does " + pokemon + " have the volatile?" + pokemon.volatiles['hairtrigger']);
 			if (pokemon.volatiles['hairtrigger']) {
 				pokemon.removeVolatile('hairtrigger');
 				priority = priority + 0.1;
