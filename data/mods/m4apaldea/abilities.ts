@@ -273,7 +273,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (pokemon.activeMoveActions <= 1) pokemon.addVolatile('hairtrigger');
 		},
 		onStart(pokemon) {
-			if (pokemon.activeMoveActions <= 1) pokemon.addVolatile('hairtrigger');
+			if (pokemon.activeMoveActions <= 2) pokemon.addVolatile('hairtrigger'); // ugly way to do so but whatever
 		},
 		onModifyPriority(priority, source) {
 			console.log("Is there the volatile?" + source.volatiles['hairtrigger']);
