@@ -1110,4 +1110,449 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		shortDesc: "If held by a Greninja-Bond with Water Shuriken, it can use Bond Slicing Shuriken. After the Z-move is used, transforms into Greninja-Ash.",
 	},
+	// Slate 7
+	yellowcard: {
+		name: "Yellow Card",
+		spritenum: 387,
+		fling: {
+			basePower: 88,
+		},
+		onStart(pokemon) {
+			pokemon.addVolatile('yellowcard');
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && target.hp <= target.maxhp / 2 && move && move.category !== 'Status') {
+				if (target.volatiles['yellowcard']) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('yellowcard');
+					this.boost({atk: -1, def: -1}, source, target);
+				}
+			}
+		},
+		num: -22,
+		gen: 9,
+		shortDesc: "Upon being hit by an attack that puts the user below 1/2 of the user's max HP, gives the opponent -1 Atk and Def. Once per switch-in.",
+	},
+	babiriberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('babiriberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Steel' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['babiriberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('babiriberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Steel-type attack. Once per switch-in.",
+	},
+	chartiberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('chartiberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Rock' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['chartiberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('chartiberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Rock-type attack. Once per switch-in.",
+	},
+	chilanberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('chilanberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Normal' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.volatiles['chilanberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('chilanberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a Normal-type attack. Once per switch-in.",
+	},
+	chopleberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('chopleberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fighting' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['chopleberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('chopleberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Fighting-type attack. Once per switch-in.",
+	},
+	colburberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('colburberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dark' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['colburberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('colburberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Dark-type attack. Once per switch-in.",
+	},
+	habanberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('habanberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dragon' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['habanberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('habanberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Dragon-type attack. Once per switch-in.",
+	},
+	kasibberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('kasibberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ghost' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['kasibberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('kasibberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Ghost-type attack. Once per switch-in.",
+	},
+	kebiaberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('kebiaberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Poison' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['kebiaberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('kebiaberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Poison-type attack. Once per switch-in.",
+	},
+	occaberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('occaberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fire' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['occaberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('occaberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Fire-type attack. Once per switch-in.",
+	},
+	passhoberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('passhoberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Water' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['passhoberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('passhoberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Water-type attack. Once per switch-in.",
+	},
+	payapaberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('payapaberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Psychic' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['payapaberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('payapaberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Psychic-type attack. Once per switch-in.",
+	},
+	rindoberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('rindoberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Grass' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['rindoberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('rindoberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Grass-type attack. Once per switch-in.",
+	},
+	roseliberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('roseliberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fairy' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['roseliberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('roseliberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Fairy-type attack. Once per switch-in.",
+	},
+	shucaberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('shucaberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ground' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['shucaberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('shucaberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Ground-type attack. Once per switch-in.",
+	},
+	tangaberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('tangaberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Bug' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['tangaberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('tangaberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Bug-type attack. Once per switch-in.",
+	},
+	wacanberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('wacanberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Electric' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.volatiles['wacanberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('wacanberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Electric-type attack. Once per switch-in.",
+	},
+	yacheberry: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('yacheberry');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ice' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.volatiles['yacheberry']) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					target.removeVolatile('yacheberry');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		shortDesc: "Halves damage taken from a supereffective Ice-type attack. Once per switch-in.",
+	},
+	metronome: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.addVolatile('metronome');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectState.lastMove = '';
+				this.effectState.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasItem('metronome')) {
+					pokemon.removeVolatile('metronome');
+					return;
+				}
+				if (move.callsMove) return;
+				if (this.effectState.lastMove === move.id) {
+					this.effectState.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove']) {
+					if (this.effectState.lastMove !== move.id) {
+						this.effectState.numConsecutive = 1;
+					} else {
+						this.effectState.numConsecutive++;
+					}
+				} else {
+					this.effectState.numConsecutive = 0;
+				}
+				this.effectState.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				this.debug(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
+				return this.chainModify([dmgMod[numConsecutive], 4096]);
+			},
+		},
+		shortDesc: "Damage of moves used on consecutive turns (even if move failed) is increased. Max 2x after 5 turns.",
+	},
+	enginebreaker: {
+		name: "Engine Breaker",
+		fling: {
+			basePower: 20,
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			if (pokemon.useItem()) {
+				move.ignoreAbility = true;
+			}
+		},
+		num: -23,
+		gen: 9,
+		shortDesc: "Holder's moves ignore abilities once. Item is consumed after use.",
+	},
+	redlicorice: {
+		name: "Red Licorice",
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Red Licorice');
+			this.add('-message', `${pokemon.name} is chewing on some good licorice!`);
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.flags['contact'] && pokemon.useItem()) {
+				move.secondaries.push({
+					chance: 100,
+					onHit(target, source, move) {
+						if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+					},
+				});
+			}
+		},
+		num: -24,
+		gen: 9,
+		shortDesc: "Holder's contact moves have x1.2 power and trap the target. Single use. Consumed after use. Announces itself.",
+	},
 };
