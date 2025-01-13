@@ -565,6 +565,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	rest: {
 		inherit: true,
 		pp: 10,
+		onTry(source) {
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
+				return null;
+			}
+			if (source.hasAbility(['insomnia', 'vitalspirit'])) {
+				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
+				return null;
+			}
+		},
+		onHit(target, source, move) {
+			if (target.status !== 'slp') {
+				if (!target.setStatus('slp', source, move)) return;
+			} else {
+				this.add('-status', target, 'slp', '[from] move: Rest');
+			}
+			target.statusState.time = 3;
+			target.statusState.startTime = 3;
+			this.heal(target.maxhp);
+		},
 	},
 	roost: {
 		inherit: true,

@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['CC OU', 'CC Ubers'],
+		customTiers: ['CC OU', 'CC Ubers', 'CC UU', 'unintroduced'],
 	},
 
 	getDamage(
@@ -122,6 +122,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
+		if (move.useSourceSpeedAsOffensive) attackStat = speedStat;
 
 		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
 		let attack;

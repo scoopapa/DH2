@@ -135,11 +135,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	queen: {
+	queendeltarune: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-	alicemartagoid: {
+	alicemargatroid: {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
@@ -163,5 +163,112 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
-
+   divearmorx: {
+		tier: "CC Ubers",
+		doublesTier: "DCC OU",
+	},
+	irene: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	beatrice: {
+		tier: "CC Ubers",
+		doublesTier: "DCC OU",
+	},
+	azhdaha: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	sisyphusprime: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	madwheel: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	aversa: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	bagpipe: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	flynn: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	pit: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	pitmega: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	devil: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	kingboo: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	fynn: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	nahida: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	ariadne: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	jevil: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	mario: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	noelle: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	bailu: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	metalface: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	geno: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	crewmate: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	amblingpearl: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	spy: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	masterkohga: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
+	tsih: {
+		tier: "unintroduced",
+		doublesTier: "unintroduced",
+	},
 };

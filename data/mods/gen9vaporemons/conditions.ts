@@ -30,4 +30,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
+	firedragon: {
+		name: 'firedragon',
+		noCopy: true,
+		onStart(target) {
+			this.add('-start', target, 'Fire/Dragon');
+	      this.add('-message', `${target.name} is now Fire/Dragon!`);
+		},
+	},
 };

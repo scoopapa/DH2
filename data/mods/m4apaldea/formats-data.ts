@@ -78,7 +78,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	buizel: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	floatzel: {tier: "Paldea", doublesTier: "Paldea"},
 
-	wooper: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	wooperpaldea: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	clodsire: {tier: "Paldea", doublesTier: "Paldea"},
 
 	psyduck: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
@@ -335,7 +335,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skiddo: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	gogoat: {tier: "Paldea", doublesTier: "Paldea"},
 
-	tauros: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeacombat: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeablaze: {tier: "Paldea", doublesTier: "Paldea"},
 	taurospaldeaaqua: {tier: "Paldea", doublesTier: "Paldea"},
@@ -405,6 +404,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	scyther: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
 	scizor: {tier: "Paldea", doublesTier: "Paldea"},
+	kleavor: {tier: "Paldea", doublesTier: "Paldea"},
 
 	heracross: {tier: "Paldea", doublesTier: "Paldea"},
 
@@ -619,5 +619,83 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	koraidon: {tier: "Uber", doublesTier: "Paldea"},
 	miraidon: {tier: "Uber", doublesTier: "Paldea"},
+
+	// DLC1
+
+	cutiefly: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	ribombee: {tier: "Paldea", doublesTier: "Paldea"},
+
+	vulpix: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	ninetales: {tier: "Paldea", doublesTier: "Paldea"},
+
+	hoothoot: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	noctowl: {tier: "Paldea", doublesTier: "Paldea"},
+
+	poltageist: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	sinistcha: {tier: "Paldea", doublesTier: "Paldea"},
+
+	basculinwhite: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	basculegion: {tier: "Paldea", doublesTier: "Paldea"},
+	basculegionf: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ursalunabloodmoon: {tier: "Uber", doublesTier: "Paldea"},
+
+	okidogi: {tier: "Paldea", doublesTier: "Paldea"},
+	fezandipiti: {tier: "Paldea", doublesTier: "Paldea"},
+	munkidori: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ogerpon: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerpontealtera: {tier: "Illegal", doublesTier: "Illegal"},
+	ogerponhearthflame: {tier: "Uber", doublesTier: "Paldea"},
+	ogerponhearthflametera: {tier: "Illegal", doublesTier: "Illegal"},
+	ogerponwellspring: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponwellspringtera: {tier: "Illegal", doublesTier: "Illegal"},
+	ogerponcornerstone: {tier: "Paldea", doublesTier: "Paldea"},
+	ogerponcornerstonetera: {tier: "Illegal", doublesTier: "Illegal"},
+
+	feebas: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	milotic: {tier: "Paldea", doublesTier: "Paldea"},
+
+	nosepass: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	probopass: {tier: "Paldea", doublesTier: "Paldea"},
+
+	diglettalola: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	dugtrioalola: {tier: "Paldea", doublesTier: "Paldea"},
+
+	dipplin: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	hydrapple: {tier: "Paldea", doublesTier: "Paldea"},
+
+	duraludon: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	archaludon: {tier: "Paldea", doublesTier: "Paldea"},
+
+	gougingfire: {tier: "Uber", doublesTier: "Paldea"},
+	ragingbolt: {tier: "Paldea", doublesTier: "Paldea"},
+
+	ironcrown: {tier: "Paldea", doublesTier: "Paldea"},
+	ironboulder: {tier: "Paldea", doublesTier: "Paldea"},
+
+	walkingwake: {tier: "Paldea", doublesTier: "Paldea"},
+	ironleaves: {tier: "Paldea", doublesTier: "Paldea"},
+
+	pecharunt: {tier: "Paldea", doublesTier: "Paldea"},
+
+	terapagos: {tier: "Paldea", doublesTier: "Paldea"},
+	terapagosstellar: {tier: "Illegal", doublesTier: "Illegal"},
+
+	farigirafmega: {tier: "Mega"},
+	farigirafmeganocturnal: {tier: "Mega"},
+
+	tentacool: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	tentacruel: {tier: "Paldea", doublesTier: "Paldea"},
+
+	joltik: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	galvantula: {tier: "Paldea", doublesTier: "Paldea"},
+
+	golett: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	golurk: {tier: "Paldea", doublesTier: "Paldea"},
+
+	tepig: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	pignite: {tier: "Paldea (NFE)", doublesTier: "Paldea (NFE)"},
+	emboar: {tier: "Paldea", doublesTier: "Paldea"},
 
 };

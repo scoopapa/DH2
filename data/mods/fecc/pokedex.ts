@@ -859,6 +859,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 79, atk: 107, def: 97, spa: 127, spd: 127, spe: 107},
 		abilities: {0: "Ancient Pyramid"},
+		otherFormes: ["Necro Mane-Ultra"],
+		formeOrder: ["Necro Mane-Dusk Mane", "Necro Mane-Ultra"],
 	},
 	necromaneultra: {
 		name: "Necro Mane-Ultra",
@@ -868,6 +870,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 79, atk: 137, def: 97, spa: 137, spd: 97, spe: 159},
 		abilities: {0: "Neuroforce"},
 		requiredItem: "Depleted Ultranecrozium Z",
+		battleOnly: "Necro Mane-Dusk Mane",
 	},
 	mrvolcano: {
 		name: "Mr. Volcano",

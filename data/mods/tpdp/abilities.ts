@@ -357,11 +357,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
 				return;
 			
-			if (move.type === 'Steel' && this.field.isTerrain('genbu'))
+			if (move.type === 'Steel' && this.field.isTerrain('byakko'))
 				this.chainModify(1.5);
 		},
 		onDamage(damage, target, source, effect) {
-			if (this.field.isTerrain('genbu') && effect.effectType === "Move" && effect.type === "Fire")
+			if (this.field.isTerrain('byakko') && effect.effectType === "Move" && effect.type === "Fire")
 				this.chainModify(0.5);
 		},
 	},
@@ -521,7 +521,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, target, source);
+			this.actions.useMove(newMove, target, source);
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -531,7 +531,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectState.target, source);
+			this.actions.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 	},
@@ -1412,7 +1412,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Koutei's Earth",
 		shortDesc: "Earth skills are 50% more powerful during Kohryu. Nature-skill damage is halved.",
 		onBasePower(relayVar, source, target, move) {
-			if (target.hasAbility('ascertainment') || this.field.isTerrain('kohryu'))
+			if (target.hasAbility('ascertainment'))
 				return;
 			
 			if (move.type === 'Earth' && this.field.isTerrain('kohryu'))

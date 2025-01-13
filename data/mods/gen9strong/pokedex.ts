@@ -27,20 +27,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 92, atk: 130, def: 145, spa: 80, spd: 145, spe: 128},
 	},
-	wochien: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 90, def: 100, spa: 100, spd: 135, spe: 70},
-	},
-	chienpao: {
-		inherit: true,
-		baseStats: {hp: 80, atk: 130, def: 80, spa: 90, spd: 65, spe: 135},
-	},
-	tinglu: {
-		inherit: true,
-		baseStats: {hp: 165, atk: 110, def: 125, spa: 55, spd: 80, spe: 45},
-	},
-	chiyu: {
-		inherit: true,
-		baseStats: {hp: 55, atk: 80, def: 80, spa: 145, spd: 120, spe: 100},
-	},
 };

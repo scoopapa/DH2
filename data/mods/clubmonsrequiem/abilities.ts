@@ -228,10 +228,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: 276,
 	},
 	rockbeak: {
+		/*
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			if (move.type === 'Flying')
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+			if (move.type === 'Flying') {
+					!((move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Rock';
+					move.typeChangerBoosted = this.effect;
+				}
+			}
+		}, */
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Flying' && !(move.isZ && move.category !== 'Status')) {
 				move.type = 'Rock';
 				move.typeChangerBoosted = this.effect;
 			}

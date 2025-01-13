@@ -487,7 +487,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tusquokaagent: {
 		num: 954,
-		name: "Tusquoka          -Agent",
+		name: "Tusquoka-Agent",
 		types: ["Normal", "Steel"],
 		baseStats: {hp: 80, atk: 110, def: 70, spa: 40, spd: 60, spe: 120},
 		abilities: {0: "Tinted Lens", H: "Normalize"},

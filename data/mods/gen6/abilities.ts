@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	aerilate: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target, move) {
@@ -54,6 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.type = 'Normal';
 			}
 		},
+		onBasePower() {},
 		rating: -1,
 	},
 	parentalbond: {

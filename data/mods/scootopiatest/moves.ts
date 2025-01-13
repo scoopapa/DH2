@@ -1,19 +1,704 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
-	// stealthrock: {
-	// inherit: true,
-	// sideCondition: 'stealthrock',
-	// condition: {
-	// onStart(side) {
-	// this.add('-sidestart', side, 'move: Stealth Rock');
-	// },
-	// onSwitchIn(pokemon) {
-	// if (pokemon.hasItem('heavydutyboots')) return;
-	// let typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-	// if (pokemon.hasAbility("crystalline")) typeMod = typeMod / 2;
-	// this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-	// },
-	// },
-	// },
+	//World Effects
+	cursedfield: { // CURSED FIELD
+		name: "Cursed Field",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Ground",
+		shortDesc: "1/8 Dmg on switch-in. Tox after 3 turns. Dark and Ghost immune.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'cursedfield',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onSwitchIn(pokemon) {
+				let dmgDiv = 8;
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
+				if (pokemon.hasAbility("overcoat")) dmgDiv = 16;
+				this.damage(pokemon.maxhp / dmgDiv);
+				pokemon.m.fieldTurns = 0;
+			},
+			onFieldStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Cursed Field', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Cursed Field');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('cursedfield', source);
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 3,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "cursedfield") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'cursedfield')) return;
+				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+				pokemon.m.fieldTurns++;
+				if (pokemon.m.fieldTurns === 3) {
+					pokemon.trySetStatus('tox', pokemon.side.foe.active[0], this.field.getTerrain());
+					pokemon.m.fieldTurns = 0;
+				}
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Cursed Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	blessedfield: { // BLESSED FIELD
+		name: "Blessed Field",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Ground",
+		shortDesc: "1/8 Heal on switch-in. Status heal after 3 turns. Dark and Ghost unaffected.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'blessedfield',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onSwitchIn(pokemon) {
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon,'blessedfield')) return;
+				this.heal(pokemon.maxhp / 8);
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Blessed Field', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Blessed Field');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('blessedfield', source);
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "blessedfield") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'blessedfield')) return; //what the fuck
+				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+				pokemon.m.fieldTurns++;
+				if (pokemon.m.fieldTurns === 3) {
+					pokemon.cureStatus();
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Blessed Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	rainofmeteors: { // RAIN OF METEORS
+		name: "Rain of Meteors",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Flying",
+		shortDesc: "1/8 damage to all active Pokemon each turn. Rock and Steel take 1/16.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'rainofmeteors',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Rain of Meteors', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Rain of Meteors');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('rainofmeteors', source);
+			},
+			onResidualOrder: 6,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				// let pokemon = field.battle.activePokemon;
+				// if (!pokemon) return;
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofmeteors") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofmeteors')) return;
+				let dmgDiv = 8;
+				if (pokemon.hasType("Steel") || pokemon.hasType("Rock") || pokemon.hasAbility("Overcoat")) dmgDiv = 16;
+				console.log(dmgDiv + ' ' + pokemon.name);
+				this.damage(pokemon.maxhp / dmgDiv);
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Rain of Meteors');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	rainofdew: { // RAIN OF DEW
+		name: "Rain of Dew",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Flying",
+		shortDesc: "1/16 heal to all active Pokemon each turn. Pseudo-Rain.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'rainofdew',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onFieldStart(field, source, effect) {
+				console.log('hi');
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Rain of Dew', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Rain of Dew');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('rainofdew', source);
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "rainofdew") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'rainofdew')) return;
+				let dmgDiv = 16;
+				if (!pokemon.effectiveWeather() === "raindance") {
+					if (pokemon.hasAbility("Rain Dish")) dmgDiv = 8;
+					if (pokemon.hasAbility("Dry Skin")) dmgDiv = 5.3333334;
+				}
+				this.heal(pokemon.maxhp / dmgDiv);
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Rain of Dew');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	silentdomain: { // SILENT DOMAIN
+		name: "Silent Domain",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Psychic",
+		shortDesc: "Reduces stat changes each turn. No Sound Moves or Critical Hits.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'silentdomain',
+		condition: {
+			duration: 0,
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Silent Domain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Silent Domain');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('silentdomain', source);
+			},
+			onCriticalHit: false,
+			onDisableMove(pokemon) {
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return;
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['sound']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return;
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) return;
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "silentdomain") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				const toBoost = {};
+				for (const boost in pokemon.boosts) {
+					if (pokemon.boosts[boost] > 0 && !this.dex.dataCache.scootopia.getImmunity(pokemon, 'silentdomain')) toBoost[boost] = -1;
+					else if (pokemon.boosts[boost] < 0) toBoost[boost] = 1;
+				}
+				this.boost(toBoost, pokemon, pokemon, null, true, false);
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Silent Domain');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	stellaralignment: { // STELLAR ALIGNMENT
+		name: "Stellar Alignment",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Psychic",
+		shortDesc: "Pokemon get pumped after 3 turns. +10% Accuracy. Pseudo-Sun",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'stellaralignment',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Stellar Alignment', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Stellar Alignment');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('stellaralignment', source);
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return this.chainModify(1.1);
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 9,
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "stellaralignment") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'stellaralignment')) return;
+				pokemon.m.fieldTurns++;
+				if (pokemon.m.fieldTurns > pokemon.activeTurns) pokemon.m.fieldTurns = pokemon.activeTurns;
+				if (pokemon.m.fieldTurns === 3) {
+					if (!pokemon.volatiles['focusenergy']) pokemon.addVolatile('focusenergy');
+					pokemon.m.fieldTurns = 0;
+				}
+				if (pokemon.hasAbility('solarpower') && pokemon.effectiveWeather() !== 'sunnyday'){
+					this.damage(pokemon.maxhp / 8);
+				}
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Stellar Alignment');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	chaoticweather: { // CHAOTIC WEATHER
+		name: "Chaotic Weather",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Dark",
+		shortDesc: "Moves change weather. 1/16 dmg if no weather. Wind.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'chaoticweather',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Chaotic Weather', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Chaotic Weather');
+				}
+				for (const side of field.battle.sides) {
+					for (const pokemon of side.active) {
+						if (pokemon.hasAbility('windrider')) this.boost({atk: 1},pokemon);
+					}
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('chaoticweather', source);
+			},
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticweather") {
+					pokemon.m.lastField = "chaoticweather";
+					pokemon.m.fieldTurns = 0;
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticweather')) return;
+				if (pokemon.effectiveWeather() === '') {
+					this.damage(pokemon.maxhp / 16);
+				}
+			},
+			onModifyMove(move) {
+				switch (move.type){
+					case "Water":
+						move.weather = "raindance";
+					break;
+					case "Fire":
+						move.weather = "sunnyday";
+					break;
+					case "Rock":
+						move.weather = "sandstorm";
+					break;
+					case "Ice":
+						move.weather = "snow";
+					break
+				}
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Chaotic Weather');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	
+	chaoticterrain: { // CHAOTIC TERRAIN
+		name: "Chaotic Terrain",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 5,
+		type: "Dark",
+		shortDesc: "Moves change terrain. 1/16 dmg to grounded if no terrain.",
+		priority: 0,
+		flags: {nonsky: 1},
+		pseudoWeather: 'chaoticterrain',
+		condition: {
+			duration: 0,
+			onStart(pokemon){
+				this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Chaotic Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Chaotic Terrain');
+				}
+				this.dex.dataCache.scootopia.worldEffectStart('chaoticterrain', source);
+			},
+			onModifyMove(move) {
+				switch (move.type){
+					case "Grass":
+						move.terrain = "grassyterrain";
+					break;
+					case "Electric":
+						move.terrain = "electricterrain";
+					break;
+					case "Psychic":
+						move.terrain = "psychicterrain";
+					break;
+					case "Fairy":
+						move.terrain = "mistyterrain";
+					break
+				}
+			},
+			onResidual(pokemon) {
+				if (!pokemon.m.lastField || pokemon.m.lastField !== "chaoticterrain") {
+					this.dex.dataCache.scootopia.resetWorldEffectTurns(pokemon);
+				}
+				if (this.dex.dataCache.scootopia.getImmunity(pokemon, 'chaoticterrain')) return;
+				if (!this.field.terrain && pokemon.isGrounded()) {
+					this.damage(pokemon.maxhp / 16);
+				}
+			},
+			onFieldEnd() {
+				if (!this.effectState.duration) this.eachEvent('PseudoWeather');
+				this.add('-fieldend', 'move: Chaotic Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+	},
+	// World Effect-Related Moves
+	rebalance: {
+		num: 432,
+		shortDesc: "Clears World Effects. Fails if no World Effect",
+		category: "Special",
+		name: "Rebalance",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Expanding Force ' + move.type);
+		},
+		accuracy: 100,
+		basePower: 110,
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTry(pokemon) {
+			return !!this.dex.dataCache.scootopia.getWorldEffect(pokemon);
+		},
+		onTryHit(pokemon) {
+			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(pokemon));
+		},
+		onAfterSubDamage(pokemon) {
+			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(pokemon));
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Psychic",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	
+	iconoblast: {
+		num: 851,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Iconoblast",
+		shortDesc: "Sets World Effect from user's moveset.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, mustpressure: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Tera Blast ' + move.type);
+		},
+		onModifyType(move, pokemon, target) {
+			let wMove = this.dex.dataCache.scootopia.getWorldEffectMove(pokemon)
+			if (!wMove) return;
+			wMove = this.dex.moves.get(wMove);
+			if (wMove.type) move.type = wMove.type;
+		},
+		onModifyMove(move, pokemon, target){
+			let wMove = this.dex.dataCache.scootopia.getWorldEffectMove(pokemon)
+			if (!wMove) return;
+			wMove = this.dex.moves.get(wMove);
+			if (wMove.pseudoWeather) move.pseudoWeather = wMove.pseudoWeather;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	
+	legacyshade: {
+		num: 881,
+		accuracy: true,
+		basePower: 0,
+		shortDesc: "User switches. Sets World Effect from user's moveset.",
+		category: "Status",
+		name: "Legacy Shade",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[anim] Chilly Reception ' + move.type);
+		},
+		pp: 5,
+		priority: 0,
+		flags: {},
+		onModifyMove(move, pokemon, target){
+			let wMove = this.dex.dataCache.scootopia.getWorldEffectMove(pokemon)
+			if (!wMove) return;
+			wMove = this.dex.moves.get(wMove);
+			if (wMove.pseudoWeather) move.pseudoWeather = wMove.pseudoWeather;
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "all",
+		type: "Ghost",
+	},
+	
+	// Modified moves
+	defog: {
+		inherit: true,
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			this.field.removePseudoWeather(this.dex.dataCache.scootopia.getWorldEffect(target));
+			return success;
+		},
+	},
+	
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			if (this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	morningsun: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+				factor = 0.25;
+				break;
+			}
+			if (this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'stellaralignment') factor = factor < 0.5 ? 0.667 : 0.334;
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	
+	weatherball: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				break;
+			}
+			if (move.type == 'Normal' && this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'rainofdew') move.type = 'Water';
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+			if (move.basePower == 50 && this.dex.dataCache.scootopia.getWorldEffect(pokemon) === 'rainofdew') move.basePower *= 2;
+		},
+	},
+	
+	solarbeam: {
+		inherit:true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect(attacker) === 'stellaralignment') {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	
+	solarblade: {
+		inherit:true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.dex.dataCache.scootopia.getWorldEffect(attacker) === 'stellaralignment') {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	
+	// Custom Moves
 	shedtail: {
 		num: 880,
 		accuracy: true,
@@ -23,19 +708,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		shortDesc: "Sac 50% HP, heal ally 25%, 50% dmg redux this turn.",
+		shortDesc: "Sac 12.5% HP, switch, heal ally 25%. Ally: 50% dmg redux this turn.",
 		onTryHit(source) {
 			if (!this.canSwitch(source.side)) {
 				this.add('-fail', source);
 				return this.NOT_FAIL;
 			}
-			if (source.hp <= Math.ceil(source.maxhp / 2)) {
+			if (source.hp <= Math.ceil(source.maxhp / 8)) {
 				this.add('-fail', source, 'move: Shed Tail', '[weak]');
 				return this.NOT_FAIL;
 			}
 		},
 		onHit(target) {
-			this.directDamage(Math.ceil(target.maxhp / 2));
+			this.directDamage(Math.ceil(target.maxhp / 8));
 		},
 		slotCondition: 'shedtail',
 		condition: {
@@ -59,70 +744,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 	},
-	// darkfang: {
-	// accuracy: 100,
-	// basePower: 50,
-	// category: "Physical",
-	// shortDesc: "Hits twice. Doubles: Tries to hit each foe once",
-	// isViable: true,
-	// name: "Dark Fang",
-	// pp: 10,
-	// priority: 0,
-	// flags: {protect: 1, mirror: 1, contact: 1, bite: 1},
-	// onPrepareHit: function(target, source, move) {
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Bite", target);
-	// },
-	// multihit: 2,
-	// smartTarget: true,
-	// secondary: null,
-	// target: "normal",
-	// type: "Dark",
-	// maxMove: {basePower: 130},
-	// },
-	// piercinggaze: {
-	// accuracy: 100,
-	// basePower: 80,
-	// category: "Special",
-	// shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
-	// isViable: true,
-	// name: "Piercing Gaze",
-	// pp: 10,
-	// priority: 0,
-	// flags: {protect: 1, mirror: 1},
-	// onPrepareHit: function(target, source, move) {
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Glare", target);
-	// },
-	// useSourceDefensiveAsOffensive: true,
-	// secondary: null,
-	// target: "normal",
-	// type: "Psychic",
-	// },
-	// dreadwing: {
-	// accuracy: 100,
-	// basePower: 95,
-	// category: "Special",
-	// shortDesc: "Uses target's SpA stat in damage calculation.",
-	// isViable: true,
-	// name: "Dread Wing",
-	// pp: 15,
-	// priority: 0,
-	// flags: {protect: 1, mirror: 1},
-	// onPrepareHit: function(target, source, move) {
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Oblivion Wing", target);
-	// },
-	// useTargetOffensive: true,
-	// secondary: null,
-	// target: "normal",
-	// type: "Flying",
-	// contestType: "Clever",
-	// },
-	// photongeyser: {
-	// inherit: true,
-	// category: "Physical",
-	// },
 	energysiphon: {
 		accuracy: 100,
 		basePower: 50,
@@ -145,7 +766,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(target) {
 				this.add('-start', target, 'move: Energy Siphon');
 			},
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 				const target = this.getAtSlot(pokemon.volatiles['energysiphon'].sourceSlot);
@@ -160,199 +781,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	// temperatureburst: {
-	// accuracy: 100,
-	// basePower: 90,
-	// category: "Physical",
-	// name: "Temperature Burst",
-	// shortDesc: "Sets weather based on the user's type.",
-	// pp: 5,
-	// priority: 0,
-	// flags: {contact: 1, protect: 1, mirror: 1},
-	// onPrepareHit: function(target, source, move) {
-	// if (source.species.id === "faerenheit"){
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Hidden Power Fire", target);
-	// } else if (source.species.id === "cellsius"){
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Hidden Power Water", target);
-	// } else if (source.species.id === "kelven"){
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Hidden Power Ice", target);
-	// }
-	// },
-	// onHit(target, source, move) {
-	// if (source.species.id === "faerenheit"){
-	// this.field.setWeather('sunnyday');
-	// } else if (source.species.id === "cellsius"){
-	// this.field.setWeather('raindance');
-	// } else if (source.species.id === "kelven"){
-	// this.field.setWeather('snow');
-	// }
-	// },
-	// target: "normal",
-	// type: "Fairy",
-	// contestType: "Cute",
-	// },
-	// grassyterrain: {
-	// inherit: true,
-	// condition: {
-	// duration: 5,
-	// durationCallback(source, effect) {
-	// if (source?.hasItem('terrainextender')) {
-	// return 8;
-	// }
-	// return 5;
-	// },
-	// onBasePowerPriority: 6,
-	// onBasePower(basePower, attacker, defender, move) {
-	// const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
-	// if (weakenedMoves.includes(move.id)) {
-	// this.debug('move weakened by grassy terrain');
-	// return this.chainModify(0.5);
-	// }
-	// if (move.type === 'Grass' && attacker.isGrounded()) {
-	// this.debug('grassy terrain boost');
-	// return this.chainModify(1.5);
-	// }
-	// },
-	// onStart(battle, source, effect) {
-	// if (effect?.effectType === 'Ability') {
-	// this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect, '[of] ' + source);
-	// } else {
-	// this.add('-fieldstart', 'move: Grassy Terrain');
-	// }
-	// },
-	// onResidualOrder: 5,
-	// onResidualSubOrder: 3,
-	// onResidual() {
-	// this.eachEvent('Terrain');
-	// },
-	// onTerrain(pokemon) {
-	// if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
-	// this.debug('Pokemon is grounded, healing through Grassy Terrain.');
-	// this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
-	// }
-	// },
-	// onEnd() {
-	// if (!this.effectState.duration) this.eachEvent('Terrain');
-	// this.add('-fieldend', 'move: Grassy Terrain');
-	// },
-	// },
-	// },
-	// electricterrain: {
-	// inherit: true,
-	// condition: {
-	// duration: 5,
-	// durationCallback(source, effect) {
-	// if (source?.hasItem('terrainextender')) {
-	// return 8;
-	// }
-	// return 5;
-	// },
-	// onSetStatus(status, target, source, effect) {
-	// if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
-	// if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
-	// this.add('-activate', target, 'move: Electric Terrain');
-	// }
-	// return false;
-	// }
-	// },
-	// onTryAddVolatile(status, target) {
-	// if (!target.isGrounded() || target.isSemiInvulnerable()) return;
-	// if (status.id === 'yawn') {
-	// this.add('-activate', target, 'move: Electric Terrain');
-	// return null;
-	// }
-	// },
-	// onBasePowerPriority: 6,
-	// onBasePower(basePower, attacker, defender, move) {
-	// if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-	// this.debug('electric terrain boost');
-	// return this.chainModify(1.5);
-	// }
-	// },
-	// onStart(battle, source, effect) {
-	// if (effect?.effectType === 'Ability') {
-	// this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
-	// } else {
-	// this.add('-fieldstart', 'move: Electric Terrain');
-	// }
-	// },
-	// onResidualOrder: 21,
-	// onResidualSubOrder: 2,
-	// onEnd() {
-	// this.add('-fieldend', 'move: Electric Terrain');
-	// },
-	// },
-	// },
-	// psychicterrain: {
-	// inherit: true,
-	// condition: {
-	// duration: 5,
-	// durationCallback(source, effect) {
-	// if (source?.hasItem('terrainextender')) {
-	// return 8;
-	// }
-	// return 5;
-	// },
-	// onTryHitPriority: 4,
-	// onTryHit(target, source, effect) {
-	// if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
-	// return;
-	// }
-	// if (target.isSemiInvulnerable() || target.side === source.side) return;
-	// if (!target.isGrounded()) {
-	// const baseMove = this.dex.moves.get(effect.id);
-	// if (baseMove.priority > 0) {
-	// this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
-	// }
-	// return;
-	// }
-	// this.add('-activate', target, 'move: Psychic Terrain');
-	// return null;
-	// },
-	// onBasePowerPriority: 6,
-	// onBasePower(basePower, attacker, defender, move) {
-	// if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-	// this.debug('psychic terrain boost');
-	// return this.chainModify(1.5);
-	// }
-	// },
-	// onStart(battle, source, effect) {
-	// if (effect?.effectType === 'Ability') {
-	// this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect, '[of] ' + source);
-	// } else {
-	// this.add('-fieldstart', 'move: Psychic Terrain');
-	// }
-	// },
-	// onResidualOrder: 21,
-	// onResidualSubOrder: 2,
-	// onEnd() {
-	// this.add('-fieldend', 'move: Psychic Terrain');
-	// },
-	// },
-	// },
-	// mistyexplosion: {
-	// num: 802,
-	// accuracy: 100,
-	// basePower: 150,
-	// category: "Special",
-	// name: "Misty Explosion",
-	// pp: 5,
-	// priority: 0,
-	// flags: {protect: 1, mirror: 1},
-	// selfdestruct: "always",
-	// onBasePower(basePower, source) {
-	// if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
-	// this.debug('misty terrain boost');
-	// return this.chainModify(1.5);
-	// }
-	// },
-	// secondary: null,
-	// target: "allAdjacent",
-	// type: "Fairy",
-	// },
+	// Modified Status Moves
 	sheercold: {
 		accuracy: 85,
 		basePower: 0,
@@ -370,50 +799,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 		viable: true,
 	},
-	// reindeerdash: {
-	// name: "Reindeer Dash",
-	// accuracy: 85,
-	// basePower: 100,
-	// category: "Physical",
-	// pp: 10,
-	// type: "Ice",
-	// shortDesc: "10% chance to inflict Frz. 20% chance to lower Spe 1 stage",
-	// priority: 0,
-	// flags: {protect: 1, mirror: 1, contact: 1},
-	// target: "normal",
-	// onPrepareHit: function(target, source, move) {
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Triple Axel", target);
-	// },
-	// secondaries: [
-	// {
-	// chance: 20,
-	// boosts: {
-	// spe: -1,
-	// },
-	// }, {
-	// chance: 10,
-	// status: 'frz',
-	// },
-	// ],
-
-	// },
 	spore: {
 		inherit: true,
 		pp: 10,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	sleeppowder: {
 		inherit: true,
 		pp: 15,
 		accuracy: 90,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	hypnosis: {
 		inherit: true,
 		pp: 20,
 		accuracy: 85,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
 	grasswhistle: {
 		inherit: true,
@@ -421,522 +825,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 25,
 		accuracy: 80,
 		desc: "Puts the opponent to sleep for 1 turn",
+		viable: true,
 	},
-	// lodestone: {
-	// num: 393,
-	// accuracy: true,
-	// basePower: 90,
-	// category: "Special",
-	// name: "Lodestone",
-	// pp: 10,
-	// priority: 0,
-	// flags: {snatch: 1, gravity: 1},
-	// self: {
-	// volatileStatus: 'lodestone'
-	// },
-	// shortDesc: "User is not grounded until the end of the turn.",
-	// condition: {
-	// duration: 1,
-	// onStart(target) {
-	// if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
-	// this.add('-start', target, 'Lodestone');
-	// },
-	// onImmunity(type) {
-	// if (type === 'Ground') return false;
-	// },
-	// onResidualOrder: 15,
-	// onEnd(target) {
-	// this.add('-end', target, 'Lodestone');
-	// },
-	// },
-	// secondary: null,
-	// target: "normal",
-	// type: "Rock",
-	// zMove: {boost: {evasion: 1}},
-	// contestType: "Clever",
-	// onPrepareHit: function(target, source, move) {
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Rock Blast", target);
-	// },
-	// },
-	// spikebolt: {
-	// num: 454,
-	// accuracy: 100,
-	// basePower: 90,
-	// category: "Physical",
-	// name: "Spike Bolt",
-	// pp: 15,
-	// shortDesc: "High Critical Hit ratio.",
-	// priority: 0,
-	// onPrepareHit: function(target, source, move) {
-	// this.attrLastMove('[still]');
-	// this.add('-anim', source, "Pin Missile", target);
-	// },
-	// flags: {protect: 1, mirror: 1},
-	// critRatio: 2,
-	// secondary: null,
-	// target: "normal",
-	// type: "Bug",
-	// contestType: "Clever",
-	// },
-	// secondsight: {
-	// accuracy: 100,
-	// basePower: 55,
-	// category: "Special",
-	// shortDesc: "Uses user's SpD stat as SpA in damage calculation. Powers up in Nexus form.",
-	// isViable: true,
-	// name: "Second Sight",
-	// pp: 10,
-	// priority: 0,
-	// flags: {protect: 1, mirror: 1},
-	// basePowerCallback(pokemon, target, move) {
-	// if (pokemon.species.name === 'Flocura-Nexus' && pokemon.hasAbility('xenospore')) {
-	// return move.basePower / 2;
-	// }
-	// return move.basePower;
-	// },
-	// onPrepareHit(target, pokemon, move) {
-	// if (pokemon.species.name === 'Flocura-Nexus' && pokemon.hasAbility('xenospore')) {
-	// move.multihit = 3;
-	// }
-	// this.attrLastMove('[still]');
-	// this.add('-anim', pokemon, "Glare", target);
-	// },
-	// useSourceDefensiveAsOffensive: true,
-	// secondary: null,
-	// target: "normal",
-	// type: "Psychic",
-	// },
-	crystalcutter: {
-		name: "Crystal Cutter",
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		pp: 15,
-		type: "Crystal",
-		shortDesc: "Always crits. User recovers 50% of damage dealt",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
-		target: "normal",
-		willCrit: true,
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psycho Cut", target);
-		},
-		drain: [1, 2],
-	},
-	crystaltail: {
-		name: "Crystal Tail",
-		accuracy: 85,
-		basePower: 120,
-		category: "Physical",
-		pp: 5,
-		type: "Crystal",
-		shortDesc: "20% to lower foe's Atk by 1",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
-		target: "normal",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Dragon Tail", target);
-		},
-		secondary: {
-			chance: 20,
-			boosts: {
-				atk: -1,
-			},
-		},
-	},
-	crystalbash: {
-		name: "Crystal Bash",
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		pp: 10,
-		type: "Crystal",
-		shortDesc: "10% to lower foe's Atk by 1",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
-		target: "normal",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Iron Head", target);
-		},
-		secondary: {
-			chance: 10,
-			boosts: {
-				atk: -1,
-			},
-		},
-	},
-	crystalbeam: {
-		name: "Crystal Beam",
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		pp: 15,
-		type: "Crystal",
-		shortDesc: "30% to lower foe's SpA by 1",
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Aurora Beam", target);
-		},
-		secondary: {
-			chance: 30,
-			boosts: {
-				spa: -1,
-			},
-		},
-	},
-	crystalcage: {
-		name: "Crystal Cage",
-		accuracy: 85,
-		basePower: 85,
-		category: "Special",
-		pp: 10,
-		type: "Crystal",
-		shortDesc: "Traps and damages for 4-5 turns.",
-		priority: 0,
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Diamond Storm", target);
-		},
-		flags: {protect: 1, mirror: 1},
-		volatileStatus: 'partiallytrapped',
-		target: "normal",
-		secondary: null,
-	},
-	crystalburst: {
-		accuracy: 100,
-		basePower: 120,
-		category: "Special",
-		name: "Crystal Burst",
-		pp: 5,
-		shortDesc: "Lower's user's SpA by 1",
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Clanging Scales", target);
-		},
-		self: {
-			boosts: {
-				spa: -1,
-			},
-		},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Crystal",
-		contestType: "Beautiful",
-	},
-	crystalhealing: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Crystal Healing",
-		pp: 5,
-		priority: 0,
-		shortDesc: "Cures whole team's status conditions. 1/16 residual healing at the end of each turn.",
-		flags: {snatch: 1, distance: 1, authentic: 1},
-		onHit(pokemon, source) {
-			this.add('-activate', source, 'move: Crystal Healing');
-			const side = pokemon.side;
-			let success = false;
-			for (const ally of side.pokemon) {
-				if (ally.cureStatus()) success = true;
-			}
-			return success;
-		},
-		volatileStatus: 'crystalhealing',
-		condition: {
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Crystal Healing');
-			},
-			onResidualOrder: 6,
-			onResidual(pokemon) {
-				this.heal(pokemon.baseMaxhp / 16);
-			},
-		},
-		target: "allyTeam",
-		type: "Crystal",
-		zMove: {effect: 'heal'},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Heal Bell", target);
-		},
-		contestType: "Beautiful",
-	},
-	crystalfortification: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Crystal Fortification",
-		pp: 20,
-		priority: 0,
-		shortDesc: "+1 Def, +1 SpD. Clears negative stat changes.",
-		flags: {snatch: 1},
-		onHit(pokemon, source) {
-			let b: BoostName;
-			let didBoost = false;
-			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
-				didBoost = true;
-			}
-			if (didBoost) {
-				this.boost(negBoosts, source);
-			}
-		},
-		boosts: {
-			def: 1,
-			spd: 1,
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Iron Defense", target);
-		},
-		secondary: null,
-		target: "self",
-		type: "Crystal",
-		zMove: {boost: {spd: 1}},
-		contestType: "Beautiful",
-	},
-	crystalshard: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Crystal Shard",
-		shortDesc: "Sets a layer of Spikes. (Not a new kind of hazard)",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
-		onHitSide(side, source) {
-			source.side.foe.addSideCondition("spikes");
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Spikes", target);
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Crystal",
-		zMove: {boost: {spd: 1}},
-		contestType: "Beautiful",
-	},
-	feralbite: {
-		name: "Feral Bite",
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		pp: 15,
-		type: "Feral",
-		shortDesc: "30% chance to Poison foe.",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1, bite: 1},
-		target: "normal",
-		secondary: {
-			chance: 30,
-			status: "psn",
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Poison Fang", target);
-		},
-	},
-	feralshred: {
-		name: "Feral Shred",
-		accuracy: 100,
-		basePower: 20,
-		category: "Physical",
-		pp: 15,
-		type: "Feral",
-		shortDesc: "Hits twice. Lowers foe's Def by 1 on each hit",
-		priority: 0,
-		multihit: 2,
-		flags: {protect: 1, mirror: 1, contact: 1},
-		target: "normal",
-		secondary: {
-			chance: 100,
-			boosts: {
-				def: -1,
-			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Dragon Claw", target);
-		},
-	},
-	feralrush: {
-		name: "Feral Rush",
-		accuracy: 100,
-		basePower: 120,
-		category: "Physical",
-		pp: 10,
-		type: "Feral",
-		shortDesc: "User takes 1/3 recoil damage. 20% to lower foe's Def by 1",
-		priority: 0,
-		recoil: [33, 100],
-		flags: {protect: 1, mirror: 1, contact: 1},
-		target: "normal",
-		secondary: {
-			chance: 20,
-			boosts: {
-				def: -1,
-			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Double-Edge", target);
-		},
-	},
-	feralshriek: {
-		name: "Feral Shriek",
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		pp: 15,
-		type: "Feral",
-		shortDesc: "20% to lower foe's SpD by 1",
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
-		target: "allAdjacentFoes",
-		secondary: {
-			chance: 20,
-			boosts: {
-				spd: -1,
-			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Overdrive", target);
-		},
-	},
-	feralpower: {
-		accuracy: 100,
-		basePower: 110,
-		category: "Special",
-		name: "Feral Power",
-		pp: 5,
-		priority: 0,
-		shortDesc: "Lowers user's Def by 1",
-		flags: {protect: 1, mirror: 1, authentic: 1},
-		selfBoost: {
-			boosts: {
-				def: -1,
-			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Searing Shot", target);
-		},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Feral",
-		contestType: "Tough",
-	},
-	feralbreath: {
-		name: "Feral Breath",
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		pp: 10,
-		type: "Feral",
-		shortDesc: "100% to lower foe's SpD by 1",
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
-		secondary: {
-			chance: 100,
-			boosts: {
-				spd: -1,
-			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Dragon Rage", target);
-		},
-	},
-	feralhealing: {
-		num: 816,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		//pp: 10,
-		priority: 0,
-		flags: {heal: 1, bypasssub: 1, allyanim: 1},
-		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			return pokemon.cureStatus() || success;
-		},
-		secondary: null,
-		target: "allies",
-		name: "Feral Healing",
-		pp: 15,
-		shortDesc: "Heals user 25% and cures status.",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Jungle Healing", target);
-		},
-		type: "Feral",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
-	},
-	feralspray: {
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Feral Spray",
-		pp: 25,
-		priority: 0,
-		shortDesc: "+1 Atk, +1 SpA. Poisons the foe.",
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		selfBoost: {
-			boosts: {
-				atk: 1,
-				spa: 1,
-			},
-		},
-		status: 'psn',
-		secondary: null,
-		target: "normal",
-		type: "Feral",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Acid Spray", target);
-		},
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
-	},
-	feralresilience: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Feral Resilience",
-		pp: 20,
-		priority: 0,
-		flags: {snatch: 1},
-		shortDesc: "+1 Atk, +1 SpA. Cures user's status conditions.",
-		onHit(pokemon) {
-			if (['', 'slp'].includes(pokemon.status)) return false;
-			pokemon.cureStatus();
-		},
-		secondary: null,
-		target: "self",
-		boosts: {
-			atk: 1,
-			spa: 1,
-		},
-		type: "Feral",
-		zMove: {effect: 'heal'},
-		contestType: "Cute",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Refresh", target);
-		},
-	},
+	
 	
 	karatechop: {
 		inherit: true,
@@ -1641,5 +1532,78 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	eternabeam: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	
+	crystalcutter: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalbash: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystaltail: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalcage: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalbeam: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalburst: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalhealing: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalfortification: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	crystalshard: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralshred: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralbite: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralrush: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralbreath: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralshriek: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralpower: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralspray: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralresilience: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
+	feralhealing: {
+		inherit: true,
+		isNonstandard: "Past",
 	},
 };

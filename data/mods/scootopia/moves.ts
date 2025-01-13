@@ -23,19 +23,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		shortDesc: "Sac 50% HP, heal ally 25%, 50% dmg redux this turn.",
+		shortDesc: "Sac 12.5% HP, switch, heal ally 25%. Ally: 50% dmg redux this turn.",
 		onTryHit(source) {
 			if (!this.canSwitch(source.side)) {
 				this.add('-fail', source);
 				return this.NOT_FAIL;
 			}
-			if (source.hp <= Math.ceil(source.maxhp / 2)) {
+			if (source.hp <= Math.ceil(source.maxhp / 8)) {
 				this.add('-fail', source, 'move: Shed Tail', '[weak]');
 				return this.NOT_FAIL;
 			}
 		},
 		onHit(target) {
-			this.directDamage(Math.ceil(target.maxhp / 2));
+			this.directDamage(Math.ceil(target.maxhp / 8));
 		},
 		slotCondition: 'shedtail',
 		condition: {

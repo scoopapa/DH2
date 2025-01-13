@@ -2,6 +2,7 @@ export const Items: { [itemid: string]: ItemData } = {
 	supportgear: {
 		name: "Support Gear",
 		num: -1000,
+		spritenum: 581,
 		desc: "If held by Pthormign: recoil is negated.",
 		itemUser: ["Pthormign"],
 		onTakeItem(item, pokemon, source) {

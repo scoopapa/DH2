@@ -12,15 +12,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(target) {
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
 				this.add('-start', target, 'First Flight', '[silent]');
+				this.add('-message', `${target.name} has flown for the first time!`);
 			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
 			},
 			onDamagingHit(damage, target, source, move) {
-				source.removeVolatile('firstflight');
+				target.removeVolatile('firstflight');
 			},
 			onEnd(target) {
 				this.add('-end', target, 'First Flight', '[silent]');
+				this.add('-message', `${target.name} crash-landed!`);
 			},
 		},
 	},
@@ -67,6 +69,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	nightwatch: {
+		name: "Night Watch",
 		shortDesc: "This Pokemon's attacks have 1.5x power against Dark types.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
@@ -101,5 +104,60 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpD when hit by Ice.",
 		rating: 4,
+	},
+	sedimentary: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.debug('Sedimentary boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.debug('Sedimentary boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Sedimentary",
+		shortDesc: "This Pokemon's Bug-type moves have 1.5x power in Rain.",
+	},
+
+	zenmode: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Eleffigy' || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && pokemon.species.forme !== 'Zen') {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && pokemon.species.forme === 'Zen') {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (pokemon.species.baseSpecies === 'Eleffigy' && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.species.id !== 'eleffigyzen') pokemon.formeChange('Eleffigy-Zen');
+			},
+			onEnd(pokemon) {
+				if (pokemon.species.forme === 'Zen') {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Zen Mode",
+		shortDesc: "If Eleffigy, at end of turn changes Mode to Standard if > 1/2 max HP, else Zen.",
 	},
 };

@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ItemDataTable = {
 	altarianite: {
 		name: "Altarianite",
 		spritenum: 615,
@@ -35,8 +35,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife',
 											'prehistorichunter', 'ancientmarble']) { 
 					if (pokemon.hasAbility(proto)) {
-						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
-							pokemon.addVolatile(proto);
+						if (!(pokemon.volatiles['protosynthesis'] || pokemon.volatiles[proto]) && pokemon.useItem()) {
+							pokemon.addVolatile(['openingact','weightoflife','prehistorichunter'].includes(proto) ? proto : 'protosynthesis');
 						}
 						return;
 					}
@@ -44,18 +44,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
-											'faultyphoton', 'firewall', 'innovate']) { 
+											'faultyphoton', 'firewall', 'innovate', 'baryonblade']) { 
 					if (pokemon.hasAbility(quark)) {
-						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
-							pokemon.addVolatile(quark);
+						if (!(pokemon.volatiles['quarkdrive'] || pokemon.volatiles[quark]) && pokemon.useItem()) {
+							pokemon.addVolatile(['lightdrive','baryonblade','circuitbreaker'].includes(quark) ? quark : 'quarkdrive');
 						}
 						return;
 					}
 				}
 			}
-			if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
+			/*if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
 				pokemon.addVolatile('systempurge');
-			}
+			}*/
 		},
 		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
@@ -276,17 +276,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 759,
 		desc: "If held by a Hisuian Zoroshark, this item allows it to Mega Evolve in battle.",
 	},
+	cameruptite: {
+		name: "Cameruptite",
+		spritenum: 625,
+		megaStone: "Wo-Rupt-Mega",
+		megaEvolves: "Wo-Rupt",
+		itemUser: ["Wo-Rupt"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 767,
+		desc: "If held by a Wo-Rupt, this item allows it to Mega Evolve in battle.",
+	},
 	eviolite: {
 		inherit: true,
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.num === 215) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.baseSpecies === 'Sneasel') {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.num === 215) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.baseSpecies === 'Sneasel') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -298,7 +311,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-			pokemon.canTerastallize = null;
+			if (this.ruleTable.has('terastalclause')) {
+				pokemon.canTerastallize = null;
+			}
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
@@ -323,7 +338,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-			pokemon.canTerastallize = null;
+			if (this.ruleTable.has('terastalclause')) {
+				pokemon.canTerastallize = null;
+			}
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
@@ -362,5 +379,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 2406,
 		gen: 9,
 		desc: "Hattepon-Cornerstone: 1.2x power attacks; Terastallize to gain Embody Aspect.",
+	},
+	medichamite: {
+		name: "Medichamite",
+		spritenum: 599,
+		megaStone: "Giracham-Origin-Mega",
+		megaEvolves: "Giracham-Origin",
+		itemUser: ["Giracham-Origin"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 665,
+		desc: "If held by Giracham-Origin, this item allows it to Mega Evolve in battle.",
 	},
 };

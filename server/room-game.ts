@@ -62,6 +62,7 @@ export class RoomGamePlayer<GameClass extends RoomGame = SimpleRoomGame> {
 	 * `this.getUser().games`.
 	 */
 	readonly id: ID;
+	completed?: boolean;
 	constructor(user: User | string | null, game: GameClass, num = 0) {
 		this.num = num;
 		if (!user) user = num ? `Player ${num}` : `Player`;
@@ -230,7 +231,7 @@ export abstract class RoomGame<PlayerClass extends RoomGamePlayer = RoomGamePlay
 	 * Like `setPlayerUser`, but bypasses some unnecessary game list updates if
 	 * the user renamed directly from the old userid.
 	 *
-	 * `this.playerTable[oldUserid]` mnust exist or this will crash.
+	 * `this.playerTable[oldUserid]` must exist or this will crash.
 	 */
 	renamePlayer(user: User, oldUserid: ID) {
 		if (user.id === oldUserid) {
@@ -243,6 +244,12 @@ export abstract class RoomGame<PlayerClass extends RoomGamePlayer = RoomGamePlay
 		}
 	}
 
+	/**
+	 * This is purely for cleanup, suitable for calling from `destroy()`.
+	 * You should make a different function, call it `end` or something,
+	 * to end a game properly. See BestOfGame for an example of an `end`
+	 * function.
+	 */
 	setEnded() {
 		if (this.ended) return;
 		(this.ended as boolean) = true;
@@ -258,7 +265,7 @@ export abstract class RoomGame<PlayerClass extends RoomGamePlayer = RoomGamePlay
 
 	renameRoom(roomid: RoomID) {
 		for (const player of this.players) {
-			const user = Users.get(player.id);
+			const user = player.getUser();
 			user?.games.delete(this.roomid);
 			user?.games.add(roomid);
 		}

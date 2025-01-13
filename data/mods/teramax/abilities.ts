@@ -1,11 +1,12 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	zenmode: {
-		onBeforeMovePriority: 9,
-		onBeforeMove(pokemon, target, move) {
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
 			if (move.category === 'Special' && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				this.add('-activate', pokemon, 'ability: Zen Mode');
 				pokemon.addVolatile('zenmode');
 			}
 		},
@@ -25,7 +26,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
-		shortDesc: "(Partially functional placeholder) This Pokemon transforms at the start of the turn if it selects a special move.",
+		shortDesc: "This Pokemon transforms at the start of the turn if it selects a special move.",
 		rating: 3,
 		num: 161,
 	},
@@ -167,13 +168,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Commander",
 		rating: 3,
 		num: 279,
-		shortDesc: "This Pokemon deals 20% more damage to slower foes, 30% more if the foe is Water or Dragon-type.",
+		shortDesc: "Slower Pokemon take 20% more damage. 30% if also Water or Dragon.",
 	},
 	steamengine: {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Steam Engine');
 				pokemon.cureStatus();
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Steam Engine boost');
+				return this.chainModify(2);
 			}
 		},
 		onSetStatus(status, target, source, effect) {
@@ -206,8 +214,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Steam Engine",
 		rating: 2,
 		num: 243,
-		shortDesc: "Immune to burn. 0.5x damage from Fire and Water moves. If hit: summons Sun.",
-	},
+		shortDesc: "Burn immunity. Takes 0.5x from Fire/Water & summons Sun. 2x power on Fire.",
+	},/*
 	galewings: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
@@ -229,6 +237,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 177,
 		shortDesc: "This Pokemon's Flying-type moves have 1.3x power if the user moves first.",
+	},*/
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			for (const poke of this.getAllActive()) {
+				if (poke.hasAbility('counteract') && poke.side.id !== pokemon.side.id && !poke.abilityState.ending) {
+					return;
+				}
+			}
+			if (move?.type === 'Flying' && pokemon.hp >= pokemon.maxhp / 2) return priority + 1;
+		},
+		flags: {},
+		name: "Gale Wings",
+		shortDesc: "If this Pokemon has 50% of its max HP or more, its Flying-type moves have their priority increased by 1.",
+		rating: 3,
+		num: 177,
 	},
 	myceliummight: {
 		inherit: true,
@@ -256,5 +279,55 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		shortDesc: "Takes 1/2 damage from special attacks. Full HP: No damage from indirect sources.",
+	},
+	battlebondcharizard: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') return;
+			if (source.abilityState.battleBondcharizardTriggered) return;
+			if (source.hp && source.side.foePokemonLeft()) {
+				this.boost({atk: 1, spa: 1, spe: 1}, source, source, this.effect);
+				this.add('-activate', source, 'ability: Battle Bond (Charizard)');
+				source.abilityState.battleBondcharizardTriggered = true;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Battle Bond (Charizard)",
+		desc: "If this Pokemon is a Charizard-Gmax, its Attack, Special Attack, and Speed are raised by 1 stage if it attacks and knocks out another Pokemon. This effect can only happen once per battle.",
+		shortDesc: "After KOing a Pokemon: raises Attack, Sp. Atk, Speed by 1 stage. Once per battle.",
+		rating: 3.5,
+		num: 210,
+	},
+	stalwart: {
+		inherit: true,
+		onModifyMove() {},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Stalwart');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Stalwart');
+				return target.hp - 1;
+			}
+		},
+		shortDesc: "This Pokemon heals 1/3 of its max when switching out. At full HP: Survives hit at 1 HP.",
+	},
+	selfrepair: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category === 'Status') {
+				this.heal(pokemon.baseMaxhp / 4);
+			}
+		},
+		flags: {},
+		name: "Self-Repair",
+		rating: 3,
+		shortDesc: "When this Pokemon uses a status move, this Pokemon heals 25% of its max HP.",
 	},
 };

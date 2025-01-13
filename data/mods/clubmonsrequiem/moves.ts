@@ -85,7 +85,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryMove() {
-			this.attrLastMove('[still]');f
+			this.attrLastMove('[still]');
 		},
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Seed Flare', target);

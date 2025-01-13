@@ -1,6 +1,8 @@
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	lilywhite: {
 		learnset: {
+			grasspledge: ["9L1"],
+			springtidestorm: ["9L1"],
 			whirlwind: ["9L1"],
 			facade: ["9L1"],
 			hydropump: ["9L1"],

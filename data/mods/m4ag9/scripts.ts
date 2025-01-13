@@ -1,30 +1,34 @@
 import {toID} from '../../../sim/dex-data';
 
 // tiering information
-const ag = ["gengarmega", "rayquazamega", "zacian", "zaciancrowned", "calyrexshadow"];
-const uber = [
+const ag9 = ["calyrexshadow", "gengarmega", "koraidon", "miraidon", "rayquazamega", "xerneas"];
+const uber9 = [
 	// M4A first
-	"butterfreemega", "cinderacemega", "dragapultmega", "clefablemega", "dodriomega", "empoleonmega", "hydreigonmega", "slowkinggalarmega",
+	// Nothing here for the moment!
 	// Natdex second
-	"alakazammega", "blastoisemega", "blazikenmega", "darmanitangalar", "deoxysattack", "deoxysspeed", "deoxys", "dialga", "dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "kyogre", "kyogreprimal", "kyurem", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "solgaleo", "spectrier", "tornadustherian", "urshifu", "xerneas", "yveltal", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", "calyrexice", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "koraidon", "miraidon", "fluttermane", "annihilape", "espathra", "ironbundle", "chienpao", "chiyu", "ursalunabloodmoon", "palafin",
+	"alakazammega", "annihilape", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", 
+	"arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy",
+	"baxcalibur", "blastoisemega", "blazikenmega", "calyrexice", "chienpao", "chiyu", "darkrai", "darmanitangalar", "deoxys", "deoxysattack", "deoxysspeed", "dialga", 
+	"dialgaorigin", "dracovish", "espathra", "eternatus", "fluttermane", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "giratina", 
+	"giratinaorigin", "gougingfire", "groudon", "groudonprimal", "hooh", "ironbundle", "kangaskhanmega", "kyogre", "kyogreprimal", "kyuremblack", "kyuremwhite", 
+	"landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", 
+	"necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "ogerponheartflame", "palafin", "palafinhero", "palkia", "palkiaorigin", "pheromosa", "rayquaza", 
+	"reshiram", "roaringmoon", "salamencemega", "shayminsky", "sneasler", "solgaleo", "spectrier", "terapagosstellar", "ursalunabloodmoon", "urshifu", "walkingwake", 
+	"yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
 ];
-const viabilityList = [
-	"aegislash", "alomomola", "amoonguss", "arctozolt", "azumarill", "barraskewda", "bisharp", "blacephalon", "blaziken", "blissey", "buzzwole",
-	"clefable", "corviknight", "deoxysdefense", "dragonite", "excadrill", "ferrothorn", "garchomp", "gastrodon", "gengar", "gliscor",
-	"greninjaash", "greninja", "grimmsnarl", "hawlucha", "heatran", "hippowdon", "hoopaunbound", "hydreigon", "kartana", "keldeo", "kommoo",
-	"landorustherian", "latias", "magnezone", "melmetal", "mew", "moltres", "nidoqueen", "pelipper", "regieleki", "rillaboom", "rotomwash", "scizor",
-	"serperior", "skarmory", "slowbro", "slowking", "slowkinggalar", "tangrowth", "tapubulu", "tapufini", "tapukoko", "thundurus", "torkoal",
-	"toxapex", "tyranitar", "urshifurapidstrike", "victini", "volcanion", "volcarona", "weavile", "zapdos", "zapdosgalar", "zeraora",
-	"ceruledge", "clodsire", "darkrai", "garganacl", "glimmora", "gougingfire", "greattusk", "hatterene", "ironcrown", "irontreads",
-	"ironvaliant", "ogerponheartflame", "ogerponwellspring", "ragingbolt", "samurotthisui", "zamazenta", "tapulele", "tinglu", "walkingwake", "gholdengo",
+const viabilityList9 = [
+	"alomomola", "clodsire", "corviknight", "dragapult", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
+	"gliscor", "greattusk", "hatterene", "heatran", "ironcrown", "irontreads", "ironvaliant", "kartana", "kingambit", "kyurem", "landorustherian", "melmetal", 
+	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
+	"terapagos", "terapagosterastal", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
-const megaViabilityList = [
-	"araquanidmega", "bastiodonmega", "bibarelmega", "chandeluremega", "conkeldurrmega", "corviknightmega", "dhelmisemega", "dragalgemega",
-	"eelektrossmega", "falinksmega", "flygonmega", "froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "infernapemega", "inteleonmega",
-	"krookodilemega", "lanturnmega", "latiasmega", "lopunnymega", "lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "medichammega",
-	"meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", "raichumega", "regicemega", "reuniclusmega",
-	"scizormega", "sirfetchdmega", "slowkingmega", "staraptormega", "starmiemega", "stoutlandmega", "swampertmega", "talonflamemega",
-	"typhlosionmega", "tyranitarmega", "tyrantrummega", "vanilluxemega", "wailordmega",
+const megaViabilityList9 = [
+	"araquanidmega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremega", "charizardmegay", "cinderacemega", "clefablemega", "conkeldurrmega", 
+	"corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemega",	"dragapultmega", "eelektrossmega", "empoleonmega", "falinksmega", "flygonmega", 
+	"froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "krookodilemega", "lanturnmega", "lopunnymega", 
+	"lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", 
+	"raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemega", "stoutlandmega", 
+	"talonflamemega", "typhlosionmega", "tyranitarmega", "tyrantrummega", "vanilluxemega", "wailordmega",
 ];
 /*
 // doubles tiers (currently unused because the teambuilder doesn't support them well)
@@ -41,14 +45,14 @@ const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", 
 */
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen9',
+	inherit: 'm4av6',
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Mega of the Day!', 'Popular', 'Popular Megas', 'Other Megas', 'Heat!', 'NFE'],
 	},
 	init() {
-		if (this.dataCache.Pokedex.raichumega) return; // don't bother generating the dex if it's already stored!
+		if (this.dataCache.Pokedex.quaquavalmega) return; // don't bother generating the dex if it's already stored!
 		let megaList = [];
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
@@ -84,10 +88,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				newMega.requiredItem = pokemon.megaStone || null;
 				if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { };
 
-				if (uber.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
+				if (uber9.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
 				else {
 					megaList.push(pokemon.mega);
-					if (megaViabilityList.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Popular Megas";
+					if (megaViabilityList9.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Popular Megas";
 					else this.modData('FormatsData', pokemon.mega).tier = "Other Megas";
 				}
 			}
@@ -97,10 +101,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.modData('FormatsData', id)) {
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
 				// singles tiers
-				if (ag.includes(id)) this.modData('FormatsData', id).tier = "AG";
-				else if (uber.includes(id)) this.modData('FormatsData', id).tier = "Uber";
-				else if (viabilityList.includes(id)) this.modData('FormatsData', id).tier = "Popular";
-				else if (megaViabilityList.includes(id)) this.modData('FormatsData', id).tier = "Popular Megas";
+				if (ag9.includes(id)) this.modData('FormatsData', id).tier = "AG";
+				else if (uber9.includes(id)) this.modData('FormatsData', id).tier = "Uber";
+				else if (viabilityList9.includes(id)) this.modData('FormatsData', id).tier = "Popular";
+				else if (megaViabilityList9.includes(id)) this.modData('FormatsData', id).tier = "Popular Megas";
 				else if (this.dataCache.Pokedex[id] && this.dataCache.Pokedex[id].name.includes('-Mega')) this.modData('FormatsData', id).tier = "Other Megas";
 				else if (!this.modData('FormatsData', id).isNonstandard && this.dataCache.Pokedex[id] && !this.dataCache.Pokedex[id].evos && !id.startsWith('pikachu') && !id.startsWith('meltan')) this.modData('FormatsData', id).tier = "Heat!"; // default (FE)
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).tier = "NFE"; // default (NFE)
@@ -125,8 +129,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
-			altForme?.isMega && altForme?.requiredMove &&
-			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		  altForme?.isMega && altForme?.requiredMove &&
+		  pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
 		) {
 			return altForme.name;
 		}
@@ -147,11 +151,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
 		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
 		if (item.name === "Toxtricitite" && pokemon.species.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
-		if (item.name === "Ninetalesite") {
-			if (pokemon.species.name === "Ninetales-Alola") return "Ninetales-Alola-Mega";
-			else return null;
-		}
-		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return null;
+		if (item.name === "Ninetalesite" && pokemon.species.name === "Ninetales-Alola") return "Ninetales-Alola-Mega";
+		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return "Dugtrio-Alola-Mega";
 		if (item.name === "Rapidashinite" && pokemon.species.name === "Rapidash-Galar") return null;
 		if (item.name === "Wormadamite") {
 			if (pokemon.species.name === "Wormadam-Sandy") return "Wormadam-Sandy-Mega";

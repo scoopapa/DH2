@@ -259,13 +259,6 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			}
 			this.add('-message', `${target.name} has been weakened!`);
 		},
-		onDisableMove(pokemon) {
-			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
-					pokemon.disableMove(moveSlot.id);
-				}
-			}
-		},
 		onModifyMove(move, pokemon, target) {
 			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);

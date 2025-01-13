@@ -347,10 +347,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isViable: true,
 		shortDesc: "+1 SpD, next Electric move 2x, 33% heal in Thunderstorm.",
-		onModifyMove(move, source, target) {
-			if (this.field.pseudoWeather.thunderstorm) {
-				move.heal = [1, 3];
-			}
+		condition: {
+			onStart(pokemon, source, effect) {
+				if (effect && ['Short Circuit', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+				if (this.field.pseudoWeather.thunderstorm) {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon, effect);
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Short Circuit', 'Wind Power'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+				if (this.field.pseudoWeather.thunderstorm) {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon, effect);
+				}
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric') {
+					this.debug('charge boost');
+					return this.chainModify(2);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Charge', '[silent]');
+			},
 		},
 	},
 	mistyexplosion: {
@@ -371,7 +408,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Doesn't fail, doesn't flinch in Colosseum.",
 		onTryHit(target, pokemon, move) {
 			if (this.field.getPseudoWeather('colosseum')) {
-				move.secondaries.chance = 0;
+				delete move.secondaries;
 				return;
 			}
             const action = this.queue.willMove(target);
@@ -398,6 +435,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (this.field.pseudoWeather.deltastream) {
 					return 6;
 				}
+				if (!effect) return 2;
 				return 4;
 			},
 			onSideStart(side, source) {
@@ -547,9 +585,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomMove) return false;
 			source.side.lastSelectedMove = this.toID(randomMove);
 			this.actions.useMove(randomMove, target);
-			if((!effect || effect.name !== 'Metronome') && target.hasAbility("duomodreference")) {
-				this.add('-ability', pokemon, 'Duomod Reference??');
-				this.actions.useMove(randomMove, target);
+			if (!target.metronomeUsed && target.hasAbility("duomodreference")) {
+				this.add('-ability', target, 'Duomod Reference??');
+				target.metronomeUsed = true;
+				this.actions.useMove(this.dex.getActiveMove('metronome'), target);
+				target.metronomeUsed = false;
 			}
 		},
 	},
@@ -650,11 +690,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return 0;
 		},
 	},
-	steelbeam: {
+	metalclaw: {
+		inherit: true,
+		shortDesc: "Sets Steel hazards in Time Warp.",
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.timewarp) {
-				delete move.mindBlownRecoil;
-				move.recoil = [1, 4];
+				move.onAfterHit = function(target, source, move) {
+					for (const side of source.side.foeSidesWithConditions()) {
+						side.addSideCondition('gmaxsteelsurge');
+					}
+				};
 			}
 		},
 	},
@@ -1593,14 +1638,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	synthesis: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
+		heal: [1, 2],
 		pp: 10,
 	},
 	morningsun: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
+		heal: [1, 2],
 		pp: 10,
 	},
 	moonlight: {
 		inherit: true,
+		shortDesc: "Heals the user by 50% of its max HP.",
+		onHit: null,
+		heal: [1, 2],
 		pp: 10,
 	},
 	electroshot: {
@@ -1669,6 +1723,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "+2 Atk, +2 SpA in Overgrowth or Drought.",
 		onModifyMove(move, pokemon) {
 			if (this.field.pseudoWeather.overgrowth || this.field.pseudoWeather.drought) move.boosts = {atk: 2, spa: 2};
+		},
+	},
+	blizzard: {
+		inherit: true,
+		shortDesc: "Can't miss in Whiteout.",
+		onModifyMove(move) {
+			if (this.field.pseudoWeather.whiteout) move.accuracy = true;
 		},
 	},
 	auroraveil: {
@@ -1759,5 +1820,87 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hyperspacefury: {
 		inherit: true,
 		onTry: null,
+	},
+	hurricane: {
+		inherit: true,
+		shortDesc: "30% chance to confuse target. Delta Stream: can't miss.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.accuracy = true;
+		},
+	},
+	bleakwindstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower Speed by 1. Delta Stream: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
+		},
+	},
+	crushclaw: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+	},
+	razorshell: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 100,
+	},
+	wildboltstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% chance to paralyze. Thunderstorm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.deltastream) move.basePower = 130;
+		},
+	},
+	springtidestorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% to lower Attack by 1. Fable: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.fable) move.basePower = 130;
+		},
+	},
+	sandsearstorm: {
+		inherit: true,
+		accuracy: 85,
+		shortDesc: "30% chance to burn. Dust Storm: 1.3x power.",
+		onModifyMove(move, pokemon, target) {
+			if (this.field.pseudoWeather.duststorm) move.basePower = 130;
+		},
+	},
+	defog: {
+		inherit: true,
+		shortDesc: "Clears hazards. Ends Twilight Zone.",
+		onHit(target, source, move) {
+			let success = false;
+			if (this.field.pseudoWeather.twilightzone) {
+				this.field.removePseudoWeather("twilightzone");
+				success = true;
+			}
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
 	},
 }

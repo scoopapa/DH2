@@ -3220,8 +3220,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'OU'
 	},
 	cherrimsunshine: {
-		tier: 'OU',
-		natDexTier: 'OU'
+		tier: 'Illegal',
+		natDexTier: 'Illegal'
 	},
 	buneary: {
 		tier: 'LC',

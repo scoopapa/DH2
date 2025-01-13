@@ -122,19 +122,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Poison",
 	},
-	boltbeak: {
-		inherit: true,
-		isNonStandard: null,
-		shortDesc: "Power is 1.5x if user moves before the target.",
-		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Bolt Beak damage boost');
-				return move.basePower * 1.5;
-			}
-			this.debug('Bolt Beak NOT boosted');
-			return move.basePower;
-		},
-	},
 	tailsear: {
 		accuracy: 100,
 		basePower: 85,
@@ -153,23 +140,138 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	
-	//vanilla moves affected by other customs
-	stealthrock: {
-		inherit: true,
-		sideCondition: 'stealthrock',
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('firstflight')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+	frigidfin: {
+		accuracy: 100,
+		basePower: 85,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) return move.basePower;
+			this.debug('Tail Sear damage boost');
+			return move.basePower * 1.5;
+		},
+		category: "Special",
+		name: "Frigid Fin",
+		shortDesc: "Power is 1.5x if user moves after the target.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
+	petroglyph: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Petroglyph",
+		shortDesc: "50% chance to raise the user's SpA by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Paleo Wave", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
 			},
 		},
+		target: "normal",
+		type: "Rock",
 	},
+	ivoryslash: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Ivory Slash",
+		shortDesc: "Raises the user's crit rate by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: null,
+		self: {
+			volatileStatus: 'ivoryslash',
+		},
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.effectState.counter = 1;
+				this.add('-start', pokemon, `Crit Rate: ${this.effectState.counter}`, '[silent]');
+				this.add('-message', `${pokemon.name} became more likely to land critical hits!`);
+			},
+			onRestart(pokemon, source, effect) {
+				if(this.effectState.counter < 3) {
+					this.add('-end', pokemon, `Crit Rate: ${this.effectState.counter}`, '[silent]');
+					this.effectState.counter ++;
+					this.add('-start', pokemon, `Crit Rate: ${this.effectState.counter}`, '[silent]');
+					this.add('-message', `${pokemon.name} became more likely to land critical hits!`);
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + this.effectState.counter;
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
+	soulwind: {
+		accuracy: 100,
+		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if(target.hasType('Ghost')) {
+				this.debug("BP doubled against Ghost");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Soul Wind",
+		shortDesc: "Deals double damage to Ghost-types.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	
+	//edited vanilla moves
+	fishiousrend: {
+		inherit: true,
+		isNonstandard: null,
+		shortDesc: "Power is 1.5x if user moves before the target.",
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
+	},
+	boltbeak: {
+		inherit: true,
+		isNonstandard: null,
+		shortDesc: "Power is 1.5x if user moves before the target.",
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
+	},
+	shadowbone: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	
+	//vanilla moves affected by other customs
 	toxicspikes: {
 		inherit: true,
 		sideCondition: 'toxicspikes',
@@ -234,30 +336,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	petroglyph: {
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Petroglyph",
-		shortDesc: "50% chance to raise the user's SpA by 1.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, source, move) {
-		    this.attrLastMove('[still]');
-		    this.add('-anim', source, "Paleo Wave", target);
-		},
-		secondary: {
-			chance: 50,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Rock",
-	},
 	ragingbull: {
 		inherit: true,
 		onModifyType(move, pokemon) {
@@ -276,5 +354,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 				break;
 			}
 		},
+	},
+
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

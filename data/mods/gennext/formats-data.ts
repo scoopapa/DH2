@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	aegislash: {
 		inherit: true,
 		tier: "OU",
@@ -58,5 +58,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kyuremblack: {
 		inherit: true,
 		tier: "Uber",
+	},
+
+	// Showing Genesects in builder, legalizing Floette-E as intended
+	genesectdouse: {
+		inherit: true,
+		tier: "OU",
+	},
+	genesectchill: {
+		inherit: true,
+		tier: "OU",
+	},
+	genesectshock: {
+		inherit: true,
+		tier: "OU",
+	},
+	genesectburn: {
+		inherit: true,
+		tier: "OU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
 	},
 };

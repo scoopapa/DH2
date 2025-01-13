@@ -15,6 +15,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 4,
 	},
+	alluringvoice: {
+		inherit: true,
+		gen: 4,
+	},
 	allyswitch: {
 		inherit: true,
 		gen: 4,
@@ -156,6 +160,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	bulldoze: {
+		inherit: true,
+		gen: 4,
+	},
+	burningbulwark: {
 		inherit: true,
 		gen: 4,
 	},
@@ -319,6 +327,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 4,
 	},
+	dragoncheer: {
+		inherit: true,
+		gen: 4,
+	},
 	dragondarts: {
 		inherit: true,
 		gen: 4,
@@ -387,6 +399,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 4,
 	},
+	electroshot: {
+		inherit: true,
+		gen: 4,
+	},
 	electroweb: {
 		inherit: true,
 		gen: 4,
@@ -424,6 +440,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	fellstinger: {
+		inherit: true,
+		gen: 4,
+	},
+	ficklebeam: {
 		inherit: true,
 		gen: 4,
 	},
@@ -600,6 +620,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	happyhour: {
+		inherit: true,
+		gen: 4,
+	},
+	hardpress: {
 		inherit: true,
 		gen: 4,
 	},
@@ -827,6 +851,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 4,
 	},
+	malignantchain: {
+		inherit: true,
+		gen: 4,
+	},
 	matblock: {
 		inherit: true,
 		gen: 4,
@@ -844,6 +872,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	meteorbeam: {
+		inherit: true,
+		gen: 4,
+	},
+	mightycleave: {
 		inherit: true,
 		gen: 4,
 	},
@@ -1028,6 +1060,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	psychicfangs: {
+		inherit: true,
+		gen: 4,
+	},
+	psychicnoise: {
 		inherit: true,
 		gen: 4,
 	},
@@ -1399,6 +1435,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 4,
 	},
+	supercellslam: {
+		inherit: true,
+		gen: 4,
+	},
 	supersonicskystrike: {
 		inherit: true,
 		gen: 4,
@@ -1416,6 +1456,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	tailslap: {
+		inherit: true,
+		gen: 4,
+	},
+	tachyoncutter: {
 		inherit: true,
 		gen: 4,
 	},
@@ -1447,7 +1491,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 4,
 	},
+	temperflare: {
+		inherit: true,
+		gen: 4,
+	},
 	terablast: {
+		inherit: true,
+		gen: 4,
+	},
+	terastarstorm: {
 		inherit: true,
 		gen: 4,
 	},
@@ -1468,6 +1520,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	thundercage: {
+		inherit: true,
+		gen: 4,
+	},
+	thunderclap: {
 		inherit: true,
 		gen: 4,
 	},
@@ -1520,6 +1576,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 4,
 	},
 	twinkletackle: {
+		inherit: true,
+		gen: 4,
+	},
+	upperhand: {
 		inherit: true,
 		gen: 4,
 	},

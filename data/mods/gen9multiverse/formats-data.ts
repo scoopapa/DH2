@@ -194,8 +194,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ogerponhearthflame: {
 		tier: "MV",
 	},
+	ogerponhearthflametera: {
+		tier: "illegal",
+	},
 	squawkabilly: {
 		tier: "MV",
+	},
+	squawkabillyblue: {
+		tier: "Illegal",
+	},
+	squawkabillyyellow: {
+		tier: "Illegal",
+	},
+	squawkabillywhite: {
+		tier: "Illegal",
 	},
 	irontreads: {
 		tier: "MV",

@@ -27,7 +27,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	bronzong: {
+	doublade: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
@@ -151,7 +151,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	sawsbuckspring: {
+	sawsbuck: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
@@ -227,10 +227,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	cherrimsunshine: {
-		tier: "CC",
-		doublesTier: "DCC",
-	},
 	garganacl: {
 		tier: "CC",
 		doublesTier: "DCC",
@@ -247,7 +243,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	skeledirge: {
+	chiyu: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
@@ -255,7 +251,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	darkrai: {
+	slowkinggalar: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
@@ -283,7 +279,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	tapulele: {
+	enamorus: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
@@ -344,10 +340,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DCC",
 	},
 	golemalola: {
-		tier: "CC",
-		doublesTier: "DCC",
-	},
-	salazzle: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
