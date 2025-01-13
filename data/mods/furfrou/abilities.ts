@@ -36,7 +36,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					target.flickered = true;
 					target.addVolatile('charge');
 				}
-			}
+			},
 			onEnd(target) {
 				this.add('-end', target, 'Flicker');
 				if (target.flickered) return;
