@@ -75,7 +75,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	umbreonmystic: {
 		name: "Umbreon-Mystic",
-		copyData: "Umbreon"
+		copyData: "Umbreon",
 		baseSpecies: "Umbreon",
 		forme: "Mystic",
 		types: ["Dark", "Ghost"],
@@ -91,7 +91,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	leafeonproto: {
 		name: "Leafeon-Proto",
-		copyData: "Leafeon"
+		copyData: "Leafeon",
 		baseSpecies: "Leafeon",
 		forme: "Proto",
 		types: ["Grass", "Steel"],
@@ -107,7 +107,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	glaceonproto: {
 		name: "Glaceon-Proto",
-		copyData: "Glaceon"
+		copyData: "Glaceon",
 		baseSpecies: "Glaceon",
 		forme: "Proto",
 		types: ["Ice", "Electric"],
@@ -122,7 +122,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	sylveoncompound: {
 		name: "Sylveon-Compound",
-		copyData: "Sylveon"
+		copyData: "Sylveon",
 		baseSpecies: "Sylveon",
 		forme: "Compound",
 		types: ["Fairy", "Bug"],
