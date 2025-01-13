@@ -18,7 +18,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onLockMove: 'recharge',
 	},
 	flicker: {
-		name: "flicker"
+		name: 'flicker',
 		duration: 1,
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
@@ -30,7 +30,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.flickered = true;
 				target.addVolatile('charge');
 			}
-		}
+		},
 		onEnd(target) {
 			this.add('-end', target, 'Flicker');
 			if (target.flickered) return;
