@@ -1469,7 +1469,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.randomChance(3, 10)) {
 				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 				if (target) target.addVolatile('ability:hacked');
-				return -6.0;
+				return priority - 6.0;
 			}
 		},
 		flags: {},
