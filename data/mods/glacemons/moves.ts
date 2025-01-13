@@ -1512,22 +1512,31 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		desc: "Has a 30% chance to inflict Frostbite to the target.",
 		shortDesc: "30% chance to inflict Frostbite to the target.",
 	},
-	iceburn: {
-		inherit: true,
+	niceburn: {
+		num: -22,
 		accuracy: 100,
 		basePower: 80,
+		category: "Special",
+		name: "Nice Burn",
 		pp: 15,
+		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Burn", target);
+		},
 		secondary: {
 			chance: 30,
 			status: 'frt',
 		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
 		desc: "Has a 30% chance to inflict Frostbite to the target.",
 		shortDesc: "30% chance to inflict Frostbite to the target.",
 	},
 	breezeshock: {
-		num: -22,
+		num: -23,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -1535,6 +1544,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Freeze Shock", target);
+		},
 		secondary: {
 			chance: 30,
 			status: 'par',
@@ -1557,7 +1570,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		shortDesc: "Changes user's type to that of the target after hit.",
 	},
 	caltrops: {
-		num: -23,
+		num: -24,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1578,7 +1591,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		shortDesc: "Sets up sharp steel on the opposing side.",
 	},
 	virulentblast: {
-		num: -24,
+		num: -25,
 		accuracy: 90,
 		basePower: 110,
 		category: "Special",
