@@ -153,12 +153,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onAnyPseudoWeatherChange() {
 			const pokemon = this.effectState.target;
-			if (this.field.pseudoWeather['gravity']) {
-				pokemon.addVolatile('magneticsoles');
-			} else pokemon.removeVolatile('magneticsoles');
-		},
-		onAnyPseudoWeatherChange() {
-			const pokemon = this.effectState.target;
 			if (this.field.getPseudoWeather('gravity')) {
 				pokemon.addVolatile('magneticsoles');
 			} else pokemon.removeVolatile('magneticsoles');
