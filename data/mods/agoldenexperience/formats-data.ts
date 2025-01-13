@@ -419,7 +419,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	politoed: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	abra: {
@@ -2012,7 +2012,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	latiosmega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	kyogre: {
@@ -3208,7 +3208,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	talonflame: {
-		tier: "OU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	scatterbug: {
@@ -3789,15 +3789,15 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	silvallypsychic: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	silvallyrock: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	silvallysteel: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	silvallywater: {
@@ -4800,7 +4800,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	ironbundle: {
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	ironvaliant: {

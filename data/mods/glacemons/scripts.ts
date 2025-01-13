@@ -122,7 +122,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
 			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
-				if (this.battle.gen < 6 || move.id !== 'facade') {
+				if (this.battle.gen < 6 || move.id !== 'facade'|| move.id !== 'triplearrows'|| move.id !== 'tripledive') {
 					baseDamage = this.battle.modify(baseDamage, 0.5);
 				}
 			}
@@ -1733,5 +1733,35 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'groudon').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'slowpoke').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'slowpokegalar').learnset.millstone = ['9L1'];
+		// Slate 7 adjustments
+		this.modData('Learnsets', 'nihilego').learnset.calmmind = ['9L1'];
+		this.modData('Learnsets', 'nihilego').learnset.clearsmog = ['9L1'];
+		this.modData('Learnsets', 'nihilego').learnset.earthpower = ['9L1'];
+		this.modData('Learnsets', 'nihilego').learnset.energyball = ['9L1'];
+		this.modData('Learnsets', 'nihilego').learnset.mentalgymnastics = ['9L1'];
+		this.modData('Learnsets', 'nihilego').learnset.recover = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.bodypress = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.foulplay = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.flipturn = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.cottonguard = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.scald = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.waterfall = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.liquidation = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.surf = ['9L1'];
+		this.modData('Learnsets', 'tangrowth').learnset.waterpulse = ['9L1'];
+		this.modData('Learnsets', 'altaria').learnset.spiritbreak = ['9L1'];
+		this.modData('Learnsets', 'altaria').learnset.uturn = ['9L1'];
+		this.modData('Learnsets', 'altaria').learnset.swordsdance = ['9L1'];
+		this.modData('Learnsets', 'altaria').learnset.calmmind = ['9L1'];
+		this.modData('Learnsets', 'altaria').learnset.quickattack = ['9L1'];
+		this.modData('Learnsets', 'bewear').learnset.knockoff = ['9L1'];
+		this.modData('Learnsets', 'bewear').learnset.wish = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.morningsun = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.calmmind = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.bulkup = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.workup = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.superpower = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.irondefense = ['9L1'];
+		this.modData('Learnsets', 'volcanion').learnset.burningjealousy = ['9L1'];
 	}
 };

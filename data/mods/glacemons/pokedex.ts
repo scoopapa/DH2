@@ -1433,10 +1433,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Victory Star", 1: "Moody", H: "Pyre"},
 	},
-	volcanion: {
-		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Moody", H: "Pyre"},
-	},
 	kommoo: {
 		inherit: true,
 		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Moody"},
@@ -1655,11 +1651,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		requiredItem: null,
 		requiredItems: ["Cameruptite", "Parallel Mega Orb"],
-	},
-	altariamega: {
-		inherit: true,
-		requiredItem: null,
-		requiredItems: ["Altarianite", "Parallel Mega Orb"],
 	},
 	banettemega: {
 		inherit: true,
@@ -1899,7 +1890,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Thick Fat", 1: "Guts", H: "Unconcerned"},
 	},
-//making the pikachu forms have unreleased hiddens in a similar fashion as silvally
+	// making the pikachu forms have unreleased hiddens in a similar fashion as silvally
 	pikachu: {
 		inherit: true,
 		abilities: {0: "Static", 1: "Lightning Rod", H: "Tough Claws"},
@@ -1939,5 +1930,32 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Static", 1: "Lightning Rod", H: "Aerilate"},
 		unreleasedHidden: true,
+	},
+	// Slate 7 adjustments
+	nihilego: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Tinted Lens"},
+	},
+	tangrowth: {
+		inherit: true,
+		types: ["Grass", "Water"],
+		abilities: {0: "Stamina", 1: "Long Reach", H: "Regenerator"},
+	},
+	altaria: {
+		inherit: true,
+		abilities: {0: "Natural Cure", H: "Cloud Nine"},
+	},
+	altariamega: {
+		inherit: true,
+		requiredItem: null,
+		requiredItems: ["Altarianite", "Parallel Mega Orb"],
+	},
+	bewear: {
+		inherit: true,
+		abilities: {0: "Fluffy", 1: "Klutz", H: "Unnerve"},
+	},
+	volcanion: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Route Closed", H: "Moody"},
 	},
 };
