@@ -263,9 +263,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 71, atk: 103, def: 37, spa: 103, spd: 133, spe: 133},
 		abilities: {0: "Prankster", 1: "Fluffy", H: "Cute Charm"},
 		movepoolAdditions: [
-			"taunt", "knockoff", "sludgebomb", "sludgewave", "spikes", "toxicspikes", 
-			"clearsmog", "swordsdance", "temperflare", "wavecrash", "meteormash", 
-			"meteorbeam", "sweetkiss", "zodiacbreak",
+			"afteryou", "aromatherapy", "calmmind", "disable", "drainingkiss", "expandingforce", "gravity",
+			"healpulse", "healingwish", "magiccoat", "magicroom", "psychicnoise", "psychicterrain", "psyshock",
+			"raindance", "reflect", "silktrap", "storedpower", "teleport", "trick", "wonderroom", "wormholedisruption",
+		],
+		movepoolDeletions: [
+			"absorb", "flash", "gigadrain", "memento", "poisonpowder", "razorleaf", "seedbomb", "shadowball", "stunspore",
+			"switcheroo", "thief", "toxic", "worryseed"
 		],
 		creator: "Maddy",
 	},
