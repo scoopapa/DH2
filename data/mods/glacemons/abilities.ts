@@ -529,7 +529,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's SpA is raised by 1 stage when other Pokemon faint. Once per switch-in.",
 	},
 	// Slate 5
-	moody: { // WIP
+	moody: {
 		inherit: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
@@ -614,6 +614,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	},
+	// Slate 6
 	aerodynamism: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.flags['wind']) {
@@ -719,5 +720,103 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
 		rating: 4,
 		num: -14,
+	},
+	// Slate 7
+	stalwart: {
+		inherit: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.hp >= target.hp) return this.chainModify(1.25);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= source.hp) return this.chainModify(0.75);
+		},
+		shortDesc: "This Pokemon does 25% more damage and takes 25% less damage from opponents that have more HP than it. Its moves also cannot be redirected.",
+	},
+	superluck: {
+		inherit: true,
+		onModifyCritRatio(critRatio) {
+			if (critRatio > 1) return 5;
+		},
+		desc: "User's moves with high critical hit ratio always land as critical hit.",
+		shortDesc: "User's moves with high critical hit ratio always land as critical hit.",
+	},
+	stench: {
+		inherit: true,
+		onModifyMove(move) {},
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('torment');
+		},
+		desc: "Torments any target hitting this Pokemon.",
+		shortDesc: "Torments any target hitting this Pokemon.",
+	},
+	nostalgiatrip: {
+		shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves are Special.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Nostalgia Trip');
+			this.add('-message', `This Pokemon is experiencing a nostalgia trip!`);
+		},
+		onModifyMovePriority: 8,
+		onModifyMove(move, pokemon) {
+			if (move.category === "Status") return;
+			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy'].includes(move.type)) {
+				move.category = "Special";
+			} else {
+				move.category = "Physical";
+			}
+		},
+		name: "Nostalgia Trip",
+		rating: 4,
+		num: -15,
+	},
+	flowergift: {
+		inherit: true,
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+				}
+				if (this.field.getWeather().id === 'sunnyday') {
+					this.field.setWeather('desolateland');
+				}
+			} else {
+				if (pokemon.species.id === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		shortDesc: "If Cherrim: in Sun, transforms to Sunshine form, boosts Atk, Def, SpA, SpD, and Spd by 1.5x, boosts all moves by 1.2x, and changes weather to Desolate Land.",
 	},
 };

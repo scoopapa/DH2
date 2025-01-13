@@ -16,4 +16,65 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	brambleghastmegatangled: {},
 	farigirafmega: {},
 	farigirafmeganocturnal: {},
+	// manual tiering for Hisui mons
+	growlithehisui: {
+		tier: "Heat!",
+	},
+	arcaninehisui: {
+		tier: "Heat!",
+	},
+	voltorbhisui: {
+		tier: "Heat!",
+	},
+	electrodehisui: {
+		tier: "Heat!",
+	},
+	typhlosionhisui: {
+		tier: "Heat!",
+	},
+	sneaselhisui: {
+		tier: "Heat!",
+	},
+	samurotthisui: {
+		tier: "Heat!",
+	},
+	braviaryhisui: {
+		tier: "Heat!",
+	},
+	sliggoohisui: {
+		tier: "Heat!",
+	},
+	goodrahisui: {
+		tier: "Heat!",
+	},
+	decidueyehisui: {
+		tier: "Heat!",
+	},
+	wyrdeer: {
+		tier: "Heat!",
+	},
+	kleavor: {
+		tier: "Heat!",
+	},
+	ursaluna: {
+		tier: "Heat!",
+	},
+	basculegion: {
+		tier: "Heat!",
+	},
+	basculegionf: {
+		tier: "Heat!",
+	},
+	sneasler: {
+		tier: "Heat!",
+	},
+	overqwil: {
+		tier: "Heat!",
+	},
+	enamorus: {
+		tier: "Heat!",
+	},
+	enamorustherian: {
+		tier: "Heat!",
+	},
 };
