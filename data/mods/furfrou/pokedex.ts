@@ -160,7 +160,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		
 		forme: "Violet",
 		gender: "F",
-		copyData: "Primarina",
 		baseStats: {hp: 105, atk: 75, def: 57, spa: 105, spd: 60, spe: 123},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
 		movepoolAdditions: [
