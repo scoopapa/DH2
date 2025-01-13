@@ -2,25 +2,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	eevee: {tier: "FROU (NFE)"},
 	vaporeon: {tier: "FROU"},
-	vaporeonarcane: {tier: "FROU"}
+	vaporeonarcane: {tier: "FROU"},
 	jolteon: {tier: "FROU"},
-	jolteonarcane: {tier: "FROU"}
+	jolteonarcane: {tier: "FROU"},
 	flareon: {tier: "FROU"},
-	flareonarcane: {tier: "FROU"}
+	flareonarcane: {tier: "FROU"},
 	espeon: {tier: "FROU"},
-	espeonmystic: {tier: "FROU"}
+	espeonmystic: {tier: "FROU"},
 	umbreon: {tier: "FROU"},
-	umbreonmystic: {tier: "FROU"}
+	umbreonmystic: {tier: "FROU"},
 	leafeon: {tier: "FROU"},
-	leafeonproto: {tier: "FROU"}
+	leafeonproto: {tier: "FROU"},
 	glaceon: {tier: "FROU"},
-	glaceonproto: {tier: "FROU"}
+	glaceonproto: {tier: "FROU"},
 	sylveon: {tier: "FROU"},
-	sylveoncompound: {tier: "FROU"}
+	sylveoncompound: {tier: "FROU"},
 	aleon: {tier: "FROU"},
 
 	absol: {tier: "FROU"},
-	absolmega: {tier: "FROU"}
+	absolmega: {tier: "FROU"},
 
 	fennekin: {tier: "FROU (NFE)"},
 	braixen: {tier: "FROU (NFE)"},
@@ -28,8 +28,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	popplio: {tier: "FROU (NFE)"},
 	brionne: {tier: "FROU (NFE)"},
-	brionneviolet {tier: "FROU"},
-	brionnevioletswimming {tier: "FROU"},
+	brionneviolet: {tier: "FROU"},
+	brionnevioletswimming: {tier: "FROU"},
 	primarina: {tier: "FROU"},
 	
 	sentret: {tier: "FROU (NFE)"},
@@ -111,7 +111,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	mawile: {tier: "FROU"},
 	mawilemega: {tier: "Illegal"},
-	mawilemegakorra: {tier: "FROU"}
+	mawilemegakorra: {tier: "FROU"},
 	
 	larvitar: {tier: "FROU (NFE)"},
 	pupitar: {tier: "FROU (NFE)"},
@@ -163,10 +163,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonite: {tier: "FROU"},
 
 	aerodactyl: {tier: "FROU"},
-	aerodactylmega: {tier: "FROU"}.
+	aerodactylmega: {tier: "FROU"},
 	
 	vulpix: {tier: "FROU (NFE)"},
+	vulpixalola: {tier: "FROU (NFE)"},
 	ninetales: {tier: "FROU"},
+	ninetalesalola: {tier: "FROU"},
 	
 	gothita: {tier: "FROU (NFE)"},
 	gothorita: {tier: "FROU (NFE)"},
@@ -263,7 +265,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	albatross: {tier: "FROU"},
 	
 	fovospartion: {tier: "FROU (NFE)"},
-	fovospartion-tyke: {tier: "FROU"},
+	fovospartiontyke: {tier: "FROU"},
 	
 	calico: {tier: "FROU"},
 	
