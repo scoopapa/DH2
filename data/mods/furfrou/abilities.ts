@@ -7,7 +7,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "On switch-in, this Pokemon summons Hail.",
 	},
 	flicker: {
-		slowstart: {
 		onStart(pokemon) {
 			if (pokemon.outFlickered) return;
 			pokemon.addVolatile('flicker');
