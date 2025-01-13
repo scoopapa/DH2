@@ -3907,4 +3907,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	lightofruin: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
