@@ -5,6 +5,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Vaporeon", "Vaporeon-Arcane"],
 	},
 	vaporeonarcane: {
+		num: 134,
 		name: "Vaporeon-Arcane",
 		baseSpecies: "Vaporeon",
 		forme: "Arcane",
@@ -22,6 +23,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Jolteon", "Jolteon-Arcane"],
 	},
 	jolteonarcane: {
+		num: 135,
 		name: "Jolteon-Arcane",
 		baseSpecies: "Jolteon",
 		forme: "Arcane",
@@ -38,6 +40,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Flareon", "Flareon-Arcane"],
 	},
 	flareonarcane: {
+		num: 136,
 		name: "Flareon-Arcane",
 		baseSpecies: "Flareon",
 		forme: "Arcane",
@@ -54,6 +57,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Espeon", "Espeon-Mystic"],
 	},
 	espeonmystic: {
+		num: 196,
 		name: "Espeon-Mystic",
 		baseSpecies: "Espeon",
 		forme: "Mystic",
@@ -71,6 +75,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Umbreon", "Umbreon-Mystic"],
 	},
 	umbreonmystic: {
+		num: 197,
 		name: "Umbreon-Mystic",
 		copyData: "Umbreon",
 		baseSpecies: "Umbreon",
@@ -89,6 +94,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Leafeon", "Leafeon-Proto"],
 	},
 	leafeonproto: {
+		num: 470,
 		name: "Leafeon-Proto",
 		copyData: "Leafeon",
 		baseSpecies: "Leafeon",
@@ -107,6 +113,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Glaceon", "Glaceon-Proto"],
 	},
 	glaceonproto: {
+		num: 471,
 		name: "Glaceon-Proto",
 		copyData: "Glaceon",
 		baseSpecies: "Glaceon",
@@ -125,6 +132,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		formeOrder: ["Sylveon", "Sylveon-Compound"],
 	},
 	sylveoncompound: {
+		num: 700,
 		name: "Sylveon-Compound",
 		copyData: "Sylveon",
 		baseSpecies: "Sylveon",
@@ -143,6 +151,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Technician"},
 	},
 	brionneviolet: {
+		num: 729,
 		name: "Brionne-Violet",
 		baseSpecies: "Brionne",
 		forme: "Violet",
@@ -154,6 +163,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "Violet",
 	},
 	brionnevioletswimming: {
+		num: 729,
 		name: "Brionne-Violet-Swimming",
 		baseSpecies: "Brionne",	
 		forme: "Violet-Swimming",
@@ -165,6 +175,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "Violet",
 	},
 	gardevoiramelia: {
+		num: 282,
 		name: "Gardevoir-Amelia",
 		baseSpecies: "Gardevoir",
 		forme: "Amelia",
@@ -176,6 +187,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "antyytna",
 	},
 	mawilemegakorra: {
+		num: 303,
 		name: "Mawile-Mega-Korra",
 		baseSpecies: "Mawile",
 		forme: "Mega-Korra",
@@ -192,6 +204,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Pure customs //
 	
 	albatross: {
+		num: 2000,
 		name: "Albatross",
 		types: ["Water", "Steel"],
 		baseStats: {hp: 125, atk: 80, def: 100, spa: 100, spd: 80, spe: 100},
@@ -201,6 +214,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "Albatross",
 	},
 	fovospartion: {
+		num: 2001,
 		name: "Fovospartion",
 		types: ["Electric", "Ghost"],
 		gender: "M",
@@ -213,6 +227,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "ausma",
 	},
 	fovospartiontyke: {
+		num: 2001,
 		name: "Fovospartion-Tyke",
 		baseForme: "Fovospartion",
 		forme: "Tyke",
@@ -226,6 +241,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "ausma",
 	},
 	calico: {
+		num: 2002,
 		name: "Calico",
 		types: ["Water", "Normal"],
 		baseStats: {hp: 140, atk: 70, def: 34, spa: 80, spd: 84, spe: 112},
@@ -236,6 +252,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "uppa",
 	},
 	hope: {
+		num: 2002,
 		name: "Hope",
 		types: ["Fighting", "Normal"],
 		baseStats: {hp: 112, atk: 84, def: 140, spa: 70, spd: 80, spe: 34},
@@ -246,6 +263,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "uppa",
 	},
 	wickesicott: {
+		num: 547,
 		name: "Wickesicott",
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 71, atk: 103, def: 37, spa: 103, spd: 133, spe: 133},
