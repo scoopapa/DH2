@@ -154,7 +154,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Primarina",
 		
 		forme: "Violet",
-		gender: "F",
 		baseStats: {hp: 105, atk: 75, def: 57, spa: 105, spd: 60, spe: 123},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
 		movepoolAdditions: [
@@ -170,7 +169,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Primarina",
 		
 		forme: "Violet-Swimming",
-		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 137, spd: 109, spe: 54},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
 		movepoolAdditions: [
@@ -180,11 +178,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		],
 		creator: "Violet",
 	},
+	gardevoir: {
+		inherit: true,
+		gender: "F", // i'm sorry little one
+	},
 	gardevoiramelia: {
 		name: "Gardevoir-Amelia",
 		baseSpecies: "Gardevoir",
 		copyData: "Gardevoir-Mega",
-		gender: "F",
 		baseStats: {hp: 75, atk: 50, def: 70, spa: 145, spd: 120, spe: 103},
 		abilities: {0: "Pixilate"},
 		types: ["Ghost", "Fairy"],
@@ -192,6 +193,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		movepoolDeletions: ["willowisp", "trick", "memento", "storedpower"],
 		requiredItem: "Gardevoirite",
 		creator: "antyytna",
+	},
+	mawile: {
+		inherit: true,
+		gender: "N",
 	},
 	mawilemegakorra: {
 		name: "Mawile-Mega-Korra",
@@ -205,6 +210,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Mawilite",
 		creator: "viivian",
 	},
+	
 	// Pure customs //
 	
 	albatross: {
