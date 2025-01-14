@@ -77,7 +77,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	psychovalence: {
 		onStart(pokemon) {
-			this.add('-start', pokemon, 'ability: Psychovalence');
 			pokemon.addVolatile('magnetrise');
 		},
 		onSwitchOut(pokemon) {
@@ -86,7 +85,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		name: "Psychovalence",
-		shortDesc: "Sets Magnet Rise; if Magnet Rise is still active on switch-out, heal 1/3 HP.",
+		shortDesc: "On entry, user will set Magnet Rise; if Magnet Rise is still active upon switch-out, the user's HP heals by 1/3.",
 		rating: 3,
 		num: 3000,
 	},
