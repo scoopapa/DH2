@@ -251,8 +251,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poipole: {tier: "FROU (NFE)"},
 	naganadel: {tier: "FROU"},
 	
-	magearna: {tier: "FROU"},
-	
 	zeraora: {tier: "FROU"},
 	
 	meltan: {tier: "FROU (NFE)"},
