@@ -4198,7 +4198,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onUpdate(pokemon) {
-			if ((pokemon.hp <= pokemon.maxhp / 3)) {
+			if ((pokemon.hp <= pokemon.maxhp / 3) || this.field.isWeather('sunnyday')) {
 				pokemon.addVolatile('protopyre');
 			} else if (!pokemon.volatiles['protopyre']?.fromBooster) {
 				pokemon.removeVolatile('protopyre');

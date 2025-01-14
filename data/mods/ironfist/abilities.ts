@@ -794,13 +794,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bramblinmentality: {
 		onStart(pokemon) {
+			pokemon.addVolatile('ability:comatose');
 			if (pokemon.side.faintedThisTurn && ['bramblin', 'abomasnow'].includes(pokemon.side.faintedThisTurn.baseSpecies.id)) this.boost({atk: 1, spe: 1}, pokemon);
-		},
-		onSetStatus(status, target, source, effect) {
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Bramblin Mentality');
-			}
-			return false;
 		},
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
@@ -1469,17 +1464,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} was hacked!`);
 		},
-		
-		onBeforeMove(pokemon, target, move) {
-			const action = this.queue.willMove(pokemon);
-			//console.log(action);
-			if (!action) return;
-
-			action.order = 201;
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
 			if (this.randomChance(3, 10)) {
 				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 				if (target) target.addVolatile('ability:hacked');
-				move.priority -= 6;
+				return priority - 6.0;
 			}
 		},
 		flags: {},
