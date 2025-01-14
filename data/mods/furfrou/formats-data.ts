@@ -263,13 +263,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	albatross: {tier: "FROU"},
 	
-	fovospartion: {tier: "FROU (NFE)"},
-	fovospartiontyke: {tier: "FROU"},
-	
 	calico: {tier: "FROU"},
 	
 	hope: {tier: "FROU"},
-	
-	deterraven: {tier: "FROU"},
 
 };
