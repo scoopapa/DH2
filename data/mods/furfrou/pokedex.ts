@@ -198,7 +198,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	mawile: {
 		inherit: true,
-		gender: "F",
+		gender: "N",
 	},
 	mawilemegakorra: {
 		name: "Mawile-Mega-Korra",
