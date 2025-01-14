@@ -154,7 +154,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Primarina",
 		
 		forme: "Violet",
-		gender: "F",
 		baseStats: {hp: 105, atk: 75, def: 57, spa: 105, spd: 60, spe: 123},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
 		movepoolAdditions: [
@@ -170,7 +169,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Primarina",
 		
 		forme: "Violet-Swimming",
-		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 137, spd: 109, spe: 54},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
 		movepoolAdditions: [
@@ -212,6 +210,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Mawilite",
 		creator: "viivian",
 	},
+	
 	// Pure customs //
 	
 	albatross: {
