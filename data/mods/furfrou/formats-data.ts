@@ -196,6 +196,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	doduo: {tier: "FROU (NFE)"},
 	dodriocyarian: {tier: "FROU"},
 
+	dewpider: {tier: "FROU (NFE)"},
+	araquanid: {tier: "FROU"},
+	
 	zapdos: {tier: "FROU"},
 	moltres: {tier: "FROU"},
 	articuno: {tier: "FROU"},
@@ -204,6 +207,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	moltresgalar: {tier: "FROU"},
 	articunogalar: {tier: "FROU"},
 
+	lugia: {tier: "FROU"},
+	
 	shaymin: {tier: "FROU"},
 
 	celebi: {tier: "FROU"},
