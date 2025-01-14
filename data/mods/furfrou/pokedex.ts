@@ -178,10 +178,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		],
 		creator: "Violet",
 	},
-	gardevoir: {
-		inherit: true,
-		gender: "F", // i'm sorry little one
-	},
 	gardevoiramelia: {
 		name: "Gardevoir-Amelia",
 		baseSpecies: "Gardevoir",
@@ -193,10 +189,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		movepoolDeletions: ["willowisp", "trick", "memento", "storedpower"],
 		requiredItem: "Gardevoirite",
 		creator: "antyytna",
-	},
-	mawile: {
-		inherit: true,
-		gender: "N",
 	},
 	mawilemegakorra: {
 		name: "Mawile-Mega-Korra",
