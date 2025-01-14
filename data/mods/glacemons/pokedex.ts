@@ -1936,7 +1936,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	altaria: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Cloud Nine"},
+		abilities: {0: "Natural Cure", 1: "Fluffy", H: "Cloud Nine"},
 	},
 	altariamega: {
 		inherit: true,
