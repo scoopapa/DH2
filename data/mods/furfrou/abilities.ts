@@ -37,9 +37,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'Flicker');
-				if (target.flickered) return;
-				target.outFlickered = true;
+				if (target.flickered) { 
+					this.add('-end', target, 'Flicker');
+				} else {
+					target.outFlickered = true;
+					this.add('-end', target, 'Flicker');
+				}
 			},
 		},
 		flags: {},
