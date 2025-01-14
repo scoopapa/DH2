@@ -7,7 +7,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {		
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
-			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new
 			const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
 
 			if (!newMon.types && copyData.types) newMon.types = copyData.types;
