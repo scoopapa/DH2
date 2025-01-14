@@ -88,7 +88,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 90
 	},
 	cherubi: {
-		tier: "DoNU",
+		tier: "DoNU UUBL",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["sunnyday", "gigadrain", "weatherball", "growth"],
@@ -163,7 +163,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		//randomBattleLevel: 84
 	},
 	happiny: {
-		tier: "DoNU UU",
+		tier: "DoNU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["seismictoss", "rest", "sleeptalk", "thunderwave"],
@@ -669,7 +669,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["partingshot", "knockoff", "bodyslam", "trick", "gunkshot", "taunt"]
 	},
 	zubat: {
-		tier: "DoNU UU",
+		tier: "DoNU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["taunt", "toxic", "sludgebomb", "roost", "gigadrain", "defog", "nastyplot", "bravebird"]
