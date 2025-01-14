@@ -409,7 +409,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	absol: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Forewarn", H: "Evanesce"},
+		abilities: {0: "Anticipation", 1: "Forewarn", H: "Super Luck"},
 	},
 	medicham: {
 		inherit: true,
@@ -606,19 +606,19 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Liquid Body
 	grimer: {
 		inherit: true,
-		abilities: {0: "Liquid Body", 1: "Sticky Hold", H: "Poison Touch"},
+		abilities: {0: "Liquid Body", 1: "Sticky Hold", H: "Stench"},
 	},
 	grimeralola: {
 		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Liquid Body", H: "Power of Alchemy"},
+		abilities: {0: "Poison Touch", 1: "Liquid Body", H: "Stench"},
 	},
 	muk: {
 		inherit: true,
-		abilities: {0: "Liquid Body", 1: "Sticky Hold", H: "Poison Touch"},
+		abilities: {0: "Liquid Body", 1: "Sticky Hold", H: "Stench"},
 	},
 	mukalola: {
 		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Liquid Body", H: "Power of Alchemy"},
+		abilities: {0: "Poison Touch", 1: "Liquid Body", H: "Stench"},
 	},
 	gulpin: {
 		inherit: true,
@@ -931,11 +931,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Merciless
 	houndour: {
 		inherit: true,
-		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Merciless"},
+		abilities: {0: "Nostalgia Trip", 1: "Flash Fire", H: "Merciless"},
 	},
 	houndoom: {
 		inherit: true,
-		abilities: {0: "Early Bird", 1: "Flash Fire", H: "Merciless"},
+		abilities: {0: "Nostalgia Trip", 1: "Flash Fire", H: "Merciless"},
 	},
 	pinsir: {
 		inherit: true,
@@ -1141,14 +1141,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Flouresce", 1: "Natural Cure", H: "Analytic"},
 	},
 	// Indancesce 
-	koffing: {
-		inherit: true,
-		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Indancesce"},
-	},
-	weezing: {
-		inherit: true,
-		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Indancesce"},
-	},
 	darumakagalar: {
 		inherit: true,
 		abilities: {0: "Hustle", 1: "Indancesce", H: "Inner Focus"},
@@ -1277,7 +1269,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	aerodactyl: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Daredevil", H: "Unnerve"},
+		abilities: {0: "Rock Head", 1: "Daredevil", H: "Nostalgia Trip"},
 	},
 	lycanrocmidnight: {
 		inherit: true,
@@ -1346,7 +1338,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	//slate 5
 	pecharunt: {
 		inherit: true,
-		abilities: {0: "Poison Puppeteer", H: "Merciless"},
+		abilities: {0: "Poison Puppeteer", 1: "Stench", H: "Merciless"},
 	},
 	mantine: {
 		inherit: true,
@@ -1710,6 +1702,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	abomasnowmega: {
 		inherit: true,
+		abilities: {0: "Stalwart"},
 		requiredItem: null,
 		requiredItems: ["Abomasite", "Parallel Mega Orb"],
 	},
@@ -1957,5 +1950,69 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	volcanion: {
 		inherit: true,
 		abilities: {0: "Water Absorb", 1: "Route Closed", H: "Moody"},
+	},
+	// Stalwart
+	kingambit: {
+		inherit: true,
+		abilities: {0: "Defiant", 1: "Supreme Overlord", H: "Stalwart"},
+	},
+	cobalion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Stalwart"},
+	},
+	virizion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Stalwart"},
+	},
+	keldeo: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Stalwart"},
+	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Stalwart"},
+	},
+	ampharos: {
+		inherit: true,
+		abilities: {0: "Static", H: "Stalwart"},
+	},
+	// Super Luck
+	ogerpon: {
+		inherit: true,
+		abilities: {0: "Defiant", H: "Super Luck"},
+	},
+	// Stench
+	foongus: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Stench",  H: "Regenerator"},
+	},
+	amoonguss: {
+		inherit: true,
+		abilities: {0: "Effect Spore", 1: "Stench",  H: "Regenerator"},
+	},
+	// Nostalgia Trip
+	abra: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Nostalgia Trip", H: "Magic Guard"},
+	},
+	kadabra: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Nostalgia Trip", H: "Magic Guard"},
+	},
+	alakazam: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Nostalgia Trip", H: "Magic Guard"},
+	},
+	bagon: {
+		inherit: true,
+		abilities: {0: "Rock Head", 1: "Nostalgia Trip", H: "Sheer Force"},
+	},
+	shelgon: {
+		inherit: true,
+		abilities: {0: "Rock Head", 1: "Nostalgia Trip", H: "Overcoat"},
+	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Nostalgia Trip", H: "Moxie"},
 	},
 };

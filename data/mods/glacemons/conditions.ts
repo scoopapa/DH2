@@ -35,16 +35,9 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			return false;
 		},
 	},
-	frt: {
-		name: 'frt',
-		effectType: 'Status',
-		onStart(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'frt', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			} else {
-				this.add('-status', target, 'frt');
-			}
-		},
+	frz: {
+		inherit: true,
+		onBeforeMove(pokemon, target, move) {},
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 10,
 		onResidual(pokemon) {

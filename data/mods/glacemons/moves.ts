@@ -1270,7 +1270,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, snatch: 1},
-		status: 'frt',
+		status: 'frz',
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -1507,17 +1507,17 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 15,
 		secondary: {
 			chance: 30,
-			status: 'frt',
+			status: 'frz',
 		},
 		desc: "Has a 30% chance to inflict Frostbite to the target.",
 		shortDesc: "30% chance to inflict Frostbite to the target.",
 	},
-	niceburn: {
+	breezeburn: {
 		num: -22,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		name: "Nice Burn",
+		name: "Breeze Burn",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1527,7 +1527,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		},
 		secondary: {
 			chance: 30,
-			status: 'frt',
+			status: 'frz',
 		},
 		target: "normal",
 		type: "Ice",
