@@ -101,6 +101,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Ghost",
 		contestType: "Clever",
 	},
+	zodiacbreak: {
+		num: 617,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		isNonstandard: "Past",
+		name: "Zodiac Break",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 3],
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Light of Ruin', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
