@@ -2298,14 +2298,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
-			const trumpCardUsers = pokemon.side.pokemon.filter(ally => ally.usedTrumpCard);
-			const bp = move.basePower + 20 * trumpCardUsers;
+			if (!pokemon.side.trumpcard) pokemon.side.trumpcard = 0;
+			const bp = move.basePower + 20 * pokemon.side.trumpcard;
 			this.debug('BP: ' + bp);
 			return bp;
 		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "+20 power for each ally that has used Trump Card.",
+		shortDesc: "+20 power for each time an ally used Trump Card.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -3710,7 +3710,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	trumpcard: {
 		inherit: true,
 		onPrepareHit(pokemon) {
-			pokemon.usedTrumpCard = true;
+			if (!pokemon.side.trumpcard) pokemon.side.trumpcard = 0;
+			pokemon.side.trumpcard ++;
 		},
 	},
 	weatherball: {
