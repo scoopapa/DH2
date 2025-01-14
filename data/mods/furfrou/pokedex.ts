@@ -1,8 +1,4 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
-	eevee: {
-		inherit: true,
-		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Aleon"],
-	},
 	vaporeon: {
 		inherit: true,
 		otherFormes: ["Vaporeon-Arcane"],
@@ -15,7 +11,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Arcane",
 		types: ["Water", "Dragon"],
 		abilities: {0: "Multiscale", H: "Water Absorb"},
-		movepoolAdditions: ["dragontail", "dragonclaw", "dracometeor", "dragonpulse", "clangingscales", "dragonbreath", "roost"],
 		creator: "antyytna",
 	},
 	jolteon: {
@@ -30,7 +25,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Arcane",
 		types: ["Electric", "Dragon"],
 		abilities: {0: "Intimidate", H: "Volt Absorb"},
-		movepoolAdditions: ["dracometeor", "dragonclaw", "clangingscales", "dragonpulse", "roost"],
 		creator: "antyytna",
 	},
 	flareon: {
@@ -45,7 +39,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Arcane",
 		types: ["Fire", "Dragon"],
 		abilities: {0: "Strong Jaw", H: "Flash Fire"},
-		movepoolAdditions: ["outrage", "dracometeor", "clangoroussoul", "dragonclaw", "dragonpulse", "clangingscales"],
 		creator: "antyytna",
 	},
 	espeon: {
@@ -60,7 +53,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mystic",
 		types: ["Psychic", "Ghost"],
 		abilities: {0: "Prankster", H: "Magic Bounce"},
-		movepoolAdditions: ["memento", "destinybond", "focusblast", "mysticalfire", "willowisp", "nastyplot"],
 		creator: "antyytna",
 	},
 	umbreon: {
@@ -75,8 +67,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Mystic",
 		types: ["Dark", "Ghost"],
 		abilities: {0: "Prankster", H: "Inner Focus"},
-		movepoolAdditions: ["memento", "destinybond", "willowisp"],
-		movepoolDeletions: ["foulplay", "toxic", "pursuit"],
 		creator: "antyytna",
 	},
 	leafeon: {
@@ -91,8 +81,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Proto",
 		types: ["Grass", "Steel"],
 		abilities: {0: "Stamina", H: "Chlorophyll"},
-		movepoolAdditions: ["bodypress", "spikes", "stealthrock", "spikyshield", "ironhead", "voltswitch"],
-		movepoolDeletions: ["synthesis", "yawn"],
 		creator: "antyytna",
 	},
 	glaceon: {
@@ -107,7 +95,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Proto",
 		types: ["Ice", "Electric"],
 		abilities: {0: "Quick Feet", H: "Ice Body"},
-		movepoolAdditions: ["thunderbolt", "voltswitch", "electroball", "zapcannon", "thunder"],
 		creator: "antyytna",
 	},
 	sylveon: {
@@ -122,26 +109,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Compound",
 		types: ["Fairy", "Bug"],
 		abilities: {0: "Tinted Lens", H: "Pixilate"},
-		movepoolAdditions: ["bugbuzz", "uturn", "stickyweb", "signalbeam"],
-		movepoolDeletions: ["moonblast"],
 		creator: "antyytna",
-	},
-	aleon: {
-		name: "Aleon",
-		copyData: "Eevee",
-
-		baseStats: {hp: 103, atk: 79, def: 53, spa: 89, spd: 67, spe: 134},
-		abilities: {0: "Adaptability", H: "Normalize", S: "Beast Boost"},
-		movepoolAdditions: [
-			"blizzard", "chargebeam", "discharge", "expandingforce", "futuresight", "gigaimpact", "haze", "hyperbeam", "icebeam", "icywind", "magiccoat",
-			"naturepower", "psychic", "psyshock", "reflect", "reflecttype", "risingvoltage", "scald", "shockwave", "signalbeam", "skillswap", "snarl", "solarbeam",
-			"suckerpunch", "surf", "terrainpulse", "thunder", "thunderbolt", "thunderwave", "trick", "voltswitch", "waterpulse", "wonderroom", "zapcannon",
-		],
-
-		prevo: "Eevee",
-		evoType: "levelExtra",
-		evoCondition: "in Ultra Space",
-		creator: "inkbug",
 	},
 	leavanny: {
 		inherit: true,
@@ -156,11 +124,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Violet",
 		baseStats: {hp: 105, atk: 75, def: 57, spa: 105, spd: 60, spe: 123},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
-		movepoolAdditions: [
-			"taunt", "knockoff", "sludgebomb", "sludgewave", "spikes", "toxicspikes", 
-			"clearsmog", "swordsdance", "temperflare", "wavecrash", "meteormash", 
-			"meteorbeam", "sweetkiss", "zodiacbreak",
-		],
 		creator: "Violet",
 	},
 	brionnevioletswimming: {
@@ -171,11 +134,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Violet-Swimming",
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 137, spd: 109, spe: 54},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
-		movepoolAdditions: [
-			"taunt", "knockoff", "sludgebomb", "sludgewave", "spikes", "toxicspikes", 
-			"clearsmog", "swordsdance", "temperflare", "wavecrash", "meteormash", 
-			"meteorbeam", "sweetkiss", "zodiacbreak",
-		],
 		creator: "Violet",
 	},
 	gardevoiramelia: {
@@ -185,8 +143,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseStats: {hp: 75, atk: 50, def: 70, spa: 145, spd: 120, spe: 103},
 		abilities: {0: "Pixilate"},
 		types: ["Ghost", "Fairy"],
-		movepoolAdditions: ["psystrike"],
-		movepoolDeletions: ["willowisp", "trick", "memento", "storedpower"],
 		requiredItem: "Gardevoirite",
 		creator: "antyytna",
 	},
@@ -196,8 +152,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Mawile-Mega",
 		baseStats: {hp: 50, atk: 115, def: 135, spa: 25, spd: 115, spe: 40},
 		abilities: {0: "Huge Power"},
-		movepoolAdditions: ["superpower"],
-		movepoolDeletions: ["knockoff", "swordsdance"],
 		requiredItem: "Mawilite",
 		creator: "viivian",
 	},
@@ -260,15 +214,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 71, atk: 103, def: 37, spa: 103, spd: 133, spe: 133},
 		abilities: {0: "Prankster", 1: "Fluffy", H: "Cute Charm"},
-		movepoolAdditions: [
-			"afteryou", "aromatherapy", "calmmind", "disable", "drainingkiss", "expandingforce", "gravity",
-			"healpulse", "healingwish", "magiccoat", "magicroom", "psychicnoise", "psychicterrain", "psyshock",
-			"raindance", "reflect", "silktrap", "storedpower", "teleport", "trick", "wonderroom", "wormholedisruption",
-		],
-		movepoolDeletions: [
-			"absorb", "flash", "gigadrain", "memento", "poisonpowder", "razorleaf", "seedbomb", "shadowball", "stunspore",
-			"switcheroo", "thief", "toxic", "worryseed",
-		],
 		creator: "Maddy",
 	},
 	
@@ -290,39 +235,5 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	delphox: {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Magic Guard"},
-	},
-	furret: {
-		inherit: true,
-		abilities: {0: "Fluffy", 1: "Keen Eye", H: "Frisk"},
-		movepoolAdditions: ["tailslap"],
-	},
-	slowkinggalar: {
-		inherit: true,
-		movepoolDeletions: ["chillyreception"],
-	},
-	ironcrown: {
-		inherit: true,
-		movepoolAdditions: ["stealthrock"],
-		movepoolDeletions: ["storedpower"],
-	},
-	genesect: {
-		inherit: true,
-		movepoolDeletions: ["shiftgear", "extremespeed", "flamethrower"],
-	},
-	pheromosa: {
-		inherit: true,
-		movepoolDeletions: ["quiverdance"],
-	},
-	poipole: {
-		inherit: true,
-		movepoolDeletions: ["nastyplot"],
-	},
-	naganadel: {
-		inherit: true,
-		movepoolDeletions: ["nastyplot"],
-	},
-	magearna: {
-		inherit: true,
-		movepoolDeletions: ["storedpower"],
 	},
 };
