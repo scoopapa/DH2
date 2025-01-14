@@ -135,7 +135,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		copyData: "Kricketune",
 		types: ["Bug", "Normal"],
 		baseStats: {hp: 101, atk: 85, def: 91, spa: 111, spd: 91, spe: 65},
-		abilities: {0: "Swarm", H: "Technician"},
+		abilities: {0: "Speed Boost", H: "Technician"},
 		movepoolAdditions: ["compost", "roost", "darkpulse", "rapidspin", "metronome"],
 		heightm: 1.1,
 		weightkg: 26.0,

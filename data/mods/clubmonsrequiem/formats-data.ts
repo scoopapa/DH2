@@ -55,6 +55,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bellibolt: {tier: "CM"},
 	bellibrr: {tier: "CM"},
 
+	meowth: {tier: "CM (NFE)"},
+	persian: {tier: "CM"},
+	meowthalola: {tier: "CM (NFE)"},
+	persianalola: {tier: "CM"},
+
+	falinks: {tier: "CM"},
+	falinkshammer: {tier: "Illegal"},
+
+	gothitelleallira: {tier: "CM"},
+
 	stormulex: {tier: "CM"},
 
 	brutebonnet: {tier: "CM"},
@@ -79,6 +89,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bombirdier: {tier: "CM"},
 
 	squawkabilly: {tier: "CM"},
+
+	klawf: {tier: "CM"},
 
 	ironconvector: {tier: "CM"},
 
@@ -124,6 +136,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	buzzwole: {tier: "CM"},
 
 	guzzlord: {tier: "CM"},
+
+	bonsly: {tier: "CM (NFE)"},
+	sudowoodo: {tier: "CM"},
 	
 	chespin: {tier: "CM (NFE)"},
 	quilladin: {tier: "CM (NFE)"},
