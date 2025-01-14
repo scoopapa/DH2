@@ -22,6 +22,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	absol: {tier: "FROU"},
 	absolmega: {tier: "FROU"},
 
+	sprigatito: {tier: "FROU (NFE)"},
+	floragato: {tier: "FROU (NFE)"},
+	meowscarada: {tier: "FROU"},
+
 	fennekin: {tier: "FROU (NFE)"},
 	braixen: {tier: "FROU (NFE)"},
 	delphox: {tier: "FROU"},
