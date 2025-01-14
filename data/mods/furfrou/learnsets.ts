@@ -1833,7 +1833,6 @@ export const Learnsets = {
 			batonpass: ["9M", "8M"],
 			bodyslam: ["9M"],
 			brickbreak: ["9M", "8M", "7M"],
-			calmmind: ["9M", "8M", "7M"],
 			chargebeam: ["9M", "7M"],
 			confide: ["7M"],
 			confuseray: ["9M"],
