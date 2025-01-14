@@ -202,7 +202,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Mawile-Mega-Korra",
 		baseSpecies: "Mawile",
 		copyData: "Mawile-Mega",
-		gender: "N",
 		baseStats: {hp: 50, atk: 115, def: 135, spa: 25, spd: 115, spe: 40},
 		abilities: {0: "Huge Power"},
 		movepoolAdditions: ["superpower"],
