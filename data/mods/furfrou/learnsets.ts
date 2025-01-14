@@ -1267,7 +1267,7 @@ export const Learnsets = {
 			superpower: ["9M"],
 		},
 	},
-	whimsicott: {
+	wickesicott: {
 		learnset: {
 			attract: ["8M", "7M", "6M", "5M"],
 			beatup: ["8M", "5S0"],
