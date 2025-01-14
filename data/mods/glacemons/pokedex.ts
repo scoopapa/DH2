@@ -1702,12 +1702,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	abomasnowmega: {
 		inherit: true,
-		abilities: {0: "Stalwart"},
 		requiredItem: null,
 		requiredItems: ["Abomasite", "Parallel Mega Orb"],
 	},
 	gallademega: {
 		inherit: true,
+		abilities: {0: "Stalwart"},
 		requiredItem: null,
 		requiredItems: ["Galladite", "Parallel Mega Orb"],
 	},
