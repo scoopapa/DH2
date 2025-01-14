@@ -1797,7 +1797,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// triplearrows 
 		this.modData('Learnsets', 'ogerpon').learnset.triplearrows = ['9L1'];
 		this.modData('Learnsets', 'ironleaves').learnset.triplearrows = ['9L1'];
-		this.modData('Learnsets', 'treeko').learnset.triplearrows = ['9L1'];
+		this.modData('Learnsets', 'treecko').learnset.triplearrows = ['9L1'];
 		this.modData('Learnsets', 'shaymin').learnset.triplearrows = ['9L1'];
 		this.modData('Learnsets', 'sprigatito').learnset.triplearrows = ['9L1'];
 		this.modData('Learnsets', 'snivyline').learnset.triplearrows = ['9L1'];
