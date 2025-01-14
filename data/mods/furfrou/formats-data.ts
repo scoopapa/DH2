@@ -115,6 +115,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	larvitar: {tier: "FROU (NFE)"},
 	pupitar: {tier: "FROU (NFE)"},
 	tyranitar:	{tier: "FROU"},
+	tyranitarmega: {tier: "FROU"},
 	
 	lillipup: {tier: "FROU (NFE)"},
 	herdier: {tier: "FROU (NFE)"},
