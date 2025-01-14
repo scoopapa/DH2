@@ -1338,6 +1338,8 @@ export const Learnsets = {
 			healingwish: ["9M"],
 			magiccoat: ["9M"],
 			magicroom: ["9M"],
+			poltergeist: ["9M"],
+			spectralthief: ["9M"],
 			psychicnoise: ["9M"],
 			psychicterrain: ["9M"],
 			psyshock: ["9M"],
