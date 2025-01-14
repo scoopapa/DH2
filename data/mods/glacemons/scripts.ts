@@ -2001,7 +2001,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'chinchou').learnset.breezeshock = ['9L1'];
 		this.modData('Learnsets', 'silvally').learnset.breezeshock = ['9L1'];
 		this.modData('Learnsets', 'arceus').learnset.breezeshock = ['9L1'];
-		this.modData('Learnsets', 'frostmoth').learnset.breezeshock = ['9L1'];
+		this.modData('Learnsets', 'frosmoth').learnset.breezeshock = ['9L1'];
 		// synchronoise 
 		this.modData('Learnsets', 'latias').learnset.synchronoise = ['9L1'];
 		this.modData('Learnsets', 'gastly').learnset.synchronoise = ['9L1'];
