@@ -39,9 +39,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	corvisquire: {tier: "FROU (NFE)"},
 	corviknight: {tier: "FROU"},
 	
-	ralts: {tier: "FROU (NFE)"},
-	kirlia: {tier: "FROU (NFE)"},
-	gardevoir: {tier: "FROU"},
 	gardevoiramelia: {tier: "FROU"},
 	
 	pichu: {tier: "FROU (NFE)"},
@@ -109,8 +106,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	joltik: {tier: "FROU (NFE)"},
 	galvantula: {tier: "FROU"},
 
-	mawile: {tier: "FROU"},
-	mawilemega: {tier: "Illegal"},
 	mawilemegakorra: {tier: "FROU"},
 	
 	larvitar: {tier: "FROU (NFE)"},
