@@ -1767,6 +1767,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if(move.type === 'Fire') pokemon.formeChange('Entei');
 				if(move.type === 'Dragon') pokemon.formeChange('Gouging Fire');
 				if(move.type === 'Steel') pokemon.formeChange('Solgaleo');
+				if(move.type === 'Psychic') pokemon.formeChange('Necrozma-Dusk-Mane');
 			},
 		},
 		secondary: null,
