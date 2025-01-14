@@ -1,9 +1,4 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
-	absol: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 130, def: 60, spa: 75, spd: 60, spe: 90},
-		abilities: {0: "Magic Bounce", 1: "Super Luck", H: "Justified"},
-	},
 	eevee: {
 		inherit: true,
 		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Aleon"],
@@ -171,16 +166,23 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	brionnevioletswimming: {
 		name: "Brionne-Violet-Swimming",
-		baseSpecies: "Brionne-Violet",	
-		forme: "Swimming",
+		baseSpecies: "Brionne",	
+		copyData: "Primarina",
+		
+		forme: "Violet-Swimming",
 		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 137, spd: 109, spe: 54},
 		abilities: {0: "Torrent", 1: "Regenerator", H: "Liquid Voice"},
+		movepoolAdditions: [
+			"taunt", "knockoff", "sludgebomb", "sludgewave", "spikes", "toxicspikes", 
+			"clearsmog", "swordsdance", "temperflare", "wavecrash", "meteormash", 
+			"meteorbeam", "sweetkiss", "zodiacbreak",
+		],
 		creator: "Violet",
 	},
 	gardevoiramelia: {
 		name: "Gardevoir-Amelia",
-		baseSpecies: "Gardevoir-Mega",
+		baseSpecies: "Gardevoir",
 		copyData: "Gardevoir-Mega",
 		gender: "F",
 		baseStats: {hp: 75, atk: 50, def: 70, spa: 145, spd: 120, spe: 103},
@@ -193,7 +195,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	mawilemegakorra: {
 		name: "Mawile-Mega-Korra",
-		baseSpecies: "Mawile-Mega",
+		baseSpecies: "Mawile",
 		copyData: "Mawile-Mega",
 		gender: "N",
 		baseStats: {hp: 50, atk: 115, def: 135, spa: 25, spd: 115, spe: 40},
@@ -268,13 +270,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		],
 		movepoolDeletions: [
 			"absorb", "flash", "gigadrain", "memento", "poisonpowder", "razorleaf", "seedbomb", "shadowball", "stunspore",
-			"switcheroo", "thief", "toxic", "worryseed"
+			"switcheroo", "thief", "toxic", "worryseed",
 		],
 		creator: "Maddy",
 	},
 	
 	// Kit changes //
-	
+
+	absol: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 130, def: 60, spa: 75, spd: 60, spe: 90},
+		abilities: {0: "Magic Bounce", 1: "Super Luck", H: "Justified"},
+	},
 	fennekin: {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Magic Guard"},
