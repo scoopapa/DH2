@@ -37,9 +37,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'Flicker');
-				if (target.flickered) return;
-				target.outFlickered = true;
+				if (target.flickered) { 
+					this.add('-end', target, 'Flicker');
+				} else {
+					this.add('-message', `${target.name} is wearing itself out!`);
+					target.outFlickered = true;
+					this.add('-end', target, 'Flicker');
+				}
 			},
 		},
 		flags: {},
