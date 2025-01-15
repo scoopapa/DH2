@@ -323,34 +323,4 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 2408,
 		gen: 9,
 	},
-	timegear: {
-		name: "Time Gear",
-		spritenum: 735,
-		fling: {
-			basePower: 130,
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gardevoir-Amelia') return false;
-			return true;
-		},
-		itemUser: ["Gardevoir-Amelia"],
-		shortDesc: "No effect.",
-		num: 2409,
-		gen: 9,
-	},
-	korrasshades: {
-		name: "Korra's Shades",
-		spritenum: 35,
-		fling: {
-			basePower: 30,
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Mawile-Mega-Korra') return false;
-			return true;
-		},
-		itemUser: ["Mawile-Mega-Korra"],
-		shortDesc: "No effect.",
-		num: 2410,
-		gen: 9,
-	},
 };
