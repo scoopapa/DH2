@@ -142,6 +142,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	slowpoke: {tier: "FROU (NFE)"},
 	slowbro: {tier: "FROU"},
+	slowbromega: {tier: "FROU"},
 	slowking: {tier: "FROU"},
 
 	slowpokegalar: {tier: "FROU (NFE)"},
@@ -154,6 +155,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	swablu: {tier: "FROU (NFE)"},
 	altaria: {tier: "FROU"},
+	altariamega: {tier: "FROU"},
 
 	cleffa: {tier: "FROU (NFE)"},
 	clefairy: {tier: "FROU (NFE)"},
@@ -218,6 +220,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	latias: {tier: "FROU"},
 	latios: {tier: "FROU"},
+	latiasmega: {tier: "FROU"},
+	latiosmega: {tier: "FROU"},
 	
 	tornadus: {tier: "FROU"},
 	tornadustherian: {tier: "FROU"},
