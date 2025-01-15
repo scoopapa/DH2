@@ -438,7 +438,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Crossover Chaos",
+		name: "[Gen 9] Crossover Chaos (Defunct)",
 		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
@@ -478,7 +478,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Crossover Chaos AG",
+		name: "[Gen 9] Crossover Chaos AG (Defunct)",
 		desc: `Crossover Chaos, allowing mons in CC Ubers and unintroduced to be used.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
@@ -512,6 +512,27 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Crossover Chaos Gen 9 AG.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Crossover Chaos (Ver. C)",
+		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos-ver-c.3757316/">Gen 9 Crossover Chaos (Ver. C)</a>`,
+		],
+		mod: 'gen9crossoverchaosc',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['CC OU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Crossover Chaos Version C.'];
 				}
 			}
 		},
