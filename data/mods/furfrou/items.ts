@@ -297,7 +297,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.add('-message', `It wasn't that scary, so nothing happened.`);
 			}
 		},
-		desc: "On entry, the holder scares the target to restore HP.",
+		desc: "On entry, the holder scares the target with a super-effective move to restore HP.",
 		num: -7,
 		rating: 3,
 	},
