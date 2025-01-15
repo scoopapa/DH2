@@ -22,6 +22,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	absol: {tier: "FROU"},
 	absolmega: {tier: "FROU"},
 
+	sprigatito: {tier: "FROU (NFE)"},
+	floragato: {tier: "FROU (NFE)"},
+	meowscarada: {tier: "FROU"},
+
 	fennekin: {tier: "FROU (NFE)"},
 	braixen: {tier: "FROU (NFE)"},
 	delphox: {tier: "FROU"},
@@ -111,6 +115,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	larvitar: {tier: "FROU (NFE)"},
 	pupitar: {tier: "FROU (NFE)"},
 	tyranitar:	{tier: "FROU"},
+	tyranitarmega: {tier: "FROU"},
 	
 	lillipup: {tier: "FROU (NFE)"},
 	herdier: {tier: "FROU (NFE)"},
@@ -191,6 +196,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	doduo: {tier: "FROU (NFE)"},
 	dodriocyarian: {tier: "FROU"},
 
+	dewpider: {tier: "FROU (NFE)"},
+	araquanid: {tier: "FROU"},
+	
 	zapdos: {tier: "FROU"},
 	moltres: {tier: "FROU"},
 	articuno: {tier: "FROU"},
@@ -199,6 +207,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	moltresgalar: {tier: "FROU"},
 	articunogalar: {tier: "FROU"},
 
+	lugia: {tier: "FROU"},
+	
 	shaymin: {tier: "FROU"},
 
 	celebi: {tier: "FROU"},
@@ -247,8 +257,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poipole: {tier: "FROU (NFE)"},
 	naganadel: {tier: "FROU"},
 	
-	magearna: {tier: "FROU"},
-	
 	zeraora: {tier: "FROU"},
 	
 	meltan: {tier: "FROU (NFE)"},
@@ -259,13 +267,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	albatross: {tier: "FROU"},
 	
-	fovospartion: {tier: "FROU (NFE)"},
-	fovospartiontyke: {tier: "FROU"},
-	
 	calico: {tier: "FROU"},
 	
 	hope: {tier: "FROU"},
-	
-	deterraven: {tier: "FROU"},
 
 };

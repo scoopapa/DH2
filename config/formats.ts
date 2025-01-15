@@ -2834,7 +2834,7 @@ export const Formats: FormatList = [
 
 		gameType: 'doubles',
 		teambuilderFormat: 'National Dex Doubles',
-		ruleset: ['Standard NatDex', 'Adjust Level = 50', 'VGC Timer', 'Data Mod', 'Force Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', 'Best of = 3', 'Limit One Restricted'],
+		ruleset: ['Standard NatDex', 'Adjust Level = 50', 'Picked Team Size = 4', 'VGC Timer', 'Data Mod', 'Force Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', 'Best of = 3', 'Limit One Restricted'],
 		restricted: ['Cottonee', 'Dewpider', 'Diglett-Alola', 'Flittle', 'Gulpin', 'Nidoran-M', 'Wattrel', 'Wingull', 'Zigzagoon', 'Shedinja'],
 		banlist: ['Huge Power', 'Pure Power', 'Smeargle', 'Wishiwashi', 'Goomy'],
 		unbanlist: ['Assist'],

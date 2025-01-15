@@ -81,9 +81,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 80,
 		category: "Special",
 		name: "Wormhole Disruption",
+		shortDesc: "On hit, user lowers the target's highest stat by 2 stages.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -92,9 +93,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onHit(target) {
 			const bestStat = target.getBestStat(true, true);
-			const worstStat = target.getWorstStat(true, true);
-			this.boost({[bestStat]: -1}, target);
-			this.boost({[worstStat]: 1}, target);
+			this.boost({[bestStat]: -2}, target);
 		},
 		secondary: null,
 		target: "normal",
@@ -106,7 +105,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
-		isNonstandard: "Past",
+		shortDesc: "User takes 1/3 recoil.",
 		name: "Zodiac Break",
 		pp: 5,
 		priority: 0,
