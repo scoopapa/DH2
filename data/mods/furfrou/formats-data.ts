@@ -103,6 +103,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	buneary: {tier: "FROU (NFE)"},
 	lopunny: {tier: "FROU"},
+	lopunnymega: {tier: "FROU"},
 	
 	frillish: {tier: "FROU (NFE)"},
 	jellicent: {tier: "FROU"},
