@@ -79,9 +79,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: 680,
 		accuracy: 100,
 		basePower: 80,
-		category: "Special",
+		category: "Physical",
 		name: "Wormhole Disruption",
-		shortDesc: "On hit, user lowers the target's highest stat by 2 stages.",
+		shortDesc: "On hit, user lowers the target's highest stat by 1 stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -93,7 +93,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onHit(target) {
 			const bestStat = target.getBestStat(true, true);
-			this.boost({[bestStat]: -2}, target);
+			this.boost({[bestStat]: -1}, target);
 		},
 		secondary: null,
 		target: "normal",
@@ -103,19 +103,28 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	zodiacbreak: {
 		num: 617,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 150,
 		category: "Special",
-		shortDesc: "User takes 1/3 recoil.",
+		shortDesc: "User takes 1/2 of their max HP.",
 		name: "Zodiac Break",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		recoil: [1, 3],
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Light of Ruin', target);
+		},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				const hpBeforeRecoil = pokemon.hp;
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Zodiac Break'), true);
+				if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
 		},
 		secondary: null,
 		target: "normal",
