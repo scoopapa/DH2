@@ -131,6 +131,326 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Fairy",
 		contestType: "Beautiful",
 	},
+	clusterbomb: {
+		num: 830,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Cluster Bomb",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Pyro Ball', target);
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('clustershrapnel');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('clustershrapnel');
+				}
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Fire",
+	},
+	clustershrapnel: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cluster Shrapnel",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'clustershrapnel',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Cluster Shrapnel');
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Cluster Shrapnel');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get('clusterboom');
+				const sideConditions = ['clustershrapnel'];
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+				
+				this.add('-anim', data.source, "Doom Desire", data.target);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
+				
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name);
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Fire",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	clusterboom: {
+		num: 446,
+		accuracy: true,
+		basePower: 60,
+		category: "Special",
+		name: "Cluster Boom",
+		pp: 20,
+		priority: 0,
+		flags: {metronome: 1, mustpressure: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	reconsector: {
+		num: 446,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Recon Sector",
+		pp: 20,
+		priority: 0,
+		flags: {metronome: 1, mustpressure: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magnet Rise", source);
+		},
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Recon Sector');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Ground')) return;
+				if (this.field.isTerrain('electricterrain')) {
+					this.heal(pokemon.maxhp / 3);
+				} else {
+					this.heal(pokemon.maxhp / 6);
+				}
+			},
+		},
+		shortDesc: "Allies on switch: heal 1/6 of max HP. In Electric Terrain: heal 1/3.",
+		secondary: null,
+		target: "allySide",
+		type: "Electric",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	voltsector: {
+		num: -1002,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Volt Sector",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		ignoreImmunity: true,
+		isFutureMove: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magnet Rise", source);
+			this.add('-anim', target, "Magnet Rise", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'voltsector')) return false;
+			Object.assign(target.side.slotConditions[target.position]['voltsector'], {
+				duration: 5,
+				move: 'voltsector',
+				source: source,
+				position: target.position,
+				side: target.side,
+				moveData: {
+					id: 'voltsector',
+					name: "Volt Sector",
+					accuracy: 100,
+					basePower: 40,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Electric',
+				},
+			});
+			if (source.species.baseSpecies === 'Ausma') this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} prepares her plane sectors for attack!`);
+			else this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} prepares an electrical ambush!`);
+			return null;
+		},
+		condition: {
+			// this is a slot condition
+			duration: 5,
+			onResidualOrder: 3,
+			onResidual(target) {
+				// unlike a future move, Flurry activates each turn
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get('voltsector');
+				if (data.target.fainted || data.target === data.source) {
+					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+					return;
+				}
+
+				if (data.source.species.baseSpecies === 'Ausma') this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being zapped by Ausma's plane sectors!`);
+				else this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being zapped!`);
+				data.target.removeVolatile('Endure');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+				this.add('-anim', data.source, "Thundershock", data.target);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
+			},
+			onEnd(target) {
+				// unlike a future move, Flurry activates each turn
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get('voltsector');
+
+				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+					data.moveData.infiltrates = true;
+				}
+				if (data.source.hasAbility('normalize') && this.gen >= 6) {
+					data.moveData.type = 'Normal';
+				}
+				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+					data.moveData.stab = 2;
+				}
+
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+				this.add('-anim', data.source, "Thundershock", data.target);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);//??
+				if (data.source.species.baseSpecies === 'Ausma') this.add('-message', `Ausma's plane sectors retracted!`);
+				else this.add('-message', `The electric ambush ceased!`);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	rapidspin: { //for deterraven and ausma moves//
+		num: 229,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Rapid Spin",
+		pp: 40,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'clustershrapnel', 'reconsector'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'clustershrapnel', 'reconsector'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	defog: { //ausma and deterraven moves//
+		num: 432,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Defog",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'clustershrapnel', 'reconsector',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'clustershrapnel', 'reconsector',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
 	cultivate: {
 		num: 404,
 		accuracy: 100,
