@@ -183,7 +183,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		gender: "F",
 		abilities: {0: "Pixilate"},
 		types: ["Ghost", "Fairy"],
-		requiredItem: "Gardevoirite",
+		requiredItem: "Time Gear",
 		creator: "antyytna",
 	},
 	mawilemegakorra: {
@@ -197,7 +197,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Huge Power"},
 		heightm: 0.6,
 		weightkg: 11.5,
-		requiredItem: "Mawilite",
+		requiredItem: "Korra's Shades",
 		creator: "viivian",
 	},
 	
