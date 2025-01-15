@@ -271,4 +271,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	
 	hope: {tier: "FROU"},
 
+	ausma: {tier: "FROU"},
+
+	deterraven: {tier: "FROU"},
+
+	fluttermaneaster: {tier: "FROU"},
+
 };
