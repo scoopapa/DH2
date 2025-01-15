@@ -1633,7 +1633,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	shedinja: {
 		inherit: true,
-		tier: "UU",
+		tier: "AG",
 	},
 	whismur: {
 		inherit: true,
@@ -2021,7 +2021,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	salamencemega: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	beldum: {
 		inherit: true,
