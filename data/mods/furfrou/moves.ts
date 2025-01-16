@@ -143,6 +143,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		shortDesc: "User sets a hazard that repeats this attack on entry.",
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
