@@ -183,7 +183,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		gender: "F",
 		abilities: {0: "Pixilate"},
 		types: ["Ghost", "Fairy"],
-		requiredItem: "Gardevoirite",
+		requiredItem: "Time Gear",
 		creator: "antyytna",
 	},
 	mawilemegakorra: {
@@ -197,7 +197,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Huge Power"},
 		heightm: 0.6,
 		weightkg: 11.5,
-		requiredItem: "Mawilite",
+		requiredItem: "Korra's Shades",
 		creator: "viivian",
 	},
 	
@@ -273,7 +273,38 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		gender: "F",
 		creator: "Maddy",
 	},
-	
+	deterraven: {
+		num: 2003, 
+		name: "Deterraven",
+		types: ["Dark", "Fire"],
+		abilities: {0: "Levitate", 1: "Bulletproof", H: "Aftermath"},
+		baseStats: {hp: 90, atk: 85, def: 65, spa: 105, spd: 85, spe: 125},
+		heightm: 0.5,
+		weightkg: 27.3,
+		creator: "Jumpheart",
+	},
+	ausma: {
+		num: 2004,
+		name: "Ausma",
+		types: ["Electric", "Psychic"],
+		abilities: {0: "Electric Surge", H: "Regenerator"},
+		baseStats: {hp: 50, atk: 85, def: 110, spa: 125, spd: 75, spe: 55},
+		gender: "F",
+		heightm: 1.0,
+		weightkg: 14.5,
+		creator: "ausma",
+	},
+	fluttermaneaster: {
+		num: 987,
+		name: "Flutter Mane-Aster",
+		types: ["Ghost", "Dragon"],
+		abilities: {0: "Protosynthesis"},
+		baseStats: {hp: 65, atk: 95, def: 65, spa: 135, spd: 95, spe: 125},
+		gender: "N",
+		heightm: 1.4,
+		weightkg: 4.0,
+		creator: "viivian",
+	},
 	// Kit changes //
 	fennekin: {
 		inherit: true,

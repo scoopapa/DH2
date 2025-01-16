@@ -297,7 +297,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.add('-message', `It wasn't that scary, so nothing happened.`);
 			}
 		},
-		desc: "On entry, the holder scares the target to restore HP.",
+		desc: "On entry, the holder scares the target with a super-effective move to restore HP.",
 		num: -7,
 		rating: 3,
 	},
@@ -321,6 +321,36 @@ export const Items: {[k: string]: ModdedItemData} = {
 		itemUser: ["Ogerpon-Costar"],
 		shortDesc: "If this Pokemon is Ogerpon-Costar, its attacks have 1.2x power.",
 		num: 2408,
+		gen: 9,
+	},
+	timegear: {
+		name: "Time Gear",
+		spritenum: 735,
+		fling: {
+			basePower: 130,
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Gardevoir-Amelia') return false;
+			return true;
+		},
+		itemUser: ["Gardevoir-Amelia"],
+		shortDesc: "No effect.",
+		num: 2409,
+		gen: 9,
+	},
+	korrasshades: {
+		name: "Korra's Shades",
+		spritenum: 35,
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Mawile-Mega-Korra') return false;
+			return true;
+		},
+		itemUser: ["Mawile-Mega-Korra"],
+		shortDesc: "No effect.",
+		num: 2410,
 		gen: 9,
 	},
 };
