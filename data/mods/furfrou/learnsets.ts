@@ -2450,7 +2450,7 @@ export const Learnsets = {
 			axekick: ["9M"],
 			upperhand: ["9M"],
 			psyshock: ["9M"],
-		}
+		},
 	},
 	deterraven: {
 		learnset: {
@@ -2516,5 +2516,6 @@ export const Learnsets = {
 			taunt: ["9M"],
 			partingshot: ["9M"],
 			nastyplot: ["9M"],
-		}
+		},
+	},
 };
