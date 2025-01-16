@@ -289,4 +289,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	fluttermaneaster: {tier: "FROU"},
 
+	thesolisknight: {tier: "FROU"},
+
+	meowmity: {tier: "FROU"},
+
 };
