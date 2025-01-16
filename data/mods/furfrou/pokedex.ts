@@ -321,7 +321,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Meowmity",
 		types: ["Poison", "Ghost"],
 		abilities: {0: "Moxie", H: "Technician"},
-		baseStats: {hp: 95, atk: 120, def: 40, spa: 75, spd: 60, spe: 130},
+		baseStats: {hp: 95, atk: 115, def: 40, spa: 90, spd: 50, spe: 130},
 		gender: "F",
 		heightm: 0.5,
 		weightkg: 5,
