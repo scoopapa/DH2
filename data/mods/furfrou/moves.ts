@@ -233,8 +233,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Recon Sector",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1, mustpressure: 1},
+		flags: {},
 		ignoreImmunity: true,
+		sideCondition: "reconsector",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magnet Rise", source);
@@ -243,9 +244,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			// this is a side condition
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Recon Sector');
+				this.add('-message', `A healing plasma runs through Ausma's team!`);
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Ground')) return;
+				if (pokemon.hasItem('heavydutyboots')) return;
 				if (this.field.isTerrain('electricterrain')) {
 					this.heal(pokemon.maxhp / 3);
 				} else {
