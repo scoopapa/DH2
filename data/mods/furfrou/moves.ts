@@ -279,7 +279,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	voltsector: {
 		num: -1002,
 		accuracy: 100,
-		basePower: 30,
+		basePower: 25,
 		category: "Special",
 		name: "Volt Sector",
 		shortDesc: "Move repeats at the end of the turn for 5 turns.",
