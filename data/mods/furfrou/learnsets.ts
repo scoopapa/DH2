@@ -2493,4 +2493,28 @@ export const Learnsets = {
 			endure: ["9M"],
 		},
 	},
+	meowmity: {
+		learnset: {
+			direclaw: ["9M"],
+			knockoff: ["9M"],
+			shadowclaw: ["9M"],
+			shadowsneak: ["9M"],
+			superpower: ["9M"],
+			suckerpunch: ["9M"],
+			uturn: ["9M"],
+			fakeout: ["9M"],
+			sludgewave: ["9M"],
+			acidspray: ["9M"],
+			shockwave: ["9M"],
+			mudshot: ["9M"],
+			mortalspin: ["9M"],
+			infernalparade: ["9M"],
+			shadowball: ["9M"],
+			workup: ["9M"],
+			uturn: ["9M"],
+			toxic: ["9M"],
+			taunt: ["9M"],
+			partingshot: ["9M"],
+			nastyplot: ["9M"],
+		}
 };
