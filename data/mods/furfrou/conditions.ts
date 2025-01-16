@@ -37,4 +37,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 			target.outFlickered = true;
 		},
 	},
+	solischarge: {
+		name: 'solischarge',
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onStart(target) {
+			this.add('-start', target, 'move: Light Parry');
+		},
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify(1.5);
+		},
+		onEnd(target) {
+			this.add('-end', target, 'Light Parry');
+		},
+	},
 };
