@@ -188,7 +188,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
-				this.effectState.pokemon = this.effectState.side.active[this.effectState.position];
+				this.effectState.pokemon = this.effectState.side[this.effectState.position];
 				const data = this.effectState;
 				const move = this.dex.moves.get('clusterboom');
 				const sideConditions = ['clustershrapnel'];
