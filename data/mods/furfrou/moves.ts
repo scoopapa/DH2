@@ -274,11 +274,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		flags: {},
 		ignoreImmunity: true,
 		isFutureMove: true,
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Magnet Rise", source);
-			this.add('-anim', target, "Magnet Rise", target);
-		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'voltsector')) return false;
 			Object.assign(target.side.slotConditions[target.position]['voltsector'], {
@@ -296,6 +291,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					priority: 0,
 					flags: {},
 					ignoreImmunity: false,
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', target, "Magnet Rise", target);
+					},
 					effectType: 'Move',
 					isFutureMove: true,
 					type: 'Electric',
