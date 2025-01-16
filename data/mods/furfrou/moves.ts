@@ -101,10 +101,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	         let worstStat = Number.MAX_VALUE;
 	         const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
 	         for (const i of stats) {
-	      	if (this.getStat(i, true, true) < worstStat) {
-	            statName = i;
-	            worstStat = this.getStat(i, true, true);
-	          }
+		      	if (this.getStat(i, true, true) < worstStat) {
+		            statName = i;
+		            worstStat = this.getStat(i, true, true);
+		      	}
 	      	}
 			}
       	this.boost({[worstStat]: 1}, source);
