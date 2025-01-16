@@ -81,7 +81,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 80,
 		category: "Physical",
 		name: "Wormhole Disruption",
-		shortDesc: "On hit, user lowers the target's highest stat by 1 stage.",
+		shortDesc: "On hit, user lowers its highest stat by 1 stage and increases its lowest by 1 stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -94,9 +94,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onHit(target) {
-			const bestStat = target.getBestStat(true, true);
-			this.boost({[bestStat]: -1}, target);
+		onHit(target, source, move) {
+			const bestStat = source.getBestStat(true, true);
+			if (effect && effect.effectType === 'Move') {
+	      	let statName: StatIDExceptHP = 'atk';
+	         let worstStat = Number.MAX_VALUE;
+	         const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+	         for (const i of stats) {
+	      	if (this.getStat(i, true, true) < worstStat) {
+	            statName = i;
+	            worstStat = this.getStat(i, true, true);
+	          }
+	      	}
+			}
+      	this.boost({[worstStat]: 1}, source);
+			this.boost({[bestStat]: -1}, source);
 		},
 		secondary: null,
 		target: "normal",
