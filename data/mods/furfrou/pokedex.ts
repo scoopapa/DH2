@@ -316,6 +316,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 3.5,
 		creator: "ausma",
 	},
+	meowmity: {
+		num: 2006,
+		name: "Meowmity",
+		types: ["Poison", "Ghost"],
+		abilities: {0: "Moxie", H: "Technician"},
+		baseStats: {hp: 95, atk: 120, def: 40, spa: 75, spd: 60, spe: 130},
+		gender: "F",
+		heightm: 0.5,
+		weightkg: 5,
+		creator: "Amity",
+	},
 	
 	// Kit changes //
 	fennekin: {
