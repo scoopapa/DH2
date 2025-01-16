@@ -453,7 +453,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["tidyup", "bodyslam", "knockoff", "superfang"]
 	},
 	shedinja: {
-		tier: "DoNU",
+		tier: "DoNU Uber",
 		doublesTier: "Restricted",
 		isNonstandard: null,
 		randomBattleMoves: ["poltergeist", "xscissor", "suckerpunch", "shadowsneak", "willowisp", "swordsdance"]
