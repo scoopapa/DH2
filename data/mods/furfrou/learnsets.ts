@@ -2496,6 +2496,7 @@ export const Learnsets = {
 	meowmity: {
 		learnset: {
 			direclaw: ["9M"],
+			gunkshot: ["9M"],
 			knockoff: ["9M"],
 			shadowclaw: ["9M"],
 			shadowsneak: ["9M"],
@@ -2511,11 +2512,19 @@ export const Learnsets = {
 			infernalparade: ["9M"],
 			shadowball: ["9M"],
 			workup: ["9M"],
+			honeclaws: ["9M"],
 			uturn: ["9M"],
 			toxic: ["9M"],
 			taunt: ["9M"],
 			partingshot: ["9M"],
 			nastyplot: ["9M"],
+			hyperbeam: ["9M"],
+			gigaimpact: ["9M"],
+			endure: ["9M"],
+			rest: ["9M"],
+			sleeptalk: ["9M"],
+			protect: ["9M"],
+			substitute: ["9M"],
 		},
 	},
 };
