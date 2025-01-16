@@ -181,4 +181,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	scarachnid: {
 		tier: "BC OU",
 	},
+	geigeramp: {
+		tier: "BC OU",
+	},
+	maldractice: {
+		tier: "BC OU",
+	},
+	serpvoltidae: {
+		tier: "BC OU",
+	},
 };
