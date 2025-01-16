@@ -249,8 +249,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				if (this.field.isTerrain('electricterrain')) {
+					this.add('-anim', pokemon, "Charge", pokemon);
 					this.heal(pokemon.maxhp / 3);
 				} else {
+					this.add('-anim', pokemon, "Charge", pokemon);
 					this.heal(pokemon.maxhp / 6);
 				}
 			},
