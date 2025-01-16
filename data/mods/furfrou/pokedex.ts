@@ -200,6 +200,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Korra's Shades",
 		creator: "viivian",
 	},
+	fluttermaneaster: {
+		num: 987,
+		name: "Flutter Mane-Aster",
+		types: ["Ghost", "Dragon"],
+		abilities: {0: "Protosynthesis"},
+		baseStats: {hp: 65, atk: 95, def: 65, spa: 135, spd: 95, spe: 125},
+		gender: "N",
+		heightm: 1.4,
+		weightkg: 4.0,
+		creator: "viivian",
+	},
 	
 	// Pure customs //
 	
@@ -294,17 +305,18 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 14.5,
 		creator: "ausma",
 	},
-	fluttermaneaster: {
-		num: 987,
-		name: "Flutter Mane-Aster",
-		types: ["Ghost", "Dragon"],
-		abilities: {0: "Protosynthesis"},
-		baseStats: {hp: 65, atk: 95, def: 65, spa: 135, spd: 95, spe: 125},
-		gender: "N",
-		heightm: 1.4,
-		weightkg: 4.0,
-		creator: "viivian",
+	thesolisknight: {
+		num: 2005,
+		name: "The Solis Knight",
+		types: ["Fighting", "Psychic"],
+		abilities: {0: "Speed Boost", H: "Sharpness"},
+		baseStats: {hp: 50, atk: 135, def: 100, spa: 60, spd: 90, spe: 65},
+		gender: "M",
+		heightm: 1.1,
+		weightkg: 3.5,
+		creator: "ausma",
 	},
+	
 	// Kit changes //
 	fennekin: {
 		inherit: true,
