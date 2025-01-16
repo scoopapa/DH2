@@ -629,7 +629,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["facade", "counter", "thunderwave", "rest", "sleeptalk"]
 	},
 	wooper: {
-		tier: "DoNU UU",
+		tier: "DoNU",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["stealthrock", "scald", "earthquake", "liquidation", "curse", "recover"]
