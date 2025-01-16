@@ -76,7 +76,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		isNonstandard: "Unobtainable",
 	},
 	wormholedisruption: {
-		num: 680,
+		num: -1024,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -116,7 +116,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever",
 	},
 	zodiacbreak: {
-		num: 617,
+		num: -1025,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
@@ -147,7 +147,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	clusterbomb: {
-		num: 830,
+		num: -1050,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -181,7 +181,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Fire",
 	},
 	clustershrapnel: {
-		num: 446,
+		num: -1050,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -206,7 +206,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				const sideConditions = ['clustershrapnel'];
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				
-				this.add('-anim', data.source, "Doom Desire", data.pokemon);
 				this.actions.trySpreadMoveHit([data.pokemon], data.source, hitMove);
 				
 				for (const condition of sideConditions) {
@@ -223,13 +222,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	clusterboom: {
-		num: 446,
+		num: -1050,
 		accuracy: true,
 		basePower: 60,
 		category: "Special",
 		name: "Cluster Boom",
 		pp: 20,
 		priority: 0,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Doom Desire', target);
+		},
 		flags: {metronome: 1, mustpressure: 1},
 		secondary: null,
 		target: "normal",
@@ -237,8 +242,80 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
+	lusterthrust: {
+		num: -1051,
+		accuracy: true,
+		basePower: 40,
+		category: "Physical",
+		name: "Luster Thrust",
+		pp: 20,
+		priority: 2,
+		flags: {metronome: 1, contact: 1, mustpressure: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Geomancy', source);
+			this.add('-anim', source, 'Quick Attack', target);
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.volatiles['solischarge']) {
+				return this.chainModify(2);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source.volatiles['solischarge']) {
+				delete source.volatiles['solischarge'];
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	lightparry: {
+		num: -1054,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Light Parry",
+		shortDesc: "Incoming damage is quartered. User gains Solis Charge (1.5x damage).",
+		pp: 10,
+		priority: 4,
+		flags: {bypasssub: 1, noassist: 1, failcopycat: 1},
+		volatileStatus: 'lightparry',
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			this.add('-anim', pokemon, 'Future Sight', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Light Parry');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				let mod /= 4;
+				return this.chainModify(mod);
+			},
+			onDamagingHit(damage, target, source, effect) {
+				source.addVolatile('solischarge');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'redirect'},
+		contestType: "Clever",
+	},
 	reconsector: {
-		num: 446,
+		num: -1060,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -277,7 +354,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever",
 	},
 	voltsector: {
-		num: -1002,
+		num: -1061,
 		accuracy: 100,
 		basePower: 25,
 		category: "Special",
