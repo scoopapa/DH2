@@ -332,7 +332,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				this.add('-anim', data.source, "Thundershock", data.target);
+				this.add('-anim', data.source, "Thunderbolt", data.target);
 				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
 			onEnd(target) {
@@ -352,7 +352,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				this.add('-anim', data.source, "Thundershock", data.target);
+				this.add('-anim', data.source, "Thunderbolt", data.target);
 				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);//??
 				if (data.source.species.baseSpecies === 'Ausma') this.add('-message', `Ausma's plane sectors retracted!`);
 				else this.add('-message', `The electric ambush ceased!`);
