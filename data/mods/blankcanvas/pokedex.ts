@@ -436,7 +436,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 38,
 	},
 	seaode: {
-		num: 1201,
+		num: 9054,
 		name: "Seaode",
 		types: ["Rock", "Water"],
 		baseStats: {hp: 70, atk: 115, def: 100, spa: 40, spd: 70, spe: 110},
@@ -444,7 +444,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 121,
 	},
 	plasmage: {
-		num: 1202,
+		num: 9055,
 		name: "Plasmage",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 100, atk: 55, def: 70, spa: 105, spd: 75, spe: 115},
@@ -452,7 +452,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 85,
 	},
 	porcupyre: {
-		num: 1203,
+		num: 9056,
 		name: "Porcupyre",
 		types: ["Dark", "Fire"],
 		baseStats: {hp: 90, atk: 90, def: 125, spa: 40, spd: 80, spe: 70},
@@ -460,7 +460,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 66.6,
 	},
 	bellolysk: {
-		num: 1201,
+		num: 9057,
 		name: "Bellolysk",
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 100, atk: 85, def: 85, spa: 85, spd: 75, spe: 70},
@@ -468,7 +468,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 999,
 	},
 	tryonite: {
-		num: 1202,
+		num: 9058,
 		name: "Tryonite",
 		types: ["Bug", "Rock"],
 		baseStats: {hp: 75, atk: 75, def: 80, spa: 90, spd: 105, spe: 70},
@@ -476,11 +476,35 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 7,
 	},
 	scarachnid: {
-		num: 1203,
+		num: 9059,
 		name: "Scarachnid",
 		types: ["Ghost", "Bug"],
 		baseStats: {hp: 81, atk: 112, def: 70, spa: 31, spd: 70, spe: 121},
 		abilities: {0: "Regenerator", H: "Perish Body"},
 		weightkg: 14,
+	},
+	geigeramp: {
+		num: 9060,
+		name: "Geigeramp",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 100, atk: 50, def: 100, spa: 100, spd: 100, spe: 75},
+		abilities: {0: "Levitate"},
+		weightkg: 20,
+	},
+	maldractice: {
+		num: 9061,
+		name: "Maldractice",
+		types: ["Dragon", "Poison"],
+		baseStats: {hp: 110, atk: 100, def: 60, spa: 20, spd: 115, spe: 40},
+		abilities: {0: "Own Tempo", H: "Corrosion"},
+		weightkg: 67,
+	},
+	serpvoltidae: {
+		num: 9062,
+		name: "Serpvoltidae",
+		types: ["Electric", "Ground"],
+		baseStats: {hp: 110, atk: 45, def: 90, spa: 100, spd: 90, spe: 45},
+		abilities: {0: "Teravolt", H: "Shed Skin"},
+		weightkg: 69,
 	},
 };
