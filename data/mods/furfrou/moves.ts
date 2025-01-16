@@ -91,6 +91,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Dark Void', target);
 		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
 		onHit(target) {
 			const bestStat = target.getBestStat(true, true);
 			this.boost({[bestStat]: -1}, target);
@@ -262,6 +265,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 40,
 		category: "Special",
 		name: "Volt Sector",
+		shortDesc: "Move repeats at the end of the turn for 5 turns.",
 		pp: 20,
 		priority: 0,
 		flags: {},
