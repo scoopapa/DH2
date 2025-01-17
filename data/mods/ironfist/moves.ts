@@ -1750,24 +1750,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldactivate', 'move: Lion Deluge');
 				this.hint(`Certin types of moves cause the user to become a lion Pokemon after using ${sourceEffect}.`);
 			},
-			onResidual(pokemon) {
-				const roars = ["Alluring Voice", "Boomburst", "Bug Buzz", "Chatter", "Clanging Scales", "Clangorous Soul", "Clangorous Soulblaze", "Confide", "Disarming Voice", "Echoed Voice", "Eerie Spell", "Grass Whistle", "Growl", "Heal Bell", "Howl", "Hyper Voice", "Metal Sound", "Noble Roar", "Overdrive", "Parting Shot", "Perish Song", "Psychic Noise", "Relic Song", "Roar", "Roar of Time", "Round", "Screech", "Sing", "Snarl", "Snore", "Sparkling Aria", "Supersonic", "Torch Song", "Uproar"];
-				let target = pokemon;
-				const roar = this.dex.getActiveMove(this.sample(roars));
-				if (roar.target != "self") {
-					if(pokemon.adjacentFoes().length == 0) return;
-					target = this.sample(pokemon.adjacentFoes());
-				}
-				this.add('-message', `${pokemon.name} roared!`);
-				this.actions.useMove(roar, pokemon, target);
-			},
 			onBeforeMove(pokemon, target, move) {
+				if(!move.flags['sound']) return;
 				if(move.type === 'Normal') pokemon.formeChange('Pyroar');
 				if(move.type === 'Electric') pokemon.formeChange('Luxray');
 				if(move.type === 'Fire') pokemon.formeChange('Entei');
 				if(move.type === 'Dragon') pokemon.formeChange('Gouging Fire');
 				if(move.type === 'Steel') pokemon.formeChange('Solgaleo');
 				if(move.type === 'Psychic') pokemon.formeChange('Necrozma-Dusk-Mane');
+			},
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Lion Deluge');
 			},
 		},
 		secondary: null,
