@@ -2391,7 +2391,7 @@ export const Learnsets = {
 			sleeptalk: ["9M"],
 		},
 	},
-	thesolisknight: {
+	solisknight: {
 		learnset: {
 			lightparry: ["9M"],
 			lusterthrust: ["9M"],
