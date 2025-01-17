@@ -338,10 +338,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				if (this.field.isTerrain('electricterrain')) {
 					this.add('-anim', pokemon, "Charge", pokemon);
-					this.heal(pokemon.maxhp / 3);
+					this.heal(pokemon.maxhp / 4);
 				} else {
 					this.add('-anim', pokemon, "Charge", pokemon);
-					this.heal(pokemon.maxhp / 6);
+					this.heal(pokemon.maxhp / 8);
 				}
 			},
 		},
