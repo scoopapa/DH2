@@ -79,7 +79,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -1024,
 		accuracy: 100,
 		basePower: 80,
-		category: "Physical",
+		category: "Special",
 		name: "Wormhole Disruption",
 		shortDesc: "On hit, user lowers its highest stat by 1 stage and increases its lowest by 1 stage.",
 		pp: 15,
