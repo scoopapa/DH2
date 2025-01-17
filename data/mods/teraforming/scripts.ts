@@ -98,10 +98,16 @@ export const Scripts: ModdedBattleScriptsData = {
 				const tera = pokemon.species.id === 'hydrapple' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
-			if (pokemon.species.baseSpecies === 'Pawmot') {
-				const tera = pokemon.species.id === 'pawmot' ? 'tera' : 'tera';
-				pokemon.formeChange(pokemon.species.id + tera, null, true);
-			}
+			if (pokemon.species.name === 'Pawmot' && type === 'Electric') {
+	        pokemon.formeChange('Pawmot-Tera', null, true);
+	        pokemon.baseMaxhp = Math.floor(Math.floor(
+	          2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+	        ) * pokemon.level / 100 + 10);
+	        const newMaxHP = pokemon.baseMaxhp;
+	        pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+	        pokemon.maxhp = newMaxHP;
+	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+      	}
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},
