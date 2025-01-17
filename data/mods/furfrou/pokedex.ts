@@ -12,7 +12,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Water", "Dragon"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 130, atk: 65, def: 60, spa: 110, spd: 95, spe: 65},
-		abilities: {0: "Multiscale", H: "Water Absorb"},soli
+		abilities: {0: "Multiscale", H: "Water Absorb"},
 		heightm: 1,
 		weightkg: 29,
 		creator: "antyytna",
