@@ -301,8 +301,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.add('-singleturn', target, 'Light Parry');
 			},
 			onSourceModifyDamage(damage, source, target, move) {
-				let mod /= 4;
-				return this.chainModify(mod);
+				return this.chainModify(0.25);
 			},
 			onDamagingHit(damage, target, source, effect) {
 				source.addVolatile('solischarge');
