@@ -252,7 +252,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "ausma",
 	},
 	calico: {
-		num: 2002,
+		num: 2008,
 		name: "Calico",
 		types: ["Water", "Normal"],
 		baseStats: {hp: 140, atk: 70, def: 34, spa: 80, spd: 84, spe: 112},
@@ -263,7 +263,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "uppa",
 	},
 	hope: {
-		num: 2002,
+		num: 2009,
 		name: "Hope",
 		types: ["Fighting", "Normal"],
 		baseStats: {hp: 112, atk: 84, def: 140, spa: 70, spd: 80, spe: 34},
