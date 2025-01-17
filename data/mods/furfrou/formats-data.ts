@@ -29,12 +29,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	fennekin: {tier: "FROU (NFE)"},
 	braixen: {tier: "FROU (NFE)"},
 	delphox: {tier: "FROU"},
+
+	litten: {tier: "FROU (NFE)"},
+	torracat: {tier: "FROU (NFE)"},
+	incineroar: {tier: "FROU"},
 	
 	popplio: {tier: "FROU (NFE)"},
 	brionne: {tier: "FROU (NFE)"},
 	brionneviolet: {tier: "FROU"},
 	brionnevioletswimming: {tier: "FROU"},
 	primarina: {tier: "FROU"},
+
+	ferroseed: {tier: "FROU (NFE)"},
+	ferrothorn: {tier: "FROU"},
 	
 	sentret: {tier: "FROU (NFE)"},
 	furret: {tier: "FROU"},
@@ -281,5 +288,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	deterraven: {tier: "FROU"},
 
 	fluttermaneaster: {tier: "FROU"},
+
+	thesolisknight: {tier: "FROU"},
+
+	meowmity: {tier: "FROU"},
 
 };

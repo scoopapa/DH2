@@ -76,12 +76,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		isNonstandard: "Unobtainable",
 	},
 	wormholedisruption: {
-		num: 680,
+		num: -1024,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
 		name: "Wormhole Disruption",
-		shortDesc: "On hit, user lowers the target's highest stat by 1 stage.",
+		shortDesc: "On hit, user lowers its highest stat by 1 stage and increases its lowest by 1 stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -91,9 +91,24 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Dark Void', target);
 		},
-		onHit(target) {
-			const bestStat = target.getBestStat(true, true);
-			this.boost({[bestStat]: -1}, target);
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onHit(target, source, move) {
+			const bestStat = source.getBestStat(true, true);
+			if (effect && effect.effectType === 'Move') {
+	      	let statName: StatIDExceptHP = 'atk';
+	         let worstStat = Number.MAX_VALUE;
+	         const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+	         for (const i of stats) {
+		      	if (this.getStat(i, true, true) < worstStat) {
+		            statName = i;
+		            worstStat = this.getStat(i, true, true);
+		      	}
+	      	}
+			}
+      	this.boost({[worstStat]: 1}, source);
+			this.boost({[bestStat]: -1}, source);
 		},
 		secondary: null,
 		target: "normal",
@@ -101,7 +116,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever",
 	},
 	zodiacbreak: {
-		num: 617,
+		num: -1025,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
@@ -132,7 +147,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	clusterbomb: {
-		num: 830,
+		num: -1050,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -140,6 +155,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		shortDesc: "User sets a hazard that repeats this attack on entry.",
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -165,7 +181,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Fire",
 	},
 	clustershrapnel: {
-		num: 446,
+		num: -1050,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -184,13 +200,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
-				this.effectState.pokemon = this.effectState.side.active[this.effectState.position];
+				this.effectState.pokemon = this.effectState.side[this.effectState.position];
 				const data = this.effectState;
 				const move = this.dex.moves.get('clusterboom');
 				const sideConditions = ['clustershrapnel'];
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				
-				this.add('-anim', data.source, "Doom Desire", data.pokemon);
 				this.actions.trySpreadMoveHit([data.pokemon], data.source, hitMove);
 				
 				for (const condition of sideConditions) {
@@ -207,13 +222,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	clusterboom: {
-		num: 446,
+		num: -1050,
 		accuracy: true,
 		basePower: 60,
 		category: "Special",
 		name: "Cluster Boom",
 		pp: 20,
 		priority: 0,
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Doom Desire', target);
+		},
 		flags: {metronome: 1, mustpressure: 1},
 		secondary: null,
 		target: "normal",
@@ -221,16 +242,88 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
+	lusterthrust: {
+		num: -1051,
+		accuracy: true,
+		basePower: 40,
+		category: "Physical",
+		name: "Luster Thrust",
+		pp: 20,
+		priority: 2,
+		flags: {metronome: 1, contact: 1, mustpressure: 1},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Geomancy', source);
+			this.add('-anim', source, 'Quick Attack', target);
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.volatiles['solischarge']) {
+				return this.chainModify(2);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source.volatiles['solischarge']) {
+				delete source.volatiles['solischarge'];
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
+	lightparry: {
+		num: -1054,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Light Parry",
+		shortDesc: "Incoming damage is quartered. User gains Solis Charge (1.5x damage).",
+		pp: 10,
+		priority: 4,
+		flags: {bypasssub: 1, noassist: 1, failcopycat: 1},
+		volatileStatus: 'lightparry',
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			this.add('-anim', pokemon, 'Future Sight', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Light Parry');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				return this.chainModify(0.25);
+			},
+			onDamagingHit(damage, target, source, effect) {
+				source.addVolatile('solischarge');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'redirect'},
+		contestType: "Clever",
+	},
 	reconsector: {
-		num: 446,
+		num: -1060,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Recon Sector",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1, mustpressure: 1},
+		flags: {},
 		ignoreImmunity: true,
+		sideCondition: "reconsector",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magnet Rise", source);
@@ -239,12 +332,15 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			// this is a side condition
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Recon Sector');
+				this.add('-message', `A healing plasma runs through Ausma's team!`);
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasType('Ground')) return;
+				if (pokemon.hasItem('heavydutyboots')) return;
 				if (this.field.isTerrain('electricterrain')) {
+					this.add('-anim', pokemon, "Charge", pokemon);
 					this.heal(pokemon.maxhp / 3);
 				} else {
+					this.add('-anim', pokemon, "Charge", pokemon);
 					this.heal(pokemon.maxhp / 6);
 				}
 			},
@@ -257,21 +353,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Clever",
 	},
 	voltsector: {
-		num: -1002,
+		num: -1061,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 25,
 		category: "Special",
 		name: "Volt Sector",
+		shortDesc: "Move repeats at the end of the turn for 5 turns.",
 		pp: 20,
 		priority: 0,
 		flags: {},
 		ignoreImmunity: true,
 		isFutureMove: true,
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Magnet Rise", source);
-			this.add('-anim', target, "Magnet Rise", target);
-		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'voltsector')) return false;
 			Object.assign(target.side.slotConditions[target.position]['voltsector'], {
@@ -289,6 +381,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					priority: 0,
 					flags: {},
 					ignoreImmunity: false,
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', target, "Magnet Rise", target);
+					},
 					effectType: 'Move',
 					isFutureMove: true,
 					type: 'Electric',
@@ -327,7 +423,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				this.add('-anim', data.source, "Thundershock", data.target);
+				this.add('-anim', data.source, "Thunderbolt", data.target);
 				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
 			onEnd(target) {
@@ -347,7 +443,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				this.add('-anim', data.source, "Thundershock", data.target);
+				this.add('-anim', data.source, "Thunderbolt", data.target);
 				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);//??
 				if (data.source.species.baseSpecies === 'Ausma') this.add('-message', `Ausma's plane sectors retracted!`);
 				else this.add('-message', `The electric ambush ceased!`);
