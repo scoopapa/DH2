@@ -252,7 +252,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "ausma",
 	},
 	calico: {
-		num: 2002,
+		num: 2008,
 		name: "Calico",
 		types: ["Water", "Normal"],
 		baseStats: {hp: 140, atk: 70, def: 34, spa: 80, spd: 84, spe: 112},
@@ -263,7 +263,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "uppa",
 	},
 	hope: {
-		num: 2002,
+		num: 2009,
 		name: "Hope",
 		types: ["Fighting", "Normal"],
 		baseStats: {hp: 112, atk: 84, def: 140, spa: 70, spd: 80, spe: 34},
@@ -305,9 +305,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 14.5,
 		creator: "ausma",
 	},
-	thesolisknight: {
+	solisknight: {
 		num: 2005,
-		name: "The Solis Knight",
+		name: "Solis Knight",
 		types: ["Fighting", "Psychic"],
 		abilities: {0: "Speed Boost", H: "Sharpness"},
 		baseStats: {hp: 50, atk: 135, def: 100, spa: 60, spd: 90, spe: 65},
