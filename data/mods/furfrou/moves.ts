@@ -304,7 +304,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return this.chainModify(0.25);
 			},
 			onDamagingHit(damage, target, source, effect) {
-				source.addVolatile('solischarge');
+				target.addVolatile('solischarge');
 			},
 		},
 		secondary: null,
