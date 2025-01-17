@@ -2513,7 +2513,6 @@ export const Learnsets = {
 			shadowball: ["9M"],
 			workup: ["9M"],
 			honeclaws: ["9M"],
-			uturn: ["9M"],
 			toxic: ["9M"],
 			taunt: ["9M"],
 			partingshot: ["9M"],
