@@ -12,7 +12,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Water", "Dragon"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 130, atk: 65, def: 60, spa: 110, spd: 95, spe: 65},
-		abilities: {0: "Multiscale", H: "Water Absorb"},
+		abilities: {0: "Multiscale", H: "Water Absorb"},soli
 		heightm: 1,
 		weightkg: 29,
 		creator: "antyytna",
@@ -305,9 +305,9 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 14.5,
 		creator: "ausma",
 	},
-	thesolisknight: {
+	solisknight: {
 		num: 2005,
-		name: "The Solis Knight",
+		name: "Solis Knight",
 		types: ["Fighting", "Psychic"],
 		abilities: {0: "Speed Boost", H: "Sharpness"},
 		baseStats: {hp: 50, atk: 135, def: 100, spa: 60, spd: 90, spe: 65},
