@@ -2541,7 +2541,6 @@ export const Learnsets = {
 			boomburst: ["9M"],
 			stealthrock: ["9M"],
 			irondefense: ["9M"],
-			slackoff: ["9M"],
 			taunt: ["9M"],
 			block: ["9M"],
 			yawn: ["9M"],
