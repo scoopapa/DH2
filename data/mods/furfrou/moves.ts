@@ -360,6 +360,27 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		maxMove: {basePower: 130},
 		contestType: "Clever",
 	},
+	triplekick: {
+		num: 167,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		category: "Physical",
+		name: "Triple Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 80},
+		contestType: "Cool",
+	},
 	reconsector: {
 		num: -1060,
 		accuracy: true,
