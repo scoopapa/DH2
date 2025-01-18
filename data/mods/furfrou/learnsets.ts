@@ -1345,6 +1345,7 @@ export const Learnsets = {
 			trick: ["9M"],
 			wonderroom: ["9M"],
 			wormholedisruption: ["9M"],
+			shadowball: ["9M"],
 		},
 	},
 	slowkinggalar: {
