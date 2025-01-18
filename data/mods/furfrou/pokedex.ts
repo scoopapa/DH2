@@ -321,6 +321,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Foton-Knight",
 		baseSpecies: "Foton",
 		forme: "Knight",
+		requiredItem: "Neca Sabre",
 		types: ["Fighting", "Psychic"],
 		abilities: {0: "Speed Boost", H: "Sharpness"},
 		baseStats: {hp: 50, atk: 135, def: 100, spa: 60, spd: 90, spe: 65},
