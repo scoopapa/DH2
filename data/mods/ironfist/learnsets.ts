@@ -10088,7 +10088,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			suckerpunch: ["9L1"],
 			spikes: ["9L1"],
 			toxicthread: ["9L1"],
-			faintattack: ["9L1"],
+			feintattack: ["9L1"],
 			switcheroo: ["9L1"],
 			eerieimpulse: ["9L1"],
 			astonish: ["9L1"],

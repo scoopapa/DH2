@@ -200,6 +200,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: "Korra's Shades",
 		creator: "viivian",
 	},
+	fluttermaneaster: {
+		num: 987,
+		name: "Flutter Mane-Aster",
+		types: ["Ghost", "Dragon"],
+		abilities: {0: "Protosynthesis"},
+		baseStats: {hp: 65, atk: 95, def: 65, spa: 135, spd: 95, spe: 125},
+		gender: "N",
+		heightm: 1.4,
+		weightkg: 4.0,
+		creator: "viivian",
+	},
 	
 	// Pure customs //
 	
@@ -241,7 +252,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "ausma",
 	},
 	calico: {
-		num: 2002,
+		num: 2008,
 		name: "Calico",
 		types: ["Water", "Normal"],
 		baseStats: {hp: 140, atk: 70, def: 34, spa: 80, spd: 84, spe: 112},
@@ -252,7 +263,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		creator: "uppa",
 	},
 	hope: {
-		num: 2002,
+		num: 2009,
 		name: "Hope",
 		types: ["Fighting", "Normal"],
 		baseStats: {hp: 112, atk: 84, def: 140, spa: 70, spd: 80, spe: 34},
@@ -294,17 +305,29 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 14.5,
 		creator: "ausma",
 	},
-	fluttermaneaster: {
-		num: 987,
-		name: "Flutter Mane-Aster",
-		types: ["Ghost", "Dragon"],
-		abilities: {0: "Protosynthesis"},
-		baseStats: {hp: 65, atk: 95, def: 65, spa: 135, spd: 95, spe: 125},
-		gender: "N",
-		heightm: 1.4,
-		weightkg: 4.0,
-		creator: "viivian",
+	solisknight: {
+		num: 2005,
+		name: "Solis Knight",
+		types: ["Fighting", "Psychic"],
+		abilities: {0: "Speed Boost", H: "Sharpness"},
+		baseStats: {hp: 50, atk: 135, def: 100, spa: 60, spd: 90, spe: 65},
+		gender: "M",
+		heightm: 1.1,
+		weightkg: 3.5,
+		creator: "ausma",
 	},
+	meowmity: {
+		num: 2006,
+		name: "Meowmity",
+		types: ["Poison", "Ghost"],
+		abilities: {0: "Moxie", H: "Technician"},
+		baseStats: {hp: 95, atk: 115, def: 40, spa: 90, spd: 50, spe: 130},
+		gender: "F",
+		heightm: 0.5,
+		weightkg: 5,
+		creator: "Amity",
+	},
+	
 	// Kit changes //
 	fennekin: {
 		inherit: true,
