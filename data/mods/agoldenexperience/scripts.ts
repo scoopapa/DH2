@@ -329,6 +329,7 @@ export const Scripts: ModdedBattleScriptsData = {
     // hardwareheat 
     this.modData('Learnsets', 'magnezone').learnset.hardwareheat = ['8L1'];
     this.modData('Learnsets', 'magearna').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'magearnaoriginal').learnset.hardwareheat = ['8L1'];
     this.modData('Learnsets', 'porygon').learnset.hardwareheat = ['8L1'];
     this.modData('Learnsets', 'silvally').learnset.hardwareheat = ['8L1'];
     this.modData('Learnsets', 'scizorgalar').learnset.hardwareheat = ['8L1'];
@@ -1025,6 +1026,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'goodrahisui').learnset.mercuryshot = ['9M'];
     this.modData('Learnsets', 'genesect').learnset.mercuryshot = ['9M'];
     this.modData('Learnsets', 'magearna').learnset.mercuryshot = ['9M'];
+    this.modData('Learnsets', 'magearnaoriginal').learnset.mercuryshot = ['9M'];
     this.modData('Learnsets', 'stonlet').learnset.mercuryshot = ['9M'];
     this.modData('Learnsets', 'rockster').learnset.mercuryshot = ['9M'];
 
@@ -1584,6 +1586,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['9L1'];
     delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
     delete this.modData('Learnsets', 'magearna').learnset.storedpower;
+    delete this.modData('Learnsets', 'magearnaoriginal').learnset.drainingkiss;
+    delete this.modData('Learnsets', 'magearnaoriginal').learnset.storedpower;
     this.modData('Learnsets', 'stakataka').learnset.zawall = ['9M'];
     this.modData('Learnsets', 'blacephalon').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'blacephalon').learnset.shadowsneak = ['9L1'];

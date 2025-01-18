@@ -555,6 +555,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	absorbbulb: {
 		inherit: true,
+		onStart(target) {
+			if (!target.ignoringItem()) {
+				this.add('-item', target, 'Absorb Bulb');
+			}
+		},
 		onTryHit(target, source, move) {
 			if (move.type === 'Water') {
 				target.useItem();
@@ -565,6 +570,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	cellbattery: {
 		inherit: true,
+		onStart(target) {
+			if (!target.ignoringItem()) {
+				this.add('-item', target, 'Cell Battery');
+			}
+		},
 		onTryHit(target, source, move) {
 			if (move.type === 'Electric') {
 				target.useItem();
@@ -575,6 +585,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	snowball: {
 		inherit: true,
+		onStart(target) {
+			if (!target.ignoringItem()) {
+				this.add('-item', target, 'Snowball');
+			}
+		},
 		onTryHit(target, source, move) {
 			if (move.type === 'Ice') {
 				target.useItem();

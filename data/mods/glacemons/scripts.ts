@@ -583,6 +583,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "magearna").learnset.salvestrike = ['9L1'];
 		delete this.modData('Learnsets', 'magearna').learnset.calmmind;
 		delete this.modData('Learnsets', 'magearna').learnset.storedpower;
+		this.modData("Learnsets", "magearnaoriginal").learnset.salvestrike = ['9L1'];
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.calmmind;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.storedpower;
 		this.modData("Learnsets", "glaceon").learnset.slackoff = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.earthpower = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.scorchingsands = ['9L1'];
