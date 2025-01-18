@@ -313,6 +313,53 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		zMove: {effect: 'redirect'},
 		contestType: "Clever",
 	},
+	necashrapnel: {
+		num: -4000,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Neca Shrapnel",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		shortDesc: "User hits 2-5 times. Secondary effect and chance depends on terrain.",
+		multihit: [2, 5],
+		secondary: {}, // sheer force
+		target: "normal",
+		type: "Psychic",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Power Gem', target);
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (this.field.isTerrain('mistyterrain')) {
+				if (this.randomChance(1, 5)) {
+					if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
+						this.boost({atk: -1}, target);
+					} else this.boost({spa: -1}, target);
+				}
+			} else if (this.field.isTerrain('grassyterrain')) {
+				if (this.randomChance(1, 5)) {
+					this.boost({spe: -1}, target);
+				}
+			} else if (this.field.isTerrain('psychicterrain')) {
+				if (this.randomChance(1, 5)) {
+					this.boost({def: -1}, target);
+				}
+			} else if (this.field.isTerrain('electricterrain')) {
+				if (this.randomChance(1, 10)) {
+					source.trySetStatus('par', target);
+				}
+			} else if (this.randomChance(1, 10)) {
+				source.trySetStatus('psn', target);
+			}
+		},
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Clever",
+	},
 	reconsector: {
 		num: -1060,
 		accuracy: true,
