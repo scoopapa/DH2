@@ -548,6 +548,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mystao').learnset.musclecare = ['9L1'];
 
     // dissolution 
+    this.modData('Learnsets', 'venusaur').learnset.dissolution = ['9M'];
     this.modData('Learnsets', 'arbok').learnset.dissolution = ['9M'];
     this.modData('Learnsets', 'grimer').learnset.dissolution = ['9M'];
     this.modData('Learnsets', 'grimeralola').learnset.dissolution = ['9M'];
@@ -575,6 +576,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'lickilicky').learnset.dissolution = ['9M'];
     this.modData('Learnsets', 'annoyog').learnset.dissolution = ['9M'];
     this.modData('Learnsets', 'cradily').learnset.dissolution = ['9M'];
+    this.modData('Learnsets', 'appletun').learnset.dissolution = ['9M'];
 
     // landslide 
     this.modData('Learnsets', 'hippopotas').learnset.landslide = ['9M'];
