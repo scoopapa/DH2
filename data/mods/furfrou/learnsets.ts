@@ -2439,7 +2439,6 @@ export const Learnsets = {
 			endeavor: ["9M"],
 			aircutter: ["9M"],
 			faintattack: ["9M"],
-			suckerpunch: ["9M"],
 			poisonjab: ["9M"],
 			xscissor: ["9M"],
 			afteryou: ["9M"],
