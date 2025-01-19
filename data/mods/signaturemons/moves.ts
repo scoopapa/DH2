@@ -358,6 +358,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
 		name: "Fake Branch",
+		desc: "The user charges a hit, then strikes its target at full force with its fake tree branch. The user will try to avoid Water-type attacks during the charge.",
+		shortDesc: "Moves last. Avoid Water-type move for the turn.",
 		pp: 15,
 		priority: -3,
 		flags: {contact: 1, protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
@@ -372,9 +374,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onTryHitPriority: 2,
 			onTryHit(target, source, move) {
 				if (move.type === 'Water' && move.accuracy !== true) {
-					this.add('cant', source, 'Fake Branch');
+					move.damage *= 0;
 					this.hint("When charging Fake Branch, the user will avoid Water-type moves unless there is no accuracy check.");
-					//move.accuracy == 0;
+					this.add('-fail', source);
+					this.attrLastMove('[still]');
 
 					const lockedmove = source.getVolatile('lockedmove');
 					if (lockedmove) {
