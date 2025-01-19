@@ -422,6 +422,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 	},
+	//Noivern
+	killerwail: {
+		num: 3014,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Killer Wail",
+		desc: "The user blasts its target with ultrasonic soundwaves. This move has a high chance of landing a critical hit.",
+		shortDesc: "Sound move. High critical hit ratio",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "any",
+		type: "Dragon",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself

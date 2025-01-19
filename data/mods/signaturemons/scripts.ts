@@ -31,6 +31,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'scolipede').learnset.poisonwheel = ['9L1'];
 		this.modData('Learnsets', 'hydreigon').learnset.triplethreat = ['9L1'];
 
+		//Gen 6
+		this.modData('Learnsets', 'noivern').learnset.killerwail = ['9L1'];
+
 		//Gen 9
 		this.modData('Learnsets', 'toedscruel').learnset.tentaclelock = ['9L1'];
 	}
