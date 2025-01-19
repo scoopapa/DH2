@@ -296,6 +296,40 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	//Gastrodon
+	stickyslime: {
+		num: 3010,
+		accuracy: 90,
+		basePower: 60,
+		category: "Special",
+		name: "Sticky Slime",
+		desc: "The user shoots a sticky ooze that traps the target during its next turn. After making its attack, the user switches out immediately.",
+		shortDesc: "Prevents target from switching out on the next turn. User switches out.",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		//We got 2 possible codes for trapping here, this one is from Fairy Lock
+		condition: {
+			duration: 2,
+			onFieldStart(target) {
+				this.add('-fieldactivate', 'move: Sticky Slime');
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+		},
+		secondary: null,
+		//This code is from Anchor Shot
+		/*secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},*/
+		target: "normal",
+		type: "Water",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself
