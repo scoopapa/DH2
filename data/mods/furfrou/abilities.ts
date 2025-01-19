@@ -52,7 +52,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	enviousaura: {
 		onModifyDamage(damage, source, target, move) {
-			if (target.positiveBoosts > 0) {
+			if (target.positiveBoosts() > 0) {
 				return this.chainModify(1.5);
 			}
 		}, //unaware bit coded separately
