@@ -276,6 +276,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 	},
+	//Hydreigon
+	triplethreat: {
+		num: 3009,
+		accuracy: 90,
+		basePower: 30,
+		category: "Special",
+		name: "Triple Threat",
+		desc: "The user fires menacing beams from its heads, hitting the target 3 times in a row. This move may make the target flinch.",
+		shortDesc: "Hits 3 times. 20% chance of Flinch.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Dark",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself

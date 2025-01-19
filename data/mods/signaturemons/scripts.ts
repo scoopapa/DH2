@@ -22,6 +22,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'roserade').learnset.secretthorns = ['9L1'];
 		this.modData('Learnsets', 'froslass').learnset.curseofsnow = ['9L1'];
 
+		//Gen 5
+		this.modData('Learnsets', 'hydreigon').learnset.triplethreat = ['9L1'];
+
 		//Gen 9
 		this.modData('Learnsets', 'toedscruel').learnset.tentaclelock = ['9L1'];
 	}
