@@ -331,6 +331,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 	},
+	//Snorlax
+	bellyflop: {
+		num: 3011,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Bellyflop",
+		desc: "The user crushes the target under the weight of its belly. This move can be used even if the user is asleep, and can leave the target with paralysis.",
+		shortDesc: "20% chance of Paralysis. Can be used in Sleep.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		sleepUsable: true,
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Normal",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself

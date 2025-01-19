@@ -13,6 +13,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'dugtrio').learnset.tripledig = ['9L1'];
 		this.modData('Learnsets', 'dugtrioalola').learnset.tripledig = ['9L1'];
 		this.modData('Learnsets', 'tentacruel').learnset.tentaclelock = ['9L1'];
+		this.modData('Learnsets', 'snorlax').learnset.bellyflop = ['9L1'];
 
 		//Gen 3
 		this.modData('Learnsets', 'spinda').learnset.spintowin = ['9L1'];
