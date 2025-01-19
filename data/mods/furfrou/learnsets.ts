@@ -1346,6 +1346,7 @@ export const Learnsets = {
 			wonderroom: ["9M"],
 			wormholedisruption: ["9M"],
 			shadowball: ["9M"],
+			moonblast: ["9M"],
 		},
 	},
 	slowkinggalar: {
