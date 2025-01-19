@@ -373,16 +373,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 2,
 			onTryHit(target, source, move) {
-				if (move.type === 'Water' && move.accuracy !== true) {
-					this.add('-activate', target, 'move: Fake Branch');
-					this.hint("When charging Fake Branch, the user will avoid Water-type moves unless there is no accuracy check.");
+				//If move is not Water-type, nothing changes
+				if (move.type !== 'Water') {
+					return;
+				}
+				//If move is Water-type without accuracy check, user still takes damage
+				if (move.type === 'Water' && move.accuracy === true) {
+					return;
+				}
+				//If move is Water-type with accuracy check, user will avoid damage
+				this.add('-activate', target, 'move: Fake Branch');
+				this.hint("When charging Fake Branch, the user will avoid Water-type moves unless there is no accuracy check.");
 
-					const lockedmove = source.getVolatile('lockedmove');
-					if (lockedmove) {
-						// Outrage counter is reset
-						if (source.volatiles['lockedmove'].duration === 2) {
-							delete source.volatiles['lockedmove'];
-						}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
 					}
 				}
 				return this.NOT_FAIL;
