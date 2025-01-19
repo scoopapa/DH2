@@ -94,7 +94,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onHit(target, source, move) {
+		onDamage(damage, target, source, effect) {
 			const bestStat = source.getBestStat(true, true);
 			if (effect && effect.effectType === 'Move') {
 	      	let statName: StatIDExceptHP = 'atk';
