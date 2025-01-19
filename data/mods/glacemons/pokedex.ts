@@ -2015,4 +2015,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Nostalgia Trip", H: "Moxie"},
 	},
+	cherrimsunshine: {
+		inherit: true,
+		types: ["Grass", "Fire"]
+	},
 };

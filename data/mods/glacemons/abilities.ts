@@ -817,6 +817,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify([4915, 4096]);
 			}
 		},
+		//copy and pasted code from desolate land, so it actually ends
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('flowergift')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
 		shortDesc: "If Cherrim: in Sun, transforms to Sunshine form, boosts Atk, Def, SpA, SpD, and Spd by 1.5x, boosts all moves by 1.2x, and changes weather to Desolate Land.",
 	},
 };
