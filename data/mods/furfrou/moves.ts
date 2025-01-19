@@ -1411,4 +1411,45 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
+	toxicgreed: {
+		num: 738,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Toxic Greed",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bitter Malice", target);
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				if (pokemon.hasType('Poison')) return null;
+				this.add('-start', pokemon, 'Toxic Greed');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.getAtSlot(pokemon.volatiles['toxicgreed'].sourceSlot);
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 16, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'toxicgreed',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
 };
