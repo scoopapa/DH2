@@ -309,17 +309,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: -6,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		selfSwitch: true,
-		//We got 2 possible codes for trapping here, this one is from Fairy Lock
+		//Trapping : Modified code from Fairy Lock and Anchor Shot
 		condition: {
 			duration: 2,
-			onFieldStart(target) {
+			/*onFieldStart(target) {
 				this.add('-fieldactivate', 'move: Sticky Slime');
+			},*/
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Sticky Slime');
 			},
 			onTrapPokemon(pokemon) {
 				pokemon.tryTrap();
 			},
+
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'stickyslime',
+		},
 		//This code is from Anchor Shot
 		/*secondary: {
 			chance: 100,
