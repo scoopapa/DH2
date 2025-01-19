@@ -561,7 +561,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: "Flex Off",
 		pp: 15,
 		priority: 0,
-		flags: { snatch: 1, metronome: 1 },
+		flags: {cantusetwice: 1, snatch: 1, metronome: 1},
 		onTryHit(target, source, move) {
 			if (target.lastMove && target.lastMove.id === 'flexoff') {
 				return false;

@@ -583,6 +583,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "magearna").learnset.salvestrike = ['9L1'];
 		delete this.modData('Learnsets', 'magearna').learnset.calmmind;
 		delete this.modData('Learnsets', 'magearna').learnset.storedpower;
+		this.modData("Learnsets", "magearnaoriginal").learnset.salvestrike = ['9L1'];
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.calmmind;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.storedpower;
 		this.modData("Learnsets", "glaceon").learnset.slackoff = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.earthpower = ['9L1'];
 		this.modData("Learnsets", "glaceon").learnset.scorchingsands = ['9L1'];
@@ -661,6 +664,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'klang').learnset.selfrepairing = ['9L1'];
 		this.modData('Learnsets', 'klinklang').learnset.selfrepairing = ['9L1'];
 		this.modData('Learnsets', 'magearna').learnset.selfrepairing = ['9L1'];
+		this.modData('Learnsets', 'magearnaoriginal').learnset.selfrepairing = ['9L1'];
 		this.modData('Learnsets', 'magnemite').learnset.selfrepairing = ['9L1'];
 		this.modData('Learnsets', 'meltan').learnset.selfrepairing = ['9L1'];
 		this.modData('Learnsets', 'regice').learnset.selfrepairing = ['9L1'];
@@ -1319,6 +1323,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ironcrown').learnset.chakrabullets = ['9L1'];
 		this.modData('Learnsets', 'ironvaliant').learnset.chakrabullets = ['9L1'];
 		this.modData('Learnsets', 'magearna').learnset.chakrabullets = ['9L1'];
+		this.modData('Learnsets', 'magearnaoriginal').learnset.chakrabullets = ['9L1'];
 		this.modData('Learnsets', 'necrozma').learnset.chakrabullets = ['9L1'];
 		this.modData('Learnsets', 'tapulele').learnset.chakrabullets = ['9L1'];
 		this.modData('Learnsets', 'terapagos').learnset.chakrabullets = ['9L1'];
@@ -1812,6 +1817,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'tapubulu').learnset.triplearrows = ['9L1'];
 		this.modData('Learnsets', 'phantump').learnset.triplearrows = ['9L1'];
 		this.modData('Learnsets', 'zarude').learnset.triplearrows = ['9L1'];
+		this.modData('Learnsets', 'zarudedada').learnset.triplearrows = ['9L1'];
 		// tripledive 
 		this.modData('Learnsets', 'golisopod').learnset.tripledive = ['9L1'];
 		this.modData('Learnsets', 'mantyke').learnset.tripledive = ['9L1'];

@@ -555,7 +555,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	mew: {
 		inherit : true,
-		abilities: {0: "Protean"},
+		abilities: {0: "Synchronize", H: "Protean"},
 	},
 
 	// Gen 2 :
