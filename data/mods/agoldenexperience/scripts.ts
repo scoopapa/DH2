@@ -339,7 +339,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mewtwo').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'baalzebutis').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'deoxys').learnset.swarming = ['8L1'];
-    this.modData('Learnsets', 'genesect').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'silvally').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'porygon').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'snoxin').learnset.swarming = ['8L1'];
@@ -352,6 +351,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'annoyog').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'accelgor').learnset.swarming = ['8L1'];
     this.modData('Learnsets', 'parasect').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
 
     // underdog 
     this.modData('Learnsets', 'lillipup').learnset.underdog = ['9M'];
@@ -1600,8 +1600,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'naganadel').learnset.roost = ['9L1'];
 
     // Gen 8:
-    this.modData('Learnsets', 'inteleon').learnset.aurasphere = ['9M'];
-    this.modData('Learnsets', 'inteleon').learnset.focusblast = ['9M'];
     this.modData('Learnsets', 'greedent').learnset.recycle = ['9L1'];
     this.modData('Learnsets', 'greedent').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'orbeetle').learnset.toxic = ['9M'];
@@ -1684,7 +1682,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'screamtail').learnset.afteryou = ['9L1'];
     this.modData('Learnsets', 'brutebonnet').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.quiverdance = ['9L1'];
-    this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.vacuumwave = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.flamethrower = ['9L1'];
