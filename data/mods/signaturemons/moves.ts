@@ -312,28 +312,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		//Trapping : Modified code from Fairy Lock and Anchor Shot
 		condition: {
 			duration: 2,
-			/*onFieldStart(target) {
-				this.add('-fieldactivate', 'move: Sticky Slime');
-			},*/
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'move: Sticky Slime');
+			onStart(target) {
+				this.add('-start', target, 'move: Sticky Slime');
 			},
 			onTrapPokemon(pokemon) {
 				pokemon.tryTrap();
 			},
-
+			onEnd(target) {
+				this.add('-end', target, 'move: Sticky Slime', '[silent]');
+			},
 		},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'stickyslime',
-		},
-		//This code is from Anchor Shot
-		/*secondary: {
-			chance: 100,
-			onHit(target, source, move) {
-				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			onHit(target) {
+				target.addVolatile('stickyslime');
 			},
-		},*/
+		},
 		target: "normal",
 		type: "Water",
 	},
