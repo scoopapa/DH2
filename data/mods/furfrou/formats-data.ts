@@ -294,4 +294,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	meowmity: {tier: "FROU"},
 
+	badeline: {tier: "FROU"},
+
 };
