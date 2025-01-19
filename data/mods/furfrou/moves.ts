@@ -1415,7 +1415,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: 738,
 		accuracy: 100,
 		basePower: 80,
-		category: "Physical",
+		category: "Special",
 		name: "Toxic Greed",
 		pp: 10,
 		priority: 0,
@@ -1442,7 +1442,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 					this.heal(damage, target, pokemon);
 				}
 			},
-		},
 		},
 		secondary: {
 			chance: 100,
