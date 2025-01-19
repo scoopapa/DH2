@@ -374,10 +374,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onTryHitPriority: 2,
 			onTryHit(target, source, move) {
 				if (move.type === 'Water' && move.accuracy !== true) {
-					move.damage *= 0;
+					this.add('-activate', target, 'move: Fake Branch');
 					this.hint("When charging Fake Branch, the user will avoid Water-type moves unless there is no accuracy check.");
-					this.add('-fail', source);
-					this.attrLastMove('[still]');
 
 					const lockedmove = source.getVolatile('lockedmove');
 					if (lockedmove) {
@@ -387,6 +385,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						}
 					}
 				}
+				return this.NOT_FAIL;
 			},
 		},
 		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('fakebranch')}, - Irrelevant ? This is from Beak Blast...
