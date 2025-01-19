@@ -351,6 +351,49 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
+	//Sudowoodo
+	fakebranch: {
+		num: 3012,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		name: "Fake Branch",
+		pp: 15,
+		priority: -3,
+		flags: {contact: 1, protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('fakebranch');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Fake Branch');
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (move.type === 'Water' && move.accuracy !== true) {
+					this.add('cant', source, 'Fake Branch');
+					this.hint("When charging Fake Branch, the user will avoid Water-type moves unless there is no accuracy check.");
+					//move.accuracy == 0;
+
+					const lockedmove = source.getVolatile('lockedmove');
+					if (lockedmove) {
+						// Outrage counter is reset
+						if (source.volatiles['lockedmove'].duration === 2) {
+							delete source.volatiles['lockedmove'];
+						}
+					}
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('fakebranch')}, - Irrelevant ? This is from Beak Blast...
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('fakebranch');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself
