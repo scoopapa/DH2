@@ -1,4 +1,12 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	// Gen 9 stuff
+	griseousorb: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {},
+		forcedForme: null,
+		itemUser: ["Giratina"],
+	},
+	// Mega stones
 	quaquavalite: {
 		name: "Quaquavalite",
 		spritenum: 578,
@@ -461,7 +469,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Kleavor, this item allows it to Mega Evolve in battle.",
 	},
-	slitherite: { 
+	slitherwite: { 
 		name: "Slitherwite",
 		spritenum: 578,
 		megaStone: "Slither Wing-Mega",

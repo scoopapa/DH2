@@ -328,7 +328,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2,
 		num: -17,
 	},
-	nevergonnagiveyouup: {
+	rickroll: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
 		shortDesc: "Ignores recoil and self-KO effects of that move.",
 		onModifyMove(move) {
@@ -344,7 +344,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		name: "Never Gonna Give You Up",
+		name: "Rick Roll",
 		rating: 4,
 		num: -18,
 	},
@@ -660,7 +660,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	boarding: {
 		onBasePower(basePower, pokemon, target) {
-			if (target.trapped) {
+			if (target.volatiles['trapped']) {
 				return this.chainModify(1.25);
 			}
 		},
@@ -893,11 +893,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -46,
 	},
 	blowhole: {
-		desc: "When this Pokemon uses a Water move, it sets Rain Dance. Water Spout is always at max BP.",
-		shortDesc: "Sets Rain Dance when using a Water move. Water Spout is at max BP.",
+		desc: "Before this Pokemon uses Water Spout, it sets Rain Dance. Water Spout is always at max BP.",
+		shortDesc: "Sets Rain Dance before using Water Spout. Water Spout is at max BP.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
-			if (move.type === 'Water' && this.field.getWeather().id !== 'raindance') {
+			if (move.id === 'waterspout' && this.field.getWeather().id !== 'raindance') {
 				this.field.setWeather('raindance');
 			}
 		},
@@ -2540,6 +2540,53 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's delayed moves have 1.5x power. Wish heals for 50% more HP.",
 		name: "Karma",
 		rating: 3,
-		num: 178,
+		num: -76,
+	},
+	souldevourer: {
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.volatiles['trapped']) {
+					const damage = this.damage(pokemon.baseMaxhp / 8, target, pokemon);
+					if (damage) {
+						this.heal(damage, pokemon, pokemon);
+					}
+				}
+			}
+		},
+		flags: {},
+		desc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		shortDesc: "If any target is trapped, this target loses 1/8 of its max HP, and this Pokemon heals for the same amount.",
+		name: "Soul Devourer",
+		rating: 3,
+		num: -77,
+	},
+	tacticalescape: {
+		onEmergencyExit(target) {
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.switchFlag = true;
+			this.add('-activate', target, 'ability: Tactical Escape');
+		},
+		flags: {},
+		name: "Tactical Escape",
+		rating: 2,
+		num: -78,
+		desc: "This Pokemon is immune to hazards. When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move. This effect is prevented if the move had a secondary effect removed by the Sheer Force Ability. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
+		shortDesc: "Immune to hazards. This Pokemon switches out when it reaches 1/2 or less of its maximum HP.",
+	},
+	rockypayload: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "This Pokemon's Speed is x1.5 under Gravity, and this Pokemon's offensive stat is multiplied by 1.5 while using a Rock-type attack.",
 	},
 };

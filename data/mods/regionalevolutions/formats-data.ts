@@ -207,4 +207,75 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crimsoyal: {
 		tier: "RegEvo",
 	},
+
+	vanillitekitakami: {
+		tier: "RegEvo NFE",
+	},
+	vanillishkitakami: {
+		tier: "RegEvo NFE",
+	},
+	sundilluxe: {
+		tier: "RegEvo",
+	},
+	staryudistorted: {
+		tier: "RegEvo NFE",
+	},
+	starmiedistorted: {
+		tier: "RegEvo NFE",
+	},
+	stargoneion: {
+		tier: "RegEvo NFE",
+	},
+	miniorhoenn: {
+		tier: "RegEvo NFE",
+	},
+	miniorhoennmeteor: {},
+	astrollite: {
+		tier: "RegEvo",
+	},
+	yanmaorre: {
+		tier: "RegEvo NFE",
+	},
+	yanfuego: {
+		tier: "RegEvo",
+	},
+	applinultra: {
+		tier: "RegEvo NFE",
+	},
+	calcismith: {
+		tier: "RegEvo",
+	},
+	blipbug: {
+		tier: "RegEvo NFE",
+	},
+	dottleralola: {
+		tier: "RegEvo NFE",
+	},
+	orebeetle: {
+		tier: "RegEvo",
+	},
+	numelpaldea: {
+		tier: "RegEvo NFE",
+	},
+	camystic: {
+		tier: "RegEvo",
+	},
+	wooloodistorted: {
+		tier: "RegEvo NFE",
+	},
+	dubwooldistorted: {
+		tier: "RegEvo NFE",
+	},
+	dushugura: {
+		tier: "RegEvo",
+	},
+	ekanslental: {
+		tier: "RegEvo NFE",
+	},
+	arboklental: {
+		tier: "RegEvo NFE",
+	},
+	kobralleh: {
+		tier: "RegEvo",
+	},
 };

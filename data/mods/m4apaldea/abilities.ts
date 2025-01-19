@@ -261,19 +261,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -22,
 	},
 	hairtrigger: {
-		onAfterMega(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onStart(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onModifyPriority(priority, source) {
-			if (source.volatiles['hairtrigger']) {
-				source.removeVolatile('hairtrigger');
+		onModifyPriority(priority, pokemon, target, move) {
+			if (pokemon.activeMoveActions < 1) {
 				return priority + 0.1;
 			}
+			return priority;
 		},
 		desc: "The user moves first in their priority bracket on the first turn after switching in.",
 		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
@@ -500,6 +492,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			},
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -28,
@@ -560,20 +553,32 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -31,
 	},
-	agitation: {
+	agitation: { // Thank you BlueRay lol
 		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
 		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
-		onAnyBoost(boost, target, source, effect) {
+		onAnyTryBoost(boost, target, source, effect) {
+			// Prevent the effect if it's a Z-Power move
 			if (effect && effect.id === 'zpower') return;
-			if (!target || !source || target === source || source !== this.effectState.target) return; // doesn't work on itself
-			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
-				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+	
+			// Ensure that the target and source are valid and not the same
+			if (!target || !source || target === source || source !== this.effectState.target) return;
+	
+			// Iterate through the boost object to modify stat changes
+			for (const stat in boost) {
+				// Type assertion to ensure stat is a key of BoostsTable
+				const boostValue = boost[stat as keyof BoostsTable];
+				if (boostValue !== undefined) {
+					if (boostValue < 0) {
+						boost[stat as keyof BoostsTable] = boostValue - 1; // Exacerbate debuffs
+					} else if (boostValue > 0) {
+						boost[stat as keyof BoostsTable] = boostValue + 1; // Augment buffs
+					}
+				}
 			}
 		},
+		flags: {},
 		name: "Agitation",
-		rating: 3,
+		rating: 4,
 		num: -32,
 	},
 	vengeful: {
@@ -581,7 +586,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If the user's previous move failed, the user's next attack deals 2x damage (Stomping Tantrum parameters).",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (pokemon.moveLastTurnResult === false) {
+			if (attacker.moveLastTurnResult === false) {
 				this.debug('doubling ', move, ' BP due to previous move failure');
 				return move.basePower * 2;
 			}

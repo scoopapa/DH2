@@ -890,6 +890,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Sheer Heart",
+		rating: 4,
 		shortDesc: "Special attacks have 1.3x power; stat changes to the Special Attack stat have no effect.",
 	},
 	battlespines: {
@@ -900,6 +901,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Battle Spines",
+		rating: 4.5,
 		shortDesc: "This Pokemon’s attacks do an additional 1/8 of the target’s max HP in damage.",
 	},
 	smelt: {
@@ -950,7 +952,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Color Change",
 		shortDesc: "This Pokemon's type changes to the type of a move it's about to be hit by, unless it has the type.",
-		rating: 0,
+		rating: 2.5,
 		num: 16,
 	},
 	greeneyed: {

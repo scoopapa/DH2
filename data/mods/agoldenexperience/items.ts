@@ -587,9 +587,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([0x14CC, 0x1000]);
+			return this.chainModify(1.3);
 		},
-		desc: "Holder's move have 1.2x BP, but it can't use the same move twice in a row.",
+		desc: "Holder's move have 1.3x BP, but it can't use the same move twice in a row.",
 		num: -40,
 		gen: 9,
 	},
@@ -765,40 +765,74 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -49,
 		gen: 9,
 	},
-	cornerstonemask: {
+
+	// Silvally Memories section
+	bugmemory: {
 		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifyDefPriority: 6,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Cornerstone')) {
-				return this.chainModify(1.2);
-			}
-		},
+		shortDesc: "No longer needed to transform.",
 	},
-	hearthflamemask: {
+	dragonmemory: {
 		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifyAtkPriority: 6,
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
-				return this.chainModify(1.2);
-			}
-		},
+		shortDesc: "No longer needed to transform.",
 	},
-	wellspringmask: {
+	electricmemory: {
 		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifySpDPriority: 6,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Wellspring')) {
-				return this.chainModify(1.2);
-			}
-		},
+		shortDesc: "No longer needed to transform.",
+	},
+	fightingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	firememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	flyingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	ghostmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	grassmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	groundmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	icememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	poisonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	psychicmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	rockmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	steelmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	watermemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fairymemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	darkmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
 	},
 }

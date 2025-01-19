@@ -4,7 +4,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Run Away",
 		rating: 0,
 		num: 50,
-		shortDesc: "This Pokemon can escape from Arena Trap and Mean Look.",
+		shortDesc: "This Pokemon can escape from trapping.",
 	},
 	oblivious: {
 		onModifyMove(move) {
@@ -113,7 +113,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
 			if (!pokemon.isAdjacent(this.effectState.target)) return;
-  		if (pokemon.hasAbility('runaway')) return;
+  			if (pokemon.hasAbility('runaway')) return;
 			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
 			}
@@ -129,6 +129,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Arena Trap",
 		rating: 5,
 		num: 71,
+	},
+	shadowtag: {
+		onFoeTrapPokemon(pokemon) {
+			if (!pokemon.hasAbility('shadowtag') && !pokemon.hasAbility('runaway') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.hasAbility('shadowtag') && !pokemon.hasAbility('runaway')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		flags: {},
+		name: "Shadow Tag",
+		rating: 5,
+		num: 23,
 	},
 	disguise: {
 		onDamagePriority: 1,

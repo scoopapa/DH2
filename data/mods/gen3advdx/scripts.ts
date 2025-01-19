@@ -84,5 +84,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "relicanth").learnset.rockpolish = ["3L1"];
 		this.modData("Learnsets", "sudowoodo").learnset.rockpolish = ["3L1"];
 		this.modData("Learnsets", "magcargo").learnset.rockpolish = ["3L1"];
+		this.modData("Learnsets", "blaziken").learnset.machpunch = ["3L1"];
+		this.modData("Learnsets", "banette").learnset.wrathrush = ["3L1"];
+		this.modData("Learnsets", "hariyama").learnset.slackoff = ["3L1"];
 	},
 };

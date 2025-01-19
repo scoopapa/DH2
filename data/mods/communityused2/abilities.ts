@@ -27,10 +27,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			},
 			onBasePowerPriority: 21,
 			onBasePower(basePower, attacker, defender, move) {
-				if (this.effectState.generatorTriggers === 0) return this.chainModify([3, 4]);
-				if (this.effectState.generatorTriggers === 1) return this.chainModify([4, 4]);
-				if (this.effectState.generatorTriggers === 2) return this.chainModify([5, 4]);
-				if (this.effectState.generatorTriggers === 3) return this.chainModify([6, 4]);
+				return this.chainModify([this.effectState.generatorTriggers + 3, 4]);
+				//if (this.effectState.generatorTriggers === 0) return this.chainModify([3, 4]);
+				//if (this.effectState.generatorTriggers === 1) return this.chainModify([4, 4]);
+				//if (this.effectState.generatorTriggers === 2) return this.chainModify([5, 4]);
+				//if (this.effectState.generatorTriggers === 3) return this.chainModify([6, 4]);
 			},
 		},
 		flags: { breakable: 1 },
@@ -248,6 +249,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	ouroboros: {
 		onStart(pokemon) {
 			pokemon.addVolatile('ouroboros');
+			this.add('-ability', pokemon, 'Ouroboros');
 			this.add('-message', `${pokemon.name} is circling!`);
 		},
 		condition: {
@@ -262,10 +264,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 					pokemon.removeVolatile('ouroboros');
 					return;
 				}
-				if (this.effectState.lastMove === move.id) {
+				if (this.effectState.lastMove === move.name) {
 					this.effectState.numConsecutive++;
 				} else if (pokemon.volatiles['twoturnmove']) {
-					if (this.effectState.lastMove !== move.id) {
+					if (this.effectState.lastMove !== move.name) {
 						this.effectState.numConsecutive = 1;
 					} else {
 						this.effectState.numConsecutive++;
@@ -273,14 +275,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				} else if (this.effectState.lastMove === '') {
 						// on first turn out, do nothing
 				} else {
-					if (move.name != "Devour") {
+					if (move.name !== "Devour" && this.effectState.lastMove !== "Devour") {
 						this.effectState.numConsecutive = 0;
 						this.add('-message', `${pokemon.name} choked!`);
 						this.effectState.hasChoked = true;
 						this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon);
 					} else this.debug(`Devour cancelled choke`);
 				}
-				this.effectState.lastMove = move.id;
+				this.effectState.lastMove = move.name;
 			},
 			onModifyDamage(damage, source, target, move) {
 				if (this.effectState.hasChoked) return this.chainModify([3, 4]);
@@ -305,6 +307,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			}
 		},
 		name: "Ragnarok",
-		shortDesc: "Damages all active Pokemon above 50% take 12.5%/turn.",
+		shortDesc: "All active Pokemon above 50% take 12.5% damage per turn.",
 	},
 };

@@ -63,6 +63,47 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
 	},
+	spiderweb: {
+		num: 169,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Spider Web",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+  			if (!target.hasAbility('runaway')) {
+				return target.addVolatile('trapped', source, move, 'trapper');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	block: {
+		num: 335,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Block",
+		pp: 5,
+		priority: 0,
+		flags: {reflectable: 1, mirror: 1, metronome: 1},
+		onHit(target, source, move) {
+  			if (!target.hasAbility('runaway')) {
+				return target.addVolatile('trapped', source, move, 'trapper');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {def: 1}},
+		contestType: "Cute",
+	},
 	watershuriken: {
     	inherit: true,
 		shortDesc: "Hits 3 times. High critical hit ratio.",
@@ -151,5 +192,99 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
     	inherit: true,
 		gen: 3,
 		isNonstandard: null,
+	},
+	futuresight: {
+		inherit: true,
+		accuracy: 85,
+		basePower: 120,
+		pp: 5,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			const moveData = {
+				name: "Future Sight",
+				basePower: 120,
+				category: "Special",
+				flags: {metronome: 1, futuremove: 1},
+				willCrit: false,
+				type: '???',
+			} as unknown as ActiveMove;
+			const damage = this.actions.getDamage(source, target, moveData, true);
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'futuresight',
+				source: source,
+				moveData: {
+					id: 'futuresight',
+					name: "Future Sight",
+					accuracy: 85,
+					basePower: 0,
+					damage: damage,
+					category: "Special",
+					flags: {metronome: 1, futuremove: 1},
+					effectType: 'Move',
+					type: '???',
+				},
+			});
+			this.add('-start', source, 'Future Sight');
+			return null;
+		},
+	},
+	steelwing: {
+    	inherit: true,
+		accuracy: 100,
+	},
+	metalclaw: {
+    	inherit: true,
+		shortDesc: "50% chance to raise the user's Atk by 1.",
+		accuracy: 100,
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+	},
+	disable: {
+    	inherit: true,
+		accuracy: 100,
+	},
+	razorwind: {
+		num: 13,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Raises Atk by 1 on turn 1. Hits turn 2.",
+		isNonstandard: null,
+		name: "Razor Wind",
+		pp: 15,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		critRatio: 2,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	smellingsalts: {
+    	inherit: true,
+		type: "Rock",
+	},
+	tailglow: {
+    	inherit: true,
+		shortDesc: "Raises the user's Sp. Atk by 2.",
 	},
 };

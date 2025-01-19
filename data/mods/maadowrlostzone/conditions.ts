@@ -1990,7 +1990,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 				let curseDamage = 0;
 		
 				const applyCurseDamage = () => {
-					curseDamage = Math.floor(target.maxhp / 8);
+					// curseDamage = Math.floor(target.maxhp / 8);
+
+					// Start: Balance Approach
+					// Check if source's HP is at or below 50%
+					if (source.hp <= source.maxhp / 2) {
+						curseDamage = Math.floor(target.maxhp / 8); // 1/8 damage
+					} else {
+						curseDamage = Math.floor(target.maxhp / 16); // 1/16 damage
+					}
+					// End: Balance Approach
+					
 					if (!target.fainted) {  // Check if target is not fainted before applying damage
 						const targetHPBeforeDamage = target.hp;
 						this.damage(curseDamage, target, source);

@@ -566,7 +566,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 				}
 			},
 		},
-		flags: {},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -14,
@@ -2640,6 +2640,65 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	//	hazardImmune: true,
 		rating: 3,
 		num: -65,
+	},
+	burningtrain: {
+		shortDesc: "Sets Sea of Fire after fainting target.",
+		onAfterMove(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) target.side.addSideCondition('firepledge');
+		},
+		flags: {},
+		name: "Burning Train",
+		rating: 4,
+		num: -66,
+	},
+	//
+	gooeyessence: {
+		shortDesc: "User's side: 1/16 recovery per stat drop.",
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			if (pokemon && pokemon.boosts) {
+				// Calculate the number of negative stat boosts on the Pokémon
+				let negativeBoosts = 0;
+				const boostKeys: Array<keyof BoostsTable> = ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion']; // Define the valid keys
+	
+				for (const stat of boostKeys) {
+					if (pokemon.boosts[stat] < 0) {
+						negativeBoosts += Math.abs(pokemon.boosts[stat]); // Count the absolute value of negative boosts
+					}
+				}
+	
+				// Apply HP recovery for each negative boost
+				if (negativeBoosts > 0) {
+				//	const healAmount = Math.floor((pokemon.maxhp / 16) * negativeBoosts); // Calculate total healing based on negative boosts
+					let healAmount = Math.floor((pokemon.maxhp / 16) * negativeBoosts);
+                	healAmount = Math.min(healAmount, Math.floor(pokemon.maxhp / 8)); // Cap healing
+					this.heal(healAmount, pokemon); // Apply healing
+				//	this.add('-message', `${pokemon.name} is healed by Gooey Essence!`);
+				}
+
+				// Heal the ally based on the ally's stat drops
+				const ally = pokemon.side.active.find(ally => ally && ally !== pokemon && !ally.fainted);
+				if (ally) {
+					let allyNegativeBoosts = 0;
+					for (const stat of boostKeys) {
+						if (ally.boosts[stat] < 0) {
+							allyNegativeBoosts += Math.abs(ally.boosts[stat]);
+						}
+					}
+					if (allyNegativeBoosts > 0) {
+					//	const allyHealAmount = Math.floor((ally.maxhp / 16) * allyNegativeBoosts);
+						let allyHealAmount = Math.floor((ally.maxhp / 16) * allyNegativeBoosts);
+                    	allyHealAmount = Math.min(allyHealAmount, Math.floor(ally.maxhp / 8)); // Cap healing
+						this.heal(allyHealAmount, ally);
+						// this.add('-message', `${ally.name} is healed by Gooey Essence!`);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Gooey Essence",
+		rating: 3.5,
+		num: -67,
 	},
 	// end
 

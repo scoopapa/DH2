@@ -58,11 +58,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	dudunsparce: {
 		inherit: true,
+		types: ["Normal", "Fairy"],
 		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
 		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
 	},
 	dudunsparcethreesegment: {
 		inherit: true,
+		types: ["Normal", "Fairy"],
 		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
 		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
 	},
@@ -87,12 +89,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	brutebonnet: {
 		inherit: true,
-		types: ["Poison", "Ghost"],
-		baseStats: {hp: 111, atk: 127, def: 89, spa: 79, spd: 99, spe: 65},
+		types: ["Poison", "Dragon"],
+		baseStats: {hp: 111, atk: 127, def: 99, spa: 79, spd: 99, spe: 55},
 	},
 	slitherwing: {
 		inherit: true,
-		baseStats: {hp: 97, atk: 139, def: 121, spa: 69, spd: 81, spe: 63},
+		baseStats: {hp: 85, atk: 135, def: 79, spa: 85, spd: 105, spe: 81},
 	},
 	ironjugulis: {
 		inherit: true,
@@ -133,11 +135,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	talonflame: {
 		inherit: true,
-		baseStats: {hp: 83, atk: 81, def: 81, spa: 84, spd: 79, spe: 126},
+		baseStats: {hp: 88, atk: 91, def: 81, spa: 74, spd: 77, spe: 126},
 	},
 	grafaiai: {
 		inherit: true,
-		baseStats: {hp: 73, atk: 95, def: 75, spa: 80, spd: 82, spe: 110},
+		baseStats: {hp: 73, atk: 95, def: 80, spa: 70, spd: 87, spe: 110},
 		abilities: {0: "Unburden", 1: "Corrosion", H: "Prankster"},
 	},
 	gastrodon: {

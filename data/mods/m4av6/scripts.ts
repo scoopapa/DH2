@@ -181,6 +181,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.battle.runEvent('AfterMega', pokemon);
 		return true;
 	},
+
 	},
 
 	 getDamage(

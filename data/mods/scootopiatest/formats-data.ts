@@ -147,6 +147,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
+	silvuna: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
 	nunopod: {
 		tier: "Scoo",
 		doublesTier: "DOU",
@@ -174,15 +178,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	quadringo: {
 		tier: "Scoo",
 		doublesTier: "DOU",
+	},
+	kodokai: {
+		tier: "Scoo",
+		doublesTier: "DOU",
 	},	
 	himalao: {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
-	kasappa: {
-		tier: "Scoo",
-		doublesTier: "DOU",
-	},
+	// kasappa: {
+		// tier: "Scoo",
+		// doublesTier: "DOU",
+	// },
 	enkappa: {
 		tier: "Scoo",
 		doublesTier: "DOU",
@@ -215,6 +223,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
+	sumolug: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
 	// flocuranexus: {
 		// tier: "Scoo",
 		// doublesTier: "DOU",
@@ -227,12 +239,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "DOU",
 	},
-	// cyromeauthor: {
-		// tier: "Scoo",
-		// doublesTier: "DOU",
-	// },
-	// flocuranexus: {
-		// tier: "Illegal",
-		// doublesTier: "Illegal",
-	// },
+	cyromeauthor: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cyromepage: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };

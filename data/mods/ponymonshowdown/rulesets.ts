@@ -15,9 +15,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Terastal Clause: You cannot Terastallize');
 		},
 	},
-	outerastalclause: {
+	ubersterastalclause: {
 		effectType: 'Rule',
-		name: 'OU Terastal Clause',
+		name: 'Ubers Terastal Clause',
 		desc: "Prevents Pok&eacute;mon without Terastal forms from Terastallizing",
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
@@ -25,7 +25,20 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				  pokemon.canTerastallize = null;
 				}
 			}
-			this.add('rule', 'OU Terastal Clause: Only Pok\u00E9mon with Tera forms can Terastallize');
+			this.add('rule', 'Ubers Terastal Clause: Only Pok\u00E9mon with Tera forms can Terastallize');
+		},
+	},
+	megarayquazaclause: {
+		effectType: 'Rule',
+		name: 'Mega Rayquaza Clause',
+		desc: "Prevents Rayquaza from mega evolving",
+		onBegin() {
+			this.add('rule', 'Mega Rayquaza Clause: You cannot mega evolve Rayquaza');
+			for (const pokemon of this.getAllPokemon()) {
+				if (pokemon.species.id === 'rayquaza') {
+					pokemon.canMegaEvo = null;
+				}
+			}
 		},
 	},
 	datamod: {

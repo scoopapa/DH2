@@ -1,28 +1,25 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
-	silvallyclause: {
-		effectType: 'ValidatorRule',
-		name: 'Silvally Clause',
-		desc: "Prevents teams from having more than one Pok&eacute;mon from the same species unless they are Silvally",
+	jolly: {
+		name: 'Jolly',
+		desc: "Jollymod",
 		onBegin() {
-			this.add('rule', 'Silvally Clause: You can use up to 6 Silvally');
+			this.add('rule', 'Jollymod', 'getting jolly with it');
+			this.field.setWeather('snow');
+			this.sides[0].karma = 0;
+			this.sides[1].karma = 0;
 		},
 		onSwitchIn(pokemon) {
-			if (pokemon.big) {
-				pokemon.addVolatile('bigbutton');
-			}
-			if (pokemon.set.nature === 'Serious') {
-				if (pokemon.addType('Serious')) this.add('-start', pokemon, 'typeadd', 'Serious');
+			if (pokemon.status === 'fsb') {
+				this.add('-start', pokemon, 'Frostbite', '[silent]');
 			}
 		},
-		onValidateTeam(team, format) {
-			const speciesTable = new Set<number>();
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				if (species.num != 773 && speciesTable.has(species.num)) {
-					return [`You are limited to one of each Pokémon by Species Clause.`, `(You have more than one ${species.baseSpecies})`];
-				}
-				speciesTable.add(species.num);
-			}
+		onAfterMove(source, target, move) {
+			if (move.flags['extranice']) source.side.addKarma(2);
+			else if (move.flags['nice']) source.side.addKarma(1);
+			else if (move.flags['kindanice']) source.side.addKarma(0.5);
+			else if (move.flags['neutral']) return;
+			else if (move.flags['naughty']) source.side.removeKarma(2);
+			else if (move.category !== 'Status') source.side.removeKarma(1);
 		},
 	},
 };

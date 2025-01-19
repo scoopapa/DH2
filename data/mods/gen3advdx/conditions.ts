@@ -27,7 +27,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 		onTrapPokemon(pokemon) {
 			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
-			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
+			if (!pokemon.hasAbility('runaway') && (this.effectState.source?.isActive || gmaxEffect)) pokemon.tryTrap();
 		},
 	},
 	snow: {

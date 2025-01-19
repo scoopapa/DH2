@@ -1,4 +1,162 @@
 export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
+	// Gen 9 stuff
+	battlebond: {
+		inherit: true,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') return;
+			if (source.abilityState.battleBondTriggered) return;
+			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.boost({atk: 1, spa: 1, spe: 1}, source, source, this.effect);
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.abilityState.battleBondTriggered = true;
+			}
+		},
+		onModifyMove(move, attacker) {},
+	},
+	competitive: {
+		inherit: true,
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({spa: 2}, target, target, null, false, true);
+			}
+		},
+	},
+	dauntlessshield: {
+		inherit: true,
+		onStart(pokemon) {
+			if (pokemon.shieldBoost) return;
+			pokemon.shieldBoost = true;
+			this.boost({def: 1}, pokemon);
+		},
+	},
+	defiant: {
+		inherit: true,
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({atk: 2}, target, target, null, false, true);
+			}
+		},
+	},
+	gulpmissile: {
+		inherit: true,
+		flags: {cantsuppress: 1, notransform: 1},
+	},
+	heatproof: {
+		inherit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Heatproof Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Heatproof SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceBasePower(basePower, attacker, defender, move) {},
+	},
+	illuminate: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect as ActiveMove).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Illuminate", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		flags: {breakable: 1},
+	},
+	intrepidsword: {
+		onStart(pokemon) {
+			if (pokemon.swordBoost) return;
+			pokemon.swordBoost = true;
+			this.boost({atk: 1}, pokemon);
+		},
+	},
+	libero: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (this.effectState.libero) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.libero = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.libero;
+		},
+	},
+	protean: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (this.effectState.protean) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.protean = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.protean;
+		},
+	},
+	snowwarning: {
+		inherit: true,
+		onStart(source) {
+			this.field.setWeather('snow');
+		},
+	},
+	transistor: {
+		inherit: true,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
+
+	// M4A Paldea
 	accumulate: {
 		desc: "If this Pokémon is a Mega Brambleghast, it calls for help and changes form at the end of each full turn it has been on the field, building up to Mega Brambleghast (Tangled Form) over five turns.",
 		shortDesc: "More Brambleghast tangle up at the end of each turn.",
@@ -70,7 +228,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
-			if (move.type !== 'Dark' || move.flags['pledgecombo']) return;
+			if (move.type !== 'Dark') return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
@@ -189,19 +347,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -22,
 	},
 	hairtrigger: {
-		onAfterMega(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onStart(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onModifyPriority(priority, source) {
-			if (source.volatiles['hairtrigger']) {
-				source.removeVolatile('hairtrigger');
+		onModifyPriority(priority, pokemon, target, move) {
+			if (pokemon.activeMoveActions < 1) {
 				return priority + 0.1;
 			}
+			return priority;
 		},
 		desc: "The user moves first in their priority bracket on the first turn after switching in.",
 		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
@@ -437,20 +587,32 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -31,
 	},
-	agitation: {
+	agitation: { // Thank you BlueRay lol
 		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
 		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
-		onAnyBoost(boost, target, source, effect) {
+		onAnyTryBoost(boost, target, source, effect) {
+			// Prevent the effect if it's a Z-Power move
 			if (effect && effect.id === 'zpower') return;
-			if (!target || !source || target === source || source !== this.effectState.target) return; // doesn't work on itself
-			let i: BoostName;
-			for (i in boost) {
-				if (boost[i]! < 0) boost[i]! -= 1; // exacerbate debuffs
-				if (boost[i]! > 0) boost[i]! += 1; // augment buffs
+	
+			// Ensure that the target and source are valid and not the same
+			if (!target || !source || target === source || source !== this.effectState.target) return;
+	
+			// Iterate through the boost object to modify stat changes
+			for (const stat in boost) {
+				// Type assertion to ensure stat is a key of BoostsTable
+				const boostValue = boost[stat as keyof BoostsTable];
+				if (boostValue !== undefined) {
+					if (boostValue < 0) {
+						boost[stat as keyof BoostsTable] = boostValue - 1; // Exacerbate debuffs
+					} else if (boostValue > 0) {
+						boost[stat as keyof BoostsTable] = boostValue + 1; // Augment buffs
+					}
+				}
 			}
 		},
+		flags: {},
 		name: "Agitation",
-		rating: 3,
+		rating: 4,
 		num: -32,
 	},
 	vengeful: {

@@ -15,6 +15,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return this.chainModify(1.5);
 			}
 		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Ice Shard', target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -71,6 +74,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 
 			return move.basePower * boost;
 		},
+		onHit(target, source, move) {
+			this.field.addPseudoWeather('trickroom');
+		},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -80,7 +86,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		shortDesc: "50% damage boost in Trick Room or harsh sunlight.",
+		shortDesc: "Deals +50% damage in TR/Sun. Sets TR.",
 
 	},
 	blindingblitz: {
@@ -361,7 +367,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Hunter Shot",
 		pp: 15,
 		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1, bullet: 1 },
+		flags: {protect: 1, mirror: 1, bullet: 1},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -386,7 +392,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Light That Burn The Sky",
 		pp: 15,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 30,
 			status: 'brn',
@@ -562,13 +568,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
-		shortDesc: "Super-effective against Steel-types. If it hits a Poison, they instead heal 25% HP.",
+		shortDesc: "SE vs. Steels. Heals Poison-types by 25%.",
 
 	},
 	vitalspark: {
 		num: -1016,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 70,
 		category: "Special",
 		name: "Vital Spark",
 		pp: 10,
@@ -666,6 +672,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		condition: {
 			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
 			onSideStart(side, source) {
 				this.add('-sidestart', side, 'move: Dust Veil');
 			},
@@ -684,7 +696,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "allySide",
 		type: "Ground",
-		shortDesc: "Increases damage output of your side by 1.3x.",
+		shortDesc: "Sand: Damage dealt x1.3, 5 turns (8 Light Clay)",
 	},
 	devour: {
 		num: -1020,
@@ -703,6 +715,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
+		shortDesc: "Maintains Ouroboros streak. Can't be used twice in a row.",
 	},
 	defog: {
 		inherit: true,
