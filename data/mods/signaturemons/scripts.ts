@@ -28,6 +28,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'froslass').learnset.curseofsnow = ['9L1'];
 
 		//Gen 5
+		this.modData('Learnsets', 'scolipede').learnset.poisonwheel = ['9L1'];
 		this.modData('Learnsets', 'hydreigon').learnset.triplethreat = ['9L1'];
 
 		//Gen 9

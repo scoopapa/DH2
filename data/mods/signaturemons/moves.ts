@@ -403,6 +403,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	//Scolipede
+	poisonwheel: {
+		num: 3013,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+		name: "Poison Wheel",
+		desc: "The user rolls into a ball and charges madly at its target. This may also poison upon contact.",
+		shortDesc: "30% chance of Poison. Strong against Minimize.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+	},
 
 	//Old moves remixed (for technicality)
 	//Heal block status is defined in the 'Heal Block' move, so the duration is set inside the move itself
@@ -461,5 +480,48 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+	},
+	//Moves boosted against a target that used Minimize are defined inside the move itself
+	minimize: {
+		num: 107,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Minimize",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		volatileStatus: 'minimize',
+		condition: {
+			noCopy: true,
+			onRestart: () => null,
+			onSourceModifyDamage(damage, source, target, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault',
+					'poisonwheel',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return this.chainModify(2);
+				}
+			},
+			onAccuracy(accuracy, target, source, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault',
+					'poisonwheel',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return true;
+				}
+				return accuracy;
+			},
+		},
+		boosts: {
+			evasion: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 };
