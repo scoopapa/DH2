@@ -50,4 +50,38 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		name: "Flicker",
 		shortDesc: "First active turn: dodge any incoming move. If no dodge: ability will never activate again.",
 	},
+	enviousaura: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.positiveBoosts() > 0) {
+				return this.chainModify(1.5);
+			}
+		}, //unaware bit coded separately
+		flags: {},
+		name: "Envious Aura",
+		rating: 2.5,
+		num: 233,
+	},
+	unaware: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				if (pokemon.hasAbility('Envious Aura')) return;
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				if (pokemon.hasAbility('Envious Aura')) return;
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Unaware",
+		rating: 4,
+		num: 109,
+	},
 };
