@@ -211,7 +211,19 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 4.0,
 		creator: "viivian",
 	},
-	
+	gourgeistjade: {
+		num: 711,
+		name: "Gourgeist-Jade",
+		baseSpecies: "Gourgeist",
+		forme: "Jade",
+		types: ["Ghost", "Grass"],
+		baseStats: {hp: 55, atk: 65, def: 122, spa: 78, spd: 75, spe: 99},
+		abilities: {0: "Harvest", 1: "Frisk", H: "Insomnia"},
+		heightm: 1.1,
+		weightkg: 14,
+		color: "Brown",
+		eggGroups: ["Amorphous"],
+	},
 	// Pure customs //
 	
 	albatross: {
