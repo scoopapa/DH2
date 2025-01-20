@@ -1683,4 +1683,26 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 75,
 		pp: 10,
 	},
+	// Rulebook Embargo
+	embargo: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Rulebook") {
+					return 2;
+				}
+				return 5;
+			},
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Embargo');
+				this.singleEvent('End', pokemon.getItem(), pokemon.itemState, pokemon);
+			},
+			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+			onResidualOrder: 21,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Embargo');
+			},
+		},
+	},
 };
