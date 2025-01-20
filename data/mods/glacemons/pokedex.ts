@@ -1945,7 +1945,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	bewear: {
 		inherit: true,
-		abilities: {0: "Fluffy", 1: "Klutz", H: "Unnerve"},
+		abilities: {0: "Fluffy", 1: "Triage", H: "Unnerve"},
 	},
 	volcanion: {
 		inherit: true,
