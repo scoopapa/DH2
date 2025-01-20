@@ -211,6 +211,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 4.0,
 		creator: "viivian",
 	},
+	jade: {
+		num: -1093,
+		name: "Jade",
+		types: ["Normal"],
+		gender: "F",
+		baseStats: {hp: 5, atk: 23, def: 5, spa: 5, spd: 5, spe: 50},
+		abilities: {0: "Anticipation", 1: "Frisk", H: "Insomnia"},
+		heightm: 1.7,
+		weightkg: 90.7,
+		evos: ["Gourgeist-Jade"], //necessary for sketch functionality
+	},
 	gourgeistjade: {
 		num: 711,
 		name: "Gourgeist-Jade",
@@ -218,12 +229,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Jade",
 		types: ["Ghost", "Grass"],
 		gender: "F",
+		prevo: "Jade",
 		baseStats: {hp: 55, atk: 65, def: 122, spa: 78, spd: 75, spe: 99},
 		abilities: {0: "Harvest", 1: "Frisk", H: "Insomnia"},
 		heightm: 1.1,
 		weightkg: 14,
 		color: "Brown",
-		eggGroups: ["Amorphous"],
 	},
 	// Pure customs //
 	
