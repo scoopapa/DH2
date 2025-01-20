@@ -161,16 +161,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				this.effectState.pokemon = this.effectState.side[this.effectState.position];
 				const data = this.effectState;
 				const move = this.dex.moves.get('clusterboom');
-				const sideConditions = ['clustershrapnel'];
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				
 				this.actions.trySpreadMoveHit([data.pokemon], data.source, hitMove);
 				
-				for (const condition of sideConditions) {
-					if (pokemon.side.removeSideCondition(condition)) {
-						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name);
-					}
-				}
+				this.add('-sideend', pokemon.side, 'clustershrapnel');
 			},
 		},
 		secondary: null,
