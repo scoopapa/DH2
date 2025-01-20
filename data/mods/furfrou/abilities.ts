@@ -51,6 +51,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "First active turn: dodge any incoming move. If no dodge: ability will never activate again.",
 	},
 	enviousaura: {
+		onStart(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				if (target.positiveBoosts() > 0) {
+					this.add('-start', pokemon, 'ability: Envious Aura');
+					this.add('-message', `${pokemon.name} craves ${target.name}'s strength!`);
+				}
+			}
+		},
 		onModifyDamage(damage, source, target, move) {
 			if (target.positiveBoosts() > 0) {
 				return this.chainModify(1.5);
