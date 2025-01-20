@@ -1263,6 +1263,24 @@ export const Learnsets = {
 			superpower: ["9M"],
 		},
 	},
+	humanjade: {
+		learnset: {
+			sketch: ["9S0"], // to prevent sketch bullshit
+			doodle: ["9M"],
+			taunt: ["9M"],
+			yawn: ["9M"],
+			rest: ["9M"],
+			encore: ["9M"],
+			tackle: ["9M"],
+			scratch: ["9M"],
+			pound: ["9M"],
+			splash: ["9M"],
+			detect: ["9M"],
+			celebrate: ["9M"],
+			faketears: ["9M"],
+			growl: ["9M"],
+		},
+	},
 	gourgeistjade: {
 		learnset: {
 			allyswitch: ["8M", "7T"],
@@ -1341,7 +1359,6 @@ export const Learnsets = {
 			willowisp: ["8M", "7M", "6M"],
 			worryseed: ["8L28", "7T", "7L11", "6T", "6L11"],
 			// movepoolAdditions
-			sketch: ["9S0"],
 			infernalparade: ["9M"],
 			cosmicpower: ["9M"],
 			bodypress: ["9M"],
