@@ -28,6 +28,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "mabosstiff").learnset.gunkshot = ["9L1"];
 		this.modData("Learnsets", "mabosstiff").learnset.superpower = ["9L1"];
 		this.modData("Learnsets", "mabosstiff").learnset.poisonfang = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.crunch = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.snarl = ["9L1"];
+		this.modData("Learnsets", "ironleaves").learnset.synthesis = ["9L1"];
+		this.modData("Learnsets", "flygon").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "flygon").learnset.boomingsands = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -108,6 +115,24 @@ export const Scripts: ModdedBattleScriptsData = {
 	        pokemon.maxhp = newMaxHP;
 	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
       	}
+			if (pokemon.species.name === 'Iron Leaves' && type === 'Fighting') {
+	        pokemon.formeChange('Iron Leaves-Tera', null, true);
+	        pokemon.baseMaxhp = Math.floor(Math.floor(
+	          2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+	        ) * pokemon.level / 100 + 10);
+	        const newMaxHP = pokemon.baseMaxhp;
+	        pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+	        pokemon.maxhp = newMaxHP;
+	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+      	}
+			if (pokemon.species.baseSpecies === 'Clodsire') {
+				const tera = pokemon.species.id === 'clodsire' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Flygon') {
+				const tera = pokemon.species.id === 'flygon' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},
