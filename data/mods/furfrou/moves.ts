@@ -101,7 +101,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	         let worstStat = Number.MAX_VALUE;
 	         const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
 	         for (const i of stats) {
-		      	if (this.getStat(i, true, true) < worstStat) {
+		      	if (source.getStat(i, true, true) < worstStat) {
 		            statName = i;
 		            worstStat = this.getStat(i, true, true);
 		      	}
@@ -246,6 +246,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -1051,
 		accuracy: true,
 		basePower: 40,
+		basePowerCallback(source, target, move) {
+			if (source.volatiles['solischarge']) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		name: "Luster Thrust",
 		pp: 20,
@@ -257,11 +263,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Geomancy', source);
 			this.add('-anim', source, 'Quick Attack', target);
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (source.volatiles['solischarge']) {
-				return this.chainModify(2);
-			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.volatiles['solischarge']) {
@@ -333,7 +334,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Power Gem', target);
 		},
-		onAfterMoveSecondary(target, source, move) {
+		onAfterHit(target, source) {
 			if (this.field.isTerrain('mistyterrain')) {
 				if (this.randomChance(1, 5)) {
 					if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
@@ -413,7 +414,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 		},
-		shortDesc: "Allies on switch: heal 1/6 of max HP. In Electric Terrain: heal 1/3.",
+		shortDesc: "Hazard: heals 1/8 HP on entry, 1/4 in Electric Terrain.",
 		secondary: null,
 		target: "allySide",
 		type: "Electric",
@@ -1417,6 +1418,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 80,
 		category: "Special",
 		name: "Toxic Greed",
+		shortDesc: "Sets a volatile that leeches 1/16 HP per turn. Poison-types are immune.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1},
