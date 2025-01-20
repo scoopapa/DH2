@@ -75,6 +75,38 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		shortDesc: "On switch out, replacement heals 25% of their max HP and cures its status.",
 	},
+	shatteringscream: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Shattering Scream boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Shattering Scream",
+		rating: 3.5,
+		shortDesc: "This Pokemon's sound moves have their power multiplied by 1.5.",
+	},
+	slicerdrive: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Slicer Drive boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			const bestStat = target.getBestStat(true, true);
+			if (move.flags['slicing'] && this.field.isTerrain('electricterrain')) {
+				this.boost({[bestStat]: 1}, target);
+			}
+		},
+		flags: {},
+		name: "Slicer Drive",
+		rating: 3,
+		shortDesc: "This Pokemon's slicing moves deal 1.3x damage and, in Electric Terrain, raise highest stat by 1 stage.",
+	},
 
 	// vanillabilities
 	guarddog: {
