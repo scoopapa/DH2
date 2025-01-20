@@ -644,6 +644,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'articuno').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'articunogalar').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'shiftry').learnset.downdraft = ['9L1'];
+    this.modData('Learnsets', 'unfezant').learnset.downdraft = ['9L1'];
+    this.modData('Learnsets', 'unfezantf').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'cymadalea').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'medidragon').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'admistral').learnset.downdraft = ['9L1'];
@@ -1293,7 +1295,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'walrein').learnset.iceshard = ['9L1'];
     this.modData('Learnsets', 'relicanth').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'regirock').learnset.shoreup = ['9L1'];
-    delete this.modData('Learnsets', 'deoxys').learnset.spikes;
     delete this.modData('Learnsets', 'deoxys').learnset.magiccoat;
 
     // Gen 4:
