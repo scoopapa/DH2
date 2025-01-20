@@ -330,7 +330,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 130,
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gardevoir-Amelia') return false;
+			if (source.baseSpecies.baseSpecies === 'Gardevoir') return false;
 			return true;
 		},
 		itemUser: ["Gardevoir-Amelia"],
@@ -345,7 +345,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Mawile-Mega-Korra') return false;
+			if (source.baseSpecies.baseSpecies === 'Mawile') return false;
 			return true;
 		},
 		itemUser: ["Mawile-Mega-Korra"],
