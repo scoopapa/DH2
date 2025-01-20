@@ -246,6 +246,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -1051,
 		accuracy: true,
 		basePower: 40,
+		basePowerCallback(source, target, move) {
+			if (source.volatiles['solischarge']) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		name: "Luster Thrust",
 		pp: 20,
@@ -257,11 +263,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Geomancy', source);
 			this.add('-anim', source, 'Quick Attack', target);
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (source.volatiles['solischarge']) {
-				return this.chainModify(2);
-			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.volatiles['solischarge']) {
