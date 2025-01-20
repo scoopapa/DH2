@@ -23,8 +23,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Dragon",
 		contestType: "Cool",
 	},
-	firelash: {
-		num: 680,
+	boomingsands: {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
