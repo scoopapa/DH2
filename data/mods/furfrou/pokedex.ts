@@ -211,7 +211,31 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		weightkg: 4.0,
 		creator: "viivian",
 	},
-	
+	jade: {
+		num: -1093,
+		name: "Jade",
+		types: ["Normal"],
+		gender: "F",
+		baseStats: {hp: 3, atk: 23, def: 6, spa: 2, spd: 6, spe: 50},
+		abilities: {0: "Anticipation", 1: "Frisk", H: "Insomnia"},
+		heightm: 1.7,
+		weightkg: 90.7,
+		evos: ["Gourgeist-Jade"], //necessary for sketch functionality
+	},
+	gourgeistjade: {
+		num: 711,
+		name: "Gourgeist-Jade",
+		baseSpecies: "Gourgeist",
+		forme: "Jade",
+		types: ["Ghost", "Grass"],
+		gender: "F",
+		prevo: "Jade",
+		baseStats: {hp: 55, atk: 65, def: 122, spa: 78, spd: 75, spe: 99},
+		abilities: {0: "Harvest", 1: "Frisk", H: "Insomnia"},
+		heightm: 1.1,
+		weightkg: 14,
+		color: "Brown",
+	},
 	// Pure customs //
 	
 	albatross: {
@@ -346,7 +370,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Badeline",
 		types: ["Poison", "Dark"],
 		abilities: {0: "Envious Aura", 1: "Corrosion", H: "Dark Aura"},
-		baseStats: {hp: 105, atk: 65, def: 95, spa: 125, spd: 105, spe: 115},
+		baseStats: {hp: 105, atk: 55, def: 105, spa: 115, spd: 105, spe: 115},
 		gender: "F",
 		heightm: 2.0,
 		weightkg: 77.4,
