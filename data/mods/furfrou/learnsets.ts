@@ -1263,7 +1263,7 @@ export const Learnsets = {
 			superpower: ["9M"],
 		},
 	},
-	humanjade: {
+	jade: {
 		learnset: {
 			sketch: ["9S0"], // to prevent sketch bullshit
 			doodle: ["9M"],
