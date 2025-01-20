@@ -413,7 +413,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 		},
-		shortDesc: "Allies on switch: heal 1/6 of max HP. In Electric Terrain: heal 1/3.",
+		shortDesc: "Hazard: heals 1/8 HP on entry, 1/4 in Electric Terrain.",
 		secondary: null,
 		target: "allySide",
 		type: "Electric",
