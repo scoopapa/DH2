@@ -127,7 +127,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 
-			if (pokemon.status === 'frz' && move.category === 'Special') {
+			if (pokemon.status === 'frz' && move.category === 'Special' && !pokemon.hasAbility('keepcool')) {
 				if (this.battle.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.battle.modify(baseDamage, 0.5);
 				}
