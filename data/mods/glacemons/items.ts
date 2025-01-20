@@ -1570,4 +1570,22 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		shortDesc: "Holder's contact moves have x1.2 power and trap the target. Single use. Consumed after use. Announces itself.",
 	},
+	//pokerusvaccine: {
+	frozenorb: {
+		name: "Frozen Orb",
+		spritenum: 515,
+		fling: {
+			basePower: 30,
+			status: 'frz',
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('frz', pokemon);
+		},
+		desc: "At the end of each turn, tries to freeze the holder.",
+		shortDesc: "Tries to freeze the holder.",
+		num: -26,
+		gen: 4,
+	},
 };

@@ -1617,4 +1617,70 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		desc: "Has a 20% chance to badly poison the target.",
 		shortDesc: "20% chance to badly poison the target.",
 	},
+	sonicboom: {
+		inherit: true,
+		damage: null,
+		basePower: 40,
+		accuracy: 100,
+		category: "Special",
+		desc: "Priority +1, Sound move.",
+		shortDesc: "Usually goes first. Sound Move.",
+		name: "Sonic Boom",
+		priority: 1,
+		isNonstandard: null,
+		flags: { sound: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	swarming: {
+		num: -26,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Swarming",
+		shortDesc: "Lowers the user's and the target's SpD by one stage.",
+		desc: "Lowers the user's and the target's SpD by one stage.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spd: -1,
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Buzz", target);
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Smart",
+	},
+	octazooka: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 70,
+		pp: 20,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1, pulse: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		desc: "Has a 100% chance to lower the target's Sp. Defense by 1 stage.",
+		shortDesc: "100% chance to lower the target's Sp. Def by 1.",
+	},
+	paraboliccharge: {
+		inherit: true,
+		basePower: 75,
+		pp: 10,
+	},
 };
