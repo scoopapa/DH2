@@ -1417,6 +1417,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 80,
 		category: "Special",
 		name: "Toxic Greed",
+		shortDesc: "Sets a volatile that leeches 1/16 HP per turn. Poison-types are immune.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bypasssub: 1},
