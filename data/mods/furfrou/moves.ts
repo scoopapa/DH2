@@ -156,9 +156,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Cluster Shrapnel');
 			},
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Cluster Shrapnel');
-			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.effectState.pokemon = this.effectState.side[this.effectState.position];
