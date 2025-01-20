@@ -2647,6 +2647,7 @@ export const Learnsets = {
 			calmmind: ["9M"],
 			corrosivegas: ["9M"],
 			crunch: ["9M"],
+			darkpulse: ["9M"],
 			defog: ["9M"],
 			destinybond: ["9M"],
 			earthpower: ["9M"],
