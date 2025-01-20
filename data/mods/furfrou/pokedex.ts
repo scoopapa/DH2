@@ -217,6 +217,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		baseSpecies: "Gourgeist",
 		forme: "Jade",
 		types: ["Ghost", "Grass"],
+		gender: "F",
 		baseStats: {hp: 55, atk: 65, def: 122, spa: 78, spd: 75, spe: 99},
 		abilities: {0: "Harvest", 1: "Frisk", H: "Insomnia"},
 		heightm: 1.1,
