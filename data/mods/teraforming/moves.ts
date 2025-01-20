@@ -23,6 +23,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Dragon",
 		contestType: "Cool",
 	},
+	boomingsands: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "100% chance to lower the target's Sp. Defense by 1.",
+		name: "Booming Sands",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, sound: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Round", target);
+			this.add('-anim', source, "Stomping Tantrum", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cute",
+	},
+	
 	// non-new moves
 	pursuit: {
 		inherit: true,

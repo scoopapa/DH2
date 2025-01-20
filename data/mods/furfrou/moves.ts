@@ -94,14 +94,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onHit(target, source, move) {
+		onDamage(damage, target, source, effect) {
 			const bestStat = source.getBestStat(true, true);
 			if (effect && effect.effectType === 'Move') {
 	      	let statName: StatIDExceptHP = 'atk';
 	         let worstStat = Number.MAX_VALUE;
 	         const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
 	         for (const i of stats) {
-		      	if (this.getStat(i, true, true) < worstStat) {
+		      	if (source.getStat(i, true, true) < worstStat) {
 		            statName = i;
 		            worstStat = this.getStat(i, true, true);
 		      	}
@@ -246,6 +246,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -1051,
 		accuracy: true,
 		basePower: 40,
+		basePowerCallback(source, target, move) {
+			if (source.volatiles['solischarge']) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		name: "Luster Thrust",
 		pp: 20,
@@ -257,11 +263,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Geomancy', source);
 			this.add('-anim', source, 'Quick Attack', target);
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (source.volatiles['solischarge']) {
-				return this.chainModify(2);
-			}
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.volatiles['solischarge']) {
@@ -304,7 +305,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return this.chainModify(0.25);
 			},
 			onDamagingHit(damage, target, source, effect) {
-				source.addVolatile('solischarge');
+				target.addVolatile('solischarge');
 			},
 		},
 		secondary: null,
@@ -312,6 +313,74 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Psychic",
 		zMove: {effect: 'redirect'},
 		contestType: "Clever",
+	},
+	necashrapnel: {
+		num: -4000,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Neca Shrapnel",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		shortDesc: "User hits 2-5 times. Secondary effect and chance depends on terrain.",
+		multihit: [2, 5],
+		secondary: {}, // sheer force
+		target: "normal",
+		type: "Psychic",
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Power Gem', target);
+		},
+		onAfterHit(target, source) {
+			if (this.field.isTerrain('mistyterrain')) {
+				if (this.randomChance(1, 5)) {
+					if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
+						this.boost({atk: -1}, target);
+					} else this.boost({spa: -1}, target);
+				}
+			} else if (this.field.isTerrain('grassyterrain')) {
+				if (this.randomChance(1, 5)) {
+					this.boost({spe: -1}, target);
+				}
+			} else if (this.field.isTerrain('psychicterrain')) {
+				if (this.randomChance(1, 5)) {
+					this.boost({def: -1}, target);
+				}
+			} else if (this.field.isTerrain('electricterrain')) {
+				if (this.randomChance(1, 10)) {
+					source.trySetStatus('par', target);
+				}
+			} else if (this.randomChance(1, 10)) {
+				source.trySetStatus('psn', target);
+			}
+		},
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Clever",
+	},
+	triplekick: {
+		num: 167,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		category: "Physical",
+		name: "Triple Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: 3,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 80},
+		contestType: "Cool",
 	},
 	reconsector: {
 		num: -1060,
@@ -338,14 +407,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				if (this.field.isTerrain('electricterrain')) {
 					this.add('-anim', pokemon, "Charge", pokemon);
-					this.heal(pokemon.maxhp / 3);
+					this.heal(pokemon.maxhp / 4);
 				} else {
 					this.add('-anim', pokemon, "Charge", pokemon);
-					this.heal(pokemon.maxhp / 6);
+					this.heal(pokemon.maxhp / 8);
 				}
 			},
 		},
-		shortDesc: "Allies on switch: heal 1/6 of max HP. In Electric Terrain: heal 1/3.",
+		shortDesc: "Hazard: heals 1/8 HP on entry, 1/4 in Electric Terrain.",
 		secondary: null,
 		target: "allySide",
 		type: "Electric",
@@ -1342,5 +1411,46 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Electric",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
+	},
+	toxicgreed: {
+		num: 738,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Toxic Greed",
+		shortDesc: "Sets a volatile that leeches 1/16 HP per turn. Poison-types are immune.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bitter Malice", target);
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				if (pokemon.hasType('Poison')) return null;
+				this.add('-start', pokemon, 'Toxic Greed');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.getAtSlot(pokemon.volatiles['toxicgreed'].sourceSlot);
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 16, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'toxicgreed',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
 	},
 };

@@ -264,4 +264,22 @@ horseserve: {
 		maxMove: {basePower: 100},
 		contestType: "Cool",
 	},
+		feartheviper: {
+			shortDesc: "20% chance to freeze the target by petrifying them.",
+		num: 5238,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Fear The Viper",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondary: {
+			chance: 20,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
 }
