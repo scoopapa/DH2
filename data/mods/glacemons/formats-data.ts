@@ -721,11 +721,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kangaskhan: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	kangaskhanmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "(OU)",
 	},
 	horsea: {
 		inherit: true,
@@ -993,7 +993,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mew: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "(OU)",
 	},
 	chikorita: {
 		inherit: true,
@@ -1085,7 +1085,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	togekiss: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	natu: {
 		inherit: true,
@@ -1921,11 +1921,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	banette: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	banettemega: {
 		inherit: true,
-		tier: "UU",
+		tier: "(OU)",
 	},
 	duskull: {
 		inherit: true,
@@ -1953,11 +1953,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	absol: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	absolmega: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	snorunt: {
 		inherit: true,
@@ -3081,7 +3081,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mandibuzz: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	heatmor: {
 		inherit: true,

@@ -144,10 +144,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Route Closed"},
 	},
-	mandibuzz: {
-		inherit: true,
-		abilities: {0: "Route Closed", 1: "Overcoat", H: "Weak Armor"},
-	},
 	mamoswine: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Route Closed", H: "Thick Fat"},
@@ -369,10 +365,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Contrary", 1: "Run It Back", H: "Forewarn"},
 	},
-	banette: {
-		inherit: true,
-		abilities: {0: "Insomnia", 1: "Frisk", H: "Run It Back"},
-	},
 	oranguru: {
 		inherit: true,
 		abilities: {0: "Inner Focus", 1: "Run It Back", H: "Symbiosis"},
@@ -403,14 +395,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 
 	// Anticipation
-	mew: {
-		inherit: true,
-		abilities: {0: "Synchronize", 1: "Moody", H: "Anticipation"},
-	},
-	absol: {
-		inherit: true,
-		abilities: {0: "Anticipation", 1: "Forewarn", H: "Super Luck"},
-	},
 	medicham: {
 		inherit: true,
 		abilities: {0: "Pure Power", 1: "Anticipation", H: "Telepathy"},
@@ -845,10 +829,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	toedscruel: {
 		inherit: true,
 		abilities: {0: "Mycelium Might", H: "Wind Power"},
-	},
-	togekiss: {
-		inherit: true,
-		abilities: {0: "Wind Power", 1: "Serene Grace", H: "Super Luck"},
 	},
 	tornadus: {
 		inherit: true,
@@ -1544,11 +1524,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: null,
 		requiredItems: ["Gengarite", "Parallel Mega Orb"],
 	},
-	kangaskhanmega: {
-		inherit: true,
-		requiredItem: null,
-		requiredItems: ["Kangaskhanite", "Parallel Mega Orb"],
-	},
 	pinsirmega: {
 		inherit: true,
 		requiredItem: null,
@@ -1643,16 +1618,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		requiredItem: null,
 		requiredItems: ["Cameruptite", "Parallel Mega Orb"],
-	},
-	banettemega: {
-		inherit: true,
-		requiredItem: null,
-		requiredItems: ["Banettite", "Parallel Mega Orb"],
-	},
-	absolmega: {
-		inherit: true,
-		requiredItem: null,
-		requiredItems: ["Absolite", "Parallel Mega Orb"],
 	},
 	glaliemega: {
 		inherit: true,
@@ -2018,5 +1983,51 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	cherrimsunshine: {
 		inherit: true,
 		types: ["Grass", "Fire"]
+	},
+	// Slate 8
+	banette: {
+		inherit: true,
+		types: ["Ghost", "Normal"],
+		abilities: {0: "Insomnia", 1: "Frisk", H: "Run It Back"},
+	},
+	banettemega: {
+		inherit: true,
+		types: ["Ghost", "Fighting"],
+		requiredItem: null,
+		requiredItems: ["Banettite", "Parallel Mega Orb"],
+	},
+	absol: {
+		inherit: true,
+		types: ["Dark", "Fairy"],
+		abilities: {0: "Anticipation", 1: "Forewarn", H: "Super Luck"},
+	},
+	absolmega: {
+		inherit: true,
+		types: ["Dark", "Fairy"],
+		requiredItem: null,
+		requiredItems: ["Absolite", "Parallel Mega Orb"],
+	},
+	kangaskhan: {
+		inherit: true,
+		types: ["Normal", "Ground"],
+		abilities: {0: "Early Bird", 1: "Sap Sipper", H: "Thick Fat"},
+	},
+	kangaskhanmega: {
+		inherit: true,
+		types: ["Normal", "Ground"],
+		requiredItem: null,
+		requiredItems: ["Kangaskhanite", "Parallel Mega Orb"],
+	},
+	togekiss: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Serene Grace", H: "Super Luck"},
+	},
+	mew: {
+		inherit: true,
+		abilities: {0: "Trace", 1: "Moody", H: "Protean"},
+	},
+	mandibuzz: {
+		inherit: true,
+		abilities: {0: "Overcoat", 1: "Prankster", H: "Route Closed"},
 	},
 };
