@@ -796,10 +796,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 		},
 	},
-	defog: {
-		inherit: true,
-		flags: {protect: 1, reflectable: 1, mirror: 1, wind: 1, bypasssub: 1, metronome: 1},
-	},
 	triplearrows: {
 		accuracy: 100,
 		basePower: 50,
