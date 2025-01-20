@@ -216,7 +216,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Jade",
 		types: ["Normal"],
 		gender: "F",
-		baseStats: {hp: 5, atk: 23, def: 5, spa: 5, spd: 5, spe: 50},
+		baseStats: {hp: 3, atk: 23, def: 6, spa: 2, spd: 6, spe: 50},
 		abilities: {0: "Anticipation", 1: "Frisk", H: "Insomnia"},
 		heightm: 1.7,
 		weightkg: 90.7,
