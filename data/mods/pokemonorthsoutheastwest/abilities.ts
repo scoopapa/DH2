@@ -48,4 +48,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		num: 1443,
 	},
+		bravery: {
+			shortDesc: "This Pokémon takes 50% less damage from Dark, Ghost, and Bug moves.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark' || move.type === 'Ghost' || move.type === 'Bug') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark' || move.type === 'Ghost' || move.type === 'Bug') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Bravery",
+		rating: 3.5,
+		num: 47,
+	},
 }
