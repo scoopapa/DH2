@@ -346,7 +346,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Badeline",
 		types: ["Poison", "Dark"],
 		abilities: {0: "Envious Aura", 1: "Corrosion", H: "Dark Aura"},
-		baseStats: {hp: 105, atk: 65, def: 95, spa: 125, spd: 105, spe: 115},
+		baseStats: {hp: 105, atk: 55, def: 105, spa: 115, spd: 105, spe: 115},
 		gender: "F",
 		heightm: 2.0,
 		weightkg: 77.4,
