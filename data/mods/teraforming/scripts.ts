@@ -33,6 +33,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "clodsire").learnset.crunch = ["9L1"];
 		this.modData("Learnsets", "clodsire").learnset.snarl = ["9L1"];
 		this.modData("Learnsets", "ironleaves").learnset.synthesis = ["9L1"];
+		delete this.modData('Learnsets', 'ironleaves').learnset.swordsdance;
 		this.modData("Learnsets", "flygon").learnset.roost = ["9L1"];
 		this.modData("Learnsets", "flygon").learnset.boomingsands = ["9L1"];
 	},
