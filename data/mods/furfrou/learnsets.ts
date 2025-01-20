@@ -1265,7 +1265,7 @@ export const Learnsets = {
 	},
 	jade: {
 		learnset: {
-			sketch: ["9S0"], // to prevent sketch bullshit
+			sketch: ["9S0", "5E"], // to prevent sketch bullshit
 			doodle: ["9M"],
 			taunt: ["9M"],
 			yawn: ["9M"],
@@ -1280,6 +1280,9 @@ export const Learnsets = {
 			faketears: ["9M"],
 			growl: ["9M"],
 		},
+		eventData: [
+			{generation: 9, level: 1, shiny: 1, moves: ["sketch"]},
+		],
 	},
 	gourgeistjade: {
 		learnset: {
