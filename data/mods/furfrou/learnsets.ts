@@ -1377,7 +1377,6 @@ export const Learnsets = {
 			infernalparade: ["9M"],
 			cosmicpower: ["9M"],
 			bodypress: ["9M"],
-			moonblast: ["9M"],
 			partingshot: ["9M"],
 			amnesia: ["9M"],
 			hypnosis: ["9M"],
