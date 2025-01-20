@@ -296,7 +296,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	badeline: {tier: "FROU"},
 
-	pumpkaboo: {tier: "FROU"},
+	jade: {tier: "FROU (NFE)"},
+
+	pumpkaboo: {tier: "FROU (NFE)"},
 	gourgeist: {tier: "FROU"},
 	gourgeistjade: {tier: "FROU"},
 
