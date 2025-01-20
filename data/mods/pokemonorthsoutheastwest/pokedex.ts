@@ -227,7 +227,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	verdcao: {
 		num: 29,
-		species: "Verdcao",
+		name: "Verdcao",
 		types: ["Grass"],
 		baseStats: {hp: 80, atk: 120, def: 80, spa: 80, spd: 80, spe: 80},
 		abilities: {0: "Poison Point", 1: "Adaptability", H: "Overgrow"},
@@ -235,7 +235,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	crimshuo: {
 		num: 30,
-		species: "Crimshuo",
+		name: "Crimshuo",
 		types: ["Fire"],
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 120, spd: 80, spe: 80},
 		abilities: {0: "Flame Body", 1: "Adaptability", H: "Blaze"},
@@ -243,7 +243,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	azhui: {
 		num: 31,
-		species: "Azhui",
+		name: "Azhui",
 		types: ["Water"],
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 100, spd: 100, spe: 80},
 		abilities: {0: "Gooey", 1: "Adaptability", H: "Torrent"},
@@ -259,7 +259,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	chalkongqi: {
 		num: 33,
-		species: "Chalkongqi",
+		name: "Chalkongqi",
 		types: ["Flying"],
 		baseStats: {hp: 80, atk: 80, def: 95, spa: 90, spd: 95, spe: 80},
 		abilities: {0: "Fluffy", 1: "Adaptability", H: "Aerliate"},
@@ -267,7 +267,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	violnao: {
 		num: 34,
-		species: "Violnao",
+		name: "Violnao",
 		types: ["Psychic"],
 		baseStats: {hp: 80, atk: 20, def: 80, spa: 150, spd: 110, spe: 80},
 		abilities: {0: "Lullabody", 1: "Adaptability", H: "Prediction"},
@@ -275,7 +275,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	cyabing: {
 		num: 35,
-		species: "Cyabing",
+		name: "Cyabing",
 		types: ["Ice"],
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 80, spe: 80},
 		abilities: {0: "Frigid Touch", 1: "Adaptability", H: "Snow Cloak"},
@@ -283,7 +283,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	limchong: {
 		num: 36,
-		species: "Limchong",
+		name: "Limchong",
 		types: ["Bug"],
 		baseStats: {hp: 80, atk: 150, def: 80, spa: 20, spd: 80, spe: 110},
 		abilities: {0: "Hyper Cutter", 1: "Honey Gather", H: "Swarm"},
@@ -291,7 +291,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	silvgang: {
 		num: 37,
-		species: "Silvgang",
+		name: "Silvgang",
 		types: ["Steel"],
 		baseStats: {hp: 80, atk: 100, def: 90, spa: 80, spd: 90, spe: 80},
 		abilities: {0: "Bravery", 1: "Adaptability", H: "Steelworker"},
@@ -299,7 +299,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	joikarazo: {
 		num: 38,
-		species: "Joikarazo",
+		name: "Joikarazo",
 		types: ["Fighting"],
 		baseStats: {hp: 85, atk: 145, def: 75, spa: 35, spd: 95, spe: 100},
 		abilities: {0: "Guts", 1: "Vital Spirit", H: "Steadfast"},
@@ -307,7 +307,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	sandibai: {
 		num: 39,
-		species: "Sandibai",
+		name: "Sandibai",
 		types: ["Water", "Rock"],
 		baseStats: {hp: 101, atk: 102, def: 80, spa: 80, spd: 80, spe: 97},
 		abilities: {0: "Torrent", H: "Sturdy"},
@@ -315,7 +315,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	elapguarr: {
 		num: 40,
-		species: "Elapguarr",
+		name: "Elapguarr",
 		types: ["Poison", "Dragon"],
 		baseStats: {hp: 100, atk: 140, def: 75, spa: 65, spd: 70, spe: 75},
 		abilities: {0: "Merciless", 1: "Corrosion", H: "Multiscale"},
@@ -323,7 +323,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	phangphang: {
 		num: 41,
-		species: "Phangphang",
+		name: "Phangphang",
 		types: ["Poison", "Ice"],
 		baseStats: {hp: 112, atk: 103, def: 89, spa: 80, spd: 123, spe: 44},
 		abilities: {0: "Frigid Touch", 1: "Poison Touch", H: "Intimidate"},
@@ -331,7 +331,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	marthlattle: {
 		num: 42,
-		species: "Marthlattle",
+		name: "Marthlattle",
 		types: ["Fighting", "Poison"],
 		baseStats: {hp: 91, atk: 114, def: 85, spa: 64, spd: 78, spe: 80},
 		abilities: {0: "Magic Bounce", 1: "Prankster", H: "Regenerator"},
