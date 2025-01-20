@@ -86,21 +86,22 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onDamage(damage, target, source, effect) {
-			const bestStat = source.getBestStat(true, true);
+
+		onHit(source, target, effect) {
 			if (effect && effect.effectType === 'Move') {
-	      	let statName: StatIDExceptHP = 'atk';
-	         let worstStat = Number.MAX_VALUE;
-	         const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
-	         for (const i of stats) {
-		      	if (source.getStat(i, true, true) < worstStat) {
-		            statName = i;
-		            worstStat = this.getStat(i, true, true);
-		      	}
-	      	}
+				const bestStat = target.getBestStat(true, true);
+				let statName: StatIDExceptHP = 'atk';
+				let worstStat = Number.MAX_VALUE;
+				const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+				for (const i of stats) {
+					if (target.getStat(i, true, true) < worstStat) {
+						statName = i;
+						worstStat = target.getStat(i, true, true);
+					}
+				}
+				this.boost({[statName]: 1}, target);
+				this.boost({[bestStat]: -1}, target);
 			}
-      	this.boost({[worstStat]: 1}, source);
-			this.boost({[bestStat]: -1}, source);
 		},
 		secondary: null,
 		target: "normal",
@@ -126,74 +127,93 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('clustershrapnel');
+					if (!target.side.addSlotCondition(target, 'clusterbomb')) return false;
+					Object.assign(target.side.slotConditions[target.position]['clusterbomb'], {
+						move: 'clusterbomb',
+						source: source,
+						position: target.position,
+						side: target.side,
+						moveData: {
+							id: 'clusterbomb',
+							name: "Cluster Bomb",
+							accuracy: 100,
+							basePower: 60,
+							category: "Special",
+							priority: 0,
+							flags: {},
+							ignoreImmunity: false,
+							onTryMove() {
+								this.attrLastMove('[still]');
+							},
+							onPrepareHit(target, source) {
+								this.add('-anim', source, 'Earth Power', target);
+								this.add('-message', `The shards detonated!`);
+							},
+							effectType: 'Move',
+							isFutureMove: true,
+							type: 'Fire',
+						}
+					});
 				}
-			}
+			} 
+			this.add('-message', `Explosive shards from the bomb went everywhere!`);
 		},
 		onAfterSubDamage(damage, target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('clustershrapnel');
+					if (!target.side.addSlotCondition(target, 'clusterbomb')) return false;
+					Object.assign(target.side.slotConditions[target.position]['clusterbomb'], {
+						move: 'Cluster Bomb',
+						source: source,
+						position: target.position,
+						side: target.side,
+						moveData: {
+							id: 'clusterbomb',
+							name: "Cluster Bomb",
+							accuracy: 100,
+							basePower: 60,
+							category: "Special",
+							priority: 0,
+							flags: {},
+							ignoreImmunity: false,
+							onTryMove() {
+								this.attrLastMove('[still]');
+							},
+							onPrepareHit(target, source) {
+								this.add('-anim', source, 'Earth Power', target);
+								this.add('-message', `The shards detonated!`);
+							},
+							OnAfterHit(target, pokemon, move) {
+								target.side.removeSideCondition('clusterbomb');
+							},
+							effectType: 'Move',
+							isFutureMove: true,
+							type: 'Fire',
+						}
+					});
 				}
 			}
+			this.add('-message', `Explosive shards from the bomb went everywhere!`);
+		},
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Cluster Bomb');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get('clusterbomb');
+				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
+			},
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Cluster Bomb');
+			},
 		},
 		secondary: {}, // Sheer Force-boosted
 		target: "normal",
 		type: "Fire",
-	},
-	clustershrapnel: {
-		num: -1050,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Cluster Shrapnel",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
-		sideCondition: 'clustershrapnel',
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Cluster Shrapnel');
-			},
-			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
-				this.effectState.pokemon = this.effectState.side[this.effectState.position];
-				const data = this.effectState;
-				const move = this.dex.moves.get('clusterboom');
-				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-				
-				this.actions.trySpreadMoveHit([data.pokemon], data.source, hitMove);
-				
-				this.add('-sideend', pokemon.side, 'clustershrapnel');
-			},
-		},
-		secondary: null,
-		target: "foeSide",
-		type: "Fire",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
-	},
-	clusterboom: {
-		num: -1050,
-		accuracy: true,
-		basePower: 60,
-		category: "Special",
-		name: "Cluster Boom",
-		pp: 20,
-		priority: 0,
-		onTryMove() {
-			this.attrLastMove('[still]');
-		},
-		onPrepareHit(target, source) {
-			this.add('-anim', source, 'Doom Desire', target);
-		},
-		flags: {metronome: 1, mustpressure: 1},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-		zMove: {boost: {def: 1}},
-		contestType: "Cool",
 	},
 	lusterthrust: {
 		num: -1051,
