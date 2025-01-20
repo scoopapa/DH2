@@ -333,7 +333,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Power Gem', target);
 		},
-		onAfterMoveSecondary(target, source, move) {
+		onAfterHit(target, source) {
 			if (this.field.isTerrain('mistyterrain')) {
 				if (this.randomChance(1, 5)) {
 					if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
