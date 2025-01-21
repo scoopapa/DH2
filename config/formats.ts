@@ -3162,6 +3162,17 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Agility + Wrap', 'Agility + Fire Spin', 'Agility + Bind', 'Agility + Clamp', 'Amnesia', 'Sleep Powder', 'Self-Destruct', 'Explosion'],
 	},
 	{
+		name: "[Gen 2] GSC Doubles Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['Bright Powder', 'King\'s Rock', 'Quick Claw'],
+	},
+	{
 		name: "[Gen 2] GSC Doubles OU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
@@ -3171,6 +3182,17 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
+	},
+	{
+		name: "[Gen 2] GSC Doubles UU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['OU', 'Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
 	},
 	{
 		name: "[Gen 2] GSC Doubles Random Battle",
