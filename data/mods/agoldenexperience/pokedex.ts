@@ -163,12 +163,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	sandslash: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 110, spa: 45, spd: 55, spe: 85},
-		abilities: {0: "Sand Veil", 1: "Thorns", H: "Sand Rush"},
+		abilities: {0: "Sand Veil", 1: "Spiky Body", H: "Sand Rush"},
 	},
 	sandslashalola: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 120, spa: 45, spd: 55, spe: 85},
-		abilities: {0: "Snow Cloak", 1: "Thorns", H: "Slush Rush"},
+		abilities: {0: "Snow Cloak", 1: "Spiky Body", H: "Slush Rush"},
 	},
 	clefable: {
 		inherit: true,
@@ -499,7 +499,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	jolteon: {
 		inherit: true,
-		abilities: {0: "Volt Absorb", 1: "Thorns", H: "Quick Feet"},
+		abilities: {0: "Volt Absorb", 1: "Spiky Body", H: "Quick Feet"},
 	},
     flareon: {
 		inherit: true,
@@ -1988,7 +1988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 50, spd: 90, spe: 60},
-		abilities: {0: "Water Absorb", 1: "Chlorophyll", H: "Thorns"},
+		abilities: {0: "Water Absorb", 1: "Chlorophyll", H: "Spiky Body"},
 	},
 	crustle: {
 		inherit: true,
@@ -2263,7 +2263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	// Gen 6 :
 	chesnaught: {
 		inherit: true,
-		abilities: {0: "Overgrow", H: "Thorns"},
+		abilities: {0: "Overgrow", H: "Spiky Body"},
 		otherFormes: ["Chesnaught-Mega"],
 		formeOrder: ["Chesnaught", "Chesnaught-Mega"],
 	},
