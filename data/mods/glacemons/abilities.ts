@@ -726,10 +726,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (pokemon.hp >= target.hp) return this.chainModify(1.25);
+			if (pokemon.hp <= target.hp) return this.chainModify(1.25);
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= source.hp) return this.chainModify(0.75);
+			if (target.hp <= source.hp) return this.chainModify(0.75);
 		},
 		shortDesc: "This Pokemon does 25% more damage and takes 25% less damage from opponents that have more HP than it. Its moves also cannot be redirected.",
 	},
