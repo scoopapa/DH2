@@ -5286,7 +5286,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard MG2', '+No Ability', '-All Abilities', 'Gems Clause'],
+		ruleset: ['Standard MG2', '+No Ability', '-All Abilities', 'Gems Clause', 'Normal Gem'],
 		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],
 	},
 	{
@@ -5296,7 +5296,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard', '+No Ability', '-All Abilities', 'Gems Clause'],
+		ruleset: ['Standard', '+No Ability', '-All Abilities', 'Gems Clause', 'Normal Gem'],
 		banlist: ['AG', 'Fake Out', 'Baton Pass', 'Rusted Sword'],
 		teambuilderFormat: 'Uber',
 	},
