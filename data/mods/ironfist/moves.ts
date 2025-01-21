@@ -107,7 +107,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
                     break;
                 }
             }
-            if(activated) move.name = newMoveName;
+            if (activated) move.name = newMoveName;
 			else move.basePower /= 2;
         },
 		secondary: null,
@@ -296,11 +296,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	splash: {
 		inherit: true,
 		flags: {snatch: 1, fishing: 1, metronome: 1},
-		shortDesc: "Feebas: remove all tokens and gain +1 Atk/Def/SpA/SpD/Spe for each two.",
+		shortDesc: "Feebas: remove all tokens and gain +1 all stats for each 2.",
 		onTryHit(target, source, move) {
 			if(target.baseSpecies.baseSpecies === 'Feebas') {
 				const targetSide = target.side;
-				if(targetSide.fishingTokens > 0) {
+				if (targetSide.fishingTokens > 0) {
 					const boosts = Math.floor(Math.min(targetSide.fishingTokens, 6) / 2);
 					target.side.removeFishingTokens(targetSide.fishingTokens);
 					this.boost({atk: boosts, def: boosts, spa: boosts, spd: boosts, spe: boosts}, target, target, move);
@@ -1346,7 +1346,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onAnyDeductPP(target, source) {
-				//if (target.isGrounded() && ) return 2;
+				if (target.isGrounded() && target.lastMoveUsed.flags['fishing']) return 2;
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
@@ -1369,7 +1369,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "+10 BP per other unfainted allied Diamond Hand",
+		shortDesc: "+10 BP per other unfainted allied Diamond Hand.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
@@ -1617,10 +1617,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Max Knuckle", target);
 		},
 		self: {
-				boosts: {
-					atk: 1,
-				},
+			boosts: {
+				atk: 1,
 			},
+		},
 		secondary: null,
 		target: "normal",
 	},
@@ -1748,7 +1748,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 5,
 			onFieldStart(target, source, sourceEffect) {
 				this.add('-fieldactivate', 'move: Lion Deluge');
-				this.hint(`Certin types of moves cause the user to become a lion Pokemon after using ${sourceEffect}.`);
+				this.hint(`Certain sound moves cause the user to become a lion Pokemon after using ${sourceEffect}.`);
 			},
 			onBeforeMove(pokemon, target, move) {
 				if(!move.flags['sound']) return;
@@ -2642,7 +2642,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 5,
-		shortDesc: "For 5 turns, +Ghost and damages non-Ghost/Darks.",
+		shortDesc: "For 5 turns, +Ghost and damages non-Ghost/Darks/Normals.",
 		priority: 0,
 		flags: {metronome: 1},
 		onPrepareHit(target, pokemon, move) {
