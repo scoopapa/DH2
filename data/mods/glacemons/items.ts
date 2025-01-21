@@ -1577,7 +1577,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Pokerus Vaccine');
-			pokemon.addVolatile('pokerusvaccine');
+			if (pokemon.useItem()) {
+				pokemon.addVolatile('pokerusvaccine');
+			}
 		},
 		volatileStatus: 'pokerusvaccine',
 		condition: {
