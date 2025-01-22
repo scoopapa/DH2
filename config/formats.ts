@@ -2749,7 +2749,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] CU2 Randbats",
+		name: "[Gen 9] CU2 Random Battle",
 		desc: `A micrometa that combines secret santa with Generation X.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-10093481">CU2 on Smogon Forums</a>`,
@@ -2871,7 +2871,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] DNU Randbats",
+		name: "[Gen 9] DNU Random Battle",
 		desc: `<b>Do Not Use</b>: A National Dex metagame where only Pokemon with 280 BST or less are allowed.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-do-not-use.3734326/">Do Not Use</a>`,
@@ -3205,13 +3205,47 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Agility + Wrap', 'Agility + Fire Spin', 'Agility + Bind', 'Agility + Clamp', 'Amnesia', 'Sleep Powder', 'Self-Destruct', 'Explosion'],
 	},
 	{
-		name: "[Gen 2] GSC Doubles",
+		name: "[Gen 2] GSC Doubles Ubers",
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3755811/">Thread on Smogon</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
 		],
 
 		mod: 'gen2doubles',
 		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['Bright Powder', 'King\'s Rock', 'Quick Claw'],
+	},
+	{
+		name: "[Gen 2] GSC Doubles OU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
+	},
+	{
+		name: "[Gen 2] GSC Doubles UU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Swagger Clause'],
+		banlist: ['OU', 'Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
+	},
+	{
+		name: "[Gen 2] GSC Doubles Random Battle",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on Smogon</a>`,
+		],
+
+		mod: 'gen2doubles',
+		gameType: 'doubles',
+		team: 'random',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
 	},
@@ -3740,7 +3774,7 @@ export const Formats: FormatList = [
 		},
 	},*/
 	{
-		name: "[Gen 3] Sample Team Randbats",
+		name: "[Gen 3] Sample Team Random Battle",
 		team: 'random',
 		mod: 'gen3sampleteamrandbats',
 		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
@@ -4003,7 +4037,7 @@ export const Formats: FormatList = [
 		// column: 2,
 	// },
 	// {
-        // name: "[Gen 9] Duomod Randbats",
+        // name: "[Gen 9] Duomod Random Battle",
         // desc: `<b>gen 9 duomod back and better than ever baybeeeeee</b>`,
         // threads: [
             // `&bullet; <a href="https://docs.google.com/spreadsheets/d/1VZp8emRachS_ieusnF8FWKFqTcOUjrVyr393J-J17pY/edit?usp=sharing">Spreadsheet</a>`,
@@ -4016,7 +4050,7 @@ export const Formats: FormatList = [
         // },
     // },
 	// {
-		// name: "[Gen 8] Duomod Randbats",
+		// name: "[Gen 8] Duomod Random Battle",
 		// desc: `<b>Duomod</b>: Legendary YouTuber and professional Smash player DuoM2's solomod, build around the idea where nobody is ever truly losing.`,
         // threads: [
             // `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
@@ -4062,7 +4096,7 @@ export const Formats: FormatList = [
 		// ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Data Mod', 'Z-Move Clause'],
 	// },
 	// {
-// name: "[Gen 1] Modern Gen 1 Randbats",
+// name: "[Gen 1] Modern Gen 1 Random Battle",
 		// desc: [
 			// "<b>Modern Gen 1</b>: Gen 1 with all Pokemon and moves from Gen 9 Natdex added.",
 		// ],
@@ -4072,6 +4106,20 @@ export const Formats: FormatList = [
 		// mod: 'moderngen1',
 		// team: 'random',
 		// ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	// },
+	// {
+// name: "[Gen 2] GSC Doubles Random Battle",
+		// desc: [
+			// "GSC Doubles with random teams.",
+		// ],
+		// threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/gsc-doubles-new-lcots.3755811/">Thread on the Smogon Forums</a>`,
+		// ],
+		// mod: 'gen2doubles',
+		// gameType: 'doubles',
+		// team: 'random',
+		// ruleset: ['Standard Doubles', 'Swagger Clause'],
+		// banlist: ['Uber', 'Bright Powder', 'King\'s Rock', 'Quick Claw'],
 	// },
 	// {
 		// name: "[Gen 8] Roulettemons Random",
@@ -4306,7 +4354,7 @@ export const Formats: FormatList = [
 		},
 	},
 	/*{
-		name: "[Gen 9] Ubermons Sample Randbats",
+		name: "[Gen 9] Ubermons Sample Random Battle",
 		team: 'random',
 		mod: 'gen9ubermons',
 		ruleset: ['Standard NatDex', 'Terastal Clause'],
@@ -5239,7 +5287,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Shell Smash', 'Teeter Dance', 'Flatter'],
 	},
 	{
-		name: "[Gen 1] Modern Gen 1 Randbats",
+		name: "[Gen 1] Modern Gen 1 Random Battle",
 		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">MG1</a>`,
