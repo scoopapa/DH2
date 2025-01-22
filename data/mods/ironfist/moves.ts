@@ -1606,12 +1606,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Looksmaxx Knuckle",
 		type: "Fairy",
 		category: "Physical",
-		basePower: 85,
+		basePower: 75,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Raises the user's Attack by 1.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Max Knuckle", target);
