@@ -1570,4 +1570,126 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		gen: 9,
 		shortDesc: "Holder's contact moves have x1.2 power and trap the target. Single use. Consumed after use. Announces itself.",
 	},
+	pokerusvaccine: {
+		name: "Pokerus Vaccine",
+		fling: {
+			basePower: 386,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Pokerus Vaccine');
+			if (pokemon.useItem()) {
+				pokemon.addVolatile('pokerusvaccine');
+			}
+		},
+		volatileStatus: 'pokerusvaccine',
+		condition: {
+			onSourceModifyAtkPriority: 6,
+			onSourceModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Poison') {
+					this.debug('Thick Fat weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Poison') {
+					this.debug('Thick Fat weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onUpdate(pokemon) {
+				if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+					this.add('-activate', pokemon, 'ability: Immunity');
+					pokemon.cureStatus();
+				}
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'psn' && status.id !== 'tox') return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Immunity');
+				}
+				return false;
+			},
+		},
+		num: -25,
+		gen: 9,
+		shortDesc: "On switch-in, the user is inflicted with a non-volatile condition that halves damage taken from Poison-type moves and prevents poisoning, then is consumed.",
+	},
+	frozenorb: {
+		name: "Frozen Orb",
+		spritenum: 515,
+		fling: {
+			basePower: 30,
+			status: 'frz',
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('frz', pokemon);
+		},
+		desc: "At the end of each turn, tries to freeze the holder.",
+		shortDesc: "Tries to freeze the holder.",
+		num: -26,
+		gen: 4,
+	},
+	fossilizeddrake: {
+		name: "Fossilized Drake",
+		fling: {
+			basePower: 10,
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Arctozolt' || pokemon.baseSpecies.baseSpecies === 'Arctovish') return this.chainModify(1.5);
+		},
+		basePowerCallback(pokemon, target, move) {
+			if ((target.newlySwitched || this.queue.willMove(target)) && pokemon.baseSpecies.baseSpecies === 'Arctozolt' || pokemon.baseSpecies.baseSpecies === 'Arctovish') {
+				this.debug('Fossilized Drake damage boost');
+				return move.basePower * 1.2;
+			}
+			this.debug('NOT boosted');
+			return move.basePower;
+		},
+		itemUser: ["Arctozolt", "Arctovish"],
+		num: -27,
+		shortDesc: "When held by Dracozolt or Dracovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
+	},
+	fossilizeddino: {
+		name: "Fossilized Dino",
+		fling: {
+			basePower: 10,
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Dracozolt' || pokemon.baseSpecies.baseSpecies === 'Dracovish') return this.chainModify(1.5);
+		},
+		basePowerCallback(pokemon, target, move) {
+			if ((target.newlySwitched || this.queue.willMove(target)) && pokemon.baseSpecies.baseSpecies === 'Dracozolt' || pokemon.baseSpecies.baseSpecies === 'Dracovish') {
+				this.debug('Fossilized Drake damage boost');
+				return move.basePower * 1.2;
+			}
+			this.debug('NOT boosted');
+			return move.basePower;
+		},
+		itemUser: ["Dracozolt", "Dracovish"],
+		num: -28,
+		shortDesc: "When held by Dracozolt or Dracovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
+	},
+	rulebook: {
+		name: "Rulebook",
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] item: Rulebook', '[of] ' + pokemon);
+					target.addVolatile('embargo');
+				}
+			}
+		},
+		flags: {},
+		desc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
+		shortDesc: "Tries to freeze the holder.",
+		num: -29,
+	},
 };
