@@ -251,7 +251,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	},
 	vermilldian: {
 		num: 32,
-		species: "Vermilldian",
+		name: "Vermilldian",
 		types: ["Electric"],
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 90, spd: 80, spe: 110},
 		abilities: {0: "Static", 1: "Adaptability", H: "Transistor"},
