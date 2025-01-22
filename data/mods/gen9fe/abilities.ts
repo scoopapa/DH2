@@ -3426,7 +3426,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Unidentified Flying Object",
 	},
 	roughimage: {
-		shortDesc: "Illusion effects. This Pokemon's Speed is boosted by 1 each turn while Illusion is active.",
+		shortDesc: "Illusion effects. When the illusion is broken, deals 1/8 max HP to the attacker.",
 		onBeforeSwitchIn(pokemon) {
 			pokemon.illusion = null;
 			// yes, you can Illusion an active pokemon but only if it's to your right

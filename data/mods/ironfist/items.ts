@@ -229,7 +229,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	jarofmercury: {
 		name: "Jar of Mercury",
-		shortDesc: "If the holder were to be hit by DIB, lowers attacker's stats by 1.",
+		shortDesc: "If the holder were to be hit by DIB, lowers attacker's stats by 1. Single use.",
 		spritenum: 761,
 		rating: 3,
 		fling: {
@@ -243,7 +243,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		onTryHit(pokemon, source, move) {
-			if (move.name === 'Double Iron Bash') {
+			if (move.name === 'Double Iron Bash' && pokemon.useItem()) {
 				this.add('-activate', pokemon, 'item: Jar of Mercury', move.name);
 				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1}, source, pokemon, null, true);
 				return null;

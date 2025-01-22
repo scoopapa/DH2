@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		diamondHand: true,
 		gender: "M",
 		types: ["Dark"],
-		baseStats: {hp: 84, atk: 138, def: 88, spa: 63, spd: 70, spe: 132},
+		baseStats: {hp: 94, atk: 113, def: 73, spa: 98, spd: 65, spe: 132},
 		abilities: {0: "Auctor Wile"},
 		weightkg: 226.2,
 	},
@@ -468,7 +468,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -51,
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 70, spd: 40, spe: 135},
-		abilities: {0: "What the Sigma", H: "Gorilla Tactics"},
+		abilities: {0: "Gorilla Tactics"},
 		weightkg: 1.0,
 	},
 	impalpitoad: {
