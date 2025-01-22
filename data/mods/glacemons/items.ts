@@ -1651,7 +1651,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		itemUser: ["Arctozolt", "Arctovish"],
 		num: -27,
-		shortDesc: "When held by Dracozolt or Dracovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
+		shortDesc: "When held by Arctozolt or Artcovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
 	},
 	fossilizeddino: {
 		name: "Fossilized Dino",
