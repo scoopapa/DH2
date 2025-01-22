@@ -7546,11 +7546,4 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 			shortDesc: "Nearly always goes first. Always crits.",
 		},
 	},
-
-	//Signaturemons moves
-	greatflower: {
-		name: "Great Flower",
-		desc: "The user gathers energy from its flower to attack with immense power. This move never misses.",
-		shortDesc: "Hits adjacent foes, Bypasses accuracy check.",
-	},
 };
