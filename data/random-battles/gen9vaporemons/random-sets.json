@@ -7138,7 +7138,7 @@
                 "teraTypes": ["Dark"]
             },
             {
-                "role": "Bulky Setup",
+                "role": "Bulky Support",
                 "movepool": ["Dire Claw", "Close Combat", "Parting Shot", "Gunk Shot", "Latent Venom", "Knock Off"],
                 "abilities": ["Intimidate"],
                 "teraTypes": ["Dark"]

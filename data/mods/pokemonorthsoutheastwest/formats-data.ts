@@ -111,4 +111,60 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW2",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+	verdcao: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	crimshuo: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	azhui: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	vermilldian: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	chalkongqi: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	violnao: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	cyabing: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	limchong: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	silvgang: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	joikarazo: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	sandibai: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	elapguarr: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	phangphang: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	marthlattle: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }

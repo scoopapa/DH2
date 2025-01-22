@@ -36,6 +36,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	hydrappletera: {
 		tier: "Tera",
 	},
+	flygontera: {
+		tier: "Tera",
+	},
+	clodsiretera: {
+		tier: "Tera",
+	},
+	ironleavestera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {

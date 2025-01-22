@@ -561,7 +561,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		name: "Flex Off",
 		pp: 15,
 		priority: 0,
-		flags: { snatch: 1, metronome: 1 },
+		flags: {cantusetwice: 1, snatch: 1, metronome: 1},
 		onTryHit(target, source, move) {
 			if (target.lastMove && target.lastMove.id === 'flexoff') {
 				return false;
@@ -1165,11 +1165,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 25,
 		pp: 20,
 		multihit: [2, 5],
-		onBasePower(basePower, pokemon, target) {},
+		//onBasePower(basePower, pokemon, target) {},
 		secondary: {
 			chance: 10,
 			status: 'psn',
 		},
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		desc: "Hits two to five times, and has a 10% to poison the target.",
 		shortDesc: "Hits 2-5 times in one turn. 10% chance to poison per hit.",
 	},
@@ -1178,11 +1179,14 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 25,
 		pp: 20,
 		multihit: [2, 5],
-		basePowerCallback(pokemon, target, move) {},
+		//basePowerCallback(pokemon, target, move) {},
+		//onBasePower(basePower, pokemon, target) {},
 		secondary: {
 			chance: 10,
 			status: 'brn',
 		},
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1, defrost: 1},
+		thawsTarget: true,
 		desc: "Hits two to five times, and has a 10% to burn the target.",
 		shortDesc: "Hits 2-5 times in one turn. 10% chance to burn per hit.",
 	},
@@ -1270,7 +1274,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, snatch: 1},
-		status: 'frt',
+		status: 'frz',
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -1385,5 +1389,320 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		contestType: "Cool",
 		desc: "High critical ratio. Hits 3 times.",
 		shortDesc: "High critical ratio. Hits 3 times.",
+	},
+	// Slate 7
+	triplekick: {
+		inherit: true,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		secondaries: [
+			{
+				chance: 20,
+				boosts: {
+					def: -1,
+				},
+			}, 
+		],
+		desc: "20% chance to lower Defense by 1 stage. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		shortDesc: "20% chance to lower Def by 1. Hits 3 times. Each hit can miss, but power rises.",
+	},
+	tripleaxel: {
+		inherit: true,
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
+		},
+		desc: "Can't miss in Snow. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		shortDesc: "Can't miss in Snow. Hits 3 times. Each hit can miss, but power rises.",
+	},
+	triplearrows: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		flags: {protect: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		critRatio: 1,
+		multihit: 3,
+		secondaries: null,
+		type: "Grass",
+		desc: "Ignores Screens, Substitutes and Burn. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
+	},
+	tripledive: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
+		desc: "Ignores Burn and power loss in Sun. Can't miss in Sun. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		shortDesc: "Ignores Burn and power loss in Sun. Can't miss in Sun. Hits 3 times. Each hit can miss, but power rises.",
+	},
+	brainbuster: {
+		num: -21,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Brain Buster",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zen Headbutt", target);
+		},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+	},
+	dragonhammer: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 100,
+		pp: 10,
+		self: {
+			boosts: {
+				atk: -1,
+			},
+		},
+		desc: "Lowers the user's Attack by 1 stage.",
+		shortDesc: "Lowers the user's Atk by 1.",
+	},
+	hammerarm: {
+		inherit: true,
+		self: {
+			boosts: {
+				atk: -1,
+			},
+		},
+		desc: "Lowers the user's Attack by 1 stage.",
+		shortDesc: "Lowers the user's Atk by 1.",
+	},
+	icehammer: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 100,
+		self: {
+			boosts: {
+				atk: -1,
+			},
+		},
+		desc: "Lowers the user's Attack by 1 stage.",
+		shortDesc: "Lowers the user's Atk by 1.",
+	},
+	chillingwater: {
+		inherit: true,
+		basePower: 80,
+		pp: 15,
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		desc: "Has a 30% chance to inflict Frostbite to the target.",
+		shortDesc: "30% chance to inflict Frostbite to the target.",
+	},
+	breezeburn: {
+		num: -22,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Breeze Burn",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Burn", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		desc: "Has a 30% chance to inflict Frostbite to the target.",
+		shortDesc: "30% chance to inflict Frostbite to the target.",
+	},
+	breezeshock: {
+		num: -23,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Breeze Shock",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Freeze Shock", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		desc: "Has a 30% chance to paralyze the target.",
+		shortDesc: "30% chance to paralyze the target.",
+	},
+	synchronoise: {
+		inherit: true,
+		pp: 5,
+		onTryImmunity(target, source) {},
+		onHit(target) {
+			const type = target.getTypes().join();
+			if (target.hasType(type) || !target.setType(type)) return false;
+			this.add('-start', target, 'typechange', type);
+		},
+		shortDesc: "Changes user's type to that of the target after hit.",
+	},
+	caltrops: {
+		num: -24,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Caltrops",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, mirror: 1, metronome: 1},
+		sideCondition: 'gmaxsteelsurge',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "G-Max Steelsurge", target);
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Steel",
+		contestType: "Clever",
+		desc: "Sets up sharp steel on the opposing side.",
+		shortDesc: "Sets up sharp steel on the opposing side.",
+	},
+	virulentblast: {
+		num: -25,
+		accuracy: 90,
+		basePower: 110,
+		category: "Special",
+		name: "Virulent Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sludge Wave", target);
+		},
+		secondary: {
+			chance: 20,
+			status: 'tox',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Beautiful",
+		desc: "Has a 20% chance to badly poison the target.",
+		shortDesc: "20% chance to badly poison the target.",
+	},
+	sonicboom: {
+		inherit: true,
+		damage: null,
+		basePower: 40,
+		accuracy: 100,
+		category: "Special",
+		desc: "Priority +1, Sound move.",
+		shortDesc: "Usually goes first. Sound Move.",
+		name: "Sonic Boom",
+		priority: 1,
+		isNonstandard: null,
+		flags: { sound: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	swarming: {
+		num: -26,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Swarming",
+		shortDesc: "Lowers the user's and the target's SpD by one stage.",
+		desc: "Lowers the user's and the target's SpD by one stage.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spd: -1,
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Buzz", target);
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Smart",
+	},
+	octazooka: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 70,
+		pp: 20,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1, pulse: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		desc: "Has a 100% chance to lower the target's Sp. Defense by 1 stage.",
+		shortDesc: "100% chance to lower the target's Sp. Def by 1.",
+	},
+	paraboliccharge: {
+		inherit: true,
+		basePower: 75,
+		pp: 10,
+	},
+	// Rulebook Embargo
+	embargo: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Rulebook") {
+					return 2;
+				}
+				return 5;
+			},
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Embargo');
+				this.singleEvent('End', pokemon.getItem(), pokemon.itemState, pokemon);
+			},
+			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+			onResidualOrder: 21,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Embargo');
+			},
+		},
 	},
 };

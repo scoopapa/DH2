@@ -5,7 +5,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -1,
 		types: ["Steel"],
 		baseStats: {hp: 135, atk: 143, def: 143, spa: 80, spd: 65, spe: 34},
-		abilities: {0: "Iron Fist"},
+		abilities: {0: "What the Sigma", H: "Iron Fist"},
 	},
 	ninjask: {
 		inherit: true,
@@ -451,7 +451,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -49,
 		types: ["Electric"],
 		baseStats: {hp: 60, atk: 50, def: 70, spa: 80, spd: 80, spe: 150},
-		abilities: {0: "Soundproof", 1: "Static", H: "Aftermath"},
+		abilities: {0: "What the Sigma", 1: "Static", H: "Aftermath"},
 	},
 	electrodemega: {
 		name: "Electrode-Mega",
@@ -468,7 +468,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -51,
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 70, spd: 40, spe: 135},
-		abilities: {0: "Gorilla Tactics"},
+		abilities: {0: "What the Sigma", H: "Gorilla Tactics"},
 		weightkg: 1.0,
 	},
 	impalpitoad: {
@@ -485,7 +485,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Water", "Dark"],
 		baseStats: {hp: 110, atk: 60, def: 75, spa: 125, spd: 90, spe: 90},
-		abilities: {0: "Quick Feet", 1: "Hydration", H: "Screen Cleaner"},
+		abilities: {0: "Quick Feet", 1: "What the Sigma", H: "Screen Cleaner"},
 		weightkg: 0.1,
 	},
 	palpitoadissocool: {
@@ -552,7 +552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "M",
 		types: ["Normal"],
 		baseStats: {hp: 125, atk: 100, def: 100, spa: 100, spd: 100, spe: 50},
-		abilities: {0: "The Diamond Hand"},
+		abilities: {0: "What the Sigma", H: "The Diamond Hand"},
 		weightkg: 999.9,
 	},
 	metapod: {
@@ -639,7 +639,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -70,
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 100, atk: 135, def: 120, spa: 70, spd: 95, spe: 80},
-		abilities: {0: "Sand Rush", H: "River Thief"},
+		abilities: {0: "Sand Rush", 1: "What the Sigma", H: "River Thief"},
 		weightkg: 58.0,
 	},
 	basculinbluestriped: {

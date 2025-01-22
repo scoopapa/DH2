@@ -892,7 +892,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	celebi: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 };

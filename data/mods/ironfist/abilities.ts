@@ -794,13 +794,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bramblinmentality: {
 		onStart(pokemon) {
+			pokemon.addVolatile('ability:comatose');
 			if (pokemon.side.faintedThisTurn && ['bramblin', 'abomasnow'].includes(pokemon.side.faintedThisTurn.baseSpecies.id)) this.boost({atk: 1, spe: 1}, pokemon);
-		},
-		onSetStatus(status, target, source, effect) {
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Bramblin Mentality');
-			}
-			return false;
 		},
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
@@ -1013,7 +1008,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	bestfriends: {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
-			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+			move.flags['futuremove'] || move.isZ || move.isMax) return;
 			move.multihit = 2;
 			move.multihitType = 'bestfriends';
 		},
@@ -1063,8 +1058,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//slate 6
 	honeyedweb: {
 		onDamagingHit(damage, target, source, effect) {
-			this.heal(target.baseMaxhp / 8, target);
-			for (const allyActive of pokemon.adjacentAllies()) {
+			this.heal(target.baseMaxhp / 8, target, target);
+			for (const allyActive of target.adjacentAllies()) {
                 this.heal(allyActive.baseMaxhp / 8, allyActive);
             }
 		},
@@ -1090,12 +1085,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switchin, this Pokemon adds a Madness Counter to its side.",
 	},
 	divininghorn: {
-		onDamage(damage, target, source, effect) {
-			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
-				return false;
+		onTryHit(target, source, move) {
+			if (move.flags['disaster']) {
+				this.add('-immune', target, '[from] ability: Divining Horn');
+				return null;
 			}
 		},
-		onTryHit(target, source, move) {
+		onAllyTryHit(target, source, move) {
+			if (move.flags['disaster']) {
+				this.add('-immune', target, '[from] ability: Divining Horn');
+				return null;
+			}
+		},
+		onAllyTryHitField(target, source, move) {
+			if (move.flags['disaster']) {
+				this.add('-immune', target, '[from] ability: Divining Horn');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
 			if (move.flags['disaster']) {
 				this.add('-immune', target, '[from] ability: Divining Horn');
 				return null;
@@ -1103,7 +1111,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		//effects of weather in scripts/pokemon
 		onImmunity(type, pokemon) {
-			if (type === 'sandstorm' || type === 'hail' || type === 'acidrain' || type === 'graveyard') return false;
+			if (['sandstorm', 'hail', 'acidrain', 'graveyard', 'spikes', 'stealthrock'].includes(type)) return false;
+		},
+		onAllyImmunity(type, pokemon) {
+			if (['sandstorm', 'hail', 'acidrain', 'graveyard', 'spikes', 'stealthrock'].includes(type)) return false;
 		},
 		flags: {breakable: 1},
 		name: "Divining Horn",
@@ -1453,17 +1464,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-message', `${pokemon.name} was hacked!`);
 		},
-		
-		onBeforeMove(pokemon, target, move) {
-			const action = this.queue.willMove(pokemon);
-			//console.log(action);
-			if (!action) return;
-
-			action.order = 201;
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
 			if (this.randomChance(3, 10)) {
 				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(pokemon.name)}|https://twitter.com/Duo__M2`);
 				if (target) target.addVolatile('ability:hacked');
-				move.priority -= 6;
+				return priority - 6.0;
 			}
 		},
 		flags: {},

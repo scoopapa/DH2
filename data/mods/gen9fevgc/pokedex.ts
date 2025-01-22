@@ -932,7 +932,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 2075,
 		name: "Gloopinbell",
 		types: ["Grass", "Poison"],
-		baseStats: {hp: 75, atk: 110, def: 115, spa: 35, spd: 60, spe: 75},
+		baseStats: {hp: 62, atk: 85, def: 60, spa: 85, spd: 60, spe: 47},
 		abilities: {0: "Quick Delivery", H: "Durian Breath"},
 		weightkg: 7.5,
 		evos: ["Victreevile"],
