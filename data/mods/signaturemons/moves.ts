@@ -382,7 +382,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return;
 				}
 				//If move is Water-type with accuracy check, user will avoid damage
-				this.add('-activate', target, 'move: Fake Branch');
+				this.add('-miss', source, target);
 				this.hint("When charging Fake Branch, the user will avoid Water-type moves unless there is no accuracy check.");
 
 				const lockedmove = source.getVolatile('lockedmove');
