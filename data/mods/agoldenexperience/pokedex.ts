@@ -3106,6 +3106,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Rattled", 1: "Adaptability", H: "Rock Head"},
 	},
+	sneasler: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Inner Focus", H: "Poison Touch"},
+	},
 	// Gen 9
 	lokix: {
 		inherit: true,
