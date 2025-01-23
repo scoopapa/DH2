@@ -745,7 +745,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onModifyMove(move) {},
 		onDamagingHit(damage, target, source, move) {
-			target.addVolatile('torment');
+			source.addVolatile('torment');
 		},
 		desc: "Torments any target hitting this Pokemon.",
 		shortDesc: "Torments any target hitting this Pokemon.",
