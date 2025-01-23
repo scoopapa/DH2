@@ -1689,7 +1689,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		flags: {},
 		desc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
-		shortDesc: "Tries to freeze the holder.",
+		shortDesc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
 		num: -29,
 	},
 };
