@@ -2041,15 +2041,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regirock: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	regice: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	registeel: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	latias: {
 		inherit: true,
@@ -2445,7 +2445,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regigigas: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	giratina: {
 		inherit: true,
@@ -4329,11 +4329,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	regieleki: {
 		inherit: true,
-		tier: "UU",
+		tier: "(OU)",
 	},
 	regidrago: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	glastrier: {
 		inherit: true,
