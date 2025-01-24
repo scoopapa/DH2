@@ -1,4 +1,4 @@
-import {PokemonEventMethods} from './dex-conditions';
+import type {PokemonEventMethods, ConditionData} from './dex-conditions';
 import {BasicEffect, toID} from './dex-data';
 
 interface FlingData {
@@ -16,6 +16,9 @@ export type ModdedItemData = ItemData | Partial<Omit<ItemData, 'name'>> & {
 	inherit: true,
 	onCustap?: (this: Battle, pokemon: Pokemon) => void,
 };
+
+export interface ItemDataTable {[itemid: IDEntry]: ItemData}
+export interface ModdedItemDataTable {[itemid: IDEntry]: ModdedItemData}
 
 export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly effectType: 'Item';
@@ -100,6 +103,7 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly onPrimal?: (this: Battle, pokemon: Pokemon) => void;
 	declare readonly onStart?: (this: Battle, target: Pokemon) => void;
 	declare readonly onEnd?: (this: Battle, target: Pokemon) => void;
+	readonly rating?: number;
 
 	constructor(data: AnyObject) {
 		super(data);
@@ -194,15 +198,11 @@ export class DexItems {
 			if (item.gen > this.dex.gen) {
 				(item as any).isNonstandard = 'Future';
 			}
-			// hack for allowing mega evolution in LGPE
-			if (this.dex.currentMod === 'gen7letsgo' && !item.isNonstandard && !item.megaStone) {
-				(item as any).isNonstandard = 'Past';
-			}
 		} else {
 			item = new Item({name: id, exists: false});
 		}
 
-		if (item.exists) this.itemCache.set(id, item);
+		if (item.exists) this.itemCache.set(id, this.dex.deepFreeze(item));
 		return item;
 	}
 
@@ -212,7 +212,7 @@ export class DexItems {
 		for (const id in this.dex.data.Items) {
 			items.push(this.getByID(id as ID));
 		}
-		this.allCache = items;
+		this.allCache = Object.freeze(items);
 		return this.allCache;
 	}
 }

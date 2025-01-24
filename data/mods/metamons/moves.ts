@@ -31,6 +31,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Special",
 		shortDesc: "This move does not check accuracy.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Aura Sphere", target);
+		},
 		name: "Aura Sphere-Gen 7",
 		pp: 20,
 		priority: 0,
@@ -46,6 +50,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 500,
 		category: "Physical",
 		shortDesc: "Target's Def halved during damage. User faints.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Explosion", target);
+		},
 		name: "Explosion-Gen 7",
 		pp: 5,
 		priority: 0,
@@ -62,6 +70,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 500,
 		category: "Physical",
 		shortDesc: "Target's Def halved during damage. User faints.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Skitter Smack", target);
+		},
 		name: "Fell Stinger-Gen 7",
 		pp: 5,
 		priority: 0,
@@ -78,6 +90,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 85,
 		category: "Physical",
 		shortDesc: "30% chance to flinch the target.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Icicle Crash", target);
+		},
 		name: "Icicle Crash-Gen 7",
 		pp: 10,
 		priority: 0,
@@ -96,6 +112,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Heals the user by a weather-dependent amount.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Moonlight", target);
+		},
 		name: "Moonlight-Gen 7",
 		pp: 10,
 		priority: 0,
@@ -128,6 +148,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Physical",
 		shortDesc: "10% chance to lower the target's Attack by 1.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Play Rough", target);
+		},
 		name: "Play Rough-Gen 7",
 		pp: 10,
 		priority: 0,
@@ -149,6 +173,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Rock Slide-Gen 7",
 		shortDesc: "30% chance to flinch the target.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Rock Slide", target);
+		},
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -166,6 +194,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Physical",
 		shortDesc: "20% chance to lower foe's Defense.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Shadow Claw", target);
+		},
 		name: "Shadow Claw-Gen 7",
 		pp: 15,
 		priority: 0,
@@ -186,6 +218,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Shell Trap", target);
+		},
 		name: "Shell Trap-Gen 7",
 		pp: 5,
 		priority: 0,
@@ -202,6 +238,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Uses the last move used in the battle.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Sketch", target);
+		},
 		name: "Sketch-Gen 7",
 		pp: 1,
 		noPPBoosts: true,
@@ -238,6 +278,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Physical",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Air Cutter", target);
+		},
 		name: "Wind Shackle",
 		pp: 10,
 		priority: 0,
@@ -252,7 +296,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 75,
 		accuracy: 100,
 		category: "Special",
-		shortDesc: "Deals super effective damage against Rock-types. has a 20% chance to Poison the target.",
+		shortDesc: "Deals super effective damage against Rock-types. has a 20% chance to poison the target.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Acid Downpour", target);
+		},
 		id: "acidrain",
 		name: "Acid Rain",
 		pp: 20,
@@ -274,6 +322,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Special",
 		shortDesc: "Type varies based on the user's secondary type.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Aura Sphere", target);
+		},
 		name: "Copycat Blast",
 		pp: 15,
 		priority: 0,
@@ -295,6 +347,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Special",
 		shortDesc: "User switches out after damaging the target.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Parting Shot", target);
+		},
 		name: "Rude Parting",
 		pp: 20,
 		priority: 0,
@@ -310,6 +366,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Raises user's Sp. Atk and accuracy by 1; 2 in Hail",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Haze", target);
+		},
 		name: "Mind Reader",
 		pp: 20,
 		priority: 0,
@@ -335,6 +396,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Spectral Fang",
 		shortDesc: "Ignore the target's stat changes.",
+ 		onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Jaw Lock", target);
+		},
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
@@ -350,7 +415,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Revelation Dance",
 		pp: 15,
 		priority: 0,
@@ -385,5 +449,92 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
+	},
+	ragingbullcombat: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull-Combat",
+		shortDesc: "Damage calculated using the foe's Sp. Def.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		overrideOffensivePokemon: 'target',
+		overrideOffensiveStat: 'spd',
+	 	onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Outrage", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	ragingbullblaze: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull-Blaze",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+	 	onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Flare Blitz", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	ragingbullaqua: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull-Aqua",
+		shortDesc: "40% chance of quartering Speed of foes switching in.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+	 	onPrepareHit(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Wave Crash", target);
+		},
+		secondary: {
+			chance: 40,
+		   sideCondition: 'grasspledge',
+	   },
+		target: "normal",
+		type: "Water",
+	},
+	clusterexplosion: {
+		num: 153.5,
+		accuracy: 100,
+		basePower: 250,
+		category: "Physical",
+		name: "Cluster Explosion",
+		shortDesc: "Hits adjacent Pokemon. Sets Spikes. User faints.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Splintered Stormshards", pokemon);
+		},
+		onTryMove(source, target, move) {
+			if (!move.hasSheerForce) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Rock",
+		contestType: "Beautiful",
 	},
 };

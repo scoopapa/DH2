@@ -93,7 +93,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Rock') return;
 			this.boost({atk: 1}, this.effectState.target);
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Molten Fury",
 		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Rock move; Rock immunity.",
 		rating: 3,
@@ -144,7 +144,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Fire') return;
 			this.boost({spe: 1}, this.effectState.target);			
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Rocket Propulsion",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Fire move; Fire immunity.",
 		rating: 3,
@@ -260,8 +260,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
-		isBreakable: true,
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Be Not Afraid",
 		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
 		rating: 3.5,
@@ -303,7 +302,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Rock Dodger",
 		rating: 3.5,
 		shortDesc: "This Pokemon's Speed is raised 2 stages if hit by a Rock move; Rock immunity.",
@@ -316,18 +315,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Bullseye');
-				const newboosts = this.effectState.boosts+1;
-				this.add('-end', pokemon, `bullseye${newboosts-1}`, '[silent]');
-				this.add('-start', pokemon, `bullseye${newboosts}`, '[silent]');
-				this.effectState.boosts = newboosts;
+				source.addVolatile('gmaxchistrike');
 			}
-		},
-		onModifyCritRatio(critRatio) {
-			if (!this.effectState.boosts) return;
-			return critRatio + this.effectState.boosts;
-		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, `bullseye${this.effectState.boosts}`, '[silent]');
 		},
 		name: "Bullseye",
 		shortDesc: "KOing an opponent raises crit ratio by 1",
@@ -363,8 +352,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.effectState.unfainted) {
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Mob Mentality boost: ${powMod[this.effectState.fallen]}/4096`);
-				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+				this.debug(`Mob Mentality boost: ${powMod[this.effectState.unfainted]}/4096`);
+				return this.chainModify([powMod[this.effectState.unfainted], 4096]);
 			}
 		},
 		name: "Mob Mentality",
@@ -449,7 +438,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Megaton",
 		rating: 4.5,
 		shortDesc: "This Pokemon's Electric power is 2x; it can't be burned; Ground power against it is halved.",

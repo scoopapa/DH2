@@ -1,6 +1,9 @@
+import {Utils} from '../../../lib';
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	nextTurn() {
+	inherit: 'gen9',
+	endTurn() {
 		this.turn++;
 		this.lastSuccessfulMoveThisTurn = null;
 
@@ -79,6 +82,13 @@ export const Scripts: ModdedBattleScriptsData = {
 				for (const moveSlot of pokemon.moveSlots) {
 					moveSlot.disabled = false;
 					moveSlot.disabledSource = '';
+				}
+				if (pokemon.volatiles['encore']) {
+					// Encore check happens earlier than PiC move swapping, so end encore here.
+					const encoredMove = pokemon.volatiles['encore'].move;
+					if (!pokemon.moves.includes(encoredMove)) {
+						pokemon.removeVolatile('encore');
+					}
 				}
 				this.runEvent('DisableMove', pokemon);
 				for (const moveSlot of pokemon.moveSlots) {
@@ -193,7 +203,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Please remove me once there is client support.
 		if (this.ruleTable.has('crazyhouserule')) {
 			for (const side of this.sides) {
-				let buf = `raw|${side.name}'s team:<br />`;
+				let buf = `raw|${Utils.escapeHTML(side.name)}'s team:<br />`;
 				for (const pokemon of side.pokemon) {
 					if (!buf.endsWith('<br />')) buf += '/</span>&#8203;';
 					if (pokemon.fainted) {
@@ -262,7 +272,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
 			const oldAbility = this.ability;
 			if (!isFromFormeChange) {
-				if (ability.isPermanent || this.getAbility().isPermanent) return false;
+				if (ability.flags['cantsuppress'] || this.getAbility().flags['cantsuppress']) return false;
 			}
 			if (!this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability)) return false;
 			this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityState, this, source);
@@ -316,7 +326,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const species = pokemon.species;
 			if (pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 				(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5) ||
-				species.name === 'Eternatus-Eternamax' || (species.baseSpecies === 'Ogerpon' &&
+				species.name === 'Eternatus-Eternamax' || (['Ogerpon', 'Terapagos'].includes(species.baseSpecies) &&
 				(this.terastallized || pokemon.terastallized))) {
 				return false;
 			}
@@ -371,11 +381,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.boosts[boostName] = pokemon.boosts[boostName];
 			}
 			if (this.battle.gen >= 6) {
-				const volatilesToCopy = ['focusenergy', 'gmaxchistrike', 'laserfocus'];
+				const volatilesToCopy = ['dragoncheer', 'focusenergy', 'gmaxchistrike', 'laserfocus'];
 				for (const volatile of volatilesToCopy) {
 					if (pokemon.volatiles[volatile]) {
 						this.addVolatile(volatile);
 						if (volatile === 'gmaxchistrike') this.volatiles[volatile].layers = pokemon.volatiles[volatile].layers;
+						if (volatile === 'dragoncheer') this.volatiles[volatile].hasDragonType = pokemon.volatiles[volatile].hasDragonType;
 					} else {
 						this.removeVolatile(volatile);
 					}
@@ -416,6 +427,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Pokemon transformed into Ogerpon cannot Terastallize
 			// restoring their ability to tera after they untransform is handled ELSEWHERE
 			if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
+			if (this.species.baseSpecies === 'Terapagos' && this.canTerastallize) this.canTerastallize = false;
 
 			return true;
 		},

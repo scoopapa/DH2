@@ -175,7 +175,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "As One (Glastrier)",
 		shortDesc: "The effects of Ice Body. Summons Hail on entry.",
 		rating: 3.5,
@@ -394,7 +394,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Shockproof",
 		shortDesc: "This Pokemon takes halved damage from Electric-type moves; paralysis immunity.",
 		rating: 2,
@@ -571,7 +571,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Mountaineer",
 		rating: 3,
 		num: -2,
@@ -684,7 +684,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.3);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Ice Age",
 		rating: 4.5,
 		num: -27,
@@ -862,8 +862,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// (once you know a Pokemon has Natural Cure, its cures are always known)
 			if (!pokemon.showCure) pokemon.showCure = undefined;
 		},
-		isPermanent: true,
-		isUnbreakable: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zero to Hero",
 		shortDesc: "If Palafin: Non-volatile status condition are cured when switching out. Immune to volatile status.",
 		rating: 3.5,

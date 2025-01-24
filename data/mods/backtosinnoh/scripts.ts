@@ -153,5 +153,52 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'larvitar').learnset.diamondcharge = ['4L1'];
     this.modData('Learnsets', 'lileep').learnset.diamondcharge = ['4L1'];
     this.modData('Learnsets', 'anorith').learnset.diamondcharge = ['4L1'];
+
+    // trapjaw 
+    this.modData('Learnsets', 'pinsir').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'totodile').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'croconaw').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'feraligatr').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'steelix').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'snubbull').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'granbull').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'mawile').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'aron').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'lairon').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'aggron').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'sharpedo').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'adnocana').learnset.trapjaw = ['4L1'];
+    this.modData('Learnsets', 'huntail').learnset.trapjaw = ['4L1'];
+
+    // firefight 
+    this.modData('Learnsets', 'arcanine').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'torchic').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'combusken').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'blaziken').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'houndour').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'houndoom').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'moltres').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'entei').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'numel').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'camerupt').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'charmander').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'charmeleon').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'charizard').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'flareon').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'slugma').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'magcargo').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'magby').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'magmar').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'vulpix').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'ninetales').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'ponyta').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'rapidash').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'torkoal').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'cyndaquil').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'quilava').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'typhlosion').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'kindlamb').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'spaark').learnset.firefight = ['4L1'];
+    this.modData('Learnsets', 'inferam').learnset.firefight = ['4L1'];
   }
 };

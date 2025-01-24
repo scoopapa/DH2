@@ -1089,4 +1089,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 103, atk: 115, def: 82, spa: 95, spd: 65, spe: 95},
 		abilities: {0: "Intimidate", 1: "Insomnia"},
 	},
+	//April Fools
+	// toxapex: {
+	// 	inherit: true,
+	// 	abilities: {0: "Limber", 1: "Regenerator"},
+	// 	gen: 3,
+	// },
 };

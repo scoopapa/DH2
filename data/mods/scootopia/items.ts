@@ -38,7 +38,8 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		gen: 8,
+		gen: 9,
+		rating: 3,
 	},
 	feralorb: {
 		name: "Feral Orb",
@@ -79,6 +80,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		gen: 8,
+		gen: 9,
+		rating: 3,
 	},
 };

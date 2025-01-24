@@ -57,7 +57,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Flocura' || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.species.id === 'flocuranexus' || pokemon.hp > pokemon.maxhp / 2) return;
 			this.add('-activate', pokemon, 'ability: Power Construct');
-			pokemon.formeChange('Flocura', this.effect, true);
+			pokemon.formeChange('Flocura-Nexus', this.effect, true);
 			pokemon.baseMaxhp = Math.floor(Math.floor(
 				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 			) * pokemon.level / 100 + 10);
@@ -66,7 +66,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.maxhp = newMaxHP;
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power Construct",
 		rating: 5,
 		num: 211,
@@ -83,7 +83,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMovePriority: -1,
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Battle Bond",
 		rating: 4,
 		num: 210,
@@ -187,7 +187,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	// this.add('-message', pokemon.name + " started to glow!");
 	// }
 	// },
-	// isPermanent: true,
+	// flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	// name: "Xenospore",
 	// rating: 5,
 	// num: 211,
@@ -228,41 +228,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Wild Heart",
 		shortDesc: "User becomes Feral type. While Feral type, 33% boost to Atk and SpA",
 	},
-	// schooling: {
-	// onStart(pokemon) {
-	// if (pokemon.baseSpecies.baseSpecies !== 'Jaegorm' || pokemon.transformed) return;
-	// if (pokemon.hp > pokemon.maxhp / 4) {
-	// if (pokemon.species.id === 'jaegorm') {
-	// pokemon.formeChange('Jaegorm-Collective');
-	// }
-	// } else {
-	// if (pokemon.species.id === 'jaegormcollective') {
-	// pokemon.formeChange('Jaegorm');
-	// }
-	// }
-	// },
-	// onResidualOrder: 27,
-	// onResidual(pokemon) {
-	// if (
-	// pokemon.baseSpecies.baseSpecies !== 'Jaegorm' ||
-	// pokemon.transformed || !pokemon.hp
-	// ) return;
-	// if (pokemon.hp > pokemon.maxhp / 4) {
-	// if (pokemon.species.id === 'jaegorm') {
-	// pokemon.formeChange('Jaegorm-Collective');
-	// }
-	// } else {
-	// if (pokemon.species.id === 'jaegormcollective') {
-	// pokemon.formeChange('Jaegorm');
-	// }
-	// }
-	// },
-	// isPermanent: true,
-	// name: "Schooling",
-	// shortDesc: "If user is Jaegorm, changes to Collective Form if it has > 1/4 max HP, else Solo Form.",
-	// rating: 3,
-	// num: 208,
-	// },
+	schooling: {
+		onStart(pokemon) {
+		if (pokemon.baseSpecies.baseSpecies !== 'Jaegorm' || pokemon.transformed) return;
+		if (pokemon.hp > pokemon.maxhp / 4) {
+			if (pokemon.species.id === 'jaegorm') {
+				pokemon.formeChange('Jaegorm-Collective');
+			}
+			} else {
+				if (pokemon.species.id === 'jaegormcollective') {
+					pokemon.formeChange('Jaegorm');
+				}
+			}
+		},
+		onResidualOrder: 27,
+		onResidual(pokemon) {
+			if (
+			pokemon.baseSpecies.baseSpecies !== 'Jaegorm' ||
+			pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'jaegorm') {
+					pokemon.formeChange('Jaegorm-Collective');
+				}
+			} else {
+				if (pokemon.species.id === 'jaegormcollective') {
+					pokemon.formeChange('Jaegorm');
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Schooling",
+		shortDesc: "If user is Jaegorm, changes to Collective Form if it has > 1/4 max HP, else Solo Form.",
+		rating: 3,
+		num: 208,
+	},
 	shellbunker: {
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move' || !target.hurtThisTurn) return damage;

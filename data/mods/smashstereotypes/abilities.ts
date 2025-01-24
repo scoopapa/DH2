@@ -67,7 +67,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.baseAbility = 'sandstream';
 			}
 		},
-		isPermanent: null,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "RKS System",
 		shortDesc: "If Silvally-Rock, changes to Sand Stream.",
 		rating: 4,
@@ -260,6 +260,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1},
 		name: "Wonder Guard",
 		shortDesc: "This Pokemon can only be damaged by supereffective moves and status effects.",
 		rating: 5,
@@ -417,7 +418,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				source.formeChange(forme, effect);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Gunk Missile",
 		shortDesc: "When hit after Sludge Wave/Gunk Shot, attacker takes 1/4 max HP and -1 Sp. Def. or poisons.",
 		rating: 2.5,
@@ -569,7 +570,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Ice Face",
 		shortDesc: "If Escavalier-Eiscue, the first physical hit it takes deals 0 damage. This effect is restored in Hail.",
 		rating: 3,
@@ -848,7 +849,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move.multihit = 3;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Retribution",
 		shortDesc: "When this Pokemon has a stat raised or lowered (including self-inflicted changes), it transforms into Super form. Boltarang: 25 power, hits 3x.",
 		rating: 4,
@@ -862,7 +863,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const targetForme = (move.id === 'foragerspoise' ? 'Aegislash-Ancient' : 'Aegislash-Ancient-Hunter');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Tactics Change",
 		shortDesc: "If Aegislash-Ancient, changes Forme to Ancient-Hunter before attacks and Ancient before King's Shield.",
 		rating: 5,

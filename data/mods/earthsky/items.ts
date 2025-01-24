@@ -311,6 +311,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Druddigon, this item allows it to Mega Evolve in battle.",
 		num: 1015,
 	},
+	ralitite: {
+		name: "Ralitite",
+		megaStone: "Ralie-Mega",
+		megaEvolves: "Ralie",
+		itemUser: ["Ralie"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1019,
+		desc: "If held by a Ralie, this item allows it to Mega Evolve in battle.",
+	},
+	pharoslassite: {
+		name: "Pharoslassite",
+		megaStone: "Pharoslass-Mega",
+		megaEvolves: "Pharoslass",
+		itemUser: ["Pharoslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1020,
+		desc: "If held by a Pharoslass, this item allows it to Mega Evolve in battle.",
+	},
 	//Edited items
 	adrenalineorb: {
 		inherit: true,
@@ -318,21 +342,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target.boosts['spe'] === 6) {
 				return;
 			}
-			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
+			if (['Dark', 'Bug', 'Ghost'].includes(move.type) || (move.twoType && ['Dark', 'Bug', 'Ghost'].includes(move.twoType))) {
 				target.useItem();
 			}
 		},
 		onAfterBoost(boost, target, source, effect) {
-			if (target.boosts['spe'] === 6 || !boost.atk) {
+			if (target.boosts['spe'] === 6) {
 				return;
 			}
-			if (effect?.name === 'Intimidate') {
+			if (effect?.name === 'Intimidate' && boost.atk) {
+				target.useItem();
+			}
+			if (effect?.name === 'Disturbance' && boost.spa) {
 				target.useItem();
 			}
 		},
 		consumable: true,
-		desc: "This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon's Intimidate Ability affected this Pokemon. Single-use.",
-		shortDesc: "+1 Speed if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated. Single use.",
+		desc: "This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon's Intimidate or Disturbance Ability affected this Pokemon. Single-use.",
+		shortDesc: "+1 Speed if hit by a Bug/Dark/Ghost-type attack or Intimidate/Disturbance. Single use.",
 	},
 	aguavberry: {
 		inherit: true,
@@ -364,6 +391,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	bigroot: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['aquaring', 'dryskin', 'grassyterrain', 'icebody', 'ingrain', 'leechseed', 'poisonheal', 'raindish'];
 			if (heals.includes(effect.id)) {
@@ -412,15 +442,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Rock')) {
-				return this.chainModify([4915, 4096]);
-			}
-		},
 		num: 2406,
 		gen: 9,
-		desc: "Ogerpon holder gains Rock type, changes Hidden Move, 1.2x Grass/Rock damage.",
+		desc: "Ogerpon holder gains Rock type, changes Hidden Move, Embody Aspect +1 Def.",
 	},
 	dragonscale: {
 		inherit: true,
@@ -431,6 +455,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
 		shortDesc: "Holder Defense is multiplied by 1.1x.",
 		rating: 2,
+		isNonstandard: null,
 	},
 	electirizer: {
 		inherit: true,
@@ -463,6 +488,41 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Atk Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
+	focusband: {
+		inherit: true,
+		consumable: true,
+		fling: {
+			basePower: 20,
+		},
+		onDamage(damage, target, source, effect) {
+			const monMove = this.queue.willMove(target) ? this.queue.willMove(target).move : null;
+			console.log(monMove);
+			if (monMove && (monMove.priority < 0 || monMove.fractionalPriority < 0) && monMove.category !== 'Status' && 
+			  damage >= target.hp && effect && effect.effectType === 'Move') {
+				if(!target.itemState.activated) {
+					this.add("-activate", target, "item: Focus Band");
+					target.itemState.activated = true;
+				}
+				return target.hp - 1;
+			}
+		},
+		onDamagingHit(damage, target, source){
+			if(target.volatiles['focuspunch']?.lostFocus) {
+				delete target.volatiles['focuspunch'].lostFocus;
+				if(!target.itemState.activated) {
+					this.add("-activate", target, "item: Focus Band");
+					target.itemState.activated = true;
+				}
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (target.itemState.activated) {
+				target.useItem();
+			}
+		},
+		shortDesc: "If holder uses <0 priority attack, survives KOes until move executes. Single use.",
+		desc: "If the holder is using a damaging move with negative priority (including fractional priority) this turn, it will survive all attack that would KO it with 1 HP until it uses the move, and it will not lose focus on Focus Punch. Afterward, this item is consumed.",
+	},
 	fullincense: {
 		name: "Full Incense",
 		spritenum: 155,
@@ -485,15 +545,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Fire')) {
-				return this.chainModify([4915, 4096]);
-			}
-		},
 		num: 2408,
 		gen: 9,
-		desc: "Ogerpon holder gains Fire type, changes Hidden Move, 1.2x Grass/Fire damage.",
+		desc: "Ogerpon holder gains Fire type, changes Hidden Move, Embody Aspect +1 Atk.",
 	},
 	iapapaberry: {
 		inherit: true,
@@ -626,7 +680,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Muscle Band",
 		spritenum: 297,
 		fling: {
-			basePower: 10,
+			basePower: 20,
 		},
 		onModifyAtkPriority: 2,
 		onModifyAtk(atk, pokemon) {
@@ -701,6 +755,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	reapercloth: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		onAllyBasePowerPriority: 15,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Ghost' || (move.twoType && move.twoType === 'Ghost')) {
@@ -770,6 +827,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		rating: 2,
+		isNonstandard: null,
 		desc: "Holder and allies' Fairy-type moves have 1.1x power. Evolves Spritzee into Aromatisse when traded.",
 		shortDesc: "Holder and allies' Fairy-type moves have 1.1x power.",
 	},
@@ -838,18 +896,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		consumable: true,
 		onEat(pokemon) {
-			let statName = 'atk';
-			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
-			let s: StatNameExceptHP;
-			for (s in pokemon.storedStats) {
-				if (pokemon.storedStats[s] < worstStat) {
-					statName = s;
-					worstStat = pokemon.storedStats[s];
-				}
-			}
-			this.boost({[statName]: 2}, pokemon);
+			const worstStat = pokemon.getWorstStat(true, true);
+			this.boost({[worstStat]: 2}, pokemon);
 		},
-		desc: "Raises the lowest stat by 2 when at 1/4 max HP or less (not acc/eva). Single-use.",
+		desc: "Raises the lowest non-HP/accuracy stat (after boosts and modifiers) by 2 when at 1/4 max HP or less. Single-use.",
+		shortDesc: "Raises lowest current stat (not HP/acc) by 2 when at <= 1/4 max HP. Single-use.",
 	},
 	ultranecroziumz: {
 		name: "Ultranecrozium Z",
@@ -896,32 +947,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Water')) {
-				return this.chainModify([4915, 4096]);
-			}
-		},
 		num: 2407,
 		gen: 9,
-		desc: "Ogerpon holder gains Water type, changes Hidden Move, 1.2x Grass/Water damage.",
+		desc: "Ogerpon holder gains Water type, changes Hidden Move, Embody Aspect +1 SpD.",
 	},
 	whippeddream: {
 		inherit: true,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'slp') {
-				this.add('-activate', pokemon, 'ability: Vital Spirit');
+				this.add('-activate', pokemon, 'item: Whipped Dream');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'slp') return;
 			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Vital Spirit');
+				this.add('-immune', target, '[from] item: Whipped Dream');
 			}
 			return false;
 		},
 		rating: 2,
+		isNonstandard: null,
 		desc: "Holder cannot fall asleep. Gaining this item while asleep cures it. Evolves Swirlix into Slurpuff when traded.",
 		shortDesc: "Holder cannot fall asleep. Gaining this item while asleep cures it.",
 	},
@@ -948,7 +994,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Wise Glasses",
 		spritenum: 539,
 		fling: {
-			basePower: 10,
+			basePower: 20,
 		},
 		onModifySpAPriority: 2,
 		onModifySpA(spa, pokemon) {
@@ -958,6 +1004,311 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 2,
 		gen: 4,
 		desc: "Holder's Sp. Attack is multiplied by 1.1x.",
+	},
+	/* Tera Shards */
+	normalterashard: {
+		name: "Normal Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1862,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Normal-type.",
+	},
+	fireterashard: {
+		name: "Fire Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1863,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Fire-type.",
+	},
+	waterterashard: {
+		name: "Water Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1864,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Water-type.",
+	},
+	electricterashard: {
+		name: "Electric Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1865,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Electric-type.",
+	},
+	grassterashard: {
+		name: "Grass Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1866,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Grass-type.",
+	},
+	iceterashard: {
+		name: "Ice Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1867,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Ice-type.",
+	},
+	fightingterashard: {
+		name: "Fighting Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1868,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Fighting-type.",
+	},
+	poisonterashard: {
+		name: "Poison Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1869,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Poison-type.",
+	},
+	groundterashard: {
+		name: "Ground Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1870,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Ground-type.",
+	},
+	flyingterashard: {
+		name: "Flying Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1871,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Flying-type.",
+	},
+	psychicterashard: {
+		name: "Psychic Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1872,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Psychic-type.",
+	},
+	bugterashard: {
+		name: "Bug Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1873,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Bug-type.",
+	},
+	rockterashard: {
+		name: "Rock Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1874,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Rock-type.",
+	},
+	ghostterashard: {
+		name: "Ghost Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1875,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Ghost-type.",
+	},
+	dragonterashard: {
+		name: "Dragon Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1876,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Dragon-type.",
+	},
+	darkterashard: {
+		name: "Dark Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1877,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Dark-type.",
+	},
+	steelterashard: {
+		name: "Steel Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1878,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Steel-type.",
+	},
+	fairyterashard: {
+		name: "Fairy Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1879,
+		gen: 9,
+		rating: 1,
+		shortDesc: "Holder's Tera Blast is Fairy-type.",
+	},
+	stellarterashard: {
+		name: "Stellar Tera Shard",
+		fling: {
+			basePower: 30,
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1024) || pokemon.baseSpecies.num === 1024) {
+				return false;
+			}
+			return true;
+		},
+		num: 1862,
+		gen: 9,
+		rating: -1,
+		shortDesc: "If held by a Terapagos, Tera Shift will transform it into its Stellar Form.",
 	},
 	/* Items edited as part of other elements */
 	blueorb: {
@@ -971,6 +1322,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
+		isNonstandard: null,
 	},
 	redorb: {
 		inherit: true,
@@ -983,6 +1335,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
+		isNonstandard: null,
 	},
 	mirrorherb: {
 		inherit: true,
@@ -1046,6 +1399,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Bug-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	blackbelt: {
 		inherit: true,
@@ -1091,6 +1445,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Dark-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	dracoplate: {
 		inherit: true,
@@ -1121,6 +1476,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Dragon-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	dreadplate: {
 		inherit: true,
@@ -1149,6 +1505,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Electric-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	fairygem: {
 		inherit: true,
@@ -1161,6 +1518,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Fairy-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	fightinggem: {
 		inherit: true,
@@ -1173,6 +1531,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Fighting-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	firegem: {
 		inherit: true,
@@ -1185,6 +1544,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Fire-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	flameplate: {
 		inherit: true,
@@ -1204,6 +1564,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "Holder's first Flying-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	ghostgem: {
 		inherit: true,
@@ -1216,6 +1577,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Ghost-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	grassgem: {
 		inherit: true,
@@ -1228,6 +1590,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Grass-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	groundgem: {
 		inherit: true,
@@ -1240,6 +1603,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Ground-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	hardstone: {
 		inherit: true,
@@ -1260,6 +1624,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Ice-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	icicleplate: {
 		inherit: true,
@@ -1393,6 +1758,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Poison-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	psychicgem: {
 		inherit: true,
@@ -1405,6 +1771,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Psychic-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	rockgem: {
 		inherit: true,
@@ -1417,6 +1784,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Rock-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	sharpbeak: {
 		inherit: true,
@@ -1428,14 +1796,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	shedshell: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		onTrapPokemon(pokemon) {
 			if(!pokemon.volatiles['meanlooked']){
-				pokemon.trapped = pokemon.maybeTrapped = false;
+				pokemon.trapped = false;
 			}
 		},
 	},
 	silkscarf: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		onBasePower(basePower, user, target, move) {
 			if (move && (move.type === 'Normal' || (move.twoType && move.twoType === 'Normal'))) {
 				return this.chainModify([0x1333, 0x1000]);
@@ -1452,6 +1826,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	softsand: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		onBasePower(basePower, user, target, move) {
 			if (move && (move.type === 'Ground' || (move.twoType && move.twoType === 'Ground'))) {
 				return this.chainModify([0x1333, 0x1000]);
@@ -1493,6 +1870,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Steel-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	stoneplate: {
 		inherit: true,
@@ -1529,6 +1907,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceTryPrimaryHit(target, source, move) {},
 		desc: "Holder's first Water-type attack will have 1.3x power. Single use.",
+		isNonstandard: null,
 	},
 	zapplate: {
 		inherit: true,
@@ -1564,7 +1943,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	bindingband: {
 		inherit: true,
-		desc: "Holder's partial-trapping moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
+		desc: "Holder's binding moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
+	},
+	gripclaw: {
+		inherit: true,
+		desc: "If the holder uses a move that traps or binds for more than a single turn (excluding the turn of use), its duration is extended. Trapping and binding last six turns instead of four, and strong binding lasts three turns instead of two.",
+		shortDesc: "Holder's trap/binding lasts 6 turns, strong bind lasts 3 turns.",
 	},
 	heavydutyboots: {
 		inherit: true,
@@ -1580,12 +1964,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d", "Farfetch\u2019d-Galar", "Kendo\u2019no"],
+		isNonstandard: null,
 		desc: "If held by a Farfetch’d, Sirfetch’d, or Kendo'no, its critical hit ratio is raised by 2 stages.",
 		shortDesc: "If held by a Farfetch’d family member, its critical hit ratio is raised by 2 stages.",
 	},
 	machobrace: {
 		inherit: true,
 		ignoreKlutz: false,
+		isNonstandard: null,
 		desc: "Holder's Speed is halved.",
 	},
 	poweranklet: {
@@ -1729,6 +2115,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Normal",
 		},
+		isNonstandard: null,
 	},
 	blukberry: {
 		inherit: true,
@@ -1737,6 +2124,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Fire",
 		},
+		isNonstandard: null,
 	},
 	nanabberry: {
 		inherit: true,
@@ -1745,6 +2133,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Water",
 		},
+		isNonstandard: null,
 	},
 	wepearberry: {
 		inherit: true,
@@ -1753,6 +2142,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Electric",
 		},
+		isNonstandard: null,
 	},
 	pinapberry: {
 		inherit: true,
@@ -1761,6 +2151,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Grass",
 		},
+		isNonstandard: null,
 	},
 	pomegberry: {
 		inherit: true,
@@ -1817,6 +2208,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Bug",
 		},
+		isNonstandard: null,
 	},
 	magostberry: {
 		inherit: true,
@@ -1825,6 +2217,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Rock",
 		},
+		isNonstandard: null,
 	},
 	rabutaberry: {
 		inherit: true,
@@ -1833,6 +2226,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Ghost",
 		},
+		isNonstandard: null,
 	},
 	nomelberry: {
 		inherit: true,
@@ -1841,6 +2235,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Dragon",
 		},
+		isNonstandard: null,
 	},
 	spelonberry: {
 		inherit: true,
@@ -1849,6 +2244,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Dark",
 		},
+		isNonstandard: null,
 	},
 	pamtreberry: {
 		inherit: true,
@@ -1857,6 +2253,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 			type: "Steel",
 		},
+		isNonstandard: null,
 	},
 	chilanberry: {
 		inherit: true,
@@ -2361,10 +2758,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 	/* Consumable item flags*/
+	apicotberry: {
+		inherit: true,
+		consumable: true,
+	},
+	belueberry: {
+		inherit: true,
+		consumable: true,
+		isNonstandard: null,
+	},
 	berryjuice: {
 		inherit: true,
 		consumable: true,
 		rating: 1,
+	},
+	custapberry: {
+		inherit: true,
+		consumable: true,
 	},
 	ejectbutton: {
 		inherit: true,
@@ -2376,43 +2786,523 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	electricseed: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+		consumable: true,
+	},
+	enigmaberry: {
+		inherit: true,
 		consumable: true,
 	},
 	focussash: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+		consumable: true,
+	},
+	ganlonberry: {
 		inherit: true,
 		consumable: true,
 	},
 	grassyseed: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+		consumable: true,
+	},
+	keeberry: {
+		inherit: true,
+		consumable: true,
+	},
+	lansatberry: {
+		inherit: true,
+		consumable: true,
+	},
+	liechiberry: {
+		inherit: true,
 		consumable: true,
 	},
 	mentalherb: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		consumable: true,
 	},
 	mistyseed: {
+		fling: {
+			basePower: 20,
+		},
+		inherit: true,
+		consumable: true,
+	},
+	petayaberry: {
 		inherit: true,
 		consumable: true,
 	},
 	powerherb: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		consumable: true,
 	},
 	psychicseed: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		consumable: true,
 	},
 	redcard: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		consumable: true,
 	},
 	roomservice: {
 		inherit: true,
 		consumable: true,
 	},
-	whiteherb: {
+	salacberry: {
 		inherit: true,
 		consumable: true,
+	},
+	watmelberry: {
+		inherit: true,
+        isNonstandard: null,
+		consumable: true,
+	},
+	whiteherb: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+		consumable: true,
+	},
+	/* Fling BP */
+	choiceband: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	choicescarf: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	choicespecs: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	destinyknot: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	expertbelt: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	leftovers: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	ringtarget: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	widelens: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	zoomlens: {
+		inherit: true,
+		fling: {
+			basePower: 20,
+		},
+	},
+	/* Restorations */
+	abomasite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	absolite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	aerodactylite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	aggronite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	alakazite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	altarianite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	ampharosite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	armorfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	audinite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	banettite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	beedrillite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	blastoisinite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	blazikenite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	bugmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	burndrive: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	cameruptite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	charizarditex: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	charizarditey: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	cherishball: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	chilldrive: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	clawfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coverfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	darkmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	deepseascale: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	deepseatooth: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	diancite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	domefossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	dousedrive: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	dragonmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	durinberry: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	electricmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fairymemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fightingmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	firememory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	flyingmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fossilizedbird: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fossilizeddino: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fossilizeddrake: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fossilizedfish: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	galaricacuff: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	galaricawreath: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	galladite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	garchompite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	gardevoirite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	gengarite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	ghostmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	glalitite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	grassmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	groundmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	gyaradosite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	helixfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	heracronite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	houndoominite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	icememory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	jawfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kangaskhanite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	latiasite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	latiosite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	lopunnite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	lucarionite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	manectite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	mawilite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	medichamite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	metagrossite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	mewtwonitex: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	mewtwonitey: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	oldamber: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pidgeotite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	pinsirite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	plumefossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	poisonmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	psychicmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	rockmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	rootfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sablenite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sailfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	salamencite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sceptilite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	scizorite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sharpedonite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shockdrive: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	skullfossil: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	slowbronite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	souldew: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	steelixite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	steelmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	swampertite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thickclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tyranitarite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	venusaurite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	watermemory: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	/* Deleted items*/
 	adamantcrystal: null,
@@ -2436,6 +3326,406 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	polkadotbow: null,
 	przcureberry: null,
 	psncureberry: null,
+	/* TRs are useless, but since they're coded and technically exist in Earth & Sky, might as well update them *//*tr00: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr01: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr02: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr03: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr04: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr05: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr06: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr07: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr08: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr09: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr10: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr11: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr12: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr13: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr14: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr15: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr16: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr17: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr18: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr19: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr20: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr21: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr22: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr23: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr24: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr25: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr26: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr27: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr28: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr29: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr30: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr31: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr32: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr33: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr34: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr35: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr36: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr37: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr38: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr39: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr40: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr41: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr42: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr43: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr44: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr45: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr46: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr47: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr48: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr49: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr50: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr51: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr52: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr53: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr54: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr55: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr56: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr57: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr58: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr59: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr60: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr61: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr62: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr63: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr64: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr65: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr66: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr67: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr68: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr69: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr70: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr71: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr72: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr73: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr74: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr75: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr76: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr77: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr78: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr79: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr80: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr81: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr82: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr83: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr84: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr85: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr86: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr87: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr88: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr89: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr90: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr91: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr92: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr93: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr94: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr95: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr96: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr97: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr98: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	tr99: {
+		inherit: true,
+		isNonstandard: null,
+	},*/
 	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,
@@ -2475,14 +3765,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	parkball: {
 		inherit: true,
 		desc: "A special Poke Ball for catching events. It never fails.",
+		isNonstandard: null,
 	},
 	safariball: {
 		inherit: true,
 		desc: "A Poke Ball that works especially well on Pokemon who haven't been damaged.",
+		isNonstandard: null,
 	},
 	sportball: {
 		inherit: true,
 		desc: "A Poke Ball that makes a wild caught Pokemon increase its stats more quickly.",
+		isNonstandard: null,
 	},
 	strikeball: {
 		name: "Strike Ball",
@@ -2493,30 +3786,51 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	berrysweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 	cloversweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 	flowersweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 	lovesweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 	ribbonsweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 	starsweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 	strawberrysweet: {
 		inherit: true,
+		fling: {
+			basePower: 20,
+		},
 		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 };

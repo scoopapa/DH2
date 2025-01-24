@@ -123,18 +123,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "Scoo",
 	},
-	soleronawakened: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
+	// soleronawakened: {
+		// tier: "Illegal",
+		// doublesTier: "Illegal",
+	// },
 	jaegorm: {
 		tier: "Scoo",
 		doublesTier: "Scoo",
 	},
-	jaegormcollective: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
+	// jaegormcollective: {
+		// tier: "Illegal",
+		// doublesTier: "Illegal",
+	// },
 	elemadillo: {
 		tier: "Scoo",
 		doublesTier: "Scoo",
@@ -223,8 +223,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Scoo",
 		doublesTier: "Scoo",
 	},
-	flocuranexus: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
+	// flocuranexus: {
+		// tier: "Illegal",
+		// doublesTier: "Illegal",
+	// },
 };

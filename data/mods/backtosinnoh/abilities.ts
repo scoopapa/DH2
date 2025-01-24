@@ -46,41 +46,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.infiltrates = true;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Cacophony",
 		shortDesc: "The user's sound-based moves have 1.2x power and ignore the effects of Substitute.",
 		rating: 3.5,
 		num: -3,
 	},
 	overcoat: {
-		onImmunity(type, pokemon) {
-			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
-		},
-		onTryHitPriority: 1,
-		onTryHit(target, source, move) {
-			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
-				this.add('-immune', target, '[from] ability: Overcoat');
-				return null;
-			}
-		},
-		isBreakable: true,
-		name: "Overcoat",
-		shortDesc: "This Pokemon is immune to powder moves and damage from Sandstorm, Hail or Effect Spore.",
-		rating: 2,
-		num: -4,
+		inherit: true,
+		isNonstandard: null,
+		gen: 4,
 	},
 	fluffy: {
-		onSourceModifyDamage(damage, source, target, move) {
-			let mod = 1;
-			if (move.type === 'Fire') mod *= 2;
-			if (move.flags['contact']) mod /= 2;
-			return this.chainModify(mod);
-		},
-		isBreakable: true,
-		name: "Fluffy",
-		shortDesc: "This Pokemon takes 1/2 damage from contact moves, 2x damage from Fire moves.",
-		rating: 3.5,
-		num: -5,
+		inherit: true,
+		isNonstandard: null,
+		gen: 4,
 	},
 	sunshine: {
 		onStart(source) {
@@ -100,7 +80,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sunshine",
 		shortDesc: "On switch-in, the weather becomes Sunny Day until the user switches out.",
 		rating: 4.5,
-		num: -6,
+		num: -4,
 	},
 	precipitate: {
 		onStart(source) {
@@ -120,7 +100,32 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Precipitate",
 		shortDesc: "On switch-in, the weather becomes Rain Dance until the user switches out.",
 		rating: 4.5,
-		num: -7,
+		num: -5,
+	},
+	strongjaw: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.3);
+			}
+		},
+		shortDesc: "This Pokemon's bite-based attacks have 1.3x power. Bug Bite is not boosted.",
+		desc: "This Pokemon's bite-based attacks have 1.3x power. Bug Bite is not boosted.",
+		name: "Strong Jaw",
+		rating: 3.5,
+		num: 173,
+	},
+	merciless: {
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([5120, 4096]);
+			}
+		},
+		name: "Merciless",
+		shortDesc: "This Pokemon's attacks that are super effective against the target do 1.25x damage.",
+		desc: "This Pokemon's attacks that are super effective against the target do 1.25x damage.",
+		rating: 2.5,
+		num: 196,
 	},
 
 	cutecharm: {
@@ -208,7 +213,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.effectState.target;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Lightning Rod",
 		rating: 0,
 		num: 32,

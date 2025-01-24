@@ -7,7 +7,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Brazen Brawn",
-		shortDesc: "Moves with less than 100% accuracy have 1.3x power.",
+		shortDesc: "This Pokemon's moves have 1.3x power if they have less than 100% accuracy.",
 		rating: 3,
 		num: -1,
 	},
@@ -23,7 +23,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Chromatophore",
-		shortDesc: "On switch-in, copies opponent's typing.",
+		shortDesc: "On switch-in, this Pokemon copies the opponent's typing.",
 		rating: 2.5,
 		num: -2,
 	},
@@ -101,11 +101,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!target) return;
 			const atk = pokemon.getStat('atk', false, true);
 			const spa = pokemon.getStat('spa', false, true);
-			const def = target.getStat('def', false, true);
-			const spd = target.getStat('spd', false, true);
-			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
-			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
-			if (physical > special || (physical === special && this.random(2) === 0)) {
+			if (atk > spa || (atk === spa && this.random(2) === 0)) {
 				move.category = 'Physical';
 			} else {
 				move.category = 'Special';
@@ -118,7 +114,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!source.isAlly(target)) this.hint(move.category + " " + move.name);
 		},
 		name: "Lion's Pride",
-		shortDesc: "This Pokemon's moves change category, depending on which is stronger.",
+		shortDesc: "This Pokemon's moves change category, depending on the user's higher attacking stat.",
 		rating: 2,
 		num: -7,
 	},
@@ -128,15 +124,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Divine Idol",
-		shortDesc: "Halves damage taken from Ghost- or Dark-type moves.",
+		shortDesc: "This Pokemon receives 1/2 damage from Ghost- or Dark-type attacks.",
 		rating: 4,
 		num: -8,
 	},
 	coldsweat: {
 		onStart(pokemon) {
-			let weather = 'snow';
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -146,15 +141,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						weather = 'raindance';
+						this.field.setWeather('raindance');
 						return;
-					}
+					} else {
+						this.field.setWeather('snow');
+						return;
+					} 
 				}
 			}
-			this.field.setWeather(weather, pokemon);
 		},
 		onAnySwitchIn(pokemon) {
-			if (pokemon === this.effectState.target) return;
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -164,15 +160,155 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.field.setWeather('raindance', pokemon);
+						this.field.setWeather('raindance');
 						return;
 					}
 				}
 			}
 		},
 		name: "Cold Sweat",
-		shortDesc: "Summons Snow upon entry. Rain if opponent has a SE or OHKO move.",
+		shortDesc: "Upon entry, summons Snow. Summons Rain if opponent has SE or OHKO move.",
 		rating: 4,
 		num: -9,
+	},
+	ultrarecharge: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon.ultraRecharged) return;
+			pokemon.ultraRecharged = true;
+			pokemon.setItem(pokemon.lastItem);
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Ultra Recharge');
+		},
+		onTakeItem(item, pokemon) {
+			if (pokemon.ultraRecharged) return;
+			pokemon.ultraRecharged = true;
+			pokemon.setItem(pokemon.lastItem);
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Ultra Recharge');
+		},
+		flags: {},
+		name: "Ultra Recharge",
+		rating: 3,
+		shortDesc: "Once per battle, this Pokemon gains its item back after it's used or taken away.",
+		num: -10,
+	},
+	flyingsaucer: {
+		onSourceModifyDamage(damage, source, target, move) {
+			return this.chainModify(0.75);
+		},
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(0.5);
+		},
+		flags: {breakable: 1},
+		name: "Flying Saucer",
+		rating: 3,
+		shortDesc: "This Pokemon takes 3/4 damage from attacks, but its Speed is halved.",
+		num: -11,
+	},
+	insurance: {
+		onTryHit(source, target, move) {
+			if (target !== source && move.type === 'Flying') {
+				this.add('-immune', source, '[from] ability: Insurance');
+				this.add('-anim', source, "Payday", source);
+				this.add('-message', `Coins scattered everywhere!`);
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Insurance",
+		rating: 3,
+		shortDesc: "This Pokemon gains an immunity to Flying-type moves.",
+		num: -12,
+	},
+	hospitality: {
+		name: "Hospitality",
+		onSwitchOut(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'hospitality');
+		},
+		condition: {
+			onSwitchIn(target) {
+				if (!target.fainted) {
+					target.addVolatile('aquaring');
+					target.side.removeSlotCondition(target, 'hospitality');
+				}
+			},
+		},
+		rating: 3,
+		shortDesc: "When switching out, the next incoming ally gains the effects of Aqua Ring.",
+		num: 299,
+	},
+	lunargift: {
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (this.effectState.lunargift) return;
+			if (move.category === 'Status') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			this.add('-activate', target, 'ability: Lunar Gift');
+			this.effectState.resisted = true;
+			this.effectState.lunargift = true;
+			return -1;
+		},
+		onAnyAfterMove() {
+			this.effectState.resisted = false;
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.lunargift;
+		},
+		flags: {breakable: 1},
+		name: "Lunar Gift",
+		rating: 3.5,
+		shortDesc: "Once per switch, attacks taken have 0.5x effectiveness unless naturally immune.",
+		num: -13,
+	},
+	embodyaspecthearthflame: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Embody Aspect', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({def: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Embody Aspect (Hearthflame)",
+		rating: 3.5,
+		shortDesc: "On switch-in, this Pokemon lowers the Defense of opponents by 1 stage.",
+		num: 303,
+	},
+	shellbreaker: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.shellBreaker) return;
+			if (move.id === 'shellsmash') {
+				this.boost({def: 1, spd: 1}, source, source);
+				this.effectState.shellBreaker = true;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (this.effectState.shellBreaker) return;
+			if (move.type === 'Ground') {
+				this.debug('Shell Breaker weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (this.effectState.shellBreaker) return;
+			if (move.type === 'Ground') {
+				this.debug('Shell Breaker weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		shortDesc: "Takes 1/2 from Ground moves. Before using Shell Smash, +1 Def & + 1 SpD.",
+		name: "Shell Breaker",
+		rating: 2,
 	},
 };
