@@ -3817,7 +3817,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	turtonator: {
-		tier: "ZU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	togedemaru: {
