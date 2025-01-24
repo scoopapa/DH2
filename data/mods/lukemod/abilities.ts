@@ -86,7 +86,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Shockproof",
 		shortDesc: "This Pokemon takes halved damage from Electric-type moves; paralysis immunity.",
 		rating: 2,
@@ -160,7 +160,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	  name: "Holy Grail",
 	},
 	faultyphoton: {
@@ -252,7 +252,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-end', pokemon, 'Faulty Photon');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Faulty Photon",
 		rating: 3,
 	},

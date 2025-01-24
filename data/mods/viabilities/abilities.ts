@@ -88,6 +88,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.effectState.target.setAbility(ability);
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		id: "receiver",
 		name: "Receiver",
 		rating: 0,

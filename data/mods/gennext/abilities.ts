@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	swiftswim: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
@@ -644,7 +644,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	adaptability: {
 		inherit: true,
-		onModifyMove(move) {},
+		onModifySTAB() {},
 		onBasePower(power, attacker, defender, move) {
 			if (!attacker.hasType(move.type)) {
 				return this.chainModify(1.33);

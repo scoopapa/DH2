@@ -39,7 +39,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', target, 'Queen of Roulette');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Queen of Roulette",
 		rating: 1,
 		num: 3009,
@@ -276,7 +276,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-message', `${attacker.name} transformed!`);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Conduction",
 		shortDesc: "If the user uses Ice or Fire move, transforms. Only works once.",
 		rating: 2,
@@ -448,7 +448,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true, // TODO verify the assumption that this can be supprsed by Mold Breaker & friends
+		flags: {breakable: 1}, // TODO verify the assumption that this can be supprsed by Mold Breaker & friends
 		name: "Purifying Salt",
 		rating: 2,
 		num: 272,

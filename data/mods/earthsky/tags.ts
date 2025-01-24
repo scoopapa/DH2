@@ -43,8 +43,8 @@ export const Tags: {[id: string]: ModdedTagData} = {
 	},
 	// Tiers
 	// -----
-	es: {
-		name: "ES",
-		pokemonFilter: species => species.tier === 'ES',
+	esh: {
+		name: "ESH",
+		pokemonFilter: species => species.tier === 'ESH',
 	},
 };

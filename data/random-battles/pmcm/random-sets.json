@@ -1,0 +1,153 @@
+{
+    "volcarona": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Whirlwind", "Fiery Dance", "Will-o-wisp", "Morning Sun"],
+                "abilities": ["Fluffy"],
+                "teraTypes": ["Water", "Steel"]
+            }
+        ]
+    },
+    "golemalola": {
+        "level": 90,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Double-Edge", "Rock Polish", "Earthquake", "Stone Edge"],
+                "abilities": ["Galvanize"],
+                "teraTypes": ["Electric", "Grass"]
+            }
+        ]
+    },
+    "lurantis": {
+        "level": 82,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Leaf Storm", "Power Whip", "Superpower", "Ice Hammer", "Synthesis"],
+                "abilities": ["Contrary"],
+                "teraTypes": ["Ice"]
+            },
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Leaf Storm", "Power Whip", "Superpower", "Ice Hammer", "Synthesis"],
+                "abilities": ["Contrary"],
+                "teraTypes": ["Ice"]
+            }
+            
+        ]
+    },
+    "ironcrown": {
+        "level": 82,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Future Sight", "Volt Switch", "Tachyon Cutter", "King's Shield", "Stealth Rock", "Rest"],
+                "abilities": ["Queenly Majesty"],
+                "teraTypes": ["Water", "Steel"]
+            },
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Iron Defense", "Body Press", "Tachyon Cutter", "Rest", "Stealth Rock"],
+                "abilities": ["Battle Armor"],
+                "teraTypes": ["Fighting"]
+            }
+        ]
+    },
+    "mamoswine": {
+        "level": 82,
+        "sets": [
+            {
+                "role": "AV Pivot",
+                "movepool": ["Icicle Crash", "Ice Shard", "Earthquake", "Ancient Power"],
+                "abilities": ["Thick Fat"],
+                "teraTypes": ["Ice", "Ground"]
+            }
+        ]
+    },
+    "ceruledge": {
+        "level": 78,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Bitter Blade", "Close Combat", "Poltergeist", "Shadow Sneak", "Swords Dance"],
+                "abilities": ["Weak Armor"],
+                "teraTypes": ["Fighting", "Fire", "Ghost"]
+            }
+        ]
+    },
+    "carbink": {
+        "level": 90,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Iron Defense", "Body Press", "Moonblast", "Moonlight"],
+                "abilities": ["Magic Bounce"],
+                "teraTypes": ["Fighting"]
+            },
+            {
+                "role": "Bulky Support",
+                "movepool": ["Volt Switch", "Moonlight", "Spikes", "Stealth Rock", "Body Press", "Moonblast"],
+                "abilities": ["Magic Bounce"],
+                "teraTypes": ["Steel"]
+            }
+        ]
+    }, 
+    "moltres": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Brave Bird", "Flare Blitz", "Wood Hammer", "Wave Crash", "Defog", "U-Turn"],
+                "abilities": ["Magic Guard"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+    "illumise": {
+        "level": 92,
+        "sets": [
+            {
+                "role": "Bulky Setup",
+                "movepool": ["Bug Buzz", "Calm Mind", "Ice Beam", "Thunderbolt"],
+                "abilities": ["Call Volbeat"],
+                "teraTypes": ["Electric"]
+            }
+        ]
+    },
+    "volbeat": {
+        "level": 90,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Lunge", "Dragon Hammer", "Earthquake"],
+                "abilities": ["Call Illumise"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+    "abomasnow": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Aurora Veil", "Blizzard", "Apple Acid", "Parting Shot"],
+                "abilities": ["Snow Warning"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+    "abomasnowmega": {
+        "level": 82,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["Glacial Lance", "Wood Hammer", "Earthquake", "Ice Shard", "Snowscape"],
+                "abilities": ["Snow Warning"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    }
+}

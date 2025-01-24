@@ -19,7 +19,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			delete move.stab;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Conversion-Z",
 		rating: 5,
 		num: -5000,
@@ -166,7 +166,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,
@@ -256,7 +256,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Stance Change",
 		rating: 4,
 		num: 176,
@@ -319,7 +319,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.maxhp = newMaxHP;
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "SOS",
 		rating: 5,
 		num: -1054,
@@ -362,7 +362,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.item = 'zoroarkite' as ID;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Forgery",
 		rating: 3,
 		num: -1050,

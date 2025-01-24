@@ -123,8 +123,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
-			altForme?.isMega && altForme?.requiredMove &&
-			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		  altForme?.isMega && altForme?.requiredMove &&
+		  pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
 		) {
 			return altForme.name;
 		}
@@ -181,6 +181,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.battle.runEvent('AfterMega', pokemon);
 		return true;
 	},
+
 	},
 
 	 getDamage(

@@ -478,6 +478,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Confiscate", 1: "Keen Eye"},
 	},
+	spinarak: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Insomnia"},
+	},
+	ariados: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Insomnia"},
+	},
 	cleffa: {
 		inherit: true,
 		abilities: { 0: "Cute Charm" },
@@ -558,6 +566,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Swift Swim" },
 	},
+	houndour: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Flash Fire"},
+	},
+	houndoom: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Flash Fire"},
+	},
 	porygon2: {
 		inherit: true,
 		abilities: { 0: "Trace" },
@@ -588,11 +604,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	poochyena: {
 		inherit: true,
-		abilities: { 0: "Run Away" },
+		abilities: { 0: "Run Away", 1: "Strong Jaw"},
 	},
 	mightyena: {
 		inherit: true,
-		abilities: { 0: "Intimidate" },
+		abilities: { 0: "Intimidate", 1: "Strong Jaw"},
 	},
 	zigzagoon: {
 		inherit: true,
@@ -646,9 +662,21 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Cute Charm", 1: "Fluffy" },
 	},
+	mawile: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Intimidate"},
+	},
 	illumise: {
 		inherit: true,
 		abilities: { 0: "Oblivious" },
+	},
+	carvanha: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Strong Jaw"},
+	},
+	sharpedo: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Strong Jaw"},
 	},
 	numel: {
 		inherit: true,
@@ -673,6 +701,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	altaria: {
 		inherit: true,
 		abilities: {0: "Natural Cure", 1: "Fluffy"},
+	},
+	seviper: {
+		inherit: true,
+		abilities: {0: "Merciless", 1: "Strong Jaw"},
 	},
 	solrock: {
 		inherit: true,
@@ -733,6 +765,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	walrein: {
 		inherit: true,
 		abilities: { 0: "Thick Fat" },
+	},
+	huntail: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Strong Jaw"},
 	},
 	shelgon: {
 		inherit: true,

@@ -1019,7 +1019,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	gourgeistlarge: {
 		inherit: true,
-		mega: "gourgeistlarge",
+		mega: "gourgeistlargemega",
 		megaName: "Gourgeist-Large-Mega",
 		megaStats: {hp: 75, atk: 100, def: 125, spa: 100, spd: 125, spe: 69},
 		megaAbility: {0: "Flash Fire"},
@@ -1426,7 +1426,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaName: "Orbeetle-Mega",
 		megaType: ["Bug", "Psychic"],
 		megaStats: {hp: 60, atk: 45, def: 130, spa: 140, spd: 140, spe: 90},
-		megaAbility: {0: "Gravitas"},
+		megaAbility: {0: "Graviton"},
 		megaStone: "Orbeetlite",
 		megaCreator: "Scoopapa",
 		movepoolAdditions: ["focusblast", "teleport"],

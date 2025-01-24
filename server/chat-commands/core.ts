@@ -16,7 +16,7 @@
 /* eslint no-else-return: "error" */
 import {Utils} from '../../lib';
 import type {UserSettings} from '../users';
-import type {GlobalPermission} from '../user-groups';
+import type {GlobalPermission, RoomPermission} from '../user-groups';
 
 export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 	userdetails(target, user, trustable) {
@@ -130,6 +130,50 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 			roominfo.users.push(userinfo);
 		}
 		return roominfo;
+	},
+	fullformat(target, user, trustable) {
+		if (!trustable) return false;
+
+		if (target.length > 225) {
+			return null;
+		}
+		const targetRoom = Rooms.get(target);
+		if (!targetRoom?.battle?.playerTable[user.id]) {
+			return null;
+		}
+
+		return targetRoom.battle.format;
+	},
+	cmdsearch(target, user, trustable) {
+		// in no world should ths be a thing. our longest command name is 37 chars
+		if (target.length > 40) return null;
+		const cmdPrefix = target.charAt(0);
+		if (!['/', '!'].includes(cmdPrefix)) return null;
+		target = toID(target.slice(1));
+
+		const results = [];
+		for (const command of Chat.allCommands()) {
+			if (cmdPrefix === '!' && !command.broadcastable) continue;
+			const req = command.requiredPermission as GlobalPermission;
+			if (req &&
+				!(command.hasRoomPermissions ? this.room && user.can(req as RoomPermission, null, this.room) : user.can(req))
+			) {
+				continue;
+			}
+			const cmds = [
+				command.fullCmd,
+				...command.aliases.map(x => command.fullCmd.replace(command.cmd, `${x}`)),
+			];
+			for (const cmd of cmds) {
+				if (toID(cmd).startsWith(target)) {
+					results.push(cmdPrefix + cmd);
+					break;
+				}
+			}
+			// limit number of results to prevent spam
+			if (results.length >= 20) break;
+		}
+		return results;
 	},
 };
 
@@ -279,7 +323,7 @@ export const commands: Chat.ChatCommands = {
 				}
 				user.lastCommand = 'pm';
 				return this.errorReply(
-					this.tr`User ${targetUsername} is offline. If you still want to PM them, send the message again, or use /offlinemsg.`
+					this.tr`User ${targetUsername} is offline. Send the message again to confirm. If you are using /msg, use /offlinemsg instead.`
 				);
 			}
 			let error = this.tr`User ${targetUsername} not found. Did you misspell their name?`;
@@ -299,7 +343,7 @@ export const commands: Chat.ChatCommands = {
 				}
 				user.lastCommand = 'pm';
 				return this.errorReply(
-					this.tr`User ${targetUsername} is offline. If you still want to PM them, send the message again, or use /offlinemsg.`
+					this.tr`User ${targetUsername} is offline. Send the message again to confirm. If you are using /msg, use /offlinemsg instead.`
 				);
 			}
 			return this.errorReply(`${targetUsername} is offline.`);
@@ -443,15 +487,25 @@ export const commands: Chat.ChatCommands = {
 	unblockpm: 'unblockpms',
 	unignorepms: 'unblockpms',
 	unignorepm: 'unblockpms',
-	unblockpms(target, room, user) {
-		if (!user.settings.blockPMs) {
-			return this.errorReply(this.tr`You are not blocking private messages! To block, use /blockpms`);
+	unblockofflinepms: 'unblockpms',
+	async unblockpms(target, room, user, connection, cmd) {
+		const isOffline = cmd.includes('offline');
+		const msg = isOffline ? 'offline ' : '';
+		if (isOffline ? !(await Chat.PrivateMessages.getSettings(user.id)) : !user.settings.blockPMs) {
+			return this.errorReply(this.tr`You are not blocking ${msg}private messages! To block, use /blockpms`);
 		}
-		user.settings.blockPMs = false;
+		if (isOffline) {
+			await Chat.PrivateMessages.deleteSettings(user.id);
+		} else {
+			user.settings.blockPMs = false;
+		}
 		user.update();
-		return this.sendReply(this.tr`You are no longer blocking private messages.`);
+		return this.sendReply(this.tr`You are no longer blocking ${msg}private messages.`);
 	},
-	unblockpmshelp: [`/unblockpms - Unblocks private messages. Block them with /blockpms.`],
+	unblockpmshelp: [
+		`/unblockpms - Unblocks private messages. Block them with /blockpms.`,
+		`/unblockofflinepms - Unblocks offline private messages. Block them with /blockofflinepms.`,
+	],
 
 	unblockinvites: 'blockinvites',
 	blockinvites(target, room, user, connection, cmd) {
@@ -787,22 +841,10 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		const formatid = target.slice(formatIndex + 12, nextQuoteIndex);
-		const battleRoom = Rooms.createBattle({format: formatid, inputLog: target});
+		const battleRoom = Rooms.createBattle({format: formatid, players: [], inputLog: target});
 		if (!battleRoom) return; // createBattle will inform the user if creating the battle failed
 
-		const nameIndex1 = target.indexOf(`"name":"`);
-		const nameNextQuoteIndex1 = target.indexOf(`"`, nameIndex1 + 8);
-		const nameIndex2 = target.indexOf(`"name":"`, nameNextQuoteIndex1 + 1);
-		const nameNextQuoteIndex2 = target.indexOf(`"`, nameIndex2 + 8);
-		if (nameIndex1 >= 0 && nameNextQuoteIndex1 >= 0 && nameIndex2 >= 0 && nameNextQuoteIndex2 >= 0) {
-			const battle = battleRoom.battle!;
-			battle.p1.name = target.slice(nameIndex1 + 8, nameNextQuoteIndex1);
-			battle.p2.name = target.slice(nameIndex2 + 8, nameNextQuoteIndex2);
-		}
 		battleRoom.auth.set(user.id, Users.HOST_SYMBOL);
-		for (const player of battleRoom.battle!.players) {
-			player.hasTeam = true;
-		}
 		this.parse(`/join ${battleRoom.roomid}`);
 		setTimeout(() => {
 			// timer to make sure this goes under the battle
@@ -859,7 +901,7 @@ export const commands: Chat.ChatCommands = {
 
 	confirmready(target, room, user) {
 		const game = this.requireGame(Rooms.BestOfGame);
-		game.confirmReady(user.id);
+		game.confirmReady(user);
 	},
 
 	acceptopenteamsheets(target, room, user, connection, cmd) {

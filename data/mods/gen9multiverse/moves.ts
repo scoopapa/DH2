@@ -23,41 +23,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	headcharge: {
+		inherit: true,
+		isNonstandard: null,
+	},	
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	
 	boo: {
 		num: -1,
 		accuracy: 100,
-		basePower: 135,
+		basePower: 175,
 		category: "Physical",
+		desc: "The user faints after using this move, unless this move has no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 		shortDesc: "Target's Def halved during damage. User faints.",
 		name: "Boo",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Chilly Reception", target);
 			this.add('-anim', source, "Explosion", target);
 		},
-		onModifyMove(move, pokemon, target) {
-			if (!target) return;
-			target.addVolatile('boo');
-			if (!target.volatiles['substitute']) {
-				if (target.removeVolatile('substitute')) {
-					this.hint("The user does not faint if it breaks a substitute.");
-				} else {
-					move.selfdestruct = 'always';
-				}
-			}
-		},
-		condition: {
-			duration: 1,
-			onModifyDefPriority: 6,
-			onModifyDef(def) {
-				return this.chainModify(0.5);
-			}
-		},
+		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",
 		type: "Ghost",
@@ -67,33 +62,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 250,
 		category: "Physical",
+		desc: "The user faints after using this move, unless this move has no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 		shortDesc: "Target's Def halved during damage. User faints.",
 		name: "Kaboom",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Explosion", target);
 		},
-		onModifyMove(move, pokemon, target) {
-			if (!target) return;
-			target.addVolatile('kaboom');
-			if (!target.volatiles['substitute']) {
-				if (target.removeVolatile('substitute')) {
-					this.hint("The user does not faint if it breaks a substitute.");
-				} else {
-					move.selfdestruct = 'always';
-				}
-			}
-		},
-		condition: {
-			duration: 1,
-			onModifyDefPriority: 6,
-			onModifyDef(def) {
-				return this.chainModify(0.5);
-			}
-		},
+		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",
 		type: "Normal",
@@ -103,6 +82,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Special",
+		desc: "Has a 10% chance to paralyze the target. This move results in a critical hit if the target is slower.",
 		shortDesc: "10% chance to paralyze. Crits slower targets.",
 		name: "Thunderjolt",
 		pp: 15,
@@ -133,8 +113,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	firestrike: {
 		num: -4,
 		accuracy: 85,
-		basePower: 90,
+		basePower: 110,
 		category: "Physical",
+		desc: "Deals damage to the target based on its Special Defense instead of Defense.",
 		shortDesc: "Damages target based on Special Defense, not Def.",
 		overrideDefensiveStat: 'spd',
 		name: "Fire Strike",
@@ -155,6 +136,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		desc: "The user falls asleep for the next two turns and restores all of its HP, curing itself of any non-volatile status condition in the process, even if it was already asleep. Fails if the user has full HP.",
 		shortDesc: "User sleeps 2 turns and restores HP and status.",
 		name: "Deep Sleep",
 		pp: 10,
@@ -201,6 +183,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
 		shortDesc: "If a foe is switching out, hits it at 2x power.",
 		name: "Blitzkrieg",
 		viable: true,
@@ -264,6 +247,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		desc: "The user restores 1/2 of its maximum HP, rounded half up.",
 		shortDesc: "Heals the user by 50% of its max HP.",
 		name: "Calming Soul",
 		pp: 10,
@@ -283,6 +267,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
+		desc: "The user's non-volatile status condition is transferred to the target, and the user is then cured. Fails if the user has no non-volatile status condition or if the target already has one.",
 		shortDesc: "Transfers the user's status ailment to the target.",
 		name: "Psycho Shiftier",
 		pp: 10,
@@ -304,5 +289,154 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+	},
+	meteorbeem: {
+		num: -9,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
+		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
+		name: "Meteor Beem",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Meteor Beam", target);
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+	infinitebaseballreaction: {
+		num: -10,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Foe: -2 Atk & SpA. User: Sets Safeguard, switches, heals switch-in.",
+		name: "infinite baseball reaction",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1},
+		isZ: "meowthofaloliumz",
+		selfSwitch: true,
+		self: {
+			sideCondition: 'safeguard',
+			slotCondition: 'infinitebaseballreaction',
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Parting Shot", target);
+		},
+		onHit(target, source, move) {
+			this.add(`raw|<img src="https://cdn.discordapp.com/emojis/1080726657708593172.png?size=96&quality=lossless" height="96" width="96">`);
+		},
+		boosts: {
+			atk: -2,
+			spa: -2,
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					target.heal(target.maxhp);
+					this.add('-heal', target, target.getHealth, '[from] move: infinitebaseballreaction');
+					target.side.removeSlotCondition(target, 'infinitebaseballreaction');
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	strangersteam: {
+		num: -11,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		desc: "Has a 20% chance to confuse the target.",
+		shortDesc: "20% chance to confuse the target.",
+		name: "Stranger Steam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Strange Steam", target);
+		},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	stellarblast: {
+		num: -12,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		desc: "Lowers the user's Attack and Special Attack by 1 stage. If used by Enamorus, this move's power is multiplied by 1.5x.",
+		shortDesc: "Lowers the user's Atk and SpA by 1. If Enamorus: 1.5x damage.",
+		name: "Stellar Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Draco Meteor", target);
+		},
+		onBasePower(basePower, source, target, move) {
+			if (source.species.baseSpecies === 'Enamorus') {
+				return this.chainModify(1.5);
+			}
+		},
+		self: {
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	shakedown: {
+		num: -13,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		desc: "Lowers the user's Special Attack by 1 stage.",
+		shortDesc: "Lowers the user's Sp. Atk by 1. Hits foe(s).",
+		name: "Shakedown",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Make It Rain", target);
+		},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Fighting",
+		contestType: "Beautiful",
 	},
 };

@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ItemData} = {
+export const Items: import('../sim/dex-items').ItemDataTable = {
 	abilityshield: {
 		name: "Ability Shield",
 		spritenum: 746,
@@ -327,7 +327,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.moves.get(moveSlot.move).category === 'Status') {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.category === 'Status' && move.id !== 'mefirst') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -460,7 +461,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1111,
 		gen: 8,
 		rating: 0,
-		isNonstandard: "Past",
 	},
 	bignugget: {
 		name: "Big Nugget",
@@ -1069,7 +1069,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1112,
 		gen: 8,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	cobaberry: {
@@ -1457,7 +1456,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 235,
 		gen: 2,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	dragoniumz: {
@@ -1507,7 +1505,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 324,
 		gen: 4,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	durinberry: {
@@ -1634,7 +1631,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 322,
 		gen: 4,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	electricgem: {
@@ -1732,13 +1728,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.id === 'dipplin') {
+			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.id === 'dipplin') {
+			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -2022,7 +2018,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1113,
 		gen: 8,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	flyinggem: {
@@ -2174,8 +2169,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1582,
 		gen: 8,
-		isNonstandard: "Unobtainable",
-		rating: 0,
 	},
 	galaricawreath: {
 		name: "Galarica Wreath",
@@ -2185,8 +2178,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1592,
 		gen: 8,
-		isNonstandard: "Unobtainable",
-		rating: 0,
 	},
 	galladite: {
 		name: "Galladite",
@@ -2412,6 +2403,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 173,
 		gen: 3,
+		rating: 0,
 	},
 	gripclaw: {
 		name: "Grip Claw",
@@ -3261,7 +3253,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1110,
 		gen: 8,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	lucarionite: {
@@ -3430,7 +3421,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 323,
 		gen: 4,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	magnet: {
@@ -3672,6 +3662,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
+	metalalloy: {
+		name: "Metal Alloy",
+		spritenum: 761,
+		num: 2482,
+		gen: 9,
+	},
 	metalcoat: {
 		name: "Metal Coat",
 		spritenum: 286,
@@ -3724,6 +3720,7 @@ export const Items: {[itemid: string]: ItemData} = {
 					pokemon.removeVolatile('metronome');
 					return;
 				}
+				if (move.callsMove) return;
 				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
 					this.effectState.numConsecutive++;
 				} else if (pokemon.volatiles['twoturnmove']) {
@@ -4575,7 +4572,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 321,
 		gen: 4,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	psychicgem: {
@@ -4877,7 +4873,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1115,
 		gen: 8,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	rindoberry: {
@@ -5139,7 +5134,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 5,
 		gen: 1,
 		isPokeball: true,
-		isNonstandard: "Unobtainable",
 	},
 	safetygoggles: {
 		name: "Safety Goggles",
@@ -5546,7 +5540,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Latios", "Latias"],
 		num: 225,
 		gen: 3,
-		isNonstandard: "Past",
 	},
 	spelltag: {
 		name: "Spell Tag",
@@ -5623,7 +5616,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 499,
 		gen: 2,
 		isPokeball: true,
-		isNonstandard: "Unobtainable",
 	},
 	starfberry: {
 		name: "Starf Berry",
@@ -5665,7 +5657,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1114,
 		gen: 8,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	steelixite: {
@@ -5798,7 +5789,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1109,
 		gen: 8,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	sunstone: {
@@ -7063,7 +7053,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 252,
 		gen: 2,
-		isNonstandard: "Past",
 		rating: 0,
 	},
 	utilityumbrella: {

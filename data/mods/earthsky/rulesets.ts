@@ -5,7 +5,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: 'The standard ruleset for all Earth & Sky tiers',
 		ruleset: [ 'Hidden Move Limit', 'Obtainable', 'Sketch Post-Gen 7 Moves', 'Species Clause', 'Sleep Clause Mod', 'Endless Battle Clause', 'Baton Pass Clause', 'OHKO Clause', 'Z-Move Clause', 'Dynamax Clause',
 			'Team Preview', 'Cancel Mod', 'Data Mod', 'Mega Data Mod',],
-		onValidateSet(set, format) { //Re-calculate Hidden Power
+		onValidateSet(set, format) { //Forme-exclusive moves, re-calculate Hidden Power
 			if(!set.hpType){
 				const hpTypes = [
 					'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
@@ -20,6 +20,27 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				}
 				set.hpType = hpTypes[Math.min(15,this.dex.trunc(hpTypeX * 16 / 63))];
 			}
+			const problems: string[] = [];
+			const species = this.dex.species.get(set.species || set.name);
+			if (species.changesFrom) {
+				const baseSpecies = this.dex.species.get(species.baseSpecies);
+				if (set.moves && baseSpecies.exclusiveMoves) {
+					for (const move of set.moves) {
+						if (baseSpecies.exclusiveMoves.includes(move)) {
+							problems.push(`${species.name} can't know ${move} while in its ${species.forme} form.`);
+						}
+					}
+				}
+			}
+			if (species.baseSpecies === "Zygarde" && set.moves) {
+				for (const move of set.moves) {
+					if (move === "Core Enforcer" && set.ability && set.ability !== "Power Construct") {
+						problems.push("Zygarde without Power Construct can't know Core Enforcer.");
+					}
+				}
+				
+			}
+			return problems;
 		},
 	},
 	egelaspokedex: {
@@ -32,28 +53,45 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			];
 			const species = this.dex.species.get(set.species || set.name);
 			if (!egelasDex.includes(species.name)) {
-				return [species.name + " is not in the Egelan Pokedex."];
+				return [`${species.name} is not in the Egelan Pokedex.`];
+			}
+		},
+	},
+	'horizonsdlc1pokedex': {
+		effectType: 'ValidatorRule',
+		name: 'Horizons DLC 1 Pokedex',
+		desc: "Only allows Pok&eacute;mon obtainable in the Egelas region (Earth/Sky) and Sartori Island (Horizons Expansion)",
+		onValidateSet(set, format) {
+			const egelasDex = [
+				"Caeleaf","Sprop","Graecust","Iguava","Chucklava","Helmuana","Newtiny","Ruggeft","Claymander","Palrat","Spectrat","Shinx","Luxio","Luxray","Stunky","Skuntank","Fanfowl","Plumifowl","Pealated","Hoothoot","Noctowl","Montura","Twintura","Silvurah","Caterpie","Metapod","Butterfree","Budew","Roselia","Roserade","Sothodil","Sosphodel","Toybot","Aibot","Utilitron","Trubbish","Garbodor","Faerunee","Slowpoke","Slowbro","Slowking","Stunfisk","Burrorm","Burryrm","Scarabouch","Azurill","Marill","Azumarill","Ballooffalo","Magikarp","Gyarados","Tigrissle","Beedive","Basculin","Pikeral","Feebas","Milotic","Deerling","Sawsbuck","Smoliv","Dolliv","Arboliva","Slakoth","Vigoroth","Slaking","Roggenrola","Boldore","Gigalith","Lithoshroom","Litholich","Sableye","Mawile","Klawf","Salandit","Salazzle","Axew","Fraxure","Haxorus","Rugblin","Runogre","Growlithe","Arcanine","Houndour","Houndoom","Joroo","Jaquol","Thylone","Fletchling","Fletchinder","Talonflame","Blitzle","Zebstrika","Falinks","Cufant","Copperajah","Phanpy","Donphan","Teddiursa","Ursaring","Trigenee","Hexyon","Hektillion","Termill","Terrazor","Heracross","Pinsir","Rockruff","Lycanroc","Elpine","Freezelk","Moorfrost","Snover","Abomasnow","Swinub","Piloswine","Mamoswine","Vanillite","Vanillish","Vanilluxe","Smoochum","Jynx","Zubat","Golbat","Crobat","Noibat","Noivern","Dunsparce","Dudunsparce","Drampa","Minior","Prominoid","Cryogonal","Riolu","Lucario","Zorua","Zoroark","Igglybuff","Jigglypuff","Wigglytuff","Delibird","Tynamo","Eelektrik","Eelektross","Elekid","Electabuzz","Electivire","Milcery","Alcremie","Inkay","Malamar","Croagunk","Toxicroak","Farfetch\u2019d","Kendo\u2019no","Deino","Zweilous","Hydreigon","Joltik","Galvantula","Lemurod","Sandygast","Palossand","Crabrawler","Crabominable","Exeggcute","Exeggutor","Tropius","Wingull","Pelipper","Antarctross","Shellder","Cloyster","Finneon","Lumineon","Gobellos","Dragobellos","Plecuum","Vorplec","Pyukumuku","Pincurchin","Lioxin","Frillish","Jellicent","Scrunge","Dhelmise","Cuttlelass","Dreadnautilus","Kravokalypse","Cubone","Marowak","Duskull","Dusclops","Dusknoir","Ralts","Kirlia","Gardevoir","Gallade","Elgyem","Beheeyem","Unown","Sigilyph","Carbink","Stegrowth","Stegrove","Angkol","Macedon","Tauros","Miltank","Durant","Heatmor","Ponyta","Rapidash","Mienfoo","Mienshao","Ascelyte","Paraiagon","Absol","Helioptile","Heliolisk","Silicobra","Sandaconda","Obelith","Pyramyth","Magby","Magmar","Magmortar","Torkoal","Turtonator","Moroth","Keelmora","Yamask","Cofagrigus","Bronzor","Bronzong","Honedge","Doublade","Aegislash","Druddigon","Deceuceus","Fervintill","Selervis","Helyrion","Daedestus","Apherove","Poleboar","Pallatinel","Jurotera","Oceides","Hatar","Zuros","Norphaval",
+				"Glameow","Purugly","Eevee","Vaporeon","Jolteon","Flareon","Espeon","Umbreon","Leafeon","Glaceon","Sylveon","Audino","Stantler","Wyrdeer","Girafarig","Farigiraf","Hawlucha","Weedle","Kakuna","Beedrill","Petilil","Lilligant","Comfey","Sirfetch\u2019","Bellsprout","Weepinbell","Victreebell","Carnivine","Ursaluna","Cranidos","Rampardos","Shieldon","Bastiodon","Jangmo-o","Hakamo-o","Kommo-o","Shuckle","Onix","Steelix","Phantump","Trevenant","Charvenant","Slugma","Magcargo","Skorupi","Drapion","Trapinch","Vibrava","Flygon","Slurpin","Suctlot","Corsola","Cursola","Luvdisc","Qwilfish","Overqwil","Basculegion","Minccino","Cinccino","Munna","Musharna","Runerigus","Spritzee","Aromatisse","Murkrow","Honchkrow","Aerodactyl","Snorunt","Glalie","Froslass","Darumaka","Darmanitan","Lillipup","Herdier","Stoutland","Kricketot","Kricketune","Amplitune","Toxel","Toxtricity","Rotom","Enamorus","Shaymin","Diancie","Volcanion","Phione","Manaphy","Cresselia","Darkrai","Regigigas","Meloetta","Meltan","Melmetal"
+			];
+			const species = this.dex.species.get(set.species || set.name);
+			if (!egelasDex.includes(species.baseSpecies)) {
+				return [`${species.name} is not in the Egelan or Sartorian Pokedexes.`];
 			}
 		},
 	},
 	horizonspokedex: {
 		effectType: 'ValidatorRule',
 		name: 'Horizons Pokedex',
-		desc: "Only allows Pok&eacute;mon obtainable in the Egelas region (Earth/Sky) and Sartori Island (Horizons Expansion)",
+		desc: "Only allows Pok&eacute;mon obtainable in the Egelas region (Earth/Sky), Sartori (Horizons Wave 1), and Hassrim (Horizons Wave 2)",
 		onValidateSet(set, format) {
 			const egelasDex = [
-				"Caeleaf","Sprop","Graecust","Iguava","Chucklava","Helmuana","Newtiny","Ruggeft","Claymander","Palrat","Spectrat","Shinx","Luxio","Luxray","Stunky","Skuntank","Fanfowl","Plumifowl","Pealated","Hoothoot","Noctowl","Montura","Twintura","Silvurah","Caterpie","Metapod","Butterfree","Budew","Roselia","Roserade","Sothodil","Sosphodel","Toybot","Aibot","Utilitron","Trubbish","Garbodor","Faerunee","Slowpoke","Slowbro","Slowking","Stunfisk","Burrorm","Burryrm","Scarabouch","Azurill","Marill","Azumarill","Ballooffalo","Magikarp","Gyarados","Tigrissle","Beedive","Basculin","Pikeral","Feebas","Milotic","Deerling","Sawsbuck","Smoliv","Dolliv","Arboliva","Slakoth","Vigoroth","Slaking","Roggenrola","Boldore","Gigalith","Lithoshroom","Litholich","Sableye","Mawile","Klawf","Salandit","Salazzle","Axew","Fraxure","Haxorus","Rugblin","Runogre","Growlithe","Arcanine","Houndour","Houndoom","Joroo","Jaquol","Thylone","Fletchling","Fletchinder","Talonflame","Blitzle","Zebstrika","Falinks","Cufant","Copperajah","Phanpy","Donphan","Teddiursa","Ursaring","Trigenee","Hexyon","Hektillion","Termill","Terrazor","Heracross","Pinsir","Rockruff","Lycanroc","Elpine","Freezelk","Moorfrost","Snover","Abomasnow","Swinub","Piloswine","Mamoswine","Vanillite","Vanillish","Vanilluxe","Smoochum","Jynx","Zubat","Golbat","Crobat","Noibat","Noivern","Dunsparce","Dudunsparce","Drampa","Minior","Prominoid","Cryogonal","Riolu","Lucario","Zorua","Zoroark","Igglybuff","Jigglypuff","Wigglytuff","Delibird","Tynamo","Eelektrik","Eelektross","Elekid","Electabuzz","Electivire","Milcery","Alcremie","Inkay","Malamar","Croagunk","Toxicroak","Farfetch\u2019d","Kendo\u2019no","Deino","Zweilous","Hydreigon","Joltik","Galvantula","Lemurod","Sandygast","Palossand","Crabrawler","Crabominable","Exeggcute","Exeggutor","Tropius","Wingull","Pelipper","Antarctross","Shellder","Cloyster","Finneon","Lumineon","Gobellos","Dragobellos","Plecuum","Vorplec","Pyukumuku","Pincurchin","Lioxin","Frillish","Jellicent","Scrunge","Dhelmise","Cuttlelass","Dreadnautilus","Kravokalypse","Cubone","Marowak","Duskull","Dusclops","Dusknoir","Ralts","Kirlia","Gardevoir","Gallade","Elgyem","Beheeyem","Unown","Sigilyph","Carbink","Stegrowth","Stegrove","Angkol","Macedon","Tauros","Miltank","Durant","Heatmor","Ponyta","Rapidash","Mienfoo","Mienshao","Ascelyte","Paraiagon","Absol","Helioptile","Heliolisk","Silicobra","Sandaconda","Obelith","Pyramyth","Magby","Magmar","Magmortar","Torkoal","Turtonator","Moroth","Keelmora","Yamask","Cofagrigus","Bronzor","Bronzong","Honedge","Doublade","Aegislash","Druddigon","Deceuceus","Fervintill","Selervis","Helyrion","Daedestus","Apherove","Poleboar","Pallatinel","Jurotera","Oceides","Hatar","Zuros","Norphaval","Glameow","Purugly","Eevee","Vaporeon","Jolteon","Flareon","Espeon","Umbreon","Leafeon","Glaceon","Sylveon","Audino","Stantler","Wyrdeer","Girafarig","Farigiraf","Hawlucha","Weedle","Kakuna","Beedrill","Petilil","Lilligant","Comfey","Sirfetch\u2019","Bellsprout","Weepinbell","Victreebell","Carnivine","Ursaluna","Cranidos","Rampardos","Shieldon","Bastiodon","Jangmo-o","Hakamo-o","Kommo-o","Shuckle","Onix","Steelix","Phantump","Trevenant","Charvenant","Slugma","Magcargo","Skorupi","Drapion","Trapinch","Vibrava","Flygon","Slurpin","Suctlot","Corsola","Cursola","Luvdisc","Qwilfish","Overqwil","Basculegion","Minccino","Cinccino","Munna","Musharna","Runerigus","Spritzee","Aromatisse","Murkrow","Honchkrow","Aerodactyl","Snorunt","Glalie","Froslass","Darumaka","Darmanitan","Lillipup","Herdier","Stoutland","Kricketot","Kricketune","Amplitune","Toxel","Toxtricity","Rotom","Enamorus","Shaymin","Diancie","Volcanion","Phione","Manaphy","Cresselia","Darkrai","Regigigas","Meloetta","Meltan","Melmetal"
+				"Caeleaf","Sprop","Graecust","Iguava","Chucklava","Helmuana","Newtiny","Ruggeft","Claymander","Palrat","Spectrat","Shinx","Luxio","Luxray","Stunky","Skuntank","Fanfowl","Plumifowl","Pealated","Hoothoot","Noctowl","Montura","Twintura","Silvurah","Caterpie","Metapod","Butterfree","Budew","Roselia","Roserade","Sothodil","Sosphodel","Toybot","Aibot","Utilitron","Trubbish","Garbodor","Faerunee","Slowpoke","Slowbro","Slowking","Stunfisk","Burrorm","Burryrm","Scarabouch","Azurill","Marill","Azumarill","Ballooffalo","Magikarp","Gyarados","Tigrissle","Beedive","Basculin","Pikeral","Feebas","Milotic","Deerling","Sawsbuck","Smoliv","Dolliv","Arboliva","Slakoth","Vigoroth","Slaking","Roggenrola","Boldore","Gigalith","Lithoshroom","Litholich","Sableye","Mawile","Klawf","Salandit","Salazzle","Axew","Fraxure","Haxorus","Rugblin","Runogre","Growlithe","Arcanine","Houndour","Houndoom","Joroo","Jaquol","Thylone","Fletchling","Fletchinder","Talonflame","Blitzle","Zebstrika","Falinks","Cufant","Copperajah","Phanpy","Donphan","Teddiursa","Ursaring","Trigenee","Hexyon","Hektillion","Termill","Terrazor","Heracross","Pinsir","Rockruff","Lycanroc","Elpine","Freezelk","Moorfrost","Snover","Abomasnow","Swinub","Piloswine","Mamoswine","Vanillite","Vanillish","Vanilluxe","Smoochum","Jynx","Zubat","Golbat","Crobat","Noibat","Noivern","Dunsparce","Dudunsparce","Drampa","Minior","Prominoid","Cryogonal","Riolu","Lucario","Zorua","Zoroark","Igglybuff","Jigglypuff","Wigglytuff","Delibird","Tynamo","Eelektrik","Eelektross","Elekid","Electabuzz","Electivire","Milcery","Alcremie","Inkay","Malamar","Croagunk","Toxicroak","Farfetch\u2019d","Kendo\u2019no","Deino","Zweilous","Hydreigon","Joltik","Galvantula","Lemurod","Sandygast","Palossand","Crabrawler","Crabominable","Exeggcute","Exeggutor","Tropius","Wingull","Pelipper","Antarctross","Shellder","Cloyster","Finneon","Lumineon","Gobellos","Dragobellos","Plecuum","Vorplec","Pyukumuku","Pincurchin","Lioxin","Frillish","Jellicent","Scrunge","Dhelmise","Cuttlelass","Dreadnautilus","Kravokalypse","Cubone","Marowak","Duskull","Dusclops","Dusknoir","Ralts","Kirlia","Gardevoir","Gallade","Elgyem","Beheeyem","Unown","Sigilyph","Carbink","Stegrowth","Stegrove","Angkol","Macedon","Tauros","Miltank","Durant","Heatmor","Ponyta","Rapidash","Mienfoo","Mienshao","Ascelyte","Paraiagon","Absol","Helioptile","Heliolisk","Silicobra","Sandaconda","Obelith","Pyramyth","Magby","Magmar","Magmortar","Torkoal","Turtonator","Moroth","Keelmora","Yamask","Cofagrigus","Bronzor","Bronzong","Honedge","Doublade","Aegislash","Druddigon","Deceuceus","Fervintill","Selervis","Helyrion","Daedestus","Apherove","Poleboar","Pallatinel","Jurotera","Oceides","Hatar","Zuros","Norphaval",
+				"Glameow","Purugly","Eevee","Vaporeon","Jolteon","Flareon","Espeon","Umbreon","Leafeon","Glaceon","Sylveon","Audino","Stantler","Wyrdeer","Girafarig","Farigiraf","Hawlucha","Weedle","Kakuna","Beedrill","Petilil","Lilligant","Comfey","Sirfetch\u2019","Bellsprout","Weepinbell","Victreebell","Carnivine","Ursaluna","Cranidos","Rampardos","Shieldon","Bastiodon","Jangmo-o","Hakamo-o","Kommo-o","Shuckle","Onix","Steelix","Phantump","Trevenant","Charvenant","Slugma","Magcargo","Skorupi","Drapion","Trapinch","Vibrava","Flygon","Slurpin","Suctlot","Corsola","Cursola","Luvdisc","Qwilfish","Overqwil","Basculegion","Minccino","Cinccino","Munna","Musharna","Runerigus","Spritzee","Aromatisse","Murkrow","Honchkrow","Aerodactyl","Snorunt","Glalie","Froslass","Darumaka","Darmanitan","Lillipup","Herdier","Stoutland","Kricketot","Kricketune","Amplitune","Toxel","Toxtricity","Rotom","Enamorus","Shaymin","Diancie","Volcanion","Phione","Manaphy","Cresselia","Darkrai","Regigigas","Meloetta","Meltan","Melmetal",
+				"Shelmet","Accelgor","Karrablast","Escavalier","Wooper","Quagsire","Clodsire","Tympole","Palpitoad","Seismitoad","Surskit","Masquerain","Goomy","Sliggoo","Goodra","Indeedee","Meowth","Persian","Perrserker","Nickit","Thievul","Tandemaus","Maushold","Espurr","Meowstic","Gothita","Gothorita","Gothitelle","Burmy","Wormadam-Plant","Mothim","Klefki","Dedenne","Grubbin","Charjabug","Vikavolt","Squawkabilly","Squawkapo","Gastly","Haunter","Gengar","Koffing","Weezing","Misdreavus","Mismagius","Finizen","Palafin","Horsea","Seadra","Kingdra","Clobbopus","Grapploct","Remoraid","Octillery","Skrelp","Dragalge","Relicanth","Chewtle","Drednaw","Wimpod","Golisopod","Krabby","Kingler","Hippopotas","Hippowdon","Varoom","Revavroom","Kangaskhan","Geodude","Graveler","Golem","Stonjourner","Pawniard","Bisharp","Kingambit","Zangoose","Seviper","Tyrogue","Hitmonchan","Hitmonlee","Hitmontop","Oricorio-Pom Pom","Flabebe","Floette","Florges","Skarmory","Vulpix","Ninetales","Solrunt","Ralie","Pharoslass","Bergmite","Avalugg","Charcadet","Armarouge","Ceruledge","Pawmi","Pawmo","Pawmot","Mankey","Primeape","Annihilape","Sneasel","Sneasler","Weavile","Oddish","Gloom","Vileplume","Bellossom","Pumpkaboo","Gourgeist","Tarountula","Spidops","Applin","Flapple","Appletun","Dipplin","Hydrapple","Gimmighoul","Gholdengo","Khatrophys","Articuno","Zapdos","Moltres","Mew","Raikou","Entei","Suicune","Celebi","Regirock","Regice","Registeel","Latias","Latios","Groudon","Kyogre","Rayquaza","Jirachi","Deoxys","Uxie","Mesprit","Azelf","Heatran","Victini","Cobalion","Terrakion","Virizion","Keldeo","Genesect","Zygarde","Hoopa","Cosmog","Cosmoem","Solgaleo","Lunala","Nihilego","Buzzwole","Pheromosa","Xurkitree","Celesteela","Kartana","Guzzlord","Marshadow","Poipole","Naganadel","Stakataka","Blacephalon","Zeraora","Kubfu","Urshifu","Regieleki","Regidrago","Calyrex","Glastrier","Spectrier","Great Tusk","Scream Tail","Brute Bonnet","Flutter Mane","Slither Wing","Sandy Shocks","Iron Treads","Robo Bundle","Press Hands","Mecha Jugulis","Astro Glider","Armor Thorns","Roaring Moon","Valiant Droid","Koraidon","Miraidon","Walking Wake","Saber Leaves","Okidogi","Munkidori","Fezandipiti","Ogerpon","Gouging Fire","Raging Bolt","Power Chassis","Laser Crown","Terapagos"
 			];
 			const species = this.dex.species.get(set.species || set.name);
 			if (!egelasDex.includes(species.baseSpecies)) {
-				return [species.name + " is not obtainable in Earth and Sky without transfer."];
+				return [`${species.name} is not in the Egelan, Sartorian, or Hassriman Pokedexes.`];
 			}
 		},
 	},
 	restrictedrules: {
 		effectType: 'ValidatorRule',
 		name: 'Restricted Rules',
-		desc: "Limits a team to two members who are Legendaries/Mythicals/Ultra Beasts/Paradoxes and enforces Item Clause.",
+		desc: "Limits teams to two members who are Legendaries/Mythicals/Ultra Beasts/Paradoxes and enforces Item Clause.",
 		ruleset: ['Item Clause'],
 		onValidateTeam(team){
 			let restrictedCount = 0;
@@ -96,7 +134,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 						//console.log(pokemon + " knows " + moveID + " with means " + pokeLearnsMove);
 						if(pokeLearnsMove == "9D"){
 							if(isHidden){ //Since it can't know the same move twice, it must have gotten it from a family member, and exclusive ones are taken care of.
-								problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+								problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 							} else {
 								isHidden = true;
 							}
@@ -109,10 +147,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								if(baseLearns) isNatural = true;
 								if(baseLearns == "9D"){ //This move is base forme's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -125,10 +163,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								if(prevoLearns) isNatural = true;
 								if(prevoLearns == "9D"){//This move is prevo's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -141,10 +179,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 										if(firstLearns) isNatural = true;
 										if(firstLearns == "9D") {//This move is first stage's Hidden Move
 											if(pokemon.exclusiveHidden || prevo.exclusiveHidden) { //and the Pokemon can't learn it
-												problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${first}'s exclusive Hidden Move.`);
+												problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it is ${first}'s exclusive Hidden Move.`);
 											} else {
 												if(isHidden){
-													problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
+													problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 												} else {
 													isHidden = true;
 												}

@@ -22,7 +22,7 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 30,
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove: function (pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifySpAPriority: 1,
@@ -31,6 +31,24 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		},
 		desc: "Holder's Sp. Atk is 1.3x,, but it can't use the same move twice in a row.",
 		num: -2,
+		gen: 4,
+	},
+	protectivepads: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 4,
+	},
+	movesplitter: {
+		name: "Move Splitter",
+		fling: {
+			basePower: 30,
+		},
+		onModifyMove(move) {
+			if (move.category === 'Physical') move.category = 'Special';
+			if (move.category === 'Special') move.category = 'Physical';
+		},
+		desc: "Holder's physical moves become special and vice versa.",
+		num: -3,
 		gen: 4,
 	},
 

@@ -116,7 +116,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Ice Age",
 		rating: 4.5,
 		num: -1006,

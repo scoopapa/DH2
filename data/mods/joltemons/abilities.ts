@@ -272,7 +272,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy",
 		rating: 0,
 		num: 223,
@@ -299,7 +299,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Muk-Alola)",
 		rating: 5,
 	},
@@ -706,7 +706,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Counterfeit",
 		rating: 1.5,
 	},
@@ -995,6 +995,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Neutralizing Gas",
 		rating: 5,
 		num: 256,
@@ -1031,7 +1032,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Weezing)",
 		rating: 5,
 	},
@@ -1083,7 +1084,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Alcremie)",
 		rating: 5,
 	},
@@ -1092,7 +1093,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Mismagius)",
 		rating: 5,
 	},
@@ -1112,7 +1113,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Slowking-Galar)",
 		rating: 5,
 	},
@@ -1146,7 +1147,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			this.effectState.switchingIn = false;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Ditto)",
 		rating: 5,
 	},
@@ -1179,7 +1180,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Vanillite)",
 		rating: 5,
 	},
@@ -1205,7 +1206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Vanilluxe)",
 		rating: 5,
 	},
@@ -1222,7 +1223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return 1;
 		},
 		onCriticalHit: false,
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Type: Null)",
 		rating: 5,
 	},
@@ -1245,7 +1246,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1});
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Silvally)",
 		rating: 5,
 	},
@@ -1272,7 +1273,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Vaporeon)",
 		rating: 5,
 	},
@@ -1301,7 +1302,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Jolteon)",
 		rating: 5,
 	},
@@ -1325,7 +1326,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.flags['contact']) mod /= 2;
 			return this.chainModify(mod);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Flareon)",
 		rating: 5,
 	},
@@ -1373,7 +1374,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 1,
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Espeon)",
 		rating: 5,
 	},
@@ -1385,7 +1386,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && ['psn', 'tox', 'brn', 'frz', 'slp', 'par'].includes(target.status)) return 5;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Umbreon)",
 		rating: 5,
 	},
@@ -1427,7 +1428,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(2);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Leafeon)",
 		rating: 5,
 	},
@@ -1451,7 +1452,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Glaceon)",
 		rating: 5,
 	},
@@ -1551,7 +1552,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.pixilateBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power of Alchemy (Sylveon)",
 		rating: 5,
 	},
