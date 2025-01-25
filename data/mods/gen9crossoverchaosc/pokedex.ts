@@ -1,7 +1,7 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	narwa: {
 		num: 1,
-		species: "Narwa",
+		name: "Narwa",
 		types: ["Dragon", "Electric"],
 		gender: "F",
 		baseStats: {hp: 88, atk: 83, def: 77, spa: 105, spd: 112, spe: 75},
@@ -10,7 +10,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hinakagiyama: {
 		num: 2,
-		species: "Hina Kagiyama",
+		name: "Hina Kagiyama",
 		types: ["Poison", "Dark"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 110, def: 75, spa: 50, spd: 120, spe: 45},
@@ -19,7 +19,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	luigi: {
 		num: 3,
-		species: "Luigi",
+		name: "Luigi",
 		types: ["Normal", "Flying"],
 		gender: "M",
 		baseStats: {hp: 86, atk: 85, def: 101, spa: 85, spd: 111, spe: 82},
