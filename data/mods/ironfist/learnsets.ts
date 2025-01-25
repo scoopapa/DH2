@@ -2886,7 +2886,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			inherit: true,
 			fish: ["9L1"],
-			fishburn: ["9L1"],
 			lemonbash: ["9L1"],
 			aerialace: ["9L1"],
 			airslash: ["9L1"],
@@ -3163,7 +3162,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			fiendfire: ["9L1"],
-			fishburn: ["9L1"],
 		},
 	},
 	kurayami: {
@@ -3575,7 +3573,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	drigike: {
 		learnset: {
-			fishburn: ["9L1"],
 			diamondstorm: ["9L1"],
 			flipturn: ["9L1"],
 			psychocut: ["9L1"],
@@ -5969,7 +5966,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	pokestarfisherman: {
 		learnset: {
 			fish: ["9L1"],
-			fishburn: ["9L1"],
 			fishingminigame: ["9L1"],
 			gofish: ["9L1"],
 			feebasproshops: ["9L1"],
@@ -7563,6 +7559,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fishingterrain: ["9L1"],
 			fisheater: ["9L1"],
 			epicbeam: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	rawringmoon: {
@@ -11257,6 +11254,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			clash: ["9L1"],
 			wariopicrosspuzzle4g: ["9L1"],
 			yoshisisland: ["9L1"],
+			fishburn: ["9L1"],
 		},
 	},
 	fudgesaur: {
