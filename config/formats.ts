@@ -5360,8 +5360,8 @@ export const Formats: FormatList = [
 		],
 		mod: 'moderngen2',
 		searchShow: false,
-		ruleset: ['Standard MG2', '+No Ability', '-All Abilities', 'Gems Clause'],
-		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],
+		ruleset: ['Standard MG2', '+No Ability', '-All Abilities'],
+		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew', 'Fighting Gem', 'Flying Gem', 'Poison Gem', 'Rock Gem', 'Bug Gem', 'Ground Gem', 'Ghost Gem', 'Steel Gem', 'Fire Gem', 'Grass Gem', 'Water Gem', 'Electric Gem', 'Psychic Gem', 'Ice Gem', 'Dragon Gem', 'Fairy Gem', 'Dark Gem'],
 	},
 	{
 		name: "[Gen 2] Modern Gen 2 Ubers",
