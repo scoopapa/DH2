@@ -870,7 +870,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && pokemon.baseSpecies.name === 'Sigma Rice Lion') {
-				this.add('-item', target, 'Sigma Rice');
+				this.add('-item', pokemon, 'Sigma Rice');
 				pokemon.addVolatile('sigmarice');
 			}
 		},
