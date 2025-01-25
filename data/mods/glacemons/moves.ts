@@ -654,10 +654,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const removeTarget = [
-				'stealthrock', 'spikes',
+				'stealthrock', 'spikes', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'stealthrock', 'spikes',
+				'stealthrock', 'spikes', 'gmaxsteelsurge'
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -675,7 +675,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.field.clearTerrain();
 			return success;
 		},
-		shortDesc: "Free user from hazards/terrain/bind/Leech Seed.",
+		shortDesc: "Free user from Stealth Rock/Spikes/Caltrops/terrain/bind/Leech Seed.",
 	},
 	// Slate 4
 	triattack: {

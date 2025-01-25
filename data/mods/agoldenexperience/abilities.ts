@@ -1395,6 +1395,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a Dark-type move. Dark immunity.",
 	},
 	colorchange: {
+		inherit: true,
+		onAfterMoveSecondary(target, source, move) {},
 		onTryHit(target, source, move) {
 			if (!target.hp) return;
 			const type = move.type;
@@ -1414,17 +1416,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		name: "Color Change",
 		shortDesc: "This Pokemon's type changes to the type of a move it's hit by before being hit, unless it has the type.",
-		rating: 0,
-		num: 16,
 	},
 	iceface: {
+		inherit: true,
 		onDamage(damage, target, source, effect) {
-			if (
-				effect && effect.effectType === 'Move' &&
-				target.species.id === 'eiscue' && !target.transformed
-			) {
+			if (effect?.effectType === 'Move' && target.species.id === 'eiscue') {
 				this.add('-activate', target, 'ability: Ice Face');
 				this.effectState.busted = true;
 				return 0;
@@ -1432,14 +1429,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			if (target.species.id !== 'eiscue' || target.transformed) return;
+			if (target.species.id !== 'eiscue') return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (target.species.id !== 'eiscue' || target.transformed) return;
+			if (target.species.id !== 'eiscue') return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
@@ -1447,26 +1444,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (!target.runImmunity(move.type)) return;
 			return 0;
 		},
-		onUpdate(pokemon) {
-			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
-				pokemon.formeChange('Eiscue-Noice', this.effect, true);
-			}
-		},
-		onWeatherChange(pokemon, source, sourceEffect) {
-			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
-			if ((sourceEffect as Ability)?.suppressWeather) return;
-			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow']) &&
-				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
-				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectState.busted = false;
-				pokemon.formeChange('Eiscue', this.effect, true);
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Ice Face",
-		rating: 3,
-		num: 248,
+		desc: "If this Pokemon is an Eiscue, the first hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Snow begins or when Eiscue switches in while Snow is active. Confusion damage also breaks the ice face.",
+		shortDesc: "If Eiscue, the first hit it takes deals 0 damage. Effect is restored in Snow.",
 	},
 	battlebond: {
 		inherit: true,
@@ -1492,39 +1471,36 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 	},
 	powerspot: {
-		onAllyBasePowerPriority: 22,
+		inherit: true,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
 				return this.chainModify(1.5);
 			}
 		},
-		name: "Power Spot",
 		shortDesc: "This Pokemon's allies have the power of their moves multiplied by 1.5.",
-		rating: 1,
-		num: 249,
 	},
 	arenatrap: {
+		inherit: true,
+		onFoeTrapPokemon(pokemon) {},
+		onFoeMaybeTrapPokemon(pokemon, source) {},
 		onModifyDamage(damage, source, target, move) {
 			if (!(source.activeMoveActions > 1)) {
 				return this.chainModify(1.3);
 			}
 		},
 		shortDesc: "This Pokemon's attacks deal x1.3 damages during 1 turn.",
-		name: "Arena Trap",
-		rating: 5,
-		num: 71,
 	},
 	shadowtag: {
+		inherit: true,
+		onFoeTrapPokemon(pokemon) {	},
+		onFoeMaybeTrapPokemon(pokemon, source) {},
 		onFoeSwitchOut(source, target) {
 			for (const target of source.side.foe.active) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
-		name: "Shadow Tag",
 		shortDesc: "Opposing Pokemon loose 1/8 of their maximum HP, rounded down, when it switches out.",
-		rating: 5,
-		num: 23,
 	},
 	sandveil: {
 		inherit: true,
@@ -1587,29 +1563,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If Sunny Day is active, this Pokemon's Def is 1.3x; cannot be statused and Rest will fail for it.",
 	},
 	immunity: {
-		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				this.add('-activate', pokemon, 'ability: Immunity');
-				pokemon.cureStatus();
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'psn' && status.id !== 'tox') return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Immunity');
-			}
-			return false;
-		},
+		inherit: true,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Poison') {
 				this.add('-immune', target, '[from] ability: Immunity');
 				return null;
 			}
 		},
-		name: "Immunity",
 		shortDesc: "This Pokemon is immune to poison damages and Poison type moves",
-		rating: 2,
-		num: 17,
 	},
 	stickyhold: {
 		//inherit: true,
@@ -1646,50 +1607,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 	},
 	watercompaction: {
-		shortDesc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move. Water immunity.",
-		onTryHitPriority: 1,
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.boost({ def: 2 })) {
+				if (!this.boost({def: 2})) {
 					this.add('-immune', target, '[from] ability: Water Compaction');
 				}
 				return null;
 			}
 		},
-		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectState.target || target.side !== source.side) return;
-			if (move.type === 'Water') {
-				this.boost({ def: 2 }, this.effectState.target);
-			}
-		},
-		name: "Water Compaction",
-		rating: 3,
-		num: 195,
+		shortDesc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move. Water immunity.",
 	},
 	forecast: {
-		onUpdate(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
-			let forme = null;
-			switch (pokemon.effectiveWeather()) {
-				case 'sunnyday':
-				case 'desolateland':
-					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
-					break;
-				case 'raindance':
-				case 'primordialsea':
-					if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
-					break;
-				case 'hail':
-					if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
-					break;
-				default:
-					if (pokemon.species.id !== 'castform') forme = 'Castform';
-					break;
-			}
-			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
-			}
-		},
+		inherit: true,
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			const type = move.type;
@@ -1714,11 +1645,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			}
 		},
-		name: "Forecast",
 		desc: "Castform's type changes to the current weather condition's type, except Sandstorm. Upon using a Water, Fire, or Ice move, this Pokemon changes to that type and sets the corresponding weather.",
 		shortDesc: "Changes type, form and weather when using Water/Fire/Ice moves.",
-		rating: 4,
-		num: 59,
     },
 	mimicry: {
 		inherit: true,
@@ -1755,39 +1683,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 	},
 	disguise: {
-		onDamagePriority: 1,
-		onDamage(damage, target, source, effect) {
-			if (
-				effect && effect.effectType === 'Move' &&
-				['mimikyu', 'mimikyutotem'].includes(target.species.id) && !target.transformed
-			) {
-				this.add('-activate', target, 'ability: Disguise');
-				this.effectState.busted = true;
-				return 0;
-			}
-		},
-		onCriticalHit(target, source, move) {
-			if (!target) return;
-			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
-				return;
-			}
-			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
-			if (hitSub) return;
-
-			if (!target.runImmunity(move.type)) return;
-			return false;
-		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
-			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
-				return;
-			}
-			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
-			if (hitSub) return;
-
-			if (!target.runImmunity(move.type)) return;
-			return 0;
-		},
+		inherit: true,
 		onUpdate(pokemon) {
 			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
@@ -1795,46 +1691,27 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon, this.dex.species.get(speciesid)); // 6.25% instead of 12.5% HP lost
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Disguise",
-		rating: 3.5,
-		num: 209,
+		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/16 of its max HP. Confusion damage also breaks the disguise.",
+		shortDesc: "(Mimikyu only) The first hit it takes is blocked, and it takes 1/16 HP damage instead.",
 	},
 	toxicboost: {
-		shortDesc: "1.5x Attack while poisoned; Immune to poison status damage.",
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
-				return this.chainModify(1.5);
-			}
-		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'psn' || effect.id === 'tox') {
 				return false;
 			}
 		},
-		name: "Toxic Boost",
-		rating: 2.5,
-		num: 137,
+		shortDesc: "1.5x Attack while poisoned; Immune to poison status damage.",
 	},
 	flareboost: {
-		shortDesc: "1.5x SpA while burned; Immune to burn damage.",
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.status === 'brn' && move.category === 'Special') {
-				return this.chainModify(1.5);
-			}
-		},
+		inherit: true,
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'brn') {
 				return false;
 			}
 		},
-		name: "Flare Boost",
-		rating: 2,
-		num: 138,
+		shortDesc: "1.5x SpA while burned; Immune to burn damage.",
 	},
 	zenmode: {
 		inherit: true,
@@ -1872,20 +1749,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon can't be trapped by any mean.",
 	},
 	illuminate: {
+		inherit: true,
 		onSourceModifyAccuracyPriority: 9,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
 			this.debug('illuminate - enhancing accuracy');
 			return accuracy * 1.3;
 		},
-		name: "Illuminate",
-		shortDesc: "This Pokemon's Accuracy is x1.3.",
-		rating: 3,
-		num: 35,
+		desc: "This Pokemon's Accuracy is x1.3. Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",
+		shortDesc: "This Pokemon's Accuracy is x1.3. This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat.",
 	},
 	honeygather: {
-		name: "Honey Gather",
-		shortDesc: "At the end of each turn, if this Pokemon has no item, it gets Honey. If it has honey, it heals 1/8 of its HP.",
+		inherit: true,
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -1897,8 +1772,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		rating: 3,
-		num: 118,
+		shortDesc: "At the end of each turn, if this Pokemon has no item, it gets Honey. If it has honey, it heals 1/8 of its HP.",
 	},
 	pastelveil: {
 		inherit: true,
@@ -1941,6 +1815,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 	},
 	defeatist: {
+		inherit: true,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.side.totalFainted === 5) {
@@ -1953,11 +1828,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(0.5);
 			}
 		},
-		name: "Defeatist",
 		desc: "If this Pokemon is the last Pokemon of the team, its Attack and Special Attack are halved.",
 		shortDesc: "If this Pokemon is the last Pokemon of the team, its Attack and Sp. Atk are halved.",
-		rating: -1,
-		num: 129,
 	},
 	ironfist: {
 		inherit: true,
@@ -1971,17 +1843,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's punch-based attacks have 1.3x power. Sucker Punch is not boosted.",
 	},
 	rkssystem: {
-		shortDesc: "Non-STAB moves have 1.2x power.",
+		inherit: true,
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.hasType(move.type)) {
 				return this.chainModify(1.2);
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "RKS System",
-		rating: 4,
-		num: 225,
+		shortDesc: "Non-STAB moves have 1.2x power.",
 	},
 	galewings: {
 		inherit: true,
@@ -1992,6 +1861,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
 	},
 	schooling: {
+		inherit: true,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.species.id === 'wishiwashi') {
@@ -2014,12 +1884,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.debug('schooling - enhancing accuracy');
 			return accuracy * 1.3;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Schooling",
-		rating: 3,
-		num: 208,
+		desc: "On switch-in, if this Pokemon is a Wishiwashi that is level 20 or above, it changes to School Form, and raises its Accuracy by 1.3. If it is in School Form and its HP drops to 1/4 of its maximum HP or less, it changes to Solo Form at the end of the turn. If it is in Solo Form and its HP is greater than 1/4 its maximum HP at the end of the turn, it changes to School Form.",
+		shortDesc: "If user is Wishiwashi, changes to School Form, else Solo Form. Accuracy x1.3.",
 	},
 	grasspelt: {
+		inherit: true,
 		onStart(pokemon) {
 			if (
 				!this.field.setTerrain('grassyterrain') &&
@@ -2042,40 +1911,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		shortDesc: "On switch-in, summons Grassy Terrain. During Grassy Terrain, Def is 1.3333x.",
-		name: "Grass Pelt",
-		rating: 4,
-		num: 179,
 	},
 	flowergift: {
-		onStart(pokemon) {
-			delete this.effectState.forme;
-		},
-		onUpdate(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
-				}
-			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
-				}
-			}
-		},
-		onAllyModifyAtkPriority: 3,
-		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
-		onAllyModifySpDPriority: 4,
-		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
+		inherit: true,
 		onModifyAtkPriority: 3,
 		onModifyAtk(atk, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
@@ -2097,11 +1935,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.5);
 			}
 		},
-		name: "Flower Gift",
 		desc: "If user is Cherrim and Sunny Day isn't active, its Def is 1.5x. If user is Cherrim and Sunny Day is active, it and its allies Atk and Sp. Def are 1.5x. and Cherrim gains the Fire type.",
 		shortDesc: "Cherrim: If Sunny Day is active, it and its allies Atk and Sp. Def are 1.5x, and Cherrim gains the Fire type; otherwise Def x1.5.",
-		rating: 2,
-		num: 122,
 	},
 	gorillatactics: {
 		inherit: true,
@@ -2115,6 +1950,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon's Attack is 1.3x, but it can only select the first move it executes.",
 	},
 	quickdraw: {
+		inherit: true,
+		onFractionalPriority(priority, pokemon, target, move) {},
 		desc: "This Pokémon moves first in its priority bracket when its target has 1/3 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
 		shortDesc: "This Pokémon moves first in its priority bracket when its target has 1/3 or less HP.",
 		onUpdate(pokemon) {
@@ -2139,21 +1976,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return priority + 0.1;
 			},
 		},
-		name: "Quick Draw",
-		rating: 3,
-		num: -46,
 	},
 	icescales: {
+		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.category === 'Special' || target.getMoveHitData(move).typeMod > 0) {
 				return this.chainModify(0.5);
 			}
 		},
-		name: "Ice Scales",
 		shortDesc: "This Pokemon receives 1/2 damage from special attacks, as well as super effective attacks.",
 		desc: "This Pokemon receives 1/2 damage from special attacks, as well as super effective attacks.",
-		rating: 4,
-		num: 246,
 	},
 	strongwill: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -2207,27 +2039,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -68,
 	},
 	wonderskin: {
+		inherit: true,
+		onModifyAccuracy(accuracy, target, source, move) {},
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' && target !== source) {
 				this.add('-immune', target, '[from] ability: Wonder Skin');
 				return null;
 			}
 		},
-		flags: {breakable: 1},
-		name: "Wonder Skin",
 		shortDesc: "This Pokemon is immune to Status moves.",
-		rating: 5,
-		num: 147,
 	},
 	cutecharm: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {},
 		onSourceModifyDamage(damage, source, target, move) {
-			return this.chainModify(0.8);
+			return this.chainModify(0.75);
 		},
-		name: "Cute Charm",
-		shortDesc: "This Pokemon receives 20% less damage from all attacks.",
-		desc: "This Pokemon receives 20% less damage from all attacks.",
-		rating: 4,
-		num: 56,
+		flags: {breakable: 1},
+		shortDesc: "This Pokemon receives 25% less damage from all attacks.",
+		desc: "This Pokemon receives 25% less damage from all attacks.",
 	},
 	rebound: {
 		onDamagingHitOrder: 1,
@@ -2292,11 +2122,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -70,
 	},
 	truant: {
-		name: "Truant",
+		inherit: true,
+		onStart(pokemon) {},
+		onBeforeMove(pokemon) {},
 		shortDesc: "No competitive effect.",
 		desc: "No competitive effect.",
-		rating: 0,
-		num: 54,
 	},
 	sharpness: {
 		inherit: true,
@@ -2359,16 +2189,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -70,
 	},
 	seedsower: {
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hasType('Grass')) {
 				this.add('-activate', target, 'ability: Seed Sower');
 				source.addVolatile('leechseed', this.effectState.target);
 			}
 		},
-		name: "Seed Sower",
 		shortDesc: "When this Pokemon is hit by an attack, the effect of Leech Seed begins.",
-		rating: 3,
-		num: 269,
 	},
 	angershell: {
 		inherit: true,
@@ -2416,6 +2244,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -71,
 	},
 	zerotohero: {
+		inherit: true,
+		onSwitchOut(pokemon) {},
+		onSwitchIn() {},
+		onStart(pokemon) {},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') {
 				return;
@@ -2425,11 +2257,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				source.formeChange('Palafin-Hero', this.effect, true);
 			}
 		},
-		flags: {cantsuppress: 1},
-		name: "Zero to Hero",
 		shortDesc: "If this Pokemon is a Palafin in Zero Form, KOing a foe has it change to Hero Form.",
-		rating: 5,
-		num: 278,
 	},
 	lusterswap: { // taken from M4A
 		desc: "On entry, this Pokémon's type changes to match its first move that's super effective against an adjacent opponent.",

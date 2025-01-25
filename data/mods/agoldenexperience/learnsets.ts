@@ -854,6 +854,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			swordsdance: ["9M"],
 			tackle: ["9L1"],
 			takedown: ["9L72"],
+			temperflare: ["9M"],
 			thunderfang: ["9M"],
 			twister: ["9E"],
 		},

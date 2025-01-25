@@ -2030,4 +2030,28 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Overcoat", 1: "Prankster", H: "Route Closed"},
 	},
+	regirock: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Sturdy", H: "Solid Rock"},
+	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Ice Body", H: "Refrigerate"},
+	},
+	registeel: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Light Metal", H: "Heavy Metal"},
+	},
+	regigigas: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Normalize", H: "Slow Start"},
+	},
+	regieleki: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Galvanize", H: "Transistor"},
+	},
+	regidrago: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Pressure", H: "Dragon's Maw"},
+	},
 };
