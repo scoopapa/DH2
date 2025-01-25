@@ -274,6 +274,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meltan: {tier: "FROU (NFE)"},
 	
 	melmetal: {tier: "FROU"},
+
+	tapubulu: {tier: "FROU"},
+	tapufini: {tier: "FROU"},
+	tapukoko: {tier: "FROU"},
+	tapulele: {tier: "FROU"},
+
+	happiny: {tier: "FROU (NFE)"},
+	chansey: {tier: "FROU (NFE)"},
+	blissey: {tier: "FROU"},
 	
 	// Custom Mons //
 	
