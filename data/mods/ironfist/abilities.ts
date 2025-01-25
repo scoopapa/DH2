@@ -525,7 +525,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				this.add('-start', source, 'typechange', 'Ice');
+				if(source.setType('Ice')) this.add('-start', source, 'typechange', 'Ice');
 			}
 		},
 		flags: {},
