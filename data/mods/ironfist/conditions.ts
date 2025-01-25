@@ -165,8 +165,8 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	graveyard: {
-		name: 'Graveyard',
+	gayveyard: {
+		name: 'Gayveyard',
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
@@ -178,7 +178,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('divininghorn')) return;
 			if (move.type === 'Ghost') {
-				this.debug('Graveyard ghost boost');
+				this.debug('Gayveyard ghost boost');
 				return this.chainModify(1.3);
 			}
 		},
@@ -186,22 +186,22 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			this.add('-message', "The dead rose from their graves!");
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Graveyard', '[from] ability: ' + effect.name, '[of] ' + source, '[silent]');
+				this.add('-weather', 'Gayveyard', '[from] ability: ' + effect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-weather', 'Graveyard', '[silent]');
+				this.add('-weather', 'Gayveyard', '[silent]');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-message', "Zombies roam the battlefield.");
-			this.add('-weather', 'Graveyard', '[upkeep]');
-			if (this.field.isWeather('Graveyard')) this.eachEvent('Weather');
+			this.add('-weather', 'Gayveyard', '[upkeep]');
+			if (this.field.isWeather('Gayveyard')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
 			if(!target.hasAbility('magicguard') && 
 			   !target.hasAbility('ghoulgobbler') &&
 			   !target.hasAbility('rkssystem')) {
-				this.add('-message', `${target.name} was attacked by the zombies!`);
+				this.add('-message', `${target.name} was attacked by the zombies using gender fluid!`);
 				this.damage(target.baseMaxhp / 16);
 			}
 		},
