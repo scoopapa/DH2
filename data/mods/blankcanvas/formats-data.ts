@@ -190,4 +190,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	serpvoltidae: {
 		tier: "BC OU",
 	},
+	sheepquake: {
+		tier: "BC OU",
+	},
+	bufferfly: {
+		tier: "BC OU",
+	},
+	dastard: {
+		tier: "BC OU",
+	},
 };
