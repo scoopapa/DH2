@@ -864,6 +864,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	//slate 9
 	sigmarice: {
 		name: "Sigma Rice",
+		shortDesc: "Sigma Rice Lion: 1.3x Atk/Def/SpA. Consumed when transformed into a Lion.",
 		fling: {
 			basePower: 30,
 			volatileStatus: 'sigmarice',
