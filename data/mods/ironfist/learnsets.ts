@@ -11821,7 +11821,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			spite: ["9L1"],
 			stankyleg: ["9L1"],
 			stomp: ["9L1"],
-			stockpille: ["9L1"],
+			stockpile: ["9L1"],
 			stompingtantrum: ["9L1"],
 			strugglebug: ["9L1"],
 			substitute: ["9L1"],

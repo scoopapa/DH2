@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 130, def: 130, spa: 50, spd: 70, spe: 50},
-		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Tough Claws"},
+		abilities: {0: "Carcinization", 1: "Shell Armor", H: "Tough Claws"},
 	},
 	kinglermega: {
 		name: "Kingler-Mega",
@@ -1367,6 +1367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	swampertmega: {
 		inherit: true,
 		baseStats: {hp: 102, atk: 152, def: 112, spa: 97, spd: 112, spe: 72},
+		abilities: {0: "Sour Sipper"},
 		weightkg: 102.0,
 	},
 	sigmaricelion: {
