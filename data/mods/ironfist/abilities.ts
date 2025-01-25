@@ -1434,6 +1434,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Carcinization",
 		shortDesc: "Pokemon who damage this Pokemon forme change into Kingler in 1 turn.",
 	},
+	soursipper: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Lemon') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Sour Sipper');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Lemon') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sour Sipper",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Lemon move; Lemon immunity.",
+	},
 	sigmasurge: {
 		onStart(source) {
 			this.field.addPseudoWeather('liondeluge');
@@ -1451,7 +1471,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ultra Necrozma Clause",
 		shortDesc: "On switchin, this Pokemon becomes trapped and faints in 3 turns.",
 	},
-	sckckckckckeptic: {
+	sckckckckeptic: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (['Fairy', 'Dragon', 'Dark'].includes(move.type)) {
@@ -1467,7 +1487,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {breakable: 1},
-		name: "Sckckckckckeptic",
+		name: "Sckckckckeptic",
 		shortDesc: "This Pokemon takes halved damage from Fairy/Dragon/Dark moves.",
 	},
 	justthebirds: {

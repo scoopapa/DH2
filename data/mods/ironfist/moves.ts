@@ -2410,35 +2410,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fish Burn",
 		type: "Fire",
 		category: "Special",
-		basePower: 60,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.side.removeFishingTokens(1)) {
+				return move.basePower *= 1.5;
+			}
+			return move.basePower;
+		},
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Removes 1 user's FT - always SE. else - removes 1 foe's FT, burns fish.",
+		shortDesc: "-1 foe's Fishing Token to deal 1.5x damage.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, fishing: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Burn Up", target);
-		},
-		onModifyMove(move, pokemon, target) {
-			const pokemonSide = pokemon.side;
-			if (pokemonSide.removeFishingTokens(1)) move.burnedUserToken = true;
-			else {
-				target.side.removeFishingTokens(1);
-				move.burnedOppToken = true;
-			}
-		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!move.burnedUserToken) return typeMod;
-			move.burnedUserToken = false;
-		    if (target.baseSpecies.types[0] === type) return 1;
-			else return 0;
-		},
-		onAfterHit(target, source, move) {
-			if (move.burnedOppToken && target.baseSpecies.fish) {
-				move.burnedOppToken = false;
-				target.trySetStatus('brn');
-			}
 		},
 		secondary: null,
 		target: "normal",

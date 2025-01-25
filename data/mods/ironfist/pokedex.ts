@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 130, def: 130, spa: 50, spd: 70, spe: 50},
-		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Tough Claws"},
+		abilities: {0: "Carcinization", 1: "Shell Armor", H: "Tough Claws"},
 	},
 	kinglermega: {
 		name: "Kingler-Mega",
@@ -342,7 +342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -37,
 		fish: true,
 		types: ["Ghost", "Electric"],
-		baseStats: {hp: 52, atk: 54, def: 104, spa: 123, spd: 111, spe: 80},
+		baseStats: {hp: 52, atk: 123, def: 104, spa: 111, spd: 104, spe: 87},
 		abilities: {0: "Illusion", 1: "Imposter", H: "Good as Gold"},
 		weightkg: 69.0,
 	},
@@ -1295,7 +1295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Hitmontop",
 		forme: "Mega",
 		types: ["Fighting", "Normal"],
-		baseStats: {hp: 67, atk: 142, def: 112, spa: 37, spd: 147, spe: 82},
+		baseStats: {hp: 67, atk: 152, def: 102, spa: 37, spd: 147, spe: 82},
 		abilities: {0: "Necrodancer"},
 		weightkg: 72.0,
 		requiredItem: "Hitmontopite",
@@ -1367,6 +1367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	swampertmega: {
 		inherit: true,
 		baseStats: {hp: 102, atk: 152, def: 112, spa: 97, spd: 112, spe: 72},
+		abilities: {0: "Sour Sipper"},
 		weightkg: 102.0,
 	},
 	sigmaricelion: {
