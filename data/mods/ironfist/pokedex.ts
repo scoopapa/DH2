@@ -250,7 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Pidown",
 		num: -28,
 		types: ["Fighting", "Poison"],
-		baseStats: {hp: 130, atk: 120, def: 95, spa: 40, spd: 85, spe: 40},
+		baseStats: {hp: 130, atk: 125, def: 100, spa: 40, spd: 90, spe: 45},
 		abilities: {0: "Guts", 1: "Gluttony", H: "Mold Breaker"},
 		weightkg: 102.9,
 	},
