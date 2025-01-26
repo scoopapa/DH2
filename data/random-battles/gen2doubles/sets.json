@@ -180,7 +180,7 @@
         ]
     },
     "dugtrio": {
-        "level": 86,
+        "level": 84,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -563,7 +563,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["icepunch", "thunderbolt", "counter", "reflect", "thunderwave"],
+                "movepool": ["icepunch", "thunderbolt", "counter", "reflect", "thunderwave", "protect"],
                 "preferredTypes": ["Ice"]
             }
         ]
@@ -740,7 +740,7 @@
         ]
     },
     "moltres": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -898,7 +898,7 @@
     "sets": [
         {
             "role": "Bulky Support",
-            "movepool": ["charm", "return", "fireblast", "encore", "safeguard", "protect"]
+            "movepool": ["charm", "encore", "safeguard", "protect"]
         }
     ]
     },
@@ -1214,11 +1214,11 @@
     ]
     },
     "shuckle": {
-    "level": 90,
+    "level": 94,
     "sets": [
         {
             "role": "Bulky Support",
-            "movepool": ["encore", "toxic", "safeguard", "sandstorm", "protect"]
+            "movepool": ["encore", "safeguard", "sandstorm", "protect"]
         }
     ]
     },
@@ -1236,7 +1236,7 @@
     ]
     },
     "sneasel": {
-    "level": 92,
+    "level": 94,
     "sets": [
         {
             "role": "Generalist",
