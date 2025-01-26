@@ -507,4 +507,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Teravolt", H: "Shed Skin"},
 		weightkg: 69,
 	},
+	sheepquake: {
+		num: 9063,
+		name: "Sheepquake",
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 110, atk: 30, def: 95, spa: 85, spd: 95, spe: 95},
+		abilities: {0: "Sheer Force"},
+		weightkg: 126,
+	},
+	bufferfly: {
+		num: 9064,
+		name: "Bufferfly",
+		types: ["Fighting", "Bug"],
+		baseStats: {hp: 105, atk: 110, def: 70, spa: 20, spd: 90, spe: 65},
+		abilities: {0: "Magic Bounce"},
+		weightkg: 121,
+	},
+	dastard: {
+		num: 9065,
+		name: "Dastard",
+		types: ["Fairy", "Poison"],
+		baseStats: {hp: 80, atk: 90, def: 80, spa: 100, spd: 80, spe: 80},
+		abilities: {0: "Competitive"},
+		weightkg: 55,
+	},
 };

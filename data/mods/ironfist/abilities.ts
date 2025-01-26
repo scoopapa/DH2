@@ -43,12 +43,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     degenerator: {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp * 0.24, target, pokemon);
+				this.damage(target.baseMaxhp * 0.23, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Degenerator",
-		shortDesc: "When the user switches out, damage active opponents by 24% of their max HP.",
+		shortDesc: "When the user switches out, damage active opponents by 23% of their max HP.",
 	},
 	dtairslash: {
 		onTryHit(target, source, move) {
@@ -285,7 +285,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fly Eater",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Bug moves; Bug immunity.",
 	},
-	growthveil: { // Too long
+	growthveil: {
 		id: "growthveil",
 		name: "Growth Veil",
 		shortDesc: "Regenerator + Flower Veil",
@@ -525,7 +525,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				this.add('-start', source, 'typechange', 'Ice');
+				if(source.setType('Ice')) this.add('-start', source, 'typechange', 'Ice');
 			}
 		},
 		flags: {},
@@ -879,7 +879,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	lemonade: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			this.add('-start', source, 'typechange', 'Lemon');
+			if(source.setType('Lemon')) this.add('-start', source, 'typechange', 'Lemon');
 		},
 		flags: {},
 		name: "Lemonade",
@@ -900,7 +900,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//slate 5
 	crossover: {
 		onModifyPriority(priority, pokemon, target, move) {
-			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyafia",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison"];
+			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyafia",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator"];
 			if (!target || target === pokemon) {
 				if (!pokemon.adjacentFoes().length) return;
 				target = this.sample(pokemon.adjacentFoes());
@@ -1111,10 +1111,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		//effects of weather in scripts/pokemon
 		onImmunity(type, pokemon) {
-			if (['sandstorm', 'hail', 'acidrain', 'graveyard', 'spikes', 'stealthrock'].includes(type)) return false;
+			if (['sandstorm', 'hail', 'acidrain', 'gayveyard', 'spikes', 'stealthrock'].includes(type)) return false;
 		},
 		onAllyImmunity(type, pokemon) {
-			if (['sandstorm', 'hail', 'acidrain', 'graveyard', 'spikes', 'stealthrock'].includes(type)) return false;
+			if (['sandstorm', 'hail', 'acidrain', 'gayveyard', 'spikes', 'stealthrock'].includes(type)) return false;
 		},
 		flags: {breakable: 1},
 		name: "Divining Horn",
@@ -1122,7 +1122,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hoennstan: {
 		onStart(pokemon) {
-			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && pokemon.fainted && p.baseSpecies.gen === 3).length;
+			let hoenn = pokemon.side.pokemon.filter(p => p !== pokemon && p.fainted && p.baseSpecies.gen === 3).length;
 			if (hoenn) {
 				this.add('-activate', pokemon, 'ability: Hoenn Stan');
 				hoenn = Math.min(hoenn, 5);
@@ -1152,11 +1152,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zombiesonyourlawn: {
 		onStart(source) {
 			this.add('-message', 'The angry ghost returns to haunt Iron Fist...');
-			this.field.setWeather('graveyard');
+			this.field.setWeather('gayveyard');
 		},
 		flags: {},
 		name: "Zombies on Your Lawn",
-		shortDesc: "On switchin, this Pokemon sets Graveyard.",
+		shortDesc: "On switchin, this Pokemon sets Gayveyard.",
 	},
 	supersoursyrup: {
 		onStart(pokemon) {
@@ -1235,11 +1235,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onImmunity(type, pokemon) {
-			if (type === 'graveyard') return false;
+			if (type === 'gayveyard') return false;
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
-			if (effect.id === 'graveyard') {
+			if (effect.id === 'gayveyard') {
 				this.heal(target.baseMaxhp / 8);
 			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
 				this.damage(target.baseMaxhp / 8, target, target);
@@ -1247,17 +1247,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Ghoul Gobbler",
-		shortDesc: "This Pokemon is healed 1/4 by Ghost, 1/8 by Graveyard; is hurt 1.25x by Fire, 1/8 by Sun.",
+		shortDesc: "This Pokemon is healed 1/4 by Ghost, 1/8 by Gayveyard; is hurt 1.25x by Fire, 1/8 by Sun.",
 	},
 	
 	//slate 8
 	blightofthefallen: {
 		onSourceDamagingHit(damage, target, source, move) {
-			if (move.type === 'Ghost' && target.hp <= target.maxhp / 4 && this.field.isWeather('graveyard')) target.faint();
+			if (move.type === 'Ghost' && target.hp <= target.maxhp / 4 && this.field.isWeather('gayveyard')) target.faint();
 		},
 		flags: {},
 		name: "Blight of the Fallen",
-		shortDesc: "This Pokemon's Ghost-type moves faint targets under 25% HP in Graveyard.",
+		shortDesc: "This Pokemon's Ghost-type moves faint targets under 25% HP in Gayveyard.",
 	},
 	timefrozenbody: {
 		onResidualOrder: 28,
@@ -1327,14 +1327,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
-				if (target.effectiveWeather() === 'graveyard') {
+				if (target.effectiveWeather() === 'gayveyard') {
 					this.damage(target.baseMaxhp / 16, target, pokemon);
 				}
 			}
 		},
 		flags: {},
 		name: "Necrodancer",
-		shortDesc: "If Graveyard is active, foes lose 1/16 of their max HP at the end of each turn.",
+		shortDesc: "If Gayveyard is active, foes lose 1/16 of their max HP at the end of each turn.",
 	},
 	conversionz: {
 		shortDesc: "If the Pokémon changes its type, the result is permanent. Deletes STAB.",
@@ -1410,6 +1410,145 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Disgusting, Repulsive Dessert",
 		shortDesc: "Aroma Veil",
+	},
+	
+	//slate 9
+	carcinization: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			source.addVolatile('carcinization');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			duration: 2,
+			onStart(target, source) {
+				this.add('-start', target, 'Carcinization', '[silent]');
+			},
+			onResidualOrder: 23,
+			onEnd(target) {
+				this.add('-start', target, 'Carcinization', '[silent]');
+				target.formeChange('Kingler');
+			},
+		},
+		flags: {},
+		name: "Carcinization",
+		shortDesc: "Pokemon who damage this Pokemon forme change into Kingler in 1 turn.",
+	},
+	soursipper: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Lemon') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Sour Sipper');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Lemon') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sour Sipper",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Lemon move; Lemon immunity.",
+	},
+	sigmasurge: {
+		onStart(source) {
+			this.field.addPseudoWeather('liondeluge');
+		},
+		flags: {},
+		name: "Sigma Surge",
+		shortDesc: "On switchin, this Pokemon sets Lion Deluge.",
+	},
+	ultranecrozmaclause: {
+		onStart(pokemon) {
+			pokemon.addVolatile('trapped', pokemon);
+			pokemon.addVolatile('perishsong');
+		},
+		flags: {},
+		name: "Ultra Necrozma Clause",
+		shortDesc: "On switchin, this Pokemon becomes trapped and faints in 3 turns.",
+	},
+	sckckckckeptic: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (['Fairy', 'Dragon', 'Dark'].includes(move.type)) {
+				this.debug('Sckckckckckeptic weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (['Fairy', 'Dragon', 'Dark'].includes(move.type)) {
+				this.debug('Sckckckckckeptic weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sckckckckeptic",
+		shortDesc: "This Pokemon takes halved damage from Fairy/Dragon/Dark moves.",
+	},
+	justthebirds: {
+		onSourceDamagingHit(damage, target, source, move) {
+			target.addVolatile('justthebirds');
+		},
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.add('-start', target, 'Bird', '[silent]');
+				const targetSide = target.side;
+				if (targetSide.getSideCondition('stealthrock')) {
+					if (target.hasItem('heavydutyboots')) return;
+					const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+					this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+					this.add('-message', `Pointed stones dug into ${target.name}!`);
+				}
+			},
+		},
+		flags: {},
+		name: "just the birds",
+		shortDesc: "When this Pokemon damages a target, they gain the Bird volatile.",
+	},
+	slayerofbeasts: {
+		onBasePower(basePower, pokemon, target, move) {
+			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyafia",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator"];
+			if (nonVanilla.includes(target.baseSpecies.name)) return this.chainModify([4915, 4096]);
+		},
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyafia",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator"];
+			if (nonVanilla.includes(target.baseSpecies.name)) return this.chainModify(10000);
+		},
+		flags: {},
+		name: "Slayer of Beasts",
+		shortDesc: "This Pokemon's moves have 1.2x power and cannot miss against Fakemon.",
+	},
+	doomer: {
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags['futuremove']) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Doomer",
+		shortDesc: "This Pokemon's future moves have 1.2x power.",
+	},
+	fruitybars: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['sound']) move.type = 'Lemon';
+		},
+		flags: {},
+		name: "Fruity Bars",
+		shortDesc: "This Pokemon's sound moves are Lemon-type.",
+	},
+	sociallyunaware: {
+		onStart(pokemon) {
+			pokemon.addVolatile('ability:unaware');
+			pokemon.addVolatile('ability:oblivious');
+		},
+		flags: {breakable: 1},
+		name: "Socially Unaware",
+		shortDesc: "Unaware + Oblivious",
 	},
 	
 	//vanilla

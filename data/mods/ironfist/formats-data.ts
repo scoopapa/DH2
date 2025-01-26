@@ -639,4 +639,69 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
+
+	swampertmega: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	sigmaricelion: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	zoruahisui: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	wishiwashi: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	necrozmaultra: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	nihilego: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	lickilord: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	citrusjams: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	everhl: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	rayquaza: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	chinchou: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	grimace: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	pyroaring: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	houndoom: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	togepi: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
+	tylerthecreator: {
+		tier: "IF",
+		doublesTier: "DOU",
+	},
 };
