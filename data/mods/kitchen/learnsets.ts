@@ -85,7 +85,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
         earthquake: ["9M"],
         electroweb: ["9M"],
         endure: ["9M"],
-        eacade: ["9M"],
+        facade: ["9M"],
         flashcannon: ["9M"],
         focusblast: ["9M"],
         furycutter: ["9M"],

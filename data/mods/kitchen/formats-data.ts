@@ -8,4 +8,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "OU",
 	},
+	fortifether: {
+		tier: "OU",
+		doublesTier: "OU",
+	},
 };

@@ -32,14 +32,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility('temperedsteel')) {
+				if (move.type === 'Steel' && attacker.hasAbility('temperedsteel')) {
 					this.debug('Tempered Steel boost');
 					return this.chainModify(1.5);
 				}
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === 'Fire' && attacker.hasAbility('temperedsteel')) {
+				if (move.type === 'Steel' && attacker.hasAbility('temperedsteel')) {
 					this.debug('Tempered Steel boost');
 					return this.chainModify(1.5);
 				}
@@ -52,6 +52,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tempered Steel",
         shortDesc: "This Pokemon's Steel attacks do 1.5x damage if hit by one Fire move; Fire immunity.",
 		rating: 3.5,
-		num: 1002,
+		num: 1001,
 	},
 }
