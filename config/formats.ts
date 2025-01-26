@@ -439,7 +439,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Crossover Chaos (Defunct)",
+		name: "[Gen 9] Crossover Chaos [Defunct]",
 		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
@@ -479,7 +479,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Crossover Chaos AG (Defunct)",
+		name: "[Gen 9] Crossover Chaos AG [Defunct]",
 		desc: `Crossover Chaos, allowing mons in CC Ubers and unintroduced to be used.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos.3711854/#post-9421623">Gen 9 Crossover Chaos</a>`,
@@ -518,7 +518,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Crossover Chaos (Ver. C)",
+		name: "[Gen 9] Crossover Chaos [Ver. C]",
 		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/gen-9-crossover-chaos-ver-c.3757316/">Gen 9 Crossover Chaos (Ver. C)</a>`,
