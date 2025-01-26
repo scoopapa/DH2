@@ -2417,4 +2417,42 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "This Pokemon's Speed is x1.5 under Gravity, and this Pokemon's offensive stat is multiplied by 1.5 while using a Rock-type attack.",
 	},
+	lingeringaroma: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {},
+		onAnyModifyDef(def, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			if (target.side === source.side) return;
+			if (!move.ruinedDef?.hasAbility('Sword of Ruin')) move.ruinedDef = abilityHolder;
+			if (move.ruinedDef !== abilityHolder) return;
+			this.debug('Lingering Aroma Def drop');
+			return this.chainModify(0.75);
+		},
+		onAllyModifyAtkPriority: 3,
+		onAllyModifyAtk(atk, pokemon) {
+			return this.chainModify(1.25);
+		},
+		desc: "Opposing Pokemon have their Defense reduced by 25%, and allies have their Attack raised by 25%.",
+		shortDesc: "Opposing Pokemon have their Defense reduced by 25%, and allies have their Attack raised by 25%.",
+	},
+	soothingfragrance: {
+		onAnyModifyAtk(atk, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			if (target.side === source.side) return;
+			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
+			if (move.ruinedAtk !== abilityHolder) return;
+			this.debug('Soothing Fragrance Atk drop');
+			return this.chainModify(0.75);
+		},
+		onAllyModifyDefPriority: 3,
+		onAllyModifyDef(def, pokemon) {
+			return this.chainModify(1.25);
+		},
+		desc: "Opposing Pokemon have their Attack reduced by 25%, and allies have their Defense raised by 25%.",
+		shortDesc: "Opposing Pokemon have their Attack reduced by 25%, and allies have their Defense raised by 25%.",
+		flags: {},
+		name: "Soothing Fragrance",
+		rating: 2,
+		num: -79,
+	},
 };

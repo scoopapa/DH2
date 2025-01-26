@@ -1039,7 +1039,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -16,
 		gen: 9,
-		shortDesc: "Holder becomes its Tera Type on switch-in. Moves of the new type are x1.2. STABs are x1.2 if the new type is Stellar.",
+		shortDesc: "Holder becomes its Tera Type on switch-in. New STAB are 1.2x, existing STAB if Stellar.",
 		rating: 3,
 	},
 	baseball: {
@@ -1651,7 +1651,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		itemUser: ["Arctozolt", "Arctovish"],
 		num: -27,
-		shortDesc: "When held by Arctozolt or Artcovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
+		shortDesc: "When held by Arctozolt or Arctovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
 	},
 	fossilizeddino: {
 		name: "Fossilized Dino",
