@@ -3111,6 +3111,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Pressure", 1: "Inner Focus", H: "Poison Touch"},
 	},
 	// Gen 9
+	oinkologne: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 100, def: 85, spa: 49, spd: 90, spe: 55},
+	},
+	oinkolognef: {
+		inherit: true,
+		baseStats: {hp: 115, atk: 80, def: 70, spa: 49, spd: 100, spe: 55},
+		abilities: {0: "Soothing Fragrance", 1: "Gluttony", H: "Thick Fat"},
+	},
 	lokix: {
 		inherit: true,
 		baseStats: {hp: 71, atk: 112, def: 78, spa: 52, spd: 55, spe: 92},

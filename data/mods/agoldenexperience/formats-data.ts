@@ -4498,12 +4498,12 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	oinkologne: {
-		tier: "ZU",
-		doublesTier: "(DUU)",
+		tier: "RU",
+		doublesTier: "DOU",
 	},
 	oinkolognef: {
-		tier: "ZU",
-		doublesTier: "(DUU)",
+		tier: "RU",
+		doublesTier: "DOU",
 	},
 	tarountula: {
 		tier: "LC",
