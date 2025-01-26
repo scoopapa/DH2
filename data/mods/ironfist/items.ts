@@ -945,7 +945,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.id !== 'pyroar') return;
+			if (pokemon.baseSpecies.name !== 'Pyroaring') return;
 			if (this.randomChance(1, 2)) {
 				const weathers = ['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidrain', 'gayveyard'];
 				this.field.setWeather(this.sample(weathers));
