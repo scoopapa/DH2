@@ -3220,7 +3220,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const pokemon of this.getAllActive()) {
 				if(pokemon.setType('Lemon')) {
 					this.add('-start', pokemon, 'typechange', 'Lemon');
-					message = true;
 				}
 			}
 		},
