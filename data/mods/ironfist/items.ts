@@ -128,11 +128,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
 			if (!['oblivious', 'unaware'].includes(source.ability) && target.useItem()) {
+				source.trySetStatus('baseball', target);
 				return null;
 			}
-		},
-		onStart(pokemon) {
-			pokemon.trySetStatus('baseball', pokemon);
 		},
 		num: 640,
 		gen: 6,
