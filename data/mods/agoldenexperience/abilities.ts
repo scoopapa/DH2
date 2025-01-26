@@ -2455,8 +2455,4 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2,
 		num: -79,
 	},
-	/*
-	The opposing pokemon's defense is reduced by 25%, but the allies have their attack raised by 25%
-The opposing pokemon's attack is reduced by 25%, but the allies have their defense raised by 25%
-	*/
 };
