@@ -345,7 +345,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 65,
 	},
 	sleetshell: {
-		num: 9045,
+		num: 8045,
 		name: "Sleet Shell",
 		types: ["Ice", "Steel"],
 		baseStats: {hp: 83, atk: 95, def: 107, spa: 47, spd: 71, spe: 103},
