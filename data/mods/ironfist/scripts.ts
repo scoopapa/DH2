@@ -1221,7 +1221,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!source) throw new Error(`setting fieldcond without a source`);
 				state.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
 			}
-			if (source.hasAbility('unitedparty') && status.duration && this.effectState.copen) this.terrainState.duration += this.effectState.copen; 
 			if (!this.battle.singleEvent('FieldStart', status, state, this, source, sourceEffect)) {
 				delete this.pseudoWeather[status.id];
 				return false;

@@ -864,13 +864,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	//slate 9
 	sigmarice: {
 		name: "Sigma Rice",
+		shortDesc: "Sigma Rice Lion: 1.3x Atk/Def/SpA. Consumed when transformed into a Lion.",
 		fling: {
 			basePower: 30,
 			volatileStatus: 'sigmarice',
 		},
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem() && pokemon.baseSpecies.name === 'Sigma Rice Lion') {
-				this.add('-item', target, 'Sigma Rice');
+				this.add('-item', pokemon, 'Sigma Rice');
 				pokemon.addVolatile('sigmarice');
 			}
 		},

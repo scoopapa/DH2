@@ -970,7 +970,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Iron Fist (Slate 8)",
+		name: "[Gen 9] Iron Fist Slate 8",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
 		],
