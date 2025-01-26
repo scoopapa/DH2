@@ -185,7 +185,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
 		// Enforce Destiny Bond, Explosion, Present, Spikes and Spore
-		for (const moveid of ['destinybond', 'explosion', 'charm', 'protect', 'spore']) {
+		for (const moveid of ['destinybond', 'explosion', 'charm', 'protect', 'superfang', 'spore']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead,
 					movePool, preferredType, role);
