@@ -1095,16 +1095,6 @@ export const Formats: FormatList = [
 			'Baton Pass', 'Last Respects', 'Shed Tail',
 			'King\'s Rock', 'Razor Fang', 'Quick Claw',
 		],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Mega' && template.tier !== 'Paldea' && template.tier !== 'Paldea (NFE)') {
-					return [set.species + ' is not a part of the Paldea Pokédex.'];
-				}
-			}
-		},
 		onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
@@ -1175,16 +1165,6 @@ export const Formats: FormatList = [
 			'Koraidon', 'Miraidon', 'Pecharunt',
 		],
 		mod: 'm4apaldea',
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.doublesTier !== 'Mega' && template.doublesTier !== 'Paldea' && template.doublesTier !== 'Paldea (NFE)') {
-					return [set.species + ' is not a part of the Paldea Pokédex.'];
-				}
-			}
-		},
 		onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
