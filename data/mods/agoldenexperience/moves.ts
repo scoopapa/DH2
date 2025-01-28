@@ -1549,10 +1549,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Whether or not this move is successful and even if it would cause fainting, the user loses 1/2 of its maximum HP, rounded up, unless the user has the Magic Guard Ability. This move is prevented from executing and the user does not lose HP if any active Pokemon has the Damp Ability.",
 		shortDesc: "User loses 50% max HP.",
 	},
-	wickedblow: {
-		inherit: true,
-		basePower: 60,
-	},
+	// wickedblow: {
+	// 	inherit: true,
+	// 	basePower: 60,
+	// },
 	bouncybubble: {
 		inherit: true,
 		basePower: 90,
