@@ -1243,7 +1243,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onModifyDamage(damage, source, target, move) {
 				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
 				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
-				if (['hail'].includes(source.effectiveWeather())) {
+				if (['hail', 'snow'].includes(source.effectiveWeather())) {
 					return this.chainModify([dmgMod[numConsecutive], 0x1000]);
 				} else {
 					return damage * (1 + (this.effectState.numConsecutive / 10));
