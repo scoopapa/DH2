@@ -309,16 +309,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		secondary: {
 			chance: 100,
-			onHit(target, source) {
+			onHit(target, source, move) {
 				if (!target.hp) return;
-				let move: Move | ActiveMove | null = target.lastMove;
-				if (!move || move.isZ) return;
-				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+				let foeMove: Move | ActiveMove | null = target.lastMove;
+				if (!foeMove || move.isZ) return;
+				if (foeMove.isMax && foeMove.baseMove) foeMove = this.dex.moves.get(foeMove.baseMove);
 
 				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-				const ppDeducted = target.deductPP(move.id, 3);
+				const ppDeducted = target.deductPP(foeMove.id, 3);
 				if (!ppDeducted) return;
-				this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+				this.add('-activate', target, 'move: Eerie Spell', foeMove.name, ppDeducted);
 			},
 		},
 		target: "normal",
