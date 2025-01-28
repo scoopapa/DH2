@@ -276,6 +276,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', "chansey").learnset.teleport = ["9L1"];
 		this.modData('Learnsets', "blissey").learnset.teleport = ["9L1"];
 		this.modData('Learnsets', "clefable").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "ogerpon").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "ogerpon").learnset.closecombat = ["9L1"];
 	},
 	actions: {
 		inherit: true,
