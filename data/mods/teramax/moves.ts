@@ -309,7 +309,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		secondary: {
 			chance: 100,
-			onHit(target, source, move) {
+			onHit(target, source) {
 				if (!target.hp) return;
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move || move.isZ) return;
