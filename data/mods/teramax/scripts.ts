@@ -255,6 +255,27 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "grafaiai").learnset.moonlight = ["9L1"];
 		this.modData("Learnsets", "talonflame").learnset.sacredfire = ["9L1"];
 		this.modData("Learnsets", "talonflame").learnset.flyingpress = ["9L1"];
+		this.modData("Learnsets", "sinistcha").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "slowbrogalar").learnset.teleport = ["9L1"];
+		this.modData("Learnsets", "slowbrogalar").learnset.thunderbolt = ["9L1"];
+		this.modData("Learnsets", "slowbrogalar").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "hydrapple").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "hydrapple").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "toxapex").learnset.scald = ["9L1"];
+		this.modData("Learnsets", "toxapex").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.infernalparade = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "skeledirge").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.strengthsap = ["9L1"];
+		this.modData("Learnsets", "sandaconda").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "copperajah").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "alomomola").learnset.toxic = ["9L1"];
+		this.modData('Learnsets', "slowbro").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "slowking").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "chansey").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "blissey").learnset.teleport = ["9L1"];
+		this.modData('Learnsets', "clefable").learnset.teleport = ["9L1"];
 	},
 	actions: {
 		inherit: true,
