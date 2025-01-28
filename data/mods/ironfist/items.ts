@@ -128,11 +128,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
 			if (!['oblivious', 'unaware'].includes(source.ability) && target.useItem()) {
+				source.trySetStatus('baseball', target);
 				return null;
 			}
-		},
-		onStart(pokemon) {
-			pokemon.trySetStatus('baseball', pokemon);
 		},
 		num: 640,
 		gen: 6,
@@ -947,7 +945,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.id !== 'pyroar') return;
+			if (pokemon.baseSpecies.name !== 'Pyroaring') return;
 			if (this.randomChance(1, 2)) {
 				const weathers = ['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidrain', 'gayveyard'];
 				this.field.setWeather(this.sample(weathers));

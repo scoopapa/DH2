@@ -1439,7 +1439,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Water", "Electric"],
 		baseStats: {hp: 75, atk: 1, def: 38, spa: 50, spd: 50, spe: 66},
-		abilities: {0: "Volt Absorb", 1: "Water Absorb", H: "Just A Little Guy"},
+		abilities: {0: "Volt Absorb", 1: "Water Absorb", H: "Just a Little Guy"},
 		weightkg: 12.0,
 	},
 	grimace: {
