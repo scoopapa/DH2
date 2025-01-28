@@ -45,6 +45,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ironleavestera: {
 		tier: "Tera",
 	},
+	weezinggalartera: {
+		tier: "Tera",
+	},
+	volcaniontera: {
+		tier: "Tera",
+	},
+	meowscaradatera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
