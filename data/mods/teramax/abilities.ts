@@ -330,4 +330,106 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		shortDesc: "When this Pokemon uses a status move, this Pokemon heals 25% of its max HP.",
 	},
+	curiousmedicine: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.actions.useMove("Haze", pokemon);
+			}
+		},
+		flags: {},
+		name: "Curious Medicine",
+		rating: 2,
+		num: 261,
+		shortDesc: "At the end of each turn, all stat changes are reset.",
+	},
+	hospitality: {
+		inherit: true,
+		onResidualOrder: 6,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'hospitality');
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted) {
+					this.heal(target.baseMaxhp / 4);
+					target.side.removeSlotCondition(target, 'hospitality');
+				}
+			},
+		},
+		shortDesc: "User heals 1/16 of its HP per turn. Switch-in heals 1/4 once.",
+	},
+	quickdraw: {
+		onDamage(damage, target, source, effect) {
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+			) {
+				this.effectState.checkedBerserk = false;
+			} else {
+				this.effectState.checkedBerserk = true;
+			}
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedBerserk;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedBerserk = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				target.addVolatile('quickdraw');
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-ability', pokemon, 'Quick Draw');
+				this.add('-message', `${pokemon.name}'s next move will have +1 priority!`);
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				return priority + 1;
+			},
+		},
+		flags: {},
+		name: "Quick Draw",
+		rating: 2.5,
+		num: 259,
+		shortDesc: "This Pokemon's next move has +1 Priority when it reaches 1/2 or less of its max HP",
+	},
+	supersweetsyrup: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!target.positiveBoosts()) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Supersweet Syrup', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -2}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Supersweet Syrup",
+		rating: 2.5,
+		num: 306,
+		shortDesc: "On switch-in, the foe's Speed is lowered by 2 stages if it has a positive stat boost.",
+	},
 };
