@@ -1229,7 +1229,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 	},
-	teamvalidator: {
+	teamValidator: {
 		validateForme(set: PokemonSet) {
 			const dex = this.dex;
 			const name = set.name || set.species;
