@@ -36,6 +36,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		itemUser: ["Palkia-Origin", "The Pearl Hand"],
 	},
+	ultranecroziumz: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	//slate 1
 	kunai: {

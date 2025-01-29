@@ -570,7 +570,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
 				if (!(effect as ActiveMove).secondaries) {
-					target.side.addSideCondition('toxicspikes', pokemon);
+					target.side.addSideCondition('toxicspikes', source);
 					this.add("-fail", target, "unboost", "Attack", "[from] ability: toxic masculinity", "[of] " + target);
 				}
 			}
