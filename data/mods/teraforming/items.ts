@@ -102,7 +102,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	  			}
       	}
 		},
-		itemUser: ["Ogerpon", "Skeledirge", "Samurott-Hisui", "Tinkaton", "Pincurchin", "Metagross", "Blissey", "Pawmot", "Hydrapple", "Mabosstiff", "Flygon", "Iron Leaves", "Clodsire", "Weezing", "Volcanion", "Meowscarada"],
+		itemUser: ["Ogerpon", "Skeledirge", "Samurott-Hisui", "Tinkaton", "Pincurchin", "Metagross", "Blissey", "Pawmot", "Hydrapple", "Mabosstiff", "Flygon", "Iron Leaves", "Clodsire", "Weezing-Galar", "Volcanion", "Meowscarada"],
 		num: -1001,
 		gen: 9,
 		desc: "Allows certain Pokemon to Terastallize.",
