@@ -399,4 +399,48 @@
             }
         ]
     },
+      "Whiscash": {
+        "level": 85,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stealth Rock", "Spikes", "Flip Turn", "Scald", "Earthquake", "Toxic"],
+                "abilities": ["Regenerator"],
+                "teraTypes": ["Poison"]
+            }
+        ]
+    },
+      "Hippowdon": {
+        "level": 85,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Stealth Rock", "Salt Cure", "Sand Tomb", "Slack Off", "Whirlwind"],
+                "abilities": ["Earth Eater"],
+                "teraTypes": ["Ground"]
+            }
+        ]
+    },
+      "Cramorant": {
+        "level": 85,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Defog", "Roost", "Beak Blast", "Surf"],
+                "abilities": ["Gulp Missile"],
+                "teraTypes": ["Ground", "Dragon"]
+            }
+        ]
+    },
+      "Grafaiai": {
+        "level": 85,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Acrobatics", "Bulk Up", "Double-Edge", "Drain Punch", "Scavenge"],
+                "abilities": ["Unburden"],
+                "teraTypes": ["Fighting", "Flying"]
+            }
+        ]
+    },
 }
