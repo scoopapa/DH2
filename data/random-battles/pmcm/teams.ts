@@ -1161,6 +1161,32 @@ export class RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
+		if (species.id === 'dugtrio' && moves.has("swordsdance")) return 'Focus Sash';
+		if (species.id === 'dugtrio') return 'Choice Band';
+		if (species.id === 'altaria') return 'Heavy Duty Boots';
+		if (species.id === 'tyranitar') return 'Choice Scarf';
+		if (species.id === 'mimikyu') return 'Red Card';
+		if (species.id === 'mesprit' && moves.has("aquaring")) return 'Leftovers';
+		if (species.id === 'mesprit') return 'Throat Spray';
+		if (species.id === 'electrode') return this.sample(['Normal Gem', 'Heavy Duty Boots']);
+		if (species.id === 'taurospaldeacombat') return 'Expert Belt';
+		if (species.id === 'chiyu') return 'Normalium Z';
+		if (species.id === 'wochien') return 'Big Root';
+		if (species.id === 'staraptor') return 'Choice Scarf';
+		if (species.id === 'archaludon' && ability === 'Hydroelectric Dam') return 'Assault Vest';
+		if (species.id === 'archaludon' && ability === 'Stamina') return 'Leftovers';
+		if (species.id === 'malamar') return this.sample(['Mirror Herb', 'Leftovers']);
+		if (species.id === 'empoleon') return 'Rocky Helmet';
+		if (species.id === 'glastrier' && moves.has('swordsdance')) return 'Heavy Duty Boots';
+		if (species.id === 'glastrier') return 'Assault Vest';
+		if (species.id === 'lycanrocmidnight') return 'Loaded Dice';
+		if (species.id === 'lycanroc') return this.sample(['Leftovers', 'Heavy Duty Boots']);
+		if (species.id === 'lycanrocdusk') return 'Expert Belt';
+		if (species.id === 'dodrio') return 'Life Orb';
+		if (species.id === 'whiscash') return 'Rocky Helmet';
+		if (species.id === 'hippowdon') return this.sample(['Leftovers', 'Rocky Helmet']);
+		if (species.id === 'cramorant') return 'Heavy Duty Boots';
+		if (species.id === 'grafaiai') return this.sample(['Red Card', 'Mirror Herb']);
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
