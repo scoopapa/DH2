@@ -1389,6 +1389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ultra Necrozma Clause"},
 		weightkg: 230.0,
 		requiredItem: null,
+		battleOnly: null,
 	},
 	nihilego: {
 		inherit: true,
