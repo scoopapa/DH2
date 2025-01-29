@@ -144,7 +144,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Speed Boost"},
 		types: ["Flying", "Fighting"],
 	},
-	wishcash: {
+	whiscash: {
 		inherit: true,
 		abilities: {0: "Regenerator"},
 		baseStats: {hp: 110, atk: 78, def: 88, spa: 76, spd: 86, spe: 60},
