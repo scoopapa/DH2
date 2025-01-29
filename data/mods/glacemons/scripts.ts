@@ -2218,7 +2218,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'volcarona').learnset.swarming = ['9L1'];
 		this.modData('Learnsets', 'butterfree').learnset.swarming = ['9L1'];
 		this.modData('Learnsets', 'centiskorch').learnset.swarming = ['9L1'];
-		this.modData('Learnsets', 'vivillion').learnset.swarming = ['9L1'];
+		this.modData('Learnsets', 'vivillon').learnset.swarming = ['9L1'];
 		this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
 		this.modData('Learnsets', 'orbeetle').learnset.swarming = ['9L1'];
 		// octazooka 
