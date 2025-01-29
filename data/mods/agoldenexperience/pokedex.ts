@@ -3028,10 +3028,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 122, atk: 130, def: 89, spa: 40, spd: 89, spe: 30},
 		abilities: {0: "Sheer Force", 1: "Dry Skin", H: "Heavy Metal"},
 	},
-	dracovish: {
-		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Water Veil", H: "Sand Rush"},
-	},
+	// dracovish: {
+	// 	inherit: true,
+	// 	abilities: {0: "Water Absorb", 1: "Water Veil", H: "Sand Rush"},
+	// },
 	zacian: {
 		inherit: true,
 		abilities: {0: "Steadfast"},

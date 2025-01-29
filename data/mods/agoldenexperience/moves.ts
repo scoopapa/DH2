@@ -2861,19 +2861,19 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		self: null,
 		shortDesc: "Cannot be selected the turn after it's used.",
 	},
-	fishiousrend: {
-		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || !this.queue.willMove(target)) {
-				this.debug('Fishious Rend damage boost');
-				return move.basePower * 2;
-			}
-			this.debug('Fishious Rend NOT boosted');
-			return move.basePower;
-		},
-		desc: "Power doubles if the user moves after the target.",
-		shortDesc: "Power doubles if user moves after the target.",
-	},
+	// fishiousrend: {
+	// 	inherit: true,
+	// 	basePowerCallback(pokemon, target, move) {
+	// 		if (target.newlySwitched || !this.queue.willMove(target)) {
+	// 			this.debug('Fishious Rend damage boost');
+	// 			return move.basePower * 2;
+	// 		}
+	// 		this.debug('Fishious Rend NOT boosted');
+	// 		return move.basePower;
+	// 	},
+	// 	desc: "Power doubles if the user moves after the target.",
+	// 	shortDesc: "Power doubles if user moves after the target.",
+	// },
 	psyblade: {
 		inherit: true,
 		onBasePower(basePower, source) {

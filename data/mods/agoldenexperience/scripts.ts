@@ -1266,6 +1266,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'cacturne').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'cacturne').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'cacturne').learnset.scorchingsands = ['9L1'];
+    this.modData('Learnsets', 'altaria').learnset.calmmind = ['9L1'];
     this.modData('Learnsets', 'claydol').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'whiscash').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'cradily').learnset.powergem = ['9L1'];

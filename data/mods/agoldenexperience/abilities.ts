@@ -1938,17 +1938,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "If user is Cherrim and Sunny Day isn't active, its Def is 1.5x. If user is Cherrim and Sunny Day is active, it and its allies Atk and Sp. Def are 1.5x. and Cherrim gains the Fire type.",
 		shortDesc: "Cherrim: If Sunny Day is active, it and its allies Atk and Sp. Def are 1.5x, and Cherrim gains the Fire type; otherwise Def x1.5.",
 	},
-	// gorillatactics: {
-	// 	inherit: true,
-	// 	onModifyAtkPriority: 1,
-	// 	onModifyAtk(atk, pokemon) {
-	// 		if (pokemon.volatiles['dynamax']) return;
-	// 		// PLACEHOLDER
-	// 		this.debug('Gorilla Tactics Atk Boost');
-	// 		return this.chainModify(1.3);
-	// 	},
-	// 	shortDesc: "This Pokemon's Attack is 1.3x, but it can only select the first move it executes.",
-	// },
+	gorillatactics: {
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.abilityState.choiceLock = "";
+			if (pokemon.hasItem('choiceband') || pokemon.hasItem('choicescarf') || pokemon.hasItem('choicespecs')) {
+				pokemon.addVolatile('embargo');
+			}
+		},
+		shortDesc: "Pokemon's Atk is 1.5x, but it can only select one move. Choice items are disabled.",
+	},
 	quickdraw: {
 		inherit: true,
 		onFractionalPriority(priority, pokemon, target, move) {},
