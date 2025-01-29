@@ -45,4 +45,42 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		shortDesc: "Does nothing right now!",
 		//shortDesc: "After getting hit for the first time in a battle, heal 25% HP.",
 	},
+	shortfuse: {
+		//Placeholder until implementation
+		flags: {breakable: 1},
+		name: "Short Fuse",
+		rating: 5,
+		num: -102,
+		shortDesc: "Does nothing right now!",
+		//shortDesc: "When this Pokemon would be KOed, it instead uses Explosion.",
+	},
+	hydroelectricdam: {
+		//Copied from the code for Sand Spit
+		onDamagingHit(damage, target, source, move) {
+			this.field.setWeather('raindance');
+		},
+		flags: {},
+		name: "Hydroelectric Dam",
+		rating: 5,
+		num: -103,
+		shortDesc: "When this Pokemon is hit by an attack, the effect of Rain Dance begins.",
+	},
+	flipflop: {
+		//Placeholder
+		flags: {},
+		name: "Flip Flop",
+		rating: 5,
+		num: -104,
+		shortDesc: "Does nothing right now!",
+		//shortDesc: "When this Pokemon is hit by an attack, it first inverts the opponent's positive stat stage changes.",
+	},
+	frozenarmor: {
+		//Placeholder
+		flags: {},
+		name: "Frozen Armor",
+		rating: 5,
+		num: -105,
+		shortDesc: "Does nothing right now!",
+		//shortDesc: "Incoming attacks have their BP reduced by 20. When this Pokemon falls below 50% HP, it transforms into Calyrex-Ice.
+	},
 };
