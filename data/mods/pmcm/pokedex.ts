@@ -63,6 +63,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	tyranitarmega: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 114, def: 150, spa: 155, spd: 110, spe: 71},
+		types: ["Rock", "Dragon"],
 	},
 	mimikyu: {
 		inherit: true,
