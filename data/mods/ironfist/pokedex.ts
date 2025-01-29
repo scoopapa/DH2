@@ -1420,7 +1420,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		diamondHand: true,
 		gender: "F",
 		types: ["Dragon"],
-		baseStats: {hp: 103, atk: 143, def: 98, spa: 75, spd: 100, spe: 50},
+		baseStats: {hp: 109, atk: 143, def: 98, spa: 75, spd: 100, spe: 50},
 		abilities: {0: "Slayer of Beasts"},
 		weightkg: 241.8,
 	},

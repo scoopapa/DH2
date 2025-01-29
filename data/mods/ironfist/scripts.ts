@@ -1229,4 +1229,69 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return true;
 		},
 	},
+	teamvalidator: {
+		validateForme(set: PokemonSet) {
+			const dex = this.dex;
+			const name = set.name || set.species;
+
+			const problems = [];
+			const item = dex.items.get(set.item);
+			const species = dex.species.get(set.species);
+
+			if (species.name === 'Pikachu-Cosplay') {
+				const cosplay: {[k: string]: string} = {
+					meteormash: 'Pikachu-Rock-Star', iciclecrash: 'Pikachu-Belle', drainingkiss: 'Pikachu-Pop-Star',
+					electricterrain: 'Pikachu-PhD', flyingpress: 'Pikachu-Libre',
+				};
+				for (const moveid of set.moves) {
+					if (moveid in cosplay) {
+						set.species = cosplay[moveid];
+						break;
+					}
+				}
+			}
+
+			if (species.name === 'Keldeo' && set.moves.map(toID).includes('secretsword' as ID) && dex.gen >= 8) {
+				set.species = 'Keldeo-Resolute';
+			}
+
+			const crowned: {[k: string]: string} = {
+				'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
+			};
+			if (species.name in crowned) {
+				const behemothMove = set.moves.map(toID).indexOf(crowned[species.name] as ID);
+				if (behemothMove >= 0) {
+					set.moves[behemothMove] = 'ironhead';
+				}
+			}
+			if (species.baseSpecies === "Hoopa" && dex.gen >= 9) {
+				const moves = set.moves.map(toID);
+				const hyperspaceHole = moves.indexOf('hyperspacehole' as ID);
+				const hyperspaceFury = moves.indexOf('hyperspacefury' as ID);
+				if (species.name === "Hoopa" && hyperspaceFury >= 0) {
+					problems.push(`In Generation 9, Hoopa cannot run Hyperspace Fury because it gets replaced with Hyperspace Hole upon changing forme.`);
+				} else if (species.name === "Hoopa-Unbound" && hyperspaceHole >= 0) {
+					problems.push(`In Generation 9, Hoopa-Unbound cannot run Hyperspace Hole because it gets replaced with Hyperspace Fury upon changing forme.`);
+				}
+			}
+
+			if (species.baseSpecies === "Greninja" && toID(set.ability) === 'battlebond') {
+				set.species = "Greninja-Bond";
+			}
+
+			if (species.baseSpecies === "Unown" && dex.gen === 2) {
+				let resultBinary = '';
+				for (const iv of ['atk', 'def', 'spe', 'spa'] as const) {
+					resultBinary += set.ivs[iv].toString(2).padStart(5, '0').slice(1, 3);
+				}
+				const resultDecimal = Math.floor(parseInt(resultBinary, 2) / 10);
+				const expectedLetter = String.fromCharCode(resultDecimal + 65);
+				const unownLetter = species.forme || "A";
+				if (unownLetter !== expectedLetter) {
+					problems.push(`Unown has forme ${unownLetter}, but its DVs give it the forme ${expectedLetter}.`);
+				}
+			}
+			return problems;
+		}
+	},
 };
