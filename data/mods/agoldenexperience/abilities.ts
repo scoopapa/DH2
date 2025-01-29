@@ -1940,14 +1940,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	gorillatactics: {
 		inherit: true,
-		onModifyAtkPriority: 1,
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
-			// PLACEHOLDER
-			this.debug('Gorilla Tactics Atk Boost');
-			return this.chainModify(1.3);
+		onStart(pokemon) {
+			pokemon.abilityState.choiceLock = "";
+			if (pokemon.hasItem('choiceband') || pokemon.hasItem('choicescarf') || pokemon.hasItem('choicespecs')) {
+				pokemon.addVolatile('embargo');
+			}
 		},
-		shortDesc: "This Pokemon's Attack is 1.3x, but it can only select the first move it executes.",
+		shortDesc: "Pokemon's Atk is 1.5x, but it can only select one move. Choice items are disabled.",
 	},
 	quickdraw: {
 		inherit: true,

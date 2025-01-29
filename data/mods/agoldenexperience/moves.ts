@@ -1549,10 +1549,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Whether or not this move is successful and even if it would cause fainting, the user loses 1/2 of its maximum HP, rounded up, unless the user has the Magic Guard Ability. This move is prevented from executing and the user does not lose HP if any active Pokemon has the Damp Ability.",
 		shortDesc: "User loses 50% max HP.",
 	},
-	wickedblow: {
-		inherit: true,
-		basePower: 60,
-	},
+	// wickedblow: {
+	// 	inherit: true,
+	// 	basePower: 60,
+	// },
 	bouncybubble: {
 		inherit: true,
 		basePower: 90,
@@ -2861,19 +2861,19 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		self: null,
 		shortDesc: "Cannot be selected the turn after it's used.",
 	},
-	fishiousrend: {
-		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || !this.queue.willMove(target)) {
-				this.debug('Fishious Rend damage boost');
-				return move.basePower * 2;
-			}
-			this.debug('Fishious Rend NOT boosted');
-			return move.basePower;
-		},
-		desc: "Power doubles if the user moves after the target.",
-		shortDesc: "Power doubles if user moves after the target.",
-	},
+	// fishiousrend: {
+	// 	inherit: true,
+	// 	basePowerCallback(pokemon, target, move) {
+	// 		if (target.newlySwitched || !this.queue.willMove(target)) {
+	// 			this.debug('Fishious Rend damage boost');
+	// 			return move.basePower * 2;
+	// 		}
+	// 		this.debug('Fishious Rend NOT boosted');
+	// 		return move.basePower;
+	// 	},
+	// 	desc: "Power doubles if the user moves after the target.",
+	// 	shortDesc: "Power doubles if user moves after the target.",
+	// },
 	psyblade: {
 		inherit: true,
 		onBasePower(basePower, source) {
