@@ -112,5 +112,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'dodrio').learnset.hyperdrill = ['9L1'];
 		this.modData('Learnsets', 'dodrio').learnset.obstruct = ['9L1'];
 
+		this.modData('Learnsets', 'whiscash').learnset.toxic = ['9L1'];
+		this.modData('Learnsets', 'whiscash').learnset.flipturn = ['9L1'];
+		this.modData('Learnsets', 'whiscash').learnset.scald = ['9L1'];
+
+		this.modData('Learnsets', 'hippowdon').learnset.saltcure = ['9L1'];
+
+		this.modData('Learnsets', 'cramorant').learnset.beakblast = ['9L1'];
+
+		this.modData('Learnsets', 'grafaiai').learnset.bulkup = ['9L1'];
+		this.modData('Learnsets', 'grafaiai').learnset.scavenge = ['9L1'];
+		this.modData('Learnsets', 'grafaiai').learnset.drainpunch = ['9L1'];
+
 	},
 };
