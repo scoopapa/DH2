@@ -327,7 +327,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Roost", "Aqua Cutter", "Metal Claw", "Swords Dance"],
+                "movepool": ["Roost", "Aqua Cutter", "Steel Wing", "Swords Dance"],
                 "abilities": ["Rough Skin"],
                 "teraTypes": ["Flying"]
             }
