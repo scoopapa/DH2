@@ -943,9 +943,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		validateForme(set: PokemonSet) {
-			return [];
-		},
 	},
 	{
 		name: "[Gen 9] Iron Fist Slate 8",
