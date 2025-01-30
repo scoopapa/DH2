@@ -290,7 +290,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			priority: 1,
 		},
 		onStart(pokemon) {
-			this.add('-item', pokemon, 'Nerve Charm');
+			this.add('-message', `${pokemon.name} has a Nerve Charm!`);
 		},
 		onTryHit(pokemon, source, move) {
 			if (move.priority !== 0 && pokemon !== source) {

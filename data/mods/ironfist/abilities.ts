@@ -1300,6 +1300,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon has Blazeball as an additional moveslot.",
 	},
 	unitedparty: {
+		//Death
 		onStart(pokemon) {
 			const copen = pokemon.side.pokemon.filter(p => p != pokemon && !p.fainted && p.baseSpecies.copen);
 			if (copen.length > 0) {
