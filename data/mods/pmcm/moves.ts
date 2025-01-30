@@ -15,6 +15,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			if (target && ['sandstorm'].includes(target.effectiveWeather())) {
 				move.accuracy = true;
 			}
+		}
 	},
 	mountainmaw: {
 		//Copied from Psychic Fangs, just changed to be Rock type
