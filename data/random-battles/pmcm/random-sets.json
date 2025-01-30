@@ -443,4 +443,15 @@
             }
         ]
     },
+      "Tatsugiri": {
+        "level": 85,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Hydro Pump", "Draco Meteor", "Rain Dance", "Nasty Plot", "Rapid Spin"],
+                "abilities": ["Dry Skin"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
 }
