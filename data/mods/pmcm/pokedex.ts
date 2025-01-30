@@ -172,4 +172,8 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		baseStats: {hp: 83, atk: 95, def: 65, spa: 80, spd: 72, spe: 110},
 	},
+	tatsugiri: {
+		inherit: true,
+		abilities: {0: "Dry Skin"},
+	},
 };
