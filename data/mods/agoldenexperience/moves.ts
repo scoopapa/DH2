@@ -2861,19 +2861,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		self: null,
 		shortDesc: "Cannot be selected the turn after it's used.",
 	},
-	// fishiousrend: {
-	// 	inherit: true,
-	// 	basePowerCallback(pokemon, target, move) {
-	// 		if (target.newlySwitched || !this.queue.willMove(target)) {
-	// 			this.debug('Fishious Rend damage boost');
-	// 			return move.basePower * 2;
-	// 		}
-	// 		this.debug('Fishious Rend NOT boosted');
-	// 		return move.basePower;
-	// 	},
-	// 	desc: "Power doubles if the user moves after the target.",
-	// 	shortDesc: "Power doubles if user moves after the target.",
-	// },
 	psyblade: {
 		inherit: true,
 		onBasePower(basePower, source) {
@@ -2935,131 +2922,326 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "This move deals double damage if used under Gravity. Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
 		shortDesc: "Double damage if used under Gravity. Hits two turns after being used.",
 	},
+	// Everlasting Winter field
+	auroraveil: {
+		inherit: true,
+		onTry() {
+			return this.field.isWeather(['hail', 'snow', 'everlastingwinter']);
+		},
+	},
+	blizzard: {
+		inherit: true,
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter'])) move.accuracy = true;
+		},
+	},
+	dig: {
+		inherit: true,
+		condition: {
+			duration: 2,
+			onImmunity(type, pokemon) {
+				if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter') return false;
+			},
+			onInvulnerability(target, source, move) {
+				if (['earthquake', 'magnitude'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'earthquake' || move.id === 'magnitude') {
+					return this.chainModify(2);
+				}
+			},
+		},
+	},
+	dive: {
+		inherit: true,
+		condition: {
+			duration: 2,
+			onImmunity(type, pokemon) {
+				if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter') return false;
+			},
+			onInvulnerability(target, source, move) {
+				if (['surf', 'whirlpool'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'surf' || move.id === 'whirlpool') {
+					return this.chainModify(2);
+				}
+			},
+		},
+	},
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+			case 'everlastingwinter':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	morningsun: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+			case 'everlastingwinter':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	solarbeam: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'everlastingwinter'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	solarblade: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'everlastingwinter'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	synthesis: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+			case 'everlastingwinter':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	weatherball: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'snow':
+			case 'everlastingwinter':
+				move.type = 'Ice';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+			case 'everlastingwinter':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+	},
 
 	// Identity Card field
-	soak: {
-		inherit: true,
-		onHit(target) {
-			if (target.getTypes().join() === 'Water' || !target.setType('Water') || target.hasItem('identitycard')) {
-				// Soak should animate even when it fails.
-				// Returning false would suppress the animation.
-				this.add('-fail', target);
-				return null;
-			}
-			this.add('-start', target, 'typechange', 'Water');
-		},
-	},
-	trickortreat: {
-		inherit: true,
-		onHit(target) {
-			if (target.hasType('Ghost')) return false;
-			if (!target.addType('Ghost')) return false;
-			if (target.hasItem('identitycard')) return false;
-			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+	// soak: {
+	// 	inherit: true,
+	// 	onHit(target) {
+	// 		if (target.getTypes().join() === 'Water' || !target.setType('Water') || target.hasItem('identitycard')) {
+	// 			// Soak should animate even when it fails.
+	// 			// Returning false would suppress the animation.
+	// 			this.add('-fail', target);
+	// 			return null;
+	// 		}
+	// 		this.add('-start', target, 'typechange', 'Water');
+	// 	},
+	// },
+	// trickortreat: {
+	// 	inherit: true,
+	// 	onHit(target) {
+	// 		if (target.hasType('Ghost')) return false;
+	// 		if (!target.addType('Ghost')) return false;
+	// 		if (target.hasItem('identitycard')) return false;
+	// 		this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
 
-			if (target.side.active.length === 2 && target.position === 1) {
-				// Curse Glitch
-				const action = this.queue.willMove(target);
-				if (action && action.move.id === 'curse') {
-					action.targetLoc = -1;
-				}
-			}
-		},
-	},
-	conversion: {
-		inherit: true,
-		onHit(target) {
-			const type = this.dex.moves.get(target.moveSlots[0].id).type;
-			if (target.hasType(type) || !target.setType(type) || target.hasItem('identitycard')) return false;
-			this.add('-start', target, 'typechange', type);
-		},
-	},
-	conversion2: {
-		inherit: true,
-		onHit(target, source) {
-			if (!target.lastMoveUsed) {
-				return false;
-			}
-			const possibleTypes = [];
-			const attackType = target.lastMoveUsed.type;
-			for (const type of this.dex.types.names()) {
-				if (source.hasType(type)) continue;
-				const typeCheck = this.dex.types.get(type).damageTaken[attackType];
-				if (typeCheck === 2 || typeCheck === 3) {
-					possibleTypes.push(type);
-				}
-			}
-			if (!possibleTypes.length) {
-				return false;
-			}
-			const randomType = this.sample(possibleTypes);
+	// 		if (target.side.active.length === 2 && target.position === 1) {
+	// 			// Curse Glitch
+	// 			const action = this.queue.willMove(target);
+	// 			if (action && action.move.id === 'curse') {
+	// 				action.targetLoc = -1;
+	// 			}
+	// 		}
+	// 	},
+	// },
+	// conversion: {
+	// 	inherit: true,
+	// 	onHit(target) {
+	// 		const type = this.dex.moves.get(target.moveSlots[0].id).type;
+	// 		if (target.hasType(type) || !target.setType(type) || target.hasItem('identitycard')) return false;
+	// 		this.add('-start', target, 'typechange', type);
+	// 	},
+	// },
+	// conversion2: {
+	// 	inherit: true,
+	// 	onHit(target, source) {
+	// 		if (!target.lastMoveUsed) {
+	// 			return false;
+	// 		}
+	// 		const possibleTypes = [];
+	// 		const attackType = target.lastMoveUsed.type;
+	// 		for (const type of this.dex.types.names()) {
+	// 			if (source.hasType(type)) continue;
+	// 			const typeCheck = this.dex.types.get(type).damageTaken[attackType];
+	// 			if (typeCheck === 2 || typeCheck === 3) {
+	// 				possibleTypes.push(type);
+	// 			}
+	// 		}
+	// 		if (!possibleTypes.length) {
+	// 			return false;
+	// 		}
+	// 		const randomType = this.sample(possibleTypes);
 
-			if (source.hasItem('identitycard')) return false;
-			if (!source.setType(randomType)) return false;
-			this.add('-start', source, 'typechange', randomType);
-		},
-	},
-	magicpowder: {
-		inherit: true,
-		onHit(target) {
-			if (target.getTypes().join() === 'Psychic' || !target.setType('Psychic') || target.hasItem('identitycard')) return false;
-			this.add('-start', target, 'typechange', 'Psychic');
-		},
-	},
-	reflecttype: {
-		inherit: true,
-		onHit(target, source) {
-			if (source.species && (source.species.num === 493 || source.species.num === 773)) return false;
-			if (source.terastallized) return false;
-			if (source.hasItem('identitycard')) return false;
-			const oldApparentType = source.apparentType;
-			let newBaseTypes = target.getTypes(true).filter(type => type !== '???');
-			if (!newBaseTypes.length) {
-				if (target.addedType) {
-					newBaseTypes = ['Normal'];
-				} else {
-					return false;
-				}
-			}
-			this.add('-start', source, 'typechange', '[from] move: Reflect Type', '[of] ' + target);
-			source.setType(newBaseTypes);
-			source.addedType = target.addedType;
-			source.knownType = target.isAlly(source) && target.knownType;
-			if (!source.knownType) source.apparentType = oldApparentType;
-		},
-	},
-	forestscurse: {
-		inherit: true,
-		onHit(target) {
-			if (target.hasType('Grass')) return false;
-			if (!target.addType('Grass')) return false;
-			if (target.hasItem('identitycard')) return false;
-			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
-		},
-	},
-	doubleshock: {
-		inherit: true,
-		self: {
-			onHit(pokemon) {
-				if (!pokemon.hasItem('identitycard')) {
-					pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
-					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
-				}
-			},
-		},
-	},
-	burnup: {
-		inherit: true,
-		isNonstandard: null,
-		self: {
-			onHit(pokemon) {
-				if (!pokemon.hasItem('identitycard')) {
-					pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
-					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
-				}
-			},
-		},
-	},
+	// 		if (source.hasItem('identitycard')) return false;
+	// 		if (!source.setType(randomType)) return false;
+	// 		this.add('-start', source, 'typechange', randomType);
+	// 	},
+	// },
+	// magicpowder: {
+	// 	inherit: true,
+	// 	onHit(target) {
+	// 		if (target.getTypes().join() === 'Psychic' || !target.setType('Psychic') || target.hasItem('identitycard')) return false;
+	// 		this.add('-start', target, 'typechange', 'Psychic');
+	// 	},
+	// },
+	// reflecttype: {
+	// 	inherit: true,
+	// 	onHit(target, source) {
+	// 		if (source.species && (source.species.num === 493 || source.species.num === 773)) return false;
+	// 		if (source.terastallized) return false;
+	// 		if (source.hasItem('identitycard')) return false;
+	// 		const oldApparentType = source.apparentType;
+	// 		let newBaseTypes = target.getTypes(true).filter(type => type !== '???');
+	// 		if (!newBaseTypes.length) {
+	// 			if (target.addedType) {
+	// 				newBaseTypes = ['Normal'];
+	// 			} else {
+	// 				return false;
+	// 			}
+	// 		}
+	// 		this.add('-start', source, 'typechange', '[from] move: Reflect Type', '[of] ' + target);
+	// 		source.setType(newBaseTypes);
+	// 		source.addedType = target.addedType;
+	// 		source.knownType = target.isAlly(source) && target.knownType;
+	// 		if (!source.knownType) source.apparentType = oldApparentType;
+	// 	},
+	// },
+	// forestscurse: {
+	// 	inherit: true,
+	// 	onHit(target) {
+	// 		if (target.hasType('Grass')) return false;
+	// 		if (!target.addType('Grass')) return false;
+	// 		if (target.hasItem('identitycard')) return false;
+	// 		this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
+	// 	},
+	// },
+	// doubleshock: {
+	// 	inherit: true,
+	// 	self: {
+	// 		onHit(pokemon) {
+	// 			if (!pokemon.hasItem('identitycard')) {
+	// 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
+	// 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
+	// 			}
+	// 		},
+	// 	},
+	// },
+	// burnup: {
+	// 	inherit: true,
+	// 	isNonstandard: null,
+	// 	self: {
+	// 		onHit(pokemon) {
+	// 			if (!pokemon.hasItem('identitycard')) {
+	// 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+	// 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
+	// 			}
+	// 		},
+	// 	},
+	// },
 
 	// Karma field
 	wish: {
