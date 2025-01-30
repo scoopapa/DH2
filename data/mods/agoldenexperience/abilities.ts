@@ -358,7 +358,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.field.setWeather('primordialsea');
 			} else if (this.field.isWeather('primodialsea')) {
 				this.field.setWeather('desolateland');
-			} else if (this.field.isWeather('hail') || this.field.isWeather('sand')) {
+			} else if (this.field.isWeather(['hail', 'snow', 'everlastingwinter']) || this.field.isWeather('sand')) {
 				this.field.clearWeather();
 			}
 		},
@@ -792,7 +792,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (type === 'hail') return false;
 		},
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -937,31 +937,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -48,
 	},
 	everlastingwinter: {
-		desc: "On switch-in, the weather becomes Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea. Super effective moves only inflict 3/4 damages on this Pokemon.",
-		shortDesc: "On switch-in, hail begins until this Ability is not active in battle. Filter effect.",
+		desc: "On switch-in, the weather becomes Snow Hail. This weather remains in effect until this Ability is no longer active for any Pokémon, or the weather is changed by Delta Stream, Desolate Land or Primordial Sea. Super effective moves only inflict 3/4 damages on this Pokemon.",
+		shortDesc: "On switch-in, snow hail begins until this Ability is not active in battle. Filter effect.",
 		onStart(source) {
-			if (this.field.setWeather('hail')) {
-				this.add('-message', `${source.name} created an unrelenting winter storm!`);
-				this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
-				this.field.weatherState.duration = 0;
-			} else if (this.field.isWeather('hail') && this.field.weatherState.duration !== 0) {
-				this.add('-ability', source, 'Everlasting Winter');
-				this.add('-message', `${source.name} created an unrelenting winter storm!`);
-				this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
-				this.field.weatherState.source = source;
-				this.field.weatherState.duration = 0;
-			}
+			this.field.setWeather('everlastingwinter');
+			this.add('-ability', source, 'Everlasting Winter');
+			this.add('-message', `${source.name} created an unrelenting winter storm!`);
+			this.hint("Everlasting Winter doesn't wear off until the user leaves the field!");
 		},
 		onAnySetWeather(target, source, weather) {
-			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
-			if (this.field.getWeather().id === 'hail' && !strongWeathers.includes(weather.id)) return false;
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (this.field.isWeather('hail') && target.getMoveHitData(move).typeMod > 0) {
-				this.debug('Filter neutralize');
-				return this.chainModify(0.75);
-			}
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'everlastingwinter'];
+			if (this.field.getWeather().id === 'everlastingwinter' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
 			if (this.field.weatherState.source !== pokemon) return;
@@ -978,81 +964,58 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -49,
 	},
+	// other strong weathers
 	deltastream: {
+		inherit: true,
 		desc: "On switch-in, the weather becomes strong winds that remove the weaknesses of the Flying type from Flying-type Pokemon. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Desolate Land, Everlasting Winter or Primordial Sea.",
-		onStart(source) {
-			this.field.setWeather('deltastream');
-		},
 		onAnySetWeather(target, source, weather) {
-			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'everlastingwinter'];
 			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
 		},
-		onEnd(pokemon) {
-			if (this.field.weatherState.source !== pokemon) return;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('deltastream')) {
-					this.field.weatherState.source = target;
-					return;
-				}
-			}
-			this.field.clearWeather();
-		},
-		name: "Delta Stream",
-		rating: 4,
-		num: 191,
 	},
 	desolateland: {
+		inherit: true,
 		desc: "On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing, in addition to all the effects of Sunny Day. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream, Everlasting Winter or Primordial Sea.",
-		onStart(source) {
-			this.field.setWeather('desolateland');
-		},
 		onAnySetWeather(target, source, weather) {
-			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'everlastingwinter'];
 			if (this.field.getWeather().id === 'desolateland' && !strongWeathers.includes(weather.id)) return false;
 		},
-		onEnd(pokemon) {
-			if (this.field.weatherState.source !== pokemon) return;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('desolateland')) {
-					this.field.weatherState.source = target;
-					return;
-				}
-			}
-			this.field.clearWeather();
-		},
-		name: "Desolate Land",
-		rating: 4.5,
-		num: 190,
 	},
 	primordialsea: {
+		inherit: true,
 		desc: "On switch-in, the weather becomes heavy rain that prevents damaging Fire-type moves from executing, in addition to all the effects of Rain Dance. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream, Desolate Land or Everlasting Winter.",
-		onStart(source) {
-			this.field.setWeather('primordialsea');
-		},
 		onAnySetWeather(target, source, weather) {
-			if (source.hasAbility('everlastingwinter') && weather.id === 'hail') return;
-			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'everlastingwinter'];
 			if (this.field.getWeather().id === 'primordialsea' && !strongWeathers.includes(weather.id)) return false;
 		},
-		onEnd(pokemon) {
-			if (this.field.weatherState.source !== pokemon) return;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('primordialsea')) {
-					this.field.weatherState.source = target;
-					return;
-				}
-			}
-			this.field.clearWeather();
-		},
-		name: "Primordial Sea",
-		rating: 4.5,
-		num: 189,
 	},
+	// all snow and hail abilities
+	icebody: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'hail' || type === 'everlastingwinter') return false;
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snow' || effect.id === 'everlastingwinter') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+	},
+	slushrush: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter'])) {
+				return this.chainModify(2);
+			}
+		},
+	},
+	overcoat: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter' || type === 'powder') return false;
+		},
+	},
+	// end of snow and hail abilities
 	spikybody: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -1420,6 +1383,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	iceface: {
 		inherit: true,
+		onStart(pokemon) {
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter']) && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
 		onDamage(damage, target, source, effect) {
 			if (effect?.effectType === 'Move' && target.species.id === 'eiscue') {
 				this.add('-activate', target, 'ability: Ice Face');
@@ -1443,6 +1413,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 
 			if (!target.runImmunity(move.type)) return;
 			return 0;
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter']) && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
 		},
 		desc: "If this Pokemon is an Eiscue, the first hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Snow begins or when Eiscue switches in while Snow is active. Confusion damage also breaks the ice face.",
 		shortDesc: "If Eiscue, the first hit it takes deals 0 damage. Effect is restored in Snow.",
@@ -1529,8 +1509,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	snowcloak: {
 		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'hail' || type === 'everlastingwinter') return false;
+		},
 		onSetStatus(status, target, source, effect) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter'])) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Snow Cloak');
 				}
@@ -1538,13 +1521,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && this.field.isWeather(['hail', 'snow'])) {
+			if (status.id === 'yawn' && this.field.isWeather(['hail', 'snow', 'everlastingwinter'])) {
 				this.add('-immune', target, '[from] ability: Snow Cloak');
 				return null;
 			}
 		},
 		onModifyDef(def, pokemon) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isWeather(['hail', 'snow', 'everlastingwinter'])) {
 				return this.chainModify(1.3);
 			}
 		},
@@ -1621,6 +1604,31 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	forecast: {
 		inherit: true,
+		onWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+				break;
+			case 'hail':
+			case 'snow':
+			case 'everlastingwinter':
+				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			const type = move.type;
@@ -1637,7 +1645,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 						this.add('-start', source, 'typechange', type, '[from] ability: Forecast');
 						break;
 					case "Ice":
-						this.field.setWeather('hail');	
+						this.field.setWeather('snow');	
 						if (!source.setType(type)) return;
 						this.add('-start', source, 'typechange', type, '[from] ability: Forecast');
 						break;

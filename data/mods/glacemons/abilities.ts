@@ -918,6 +918,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				move.typeChangerBoosted = this.effect;
 			}
 		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock')) {
+				return false;
+			}
+		},
 		shortDesc: "If non-Ice loses Ice-type weaknesses. If ice type then it removes all ice weaknesses and Water-type moves targeting this Pokemon become Ice-type",
 	},
 };

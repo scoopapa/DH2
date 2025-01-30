@@ -712,8 +712,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	identitycard: { 
 		name: "Identity Card",
-		shortDesc: "Holder's typing cannot be changed by any move. Doesn't work on abilities like Protean or Color Change.",
-		// Edited in moves.ts
+		shortDesc: "Holder's typing cannot be changed by any move.",
+		// Edited in scripts.ts
 		num: -46,
 		gen: 9,
 	},
@@ -764,6 +764,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Tropius", "Sautropius"],
 		num: -49,
 		gen: 9,
+	},
+	// everlasting winter
+	safetygoggles: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter' || type === 'powder') return false;
+		},
 	},
 
 	// Silvally Memories section
