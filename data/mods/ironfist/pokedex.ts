@@ -1196,7 +1196,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	
 	hiveweb: {
-		num: -126,
+		num: -121,
 		name: "Hiveweb",
 		types: ["Bug", "Normal"],
 		baseStats: {hp: 85, atk: 90, def: 90, spa: 90, spd: 100, spe: 55},
@@ -1204,7 +1204,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 9.1,
 	},
 	syndicant: {
-		num: -125,
+		num: -123,
 		name: "Syndican\'T",
 		diamondHand: true,
 		types: ["Bug"],
@@ -1213,7 +1213,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 128.4,
 	},
 	fishmarketing3: {
-		num: -124,
+		num: -125,
 		name: "Fish Marketing 3",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 90, atk: 50, def: 60, spa: 125, spd: 70, spe: 115},
@@ -1221,7 +1221,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 0.1,
 	},
 	lemonganium: {
-		num: -123,
+		num: -127,
 		name: "Lemonganium",
 		types: ["Lemon"],
 		baseStats: {hp: 80, atk: 82, def: 100, spa: 83, spd: 100, spe: 80},
@@ -1229,7 +1229,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 100.5,
 	},
 	carnivineif: {
-		num: -122,
+		num: -129,
 		name: "Carnivine-IF",
 		types: ["Fairy", "Silly"],
 		baseStats: {hp: 99, atk: 117, def: 96, spa: 64, spd: 96, spe: 58},
@@ -1238,7 +1238,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	grumpig: {
 		inherit: true,
-		num: -121,
+		num: -131,
 		name: "Grumpig",
 		gen: 3,
 		types: ["Psychic"],
@@ -1249,6 +1249,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	impromancer: {
 		name: "Impromancer",
+		num: -134,
 		types: ["Ghost"],
 		baseStats: {hp: 82, atk: 94, def: 90, spa: 120, spd: 89, spe: 100},
 		abilities: {0: "Blight of the Fallen"},
@@ -1256,6 +1257,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	panderdragoon: {
 		name: "Pander Dragoon",
+		num: -136,
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 120, atk: 65, def: 85, spa: 115, spd: 95, spe: 90},
 		abilities: {0: "Timefrozen Body"},
@@ -1263,6 +1265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	soruarc: {
 		name: "Soruarc",
+		num: -138,
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 55, atk: 75, def: 70, spa: 125, spd: 80, spe: 105},
 		abilities: {0: "Bloodline Spell: Blazeball"},
@@ -1271,6 +1274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	emolga: {
 		inherit: true,
 		name: "Emolga",
+		num: -140,
 		copen: true,
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 55, atk: 75, def: 60, spa: 75, spd: 60, spe: 104},
@@ -1279,6 +1283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	skibidragon: {
 		name: "Skibidragon",
+		num: -142,
 		types: ["Dragon"],
 		baseStats: {hp: 97, atk: 80, def: 89, spa: 100, spd: 117, spe: 72},
 		abilities: {0: "Rain Dish", 1: "Bathroom Break", H: "MILF"},
@@ -1286,6 +1291,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hitmontopmega: {
 		name: "Hitmontop-Mega",
+		num: -143,
 		baseSpecies: "Hitmontop",
 		forme: "Mega",
 		types: ["Fighting", "Normal"],
@@ -1297,6 +1303,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	porygonz: {
 		inherit: true,
 		name: "Porygon-Z",
+		num: -144,
 		types: ["Normal"],
 		baseStats: {hp: 85, atk: 80, def: 70, spa: 135, spd: 75, spe: 90},
 		abilities: {0: "Adaptability", 1: "Download", H: "Analytic"},
@@ -1304,6 +1311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	porygonzmega: {
 		name: "Porygon-Z-Mega",
+		num: -145,
 		baseSpecies: "Porygon-Z",
 		forme: "Mega",
 		types: ["Normal"],
@@ -1314,6 +1322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	furumo: {
 		name: "Furumo",
+		num: -146,
 		types: ["Water", "Fairy", "Ice"],
 		baseStats: {hp: 85, atk: 105, def: 60, spa: 109, spd: 60, spe: 111},
 		abilities: {0: "Water Veil", 1: "Pixilate", H: "Refrigerate"},
@@ -1321,6 +1330,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	megaman: {
 		name: "mega man",
+		num: -147,
 		types: ["Normal", "Fire"],
 		baseStats: {hp: 99, atk: 99, def: 64, spa: 99, spd: 64, spe: 120},
 		abilities: {0: "Magic Guard", 1: "Solid Rock", H: "MILF"},
@@ -1328,6 +1338,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	fudgesaur: {
 		name: "Fudgesaur",
+		num: -148,
 		types: ["Silly", "Ground"],
 		baseStats: {hp: 80, atk: 85, def: 86, spa: 122, spd: 65, spe: 87},
 		abilities: {0: "Disgusting, Repulsive Dessert"},
@@ -1335,6 +1346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	fudgesaurmega: {
 		name: "Fudgesaur-Mega",
+		num: -149,
 		baseSpecies: "Fudgesaur",
 		forme: "Mega",
 		types: ["Silly", "Ground"],
@@ -1345,6 +1357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	darkpoison: {
 		name: "darkpoison",
+		num: -151,
 		types: ["Dark", "Poison"],
 		baseStats: {hp: 200, atk: 100, def: 50, spa: 75, spd: 50, spe: 25},
 		abilities: {0: "Rough Skin", 1: "Shed Skin", H: "Stakeout"},
@@ -1359,6 +1372,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sigmaricelion: {
 		name: "Sigma Rice Lion",
+		num: -152,
 		types: ["Normal", "Electric"],
 		baseStats: {hp: 100, atk: 75, def: 90, spa: 66, spd: 68, spe: 95},
 		abilities: {0: "Sigma Surge"},
@@ -1367,6 +1381,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	zoruahisui: {
 		inherit: true,
 		name: "Zorua-Hisui",
+		num: -153,
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 35, atk: 40, def: 45, spa: 55, spd: 55, spe: 50},
 		abilities: {0: "Illusion"},
@@ -1375,24 +1390,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	wishiwashi: {
 		inherit: true,
 		name: "Wishiwashi",
+		num: -154,
 		fish: true,
 		types: ["Water", "Bug"],
 		baseStats: {hp: 50, atk: 41, def: 56, spa: 46, spd: 46, spe: 35},
 		abilities: {0: "MILF", 1: "Wimp Out", H: "Technician"},
 		weightkg: 0.3,
 	},
-	necrozmaultra: {
-		inherit: true,
-		name: "Necrozma-Ultra",
+	ultranecrozma: {
+		name: "Ultra Necrozma",
+		num: -155,
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 97, atk: 167, def: 97, spa: 167, spd: 97, spe: 129},
 		abilities: {0: "Ultra Necrozma Clause"},
 		weightkg: 230.0,
-		requiredItem: null,
 	},
 	nihilego: {
 		inherit: true,
 		name: "Nihilego",
+		num: -156,
 		types: ["Poison", "Rock"],
 		baseStats: {hp: 109, atk: 53, def: 47, spa: 127, spd: 131, spe: 103},
 		abilities: {0: "Beast Boost", H: "Toxic Chain"},
@@ -1400,6 +1416,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lickilord: {
 		name: "Lickilord",
+		num: -157,
 		trans: true,
 		gender: "M",
 		types: ["Silly"],
@@ -1409,6 +1426,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	citrusjams: {
 		name: "Citrus Jams",
+		num: -158,
 		types: ["Lemon", "Electric"],
 		baseStats: {hp: 97, atk: 11, def: 40, spa: 111, spd: 73, spe: 83},
 		abilities: {0: "Punk Rock", 1: "Gex Server", H: "Dazzling"},
@@ -1416,17 +1434,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	everhl: {
 		name: "Everhál",
+		num: -159,
 		diamondHand: true,
 		gender: "F",
 		types: ["Dragon"],
-		baseStats: {hp: 103, atk: 143, def: 98, spa: 75, spd: 100, spe: 50},
+		baseStats: {hp: 109, atk: 143, def: 98, spa: 75, spd: 100, spe: 50},
 		abilities: {0: "Slayer of Beasts"},
 		weightkg: 241.8,
 	},
 	rayquaza: {
 		inherit: true,
-		num: -991,
 		name: "Rayquaza",
+		num: -161,
 		gen: 3,
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 95, atk: 130, def: 80, spa: 130, spd: 80, spe: 95},
@@ -1436,6 +1455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	chinchou: {
 		inherit: true,
 		name: "Chinchou",
+		num: -162,
 		fish: true,
 		types: ["Water", "Electric"],
 		baseStats: {hp: 75, atk: 1, def: 38, spa: 50, spd: 50, spe: 66},
@@ -1444,6 +1464,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	grimace: {
 		name: "Grimace",
+		num: -163,
 		types: ["Poison"],
 		baseStats: {hp: 105, atk: 108, def: 105, spa: 99, spd: 75, spe: 45},
 		abilities: {0: "Socially Unaware", 1: "Thick Fat", H: "Corrosion"},
@@ -1451,6 +1472,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pyroaring: {
 		name: "Pyroaring",
+		num: -164,
 		types: ["Poison", "Ground"],
 		baseStats: {hp: 130, atk: 75, def: 60, spa: 45, spd: 100, spe: 20},
 		abilities: {0: "Poison Point", 1: "Water Absorb", H: "Unaware"},
@@ -1459,6 +1481,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	houndoom: {
 		inherit: true,
 		name: "Houndoom",
+		num: -165,
 		types: ["Dark", "Steel"],
 		baseStats: {hp: 75, atk: 90, def: 70, spa: 125, spd: 85, spe: 105},
 		abilities: {0: "Doomer"},
@@ -1467,6 +1490,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	togepi: {
 		inherit: true,
 		name: "togepi",
+		num: -166,
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 35, atk: 20, def: 83, spa: 40, spd: 83, spe: 20},
 		abilities: {0: "Simple", 1: "Serene Grace", H: "Super Luck"},
@@ -1474,6 +1498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tylerthecreator: {
 		name: "Tyler the Creator",
+		num: -167,
 		gender: "M",
 		types: ["Lemon", "Ground"],
 		baseStats: {hp: 109, atk: 110, def: 95, spa: 75, spd: 102, spe: 56},

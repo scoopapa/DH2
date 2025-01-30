@@ -2946,6 +2946,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		category: "Special",
 		basePower: 160,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon === target || move.target === 'self') {
+				this.debug("BP halved in hitting self");
+				return move.basePower / 2;
+			}
+			return move.basePower;
+		},
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "User also hits self at half power.",
@@ -2958,7 +2965,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onAfterHit(target, source, move) {
 			if (source.hp && source.lastMove.target != 'self') {
 				move.target = 'self';
-				move.basePower /= 2;
 				this.actions.useMove(move.id, source, source);
 			}
 		},
@@ -3233,7 +3239,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		damageCallback(pokemon, target) {
 			const nonVanilla = ["Anarlvet",  "Kingler-Mega",  "microwave",  "Lytlegai",  "Ohmyrod",  "Big Crammer",  "Samurott-Sinnoh",  "Goomba",  "Fridgile",  "Melmetal 2",  "Pidown",  "Kurayami",  "Zelda",  "Drigike",  "Phish",  "Smelmetal",  "Bondra",  "Tangette-Eternal",  "Donmigo",  "Dragoone",  "Collachet",  "Guiltrism",  "Swooliobat",  "Electrode-Mega",  "Mario Kart Wii",  "Impalpitoad",  "Scrubby",  "Ogerpon-Cornerstone",  "palpitoad is so cool",  "Moltres-Mega",  "Jirachitwo",  "Shinx-Fishing",  "Conquescape",  "Daiyafia",  "Pokestar Fisherman",  "Magnegiri",  "mario",  "Contamicow",  "Whonhef",  "Fish Factory",  "cowboy_bandido",  "Pokestar Giant",  "Richard Petty",  "Impidimp-Mega",  "Lemon",  "Fishing Zombie",  "Pokestar MT",  "Margaret Thatcher",  "Flesh Valiant",  "Flesh Valiant-Mega",  "Ronald Reagan",  "Lime Lips",  "Lemotic",  "Zestii",  "Rawring Moon",  "Boogerpon-CLOWNerstone",  "Keisberg-IF",  "Apple's Newest Emoji",  "Lemon Fish",  "Goddease",  "Jableye",  "Kyrum",  "Raccoon",  "Lucario-Calm",  "Nedontrol",  "Princirang",  "Iron Clown",  "The Pearl Hand",  "McFish",  "Applwirm",  "minun and plusle :D", "Traike", "Dr. Liberty", "Sunflora-Grave", "Hydralemon", "Hiveweb", "Syndican\'t", "Fish Marketing 3", "Lemonganium", "Carnivine-IF", "Grumpig", "Impromancer", "Pander Dragoon", "Soruarc", "Skibidragon", "Hitmontop-Mega", "Porygon-Z-Mega", "Furumo", "mega man", "Fudgesaur", "Fudgesaur-Mega", "darkpoison", "Sigma Rice Lion", "Lickilord", "Citrus Jams", "Everhál", "Grimace", "Pyroaring", "Tyler the Creator"];
-			return nonVanilla.includes(target) ? 200 : 150;
+			return nonVanilla.includes(target.baseSpecies.name) ? 200 : 150;
 		},
 		accuracy: 100,
 		pp: 5,
@@ -3321,16 +3327,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const moves = this.dex.moves.all();
 			this.add('-anim', pokemon, this.sample(moves).name, target);
 		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) pokemon.addVolatile('fuckaroundandfindout');
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('fuckaroundandfindout');
 		},
 		condition: {
 			duration: 1,
-			onDamage(damage, target, source, effect) {
-				if (effect.id === 'recoil') {
-					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					if (this.activeMove.id !== 'struggle') return null;
+			noCopy: true,
+			onSourceDamagingHit(damage, target, source, move) {
+				if (target.hp <= 0) {
+					source.addVolatile("ability:rockhead");
 				}
+			},
+			onEnd(pokemon){
+				pokemon.removeVolatile("ability:rockhead");
 			},
 		},
 		secondary: null,

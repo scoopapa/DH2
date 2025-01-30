@@ -656,7 +656,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "IF",
 		doublesTier: "DOU",
 	},
-	necrozmaultra: {
+	ultranecrozma: {
 		tier: "IF",
 		doublesTier: "DOU",
 	},

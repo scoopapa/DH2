@@ -22,6 +22,20 @@ export function getName(name: string): string {
 	return group + name;
 }
 export const Rulesets: {[k: string]: ModdedFormatData} = {
+	speciesclause: {
+		inherit: true,
+		onValidateTeam(team, format) {
+			const speciesTable = new Set<number>();
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (speciesTable.has(species.num) || speciesTable.has(species.name)) {
+					return [`You are limited to one of each Pokémon by Species Clause.`, `(You have more than one ${species.baseSpecies})`];
+				}
+				if (species.num) speciesTable.add(species.num);
+				else speciesTable.add(species.name);
+			}
+		},
+	},
 	bigbuttonrule: {
 		name: "Big Button Rule",
 		effectType: "Rule",
