@@ -11605,7 +11605,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			safeguard: ["9L1"],
 		},
 	},
-	necrozmaultra: {
+	ultranecrozma: {
 		learnset: {
 			inherit: true,
 			aerialace: ["9L1"],
