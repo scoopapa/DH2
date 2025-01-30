@@ -75,12 +75,42 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//shortDesc: "When this Pokemon is hit by an attack, it first inverts the opponent's positive stat stage changes.",
 	},
 	frozenarmor: {
-		//Placeholder
-		flags: {},
+		//Code stolen from Shields Down
+		onTryHit(target, source, move) {
+			if(move.category != 'Status') {
+				move.basePower = Math.max(move.basePower - 20, 0);
+			}
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species !== 'Calyrex-Ice') {
+					pokemon.formeChange('Calyrex-Ice');
+				}
+			} else {
+				if (pokemon.species.forme === 'Calyrex-Ice') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species !== 'Calyrex-Ice') {
+					pokemon.formeChange('Calyrex-Ice');
+				}
+			} else {
+				if (pokemon.species.forme === 'Calyrex-Ice') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Frozen Armor",
 		rating: 5,
 		num: -105,
-		shortDesc: "Does nothing right now!",
-		//shortDesc: "Incoming attacks have their BP reduced by 20. When this Pokemon falls below 50% HP, it transforms into Calyrex-Ice.
+		shortDesc: "Incoming attacks have their BP reduced by 20. This Pokemon transforms into Calyrex-Ice below 50% HP.",
 	},
 };
