@@ -50,7 +50,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			},
 		},
 	},
-	Scavenge: {
+	scavenge: {
 		//Meant to recover any used/lost item from the user as a secondary effect but I'm not good enough to code that
 		num: -102,
 		accuracy: 100,
@@ -64,5 +64,39 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+	},
+	aquaring: {
+		inherit: true,
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Aqua Ring');
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
+			onSourceModifyAtkPriority: 5,
+			onSourceModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire') {
+					return this.chainModify(0.5);
+				}
+			},
+			onSourceModifySpAPriority: 5,
+			onSourceModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire') {
+					return this.chainModify(0.5);
+				}
+			},
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Water') {
+					return this.chainModify(2);
+				}
+			},
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Water') {
+					return this.chainModify(2);
+				}
+			},
+		},
 	},
 };
