@@ -712,8 +712,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	identitycard: { 
 		name: "Identity Card",
-		shortDesc: "Holder's typing cannot be changed by any move. Doesn't work on abilities like Protean or Color Change.",
-		// Edited in moves.ts
+		shortDesc: "Holder's typing cannot be changed by any move.",
+		// Edited in scripts.ts
 		num: -46,
 		gen: 9,
 	},
