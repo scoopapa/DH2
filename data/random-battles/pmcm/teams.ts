@@ -1187,6 +1187,7 @@ export class RandomTeams {
 		if (species.id === 'hippowdon') return this.sample(['Leftovers', 'Rocky Helmet']);
 		if (species.id === 'cramorant') return 'Heavy Duty Boots';
 		if (species.id === 'grafaiai') return this.sample(['Red Card', 'Mirror Herb']);
+		if (species.id === 'tatsugiri') return 'Mystic Water';
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
