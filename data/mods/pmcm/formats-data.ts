@@ -37,5 +37,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hippowdon: {tier: "PMCM"},
 	cramorant: {tier: "PMCM"},
 	grafaiai: {tier: "PMCM"},
+	tatsugiri: {tier: "PMCM"},
 	
 };
