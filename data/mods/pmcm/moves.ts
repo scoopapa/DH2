@@ -98,5 +98,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			},
 		},
+		shortDesc: "User recovers 1/16 max HP per turn. While this is active, this Pokemon's Water power is 2x and Fire power against it is halved. ",
 	},
 };
