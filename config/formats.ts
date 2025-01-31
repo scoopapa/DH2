@@ -2662,7 +2662,38 @@ export const Formats: FormatList = [
 		desc: `Base stats of 70 and lower get doubled.`,
 		mod: 'badnboosted',
 		ruleset: ['Standard'],
-		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power'],
+		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra'],
+		onBegin() {
+			this.add('-message', `Welcome to Bad 'n Boosted!`);
+			this.add('-message', `This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!`);
+			this.add('-message', `You can join our Discord now:`);
+			this.add('-message', `https://discord.gg/vYdSwRreNd`);
+		},
+	},
+	{
+		name: "[Gen 9] Doubles Bad 'n Boosted",
+		desc: `Base stats of 70 and lower get doubled.`,
+		mod: 'badnboosted',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
+	},	
+	{
+		name: "[Gen 9] National Dex Bad 'n Boosted",
+		mod: 'badnboosted',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause'],
+		banlist: ['ND AG', 'Shedinja', 'Assist', 'Baton Pass'],
+	},
+	{
+		name: "[Gen 9] Free-For-All Bad 'n Boosted",
+		mod: 'badnboosted',
+		gameType: 'freeforall',
+		rated: false,
+		tournamentShow: false,
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause'],
+		banlist: ['Moody', 'Shadow Tag', 'Toxic Chain', 'Toxic Debris', 'Acupressure', 'Aromatic Mist', 'Baton Pass', 'Coaching',
+			'Court Change', 'Decorate', 'Dragon Cheer', 'Final Gambit', 'Flatter', 'Fling', 'Floral Healing', 'Follow Me', 'Heal Pulse', 'Heart Swap', 'Last Respects',
+			'Malignant Chain', 'Poison Fang', 'Rage Powder', 'Skill Swap', 'Spicy Extract', 'Swagger', 'Toxic', 'Toxic Spikes',
+		],
 	},
 	{
 		name: "[Gen 9] Bad 'n Boosted Hackmons Cup",
