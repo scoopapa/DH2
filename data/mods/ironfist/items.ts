@@ -561,11 +561,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: 'bigbutton',
 		},
 		onDamagingHit(damage, target, source, move) {
-			if(!source.volatiles['bigbutton'] && source.set.teraType !== "Bug" && target.useItem()) {
-				source.addVolatile('bigbutton');
-			}
+			if (source.volatiles['bigbutton'] || (source.terastallized && source.set.teraType === "Bug")) return;
+			if (target.useItem()) source.addVolatile('bigbutton');
 		},
-		shortDesc: "On hit, force the opponent to use Big Button. Single use.",
+		shortDesc: "On hit, force the opponent to use Big Button if not Terastallized Bug. Single use.",
 		rating: 3,
 	},
 
@@ -606,7 +605,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.category !== 'Status') source.shuriken ++;
 			else source.shuriken = 0;
 			if (source.shuriken >= 3) {
-				this.boost({def: 1, spd: 1});
+				this.boost({atk: 1, spa: 1});
 				source.shuriken = 0;
 			}
 		},

@@ -1397,8 +1397,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "MILF", 1: "Wimp Out", H: "Technician"},
 		weightkg: 0.3,
 	},
-	ultranecrozma: {
-		name: "Ultra Necrozma",
+	necrozmaultra2: {
+		name: "Necrozma-Ultra 2",
 		num: -155,
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 97, atk: 167, def: 97, spa: 167, spd: 97, spe: 129},

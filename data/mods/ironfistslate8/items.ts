@@ -579,7 +579,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.category !== 'Status') source.shuriken ++;
 			else source.shuriken = 0;
 			if (source.shuriken >= 3) {
-				this.boost({def: 1, spd: 1});
+				this.boost({atk: 1, spa: 1});
 				source.shuriken = 0;
 			}
 		},
