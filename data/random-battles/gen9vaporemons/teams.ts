@@ -1411,6 +1411,7 @@ export class RandomTeams {
 		if (ability === 'Cud Chew') return 'Figy Berry';
 		if (species.id === 'klefki' && role === 'Bulky Setup') return 'Kee Berry';
 		if (species.id === 'landorus' && role === 'Fast Bulky Setup') return 'Lansat Berry';
+		if (species.id === 'talonflame' && role === 'Setup Sweeper') return 'Apicot Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
 			if (
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
