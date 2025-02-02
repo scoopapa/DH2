@@ -537,7 +537,7 @@ export class RandomTeams {
 			// These attacks are redundant with each other
 			[['psychic', 'psychicnoise'], ['psyshock', 'psychicnoise']],
 			['surf', 'hydropump'],
-			['liquidation', 'wavecrash'],
+			['wavecrash', ['liquidation', 'waterfall']],
 			['aquajet', 'flipturn'],
 			['gigadrain', 'leafstorm'],
 			['powerwhip', 'hornleech'],
