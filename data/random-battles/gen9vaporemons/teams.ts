@@ -1345,7 +1345,7 @@ export class RandomTeams {
 				(species.id === 'ironthorns' && ability === 'Quark Drive') || 
 				(species.id === 'ironbundle' && ability === 'Neuron Drive') || 
 				(species.id === 'ironleaves' && ability === 'Quark Drive') || 
-				(species.id === 'ironcrown' && ability === 'Quark Drive') || 
+				(species.id === 'ironcrown' && ability === 'Quark Drive' && !moves.has('voltswitch')) || 
 				(species.id === 'ironboulder' && ability === 'Quark Drive') || 
 				(species.id === 'gougingfire' && ability === 'Protosynthesis' && !teamDetails.sun) || 
 				(species.id === 'ragingbolt' && ability === 'Protosynthesis' && !teamDetails.sun)
