@@ -1610,7 +1610,12 @@ export const Formats: FormatList = [
 		name: "[Gen 9] TeraMax",
 		mod: 'teramax',
 		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Wishing Stone > 1', 'Light Clay', 'Battle Bond', 'Melmetal-Gmax'],
+		banlist: [
+			'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Wishing Stone > 1', 'Light Clay', 'Battle Bond', 'Melmetal-Gmax', 'Ogerpon-Hearthflame + Close Combat',
+			'Ogerpon-Hearthflame + Rock Blast', 'Ogerpon-Wellspring + Close Combat', 'Ogerpon-Wellspring + Rock Blast',
+			'Ogerpon-Cornerstone + Rock Blast',
+		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
