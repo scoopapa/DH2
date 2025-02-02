@@ -575,7 +575,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
 	},
 	middleeight: {
-		shortDesc: "If Meloetta: switches to Pirouette form before using a Physical move, and to Aria form before using a Special move.",
+		shortDesc: "If Meloetta: switches to Pirouette form before using a Physical move/Aria form before a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Meloetta' || attacker.transformed) return;
@@ -665,7 +665,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {},
 		name: "Pyre",
 		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
-		shortDesc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
+		shortDesc: "For each fainted Pokemon on the opposing team, Fire-type power +20%.",
 		rating: 4,
 		num: -13,
 	},
@@ -682,7 +682,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.actions.useMove('futuresight', this.effectState.target); 
 			}
 		},
-		shortDesc: "This Pokemon's Psychic and Dark moves have 1.2x power. Whenever this Pokemon uses a Dark-type move, it will also set Future Sight.",
+		shortDesc: "This Pokemon's Psychic/Dark moves have 1.2x power. Dark-type move = Future Sight.",
 	},
 	sniper: {
 		inherit: true,
