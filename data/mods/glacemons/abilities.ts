@@ -575,7 +575,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
 	},
 	middleeight: {
-		shortDesc: "If Meloetta: switches to Pirouette form before using a Physical move, and to Aria form before using a Special move.",
+		shortDesc: "If Meloetta: switches to Pirouette form before using a Physical move/Aria form before a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Meloetta' || attacker.transformed) return;
@@ -665,7 +665,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {},
 		name: "Pyre",
 		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
-		shortDesc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
+		shortDesc: "For each fainted Pokemon on the opposing team, Fire-type power +20%.",
 		rating: 4,
 		num: -13,
 	},
@@ -682,7 +682,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.actions.useMove('futuresight', this.effectState.target); 
 			}
 		},
-		shortDesc: "This Pokemon's Psychic and Dark moves have 1.2x power. Whenever this Pokemon uses a Dark-type move, it will also set Future Sight.",
+		shortDesc: "This Pokemon's Psychic/Dark moves have 1.2x power. Dark-type move = Future Sight.",
 	},
 	sniper: {
 		inherit: true,
@@ -731,7 +731,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hp <= source.hp) return this.chainModify(0.75);
 		},
-		shortDesc: "This Pokemon does 25% more damage and takes 25% less damage from opponents that have more HP than it. Its moves also cannot be redirected.",
+		shortDesc: "Moves used by/against this Pokemon is modified by 1.25x/0.75x if the target has more HP.",
 	},
 	superluck: {
 		inherit: true,
@@ -751,7 +751,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Torments any target hitting this Pokemon.",
 	},
 	nostalgiatrip: {
-		shortDesc: "This Pokemon's moves have the damage categories they would have in Gen 3. Fairy-type moves are Special.",
+		shortDesc: "This Pokemon's moves ignore the Physical/Special split. Fairy-type = Special.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Nostalgia Trip');
 			this.add('-message', `This Pokemon is experiencing a nostalgia trip!`);
@@ -829,7 +829,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			this.field.clearWeather();
 		},
-		shortDesc: "If Cherrim: in Sun, transforms to Sunshine form, boosts Atk, Def, SpA, SpD, and Spd by 1.5x, boosts all moves by 1.2x, and changes weather to Desolate Land.",
+		shortDesc: "If Cherrim in Sun: Atk/Def/SpA/SpD = 1.5x, 1.2x BP boost, Sun = Desolate Land.",
 	},
 	// Slate 8
 	karate: {
@@ -923,6 +923,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return false;
 			}
 		},
-		shortDesc: "If non-Ice loses Ice-type weaknesses. If ice type then it removes all ice weaknesses and Water-type moves targeting this Pokemon become Ice-type",
+		shortDesc: "Non-Ice: Lose Ice weakness. If Ice: Lose Ice weaknesses; Water-type moves = Ice-type.",
 	},
 };
