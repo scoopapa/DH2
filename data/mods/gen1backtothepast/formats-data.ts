@@ -458,11 +458,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	seismitoad: {
 		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
 	},
 	masquerain: {
 		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
 	},
 	cursola: {
 		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
 	},
 };
