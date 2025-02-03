@@ -1039,7 +1039,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -16,
 		gen: 9,
-		shortDesc: "Holder becomes its Tera Type on switch-in. New STAB are 1.2x, existing STAB if Stellar.",
+		shortDesc: "Type changes to Tera Type on switch-in. New STAB are 1.2x, existing STAB if Stellar.",
 		rating: 3,
 	},
 	baseball: {
@@ -1123,7 +1123,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -21,
 		gen: 9,
-		shortDesc: "If held by a Greninja-Bond with Water Shuriken, it can use Bond Slicing Shuriken. After the Z-move is used, transforms into Greninja-Ash.",
+		shortDesc: "Greninja with Water Shuriken; can use Bond Slicing Shuriken. Turns into Greninja-Ash.",
 	},
 	// Slate 7
 	yellowcard: {
@@ -1146,7 +1146,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -22,
 		gen: 9,
-		shortDesc: "Upon being hit by an attack that puts the user below 1/2 of the user's max HP, gives the opponent -1 Atk and Def. Once per switch-in.",
+		shortDesc: "If holder is below 1/2 of the user's max HP, opponent: -1 Atk and Def. Once per switch-in.",
 	},
 	babiriberry: {
 		inherit: true,
@@ -1613,7 +1613,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -25,
 		gen: 9,
-		shortDesc: "On switch-in, the user is inflicted with a non-volatile condition that halves damage taken from Poison-type moves and prevents poisoning, then is consumed.",
+		shortDesc: "Holder gains a status; 1/2 Poison-type damage and poison immunity. Once per switch-in.",
 	},
 	frozenorb: {
 		name: "Frozen Orb",
@@ -1628,7 +1628,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			pokemon.trySetStatus('frz', pokemon);
 		},
 		desc: "At the end of each turn, tries to freeze the holder.",
-		shortDesc: "Tries to freeze the holder.",
+		shortDesc: "At the end of each turn, tries to freeze the holder.",
 		num: -26,
 		gen: 4,
 	},
@@ -1651,7 +1651,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		itemUser: ["Arctozolt", "Arctovish"],
 		num: -27,
-		shortDesc: "When held by Arctozolt or Arctovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
+		shortDesc: "If Arctozolt or Arctovish: Speed is 1.5x, moves do 1.2x damage if holder is first.",
 	},
 	fossilizeddino: {
 		name: "Fossilized Dino",
@@ -1672,7 +1672,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		itemUser: ["Dracozolt", "Dracovish"],
 		num: -28,
-		shortDesc: "When held by Dracozolt or Dracovish then increases its speed by 1.5x. If the user moves first then its moves do 1.2x damage.",
+		shortDesc: "If Dracozolt or Dracovish: Speed is 1.5x, moves do 1.2x damage if holder is first.",
 	},
 	rulebook: {
 		name: "Rulebook",
@@ -1689,7 +1689,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		flags: {},
 		desc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
-		shortDesc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
+		shortDesc: "On switch-in, reveals the held items of all opposing Pokemon and negates the effects for two turns.",
 		num: -29,
 	},
 };

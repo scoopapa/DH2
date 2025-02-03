@@ -1220,7 +1220,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.actions.useMove(randomMove, pokemon);
 		},
 		desc: "(Can now select Rest) One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Assist, Beak Blast, Belch, Bide, Blazing Torque, Celebrate, Chatter, Combat Torque, Copycat, Dynamax Cannon, Focus Punch, Hold Hands, Magical Torque, Me First, Metronome, Mimic, Mirror Move, Nature Power, Noxious Torque, Shell Trap, Sketch, Sleep Talk, Struggle, Uproar, Wicked Torque, or any two-turn move.",
-		shortDesc: "User must be asleep. Uses another known move. No longer fails when pulling Rest.",
+		shortDesc: "User must be asleep. Uses another known move.",
 	},
 	rest: {
 		inherit: true,
@@ -1311,7 +1311,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Rock",
 		contestType: "Tough",
 		desc: "If the target has a disabled move, this move's BP is x1.5. After damage, disables the last move used by the target for 2 turns.",
-		shortDesc: "If target has a disabled move, BP is x1.5. Disables the target's last move for 2 turns.",
+		shortDesc: "Disables target's last move for 2 turns; 1.5x BP if Disable is active.",
 	},
 	disable: {
 		inherit: true,
@@ -1435,7 +1435,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
 		},
 		desc: "Can't miss in Snow. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
-		shortDesc: "Can't miss in Snow. Hits 3 times. Each hit can miss, but power rises.",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises. Snow = No miss.",
 	},
 	triplearrows: {
 		inherit: true,
@@ -1463,7 +1463,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			return 20 * move.hit;
 		},
 		desc: "Ignores Burn and power loss in Sun. Can't miss in Sun. Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
-		shortDesc: "Ignores Burn and power loss in Sun. Can't miss in Sun. Hits 3 times. Each hit can miss, but power rises.",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises. Ignores Sun.",
 	},
 	brainbuster: {
 		num: -21,
@@ -1661,7 +1661,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		category: "Special",
 		name: "Swarming",
 		shortDesc: "Lowers the user's and the target's SpD by one stage.",
-		desc: "Lowers the user's and the target's SpD by one stage.",
+		desc: "Lowers the user's and the target's SpD by 1 stage.",
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },

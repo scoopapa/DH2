@@ -2947,6 +2947,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	ogerpon: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerponcornerstone: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerponwellspring: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerponhearthflame: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
 	venusaurgmax: {
 		isNonstandard: null,
 		tier: "TMFE",
