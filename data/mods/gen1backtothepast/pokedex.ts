@@ -612,13 +612,16 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	seismitoad: {
 		inherit: true,
 		baseStats: {hp: 105, atk: 95, def: 75, spa: 85, spd: 85, spe: 74},
+		gen: 1,
 	},
 	masquerain: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 60, def: 62, spa: 100, spd: 100, spe: 80},
+		gen: 1,
 	},
 	cursola: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 95, def: 50, spa: 145, spd: 145, spe: 31},
+		gen: 1,
 	},
 };
