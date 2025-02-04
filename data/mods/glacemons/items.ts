@@ -1663,7 +1663,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Dracozolt' || source.baseSpecies.baseSpecies === 'Dracovish') return false;
 			return true;
-		}
+		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Dracozolt' || pokemon.baseSpecies.baseSpecies === 'Dracovish') return this.chainModify(1.5);
