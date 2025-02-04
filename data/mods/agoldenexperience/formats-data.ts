@@ -2044,7 +2044,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	deoxys: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	deoxysattack: {
