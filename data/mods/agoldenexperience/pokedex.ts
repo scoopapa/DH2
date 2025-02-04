@@ -1362,7 +1362,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	salamencemega: {
 		inherit: true,
-		abilities: {0: "Blind Rage"},
+		abilities: {0: "Anger Point"},
 	},
 	beldum: {
 		inherit: true,
@@ -3245,7 +3245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Blind Rage"},
+		abilities: {0: "Protosynthesis", H: "Anger Point"},
 	},
 	ironvaliant: {
 		inherit: true,
