@@ -369,10 +369,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Neutralizing Gas"},
 	},
-	gengarmega: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 65, def: 90, spa: 150, spd: 115, spe: 120},
-	},
 	kingler: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 150, def: 115, spa: 50, spd: 50, spe: 75},
@@ -1544,7 +1540,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lucariomega: {
 		inherit: true,
-		abilities: {0: "Mega Launcher"},
+		abilities: {0: "Steadfast"},
 	},
 	drapion: {
 		inherit: true,
