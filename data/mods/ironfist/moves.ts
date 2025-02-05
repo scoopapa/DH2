@@ -157,7 +157,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Chocolate Kiss",
 		pp: 20,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Lovely Kiss", target);

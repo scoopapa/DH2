@@ -2475,7 +2475,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (this.randomChance(3, 10)) {
 				this.debug('Prism Armor neutralize');
-				this.add('-message', `${source.name} Ultra Parried ${move.name}!`);
+				this.add('-message', `${target.name} Ultra Parried ${move.name}!`);
 				return this.chainModify(0.75);
 			}
 		},
