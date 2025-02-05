@@ -178,6 +178,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	quadringo: {
 		tier: "Scoo",
 		doublesTier: "DOU",
+	},
+	kodokai: {
+		tier: "Scoo",
+		doublesTier: "DOU",
 	},	
 	himalao: {
 		tier: "Scoo",

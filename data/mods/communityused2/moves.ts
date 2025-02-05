@@ -15,6 +15,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return this.chainModify(1.5);
 			}
 		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Ice Shard', target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -364,7 +367,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Hunter Shot",
 		pp: 15,
 		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1, bullet: 1 },
+		flags: {protect: 1, mirror: 1, bullet: 1},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -389,7 +392,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Light That Burn The Sky",
 		pp: 15,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 30,
 			status: 'brn',
@@ -712,7 +715,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
-		shortDesc: "Can't be used twice in a row.",
+		shortDesc: "Maintains Ouroboros streak. Can't be used twice in a row.",
 	},
 	defog: {
 		inherit: true,

@@ -712,8 +712,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	identitycard: { 
 		name: "Identity Card",
-		shortDesc: "Holder's typing cannot be changed by any move. Doesn't work on abilities like Protean or Color Change.",
-		// Edited in moves.ts
+		shortDesc: "Holder's typing cannot be changed by any move.",
+		// Edited in scripts.ts
 		num: -46,
 		gen: 9,
 	},
@@ -765,40 +765,97 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -49,
 		gen: 9,
 	},
-	cornerstonemask: {
-		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifyDefPriority: 6,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Cornerstone')) {
-				return this.chainModify(1.2);
+	phonebooth: {
+		name: "Phone Booth",
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Palafin') {
+				pokemon.formeChange('Palafin-Hero');
 			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Palafin') return false;
+			return true;
+		},
+		itemUser: ["Palafin", "Palafin-Hero"],
+		num: -50,
+		gen: 9,
+		desc: "If held by Palafin: Hero Forme on entry.",
+	},
+	// everlasting winter
+	safetygoggles: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter' || type === 'powder') return false;
 		},
 	},
-	hearthflamemask: {
+
+	// Silvally Memories section
+	bugmemory: {
 		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifyAtkPriority: 6,
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
-				return this.chainModify(1.2);
-			}
-		},
+		shortDesc: "No longer needed to transform.",
 	},
-	wellspringmask: {
+	dragonmemory: {
 		inherit: true,
-		onBasePower(basePower, user, target, move) {
-			return basePower;
-		},
-		onModifySpDPriority: 6,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name.startsWith('Ogerpon-Wellspring')) {
-				return this.chainModify(1.2);
-			}
-		},
+		shortDesc: "No longer needed to transform.",
+	},
+	electricmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fightingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	firememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	flyingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	ghostmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	grassmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	groundmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	icememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	poisonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	psychicmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	rockmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	steelmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	watermemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fairymemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	darkmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
 	},
 }

@@ -1,82 +1,170 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
   vikarlarzhu: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	indakuzou: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	wukura: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	mogoda: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	clilscara: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	mizeeque: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	iwaspealily: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	kikheargutan: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	scrobunaga: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	yinghuci: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	takizuka: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	jizgoku: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	shoraraguardor: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	strixkuro: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	huokunloz: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	yuyankura: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	jinjkami: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	yexueruu: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	liamui: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 	goodbight: {
-		tier: "Pokémon North, South, East, and West OU",
+		tier: "NSEW",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	fujitong: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	phynosca: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	guanrong: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	chromium: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	hantage: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	wakadigz: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	sharkoyudo: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	chujikon: {
+		tier: "NSEW2",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	verdcao: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	crimshuo: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	azhui: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	vermilldian: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	chalkongqi: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	violnao: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	cyabing: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	limchong: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	silvgang: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	joikarazo: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	sandibai: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	elapguarr: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	phangphang: {
+		tier: "NSEW3",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	marthlattle: {
+		tier: "NSEW3",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
 }

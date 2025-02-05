@@ -149,7 +149,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const allTypes = {
 				"Normal": "Tough Claws",
 				"Grass": "Wind Rider",
-				"Fire": "Flash Fire",
+				"Fire": "Pyre",
 				"Water": "Water Absorb",
 				"Electric": "Download",
 				"Ice": "Ice Scales",
@@ -478,7 +478,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Daredevil",
 		shortDesc: "Moves with 85% accuracy or less are powered up by 30%.",
 		rating: 3.5,
-		num: 181,
+		num: -9,
 	},
 	lightmetal: {
 		inherit: true,
@@ -527,5 +527,402 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.boost({spa: 1}, this.effectState.target);
 		},
 		shortDesc: "This Pokemon's SpA is raised by 1 stage when other Pokemon faint. Once per switch-in.",
+	},
+	// Slate 5
+	moody: {
+		inherit: true,
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'atk') return;
+			if (natMinus === 'atk') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'def') return;
+			if (natMinus === 'def') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'spa') return;
+			if (natMinus === 'spa') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'spd') return;
+			if (natMinus === 'spd') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			const natPlus = pokemon.getNature().plus;
+			const natMinus = pokemon.getNature().minus;
+			if (natPlus === 'spe') return;
+			if (natMinus === 'spe') return this.chainModify([5006, 4096]);
+			return this.chainModify([4505, 4096]);
+		},
+		onResidual(pokemon) {},
+		shortDesc: "User's Atk, Def, SpA, SpD, and Spe are boosted by 1.1, but user's nature has no effect.",
+	},
+	middleeight: {
+		shortDesc: "If Meloetta: switches to Pirouette form before using a Physical move/Aria form before a Special move.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Meloetta' || attacker.transformed) return;
+			if (move.category === 'Status') return;
+			const targetForme = (move.category === 'Special' ? 'Meloetta' : 'Meloetta-Pirouette');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Middle Eight",
+		rating: 4,
+		num: -10,
+	},
+	sinisterthoughts: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Sinister');
+				}
+				return null;
+			}
+		},
+		name: "Sinister Thoughts",
+		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
+		rating: 3.5,
+		num: -11,
+	},
+	stancechange: {
+		inherit: true,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Aegislash' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
+			if (targetForme === 'Aegislash-Blade') move.basePower = move.basePower * 1.2;
+			if (targetForme === 'Aegislash') this.heal(attacker.baseMaxhp / 8);
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+	},
+	// Slate 6
+	aerodynamism: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				if (!this.boost({ spe: 1 }, target, target)) {
+					this.add('-immune', target, '[from] ability: Aerodynamism');
+				}
+				return null;
+			}
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.flags['wind'] && typeof accuracy === 'number') return true;
+			return accuracy;
+		},
+		desc: "This Pokemon's Wind moves do not miss, and this Pokemon is immune to wind moves and raises its Speed by 1 stage when hit by a wind move.",
+		shortDesc: "Wind moves do not miss; if hit by a wind move: +1 Spe. Wind move immunity.",
+		name: "Aerodynamism",
+		rating: 4,
+		num: -12,
+	},
+	pyre: {
+		onStart(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Pyre');
+				const fallen = Math.min(target.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen && move.type === 'Fire') {
+				const powMod = [4096, 4915, 5734, 6554, 7373, 8192];
+				this.debug(`Pyre boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		flags: {},
+		name: "Pyre",
+		desc: "For each fainted Pokemon on the opposing team, this Pokemon's Fire-type moves power is increased by 20% of their base power.",
+		shortDesc: "For each fainted Pokemon on the opposing team, Fire-type power +20%.",
+		rating: 4,
+		num: -13,
+	},
+	forewarn: {
+		inherit: true,
+		onStart(pokemon) {},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.type === 'Psychic' || move.type === 'Dark') return this.chainModify([0x1333, 0x1000]);
+		},
+		onAfterMove(target, source, move) {
+			if (!move || !target || !target.hp) return;
+			if (target !== source && target.hp && move.type === 'Dark') {
+				this.actions.useMove('futuresight', this.effectState.target); 
+			}
+		},
+		shortDesc: "This Pokemon's Psychic/Dark moves have 1.2x power. Dark-type move = Future Sight.",
+	},
+	sniper: {
+		inherit: true,
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Sniper boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		shortDesc: "If this Pokemon strikes with a critical hit, the damage is multiplied by 1.5. +1 crit ratio.",
+	},
+	unconcerned: {
+		name: "Unconcerned",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unconcernedUser = this.effectState.target;
+			if (unconcernedUser === this.activePokemon) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['spd'] = 0;
+				//boosts['spe'] = 0;
+				boosts['accuracy'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unconcernedUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		shortDesc: "This Pokemon ignores its own stat stages when taking or doing damage.",
+		rating: 4,
+		num: -14,
+	},
+	// Slate 7
+	stalwart: {
+		inherit: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.hp <= target.hp) return this.chainModify(1.25);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp <= source.hp) return this.chainModify(0.75);
+		},
+		shortDesc: "Moves used by/against this Pokemon is modified by 1.25x/0.75x if the target has more HP.",
+	},
+	superluck: {
+		inherit: true,
+		onModifyCritRatio(critRatio) {
+			if (critRatio > 1) return 5;
+		},
+		desc: "User's moves with high critical hit ratio always land as critical hit.",
+		shortDesc: "User's moves with high critical hit ratio always land as critical hit.",
+	},
+	stench: {
+		inherit: true,
+		onModifyMove(move) {},
+		onDamagingHit(damage, target, source, move) {
+			source.addVolatile('torment');
+		},
+		desc: "Torments any target hitting this Pokemon.",
+		shortDesc: "Torments any target hitting this Pokemon.",
+	},
+	nostalgiatrip: {
+		shortDesc: "This Pokemon's moves ignore the Physical/Special split. Fairy-type = Special.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Nostalgia Trip');
+			this.add('-message', `This Pokemon is experiencing a nostalgia trip!`);
+		},
+		onModifyMovePriority: 8,
+		onModifyMove(move, pokemon) {
+			if (move.category === "Status") return;
+			if (['Fire', 'Water', 'Grass', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Fairy'].includes(move.type)) {
+				move.category = "Special";
+			} else {
+				move.category = "Physical";
+			}
+		},
+		name: "Nostalgia Trip",
+		rating: 4,
+		num: -15,
+	},
+	flowergift: {
+		inherit: true,
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+				}
+				if (this.field.getWeather().id === 'sunnyday') {
+					this.field.setWeather('desolateland');
+				}
+			} else {
+				if (pokemon.species.id === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify(1.5);
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.species.id === 'cherrimsunshine') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		//copy and pasted code from desolate land, so it actually ends
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('flowergift')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		shortDesc: "If Cherrim in Sun: Atk/Def/SpA/SpD = 1.5x, 1.2x BP boost, Sun = Desolate Land.",
+	},
+	// Slate 8
+	karate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fighting';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Karate",
+		rating: 4,
+		num: -16,
+		desc: "This Pokemon's Normal-type moves become Fighting-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Fighting type and have 1.2x power.",
+	},
+	keepcool: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Keep Cool",
+		rating: 3.5,
+		num: -17,
+		desc: "If this Pokemon has a non-volatile status condition, its Sp. Attack is multiplied by 1.5. This Pokemon's special attacks ignore the frostbite effect of halving damage.",
+		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving physical damage.",
+	},
+	cottondown: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {},
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Cotton Down', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		desc: "On switch-in, this Pokemon lowers the Speed of opposing Pokemon by 1 stage.",
+		shortDesc: "On switch-in, this Pokemon lowers the Speed of opponents by 1 stage.",
+	},
+	icebody: {
+		inherit: true,
+		onWeather(target, source, effect) {},
+		onImmunity(type, pokemon) {},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Fighting' || move.type === 'Rock' || move.type === 'Steel') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' || move.type === 'Fighting' || move.type === 'Rock' || move.type === 'Steel') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Water' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock')) {
+				return false;
+			}
+		},
+		shortDesc: "Non-Ice: Lose Ice weakness. If Ice: Lose Ice weaknesses; Water-type moves = Ice-type.",
 	},
 };

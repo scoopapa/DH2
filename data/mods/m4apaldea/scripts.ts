@@ -1,9 +1,8 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
 	teambuilderConfig: {
-		excludeStandardTiers: true,
-		customTiers: ['Mega', 'Paldea', 'Paldea (NFE)'],
-		customDoublesTiers: ['Mega', 'Paldea', 'Paldea (NFE)'],
+		customTiers: ['Mega'],
+		customDoublesTiers: ['Mega'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {

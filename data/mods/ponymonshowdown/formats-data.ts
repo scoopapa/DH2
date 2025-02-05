@@ -3177,23 +3177,23 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	genesect: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectburn: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectchill: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectdouse: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectshock: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	chespin: {
 		inherit: true,
@@ -4341,7 +4341,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	spectrier: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	calyrex: {
 		inherit: true,
@@ -4473,7 +4473,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	palafin: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 	},
 	smoliv: {
 		inherit: true,
@@ -4541,7 +4541,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	baxcalibur: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	tatsugiri: {
 		inherit: true,

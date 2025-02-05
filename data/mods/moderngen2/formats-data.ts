@@ -4911,7 +4911,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	naganadel: {
 		inherit: true,
 		gen: 2,
-		tier: "OU",
+		tier: "Uber",
 	},
 	stakataka: {
 		inherit: true,

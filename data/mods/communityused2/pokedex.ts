@@ -301,7 +301,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		num: -1033,
 		name: "Swilein",
 		types: ["Ground", "Ice"],
-		baseStats: { hp: 110, atk: 100, def: 75, spa: 90, spd: 115, spe: 35 },
+		baseStats: { hp: 110, atk: 100, def: 85, spa: 90, spd: 115, spe: 35 },
 		abilities: { 0: "Snow Warning", 1: "Sand Stream", H: "Thick Fat" },
 		prevo: "Gullet",
 		weightkg: 270,

@@ -35,4 +35,31 @@ export const Conditions: { [k: string]: ConditionData; } = {
 			return false;
 		},
 	},
+	frz: {
+		inherit: true,
+		onBeforeMove(pokemon, target, move) {},
+		// Damage reduction is handled directly in the sim/battle.js damage function
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 16);
+		},
+	},
+	sunnyday: {
+		inherit: true,
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if ((move.id === 'hydrosteam' || move.id === 'tripledive') && !attacker.hasItem('utilityumbrella')) {
+				this.debug('Sunny Day Hydro Steam boost');
+				return this.chainModify(1.5);
+			}
+			if (defender.hasItem('utilityumbrella')) return;
+			if (move.type === 'Fire') {
+				this.debug('Sunny Day fire boost');
+				return this.chainModify(1.5);
+			}
+			if (move.type === 'Water') {
+				this.debug('Sunny Day water suppress');
+				return this.chainModify(0.5);
+			}
+		},
+	},
 };

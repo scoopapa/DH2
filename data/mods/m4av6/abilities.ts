@@ -1243,7 +1243,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onModifyDamage(damage, source, target, move) {
 				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
 				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
-				if (['hail'].includes(source.effectiveWeather())) {
+				if (['hail', 'snow'].includes(source.effectiveWeather())) {
 					return this.chainModify([dmgMod[numConsecutive], 0x1000]);
 				} else {
 					return damage * (1 + (this.effectState.numConsecutive / 10));
@@ -1443,6 +1443,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -47,
@@ -2167,13 +2168,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 1,
-			onAfterMove(source, target, move) {
+			onAfterMove(source, target, move) { 
 				for (const pokemon of this.getAllActive()) {
-					if (pokemon === source) continue;
-					if (!pokemon.hp) {
+					if (pokemon !== source && !pokemon.hp) {
 						source.removeVolatile('implode');
 						return;
 					}
+				}
+				if (target !== source && !target.hp) {
+					source.removeVolatile('implode');
+					return;
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");

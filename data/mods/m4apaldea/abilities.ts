@@ -261,19 +261,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -22,
 	},
 	hairtrigger: {
-		onAfterMega(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onStart(pokemon) {
-			if (pokemon.activeMoveActions > 1) return;
-			pokemon.addVolatile('hairtrigger');
-		},
-		onModifyPriority(priority, source) {
-			if (source.volatiles['hairtrigger']) {
-				source.removeVolatile('hairtrigger');
+		onModifyPriority(priority, pokemon, target, move) {
+			if (pokemon.activeMoveActions < 1) {
 				return priority + 0.1;
 			}
+			return priority;
 		},
 		desc: "The user moves first in their priority bracket on the first turn after switching in.",
 		shortDesc: "Moves first in priority bracket on the first turn after switching in.",
@@ -500,6 +492,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			},
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Masquerade",
 		rating: 3,
 		num: -28,

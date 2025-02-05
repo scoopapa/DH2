@@ -1610,10 +1610,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onDamage(damage, target, source, effect) {
 			// Check if the damage is indirect
 			if (effect.effectType !== 'Move') {
-				this.debug('Normal Engraving - reducing indirect damage by 50%');
-				return this.chainModify(0.5); // Reduce indirect damage by 50%
+				this.debug('Normal Engraving blocking indirect damage');
+				return false;
 			}
-			return damage; // Return original damage for direct damage
 		},
 	},
 	flyingfeature: {

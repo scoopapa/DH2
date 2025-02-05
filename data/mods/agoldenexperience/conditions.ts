@@ -54,4 +54,33 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 	},
+	everlastingwinter: {
+		name: 'EverlastingWinter',
+		effectType: 'Weather',
+		duration: 0,
+		onModifyDefPriority: 10,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Ice') && this.field.isWeather('everlastingwinter')) {
+				return this.modify(def, 1.5);
+			}
+		},
+		onFieldStart(field, source, effect) {
+			this.add('-weather', 'EverlastingWinter', '[from] ability: ' + effect.name, '[of] ' + source);
+		},
+		onImmunity(type, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (type === 'frz') return false;
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'EverlastingWinter', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onWeather(target) {
+			if (!target.hasType('Ice')) this.damage(target.baseMaxhp / 16);
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
+		},
+	},
 };

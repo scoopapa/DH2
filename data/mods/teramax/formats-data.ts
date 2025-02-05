@@ -8,7 +8,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	rillaboom: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	scorbunny: {
@@ -20,7 +20,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	cinderace: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	sobble: {
@@ -32,7 +32,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	inteleon: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	blipbug: {
@@ -44,7 +44,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	orbeetle: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	caterpie: {
@@ -56,7 +56,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	butterfree: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	grubbin: {
@@ -88,7 +88,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	corviknight: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	skwovet: {
@@ -228,7 +228,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	pelipper: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	joltik: {
@@ -1432,7 +1432,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	kingler: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	quagsire: {
@@ -1444,7 +1444,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	ninjask: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	shedinja: {
@@ -1516,11 +1516,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	gengar: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	gyarados: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	seaking: {
@@ -1564,15 +1564,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	garbodor: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	centiskorch: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	coalossal: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	dugtrio: {
@@ -1608,7 +1608,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	alcremie: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ribombee: {
@@ -1616,7 +1616,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	ferrothorn: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	gourgeist: {
@@ -1676,11 +1676,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	flapple: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	appletun: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	meowstic: {
@@ -1700,7 +1700,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	araquanid: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	wobbuffet: {
@@ -1736,7 +1736,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	gastrodon: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	golisopod: {
@@ -1752,11 +1752,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	grimmsnarl: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	hatterene: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	salazzle: {
@@ -1764,7 +1764,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	kingambit: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	throh: {
@@ -1784,11 +1784,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	clefable: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	togekiss: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	snorlax: {
@@ -1932,15 +1932,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	toxtricity: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	toxtricitylowkey: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	copperajah: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	qwilfish: {
@@ -2004,7 +2004,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	torkoal: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	mimikyu: {
@@ -2024,7 +2024,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	sandaconda: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	polteageist: {
@@ -2060,7 +2060,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	falinks: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	drampa: {
@@ -2076,7 +2076,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	frosmoth: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	grapploct: {
@@ -2104,7 +2104,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	lapras: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	lunatone: {
@@ -2120,19 +2120,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	darmanitangalar: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	stonjourner: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	eiscue: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	duraludon: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	rotom: {
@@ -2160,15 +2160,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	dracozolt: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	arctozolt: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	dracovish: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	arctovish: {
@@ -2176,7 +2176,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	charizard: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	tyranitar: {
@@ -2188,7 +2188,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	zamazenta: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	goodra: {
@@ -2200,7 +2200,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	dragapult: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	wigglytuff: {
@@ -2236,7 +2236,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	annihilape: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	slowpoke: {
@@ -2268,7 +2268,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	dragonite: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ampharos: {
@@ -2288,7 +2288,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	clodsire: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	honchkrow: {
@@ -2308,7 +2308,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	dudunsparce: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	houndoom: {
@@ -2384,7 +2384,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	staraptor: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	kricketune: {
@@ -2408,7 +2408,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	garchomp: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	lilligant: {
@@ -2440,11 +2440,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	amoonguss: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	alomomola: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	eelektross: {
@@ -2460,7 +2460,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	talonflame: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	vivillon: {
@@ -2548,27 +2548,27 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	meowscarada: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	gholdengo: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	wochien: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	chienpao: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	tinglu: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	chiyu: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	roaringmoon: {
@@ -2576,7 +2576,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	ironvaliant: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	koraidon: {
@@ -2588,15 +2588,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	walkingwake: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ironleaves: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	skeledirge: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	quaquaval: {
@@ -2648,7 +2648,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	garganacl: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	armarouge: {
@@ -2664,7 +2664,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	kilowattrel: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	mabosstiff: {
@@ -2672,7 +2672,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	grafaiai: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	brambleghast: {
@@ -2680,7 +2680,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	toedscruel: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	klawf: {
@@ -2688,7 +2688,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	scovillain: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	rabsca: {
@@ -2712,11 +2712,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	palafin: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	revavroom: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	cyclizar: {
@@ -2728,7 +2728,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	glimmora: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	houndstone: {
@@ -2748,31 +2748,31 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	dondozo: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	tatsugiri: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	greattusk: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	screamtail: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	brutebonnet: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	fluttermane: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	slitherwing: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	sandyshocks: {
@@ -2780,11 +2780,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	irontreads: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ironbundle: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ironhands: {
@@ -2792,15 +2792,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	ironjugulis: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ironmoth: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	ironthorns: {
-		tier: "TMFE",
+		tier: "TMOU",
 		doublesTier: "DOU",
 	},
 	baxcalibur: {
@@ -2927,6 +2927,42 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	slowkinggalar: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	slowbrogalar: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	dipplin: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	hydrapple: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	sinistcha: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerpon: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerponcornerstone: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerponwellspring: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ogerponhearthflame: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
 	venusaurgmax: {
 		isNonstandard: null,
 		tier: "TMFE",
@@ -3001,7 +3037,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	drednawgmax: {
 		isNonstandard: null,
-		tier: "TMFE",
+		tier: "TMOU",
 	},
 	coalossalgmax: {
 		isNonstandard: null,

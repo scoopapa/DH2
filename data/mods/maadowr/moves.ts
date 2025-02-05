@@ -373,11 +373,11 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	golddigger: {
 		num: -12,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 90,
 		category: "Physical",
 		shortDesc: "Removes target's Steel-type.",
 		name: "Golddigger",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
@@ -1113,9 +1113,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	eyeofthesun: {
 		num: -35,
 		accuracy: 90,
-		basePower: 130,
+		basePower: 120,
 		category: "Special",
-		shortDesc: "Skips in Sun and sets Wind Blessing, reducing super-effective damage for the team.",
+		shortDesc: "Skips in Sun. -1 Spe to target.",
 		name: "Eye of the Sun",
 		pp: 5,
 		priority: 0,
@@ -1125,9 +1125,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return;
 			}
 			this.add('-prepare', attacker, 'Tailwind'); // originally: move.name instead of 'Tailwind'
-			if (!attacker.side.sideConditions['windblessing']) {
+			/*if (!attacker.side.sideConditions['windblessing']) {
 				attacker.side.addSideCondition('windblessing');
-			}
+			}*/
 			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
 				this.attrLastMove('[still]');
 				this.add('-anim', attacker, 'Oblivion Wing', defender); // originally: this.addMove,  and instead of Oblivion Wing, it was move.name
@@ -1139,7 +1139,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
 		hasSheerForce: true,
 		target: "normal",
 		type: "Flying",
@@ -1510,7 +1515,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "Combo attack: Escavalier, double damage; Grapplin, heals.",
+		shortDesc: "Combo attack: Double damage for second attacker.",
 		name: "Pincer Attack",
 		pp: 10,
 		priority: 0,
@@ -1763,7 +1768,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		category: "Special",
 		pp: 10,  
 		priority: 0,  
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, nosketch: 1}, // for tournament purpose only, nosketch
 		secondary: null,  
 		target: "allAdjacentFoes",  
 		type: "Bug",  

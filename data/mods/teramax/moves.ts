@@ -297,6 +297,106 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 	},
+	eeriespell: {
+		num: 826,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		desc: "Traps the foe. Removes 3 PP from the target's last move.",
+		name: "Eerie Spell",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (!target.hp) return;
+				let foeMove: Move | ActiveMove | null = target.lastMove;
+				if (!foeMove || move.isZ) return;
+				if (foeMove.isMax && foeMove.baseMove) foeMove = this.dex.moves.get(foeMove.baseMove);
+
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+				const ppDeducted = target.deductPP(foeMove.id, 3);
+				if (!ppDeducted) return;
+				this.add('-activate', target, 'move: Eerie Spell', foeMove.name, ppDeducted);
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	shellsidearm: {
+		num: 801,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		desc: "Targets physical Defense if it would be stronger.",
+		name: "Shell Side Arm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			if (!source.isAlly(target)) {
+				this.attrLastMove('[anim] Shell Side Arm ' + move.category);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			if (def > spd || (def === spd && this.random(2) === 0)) {
+				move.overrideDefensiveStat = 'def';
+				//move.flags.contact = 1;
+			}
+		},
+		/*onHit(target, source, move) {
+			// Shell Side Arm normally reveals its category via animation on cart, but doesn't play either custom animation against allies
+			if (!source.isAlly(target)) this.hint(move.category + " Shell Side Arm");
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " Shell Side Arm");
+		},*/
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	syrupbomb: {
+		num: 903,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		desc: "100% chance to lower the target's Attack by 1.",
+		name: "Syrup Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		condition: {
+			noCopy: true,
+			duration: 4,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Syrup Bomb');
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive) {
+					pokemon.removeVolatile('syrupbomb');
+				}
+			},
+			onResidualOrder: 14,
+			onResidual(pokemon) {
+				this.boost({spe: -1}, pokemon, this.effectState.source);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Syrup Bomb', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Grass",
+	},
 	
 	grassknot: {
 		inherit: true,
@@ -1531,6 +1631,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-end', pokemon, 'Powder');
 			},
 		},
+	},
+	kingsshield: {
+		inherit: true,
+		isNonstandard: null,
 	},
 
 	/*

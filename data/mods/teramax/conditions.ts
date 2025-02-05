@@ -95,8 +95,8 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Desolate Land');
 						break;
 					case 'Appletun':
-						pokemon.setAbility('marvelscale', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Marvel Scale');
+						pokemon.setAbility('grassysurge', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Grassy Surge');
 						break;
 					case 'Flapple':
 						pokemon.setAbility('tintedlens', pokemon, true);

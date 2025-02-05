@@ -6,7 +6,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
                 onAfterMove(target, source, move) {
                   if(!target.ancientGauge) target.ancientGauge = 0;
                   let amount = 0;
-                  if(move === [something]) target.ancientGauge += [1];
+                  if(move == [something]) target.ancientGauge += [1];
                   //etc etc
                   this.add('-message', `${target.name} gained ${1} ancient gauge.`);
                   if(target.ancientGauge > [2]) {
