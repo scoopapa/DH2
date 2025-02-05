@@ -199,4 +199,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dastard: {
 		tier: "BC OU",
 	},
+	cottentration: {
+		tier: "BC OU",
+	},
+	sorrowcean: {
+		tier: "BC OU",
+	},
+	psyllapse: {
+		tier: "BC OU",
+	},
 };
