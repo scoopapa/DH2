@@ -765,6 +765,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -49,
 		gen: 9,
 	},
+	phonebooth: {
+		name: "Phone Booth",
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Palafin') {
+				pokemon.formeChange('Palafin-Hero');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Palafin') return false;
+			return true;
+		},
+		itemUser: ["Palafin", "Palafin-Hero"],
+		num: -50,
+		gen: 9,
+		desc: "If held by Palafin: Hero Forme on entry.",
+	},
 	// everlasting winter
 	safetygoggles: {
 		inherit: true,

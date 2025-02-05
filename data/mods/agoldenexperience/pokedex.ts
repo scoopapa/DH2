@@ -347,7 +347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	dewgong: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 70, def: 95, spa: 80, spd: 95, spe: 70},
-		abilities: {0: "Thick Fat", 1: "Icebreaker", H: "Sap Sipper"},
+		abilities: {0: "Thick Fat", 1: "Hydrophilic", H: "Sap Sipper"},
 	},
 	muk: {
 		inherit: true,
@@ -368,10 +368,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	gengar: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Neutralizing Gas"},
-	},
-	gengarmega: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 65, def: 90, spa: 150, spd: 115, spe: 120},
 	},
 	kingler: {
 		inherit: true,
@@ -1366,7 +1362,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	salamencemega: {
 		inherit: true,
-		abilities: {0: "Blind Rage"},
+		abilities: {0: "Anger Point"},
 	},
 	beldum: {
 		inherit: true,
@@ -1544,7 +1540,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lucariomega: {
 		inherit: true,
-		abilities: {0: "Mega Launcher"},
+		abilities: {0: "Steadfast"},
 	},
 	drapion: {
 		inherit: true,
@@ -3028,23 +3024,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 122, atk: 130, def: 89, spa: 40, spd: 89, spe: 30},
 		abilities: {0: "Sheer Force", 1: "Dry Skin", H: "Heavy Metal"},
 	},
-	// dracovish: {
-	// 	inherit: true,
-	// 	abilities: {0: "Water Absorb", 1: "Water Veil", H: "Sand Rush"},
-	// },
-	zacian: {
-		inherit: true,
-		abilities: {0: "Steadfast"},
-		baseStats: {hp: 92, atk: 120, def: 115, spa: 80, spd: 115, spe: 118},
-	},
 	zaciancrowned: {
 		inherit: true,
 		baseStats: {hp: 92, atk: 150, def: 115, spa: 100, spd: 115, spe: 148},
-	},
-	zamazenta: {
-		inherit: true,
-		abilities: {0: "Guard Dog"},
-		baseStats: {hp: 92, atk: 120, def: 115, spa: 80, spd: 115, spe: 118},
 	},
 	zamazentacrowned: {
 		inherit: true,
@@ -3181,10 +3163,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 35, atk: 125, def: 50, spa: 50, spd: 70, spe: 120},
 		abilities: {0: "Gooey", 1: "Rattled", H: "Technician"},
 	},
-	palafinhero: {
-		inherit: true,
-		types: ["Water", "Fighting"],
-	},
 	cyclizar: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 105, def: 65, spa: 95, spd: 85, spe: 121}, 
@@ -3267,7 +3245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Blind Rage"},
+		abilities: {0: "Protosynthesis", H: "Anger Point"},
 	},
 	ironvaliant: {
 		inherit: true,

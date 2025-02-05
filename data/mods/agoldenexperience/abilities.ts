@@ -524,16 +524,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -27,
 	},
 	hardrock: {
+		onModifyAtkPriority: 6,
+		onModifyAtk(pokemon) {
+			return this.chainModify(1.5);
+		},
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
-			return this.chainModify(1.5);
+			return this.chainModify(2);
 		},
 		onModifySpDPriority: 6,
 		onModifySpD(pokemon) {
 			return this.chainModify(0.5);
 		},
 		name: "Hard Rock",
-		shortDesc: "Gets x1.5 Def but x0.5 SpD.",
+		shortDesc: "This Pokemon's Atk is boosted by 1.5 and Def by 2, but its SpD is halved.",
 		rating: 1.5,
 		num: -28,
 	},

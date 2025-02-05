@@ -996,9 +996,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	// Slate 6
 	parallelmegaorb: { 
 		name: "Parallel Mega Orb",
-		onTakeItem(item, source) {
-			return false;
-		},
+		onTakeItem: false,
 		onAfterMega(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
@@ -1632,10 +1630,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -26,
 		gen: 4,
 	},
-	fossilizeddrake: {
-		name: "Fossilized Drake",
+	fossilizeddino: {
+		name: "Fossilized Dino",
 		fling: {
 			basePower: 10,
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Arctozolt' || source.baseSpecies.baseSpecies === 'Dracozolt') return false;
+			return true;
 		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
@@ -1653,10 +1655,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -27,
 		shortDesc: "If Arctozolt or Arctovish: Speed is 1.5x, moves do 1.2x damage if holder is first.",
 	},
-	fossilizeddino: {
-		name: "Fossilized Dino",
+	fossilizeddrake: {
+		name: "Fossilized Drake",
 		fling: {
 			basePower: 10,
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Dracozolt' || source.baseSpecies.baseSpecies === 'Dracovish') return false;
+			return true;
 		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
