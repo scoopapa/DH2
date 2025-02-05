@@ -531,4 +531,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Competitive"},
 		weightkg: 55,
 	},
+	cottentration: {
+		num: 9066,
+		name: "Cottentration",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 50, atk: 50, def: 50, spa: 110, spd: 110, spe: 90},
+		abilities: {0: "Chlorophyll"},
+		weightkg: 0.8,
+	},
+	sorrowcean: {
+		num: 9067,
+		name: "Sorrowcean",
+		types: ["Water", "Ghost"],
+		baseStats: {hp: 85, atk: 30, def: 75, spa: 90, spd: 70, spe: 108},
+		abilities: {0: "Flare Boost", H: "Illusion"},
+		weightkg: 15,
+	},
+	psyllapse: {
+		num: 9068,
+		name: "Psyllapse",
+		types: ["Psychic", "Normal"],
+		baseStats: {hp: 100, atk: 95, def: 85, spa: 95, spd: 85, spe: 60},
+		abilities: {0: "Prankster"},
+		weightkg: 70,
+	},
 };
