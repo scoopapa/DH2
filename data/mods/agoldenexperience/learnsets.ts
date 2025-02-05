@@ -5790,6 +5790,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			bodypress: ["9L1"],
 			liquidation: ["9L1"],
 			grassyglide: ["9L1"],
+			flipturn: ["9T"],
 		},
 	},
 	infarmatem: {
