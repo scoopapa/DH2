@@ -1339,6 +1339,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'luxray').learnset.suckerpunch = ['9L1'];
     this.modData('Learnsets', 'luxray').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'roserade').learnset.quiverdance = ['9L1'];
+    this.modData('Learnsets', 'roserade').learnset.poisonivy = ['9L1'];
+    this.modData('Learnsets', 'roserade').learnset.mudslap = ['9L1'];
     this.modData('Learnsets', 'rampardos').learnset.wildcharge = ['9L1'];
     this.modData('Learnsets', 'bastiodon').learnset.bodypress = ['9L1'];
     this.modData('Learnsets', 'wormadam').learnset.aromatherapy = ['9L1'];
@@ -1409,6 +1411,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'lickilicky').learnset.acidarmor = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.gunkshot = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.slackoff = ['9L1'];
+    this.modData('Learnsets', 'tangrowth').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'electivire').learnset.doubleshock = ['9L1'];
     this.modData('Learnsets', 'magmortar').learnset.scald = ['9L1'];
     this.modData('Learnsets', 'magmortar').learnset.recover = ['9L1'];
@@ -1695,6 +1698,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regidrago').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.slackoff = ['9L1'];
     delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
+    delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
+    this.modData('Learnsets', 'spectrier').learnset.toxic = ['9L1'];
+    this.modData('Learnsets', 'spectrier').learnset.mysticalfire = ['9L1'];
     this.modData('Learnsets', 'calyrexice').learnset.slackoff = ['9L1'];
 
     // Gen 9
