@@ -1350,7 +1350,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Fudgesaur",
 		forme: "Mega",
 		types: ["Silly", "Ground"],
-		baseStats: {hp: 80, atk: 105, def: 123, spa: 122, spd: 125, spe: 70},
+		baseStats: {hp: 82, atk: 107, def: 125, spa: 124, spd: 127, spe: 72},
 		abilities: {0: "Pristine Dessert"},
 		weightkg: 100.0,
 		requiredItem: "Fudgesaurite",
