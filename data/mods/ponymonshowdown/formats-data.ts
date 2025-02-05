@@ -3181,19 +3181,19 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	genesectburn: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectchill: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectdouse: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	genesectshock: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	chespin: {
 		inherit: true,
