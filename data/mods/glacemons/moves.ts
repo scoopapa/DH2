@@ -627,10 +627,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const removeTarget = [
-				'stealthrock', 'spikes',
+				'stealthrock', 'spikes', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'stealthrock', 'spikes',
+				'stealthrock', 'spikes', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
