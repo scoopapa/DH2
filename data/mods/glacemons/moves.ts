@@ -627,10 +627,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 			}
 			const removeTarget = [
-				'stealthrock', 'spikes',
+				'stealthrock', 'spikes', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'stealthrock', 'spikes',
+				'stealthrock', 'spikes', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -1374,20 +1374,20 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	terablast: {
 		inherit: true,
 		onPrepareHit(target, source, move) {
-			if (source.hasItem('legendplate')) {
+			if (source.terastallized || source.hasItem('legendplate')) {
 				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
 			}
 		},
 		onModifyType(move, pokemon, target) {
-			if (pokemon.hasItem('legendplate')) {
+			if (pokemon.terastallized || pokemon.hasItem('legendplate')) {
 				move.type = pokemon.teraType;
 			}
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.hasItem('legendplate') && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+			if ((pokemon.terastallized || pokemon.hasItem('legendplate')) && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 				move.category = 'Physical';
 			}
-			if (pokemon.hasItem('legendplate') && pokemon.teraType === 'Stellar') {
+			if ((pokemon.terastallized || pokemon.hasItem('legendplate')) && pokemon.teraType === 'Stellar') {
 				move.self = {boosts: {atk: -1, spa: -1}};
 			}
 		},

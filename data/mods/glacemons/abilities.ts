@@ -839,7 +839,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				!(move.isZ && move.category !== 'Status')
+				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
+				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
 				move.type = 'Fighting';
 				move.typeChangerBoosted = this.effect;
 			}
@@ -924,5 +926,80 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		shortDesc: "Non-Ice: Lose Ice weakness. If Ice: Lose Ice weaknesses; Water-type moves = Ice-type.",
+	},
+	// Legend Plate + Tera Blast field
+	normalize: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id) &&
+				// TODO: Figure out actual interaction
+				!(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Normal';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	pixilate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status')
+				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
+				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
+				move.type = 'Fairy';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	aerilate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status')
+				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
+				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
+				move.type = 'Flying';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	refrigerate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') 
+				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
+				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	galvanize: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status')
+				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
+				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
+				move.type = 'Electric';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
 	},
 };

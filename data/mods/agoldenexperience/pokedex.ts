@@ -1360,10 +1360,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Hard Rock", 1: "Rock Head", H: "Sturdy"},
 	},
-	salamencemega: {
-		inherit: true,
-		abilities: {0: "Anger Point"},
-	},
 	beldum: {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Neuroforce", H: "Light Metal"},
@@ -3042,7 +3038,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	spectrier: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 65, def: 70, spa: 145, spd: 90, spe: 110},
+		baseStats: {hp: 100, atk: 65, def: 80, spa: 105, spd: 100, spe: 130},
 	},
 	calyrexice: {
 		inherit: true,
@@ -3245,7 +3241,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Anger Point"},
+		abilities: {0: "Protosynthesis", H: "Aerilate"},
 	},
 	ironvaliant: {
 		inherit: true,

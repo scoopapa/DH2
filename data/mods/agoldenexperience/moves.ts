@@ -2922,6 +2922,40 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "This move deals double damage if used under Gravity. Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
 		shortDesc: "Double damage if used under Gravity. Hits two turns after being used.",
 	},
+	poisonivy: {
+		num: -66,
+		accuracy: 100,
+		basePower: 25,
+		category: "Special",
+		name: "Poison Ivy",
+		shortDesc: "Hits 2-5 times in one turn.",
+		desc: "Hits 2-5 times in one turn.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		multihit: [2, 5],
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Whip", target);
+			this.add('-anim', source, "Sludge Wave", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: { basePower: 140 },
+		maxMove: { basePower: 130 },
+		contestType: "Cool",
+	},
+	twinbeam: {
+		inherit: true,
+		desc: "Lowers the target's Special Attack and Special Defense by 1 stage.",
+		shortDesc: "Lowers target's Sp. Atk, Sp. Def by 1.",
+		self: null,
+		boosts: {
+			spa: -1,
+			spd: -1,
+		},
+	},
 	// Everlasting Winter field
 	auroraveil: {
 		inherit: true,
