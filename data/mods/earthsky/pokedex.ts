@@ -234,7 +234,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Utilitron-Boat", "Utilitron-Copter"],
 		formeOrder: ["Utilitron", "Utilitron-Boat", "Utilitron-Copter"],
-		exclusiveMoves: ["Bulldoze", "Drill Run", "Earth Power", "Earthquake", "Rock Slide", "Steamroller", "Stone Edge", "Trailhead"],
+		exclusiveMoves: ["Bulldoze", "Drill Run", "Earth Power", "Earthquake", "Rock Slide", "Rock Tomb", "Steamroller", "Stone Edge", "Trailhead"],
 	},
 	utilitronboat: {
 		num: -517,
@@ -464,7 +464,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 110, def: 110, spa: 30, spd: 50, spe: 70},
 		abilities: {0: "Reckless", 1: "Bulletproof", H: "Receiver"},
 		heightm: 2.0,
-		weightkg: 102.1,
+		weightkg: 122.1,
 		color: "Yellow",
 		prevo: "Rugblin",
 		evoLevel: 34,
@@ -939,6 +939,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.9,
 		weightkg: 1.8,
 		color: "Red",
+		prevo: "Minior",
+		evoType: "useItem",
+		evoItem: "Meteorite",
+		evoLevel: 50,
 		eggGroups: ["Mineral"],
 		otherFormes: ["Prominoid-Meteor"],
 		cosmeticFormes: ["Prominoid-Orange", "Prominoid-Yellow", "Prominoid-Green", "Prominoid-Blue", "Prominoid-Indigo", "Prominoid-Violet"],
@@ -959,10 +963,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 1.9,
 		weightkg: 240,
 		color: "Brown",
-		prevo: "Minior",
-		evoType: "useItem",
-		evoItem: "Meteorite",
-		evoLevel: 50,
 		eggGroups: ["Mineral"],
 		requiredAbility: "Shields Down",
 		battleOnly: "Prominoid",
@@ -1512,7 +1512,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Eelektrik",
 		forme: "Egelas",
 		types: ["Electric", "Poison"],
-		baseStats: {hp: 65, atk: 85, def: 70, spa: 75, spd: 70, spe: 40},
+		baseStats: {hp: 65, atk: 80, def: 70, spa: 80, spd: 70, spe: 40},
 		abilities: {0: "Levitate", H: "Gooey"},
 		heightm: 1.2,
 		weightkg: 23.0,
@@ -1529,7 +1529,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Eelektross",
 		forme: "Egelas",
 		types: ["Electric", "Poison"],
-		baseStats: {hp: 85, atk: 115, def: 80, spa: 105, spd: 80, spe: 50},
+		baseStats: {hp: 85, atk: 105, def: 80, spa: 115, spd: 80, spe: 50},
 		abilities: {0: "Levitate", H: "Gooey"},
 		heightm: 2.1,
 		weightkg: 82.5,
@@ -2367,6 +2367,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 104, atk: 91, def: 73, spa: 91, spd: 73, spe: 68},
 		isNonstandard: null,
 	},
+	delcatty: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 65, def: 75, spa: 55, spd: 65, spe: 90},
+		isNonstandard: null,
+	},
 	mawile: {
 		inherit: true,
 		abilities: {0: "Hyper Cutter", 1: "Disturbance", H: "Strong Jaw"},
@@ -2456,6 +2461,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	relicanth: {
 		inherit: true,
 		abilities: {0: "Against Current", 1: "Rock Head", H: "Sturdy"},
+		baseStats: {hp: 100, atk: 90, def: 130, spa: 45, spd: 85, spe: 55},
 		isNonstandard: null,
 	},
 	latias: {
@@ -2787,6 +2793,21 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Forewarn", 1: "Synchronize", H: "Wonder Skin"},
 		isNonstandard: null,
 	},
+	pidove: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 36, def: 50, spa: 55, spd: 30, spe: 43},
+		isNonstandard: null,
+	},
+	tranquill: {
+		inherit: true,
+		baseStats: {hp: 62, atk: 50, def: 62, spa: 77, spd: 42, spe: 65},
+		isNonstandard: null,
+	},
+	unfezant: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 65, def: 80, spa: 115, spd: 55, spe: 93},
+		isNonstandard: null,
+	},
 	roggenrola: {
 		inherit: true,
 		abilities: {0: "Sturdy", H: "Sand Force"},
@@ -2845,7 +2866,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lilliganthisui: {
 		inherit: true,
-		abilities: {0: "Leaf Guard", 1: "Hustle", H: "Limber"},
+		abilities: {0: "Chlorophyll", 1: "Hustle", H: "Limber"},
 	},
 	darumakagalar: {
 		inherit: true,
@@ -2914,6 +2935,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	duosion: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 40, def: 55, spa: 125, spd: 65, spe: 30},
+	},
+	ducklett: {
+		inherit: true,
+		abilities: {0: "Water Veil", 1: "Big Pecks", H: "Hydration"},
+	},
+	swanna: {
+		inherit: true,
+		abilities: {0: "Serene Grace", 1: "Big Pecks", H: "Hydration"},
 	},
 	vanillite: {
 		inherit: true,
@@ -3064,26 +3093,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Download", H: "Battle Armor"},
 		isNonstandard: null,
 	},
-	genesectdouse: {
-		inherit: true,
-		abilities: {0: "Download", H: "Battle Armor"},
-		isNonstandard: null,
-	},
-	genesectshock: {
-		inherit: true,
-		abilities: {0: "Download", H: "Battle Armor"},
-		isNonstandard: null,
-	},
-	genesectburn: {
-		inherit: true,
-		abilities: {0: "Download", H: "Battle Armor"},
-		isNonstandard: null,
-	},
-	genesectchill: {
-		inherit: true,
-		abilities: {0: "Download", H: "Battle Armor"},
-		isNonstandard: null,
-	},
+	genesectdouse: null,
+	genesectshock: null,
+	genesectburn: null,
+	genesectchill: null,
 	greninja: {
 		inherit: true,
 		abilities: {0: "Torrent", H: "Protean"},
@@ -4486,6 +4499,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	mareep: {
 		inherit: true,
 		abilities: {0: "Static", H: "Induction"},
+		color: "Yellow",
 	},
 	flaaffy: {
 		inherit: true,
@@ -4573,6 +4587,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	charizardmegay: {
 		inherit: true,
 		color: "Orange",
+		isNonstandard: null,
+	},
+	raticate: {
+		inherit: true,
+		otherFormes: ["Raticate-Alola"],
+		formeOrder: ["Raticate", "Raticate-Alola"],
 		isNonstandard: null,
 	},
 	pikachu: {
@@ -4756,7 +4776,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Spewpa",
 		evoLevel: 12,
 		eggGroups: ["Bug"],
-		cosmeticFormes: ["Vivillon-Archipelago", "Vivillon-Continental", "Vivillon-Elegant", "Vivillon-Garden", "Vivillon-High Plains", "Vivillon-Icy Snow", "Vivillon-Jungle", "Vivillon-Marine", "Vivillon-Modern", "Vivillon-Monsoon", "Vivillon-Ocean", "Vivillon-Polar", "Vivillon-River", "Vivillon-Sandstorm", "Vivillon-Savanna", "Vivillon-Sun", "Vivillon-Tundra", "Vivillon-Fancy", "Vivillon-Pokeball"],
+		cosmeticFormes: ["Vivillon-Archipelago", "Vivillon-Continental", "Vivillon-Elegant", "Vivillon-Garden", "Vivillon-High Plains", "Vivillon-Icy Snow", "Vivillon-Jungle", "Vivillon-Marine", "Vivillon-Modern", "Vivillon-Monsoon", "Vivillon-Ocean", "Vivillon-Polar", "Vivillon-River", "Vivillon-Sandstorm", "Vivillon-Savanna", "Vivillon-Sun", "Vivillon-Tundra", "Vivillon-Fancy", "Vivillon-Pok\u0301 Ball"],
 		formeOrder: [
 			"Vivillon-Icy Snow",
 			"Vivillon-Polar",
@@ -4777,7 +4797,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Vivillon-Ocean",
 			"Vivillon-Jungle",
 			"Vivillon-Fancy",
-			"Vivillon-Pokeball",
+			"Vivillon-Pok\u0301 Ball",
 		],
 	},
 	vivillonfancy: null,
@@ -4812,11 +4832,90 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		color: "Orange",
 	},
+	gumshoos: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	ribombee: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	araquanid: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	lurantis: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	salazzle: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
+	palossand: {
+		inherit: true,
+		color: "Orange",
+	},
+	togedemaru: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+		isNonstandard: null,
+	},
+	mimikyu: {
+		inherit: true,
+		otherFormes: ["Mimikyu-Busted"],
+		formeOrder: ["Mimikyu", "Mimikyu-Busted"],
+	},
+	kommoo: {
+		inherit: true,
+		otherFormes: null,
+		formeOrder: null,
+	},
 	runerigus: {
 		inherit: true,
 		evoLevel: 34,
 		evoCondition: "interact with Serpent Mural while <= 49% HP.",
 		isNonstandard: null,
+	},
+	sinistea: {
+		num: 854,
+		name: "Sinistea",
+		baseForme: "Phony",
+		types: ["Ghost"],
+		gender: "N",
+		baseStats: {hp: 40, atk: 45, def: 45, spa: 74, spd: 54, spe: 50},
+		abilities: {0: "Weak Armor", H: "Cursed Body"},
+		heightm: 0.1,
+		weightkg: 0.2,
+		color: "Purple",
+		evos: ["Polteageist"],
+		eggGroups: ["Mineral", "Amorphous"],
+		cosmeticFormes: ["Sinistea-Antique"],
+		formeOrder: ["Sinistea", "Sinistea-Antique"],
+	},
+	polteageist: {
+		num: 855,
+		name: "Polteageist",
+		baseForme: "Phony",
+		types: ["Ghost"],
+		gender: "N",
+		baseStats: {hp: 60, atk: 65, def: 65, spa: 134, spd: 114, spe: 70},
+		abilities: {0: "Weak Armor", H: "Cursed Body"},
+		heightm: 0.2,
+		weightkg: 0.4,
+		color: "Purple",
+		prevo: "Sinistea",
+		evoType: "useItem",
+		evoItem: "Cracked Pot",
+		eggGroups: ["Mineral", "Amorphous"],
+		cosmeticFormes: ["Polteageist-Antique"],
+		formeOrder: ["Polteageist", "Polteageist-Antique"],
 	},
 	pawmi: {
 		inherit: true,
@@ -4837,10 +4936,49 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	orthworm: {
 		inherit: true,
 		eggGroups: ["Field", "Amorphous"],
+		color: "Orange",
+	},
+	tatsugiri: {
+		inherit: true,
+		color: "Orange",
 	},
 	chiyu: {
 		inherit: true,
 		color: "Orange",
+	},
+	poltchageist: {
+		num: 1012,
+		name: "Poltchageist",
+		baseForme: "Counterfeit",
+		types: ["Grass", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 40, atk: 45, def: 45, spa: 74, spd: 54, spe: 50},
+		abilities: {0: "Hospitality", H: "Heatproof"},
+		heightm: 0.1,
+		weightkg: 1.1,
+		color: "Green",
+		evos: ["Sinistcha"],
+		eggGroups: ["Mineral", "Amorphous"],
+		cosmeticFormes: ["Poltchageist-Artisan"],
+		formeOrder: ["Poltchageist", "Poltchageist-Artisan"],
+	},
+	sinistcha: {
+		num: 1013,
+		name: "Sinistcha",
+		baseForme: "Unremarkable",
+		types: ["Grass", "Ghost"],
+		gender: "N",
+		baseStats: {hp: 71, atk: 60, def: 106, spa: 121, spd: 80, spe: 70},
+		abilities: {0: "Hospitality", H: "Heatproof"},
+		heightm: 0.2,
+		weightkg: 2.2,
+		color: "Green",
+		prevo: "Poltchageist",
+		evoType: "useItem",
+		evoItem: "Unremarkable Teacup",
+		eggGroups: ["Mineral", "Amorphous"],
+		cosmeticFormes: ["Sinistcha-Masterpiece"],
+		formeOrder: ["Sinistcha", "Sinistcha-Masterpiece"],
 	},
 	archaludon: {
 		inherit: true,
@@ -4892,10 +5030,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		isNonstandard: null,
 	},
 	rattataalola: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	raticate: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -4978,6 +5112,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	marowak: {
 		inherit: true,
 		isNonstandard: null,
+		otherFormes: ["Marowak-Alola"],
+		formeOrder: ["Marowak", "Marowak-Alola"],
 	},
 	lickitung: {
 		inherit: true,
@@ -5168,10 +5304,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		isNonstandard: null,
 	},
 	skitty: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	delcatty: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -5444,18 +5576,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		isNonstandard: null,
 	},
 	simipour: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	pidove: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	tranquill: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	unfezant: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -5739,10 +5859,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	togedemaru: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	drampa: {
 		inherit: true,
 		isNonstandard: null,
@@ -5870,6 +5986,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	toxtricitygmax: null,
 	toxtricitylowkeygmax: null,
 	centiskorchgmax: null,
+	sinisteaantique: null,
+	polteageistantique: null,
 	hatterenegmax: null,
 	grimmsnarlgmax: null,
 	alcremiegmax: null,
@@ -5880,10 +5998,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	urshifurapidstrikegmax: null,
 	zarudedada: null,
 	ursalunabloodmoon: null,
+	poltchageistartisan: null,
+	sinistchamasterpiece: null,
 	ogerpontealtera: null,
 	ogerponwellspringtera: null,
 	ogerponhearthflametera: null,
 	ogerponcornerstonetera: null,
+	missingno: null,
 	pokestarsmeargle: null,
 	pokestarufo: null,
 	pokestarufo2: null,
@@ -5923,12 +6044,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	protowatt: {
 		inherit: true,
-		abilities: {0: "Trace", 1: "Induction", H: "Magic Guard"},
+		abilities: {0: "Battle Armor", 1: "Induction", H: "Magic Guard"},
 		//number: -21,
 	},
 	krilowatt: {
 		inherit: true,
-		abilities: {0: "Trace", 1: "Induction", H: "Magic Guard"},
+		abilities: {0: "Battle Armor", 1: "Induction", H: "Magic Guard"},
 		//number: -22,
 	},
 	necturine: {
@@ -5949,7 +6070,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	volkritter: {
 		inherit: true,
 		//number: -37,
-		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
+		abilities: {0: "Illuminate", 1: "Infiltrator", H: "Unnerve"},
+	},
+	volkraken: {
+		inherit: true,
+		//number: -38,
+		abilities: {0: "Analytic", 1: "Infiltrator", H: "Deep Terror"},
+	},
+	chromera: {
+		inherit: true,
+		types: ["Dark", "Poison"],
+		//number: -65,
 	},
 	venomicon: {
 		inherit: true,
@@ -5978,11 +6109,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	draggalong: {
 		inherit: true,
 		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
-	},
+	},*/
 	chuggalong: {
 		inherit: true,
+		baseStats: {hp: 45, atk: 73, def: 107, spa: 110, spd: 100, spe: 108},
 		abilities: {0: "Cacophony", 1: "White Smoke", H: "Stall"},
-	},*/
+	},
 	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
 		number: -14,
@@ -6050,10 +6182,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	cawmodore: {
 		inherit: true,
 		number: -36,
-	},
-	volkraken: {
-		inherit: true,
-		number: -38,
 	},
 	snugglow: {
 		inherit: true,
@@ -6158,9 +6286,5 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	miasmaw: {
 		inherit: true,
 		number: -64,
-	},
-	chromera: {
-		inherit: true,
-		number: -65,
 	},*/
 };
