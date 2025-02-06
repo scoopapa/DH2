@@ -359,7 +359,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		consumable: true,
 		desc: "This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon's Intimidate or Disturbance Ability affected this Pokemon. Single-use.",
-		shortDesc: "+1 Speed if hit by a Bug/Dark/Ghost-type attack or Intimidate/Disturbance. Single use.",
+		shortDesc: "+1 Speed if hit by a Bug/Dark/Ghost attack or Intimidate/Disturbance. Single use.",
 	},
 	aguavberry: {
 		inherit: true,
@@ -380,6 +380,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
+	auspiciousarmor: {
+		inherit: true,
+		onCriticalHit: false,
+		rating: 1,
+		shortDesc: "Prevents holder from being struck by critical hits.",
+		desc: "Prevents the holder from being struck by a critical hit. Evolves Charcadet into Armarouge when traded.",
+	},
 	bignugget: {
 		inherit: true,
 		fling: {
@@ -387,7 +394,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			flags: {bullet: 1},
 		},
 		shortDesc: "No in-battle effect. Projectile move when Flung.",
-		desc: "A big nugget of pure gold that gives off a lustrous gleam. When Flung, counts as a projectile move.",
 	},
 	bigroot: {
 		inherit: true,
@@ -414,22 +420,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			flags: {powder: 1},
 		},
 		onFoeTryMove(source, target, move) {
-			if (move.target === 'foeSide' || (move.target === 'all' && move.id !== 'perishsong')) {
+			const powderHolder = this.effectState.target;
+			if (move.target === 'foeSide' || 
+			(move.target === 'all' && !['perishsong','equalizer'].includes(move.id)) || 
+			(['adjacentFoes','allAdjacent'].includes(move.target) && !powderHolder.isAdjacent(source)) || 
+			(['normal','any'].includes(move.target) && !(powderHolder === target))) {
 				return;
 			}
-			if (move.priority > 0.1 && target.useItem())
+			if (move.priority > 0.1 && powderHolder.useItem())
 			{
-				this.add('activate', target, 'item: BrightPowder');
+				this.add('activate', powderHolder, 'item: BrightPowder');
 				if(!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'item: BrightPowder', move, '[of] ' + target);
+				this.add('cant', source, 'item: BrightPowder', move, '[of] ' + powderHolder);
 				return false;
 			}
 		},
 		num: 213,
 		rating: 3,
 		gen: 2,
-		desc: "Causes a priority move that targets the holder to fail, which consumes the item. The effect fails if the attacker is immune to powder moves, but the item is still consumed. When Flung, the target's accuracy is lowered 2 stages.",
+		desc: "Causes a priority move that targets the holder to fail, which consumes the item. When Flung, the target's accuracy is lowered 2 stages. Both of these effects fail if the targeted Pokemon is immune to powder moves, but the item is still consumed.",
 		shortDesc: "Protects from an increased priority move. When Flung, -2 accuracy. Single use.",
 		block: '#damp',
 	},
@@ -468,6 +478,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder and allies' Electric-type moves have 1.1x power. Evolves Electabuzz into Electivire when traded.",
 		shortDesc: "Holder and allies' Electric-type moves have 1.1x power.",
 		rating: 2,
+	},
+	enigmaberry: {
+		inherit: true,
+		consumable: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0 && target.eatItem()) {
+				this.debug('Enigma Berry neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		shortDesc: "Takes 3/4 damage from a supereffective attack. Single use.",
 	},
 	figyberry: {
 		inherit: true,
@@ -557,15 +578,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Dark",
 		},
 		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'spa') {
+			if (pokemon.getNature().minus === 'def') {
 				this.heal(pokemon.baseMaxhp * 0.5);
 				pokemon.addVolatile('confusion');
 			} else {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
 	ironball: {
@@ -645,6 +666,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sweet food (-Speed Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Spe Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
+	},
+	maliciousarmor: {
+		inherit: true,
+		onCriticalHit: false,
+		rating: 1,
+		shortDesc: "Prevents holder from being struck by critical hits.",
+		desc: "Prevents the holder from being struck by a critical hit. Evolves Charcadet into Ceruledge when traded.",
 	},
 	metalpowder: {
 		name: "Metal Powder",
@@ -979,15 +1007,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Rock",
 		},
 		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'def') {
+			if (pokemon.getNature().minus === 'spa') {
 				this.heal(pokemon.baseMaxhp * 0.5);
 				pokemon.addVolatile('confusion');
 			} else {
 				this.heal(pokemon.baseMaxhp * 0.125);
 			}
 		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
 	},
 	wiseglasses: {
@@ -2791,10 +2819,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		consumable: true,
 	},
-	enigmaberry: {
-		inherit: true,
-		consumable: true,
-	},
 	focussash: {
 		inherit: true,
 		fling: {
@@ -3729,7 +3753,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,
-		desc: "A Poke Ball that makes it easier to catch saltwater-dwelling Pokemon.",
+		desc: "A Poke Ball that makes it easier to catch Pokemon while at sea.",
 	},
 	duskball: {
 		inherit: true,

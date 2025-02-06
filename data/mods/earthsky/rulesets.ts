@@ -32,13 +32,35 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					}
 				}
 			}
-			if (species.baseSpecies === "Zygarde" && set.moves) {
+			if (species.baseSpecies === "Zygarde" && set.moves) { //Zygarde Cube enforcement
 				for (const move of set.moves) {
 					if (move === "Core Enforcer" && set.ability && set.ability !== "Power Construct") {
 						problems.push("Zygarde without Power Construct can't know Core Enforcer.");
 					}
 				}
 				
+			}
+			if (species.baseSpecies === "Unown" && set.moves) { //Unown form tutor because coding all the letters as non-cosmetic is too much work
+				let forme = species.forme ? species.forme : "A";
+				if (forme === "Question") forme = "?";
+				if (forme === "Exclamantion") forme = "!";
+				const letterTutor = {
+					"Psystrike": ["A", "O", "W"],
+					"Heal Pulse": ["B", "D", "R"],
+					"Psy Bubble": ["C", "J", "K", "L", "T", "U", "V", "Y", "Z"],
+					"Psycho Boost": ["E", "I", "M"],
+					"Protect": ["F", "N", "S"],
+					"Stored Power": ["G", "P", "Q"],
+					"Ally Switch": ["H", "X"],
+					"Metronome": ["?"],
+					"Belly Drum": ["!"],
+				};
+				for (const move of set.moves) {
+					const moveName = (move === "psybubble" ? "Psy Bubble" : move); //Customs get stored differently for some stupid reason
+					if (Object.keys(letterTutor).includes(moveName) && !letterTutor[moveName].includes(forme)) {
+						problems.push(`Unown can't know ${moveName} if its letter is ${forme}.`);
+					}
+				}
 			}
 			return problems;
 		},

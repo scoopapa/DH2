@@ -541,6 +541,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricitygmax: null,
 	toxtricitylowkeygmax: null,
 	centiskorchgmax: null,
+	sinisteaantique: null,
+	polteageistantique: null,
 	hatterenegmax: null,
 	grimmsnarlgmax: null,
 	alcremiegmax: null,
@@ -550,6 +552,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	urshifugmax: null,
 	urshifurapidstrikegmax: null,
 	zarudedada: null,
+	zarudedada: null,
+	ursalunabloodmoon: null,
+	poltchageistartisan: null,
+	sinistchamasterpiece: null,
+	ogerpontealtera: null,
+	ogerponwellspringtera: null,
+	ogerponhearthflametera: null,
+	ogerponcornerstonetera: null,
 	pokestarsmeargle: null,
 	pokestarufo: null,
 	pokestarufo2: null,
@@ -1933,8 +1943,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'Uber'
 	},
 	zamazenta: {
-		tier: 'OU',
-		natDexTier: 'OU'
+		tier: 'Uber',
+		natDexTier: 'Uber'
 	},
 	zamazentacrowned: {
 		tier: 'Uber',
@@ -5263,15 +5273,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
-	sinisteaantique: {
-		tier: 'LC',
-		natDexTier: 'LC'
-	},
 	polteageist: {
-		tier: 'OU',
-		natDexTier: 'OU'
-	},
-	polteageistantique: {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
@@ -5515,15 +5517,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
-	poltchageistartisan: {
-		tier: 'LC',
-		natDexTier: 'LC'
-	},
 	sinistcha: {
-		tier: 'OU',
-		natDexTier: 'OU'
-	},
-	sinistchamasterpiece: {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
