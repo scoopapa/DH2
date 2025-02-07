@@ -19,6 +19,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'moltres').learnset.wavecrash = ['9L1'];
 		this.modData('Learnsets', 'moltres').learnset.defog = ['9L1'];
 
+		this.modData('Learnsets', 'kommoo').learnset.aurasphere = ['9L1'];
+
 		this.modData('Learnsets', 'illumise').learnset.calmmind = ['9L1'];
 		this.modData('Learnsets', 'illumise').learnset.thunderbolt = ['9L1'];
 		this.modData('Learnsets', 'illumise').learnset.icebeam = ['9L1'];
@@ -59,6 +61,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'mesprit').learnset.torchsong = ['9L1'];
 		this.modData('Learnsets', 'mesprit').learnset.cosmicpower = ['9L1'];
 		this.modData('Learnsets', 'mesprit').learnset.aquaring = ['9L1'];
+		this.modData('Learnsets', 'mesprit').learnset.freezedry = ['9L1'];
 		
 		this.modData('Learnsets', 'electrode').learnset.encore = ['9L1'];
 		this.modData('Learnsets', 'electrode').learnset.rapidspin = ['9L1'];
