@@ -57,7 +57,7 @@
         ]
     },
     "mamoswine": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -106,6 +106,17 @@
             }
         ]
     },
+    "kommoo": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Clangorous Soul", "Aura Sphere", "Close Combat", "Clanging Scales", "Boomburst"],
+                "abilities": ["Punk Rock"],
+                "teraTypes": ["Normal"]
+            }
+        ]
+    },
     "illumise": {
         "level": 92,
         "sets": [
@@ -151,10 +162,10 @@
         ]
     },
     "dugtrio": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
-                "role": "Fast Attacker",
+                "role": "Setup Sweeper",
                 "movepool": ["Sucker Punch", "Mighty Cleave", "Earthquake", "Salt Cure", "Acrobatics", "Swords Dance"],
                 "abilities": ["Arena Trap"],
                 "teraTypes": ["Flying", "Ground"]
@@ -168,7 +179,7 @@
         ]
     },
     "altaria": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -179,18 +190,18 @@
         ]
     },
     "altariamega": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Setup",
                 "movepool": ["Beak Blast", "Roost", "Return", "Dragon Dance", "Earthquake", "Draco Meteor", "Explosion"],
-                "abilities": ["Pixilate"],
-                "teraTypes": ["Steel"]
+                "abilities": ["Fluffy"],
+                "teraTypes": ["Normal"]
             }
         ]
     },
     "tyranitar": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -201,7 +212,7 @@
         ]
     },
     "tyranitarmega": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -212,7 +223,7 @@
         ]
     },
     "mimikyu": {
-        "level": 85,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Support",
@@ -223,11 +234,11 @@
         ]
     },
     "mesprit": {
-        "level": 85,
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Agility", "Psychic Noise", "Psychic", "Stored Power", "Freeze Dry", "Torch Song"],
+                "movepool": ["Agility", "Psychic Noise", "Psychic", "Stored Power", "Freeze-Dry", "Torch Song"],
                 "abilities": ["Liquid Voice"],
                 "teraTypes": ["Poison", "Water"]
             },
@@ -240,7 +251,7 @@
         ]
     },
     "electrode": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Fast Support",
@@ -251,7 +262,7 @@
         ]
     },
     "taurospaldeacombat": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -262,7 +273,7 @@
         ]
     },
     "chiyu": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -273,7 +284,7 @@
         ]
     },
     "wochien": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -284,7 +295,7 @@
         ]
     },
     "staraptor": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -295,7 +306,7 @@
         ]
     },
     "archaludon": {
-        "level": 85,
+        "level": 82,
         "sets": [
             {
                 "role": "AV Pivot",
@@ -312,7 +323,7 @@
         ]
     },
     "malamar": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -323,7 +334,7 @@
         ]
     },
     "empoleon": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -334,7 +345,7 @@
         ]
     },
     "glastrier": {
-        "level": 85,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -345,7 +356,7 @@
         ]
     },
     "regieleki": {
-        "level": 85,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -356,7 +367,7 @@
         ]
     },
     "lycanrocmidnight": {
-        "level": 85,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -367,7 +378,7 @@
         ]
     },
     "lycanroc": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
                 "role": "Fast Support",
@@ -378,7 +389,7 @@
         ]
     },
     "lycanrocdusk": {
-        "level": 85,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -388,8 +399,8 @@
             }
         ]
     },
-    "Dodrio": {
-        "level": 85,
+    "dodrio": {
+        "level": 86,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -399,8 +410,8 @@
             }
         ]
     },
-    "Whiscash": {
-        "level": 85,
+    "whiscash": {
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -410,8 +421,8 @@
             }
         ]
     },
-    "Hippowdon": {
-        "level": 85,
+    "hippowdon": {
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -421,8 +432,8 @@
             }
         ]
     },
-    "Cramorant": {
-        "level": 85,
+    "cramorant": {
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -432,8 +443,8 @@
             }
         ]
     },
-    "Grafaiai": {
-        "level": 85,
+    "grafaiai": {
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -443,8 +454,8 @@
             }
         ]
     },
-    "Tatsugiri": {
-        "level": 85,
+    "tatsugiri": {
+        "level": 86,
         "sets": [
             {
                 "role": "Setup Sweeper",

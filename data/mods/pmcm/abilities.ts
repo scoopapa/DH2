@@ -47,12 +47,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	shortfuse: {
 		//Placeholder until implementation
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Short Fuse');
+				return target.hp - 1;
+			}
+		},
+		onResidualOrder: 30,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			if (pokemon.hp > 1) return;
+			const explosion = this.dex.getActiveMove('explosion');
+			this.actions.useMove(explosion, pokemon);
+		},
 		flags: {breakable: 1},
 		name: "Short Fuse",
 		rating: 5,
 		num: -102,
-		shortDesc: "Does nothing right now!",
-		//shortDesc: "When this Pokemon would be KOed, it instead uses Explosion.",
+		//shortDesc: "Does nothing right now!",
+		shortDesc: "When this Pokemon would be KOed, it instead uses Explosion.",
 	},
 	hydroelectricdam: {
 		//Copied from the code for Sand Spit
@@ -72,7 +86,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 5,
 		num: -104,
 		shortDesc: "Does nothing right now!",
-		//shortDesc: "When this Pokemon is hit by an attack, it first inverts the opponent's positive stat stage changes.",
+		//shortDesc: "When this Pokemon is hit by a contact move, it first inverts the opponent's positive stat stage changes.",
 	},
 	frozenarmor: {
 		//Code stolen from Shields Down

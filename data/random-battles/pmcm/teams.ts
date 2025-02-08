@@ -556,7 +556,7 @@ export class RandomTeams {
 			['dragondance', 'dracometeor'],
 
 			// These attacks are redundant with each other
-			[['psychic', 'psychicnoise'], ['psyshock', 'psychicnoise']],
+			//[['psychic', 'psychicnoise'], ['psyshock', 'psychicnoise']],
 			['surf', 'hydropump'],
 			['liquidation', 'wavecrash'],
 			['aquajet', 'flipturn'],
@@ -583,16 +583,6 @@ export class RandomTeams {
 			[['thunderwave', 'toxic'], ['thunderwave', 'willowisp']],
 			[['thunderwave', 'toxic', 'willowisp'], 'toxicspikes'],
 
-			// This space reserved for assorted hardcodes that otherwise make little sense out of context
-			// Lurantis
-			['leafstorm', 'powerwhip'],
-			// Iron Crown
-			[['kingsshield', 'stealthrock', 'rest'], ['kingsshield', 'stealthrock', 'rest']],
-			// Carbink
-			['spikes', 'stealthrock'],
-			// Moltres
-			['bravebird', 'woodhammer'],
-			['flareblitz', 'wavecrash'],
 		];
 
 		for (const pair of incompatiblePairs) this.incompatibleMoves(moves, movePool, pair[0], pair[1]);
@@ -606,10 +596,16 @@ export class RandomTeams {
 		if (!abilities.includes('Prankster')) this.incompatibleMoves(moves, movePool, 'thunderwave', 'yawn');
 
 		// This space reserved for assorted hardcodes that otherwise make little sense out of context
-		if (species.id === 'cyclizar') this.incompatibleMoves(moves, movePool, 'taunt', 'knockoff');
-		if (species.id === 'mesprit') this.incompatibleMoves(moves, movePool, 'healingwish', 'uturn');
-		if (species.id === 'camerupt') this.incompatibleMoves(moves, movePool, 'roar', 'willowisp');
-		if (species.id === 'coalossal') this.incompatibleMoves(moves, movePool, 'flamethrower', 'overheat');
+		if (species.id === 'lurantis') this.incompatibleMoves(moves, movePool, 'leafstorm', 'powerwhip');
+		if (species.id === 'ironcrown') this.incompatibleMoves(moves, movePool, 'kingsshield', 'stealthrock');
+		if (species.id === 'ironcrown') this.incompatibleMoves(moves, movePool, 'kingsshield', 'rest');
+		if (species.id === 'ironcrown') this.incompatibleMoves(moves, movePool, 'rest', 'stealthrock');
+		if (species.id === 'carbink') this.incompatibleMoves(moves, movePool, 'spikes', 'stealthrock');
+		if (species.id === 'moltres') this.incompatibleMoves(moves, movePool, 'bravebird', 'woodhammer');
+		if (species.id === 'moltres') this.incompatibleMoves(moves, movePool, 'flareblitz', 'wavecrash');
+		if (species.id === 'kommoo') this.incompatibleMoves(moves, movePool, 'aurasphere', 'closecombat');
+		if (species.id === 'archaludon') this.incompatibleMoves(moves, movePool, 'scald', 'hydropump');
+
 	}
 
 	// Checks for and removes incompatible moves, starting with the first move in movesA.
@@ -733,6 +729,14 @@ export class RandomTeams {
 		}
 
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
+
+		// PMCM hardcodes (reserve these to when absolutely necessary, let the script do most of the work)
+		if (species.id === 'chiyu') {
+			if (movePool.includes('splash')) {
+				counter = this.addMove('splash', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
+			}
+		}
 
 		// Enforce Facade if Guts is a possible ability
 		if (movePool.includes('facade') && abilities.includes('Guts')) {
@@ -1161,14 +1165,17 @@ export class RandomTeams {
 		if (species.id === 'pikachu') return 'Light Ball';
 		if (species.id === 'regieleki') return 'Magnet';
 		if (species.id === 'smeargle') return 'Focus Sash';
+
+		// PMCM hardcodes
 		if (species.id === 'dugtrio' && moves.has("swordsdance")) return 'Focus Sash';
 		if (species.id === 'dugtrio') return 'Choice Band';
-		if (species.id === 'altaria') return 'Heavy Duty Boots';
+		if (species.id === 'altaria') return 'Heavy-Duty Boots';
 		if (species.id === 'tyranitar') return 'Choice Scarf';
 		if (species.id === 'mimikyu') return 'Red Card';
 		if (species.id === 'mesprit' && moves.has("aquaring")) return 'Leftovers';
 		if (species.id === 'mesprit') return 'Throat Spray';
-		if (species.id === 'electrode') return this.sample(['Normal Gem', 'Heavy Duty Boots']);
+		if (species.id === 'electrode' && moves.has("rapidspin")) return 'Heavy-Duty Boots';
+		if (species.id === 'electrode') return this.sample(['Normal Gem', 'Heavy-Duty Boots']);
 		if (species.id === 'taurospaldeacombat') return 'Expert Belt';
 		if (species.id === 'chiyu') return 'Normalium Z';
 		if (species.id === 'wochien') return 'Big Root';
@@ -1177,17 +1184,18 @@ export class RandomTeams {
 		if (species.id === 'archaludon' && ability === 'Stamina') return 'Leftovers';
 		if (species.id === 'malamar') return this.sample(['Mirror Herb', 'Leftovers']);
 		if (species.id === 'empoleon') return 'Rocky Helmet';
-		if (species.id === 'glastrier' && moves.has('swordsdance')) return 'Heavy Duty Boots';
+		if (species.id === 'glastrier' && moves.has('swordsdance')) return 'Heavy-Duty Boots';
 		if (species.id === 'glastrier') return 'Assault Vest';
 		if (species.id === 'lycanrocmidnight') return 'Loaded Dice';
-		if (species.id === 'lycanroc') return this.sample(['Leftovers', 'Heavy Duty Boots']);
+		if (species.id === 'lycanroc') return this.sample(['Leftovers', 'Heavy-Duty Boots']);
 		if (species.id === 'lycanrocdusk') return 'Expert Belt';
 		if (species.id === 'dodrio') return 'Life Orb';
 		if (species.id === 'whiscash') return 'Rocky Helmet';
 		if (species.id === 'hippowdon') return this.sample(['Leftovers', 'Rocky Helmet']);
-		if (species.id === 'cramorant') return 'Heavy Duty Boots';
+		if (species.id === 'cramorant') return 'Heavy-Duty Boots';
 		if (species.id === 'grafaiai') return this.sample(['Red Card', 'Mirror Herb']);
 		if (species.id === 'tatsugiri') return 'Mystic Water';
+
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||
 			(ability === 'Hustle' && counter.get('setup') && !isDoubles && this.randomChance(1, 2))
@@ -1719,13 +1727,14 @@ export class RandomTeams {
 			const limitFactor = Math.round(this.maxTeamSize / 6) || 1;
 
 			// TEMPORARILY ADJUSTING BALANCE OF THIS BLOCK -- TOO FEW POKEMON TO GENERATE TEAMS
+			// update: reverting these changes, but leaving just in case
 			if (!isMonotype && !this.forceMonotype) {
 				let skip = false;
 
 				// Limit two of any type
 				// ADJUSTING TO 6 -- ADJUST BACK AFTER MORE POKEMON HAVE BEEN ADDED
 				for (const typeName of types) {
-					if (typeCount[typeName] >= /*2*/ 6 * limitFactor) {
+					if (typeCount[typeName] >= 2 /*6*/ * limitFactor) {
 						skip = true;
 						break;
 					}
@@ -1738,14 +1747,14 @@ export class RandomTeams {
 					// it's weak to the type
 					if (this.dex.getEffectiveness(typeName, species) > 0) {
 						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
-						if (typeWeaknesses[typeName] >= /*3*/ 6 * limitFactor) {
+						if (typeWeaknesses[typeName] >= 3 /*6*/ * limitFactor) {
 							skip = true;
 							break;
 						}
 					}
 					if (this.dex.getEffectiveness(typeName, species) > 1) {
 						if (!typeDoubleWeaknesses[typeName]) typeDoubleWeaknesses[typeName] = 0;
-						if (typeDoubleWeaknesses[typeName] >= /*1*/ 6 * limitFactor) {
+						if (typeDoubleWeaknesses[typeName] >= 1 /*6*/ * limitFactor) {
 							skip = true;
 							break;
 						}
@@ -1760,14 +1769,14 @@ export class RandomTeams {
 					Object.values(species.abilities).filter(a => ['Dry Skin', 'Fluffy'].includes(a)).length
 				) {
 					if (!typeWeaknesses['Fire']) typeWeaknesses['Fire'] = 0;
-					if (typeWeaknesses['Fire'] >= /*3*/ 6 * limitFactor) continue;
+					if (typeWeaknesses['Fire'] >= 3 /*6*/ * limitFactor) continue;
 				}
 
 				// Limit four weak to Freeze-Dry
 				// ADJUSTING TO 6 -- ADJUST BACK AFTER MORE POKEMON HAVE BEEN ADDED
 				if (weakToFreezeDry) {
 					if (!typeWeaknesses['Freeze-Dry']) typeWeaknesses['Freeze-Dry'] = 0;
-					if (typeWeaknesses['Freeze-Dry'] >= /*4*/ 6 * limitFactor) continue;
+					if (typeWeaknesses['Freeze-Dry'] >= 4 /*6*/ * limitFactor) continue;
 				}
 
 				// Limit one level 100 Pokemon
