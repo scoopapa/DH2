@@ -274,6 +274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 73, atk: 79, def: 75, spa: 104, spd: 104, spe: 106},
 		abilities: {0: "Shield Dust", 1: "Compound Eyes", H: "Natural Cure"},
 		weightkg: 17.0,
+		prevo: null,
 	},
 	moltres: {
 		inherit: true,
@@ -1009,7 +1010,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "Stall", H: "RKS System"},
-		//requiredItem: "Stellarium Z",
+		requiredItem: "Not Stellarium Z. Lol!",
 		changesFrom: "Silvally",
 	},
 	goddease: {
