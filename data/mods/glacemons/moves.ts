@@ -91,11 +91,13 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Aromatherapy", source);
 			this.add('-anim', source, "Double-Edge", target);
 		},
-		onBasePower(basePower, pokemon) {
-			if (pokemon.status && pokemon.status !== 'slp', 'frz') {
-				return this.chainModify(1.5);
-			}
-		},
+      basePowerCallback(pokemon, target, move) {
+      	if (pokemon.status && pokemon.status !== 'slp', 'frz') {
+         	this.debug('BP boosted from status condition');
+            return move.basePower * 1.5;
+         }
+         return move.basePower;
+      },
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
 			pokemon.cureStatus();
