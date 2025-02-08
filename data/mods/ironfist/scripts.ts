@@ -20,7 +20,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!mon.types.includes('Water') && !mon.types.includes('Steel')) this.modData("Learnsets", pokemon).learnset.fisheater = ["9L1"];
 				if (mon.fish) this.modData("Learnsets", pokemon).learnset.fish = ["9L1"];
 				if (mon.diamondhand) this.modData("Learnsets", pokemon).learnset.diamondhand = ["9L1"];
-				if (mon.hoenn) this.modData("Learnsets", pokemon).learnset.hoenn = ["9L1"];
+				if (mon.hoenn || mon.gen === 3) this.modData("Learnsets", pokemon).learnset.hoenn = ["9L1"];
 				if (mon.trans) this.modData("Learnsets", pokemon).learnset.trans = ["9L1"];
 				if (mon.copen) this.modData("Learnsets", pokemon).learnset.copen = ["9L1"];
 			}

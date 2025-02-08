@@ -141,6 +141,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			airhorn: ["9L1"],
 			copen: ["9L1"],
+			hoenn: ["9L1"],
 		},
 	},
 	toxapex: {
@@ -10458,6 +10459,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	grumpig: {
 		learnset: {
 			inherit: true,
+			hoenn: ["9L1"],
 			allyswitch: ["9L1"],
 			amnesia: ["9L1"],
 			attract: ["9L1"],
@@ -10601,6 +10603,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 
 	impromancer: {
 		learnset: {
+			diamondhand: ["9L1"],
 			necromancy: ["9L1"],
 			gayveyard: ["9L1"],
 			evilscaryuturn: ["9L1"],
@@ -11753,6 +11756,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lickilord: {
 		learnset: {
+			trans: ["9L1"],
 			airhorn: ["9L1"],
 			amnesia: ["9L1"],
 			balatroblast: ["9L1"],
@@ -11912,6 +11916,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	everhl: {
 		learnset: {
+			diamondhand: ["9L1"],
 			everstormhalberd: ["9L1"],
 			scratch: ["9L1"],
 			harden: ["9L1"],
@@ -11987,7 +11992,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	rayquaza: {
 		learnset: {
-			inherit: true,
 			aerialace: ["9L1"],
 			airhorn: ["9L1"],
 			airslash: ["9L1"],
@@ -12068,6 +12072,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			whirlpool: ["9L1"],
 			wildcharge: ["9L1"],
 			yoshisisland: ["9L1"],
+			hoenn: ["9L1"],
 		},
 	},
 	chinchou: {

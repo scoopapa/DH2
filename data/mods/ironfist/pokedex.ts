@@ -274,6 +274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 73, atk: 79, def: 75, spa: 104, spd: 104, spe: 106},
 		abilities: {0: "Shield Dust", 1: "Compound Eyes", H: "Natural Cure"},
 		weightkg: 17.0,
+		prevo: null,
 	},
 	moltres: {
 		inherit: true,
@@ -1009,7 +1010,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "Stall", H: "RKS System"},
-		//requiredItem: "Stellarium Z",
+		requiredItem: "Not Stellarium Z. Lol!",
 		changesFrom: "Silvally",
 	},
 	goddease: {
@@ -1350,7 +1351,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Fudgesaur",
 		forme: "Mega",
 		types: ["Silly", "Ground"],
-		baseStats: {hp: 80, atk: 105, def: 123, spa: 122, spd: 125, spe: 70},
+		baseStats: {hp: 82, atk: 107, def: 125, spa: 124, spd: 127, spe: 72},
 		abilities: {0: "Pristine Dessert"},
 		weightkg: 100.0,
 		requiredItem: "Fudgesaurite",

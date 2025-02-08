@@ -244,12 +244,12 @@
 			},
 			{
                 "role": "Mega",
-                "movepool": ["Stealth Rock", "Liquidation", "Toxic", "Protect", "Flip Turn"],
+                "movepool": ["Shell Smash", "Hydro Pump", "Ice Beam", "Aura Sphere", "Dragon Pulse"],
                 "teraTypes": ["Water"]
             },
 			{
                 "role": "Mega",
-                "movepool": ["Shell Smash", "Hydro Pump", "Ice Beam", "Aura Sphere", "Dragon Pulse"],
+                "movepool": ["Stealth Rock", "Liquidation", "Toxic", "Protect", "Flip Turn"],
                 "teraTypes": ["Water"]
             }
         ]
