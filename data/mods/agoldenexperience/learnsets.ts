@@ -2096,6 +2096,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			mistyexplosion: ["9M"],
 			mistyterrain: ["9M"],
 			moonblast: ["9L65"],
+			moonlight: ["9L1"],
 			mysticalfire: ["9L35"],
 			outrage: ["9M", "9L70"],
 			playrough: ["9M"],
@@ -2157,6 +2158,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			mistyexplosion: ["9M"],
 			mistyterrain: ["9M"],
 			moonblast: ["9L65"],
+			moonlight: ["9L1"],
 			mysticalfire: ["9L35"],
 			outrage: ["9M", "9L70"],
 			playrough: ["9M"],
@@ -5790,6 +5792,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			bodypress: ["9L1"],
 			liquidation: ["9L1"],
 			grassyglide: ["9L1"],
+			flipturn: ["9T"],
 		},
 	},
 	infarmatem: {

@@ -474,9 +474,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const dazzlingHolder = this.effectState.target;
 			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, 'item: Speeding Ticket', move, '[of] ' + target);
+				this.add('cant', dazzlingHolder, 'item: Speeding Ticket', move, '[of] ' + source);
 				target.switchFlag = true;
-				if (target.useItem()) {
+				if (source.useItem()) {
 					source.switchFlag = false;
 				} else {
 					target.switchFlag = false;
