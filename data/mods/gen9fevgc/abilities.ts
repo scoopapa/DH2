@@ -4748,7 +4748,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('electricterrain')) {
 				pokemon.addVolatile('winddrive');
-			} else if (!pokemon.volatiles['winddrive']?.fromBooster) {
+			} else if (!pokemon.volatiles['winddrive']?.fromBooster && !pokemon.side.sideConditions['tailwind']) {
 				pokemon.removeVolatile('winddrive');
 			}
 		},
