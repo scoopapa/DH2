@@ -1153,7 +1153,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			onHit(target, source, move) {
 				if (target?.statsRaisedThisTurn) {
 					target.trySetStatus('brn', source, move);
-					source.boost({ spa: 2 }, source, source);
+					this.boost({ spa: 2 }, source, source);
 				}
 			},
 		},
