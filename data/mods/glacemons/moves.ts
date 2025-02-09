@@ -460,21 +460,21 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		onAfterMove(target, source, move) {
 			if (target !== source && move.category !== 'Status' && move.totalDamage) {
-				this.damage(source.baseMaxhp / 8, source, target);
+				this.damage(source.baseMaxhp / 16, source, target);
 			}
 		},
-		desc: "Deals an additional 1/8th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
-		shortDesc: "1st hit: High critical hit ratio. 2nd hit: 1/8 max HP.",
+		desc: "Deals an additional 1/16th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
+		shortDesc: "1st hit: High critical hit ratio. 2nd hit: 1/16 max HP.",
 	},
 	psychocut: {
 		inherit: true,
 		onAfterMove(target, source, move) {
 			if (target !== source && move.category !== 'Status' && move.totalDamage) {
-				this.damage(source.baseMaxhp / 8, source, target);
+				this.damage(source.baseMaxhp / 16, source, target);
 			}
 		},
-		desc: "Deals an additional 1/8th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
-		shortDesc: "1st hit: High critical hit ratio. 2nd hit: 1/8 max HP.",
+		desc: "Deals an additional 1/16th of the opponents health on a successful hit. Has a higher chance for a critical hit.",
+		shortDesc: "1st hit: High critical hit ratio. 2nd hit: 1/16 max HP.",
 	},
 	selfrepairing: {
 		num: -6,
@@ -1303,12 +1303,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				return this.chainModify(1.5);
 			}
 		},
-		onAfterMoveSecondary(target, source, move) {
-			if (target && !target.volatiles['disable']) {
-				target.addVolatile('disable', source, move);
-			}
+		secondary: {
+			chance: 100,
+			volatileStatus: 'disable',
 		},
-		secondary: null,
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
