@@ -455,6 +455,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	safetygoggles: {
 		inherit: true,
+		onTakeItem: false,
 		onSourceModifyAccuracyPriority: -2,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy === 'number') {
@@ -756,6 +757,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				volatileStatus: 'mustrecharge',
 			},
 		},
+		onTakeItem: false,
 		// airborneness negation implemented in scripts.ts
 		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
 		rating: 3,
@@ -1666,11 +1668,10 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 386,
 		},
+		onTakeItem: false,
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Pokerus Vaccine');
-			if (pokemon.useItem()) {
-				pokemon.addVolatile('pokerusvaccine');
-			}
+			pokemon.addVolatile('pokerusvaccine');
 		},
 		volatileStatus: 'pokerusvaccine',
 		condition: {
@@ -1682,7 +1683,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				}
 			},
 			onSourceModifySpAPriority: 5,
-			onSourceModifySpA(atk, attacker, defender, move) {
+			onSourceModifySpA(spa, attacker, defender, move) {
 				if (move.type === 'Poison') {
 					this.debug('Thick Fat weaken');
 					return this.chainModify(0.5);
@@ -1730,7 +1731,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			basePower: 10,
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Arctozolt' || source.baseSpecies.baseSpecies === 'Dracozolt') return false;
+			if (source.baseSpecies.baseSpecies === 'Arctozolt' || source.baseSpecies.baseSpecies === 'Arctovish') return false;
 			return true;
 		},
 		onModifySpePriority: 5,
