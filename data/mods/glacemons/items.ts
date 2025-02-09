@@ -567,12 +567,35 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', target, 'Absorb Bulb');
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, source, move){
 			if (move.type === 'Water') {
-				target.useItem();
+				this.add('-immune', target, '[from] item: Absorb Bulb');
 				return null;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Absorb Bulb');
+			this.boost({ spa: 1 });
+			target.item = '';
+			target.itemState = { id: '', target };
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Absorb Bulb');
+				this.boost({ atk: 1 });
+				target.item = '';
+				target.itemState = { id: '', target };
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
+			}
+		},
+//		onTryHit(target, source, move) {
+//			if (move.type === 'Water') {
+//				target.useItem();
+//				return null;
+//			}
+//		},
 		rating: 3,
 		shortDesc: "Holder is immune to Water-type attacks. Once popped: +1 SpA.",
 	},
@@ -583,12 +606,35 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', target, 'Cell Battery');
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, source, move){
 			if (move.type === 'Electric') {
-				target.useItem();
+				this.add('-immune', target, '[from] item: Cell Battery');
 				return null;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Cell Battery');
+			this.boost({ atk: 1 });
+			target.item = '';
+			target.itemState = { id: '', target };
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Cell Battery');
+				this.boost({ atk: 1 });
+				target.item = '';
+				target.itemState = { id: '', target };
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
+			}
+		},
+//		onTryHit(target, source, move) {
+//			if (move.type === 'Electric') {
+//				target.useItem();
+//				return null;
+//			}
+//		},
 		rating: 3,
 		shortDesc: "Holder is immune to Electric-type attacks. Once broken: +1 Atk.",
 	},
@@ -599,12 +645,35 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', target, 'Snowball');
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, source, move){
 			if (move.type === 'Ice') {
-				target.useItem();
+				this.add('-immune', target, '[from] item: Snowball');
 				return null;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Snowball');
+			this.boost({ atk: 1 });
+			target.item = '';
+			target.itemState = { id: '', target };
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Snowball');
+				this.boost({ atk: 1 });
+				target.item = '';
+				target.itemState = { id: '', target };
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
+			}
+		},
+//		onTryHit(target, source, move) {
+//			if (move.type === 'Ice') {
+//				target.useItem();
+//				return null;
+//			}
+//		},
 		rating: 3,
 		shortDesc: "Holder is immune to Ice-type attacks. Once broken: +1 Atk.",
 	},
