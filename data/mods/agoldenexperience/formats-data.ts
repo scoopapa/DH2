@@ -1382,7 +1382,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	tyranitar: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	tyranitarmega: {
@@ -2380,7 +2380,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	phione: {
-		tier: "NU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	manaphy: {
