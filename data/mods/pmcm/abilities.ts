@@ -98,6 +98,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
+					this.add('-ability', pokemon, 'As One');
 				}
 			}
 		},
