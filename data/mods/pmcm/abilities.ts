@@ -98,7 +98,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
-					this.add('-ability', pokemon, 'As One');
+					this.add('-ability', pokemon, 'As One (Glastrier)');
 				}
 			}
 		},
@@ -108,14 +108,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
-					pokemon.setAbility('As One');
+					pokemon.setAbility('As One (Glastrier)');
 					this.add('-ability', pokemon, 'As One');
 					return;
 				}
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
-					pokemon.setAbility('As One');
+					pokemon.setAbility('As One (Glastrier)');
 					this.add('-ability', pokemon, 'As One');
 				}
 			}
