@@ -46,20 +46,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		//shortDesc: "After getting hit for the first time in a battle, heal 25% HP.",
 	},
 	shortfuse: {
-		//Placeholder until implementation
-		onDamagePriority: -30,
+		onDamagePriority: -30, 
 		onDamage(damage, target, source, effect) {
 			if (damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', target, 'Short Fuse');
-				return target.hp - 1;
+		
+				// Keep the Pokémon at 1 HP instead of fainting immediately
+				const finalHp = target.hp - 1;
+				this.damage(target.hp - 1, target, source, effect);
+		
+				// Force the Pokémon to use Explosion
+				const explosion = this.dex.getActiveMove('explosion');
+				this.actions.useMove(explosion, target);
+					
+				// Ensure the Pokémon properly faints afterward
+				target.faint();
 			}
-		},
-		onResidualOrder: 30,
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			if (pokemon.hp > 1) return;
-			const explosion = this.dex.getActiveMove('explosion');
-			this.actions.useMove(explosion, pokemon);
 		},
 		flags: {breakable: 1},
 		name: "Short Fuse",
@@ -79,15 +81,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -103,
 		shortDesc: "When this Pokemon is hit by an attack, the effect of Rain Dance begins.",
 	},
-	flipflop: {
-		//Placeholder
-		flags: {},
-		name: "Flip Flop",
-		rating: 5,
-		num: -104,
-		shortDesc: "Does nothing right now!",
-		//shortDesc: "When this Pokemon is hit by a contact move, it first inverts the opponent's positive stat stage changes.",
-	},
 	frozenarmor: {
 		//Code stolen from Shields Down
 		onTryHit(target, source, move) {
@@ -98,7 +91,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed) return;
-			if (pokemon.hp > pokemon.maxhp / 2) {
+			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
 				}
@@ -111,13 +104,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Glastrier' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.hp > pokemon.maxhp / 2) {
+			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
+					pokemon.setAbility('As One');
+					this.add('-ability', pokemon, 'As One');
+					return;
 				}
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
+					pokemon.setAbility('As One');
+					this.add('-ability', pokemon, 'As One');
 				}
 			}
 		},
@@ -127,4 +125,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -105,
 		shortDesc: "Incoming attacks have their BP reduced by 20. This Pokemon transforms into Calyrex-Ice below 50% HP.",
 	},
+	flipflop: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				let invertedBoosts: SparseBoostsTable = {};
+				for (const stat in source.boosts) {
+					if (source.boosts[stat] !== 0) {
+						invertedBoosts[stat] = -2 * source.boosts[stat]; 
+					}
+				}
+				this.boost(invertedBoosts, source);
+				this.add('-ability', target, 'Flip Flop');
+			}
+		},
+		flags: {},
+		name: "Flip Flop",
+		rating: 5,
+		num: -104,
+		shortDesc: "When hit by a contact move, the attacker’s stat changes are inverted.",
+	},
+	
 };
