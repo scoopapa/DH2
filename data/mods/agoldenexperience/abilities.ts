@@ -2323,22 +2323,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	happygolucky: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			const newAtk = atk * (1 + Math.floor(pokemon.happiness / 25));
+			const newAtk = atk * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newAtk;
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			const newDef = def * (1 + Math.floor(pokemon.happiness / 25));
+			const newDef = def * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newDef;
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			const newSpA = spa * (1 + Math.floor(pokemon.happiness / 25));
+			const newSpA = spa * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newSpA;
 		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
-			const newSpD = spd * (1 + Math.floor(pokemon.happiness / 25));
+			const newSpD = spd * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newSpD;
 		},
 		flags: {},
