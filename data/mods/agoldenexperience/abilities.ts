@@ -883,16 +883,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -45,
 	},
 	angelicnature: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fairy') {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Angelic Nature');
-				}
-				return null;
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dark'] = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move.type !== 'Dark') return;
+			if (move.type === 'Dark' && target.hasType('Fairy')) {
+				this.debug('Angelic Nature boost');
+				return this.chainModify(2);
 			}
 		},
 		name: "Angelic Nature",
-		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
+		desc: "This Pokemon can hit Fairy type opponents for neutral damages with Dark moves.",
+		shortDesc: "Hits Fairy opponents for neutral damages with Dark moves.",
 		rating: 3.5,
 		num: -46,
 	},
