@@ -1369,7 +1369,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	houndoommega: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	phanpy: {
 		inherit: true,
@@ -2333,7 +2333,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lucario: {
 		inherit: true,
-		tier: "RU",
+		tier: "Uber",
 	},
 	lucariomega: {
 		inherit: true,
@@ -2465,7 +2465,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	manaphy: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "Uber",
 	},
 	darkrai: {
 		inherit: true,

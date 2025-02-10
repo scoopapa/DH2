@@ -15,6 +15,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				return this.chainModify(1.5);
 			}
 		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Ice Shard', target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -71,6 +74,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 
 			return move.basePower * boost;
 		},
+		onHit(target, source, move) {
+			this.field.addPseudoWeather('trickroom');
+		},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -80,7 +86,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		shortDesc: "50% damage boost in Trick Room or harsh sunlight.",
+		shortDesc: "Deals +50% damage in TR/Sun. Sets TR.",
 
 	},
 	blindingblitz: {
@@ -193,40 +199,69 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
+				if ((targetCondition === 'spikes' || targetCondition === 'toxicspikes') && target.side.getSideCondition(targetCondition)) {
+					removals += target.side.sideConditions[targetCondition].layers;
+				}
+				else if (target.side.getSideCondition(targetCondition)) {
+					removals++;
+				}
+
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
 					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Candlelight', '[of] ' + source);
 					success = true;
-					removals++;
 				}
 			}
 			for (const sideCondition of removeAll) {
+				if ((sideCondition === 'spikes' || sideCondition === 'toxicspikes') && source.side.getSideCondition(sideCondition)) {
+					removals += source.side.sideConditions[sideCondition].layers;
+				}
+				else if (source.side.getSideCondition(sideCondition)) {
+					removals++;
+				}
+
 				if (source.side.removeSideCondition(sideCondition)) {
 					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Candlelight', '[of] ' + source);
 					success = true;
-					removals++;
 				}
 			}
 
+			this.add('-message', `${source.name} cleared ${removals} hazards!`);
+
 			for (let i = 0; i < removals; i++) {
-				source.side.addSlotCondition(source, 'candlelight');
+				source.side.addSideCondition('candlelight');
+				
 			}
 
 			return success;
 		},
 		condition: {
-			onSwap(target) {
-				if (!target.fainted) {
-					target.heal(target.baseMaxhp / 24);
-					target.side.removeSlotCondition(target, 'candlelight');
-				}
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Candlelight');
+				this.effectState.layers = 1;
+				//this.add('-message', `The candle started burning!`);
 			},
+			onSideRestart(side) {
+				this.effectState.layers++;
+				//this.add('-message', `The candle burns brighter!`);
+			},
+			onEntryHazard(pokemon) {
+				this.heal(this.effectState.layers * (pokemon.maxhp / 16));
+				pokemon.side.removeSideCondition('candlelight');
+				this.add('-message', `The candle went out!`);
+			},
+		},
+		onTryMove() {
+			this.attrLastMove('[still]');
+		},
+		onPrepareHit(target, source) {
+			this.add('-anim', source, 'Moonlight', target);
 		},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
-		shortDesc: "Removes hazards on both sides.",
+		shortDesc: "Removes all hazards. Next swap-in heals 1/16 per removed.",
 	},
 	dragonhunt: {
 		num: -1007,
@@ -305,12 +340,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	gundown: {
 		num: -1008,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Special",
 		name: "Gun Down",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, distance: 1, metronome: 1, bullet: 1, pulse: 1 },
+		ignoreImmunity: { 'Fighting': true },
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
@@ -321,6 +357,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "any",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "Ignores Ghost-type immunity.",
 	},
 	huntershot: {
 		num: -1009,
@@ -330,18 +367,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Hunter Shot",
 		pp: 15,
 		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1, bullet: 1 },
+		flags: {protect: 1, mirror: 1, bullet: 1},
 		onTryMove() {
 			this.attrLastMove('[still]');
 		},
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Flash Cannon', target);
 		},
+		self: {
+			volatileStatus: 'focusenergy',
+		},
 		willCrit: true,
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		shortDesc: "This move always crits.",
+		shortDesc: "This move always crits. Sets Focus Energy.",
 
 	},
 	lightthatburnthesky: {
@@ -352,7 +392,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		name: "Light That Burn The Sky",
 		pp: 15,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 30,
 			status: 'brn',
@@ -528,13 +568,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
-		shortDesc: "Super-effective against Steel-types. If it hits a Poison, they instead heal 25% HP.",
+		shortDesc: "SE vs. Steels. Heals Poison-types by 25%.",
 
 	},
 	vitalspark: {
 		num: -1016,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 70,
 		category: "Special",
 		name: "Vital Spark",
 		pp: 10,
@@ -632,6 +672,12 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		condition: {
 			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
 			onSideStart(side, source) {
 				this.add('-sidestart', side, 'move: Dust Veil');
 			},
@@ -650,7 +696,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		secondary: null,
 		target: "allySide",
 		type: "Ground",
-		shortDesc: "Increases damage output of your side by 1.3x.",
+		shortDesc: "Sand: Damage dealt x1.3, 5 turns (8 Light Clay)",
 	},
 	devour: {
 		num: -1020,
@@ -669,5 +715,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
+		shortDesc: "Maintains Ouroboros streak. Can't be used twice in a row.",
+	},
+	defog: {
+		inherit: true,
+		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1, wind: 1 },
 	},
 }

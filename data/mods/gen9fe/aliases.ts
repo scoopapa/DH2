@@ -1,10 +1,12 @@
 export const Aliases: {[alias: string]: string} = {
+	menacing: null,
+	
 	weezer: "Weezaluna-Bloodmoon",
 	toedi: "Toedieleki",
 	wereallyletamonnamed: "Anoraidon",
 	woppled: "Wopple",
 	isekai: "Icekrai",
-	lashi: "Lashiram",
+	//lashi: "Lashiram",
 	carbug: "Revarantis",
 	garp: "Garpyuku",
 	relish: "Relishadow",

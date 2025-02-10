@@ -12,6 +12,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		gen: 1,
 	},
+	mandrelec: {
+		tier: "OU",
+		gen: 1,
+	},
+	spriguin: {
+		tier: "LC",
+	},
+	pineguin: {
+		tier: "OU",
+	},
+	probosicle: {
+		tier: "OU",
+	},
+	spariel: {
+		tier: "LC",
+	},
+	sparophim: {
+		tier: "OU",
+	},
 
 // Normal Mons
 	bulbasaur: {
@@ -36,7 +55,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	wartortle: {
-		tier: "NFE",
+		tier: "ZU",
 	},
 	blastoise: {
 		tier: "NU",
@@ -228,7 +247,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tentacool: {
-		tier: "LC",
+		tier: "ZU",
 	},
 	tentacruel: {
 		tier: "UU",
@@ -243,7 +262,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	ponyta: {
-		tier: "LC",
+		tier: "ZU",
 	},
 	rapidash: {
 		tier: "PU",
@@ -345,7 +364,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ZU",
 	},
 	rhyhorn: {
-		tier: "LC",
+		tier: "ZU",
 	},
 	rhydon: {
 		tier: "OU",
@@ -444,7 +463,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	articuno: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	zapdos: {
 		tier: "OU",

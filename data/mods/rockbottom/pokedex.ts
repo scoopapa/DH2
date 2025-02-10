@@ -52,7 +52,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	gastly: {
 		inherit: true,
-		baseStats: {hp: 50, atk: 35, def: 50, spa: 90, spd: 65, spe: 80},
+		baseStats: {hp: 50, atk: 35, def: 50, spa: 100, spd: 65, spe: 80},
 		evos: null,
 	},
 	parasect: {
@@ -63,12 +63,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	phanpy: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 75, def: 60, spa: 40, spd: 40, spe: 40},
+		baseStats: {hp: 90, atk: 85, def: 70, spa: 40, spd: 40, spe: 40},
 		abilities: {0: "Pickup", 1: "Rocky Payload", H: "Sand Veil"},
 	},
 	delibird: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 55, def: 45, spa: 75, spd: 45, spe: 85},
+		baseStats: {hp: 65, atk: 55, def: 55, spa: 75, spd: 55, spe: 85},
 		abilities: {0: "Vital Spirit", 1: "Pickpocket", H: "Insomnia"},
 	},
 	delcatty: {
@@ -89,7 +89,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	graveler: {
 		inherit: true,
-		baseStats: {hp: 55, atk: 105, def: 115, spa: 45, spd: 45, spe: 35},
+		baseStats: {hp: 65, atk: 105, def: 115, spa: 45, spd: 45, spe: 35},
 		prevo: null,
 		evos: null,
 	},
@@ -101,8 +101,19 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lumineon: {
 		inherit: true,
-		baseStats: {hp: 69, atk: 69, def: 76, spa: 69, spd: 86, spe: 92},
+		baseStats: {hp: 69, atk: 69, def: 61, spa: 69, spd: 86, spe: 92},
 		abilities: {0: "Swift Swim", H: "Water Veil"},
 		prevo: null,
+	},
+	palpitoad: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 65, def: 55, spa: 65, spd: 55, spe: 69},
+		prevo: null,
+		evos: null,
+	},
+	honedge: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 100, def: 100, spa: 35, spd: 47, spe: 28},
+		evos: null,
 	},
 };

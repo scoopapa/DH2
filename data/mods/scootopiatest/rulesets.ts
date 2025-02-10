@@ -17,4 +17,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 	},
+	supertypeclause: {
+		effectType: 'ValidatorRule',
+		name: 'Super Type Clause',
+		desc: 'Bans Super Type Moves and Items.',
+		banlist: ["Crystal Orb", "Feral Orb", "Crystal Cutter", "Crystal Tail", "Crystal Bash",
+				"Crystal Burst", "Crystal Cage", "Crystal Beam", "Crystal Healing", "Crystal Shard",
+				"Crystal Fortification", "Feral Power", "Feral Breath", "Feral Shriek", "Feral Rush",
+				"Feral Bite", "Feral Shred", "Feral Spray", "Feral Resilience", "Feral Healing"],
+	},
 };

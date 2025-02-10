@@ -81,9 +81,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The Swarm persists...");
 			this.add('-weather', 'The Swarm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The Swarm persists...");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'The Swarm', '[silent]');
@@ -127,9 +127,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "You're in the Twilight Zone.");
 			this.add('-weather', 'Twilight Zone', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "You're in the Twilight Zone.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Twilight Zone', '[silent]');
@@ -238,9 +238,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The thunder storms.");
 			this.add('-weather', 'Thunderstorm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The thunder storms.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Thunderstorm', '[silent]');
@@ -260,13 +260,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) {
-				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.5);
+				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.75);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) {
-				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.5);
+				if(!attacker.hasAbility('darkfantasy')) return this.chainModify(0.75);
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -277,13 +277,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-weather', 'Fable', '[silent]');
 			}
 			this.add('-message', "A fable started!");
-			this.hint("In Fable, \"evil\" abilities are suppressed and Dark, Ghost, Poison, Dragon moves have halved power.")
+			this.hint("In Fable, \"evil\" abilities are suppressed and Dark, Ghost, Poison, Dragon moves have 0.75x power.")
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "A fable continues.");
 			this.add('-weather', 'Fable', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "A fable continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Fable', '[silent]');
@@ -324,9 +324,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The colosseum persists.");
 			this.add('-weather', 'Colosseum', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The colosseum persists.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Colosseum', '[silent]');
@@ -345,7 +345,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (this.field.pseudoWeather.drought && pokemon.hp && !pokemon.status && pokemon.runEffectiveness('Fire')) {
+			if (this.field.pseudoWeather.drought && pokemon.hp && !pokemon.status && pokemon.runEffectiveness('Fire') > 0) {
 				this.add('-message', `${pokemon.name} spontaneously erupted into flames!`);
 				pokemon.trySetStatus('brn', pokemon);
 			}
@@ -368,9 +368,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The drought continues.");
 			this.add('-weather', 'Drought', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The drought continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Drought', '[silent]');
@@ -426,23 +426,25 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
-		onBeforeMovePriority: 9,
-		onBeforeMove(pokemon, target, move) {
+		onAfterMoveSecondary(target, source, move) {
 			if (this.field.pseudoWeather.thevoices && move.id !== 'boomburst' && this.randomChance(3, 10)) {
-				this.add('-message', `${pokemon.name} hears the voices...`);
+				this.add('-message', `${source.name} hears the voices...`);
 				const newMove = this.dex.getActiveMove('boomburst');
-				this.actions.useMove(newMove, pokemon, target);
+				this.actions.useMove(newMove, source, target);
 				this.attrLastMove('[still]');
 				return null;
 			}
 		},
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
+		onModifyMove(move, pokemon) {
 			if (!this.field.pseudoWeather.thevoices || move.type !== 'Ghost') return;
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Ghost'] = true;
-				move.damage = 'level';
+			for (const target of pokemon.side.foe.active) {
+				if (target.types.includes("Normal")) {
+					if (!move.ignoreImmunity) move.ignoreImmunity = {};
+					if (move.ignoreImmunity !== true) {
+						move.ignoreImmunity['Ghost'] = true;
+						move.damage = 'level';
+					}
+				}
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -457,9 +459,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "You still hear THE VOICES...");
 			this.add('-weather', 'THE VOICES', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "You still hear THE VOICES...");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'THE VOICES', '[silent]');
@@ -476,7 +478,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onResidual(pokemon) {
-			if(this.field.pseudoWeather.overgrowth && !pokemon.hasType('Grass')) pokemon.addVolatile('leechseed');
+			if(pokemon.adjacentFoes().length == 0) return;
+			const target = this.sample(pokemon.adjacentFoes());
+			if(this.field.pseudoWeather.overgrowth && !pokemon.hasType('Grass')) pokemon.addVolatile('leechseed', target);
 		},
 		onModifyMove(move) {
 			if (this.field.pseudoWeather.overgrowth && move.flags['powder']) {
@@ -501,9 +505,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The overgrowth continues.");
 			this.add('-weather', 'Overgrowth', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The overgrowth continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Overgrowth', '[silent]');
@@ -527,16 +531,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'Dust Storm', '[silent]');
 			}
 			this.add('-message', "A dust storm kicked up!");
-			this.hint("In Dust Storm, all non-Ground/Rock/Steel Pokemon lose 1/16 max HP at the end of each turn and Spikes sets itself in two layers at a time and deals double damage.");
+			this.hint("In Dust Storm, all non-Ground/Rock/Steel Pokemon lose 1/16 max HP at the end of each turn for each weather present; and Spikes sets itself in two layers at a time and deals double damage.");
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Dust Storm', '[upkeep]');
 			this.add('-message', "The dust storm continues.");
+			this.add('-weather', 'Dust Storm', '[upkeep]');
+			//this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.add('-message', `${target.name} is hurt by its ${target.ability.name}!`);
-			this.damage(target.baseMaxhp / 16);
+			const immuneTypes = ['Ground', 'Rock', 'Steel'];
+			if (!immuneTypes.some(r => target.baseSpecies.types.includes(r))) {
+				this.add('-message', `${target.name} is hurt by its ${target.set.ability}!`);
+				this.damage(target.baseMaxhp / 16);
+			}
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Dust Storm', '[silent]');
@@ -579,9 +587,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The whiteout continues.");
 			this.add('-weather', 'Whiteout', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The whiteout continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Whiteout', '[silent]');
@@ -625,9 +633,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The metronome battle continues.");
 			this.add('-weather', 'Metronome Battle', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The metronome battle continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Metronome Battle', '[silent]');
@@ -643,20 +651,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source.hasAbility('weathersetter')) return 0;
 			return 5;
 		},
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
+		onResidualOrder: 100,
+		onResidualSubOrder: 100,
 		onResidual(pokemon) {
 			if (!this.field.pseudoWeather.shitstorm || !pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'tox') return;
-				if (target.status === 'slp') {
-					target.setStatus('tox');
-				} else if (target.status) target.setStatus('psn');
+				if (target.status) {
+					target.setStatus('');
+					if (target.status === 'slp') target.setStatus('tox');
+					else target.setStatus('psn');
+				}
 			}
 		},
-		onSourceDamagingHit(damage, target, source, move) {
-			if(this.field.pseudoWeather.shitstorm && (target.status === 'psn' || target.status === 'tox'))
-				this.damage(target.baseMaxhp / 8, source, target);
+		onDamagingHit(damage, target, source, move) {
+			if(this.field.pseudoWeather.shitstorm && move.type === 'Poison' && (target.status === 'psn' || target.status === 'tox'))
+				this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
@@ -666,13 +676,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-fieldstart', 'Shitstorm', '[silent]');
 			}
 			this.add('-message', "A shitstorm brews!");
-			this.hint("In Shitstorm, Burn/Paralysis/Frostbite/Confusion become Poison, Sleep becomes Toxic, and Poison moves have 20% chance to poison.");
+			this.hint("In Shitstorm, Burn/Paralysis/Frostbite/Confusion become Poison, Sleep becomes Toxic, and Poison moves lower poisoned targets' Atk/SpA/Spe by 1.");
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The shitstorm keeps brewing.");
 			this.add('-weather', 'Shitstorm', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The shitstorm keeps brewing.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Shitstorm', '[silent]');
@@ -739,9 +749,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "Your mind is fucked.");
 			this.add('-weather', 'Mindfuck', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "Your mind is fucked.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Mindfuck', '[silent]');
@@ -780,9 +790,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "The landslide continues.");
 			this.add('-weather', 'Landslide', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "The landslide continues.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Landslide', '[silent]');
@@ -799,6 +809,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onModifyMove(move, pokemon) {
+			const targetSide = pokemon.side.foe;
 			if (this.field.pseudoWeather.timewarp && !move.flags['futuremove']) {
 				if (move.target === "self" && !pokemon.side.slotConditions[pokemon.position]['selfforesighter']) {
 					move.onTry = function (source, t) {
@@ -828,7 +839,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 						return this.NOT_FAIL;
 					}
 				} 
-				else if (['normal', 'any', 'allAdjacent', 'allAdjacentFoes'].includes(move.target) && !pokemon.side.slotConditions[pokemon.position]['futuremove']) {
+				else if (['normal', 'any', 'allAdjacent', 'allAdjacentFoes'].includes(move.target) && !targetSide.slotConditions[pokemon.position]['futuremove']) {
 					move.onTry = function (source, t) {
 						if (!t.side.addSlotCondition(t, 'futuremove')) {
 							this.hint('Future moves fail when the targeted slot already has a future move focused on it.');
@@ -871,9 +882,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
+			this.add('-message', "Time is warping.");
 			this.add('-weather', 'Time Warp', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', "Time is warping.");
 		},
 		onFieldEnd() {
 			this.add('-fieldend', 'Time Warp', '[silent]');
@@ -892,7 +903,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			if(this.field.pseudoWeather.flashflood && this.randomChance(1, 4)) {
 				if (this.runEvent('DragOut', pokemon, pokemon)) {
-					this.add('-message', `The flash flood swept! ${pokemon.name} away!`);
+					this.add('-message', `The flash flood swept ${pokemon.name} away!`);
 					pokemon.forceSwitchFlag = true;
 				}
 			}
@@ -914,8 +925,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Flash Flood', '[upkeep]');
 			this.add('-message', "The flash flood continues.");
+			this.add('-weather', 'Flash Flood', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {

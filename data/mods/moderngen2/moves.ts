@@ -501,6 +501,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	doubleironbash: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 	},
 	doubleshock: {
@@ -2226,10 +2227,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	thousandarrows: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 	},
 	thousandwaves: {
 		inherit: true,
+		isNonstandard: null,
 		gen: 2,
 	},
 	throatchop: {
@@ -2457,6 +2460,66 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 2,
 	},
 	zippyzap: {
+		inherit: true,
+		gen: 2,
+	},
+	electroshot: {
+		inherit: true,
+		gen: 2,
+	},
+	terastarstorm: {
+		inherit: true,
+		gen: 2,
+	},
+	ficklebeam: {
+		inherit: true,
+		gen: 2,
+	},
+	burningbulwark: {
+		inherit: true,
+		gen: 2,
+	},
+	thunderclap: {
+		inherit: true,
+		gen: 2,
+	},
+	mightycleave: {
+		inherit: true,
+		gen: 2,
+	},
+	tachyoncutter: {
+		inherit: true,
+		gen: 2,
+	},
+	hardpress: {
+		inherit: true,
+		gen: 2,
+	},
+	dragoncheer: {
+		inherit: true,
+		gen: 2,
+	},
+	alluringvoice: {
+		inherit: true,
+		gen: 2,
+	},
+	temperflare: {
+		inherit: true,
+		gen: 2,
+	},
+	supercellslam: {
+		inherit: true,
+		gen: 2,
+	},
+	psychicnoise: {
+		inherit: true,
+		gen: 2,
+	},
+	upperhand: {
+		inherit: true,
+		gen: 2,
+	},
+	malignantchain: {
 		inherit: true,
 		gen: 2,
 	},

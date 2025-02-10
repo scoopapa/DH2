@@ -1,7 +1,7 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	charizard: {
 		tier: "UU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	raichu: {
 		tier: "RU",
@@ -580,7 +580,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	heatran: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	giratina: {
@@ -740,7 +740,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	greninja: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	talonflame: {
@@ -928,7 +928,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	inteleon: {
-		tier: "UU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	greedent: {
@@ -1092,7 +1092,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	meowscarada: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	skeledirge: {
@@ -1160,7 +1160,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	ceruledge: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	bellibolt: {
@@ -1348,7 +1348,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	walkingwake: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	ironleaves: {
@@ -1662,7 +1662,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	ragingbolt: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	gougingfire: {
 		tier: "OU",
@@ -1952,7 +1952,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	keldeo: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	meowstic: {
@@ -1972,7 +1972,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	primarina: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	toucannon: {

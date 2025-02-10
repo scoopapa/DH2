@@ -592,7 +592,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles OU",
 	},
 	grimgaster: {
-		tier: "Patratdex Ubers",
+		tier: "Patratdex OU",
 		doublesTier: "Patratdex Doubles OU",
 	},
 	groliath: {
@@ -604,7 +604,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Patratdex Doubles Ubers",
 	},
 	bombardeer: {
-		tier: "Patratdex OU",
+		tier: "Patratdex Ubers",
 		doublesTier: "Patratdex Doubles OU",
 	},
 	hilarilla: {

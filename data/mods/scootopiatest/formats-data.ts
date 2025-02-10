@@ -1,234 +1,250 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	arbrella: {
+	arbrellanorth: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
 	krachiten: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
 	scalaron: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
 	rantler: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
 	woolora: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	albatrygon: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	orchile: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	embuck: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	cindoe: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	cobracotta: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	minillow: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	crossont: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	torgeist: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	platypad: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	eleqwil: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	lumoth: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	aurorowl: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	carapex: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	dojodo: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	nunopod: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	zeploom: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	brawnkey: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	salamalix: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	cinnastar: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	muabboa: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	volvolpa: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
 	harzodia: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
-	cyllindrake: {
+	minillow: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
-	kodokai: {
+	sturgard: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
+	},
+	albatrygon: {
+		tier: "Scoo",
+		doublesTier: "DOU",
 	},
 	electangle: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	dolphena: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	soleron: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	// soleronawakened: {
-		// tier: "Illegal",
-		// doublesTier: "Illegal",
-	// },
-	jaegorm: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	// jaegormcollective: {
-		// tier: "Illegal",
-		// doublesTier: "Illegal",
-	// },
-	elemadillo: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	axolacred: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	roscenti: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	blunderbusk: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	barracoth: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	jamborai: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	dracoil: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	celespirit: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	noxtrice: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	avastar: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	faerenheit: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	cellsius: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	kelven: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	salaos: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	morndos: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	pythos: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	corundell: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	quadringo: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	saphor: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
-	},
-	fenreil: {
-		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
 	},
 	efflor: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
+	},
+	barbolt: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	axolacred: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	noxtrice: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	lunacal: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	eleqwil: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	duratreme: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	velocipasta: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	crolegion: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	coraking: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	celespirit: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	elemadillo: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	cinnastar: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	crossont: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	torgeist: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	embuck: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	cindoe: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	cobracotta: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	cyllindrake: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	soleron: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	soleronawakened: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	alliglacier: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	dracoil: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	dojodo: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	zeploom: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	jamborai: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	avastar: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	silvuna: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	nunopod: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	pyrove: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	stonehusk: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	zephyrmine: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	boreasel: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	corundell: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	quadringo: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	kodokai: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},	
+	himalao: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	// kasappa: {
+		// tier: "Scoo",
+		// doublesTier: "DOU",
+	// },
+	enkappa: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	zygola: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	skawamud: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	noxon: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	xiphoil: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	saphor: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	fenreil: {
+		tier: "Scoo",
+		doublesTier: "DOU",
 	},
 	flocura: {
 		tier: "Scoo",
-		doublesTier: "Scoo",
+		doublesTier: "DOU",
+	},
+	sumolug: {
+		tier: "Scoo",
+		doublesTier: "DOU",
 	},
 	// flocuranexus: {
-		// tier: "Illegal",
-		// doublesTier: "Illegal",
+		// tier: "Scoo",
+		// doublesTier: "DOU",
 	// },
+	cyrome: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	cyromebook: {
+		tier: "Scoo",
+		doublesTier: "DOU",
+	},
+	cyromeauthor: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cyromepage: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };

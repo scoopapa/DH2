@@ -94,16 +94,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         shortDesc: "On switchin, this Pokemon uses Substitute.",
     },
 	jankster: {
-		onTryHit(pokemon, target, move) {
-			if (['Fairy', 'Dark', 'Ghost'].includes(move.type)) {
-				this.add('-immune', pokemon, '[from] ability: Jankster');
-				this.damage(100, pokemon, pokemon);
-				return null;
+		onDamagingHit(damage, target, source, move) {
+			this.add('-ability', target, 'Jankster');
+			if (move.category === 'Physical') {
+				const newatk = target.storedStats.atk;
+				target.storedStats.atk = source.storedStats.atk;
+				source.storedStats.atk = newatk;
+				this.add('-message', `${target.name}'s and ${target.name}'s Attack were swapped!`);
+			} else {
+				const newspa = target.storedStats.spa;
+				target.storedStats.spa = newspa;
+				source.storedStats.spa = newspa;
+				this.add('-message', `${target.name}'s and ${target.name}'s Special Attack were swapped!`);
 			}
 		},
 		flags: {breakable: 1},
 		name: "Jankster",
-		shortDesc: "This Pokemon loses 100 HP when hit by a Fairy-type move; immune to Fairy.",
+		shortDesc: "When this Pokemon is hit, it swaps its corresponding attack stat with the attacker.",
 	},
 	jumpscare: {
 		onStart(pokemon) {
@@ -201,58 +208,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	mutualexclusion: {
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of pokemon.adjacentFoes()) {
-				if (!activated) {
-					this.add('-ability', pokemon, 'Mutual Exclusion');
-					activated = true;
-					target.addVolatile('mutualexclusion');
-					const temp = [];
-					for(let i = 0; i < pokemon.moveSlots.length; i ++) {
-						for(let j = 0; j < target.moveSlots.length; j ++) {
-							if(pokemon.moveSlots[i].id === target.moveSlots[j].id) temp.push(pokemon.moveSlots[i].id);
-						}
-					}
-					if(temp.length === 0) return false;
-					target.xor = this.sample(temp);
-				}
-			}
-		},
-		condition: {
-			duration: 4,
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(pokemon, source, effect) {
-				if (effect.effectType === 'Ability') {
-					this.add('-start', pokemon, 'Mutual Exclusion', pokemon.xor, '[from] ability: ' + effect.name, '[of] ' + source);
-				} else {
-					this.add('-start', pokemon, 'Mutual Exclusion', pokemon.xor);
-				}
-				this.effectState.move = pokemon.xor;
-			},
-			onResidualOrder: 17,
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Mutual Exclusion');
-			},
-			onBeforeMovePriority: 7,
-			onBeforeMove(attacker, defender, move) {
-				//console.log("this.effectState.move: " + this.effectState.move + "\nmove.id" + move.id);
-				if (attacker.xor === move.id) {
-					this.add('cant', attacker, 'Mutual Exclusion', move);
-					return false;
-				}
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					//console.log("this.effectState.move: " + this.effectState.move + "\nmoveslot" + moveSlot);
-					if (pokemon.xor === moveSlot.id) {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
+		onStart(target) {
+			this.add('-activate', target, 'ability: Mutual Exclusion');
+			target.addVolatile('imprison');
 		},
         name: "Mutual Exclusion",
-        shortDesc: "On switchin, this Pokemon disables a random move that it and the target share.",
+        shortDesc: "On switchin, this Pokemon gains Imprison.",
     },
 	onderguard: {
 		onDamagingHit(damage, target, source, effect) {
@@ -274,7 +235,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Onder Guard",
-		shortDesc: "This Pokemon's Defense is raised by 1 and its Special Defense is lowered by 1, or vice versa, when it is damaged by an opponent's move.",
+		shortDesc: "When his Pokemon is hit, Def +1/SpD -1 or vice versa.",
 	},
 	pinfiltrator: {
 		onModifyMove(move) {
@@ -486,7 +447,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
 			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
 			this.debug('Wonder Guard immunity: ' + move.id);
-			if (target.runEffectiveness(move) > 0) {
+			if (target.runEffectiveness(move) != 0) {
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
@@ -497,6 +458,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Wonder Guard",
-		shortDesc: "This Pokemon can only be hit by resisted attacks.",
+		shortDesc: "This Pokemon can only be hit by neutral attacks.",
 	},
 }

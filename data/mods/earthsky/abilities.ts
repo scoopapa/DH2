@@ -2025,7 +2025,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			delete this.effectState.magicked;
 		},
 		name: "Magician",
-		desc: "The user swaps its held item with the held item of a Pokemon it hits with an attack. This effect fails if neither the user or the target is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, a Memory, a Rusted Sword, or a Rusted Shield to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta, respectively. The target is immune to this effect if it has the Sticky Hold Ability. This effect can only trigger once per switch-in. Does not affect Doom Desire and Future Sight.",
+		desc: "The user swaps its held item with the held item of a Pokemon it hits with an attack. This effect fails if neither the user or the target is holding an item or if the user is trying to give or take a Mega Stone or form-changing item to or from the species that can Mega Evolve or change forms with it. The target is immune to this effect if it has the Sticky Hold Ability. This effect can only trigger once per switch-in. Does not affect Doom Desire and Future Sight.",
 		shortDesc: "Swaps items with a Pokemon it hits with an attack. Once per switch-in.",
         flags: {},
 		num: 170,
@@ -2096,8 +2096,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Magnet Pull",
 		rating: 4,
 		num: 42,
-		desc: "Prevents opposing Steel-type Pokemon from choosing to switch out for three turns, unless they are holding a Shed Shell or are a Ghost type.",
-		shortDesc: "Prevents opposing Steel-type Pokemon from choosing to switch out for 3 turns.",
+		desc: "Prevents opposing Steel-types from switching out for four turns (six turns if the user is holding Grip Claw), starting from when either the user or a valid foe switches in. The target can still switch out if it is holding Shed Shell, is behind a Substitute, has Run Away, or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. The effect ends if the user leaves the field.",
+		shortDesc: "Traps enemy Steel-types for 4 turns.",
 	},
 	megalauncher: {
 		inherit: true,
@@ -2157,7 +2157,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.effectState.boost = {def: length, spd: length, spe: -length};
+				this.effectState.boost = {def: 1, spd: 1, spe: -1};
 			}
 		},
 		onTryHeal(damage, target, source, effect) {
@@ -2687,8 +2687,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Shadow Tag",
 		rating: 4.5,
 		num: 23,
-		desc: "Prevents opposing Pokemon from choosing to switch out for three turns, unless they are holding a Shed Shell, have the Run Away or Shadow Tag Abilities, or are a Ghost type.",
-		shortDesc: "Prevents foes from switching for 3 turns unless they also have this Ability.",
+		desc: "Prevents opposing Pokemon from switching out for four turns (six turns if the user is holding Grip Claw), starting from when either the user or a valid foe switches in. The target can still switch out if it is holding Shed Shell, is behind a Substitute, has Shadow Tag or Run Away, or uses Baton Pass, Escape Tunnel, Parting Shot, Psy Bubble, Slip Away, Teleport, U-turn, or Volt Switch. The effect ends if the user leaves the field.",
+		shortDesc: "Traps enemies without Shadow Tag for 4 turns.",
 	},
 	sharpness: {
 		inherit: true,
@@ -2914,6 +2914,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	synchronize: {
+		inherit: true,
+		onAfterSetStatus(status, target, source, effect) {
+			if (!source || source === target) return;
+			if (effect && effect.id === 'toxicspikes') return;
+			this.add('-activate', target, 'ability: Synchronize');
+			// Hack to make status-prevention abilities think Synchronize is a status move
+			// and show messages when activating against it.
+			source.trySetStatus(status, target, {status: status.id, id: 'synchronize'} as Effect);
+		},
+		desc: "If another Pokemon inflicts a non-volatile status condition on this Pokemon, that Pokemon receives the same non-volatile status condition.",
+		shortDesc: "If status is inflicted by another Pokemon, it also gets that status.",
+	},
 	tangledfeet: {
 		onDamage(damage, target, source, effect) {
 			if (effect.id === this.toID('confused') && !pokemon.volatiles['odorsleuth']) {
@@ -2945,7 +2958,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	tangling: {
 		onHit(target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target)) {
+			if (this.checkMoveMakesContact(move, source, target)) 
+				this.add('-activate', target, 'ability: Tangling');{
 				source.addVolatile('singletrap', target, Dex.abilities.get('tangling'), 'trapper');
 			}
 		},
@@ -3305,6 +3319,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	cutecharm: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('attract', this.effectState.target);
+				}
+			}
+		},
+		flags: {},
+		name: "Cute Charm",
+		rating: 0.5,
+		num: 56,
+	},
 	dazzling: {
 		onFoeTryMove(source, target, move) {
 			if (move.target === 'foeSide' || (move.target === 'all' &&  move.id !== 'perishsong')) {
@@ -3322,6 +3349,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {breakable: 1},
 		rating: 2.5,
 		num: 219,
+	},
+	effectspore: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
+	flamebody: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
 	},
 	fullmetalbody: {
 		onChangeBoost(boost, target, source, effect) {
@@ -3352,6 +3410,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 230,
 	},
+	gooey: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Gooey');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		flags: {},
+		name: "Gooey",
+		rating: 2,
+		num: 183,
+	},
 	imposter: {
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
@@ -3374,6 +3444,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 150,
         flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+	},
+	ironbarbs: {
+		onHitOrder: 1,
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Iron Barbs",
+		rating: 2.5,
+		num: 160,
+	},
+	mummy: {
+		onHit(target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'mummy') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('mummy', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: Mummy', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		flags: {},
+		name: "Mummy",
+		rating: 2,
+		num: 152,
 	},
 	neutralizinggas: {
 		inherit: true,
@@ -3437,6 +3537,46 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		desc: "When an opposing Pokemon has a stat stage raised, this Pokemon copies the effect, unless the opponent has the Own Tempo Ability or was already copying the boost through Opportunist or a held Mirror Herb.",
 	},
+	poisonpoint: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	poisontouch: {
+		onSourceHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.randomChance(3, 10)) {
+					target.trySetStatus('psn', source);
+				}
+			}
+		},
+		flags: {},
+		name: "Poison Touch",
+		rating: 2,
+		num: 143,
+	},
+	roughskin: {
+		onHitOrder: 1,
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Rough Skin",
+		rating: 2.5,
+		num: 24,
+	},
 	scrappy: {
 		inherit: true,
 		onTryBoost(boost, target, source, effect) {
@@ -3466,6 +3606,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         flags: {breakable: 1},
 		rating: 3.5,
 		num: 231,
+	},
+	static: {
+		onHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Static",
+		rating: 2,
+		num: 9,
 	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
@@ -3514,6 +3667,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		rating: 2.5,
 		num: 36,
+	},
+	wanderingspirit: {
+		onHit(target, source, move) {
+			if (source.getAbility().flags['failskillswap']) return;
+			if (this.checkMoveMakesContact(move, source, target)) {
+				const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, source.ability);
+				if (!targetCanBeSet) return targetCanBeSet;
+				const sourceAbility = source.setAbility('wanderingspirit', target);
+				if (!sourceAbility) return;
+				if (target.isAlly(source)) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+				} else {
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+				}
+				target.setAbility(sourceAbility);
+			}
+		},
+		flags: {},
+		name: "Wandering Spirit",
+		rating: 2.5,
+		num: 254,
 	},
 	zenmode: {
 		inherit: true,

@@ -252,26 +252,57 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Filter + Good as Gold in The Swarm", 
 	},
 	ambush: {
-		onModifyMove(move) {
+		onBeforeTurn(pokemon) {
+			if (!this.field.pseudoWeather.twilightzone) return;
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('ambush', pokemon);
+				const data = side.getSideConditionData('ambush');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
 			move.accuracy = true;
+			if (this.field.pseudoWeather.twilightzone && (target?.beingCalledBack || target?.switchFlag)) move.accuracy = true;
 		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender) {
-			if (this.field.pseudoWeather.twilightzone && !defender.activeTurns) {
-				this.debug('Stakeout boost');
-				return this.chainModify(1.5);
-			}
+		onTryHit(source, target) {
+			if (this.field.pseudoWeather.twilightzone) target.side.removeSideCondition('ambush');
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender) {
-			if (this.field.pseudoWeather.twilightzone && !defender.activeTurns) {
-				this.debug('Stakeout boost');
-				return this.chainModify(1.5);
-			}
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				const move = this.queue.willMove(pokemon.foes()[0]);
+				const moveName = move && move.moveid ? move.moveid.toString() : "";
+				this.debug('Ambush start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon.foes()[0], 'ability: Ambush');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove(moveName, source, source.getLocOf(pokemon));
+				}
+			},
 		},
 		flags: {breakable: 1},
 		name: "Ambush",
-		shortDesc: "Moves can't miss + 1.5x power Stakeout in Twilight Zone",
+		shortDesc: "Moves can't miss + all moves Pursuit in Twilight Zone",
 	},
 	dracojet: {
 		onTryBoost(boost, target, source, effect) {
@@ -333,11 +364,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([3, 2]);
+			if (this.field.pseudoWeather.fable && ['Dark', 'Dragon', 'Ghost', 'Poison'].includes(move.type)) return this.chainModify([5, 4]);
 		},
 		flags: {breakable: 1},
 		name: "Dark Fantasy",
-		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.5x power in Fable.",
+		shortDesc: "Insomnia + Dark/Dragon/Ghost/Poison moves 1.25x power in Fable.",
 	},
 	suplex: {
 		onTryBoost(boost, target, source, effect) {
@@ -389,19 +420,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon heals 1/16 max HP per turn. Drought = highest offense 1.3x.",
 	},
 	slipstream: {
-		onAfterEachBoost(boost, target, source, effect) {
-			if (!source || target.isAlly(source)) {
-				return;
-			}
-			let statsLowered = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					statsLowered = true;
-				}
-			}
-			if (statsLowered) {
-				this.boost({spe: 2}, target, target, null, false, true);
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				this.debug('Slipstream boost');
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifyMove(move, pokemon) {
@@ -409,7 +432,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Slipstream",
-		shortDesc: "Speed Defiant + all moves switch in Delta Stream.",
+		shortDesc: "Flying moves 1.3x power + all moves switch in Delta Stream.",
 	},
 	banshee: {
 		onTryHit(target, source, move) {
@@ -446,14 +469,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['heal', 'drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
-			console.log(effect.id);
+			console.log(effect);
 			if (heals.includes(effect.id)) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifyMove(move, pokemon) {
 			if(move.flags['heal']) {
-				move.heal = [move.heal[0] * 3, move.heal[1] * 2];
+				console.log(move);
+				//move.heal = [move.heal[0] * 3, move.heal[1] * 2];
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -475,11 +499,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "1.5x healing + 1.5x Grass power in Overgrowth.",
 	},
 	sandforce: {
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
-				this.debug('Sand Force boost');
-				return this.chainModify([4915, 4096]);
+				this.debug('Sand Force Atk weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+				this.debug('Sand Force SpA weaken');
+				return this.chainModify(0.75);
 			}
 		},
 		onResidualOrder: 28,
@@ -492,7 +523,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Sand Force",
-		shortDesc: "Ground/Rock/Steel 1.2x power + Bad Dreams if Dust Storm.",
+		shortDesc: "Takes 0.75x from Ground/Rock/Steel + Bad Dreams if Dust Storm.",
 	},
 	snowcloak: {
 		onTryBoost(boost, target, source, effect) {
@@ -1126,6 +1157,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.actions.useMove("Ultranome", pokemon);
 				}
 			}
+			if (pokemon.metronomeUsed) delete pokemon.metronomeUsed;
 		},
 		//metronome hitting twice handled in moves.ts
 		flags: {},
@@ -1142,7 +1174,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			console.log(type + " " + move.type);
 			if (this.field.pseudoWeather.shitstorm && move.type === 'Poison' && type === 'Steel') return 1;
 		},
 		shortDesc: "Corrosion + Poison hits Steel supereffectively in Shitstorm.",

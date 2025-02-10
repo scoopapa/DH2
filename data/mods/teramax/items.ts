@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	wishingstone: {
 		name: "Wishing Stone",
 		spritenum: 22,
@@ -30,5 +30,77 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			"Coalossal-Gmax", "Flapple-Gmax", "Appletun-Gmax", "Sandaconda-Gmax", "Centiskorch-Gmax", "Toxtricity-Gmax", "Toxtricity-Low-Key-Gmax", "Hatterene-Gmax", "Grimmsnarl-Gmax", 
 			"Alcremie-Gmax", "Copperajah-Gmax", "Duraludon-Gmax", "Urshifu-Gmax", "Urshifu-Rapid-Strike-Gmax"
 		],
+	},
+	bugmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	darkmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	dragonmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	electricmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fairymemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fightingmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	firememory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	flyingmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	ghostmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	grassmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	groundmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	icememory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	leek: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	poisonmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	psychicmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	rockmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	steelmemory: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	watermemory: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };

@@ -10971,7 +10971,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Golurk",
 		types: ["Ground", "Ghost"],
 		gender: "N",
-		baseStats: {hp: 89, atk: 124, def: 80, spa: 55, spd: 80, spe: 55},
+		baseStats: {hp: 89, atk: 124, def: 80, spa: 55, spd: 80, spe: 121},
 		abilities: {0: "Iron Fist", 1: "Klutz", H: "No Guard"},
 		heightm: 2.8,
 		weightkg: 330,

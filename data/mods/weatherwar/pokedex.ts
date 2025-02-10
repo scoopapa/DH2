@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 8,
 		name: "Doublade",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 69, atk: 110, def: 150, spa: 45, spd: 89, spe: 37},
+		baseStats: {hp: 69, atk: 100, def: 150, spa: 55, spd: 89, spe: 37},
 		abilities: {0: "Delusion", 1: "Dark Fantasy", H: "Second Impact"},
 		evos: null,
 	},
@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 9,
 		name: "Lugia",
 		types: ["Psychic", "Flying"],
-		baseStats: {hp: 106, atk: 70, def: 90, spa: 100, spd: 104, spe: 80},
+		baseStats: {hp: 106, atk: 50, def: 90, spa: 110, spd: 114, spe: 80},
 		abilities: {0: "Delta Stream", 1: "Slipstream", H: "Magic Guard"},
 	},
 	zapdos: {
@@ -118,7 +118,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 15,
 		name: "Flygon",
 		types: ["Dragon", "Ground"],
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 80, spd: 80, spe: 100},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 110, spd: 80, spe: 100},
 		abilities: {0: "Sand Stream", 1: "Draco Jet", H: "Levitate"},
 	},
 	torkoal: {
@@ -151,7 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Charizard-Mega-Y",
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 78, atk: 94, def: 88, spa: 145, spd: 115, spe: 110},
-		abilities: {0: "Solar Flare"},
+		abilities: {0: "Slipstream"},
 	},
 	pelipper: {
 		inherit: true,
@@ -166,7 +166,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 21,
 		name: "Politoed",
 		types: ["Water", "Normal"],
-		baseStats: {hp: 90, atk: 75, def: 95, spa: 90, spd: 130, spe: 50},
+		baseStats: {hp: 90, atk: 105, def: 75, spa: 80, spd: 130, spe: 50},
 		abilities: {0: "Monsoon", 1: "Duomod Reference??", H: "Finger Waggler"},
 	},
 	tyranitar: {
@@ -199,7 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Abomasnow",
 		types: ["Ice", "Grass"],
 		baseStats: {hp: 90, atk: 52, def: 115, spa: 112, spd: 115, spe: 56},
-		abilities: {0: "Ruin", 1: "Snow Cloak", H: "Ice Scales"},
+		abilities: {0: "Ruin", 1: "Snow Warning", H: "Ice Scales"},
 	},
 	abomasnowmega: {
 		inherit: true,
@@ -207,7 +207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Abomasnow-Mega",
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 90, atk: 52, def: 145, spa: 142, spd: 145, spe: 66},
-		abilities: {0: "Snow Warning"},
+		abilities: {0: "Snow Cloak"},
 	},
 	ninetalesalola: {
 		inherit: true,
@@ -271,7 +271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lickilicky",
 		types: ["Normal"],
 		baseStats: {hp: 120, atk: 85, def: 95, spa: 85, spd: 95, spe: 50},
-		abilities: {0: "Finger Waggler", 1: "Thick Fat", H: "Cloud Nine"},
+		abilities: {0: "Finger Waggler", 1: "Cloud Nine", H: "Thick Fat"},
 	},
 	golduck: {
 		inherit: true,
@@ -536,7 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 67,
 		name: "Absol",
 		types: ["Dark"],
-		baseStats: {hp: 80, atk: 120, def: 75, spa: 55, spd: 75, spe: 125},
+		baseStats: {hp: 80, atk: 120, def: 65, spa: 55, spd: 65, spe: 125},
 		abilities: {0: "Blackout", 1: "Fairytale", H: "Ambush"},
 	},
 	absolmega: {
@@ -544,7 +544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 68,
 		name: "Absol-Mega",
 		types: ["Dark", "Fairy"],
-		baseStats: {hp: 80, atk: 150, def: 75, spa: 135, spd: 75, spe: 115},
+		baseStats: {hp: 80, atk: 130, def: 75, spa: 125, spd: 75, spe: 125},
 		abilities: {0: "Dark Fantasy"},
 	},
 	malamar: {
@@ -568,16 +568,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 71,
 		name: "Celebi",
 		types: ["Steel", "Grass"],
-		baseStats: {hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 90},
+		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
 		abilities: {0: "Time Machine", 1: "Ruin", H: "Tinted Lens"},
 	},
-	tapulele: {
+	enamorus: {
 		inherit: true,
 		num: 72,
-		name: "Tapu Lele",
-		types: ["Psychic", "Fairy"],
-		baseStats: {hp: 70, atk: 85, def: 85, spa: 115, spd: 110, spe: 85},
-		abilities: {0: "Freaky", 1: "Fairytale", H: "Merciless"},
+		name: "Enamorus",
+		gender: "F",
+		types: ["Fairy", "Psychic"],
+		baseStats: {hp: 74, atk: 95, def: 80, spa: 115, spd: 80, spe: 106},
+		abilities: {0: "Fairytale", 1: "Freaky", H: "Merciless"},
 	},
 	manaphy: {
 		inherit: true,
@@ -600,7 +601,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 75,
 		name: "Alakazam-Mega",
 		types: ["Psychic"],
-		baseStats: {hp: 55, atk: 50, def: 65, spa: 175, spd: 105, spe: 150},
+		baseStats: {hp: 55, atk: 60, def: 75, spa: 155, spd: 105, spe: 150},
 		abilities: {0: "Domain Expander"},
 	},
 	kabutops: {
@@ -672,7 +673,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 84,
 		name: "Chien-Pao",
 		types: ["Dark", "Ice"],
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 70, spd: 65, spe: 125},
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 70, spd: 95, spe: 95},
 		abilities: {0: "Snow Warning"},
 	},
 	tinglu: {
@@ -720,7 +721,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 91,
 		name: "Sableye-Mega",
 		types: ["Ghost", "Rock"],
-		baseStats: {hp: 85, atk: 100, def: 135, spa: 100, spd: 135, spe: 20},
+		baseStats: {hp: 85, atk: 110, def: 110, spa: 110, spd: 110, spe: 50},
 		abilities: {0: "Magic Bounce"},
 	},
 	pecharunt: {
@@ -743,6 +744,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 94,
 		name: "Lily White",
 		types: ["Grass", "Fairy"],
+		gender: "F",
 		baseStats: {hp: 85, atk: 35, def: 75, spa: 100, spd: 85, spe: 90},
 		abilities: {0: "It\'s Spring!"},
 	},

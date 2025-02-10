@@ -7,7 +7,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
-			if (pokemon.illusion && ['Ogerpon', 'Terapagos', 'Hattepon'].includes(pokemon.illusion.species.baseSpecies)) {
+			if (pokemon.illusion && ['Hattepon', 'Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
 				this.battle.singleEvent('End', this.dex.abilities.get('Rough Image'), pokemon.abilityState, pokemon);
 			}
 	
@@ -28,7 +28,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 		canMegaEvo(pokemon) {
-			const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
+			const species = pokemon.baseSpecies;
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (
 				altForme?.isMega && altForme?.requiredMove &&
@@ -36,49 +37,29 @@ export const Scripts: ModdedBattleScriptsData = {
 			) {
 				return altForme.name;
 			}
-			switch (pokemon.baseSpecies.name) {
-				case "Amphamence":
-					if (item.name === "Salamencite") {
-						return "Amphamence-Mega-X"; 
-					}
-					if (item.name === "Ampharosite") {
-						return "Amphamence-Mega-Y"; 
-					}
-					break;
-				case "Tyranix":
-					if (item.name === "Tyranitarite") {
-						return "Tyranix-Mega-X"; 
-					}
-					if (item.name === "Steelixite") {
-						return "Tyranix-Mega-Y"; 
-					}
-					break;
-				case "Mawlakazam":
-					if (item.name === "Mawilite") {
-						return "Mawlakazam-Mega-X"; 
-					}
-					if (item.name === "Alakazite") {
-						return "Mawlakazam-Mega-Y"; 
-					}
-					break;
+			if (item.megaStone === species.name) return null;
+			switch (species.name) {
 				case "Chomptry":
 					if (item.name === "Garchompite") {
 						return "Chomptry-Mega";
 					}
-					break;
+					return null;
 				case "Tentazor":
 					if (item.name === "Scizorite") {
 						return "Tentazor-Mega";
 					}
-					break;
+					return null;
 				case "Aerodirge":
 					if (item.name === "Aerodactylite") {
 						return "Aerodirge-Mega";
 					}
-					break;
+					return null;
 			}
 			
-			return item.megaStone;
+			if (item.megaEvolves === species.baseSpecies) {
+				return item.megaStone;
+			}
+			return null;
 		},
 		canUltraBurst(pokemon) {
 			if (pokemon.baseSpecies.name === 'Necrotrik-Dawn-Wings' && pokemon.getItem().id === 'depletedultranecroziumz') {
@@ -96,7 +77,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (/*this.battle.gen >= 6 && */move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
 					this.battle.debug('natural powder immunity');
 				} else if (this.battle.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
-					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && !this.dex.getImmunity('prankster', target) && pokemon.hasAbility(['prankster','openingact'])
+					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && !this.dex.getImmunity('prankster', target) && pokemon.hasAbility(['prankster','openingact','prankrock'])
 						 && !targets[i].isAlly(pokemon)) {
 						this.battle.debug('natural prankster immunity');
 						if (!target.illusion) this.battle.hint("Since gen 7, Dark is immune to Prankster moves.");
@@ -213,7 +194,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					// but before any multipliers like Agility or Choice Scarf
 					// Ties go to whichever Pokemon has had the ability for the least amount of time
 					dancers.sort(
-						(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+						(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
 					);
 					const targetOf1stDance = this.battle.activeTarget!;
 					for (const dancer of dancers) {
@@ -380,7 +361,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				if (
 					!move.negateSecondary &&
-					!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','forceofnature','sandwrath','overwhelming'])) &&
+					!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','forceofnature','sandwrath','overwhelming','powerbuns'])) &&
 					!move.flags['futuremove']
 				) {
 					const originalHp = pokemon.hp;
@@ -475,7 +456,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 				if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
-				if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['wellbakedflameorb','feistytempo','guts'])
+				if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['wellbakedflameorb','feistytempo','guts','adrenalinearoma'])
 					 && move.id !== 'facade') {
 					//if (this.battle.gen < 6 || move.id !== 'facade') {
 						baseDamage = this.battle.modify(baseDamage, 0.5);
@@ -531,7 +512,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject'])) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol','magnetize','unidentifiedflyingobject','anointed'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
 			if ('magnetrise' in this.volatiles/*) return false;

@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: LearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	blipbug: {
 		learnset: {
 			inherit: true,
@@ -10907,6 +10907,28 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderwave: ["9L1"],
 			thunderbolt: ["9L1"],
 			toxic: ["9L1"],
+		},
+	},
+	ogerponhearthflame: {
+		learnset: {
+			flamethrower: ["9L1"],
+			fireblast: ["9L1"],
+			focusblast: ["9L1"],
+			willowisp: ["9L1"],
+			nastyplot: ["9L1"],
+			earthquake: ["9L1"],
+			toxic: ["9L1"],
+		},
+	},
+	ogerponwellspring: {
+		learnset: {
+			strengthsap: ["9L1"],
+		},
+	},
+	ogerponcornerstone: {
+		learnset: {
+			stealthrock: ["9L1"],
+			closecombat: ["9L1"],
 		},
 	},
 };

@@ -34,7 +34,7 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	noability: {
-		isNonstandard: "Past",
+		isNonstandard: "Past", 
 		flags: {},
 		name: "No Ability",
 		rating: 0.1,
@@ -3308,18 +3308,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 211,
 	},
 	powerofalchemy: {
-		onAllyFaint(target) {
-			if (!this.effectState.target.hp) return;
-			const ability = target.getAbility();
-			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
-			if (this.effectState.target.setAbility(ability)) {
-				this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			}
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		flags: {},
 		name: "Power of Alchemy",
 		rating: 0,
 		num: 223,
+		shortDesc: "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
 	},
 	powerspot: {
 		onAllyBasePowerPriority: 22,
@@ -3352,8 +3348,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
-			return 1;
+			return 2;
 		},
+		shortDesc: "If this Pokemon is the target of a foe's move, that move loses two additional PP.",
 		flags: {},
 		name: "Pressure",
 		rating: 2.5,
@@ -4304,20 +4301,36 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	solarpower: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
+			return this.chainModify(1.5);
 		},
-		onWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
-			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-				this.damage(target.baseMaxhp / 8, target, target);
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+		},
+		onStart(source) {
+			this.field.setWeather('sunnyday');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'sunnyday' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('solarpower')) {
+					this.field.weatherState.source = target;
+					return;
+				}
 			}
+			this.field.clearWeather();
 		},
 		flags: {},
 		name: "Solar Power",
 		rating: 2,
 		num: 94,
+		shortDesc: "Sunny Day is active; this Pokemon's SpA is 1.5x; loses 1/8 max HP per turn.",
 	},
 	solidrock: {
 		onSourceModifyDamage(damage, source, target, move) {

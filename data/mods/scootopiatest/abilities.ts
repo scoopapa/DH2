@@ -1,37 +1,21 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	// metamorphosis: {
-	// num: 1016,
-	// name: "Metamorphosis",
-	// shortDesc: "50% boost to moves of the same type as the first move used.",
-	// onSourceHit(target, source, move) {
-	// if (!move || !target) return;
-	// if (target !== source && move.category !== 'Status') {
-	// source.addVolatile("metamorphosis");
-	// }
-	// },
-	// condition: {
-	// noCopy: true, // doesn't get copied by Baton Pass
-	// onStart(target) {
-	// this.add('-start', target, 'ability: Metamorphosis');
-	// target.m.metaType = target.lastMove.type;
-	// },
-	// onModifyAtkPriority: 5,
-	// onModifyAtk(atk, attacker, defender, move) {
-	// if (move.type === attacker.m.metaType && attacker.hasAbility('metamorphosis')) {
-	// return this.chainModify(1.5);
-	// }
-	// },
-	// onModifySpAPriority: 5,
-	// onModifySpA(atk, attacker, defender, move) {
-	// if (move.type === attacker.m.metaType && attacker.hasAbility('metamorphosis')) {
-	// return this.chainModify(1.5);
-	// }
-	// },
-	// onEnd(target) {
-	// this.add('-end', target, 'ability: Metamorphosis', '[silent]');
-	// },
-	// },
-	// },
+	risingsun: {
+		name: "Rising Sun",
+		shortDesc: "Immune to the downsides of World Effects of order.",
+	},
+	fallingstar: {
+		name: "Falling Star",
+		shortDesc: "Immune to the downsides of World Effects of chaos.",
+	},
+	tellurian: {
+		name: "Tellurian",
+		shortDesc: "Immune to the downsides of World Effects of earth.",
+	},
+	celestial: {
+		name: "Celestial",
+		shortDesc: "Immune to the downsides of World Effects of sky.",
+	},
+
 	mythicalpresence: {
 		name: "Mythical Presence",
 		shortDesc: "Lowers opposing Pokemon Special Attack by 1 stage when switching in.",
@@ -88,146 +72,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 210,
 	},
-	// firmfooting: {
-	// shortDesc: "Immune to Wind moves, +1 SpD if hit by one.",
-	// onTryHit(target, source, move) {
-	// if (target !== source && move.flags["wind"]) {
-	// if (!this.boost({spd: 1})) {
-	// this.add('-immune', target, '[from] ability: Firm Footing');
-	// }
-	// return null;
-	// }
-	// },
-	// name: "Firm Footing",
-	// rating: 3,
-	// },
-	// terrainpower: {
-	// shortDesc: "+50% SpA/SpD in Terrain.",
-	// onModifyDefPriority: 6,
-	// onModifyDef(pokemon) {
-	// if (this.field.isTerrain('')) return;
-	// return this.chainModify(1.5);
-	// },
-	// onModifySpDPriority: 6,
-	// onModifySpD(pokemon) {
-	// if (this.field.isTerrain('')) return;
-	// return this.chainModify(1.5);
-	// },
-	// name: "Terrain Power",
-	// rating: 0.5,
-	// num: 179,
-	// },
-	// wakethedead: {
-	// shortDesc: "50% reduction to Ghost damage. Nothing can Sleep.",
-	// onStart(pokemon) {
-	// this.add('-ability', pokemon, 'Wake the Dead');
-	// this.add('-message', pokemon.name + " is making a ton of noise!");
-	// },
-	// onUpdate(pokemon) {
-	// for (const target of pokemon.side.active) {
-	// if (target.status === 'slp') target.cureStatus();
-	// }
-	// for (const target of pokemon.side.foe.active) {
-	// if (target.status === 'slp') target.cureStatus();
-	// }
-	// },
-	// onAnySetStatus(status, pokemon) {
-	// if (status.id === 'slp') {
-	// if (pokemon === this.effectState.target) {
-	// this.add('-fail', pokemon, 'slp', '[from] ability: Wake the Dead', '[msg]');
-	// } else {
-	// this.add('-fail', pokemon, 'slp', '[from] ability: Wake the Dead');
-	// }
-	// return null;
-	// }
-	// },
-	// onAnyBasePowerPriority: 20,
-	// onAnyBasePower(basePower, source, target, move) {
-	// if (target === source || move.category === 'Status' || move.type !== 'Ghost') return;
-	// return this.chainModify(0.5);
-	// },
-	// isUnbreakable: true,
-	// name: "Wake the Dead",
-	// rating: 3,
-	// },
-	// xenospore: {
-	// shortDesc: "Levitate. Also changes form if it maxes out a stat.",
-	// onResidualOrder: 27,
-	// onStart(pokemon) {
-	// pokemon.m.xenosporeHints = {};
-	// pokemon.m.xenosporeHints.firstHint = false;
-	// pokemon.m.xenosporeHints.secondHint = false;
-	// },
-	// onUpdate(pokemon) {
-	// if (pokemon.baseSpecies.baseSpecies !== 'Flocura' || pokemon.transformed || !pokemon.hp) return;
-	// if (pokemon.species.id === 'flocuranexus') return;
-	// let areBoosts = 0;
-	// let b: BoostName;
-	// for (b in pokemon.boosts) {
-	// if (pokemon.boosts[b] > areBoosts) areBoosts = pokemon.boosts[b]
-	// }
-	// if (areBoosts >= 6) {
-	// this.add('-activate', pokemon, 'ability: Xenospore');
-	// pokemon.formeChange('Flocura-Nexus', this.effect, true);
-	// pokemon.baseMaxhp = Math.floor(Math.floor(
-	// 2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-	// ) * pokemon.level / 100 + 10);
-	// const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-	// pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-	// pokemon.maxhp = newMaxHP;
-	// this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-	// pokemon.m.xenosporeHints.firstHint = true;
-	// pokemon.m.xenosporeHints.secondHint = true;
-	// } else if (areBoosts >= 4 && !pokemon.m.xenosporeHints.secondHint) {
-	// pokemon.m.xenosporeHints.firstHint = true;
-	// pokemon.m.xenosporeHints.secondHint = true;
-	// this.add('-message', pokemon.name + " needs MORE power!");
-	// } else if (areBoosts >= 2 && !pokemon.m.xenosporeHints.firstHint) {
-	// pokemon.m.xenosporeHints.firstHint = true;
-	// this.add('-message', pokemon.name + " started to glow!");
-	// }
-	// },
-	// flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-	// name: "Xenospore",
-	// rating: 5,
-	// num: 211,
-	// },
-	crystalheart: {
-		shortDesc: "User becomes Crystal type. While Crystal type, 33% boost to Def and SpD",
-		onStart(pokemon) {
-			if (pokemon.hasType('Crystal')) return false;
-			if (!pokemon.addType('Crystal')) return false;
-			pokemon.setType(["Crystal"]);
-			this.add('-start', pokemon, 'typechange', 'Crystal', '[from] ability: Crystal Heart');
-		},
-		onModifyDefPriority: 6,
-		onModifyDef(def, pokemon) {
-			if (pokemon.hasType('Crystal')) return this.chainModify(1 + (1 / 3));
-		},
-		onModifySpDPriority: 6,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.hasType('Crystal')) return this.chainModify(1 + (1 / 3));
-		},
-		name: "Crystal Heart",
-	},
-	wildheart: {
-		onStart(pokemon) {
-			if (pokemon.hasType('Feral')) return false;
-			if (!pokemon.addType('Feral')) return false;
-			pokemon.setType(["Feral"]);
-			this.add('-start', pokemon, 'typechange', "Feral", '[from] ability: Wild Heart');
-		},
-		onModifyAtkPriority: 6,
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.hasType('Feral')) return this.chainModify(1 + (1 / 3));
-		},
-		onModifySpAPriority: 6,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.hasType('Feral')) return this.chainModify(1 + (1 / 3));
-		},
-		name: "Wild Heart",
-		shortDesc: "User becomes Feral type. While Feral type, 33% boost to Atk and SpA",
-	},
 	schooling: {
 		onStart(pokemon) {
 		if (pokemon.baseSpecies.baseSpecies !== 'Jaegorm' || pokemon.transformed) return;
@@ -271,73 +115,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Shell Bunker",
 		shortDesc: "After taking damage, Def and SpD are doubled for the rest of the turn.",
 	},
-	// crystalline: {
-	// onSourceModifyAtkPriority: 6,
-	// onSourceModifyAtk(atk, attacker, defender, move) {
-	// if (move.type === 'Crystal' || move.type === 'Rock') {
-	// this.debug('Crystalline weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// onSourceModifySpAPriority: 5,
-	// onSourceModifySpA(atk, attacker, defender, move) {
-	// if (move.type === 'Crystal' || move.type === 'Rock') {
-	// this.debug('Crystalline weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// name: "Crystalline",
-	// shortDesc: "Reduces damage from Rock and Crystal by 50%.",
-	// rating: 3.5,
-	// },
-	// wildroots: {
-	// onSourceModifyAtkPriority: 6,
-	// onSourceModifyAtk(atk, attacker, defender, move) {
-	// if (move.type === 'Fairy' || move.type === 'Feral') {
-	// this.debug('Wild Roots weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// onSourceModifySpAPriority: 5,
-	// onSourceModifySpA(atk, attacker, defender, move) {
-	// if (move.type === 'Fairy' || move.type === 'Feral') {
-	// this.debug('Wild Roots weaken');
-	// return this.chainModify(0.5);
-	// }
-	// },
-	// shortDesc: "Reduces damage from Fairy and Feral by 50%.",
-	// name: "Wild Roots",
-	// rating: 3.5,
-	// },
-	// growthpower: {
-	// onTryHitPriority: 1,
-	// onTryHit(target, source, move) {
-	// if (target !== source && move.type === 'Grass') {
-	// this.field.setTerrain('grassyterrain');
-	// this.add('-immune', target, '[from] ability: Growth Power');
-	// return null;
-	// }
-	// },
-	// onAllyTryHitSide(target, source, move) {
-	// if (target === this.effectState.target || target.side !== source.side) return;
-	// if (move.type === 'Grass') {
-	// this.field.setTerrain('grassyterrain');
-	// }
-	// },
-	// onSwitchIn(pokemon) {
-	// if (pokemon.hp > pokemon.maxhp / 2) target.m.growthPower = false;
-	// },
-	// onResidual(pokemon) {
-	// if (pokemon.hp > pokemon.maxhp / 2) target.m.growthPower = false;
-	// },
-	// onDamage(damage, target, source, move) {
-	// if (!move || move.effectType !== 'Move' || !source) return;
-	// if (!target.m.growthPower) {
-	// target.m.growthPower = true
-	// this.field.setTerrain('grassyterrain');
-	// }
-	// },
-	// shortDesc: "If knocked below 50% or hit by a Grass move, sets Grassy Terrain. Immune to Grass moves.",
-	// name: "Growth Power",
-	// },
+	hydration: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.status 
+				&& ( ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())
+					|| this.dex.dataCache.scootopia.getWorldEffect() === "rainofdew" )
+			) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				pokemon.cureStatus();
+			}
+		},
+	},
+	solarpower: {
+		inherit: true,
+		onModifySpA(spa, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) ||  this.dex.dataCache.scootopia.getWorldEffect() === "stellaralignment") {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 };

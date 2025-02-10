@@ -68,7 +68,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		},
 	},
 	shuppet: {
-		ragefist: ["9T"],
+			ragefist: ["9T"],
 			allyswitch: ["9T"],
 			attract: ["9M", "9M", "9M", "9M", "9M"],
 			bodyslam: ["9T"],
@@ -1043,6 +1043,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			shadowball: ["9M"],
 			sleeptalk: ["9M"],
 			snarl: ["9M"],
+			spiritshackle: ["9M"],
 			stompingtantrum: ["9M"],
 			substitute: ["9M"],
 			sunnyday: ["9M"],
@@ -1928,6 +1929,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	trevenant: {
 		learnset: {
 			shadowbone: ["9M"],
+			stoneedge: ["9M"],
+			headsmash: ["9M"],
+			highjumpkick: ["9M"],
+			axekick: ["9M"],
+			submission: ["9M"],
 			allyswitch: ["9M", "9T"],
 			astonish: ["9L1", "9L1", "9L1", "9L9"],
 			attract: ["9M", "9M", "9M"],
@@ -2118,6 +2124,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	venomicon: {
 		learnset: {
+			mortalspin: ["9M"],
+			shadowclaw: ["9M"],
 			ominouswind: ["9M"],
 			acidspray: ["9M"],
 			aircutter: ["9M", "9L19", "9L19"],
@@ -2199,6 +2207,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	venomiconepilogue: {
 		learnset: {
 			mortalspin: ["9M"],
+			shadowclaw: ["9M"],
 			ominouswind: ["9M"],
 			acidspray: ["9M"],
 			aircutter: ["9M", "9L19", "9L19"],
@@ -2368,6 +2377,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	xorygonz: {
 		learnset: {
+			astralbarrage: ["9M"],
+			bittermalice: ["9M"],
+			nightshade: ["9M"],
+			shadowsneak: ["9M"],
+			spiritshackle: ["9M"],
 			flashcannon: ["9L1"],
 			sludgebomb: ["9L1"],
 			aerialace: ["9M", "9M", "9M", "9M"],

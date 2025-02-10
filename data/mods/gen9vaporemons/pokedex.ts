@@ -377,6 +377,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	meloettapirouette: {
 		inherit: true,
 		abilities: {0: "No Guard", H: "Muscle Memory"},
+		requiredMove: null,
+		requiredItem: "Dancing Shoes",
 	},
 	landorus: {
 		inherit: true,
@@ -1946,5 +1948,21 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	pecharunt: {
 		inherit: true,
 		abilities: {0: "Poison Puppeteer", H: "Green-Eyed"},
+	},
+	mewtwo: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Synchronize"},
+	},
+	giratina: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Counteract"},
+	},
+	koraidon: {
+		inherit: true,
+		abilities: {0: "Orichalcum Pulse", H: "Momentum"},
+	},
+	miraidon: {
+		inherit: true,
+		abilities: {0: "Hadron Engine", H: "Momentum"},
 	},
 };

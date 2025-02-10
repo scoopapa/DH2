@@ -1943,7 +1943,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	bindingband: {
 		inherit: true,
-		desc: "Holder's partial-trapping moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
+		desc: "Holder's binding moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
+	},
+	gripclaw: {
+		inherit: true,
+		desc: "If the holder uses a move that traps or binds for more than a single turn (excluding the turn of use), its duration is extended. Trapping and binding last six turns instead of four, and strong binding lasts three turns instead of two.",
+		shortDesc: "Holder's trap/binding lasts 6 turns, strong bind lasts 3 turns.",
 	},
 	heavydutyboots: {
 		inherit: true,

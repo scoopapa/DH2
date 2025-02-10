@@ -11491,7 +11491,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!randomMove) {
 				return false;
 			}
-			this.useMove(randomMove, pokemon);
+			this.actions.useMove(randomMove, pokemon);
 		},
 		// Class: EN
 		// Effect Chance: 100
@@ -12231,7 +12231,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Will-o-Wisp", target);
 		},
-		status: 'darkbrn',
+		status: 'brndark',
 		// Class: EN
 		// Effect Chance: 100
 		// Effect ID: 102

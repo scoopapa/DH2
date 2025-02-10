@@ -279,7 +279,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CC",
 		doublesTier: "DCC",
 	},
-	tapulele: {
+	enamorus: {
 		tier: "CC",
 		doublesTier: "DCC",
 	},

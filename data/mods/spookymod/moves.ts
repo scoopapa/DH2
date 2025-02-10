@@ -68,7 +68,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	shadowforce: {
 		num: 467,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 100,
 		category: "Physical",
 		name: "Shadow Force",
 		shortDesc: "Hits two turns after use.",
@@ -86,7 +86,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					id: 'shadowforce',
 					name: "Shadow Force",
 					accuracy: 100,
-					basePower: 70,
+					basePower: 100,
 					category: "Special",
 					priority: 0,
 					flags: {allyanim: 1, futuremove: 1},
@@ -150,9 +150,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	lastrespects: {
 		inherit: true,
 		basePower: 60,
-		basePowerCallback: null,
-		shortDesc: "+1 priority for each ally fainted.",
-		priority: -3,
+		basePowerCallback(pokemon, target, move) {
+			return 60 + 5 * pokemon.side.totalFainted;
+		},
+		shortDesc: "+1 priority and +5 BP for each ally fainted.",
+		priority: -1,
 		onModifyPriority(priority, source, target, move) {
 			return priority + source.side.totalFainted;
 		},
@@ -490,10 +492,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	wordsdance: {
 		accuracy: 100,
-		basePower: 50,
-		category: "Special",
+		basePower: 0,
+		category: "Status",
 		name: "Words Dance",
-		shortDesc: "Says a bunch of words to confuse the target. Hits Ghost-types neutrally. 50% chance to lower the target's Defense by 1.",
+		shortDesc: "Confuses the target and lowers its Def/SpD by 2.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1, sound: 1},
@@ -511,12 +513,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-message', this.sample(messages));
 		},
 		volatileStatus: 'confusion',
-		secondary: {
-			chance: 50,
-			boosts: {
-				def: -1,
-			},
+		boosts: {
+			def: -2,
+			spd: -2,
 		},
+		secondary: null,
 		target: "normal",
 		type: "Normal",
 	},
@@ -524,7 +525,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "Combines Grass in its effectiveness. 20% chance to set Leech Seed.",
+		shortDesc: "Combines Grass in its effectiveness. Sets Leech Seed.",
 		name: "Runch",
 		pp: 10,
 		priority: 0,
@@ -536,23 +537,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Grass', type);
 		},
-		secondary: {
-			chance: 20,
-			onHit(target, source) {
-				if (target.hasType('Grass')) return null;
-				target.addVolatile('leechseed', source);
-			},
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
 		},
+		secondary: null,
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
 	},
 	ualchop: {
 		accuracy: 90,
-		basePower: 50,
+		basePower: 40,
 		category: "Physical",
 		name: "Ual Chop",
-		shortDesc: "Hits twice. Combines Ground in its effectiveness.",
+		shortDesc: "Hits twice. 30% chance to lower target's highest offense.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -561,10 +560,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Dual Chop", target);
 		},
 		multihit: 2,
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Ground', type);
+		secondary: {
+			chance: 30,
+			onHit(target, source, move) {
+				if (target.getStat('atk', false, true) > target.getStat('spa', false, true)) {
+					return !!this.boost({atk: -1}, target, source, move);
+				}
+				else return !!this.boost({spa: -1}, target, source, move);
+			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Dragon",
 		maxMove: {basePower: 130},

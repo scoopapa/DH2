@@ -587,9 +587,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([0x14CC, 0x1000]);
+			return this.chainModify(1.3);
 		},
-		desc: "Holder's move have 1.2x BP, but it can't use the same move twice in a row.",
+		desc: "Holder's move have 1.3x BP, but it can't use the same move twice in a row.",
 		num: -40,
 		gen: 9,
 	},
@@ -712,8 +712,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	identitycard: { 
 		name: "Identity Card",
-		shortDesc: "Holder's typing cannot be changed by any move. Doesn't work on abilities like Protean or Color Change.",
-		// Edited in moves.ts
+		shortDesc: "Holder's typing cannot be changed by any move.",
+		// Edited in scripts.ts
 		num: -46,
 		gen: 9,
 	},
@@ -764,5 +764,98 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Tropius", "Sautropius"],
 		num: -49,
 		gen: 9,
+	},
+	phonebooth: {
+		name: "Phone Booth",
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Palafin') {
+				pokemon.formeChange('Palafin-Hero');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Palafin') return false;
+			return true;
+		},
+		itemUser: ["Palafin", "Palafin-Hero"],
+		num: -50,
+		gen: 9,
+		desc: "If held by Palafin: Hero Forme on entry.",
+	},
+	// everlasting winter
+	safetygoggles: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'everlastingwinter' || type === 'powder') return false;
+		},
+	},
+
+	// Silvally Memories section
+	bugmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	dragonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	electricmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fightingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	firememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	flyingmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	ghostmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	grassmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	groundmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	icememory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	poisonmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	psychicmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	rockmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	steelmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	watermemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	fairymemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
+	},
+	darkmemory: {
+		inherit: true,
+		shortDesc: "No longer needed to transform.",
 	},
 }

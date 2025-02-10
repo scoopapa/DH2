@@ -1,4 +1,4 @@
-export const AbilitiesText: {[k: string]: AbilityText} = {
+export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	noability: {
 		name: "No Ability",
 		shortDesc: "Does nothing.",
@@ -727,6 +727,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		desc: "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",
 		shortDesc: "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat.",
 		gen8: {
+			desc: "No competitive use.",
 			shortDesc: "No competitive use.",
 		},
 	},

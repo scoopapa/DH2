@@ -4,17 +4,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['Brunica OU', 'Brunica Uber', 'Brunica NFE', 'Brunica LC'],
+		customTiers: ['Brunica Uber', 'Brunica OU', 'Brunica NFE', 'Brunica LC'],
 	},	
 	init() {
 		//Free dexited movesets
-		
 		const undexitedMons = [];
 		for (const pokemon in this.data.FormatsData) {
-			//We will skip mons absent from Desvega and custom formes that lack tiers
+			//We will skip mons absent from Brunica and custom formes that lack tiers
 			const tierData = this.modData("FormatsData",pokemon);
 			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Brunica')) {
-				//console.log(pokemon + " is not in the Desvegan Regional Pokedex. I think this is everything.");
+				//console.log(pokemon + " is not in the Brunician Regional Pokedex. I think this is everything.");
 				continue;
 			}
 			const mon = this.modData("Pokedex",pokemon);
@@ -40,6 +39,28 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			//This will exclude inherited movesets and the mons that were in SV, as none of the mons specified to lack Tera Blast are in Desvega
 			if (learnset.terablast /* || ['magikarp','ditto','smeargle','cosmog','cosmoem','terapagos'].includes(pokemon)*/) {
 				//console.log(pokemon + " was present in Scarlet and Violet. Skipping...");
+				
+				//Also freeing these moves for realmons
+				learnset.hiddenpower = ["9M"];
+				learnset.snore = ["9M"];
+				learnset.naturalgift = ["9M"];
+				learnset.frustration = ["9M"];
+				learnset['return'] = ["9M"];
+				learnset.takedown = ["9M"];
+				learnset.doubleteam = ["9M"];
+				//Now let's free the ones that were TMs/Tutors in past gens and Brunica but not SV
+				learnset.honeclaws &&= ["9M"];
+				learnset.safeguard &&= ["9M"];
+				learnset.attract &&= ["9M"];
+				learnset.roost &&= ["9M"];
+				learnset.steelwing &&= ["9M"];
+				learnset.explosion &&= ["9M"];
+				learnset.retaliate &&= ["9M"];
+				learnset.bounce &&= ["9T"];
+				learnset.irontail &&= ["9T"];
+				learnset.signalbeam &&= ["9T"];
+				learnset.steelroller &&= ["9T"];
+				learnset.superpower &&= ["9T"];
 				continue;
 			}
 			
@@ -65,11 +86,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			
 			//Toxic distribution is reduced among non-Poisons (the ones that returned for Desvega but not SV that kept it will have it returned)
 			if (!mon.types.includes('Poison') && learnset.toxic) delete learnset.toxic;
+			//We replace Hail with Snowscape
+			if (learnset.hail) {
+				delete learnset.hail;
+				learnset.snowscape = [];
+			}
 			//Now we free all the moves
 			for (const move in learnset) {
 				learnset[move].push("9L1");
 			}
 		}
+		//Relicanth
+		this.modData("Learnsets", "relicanth").learnset.terracharge = ["9L35"];
+		
+		//Shuppet line
+		this.modData("Learnsets", "shuppet").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "banette").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "banette").learnset.drainpunch = ["9L1","8L1"];
+		
+		//Lorian move additions
+		this.modData("Learnsets", "spearow").learnset.payday = ["9L1","8L1"];
+		this.modData("Learnsets", "fearow").learnset.payday = ["9L1","8L1"];
+		
+		//zubat line
+		this.modData("Learnsets", "zubat").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "golbat").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "crobat").learnset.drainfang = ["9L1","8L1"];
 		
 		/*//oddish line
 		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
@@ -107,13 +149,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "minun").learnset.minusion = ["9L1"];
 		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
-		
+		*/
 		//bidoof line
 		delete this.modData("Learnsets", "bidoof").learnset.sunnyday;
 		delete this.modData("Learnsets", "bibarel").learnset.sunnyday;
 		this.modData("Learnsets", "bibarel").learnset.wavecrash = ["9L70"];
 		this.modData("Learnsets", "bibarel").learnset.shocktail = ["9M"];
-		
+		/*
 		//stunfisk
 		this.modData("Learnsets", "stunfisk").learnset.sparkingleap = ["9L1","8L1"];
 		
@@ -197,7 +239,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "delphox").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.quickshot = ["9L1","8L1"];
 		this.modData("Learnsets", "delphox").learnset.shocktail = ["9L1"];
-		
+		*/
 		//rockruff line
 		this.modData("Learnsets", "rockruff").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "rockruffdusk").learnset.drainfang = ["9L1","8L1"];
@@ -205,11 +247,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lycanrocmidnight").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "lycanrocmidnight").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "lycanrocdusk").learnset.drainfang = ["9L1","8L1"];
-		
+		/*
 		//cripple clobber
 		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "stonjourner").learnset.crippleclobber = ["9L1","8L1"];
+		*/this.modData("Learnsets", "onix").learnset.crippleclobber = ["9L1","8L1"];
+		this.modData("Learnsets", "steelix").learnset.crippleclobber = ["9L1","8L1"];/*
 
 		//magby line
 		this.modData("Learnsets", "magby").learnset.quickshot = ["9L1","8L1"];
@@ -229,11 +273,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "flygon").learnset.shocktail = ["9L1","8L1"];
 		
 		//pichu line
+		*/
 		this.modData("Learnsets", "pichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichualola").learnset.shocktail = ["9L1","8L1"];
-
+		/*
 		//eeveelutions
 		this.modData("Learnsets", "eevee").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "vaporeon").learnset.drainfang = ["9L1","8L1"];
@@ -313,18 +358,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "eiscue").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "wooloo").learnset.rapidspin = ["9L1"];
 		this.modData("Learnsets", "dubwool").learnset.rapidspin = ["9L1"];
+		*/this.modData("Learnsets", "roselia").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "roserade").learnset.rapidspin = ["9L1"];
 		
-		this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
+		/*this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "gloom").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "vileplume").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "bellossom").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "venipede").learnset.mortalspin = ["9L1"];
 		this.modData("Learnsets", "whirlipede").learnset.mortalspin = ["9L1"];
-		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];
-		
+		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];*/
+		this.modData("Learnsets", "roselia").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "roserade").learnset.mortalspin = ["9L1"];
+		/*	
 		//Returning Toxic to the select non-Poisons that returned for Desvega but not SV
 		this.modData("Learnsets", "paras").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "parasect").learnset.toxic = ["9L1"];
+		*/
+		
+		/*
 		
 		this.modData("Learnsets", "aerodactyl").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "cranidos").learnset.accelerock = ["9L1"];
@@ -332,12 +384,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "geodude").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "graveler").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "golem").learnset.accelerock = ["9L1"];
-		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];
-		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];*/
+		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];*/
+		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];
 		
 		/*for (const pokemon in this.data.FormatsData) {
 			const tierData = this.modData("FormatsData",pokemon);
-			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Desvega')) {
+			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Brunica')) {
 				break;
 			}
 			const mon = this.modData("Pokedex",pokemon);
@@ -349,6 +401,146 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				console.log(pokemon + " was not assigned to a base species!");
 			}
 		}*/
+		//Distribution for returning mons to Brunica on Slate 5
+		this.modData("Learnsets", "wingull").learnset.airdive = ["9L1"];
+		this.modData("Learnsets", "pelipper").learnset.airdive = ["9L1"];
+		this.modData("Learnsets", "grimer").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "grimer").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "muk").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "muk").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "tyrogue").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.darkestlariat = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.brutalswing = ["9L1"];
+		this.modData("Learnsets", "hitmonlee").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.meteormash = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "hitmonchan").learnset.steelbeam = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.stormthrow = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.victorydance = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "hitmontop").learnset.circlethrow = ["9L1"];
+
+		//Distribution to returning mons on Slate 6
+		this.modData("Learnsets", "onix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "steelix").learnset.powertrick = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "zubat").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "golbat").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.xscissor = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.ominouswind = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.silverwind = ["9L1"];
+		this.modData("Learnsets", "crobat").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets", "lycanroc").learnset.extremespeed = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.pursuit = ["9L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.earthquake = ["9L1"];
+		
+		//skarmory blade runner
+		this.modData("Learnsets", "skarmory").learnset.bladerunner = ["9L1"];
+
+		//absol
+		this.modData("Learnsets", "absol").learnset.shocktail = ["9L1"];
+		
+		//doduo line
+		delete this.modData("Learnsets","doduo").learnset.endeavor;
+		delete this.modData("Learnsets","dodrio").learnset.endeavor;
+		this.modData("Learnsets","dodrio").learnset.axekick = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.triplekick = ["9L1"];
+		this.modData("Learnsets","dodrio").learnset.highjumpkick = ["9L1"];
+		this.modData("Learnsets","doduo").learnset.triplekick = ["9E"];
+		this.modData("Learnsets","doduo").learnset.jumpkick = ["9L39"];
+		this.modData("Learnsets","dodrio").learnset.jumpkick = ["9L39"];
+		this.modData("Learnsets","doduo").learnset.lunge = ["9L47"];
+		this.modData("Learnsets","dodrio").learnset.lunge = ["9L47"];
+		
+		//bouffalant
+		this.modData("Learnsets","bouffalant").learnset.trailblaze = ["9E"];
+		this.modData("Learnsets","bouffalant").learnset.headsmash = ["9L39"];
+		this.modData("Learnsets","bouffalant").learnset.supercellslam = ["9L39"];
+		
+		//budew line
+		this.modData("Learnsets","budew").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","roselia").learnset.playrough = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.mudslap = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.playrough = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","roserade").learnset.tripleaxel = ["9L1"];
+		
+		//mandibuzz
+		this.modData("Learnsets","mandibuzz").learnset.airdive = ["9L1"];
+		
+		//gastly line
+		this.modData("Learnsets","gastly").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","gastly").learnset.drainfang = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","haunter").learnset.drainfang = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.snatch = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets","gengar").learnset.drainfang = ["9L1"];
+		
+		//sandygast line
+		this.modData("Learnsets","sandygast").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets","palossand").learnset.nastyplot = ["9L1"];
+		
+		//salandit line
+		this.modData("Learnsets","salandit").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets","salandit").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets","salandit").learnset.quickshot = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.sleepdrain = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.fierydance = ["9L1"];
+		this.modData("Learnsets","salazzle").learnset.quickshot = ["9L1"];
+		
+		//shiinotic
+		this.modData("Learnsets","shiinotic").learnset.calmmind = ["9L1"];
+		
+		//numel line
+		this.modData("Learnsets","numel").learnset.terracharge = ["9L1"];
+		this.modData("Learnsets","camerupt").learnset.terracharge = ["9L1"];
+		
+		//wailmer line
+		this.modData("Learnsets","wailmer").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.frostfeint = ["9L1"];
+		this.modData("Learnsets","wailmer").learnset.iciclecrash = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.filpturn = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.frostfeint = ["9L1"];
+		this.modData("Learnsets","wailord").learnset.iciclecrash = ["9L1"];
+		
+		//fletchling line
+		this.modData("Learnsets","fletchling").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchling").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","fletchinder").learnset.solarblade = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.airdive = ["9L1"];
+		this.modData("Learnsets","talonflame").learnset.solarblade = ["9L1"];
+		
+		//meowth line
+		this.modData("Learnsets","meowth").learnset.confuseray = ["9L1"];
+		this.modData("Learnsets","persian").learnset.confuseray = ["9L1"];
+		
+		//ralts family
+		this.modData("Learnsets","kirlia").learnset.healingnature = ["9L1"];
+		this.modData("Learnsets","gardevoir").learnset.healingnature = ["9L1"];
+		this.modData("Learnsets","gallade").learnset.healingnature = ["9L1"];
+		
+		//noibat line
+		this.modData("Learnsets","noibat").learnset.drainfang = ["9M"];
+		this.modData("Learnsets","noivern").learnset.drainfang = ["9M"];
 		
 	},
 	runAction(action) {
@@ -381,9 +573,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.baseAbility = pokemon.ability;
 
 				const behemothMove: {[k: string]: string} = {
-					'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash', 'Lutakon-Awakened': 'gaiarecovery',
+					'Zacian-Crowned': 'behemothblade', 
+					'Zamazenta-Crowned': 'behemothbash', 
+					'Lutakon-Awakened': 'gaiarecovery',
 				};
-				const ironHead = pokemon.baseMoves.indexOf(rawspecies.name === 'Lutakon-Awakened' ? 'synthesis' : 'ironhead');
+				const ironHead = pokemon.baseMoves.indexOf(rawSpecies.name === 'Lutakon-Awakened' ? 'synthesis' : 'ironhead');
 				if (ironHead >= 0) {
 					const move = this.dex.moves.get(behemothMove[rawSpecies.name]);
 					const movepp = (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5;
@@ -649,7 +843,418 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		return false;
 	},
+	
+	/*showOpenTeamSheets(hideFromSpectators = false) {
+		if (this.turn !== 0) return;
+		for (const side of this.sides) {
+			const team = side.pokemon.map(pokemon => {
+				const set = pokemon.set;
+				const newSet: PokemonSet = {
+					name: '',
+					species: set.species,
+					item: set.item,
+					ability: set.ability,
+					moves: set.moves,
+					nature: '',
+					gender: pokemon.gender,
+					evs: null!,
+					ivs: null!,
+					level: set.level,
+				};
+				//if (this.gen === 8) newSet.gigantamax = set.gigantamax;
+				//if (this.gen === 9) newSet.teraType = set.teraType;
+				// Only display Hidden Power type if the Pokemon has Hidden Power
+				// This is based on how team sheets were written in past VGC formats
+				if (set.moves.some(m => this.dex.moves.get(m).id === 'hiddenpower')) newSet.hpType = set.hpType;
+				// This is done so the client doesn't flag Zacian/Zamazenta as illusions
+				// when they use their signature move
+				const setSpecies = toID(set.species);
+				const setItem = toID(set.item);
+				const isLutakon = setSpecies === 'lutakon';
+				if ((setSpecies === 'zacian' && setItem === 'rustedsword') ||
+					(setSpecies === 'zamazenta' && setItem === 'rustedshield') || 
+					(isLutakon && setItem === 'awakeningseed')) {
+					newSet.species = Dex.species.get(set.species + (isLutakon ? 'awakened' : 'crowned')).name;
+					const crowned: {[k: string]: string} = {
+						'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash', 
+						'Lutakon-Awakened': 'gaiarecovery'
+					};
+					const ironHead = set.moves.map(toID).indexOf((isLutakon ? 'synthesis' : 'ironhead') as ID);
+					if (ironHead >= 0) {
+						newSet.moves[ironHead] = crowned[newSet.species];
+					}
+				}
+				return newSet;
+			});
+			if (hideFromSpectators) {
+				for (const s of this.sides) {
+					this.addSplit(s.id, ['showteam', side.id, Teams.pack(team)]);
+				}
+			} else {
+				this.add('showteam', side.id, Teams.pack(team));
+			}
+		}
+	},*/
 	actions: {	
+		getActiveBalmMove(baseMove: Move, balmMove: Move) {
+			if (typeof baseMove === 'string') baseMove = this.dex.getActiveMove(baseMove);
+			if (baseMove.name === 'struggle') return baseMove;
+			if (typeof balmMove === 'string') balmMove = this.dex.getActiveMove(balmMove);
+			if (baseMove.category !== balmMove.category && [balmMove.category, baseMove.category].includes('Status')) return baseMove;
+			//This function assumes that either both moves passed are damaging or both are status.
+			if (balmMove.category !== 'Status') {
+				balmMove.category = baseMove.category;
+				balmMove.basePower = baseMove.basePower*1.5;
+			}
+			return balmMove;
+		},
+		runMove(
+			moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
+			zMove?: string, externalMove?: boolean, maxMove?: string, originalTarget?: Pokemon
+		) {
+			pokemon.activeMoveActions++;
+			let target = this.battle.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+			let baseMove = this.dex.getActiveMove(moveOrMoveName);
+			const pranksterBoosted = baseMove.pranksterBoosted;
+			if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+				const changedMove = this.battle.runEvent('OverrideAction', pokemon, target, baseMove);
+				if (changedMove && changedMove !== true) {
+					baseMove = this.dex.getActiveMove(changedMove);
+					if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+					target = this.battle.getRandomTarget(pokemon, baseMove);
+				}
+			}
+			let move = baseMove;
+			let balmMove = null;
+			if (zMove) {
+				move = this.getActiveZMove(baseMove, pokemon);
+			} else if (maxMove) {
+				move = this.getActiveMaxMove(baseMove, pokemon);
+			} else if (pokemon.volatiles['typebalm']?.balmMove) {
+				const balmEffectData = pokemon.volatiles['typebalm'];
+				const isBalmStatus = balmEffectData.isBalmStatus;
+				if (
+					(move.id === 'hiddenpower' ? pokemon.hpType : move.type) 
+						=== pokemon.volatiles['typebalm'].balmType //Check if balm type matches move type
+					&& ((move.category === 'Status') ? isBalmStatus : !isBalmStatus) //If the balm or base move is status but not both it won't overwrite
+				) {
+					const balmMoveData = this.dex.getActiveMove(pokemon.volatiles['typebalm'].balmMove);
+					move = this.getActiveBalmMove(move, balmMoveData);
+					balmMove = pokemon.volatiles['typebalm'].balmMove;
+				}
+			}
+
+			move.isExternal = externalMove;
+
+			this.battle.setActiveMove(move, pokemon, target);
+
+			/* if (pokemon.moveThisTurn) {
+				// THIS IS PURELY A SANITY CHECK
+				// DO NOT TAKE ADVANTAGE OF THIS TO PREVENT A POKEMON FROM MOVING;
+				// USE this.queue.cancelMove INSTEAD
+				this.battle.debug('' + pokemon.id + ' INCONSISTENT STATE, ALREADY MOVED: ' + pokemon.moveThisTurn);
+				this.battle.clearActiveMove(true);
+				return;
+			} */
+			const willTryMove = this.battle.runEvent('BeforeMove', pokemon, target, move);
+			if (!willTryMove) {
+				this.battle.runEvent('MoveAborted', pokemon, target, move);
+				this.battle.clearActiveMove(true);
+				if (willTryMove === false && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
+				// The event 'BeforeMove' could have returned false or null
+				// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
+				// null indicates the opposite, as the Pokemon didn't have an option to choose anything
+				pokemon.moveThisTurnResult = willTryMove;
+				return;
+			}
+
+			// Used exclusively for a hint later
+			if (move.flags['cantusetwice'] && pokemon.lastMove?.id === move.id) {
+				pokemon.addVolatile(move.id);
+			}
+
+			if (move.beforeMoveCallback && move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
+				this.battle.clearActiveMove(true);
+				pokemon.moveThisTurnResult = false;
+				if (pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
+				return;
+			}
+			pokemon.lastDamage = 0;
+			let lockedMove;
+			if (!externalMove) {
+				lockedMove = this.battle.runEvent('LockMove', pokemon);
+				if (lockedMove === true) lockedMove = false;
+				if (lockedMove) {
+					sourceEffect = this.dex.conditions.get('lockedmove');	
+				} else {
+					const usedTomeOfImagination = pokemon.hasItem('tomeofimagination') && move.id !== 'fling' && pokemon.useItem();
+					if (usedTomeOfImagination) {
+						this.battle.add('-activate', pokemon, 'item: Tome of Imagination');
+						this.battle.add('-message', `${pokemon.name} used its Tome of Imagination to preserve its move's PP!`);
+						pokemon.addVolatile('tomeofimagination');
+					} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+						this.battle.add('cant', pokemon, 'nopp', move);
+						this.battle.clearActiveMove(true);
+						pokemon.moveThisTurnResult = false;
+						if (pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+							this.battle.boost({spe: 2}, pokemon);
+						}
+						return;
+					}
+				}
+				pokemon.moveUsed(move, targetLoc);
+			}
+
+			// Dancer Petal Dance hack
+			// TODO: implement properly
+			const noLock = externalMove && !pokemon.volatiles['lockedmove'];
+
+			if (zMove) {
+				if (pokemon.illusion) {
+					this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+				}
+				this.battle.add('-zpower', pokemon);
+				pokemon.side.zMoveUsed = true;
+			}
+
+			const oldActiveMove = move;
+
+			const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove, balmMove);
+			this.battle.lastSuccessfulMoveThisTurn = moveDidSomething ? this.battle.activeMove && this.battle.activeMove.id : null;
+			if (this.battle.activeMove) move = this.battle.activeMove;
+			this.battle.singleEvent('AfterMove', move, null, pokemon, target, move);
+			this.battle.runEvent('AfterMove', pokemon, target, move);
+			if (move.flags['cantusetwice'] && pokemon.removeVolatile(move.id)) {
+				this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
+			}
+
+			// Dancer's activation order is completely different from any other event, so it's handled separately
+			if ((move.flags['dance'] || move.flags['bullet']) && moveDidSomething && !move.isExternal) {
+				const active = this.battle.getAllActive().filter(currentPoke =>
+					pokemon !== currentPoke && !currentPoke.isSemiInvulnerable() && currentPoke.hasAbility(['dancer','ballfetch'])
+				);
+				if (active.length) {
+					const dancers = [];
+					if (move.flags['dance']) {
+						for (const currentPoke of active.filter(currentPoke => currentPoke.hasAbility('dancer'))) {
+							dancers.push(currentPoke);
+						}
+					}
+					if (move.flags['bullet']) {
+						for (const currentPoke of active.filter(currentPoke => currentPoke.hasAbility('ballfetch'))) {
+							dancers.push(currentPoke);
+						}
+					}
+					// Dancer activates in order of lowest speed stat to highest
+					// Note that the speed stat used is after any volatile replacements like Speed Swap,
+					// but before any multipliers like Agility or Choice Scarf
+					// Ties go to whichever Pokemon has had the ability for the least amount of time
+					dancers.sort(
+						(a, b) => (a.storedStats['spe'] - b.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+					);
+					const targetOf1stDance = this.battle.activeTarget!;
+					for (const dancer of dancers) {
+						if (this.battle.faintMessages()) break;
+						if (dancer.fainted) continue;
+						this.battle.add('-activate', dancer, 'ability: ' + (move.flags['dance'] ? 'Dancer' : 'Ball Fetch'));
+						const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
+							targetOf1stDance :
+							pokemon;
+						this.runMove(move.id, dancer, dancer.getLocOf(dancersTarget), this.dex.abilities.get(
+						move.flags['dance'] ? 'dancer' : 'ballfetch'), undefined, true);
+					}
+				}
+			}
+			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+			this.battle.faintMessages();
+			this.battle.checkWin();
+
+			/*if (this.battle.gen <= 4) {
+				// In gen 4, the outermost move is considered the last move for Copycat
+				this.battle.activeMove = oldActiveMove;
+			}*/
+		},
+		useMove(
+			move: Move | string, pokemon: Pokemon, target?: Pokemon | null,
+			sourceEffect?: Effect | null, zMove?: string, maxMove?: string, balmMove?: string
+		) {
+			pokemon.moveThisTurnResult = undefined;
+			const oldMoveResult: boolean | null | undefined = pokemon.moveThisTurnResult;
+			const moveResult = this.useMoveInner(move, pokemon, target, sourceEffect, zMove, maxMove, balmMove);
+			if (oldMoveResult === pokemon.moveThisTurnResult) {
+				pokemon.moveThisTurnResult = moveResult;
+				if (moveResult === false && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.battle.boost({spe: 2}, pokemon);
+				}
+			}
+			return moveResult;
+		},
+		useMoveInner(
+			moveOrMoveName: Move | string, pokemon: Pokemon, target?: Pokemon | null,
+			sourceEffect?: Effect | null, zMove?: string, maxMove?: string, balmMove?: string
+		) {
+			if (!sourceEffect && this.battle.effect.id) sourceEffect = this.battle.effect;
+			if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
+			
+			let move = this.dex.getActiveMove(moveOrMoveName);
+			pokemon.lastMoveUsed = move;
+			if (balmMove) {
+				move = this.getActiveBalmMove(move, balmMove);
+			} else if (zMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isZ)) {
+				if (move.id === 'weatherball' && zMove) {
+					// Z-Weather Ball only changes types if it's used directly,
+					// not if it's called by Z-Sleep Talk or something.
+					this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+					if (move.type !== 'Normal') sourceEffect = move;
+				}
+				move = this.getActiveZMove(move, pokemon);
+			} else if (maxMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isMax)) {
+				if (maxMove && move.category !== 'Status') {
+					// Max move outcome is dependent on the move type after type modifications from ability and the move itself
+					this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+					this.battle.runEvent('ModifyType', pokemon, target, move, move);
+				}
+				move = this.getActiveMaxMove(move, pokemon);
+			}
+
+			if (this.battle.activeMove) {
+				move.priority = this.battle.activeMove.priority;
+				if (!move.hasBounced) move.pranksterBoosted = this.battle.activeMove.pranksterBoosted;
+			}
+			const baseTarget = move.target;
+			let targetRelayVar = this.battle.runEvent('ModifyTarget', pokemon, target, move, {target}, true);
+			if (targetRelayVar.target !== undefined) target = targetRelayVar.target;
+			if (target === undefined) target = this.battle.getRandomTarget(pokemon, move);
+			if (move.target === 'self' || move.target === 'allies') {
+				target = pokemon;
+			}
+			if (sourceEffect) {
+				move.sourceEffect = sourceEffect.id;
+				move.ignoreAbility = (sourceEffect as ActiveMove).ignoreAbility;
+			}
+			let moveResult = false;
+
+			this.battle.setActiveMove(move, pokemon, target);
+
+			this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+			this.battle.singleEvent('ModifyMove', move, null, pokemon, target, move, move);
+			if (baseTarget !== move.target) {
+				// Target changed in ModifyMove, so we must adjust it here
+				// Adjust before the next event so the correct target is passed to the
+				// event
+				target = this.battle.getRandomTarget(pokemon, move);
+			}
+			move = this.battle.runEvent('ModifyType', pokemon, target, move, move);
+			move = this.battle.runEvent('ModifyMove', pokemon, target, move, move);
+			if (baseTarget !== move.target) {
+				// Adjust again
+				target = this.battle.getRandomTarget(pokemon, move);
+			}
+			if (!move || pokemon.fainted) {
+				return false;
+			}
+
+			let attrs = '';
+
+			let movename = move.name;
+			if (move.id === 'hiddenpower') movename = 'Hidden Power';
+			if (sourceEffect) attrs += `|[from]${sourceEffect.fullname}`;
+			if (zMove && move.isZ === true) {
+				attrs = '|[anim]' + movename + attrs;
+				movename = 'Z-' + movename;
+			}
+			this.battle.addMove('move', pokemon, movename, target + attrs);
+
+			if (zMove) this.runZPower(move, pokemon);
+
+			if (!target) {
+				this.battle.attrLastMove('[notarget]');
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail' /*: '-notarget'*/, pokemon);
+				return false;
+			}
+
+			const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
+			if (targets.length) {
+				target = targets[targets.length - 1]; // in case of redirection
+			}
+			if (!pokemon.hasItem('tomeofimagination') && !pokemon.volatiles['tomeofimagination']) {
+				const callerMoveForPressure = sourceEffect && (sourceEffect as ActiveMove).pp ? sourceEffect as ActiveMove : null;
+				if (!sourceEffect || callerMoveForPressure || sourceEffect.id === 'pursuit') {
+					let extraPP = 0;
+					for (const source of pressureTargets) {
+						const ppDrop = this.battle.runEvent('DeductPP', source, pokemon, move);
+						if (ppDrop !== true) {
+							extraPP += ppDrop || 0;
+						}
+					}
+					if (extraPP > 0) {
+						pokemon.deductPP(callerMoveForPressure || moveOrMoveName, extraPP);
+					}
+				}
+			}
+
+			if (!this.battle.singleEvent('TryMove', move, null, pokemon, target, move) ||
+				!this.battle.runEvent('TryMove', pokemon, target, move)) {
+				move.mindBlownRecoil = false;
+				return false;
+			}
+
+			this.battle.singleEvent('UseMoveMessage', move, null, pokemon, target, move);
+
+			if (move.ignoreImmunity === undefined) {
+				move.ignoreImmunity = (move.category === 'Status');
+			}
+
+			if (/*this.battle.gen !== 4 &&*/ move.selfdestruct === 'always') {
+				this.battle.faint(pokemon, pokemon, move);
+			}
+
+			let damage: number | false | undefined | '' = false;
+			if (move.target === 'all' || move.target === 'foeSide' || move.target === 'allySide' || move.target === 'allyTeam') {
+				damage = this.tryMoveHit(targets, pokemon, move);
+				if (damage === this.battle.NOT_FAIL) pokemon.moveThisTurnResult = null;
+				if (damage || damage === 0 || damage === undefined) moveResult = true;
+			} else if (targets.length) {
+				/*if (this.battle.gen === 4 && move.selfdestruct === 'always') {
+					this.battle.faint(pokemon, pokemon, move);
+				}*/
+				moveResult = this.trySpreadMoveHit(targets, pokemon, move);
+			} else {
+				this.battle.attrLastMove('[notarget]');
+				this.battle.add(/*this.battle.gen >= 5 ?*/ '-fail'/* : '-notarget'*/, pokemon);
+				return false;
+			}
+			if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
+			if (!pokemon.hp) {
+				this.battle.faint(pokemon, pokemon, move);
+			}
+
+			if (!moveResult) {
+				this.battle.singleEvent('MoveFail', move, null, target, pokemon, move);
+				return false;
+			}
+
+			if (
+				!move.negateSecondary &&
+				!(move.hasSheerForce && pokemon.hasAbility('sheerforce')) &&
+				!move.flags['futuremove']
+			) {
+				const originalHp = pokemon.hp;
+				this.battle.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
+				this.battle.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
+				if (pokemon && pokemon !== target && move.category !== 'Status'/*) {
+					if (*/ && pokemon.hp <= pokemon.maxhp * .5 && originalHp > pokemon.maxhp * .5) {
+						this.battle.runEvent('EmergencyExit', pokemon, pokemon);
+					//}
+				}
+			}
+
+			return true;
+		},
 		modifyDamage(
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
@@ -755,6 +1360,35 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
+		
+		hitStepBreakProtect(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+			//Adding custom protective moves
+			if (move.breaksProtect) {
+				for (const target of targets) {
+					let broke = false;
+					for (const effectid of [
+						'banefulbunker', 'burningbulwark', 'kingsshield', 'obstruct', 'protect', 'silktrap', 'spikyshield',
+						'fieldofvision', 'toxicsnowball', 'firewall'
+					]) {
+						if (target.removeVolatile(effectid)) broke = true;
+					}
+					//if (this.battle.gen >= 6 || !target.isAlly(pokemon)) {
+						for (const effectid of ['craftyshield', 'matblock', 'quickguard', 'wideguard']) {
+							if (target.side.removeSideCondition(effectid)) broke = true;
+						}
+					//}
+					if (broke) {
+						if (move.id === 'feint') {
+							this.battle.add('-activate', target, 'move: Feint');
+						} else {
+							this.battle.add('-activate', target, 'move: ' + move.name, '[broken]');
+						}
+						/*if (this.battle.gen >= 6)*/ delete target.volatiles['stall'];
+					}
+				}
+			}
+			return undefined;
+		}
 		/*canMegaEvo(pokemon) {
 			if (pokemon.species.isMega) return null;
 
@@ -837,6 +1471,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},*/
 	},
 	pokemon: { 
+		/*addType(newType: string) {
+			if (this.volatiles['typebalm'] || this.terastallized) return false;
+			this.addedType = newType;
+			return true;
+		},*/
 		ignoringItem() {
 			return !!(
 				this.itemState.knockedOff || // Gen 3-4
@@ -875,7 +1514,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if (this.hasAbility(['levitate', 'soaringspirit']) && !this.battle.suppressingAbility(this)) return null;
+			if ((this.hasAbility(['levitate', 'soaringspirit']) || (this.species.name === 'Fulmenops-Stormy')
+				&& this.hasAbility('weatherflux')) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
 			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them

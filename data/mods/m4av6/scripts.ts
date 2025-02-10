@@ -13,7 +13,7 @@ const viabilityList = [
 	"clefable", "corviknight", "deoxysdefense", "dragonite", "excadrill", "ferrothorn", "garchomp", "gastrodon", "gengar", "gliscor",
 	"greninjaash", "greninja", "grimmsnarl", "hawlucha", "heatran", "hippowdon", "hoopaunbound", "hydreigon", "kartana", "keldeo", "kommoo",
 	"landorustherian", "latias", "magnezone", "melmetal", "mew", "moltres", "nidoqueen", "pelipper", "regieleki", "rillaboom", "rotomwash", "scizor",
-	"serperior", "skarmory", "slowbro", "slowking", "slowkinggalar", "tangrowth", "tapubulu", "tapufini", "tapukoko", "thundurus", "torkoal",
+	"serperior", "skarmory", "slowbro", "slowking", "slowkinggalar", "tangrowth", "tapubulu", "tapufini", "tapukoko", "tapulele", "thundurus", "torkoal",
 	"toxapex", "tyranitar", "urshifurapidstrike", "victini", "volcanion", "volcarona", "weavile", "zapdos", "zapdosgalar", "zeraora",
 ];
 const megaViabilityList = [
@@ -123,8 +123,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
-			altForme?.isMega && altForme?.requiredMove &&
-			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		  altForme?.isMega && altForme?.requiredMove &&
+		  pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
 		) {
 			return altForme.name;
 		}
@@ -181,6 +181,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.battle.runEvent('AfterMega', pokemon);
 		return true;
 	},
+
 	},
 
 	 getDamage(
