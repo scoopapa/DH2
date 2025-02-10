@@ -1,6 +1,7 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
 	bigroot: {
 	  inherit: true,
+		onTryHealPriority: 1,
 	  onTryHeal(damage, target, source, effect) {
 		const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
 		if (heals.includes(effect.id)) {
