@@ -1185,6 +1185,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'jolteon').learnset.grassknot = ['9L1'];
     this.modData('Learnsets', 'flareon').learnset.sizzlyslide = ['9L1'];
     this.modData('Learnsets', 'flareon').learnset.stompingtantrum = ['9L1'];
+    this.modData('Learnsets', 'flareon').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'kabutops').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'snorlax').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'articuno').learnset.focusblast = ['9L1'];
