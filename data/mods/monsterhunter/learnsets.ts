@@ -3928,7 +3928,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9M"],
 			fireblast: ["9M"],
 			firefang: ["9M"],
-			firelesh: ["9M"],
+			firelash: ["9M"],
 			firepledge: ["9M"],
 			firespin: ["9M"],
 			flamecharge: ["9M", "9L35"],
