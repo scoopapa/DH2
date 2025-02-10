@@ -127,16 +127,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	flipflop: {
 		onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
+		onTryHit(target, source, move) {
 			if (move.flags['contact']) {
 				let invertedBoosts: SparseBoostsTable = {};
 				for (const stat in source.boosts) {
-					if (source.boosts[stat] !== 0) {
+					if (source.boosts[stat] > 0) {
 						invertedBoosts[stat] = -2 * source.boosts[stat]; 
+						this.boost(invertedBoosts, source);
+						this.add('-ability', target, 'Flip Flop');
 					}
 				}
-				this.boost(invertedBoosts, source);
-				this.add('-ability', target, 'Flip Flop');
 			}
 		},
 		flags: {},
@@ -145,5 +145,51 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -104,
 		shortDesc: "When hit by a contact move, the attacker’s stat changes are inverted.",
 	},
+
+	grasspelt: {
+		onDamagingHit(damage, target, source, move) {
+			this.field.setTerrain('grassyterrain');
+		},
+		flags: {},
+		name: "Grass Pelt",
+		rating: 5,
+		num: -105,
+	},
+
+	aquaveil: {
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Aqua Ring');
+		},
+		onResidualOrder: 6,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		name: "Aqua Veil",
+		rating: 5,
+		num: -106
+	}
 	
 };
