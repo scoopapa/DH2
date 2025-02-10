@@ -1044,20 +1044,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 		},
-		onModifyMove(move) {
-			if (move.sourceEffect) {
-				const partnerMove = this.dex.moves.get(move.sourceEffect);
-				if (partnerMove.type === 'Water') {
+		onModifyMove(move, source) {
+			const sourceMove = this.dex.moves.get(move.sourceEffect);
+			if (
+				sourceMove &&
+				sourceMove.category !== 'Status' &&
+				sourceMove.target === 'normal'
+			) {
+				if (sourceMove.type === 'Water') {
 					move.type = 'Water';
 					move.forceSTAB = true;
-					move.self = {sideCondition: 'waterpledge'};
+					move.sideCondition = 'waterpledge';
 				}
-				if (partnerMove.type === 'Grass') {
+				if (sourceMove.type === 'Grass') {
 					move.type = 'Fire';
 					move.forceSTAB = true;
-					move.sideCondition = 'firepledge';
+					move.self = {sideCondition: 'firepledge'};
 				}
 			}
+			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		condition: {
 			duration: 4,
@@ -1214,20 +1219,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 		},
-		onModifyMove(move) {
-			if (move.sourceEffect) {
-				const partnerMove = this.dex.moves.get(move.sourceEffect);
-				if (partnerMove.type === 'Water') {
+		onModifyMove(move, source) {
+			const sourceMove = this.dex.moves.get(move.sourceEffect);
+			if (
+				sourceMove &&
+				sourceMove.category !== 'Status' &&
+				sourceMove.target === 'normal'
+			) {
+				if (sourceMove.type === 'Water') {
 					move.type = 'Grass';
 					move.forceSTAB = true;
-					move.self = {sideCondition: 'grasspledge'};
+					move.sideCondition = 'grasspledge';
 				}
-				if (partnerMove.type === 'Fire') {
+				if (sourceMove.type === 'Fire') {
 					move.type = 'Fire';
 					move.forceSTAB = true;
-					move.sideCondition = 'firepledge';
+					move.self = {sideCondition: 'firepledge'};
 				}
 			}
+			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		condition: {
 			duration: 4,
