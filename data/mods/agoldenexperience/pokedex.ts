@@ -438,11 +438,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	staryu: {
 		inherit: true,
-		abilities: {0: "Illuminate", 1: "Regenerator", H: "Analytic"},
+		abilities: {0: "Illuminate", 1: "Regenerator", H: "Neuroforce"},
 	},
 	starmie: {
 		inherit: true,
-		abilities: {0: "Illuminate", 1: "Regenerator", H: "Analytic"},
+		abilities: {0: "Illuminate", 1: "Regenerator", H: "Neuroforce"},
 	},
 	mrmime: {
 		inherit: true,
@@ -491,7 +491,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	vaporeon: {
 		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Water Veil", H: "Hydration"},
+		abilities: {0: "Water Absorb", 1: "Natural Cure", H: "Hydration"},
 	},
 	jolteon: {
 		inherit: true,
@@ -759,7 +759,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	umbreon: {
 		inherit: true,
-		abilities: {0: "Synchronize", 1: "Illuminate", H: "Inner Focus"},
+		abilities: {0: "Synchronize", 1: "Poison Heal", H: "Inner Focus"},
 	},
 	misdreavus: {
 		inherit: true,
@@ -768,7 +768,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	girafarig: {
 		inherit: true,
 		evos: ["Farigiraf", "Girafatak"],
-		abilities: {0: "Inner Focus", 1: "Early Bird", H: "Neuroforce"},
 	},
 	steelixmega: {
 		inherit: true,
@@ -2356,9 +2355,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 76, atk: 70, def: 90, spa: 107, spd: 123, spe: 44},
 	},
+	clauncher: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", 1: "Deadly Blasts", H: "Quick Draw"},
+	},
 	clawitzer: {
 		inherit: true,
 		baseStats: {hp: 89, atk: 70, def: 90, spa: 120, spd: 90, spe: 51},
+		abilities: {0: "Mega Launcher", 1: "Deadly Blasts", H: "Quick Draw"},
 	},
 	tyrunt: {
 		inherit: true,
