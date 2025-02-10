@@ -260,8 +260,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	aegislashlight: {
-		tier: "LZ",
-		doublesTier: "LZ",
+		tier: "VGC",
+		doublesTier: "VGC",
 	},
 	aegislashbladelight: {
 		tier: "Illegal",
@@ -484,8 +484,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	sneasel: {
-		tier: "VGC",
-		doublesTier: "VGC",
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
 	},
 	weavile: {
 		tier: "VGC",
