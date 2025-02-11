@@ -444,13 +444,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	//
-	wukongfire: {
+	wukonginferno: {
 		num: -15,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		shortDesc: "Sets Sun.",
-		name: "Wukong Fire",
+		name: "Wukong Inferno",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -627,6 +627,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Rock",
+		contestType: "Cool",
+	},
+	//
+	sandgeyser: {
+		num: -22,
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sandstorm");
+			this.add('-anim', source, "Sandsear Storm", target);
+		},
+		category: "Special",
+		shortDesc: "Eruption clone.",
+		name: "Sand Geyser",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
 		contestType: "Cool",
 	},
 	
@@ -1297,6 +1323,66 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Steel",
+		contestType: "Cool",
+	},
+	//
+	kingsshield: {
+		num: 588,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		// isNonstandard: "Past",
+		name: "King's Shield",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		volatileStatus: 'kingsshield',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
 	//
