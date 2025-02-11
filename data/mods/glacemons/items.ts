@@ -1052,6 +1052,10 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		shortDesc: "Pulse damage is x1.2. If Clawitzer: becomes Water/Dragon, Speed is 1.5x.",
 		num: -14,
+		onTakeItem(item, source){
+			if (source.baseSpecies.baseSpecies === 'Clawitzer') return false;
+			return true;
+		},
 		rating: 3,
 	},
 	ringtarget: {
