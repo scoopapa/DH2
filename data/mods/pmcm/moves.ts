@@ -185,6 +185,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Normal",
 	  },
 	  
-	  
-  };
+	  metalclaw: {
+		inherit: true,
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+  	}
+};
   
