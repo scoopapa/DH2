@@ -278,6 +278,29 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', "clefable").learnset.teleport = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.rockblast = ["9L1"];
 		this.modData("Learnsets", "ogerpon").learnset.closecombat = ["9L1"];
+		delete this.modData('Learnsets', 'urshifu').learnset.acrobatics;
+		delete this.modData('Learnsets', 'urshifu').learnset.aerialace;
+		delete this.modData('Learnsets', 'urshifu').learnset.stoneedge;
+		delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.acrobatics;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.aerialace;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.stoneedge;
+		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.swordsdance;
+		this.modData("Learnsets", "calyrex").learnset.dazzlinggleam = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.healingwish = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.hypnosis = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.finalgambit = ["9L1"];
+		this.modData("Learnsets", "calyrex").learnset.uturn = ["9L1"];
+		delete this.modData('Learnsets', 'calyrex').learnset.storedpower;
+		this.modData("Learnsets", "glastrier").learnset.glaciallance = ["9L1"];
+		this.modData("Learnsets", "glastrier").learnset.iceshard = ["9L1"];
+		this.modData("Learnsets", "glastrier").learnset.trickroom = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.astralbarrage = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.mysticalfire = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "spectrier").learnset.topsyturvy = ["9L1"];
+		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
+		delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
 	},
 	actions: {
 		inherit: true,
