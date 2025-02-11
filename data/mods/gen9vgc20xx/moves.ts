@@ -629,6 +629,32 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Rock",
 		contestType: "Cool",
 	},
+	//
+	sandgeyser: {
+		num: -22,
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sandstorm");
+			this.add('-anim', source, "Sandsear Storm", target);
+		},
+		category: "Special",
+		shortDesc: "Eruption clone.",
+		name: "Sand Geyser",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Cool",
+	},
 	
 	// start
 	belch: {
