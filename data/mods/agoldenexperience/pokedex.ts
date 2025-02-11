@@ -1894,13 +1894,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 77, atk: 57, def: 65, spa: 97, spd: 65, spe: 114},
 	},
-	audino: {
-		inherit: true,
-		abilities: {0: "Healer", 1: "Regenerator", H: "Immunity"},
-	},
 	audinomega: {
 		inherit: true,
-		abilities: {0: "Immunity"},
+		abilities: {0: "Cute Charm"},
 	},
 	seismitoad: {
 		inherit: true,
