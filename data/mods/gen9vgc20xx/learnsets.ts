@@ -1584,7 +1584,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	// start
 	quaquavalxelian: {
 		learnset: {
-			accelrock: ["9M"],
+			accelerock: ["9M"],
 			acrobatics: ["9M", "9L43"],
 			aerialace: ["9M"],
 			agility: ["9M"],
