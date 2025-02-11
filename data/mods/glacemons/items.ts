@@ -1184,7 +1184,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		// Implemented in scripts.js
 		name: "Neutralizer",
-		rating: 4,
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
 		num: -19,
 		rating: 3,
