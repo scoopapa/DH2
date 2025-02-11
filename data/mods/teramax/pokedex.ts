@@ -190,6 +190,20 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 121, atk: 80, def: 120, spa: 120, spd: 80, spe: 54},
 		abilities: {0: "Supersweet Syrup", 1: "Storm Drain", H: "Regenerator"},
 	},
+	calyrex: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 80, def: 85, spa: 80, spd: 85, spe: 110},
+		abilities: {0: "Unnerve", H: "Contrary"},
+	},
+	glastrier: {
+		inherit: true,
+		abilities: {0: "Chilling Neigh", H: "Solid Rock"},
+	},
+	spectrier: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 85, def: 80, spa: 100, spd: 95, spe: 120},
+		abilities: {0: "Grim Neigh", H: "Unaware"},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
@@ -472,14 +486,28 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Unaware"},
 		weightkg: 999.9,
 	},
+	urshifu: {
+		inherit: true,
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
+	},
 	urshifugmax: {
 		inherit: true,
-		abilities: {0: "Inner Focus"},
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
+		abilities: {0: "Iron Fist"},
 		weightkg: 999.9,
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
 	},
 	urshifurapidstrikegmax: {
 		inherit: true,
-		abilities: {0: "Inner Focus"},
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
+		abilities: {0: "Iron Fist"},
 		weightkg: 999.9,
 	},
 };
