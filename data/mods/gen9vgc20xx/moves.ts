@@ -444,13 +444,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	//
-	wukongfire: {
+	wukonginferno: {
 		num: -15,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		shortDesc: "Sets Sun.",
-		name: "Wukong Fire",
+		name: "Wukong Inferno",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
