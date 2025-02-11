@@ -1167,7 +1167,9 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 25,
 		pp: 20,
 		multihit: [2, 5],
-		onBasePower(basePower, pokemon, target) {},
+		onBasePower(basePower, pokemon, target) {
+			return basePower;
+		},
 		secondary: {
 			chance: 10,
 			status: 'psn',
@@ -1181,7 +1183,9 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 25,
 		pp: 20,
 		multihit: [2, 5],
-		basePowerCallback(pokemon, target, move) {},
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower;
+		},
 		secondary: {
 			chance: 10,
 			status: 'brn',
