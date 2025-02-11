@@ -889,16 +889,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				move.ignoreImmunity['Dark'] = true;
 			}
 		},
-		onModifyDamage(damage, source, target, move) {
+		onEffectiveness(typeMod, target, type, move) {
 			if (move.type !== 'Dark') return;
 			if (move.type === 'Dark' && target.hasType('Fairy')) {
 				this.debug('Angelic Nature boost');
-				return this.chainModify(2);
+				return 1;
 			}
 		},
 		name: "Angelic Nature",
-		desc: "This Pokemon can hit Fairy type opponents for neutral damages with Dark moves.",
-		shortDesc: "Hits Fairy opponents for neutral damages with Dark moves.",
+		desc: "This Pokemon can hit Fairy type opponents for super effective damages with Dark moves.",
+		shortDesc: "Hits Fairy opponents for super effective damages with Dark moves.",
 		rating: 3.5,
 		num: -46,
 	},
