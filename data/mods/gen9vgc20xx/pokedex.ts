@@ -780,7 +780,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Fire", "Fairy"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 75, atk: 69, def: 72, spa: 114, spd: 100, spe: 104},
-		abilities: {0: "Overgrow", H: "Curious Medicine"},
+		abilities: {0: "Blaze", H: "Curious Medicine"},
 	//	category: "Medic Witch",
 		heightm: 1.5,
 		weightkg: 39.0,
