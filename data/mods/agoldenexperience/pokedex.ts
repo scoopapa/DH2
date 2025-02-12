@@ -442,6 +442,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	starmie: {
 		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 100, spa: 100, spd: 100, spe: 115},
 		abilities: {0: "Illuminate", 1: "Regenerator", H: "Neuroforce"},
 	},
 	mrmime: {
@@ -2135,6 +2136,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Snow Warning"},
 	},
+	accelgor: {
+		inherit: true,
+		abilities: {0: "Dodge", 1: "Sticky Hold", H: "Unburden"},
+	},
 	stunfisk: {
 		inherit: true,
 		baseStats: {hp: 109, atk: 66, def: 84, spa: 101, spd: 99, spe: 32},
@@ -2388,14 +2393,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	carbink: {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Night Light", H: "Sturdy"},
-	},
-	sliggoo: {
-		inherit: true,
-		types: ["Dragon", "Poison"],
-	},
-	goodra: {
-		inherit: true,
-		types: ["Dragon", "Poison"],
 	},
 	goodrahisui: {
 		inherit: true,
