@@ -709,6 +709,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Striker",
 		num: -35,
 	},
+	deadlyblasts: {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Deadly Blasts",
+		shortDesc: "Boosts the power of bullet, bomb and ball moves by 1.3x",
+		rating: 2.5,
+		num: -36,
+	},
 	insectivorous: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Bug') {
@@ -721,17 +733,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Insectivorous",
 		shortDesc: "This Pokemon heals 1/4 HP when hit by a Bug type move. Immune to Bug type moves.",
 		rating: 3.5,
-		num: -36,
-	},
-	deadlyblasts: {
-		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return this.chainModify([0x1400, 0x1000]);
-			}
-		},
-		name: "Deadly Blasts",
-		shortDesc: "This Pokemon's super effective moves get x1.2 BP.",
-		rating: 2.5,
 		num: -37,
 	},
 	cosmicenergy: {
@@ -889,16 +890,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				move.ignoreImmunity['Dark'] = true;
 			}
 		},
-		onModifyDamage(damage, source, target, move) {
+		onEffectiveness(typeMod, target, type, move) {
 			if (move.type !== 'Dark') return;
 			if (move.type === 'Dark' && target.hasType('Fairy')) {
 				this.debug('Angelic Nature boost');
-				return this.chainModify(2);
+				return 1;
 			}
 		},
 		name: "Angelic Nature",
-		desc: "This Pokemon can hit Fairy type opponents for neutral damages with Dark moves.",
-		shortDesc: "Hits Fairy opponents for neutral damages with Dark moves.",
+		desc: "This Pokemon can hit Fairy type opponents for super effective damages with Dark moves.",
+		shortDesc: "Hits Fairy opponents for super effective damages with Dark moves.",
 		rating: 3.5,
 		num: -46,
 	},

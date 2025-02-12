@@ -182,7 +182,6 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 	  
 		target: "normal",
-		type: "Normal",
 	  },
 	  
 	  metalclaw: {
