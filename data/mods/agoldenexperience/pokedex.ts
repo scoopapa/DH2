@@ -2492,11 +2492,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
     },
 	hoopa: {
 		inherit: true,
-		abilities: {0: "Prankster"},
+		abilities: {0: "Magician", H: "Prankster"},
 	},
 	hoopaunbound: {
 		inherit: true,
-		abilities: {0: "Mold Breaker"},
+		abilities: {0: "Magician", H: "Mold Breaker"},
 	},
 
 	// Gen 7 :
