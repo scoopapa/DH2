@@ -5267,7 +5267,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	whitewhale: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	annoyog: {
