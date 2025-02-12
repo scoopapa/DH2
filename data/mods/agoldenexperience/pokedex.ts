@@ -519,7 +519,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	snorlax: {
 		inherit: true,
-		abilities: {0: "Oblivious", 1: "Thick Fat", H: "Gluttony"},
+		abilities: {0: "Immunity", 1: "Thick Fat", H: "Oblivious"},
 	},
 	articuno: {
 		inherit : true,
