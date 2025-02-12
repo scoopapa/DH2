@@ -735,8 +735,28 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	superluck: {
 		inherit: true,
+		onAnyModifyBoost(boosts, pokemon, move) {
+			const unconcernedUser = this.effectState.target;
+			if (unconcernedUser === this.activePokemon && move.crit) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['spd'] = 0;
+				//boosts['spe'] = 0;
+				boosts['accuracy'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unconcernedUser === this.activeTarget && move.crit) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
 		onModifyCritRatio(critRatio) {
-			if (critRatio > 1) return 5;
+			if (critRatio > 1) {
+				return 5;
+			}
 		},
 		desc: "User's moves with high critical hit ratio always land as critical hit, but don't factor in stat boosts.",
 		shortDesc: "User's moves with high critical hit ratio always land as critical hit, but don't factor in stat boosts.",
