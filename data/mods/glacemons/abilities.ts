@@ -102,16 +102,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	battlearmor: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
-			return this.chainModify(0.8);
+			return this.chainModify(0.875);
 		},
-		shortDesc: "Critical hit immunity. Damage taken from attacks is reduced by 20%.",
+		shortDesc: "Critical hit immunity. Damage taken from attacks is reduced by 1/8.",
 	},
 	shellarmor: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
-			return this.chainModify(0.8);
+			return this.chainModify(0.875);
 		},
-		shortDesc: "Critical hit immunity. Damage taken from attacks is reduced by 20%.",
+		shortDesc: "Critical hit immunity. Damage taken from attacks is reduced by 1/8.",
 	},
 	anticipation: {
 		inherit: true,
@@ -588,16 +588,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -10,
 	},
-	sinisterthoughts: {
+	sinistrous: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Sinister');
+					this.add('-immune', target, '[from] ability: Sinistrous');
 				}
 				return null;
 			}
 		},
-		name: "Sinister Thoughts",
+		name: "Sinistrous",
 		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
 		rating: 3.5,
 		num: -11,
@@ -738,8 +738,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyCritRatio(critRatio) {
 			if (critRatio > 1) return 5;
 		},
-		desc: "User's moves with high critical hit ratio always land as critical hit.",
-		shortDesc: "User's moves with high critical hit ratio always land as critical hit.",
+		desc: "User's moves with high critical hit ratio always land as critical hit, but don't factor in stat boosts.",
+		shortDesc: "User's moves with high critical hit ratio always land as critical hit, but don't factor in stat boosts.",
 	},
 	stench: {
 		inherit: true,
