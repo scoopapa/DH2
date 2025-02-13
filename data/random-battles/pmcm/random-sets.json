@@ -465,4 +465,59 @@
             }
         ]
     }
+    "kyurem": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Scale Shot", "Icicle Spear", "Earthquake"],
+                "abilities": ["Skill Link"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    }
+    "roaringmoon": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["U-turn", "Jaw Lock", "Glaive Rush", "Fire Lash", "Roost"],
+                "abilities": ["Shadow Shield"],
+                "teraTypes": ["Fire", "Poison"]
+            }
+        ]
+    }
+    "milotic": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Bouncy Bubble", "Ice Beam", "Recover", "Haze", "Toxic", "Dragon Tail", "Substitute", "Moonblast"],
+                "abilities": ["Aqua Veil"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    }
+    "gogoat": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Milk Drink", "Horn Leech", "Head Smash", "High Horsepower", "Grassy Glide"],
+                "abilities": ["Grass Pelt"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    }
+    "Clodsire": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Barb Barrage", "Earthquake", "Recover", "Spikes", "Stealth Rock", "Toxic Spikes"],
+                "abilities": ["Still Water"],
+                "teraTypes": ["Flying", "Dark"]
+            }
+        ]
+    }
 }
