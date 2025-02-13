@@ -56,6 +56,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			blazeball: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	ninjask: {
@@ -410,6 +411,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	bramblin: {
@@ -1101,6 +1103,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			racism2: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	sylveon: {
@@ -1723,6 +1726,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			racism2: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	samurottsinnoh: {
@@ -2779,6 +2783,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	pidown: {
@@ -3327,6 +3332,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			racism2: ["9L1"],
 			drainpunch: ["9L1"],
 			shadowsneak: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	zelda: {
@@ -3394,6 +3400,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			wariopicrosspuzzle4g: ["9L1"],
 			blazeball: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	cascoon: {
@@ -3570,6 +3577,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			blazeball: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	drigike: {
@@ -3801,6 +3809,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			balatroblast: ["9L1"],
 			airhorn: ["9L1"],
 			blazeball: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	starmie: {
@@ -4528,6 +4537,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			diamondhand: ["9L1"],
 			racism2: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	guiltrism: {
@@ -4931,6 +4941,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			zekromkick: ["9L1"],
 		},
 	},
 	mariokartwii: {
@@ -5754,6 +5765,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			airhorn: ["9L1"],
 			diamondhand: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	metapod: {
@@ -5991,6 +6003,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	magnegiri: {
@@ -6117,6 +6130,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			wariopicrosspuzzle4g: ["9L1"],
 			blazeball: ["9L1"],
 			yoshisisland: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	contamicow: {
@@ -6324,6 +6338,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			suckerpunch: ["9L1"],
 			partingshot: ["9L1"],
 			racism2: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	basculinbluestriped: {
@@ -6475,6 +6490,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			glare: ["9L1"],
 			trumpcard: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	richardpetty: {
@@ -6490,6 +6506,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			corrosivegus: ["9L1"],
 			epicbeam: ["9L1"],
+			ironfist: ["9L1"],
 			blazeball: ["9L1"],
 		},
 	},
@@ -6557,6 +6574,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			airhorn: ["9L1"],
 			racism2: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	lemon: {
@@ -6623,6 +6641,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	pokestarmt: {
@@ -6710,6 +6729,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			holdhands: ["9L1"],
 			mewing: ["9L1"],
 			epicbeam: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	margaretthatcher: {
@@ -7130,6 +7150,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	inkay: {
@@ -7282,6 +7303,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			balatroblast: ["9L1"],
 			racism2: ["9L1"],
 			trumpcard: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	limelips: {
@@ -8021,6 +8043,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			epicbeam: ["9L1"],
 			fiendfire: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	lemonfish: {
@@ -8162,6 +8185,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mewing: ["9L1"],
 			fishingterrain: ["9L1"],
 			epicbeam: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	
@@ -8426,6 +8450,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			homerun: ["9L1"],
 			epicbeam: ["9L1"],
 			racism2: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	kyrum: {
@@ -8578,6 +8603,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			wariopicrosspuzzle4g: ["9L1"],
 			racism2: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	lucariocalm: {
@@ -8712,6 +8738,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			formofthestrawberryelephant: ["9L1"],
 			epicbeam: ["9L1"],
 			blazeball: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	nedontrol: {
@@ -9036,6 +9063,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			metalclaw: ["9L1"],
 			epicbeam: ["9L1"],
 			zekromkick: ["9L1"],
+			ironfist: ["9L1"],
 		},
 	},
 	mcfish: {
