@@ -107,6 +107,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		shortDesc: "This Pokemon's slicing moves deal 1.3x damage and, in Electric Terrain, raise highest stat by 1 stage.",
 	},
+	distortedaspect: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name === 'Munkidori-Tera' && !this.effectState.distorted) {
+				this.effectState.distorted = true;
+				this.boost({spa: 1}, pokemon);
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.distorted;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Distorted Aspect",
+		rating: 3.5,
+		shortDesc: "On switch-in, this Pokemon's Special Attack is raised by 1 stage.",
+	},
 
 	// vanillabilities
 	guarddog: {
