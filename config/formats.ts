@@ -3726,6 +3726,9 @@ export const Formats: FormatList = [
 		mod: 'pmcm',
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
+		onSwitchIn(pokemon) {
+      	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
 	},
 	{
 		name: "[Gen 9] Pokémon North, South, East, West",
