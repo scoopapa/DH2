@@ -608,7 +608,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 5.2,
 		weightkg: 252.5,
 		color: "Brown",
-		tags: ["Sub-Legendary"],
+		// tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	// end
@@ -625,7 +625,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 7.4,
 		weightkg: 523.5,
 		color: "Blue",
-		tags: ["Sub-Legendary"],
+	//	tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	// end
@@ -642,7 +642,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 10.8,
 		weightkg: 123.5,
 		color: "Purple",
-		tags: ["Sub-Legendary"],
+		// tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	// end
@@ -780,7 +780,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Fire", "Fairy"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 75, atk: 69, def: 72, spa: 114, spd: 100, spe: 104},
-		abilities: {0: "Overgrow", H: "Curious Medicine"},
+		abilities: {0: "Blaze", H: "Curious Medicine"},
 	//	category: "Medic Witch",
 		heightm: 1.5,
 		weightkg: 39.0,
