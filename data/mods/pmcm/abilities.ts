@@ -148,13 +148,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 
 	grasspelt: {
+		inherit: true;
 		onDamagingHit(damage, target, source, move) {
 			this.field.setTerrain('grassyterrain');
-		},
-		flags: {},
-		name: "Grass Pelt",
-		rating: 5,
-		num: -105,
+		},		
 	},
 
 	aquaveil: {
