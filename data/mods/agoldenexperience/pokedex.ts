@@ -1534,10 +1534,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
 	},
-	lucariomega: {
-		inherit: true,
-		abilities: {0: "Steadfast"},
-	},
 	drapion: {
 		inherit: true,
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Sheer Force"},
@@ -3522,7 +3518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         num: -18,
         name: "Paranormear",
         types: ["Normal", "Ghost"],
-        baseStats: {hp: 90, atk: 120, def: 65, spa: 105, spd: 90, spe: 60},
+        baseStats: {hp: 90, atk: 120, def: 75, spa: 85, spd: 100, spe: 60},
         abilities: {0: "Defiant", 1: "Unaware", H: "Cursed Body"},
         heightm: 2.2,
         weightkg: 20,
