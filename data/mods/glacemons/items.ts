@@ -338,11 +338,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -5,
 		gen: 9,
 		rating: 3,
-		shortDesc: "Restores 1/3 max HP when at 1/2 max HP or less once, -1 Spe vs. Knock Off.",
+		shortDesc: "Restores 1/3 max HP when at 1/3 max HP or less once, -1 Spe vs. Knock Off.",
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4) && pokemon.useItem()) {
-					this.heal(pokemon.baseMaxhp / 4);
+			if (pokemon.hp <= pokemon.maxhp / 3) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3) && pokemon.useItem()) {
+					this.heal(pokemon.baseMaxhp / 3);
 				}
 			}
 		},
@@ -711,13 +711,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
-				return this.chainModify(1.3);
+				return this.chainModify(1.2);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
-				return this.chainModify(1.3);
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpe(spe, pokemon) {
@@ -731,7 +731,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				move.basePower *= 1.5;
 			}
 		},
-		shortDesc: "If Fighting-type or Klutz: 1.3x Atk/Def. If not: 1/2 Spe. 1.5x Fling BP.",
+		shortDesc: "If Fighting-type or Klutz: 1.2x Atk/Def. If not: 1/2 Spe. 1.5x Fling BP.",
 		rating: 3,
 	},
 	cursedbranch: {
@@ -761,8 +761,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		// airborneness negation implemented in scripts.ts
 		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
 		rating: 3,
+		// will certainly change how it's treated to take damages but hey 
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb')) {
+			if ((target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb')) && !target.hasItem('heavydutyboots') && !target.hasAbility('magicguard')) { 
 				return this.chainModify(0.75);
 			}
 		},
@@ -1184,7 +1185,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		// Implemented in scripts.js
 		name: "Neutralizer",
-		rating: 4,
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
 		num: -19,
 		rating: 3,

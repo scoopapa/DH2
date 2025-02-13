@@ -745,7 +745,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	spiritomb: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Aftermath", H: "Sinister Thoughts"},
+		abilities: {0: "Pressure", 1: "Aftermath", H: "Sinistrous"},
 	},
 	// Early Bird
 	archen: {
@@ -975,15 +975,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	duskull: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Merciless", H: "Sinister Thoughts"},
+		abilities: {0: "Levitate", 1: "Merciless", H: "Sinistrous"},
 	},
 	dusclops: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister Thoughts"},
+		abilities: {0: "Pressure", 1: "Merciless", H: "Sinistrous"},
 	},
 	dusknoir: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Merciless", H: "Sinister Thoughts"},
+		abilities: {0: "Pressure", 1: "Merciless", H: "Sinistrous"},
 	},
 	stunky: {
 		inherit: true,
@@ -1077,11 +1077,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	drowzee: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Sinister Thoughts", H: "Evanesce"},
+		abilities: {0: "Insomnia", 1: "Sinistrous", H: "Evanesce"},
 	},
 	hypno: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Sinister Thoughts", H: "Evanesce"},
+		abilities: {0: "Insomnia", 1: "Sinistrous", H: "Evanesce"},
 	},
 	lunatone: {
 		inherit: true,
@@ -1362,7 +1362,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	ironvaliant: {
 		inherit: true,
-		abilities: {0: "Quark Drive", H: "Moody"},
+		abilities: {0: "Quark Drive", H: "Natural Cure"},
 	},
 	ironboulder: {
 		inherit: true,
@@ -1413,46 +1413,46 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Moody"},
 	},
-	// Sinister Thoughts
+	// Sinistrous
 	guzzlord: {
 		inherit: true,
-		abilities: {0: "Beast Boost", H: "Sinister Thoughts"},
+		abilities: {0: "Beast Boost", H: "Sinistrous"},
 	},
 	deino: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Unconcerned", H: "Sinister Thoughts"},
+		abilities: {0: "Hustle", 1: "Unconcerned", H: "Sinistrous"},
 	},
 	zweilous: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Unconcerned", H: "Sinister Thoughts"},
+		abilities: {0: "Hustle", 1: "Unconcerned", H: "Sinistrous"},
 	},
 	hydreigon: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Unconcerned", H: "Sinister Thoughts"},
+		abilities: {0: "Levitate", 1: "Unconcerned", H: "Sinistrous"},
 	},
 	poochyena: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Sinister Thoughts", H: "Rattled"},
+		abilities: {0: "Run Away", 1: "Sinistrous", H: "Rattled"},
 	},
 	mightyena: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Sinister Thoughts", H: "Moxie"},
+		abilities: {0: "Intimidate", 1: "Sinistrous", H: "Moxie"},
 	},
 	spinarak: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Sinister Thoughts", H: "Sniper"},
+		abilities: {0: "Swarm", 1: "Sinistrous", H: "Sniper"},
 	},
 	ariados: {
 		inherit: true,
-		abilities: {0: "Swarm", 1: "Sinister Thoughts", H: "Sniper"},
+		abilities: {0: "Swarm", 1: "Sinistrous", H: "Sniper"},
 	},
 	salandit: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sinister Thoughts", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Sinistrous", H: "Oblivious"},
 	},
 	salazzle: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sinister Thoughts", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Sinistrous", H: "Oblivious"},
 	},
 	// Middle Eight
 	meloetta: {
@@ -1898,7 +1898,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Slate 7 adjustments
 	nihilego: {
 		inherit: true,
-		abilities: {0: "Beast Boost", H: "Tinted Lens"},
+		abilities: {0: "Beast Boost", H: "Liquid Body"},
 	},
 	tangrowth: {
 		inherit: true,
@@ -2042,7 +2042,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	regice: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Ice Body", H: "Refrigerate"},
+		abilities: {0: "Clear Body", 1: "Sturdy", H: "Refrigerate"},
 	},
 	registeel: {
 		inherit: true,
