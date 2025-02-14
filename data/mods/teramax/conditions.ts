@@ -80,7 +80,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						break;
 					case 'Corviknight':
 						pokemon.setAbility('intimidate', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Intimidate');
+						//this.add('-activate', pokemon, 'ability: Intimidate');
 						break;
 					case 'Orbeetle':
 						pokemon.setAbility('psychicsurge', pokemon, true);
