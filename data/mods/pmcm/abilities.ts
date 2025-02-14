@@ -148,15 +148,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 
 	grasspelt: {
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			this.field.setTerrain('grassyterrain');
 		},
-		flags: {},
-		name: "Grass Pelt",
-		rating: 5,
-		num: -105,
 	},
-
 	aquaveil: {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
@@ -190,7 +186,36 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		},
 		name: "Aqua Veil",
 		rating: 5,
-		num: -106
-	}
-	
+		num: -106,
+	},
+	stillwater: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Water Absorb');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Still Water",
+		rating: 5,
+		num: -107,
+		shortDesc: "This ability provides the effects of Unaware and Water Absorb.",
+		},
 };
