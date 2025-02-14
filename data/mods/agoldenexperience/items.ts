@@ -48,8 +48,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//mega stones
-	meteorfragment: {
-		name: "Meteor Fragment",
+	jadeorb: {
+		name: "Jade Orb",
 		spritenum: 578,
 		megaStone: "Rayquaza-Mega",
 		megaEvolves: "Rayquaza",

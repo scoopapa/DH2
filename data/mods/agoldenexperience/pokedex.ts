@@ -1389,19 +1389,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Clear Body", 1: "Bulletproof", H: "Light Metal"},
 	},
 	rayquazamega: {
-		num: 384,
-		name: "Rayquaza-Mega",
-		baseSpecies: "Rayquaza",
-		forme: "Mega",
-		types: ["Dragon", "Flying"],
-		gender: "N",
-		baseStats: {hp: 105, atk: 180, def: 100, spa: 180, spd: 100, spe: 115},
-		abilities: {0: "Delta Stream"},
-		heightm: 10.8,
-		weightkg: 392,
-		color: "Green",
-		eggGroups: ["Undiscovered"],
-		requiredItem: "Meteor Fragment",
+		inherit: true,
+		requiredMove: null,
+		requiredItem: "Jade Orb",
 	},
 	jirachi: {
 		inherit: true,
@@ -1533,10 +1523,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	lucario: {
 		inherit: true,
 		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
-	},
-	lucariomega: {
-		inherit: true,
-		abilities: {0: "Steadfast"},
 	},
 	drapion: {
 		inherit: true,
@@ -3522,7 +3508,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         num: -18,
         name: "Paranormear",
         types: ["Normal", "Ghost"],
-        baseStats: {hp: 90, atk: 120, def: 65, spa: 105, spd: 90, spe: 60},
+        baseStats: {hp: 90, atk: 120, def: 75, spa: 85, spd: 100, spe: 60},
         abilities: {0: "Defiant", 1: "Unaware", H: "Cursed Body"},
         heightm: 2.2,
         weightkg: 20,
