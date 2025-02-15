@@ -442,6 +442,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	starmie: {
 		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 100, spa: 100, spd: 100, spe: 115},
 		abilities: {0: "Illuminate", 1: "Regenerator", H: "Neuroforce"},
 	},
 	mrmime: {
@@ -519,7 +520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	snorlax: {
 		inherit: true,
-		abilities: {0: "Oblivious", 1: "Thick Fat", H: "Gluttony"},
+		abilities: {0: "Immunity", 1: "Thick Fat", H: "Oblivious"},
 	},
 	articuno: {
 		inherit : true,
@@ -1388,19 +1389,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Clear Body", 1: "Bulletproof", H: "Light Metal"},
 	},
 	rayquazamega: {
-		num: 384,
-		name: "Rayquaza-Mega",
-		baseSpecies: "Rayquaza",
-		forme: "Mega",
-		types: ["Dragon", "Flying"],
-		gender: "N",
-		baseStats: {hp: 105, atk: 180, def: 100, spa: 180, spd: 100, spe: 115},
-		abilities: {0: "Delta Stream"},
-		heightm: 10.8,
-		weightkg: 392,
-		color: "Green",
-		eggGroups: ["Undiscovered"],
-		requiredItem: "Meteor Fragment",
+		inherit: true,
+		requiredMove: null,
+		requiredItem: "Jade Orb",
 	},
 	jirachi: {
 		inherit: true,
@@ -1532,10 +1523,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	lucario: {
 		inherit: true,
 		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
-	},
-	lucariomega: {
-		inherit: true,
-		abilities: {0: "Steadfast"},
 	},
 	drapion: {
 		inherit: true,
@@ -1894,13 +1881,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 77, atk: 57, def: 65, spa: 97, spd: 65, spe: 114},
 	},
-	audino: {
-		inherit: true,
-		abilities: {0: "Healer", 1: "Regenerator", H: "Immunity"},
-	},
 	audinomega: {
 		inherit: true,
-		abilities: {0: "Immunity"},
+		abilities: {0: "Cute Charm"},
 	},
 	seismitoad: {
 		inherit: true,
@@ -2138,6 +2121,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	cryogonal: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Snow Warning"},
+	},
+	accelgor: {
+		inherit: true,
+		abilities: {0: "Dodge", 1: "Sticky Hold", H: "Unburden"},
 	},
 	stunfisk: {
 		inherit: true,
@@ -2393,14 +2380,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Night Light", H: "Sturdy"},
 	},
-	sliggoo: {
-		inherit: true,
-		types: ["Dragon", "Poison"],
-	},
-	goodra: {
-		inherit: true,
-		types: ["Dragon", "Poison"],
-	},
 	goodrahisui: {
 		inherit: true,
 		abilities: {0: "Misty Surge", 1: "Shell Armor", H: "Gooey"},
@@ -2496,11 +2475,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
     },
 	hoopa: {
 		inherit: true,
-		abilities: {0: "Prankster"},
+		abilities: {0: "Magician", H: "Prankster"},
 	},
 	hoopaunbound: {
 		inherit: true,
-		abilities: {0: "Mold Breaker"},
+		abilities: {0: "Magician", H: "Mold Breaker"},
 	},
 
 	// Gen 7 :
@@ -3529,7 +3508,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         num: -18,
         name: "Paranormear",
         types: ["Normal", "Ghost"],
-        baseStats: {hp: 90, atk: 120, def: 65, spa: 105, spd: 90, spe: 60},
+        baseStats: {hp: 90, atk: 120, def: 75, spa: 85, spd: 100, spe: 60},
         abilities: {0: "Defiant", 1: "Unaware", H: "Cursed Body"},
         heightm: 2.2,
         weightkg: 20,

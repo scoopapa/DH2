@@ -39,5 +39,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cramorant: {tier: "PMCM"},
 	grafaiai: {tier: "PMCM"},
 	tatsugiri: {tier: "PMCM"},
+	kyurem: {tier: "PMCM"},
+	roaringmoon: {tier: "PMCM"},
+	milotic: {tier: "PMCM"},
+	gogoat: {tier: "PMCM"},
+	clodsire: {tier: "PMCM"},
 	
 };

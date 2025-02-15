@@ -1195,6 +1195,11 @@ export class RandomTeams {
 		if (species.id === 'cramorant') return 'Heavy-Duty Boots';
 		if (species.id === 'grafaiai') return this.sample(['Red Card', 'Mirror Herb']);
 		if (species.id === 'tatsugiri') return 'Mystic Water';
+		if (species.id === 'kyurem') return 'Heavy-Duty Boots';
+		if (species.id === 'roaringmoon') return 'Heavy-Duty Boots';
+		if (species.id === 'milotic') return 'Rocky Helmet';
+		if (species.id === 'gogoat') return 'Leftovers';
+		if (species.id === 'clodsire') return this.sample(['Leftovers', 'Rocky Helmet']);
 
 		if (
 			species.id === 'froslass' || moves.has('populationbomb') ||

@@ -1593,7 +1593,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gallademega: {
 		inherit: true,
-		tier: "UU",
+		tier: "Uber",
 	},
 	surskit: {
 		inherit: true,
@@ -2037,7 +2037,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	metagrossmega: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 	},
 	regirock: {
 		inherit: true,

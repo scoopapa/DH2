@@ -181,4 +181,25 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Dry Skin"},
 	},
+	kyurem: {
+		inherit: true,
+		abilities: {0: "Skill Link"},
+	},
+	roaringmoon: {
+		inherit: true,
+		abilities: {0: "Shadow Shield"},
+	},
+	milotic: {
+		inherit: true,
+		abilities: {0: "Aqua Veil"},
+		types: ["Water", "Fairy"],
+	},
+	gogoat: {
+		inherit: true,
+		types: ["Grass", "Rock"],
+	},
+	clodsire: {
+		inherit: true,
+		abilities: {0: "Still Water"},
+	},
 };
