@@ -432,4 +432,53 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 306,
 		shortDesc: "On switch-in, the foe's Speed is lowered by 2 stages if it has a positive stat boost.",
 	},
+	unseenfist: {
+		onModifyMove(move) {
+			if (this.effectState.unseenFist) return;
+			if (move.flags['contact']) delete move.flags['protect'];
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (target !== source && move.flags['contact'] && 
+				 (target.volatiles['protect'] || target.volatiles['banefulbunker'] || target.volatiles['kingsshield'] ||
+				  target.volatiles['spikyshield'] || target.side.getSideCondition('matblock') || target.volatiles['silktrap'] ||
+				  target.volatiles['burningbulwark'])) {
+				this.effectState.unseenFist = true;
+				this.add('-activate', source, 'ability: Unseen Fist');
+				this.add('-message', `${source.name}'s ${move.name} broke through ${target.name}'s protection!`);
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.unseenFist;
+		},
+		flags: {},
+		name: "Unseen Fist",
+		rating: 2,
+		num: 260,
+		shortDesc: "Once per switch-in, this Pokemon's contact moves ignore protection, except Max Guard.",
+	},
+	chillingneigh: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			this.damage(target.baseMaxhp / 8, target, target);
+		},
+		flags: {},
+		name: "Chilling Neigh",
+		rating: 2,
+		num: 264,
+		shortDesc: "After being hit by an attack, this Pokemons heals 12.5% of its max HP.",
+	},
+	grimneigh: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		name: "Grim Neigh",
+		rating: 2,
+		num: 265,
+		shortDesc: "After hitting an attack, this Pokemons heals 12.5% of its max HP.",
+	},
 };

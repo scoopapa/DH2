@@ -54,8 +54,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	meowscaradatera: {
 		tier: "Tera",
 	},
-	terapagosstellar: {
+	okidogitera: {
 		tier: "Tera",
+	},
+	munkidoritera: {
+		tier: "Tera",
+	},
+	fezandipititera: {
+		tier: "Tera",
+	},
+	terapagosstellar: {
+		tier: "Uber",
 	},
 	
 	// Other

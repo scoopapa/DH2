@@ -883,15 +883,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	gmaxoneblow: {
 		num: 1000,
 		accuracy: true,
-		basePower: 130,
+		basePower: 105,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "This move bypasses all protection effects, including Max Guard.",
-		shortDesc: "Bypasses protection, including Max Guard.",
+		desc: "This move bypasses all protection effects, except Max Guard.",
+		shortDesc: "Bypasses protection, except Max Guard.",
 		name: "G-Max One Blow",
 		pp: 5,
 		priority: 0,
-		flags: {},
+		flags: {punch: 1},
 		isMax: "Urshifu",
 		secondary: null,
 		target: "adjacentFoe",
@@ -901,15 +901,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	gmaxrapidflow: {
 		num: 1000,
 		accuracy: true,
-		basePower: 45,
+		basePower: 35,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "Hits 3 times. This move bypasses all protection effects, including Max Guard.",
-		shortDesc: "Hits 3 times. Bypasses protection, including Max Guard.",
+		desc: "Hits 3 times. This move bypasses all protection effects, except Max Guard.",
+		shortDesc: "Hits 3 times. Bypasses protection, except Max Guard.",
 		name: "G-Max Rapid Flow",
 		pp: 5,
 		priority: 0,
-		flags: {},
+		flags: {punch: 1},
 		multihit: 3,
 		isMax: "Urshifu-Rapid-Strike",
 		secondary: null,
@@ -1500,7 +1500,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
 				const bypassesMaxGuard = [
-					'acupressure', 'afteryou', 'allyswitch', 'aromatherapy', 'aromaticmist', 'coaching', 'confide', 'copycat', 'curse', 'decorate', 'doomdesire', 'feint', 'futuresight', 'gmaxoneblow', 'gmaxrapidflow', 'healbell', 'holdhands', 'howl', 'junglehealing', 'lifedew', 'meanlook', 'perishsong', 'playnice', 'powertrick', 'roar', 'roleplay', 'tearfullook',
+					'acupressure', 'afteryou', 'allyswitch', 'aromatherapy', 'aromaticmist', 'coaching', 'confide', 'copycat', 'curse', 'decorate', 'doomdesire', 'feint', 'futuresight', 'healbell', 'holdhands', 'howl', 'junglehealing', 'lifedew', 'meanlook', 'perishsong', 'playnice', 'powertrick', 'roar', 'roleplay', 'tearfullook',
 				];
 				if (bypassesMaxGuard.includes(move.id)) return;
 				if (move.smartTarget) {

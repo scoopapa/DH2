@@ -98,6 +98,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
+					this.add('-ability', pokemon, 'As One (Glastrier)');
 				}
 			}
 		},
@@ -107,14 +108,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 			if (pokemon.hp < pokemon.maxhp / 2) {
 				if (pokemon.species !== 'Calyrex-Ice') {
 					pokemon.formeChange('Calyrex-Ice');
-					pokemon.setAbility('As One');
+					pokemon.setAbility('As One (Glastrier)');
 					this.add('-ability', pokemon, 'As One');
 					return;
 				}
 			} else {
 				if (pokemon.species.forme === 'Calyrex-Ice') {
 					pokemon.formeChange(pokemon.set.species);
-					pokemon.setAbility('As One');
+					pokemon.setAbility('As One (Glastrier)');
 					this.add('-ability', pokemon, 'As One');
 				}
 			}
@@ -127,16 +128,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 	},
 	flipflop: {
 		onDamagingHitOrder: 1,
-		onDamagingHit(damage, target, source, move) {
+		onTryHit(target, source, move) {
 			if (move.flags['contact']) {
 				let invertedBoosts: SparseBoostsTable = {};
 				for (const stat in source.boosts) {
-					if (source.boosts[stat] !== 0) {
+					if (source.boosts[stat] > 0) {
 						invertedBoosts[stat] = -2 * source.boosts[stat]; 
+						this.boost(invertedBoosts, source);
+						this.add('-ability', target, 'Flip Flop');
 					}
 				}
-				this.boost(invertedBoosts, source);
-				this.add('-ability', target, 'Flip Flop');
 			}
 		},
 		flags: {},
@@ -145,5 +146,76 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		num: -104,
 		shortDesc: "When hit by a contact move, the attacker’s stat changes are inverted.",
 	},
-	
+
+	grasspelt: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			this.field.setTerrain('grassyterrain');
+		},
+	},
+	aquaveil: {
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'Aqua Ring');
+		},
+		onResidualOrder: 6,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		name: "Aqua Veil",
+		rating: 5,
+		num: -106,
+	},
+	stillwater: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Water Absorb');
+				}
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Still Water",
+		rating: 5,
+		num: -107,
+		shortDesc: "This ability provides the effects of Unaware and Water Absorb.",
+		},
 };

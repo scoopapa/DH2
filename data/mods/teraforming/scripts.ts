@@ -40,6 +40,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "weezinggalar").learnset.voltswitch = ["9L1"];
 		this.modData("Learnsets", "meowscarada").learnset.fakeout = ["9L1"];
 		this.modData("Learnsets", "volcanion").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "okidogi").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.expandingforce = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.burningjealousy = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.spiritbreak = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.tripledive = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -148,6 +157,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Meowscarada') {
 				const tera = pokemon.species.id === 'meowscarada' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Fezandipiti') {
+				const tera = pokemon.species.id === 'fezandipiti' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Okidogi') {
+				const tera = pokemon.species.id === 'okidogi' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Munkidori') {
+				const tera = pokemon.species.id === 'munkidori' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);

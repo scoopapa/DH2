@@ -80,7 +80,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						break;
 					case 'Corviknight':
 						pokemon.setAbility('intimidate', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Intimidate');
+						//this.add('-activate', pokemon, 'ability: Intimidate');
 						break;
 					case 'Orbeetle':
 						pokemon.setAbility('psychicsurge', pokemon, true);
@@ -139,12 +139,12 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Unaware');
 						break;
 					case 'Urshifu':
-						pokemon.setAbility('innerfocus', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Inner Focus');
+						pokemon.setAbility('ironfist', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Iron Fist');
 						break;
 					case 'Urshifu-Rapid-Strike':
-						pokemon.setAbility('innerfocus', pokemon, true);
-						this.add('-activate', pokemon, 'ability: Inner Focus');
+						pokemon.setAbility('ironfist', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Iron Fist');
 						break;
 				}
 			}

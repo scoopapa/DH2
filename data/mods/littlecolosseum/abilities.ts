@@ -192,4 +192,42 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Supreme Survivor",
 		rating: 5,
 	},
+	momentummori: {
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		flags: {},
+		name: "Momentum Mori",
+		rating: 4,
+		shortDesc: "Effects of Infiltrator and Speed Boost.",
+	},
+	sevenlives: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Seven Lives');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Seven Lives');
+				return target.hp - 1;
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		flags: {breakable: 1},
+		name: "Seven Lives",
+		rating: 4.5,
+		shortDesc: "Effects of Sturdy and Regenerator.",
+	},
 };

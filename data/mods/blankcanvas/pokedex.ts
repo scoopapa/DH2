@@ -555,4 +555,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Prankster"},
 		weightkg: 70,
 	},
+	haarstorm: {
+		num: 9069,
+		name: "Haarstorm",
+		types: ["Ghost", "Electric"],
+		baseStats: {hp: 80, atk: 90, def: 75, spa: 30, spd: 115, spe: 105},
+		abilities: {0: "Neutralizing Gas", H: "Natural Cure"},
+		weightkg: 9,
+	},
+	borealis: {
+		num: 9070,
+		name: "Borealis",
+		types: ["Ice", "Flying"],
+		baseStats: {hp: 120, atk: 75, def: 90, spa: 90, spd: 90, spe: 90},
+		abilities: {0: "Supreme Overlord"},
+		weightkg: 63,
+	},
+	bazhigangquan: {
+		num: 9071,
+		name: "Bazhigangquan",
+		types: ["Fighting", "Steel"],
+		baseStats: {hp: 101, atk: 113, def: 110, spa: 35, spd: 61, spe: 68},
+		abilities: {0: "Technician"},
+		weightkg: 219,
+	},
 };

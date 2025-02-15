@@ -68,6 +68,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "eevee").learnset.psyshock = ["9L1"];
 		this.modData("Learnsets", "eevee").learnset.bulletseed = ["9L1"];
 		this.modData("Learnsets", "eevee").learnset.icywind = ["9L1"];
+		this.modData("Learnsets", "dratini").learnset.coilmind = ["9L1"];
+		this.modData("Learnsets", "bramblin").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "meowth").learnset.counter = ["9L1"];
+		delete this.modData('Learnsets', 'meowth').learnset.knockoff;
+		delete this.modData('Learnsets', 'meowth').learnset.assurance;
+		delete this.modData('Learnsets', 'meowth').learnset.thunderwave;
+		delete this.modData('Learnsets', 'meowth').learnset.bodyslam;
+		delete this.modData('Learnsets', 'meowth').learnset.throatchop;
+		delete this.modData('Learnsets', 'meowth').learnset.hypnosis;
 	},
 	pokemon: { 
 		runImmunity(type: string, message?: string | boolean) {
