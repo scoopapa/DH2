@@ -45,8 +45,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
         if (target.baseSpecies == "Mametchi") {
 boosts: {
 					spa: 1,
-				}
-        }
+			}
+         }
 			}
 		},
 		flags: {},
