@@ -42,11 +42,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				pokemon.addVolatile('attract', this.effectState.pokemon);
-        if (target.baseSpecies == "Mametchi") {
-boosts: {
-					spa: 1,
-         }
-			}
 		},
 		flags: {},
     shortDesc: "Moves have +20% power, but this Tamagotchi is in love with all males, especially Mametchi.",
