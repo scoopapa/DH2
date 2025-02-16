@@ -824,7 +824,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'granbull').learnset.irontail;
 		delete this.modData('Learnsets', 'groudon').learnset.irontail;
 		delete this.modData('Learnsets', 'grovyle').learnset.irontail;
-		delete this.modData('Learnsets', 'growlith').learnset.irontail;
+		delete this.modData('Learnsets', 'growlithe').learnset.irontail;
 		delete this.modData('Learnsets', 'grumpig').learnset.irontail;
 		delete this.modData('Learnsets', 'houndoom').learnset.irontail;
 		delete this.modData('Learnsets', 'houndour').learnset.irontail;
@@ -967,7 +967,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'granbull').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'groudon').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'grovyle').learnset.flashcannon = ['3M'];
-		this.modData('Learnsets', 'growlith').learnset.flashcannon = ['3M'];
+		this.modData('Learnsets', 'growlithe').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'grumpig').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'houndoom').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'houndour').learnset.flashcannon = ['3M'];
