@@ -106,3 +106,4 @@ if (source.species && (source.species.num === 493 || source.species.num === 773)
 		shortDesc: "When this Pokemon's HP drops to 0, it leaves behind a Device Counter.",
 	},
 }
+}
