@@ -4457,7 +4457,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	enamorus: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	enamorustherian: {
