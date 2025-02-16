@@ -705,7 +705,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'dusclops').learnset.astonish;
 		delete this.modData('Learnsets', 'exploud').learnset.astonish;
 		delete this.modData('Learnsets', 'fearow').learnset.astonish;
-		delete this.modData('Learnsets', 'ghastly').learnset.astonish;
+		delete this.modData('Learnsets', 'gastly').learnset.astonish;
 		delete this.modData('Learnsets', 'gengar').learnset.astonish;
 		delete this.modData('Learnsets', 'girafarig').learnset.astonish;
 		delete this.modData('Learnsets', 'golbat').learnset.astonish;
@@ -743,7 +743,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'dusclops').learnset.shadowsneak = ['3M'];
 		//this.modData('Learnsets', 'exploud').learnset.shadowsneak = ['3M'];
 		this.modData('Learnsets', 'fearow').learnset.shadowsneak = ['3M'];
-		this.modData('Learnsets', 'ghastly').learnset.shadowsneak = ['3M'];
+		this.modData('Learnsets', 'gastly').learnset.shadowsneak = ['3M'];
 		this.modData('Learnsets', 'gengar').learnset.shadowsneak = ['3M'];
 		this.modData('Learnsets', 'girafarig').learnset.shadowsneak = ['3M'];
 		this.modData('Learnsets', 'golbat').learnset.shadowsneak = ['3M'];
