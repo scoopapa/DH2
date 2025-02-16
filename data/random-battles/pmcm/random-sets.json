@@ -1,6 +1,6 @@
 {
     "volcarona": {
-        "level": 84,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -11,7 +11,7 @@
         ]
     },
     "golemalola": {
-        "level": 90,
+        "level": 92,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -22,7 +22,7 @@
         ]
     },
     "lurantis": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -68,7 +68,7 @@
         ]
     },
     "ceruledge": {
-        "level": 78,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -96,7 +96,7 @@
         ]
     }, 
     "moltres": {
-        "level": 80,
+        "level": 78,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -107,7 +107,7 @@
         ]
     },
     "kommoo": {
-        "level": 80,
+        "level": 74,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -118,7 +118,7 @@
         ]
     },
     "illumise": {
-        "level": 92,
+        "level": 94,
         "sets": [
             {
                 "role": "Bulky Setup",
@@ -129,7 +129,7 @@
         ]
     },
     "volbeat": {
-        "level": 90,
+        "level": 92,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -212,7 +212,7 @@
         ]
     },
     "tyranitarmega": {
-        "level": 84,
+        "level": 82,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -234,7 +234,7 @@
         ]
     },
     "mesprit": {
-        "level": 88,
+        "level": 82,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -251,7 +251,7 @@
         ]
     },
     "electrode": {
-        "level": 84,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Support",
@@ -273,7 +273,7 @@
         ]
     },
     "chiyu": {
-        "level": 86,
+        "level": 84,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -323,7 +323,7 @@
         ]
     },
     "malamar": {
-        "level": 86,
+        "level": 90,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -367,7 +367,7 @@
         ]
     },
     "lycanrocmidnight": {
-        "level": 82,
+        "level": 84,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -389,7 +389,7 @@
         ]
     },
     "lycanrocdusk": {
-        "level": 82,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -400,7 +400,7 @@
         ]
     },
     "dodrio": {
-        "level": 86,
+        "level": 84,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -411,7 +411,7 @@
         ]
     },
     "whiscash": {
-        "level": 84,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -462,6 +462,61 @@
                 "movepool": ["Hydro Pump", "Draco Meteor", "Rain Dance", "Nasty Plot", "Rapid Spin"],
                 "abilities": ["Dry Skin"],
                 "teraTypes": ["Water"]
+            }
+        ]
+    },
+    "kyurem": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Dragon Dance", "Scale Shot", "Icicle Spear", "Earthquake"],
+                "abilities": ["Skill Link"],
+                "teraTypes": ["Dragon"]
+            }
+        ]
+    },
+    "roaringmoon": {
+        "level": 80,
+        "sets": [
+            {
+                "role": "Fast Attacker",
+                "movepool": ["U-turn", "Jaw Lock", "Glaive Rush", "Fire Lash", "Roost"],
+                "abilities": ["Shadow Shield"],
+                "teraTypes": ["Fire", "Poison"]
+            }
+        ]
+    },
+    "milotic": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Bouncy Bubble", "Ice Beam", "Recover", "Haze", "Toxic", "Dragon Tail", "Substitute", "Moonblast"],
+                "abilities": ["Aqua Veil"],
+                "teraTypes": ["Grass"]
+            }
+        ]
+    },
+    "gogoat": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Attacker",
+                "movepool": ["Milk Drink", "Horn Leech", "Head Smash", "High Horsepower", "Grassy Glide"],
+                "abilities": ["Grass Pelt"],
+                "teraTypes": ["Water"]
+            }
+        ]
+    },
+    "Clodsire": {
+        "level": 84,
+        "sets": [
+            {
+                "role": "Bulky Support",
+                "movepool": ["Barb Barrage", "Earthquake", "Recover", "Spikes", "Stealth Rock", "Toxic Spikes"],
+                "abilities": ["Still Water"],
+                "teraTypes": ["Flying", "Dark"]
             }
         ]
     }

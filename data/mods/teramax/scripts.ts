@@ -286,6 +286,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.aerialace;
 		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.stoneedge;
 		delete this.modData('Learnsets', 'urshifurapidstrike').learnset.swordsdance;
+		delete this.modData('Learnsets', 'kubfu').learnset.acrobatics;
+		delete this.modData('Learnsets', 'kubfu').learnset.aerialace;
+		delete this.modData('Learnsets', 'kubfu').learnset.swordsdance;
 		this.modData("Learnsets", "calyrex").learnset.dazzlinggleam = ["9L1"];
 		this.modData("Learnsets", "calyrex").learnset.healingwish = ["9L1"];
 		this.modData("Learnsets", "calyrex").learnset.hypnosis = ["9L1"];
