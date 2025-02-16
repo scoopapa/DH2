@@ -29,6 +29,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 2221,
 	},
 	gigakyun: {
+		flags: {},
+		    shortDesc: "Moves have +20% power, but this Tamagotchi is in love with all males, especially Mametchi.",
+		name: "Gigakyun",
+		rating: 5,
+		num: 3752,
 		onModifySpaPriority: 5,
 		onModifySpa(spa) {
 			return this.chainModify(1.2);
@@ -43,11 +48,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.activeTurns) {
 				pokemon.addVolatile('attract', this.effectState.pokemon);
 		}
-		flags: {},
-    shortDesc: "Moves have +20% power, but this Tamagotchi is in love with all males, especially Mametchi.",
-		name: "Gigakyun",
-		rating: 5,
-		num: 3752,
 	},
 	tamamorishift: {
 		onResidualOrder: 28,
