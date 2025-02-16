@@ -392,7 +392,7 @@ horseserve: {
 					shortDesc: "Changes the target's ability to Soundproof.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, sound: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, sound: 1, mirror: 1, metronome: 1},
 		onTryImmunity(target) {
 			// Truant and Insomnia have special treatment; they fail before
 			// checking accuracy and will double Stomping Tantrum's BP
@@ -617,9 +617,8 @@ horseserve: {
 			chance: 20,
 			volatileStatus: 'flinch',
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
 	},
-}
+};
