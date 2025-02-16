@@ -108,11 +108,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
         baseStats: {hp: 60, atk: 110, def: 70, spa: 60, spd: 60, spe: 120},
     },
 
-    dewgong: {
-        inherit: true,
-        abilities: {0: "Thick Fat", 1: "Swift Swim"},
-    },
-
     muk: {
         inherit: true,
         abilities: {0: "Poison Point", 1: "Sticky Hold"},
@@ -131,6 +126,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
     dewgong: {
         inherit: true,
         baseStats: {hp: 90, atk: 70, def: 80, spa: 95, spd: 95, spe: 70},
+        abilities: {0: "Thick Fat", 1: "Swift Swim"},
     },
 
     kingler: {
