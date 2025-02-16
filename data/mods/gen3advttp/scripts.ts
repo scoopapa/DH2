@@ -1117,7 +1117,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'entei').learnset.headsmash = ['3M'];
 		this.modData('Learnsets', 'rhydon').learnset.headsmash = ['3M'];
 		this.modData('Learnsets', 'blaziken').learnset.forcepalm = ['3M'];
-		this.modData('Learnsets', 'polywrath').learnset.forcepalm = ['3M'];
+		this.modData('Learnsets', 'poliwrath').learnset.forcepalm = ['3M'];
 		this.modData('Learnsets', 'hitmonchan').learnset.forcepalm = ['3M'];
 		this.modData('Learnsets', 'swampert').learnset.forcepalm = ['3M'];
 		delete this.modData('Learnsets', 'dodrio').learnset.skyattack;
