@@ -814,7 +814,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'espeon').learnset.irontail;
 		delete this.modData('Learnsets', 'farfetchd').learnset.irontail;
 		delete this.modData('Learnsets', 'feraligatr').learnset.irontail;
-		delete this.modData('Learnsets', 'flaafy').learnset.irontail;
+		delete this.modData('Learnsets', 'flaaffy').learnset.irontail;
 		delete this.modData('Learnsets', 'flareon').learnset.irontail;
 		delete this.modData('Learnsets', 'flygon').learnset.irontail;
 		delete this.modData('Learnsets', 'furret').learnset.irontail;
@@ -957,7 +957,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'espeon').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'farfetchd').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'feraligatr').learnset.flashcannon = ['3M'];
-		this.modData('Learnsets', 'flaafy').learnset.flashcannon = ['3M'];
+		this.modData('Learnsets', 'flaaffy').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'flareon').learnset.flashcannon = ['3M'];
 		//this.modData('Learnsets', 'flygon').learnset.flashcannon = ['3M'];
 		this.modData('Learnsets', 'furret').learnset.flashcannon = ['3M'];
