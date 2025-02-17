@@ -1121,6 +1121,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hitmonchan').learnset.forcepalm = ['3M'];
 		this.modData('Learnsets', 'swampert').learnset.forcepalm = ['3M'];
 		delete this.modData('Learnsets', 'dodrio').learnset.skyattack;
+		delete this.modData('Learnsets', 'doduo').learnset.skyattack;
 		delete this.modData('Learnsets', 'aerodactyl').learnset.skyattack;
 		this.modData('Learnsets', 'gligar').learnset.slackoff = ['3M'];
 		this.modData('Learnsets', 'xatu').learnset.heatwave = ['3M'];
