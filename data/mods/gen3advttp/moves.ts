@@ -371,6 +371,24 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 70,
 	},
+	flashcannon: {
+		num: 430,
+		accuracy: 100,
+		basePower: 80,
+		name: "Flash Cannon",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
 	fly: {
 		inherit: true,
 		basePower: 70,
@@ -411,6 +429,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	glare: {
 		inherit: true,
 		ignoreImmunity: false,
+	},
+	headsmash: {
+		num: 457,
+		accuracy: 80,
+		basePower: 150,
+		name: "Head Smash",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
 	},
 	hiddenpower: {
 		inherit: true,
@@ -584,6 +616,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	rocksmash: {
 		inherit: true,
 		basePower: 20,
+	},
+	shadowsneak: {
+		num: 425,
+		accuracy: 100,
+		basePower: 40,
+		name: "Shadow Sneak",
+		pp: 30,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
 	},
 	sketch: {
 		inherit: true,
@@ -775,6 +820,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			if (this.field.effectiveWeather()) move.basePower *= 2;
 		},
+	},
+	xscissor: {
+		num: 404,
+		accuracy: 100,
+		basePower: 80,
+		name: "X-Scissor",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
 	},
 	zapcannon: {
 		inherit: true,
