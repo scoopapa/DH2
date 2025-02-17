@@ -141,7 +141,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
     exeggutor: {
         inherit: true,
-        baseStats: {hp: 95, atk: 95, def: 85, spa: 125, spd: 95, spe: 55},
+        baseStats: {hp: 95, atk: 95, def: 85, spa: 125, spd: 85, spe: 55},
     },
 
     hitmonlee: {
