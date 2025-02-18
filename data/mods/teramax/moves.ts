@@ -1636,6 +1636,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	needlearm: { // this got dexited????????????????
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	/*
 	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them
