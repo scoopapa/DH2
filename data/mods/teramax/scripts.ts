@@ -565,7 +565,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
-	inherit: true,
+		inherit: true,
 		getDynamaxRequest(skipChecks?: boolean) {
 			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 			if (!skipChecks) {
