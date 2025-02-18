@@ -575,6 +575,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				) {
 					return;
 				}
+				if (this.item !== 'wishingstone' && this.canTerastallize) {
+					return [this.terastallized];
+				}
 				// Some pokemon species are unable to dynamax
 				if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;
 			}
