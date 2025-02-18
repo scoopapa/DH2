@@ -388,6 +388,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
+		isNonstandard: null,
 	},
 	fly: {
 		inherit: true,
@@ -411,6 +412,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
+	},
+	forcepalm: {
+		num: 395,
+		accuracy: 100,
+		basePower: 60,
+		name: "Force Palm",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+		isNonstandard: null,
 	},
 	foresight: {
 		inherit: true,
@@ -443,6 +461,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		isNonstandard: null,
 	},
 	hiddenpower: {
 		inherit: true,
@@ -467,6 +486,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	hypnosis: {
 		inherit: true,
 		accuracy: 60,
+	},
+	iceshard: {
+		num: 420,
+		accuracy: 100,
+		basePower: 40,
+		name: "Ice Shard",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		isNonstandard: null,
 	},
 	jumpkick: {
 		inherit: true,
@@ -629,6 +662,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		isNonstandard: null,
 	},
 	sketch: {
 		inherit: true,
@@ -833,6 +867,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+		isNonstandard: null,
 	},
 	zapcannon: {
 		inherit: true,
