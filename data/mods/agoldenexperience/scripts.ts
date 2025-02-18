@@ -1703,10 +1703,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regidrago').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.mountaingale = ['9L1'];
-    delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
-    delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
-    this.modData('Learnsets', 'spectrier').learnset.toxic = ['9L1'];
-    this.modData('Learnsets', 'spectrier').learnset.mysticalfire = ['9L1'];
     this.modData('Learnsets', 'calyrexice').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'calyrexice').learnset.mountaingale = ['9L1'];
 
