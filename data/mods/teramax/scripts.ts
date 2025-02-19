@@ -571,12 +571,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!skipChecks) {
 				if (!this.side.canDynamaxNow()) return;
 				if (
-					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
+					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
 				) {
 					return;
-				}
-				if (this.item !== 'wishingstone' && this.canTerastallize) {
-					return [this.terastallized];
 				}
 				// Some pokemon species are unable to dynamax
 				if (this.species.cannotDynamax || this.illusion?.species.cannotDynamax) return;

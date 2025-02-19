@@ -1449,7 +1449,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	shedinja: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "Uber",
 	},
 	hitmonlee: {
 		tier: "TMFE",
@@ -2456,7 +2456,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	volcarona: {
-		tier: "Uber",
+		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
 	talonflame: {
@@ -2572,7 +2572,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	roaringmoon: {
-		tier: "Uber",
+		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
 	ironvaliant: {
@@ -2696,7 +2696,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	espathra: {
-		tier: "Uber",
+		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
 	tinkaton: {
@@ -2804,7 +2804,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	baxcalibur: {
-		tier: "Uber",
+		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
 	zacian: {
