@@ -1614,7 +1614,7 @@ export const Formats: FormatList = [
 			'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',
 			'Wishing Stone > 1', 'Light Clay', 'Battle Bond', 'Melmetal-Gmax', 'Ogerpon-Hearthflame + Close Combat',
 			'Ogerpon-Hearthflame + Rock Blast', 'Ogerpon-Wellspring + Close Combat', 'Ogerpon-Wellspring + Rock Blast',
-			'Ogerpon-Cornerstone + Rock Blast',
+			'Ogerpon-Cornerstone + Rock Blast', 'Volcarona', 'Roaring Moon', 'Espathra', 'Baxcalibur',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -2702,11 +2702,18 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
 	},
 	{
+		name: "[Gen 3] ADV To The Past",
+		mod: 'gen3advttp',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+		banlist: ['Uber', 'Smeargle + Ingrain', 'Sand Veil', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Swagger', 'Metal Powder'],
+		desc: `<b>ADV TTP</b> is a rebalancing of ADV OU with Move buffs, Stat buffs, and different abilities. The aim of this metagame is to create an ADV OU metagame that is even more diverse and fun than it is already. It is limited to Pokemon found in Kanto-Hoenn. Moreover, all Gen 3 mechanics are unchanged.`,
+	},
+	{
 		name: "[Gen 9] Bad 'n Boosted",
 		desc: `Base stats of 70 and lower get doubled.`,
 		mod: 'badnboosted',
 		ruleset: ['Standard'],
-		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra'],
+		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra', 'Cyclizar', 'Polteageist'],
 		onBegin() {
 			this.add('-message', `Welcome to Bad 'n Boosted!`);
 			this.add('-message', `This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!`);
@@ -3741,7 +3748,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['NSEW','NSEW2','NSEW3'];
+			let allowedTiers = ['NSEW','NSEW2','NSEW3', 'NSEW4'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {

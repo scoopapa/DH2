@@ -167,4 +167,64 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW3",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+	yuwiani: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	volcaterasu: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	wujiustra: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yukatsura: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	bsukuyomi: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	pajiranda: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	vajiroxx: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	guzapzither: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	hayumi: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	gokemboo: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	gamelong: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	langsplendor: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	jollipthi: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	yangeralkryie: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	lushagoba: {
+		tier: "NSEW4",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }

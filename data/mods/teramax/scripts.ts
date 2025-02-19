@@ -565,13 +565,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
-	inherit: true,
+		inherit: true,
 		getDynamaxRequest(skipChecks?: boolean) {
 			// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 			if (!skipChecks) {
 				if (!this.side.canDynamaxNow()) return;
 				if (
-					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo
+					this.species.isMega || this.species.isPrimal || this.species.forme === "Ultra" || this.canMegaEvo || this.item !== 'wishingstone'
 				) {
 					return;
 				}

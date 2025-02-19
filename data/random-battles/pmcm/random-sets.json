@@ -464,7 +464,7 @@
                 "teraTypes": ["Water"]
             }
         ]
-    }
+    },
     "kyurem": {
         "level": 80,
         "sets": [
@@ -475,7 +475,7 @@
                 "teraTypes": ["Dragon"]
             }
         ]
-    }
+    },
     "roaringmoon": {
         "level": 80,
         "sets": [
@@ -486,7 +486,7 @@
                 "teraTypes": ["Fire", "Poison"]
             }
         ]
-    }
+    },
     "milotic": {
         "level": 84,
         "sets": [
@@ -497,7 +497,7 @@
                 "teraTypes": ["Grass"]
             }
         ]
-    }
+    },
     "gogoat": {
         "level": 84,
         "sets": [
@@ -508,7 +508,7 @@
                 "teraTypes": ["Water"]
             }
         ]
-    }
+    },
     "Clodsire": {
         "level": 84,
         "sets": [

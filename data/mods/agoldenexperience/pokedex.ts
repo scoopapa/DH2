@@ -3224,7 +3224,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Aerilate"},
+		abilities: {0: "Protosynthesis", H: "Intimidate"},
 	},
 	ironvaliant: {
 		inherit: true,

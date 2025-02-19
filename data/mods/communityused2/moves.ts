@@ -1,3 +1,5 @@
+import { inherits } from "util";
+
 export const Moves: { [moveid: string]: ModdedMoveData } = {
 
 	giantssiege: {
@@ -720,5 +722,131 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	defog: {
 		inherit: true,
 		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1, wind: 1 },
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				// cu2: adding dust veil
+				'reflect', 'lightscreen', 'auroraveil', 'dustveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+	},
+	brickbreak: {
+		inherit: true,
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+
+			// CU 2 note: adding Dust Veil
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('dustveil');
+		},
+	},
+	psychicfangs: {
+		inherit: true,
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+
+			// CU 2 note: adding Dust Veil
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('dustveil');
+		},
+	},
+	ragingbull: {
+		inherit: true,
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+
+			// cu2 note: not in, future proofing to add dust veil in case anything gets this move
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('dustveil');
+		},
+	},
+	courtchange: {
+		inherit: true,
+		onHitField(target, source) {
+			// cu2 note: not in, future proofing to add dust veil in case anything gets this move
+
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'dustveil', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			];
+			let success = false;
+			if (this.gameType === "freeforall") {
+				// random integer from 1-3 inclusive
+				const offset = this.random(3) + 1;
+				// the list of all sides in counterclockwise order
+				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
+				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				for (const side of sides) {
+					for (const id in side.sideConditions) {
+						if (!sideConditions.includes(id)) continue;
+						temp[side.n][id] = side.sideConditions[id];
+						delete side.sideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						this.add('-sideend', side, effectName, '[silent]');
+						success = true;
+					}
+				}
+				for (let i = 0; i < 4; i++) {
+					const sourceSideConditions = temp[sides[i].n];
+					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					for (const id in sourceSideConditions) {
+						targetSide.sideConditions[id] = sourceSideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						let layers = sourceSideConditions[id].layers || 1;
+						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+					}
+				}
+			} else {
+				const sourceSideConditions = source.side.sideConditions;
+				const targetSideConditions = source.side.foe.sideConditions;
+				const sourceTemp: typeof sourceSideConditions = {};
+				const targetTemp: typeof targetSideConditions = {};
+				for (const id in sourceSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					sourceTemp[id] = sourceSideConditions[id];
+					delete sourceSideConditions[id];
+					success = true;
+				}
+				for (const id in targetSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					targetTemp[id] = targetSideConditions[id];
+					delete targetSideConditions[id];
+					success = true;
+				}
+				for (const id in sourceTemp) {
+					targetSideConditions[id] = sourceTemp[id];
+				}
+				for (const id in targetTemp) {
+					sourceSideConditions[id] = targetTemp[id];
+				}
+				this.add('-swapsideconditions');
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
 	},
 }
