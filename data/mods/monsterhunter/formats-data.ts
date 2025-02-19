@@ -180,10 +180,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	redhelmarzuros: {
-		tier: "MHOU",
+		tier: "MHM",
 	},
 	snowbaronlagombi: {
-		tier: "MHOU",
+		tier: "MHM",
 	},
 	allmothernarwa: {
 		tier: "MHM",

@@ -3719,7 +3719,8 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
-			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite'
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
+			'Lagombite', 'Arzurite'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
