@@ -191,7 +191,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			chargebeam: ["9L1"],
 			charge: ["9L1"],
 			supercellslam: ["9L1"],
-			discharge: ["9L1"],
 			wildcharge: ["9L1"],
 			thunderwave: ["9L1"],
 			shockwave: ["9L1"],
