@@ -63,7 +63,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if(target.volatiles['bigbutton']) return;
+			if (!target || target.volatiles['bigbutton']) return;
 			const boostedMoves = [
 				'aerialace', 'aquatail', 'crabhammer', 'forcepalm', 'furyattack', 'gigaimpact', 'heatcrash', 'heavyslam', 'highhorsepower', 'irontail', 'lethalhug', 'meteormash', 'nuzzle', 'peck', 'playrough', 'slam', 'strugglebug', 'visegrip'
 			];
@@ -78,7 +78,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (target.volatiles['bigbutton']) return;
+			if (!target || target.volatiles['bigbutton']) return;
 			const boostedMoves = [
 				'aerialace', 'aquatail', 'crabhammer', 'forcepalm', 'furyattack', 'gigaimpact', 'heatcrash', 'heavyslam', 'highhorsepower', 'irontail', 'lethalhug', 'meteormash', 'nuzzle', 'peck', 'playrough', 'slam', 'strugglebug', 'visegrip'
 			];
