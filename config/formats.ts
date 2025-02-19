@@ -3694,6 +3694,25 @@ export const Formats: FormatList = [
 		},
 	 },
 	 {
+		name: "[Gen 9] Monster Hunter Free-For-Alls",
+		threads: [],
+		mod: 'monsterhunter',
+		gameType: 'ffa',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHOU', 'MHM'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter FFA.'];
+				}
+			}
+		},
+	 },
+	 {
 		name: "[Gen 9] Monster Hunter OU",
 		threads: [],
 		mod: 'monsterhunter',
