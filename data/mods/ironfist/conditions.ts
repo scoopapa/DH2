@@ -42,10 +42,10 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		onModifySpA(spa, pokemon) {
   			return this.chainModify(0.75);
   		},
-		onTryHit(source, target, move) {
+		onTry(source, target, move) {
 			if (move.flags['sound']) {
-				this.add('-fail', target);
-        		this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(source.name)}|Shut Up‼️`);
+				this.add('-fail', source);
+        		this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(target.name)}|Shut Up‼️`);
 				return null;
 			}
 		},

@@ -825,9 +825,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				move.type = 'Fighting';
 			},
 		},
-		onModifyMove(move, pokemon) {
-			if (move.flags['foot']) {
-				if (typeof accuracy !== 'number') return;
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.flags['foot'] && typeof accuracy === 'number') {
 				return this.chainModify(1.5);
 			}
 		},
