@@ -3697,7 +3697,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Monster Hunter Free-For-Alls",
 		threads: [],
 		mod: 'monsterhunter',
-		gameType: 'ffa',
+		gameType: 'freeforall',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
 		onValidateTeam(team, format) {
