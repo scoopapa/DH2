@@ -186,36 +186,36 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	allmothernarwa: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	primordialmalzeno: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	scornedmagnamalo: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	boltreaverastalos: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	soulseermizutsune: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	furiousrajang: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	dreadqueenrathian: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	dreadkingrathalos: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	thunderlordzinogre: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	seethingbazelgeuse: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 	crimsonglowvalstrax: {
-		tier: "MHAG",
+		tier: "MHM",
 	},
 };
