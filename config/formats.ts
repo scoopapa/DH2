@@ -3657,7 +3657,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Monster Hunter AG",
+		name: "[Gen 9] Monster Hunter Megas",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
@@ -3665,11 +3665,49 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MOU', 'MEGAOU', 'MEGAAG'];
+			let allowedTiers = ['MHOU', 'MHM'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter AG.'];
+					return [set.species + ' is not legal in Monster Hunter Megas.'];
+				}
+			}
+		},
+	 },
+	 {
+		name: "[Gen 9] Monster Hunter Doubles",
+		threads: [],
+		mod: 'monsterhunter',
+		gameType: 'doubles',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHOU', 'MHM'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter Doubles.'];
+				}
+			}
+		},
+	 },
+	 {
+		name: "[Gen 9] Monster Hunter Free-For-Alls",
+		threads: [],
+		mod: 'monsterhunter',
+		gameType: 'freeforall',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHOU', 'MHM'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter FFA.'];
 				}
 			}
 		},
@@ -3681,12 +3719,13 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
-			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite'
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
+			'Lagombite', 'Arzurite'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MOU', 'MEGAOU', 'MEGAAG'];
+			let allowedTiers = ['MHOU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
