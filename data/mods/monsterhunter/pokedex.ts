@@ -236,7 +236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Flaming Espinas",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 91},
-		abilities: {1: "Flash Fire", H: "Toxic Debris"},
+		abilities: {0: "Flash Fire", 1: "Toxic Debris"},
 		heightm: 2.0,
 		weightkg: 130.4,
 		color: "Green",
