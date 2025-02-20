@@ -505,13 +505,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	actions: {
 		canTerastallize(pokemon: Pokemon) {
-			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9 || pokemon.volatiles['bigbutton']) {
 				return null;
 			}
 			return pokemon.teraType;
 		},
 
 		terastallize(pokemon: Pokemon) {
+			if (pokemon.volatiles['bigbutton']) return;
 			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
 				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 			}
@@ -546,9 +547,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 				}
 				this.battle.runEvent('AfterTerastallization', pokemon);
-			} else {
-				if(!pokemon.volatiles['bigbutton']) pokemon.addVolatile('bigbutton');
-			}
+			} else pokemon.addVolatile('bigbutton');
 		},
 	
 		modifyDamage(

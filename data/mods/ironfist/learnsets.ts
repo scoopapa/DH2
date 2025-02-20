@@ -6427,7 +6427,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	pokestargiant: {
 		learnset: {
-			inherit: true,
 			clash: ["9L1"],
 			beatup: ["9L1"],
 			crushgrip: ["9L1"],
