@@ -160,20 +160,36 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 80, atk: 110, def: 84, spa: 50, spd: 96, spe: 130},
 		abilities: {0: "Defiant", H: "Skill Link"},
 	},
+	ogerpontealtera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 84, spa: 50, spd: 96, spe: 130},
+	},
 	ogerponhearthflame: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 95, def: 80, spa: 105, spd: 90, spe: 110},
 		abilities: {0: "Mold Breaker", H: "Merciless"},
+	},
+	ogerponhearthflametera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 95, def: 80, spa: 105, spd: 90, spe: 110},
 	},
 	ogerponwellspring: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 120, def: 94, spa: 50, spd: 101, spe: 105},
 		abilities: {0: "Water Absorb", H: "Flower Veil"},
 	},
+	ogerponwellspringtera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 94, spa: 50, spd: 101, spe: 105},
+	},
 	ogerponcornerstone: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 120, def: 104, spa: 40, spd: 96, spe: 110},
 		abilities: {0: "Sturdy", H: "Sand Rush"},
+	},
+	ogerponcornerstonetera: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 120, def: 104, spa: 40, spd: 96, spe: 110},
 	},
 	sinistcha: {
 		inherit: true,
