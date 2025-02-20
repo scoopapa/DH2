@@ -2345,6 +2345,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
 			return pokemon.cureStatus() || success;
 		},
+		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
 	},
 	lifedew: {
 		inherit: true,
@@ -2352,6 +2353,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
 			return pokemon.cureStatus() || success;
 		},
+		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
 	},
 	lunarblessing: {
 		inherit: true,
@@ -2955,6 +2957,33 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			spa: -1,
 			spd: -1,
 		},
+	},
+	clusterexplosion: {
+		num: -67,
+		accuracy: 100,
+		basePower: 250,
+		category: "Physical",
+		name: "Cluster Explosion",
+		shortDesc: "Hits adjacent Pokemon. Sets Spikes. User faints.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Splintered Stormshards", pokemon);
+		},
+		onTryMove(source, target, move) {
+			if (!move.hasSheerForce) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			}
+		},
+		selfdestruct: "always",
+		secondary: null,
+		target: "allAdjacent",
+		type: "Rock",
+		contestType: "Beautiful",
 	},
 	// Everlasting Winter field
 	auroraveil: {

@@ -745,7 +745,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	kangaskhanmega: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	horsea: {
@@ -1612,7 +1612,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	sableyemega: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	sableyeunova: {
@@ -1659,7 +1659,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	manectricmega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	plusle: {
@@ -1920,7 +1920,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	glaliemega: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	froslass: {
@@ -2473,7 +2473,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	victini: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	snivy: {
@@ -3973,7 +3973,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	zeraora: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	meltan: {
@@ -4405,8 +4405,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	spectrier: {
-		tier: "OU",
-		doublesTier: "DUU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	calyrex: {
 		tier: "ZU",
@@ -4492,7 +4492,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	quaquaval: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	lechonk: {
@@ -4663,7 +4663,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	pawmot: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	wattrel: {
@@ -5007,7 +5007,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	admistral: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	magthief: {
@@ -5311,7 +5311,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	sithbull: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	scrafree: {

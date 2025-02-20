@@ -1149,8 +1149,10 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'victreebel').learnset.junglehealing = ['9L1'];
     this.modData('Learnsets', 'golem').learnset.rapidspin = ['9L1'];
     this.modData('Learnsets', 'golem').learnset.rockwrecker = ['9L1'];
+    this.modData('Learnsets', 'golem').learnset.clusterexplosion = ['9L1'];
     this.modData('Learnsets', 'golemalola').learnset.rapidspin = ['9L1'];
     this.modData('Learnsets', 'golemalola').learnset.rockwrecker = ['9L1'];
+    this.modData('Learnsets', 'golemalola').learnset.clusterexplosion = ['9L1'];
     this.modData('Learnsets', 'rapidash').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'rapidashgalar').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'dodrio').learnset.megakick = ['9L1'];
@@ -1703,10 +1705,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regidrago').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.mountaingale = ['9L1'];
-    delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
-    delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
-    this.modData('Learnsets', 'spectrier').learnset.toxic = ['9L1'];
-    this.modData('Learnsets', 'spectrier').learnset.mysticalfire = ['9L1'];
     this.modData('Learnsets', 'calyrexice').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'calyrexice').learnset.mountaingale = ['9L1'];
 
