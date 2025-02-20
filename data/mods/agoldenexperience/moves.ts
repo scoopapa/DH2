@@ -1525,15 +1525,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
 	},
-	photongeyser: {
-		inherit: true,
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.species.name === 'Necrozma-Ultra') {
-				return move.basePower + 20;
-			}
-			return move.basePower;
-		},
-	},
 	eternabeam: {
 		inherit: true,
 		accuracy: 100,
@@ -1549,10 +1540,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		desc: "Whether or not this move is successful and even if it would cause fainting, the user loses 1/2 of its maximum HP, rounded up, unless the user has the Magic Guard Ability. This move is prevented from executing and the user does not lose HP if any active Pokemon has the Damp Ability.",
 		shortDesc: "User loses 50% max HP.",
 	},
-	// wickedblow: {
-	// 	inherit: true,
-	// 	basePower: 60,
-	// },
 	bouncybubble: {
 		inherit: true,
 		basePower: 90,
@@ -2616,12 +2603,12 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	lastrespects: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			return 50 + 15 * pokemon.side.totalFainted
+			return 50 + 25 * pokemon.side.totalFainted
 		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
 		},
-		shortDesc: "+15 power for each time an ally fainted. Special if user's SpA > Atk.",
+		shortDesc: "+25 power for each time an ally fainted. Special if user's SpA > Atk.",
 	},
 	ragefist: {
 		inherit: true,
@@ -3289,101 +3276,5 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Psychic",
 		zMove: { boost: { accuracy: 1 } },
 		contestType: "Clever",
-	},
-
-	// Tactical Escape field
-	stealthrock: {
-		inherit: true,
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Stealth Rock');
-			},
-			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('tacticalescape')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
-	},
-	spikes: {
-		inherit: true,
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 1;
-			},
-			onSideRestart(side) {
-				if (this.effectState.layers >= 3) return false;
-				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers++;
-			},
-			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('tacticalescape')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
-			},
-		},
-	},
-	toxicspikes: {
-		inherit: true,
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers = 1;
-			},
-			onSideRestart(side) {
-				if (this.effectState.layers >= 2) return false;
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers++;
-			},
-			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasType('Poison')) {
-					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('tacticalescape')) {
-					return;
-				} else if (this.effectState.layers >= 2) {
-					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
-				} else {
-					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
-				}
-			},
-		},
-	},
-	stickyweb: {
-		inherit: true,
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Sticky Web');
-			},
-			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('tacticalescape')) return;
-				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, pokemon.side.foe.active[0], this.dex.getActiveMove('stickyweb'));
-			},
-		},
-	},
-	gmaxsteelsurge: {
-		inherit: true,
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: G-Max Steelsurge');
-			},
-			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('tacticalescape')) return;
-				// Ice Face and Disguise correctly get typed damage from Stealth Rock
-				// because Stealth Rock bypasses Substitute.
-				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
-				// so we're going to test the damage of a Steel-type Stealth Rock instead.
-				const steelHazard = this.dex.getActiveMove('Stealth Rock');
-				steelHazard.type = 'Steel';
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(steelHazard), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-			},
-		},
 	},
 };

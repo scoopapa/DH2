@@ -2077,14 +2077,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon receives 25% less damage from all attacks.",
 		desc: "This Pokemon receives 25% less damage from all attacks.",
 	},
-	rebound: {
+	reboundbelly: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target !== source && move?.category === 'Special' && !move.flags['sound']) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
-		name: "Rebound",
+		name: "Rebound Belly",
 		shortDesc: "The opponent receives 1/8 recoil damage from special non-Sound moves.",
 		rating: 2.5,
 		num: -69,
@@ -2418,6 +2418,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 			target.switchFlag = true;
 			this.add('-activate', target, 'ability: Tactical Escape');
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge')) {
+				return false;
+			}
 		},
 		flags: {},
 		name: "Tactical Escape",

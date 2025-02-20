@@ -1660,6 +1660,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'dubwool').learnset.bodyslam = ['9L1'];
     this.modData('Learnsets', 'dubwool').learnset.milkdrink = ['9L1'];
     this.modData('Learnsets', 'drednaw').learnset.aquajet = ['9L1'];
+    this.modData('Learnsets', 'boltund').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'boltund').learnset.doubleshock = ['9L1'];
     this.modData('Learnsets', 'boltund').learnset.extremespeed = ['9L1'];
     this.modData('Learnsets', 'boltund').learnset.icefang = ['9L1'];

@@ -925,7 +925,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	blissey: {
 		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Rebound", H: "Healer"},
+		abilities: {0: "Natural Cure", 1: "Rebound Belly", H: "Healer"},
 	},
 	raikou: {
 		inherit: true,
