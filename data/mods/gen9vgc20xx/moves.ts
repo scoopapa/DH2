@@ -536,10 +536,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "Super effective against Ground.",
 		name: "Conductive Spell",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Electric'] = true;
+			}
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ground') return 1;
 		},
@@ -654,6 +665,46 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Cool",
+	},
+	//
+	reverberation: {
+		num: -23,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Reverberation",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		shortDesc: "Mini Earthquake follow-up at 60 BP.",
+		onAfterMove(source) {
+			source.addVolatile('quakingboom');
+			this.actions.useMove('earthquake', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	earthquake: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source && source.volatiles['quakingboom']) {
+				move.basePower = 60;
+			}
+		},
+		onAfterMove(target, source) {
+			// This function is called for each target hit by Earthquake
+			// Check if the target is still alive
+			if (target && target.hp > 0) {
+				// Check how many active Pokémon are still alive
+				const allTargets = this.getAllActive().filter(p => p && p.hp > 0);
+				// If this is the last target being hit, remove the volatile
+				if (allTargets.length === 1) {
+					delete source.volatiles['quakingboom'];
+				}
+			}
+		},
 	},
 	
 	// start
