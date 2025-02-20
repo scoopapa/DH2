@@ -389,6 +389,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Steel",
 		contestType: "Beautiful",
 		isNonstandard: null,
+		gen: 3,
 	},
 	fly: {
 		inherit: true,
@@ -429,6 +430,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Fighting",
 		contestType: "Cool",
 		isNonstandard: null,
+		gen: 3,
 	},
 	foresight: {
 		inherit: true,
@@ -462,6 +464,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Rock",
 		contestType: "Tough",
 		isNonstandard: null,
+		gen: 3,
 	},
 	hiddenpower: {
 		inherit: true,
@@ -500,6 +503,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ice",
 		contestType: "Beautiful",
 		isNonstandard: null,
+		gen: 3,
 	},
 	jumpkick: {
 		inherit: true,
@@ -663,6 +667,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ghost",
 		contestType: "Clever",
 		isNonstandard: null,
+		gen: 3,
 	},
 	sketch: {
 		inherit: true,
@@ -868,6 +873,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Bug",
 		contestType: "Cool",
 		isNonstandard: null,
+		gen: 3,
 	},
 	zapcannon: {
 		inherit: true,
