@@ -88,7 +88,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'PseudoWeather',
 		duration: 0,
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'EndlessDream', '[from] ability: ' + effect.name, '[of] ' + source);
+			this.add('-pseudoweather', 'EndlessDream', '[of] ' + source);
 		},
 		onSetStatus(status, target, source, effect) {
 			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
