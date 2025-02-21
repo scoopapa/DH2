@@ -111,4 +111,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		gen: 1,
 	},
+	doduo: {
+		inherit: true,
+		evos: ["Dodrio", "Roaduo"],
+	},
+	roaduo: {
+		num: 2007,
+		name: "Roaduo",
+		types: ["Ground", "Flying"],
+		baseStats: {hp: 75, atk: 100, def: 100, spa: 50, spd: 50, spe: 75},
+		abilities: {0: "No Ability"},
+		heightm: 1.4, // placeholder
+		weightkg: 39.2, // placeholder
+		color: "Brown",
+		evoType: "useItem", // placeholder
+		evoItem: "Evolution Item", // placeholder
+		eggGroups: ["Flying"],
+		gen: 1,
+	},
 };
