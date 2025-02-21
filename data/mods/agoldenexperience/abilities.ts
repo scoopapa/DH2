@@ -2457,4 +2457,41 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2,
 		num: -79,
 	},
+	tempestuous: {
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
+		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (!pokemon.side.faintedLastTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		onStart(pokemon) {
+			if (!pokemon.side.faintedThisTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		name: "Tempestuous",
+		rating: 3,
+		num: -80,
+	},
+	ambush: {
+		shortDesc: "This Pokémon's attacks are critical hits if the user moves before the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) return 5;
+		},
+		name: "Ambush",
+		rating: 4,
+		num: -81,
+	},
+	steelbreaker: {
+		shortDesc: "This Pokémon's attacks are critical hits if the target is a Steel-type Pokémon.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.hasType('Steel')) return 5;
+		},
+		name: "Steelbreaker",
+		rating: 3,
+		num: -82,
+	},
 };

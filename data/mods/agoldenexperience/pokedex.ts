@@ -496,7 +496,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	jolteon: {
 		inherit: true,
-		abilities: {0: "Volt Absorb", 1: "Spiky Body", H: "Quick Feet"},
+		abilities: {0: "Volt Absorb", 1: "Tempestuous", H: "Quick Feet"},
 	},
     flareon: {
 		inherit: true,
@@ -1423,8 +1423,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	luxray: {
 		inherit: true,
-		types: ["Electric", "Dark"],
 		baseStats: {hp: 80, atk: 120, def: 79, spa: 70, spd: 79, spe: 95},
+		abilities: {0: "Ambush", 1: "Intimidate", H: "Guts"},
 	},
 	rampardos: {
 		inherit: true,
@@ -2110,7 +2110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	haxorus: {
 		inherit: true,
-		abilities: {0: "Rivalry", 1: "Mold Breaker", H: "Unconcerned"},
+		abilities: {0: "Rivalry", 1: "Mold Breaker", H: "Steelbreaker"},
 	},
 	beartic: {
 		inherit: true,
