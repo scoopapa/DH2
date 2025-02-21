@@ -3198,14 +3198,14 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	wakeupslap: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			if (target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('endlessdream') || pokemon.hasAbility('endlessdream')) return move.basePower * 2;
+			if (target.status === 'slp' || target.hasAbility('comatose') || this.field.getPseudoWeather('endlessdream')) return move.basePower * 2;
 			return move.basePower;
 		},
 	},
 	dreameater: {
 		inherit: true,
 		onTryImmunity(target, source) {
-			return target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('endlessdream') || source.hasAbility('endlessdream');
+			return target.status === 'slp' || target.hasAbility('comatose') || this.field.getPseudoWeather('endlessdream');
 		},
 	},
 	nightmare: {
@@ -3213,7 +3213,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !pokemon.hasAbility('endlessdream')) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !this.field.getPseudoWeather('endlessdream')) {
 					return false;
 				}
 				this.add('-start', pokemon, 'Nightmare');
@@ -3229,7 +3229,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		onTry(source) {
 			let usable = false;
 			for (const opponent of source.adjacentFoes()) {
-				if (opponent.hasAbility('endlessdream')) {
+				if (this.field.getPseudoWeather('endlessdream')) {
 					usable = true;
 					break;
 				}
@@ -3237,44 +3237,44 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			return source.status === 'slp' || source.hasAbility('comatose') || usable;
 		},
 	},
-	ultrasleep: { //this move is only for Endless Dream ability
-		num: -9999,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Ultrasleep",
-		pp: 5,
-		priority: -7,
-		flags: { mirror: 1 },
-		pseudoWeather: 'ultrasleep',
-		condition: {
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasAbility('persistent')) {
-					this.add('-activate', source, 'ability: Persistent', effect);
-					return 7;
-				}
-				return 5;
-			},
-			onStart(target, source) {
-				this.add('-fieldstart', 'move: Ultrasleep', '[of] ' + source);
-			},
-			onSetStatus(status, target, source, effect) {
-				if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
-				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
-					this.add('-activate', target, 'move: Ultrasleep');
-				}
-				return false;
-			},
-			onResidualOrder: 23,
-			onEnd() {
-				this.add('-fieldend', 'move: Ultrasleep');
-			},
-		},
-		secondary: null,
-		target: "all",
-		type: "Psychic",
-		zMove: { boost: { accuracy: 1 } },
-		contestType: "Clever",
-	},
+	// ultrasleep: { //this move is only for Endless Dream ability
+	// 	num: -9999,
+	// 	accuracy: true,
+	// 	basePower: 0,
+	// 	category: "Status",
+	// 	name: "Ultrasleep",
+	// 	pp: 5,
+	// 	priority: -7,
+	// 	flags: { mirror: 1 },
+	// 	pseudoWeather: 'ultrasleep',
+	// 	condition: {
+	// 		duration: 5,
+	// 		durationCallback(source, effect) {
+	// 			if (source?.hasAbility('persistent')) {
+	// 				this.add('-activate', source, 'ability: Persistent', effect);
+	// 				return 7;
+	// 			}
+	// 			return 5;
+	// 		},
+	// 		onStart(target, source) {
+	// 			this.add('-fieldstart', 'move: Ultrasleep', '[of] ' + source);
+	// 		},
+	// 		onSetStatus(status, target, source, effect) {
+	// 			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
+	// 			if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+	// 				this.add('-activate', target, 'move: Ultrasleep');
+	// 			}
+	// 			return false;
+	// 		},
+	// 		onResidualOrder: 23,
+	// 		onEnd() {
+	// 			this.add('-fieldend', 'move: Ultrasleep');
+	// 		},
+	// 	},
+	// 	secondary: null,
+	// 	target: "all",
+	// 	type: "Psychic",
+	// 	zMove: { boost: { accuracy: 1 } },
+	// 	contestType: "Clever",
+	// },
 };
