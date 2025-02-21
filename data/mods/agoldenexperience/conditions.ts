@@ -92,7 +92,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onSetStatus(status, target, source, effect) {
 			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
-			if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+			if ((effect as Move)?.status || effect?.id === 'yawn') {
 				this.add('-fail', target, '[from] Endless Dream');
 			}
 			return false;

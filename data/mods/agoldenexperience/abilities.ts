@@ -444,24 +444,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
-			if (this.field.getPseudoWeather('endlessdream')) {
-				this.add('-ability', source, 'Endless Dream');
-				this.hint("All Pokemon are under Comatose effect!");
-			} else {
-				this.add('-ability', source, 'Endless Dream');
-				this.field.addPseudoWeather('ultrasleep');
-				this.hint("All Pokemon are under Comatose effect!");
-			}
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('ultrasleep');
+			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('endlessdream')) {
-					return;
-				}
-			}
 			this.field.removePseudoWeather('endlessdream');
 		},
 		name: "Endless Dream",
