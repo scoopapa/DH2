@@ -263,12 +263,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 		fling: {
 			basePower: 10,
-			boosts: {
-				atk: -1,
-				def: -1,
-				spa: -1,
-				spd: -1,
-				spe: -1,
+			effect(pokemon) {
+				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1}, pokemon, pokemon, null, true);
 			},
 		},
 		onTryHit(pokemon, source, move) {
