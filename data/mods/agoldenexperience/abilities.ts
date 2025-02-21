@@ -445,7 +445,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
 			this.add('-ability', source, 'Endless Dream');
-			this.field.addPseudoWeather('ultrasleep');
+			this.field.addPseudoWeather('endlessdream');
 			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
