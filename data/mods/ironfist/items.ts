@@ -242,7 +242,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	buckethat: {
 		fling: {
 			basePower: 30,
-			onHit(target, source, move) {
+			effect(target, source, move) {
 				source.side.addFishingTokens(1);
 			},
 		},
@@ -263,12 +263,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 		fling: {
 			basePower: 10,
-			boosts: {
-				atk: -1,
-				def: -1,
-				spa: -1,
-				spd: -1,
-				spe: -1,
+			effect(pokemon) {
+				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1}, pokemon, pokemon, null, true);
 			},
 		},
 		onTryHit(pokemon, source, move) {
@@ -427,7 +423,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 292,
 		fling: {
 			basePower: 200,
-			onHit(target, source, move) {
+			effect(target) {
 				if (move) {
 					this.heal(target.baseMaxhp);
 				}
@@ -718,7 +714,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 379,
 		fling: {
 			basePower: 60,
-			onHit(target, source) {
+			effect(target) {
 				this.damage(target.baseMaxhp / 8, target, source);
 			},
 		},
@@ -733,7 +729,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		fling: {
 			basePower: 85,
-			onHit(target, source) {
+			effect(target) {
 				target.addVolatile('inexplicablesouvenir');
 			},
 		},
@@ -821,9 +817,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 660,
 		fling: {
 			basePower: 90,
-			onModifyType(move, pokemon) {
-				move.type = 'Fighting';
-			},
+			type: "Fighting",
 		},
 		onSourceModifyAccuracy(accuracy, target, source, move) {
 			if (move.flags['foot'] && typeof accuracy === 'number') {

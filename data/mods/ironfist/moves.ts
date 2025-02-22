@@ -4198,4 +4198,44 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	fling: {
+		inherit: true,
+		onPrepareHit(target, source, move) {
+			if (source.ignoringItem()) return false;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+			if (!item.fling) return false;
+			
+			move.basePower = item.fling.basePower;
+			if (item.fling.damageCallback) move.damageCallback = item.fling.damageCallback;
+			if (item.fling.multihit) move.multihit = item.fling.multihit;
+			if (item.fling.priority) move.prioty = item.fling.priority;
+			
+			this.debug('BP: ' + move.basePower);
+			if (item.isBerry) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Eat', item, null, foe, null, null)) {
+						this.runEvent('EatItem', foe, null, null, item);
+						if (item.id === 'leppaberry') foe.staleness = 'external';
+					}
+					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.fling.effect) {
+				move.onHit = item.fling.effect;
+			} else {
+				if (!move.secondaries) {
+					move.secondaries = [];
+					if (item.fling.status) {
+					move.secondaries.push({status: item.fling.status});
+					} else if (item.fling.volatileStatus) {
+						move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+					} else if (item.fling.secondaries) {
+						move.secondaries.push(item.fling.secondary);
+					}
+				}
+				
+			}
+			source.addVolatile('fling');
+		},
+	},
 };
