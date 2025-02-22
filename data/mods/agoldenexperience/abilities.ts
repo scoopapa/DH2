@@ -406,35 +406,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
-			if (this.field.getPseudoWeather('ultrasleep')) {
-				this.add('-ability', source, 'Endless Dream');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.source = source;
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			} else {
-				this.add('-ability', source, 'Endless Dream');
-				this.field.addPseudoWeather('ultrasleep');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			}
-		},
-		onAnyTryMove(target, source, move) {
-			if (['ultrasleep'].includes(move.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
-				return false;
-			}
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('endlessdream');
+			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('endlessdream')) {
-					return;
-				}
-			}
-			this.field.removePseudoWeather('ultrasleep');
+			this.field.removePseudoWeather('endlessdream');
 		},
 		name: "Endless Dream",
 		rating: 3,
@@ -2477,5 +2456,42 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Soothing Fragrance",
 		rating: 2,
 		num: -79,
+	},
+	tempestuous: {
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
+		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (!pokemon.side.faintedLastTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		onStart(pokemon) {
+			if (!pokemon.side.faintedThisTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		name: "Tempestuous",
+		rating: 3,
+		num: -80,
+	},
+	ambush: {
+		shortDesc: "This Pokémon's attacks are critical hits if the user moves before the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) return 5;
+		},
+		name: "Ambush",
+		rating: 4,
+		num: -81,
+	},
+	steelbreaker: {
+		shortDesc: "This Pokémon's attacks are critical hits if the target is a Steel-type Pokémon.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.hasType('Steel')) return 5;
+		},
+		name: "Steelbreaker",
+		rating: 3,
+		num: -82,
 	},
 };
