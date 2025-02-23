@@ -49,6 +49,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fezandipiti").learnset.barbbarrage = ["9L1"];
 		this.modData("Learnsets", "fezandipiti").learnset.spiritbreak = ["9L1"];
 		this.modData("Learnsets", "fezandipiti").learnset.tripledive = ["9L1"];
+		this.modData("Learnsets", "kleavor").learnset.spookyslash = ["9L1"];
+		this.modData("Learnsets", "kleavor").learnset.shadowsneak = ["9L1"];
+		this.modData("Learnsets", "kleavor").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "diancie").learnset.psychicnoise = ["9L1"];
+		this.modData("Learnsets", "basculegionf").learnset.nastyplot = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -169,6 +174,24 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Munkidori') {
 				const tera = pokemon.species.id === 'munkidori' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Kleavor' && type === 'Ghost') {
+	        pokemon.formeChange('Kleavor-Tera', null, true);
+	        pokemon.baseMaxhp = Math.floor(Math.floor(
+	          2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+	        ) * pokemon.level / 100 + 10);
+	        const newMaxHP = pokemon.baseMaxhp;
+	        pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+	        pokemon.maxhp = newMaxHP;
+	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+      	}
+			if (pokemon.species.baseSpecies === 'Basculegion') {
+				const tera = pokemon.species.id === 'basculegion' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Diancie') {
+				const tera = pokemon.species.id === 'diancie' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
