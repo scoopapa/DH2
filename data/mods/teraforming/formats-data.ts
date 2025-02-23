@@ -66,6 +66,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	terapagosstellar: {
 		tier: "Uber",
 	},
+	diancietera: {
+		tier: "Tera",
+	},
+	basculegionftera: {
+		tier: "Tera",
+	},
+	kleavortera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
