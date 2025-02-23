@@ -93,7 +93,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 5,
 			durationCallback(target, source, effect) {
 				if (effect?.name === "Spooky Slash") {
-					return 1;
+					return 2;
 				}
 				return 5;
 			},
