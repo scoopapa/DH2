@@ -892,7 +892,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	drapion: {
 		inherit: true,
-		abilities: {0: "Tough Claws", 1: "Sniper", H: "Sand Rush"},
+		abilities: {0: "Tough Claws", 1: "Battle Armor", H: "Sand Rush"},
 	},
 	shaymin: {
 		inherit: true,
@@ -1898,7 +1898,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Slate 7 adjustments
 	nihilego: {
 		inherit: true,
-		abilities: {0: "Beast Boost", H: "Liquid Body"},
+		abilities: {0: "Beast Boost", H: "Tinted Lens"},
 	},
 	tangrowth: {
 		inherit: true,
