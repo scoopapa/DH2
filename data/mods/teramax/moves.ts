@@ -397,7 +397,81 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Grass",
 	},
+	ruthlessfist: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		desc: "Always crits against poisoned foes.",
+		name: "Ruthless Fist",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Trip", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				move.willCrit = true;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	neurotoxin: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		desc: "Replaces the foe's PSN with PAR. High crit ratio.",
+		name: "Neurotoxin",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psychic", target);
+			this.add('-anim', source, "Corrosive Gas", target);
+		},
+		onHit(target, source, move) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				target.cureStatus();
+				target.trySetStatus('par', source);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	perniciousplume: {
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Pernicious Plume",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Feather Dance", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				move.drain = [1, 2];
+			}
+		},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
 	
+	// dynamax stuff
 	grassknot: {
 		inherit: true,
 		desc: "This move's power is 20 if the target weighs less than 10 kg, 40 if less than 25 kg, 60 if less than 50 kg, 80 if less than 100 kg, 100 if less than 200 kg, and 120 if greater than or equal to 200 kg or if the target is Dynamax or Gigantamax.",
