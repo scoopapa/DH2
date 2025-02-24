@@ -2928,60 +2928,76 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	slowkinggalar: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	slowbrogalar: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	dipplin: {
 		tier: "TMNFE",
 		doublesTier: "TMNFE",
 	},
 	hydrapple: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	sinistcha: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	ogerpon: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	ogerponcornerstone: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	ogerponwellspring: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	ogerponhearthflame: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifu: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	urshifurapidstrike: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	glastrier: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	spectrier: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	calyrex: {
-		tier: "TMFE",
-		doublesTier: "TMFE",
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	pecharunt: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	munkidori: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	okidogi: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	fezandipiti: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
 	},
 	venusaurgmax: {
 		isNonstandard: null,
