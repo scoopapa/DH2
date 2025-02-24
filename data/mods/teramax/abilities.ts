@@ -481,4 +481,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 265,
 		shortDesc: "After hitting an attack, this Pokemons heals 12.5% of its max HP.",
 	},
+	poisonpuppeteer: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (attacker.status === 'psn' || attacker.status === 'tox') {
+				this.debug('Poison Puppeteer weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (attacker.status === 'psn' || attacker.status === 'tox') {
+				this.debug('Poison Puppeteer weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Poison Puppeteer",
+		rating: 3,
+		num: 310,
+	},
 };
