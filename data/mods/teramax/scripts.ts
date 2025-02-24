@@ -304,6 +304,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "spectrier").learnset.topsyturvy = ["9L1"];
 		delete this.modData('Learnsets', 'spectrier').learnset.nastyplot;
 		delete this.modData('Learnsets', 'spectrier').learnset.calmmind;
+		this.modData("Learnsets", "okidogi").learnset.ruthlessfist = ["9L1"];
+		this.modData("Learnsets", "okidogi").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "okidogi").learnset.circlethrow = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.expandingforce = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.encore = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.thunder = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.neurotoxin = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.healbell = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.perniciousplume = ["9L1"];
+		this.modData("Learnsets", "pecharunt").learnset.banefulbunker = ["9L1"];
 	},
 	actions: {
 		inherit: true,
