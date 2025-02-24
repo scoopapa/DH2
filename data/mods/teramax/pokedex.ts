@@ -220,6 +220,20 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 100, atk: 85, def: 80, spa: 100, spd: 95, spe: 120},
 		abilities: {0: "Grim Neigh", H: "Unaware"},
 	},
+	okidogi: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 128, def: 115, spa: 63, spd: 101, spe: 85},
+		abilities: {0: "Toxic Chain", 1: "Iron Fist", H: "Guard Dog"},
+	},
+	munkidori: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 65, def: 70, spa: 135, spd: 91, spe: 131},
+		abilities: {0: "Toxic Chain", 1: "Dazzling", H: "Neutralizing Gas"},
+	},
+	fezandipiti: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 76, def: 95, spa: 95, spd: 127, spe: 99},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
