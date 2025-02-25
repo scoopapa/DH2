@@ -158,8 +158,8 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (this.field.isWeather('Acid Rain')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if(target.hasType('Lemon')) this.heal(target.baseMaxhp / 16, target, target);
-			else if((target.hasType('Water') || target.hasType('Steel')) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 16);
+			if (target.hasType('Lemon')) this.heal(target.baseMaxhp / 16, target, target);
+			else if ((target.hasType('Water') || target.hasType('Steel')) && !target.hasType('Bug')) this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
@@ -198,9 +198,12 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (this.field.isWeather('Gayveyard')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if(!target.hasAbility('magicguard') && 
+			if (!target.hasAbility('magicguard') && 
 			   !target.hasAbility('ghoulgobbler') &&
-			   !target.hasAbility('rkssystem')) {
+			   !target.hasAbility('rkssystem') && 
+			   !target.hasType('Dark') &&
+			   !target.hasType('Ghost') &&
+			   !target.hasType('Normal')) {
 				this.add('-message', `${target.name} was attacked by the zombies using gender fluid!`);
 				this.damage(target.baseMaxhp / 16);
 			}
