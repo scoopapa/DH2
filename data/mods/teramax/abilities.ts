@@ -500,5 +500,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Poison Puppeteer",
 		rating: 3,
 		num: 310,
+		shortDesc: "This Pokemon takes 0.75x damage from poisoned foes.",
 	},
 };
