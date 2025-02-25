@@ -448,7 +448,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	perniciousplume: {
 		accuracy: 100,
 		basePower: 25,
-		category: "Physical",
+		category: "Special",
+		desc: "Hits 2-5 times. Heals 50% of damage dealt to PSN'd foes.",
 		name: "Pernicious Plume",
 		pp: 5,
 		priority: 0,
