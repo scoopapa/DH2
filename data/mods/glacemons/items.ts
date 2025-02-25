@@ -338,10 +338,10 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -5,
 		gen: 9,
 		rating: 3,
-		shortDesc: "Restores 1/3 max HP when at 1/3 max HP or less once, -1 Spe vs. Knock Off.",
+		shortDesc: "Restores 1/3 max HP when at 1/2 max HP or less once, -1 Spe vs. Knock Off.",
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 3) {
-				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3) && pokemon.useItem()) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 2) && pokemon.useItem()) {
 					this.heal(pokemon.baseMaxhp / 3);
 				}
 			}
@@ -353,6 +353,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				if (!this.boost({ spe: -1 }, source)) {
 					this.add('-activate', pokemon, 'item: Honey');
 				}
+				return false;
+			}
+			if (source.hasAbility('honeygather')) {
 				return false;
 			}
 		},
@@ -761,9 +764,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		// airborneness negation implemented in scripts.ts
 		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
 		rating: 3,
-		// will certainly change how it's treated to take damages but hey 
 		onSourceModifyDamage(damage, source, target, move) {
-			if ((target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb')) && !target.hasItem('heavydutyboots') && !target.hasAbility('magicguard')) { 
+			if (target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb') || target.side.getSideCondition('gmaxsteelsurge')) { 
 				return this.chainModify(0.75);
 			}
 		},
@@ -1042,6 +1044,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'waterpulse') return this.chainModify([4915, 4096]);
 		},
+		basePowerCallback(pokemon, target, move) {
+			if (move.id === 'waterpulse' && pokemon.baseSpecies.baseSpecies === 'Clawitzer') {
+				return 80;
+			}
+			return move.basePower;
+		},
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer' && pokemon.addType('Dragon')) {
 				this.add('-start', pokemon, 'typeadd', 'Dragon', '[from] item: Fried Rice');
@@ -1051,7 +1059,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer') return this.chainModify(1.5);
 		},
-		shortDesc: "Pulse damage is x1.2. If Clawitzer: becomes Water/Dragon, Speed is 1.5x.",
+		shortDesc: "Pulse damage is x1.2. If Clawitzer: becomes Water/Dragon, Speed is 1.5x, and Water Pulse is 80 BP.",
 		num: -14,
 		onTakeItem(item, source){
 			if (source.baseSpecies.baseSpecies === 'Clawitzer') return false;
@@ -1626,15 +1634,19 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		fling: {
 			basePower: 20,
 		},
+		onStart(pokemon) {
+			pokemon.addVolatile('enginebreaker');
+		},
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (pokemon.useItem()) {
+			if (pokemon.volatiles['enginebreaker']) {
 				move.ignoreAbility = true;
+				pokemon.removeVolatile('enginebreaker');
 			}
 		},
 		num: -23,
 		gen: 9,
-		shortDesc: "Holder's moves ignore abilities once. Item is consumed after use.",
+		shortDesc: "Holder's moves ignore abilities once. Once per switch-in.",
 		rating: 3,
 	},
 	redlicorice: {
