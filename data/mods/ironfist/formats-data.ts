@@ -310,7 +310,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Unviable",
 		doublesTier: "DOU",
 	},
-	daiyafia: {
+	daiyakuza: {
 		tier: "Viable",
 		doublesTier: "DOU",
 	},
@@ -701,6 +701,47 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	tylerthecreator: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+
+	abomasnowmega: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	bart: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	kyogre: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	upvybones: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	ludicolo: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	tlagh: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	talonflame: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	regibloom: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	oldduke: {
+		tier: "Untested",
+		doublesTier: "DOU",
+	},
+	biganvil: {
 		tier: "Untested",
 		doublesTier: "DOU",
 	},

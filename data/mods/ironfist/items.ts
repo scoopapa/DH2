@@ -710,7 +710,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	bonerockorsomethingidfk: {
 		name: "bonerockorsomethingidfk",
-		shortDesc: "Holder's use of Gayveyard lasts 8 turns instead of 5.",
+		shortDesc: "Holder's use of Graveyard lasts 8 turns instead of 5.",
 		spritenum: 379,
 		fling: {
 			basePower: 60,
@@ -933,22 +933,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	liongun: {
 		name: "Lion Gun",
-		shortDesc: "Pyroar: extends Lion Deluge to 10 turns; sets a random weather/terrain at the end of each turn.",
+		shortDesc: "Holder's use of Lion Deluge lasts 10 turns instead of 5.",
 		fling: {
 			basePower: 100,
 			type: 'Steel',
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (pokemon.baseSpecies.name !== 'Pyroaring') return;
-			if (this.randomChance(1, 2)) {
-				const weathers = ['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'acidrain', 'gayveyard'];
-				this.field.setWeather(this.sample(weathers));
-			} else {
-				const terrains = ['electricterrain', 'grassyterrain', 'psychicterrain', 'mistyterrain', 'fishingterrain', 'frigidterrain'];
-				this.field.setTerrain(this.sample(terrains));
-			}
 		},
 	},
 	weezerberry: {
@@ -994,5 +982,56 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: "CITRON OVERLOAD",
 		zMoveFrom: "Citron",
 		itemUser: ["Citrus Jams"],
+	},
+
+	//slate 10
+	spacejamdvd: {
+		name: "Space Jam DVD",
+		shortDesc: "Holder's use of Gravity/Magic Room/Wonder Room lasts 8 turns instead of 5.",
+		spritenum: 721,
+		fling: {
+			basePower: 20,
+			effect(target) {
+				this.field.addPseudoWeather('gravity');
+			},
+		},
+	},
+	eatmecookie: {
+		name: "Eat-me Cookie",
+		fling: {
+			basePower: 90,
+			volatileStatus: 'bigbutton',
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp && pokemon.volatiles['bigbutton']) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+		},
+		shortDesc: "When the holder becomes Big, restores 1/3 max HP. Single use.",
+	},
+	cardcrystal: {
+		name: "Card Crystal",
+		fling: {
+			basePower: 20,
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.id === 'trumpcard' && target.useItem()) {
+				target.side.trumpcard ++;
+			}
+		},
+		shortDesc: "If the holder uses Trump Card, adds an extra Trump Card use. Single use.",
+	},
+	sulphurrock: {
+		name: "Sulphur Rock",
+		shortDesc: "Holder's use of Acid Rain lasts 8 turns instead of 5.",
+		fling: {
+			basePower: 60,
+		},
 	},
 }
