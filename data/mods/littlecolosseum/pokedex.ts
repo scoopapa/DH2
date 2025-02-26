@@ -110,4 +110,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 45, def: 35, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Pickup", 1: "Technician", H: "Seven Lives"},
 	},
+	tyrogue: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 85, def: 45, spa: 35, spd: 45, spe: 45},
+		abilities: {0: "Guts", 1: "Iron Fist", H: "Scrappy"},
+	},
+	flittle: {
+		inherit: true,
+		types: ["Psychic", "Flying"],
+		abilities: {0: "Keen Eye", 1: "Frisk", H: "Speed Boost"},
+	},
 };
