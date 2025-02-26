@@ -3756,7 +3756,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Status",
 		name: "Bloom Desire",
 		shortDesc: "2 turns: 2/3 of user's max HP is restored, cure status.",
-		shortDesc: "",
 		pp: 5,
 		priority: 0,
 		flags: { snatch: 1, heal: 1, metronome: 1 },
@@ -3765,14 +3764,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(pokemon, source) {
 				this.effectState.hp = source.maxhp * 2/3;
 				this.effectState.turns = 2;
-				this.effectState.startingTurn = this.getOverflowedTurnCount();
-				if (this.effectState.startingTurn === 255) {
-					this.hint(`In Gen 8+, Bloom Desire will never resolve when used on the ${this.turn}th turn.`);
-				}
 			},
 			onResidualOrder: 4,
 			onResidual(target: Pokemon) {
-				if (this.getOverflowedTurnCount() <= this.effectState.startingTurn) return;
+				console.log(target);
 				if (this.effectState.turns === 0) target.side.removeSlotCondition(this.getAtSlot(this.effectState.sourceSlot), 'bloomdesire');
 				else this.effectState.turns --;
 			},
@@ -3823,7 +3818,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			let factor = 0.5;
 			switch (pokemon.effectiveWeather()) {
-			case 'acidrain:
+			case 'acidrain':
 				factor = 0.667;
 				break;
 			case 'sunnyday':
@@ -3916,7 +3911,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
-				this.add('-sidestart', side, 'Stealth Anvils', '[silent]');
+				this.add('-sidestart', side, 'Stealth Anvils');
 			},
 			onEntryHazard(pokemon) {
 				this.add('-message', `${pokemon.name} was flattened!`);
@@ -4403,7 +4398,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-start', pokemon, 'Insanity', '[silent]');
 			},
 			onAfterMove(source, target, move) {
-				this.actions.useMove('chaospotion', source);
+				if(move.category !== 'Status') this.actions.useMove('chaospotion', source);
 			},
 		},
 		secondary: null,
@@ -4801,7 +4796,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (source?.hasItem('spacejamdvd')) {
 					this.add('-message', `${source.name} is ballin!`);
 					return 8;
-				},
+				}
 				return 5;
 			},
 			onFieldStart(target, source) {
@@ -4882,7 +4877,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (source?.hasItem('spacejamdvd')) {
 					this.add('-message', `${source.name} is ballin!`);
 					return 8;
-				},
+				}
 				return 5;
 			},
 			onFieldStart(target, source) {
@@ -4918,7 +4913,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (source?.hasItem('spacejamdvd')) {
 					this.add('-message', `${source.name} is ballin!`);
 					return 8;
-				},
+				}
 				return 5;
 			},
 			onModifyMove(move, source, target) {
