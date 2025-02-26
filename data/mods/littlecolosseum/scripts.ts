@@ -83,6 +83,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tyrogue").learnset.firepunch = ["9L1"];
 		this.modData("Learnsets", "tyrogue").learnset.icepunch = ["9L1"];
 		this.modData("Learnsets", "tyrogue").learnset.thunderpunch = ["9L1"];
+		this.modData("Learnsets", "tyrogue").learnset.triplekick = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.teleport = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.psychicnoise = ["9L1"];
 		this.modData("Learnsets", "flittle").learnset.aircutter = ["9L1"];
