@@ -1247,8 +1247,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	//slate 8
 	blightofthefallen: {
-		onSourceTryPrimaryHit(damage, target, source, move) {
-			if (move.type === 'Ghost' && target.hp <= target.maxhp / 4 && this.field.isWeather('graveyard')) target.faint();
+		onSourceTryPrimaryHit(target, source, move) {
+			if (move.type === 'Ghost' && target.hp <= target.maxhp / 4 && this.field.isWeather('graveyard')) {
+				this.add('-activate', pokemon, 'ability: Blight of the Fallen');
+				target.faint();
+			}
 		},
 		flags: {},
 		name: "Blight of the Fallen",
