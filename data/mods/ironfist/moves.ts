@@ -3637,7 +3637,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				if (this.checkMoveMakesContact(move, source, target)) {
+				if (move.category !== 'Status') {
 					target.side.addFishingTokens(1);
 				}
 				return this.NOT_FAIL;
@@ -3666,8 +3666,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Liquidation", target);
 		},
-		onModifyCritRatio(critRatio, source) {
-			return critRatio + source.side.fishingTokens;
+		onModifyMove(move, pokemon) {
+			move.critRatio = pokemon.side.fishingTokens;
 		},
 		secondary: null,
 		target: "normal",
@@ -3760,15 +3760,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: { snatch: 1, heal: 1, metronome: 1 },
 		slotCondition: 'bloomdesire',
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Wish", target);
+		},
 		condition: {
 			onStart(pokemon, source) {
 				this.effectState.hp = source.maxhp * 2/3;
 				this.effectState.turns = 2;
 			},
 			onResidualOrder: 4,
-			onResidual(target: Pokemon) {
-				console.log(target);
-				if (this.effectState.turns === 0) target.side.removeSlotCondition(this.getAtSlot(this.effectState.sourceSlot), 'bloomdesire');
+			onResidual(side) {
+				if (this.effectState.turns === 0) side.removeSlotCondition(this.getAtSlot(this.effectState.sourceSlot), 'bloomdesire');
 				else this.effectState.turns --;
 			},
 			onEnd(target) {
