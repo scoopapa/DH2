@@ -3727,6 +3727,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	smelmetal: {
 		learnset: {
 			acidarmor: ["9L1"],
+			decoyanvil: ["9L1"],
 			bodypress: ["9L1"],
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -6486,6 +6487,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	pokestargiant: {
 		learnset: {
 			clash: ["9L1"],
+			decoyanvil: ["9L1"],
 			wideguard: ["9L1"],
 			followme: ["9L1"],
 			beatup: ["9L1"],
@@ -7449,6 +7451,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemotic: {
 		learnset: {
+			citrusrend: ["9L1"],
 			helpinghand: ["9L1"],
 			lemonthrow: ["9L1"],
 			lemonbash: ["9L1"],
@@ -7943,6 +7946,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	indeedee: {
 		learnset: {
 			inherit: true,
+			decoyanvil: ["9L1"],
 			afteryou: ["9L1"],
 			allyswitch: ["9L1"],
 			aromatherapy: ["9L1"],
@@ -8165,6 +8169,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemonfish: {
 		learnset: {
+			citrusrend: ["9L1"],
 			helpinghand: ["9L1"],
 			fish: ["9L1"],
 			lemonthrow: ["9L1"],
@@ -8612,6 +8617,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	raccoon: {
 		learnset: {
+			decoyanvil: ["9L1"],
 			attract: ["9L1"],
 			beatup: ["9L1"],
 			bigbash: ["9L1"],
@@ -10780,6 +10786,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			diamondhand: ["9L1"],
 			necromancy: ["9L1"],
+			decoyanvil: ["9L1"],
 			graveyard: ["9L1"],
 			evilscaryuturn: ["9L1"],
 			freakout: ["9L1"],
@@ -11441,6 +11448,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fudgesaur: {
 		learnset: {
+			decoyanvil: ["9L1"],
 			helpinghand: ["9L1"],
 			armthrust: ["9L1"],
 			attract: ["9L1"],
