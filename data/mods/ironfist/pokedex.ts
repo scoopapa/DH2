@@ -667,7 +667,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -73,
 		types: ["Normal"],
 		baseStats: {hp: 43, atk: 43, def: 43, spa: 43, spd: 43, spe: 200},
-		abilities: {0: "Speed Boost", H: "Steely Spirit"},
+		abilities: {0: "Speed Boost", 1: "Steely Spirit", H: "Racer's Spirit"},
 		weightkg: 60.0,
 	},
 	impidimp: {
