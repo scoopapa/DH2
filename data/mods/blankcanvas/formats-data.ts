@@ -217,4 +217,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bazhigangquan: {
 		tier: "BC OU",
 	},
+	leechmonner: {
+		tier: "BC OU",
+	},
+	ironcrest: {
+		tier: "BC OU",
+	},
+	odonata: {
+		tier: "BC OU",
+	},
+	hebicikuga: {
+		tier: "BC OU",
+	},
+	devestial: {
+		tier: "BC OU",
+	},
+	lundicare: {
+		tier: "BC OU",
+	},
 };
