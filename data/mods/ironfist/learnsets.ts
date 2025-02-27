@@ -151,6 +151,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	toxapex: {
 		learnset: {
 			inherit: true,
+			stealthanvils: ["9L1"],
 			fish: ["9L1"],
 			helpinghand: ["9L1"],
 			acidspray: ["9L1"],
@@ -1232,6 +1233,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	ohmyrod: {
 		learnset: {
+			fishmortar: ["9L1"],
 			fish: ["9L1"],
 			helpinghand: ["9L1"],
 			followme: ["9L1"],
@@ -1357,6 +1359,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	bigcrammer: {
 		learnset: {
 			fish: ["9L1"],
+			fishmortar: ["9L1"],
+			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
@@ -1553,6 +1557,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	runerigus: {
 		learnset: {
 			inherit: true,
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			allyswitch: ["9L1"],
 			amnesia: ["9L1"],
@@ -1849,6 +1854,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	wyrdeer: {
 		learnset: {
 			inherit: true,
+			acidrain: ["9L1"],
 			clash: ["9L1"],
 			agility: ["9L1"],
 			astonish: ["9L1"],
@@ -1965,6 +1971,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	goomba: {
 		learnset: {
 			trans: ["9L1"],
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			clash: ["9L1"],
 			astonish: ["9L1"],
@@ -2128,6 +2135,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			trans: ["9L1"],
 			clash: ["9L1"],
 			lemonthrow: ["9L1"],
+			youwantfun: ["9L1"],
 			airslash: ["9L1"],
 			assurance: ["9L1"],
 			behemothblade: ["9L1"],
@@ -2913,6 +2921,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	silvally: {
 		learnset: {
 			inherit: true,
+			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			fish: ["9L1"],
 			lemonbash: ["9L1"],
@@ -3196,6 +3205,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	kurayami: {
 		learnset: {
+			youwantfun: ["9L1"],
 			crunch: ["9L1"],
 			wideguard: ["9L1"],
 			knockoff: ["9L1"],
@@ -3257,6 +3267,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	hitmontop: {
 		learnset: {
 			inherit: true,
+			acidrain: ["9L1"],
 			clash: ["9L1"],
 			aerialace: ["9L1"],
 			agility: ["9L1"],
@@ -3727,6 +3738,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	smelmetal: {
 		learnset: {
 			acidarmor: ["9L1"],
+			decoyanvil: ["9L1"],
 			bodypress: ["9L1"],
 			bodyslam: ["9L1"],
 			brickbreak: ["9L1"],
@@ -3853,6 +3865,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	starmie: {
 		learnset: {
 			inherit: true,
+			acidrain: ["9L1"],
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			fish: ["9L1"],
 			agility: ["9L1"],
@@ -4903,6 +4917,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	electrode: {
 		learnset: {
 			inherit: true,
+			youwantfun: ["9L1"],
 			agility: ["9L1"],
 			bide: ["9L1"],
 			charge: ["9L1"],
@@ -4989,7 +5004,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	mariokartwii: {
 		learnset: {
 			clash: ["9L1"],
+			acidrain: ["9L1"],
 			aerialace: ["9L1"],
+			youwantfun: ["9L1"],
 			blazingtorque: ["9L1"],
 			bellydrum: ["9L1"],
 			bodyslam: ["9L1"],
@@ -5127,6 +5144,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	scrubby: {
 		learnset: {
 			fish: ["9L1"],
+			acidrain: ["9L1"],
+			youwantfun: ["9L1"],
 			acidspray: ["9L1"],
 			assurance: ["9L1"],
 			beatup: ["9L1"],
@@ -5569,6 +5588,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	shinxfishing: {
 		learnset: {
 			fish: ["9L1"],
+			fishmortar: ["9L1"],
 			attract: ["9L1"],
 			babydolleyes: ["9L1"],
 			bite: ["9L1"],
@@ -6256,6 +6276,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	fishfactory: {
 		learnset: {
 			fishprocessing: ["9L1"],
+			fishmortar: ["9L1"],
 			flashcannon: ["9L1"],
 			fireblast: ["9L1"],
 			flamethrower: ["9L1"],
@@ -6402,6 +6423,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	basculinbluestriped: {
 		learnset: {
 			inherit: true,
+			youwantfun: ["9L1"],
+			acidrain: ["9L1"],
 			agility: ["9L1"],
 			aquajet: ["9L1"],
 			aquatail: ["9L1"],
@@ -6486,6 +6509,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	pokestargiant: {
 		learnset: {
 			clash: ["9L1"],
+			decoyanvil: ["9L1"],
 			wideguard: ["9L1"],
 			followme: ["9L1"],
 			beatup: ["9L1"],
@@ -6550,6 +6574,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			trumpcard: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
 			ironfist: ["9L1"],
+			lemonbash: ["9L1"],
 		},
 	},
 	richardpetty: {
@@ -6660,6 +6685,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	lemon: {
 		learnset: {
 			helpinghand: ["9L1"],
+			makelemonade: ["9L1"],
+			acidrain: ["9L1"],
 			lemonthrow: ["9L1"],
 			lemonbash: ["9L1"],
 			bodypress: ["9L1"],
@@ -6702,6 +6729,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	fishingzombie: {
 		learnset: {
 			helpinghand: ["9L1"],
+			fishmortar: ["9L1"],
+			youwantfun: ["9L1"],
 			fish: ["9L1"],
 			surf: ["9L1"],
 			protect: ["9L1"],
@@ -7261,6 +7290,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	inkay: {
 		learnset: {
 			inherit: true,
+			youwantfun: ["9L1"],
 			fish: ["9L1"],
 			acupressure: ["9L1"],
 			aerialace: ["9L1"],
@@ -7415,6 +7445,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	limelips: {
 		learnset: {
 			followme: ["9L1"],
+			makelemonade: ["9L1"],
 			helpinghand: ["9L1"],
 			lemonbash: ["9L1"],
 			bite: ["9L1"],
@@ -7448,6 +7479,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemotic: {
 		learnset: {
+			citrusrend: ["9L1"],
+			makelemonade: ["9L1"],
+			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			lemonthrow: ["9L1"],
 			lemonbash: ["9L1"],
@@ -7509,6 +7543,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	zestii: {
 		learnset: {
 			lemonbash: ["9L1"],
+			makelemonade: ["9L1"],
 			juicewave: ["9L1"],
 			zestycutter: ["9L1"],
 			blindingsquirter: ["9L1"],
@@ -7942,6 +7977,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	indeedee: {
 		learnset: {
 			inherit: true,
+			decoyanvil: ["9L1"],
 			afteryou: ["9L1"],
 			allyswitch: ["9L1"],
 			aromatherapy: ["9L1"],
@@ -8017,6 +8053,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	applesnewestemoji: {
 		learnset: {
+			acidrain: ["9L1"],
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			flamecharge: ["9L1"],
 			lemonthrow: ["9L1"],
@@ -8164,6 +8202,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	lemonfish: {
 		learnset: {
+			citrusrend: ["9L1"],
+			makelemonade: ["9L1"],
+			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			fish: ["9L1"],
 			lemonthrow: ["9L1"],
@@ -8311,6 +8352,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	goddease: {
 		learnset: {
 			facade: ["9L1"],
+			acidrain: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
 			acrobatics: ["9L1"],
@@ -8423,6 +8465,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	jableye: {
 		learnset: {
+			youwantfun: ["9L1"],
 			hoenn: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
@@ -8611,6 +8654,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	raccoon: {
 		learnset: {
+			decoyanvil: ["9L1"],
 			attract: ["9L1"],
 			beatup: ["9L1"],
 			bigbash: ["9L1"],
@@ -8734,6 +8778,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	lucariocalm: {
 		learnset: {
 			aerialace: ["9L1"],
+			acidrain: ["9L1"],
 			agility: ["9L1"],
 			attract: ["9L1"],
 			aurasphere: ["9L1"],
@@ -9108,6 +9153,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	thepearlhand: {
 		learnset: {
+			youwantfun: ["9L1"],
 			followme: ["9L1"],
 			helpinghand: ["9L1"],
 			handofspace: ["9L1"],
@@ -9197,6 +9243,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	mcfish: {
 		learnset: {
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			wideguard: ["9L1"],
 			hyperdrill: ["9L1"],
@@ -9290,6 +9337,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	minunandplusled: {
 		learnset: {
+			youwantfun: ["9L1"],
 			agility: ["9L1"],
 			alluringvoice: ["9L1"],
 			attract: ["9L1"],
@@ -9605,6 +9653,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	drliberty: {
 		learnset: {
 			chaospotion: ["9L1"],
+			acidrain: ["9L1"],
 			justicepotion: ["9L1"],
 			feebasproshops: ["9L1"],
 			airhorn: ["9L1"],
@@ -9703,6 +9752,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	absol: {
 		learnset: {
 			helpinghand: ["9L1"],
+			acidrain: ["9L1"],
 			inherit: true,
 			hoenn: ["9L1"],
 			clash: ["9L1"],
@@ -10018,6 +10068,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	hydralemon: {
 		learnset: {
 			helpinghand: ["9L1"],
+			acidrain: ["9L1"],
+			makelemonade: ["9L1"],
 			lemonthrow: ["9L1"],
 			lemonbash: ["9L1"],
 			astonish: ["9L1"],
@@ -10097,6 +10149,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	zapdos: {
 		learnset: {
 			inherit: true,
+			acidrain: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
 			agility: ["9L1"],
@@ -10460,6 +10513,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	fishmarketing3: {
 		learnset: {
 			helpinghand: ["9L1"],
+			fishmortar: ["9L1"],
 			overdrive: ["9L1"],
 			thunderbolt: ["9L1"],
 			thunder: ["9L1"],
@@ -10557,6 +10611,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	carnivineif: {
 		learnset: {
+			youwantfun: ["9L1"],
 			acidspray: ["9L1"],
 			balatroblast: ["9L1"],
 			belch: ["9L1"],
@@ -10633,6 +10688,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	grumpig: {
 		learnset: {
 			inherit: true,
+			acidrain: ["9L1"],
 			hoenn: ["9L1"],
 			allyswitch: ["9L1"],
 			amnesia: ["9L1"],
@@ -10778,7 +10834,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	impromancer: {
 		learnset: {
 			diamondhand: ["9L1"],
+			acidrain: ["9L1"],
 			necromancy: ["9L1"],
+			decoyanvil: ["9L1"],
 			graveyard: ["9L1"],
 			evilscaryuturn: ["9L1"],
 			freakout: ["9L1"],
@@ -10942,6 +11000,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	soruarc: {
 		learnset: {
 			helpinghand: ["9L1"],
+			acidrain: ["9L1"],
 			alluringvoice: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			decorate: ["9L1"],
@@ -11098,6 +11157,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	skibidragon: {
 		learnset: {
 			agility: ["9L1"],
+			acidrain: ["9L1"],
 			amnesia: ["9L1"],
 			aquaring: ["9L1"],
 			aquatail: ["9L1"],
@@ -11440,6 +11500,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fudgesaur: {
 		learnset: {
+			decoyanvil: ["9L1"],
 			helpinghand: ["9L1"],
 			armthrust: ["9L1"],
 			attract: ["9L1"],
@@ -11491,6 +11552,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	darkpoison: {
 		learnset: {
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			deathgrip: ["9L1"],
 			pursuit: ["9L1"],
@@ -11903,6 +11965,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	nihilego: {
 		learnset: {
+			youwantfun: ["9L1"],
+			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			inherit: true,
 			acid: ["9L1"],
@@ -12079,6 +12143,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	citrusjams: {
 		learnset: {
 			citrusbomb: ["9L1"],
+			makelemonade: ["9L1"],
 			lemonthrow: ["9L1"],
 			citron: ["9L1"],
 			lemonbash: ["9L1"],
@@ -12208,6 +12273,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	rayquaza: {
 		learnset: {
+			acidrain: ["9L1"],
 			aerialace: ["9L1"],
 			airhorn: ["9L1"],
 			airslash: ["9L1"],
@@ -12294,6 +12360,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	chinchou: {
 		learnset: {
+			youwantfun: ["9L1"],
 			helpinghand: ["9L1"],
 			inherit: true,
 			agility: ["9L1"],
@@ -12602,6 +12669,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	houndoom: {
 		learnset: {
 			inherit: true,
+			fishmortar: ["9L1"],
+			youwantfun: ["9L1"],
 			attract: ["9L1"],
 			beatup: ["9L1"],
 			bite: ["9L1"],
@@ -12711,6 +12780,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	togepi: {
 		learnset: {
+			youwantfun: ["9L1"],
 			inherit: true,
 			aerialace: ["9L1"],
 			afteryou: ["9L1"],
@@ -13046,7 +13116,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			flipturn: ["9L1"],
 			flashcannon: ["9L1"],
 			fling: ["9L1"],
-			flotsamhook: ["9L1"],
+			floatsamhook: ["9L1"],
 			foulplay: ["9L1"],
 			furycutter: ["9L1"],
 			gigaimpact: ["9L1"],
@@ -13405,7 +13475,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			attract: ["9L1"],
 			bigbash: ["9L1"],
 			bravebird: ["9L1"],
-			braverbird: ["9L1"],
 			bravestbird: ["9L1"],
 			bulkup: ["9L1"],
 			campfire: ["9L1"],
