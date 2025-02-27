@@ -1577,7 +1577,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass"],
 		baseStats: {hp: 80, atk: 100, def: 100, spa: 80, spd: 150, spe: 70},
 		abilities: {0: "Overgrow", 1: "Solar Power", H: "Flower Gift"},
-		weightkg: 0,
+		weightkg: 230.0,
 	},
 	oldduke: {
 		num: -169,
