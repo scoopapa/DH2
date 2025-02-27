@@ -2722,7 +2722,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			lockon: ["9L1"],
 			metronome: ["9L1"],
 			recycle: ["9L1"],
-			snore: ["9L1"],
 			stuffcheeks: ["9L1"],
 			swift: ["9L1"],
 			tackle: ["9L1"],
