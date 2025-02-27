@@ -755,7 +755,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		name: "Komala",
 		num: -83,
-		types: ["Normal"],
+		types: ["Normal", "Silly"],
 		baseStats: {hp: 75, atk: 120, def: 70, spa: 75, spd: 105, spe: 35},
 		abilities: {0: "Skeptic", H: "Bramblin Mentality"},
 		weightkg: 19.9,
