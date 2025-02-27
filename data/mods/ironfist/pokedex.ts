@@ -1549,7 +1549,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Ludicolo",
 		hoenn: true,
 		gen: 3,
-		types: ["Silly", "Water"],
+		types: ["Silly", "Water", "Grass"],
 		baseStats: {hp: 100, atk: 80, def: 83, spa: 90, spd: 103, spe: 70},
 		abilities: {0: "Macabre Mourner", 1: "Hoenn Stan", H: "Hoenn Lover"},
 		weightkg: 55.0,
