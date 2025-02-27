@@ -5,7 +5,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['IF'],
+		customTiers: ['Viable', 'Unviable', 'Untested'],
 	},	
 	
 	init() {
@@ -523,6 +523,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				canTera = true;
 				type = 'Water';
 			}
+			if (pokemon.set.ability === 'Racer\'s Spirit') {
+				canTera = true;
+				type = 'Steel';
+			}
 			if (type === 'Bug' || canTera) {
 				this.battle.add('-terastallize', pokemon, type);
 				pokemon.terastallized = type;
@@ -566,8 +570,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				baseDamage = this.battle.modify(baseDamage, spreadModifier);
 				if (move.multihitType === 'bestfriends') {
 					// Best Friends modifier
-					this.battle.debug("Best Friends modifier: 0.49");
-					baseDamage = this.battle.modify(baseDamage, 0.49);
+					this.battle.debug("Best Friends modifier: 0.33");
+					baseDamage = this.battle.modify(baseDamage, 0.33);
 				}
 			} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
 				// Parental Bond modifier
@@ -576,8 +580,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				baseDamage = this.battle.modify(baseDamage, bondModifier);
 			} else if (move.multihitType === 'bestfriends') {
 				// Best Friends modifier
-				this.battle.debug("Best Friends modifier: 0.49");
-				baseDamage = this.battle.modify(baseDamage, 0.49);
+				this.battle.debug("Best Friends modifier: 0.33");
+				baseDamage = this.battle.modify(baseDamage, 0.33);
 			}
 
 			// weather modifier

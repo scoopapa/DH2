@@ -105,4 +105,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 	},
+	spookysecretclause: {
+		name: "Spooky Secret Clause",
+		effectType: "Rule",
+		desc: `Spooky Secret Clause`,
+		onAfterMove(pokemon, target, move) {
+			if(pokemon.metronome >= 26) pokemon.side.win();
+		},
+	},
 };
