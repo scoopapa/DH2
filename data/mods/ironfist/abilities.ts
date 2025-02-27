@@ -1660,7 +1660,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'acidrain') return false;
 		},
 		flags: {},
-		name: "Acid Rain",
+		name: "Toxic Wisdom",
 		shortDesc: "This Pokemon's Spe is doubled in Acid Rain; immunity to Acid Rain.",
 	},
 	monstermash: {
