@@ -581,7 +581,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	leechmonner: {
 		num: 9072,
-		species: "Leechmonner",
+		name: "Leechmonner",
 		types: ["Water", "Bug"],
 		baseStats: {hp: 105, atk: 115, def: 70, spa: 40, spd: 110, spe: 65},
 		abilities: {0: "Drizzle"},
@@ -589,7 +589,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ironcrest: {
 		num: 9073,
-		species: "Iron Crest",
+		name: "Iron Crest",
 		types: ["Flying", "Fighting"],
 		baseStats: {hp: 72, atk: 96, def: 78, spa: 104, spd: 72, spe: 98},
 		abilities: {0: "Quark Drive"},
@@ -597,7 +597,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	odonata: {
 		num: 9074,
-		species: "Odonata",
+		name: "Odonata",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 125, atk: 100, def: 80, spa: 60, spd: 80, spe: 75},
 		abilities: {0: "Shield Dust", 1: "Infiltrator", H: "Tough Claws"},
@@ -605,7 +605,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	hebicikuga: {
 		num: 9075,
-		species: "Hebicikuga",
+		name: "Hebicikuga",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 85, atk: 115, def: 75, spa: 80, spd: 95, spe: 115},
 		abilities: {0: "Soul Heart", H: "Technician"},
@@ -613,7 +613,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	devestial: {
 		num: 9076,
-		species: "Devestial",
+		name: "Devestial",
 		types: ["Fairy", "Ground"],
 		baseStats: {hp: 110, atk: 105, def: 100, spa: 115, spd: 90, spe: 80},
 		abilities: {0: "Cud Chew"},
@@ -621,7 +621,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lundicare: {
 		num: 9077,
-		species: "Lundicare",
+		name: "Lundicare",
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 101, atk: 81, def: 103, spa: 101, spd: 109, spe: 111},
 		abilities: {0: "Prism Armor", 1: "Protosynthesis", H: "Trace"},
