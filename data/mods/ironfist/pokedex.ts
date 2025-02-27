@@ -1510,7 +1510,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	abomasnowmega: {
 		inherit: true,
 		num: -177,
-		species: "Abomasnow-Mega",
+		name: "Abomasnow-Mega",
 		types: ["Ice", "Dragon"],
 		baseStats: {hp: 110, atk: 140, def: 104, spa: 114, spd: 100, spe: 69},
 		abilities: {0: "Slush Rush"},
@@ -1518,7 +1518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	bart: {
 		num: -176,
-		species: "Bart",
+		name: "Bart",
 		types: ["Lemon", "Silly"],
 		baseStats: {hp: 76, atk: 80, def: 95, spa: 119, spd: 52, spe: 110},
 		abilities: {0: "Gex Server", 1: "Prankster", H: "Regenerator"},
@@ -1527,7 +1527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	kyogre: {
 		inherit: true,
 		num: -175,
-		species: "Kyogre",
+		name: "Kyogre",
 		hoenn: true,
 		gen: 3,
 		types: ["Water"],
@@ -1537,7 +1537,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	upvybones: {
 		num: -174,
-		species: "Upvybones",
+		name: "Upvybones",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 94, atk: 108, def: 99, spa: 90, spd: 114, spe: 70},
 		abilities: {0: "Still Water"},
@@ -1546,7 +1546,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ludicolo: {
 		inherit: true,
 		num: -173,
-		species: "Ludicolo",
+		name: "Ludicolo",
 		hoenn: true,
 		gen: 3,
 		types: ["Silly", "Water"],
@@ -1556,16 +1556,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tlagh: {
 		num: -172,
-		species: "T\'La\'Ágh",
+		name: "T\'La\'Ágh",
 		types: ["Silly"],
 		baseStats: {hp: 74, atk: 99, def: 99, spa: 99, spd: 99, spe: 105},
-		abilities: {0: "Jesters Folly"},
+		abilities: {0: "Jester's Folly"},
 		weightkg: 4.7,
 	},
 	talonflame: {
 		inherit: true,
 		num: -171,
-		species: "Talonflame",
+		name: "Talonflame",
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 78, atk: 81, def: 71, spa: 74, spd: 69, spe: 126},
 		abilities: {0: "Flame Body", 1: "Aerilate", H: "Gale Wings", S: "WRATH OF THE SMOGONBIRD"},
@@ -1573,7 +1573,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	regibloom: {
 		num: -170,
-		species: "Regibloom",
+		name: "Regibloom",
 		types: ["Grass"],
 		baseStats: {hp: 80, atk: 100, def: 100, spa: 80, spd: 150, spe: 70},
 		abilities: {0: "Overgrow", 1: "Solar Power", H: "Flower Gift"},
@@ -1581,7 +1581,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	oldduke: {
 		num: -169,
-		species: "Old Duke",
+		name: "Old Duke",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 90, atk: 120, def: 70, spa: 75, spd: 65, spe: 100},
 		abilities: {0: "Defiant", H: "Toxic Wisdom"},
@@ -1589,7 +1589,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	biganvil: {
 		num: -168,
-		species: "BIG ANVIL",
+		name: "BIG ANVIL",
 		types: ["Fairy"],
 		baseStats: {hp: 95, atk: 70, def: 73, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Cute Charm", 1: "Magic Guard", H: "Unaware"},
