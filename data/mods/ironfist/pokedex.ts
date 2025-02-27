@@ -208,7 +208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -23,
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 110, atk: 105, def: 72, spa: 105, spd: 75, spe: 85},
-		abilities: {0: "Intimidate", 1: "MILF", H: "Sap Sipper", S: "Psychic Surge"},
+		abilities: {0: "Intimidate", 1: "DILF", H: "Sap Sipper", S: "Psychic Surge"},
 	},
 	goomba: {
 		name: "Goomba",
@@ -478,7 +478,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		fish: true,
 		types: ["Water", "Ground"],
 		baseStats: {hp: 75, atk: 65, def: 55, spa: 65, spd: 55, spe: 69},
-		abilities: {0: "MILF", H: "Impalpable"},
+		abilities: {0: "DILF", H: "Impalpable"},
 	},
 	scrubby: {
 		name: "Scrubby",
@@ -748,7 +748,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -82,
 		types: ["Ice", "Grass"],
 		baseStats: {hp: 108, atk: 68, def: 62, spa: 112, spd: 68, spe: 107},
-		abilities: {0: "Snow Warning", 1: "Aboma Care", H: "Skeptic"},
+		abilities: {0: "Snow Warning", 1: "DILF", H: "Skeptic", S: "Aboma Care"},
 		weightkg: 135.5,
 	},
 	komala: {
