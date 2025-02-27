@@ -6550,6 +6550,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			trumpcard: ["9L1"],
 			fuckaroundandfindout: ["9L1"],
 			ironfist: ["9L1"],
+			lemonbash: ["9L1"],
 		},
 	},
 	richardpetty: {
