@@ -967,7 +967,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cinderace",
 		num: -95,
 		types: ["Fire", "Fighting"],
-		baseStats: {hp: 80, atk: 116, def: 80, spa: 65, spd: 80, spe: 99},
+		baseStats: {hp: 80, atk: 116, def: 80, spa: 65, spd: 80, spe: 109},
 		abilities: {0: "Blaze", H: "Libero"},
 		weightkg: 33.0,
 	},

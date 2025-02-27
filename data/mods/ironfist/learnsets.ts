@@ -6685,6 +6685,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	lemon: {
 		learnset: {
 			helpinghand: ["9L1"],
+			makelemonade: ["9L1"],
 			acidrain: ["9L1"],
 			lemonthrow: ["9L1"],
 			lemonbash: ["9L1"],
@@ -7444,6 +7445,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	limelips: {
 		learnset: {
 			followme: ["9L1"],
+			makelemonade: ["9L1"],
 			helpinghand: ["9L1"],
 			lemonbash: ["9L1"],
 			bite: ["9L1"],
@@ -7478,6 +7480,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	lemotic: {
 		learnset: {
 			citrusrend: ["9L1"],
+			makelemonade: ["9L1"],
 			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			lemonthrow: ["9L1"],
@@ -7540,6 +7543,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	zestii: {
 		learnset: {
 			lemonbash: ["9L1"],
+			makelemonade: ["9L1"],
 			juicewave: ["9L1"],
 			zestycutter: ["9L1"],
 			blindingsquirter: ["9L1"],
@@ -8199,6 +8203,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	lemonfish: {
 		learnset: {
 			citrusrend: ["9L1"],
+			makelemonade: ["9L1"],
 			acidrain: ["9L1"],
 			helpinghand: ["9L1"],
 			fish: ["9L1"],
@@ -10064,6 +10069,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			helpinghand: ["9L1"],
 			acidrain: ["9L1"],
+			makelemonade: ["9L1"],
 			lemonthrow: ["9L1"],
 			lemonbash: ["9L1"],
 			astonish: ["9L1"],
@@ -12137,6 +12143,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	citrusjams: {
 		learnset: {
 			citrusbomb: ["9L1"],
+			makelemonade: ["9L1"],
 			lemonthrow: ["9L1"],
 			citron: ["9L1"],
 			lemonbash: ["9L1"],
