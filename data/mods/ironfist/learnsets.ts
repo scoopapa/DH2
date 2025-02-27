@@ -13046,7 +13046,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			flipturn: ["9L1"],
 			flashcannon: ["9L1"],
 			fling: ["9L1"],
-			flotsamhook: ["9L1"],
+			floatsamhook: ["9L1"],
 			foulplay: ["9L1"],
 			furycutter: ["9L1"],
 			gigaimpact: ["9L1"],
