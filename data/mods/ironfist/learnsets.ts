@@ -13405,7 +13405,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			attract: ["9L1"],
 			bigbash: ["9L1"],
 			bravebird: ["9L1"],
-			braverbird: ["9L1"],
 			bravestbird: ["9L1"],
 			bulkup: ["9L1"],
 			campfire: ["9L1"],
