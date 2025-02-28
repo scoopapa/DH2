@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalalice: {
 		num: 5,
 		name: "Normal Alice",
-		types: ["Steel", "Light"],
+		types: ["Steels", "Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 35, def: 45, spa: 65, spd: 40, spe: 40},
 		abilities: {0: "Suppression", 1: "Composed"},
@@ -58,7 +58,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweralice: {
 		num: 6,
 		name: "Power Alice",
-		types: ["Steel", "Light"],
+		types: ["Steels", "Lights"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 60, def: 95, spa: 120, spd: 80, spe: 55},
 		abilities: {0: "After Move", 1: "Stubborn"},
@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensealice: {
 		num: 7,
 		name: "Defense Alice",
-		types: ["Steel", "Illusion"],
+		types: ["Steels", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 50, def: 120, spa: 80, spd: 90, spe: 55},
 		abilities: {0: "Suppression", 1: "Composed"},
@@ -80,7 +80,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraalice: {
 		num: 8,
 		name: "Extra Alice",
-		types: ["Light", "Fire"],
+		types: ["Lights", "Fires"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 120, def: 60, spa: 50, spd: 75, spe: 100},
 		abilities: {0: "Jamming", 1: "Northern Expanse"},
@@ -91,7 +91,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalaunn: {
 		num: 9,
 		name: "Normal Aunn",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 55, def: 50, spa: 40, spd: 50, spe: 30},
 		abilities: {0: "Indomitable", 1: "Wariness"},
@@ -102,7 +102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseaunn: {
 		num: 10,
 		name: "Defense Aunn",
-		types: ["Light", "Illusion"],
+		types: ["Lights", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 85, def: 125, spa: 40, spd: 90, spe: 55},
 		abilities: {0: "Indomitable", 1: "Wariness"},
@@ -113,7 +113,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweraunn: {
 		num: 11,
 		name: "Power Aunn",
-		types: ["Light", "Fighting"],
+		types: ["Lights", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 110, def: 80, spa: 65, spd: 80, spe: 60},
 		abilities: {0: "Indomitable", 1: "Economist"},
@@ -124,7 +124,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraaunn: {
 		num: 12,
 		name: "Extra Aunn",
-		types: ["Light", "Steel"],
+		types: ["Lights", "Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 105, def: 75, spa: 70, spd: 80, spe: 80},
 		abilities: {0: "Two of a Kind", 1: "Divine Protection"},
@@ -157,7 +157,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweraya: {
 		num: 15,
 		name: "Power Aya",
-		types: ["Wind", "Fighting"],
+		types: ["Wind", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 105, def: 70, spa: 90, spd: 50, spe: 130},
 		abilities: {0: "Gale", 1: "Salvo"},
@@ -168,7 +168,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraaya: {
 		num: 16,
 		name: "Extra Aya",
-		types: ["Wind", "Electric"],
+		types: ["Wind", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 45, def: 90, spa: 90, spd: 100, spe: 100},
 		abilities: {0: "Intuition", 1: "Unjustness"},
@@ -179,7 +179,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalbenben: {
 		num: 17,
 		name: "Normal Benben",
-		types: ["Sound"],
+		types: ["Sounds"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 50, def: 65, spa: 30, spd: 65, spe: 40},
 		abilities: {0: "Emergency Cure", 1: "Resonance"},
@@ -190,7 +190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerbenben: {
 		num: 18,
 		name: "Power Benben",
-		types: ["Sound", "Void"],
+		types: ["Sounds", "Void"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 120, def: 75, spa: 40, spd: 100, spe: 80},
 		abilities: {0: "Mind's Eye", 1: "Resonance"},
@@ -201,7 +201,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensebenben: {
 		num: 19,
 		name: "Defense Benben",
-		types: ["Sound", "Nature"],
+		types: ["Sounds", "Nature"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 105, def: 85, spa: 40, spd: 110, spe: 55},
 		abilities: {0: "Warning Shot", 1: "Economist"},
@@ -212,7 +212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrabenben: {
 		num: 20,
 		name: "Extra Benben",
-		types: ["Sound", "Earth"],
+		types: ["Sounds", "Earths"],
 		gender: "F",
 		baseStats: {hp: 165, atk: 40, def: 90, spa: 90, spd: 45, spe: 65},
 		abilities: {0: "Light Curtain", 1: "Stimulative"},
@@ -245,7 +245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistchen: {
 		num: 23,
 		name: "Assist Chen",
-		types: ["Wind", "Earth"],
+		types: ["Wind", "Earths"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 50, def: 85, spa: 80, spd: 85, spe: 120},
 		abilities: {0: "Niche", 1: "Adverse Wind"},
@@ -256,7 +256,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrachen: {
 		num: 24,
 		name: "Extra Chen",
-		types: ["Earth", "Void"],
+		types: ["Earths", "Void"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 105, def: 70, spa: 40, spd: 70, spe: 110},
 		abilities: {0: "Known Limits", 1: "Eastern Expanse"},
@@ -267,7 +267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalchimata: {
 		num: 25,
 		name: "Normal Chimata",
-		types: ["Light", "Steel"],
+		types: ["Lights", "Steels"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 60, def: 60, spa: 40, spd: 60, spe: 40},
 		abilities: {0: "Glamorous", 1: "Empowered"},
@@ -278,7 +278,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensechimata: {
 		num: 26,
 		name: "Defense Chimata",
-		types: ["Light", "Steel"],
+		types: ["Lights", "Steels"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 110, def: 110, spa: 60, spd: 85, spe: 75},
 		abilities: {0: "Glamorous", 1: "Empowered"},
@@ -300,7 +300,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrachimata: {
 		num: 28,
 		name: "Extra Chimata",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 85, def: 80, spa: 110, spd: 75, spe: 120},
 		abilities: {0: "Grand Opening", 1: "Strange Rainbow"},
@@ -311,7 +311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalchiyuri: {
 		num: 29,
 		name: "Normal Chiyuri",
-		types: ["Electric", "Water"],
+		types: ["Electrics", "Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 30, spd: 45, spe: 30},
 		abilities: {0: "Disturber", 1: "Collectomaniac"},
@@ -322,7 +322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensechiyuri: {
 		num: 30,
 		name: "Defense Chiyuri",
-		types: ["Electric", "Water"],
+		types: ["Electrics", "Waters"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 100, def: 120, spa: 45, spd: 80, spe: 45},
 		abilities: {0: "Disturber", 1: "Metallurgy"},
@@ -333,7 +333,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedchiyuri: {
 		num: 31,
 		name: "Speed Chiyuri",
-		types: ["Electric", "Light"],
+		types: ["Electrics", "Lights"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 125, def: 60, spa: 40, spd: 50, spe: 105},
 		abilities: {0: "Common Senseless", 1: "Reckless"},
@@ -344,7 +344,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrachiyuri: {
 		num: 32,
 		name: "Extra Chiyuri",
-		types: ["Water", "Illusion"],
+		types: ["Waters", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 45, def: 80, spa: 100, spd: 130, spe: 50},
 		abilities: {0: "Glamorous", 1: "Stubborn"},
@@ -355,7 +355,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalcirno: {
 		num: 33,
 		name: "Normal Cirno",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 50, def: 30, spa: 50, spd: 30, spe: 60},
 		abilities: {0: "Curiosity", 1: "Active"},
@@ -366,7 +366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistcirno: {
 		num: 34,
 		name: "Assist Cirno",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 40, def: 95, spa: 90, spd: 65, spe: 85},
 		abilities: {0: "Curiosity", 1: "Active"},
@@ -377,7 +377,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powercirno: {
 		num: 35,
 		name: "Power Cirno",
-		types: ["Water", "Nature"],
+		types: ["Waters", "Nature"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 120, def: 40, spa: 100, spd: 40, spe: 105},
 		abilities: {0: "Daredevil", 1: "Up Tempo"},
@@ -388,7 +388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extracirno: {
 		num: 36,
 		name: "Extra Cirno",
-		types: ["Water", "Fighting"],
+		types: ["Waters", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 40, def: 130, spa: 80, spd: 75, spe: 40},
 		abilities: {0: "Wariness", 1: "Known Limits"},
@@ -399,7 +399,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalclownpiece: {
 		num: 37,
 		name: "Normal Clownpiece",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 40, def: 55, spa: 50, spd: 55, spe: 60},
 		abilities: {0: "Glamorous", 1: "Chaos Induction"},
@@ -410,7 +410,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseclownpiece: {
 		num: 38,
 		name: "Defense Clownpiece",
-		types: ["Fire", "Light"],
+		types: ["Fires", "Lights"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 70, def: 105, spa: 50, spd: 95, spe: 80},
 		abilities: {0: "Recoil Offset", 1: "Chaos Induction"},
@@ -421,7 +421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedclownpiece: {
 		num: 39,
 		name: "Speed Clownpiece",
-		types: ["Fire", "Illusion"],
+		types: ["Fires", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 80, spa: 80, spd: 80, spe: 130},
 		abilities: {0: "Wasteful", 1: "Telescopic"},
@@ -432,7 +432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraclownpiece: {
 		num: 40,
 		name: "Extra Clownpiece",
-		types: ["Fire", "Warped"],
+		types: ["Fires", "Warped"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 115, def: 35, spa: 80, spd: 120, spe: 40},
 		abilities: {0: "Glamorous", 1: "Up Tempo"},
@@ -531,7 +531,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaleika: {
 		num: 49,
 		name: "Normal Eika",
-		types: ["Nether", "Earth"],
+		types: ["Nether", "Earths"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 20, def: 60, spa: 55, spd: 50, spe: 40},
 		abilities: {0: "Appeased Spirit", 1: "Karmic Retribution"},
@@ -542,7 +542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseeika: {
 		num: 50,
 		name: "Defense Eika",
-		types: ["Nether", "Earth"],
+		types: ["Nether", "Earths"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 35, def: 125, spa: 90, spd: 115, spe: 40},
 		abilities: {0: "Appeased Spirit", 1: "Karmic Retribution"},
@@ -564,7 +564,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraeika: {
 		num: 52,
 		name: "Extra Eika",
-		types: ["Nether", "Water"],
+		types: ["Nether", "Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 35, def: 105, spa: 80, spd: 105, spe: 65},
 		abilities: {0: "Stone Stacker", 1: "Known Limits"},
@@ -575,7 +575,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaleiki: {
 		num: 53,
 		name: "Normal Eiki",
-		types: ["Light", "Fighting"],
+		types: ["Lights", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 75, def: 40, spa: 45, spd: 40, spe: 40},
 		abilities: {0: "Sermon", 1: "Sixth Sense"},
@@ -586,7 +586,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powereiki: {
 		num: 54,
 		name: "Power Eiki",
-		types: ["Light", "Fighting"],
+		types: ["Lights", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 140, def: 70, spa: 90, spd: 70, spe: 60},
 		abilities: {0: "Sermon", 1: "Flawless"},
@@ -597,7 +597,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseeiki: {
 		num: 55,
 		name: "Defense Eiki",
-		types: ["Light", "Nether"],
+		types: ["Lights", "Nether"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 75, def: 110, spa: 75, spd: 110, spe: 80},
 		abilities: {0: "Sermon", 1: "Unjustness"},
@@ -619,7 +619,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaleirin: {
 		num: 57,
 		name: "Normal Eirin",
-		types: ["Poison", "Water"],
+		types: ["Poisons", "Waters"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 45, def: 40, spa: 70, spd: 40, spe: 45},
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
@@ -630,7 +630,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assisteirin: {
 		num: 58,
 		name: "Assist Eirin",
-		types: ["Poison", "Water"],
+		types: ["Poisons", "Waters"],
 		gender: "F",
 		baseStats: {hp: 145, atk: 80, def: 65, spa: 120, spd: 75, spe: 75},
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
@@ -641,7 +641,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powereirin: {
 		num: 59,
 		name: "Power Eirin",
-		types: ["Poison", "Steel"],
+		types: ["Poisons", "Steels"],
 		gender: "F",
 		baseStats: {hp: 125, atk: 85, def: 80, spa: 130, spd: 80, spe: 60},
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
@@ -652,7 +652,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraeirin: {
 		num: 60,
 		name: "Extra Eirin",
-		types: ["Poison", "Light"],
+		types: ["Poisons", "Lights"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 95, spd: 100, spe: 105},
 		abilities: {0: "Composed", 1: "Emergency Cure"},
@@ -663,7 +663,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalelis: {
 		num: 61,
 		name: "Normal Elis",
-		types: ["Dark", "Electric"],
+		types: ["Darks", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 65, def: 40, spa: 30, spd: 55, spe: 70},
 		abilities: {0: "Infiltration", 1: "Negative Aura"},
@@ -674,7 +674,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedelis: {
 		num: 62,
 		name: "Speed Elis",
-		types: ["Dark", "Electric"],
+		types: ["Darks", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 110, def: 60, spa: 60, spd: 90, spe: 130},
 		abilities: {0: "Infiltration", 1: "Negative Aura"},
@@ -685,7 +685,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerelis: {
 		num: 63,
 		name: "Power Elis",
-		types: ["Dark", "Poison"],
+		types: ["Darks", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 125, def: 75, spa: 50, spd: 95, spe: 90},
 		abilities: {0: "Infiltration", 1: "Telescopic"},
@@ -696,7 +696,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraelis: {
 		num: 64,
 		name: "Extra Elis",
-		types: ["Electric", "Poison"],
+		types: ["Electrics", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 60, def: 90, spa: 60, spd: 95, spe: 100},
 		abilities: {0: "Infiltration", 1: "Unjustness"},
@@ -729,7 +729,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedellen: {
 		num: 67,
 		name: "Speed Ellen",
-		types: ["Illusion", "Electric"],
+		types: ["Illusion", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 50, def: 50, spa: 115, spd: 95, spe: 120},
 		abilities: {0: "Spirit of Yang", 1: "Air Cushion"},
@@ -751,7 +751,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalelly: {
 		num: 69,
 		name: "Normal Elly",
-		types: ["Steel", "Wind"],
+		types: ["Steels", "Wind"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 70, def: 60, spa: 30, spd: 35, spe: 30},
 		abilities: {0: "Iron Resolve", 1: "Imposing Stance"},
@@ -762,7 +762,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerelly: {
 		num: 70,
 		name: "Power Elly",
-		types: ["Steel", "Wind"],
+		types: ["Steels", "Wind"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 120, def: 90, spa: 60, spd: 75, spe: 65},
 		abilities: {0: "Iron Resolve", 1: "Recoil Offset"},
@@ -773,7 +773,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseelly: {
 		num: 71,
 		name: "Defense Elly",
-		types: ["Steel", "Earth"],
+		types: ["Steels", "Earths"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 95, def: 95, spa: 50, spd: 80, spe: 60},
 		abilities: {0: "Iron Resolve", 1: "Imposing Stance"},
@@ -784,7 +784,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraelly: {
 		num: 72,
 		name: "Extra Elly",
-		types: ["Earth", "Dark"],
+		types: ["Earths", "Darks"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 60, def: 75, spa: 100, spd: 60, spe: 120},
 		abilities: {0: "Nimble", 1: "Ascertainment"},
@@ -806,7 +806,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedeternity: {
 		num: 74,
 		name: "Speed Eternity",
-		types: ["Nature", "Fire"],
+		types: ["Nature", "Fires"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 100, def: 50, spa: 30, spd: 90, spe: 110},
 		abilities: {0: "Warning Shot", 1: "Sanguine"},
@@ -817,7 +817,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assisteternity: {
 		num: 75,
 		name: "Assist Eternity",
-		types: ["Wind", "Light"],
+		types: ["Wind", "Lights"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 35, def: 90, spa: 85, spd: 95, spe: 80},
 		abilities: {0: "Deploy Smoke", 1: "Phlegmatic"},
@@ -839,7 +839,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalflandre: {
 		num: 77,
 		name: "Normal Flandre",
-		types: ["Dark", "Light"],
+		types: ["Darks", "Lights"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 70, def: 35, spa: 70, spd: 35, spe: 70},
 		abilities: {0: "Hot Head", 1: "Overwhelm"},
@@ -850,7 +850,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedflandre: {
 		num: 78,
 		name: "Speed Flandre",
-		types: ["Dark", "Light"],
+		types: ["Darks", "Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 120, def: 60, spa: 120, spd: 60, spe: 110},
 		abilities: {0: "Hot Head", 1: "Unbound"},
@@ -861,7 +861,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerflandre: {
 		num: 79,
 		name: "Power Flandre",
-		types: ["Dark", "Fire"],
+		types: ["Darks", "Fires"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 115, def: 90, spa: 145, spd: 60, spe: 80},
 		abilities: {0: "Sutei's Fire", 1: "Overwhelm"},
@@ -872,7 +872,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraflandre: {
 		num: 80,
 		name: "Extra Flandre",
-		types: ["Warped", "Light"],
+		types: ["Warped", "Lights"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 120, def: 120, spa: 50, spd: 85, spe: 70},
 		abilities: {0: "Full Power", 1: "Unbound"},
@@ -883,7 +883,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalfuto: {
 		num: 81,
 		name: "Normal Futo",
-		types: ["Wind", "Water"],
+		types: ["Wind", "Waters"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 40, def: 55, spa: 60, spd: 35, spe: 70},
 		abilities: {0: "Deploy Smoke", 1: "Weather Resist"},
@@ -894,7 +894,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedfuto: {
 		num: 82,
 		name: "Speed Futo",
-		types: ["Wind", "Water"],
+		types: ["Wind", "Waters"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 70, def: 90, spa: 105, spd: 55, spe: 135},
 		abilities: {0: "Deploy Smoke", 1: "Strategist"},
@@ -905,7 +905,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerfuto: {
 		num: 83,
 		name: "Power Futo",
-		types: ["Earth", "Fire"],
+		types: ["Earths", "Fires"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 60, def: 55, spa: 120, spd: 95, spe: 110},
 		abilities: {0: "Deploy Smoke", 1: "Unbound"},
@@ -916,7 +916,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrafuto: {
 		num: 84,
 		name: "Extra Futo",
-		types: ["Nether", "Fighting"],
+		types: ["Nether", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 110, def: 60, spa: 60, spd: 80, spe: 130},
 		abilities: {0: "Sore Loser", 1: "Active"},
@@ -927,7 +927,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalgengetsu: {
 		num: 85,
 		name: "Normal Gengetsu",
-		types: ["Illusion", "Light"],
+		types: ["Illusion", "Lights"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 75, def: 40, spa: 55, spd: 45, spe: 55},
 		abilities: {0: "Insight", 1: "Sixth Sense"},
@@ -938,7 +938,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powergengetsu: {
 		num: 86,
 		name: "Power Gengetsu",
-		types: ["Illusion", "Light"],
+		types: ["Illusion", "Lights"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 135, def: 70, spa: 70, spd: 85, spe: 75},
 		abilities: {0: "Insight", 1: "Sixth Sense"},
@@ -949,7 +949,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedgengetsu: {
 		num: 87,
 		name: "Speed Gengetsu",
-		types: ["Illusion", "Electric"],
+		types: ["Illusion", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 120, def: 45, spa: 120, spd: 45, spe: 130},
 		abilities: {0: "Eastern Expanse", 1: "Quick Eye"},
@@ -960,7 +960,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extragengetsu: {
 		num: 88,
 		name: "Extra Gengetsu",
-		types: ["Warped", "Dark"],
+		types: ["Warped", "Darks"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 60, def: 125, spa: 90, spd: 100, spe: 70},
 		abilities: {0: "Unwavering Heart", 1: "Brutality"},
@@ -1037,7 +1037,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensehecatia: {
 		num: 95,
 		name: "Defense Hecatia",
-		types: ["Earth", "Dark"],
+		types: ["Earths", "Darks"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 70, spd: 200, spe: 50},
 		abilities: {0: "Restraint", 1: "Recalibration"},
@@ -1060,7 +1060,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrahecatiaearth: {
 		num: 97,
 		name: "Extra Hecatia-Earth",
-		types: ["Earth", "Nature"],
+		types: ["Earths", "Nature"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 140, def: 140, spa: 60, spd: 10, spe: 90},
 		abilities: {0: "Three Bodies"},
@@ -1068,12 +1068,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia-earth",
 		changesFrom: "extrahecatia",
-		forme: "Earth"
+		forme: "Earths"
 	},
 	extrahecatiamoon: {
 		num: 98,
 		name: "Extra Hecatia-Moon",
-		types: ["Light", "Dark"],
+		types: ["Lights", "Darks"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 60, def: 10, spa: 140, spd: 140, spe: 90},
 		abilities: {0: "Three Bodies"},
@@ -1086,7 +1086,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalhijiri: {
 		num: 99,
 		name: "Normal Hijiri",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 40, def: 55, spa: 70, spd: 60, spe: 30},
 		abilities: {0: "Unbound", 1: "Light Curtain"},
@@ -1097,7 +1097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensehijiri: {
 		num: 100,
 		name: "Defense Hijiri",
-		types: ["Fighting", "Light"],
+		types: ["Fightings", "Lights"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 60, def: 105, spa: 120, spd: 100, spe: 55},
 		abilities: {0: "Unbound", 1: "Aurora Grace"},
@@ -1108,7 +1108,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedhijiri: {
 		num: 101,
 		name: "Speed Hijiri",
-		types: ["Fighting", "Light"],
+		types: ["Fightings", "Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 120, def: 80, spa: 60, spd: 80, spe: 110},
 		abilities: {0: "Unbound", 1: "Reckless"},
@@ -1119,7 +1119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrahijiri: {
 		num: 102,
 		name: "Extra Hijiri",
-		types: ["Earth", "Electric"],
+		types: ["Earths", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 100, def: 65, spa: 110, spd: 65, spe: 120},
 		abilities: {0: "First Hit", 1: "Recoil Offset"},
@@ -1130,7 +1130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalhina: {
 		num: 103,
 		name: "Normal Hina",
-		types: ["Poison", "Nether"],
+		types: ["Poisons", "Nether"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 60, def: 70, spa: 40, spd: 45, spe: 45},
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
@@ -1141,7 +1141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensehina: {
 		num: 104,
 		name: "Defense Hina",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 40, def: 140, spa: 80, spd: 70, spe: 75},
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
@@ -1152,7 +1152,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assisthina: {
 		num: 105,
 		name: "Assist Hina",
-		types: ["Poison", "Dark"],
+		types: ["Poisons", "Darks"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 100, def: 60, spa: 40, spd: 110, spe: 105},
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
@@ -1163,7 +1163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrahina: {
 		num: 106,
 		name: "Extra Hina",
-		types: ["Poison", "Fire"],
+		types: ["Poisons", "Fires"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 130, def: 65, spa: 40, spd: 120, spe: 30},
 		abilities: {0: "Air Cushion", 1: "Reflect Guard"},
@@ -1174,7 +1174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalichirin: {
 		num: 107,
 		name: "Normal Ichirin",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 75, def: 40, spa: 30, spd: 50, spe: 40},
 		abilities: {0: "Duel", 1: "Overwhelm"},
@@ -1185,7 +1185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerichirin: {
 		num: 108,
 		name: "Power Ichirin",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 130, def: 65, spa: 55, spd: 100, spe: 75},
 		abilities: {0: "Duel", 1: "Overwhelm"},
@@ -1196,7 +1196,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseichirin: {
 		num: 109,
 		name: "Defense Ichirin",
-		types: ["Fighting", "Electric"],
+		types: ["Fightings", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 120, def: 80, spa: 80, spd: 80, spe: 30},
 		abilities: {0: "Duel", 1: "Overwhelm"},
@@ -1207,7 +1207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraichirin: {
 		num: 110,
 		name: "Extra Ichirin",
-		types: ["Electric", "Water"],
+		types: ["Electrics", "Waters"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 60, def: 80, spa: 55, spd: 80, spe: 45},
 		abilities: {0: "Air Cushion", 1: "Forward Dash"},
@@ -1218,7 +1218,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaliku: {
 		num: 111,
 		name: "Normal Iku",
-		types: ["Electric"],
+		types: ["Electrics"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 40, def: 60, spa: 70, spd: 50, spe: 25},
 		abilities: {0: "Electromagnetic", 1: "Air Cushion"},
@@ -1229,7 +1229,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweriku: {
 		num: 112,
 		name: "Power Iku",
-		types: ["Electric"],
+		types: ["Electrics"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 75, def: 100, spa: 130, spd: 80, spe: 45},
 		abilities: {0: "Electromagnetic", 1: "Air Cushion"},
@@ -1240,7 +1240,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speediku: {
 		num: 113,
 		name: "Speed Iku",
-		types: ["Electric", "Wind"],
+		types: ["Electrics", "Wind"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 115, def: 85, spa: 75, spd: 80, spe: 85},
 		abilities: {0: "Gale Form", 1: "Electrification"},
@@ -1251,7 +1251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraiku: {
 		num: 114,
 		name: "Extra Iku",
-		types: ["Wind", "Light"],
+		types: ["Wind", "Lights"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 90, def: 110, spa: 45, spd: 60, spe: 115},
 		abilities: {0: "Electromagnetic", 1: "Reckless"},
@@ -1262,7 +1262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaljunko: {
 		num: 115,
 		name: "Normal Junko",
-		types: ["Light", "Warped"],
+		types: ["Lights", "Warped"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 75, def: 60, spa: 50, spd: 65, spe: 35},
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
@@ -1273,7 +1273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerjunko: {
 		num: 116,
 		name: "Power Junko",
-		types: ["Light", "Warped"],
+		types: ["Lights", "Warped"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 125, def: 100, spa: 90, spd: 110, spe: 65},
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
@@ -1284,7 +1284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedjunko: {
 		num: 117,
 		name: "Speed Junko",
-		types: ["Light", "Dark"],
+		types: ["Lights", "Darks"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 80, def: 90, spa: 125, spd: 80, spe: 125},
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
@@ -1306,7 +1306,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkagerou: {
 		num: 119,
 		name: "Normal Kagerou",
-		types: ["Dark", "Wind"],
+		types: ["Darks", "Wind"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 70, def: 40, spa: 35, spd: 40, spe: 70},
 		abilities: {0: "Final Form", 1: "Gale"},
@@ -1317,7 +1317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedkagerou: {
 		num: 120,
 		name: "Speed Kagerou",
-		types: ["Dark", "Wind"],
+		types: ["Darks", "Wind"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 50, def: 60, spa: 120, spd: 85, spe: 120},
 		abilities: {0: "Final Form", 1: "Gale"},
@@ -1328,7 +1328,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkagerou: {
 		num: 121,
 		name: "Power Kagerou",
-		types: ["Dark", "Earth"],
+		types: ["Darks", "Earths"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 125, def: 80, spa: 50, spd: 95, spe: 80},
 		abilities: {0: "Final Form", 1: "Invigorative"},
@@ -1339,7 +1339,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakagerou: {
 		num: 122,
 		name: "Extra Kagerou",
-		types: ["Wind", "Poison"],
+		types: ["Wind", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 60, def: 115, spa: 95, spd: 130, spe: 30},
 		abilities: {0: "Vigorous", 1: "Cloak of Darkness"},
@@ -1350,7 +1350,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkaguya: {
 		num: 123,
 		name: "Normal Kaguya",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 30, def: 30, spa: 70, spd: 75, spe: 30},
 		abilities: {0: "Flaming Garment", 1: "Emergency Cure"},
@@ -1361,7 +1361,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensekaguya: {
 		num: 124,
 		name: "Defense Kaguya",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 220, atk: 35, def: 10, spa: 80, spd: 130, spe: 55},
 		abilities: {0: "Flaming Garment", 1: "Emergency Cure"},
@@ -1372,7 +1372,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkaguya: {
 		num: 125,
 		name: "Power Kaguya",
-		types: ["Light", "Void"],
+		types: ["Lights", "Void"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 65, def: 80, spa: 130, spd: 80, spe: 55},
 		abilities: {0: "Healing Power", 1: "Pride"},
@@ -1383,7 +1383,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakaguya: {
 		num: 126,
 		name: "Extra Kaguya",
-		types: ["Fire", "Sound"],
+		types: ["Fires", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 130, def: 85, spa: 60, spd: 80, spe: 65},
 		abilities: {0: "Sore Loser", 1: "Strange Rainbow"},
@@ -1394,7 +1394,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkana: {
 		num: 127,
 		name: "Normal Kana",
-		types: ["Nether", "Sound"],
+		types: ["Nether", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 35, spd: 60, spe: 65},
 		abilities: {0: "Skilled Hand", 1: "Quick Eye"},
@@ -1405,7 +1405,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkana: {
 		num: 128,
 		name: "Assist Kana",
-		types: ["Nether", "Sound"],
+		types: ["Nether", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 95, def: 60, spa: 40, spd: 100, spe: 115},
 		abilities: {0: "Curiosity", 1: "Quick Eye"},
@@ -1438,7 +1438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkanako: {
 		num: 131,
 		name: "Normal Kanako",
-		types: ["Wind", "Earth"],
+		types: ["Wind", "Earths"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 65, def: 75, spa: 55, spd: 40, spe: 30},
 		abilities: {0: "Unjustness", 1: "Strong Smile"},
@@ -1449,7 +1449,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensekanako: {
 		num: 132,
 		name: "Defense Kanako",
-		types: ["Wind", "Earth"],
+		types: ["Wind", "Earths"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 110, def: 140, spa: 95, spd: 70, spe: 70},
 		abilities: {0: "Unjustness", 1: "Strong Smile"},
@@ -1471,7 +1471,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakanako: {
 		num: 134,
 		name: "Extra Kanako",
-		types: ["Wind", "Fighting"],
+		types: ["Wind", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 100, def: 80, spa: 75, spd: 130, spe: 95},
 		abilities: {0: "Metallurgy", 1: "Western Expanse"},
@@ -1482,7 +1482,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkasen: {
 		num: 135,
 		name: "Normal Kasen",
-		types: ["Fighting", "Illusion"],
+		types: ["Fightings", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 75, def: 60, spa: 50, spd: 45, spe: 30},
 		abilities: {0: "Sermon"},
@@ -1493,7 +1493,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkasen: {
 		num: 136,
 		name: "Power Kasen",
-		types: ["Fighting", "Illusion"],
+		types: ["Fightings", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 140, def: 95, spa: 90, spd: 65, spe: 45},
 		abilities: {0: "Mind's Eye", 1: "Charge!"},
@@ -1504,7 +1504,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkasen: {
 		num: 137,
 		name: "Assist Kasen",
-		types: ["Fighting", "Nether"],
+		types: ["Fightings", "Nether"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 95, spa: 80, spd: 110, spe: 95},
 		abilities: {0: "Absorbent", 1: "Battle Mania"},
@@ -1515,7 +1515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakasen: {
 		num: 138,
 		name: "Extra Kasen",
-		types: ["Fighting", "Warped"],
+		types: ["Fightings", "Warped"],
 		gender: "F",
 		baseStats: {hp: 130, atk: 65, def: 130, spa: 110, spd: 60, spe: 45},
 		abilities: {0: "Restraint", 1: "Stubborn"},
@@ -1526,7 +1526,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkeiki: {
 		num: 139,
 		name: "Normal Keiki",
-		types: ["Earth"],
+		types: ["Earths"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 70, def: 55, spa: 40, spd: 65, spe: 45},
 		abilities: {0: "Unjustness", 1: "Flawless"},
@@ -1537,7 +1537,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkeiki: {
 		num: 140,
 		name: "Power Keiki",
-		types: ["Earth", "Electric"],
+		types: ["Earths", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 125, def: 100, spa: 80, spd: 80, spe: 75},
 		abilities: {0: "Unjustness", 1: "Recoil Offset"},
@@ -1548,7 +1548,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkeiki: {
 		num: 141,
 		name: "Assist Keiki",
-		types: ["Earth", "Water"],
+		types: ["Earths", "Waters"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 65, spa: 110, spd: 120, spe: 115},
 		abilities: {0: "Known Limits", 1: "Flawless"},
@@ -1559,7 +1559,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakeiki: {
 		num: 142,
 		name: "Extra Keiki",
-		types: ["Warped", "Electric"],
+		types: ["Warped", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 125, def: 75, spa: 105, spd: 75, spe: 90},
 		abilities: {0: "Phalanx", 1: "Sand Force"},
@@ -1570,7 +1570,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkeine: {
 		num: 143,
 		name: "Normal Keine",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 55, def: 50, spa: 30, spd: 40, spe: 40},
 		abilities: {0: "Overwhelm", 1: "Sermon"},
@@ -1581,7 +1581,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensekeine: {
 		num: 144,
 		name: "Defense Keine",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 95, def: 125, spa: 45, spd: 80, spe: 45},
 		abilities: {0: "Were-Hakutaku", 1: "Wisdom Eye"},
@@ -1593,7 +1593,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensekeinehakutaku: {
 		num: 145,
 		name: "Defense Keine-Hakutaku",
-		types: ["Steel", "Fighting"],
+		types: ["Steels", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 140, def: 50, spa: 55, spd: 50, spe: 120},
 		abilities: {0: "Were-Hakutaku"},
@@ -1606,7 +1606,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkeine: {
 		num: 146,
 		name: "Power Keine",
-		types: ["Steel", "Light"],
+		types: ["Steels", "Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 40, def: 60, spa: 125, spd: 90, spe: 90},
 		abilities: {0: "Overwhelm", 1: "Byakutei's Metal"},
@@ -1617,7 +1617,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakeine: {
 		num: 147,
 		name: "Extra Keine",
-		types: ["Earth", "Warped"],
+		types: ["Earths", "Warped"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 110, def: 70, spa: 55, spd: 70, spe: 105},
 		abilities: {0: "Yata no Kagami", 1: "Sermon"},
@@ -1650,7 +1650,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkikuri: {
 		num: 150,
 		name: "Power Kikuri",
-		types: ["Illusion", "Electric"],
+		types: ["Illusion", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 85, spa: 120, spd: 100, spe: 50},
 		abilities: {0: "Chaos Induction", 1: "Healing Power"},
@@ -1661,7 +1661,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakikuri: {
 		num: 151,
 		name: "Extra Kikuri",
-		types: ["Illusion", "Water"],
+		types: ["Illusion", "Waters"],
 		gender: "F",
 		baseStats: {hp: 170, atk: 85, def: 80, spa: 50, spd: 50, spe: 60},
 		abilities: {0: "In Sync", 1: "Niche"},
@@ -1672,7 +1672,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkisume: {
 		num: 152,
 		name: "Normal Kisume",
-		types: ["Dark", "Fire"],
+		types: ["Darks", "Fires"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 25, def: 70, spa: 50, spd: 70, spe: 20},
 		abilities: {0: "Indomitable", 1: "Some Guts"},
@@ -1683,7 +1683,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkisume: {
 		num: 153,
 		name: "Assist Kisume",
-		types: ["Dark", "Fire"],
+		types: ["Darks", "Fires"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 65, def: 180, spa: 90, spd: 30, spe: 20},
 		abilities: {0: "Indomitable", 1: "Some Guts"},
@@ -1694,7 +1694,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensekisume: {
 		num: 154,
 		name: "Defense Kisume",
-		types: ["Dark", "Water"],
+		types: ["Darks", "Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 65, def: 30, spa: 90, spd: 180, spe: 20},
 		abilities: {0: "Indomitable", 1: "Some Guts"},
@@ -1705,7 +1705,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakisume: {
 		num: 155,
 		name: "Extra Kisume",
-		types: ["Fire", "Nature"],
+		types: ["Fires", "Nature"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 90, def: 110, spa: 40, spd: 100, spe: 45},
 		abilities: {0: "Indomitable", 1: "Restraint"},
@@ -1716,7 +1716,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkoakuma: {
 		num: 156,
 		name: "Normal Koakuma",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 30, def: 45, spa: 55, spd: 65, spe: 45},
 		abilities: {0: "Healing Power", 1: "Infiltration"},
@@ -1738,7 +1738,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkoakuma: {
 		num: 158,
 		name: "Assist Koakuma",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 40, def: 70, spa: 70, spd: 100, spe: 110},
 		abilities: {0: "Curse Return", 1: "Infiltration"},
@@ -1749,7 +1749,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakoakuma: {
 		num: 159,
 		name: "Extra Koakuma",
-		types: ["Dark", "Void"],
+		types: ["Darks", "Void"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 40, def: 105, spa: 40, spd: 90, spe: 105},
 		abilities: {0: "Wariness", 1: "Harassment"},
@@ -1760,7 +1760,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkogasa: {
 		num: 160,
 		name: "Normal Kogasa",
-		types: ["Water", "Wind"],
+		types: ["Waters", "Wind"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 30, def: 40, spa: 50, spd: 55, spe: 55},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
@@ -1771,7 +1771,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkogasa: {
 		num: 161,
 		name: "Assist Kogasa",
-		types: ["Water", "Wind"],
+		types: ["Waters", "Wind"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 40, def: 80, spa: 100, spd: 95, spe: 70},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
@@ -1782,7 +1782,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedkogasa: {
 		num: 162,
 		name: "Speed Kogasa",
-		types: ["Water", "Light"],
+		types: ["Waters", "Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 40, def: 70, spa: 110, spd: 70, spe: 110},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
@@ -1793,7 +1793,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakogasa: {
 		num: 163,
 		name: "Extra Kogasa",
-		types: ["Water", "Sound"],
+		types: ["Waters", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 130, def: 70, spa: 30, spd: 100, spe: 55},
 		abilities: {0: "Metallurgy", 1: "Gentei's Water"},
@@ -1848,7 +1848,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkokoro: {
 		num: 168,
 		name: "Normal Kokoro",
-		types: ["Void", "Fighting"],
+		types: ["Void", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 35, def: 40, spa: 60, spd: 55, spe: 30},
 		abilities: {0: "Poker Face", 1: "Moody"},
@@ -1859,7 +1859,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensekokoro: {
 		num: 169,
 		name: "Defense Kokoro",
-		types: ["Void", "Fighting"],
+		types: ["Void", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 80, def: 80, spa: 85, spd: 125, spe: 50},
 		abilities: {0: "Poker Face", 1: "Moody"},
@@ -1870,7 +1870,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkokoro: {
 		num: 170,
 		name: "Power Kokoro",
-		types: ["Void", "Light"],
+		types: ["Void", "Lights"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 110, def: 80, spa: 110, spd: 80, spe: 45},
 		abilities: {0: "Poker Face", 1: "Infinite Changes"},
@@ -1881,7 +1881,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakokoro: {
 		num: 171,
 		name: "Extra Kokoro",
-		types: ["Sound", "Dark"],
+		types: ["Sounds", "Darks"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 50, def: 90, spa: 125, spd: 70, spe: 100},
 		abilities: {0: "Master's Defense", 1: "Mindless Dance"},
@@ -1892,7 +1892,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkomachi: {
 		num: 172,
 		name: "Normal Komachi",
-		types: ["Water", "Nether"],
+		types: ["Waters", "Nether"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 65, def: 40, spa: 40, spd: 60, spe: 40},
 		abilities: {0: "Grace of Water", 1: "Suppression"},
@@ -1903,7 +1903,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkomachi: {
 		num: 173,
 		name: "Assist Komachi",
-		types: ["Water", "Nether"],
+		types: ["Waters", "Nether"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 100, def: 70, spa: 60, spd: 130, spe: 75},
 		abilities: {0: "Grace of Water", 1: "Suppression"},
@@ -1914,7 +1914,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkomachi: {
 		num: 174,
 		name: "Power Komachi",
-		types: ["Water", "Steel"],
+		types: ["Waters", "Steels"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 130, def: 75, spa: 60, spd: 100, spe: 50},
 		abilities: {0: "Strategist", 1: "Moody"},
@@ -1925,7 +1925,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakomachi: {
 		num: 175,
 		name: "Extra Komachi",
-		types: ["Water", "Warped"],
+		types: ["Waters", "Warped"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 50, def: 90, spa: 110, spd: 70, spe: 95},
 		abilities: {0: "Flat Speed", 1: "Drunkard"},
@@ -1936,7 +1936,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkonngara: {
 		num: 176,
 		name: "Normal Konngara",
-		types: ["Steel", "Fighting"],
+		types: ["Steels", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 70, def: 60, spa: 50, spd: 50, spe: 50},
 		abilities: {0: "Final Form", 1: "Benefit of Fire"},
@@ -1947,7 +1947,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkonngara: {
 		num: 177,
 		name: "Power Konngara",
-		types: ["Steel", "Fighting"],
+		types: ["Steels", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 130, def: 100, spa: 110, spd: 80, spe: 70},
 		abilities: {0: "Final Form", 1: "Benefit of Fire"},
@@ -1958,7 +1958,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedkonngara: {
 		num: 178,
 		name: "Speed Konngara",
-		types: ["Steel", "Fire"],
+		types: ["Steels", "Fires"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 125, def: 90, spa: 90, spd: 70, spe: 115},
 		abilities: {0: "Final Form", 1: "Sand Devil"},
@@ -1969,7 +1969,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakonngara: {
 		num: 179,
 		name: "Extra Konngara",
-		types: ["Nether", "Fire"],
+		types: ["Nether", "Fires"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 90, def: 100, spa: 90, spd: 100, spe: 60},
 		abilities: {0: "Inverse Reaction", 1: "Air Cushion"},
@@ -2025,7 +2025,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakosuzured: {
 		num: 184,
 		name: "Extra Kosuzu-Red",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Imposing Stance"},
@@ -2039,7 +2039,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakosuzublue: {
 		num: 185,
 		name: "Extra Kosuzu-Blue",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Known Limits"},
@@ -2053,7 +2053,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakosuzublack: {
 		num: 186,
 		name: "Extra Kosuzu-Black",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Unbound"},
@@ -2067,7 +2067,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakosuzuwhite: {
 		num: 187,
 		name: "Extra Kosuzu-White",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Wariness"},
@@ -2114,7 +2114,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakotohime: {
 		num: 191,
 		name: "Extra Kotohime",
-		types: ["Void", "Poison"],
+		types: ["Void", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 30, def: 90, spa: 100, spd: 90, spe: 60},
 		abilities: {0: "Niche", 1: "Common Senseless"},
@@ -2125,7 +2125,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkurumi: {
 		num: 192,
 		name: "Normal Kurumi",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 35, def: 30, spa: 70, spd: 40, spe: 65},
 		abilities: {0: "Iron Resolve", 1: "Surprise Tactics"},
@@ -2136,7 +2136,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkurumi: {
 		num: 193,
 		name: "Power Kurumi",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 45, def: 60, spa: 125, spd: 70, spe: 95},
 		abilities: {0: "Wariness", 1: "Surprise Tactics"},
@@ -2147,7 +2147,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkurumi: {
 		num: 194,
 		name: "Assist Kurumi",
-		types: ["Dark", "Poison"],
+		types: ["Darks", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 55, def: 60, spa: 75, spd: 90, spe: 120},
 		abilities: {0: "Iron Resolve", 1: "Melancholic"},
@@ -2158,7 +2158,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakurumi: {
 		num: 195,
 		name: "Extra Kurumi",
-		types: ["Wind", "Poison"],
+		types: ["Wind", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 50, def: 90, spa: 120, spd: 40, spe: 100},
 		abilities: {0: "Deploy Smoke", 1: "First Hit"},
@@ -2169,7 +2169,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkutaka: {
 		num: 196,
 		name: "Normal Kutaka",
-		types: ["Water", "Light"],
+		types: ["Waters", "Lights"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 40, def: 60, spa: 60, spd: 50, spe: 45},
 		abilities: {0: "Emergency Cure", 1: "Auto Heal"},
@@ -2180,7 +2180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkutaka: {
 		num: 197,
 		name: "Assist Kutaka",
-		types: ["Water", "Light"],
+		types: ["Waters", "Lights"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 50, def: 120, spa: 80, spd: 80, spe: 75},
 		abilities: {0: "Emergency Cure", 1: "Auto Heal"},
@@ -2191,7 +2191,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedkutaka: {
 		num: 198,
 		name: "Speed Kutaka",
-		types: ["Sound", "Warped"],
+		types: ["Sounds", "Warped"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 45, def: 65, spa: 100, spd: 105, spe: 110},
 		abilities: {0: "Positive", 1: "Strict Dosage"},
@@ -2202,7 +2202,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakutaka: {
 		num: 199,
 		name: "Extra Kutaka",
-		types: ["Nether", "Electric"],
+		types: ["Nether", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 95, def: 75, spa: 45, spd: 110, spe: 65},
 		abilities: {0: "Sound Absorb", 1: "Auto Heal"},
@@ -2213,7 +2213,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalkyouko: {
 		num: 200,
 		name: "Normal Kyouko",
-		types: ["Sound"],
+		types: ["Sounds"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 40, def: 30, spa: 60, spd: 50, spe: 50},
 		abilities: {0: "Optimist", 1: "Last Defense"},
@@ -2224,7 +2224,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerkyouko: {
 		num: 201,
 		name: "Power Kyouko",
-		types: ["Sound"],
+		types: ["Sounds"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 55, def: 50, spa: 130, spd: 55, spe: 70},
 		abilities: {0: "Deploy Smoke", 1: "Niche"},
@@ -2235,7 +2235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistkyouko: {
 		num: 202,
 		name: "Assist Kyouko",
-		types: ["Sound", "Earth"],
+		types: ["Sounds", "Earths"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 30, def: 70, spa: 80, spd: 110, spe: 95},
 		abilities: {0: "Resonance", 1: "In Sync"},
@@ -2246,7 +2246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrakyouko: {
 		num: 203,
 		name: "Extra Kyouko",
-		types: ["Sound", "Void"],
+		types: ["Sounds", "Void"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 115, def: 70, spa: 40, spd: 85, spe: 75},
 		abilities: {0: "Impulsive", 1: "Full Power"},
@@ -2257,7 +2257,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalletty: {
 		num: 204,
 		name: "Normal Letty",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 35, def: 50, spa: 55, spd: 65, spe: 30},
 		abilities: {0: "Last Defense", 1: "Grace of Water"},
@@ -2268,7 +2268,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerletty: {
 		num: 205,
 		name: "Power Letty",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 30, def: 75, spa: 120, spd: 110, spe: 50},
 		abilities: {0: "Last Defense", 1: "Force of Nature"},
@@ -2279,7 +2279,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseletty: {
 		num: 206,
 		name: "Defense Letty",
-		types: ["Water", "Nature"],
+		types: ["Waters", "Nature"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 30, def: 120, spa: 80, spd: 75, spe: 60},
 		abilities: {0: "Some Guts", 1: "Supine"},
@@ -2290,7 +2290,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraletty: {
 		num: 207,
 		name: "Extra Letty",
-		types: ["Water", "Earth"],
+		types: ["Waters", "Earths"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 110, def: 125, spa: 30, spd: 80, spe: 60},
 		abilities: {0: "Wariness", 1: "Skilled Hand"},
@@ -2334,7 +2334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extralily: {
 		num: 211,
 		name: "Extra Lily",
-		types: ["Sound", "Dark"],
+		types: ["Sounds", "Darks"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 145, def: 80, spa: 35, spd: 105, spe: 10},
 		abilities: {0: "Smooth Sailing", 1: "Glamorous"},
@@ -2378,7 +2378,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extralouise: {
 		num: 215,
 		name: "Extra Louise",
-		types: ["Electric", "Void"],
+		types: ["Electrics", "Void"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 130, spd: 40, spe: 85},
 		abilities: {0: "Natural Form", 1: "Instant Win"},
@@ -2389,7 +2389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalluna: {
 		num: 216,
 		name: "Normal Luna",
-		types: ["Light", "Wind"],
+		types: ["Lights", "Wind"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 30, def: 35, spa: 60, spd: 40, spe: 70},
 		abilities: {0: "Flash", 1: "Sound Absorb"},
@@ -2400,7 +2400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerluna: {
 		num: 217,
 		name: "Power Luna",
-		types: ["Light", "Wind"],
+		types: ["Lights", "Wind"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 30, def: 65, spa: 120, spd: 75, spe: 80},
 		abilities: {0: "Flash", 1: "Sound Absorb"},
@@ -2411,7 +2411,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedluna: {
 		num: 218,
 		name: "Speed Luna",
-		types: ["Light", "Sound"],
+		types: ["Lights", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 40, def: 65, spa: 90, spd: 70, spe: 125},
 		abilities: {0: "Sanguine", 1: "Sound Absorb"},
@@ -2422,7 +2422,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraluna: {
 		num: 219,
 		name: "Extra Luna",
-		types: ["Sound", "Warped"],
+		types: ["Sounds", "Warped"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 95, def: 120, spa: 40, spd: 100, spe: 40},
 		abilities: {0: "Skilled Hand", 1: "Healing Power"},
@@ -2433,7 +2433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normallunasa: {
 		num: 220,
 		name: "Normal Lunasa",
-		types: ["Sound", "Nether"],
+		types: ["Sounds", "Nether"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 55, def: 55, spa: 40, spd: 75, spe: 30},
 		abilities: {0: "Sound Absorb", 1: "Suppression"},
@@ -2444,7 +2444,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistlunasa: {
 		num: 221,
 		name: "Assist Lunasa",
-		types: ["Sound", "Nether"],
+		types: ["Sounds", "Nether"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 110, def: 55, spa: 45, spd: 140, spe: 60},
 		abilities: {0: "Sound Absorb", 1: "Suppression"},
@@ -2455,7 +2455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenselunasa: {
 		num: 222,
 		name: "Defense Lunasa",
-		types: ["Sound", "Poison"],
+		types: ["Sounds", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 50, def: 155, spa: 50, spd: 145, spe: 30},
 		abilities: {0: "Sound Absorb", 1: "Slow Tempo"},
@@ -2466,7 +2466,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extralunasa: {
 		num: 223,
 		name: "Extra Lunasa",
-		types: ["Sound", "Nature"],
+		types: ["Sounds", "Nature"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 105, spd: 80, spe: 80},
 		abilities: {0: "Projection", 1: "Poker Face"},
@@ -2477,7 +2477,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normallyrica: {
 		num: 224,
 		name: "Normal Lyrica",
-		types: ["Sound", "Nether"],
+		types: ["Sounds", "Nether"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 60, def: 60, spa: 30, spd: 40, spe: 70},
 		abilities: {0: "Sound Absorb", 1: "Resonance"},
@@ -2488,7 +2488,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedlyrica: {
 		num: 225,
 		name: "Speed Lyrica",
-		types: ["Sound", "Nether"],
+		types: ["Sounds", "Nether"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 100, def: 105, spa: 45, spd: 65, spe: 115},
 		abilities: {0: "Sound Absorb", 1: "Resonance"},
@@ -2499,7 +2499,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerlyrica: {
 		num: 226,
 		name: "Power Lyrica",
-		types: ["Sound", "Illusion"],
+		types: ["Sounds", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 45, def: 65, spa: 120, spd: 85, spe: 95},
 		abilities: {0: "Sound Absorb", 1: "Charge!"},
@@ -2510,7 +2510,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extralyrica: {
 		num: 227,
 		name: "Extra Lyrica",
-		types: ["Sound", "Electric"],
+		types: ["Sounds", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 50, def: 70, spa: 85, spd: 100, spe: 65},
 		abilities: {0: "Warning Shot", 1: "Instant Win"},
@@ -2521,7 +2521,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmagan: {
 		num: 228,
 		name: "Normal Magan",
-		types: ["Poison", "Dark"],
+		types: ["Poisons", "Darks"],
 		gender: "N",
 		baseStats: {hp: 55, atk: 30, def: 60, spa: 60, spd: 65, spe: 30},
 		abilities: {0: "Quick Eye", 1: "Cloak of Darkness"},
@@ -2532,7 +2532,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistmagan: {
 		num: 229,
 		name: "Assist Magan",
-		types: ["Poison", "Dark"],
+		types: ["Poisons", "Darks"],
 		gender: "N",
 		baseStats: {hp: 85, atk: 50, def: 80, spa: 90, spd: 85, spe: 105},
 		abilities: {0: "Quick Eye", 1: "Curiosity"},
@@ -2543,7 +2543,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermagan: {
 		num: 230,
 		name: "Power Magan",
-		types: ["Poison", "Nether"],
+		types: ["Poisons", "Nether"],
 		gender: "N",
 		baseStats: {hp: 90, atk: 50, def: 105, spa: 125, spd: 105, spe: 20},
 		abilities: {0: "After Move", 1: "Cloak of Darkness"},
@@ -2565,7 +2565,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmai: {
 		num: 232,
 		name: "Normal Mai",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 30, spd: 40, spe: 35},
 		abilities: {0: "Poker Face", 1: "Dark Force"},
@@ -2576,7 +2576,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermai: {
 		num: 233,
 		name: "Power Mai",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 110, def: 80, spa: 40, spd: 80, spe: 60},
 		abilities: {0: "Poker Face", 1: "Strict Dosage"},
@@ -2587,7 +2587,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemai: {
 		num: 234,
 		name: "Defense Mai",
-		types: ["Water", "Fire"],
+		types: ["Waters", "Fires"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 80, def: 130, spa: 40, spd: 90, spe: 60},
 		abilities: {0: "Poker Face", 1: "Deploy Smoke"},
@@ -2598,7 +2598,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramai: {
 		num: 235,
 		name: "Extra Mai",
-		types: ["Fire", "Warped"],
+		types: ["Fires", "Warped"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 40, def: 120, spa: 110, spd: 60, spe: 40},
 		abilities: {0: "Grace of Water", 1: "Fast Talker"},
@@ -2631,7 +2631,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermamizou: {
 		num: 238,
 		name: "Power Mamizou",
-		types: ["Illusion", "Earth"],
+		types: ["Illusion", "Earths"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 130, def: 95, spa: 75, spd: 80, spe: 100},
 		abilities: {0: "Hobgoblin"},
@@ -2642,7 +2642,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramamizou: {
 		num: 239,
 		name: "Extra Mamizou",
-		types: ["Earth", "Nether"],
+		types: ["Earths", "Nether"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 120, def: 80, spa: 85, spd: 110, spe: 50},
 		abilities: {0: "Deflective", 1: "Fast Talker"},
@@ -2653,7 +2653,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmarisa: {
 		num: 240,
 		name: "Normal Marisa",
-		types: ["Light", "Electric"],
+		types: ["Lights", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 60, def: 30, spa: 60, spd: 30, spe: 70},
 		abilities: {0: "Positive", 1: "Collectomaniac"},
@@ -2664,7 +2664,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmarisa: {
 		num: 241,
 		name: "Speed Marisa",
-		types: ["Light", "Electric"],
+		types: ["Lights", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 70, def: 70, spa: 115, spd: 70, spe: 135},
 		abilities: {0: "Positive", 1: "Collectomaniac"},
@@ -2675,7 +2675,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermarisa: {
 		num: 242,
 		name: "Power Marisa",
-		types: ["Light", "Dark"],
+		types: ["Lights", "Darks"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 140, def: 60, spa: 70, spd: 60, spe: 115},
 		abilities: {0: "Sand Devil", 1: "Collectomaniac"},
@@ -2697,7 +2697,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmayumi: {
 		num: 244,
 		name: "Normal Mayumi",
-		types: ["Earth", "Fighting"],
+		types: ["Earths", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 65, def: 65, spa: 40, spd: 50, spe: 30},
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
@@ -2708,7 +2708,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemayumi: {
 		num: 245,
 		name: "Defense Mayumi",
-		types: ["Earth", "Fighting"],
+		types: ["Earths", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 110, def: 95, spa: 55, spd: 90, spe: 75},
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
@@ -2719,7 +2719,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmayumi: {
 		num: 246,
 		name: "Speed Mayumi",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 120, def: 65, spa: 70, spd: 65, spe: 130},
 		abilities: {0: "Desolation Form", 1: "General's Form"},
@@ -2730,7 +2730,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramayumi: {
 		num: 247,
 		name: "Extra Mayumi",
-		types: ["Earth", "Warped"],
+		types: ["Earths", "Warped"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 80, def: 95, spa: 120, spd: 70, spe: 80},
 		abilities: {0: "Master's Defense", 1: "Counter Stance"},
@@ -2741,7 +2741,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmedicine: {
 		num: 248,
 		name: "Normal Medicine",
-		types: ["Poison", "Nature"],
+		types: ["Poisons", "Nature"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 55, def: 60, spa: 20, spd: 75, spe: 40},
 		abilities: {0: "Poison Body", 1: "Poison Thorns"},
@@ -2752,7 +2752,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemedicine: {
 		num: 249,
 		name: "Defense Medicine",
-		types: ["Poison", "Nature"],
+		types: ["Poisons", "Nature"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 80, def: 90, spa: 40, spd: 140, spe: 70},
 		abilities: {0: "Poison Body", 1: "Karmic Retribution"},
@@ -2763,7 +2763,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermedicine: {
 		num: 250,
 		name: "Power Medicine",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 30, spd: 100, spe: 85},
 		abilities: {0: "Poison Body", 1: "Poison Thorns"},
@@ -2774,7 +2774,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramedicine: {
 		num: 251,
 		name: "Extra Medicine",
-		types: ["Poison", "Warped"],
+		types: ["Poisons", "Warped"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 50, def: 80, spa: 100, spd: 70, spe: 115},
 		abilities: {0: "Flat Speed", 1: "Poison Labyrinth"},
@@ -2785,7 +2785,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmegumu: {
 		num: 252,
 		name: "Normal Megumu",
-		types: ["Wind", "Light"],
+		types: ["Wind", "Lights"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 65, def: 40, spa: 35, spd: 50, spe: 70},
 		abilities: {0: "Up Tempo", 1: "Gale"},
@@ -2796,7 +2796,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmegumu: {
 		num: 253,
 		name: "Speed Megumu",
-		types: ["Wind", "Light"],
+		types: ["Wind", "Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 95, def: 75, spa: 60, spd: 100, spe: 140},
 		abilities: {0: "Up Tempo", 1: "Smooth Sailing"},
@@ -2807,7 +2807,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermegumu: {
 		num: 254,
 		name: "Power Megumu",
-		types: ["Wind", "Electric"],
+		types: ["Wind", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 90, def: 80, spa: 125, spd: 80, spe: 85},
 		abilities: {0: "Up Tempo", 1: "Absorbent"},
@@ -2818,7 +2818,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramegumu: {
 		num: 255,
 		name: "Extra Megumu",
-		types: ["Fighting", "Light"],
+		types: ["Fightings", "Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 100, spd: 70, spe: 120},
 		abilities: {0: "Flat Speed", 1: "Astronomy"},
@@ -2829,7 +2829,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmeiling: {
 		num: 256,
 		name: "Normal Meiling",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 70, def: 40, spa: 40, spd: 40, spe: 50},
 		abilities: {0: "Flexible", 1: "Final Form"},
@@ -2840,7 +2840,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmeiling: {
 		num: 257,
 		name: "Speed Meiling",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 130, def: 50, spa: 55, spd: 80, spe: 105},
 		abilities: {0: "Healing Power", 1: "Iron Resolve"},
@@ -2851,7 +2851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemeiling: {
 		num: 258,
 		name: "Defense Meiling",
-		types: ["Fighting", "Earth"],
+		types: ["Fightings", "Earths"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 100, def: 125, spa: 30, spd: 70, spe: 85},
 		abilities: {0: "Choleric", 1: "Counter Stance"},
@@ -2862,7 +2862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrameiling: {
 		num: 259,
 		name: "Extra Meiling",
-		types: ["Fighting", "Nature"],
+		types: ["Fightings", "Nature"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 50, def: 85, spa: 130, spd: 85, spe: 70},
 		abilities: {0: "Strategist", 1: "Imposing Stance"},
@@ -2873,7 +2873,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmeira: {
 		num: 260,
 		name: "Normal Meira",
-		types: ["Steel", "Dark"],
+		types: ["Steels", "Darks"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 65, def: 45, spa: 25, spd: 50, spe: 65},
 		abilities: {0: "Assault", 1: "Armor Purge"},
@@ -2884,7 +2884,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermeira: {
 		num: 261,
 		name: "Power Meira",
-		types: ["Fighting", "Electric"],
+		types: ["Fightings", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 120, def: 80, spa: 50, spd: 60, spe: 100},
 		abilities: {0: "Immovable", 1: "Final Form"},
@@ -2895,7 +2895,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmeira: {
 		num: 262,
 		name: "Speed Meira",
-		types: ["Steel", "Dark"],
+		types: ["Steels", "Darks"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 110, def: 60, spa: 40, spd: 75, spe: 125},
 		abilities: {0: "Sore Loser", 1: "Armor Purge"},
@@ -2906,7 +2906,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrameira: {
 		num: 263,
 		name: "Extra Meira",
-		types: ["Fighting", "Warped"],
+		types: ["Fightings", "Warped"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 90, def: 60, spa: 125, spd: 60, spe: 85},
 		abilities: {0: "Master's Defense", 1: "Indomitable"},
@@ -2917,7 +2917,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmerlin: {
 		num: 264,
 		name: "Normal Merlin",
-		types: ["Sound", "Nether"],
+		types: ["Sounds", "Nether"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 55, def: 40, spa: 65, spd: 40, spe: 40},
 		abilities: {0: "Sound Absorb", 1: "Optimist"},
@@ -2928,7 +2928,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistmerlin: {
 		num: 265,
 		name: "Assist Merlin",
-		types: ["Sound", "Nether"],
+		types: ["Sounds", "Nether"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 70, def: 90, spa: 95, spd: 75, spe: 60},
 		abilities: {0: "Sound Absorb", 1: "Up Tempo"},
@@ -2939,7 +2939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermerlin: {
 		num: 266,
 		name: "Power Merlin",
-		types: ["Sound", "Fighting"],
+		types: ["Sounds", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 130, def: 90, spa: 40, spd: 90, spe: 50},
 		abilities: {0: "Sound Absorb", 1: "Mind's Eye"},
@@ -2950,7 +2950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramerlin: {
 		num: 267,
 		name: "Extra Merlin",
-		types: ["Sound", "Steel"],
+		types: ["Sounds", "Steels"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 50, def: 70, spa: 120, spd: 65, spe: 95},
 		abilities: {0: "Charge!", 1: "Impulsive"},
@@ -3027,7 +3027,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistmike: {
 		num: 274,
 		name: "Assist Mike",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 30, def: 115, spa: 70, spd: 85, spe: 95},
 		abilities: {0: "Economist", 1: "Free Will"},
@@ -3038,7 +3038,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramike: {
 		num: 275,
 		name: "Extra Mike",
-		types: ["Steel", "Warped"],
+		types: ["Steels", "Warped"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 115, def: 90, spa: 50, spd: 55, spe: 100},
 		abilities: {0: "Niche", 1: "Sore Loser"},
@@ -3049,7 +3049,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmiko: {
 		num: 276,
 		name: "Normal Miko",
-		types: ["Light", "Sound"],
+		types: ["Lights", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 50, spa: 40, spd: 35, spe: 50},
 		abilities: {0: "Warning Shot", 1: "Up Tempo"},
@@ -3060,7 +3060,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmiko: {
 		num: 277,
 		name: "Speed Miko",
-		types: ["Light", "Sound"],
+		types: ["Lights", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 125, def: 80, spa: 70, spd: 65, spe: 90},
 		abilities: {0: "Warning Shot", 1: "Up Tempo"},
@@ -3071,7 +3071,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermiko: {
 		num: 278,
 		name: "Power Miko",
-		types: ["Light", "Fire"],
+		types: ["Lights", "Fires"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 150, def: 60, spa: 125, spd: 70, spe: 115},
 		abilities: {0: "True Admin"},
@@ -3082,7 +3082,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramiko: {
 		num: 279,
 		name: "Extra Miko",
-		types: ["Fire", "Sound"],
+		types: ["Fires", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 100, def: 60, spa: 120, spd: 60, spe: 120},
 		abilities: {0: "First Hit", 1: "Intuition"},
@@ -3115,7 +3115,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermima: {
 		num: 282,
 		name: "Power Mima",
-		types: ["Nether", "Light"],
+		types: ["Nether", "Lights"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 135, def: 70, spa: 85, spd: 105, spe: 70},
 		abilities: {0: "Curse Return", 1: "Hot Head"},
@@ -3126,7 +3126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramima: {
 		num: 283,
 		name: "Extra Mima",
-		types: ["Nether", "Dark"],
+		types: ["Nether", "Darks"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 60, def: 80, spa: 100, spd: 80, spe: 130},
 		abilities: {0: "Unjustness", 1: "Pride"},
@@ -3159,7 +3159,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseminoriko: {
 		num: 286,
 		name: "Defense Minoriko",
-		types: ["Nature", "Earth"],
+		types: ["Nature", "Earths"],
 		gender: "F",
 		baseStats: {hp: 130, atk: 30, def: 75, spa: 90, spd: 105, spe: 50},
 		abilities: {0: "Spirit of Yang", 1: "Breather"},
@@ -3170,7 +3170,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraminoriko: {
 		num: 287,
 		name: "Extra Minoriko",
-		types: ["Nature", "Fire"],
+		types: ["Nature", "Fires"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 30, def: 90, spa: 55, spd: 90, spe: 120},
 		abilities: {0: "Auto Heal", 1: "Antibody"},
@@ -3181,7 +3181,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmisumaru: {
 		num: 288,
 		name: "Normal Misumaru",
-		types: ["Illusion", "Earth"],
+		types: ["Illusion", "Earths"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 40, def: 55, spa: 50, spd: 70, spe: 55},
 		abilities: {0: "Projection", 1: "Divine Protection"},
@@ -3192,7 +3192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemisumaru: {
 		num: 289,
 		name: "Defense Misumaru",
-		types: ["Illusion", "Earth"],
+		types: ["Illusion", "Earths"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 60, def: 105, spa: 95, spd: 120, spe: 75},
 		abilities: {0: "Projection", 1: "Self Exorcism"},
@@ -3203,7 +3203,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermisumaru: {
 		num: 290,
 		name: "Power Misumaru",
-		types: ["Illusion", "Earth"],
+		types: ["Illusion", "Earths"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 65, def: 65, spa: 125, spd: 115, spe: 90},
 		abilities: {0: "Projection", 1: "Divine Protection"},
@@ -3214,7 +3214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramisumaru: {
 		num: 291,
 		name: "Extra Misumaru",
-		types: ["Light", "Nether"],
+		types: ["Lights", "Nether"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 70, def: 110, spa: 105, spd: 110, spe: 75},
 		abilities: {0: "Spirit of Yang", 1: "Spirit of Yin"},
@@ -3225,7 +3225,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmiyoi: {
 		num: 292,
 		name: "Normal Miyoi",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 30, def: 50, spa: 60, spd: 50, spe: 30},
 		abilities: {0: "Active", 1: "Disturber"},
@@ -3236,7 +3236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistmiyoi: {
 		num: 293,
 		name: "Assist Miyoi",
-		types: ["Water", "Poison"],
+		types: ["Waters", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 115, def: 70, spa: 75, spd: 110, spe: 50},
 		abilities: {0: "Active", 1: "Good Management"},
@@ -3247,7 +3247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermiyoi: {
 		num: 294,
 		name: "Power Miyoi",
-		types: ["Water", "Illusion"],
+		types: ["Waters", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 40, def: 130, spa: 120, spd: 65, spe: 55},
 		abilities: {0: "Wariness", 1: "Disturber"},
@@ -3269,7 +3269,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmokou: {
 		num: 296,
 		name: "Normal Mokou",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 50, def: 40, spa: 75, spd: 30, spe: 45},
 		abilities: {0: "Hate Incarnate", 1: "Emergency Cure"},
@@ -3280,7 +3280,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmokou: {
 		num: 297,
 		name: "Speed Mokou",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 60, def: 60, spa: 130, spd: 60, spe: 100},
 		abilities: {0: "Hate Incarnate", 1: "Instant Win"},
@@ -3291,7 +3291,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermokou: {
 		num: 298,
 		name: "Power Mokou",
-		types: ["Fire", "Fighting"],
+		types: ["Fires", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 120, def: 70, spa: 100, spd: 70, spe: 55},
 		abilities: {0: "Fox's Wedding", 1: "Reckless"},
@@ -3302,7 +3302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramokou: {
 		num: 299,
 		name: "Extra Mokou",
-		types: ["Fire", "Wind"],
+		types: ["Fires", "Wind"],
 		gender: "F",
 		baseStats: {hp: 130, atk: 50, def: 85, spa: 110, spd: 85, spe: 70},
 		abilities: {0: "Southern Expanse", 1: "Full Power"},
@@ -3313,7 +3313,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmomiji: {
 		num: 300,
 		name: "Normal Momiji",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 60, def: 60, spa: 30, spd: 30, spe: 65},
 		abilities: {0: "Final Form", 1: "Telescopic"},
@@ -3324,7 +3324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmomiji: {
 		num: 301,
 		name: "Speed Momiji",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 50, spd: 70, spe: 115},
 		abilities: {0: "Stubborn", 1: "Gale Form"},
@@ -3335,7 +3335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemomiji: {
 		num: 302,
 		name: "Defense Momiji",
-		types: ["Steel", "Earth"],
+		types: ["Steels", "Earths"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 95, def: 140, spa: 40, spd: 45, spe: 75},
 		abilities: {0: "Indomitable", 1: "Telescopic"},
@@ -3346,7 +3346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramomiji: {
 		num: 303,
 		name: "Extra Momiji",
-		types: ["Steel", "Nature"],
+		types: ["Steels", "Nature"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 95, def: 130, spa: 55, spd: 115, spe: 20},
 		abilities: {0: "Counter Stance", 1: "Sixth Sense"},
@@ -3357,7 +3357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmomoyo: {
 		num: 304,
 		name: "Normal Momoyo",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 80, def: 65, spa: 45, spd: 40, spe: 50},
 		abilities: {0: "Poison Body", 1: "Negative Aura"},
@@ -3368,7 +3368,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermomoyo: {
 		num: 305,
 		name: "Power Momoyo",
-		types: ["Poison", "Steel"],
+		types: ["Poisons", "Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 165, def: 90, spa: 105, spd: 80, spe: 60},
 		abilities: {0: "Poison Thorns", 1: "Sand Mask"},
@@ -3379,7 +3379,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedmomoyo: {
 		num: 306,
 		name: "Speed Momoyo",
-		types: ["Poison", "Earth"],
+		types: ["Poisons", "Earths"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 105, def: 105, spa: 125, spd: 50, spe: 90},
 		abilities: {0: "Poison Body", 1: "Koutei's Earth"},
@@ -3390,7 +3390,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramomoyo: {
 		num: 307,
 		name: "Extra Momoyo",
-		types: ["Dark", "Earth"],
+		types: ["Darks", "Earths"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 110, def: 125, spa: 90, spd: 75, spe: 95},
 		abilities: {0: "Inverse Toxin", 1: "Negative Aura"},
@@ -3401,7 +3401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmugetsu: {
 		num: 308,
 		name: "Normal Mugetsu",
-		types: ["Illusion", "Dark"],
+		types: ["Illusion", "Darks"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 40, def: 35, spa: 75, spd: 65, spe: 50},
 		abilities: {0: "Dark Force", 1: "Brutality"},
@@ -3412,7 +3412,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermugetsu: {
 		num: 309,
 		name: "Power Mugetsu",
-		types: ["Illusion", "Dark"],
+		types: ["Illusion", "Darks"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 60, def: 75, spa: 125, spd: 105, spe: 70},
 		abilities: {0: "Unwavering Heart", 1: "Brutality"},
@@ -3434,7 +3434,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramugetsu: {
 		num: 311,
 		name: "Extra Mugetsu",
-		types: ["Warped", "Light"],
+		types: ["Warped", "Lights"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 85, def: 125, spa: 60, spd: 70, spe: 100},
 		abilities: {0: "Divine Festival", 1: "Spirit of Yin"},
@@ -3445,7 +3445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmurasa: {
 		num: 312,
 		name: "Normal Murasa",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 65, def: 40, spa: 40, spd: 60, spe: 50},
 		abilities: {0: "Negative Aura", 1: "Stream Form"},
@@ -3456,7 +3456,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermurasa: {
 		num: 313,
 		name: "Power Murasa",
-		types: ["Water", "Sound"],
+		types: ["Waters", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 120, def: 65, spa: 60, spd: 100, spe: 80},
 		abilities: {0: "Negative Aura", 1: "Stream Form"},
@@ -3467,7 +3467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemurasa: {
 		num: 314,
 		name: "Defense Murasa",
-		types: ["Water", "Nether"],
+		types: ["Waters", "Nether"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 100, def: 110, spa: 65, spd: 85, spe: 65},
 		abilities: {0: "Negative Aura", 1: "Inverse Toxin"},
@@ -3489,7 +3489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalmystia: {
 		num: 316,
 		name: "Normal Mystia",
-		types: ["Sound", "Dark"],
+		types: ["Sounds", "Darks"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 30, def: 30, spa: 50, spd: 65, spe: 40},
 		abilities: {0: "Smooth Sailing", 1: "Good Management"},
@@ -3500,7 +3500,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensemystia: {
 		num: 317,
 		name: "Defense Mystia",
-		types: ["Sound", "Dark"],
+		types: ["Sounds", "Darks"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 70, def: 75, spa: 80, spd: 120, spe: 50},
 		abilities: {0: "Smooth Sailing", 1: "Good Management"},
@@ -3511,7 +3511,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powermystia: {
 		num: 318,
 		name: "Power Mystia",
-		types: ["Sound", "Wind"],
+		types: ["Sounds", "Wind"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 55, def: 80, spa: 110, spd: 80, spe: 75},
 		abilities: {0: "Smooth Sailing", 1: "Up Tempo"},
@@ -3522,7 +3522,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extramystia: {
 		num: 319,
 		name: "Extra Mystia",
-		types: ["Wind", "Poison"],
+		types: ["Wind", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 30, def: 55, spa: 90, spd: 55, spe: 130},
 		abilities: {0: "Quick Eye", 1: "Stimulative"},
@@ -3533,7 +3533,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalnarumi: {
 		num: 320,
 		name: "Normal Narumi",
-		types: ["Light", "Earth"],
+		types: ["Lights", "Earths"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 35, def: 45, spa: 55, spd: 65, spe: 45},
 		abilities: {0: "Invalidate", 1: "Composed"},
@@ -3544,7 +3544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensenarumi: {
 		num: 321,
 		name: "Defense Narumi",
-		types: ["Light", "Earth"],
+		types: ["Lights", "Earths"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 50, def: 60, spa: 95, spd: 150, spe: 60},
 		abilities: {0: "Invalidate", 1: "Composed"},
@@ -3555,7 +3555,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powernarumi: {
 		num: 322,
 		name: "Power Narumi",
-		types: ["Light", "Fire"],
+		types: ["Lights", "Fires"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 45, def: 110, spa: 115, spd: 110, spe: 55},
 		abilities: {0: "Invalidate", 1: "Healing Power"},
@@ -3566,7 +3566,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extranarumi: {
 		num: 323,
 		name: "Extra Narumi",
-		types: ["Water", "Illusion"],
+		types: ["Waters", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 125, def: 80, spa: 55, spd: 75, spe: 90},
 		abilities: {0: "Empowered", 1: "Unbound"},
@@ -3577,7 +3577,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalnazrin: {
 		num: 324,
 		name: "Normal Nazrin",
-		types: ["Earth", "Steel"],
+		types: ["Earths", "Steels"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 30, spd: 35, spe: 60},
 		abilities: {0: "Active", 1: "Collectomaniac"},
@@ -3588,7 +3588,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speednazrin: {
 		num: 325,
 		name: "Speed Nazrin",
-		types: ["Earth", "Steel"],
+		types: ["Earths", "Steels"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 110, def: 70, spa: 40, spd: 85, spe: 120},
 		abilities: {0: "Infiltration", 1: "Sand Force"},
@@ -3599,7 +3599,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensenazrin: {
 		num: 326,
 		name: "Defense Nazrin",
-		types: ["Earth", "Poison"],
+		types: ["Earths", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 90, def: 120, spa: 35, spd: 85, spe: 60},
 		abilities: {0: "Active", 1: "Sand Mask"},
@@ -3610,7 +3610,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extranazrin: {
 		num: 327,
 		name: "Extra Nazrin",
-		types: ["Steel", "Sound"],
+		types: ["Steels", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 40, def: 80, spa: 90, spd: 80, spe: 110},
 		abilities: {0: "Infiltration", 1: "Unbound"},
@@ -3621,7 +3621,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalnemuno: {
 		num: 328,
 		name: "Normal Nemuno",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 45, spd: 40, spe: 65},
 		abilities: {0: "Good Management", 1: "Deploy Smoke"},
@@ -3632,7 +3632,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powernemuno: {
 		num: 329,
 		name: "Power Nemuno",
-		types: ["Steel", "Water"],
+		types: ["Steels", "Waters"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 115, def: 70, spa: 50, spd: 70, spe: 115},
 		abilities: {0: "Good Management", 1: "Deploy Smoke"},
@@ -3643,7 +3643,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensenemuno: {
 		num: 330,
 		name: "Defense Nemuno",
-		types: ["Steel", "Fighting"],
+		types: ["Steels", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 95, def: 130, spa: 50, spd: 75, spe: 60},
 		abilities: {0: "Unbound", 1: "Force of Nature"},
@@ -3654,7 +3654,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extranemuno: {
 		num: 331,
 		name: "Extra Nemuno",
-		types: ["Steel", "Wind"],
+		types: ["Steels", "Wind"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 55, def: 65, spa: 125, spd: 70, spe: 115},
 		abilities: {0: "Imposing Stance", 1: "Choleric"},
@@ -3665,7 +3665,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalnitori: {
 		num: 332,
 		name: "Normal Nitori",
-		types: ["Water", "Steel"],
+		types: ["Waters", "Steels"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 65, def: 55, spa: 40, spd: 35, spe: 40},
 		abilities: {0: "Maintenance", 1: "Collectomaniac"},
@@ -3676,7 +3676,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powernitori: {
 		num: 333,
 		name: "Power Nitori",
-		types: ["Water", "Steel"],
+		types: ["Waters", "Steels"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 130, def: 95, spa: 50, spd: 45, spe: 55},
 		abilities: {0: "Byakutei's Metal", 1: "Recoil Offset"},
@@ -3687,7 +3687,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speednitori: {
 		num: 334,
 		name: "Speed Nitori",
-		types: ["Water", "Electric"],
+		types: ["Waters", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 55, def: 80, spa: 105, spd: 65, spe: 100},
 		abilities: {0: "Maintenance", 1: "Electromagnetic"},
@@ -3698,7 +3698,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extranitori: {
 		num: 335,
 		name: "Extra Nitori",
-		types: ["Electric", "Nature"],
+		types: ["Electrics", "Nature"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 120, def: 10, spa: 95, spd: 75, spe: 130},
 		abilities: {0: "Maintenance", 1: "Metallurgy"},
@@ -3709,7 +3709,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalnue: {
 		num: 336,
 		name: "Normal Nue",
-		types: ["Illusion", "Electric"],
+		types: ["Illusion", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 35, def: 40, spa: 65, spd: 60, spe: 40},
 		abilities: {0: "Chaos Induction", 1: "Telescopic"},
@@ -3720,7 +3720,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powernue: {
 		num: 337,
 		name: "Power Nue",
-		types: ["Illusion", "Electric"],
+		types: ["Illusion", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 65, def: 70, spa: 135, spd: 110, spe: 50},
 		abilities: {0: "Hobgoblin", 1: "Telescopic"},
@@ -3731,7 +3731,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensenue: {
 		num: 338,
 		name: "Defense Nue",
-		types: ["Illusion", "Poison"],
+		types: ["Illusion", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 55, def: 110, spa: 50, spd: 100, spe: 90},
 		abilities: {0: "Chaos Induction", 1: "Disturber"},
@@ -3786,7 +3786,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraokina: {
 		num: 343,
 		name: "Extra Okina",
-		types: ["Nature", "Dark"],
+		types: ["Nature", "Darks"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 70, def: 90, spa: 130, spd: 95, spe: 90},
 		abilities: {0: "Secret Ceremony"},
@@ -3830,7 +3830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraorange: {
 		num: 347,
 		name: "Extra Orange",
-		types: ["Fighting", "Sound"],
+		types: ["Fightings", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 60, def: 85, spa: 120, spd: 60, spe: 70},
 		abilities: {0: "Niche", 1: "Deploy Smoke"},
@@ -3841,7 +3841,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalparsee: {
 		num: 348,
 		name: "Normal Parsee",
-		types: ["Dark", "Nether"],
+		types: ["Darks", "Nether"],
 		gender: "F",
 		baseStats: {hp: 30, atk: 60, def: 75, spa: 30, spd: 70, spe: 35},
 		abilities: {0: "Karmic Retribution", 1: "Quick Eye"},
@@ -3852,7 +3852,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseparsee: {
 		num: 349,
 		name: "Defense Parsee",
-		types: ["Dark", "Nether"],
+		types: ["Darks", "Nether"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 100, def: 120, spa: 40, spd: 110, spe: 50},
 		abilities: {0: "Karmic Retribution", 1: "Metallurgy"},
@@ -3863,7 +3863,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistparsee: {
 		num: 350,
 		name: "Assist Parsee",
-		types: ["Dark", "Water"],
+		types: ["Darks", "Waters"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 110, def: 65, spa: 50, spd: 75, spe: 120},
 		abilities: {0: "Unwavering Heart", 1: "Hate Incarnate"},
@@ -3896,7 +3896,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerpatchouli: {
 		num: 353,
 		name: "Power Patchouli",
-		types: ["Fire", "Water"],
+		types: ["Fires", "Waters"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 55, def: 35, spa: 145, spd: 155, spe: 55},
 		abilities: {0: "Resonance", 1: "Immovable"},
@@ -3907,7 +3907,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensepatchouli: {
 		num: 354,
 		name: "Defense Patchouli",
-		types: ["Electric", "Nature"],
+		types: ["Electrics", "Nature"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 55, def: 80, spa: 130, spd: 80, spe: 70},
 		abilities: {0: "Resonance", 1: "Wisdom Eye"},
@@ -3918,7 +3918,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrapatchouli: {
 		num: 355,
 		name: "Extra Patchouli",
-		types: ["Wind", "Steel"],
+		types: ["Wind", "Steels"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 55, def: 150, spa: 100, spd: 60, spe: 50},
 		abilities: {0: "Deflective", 1: "Counter Stance"},
@@ -3929,7 +3929,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalraiko: {
 		num: 356,
 		name: "Normal Raiko",
-		types: ["Sound", "Electric"],
+		types: ["Sounds", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 35, def: 60, spa: 75, spd: 50, spe: 40},
 		abilities: {0: "Active", 1: "Sixth Sense"},
@@ -3940,7 +3940,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerraiko: {
 		num: 357,
 		name: "Power Raiko",
-		types: ["Sound", "Electric"],
+		types: ["Sounds", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 65, def: 100, spa: 130, spd: 80, spe: 65},
 		abilities: {0: "Active", 1: "Sixth Sense"},
@@ -3951,7 +3951,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistraiko: {
 		num: 358,
 		name: "Assist Raiko",
-		types: ["Sound", "Electric"],
+		types: ["Sounds", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 55, def: 105, spa: 105, spd: 105, spe: 85},
 		abilities: {0: "Active", 1: "Disturber"},
@@ -3962,7 +3962,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraraiko: {
 		num: 359,
 		name: "Extra Raiko",
-		types: ["Sound", "Illusion"],
+		types: ["Sounds", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 60, spd: 100, spe: 100},
 		abilities: {0: "In Sync", 1: "Maintenance"},
@@ -3973,7 +3973,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalran: {
 		num: 360,
 		name: "Normal Ran",
-		types: ["Illusion", "Fire"],
+		types: ["Illusion", "Fires"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 70, def: 50, spa: 50, spd: 40, spe: 65},
 		abilities: {0: "Discourager", 1: "Disturber"},
@@ -3984,7 +3984,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerran: {
 		num: 361,
 		name: "Power Ran",
-		types: ["Illusion", "Fire"],
+		types: ["Illusion", "Fires"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 125, def: 80, spa: 95, spd: 70, spe: 115},
 		abilities: {0: "Morale Boost", 1: "Jamming"},
@@ -3995,7 +3995,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseran: {
 		num: 362,
 		name: "Defense Ran",
-		types: ["Illusion", "Earth"],
+		types: ["Illusion", "Earths"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 115, def: 90, spa: 65, spd: 90, spe: 100},
 		abilities: {0: "Known Limits", 1: "Disturber"},
@@ -4006,7 +4006,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraran: {
 		num: 363,
 		name: "Extra Ran",
-		types: ["Warped", "Earth"],
+		types: ["Warped", "Earths"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 70, def: 40, spa: 110, spd: 120, spe: 130},
 		abilities: {0: "Ascertainment", 1: "Supine"},
@@ -4039,7 +4039,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerreimu: {
 		num: 366,
 		name: "Power Reimu",
-		types: ["Fighting", "Illusion"],
+		types: ["Fightings", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 125, def: 85, spa: 65, spd: 85, spe: 75},
 		abilities: {0: "Economist", 1: "Self Exorcism"},
@@ -4072,7 +4072,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedreisen: {
 		num: 369,
 		name: "Speed Rei'sen",
-		types: ["Void", "Water"],
+		types: ["Void", "Waters"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 40, def: 70, spa: 95, spd: 70, spe: 125},
 		abilities: {0: "Lucky", 1: "Strategist"},
@@ -4094,7 +4094,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrareisen: {
 		num: 371,
 		name: "Extra Rei'sen",
-		types: ["Void", "Fire"],
+		types: ["Void", "Fires"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 120, def: 50, spa: 40, spd: 50, spe: 105},
 		abilities: {0: "Skilled Hand", 1: "Precise Aim"},
@@ -4105,7 +4105,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalremilia: {
 		num: 372,
 		name: "Normal Remilia",
-		types: ["Dark", "Wind"],
+		types: ["Darks", "Wind"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 60, def: 35, spa: 70, spd: 40, spe: 70},
 		abilities: {0: "Vanishing Act", 1: "Final Form"},
@@ -4116,7 +4116,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerremilia: {
 		num: 373,
 		name: "Power Remilia",
-		types: ["Dark", "Wind"],
+		types: ["Darks", "Wind"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 115, def: 60, spa: 120, spd: 60, spe: 110},
 		abilities: {0: "Vanishing Act", 1: "Charge!"},
@@ -4127,7 +4127,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedremilia: {
 		num: 374,
 		name: "Speed Remilia",
-		types: ["Dark", "Fighting"],
+		types: ["Darks", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 80, spa: 110, spd: 80, spe: 130},
 		abilities: {0: "Vanishing Act", 1: "Final Form"},
@@ -4138,7 +4138,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraremilia: {
 		num: 375,
 		name: "Extra Remilia",
-		types: ["Poison", "Water"],
+		types: ["Poisons", "Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 60, def: 100, spa: 115, spd: 75, spe: 100},
 		abilities: {0: "Pride", 1: "Fog Traveler"},
@@ -4171,7 +4171,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedrenko: {
 		num: 378,
 		name: "Speed Renko",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 40, def: 45, spa: 90, spd: 55, spe: 75},
 		abilities: {0: "Stargazer"},
@@ -4182,7 +4182,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrarenko: {
 		num: 379,
 		name: "Extra Renko",
-		types: ["Light", "Void"],
+		types: ["Lights", "Void"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 10, def: 205, spa: 10, spd: 205, spe: 10},
 		abilities: {0: "Invalidate", 1: "Sixth Sense"},
@@ -4193,7 +4193,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalrika: {
 		num: 380,
 		name: "Normal Rika",
-		types: ["Fire", "Steel"],
+		types: ["Fires", "Steels"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 30, def: 55, spa: 75, spd: 45, spe: 30},
 		abilities: {0: "Immovable", 1: "Maintenance"},
@@ -4204,7 +4204,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedrika: {
 		num: 381,
 		name: "Speed Rika",
-		types: ["Fire", "Steel"],
+		types: ["Fires", "Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 45, def: 115, spa: 105, spd: 85, spe: 70},
 		abilities: {0: "Deploy Smoke", 1: "Benefit of Fire"},
@@ -4215,7 +4215,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerrika: {
 		num: 382,
 		name: "Power Rika",
-		types: ["Electric", "Steel"],
+		types: ["Electrics", "Steels"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 95, def: 60, spa: 155, spd: 50, spe: 30},
 		abilities: {0: "Gentei's Water", 1: "Unyielding Form"},
@@ -4226,7 +4226,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrarika: {
 		num: 383,
 		name: "Extra Rika",
-		types: ["Warped", "Steel"],
+		types: ["Warped", "Steels"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 45, def: 140, spa: 45, spd: 140, spe: 60},
 		abilities: {0: "Mode Shift"},
@@ -4238,7 +4238,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrarikashift: {
 		num: 384,
 		name: "Extra Rika-Shift",
-		types: ["Warped", "Steel"],
+		types: ["Warped", "Steels"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 140, def: 45, spa: 140, spd: 45, spe: 60},
 		abilities: {0: "Mode Shift"},
@@ -4251,7 +4251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalrikako: {
 		num: 385,
 		name: "Normal Rikako",
-		types: ["Electric", "Steel"],
+		types: ["Electrics", "Steels"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 40, def: 40, spa: 75, spd: 45, spe: 65},
 		abilities: {0: "Insight", 1: "Final Form"},
@@ -4262,7 +4262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerrikako: {
 		num: 386,
 		name: "Power Rikako",
-		types: ["Electric", "Steel"],
+		types: ["Electrics", "Steels"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 55, def: 55, spa: 130, spd: 90, spe: 100},
 		abilities: {0: "In Sync", 1: "Final Form"},
@@ -4273,7 +4273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedrikako: {
 		num: 387,
 		name: "Speed Rikako",
-		types: ["Water", "Steel"],
+		types: ["Waters", "Steels"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 60, def: 60, spa: 110, spd: 100, spe: 130},
 		abilities: {0: "Insight", 1: "Final Form"},
@@ -4284,7 +4284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrarikako: {
 		num: 388,
 		name: "Extra Rikako",
-		types: ["Electric", "Warped"],
+		types: ["Electrics", "Warped"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 55, def: 120, spa: 120, spd: 65, spe: 60},
 		abilities: {0: "Unwavering Heart", 1: "Fog Traveler"},
@@ -4295,7 +4295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalrin: {
 		num: 389,
 		name: "Normal Rin",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 40, spd: 40, spe: 70},
 		abilities: {0: "Flexible", 1: "Morale Boost"},
@@ -4306,7 +4306,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedrin: {
 		num: 390,
 		name: "Speed Rin",
-		types: ["Fire", "Earth"],
+		types: ["Fires", "Earths"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 110, def: 70, spa: 60, spd: 70, spe: 130},
 		abilities: {0: "Southern Expanse", 1: "Morale Boost"},
@@ -4317,7 +4317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerrin: {
 		num: 391,
 		name: "Power Rin",
-		types: ["Fire", "Nether"],
+		types: ["Fires", "Nether"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 120, def: 50, spa: 100, spd: 50, spe: 110},
 		abilities: {0: "Flexible", 1: "Up Tempo"},
@@ -4328,7 +4328,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrarin: {
 		num: 392,
 		name: "Extra Rin",
-		types: ["Fire", "Poison"],
+		types: ["Fires", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 55, def: 50, spa: 105, spd: 110, spe: 105},
 		abilities: {0: "Benefit of Fire", 1: "Infiltration"},
@@ -4350,7 +4350,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseringo: {
 		num: 394,
 		name: "Defense Ringo",
-		types: ["Nature", "Light"],
+		types: ["Nature", "Lights"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 95, def: 95, spa: 45, spd: 110, spe: 45},
 		abilities: {0: "In Sync", 1: "Overcompensate"},
@@ -4372,7 +4372,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraringo: {
 		num: 396,
 		name: "Extra Ringo",
-		types: ["Nature", "Dark"],
+		types: ["Nature", "Darks"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 85, def: 80, spa: 85, spd: 80, spe: 80},
 		abilities: {0: "Moody", 1: "Overcompensate"},
@@ -4405,7 +4405,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerrinnosuke: {
 		num: 399,
 		name: "Power Rinnosuke",
-		types: ["Void", "Steel"],
+		types: ["Void", "Steels"],
 		gender: "M",
 		baseStats: {hp: 100, atk: 85, def: 65, spa: 85, spd: 65, spe: 60},
 		abilities: {0: "Yata no Kagami"},
@@ -4427,7 +4427,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalrumia: {
 		num: 401,
 		name: "Normal Rumia",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 60, def: 55, spa: 35, spd: 30, spe: 50},
 		abilities: {0: "Final Form", 1: "Spirit of Yin"},
@@ -4438,7 +4438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenserumia: {
 		num: 402,
 		name: "Defense Rumia",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 100, def: 120, spa: 40, spd: 120, spe: 30},
 		abilities: {0: "Cloak of Darkness", 1: "Healing Power"},
@@ -4449,7 +4449,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerrumia: {
 		num: 403,
 		name: "Power Rumia",
-		types: ["Dark", "Fire"],
+		types: ["Darks", "Fires"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 50, def: 60, spa: 145, spd: 60, spe: 105},
 		abilities: {0: "Brutality", 1: "Spirit of Yin"},
@@ -4460,7 +4460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrarumia: {
 		num: 404,
 		name: "Extra Rumia",
-		types: ["Dark", "Warped"],
+		types: ["Darks", "Warped"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 130, def: 30, spa: 40, spd: 100, spe: 80},
 		abilities: {0: "Fog Traveler", 1: "Unbound"},
@@ -4471,7 +4471,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalruukoto: {
 		num: 405,
 		name: "Normal Ruukoto",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 50, def: 50, spa: 10, spd: 50, spe: 20},
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
@@ -4482,7 +4482,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistruukoto: {
 		num: 406,
 		name: "Assist Ruukoto",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 80, def: 100, spa: 30, spd: 100, spe: 20},
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
@@ -4493,7 +4493,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerruukoto: {
 		num: 407,
 		name: "Power Ruukoto",
-		types: ["Fire", "Steel"],
+		types: ["Fires", "Steels"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 140, def: 65, spa: 30, spd: 65, spe: 95},
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
@@ -4504,7 +4504,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraruukoto: {
 		num: 408,
 		name: "Extra Ruukoto",
-		types: ["Poison", "Steel"],
+		types: ["Poisons", "Steels"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 30, def: 115, spa: 85, spd: 115, spe: 20},
 		abilities: {0: "In Sync", 1: "Restraint"},
@@ -4515,7 +4515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsagume: {
 		num: 409,
 		name: "Normal Sagume",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 45, def: 60, spa: 60, spd: 80, spe: 40},
 		abilities: {0: "Reverse Function", 1: "Ascertainment"},
@@ -4526,7 +4526,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersagume: {
 		num: 410,
 		name: "Power Sagume",
-		types: ["Poison", "Sound"],
+		types: ["Poisons", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 80, def: 85, spa: 130, spd: 95, spe: 110},
 		abilities: {0: "Reverse Function", 1: "Reflect Guard"},
@@ -4537,7 +4537,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensesagume: {
 		num: 411,
 		name: "Defense Sagume",
-		types: ["Poison", "Electric"],
+		types: ["Poisons", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 70, def: 135, spa: 100, spd: 135, spe: 45},
 		abilities: {0: "Wisdom Eye", 1: "Ascertainment"},
@@ -4548,7 +4548,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasagume: {
 		num: 412,
 		name: "Extra Sagume",
-		types: ["Warped", "Sound"],
+		types: ["Warped", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 130, def: 95, spa: 70, spd: 105, spe: 70},
 		abilities: {0: "Reverse Function", 1: "Divine Festival"},
@@ -4559,7 +4559,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsaki: {
 		num: 413,
 		name: "Normal Saki",
-		types: ["Wind", "Fighting"],
+		types: ["Wind", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 70, def: 50, spa: 60, spd: 30, spe: 60},
 		abilities: {0: "Aggressive", 1: "Recoil Offset"},
@@ -4570,7 +4570,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedsaki: {
 		num: 414,
 		name: "Speed Saki",
-		types: ["Wind", "Fighting"],
+		types: ["Wind", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 105, def: 65, spa: 105, spd: 65, spe: 110},
 		abilities: {0: "Aggressive", 1: "Battle Mania"},
@@ -4581,7 +4581,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersaki: {
 		num: 415,
 		name: "Power Saki",
-		types: ["Wind", "Dark"],
+		types: ["Wind", "Darks"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 145, def: 75, spa: 85, spd: 50, spe: 70},
 		abilities: {0: "Aggressive", 1: "Recoil Offset"},
@@ -4592,7 +4592,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasaki: {
 		num: 416,
 		name: "Extra Saki",
-		types: ["Electric"],
+		types: ["Electrics"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 75, def: 80, spa: 120, spd: 75, spe: 105},
 		abilities: {0: "Vigorous", 1: "Common Senseless"},
@@ -4603,7 +4603,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsakuya: {
 		num: 417,
 		name: "Normal Sakuya",
-		types: ["Steel", "Illusion"],
+		types: ["Steels", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 50, spd: 40, spe: 65},
 		abilities: {0: "Poker Face", 1: "Nimble"},
@@ -4614,7 +4614,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedsakuya: {
 		num: 418,
 		name: "Speed Sakuya",
-		types: ["Steel", "Illusion"],
+		types: ["Steels", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 125, def: 70, spa: 70, spd: 70, spe: 120},
 		abilities: {0: "Sand Force", 1: "Nimble"},
@@ -4625,7 +4625,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersakuya: {
 		num: 419,
 		name: "Power Sakuya",
-		types: ["Steel", "Fighting"],
+		types: ["Steels", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 135, def: 100, spa: 70, spd: 80, spe: 60},
 		abilities: {0: "Strategist", 1: "Nimble"},
@@ -4636,7 +4636,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasakuya: {
 		num: 420,
 		name: "Extra Sakuya",
-		types: ["Steel", "Warped"],
+		types: ["Steels", "Warped"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 80, def: 70, spa: 130, spd: 100, spe: 70},
 		abilities: {0: "Unbound", 1: "Gale"},
@@ -4647,7 +4647,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsanae: {
 		num: 421,
 		name: "Normal Sanae",
-		types: ["Wind", "Water"],
+		types: ["Wind", "Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 60, spd: 50, spe: 50},
 		abilities: {0: "Divine Protection", 1: "Common Senseless"},
@@ -4658,7 +4658,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersanae: {
 		num: 422,
 		name: "Power Sanae",
-		types: ["Wind", "Water"],
+		types: ["Wind", "Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 55, def: 90, spa: 120, spd: 90, spe: 75},
 		abilities: {0: "Lucky", 1: "Phlegmatic"},
@@ -4669,7 +4669,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedsanae: {
 		num: 423,
 		name: "Speed Sanae",
-		types: ["Wind", "Earth"],
+		types: ["Wind", "Earths"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 55, def: 80, spa: 115, spd: 70, spe: 100},
 		abilities: {0: "Divine Protection", 1: "Common Senseless"},
@@ -4680,7 +4680,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasanae: {
 		num: 424,
 		name: "Extra Sanae",
-		types: ["Light", "Void"],
+		types: ["Lights", "Void"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 135, def: 95, spa: 55, spd: 65, spe: 80},
 		abilities: {0: "Inverse Reaction", 1: "On the Edge"},
@@ -4691,7 +4691,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsannyo: {
 		num: 425,
 		name: "Normal Sannyo",
-		types: ["Wind", "Poison"],
+		types: ["Wind", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 60, def: 60, spa: 45, spd: 30, spe: 55},
 		abilities: {0: "Deploy Smoke", 1: "Composed"},
@@ -4702,7 +4702,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistsannyo: {
 		num: 426,
 		name: "Assist Sannyo",
-		types: ["Wind", "Poison"],
+		types: ["Wind", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 95, def: 135, spa: 50, spd: 50, spe: 65},
 		abilities: {0: "Deploy Smoke", 1: "Jamming"},
@@ -4713,7 +4713,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersannyo: {
 		num: 427,
 		name: "Power Sannyo",
-		types: ["Wind", "Fire"],
+		types: ["Wind", "Fires"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 125, def: 70, spa: 40, spd: 100, spe: 80},
 		abilities: {0: "Deploy Smoke", 1: "Wisdom Eye"},
@@ -4724,7 +4724,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasannyo: {
 		num: 428,
 		name: "Extra Sannyo",
-		types: ["Nature", "Poison"],
+		types: ["Nature", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 70, spa: 110, spd: 80, spe: 100},
 		abilities: {0: "Fog Traveler", 1: "Weather Resist"},
@@ -4735,7 +4735,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsara: {
 		num: 429,
 		name: "Normal Sara",
-		types: ["Earth"],
+		types: ["Earths"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 60, def: 65, spa: 20, spd: 30, spe: 50},
 		abilities: {0: "Iron Resolve", 1: "Healing Power"},
@@ -4746,7 +4746,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensesara: {
 		num: 430,
 		name: "Defense Sara",
-		types: ["Earth"],
+		types: ["Earths"],
 		gender: "F",
 		baseStats: {hp: 125, atk: 95, def: 115, spa: 40, spd: 50, spe: 70},
 		abilities: {0: "Iron Resolve", 1: "Choleric"},
@@ -4757,7 +4757,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedsara: {
 		num: 431,
 		name: "Speed Sara",
-		types: ["Earth", "Electric"],
+		types: ["Earths", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 70, def: 95, spa: 55, spd: 70, spe: 105},
 		abilities: {0: "Good Management", 1: "Sniper"},
@@ -4768,7 +4768,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasara: {
 		num: 432,
 		name: "Extra Sara",
-		types: ["Fighting", "Sound"],
+		types: ["Fightings", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 110, def: 80, spa: 40, spd: 70, spe: 95},
 		abilities: {0: "Warning Shot", 1: "Master's Defense"},
@@ -4779,7 +4779,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsariel: {
 		num: 433,
 		name: "Normal Sariel",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 70, spd: 45, spe: 60},
 		abilities: {0: "Flawless", 1: "Dark Force"},
@@ -4790,7 +4790,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersariel: {
 		num: 434,
 		name: "Power Sariel",
-		types: ["Dark", "Warped"],
+		types: ["Darks", "Warped"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 130, def: 70, spa: 125, spd: 75, spe: 110},
 		abilities: {0: "Flawless", 1: "Dark Force"},
@@ -4801,7 +4801,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensesariel: {
 		num: 435,
 		name: "Defense Sariel",
-		types: ["Dark", "Light"],
+		types: ["Darks", "Lights"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 95, def: 95, spa: 75, spd: 130, spe: 85},
 		abilities: {0: "Flawless", 1: "Inverse Reaction"},
@@ -4812,7 +4812,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasariel: {
 		num: 436,
 		name: "Extra Sariel",
-		types: ["Light", "Nether"],
+		types: ["Lights", "Nether"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 70, def: 110, spa: 120, spd: 80, spe: 110},
 		abilities: {0: "Ascertainment", 1: "Final Form"},
@@ -4845,7 +4845,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedsatono: {
 		num: 439,
 		name: "Speed Satono",
-		types: ["Nature", "Electric"],
+		types: ["Nature", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 75, def: 75, spa: 110, spd: 75, spe: 105},
 		abilities: {0: "Chaos Induction", 1: "Optimist"},
@@ -4856,7 +4856,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasatono: {
 		num: 440,
 		name: "Extra Satono",
-		types: ["Sound", "Poison"],
+		types: ["Sounds", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 125, def: 80, spa: 70, spd: 80, spe: 75},
 		abilities: {0: "First Hit", 1: "After Move"},
@@ -4933,7 +4933,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerseiga: {
 		num: 447,
 		name: "Power Seiga",
-		types: ["Nether", "Poison"],
+		types: ["Nether", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 65, def: 60, spa: 120, spd: 110, spe: 100},
 		abilities: {0: "Infiltration", 1: "Curse Return"},
@@ -4944,7 +4944,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraseiga: {
 		num: 448,
 		name: "Extra Seiga",
-		types: ["Poison", "Fighting"],
+		types: ["Poisons", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 110, def: 95, spa: 65, spd: 70, spe: 120},
 		abilities: {0: "Flat Speed", 1: "Known Limits"},
@@ -4955,7 +4955,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalseija: {
 		num: 449,
 		name: "Normal Seija",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 50, def: 30, spa: 30, spd: 50, spe: 70},
 		abilities: {0: "Usurpation", 1: "Unjustness"},
@@ -4966,7 +4966,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedseija: {
 		num: 450,
 		name: "Speed Seija",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 85, def: 55, spa: 55, spd: 85, spe: 110},
 		abilities: {0: "Usurpation", 1: "Unjustness"},
@@ -4977,7 +4977,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseseija: {
 		num: 451,
 		name: "Defense Seija",
-		types: ["Poison", "Light"],
+		types: ["Poisons", "Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 105, def: 70, spa: 45, spd: 130, spe: 70},
 		abilities: {0: "Usurpation", 1: "Unjustness"},
@@ -4999,7 +4999,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalseiran: {
 		num: 453,
 		name: "Normal Seiran",
-		types: ["Void", "Electric"],
+		types: ["Void", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 40, def: 50, spa: 45, spd: 50, spe: 45},
 		abilities: {0: "Recalibration", 1: "Warning Shot"},
@@ -5010,7 +5010,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedseiran: {
 		num: 454,
 		name: "Speed Seiran",
-		types: ["Electric", "Void"],
+		types: ["Electrics", "Void"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 40, def: 70, spa: 100, spd: 80, spe: 120},
 		abilities: {0: "Recalibration", 1: "Warning Shot"},
@@ -5021,7 +5021,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseseiran: {
 		num: 455,
 		name: "Defense Seiran",
-		types: ["Fire", "Illusion"],
+		types: ["Fires", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 85, def: 95, spa: 45, spd: 100, spe: 45},
 		abilities: {0: "Deploy Smoke", 1: "Chaos Induction"},
@@ -5032,7 +5032,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraseiran: {
 		num: 456,
 		name: "Extra Seiran",
-		types: ["Wind", "Fire"],
+		types: ["Wind", "Fires"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 55, def: 105, spa: 115, spd: 75, spe: 55},
 		abilities: {0: "Telescopic", 1: "Unbound"},
@@ -5043,7 +5043,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsekibanki: {
 		num: 457,
 		name: "Normal Sekibanki",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 50, def: 65, spa: 30, spd: 60, spe: 30},
 		abilities: {0: "Spirit of Yin"},
@@ -5054,7 +5054,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersekibanki: {
 		num: 458,
 		name: "Power Sekibanki",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 115, def: 100, spa: 30, spd: 75, spe: 70},
 		abilities: {0: "Bright Form", 1: "Spirit of Yin"},
@@ -5065,7 +5065,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistsekibanki: {
 		num: 459,
 		name: "Assist Sekibanki",
-		types: ["Dark", "Nether"],
+		types: ["Darks", "Nether"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 50, def: 100, spa: 75, spd: 120, spe: 80},
 		abilities: {0: "Melancholic", 1: "Appeased Spirit"},
@@ -5131,7 +5131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalshinki: {
 		num: 465,
 		name: "Normal Shinki",
-		types: ["Illusion", "Dark"],
+		types: ["Illusion", "Darks"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 60, def: 45, spa: 75, spd: 55, spe: 55},
 		abilities: {0: "Strong Smile", 1: "Weather Resist"},
@@ -5142,7 +5142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powershinki: {
 		num: 466,
 		name: "Power Shinki",
-		types: ["Illusion", "Dark"],
+		types: ["Illusion", "Darks"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 115, def: 80, spa: 130, spd: 100, spe: 80},
 		abilities: {0: "Strong Smile", 1: "Weather Resist"},
@@ -5153,7 +5153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedshinki: {
 		num: 467,
 		name: "Speed Shinki",
-		types: ["Illusion", "Light"],
+		types: ["Illusion", "Lights"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 105, def: 90, spa: 125, spd: 90, spe: 95},
 		abilities: {0: "Strong Smile", 1: "Cloak of Darkness"},
@@ -5208,7 +5208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrashizuha: {
 		num: 472,
 		name: "Extra Shizuha",
-		types: ["Nature", "Fire"],
+		types: ["Nature", "Fires"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 140, def: 55, spa: 35, spd: 55, spe: 95},
 		abilities: {0: "Sutei's Fire", 1: "Charge!"},
@@ -5219,7 +5219,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalshou: {
 		num: 473,
 		name: "Normal Shou",
-		types: ["Light", "Electric"],
+		types: ["Lights", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 50, def: 40, spa: 75, spd: 40, spe: 60},
 		abilities: {0: "Absorbent", 1: "Flash"},
@@ -5230,7 +5230,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powershou: {
 		num: 474,
 		name: "Power Shou",
-		types: ["Light", "Electric"],
+		types: ["Lights", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 85, spa: 145, spd: 80, spe: 80},
 		abilities: {0: "Absorbent", 1: "Flash"},
@@ -5241,7 +5241,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedshou: {
 		num: 475,
 		name: "Speed Shou",
-		types: ["Light", "Earth"],
+		types: ["Lights", "Earths"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 120, def: 75, spa: 60, spd: 75, spe: 110},
 		abilities: {0: "Imposing Stance", 1: "Sand Devil"},
@@ -5252,7 +5252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrashou: {
 		num: 476,
 		name: "Extra Shou",
-		types: ["Electric", "Earth"],
+		types: ["Electrics", "Earths"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 135, def: 75, spa: 70, spd: 80, spe: 90},
 		abilities: {0: "On the Edge", 1: "Flat Speed"},
@@ -5263,7 +5263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalstar: {
 		num: 477,
 		name: "Normal Star",
-		types: ["Light", "Water"],
+		types: ["Lights", "Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 30, spd: 55, spe: 30},
 		abilities: {0: "Light Curtain", 1: "Aurora Grace"},
@@ -5274,7 +5274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerstar: {
 		num: 478,
 		name: "Power Star",
-		types: ["Light", "Water"],
+		types: ["Lights", "Waters"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 120, def: 70, spa: 55, spd: 80, spe: 45},
 		abilities: {0: "Light Curtain", 1: "Niche"},
@@ -5285,7 +5285,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensestar: {
 		num: 479,
 		name: "Defense Star",
-		types: ["Light", "Illusion"],
+		types: ["Lights", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 40, def: 80, spa: 75, spd: 130, spe: 45},
 		abilities: {0: "Sanguine", 1: "Aurora Grace"},
@@ -5296,7 +5296,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrastar: {
 		num: 480,
 		name: "Extra Star",
-		types: ["Dark", "Warped"],
+		types: ["Darks", "Warped"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 60, spa: 80, spd: 80, spe: 120},
 		abilities: {0: "Surprise Tactics", 1: "Good Management"},
@@ -5307,7 +5307,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsuika: {
 		num: 481,
 		name: "Normal Suika",
-		types: ["Fighting", "Earth"],
+		types: ["Fightings", "Earths"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 55, spa: 50, spd: 40, spe: 50},
 		abilities: {0: "Charge!"},
@@ -5318,7 +5318,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersuika: {
 		num: 482,
 		name: "Power Suika",
-		types: ["Fighting", "Earth"],
+		types: ["Fightings", "Earths"],
 		gender: "F",
 		baseStats: {hp: 140, atk: 165, def: 90, spa: 100, spd: 45, spe: 100},
 		abilities: {0: "Drunkard"},
@@ -5329,7 +5329,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensesuika: {
 		num: 483,
 		name: "Defense Suika",
-		types: ["Fighting", "Fire"],
+		types: ["Fightings", "Fires"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 100, def: 100, spa: 70, spd: 100, spe: 60},
 		abilities: {0: "Charge!", 1: "Battle Mania"},
@@ -5340,7 +5340,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasuika: {
 		num: 484,
 		name: "Extra Suika",
-		types: ["Fire", "Water"],
+		types: ["Fires", "Waters"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 65, def: 105, spa: 120, spd: 80, spe: 90},
 		abilities: {0: "Imposing Stance", 1: "Final Form"},
@@ -5351,7 +5351,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsukuna: {
 		num: 485,
 		name: "Normal Sukuna",
-		types: ["Steel", "Earth"],
+		types: ["Steels", "Earths"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 60, def: 55, spa: 35, spd: 30, spe: 40},
 		abilities: {0: "Sore Loser"},
@@ -5362,7 +5362,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensesukuna: {
 		num: 486,
 		name: "Defense Sukuna",
-		types: ["Steel", "Earth"],
+		types: ["Steels", "Earths"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 50, def: 50, spa: 60, spd: 60, spe: 75},
 		abilities: {0: "Miracle Mallet", 1: "Master's Defense"},
@@ -5373,7 +5373,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersukuna: {
 		num: 487,
 		name: "Power Sukuna",
-		types: ["Steel", "Fighting"],
+		types: ["Steels", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 120, def: 100, spa: 85, spd: 70, spe: 85},
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
@@ -5384,7 +5384,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasukuna: {
 		num: 488,
 		name: "Extra Sukuna",
-		types: ["Water", "Earth"],
+		types: ["Waters", "Earths"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 120, def: 55, spa: 120, spd: 40, spe: 125},
 		abilities: {0: "Active", 1: "Sand Force"},
@@ -5406,7 +5406,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersumireko: {
 		num: 490,
 		name: "Power Sumireko",
-		types: ["Warped", "Steel"],
+		types: ["Warped", "Steels"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 120, def: 95, spa: 30, spd: 85, spe: 60},
 		abilities: {0: "Telescopic", 1: "Suppression"},
@@ -5439,7 +5439,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsunny: {
 		num: 493,
 		name: "Normal Sunny",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 30, def: 40, spa: 65, spd: 50, spe: 40},
 		abilities: {0: "Flash", 1: "Active"},
@@ -5450,7 +5450,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistsunny: {
 		num: 494,
 		name: "Assist Sunny",
-		types: ["Light"],
+		types: ["Lights"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 85, spa: 100, spd: 90, spe: 50},
 		abilities: {0: "Sanguine", 1: "Active"},
@@ -5461,7 +5461,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powersunny: {
 		num: 495,
 		name: "Power Sunny",
-		types: ["Light", "Fire"],
+		types: ["Lights", "Fires"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 30, def: 70, spa: 130, spd: 75, spe: 95},
 		abilities: {0: "Flash", 1: "Absorbent"},
@@ -5472,7 +5472,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasunny: {
 		num: 496,
 		name: "Extra Sunny",
-		types: ["Light", "Warped"],
+		types: ["Lights", "Warped"],
 		gender: "F",
 		baseStats: {hp: 125, atk: 85, def: 90, spa: 40, spd: 90, spe: 40},
 		abilities: {0: "Light Curtain", 1: "Some Guts"},
@@ -5483,7 +5483,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalsuwako: {
 		num: 497,
 		name: "Normal Suwako",
-		types: ["Earth", "Water"],
+		types: ["Earths", "Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 70, spd: 45, spe: 65},
 		abilities: {0: "Optimist", 1: "Moody"},
@@ -5494,7 +5494,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedsuwako: {
 		num: 498,
 		name: "Speed Suwako",
-		types: ["Earth", "Water"],
+		types: ["Earths", "Waters"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 90, def: 80, spa: 120, spd: 80, spe: 115},
 		abilities: {0: "Optimist", 1: "Moody"},
@@ -5505,7 +5505,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensesuwako: {
 		num: 499,
 		name: "Defense Suwako",
-		types: ["Earth", "Steel"],
+		types: ["Earths", "Steels"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 80, def: 115, spa: 110, spd: 80, spe: 85},
 		abilities: {0: "Stimulative", 1: "Breather"},
@@ -5516,7 +5516,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrasuwako: {
 		num: 500,
 		name: "Extra Suwako",
-		types: ["Poison", "Warped"],
+		types: ["Poisons", "Warped"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 115, def: 70, spa: 90, spd: 135, spe: 60},
 		abilities: {0: "Negative Aura", 1: "Hate Incarnate"},
@@ -5549,7 +5549,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedtakane: {
 		num: 503,
 		name: "Speed Takane",
-		types: ["Nature", "Steel"],
+		types: ["Nature", "Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 115, def: 60, spa: 65, spd: 60, spe: 125},
 		abilities: {0: "Seitei's Wood", 1: "Metallurgy"},
@@ -5593,7 +5593,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedteireida: {
 		num: 507,
 		name: "Speed Teireida",
-		types: ["Nature", "Sound"],
+		types: ["Nature", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 45, def: 75, spa: 120, spd: 75, spe: 125},
 		abilities: {0: "Chaos Induction", 1: "Mindless Dance"},
@@ -5604,7 +5604,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrateireida: {
 		num: 508,
 		name: "Extra Teireida",
-		types: ["Dark", "Illusion"],
+		types: ["Darks", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 130, def: 60, spa: 130, spd: 60, spe: 75},
 		abilities: {0: "Charge!", 1: "Fox's Wedding"},
@@ -5615,7 +5615,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaltenshi: {
 		num: 509,
 		name: "Normal Tenshi",
-		types: ["Earth"],
+		types: ["Earths"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 70, def: 70, spa: 35, spd: 40, spe: 30},
 		abilities: {0: "Indomitable", 1: "Flawless"},
@@ -5626,7 +5626,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powertenshi: {
 		num: 510,
 		name: "Power Tenshi",
-		types: ["Earth"],
+		types: ["Earths"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 130, def: 115, spa: 55, spd: 60, spe: 95},
 		abilities: {0: "Indomitable", 1: "Unbound"},
@@ -5637,7 +5637,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensetenshi: {
 		num: 511,
 		name: "Defense Tenshi",
-		types: ["Earth", "Light"],
+		types: ["Earths", "Lights"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 110, def: 155, spa: 60, spd: 50, spe: 45},
 		abilities: {0: "Indomitable", 1: "Flawless"},
@@ -5648,7 +5648,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extratenshi: {
 		num: 512,
 		name: "Extra Tenshi",
-		types: ["Earth", "Fire"],
+		types: ["Earths", "Fires"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 60, def: 60, spa: 120, spd: 130, spe: 50},
 		abilities: {0: "Healing Power", 1: "Koutei's Earth"},
@@ -5692,7 +5692,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extratewi: {
 		num: 516,
 		name: "Extra Tewi",
-		types: ["Poison", "Fighting"],
+		types: ["Poisons", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 110, spa: 35, spd: 80, spe: 100},
 		abilities: {0: "Counter Stance", 1: "Glamorous"},
@@ -5703,7 +5703,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaltojiko: {
 		num: 517,
 		name: "Normal Tojiko",
-		types: ["Electric"],
+		types: ["Electrics"],
 		gender: "F",
 		baseStats: {hp: 35, atk: 70, def: 50, spa: 35, spd: 40, spe: 70},
 		abilities: {0: "Electrification", 1: "Desperation"},
@@ -5714,7 +5714,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedtojiko: {
 		num: 518,
 		name: "Speed Tojiko",
-		types: ["Electric"],
+		types: ["Electrics"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 135, def: 90, spa: 40, spd: 60, spe: 130},
 		abilities: {0: "Morale Boost", 1: "Mind's Eye"},
@@ -5725,7 +5725,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensetojiko: {
 		num: 519,
 		name: "Defense Tojiko",
-		types: ["Electric", "Nether"],
+		types: ["Electrics", "Nether"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 50, def: 30, spa: 110, spd: 130, spe: 105},
 		abilities: {0: "Electrification", 1: "Jamming"},
@@ -5736,7 +5736,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extratojiko: {
 		num: 520,
 		name: "Extra Tojiko",
-		types: ["Electric", "Warped"],
+		types: ["Electrics", "Warped"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 80, spa: 110, spd: 65, spe: 125},
 		abilities: {0: "Pride", 1: "Healing Power"},
@@ -5769,7 +5769,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensetokiko: {
 		num: 523,
 		name: "Defense Tokiko",
-		types: ["Wind", "Electric"],
+		types: ["Wind", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 80, def: 120, spa: 35, spd: 65, spe: 80},
 		abilities: {0: "Deploy Smoke", 1: "In Sync"},
@@ -5791,7 +5791,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaltoyohime: {
 		num: 525,
 		name: "Normal Toyohime",
-		types: ["Water", "Earth"],
+		types: ["Waters", "Earths"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 55, def: 60, spa: 70, spd: 65, spe: 40},
 		abilities: {0: "Optimist", 1: "Flawless"},
@@ -5802,7 +5802,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defensetoyohime: {
 		num: 526,
 		name: "Defense Toyohime",
-		types: ["Water", "Earth"],
+		types: ["Waters", "Earths"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 120, spd: 110, spe: 70},
 		abilities: {0: "Optimist", 1: "Flawless"},
@@ -5813,7 +5813,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powertoyohime: {
 		num: 527,
 		name: "Power Toyohime",
-		types: ["Water", "Wind"],
+		types: ["Waters", "Wind"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 75, def: 90, spa: 130, spd: 100, spe: 65},
 		abilities: {0: "Optimist", 1: "Flawless"},
@@ -5824,7 +5824,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extratoyohime: {
 		num: 528,
 		name: "Extra Toyohime",
-		types: ["Nature", "Light"],
+		types: ["Nature", "Lights"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 70, def: 130, spa: 115, spd: 65, spe: 85},
 		abilities: {0: "Healing Power", 1: "Flawless"},
@@ -5835,7 +5835,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normaltsukasa: {
 		num: 529,
 		name: "Normal Tsukasa",
-		types: ["Sound", "Warped"],
+		types: ["Sounds", "Warped"],
 		gender: "F",
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 50, spd: 40, spe: 60},
 		abilities: {0: "Sniper", 1: "Quick Eye"},
@@ -5846,7 +5846,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedtsukasa: {
 		num: 530,
 		name: "Speed Tsukasa",
-		types: ["Sound", "Warped"],
+		types: ["Sounds", "Warped"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 115, def: 50, spa: 95, spd: 50, spe: 115},
 		abilities: {0: "Sniper", 1: "First Hit"},
@@ -5857,7 +5857,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assisttsukasa: {
 		num: 531,
 		name: "Assist Tsukasa",
-		types: ["Sound", "Light"],
+		types: ["Sounds", "Lights"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 95, def: 90, spa: 45, spd: 80, spe: 90},
 		abilities: {0: "Curiosity", 1: "Quick Eye"},
@@ -5868,7 +5868,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extratsukasa: {
 		num: 532,
 		name: "Extra Tsukasa",
-		types: ["Sound", "Steel"],
+		types: ["Sounds", "Steels"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 95, def: 105, spa: 40, spd: 85, spe: 70},
 		abilities: {0: "Fox's Wedding", 1: "In Sync"},
@@ -5901,7 +5901,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerudonge: {
 		num: 535,
 		name: "Power Udonge",
-		types: ["Illusion", "Poison"],
+		types: ["Illusion", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 130, def: 70, spa: 65, spd: 65, spe: 105},
 		abilities: {0: "Precise Aim", 1: "Worrywart"},
@@ -5923,7 +5923,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalurumi: {
 		num: 537,
 		name: "Normal Urumi",
-		types: ["Water", "Earth"],
+		types: ["Waters", "Earths"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 40, def: 40, spa: 60, spd: 45, spe: 40},
 		abilities: {0: "Warning Shot", 1: "Charge!"},
@@ -5934,7 +5934,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerurumi: {
 		num: 538,
 		name: "Power Urumi",
-		types: ["Water", "Earth"],
+		types: ["Waters", "Earths"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 60, def: 70, spa: 115, spd: 70, spe: 65},
 		abilities: {0: "Warning Shot", 1: "Charge!"},
@@ -5945,7 +5945,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseurumi: {
 		num: 539,
 		name: "Defense Urumi",
-		types: ["Dark"],
+		types: ["Darks"],
 		gender: "F",
 		baseStats: {hp: 135, atk: 100, def: 55, spa: 50, spd: 90, spe: 60},
 		abilities: {0: "Warning Shot", 1: "Grace of Water"},
@@ -5956,7 +5956,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extraurumi: {
 		num: 540,
 		name: "Extra Urumi",
-		types: ["Dark", "Fighting"],
+		types: ["Darks", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 125, def: 80, spa: 60, spd: 70, spe: 60},
 		abilities: {0: "Warning Shot", 1: "Unbound"},
@@ -5967,7 +5967,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalutsuho: {
 		num: 541,
 		name: "Normal Utsuho",
-		types: ["Fire", "Light"],
+		types: ["Fires", "Lights"],
 		gender: "F",
 		baseStats: {hp: 50, atk: 80, def: 35, spa: 80, spd: 35, spe: 40},
 		abilities: {0: "Absorbent", 1: "Aggressive"},
@@ -5978,7 +5978,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerutsuho: {
 		num: 542,
 		name: "Power Utsuho",
-		types: ["Fire", "Light"],
+		types: ["Fires", "Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 150, def: 50, spa: 150, spd: 50, spe: 60},
 		abilities: {0: "Final Form", 1: "Aggressive"},
@@ -5989,7 +5989,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedutsuho: {
 		num: 543,
 		name: "Speed Utsuho",
-		types: ["Fire", "Fighting"],
+		types: ["Fires", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 65, def: 80, spa: 135, spd: 70, spe: 90},
 		abilities: {0: "Positive", 1: "Duel"},
@@ -6000,7 +6000,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrautsuho: {
 		num: 544,
 		name: "Extra Utsuho",
-		types: ["Fire", "Wind"],
+		types: ["Fires", "Wind"],
 		gender: "F",
 		baseStats: {hp: 110, atk: 100, def: 70, spa: 60, spd: 110, spe: 80},
 		abilities: {0: "Sore Loser", 1: "Sutei's Fire"},
@@ -6011,7 +6011,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalwakasagi: {
 		num: 545,
 		name: "Normal Wakasagi",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 35, def: 40, spa: 65, spd: 65, spe: 35},
 		abilities: {0: "Grace of Water", 1: "Final Form"},
@@ -6022,7 +6022,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerwakasagi: {
 		num: 546,
 		name: "Power Wakasagi",
-		types: ["Water"],
+		types: ["Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 30, def: 70, spa: 100, spd: 100, spe: 90},
 		abilities: {0: "Grace of Water", 1: "Sound Absorb"},
@@ -6033,7 +6033,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedwakasagi: {
 		num: 547,
 		name: "Speed Wakasagi",
-		types: ["Water", "Sound"],
+		types: ["Waters", "Sounds"],
 		gender: "F",
 		baseStats: {hp: 75, atk: 50, def: 60, spa: 120, spd: 60, spe: 115},
 		abilities: {0: "Fog Traveler", 1: "Force of Nature"},
@@ -6044,7 +6044,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrawakasagi: {
 		num: 548,
 		name: "Extra Wakasagi",
-		types: ["Water", "Nature"],
+		types: ["Waters", "Nature"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 40, def: 70, spa: 145, spd: 70, spe: 35},
 		abilities: {0: "Gentei's Water", 1: "Seitei's Wood"},
@@ -6055,7 +6055,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalwriggle: {
 		num: 549,
 		name: "Normal Wriggle",
-		types: ["Nature", "Dark"],
+		types: ["Nature", "Darks"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 60, def: 40, spa: 40, spd: 35, spe: 50},
 		abilities: {0: "Vanishing Act", 1: "Jamming"},
@@ -6066,7 +6066,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	powerwriggle: {
 		num: 550,
 		name: "Power Wriggle",
-		types: ["Nature", "Dark"],
+		types: ["Nature", "Darks"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 115, def: 70, spa: 40, spd: 70, spe: 85},
 		abilities: {0: "Telescopic", 1: "Quick Eye"},
@@ -6077,7 +6077,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistwriggle: {
 		num: 551,
 		name: "Assist Wriggle",
-		types: ["Nature", "Poison"],
+		types: ["Nature", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 70, def: 90, spa: 40, spd: 105, spe: 105},
 		abilities: {0: "Vanishing Act", 1: "Jamming"},
@@ -6088,7 +6088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrawriggle: {
 		num: 552,
 		name: "Extra Wriggle",
-		types: ["Dark", "Electric"],
+		types: ["Darks", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 105, def: 40, spa: 105, spd: 40, spe: 130},
 		abilities: {0: "First Hit", 1: "Instant Win"},
@@ -6099,7 +6099,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyachie: {
 		num: 553,
 		name: "Normal Yachie",
-		types: ["Warped", "Fire"],
+		types: ["Warped", "Fires"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 60, spd: 65, spe: 30},
 		abilities: {0: "Ascertainment", 1: "Usurpation"},
@@ -6110,7 +6110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryachie: {
 		num: 554,
 		name: "Power Yachie",
-		types: ["Warped", "Fire"],
+		types: ["Warped", "Fires"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 75, def: 85, spa: 100, spd: 110, spe: 65},
 		abilities: {0: "Ascertainment", 1: "Usurpation"},
@@ -6121,7 +6121,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyachie: {
 		num: 555,
 		name: "Defense Yachie",
-		types: ["Water", "Nature"],
+		types: ["Waters", "Nature"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 60, def: 80, spa: 90, spd: 135, spe: 50},
 		abilities: {0: "Ascertainment", 1: "Restraint"},
@@ -6132,7 +6132,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayachie: {
 		num: 556,
 		name: "Extra Yachie",
-		types: ["Warped", "Fighting"],
+		types: ["Warped", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 115, def: 115, spa: 60, spd: 65, spe: 95},
 		abilities: {0: "Precise Aim", 1: "Strategist"},
@@ -6143,7 +6143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyamame: {
 		num: 557,
 		name: "Normal Yamame",
-		types: ["Poison", "Earth"],
+		types: ["Poisons", "Earths"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 40, def: 50, spa: 55, spd: 55, spe: 45},
 		abilities: {0: "Infectious", 1: "Nimble"},
@@ -6154,7 +6154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryamame: {
 		num: 558,
 		name: "Power Yamame",
-		types: ["Poison", "Earth"],
+		types: ["Poisons", "Earths"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 40, def: 85, spa: 120, spd: 80, spe: 70},
 		abilities: {0: "Infectious", 1: "Nimble"},
@@ -6165,7 +6165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	assistyamame: {
 		num: 559,
 		name: "Assist Yamame",
-		types: ["Poison", "Nature"],
+		types: ["Poisons", "Nature"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 125, def: 70, spa: 40, spd: 70, spe: 95},
 		abilities: {0: "Infectious", 1: "Nimble"},
@@ -6176,7 +6176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayamame: {
 		num: 560,
 		name: "Extra Yamame",
-		types: ["Poison", "Light"],
+		types: ["Poisons", "Lights"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 40, def: 105, spa: 90, spd: 145, spe: 35},
 		abilities: {0: "Infectious", 1: "Disturber"},
@@ -6187,7 +6187,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyatsuhashi: {
 		num: 561,
 		name: "Normal Yatsuhashi",
-		types: ["Sound"],
+		types: ["Sounds"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 30, def: 55, spa: 60, spd: 40, spe: 40},
 		abilities: {0: "Final Form", 1: "Sound Absorb"},
@@ -6198,7 +6198,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyatsuhashi: {
 		num: 562,
 		name: "Speed Yatsuhashi",
-		types: ["Sound"],
+		types: ["Sounds"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 40, def: 65, spa: 105, spd: 65, spe: 115},
 		abilities: {0: "Instant Win", 1: "Strategist"},
@@ -6209,7 +6209,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyatsuhashi: {
 		num: 563,
 		name: "Defense Yatsuhashi",
-		types: ["Sound", "Nature"],
+		types: ["Sounds", "Nature"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 40, def: 125, spa: 100, spd: 80, spe: 50},
 		abilities: {0: "Quick Eye", 1: "Some Guts"},
@@ -6220,7 +6220,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayatsuhashi: {
 		num: 564,
 		name: "Extra Yatsuhashi",
-		types: ["Sound", "Wind"],
+		types: ["Sounds", "Wind"],
 		gender: "F",
 		baseStats: {hp: 105, atk: 125, def: 95, spa: 40, spd: 80, spe: 50},
 		abilities: {0: "In Sync", 1: "Composed"},
@@ -6231,7 +6231,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyorigami: {
 		num: 565,
 		name: "Normal Yorigami",
-		types: ["Fire", "Fighting"],
+		types: ["Fires", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 60, atk: 70, def: 40, spa: 45, spd: 45, spe: 55},
 		abilities: {0: "Glamorous", 1: "Negative Aura"},
@@ -6242,7 +6242,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryorigami: {
 		num: 566,
 		name: "Power Yorigami",
-		types: ["Fire", "Fighting"],
+		types: ["Fires", "Fightings"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 120, def: 85, spa: 60, spd: 65, spe: 85},
 		abilities: {0: "Glamorous", 1: "Negative Aura"},
@@ -6253,7 +6253,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyorigami: {
 		num: 567,
 		name: "Defense Yorigami",
-		types: ["Fire", "Nether"],
+		types: ["Fires", "Nether"],
 		gender: "F",
 		baseStats: {hp: 125, atk: 75, def: 80, spa: 105, spd: 75, spe: 75},
 		abilities: {0: "Southern Expanse", 1: "Negative Aura"},
@@ -6264,7 +6264,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayorigami: {
 		num: 568,
 		name: "Extra Yorigami",
-		types: ["Steel", "Nether"],
+		types: ["Steels", "Nether"],
 		gender: "F",
 		baseStats: {hp: 165, atk: 105, def: 60, spa: 55, spd: 55, spe: 95},
 		abilities: {0: "Reckless", 1: "Wasteful"},
@@ -6275,7 +6275,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyorihime: {
 		num: 569,
 		name: "Normal Yorihime",
-		types: ["Steel", "Light"],
+		types: ["Steels", "Lights"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 70, def: 50, spa: 55, spd: 45, spe: 65},
 		abilities: {0: "Insight", 1: "Sniper"},
@@ -6286,7 +6286,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryorihime: {
 		num: 570,
 		name: "Power Yorihime",
-		types: ["Steel", "Light"],
+		types: ["Steels", "Lights"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 120, def: 85, spa: 100, spd: 70, spe: 105},
 		abilities: {0: "Insight", 1: "Sniper"},
@@ -6297,7 +6297,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyorihime: {
 		num: 571,
 		name: "Speed Yorihime",
-		types: ["Steel", "Electric"],
+		types: ["Steels", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 130, def: 90, spa: 90, spd: 70, spe: 120},
 		abilities: {0: "Insight", 1: "Immovable"},
@@ -6308,7 +6308,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayorihime: {
 		num: 572,
 		name: "Extra Yorihime",
-		types: ["Electric", "Fire"],
+		types: ["Electrics", "Fires"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 90, def: 90, spa: 80, spd: 130, spe: 110},
 		abilities: {0: "Flawless", 1: "Wisdom Eye"},
@@ -6319,7 +6319,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyoshika: {
 		num: 573,
 		name: "Normal Yoshika",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 60, def: 35, spa: 40, spd: 5, spe: 55},
 		abilities: {0: "Ghost Form", 1: "Spirit of Yin"},
@@ -6330,7 +6330,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryoshika: {
 		num: 574,
 		name: "Power Yoshika",
-		types: ["Poison"],
+		types: ["Poisons"],
 		gender: "F",
 		baseStats: {hp: 160, atk: 120, def: 70, spa: 40, spd: 20, spe: 90},
 		abilities: {0: "Ghost Form", 1: "Armor Purge"},
@@ -6341,7 +6341,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyoshika: {
 		num: 575,
 		name: "Defense Yoshika",
-		types: ["Poison", "Nether"],
+		types: ["Poisons", "Nether"],
 		gender: "F",
 		baseStats: {hp: 165, atk: 40, def: 80, spa: 105, spd: 45, spe: 65},
 		abilities: {0: "Full Power", 1: "Inverse Reaction"},
@@ -6352,7 +6352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayoshika: {
 		num: 576,
 		name: "Extra Yoshika",
-		types: ["Nether", "Earth"],
+		types: ["Nether", "Earths"],
 		gender: "F",
 		baseStats: {hp: 160, atk: 100, def: 60, spa: 40, spd: 60, spe: 80},
 		abilities: {0: "Free Will", 1: "Common Senseless"},
@@ -6363,7 +6363,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyoumu: {
 		num: 577,
 		name: "Normal Youmu",
-		types: ["Steel", "Nether"],
+		types: ["Steels", "Nether"],
 		gender: "F",
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 50, spd: 30, spe: 70},
 		abilities: {0: "Mind's Eye", 1: "Gale"},
@@ -6374,7 +6374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyoumu: {
 		num: 578,
 		name: "Speed Youmu",
-		types: ["Steel", "Nether"],
+		types: ["Steels", "Nether"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 110, def: 70, spa: 105, spd: 50, spe: 115},
 		abilities: {0: "Mind's Eye", 1: "Gale"},
@@ -6385,7 +6385,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryoumu: {
 		num: 579,
 		name: "Power Youmu",
-		types: ["Steel", "Nether"],
+		types: ["Steels", "Nether"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 125, def: 100, spa: 55, spd: 70, spe: 90},
 		abilities: {0: "Mind's Eye", 1: "Gale"},
@@ -6396,7 +6396,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayoumu: {
 		num: 580,
 		name: "Extra Youmu",
-		types: ["Steel", "Nature"],
+		types: ["Steels", "Nature"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 50, def: 100, spa: 105, spd: 120, spe: 50},
 		abilities: {0: "Reflect Guard", 1: "Stubborn"},
@@ -6429,7 +6429,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyukari: {
 		num: 583,
 		name: "Defense Yukari",
-		types: ["Illusion", "Dark"],
+		types: ["Illusion", "Darks"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 65, def: 140, spa: 105, spd: 140, spe: 50},
 		abilities: {0: "Restraint", 1: "Unjustness"},
@@ -6451,7 +6451,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyuki: {
 		num: 585,
 		name: "Normal Yuki",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 40, def: 40, spa: 60, spd: 40, spe: 60},
 		abilities: {0: "Flaming Garment", 1: "Positive"},
@@ -6462,7 +6462,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyuki: {
 		num: 586,
 		name: "Speed Yuki",
-		types: ["Fire"],
+		types: ["Fires"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 50, def: 70, spa: 100, spd: 60, spe: 115},
 		abilities: {0: "Strict Dosage", 1: "Charge!"},
@@ -6473,7 +6473,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryuki: {
 		num: 587,
 		name: "Power Yuki",
-		types: ["Fire", "Water"],
+		types: ["Fires", "Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 45, def: 70, spa: 125, spd: 70, spe: 90},
 		abilities: {0: "Recalibration", 1: "Positive"},
@@ -6484,7 +6484,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayuki: {
 		num: 588,
 		name: "Extra Yuki",
-		types: ["Water", "Warped"],
+		types: ["Waters", "Warped"],
 		gender: "F",
 		baseStats: {hp: 120, atk: 110, def: 60, spa: 40, spd: 120, spe: 40},
 		abilities: {0: "Known Limits", 1: "Gentei's Water"},
@@ -6495,7 +6495,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyumeko: {
 		num: 589,
 		name: "Normal Yumeko",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 70, def: 40, spa: 50, spd: 50, spe: 55},
 		abilities: {0: "Overwhelm", 1: "Morale Boost"},
@@ -6506,7 +6506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryumeko: {
 		num: 590,
 		name: "Power Yumeko",
-		types: ["Steel", "Dark"],
+		types: ["Steels", "Darks"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 130, def: 75, spa: 80, spd: 85, spe: 80},
 		abilities: {0: "Overwhelm", 1: "Morale Boost"},
@@ -6517,7 +6517,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyumeko: {
 		num: 591,
 		name: "Speed Yumeko",
-		types: ["Steel"],
+		types: ["Steels"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 110, def: 65, spa: 100, spd: 80, spe: 115},
 		abilities: {0: "Salvo", 1: "Strategist"},
@@ -6528,7 +6528,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayumeko: {
 		num: 592,
 		name: "Extra Yumeko",
-		types: ["Fighting", "Wind"],
+		types: ["Fightings", "Wind"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 60, def: 90, spa: 130, spd: 95, spe: 75},
 		abilities: {0: "Telescopic", 1: "Ascertainment"},
@@ -6539,7 +6539,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyumemi: {
 		num: 593,
 		name: "Normal Yumemi",
-		types: ["Light", "Water"],
+		types: ["Lights", "Waters"],
 		gender: "F",
 		baseStats: {hp: 55, atk: 40, def: 45, spa: 75, spd: 40, spe: 60},
 		abilities: {0: "Gale", 1: "Aggressive"},
@@ -6550,7 +6550,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryumemi: {
 		num: 594,
 		name: "Power Yumemi",
-		types: ["Light", "Water"],
+		types: ["Lights", "Waters"],
 		gender: "F",
 		baseStats: {hp: 90, atk: 55, def: 80, spa: 130, spd: 75, spe: 90},
 		abilities: {0: "Unwavering Heart", 1: "Aggressive"},
@@ -6561,7 +6561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyumemi: {
 		num: 595,
 		name: "Speed Yumemi",
-		types: ["Fire", "Electric"],
+		types: ["Fires", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 55, def: 70, spa: 125, spd: 80, spe: 110},
 		abilities: {0: "Gale", 1: "Positive"},
@@ -6572,7 +6572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayumemi: {
 		num: 596,
 		name: "Extra Yumemi",
-		types: ["Fire", "Illusion"],
+		types: ["Fires", "Illusion"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 120, def: 90, spa: 55, spd: 75, spe: 80},
 		abilities: {0: "Mind's Eye", 1: "Sore Loser"},
@@ -6583,7 +6583,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyuugi: {
 		num: 597,
 		name: "Normal Yuugi",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 65, atk: 80, def: 45, spa: 50, spd: 40, spe: 45},
 		abilities: {0: "Imposing Stance", 1: "Recoil Offset"},
@@ -6594,7 +6594,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryuugi: {
 		num: 598,
 		name: "Power Yuugi",
-		types: ["Fighting"],
+		types: ["Fightings"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 165, def: 70, spa: 85, spd: 65, spe: 60},
 		abilities: {0: "Unbound", 1: "Imposing Stance"},
@@ -6605,7 +6605,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	speedyuugi: {
 		num: 599,
 		name: "Speed Yuugi",
-		types: ["Fighting", "Water"],
+		types: ["Fightings", "Waters"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 130, def: 75, spa: 80, spd: 95, spe: 80},
 		abilities: {0: "Imposing Stance", 1: "Battle Mania"},
@@ -6616,7 +6616,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayuugi: {
 		num: 600,
 		name: "Extra Yuugi",
-		types: ["Wind", "Steel"],
+		types: ["Wind", "Steels"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 105, def: 90, spa: 135, spd: 135, spe: 80},
 		abilities: {0: "Brute Force"},
@@ -6627,7 +6627,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyuuka: {
 		num: 601,
 		name: "Normal Yuuka",
-		types: ["Nature", "Electric"],
+		types: ["Nature", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 70, atk: 80, def: 65, spa: 50, spd: 40, spe: 20},
 		abilities: {0: "Unjustness", 1: "Peaceful"},
@@ -6638,7 +6638,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryuuka: {
 		num: 602,
 		name: "Power Yuuka",
-		types: ["Nature", "Electric"],
+		types: ["Nature", "Electrics"],
 		gender: "F",
 		baseStats: {hp: 100, atk: 140, def: 100, spa: 90, spd: 60, spe: 45},
 		abilities: {0: "Unjustness", 1: "Peaceful"},
@@ -6649,7 +6649,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyuuka: {
 		num: 603,
 		name: "Defense Yuuka",
-		types: ["Nature", "Earth"],
+		types: ["Nature", "Earths"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 115, def: 185, spa: 55, spd: 45, spe: 40},
 		abilities: {0: "Unjustness", 1: "After Move"},
@@ -6660,7 +6660,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayuuka: {
 		num: 604,
 		name: "Extra Yuuka",
-		types: ["Nature", "Light"],
+		types: ["Nature", "Lights"],
 		gender: "F",
 		baseStats: {hp: 80, atk: 65, def: 70, spa: 145, spd: 80, spe: 95},
 		abilities: {0: "Overwhelm", 1: "Pride"},
@@ -6671,7 +6671,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	normalyuuma: {
 		num: 605,
 		name: "Normal Yuuma",
-		types: ["Dark", "Poison"],
+		types: ["Darks", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 85, atk: 45, def: 40, spa: 75, spd: 40, spe: 40},
 		abilities: {0: "Empowered", 1: "Overcompensate"},
@@ -6682,7 +6682,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	poweryuuma: {
 		num: 606,
 		name: "Power Yuuma",
-		types: ["Dark", "Poison"],
+		types: ["Darks", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 115, atk: 60, def: 80, spa: 120, spd: 70, spe: 85},
 		abilities: {0: "Empowered", 1: "Projection"},
@@ -6693,7 +6693,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	defenseyuuma: {
 		num: 607,
 		name: "Defense Yuuma",
-		types: ["Water", "Poison"],
+		types: ["Waters", "Poisons"],
 		gender: "F",
 		baseStats: {hp: 135, atk: 110, def: 95, spa: 50, spd: 75, spe: 65},
 		abilities: {0: "Strong Smile", 1: "Projection"},
@@ -6704,7 +6704,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayuuma: {
 		num: 608,
 		name: "Extra Yuuma",
-		types: ["Dark", "Water"],
+		types: ["Darks", "Waters"],
 		gender: "F",
 		baseStats: {hp: 150, atk: 65, def: 65, spa: 105, spd: 65, spe: 80},
 		abilities: {0: "Avarice"},
@@ -6716,7 +6716,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	extrayuumaavarice: {
 		num: 609,
 		name: "Extra Yuuma-Avarice",
-		types: ["Dark", "Water"],
+		types: ["Darks", "Waters"],
 		gender: "F",
 		baseStats: {hp: 150, atk: 65, def: 65, spa: 145, spd: 85, spe: 100},
 		abilities: {0: "Avarice"},
