@@ -531,6 +531,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	// Slate 5
 	moody: {
 		inherit: true,
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Moody');
+			this.add('-message', `This Pokemon is moody!`);
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			const natPlus = pokemon.getNature().plus;
