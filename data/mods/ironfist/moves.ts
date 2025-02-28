@@ -2767,7 +2767,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Lemon Bash",
 		type: "Lemon",
 		category: "Physical",
-		basePower: 80,
+		basePower: 85,
 		accuracy: 100,
 		pp: 15,
 		shortDesc: "20% chance to lower the target's Def by 1.",

@@ -1621,10 +1621,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setWeather('graveyard');
 			const fainted = pokemon.side.totalFainted + pokemon.side.foe.totalFainted;
 			if (fainted) this.heal(pokemon.baseMaxhp / 10 * fainted);
+			if (target.addType('Ghost')) this.add('-start', target, 'typeadd', 'Ghost', '[from] ability: Macabre Mourner');
 		},
 		flags: {},
 		name: "Macabre Mourner",
-		shortDesc: "On switchin, this Pokemon sets Graveyard and heals 10% for each fainted Pokemon.",
+		shortDesc: "On switchin, sets Graveyard, adds Ghost, heals 10% for each fainted Pokemon.",
 	},
 	jestersfolly: {
 		onDamagingHit(damage, target, source, move) {
