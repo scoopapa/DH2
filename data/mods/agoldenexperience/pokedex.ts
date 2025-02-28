@@ -170,10 +170,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 75, atk: 110, def: 120, spa: 45, spd: 55, spe: 85},
 		abilities: {0: "Snow Cloak", 1: "Spiky Body", H: "Slush Rush"},
 	},
-	clefable: {
-		inherit: true,
-		abilities: {0: "Cosmic Energy", 1: "Magic Guard", H: "Unaware"},
-	},
 	ninetales: {
 		inherit: true,
 		baseStats: {hp: 73, atk: 60, def: 80, spa: 105, spd: 80, spe: 107},
@@ -1400,6 +1396,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	deoxys: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 110, def: 110, spa: 110, spd: 110, spe: 110},
+		abilities: {0: "Pressure", H: "Cosmic Energy"},
+	},
+	deoxysattack: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Sheer Force"},
+	},
+	deoxysdefense: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Filter"},
+	},
+	deoxysspeed: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Infiltrator"},
 	},
 
 	// Gen 4 :
