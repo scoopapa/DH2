@@ -13455,7 +13455,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','cresceidon').learnset.doubleedge;
 		delete this.modData('Learnsets','cresceidon').learnset.pound;
 		// Chuggon
-		/*this.modData('Learnsets','chuggon').learnset.lovelykiss = ["9D"];
+		this.modData('Learnsets','chuggon').learnset.lovelykiss = ["9D"];
 		this.modData('Learnsets','chuggon').learnset.block = ["9M"];
 		this.modData('Learnsets','chuggon').learnset.echoedvoice = ["9M"];
 		this.modData('Learnsets','chuggon').learnset.fullcollide = ["9M"];
@@ -13487,6 +13487,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','chuggalong').learnset.incinerate = ["9M"];
 		this.modData('Learnsets','chuggalong').learnset.irontail = ["9M"];
 		this.modData('Learnsets','chuggalong').learnset.laserfocus = ["9M"];
-		this.modData('Learnsets','chuggalong').learnset.screech = ["9M"];*/
+		this.modData('Learnsets','chuggalong').learnset.screech = ["9M"];
 	},
 };
