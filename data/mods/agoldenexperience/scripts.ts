@@ -66,9 +66,6 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableye-Unova") {
         return null;
       }
-      else if (item.name === "Meteor Fragment" && pokemon.baseSpecies.name === "Rayquaza") {
-        return "Rayquaza-Mega";
-      }
       else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dusk-Mane") {
         return "Necrozma-Ultra";
       }
@@ -1136,7 +1133,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'golduck').learnset.shadowball = ['9L1'];
     this.modData('Learnsets', 'golduck').learnset.thunderbolt = ['9L1'];
     this.modData('Learnsets', 'arcanine').learnset.bulkup = ['9L1'];
-    this.modData('Learnsets', 'poliwrath').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.lifedew = ['9L1'];
     delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
