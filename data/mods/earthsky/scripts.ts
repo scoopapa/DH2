@@ -2802,7 +2802,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if(pokemon.battleOnly || ["Mega", "Mega-X", "Mega-Y", "Primal", "Ultra"].includes(pokemon.forme) || 
 				(["Deoxys", "Rotom", "Giratina", "Shaymin", "Arceus", "Tornadus", "Thundurus", "Landorus", "Keldeo", "Meloetta", "Genesect", "Vivillon", "Aegislash", 
-				"Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Oricorio", "Magearna", "Sinistea", "Polteageist", "Eternatus", 
+				"Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Oricorio", "Magearna", "Sinistea", "Polteageist", "Eternatus", "Enamorus",
 				"Squawkabilly", "Maushold", "Revavroom", "Palafin", "Dudunsparce", "Gimmighoul", "Poltchageist", "Sinistcha", "Ogerpon", "Terapagos", "Venomicon"].includes(pokemon.baseSpecies)
 				&& pokemon.baseSpecies !== pokemon.name))
 				continue;
