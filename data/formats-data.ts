@@ -1893,7 +1893,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	shedinja: {
 		isNonstandard: "Past",
 		tier: "Illegal",
-		natDexTier: "RU",
+		natDexTier: "UU",
 	},
 	whismur: {
 		isNonstandard: "Past",
@@ -2086,7 +2086,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "RU",
 	},
 	torkoal: {
-		tier: "PU",
+		tier: "NU",
 		doublesTier: "DOU",
 		natDexTier: "RU",
 	},
@@ -2462,7 +2462,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "NFE",
 	},
 	torterra: {
-		tier: "PUBL",
+		tier: "PU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -3501,7 +3501,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "LC",
 	},
 	mienshao: {
-		tier: "NUBL",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "UU",
 	},
@@ -4161,7 +4161,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "RU",
 	},
 	oricoriosensu: {
-		tier: "NUBL",
+		tier: "ZU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -4878,7 +4878,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "LC",
 	},
 	polteageist: {
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -5283,7 +5283,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "LC",
 	},
 	cetitan: {
-		tier: "NUBL",
+		tier: "PUBL",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -5442,7 +5442,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	roaringmoon: {
 		tier: "OU",
 		doublesTier: "DOU",
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	irontreads: {
 		tier: "OU",
@@ -5611,7 +5611,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	archaludon: {
 		tier: "Uber",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 		natDexTier: "UU",
 	},
 	hydrapple: {
@@ -5954,14 +5954,14 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},
-	// chuggon: {
-	// 	isNonstandard: "CAP",
-	// 	tier: "CAP LC",
-	// },
-	// draggalong: {
-	// 	isNonstandard: "CAP",
-	// 	tier: "CAP NFE",
-	// },
+	chuggon: {
+		isNonstandard: "CAP",
+		tier: "CAP LC",
+	},
+	draggalong: {
+		isNonstandard: "CAP",
+		tier: "CAP NFE",
+	},
 	chuggalong: {
 		isNonstandard: "CAP",
 		tier: "CAP",
