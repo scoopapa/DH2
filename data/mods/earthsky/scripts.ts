@@ -2903,6 +2903,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(learnsetTest) console.log("This move is learned on forme change");
 					moveMeans.push("9R");
 				}
+				if(moveLearn.includes("".concat(startGen,"S"))){ // hi, it's Lysio, I added this because I needed to fix it for an update, please DM me if it breaks something on your end
+					if(learnsetTest) console.log("This move is learned from an event");
+					moveMeans.push("9S");
+				}
 				// Pulls combined TMs and the three retained Isle Tutors
 				if((moveLearn.includes("6M") || moveLearn.includes("7M") || moveLearn.includes("7T") || moveLearn.includes("8M") || moveLearn.includes("9M")) && !droppedMachines.includes(moveID)){
 					if(learnsetTest) console.log("This move is taught by machine");
