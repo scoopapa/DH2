@@ -1619,9 +1619,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	macabremourner: {
 		onStart(source) {
 			this.field.setWeather('graveyard');
-			const fainted = pokemon.side.totalFainted + pokemon.side.foe.totalFainted;
-			if (fainted) this.heal(pokemon.baseMaxhp / 10 * fainted);
-			if (target.addType('Ghost')) this.add('-start', target, 'typeadd', 'Ghost', '[from] ability: Macabre Mourner');
+			const fainted = source.side.totalFainted + source.side.foe.totalFainted;
+			if (fainted) this.heal(source.baseMaxhp / 10 * fainted);
+			if (source.addType('Ghost')) this.add('-start', source, 'typeadd', 'Ghost', '[from] ability: Macabre Mourner');
 		},
 		flags: {},
 		name: "Macabre Mourner",
