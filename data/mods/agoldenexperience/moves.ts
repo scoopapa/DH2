@@ -2982,6 +2982,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		type: "Rock",
 		contestType: "Beautiful",
 	},
+	lightofruin: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	// Everlasting Winter field
 	auroraveil: {
 		inherit: true,
