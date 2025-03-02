@@ -1578,6 +1578,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	glitzyglow: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "Lowers the target's Special Attack and Special Defense by 1 stage.",
 		shortDesc: "Lowers target's Sp. Atk, Sp. Def by 1.",
 		self: null,
@@ -1588,6 +1589,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	baddybad: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "Lowers the target's Attack and Defense by 1 stage.",
 		shortDesc: "Lowers target's Atk, Def by 1.",
 		self: null,
