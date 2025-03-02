@@ -66,12 +66,6 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableye-Unova") {
         return null;
       }
-      else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dusk-Mane") {
-        return "Necrozma-Ultra";
-      }
-      else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dawn-Wings") {
-        return "Necrozma-Ultra";
-      }
       return item.megaStone;
     },
 

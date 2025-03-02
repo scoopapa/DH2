@@ -48,19 +48,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//mega stones
-	necrosolunite: {
-		name: "Necrosolunite",
-		spritenum: 687,
-		megaStone: "Necrozma-Ultra",
-		itemUser: ["Necrozma-Ultra"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5,
-		gen: 9,
-		desc: "If held by a Necrozma-Dusk-Mane, this item allows it to Ultra Burst in battle.",
-	},
 	butterfrite: {
 		name: "Butterfrite",
 		spritenum: 578,

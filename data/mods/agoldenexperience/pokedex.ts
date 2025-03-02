@@ -2814,26 +2814,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 211, atk: 101, def: 71, spa: 97, spd: 71, spe: 19},
 	},
-	necrozmaultra: {
-		num: 800,
-		name: "Necrozma-Ultra",
-		baseSpecies: "Necrozma",
-		forme: "Ultra",
-		types: ["Psychic", "Dragon"],
-		gender: "N",
-		baseStats: {hp: 97, atk: 173, def: 103, spa: 173, spd: 103, spe: 131},
-		abilities: {0: "Neuroforce"},
-		heightm: 7.5,
-		weightkg: 230,
-		color: "Yellow",
-		eggGroups: ["Undiscovered"],
-		requiredItem: "Necrosolunite",
-		battleOnly: ["Necrozma-Dawn-Wings", "Necrozma-Dusk-Mane"],
-	},
-	// naganadel: {
-	// 	inherit: true,
-	// 	baseStats: {hp: 73, atk: 83, def: 73, spa: 113, spd: 79, spe: 119},
-	// },
 
 	// Gen 8 :
 	meltan: {
