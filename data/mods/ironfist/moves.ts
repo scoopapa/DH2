@@ -3821,19 +3821,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			let factor = 0.5;
 			switch (pokemon.effectiveWeather()) {
-			case 'acidrain':
-				factor = 0.667;
-				break;
-			case 'sunnyday':
-			case 'desolateland':
-			case 'raindance':
-			case 'primordialsea':
-			case 'sandstorm':
-			case 'hail':
-			case 'snowscape':
-			case 'graveyard':
-				factor = 0.333;
-				break;
+				case 'acidrain':
+					factor = 0.667;
+					break;
+				case 'sunnyday':
+				case 'desolateland':
+				case 'raindance':
+				case 'primordialsea':
+				case 'sandstorm':
+				case 'hail':
+				case 'snowscape':
+				case 'graveyard':
+					factor = 0.333;
+					break;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
@@ -3864,7 +3864,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	fishmortar: {
 		accuracy: 100,
