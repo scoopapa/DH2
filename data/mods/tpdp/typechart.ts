@@ -217,7 +217,7 @@ export const TypeChart: {[k: string]: ModdedTypeData | null} = {
 	},
 	darks: {
 		damageTaken: {
-			stickyweb: 3,
+			bindtrap: 3,
 			Void: 2,
 			Fires: 0,
 			Waters: 0,
