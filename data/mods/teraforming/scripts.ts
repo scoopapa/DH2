@@ -54,6 +54,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kleavor").learnset.accelerock = ["9L1"];
 		this.modData("Learnsets", "diancie").learnset.psychicnoise = ["9L1"];
 		this.modData("Learnsets", "basculegionf").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "hawlucha").learnset.ragingfury = ["9L1"];
+		this.modData("Learnsets", "hawlucha").learnset.firelash = ["9L1"];
+		this.modData("Learnsets", "hawlucha").learnset.solarblade = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -192,6 +195,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Diancie') {
 				const tera = pokemon.species.id === 'diancie' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Hawlucha') {
+				const tera = pokemon.species.id === 'hawlucha' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Avalugg') {
+				const tera = pokemon.species.id === 'avalugg' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Goodra') {
+				const tera = pokemon.species.id === 'goodra' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
