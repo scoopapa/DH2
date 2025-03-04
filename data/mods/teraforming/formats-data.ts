@@ -75,6 +75,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	kleavortera: {
 		tier: "Tera",
 	},
+	avaluggtera: {
+		tier: "Tera",
+	},
+	goodratera: {
+		tier: "Tera",
+	},
+	hawluchatera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
