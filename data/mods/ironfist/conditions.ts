@@ -160,7 +160,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('sourrockorsomethingidfk')) {
+			if (source?.hasItem('sulphurrock')) {
 				return 8;
 			}
 			if (source?.hasAbility('timebomb')) {

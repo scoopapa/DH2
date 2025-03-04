@@ -2767,7 +2767,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Lemon Bash",
 		type: "Lemon",
 		category: "Physical",
-		basePower: 80,
+		basePower: 85,
 		accuracy: 100,
 		pp: 15,
 		shortDesc: "20% chance to lower the target's Def by 1.",
@@ -3821,19 +3821,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			let factor = 0.5;
 			switch (pokemon.effectiveWeather()) {
-			case 'acidrain':
-				factor = 0.667;
-				break;
-			case 'sunnyday':
-			case 'desolateland':
-			case 'raindance':
-			case 'primordialsea':
-			case 'sandstorm':
-			case 'hail':
-			case 'snowscape':
-			case 'graveyard':
-				factor = 0.333;
-				break;
+				case 'acidrain':
+					factor = 0.667;
+					break;
+				case 'sunnyday':
+				case 'desolateland':
+				case 'raindance':
+				case 'primordialsea':
+				case 'sandstorm':
+				case 'hail':
+				case 'snowscape':
+				case 'graveyard':
+					factor = 0.333;
+					break;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
@@ -3864,7 +3864,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 	},
 	fishmortar: {
 		accuracy: 100,
@@ -3907,6 +3907,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Stealth Anvils",
+		shortDesc: "Flattens the opponent upon entry.",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1, nosketch: 1, snatch: 1},
