@@ -269,10 +269,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Unconcerned", H: "Solar Power"},
 	},
-	leafeon: {
-		inherit: true,
-		abilities: {0: "Solar Power", H: "Chlorophyll"},
-	},
 	bellsprout: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Merciless"},
@@ -284,14 +280,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	victreebel: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Merciless"},
-	},
-	zarude: {
-		inherit: true,
-		abilities: {0: "Leaf Guard", 1: "Moody", H: "Solar Power"},
-	},
-	zarudedada: {
-		inherit: true,
-		abilities: {0: "Leaf Guard", 1: "Moody", H: "Solar Power"},
 	},
 	camerupt: {
 		inherit: true,
@@ -2143,5 +2131,103 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	glastrier: {
 		inherit: true,
 		abilities: {0: "Chilling Neigh", H: "Ice Body"},
+	},
+	// Slate 9
+	vaporeon: {
+		inherit: true,
+		types: ["Water", "Poison"],
+		abilities: {0: "Drizzle", H: "Lightning Rod"},
+	},
+	jolteon: {
+		inherit: true,
+		types: ["Electric", "Dark"],
+		abilities: {0: "Nostalgia Trip", H: "Regenerator"},
+	},
+	flareon: {
+		inherit: true,
+		types: ["Fire", "Normal"],
+		abilities: {0: "Fur Coat", H: "Magic Guard"},
+	},
+	espeon: {
+		inherit: true,
+		types: ["Psychic", "Steel"],
+		abilities: {0: "Trace", H: "Magic Bounce"},
+	},
+	leafeon: {
+		inherit: true,
+		types: ["Grass", "Fighting"],
+		abilities: {0: "Cotton Down", H: "Sharpness"},
+	},
+	sylveon: {
+		inherit: true,
+		types: ["Fairy", "Ghost"],
+		abilities: {0: "Bulletproof", H: "Pixilate"},
+	},
+	tapukoko: {
+		inherit: true,
+		abilities: {0: "Electric Surge", 1: "Shell Armor",  H: "Shield Dust"},
+	},
+	tapulele: {
+		inherit: true,
+		abilities: {0: "Psychic Surge", 1: "Shell Armor",  H: "Telepathy"},
+	},
+	tapubulu: {
+		inherit: true,
+		abilities: {0: "Grassy Surge", 1: "Shell Armor",  H: "Flower Veil"},
+	},
+	tapufini: {
+		inherit: true,
+		abilities: {0: "Misty Surge", 1: "Shell Armor",  H: "Comatose"},
+	},
+	zarude: {
+		inherit: true,
+		abilities: {0: "Route Closed", 1: "Flower Veil",  H: "Adaptability"},
+	},
+	zarudedada: {
+		inherit: true,
+		abilities: {0: "Route Closed", 1: "Flower Veil",  H: "Adaptability"},
+	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Prankster", H: "Pure Power"},
+	},
+	rotomheat: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Pyre"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Stench"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Snow Warning"},
+	},
+	rotomfan: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Drizzle", H: "Delta Stream"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Contrary"},
+	},
+	florges: {
+		inherit: true,
+		types: ["Fairy", "Ground"],
+		abilities: {0: "Misty Surge", 1: "Sap Sipper", H: "Hospitality"},
+	},
+	yamask: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		abilities: {0: "Mummy", 1: "Overcoat", H: "Honey Gather"},
+	},
+	cofagrigus: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		abilities: {0: "Mummy", 1: "Overcoat", H: "Honey Gather"},
+	},
+	runerigus: {
+		inherit: true,
+		abilities: {0: "Wandering Spirit", 1: "Nostalgia Trip", H: "Deliquesce"},
 	},
 };

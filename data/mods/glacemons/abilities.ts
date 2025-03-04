@@ -533,7 +533,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Moody');
-			this.add('-message', `This Pokemon is moody!`);
+			this.add('-message', `This Pokemon is feeling moody!`);
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
