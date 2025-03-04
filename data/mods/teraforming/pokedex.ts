@@ -486,8 +486,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	avalugg: {
 		inherit: true,
-		otherFormes: ["Avalugg-Tera", "Avalugg-Hisui"],
-		formeOrder: ["Avalugg", "Avalugg-Tera", "Avalugg-Hisui"],
+		otherFormes: ["Avalugg-Hisui", "Avalugg-Tera"],
+		formeOrder: ["Avalugg", "Avalugg-Hisui", "Avalugg-Tera"],
 		forceTeraType: "Fighting",
 	},
 	avaluggtera: {
@@ -507,8 +507,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	goodra: {
 		inherit: true,
-		otherFormes: ["Goodra-Tera", "Goodra-Hisui"],
-		formeOrder: ["Goodra", "Goodra-Tera", "Goodra-Hisui"],
+		otherFormes: ["Goodra-Hisui", "Goodra-Tera"],
+		formeOrder: ["Goodra", "Goodra-Hisui", "Goodra-Tera"],
 		forceTeraType: "Dragon",
 	},
 	goodratera: {
