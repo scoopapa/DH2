@@ -2494,4 +2494,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: -82,
 	},
+	curseoflife: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Curse of Life');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp >= target.maxhp / 2 && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Curse of Life');
+				return target.hp - 1;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Curse of Life",
+		rating: 3,
+		num: -83,
+		desc: "If this Pokemon is at more than half HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
+		shortDesc: "If this Pokemon is at >= 50% HP, it survives one hit with at least 1 HP. Immune to OHKO.",
+	},
 };

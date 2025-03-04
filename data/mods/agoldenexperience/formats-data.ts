@@ -983,7 +983,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	moltres: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	moltresgalar: {
@@ -2005,7 +2005,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	latiasmega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	latios: {
@@ -2045,7 +2045,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	deoxys: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	deoxysattack: {
@@ -3134,7 +3134,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	genesect: {
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	genesectburn: {
@@ -3244,8 +3244,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	floetteeternal: {
-		isNonstandard: "Past",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	florges: {
 		tier: "UU",
@@ -3672,7 +3672,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	salazzlemega: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	salazzletotem: {
@@ -3922,7 +3922,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	kartana: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DUber",
 	},
 	guzzlord: {
@@ -3942,8 +3942,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	necrozmaultra: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		inherit: true,
+		tier: "Illegal",
 	},
 	magearna: {
 		tier: "OU",
@@ -3994,7 +3994,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	rillaboom: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	rillaboomgmax: {
@@ -4043,7 +4043,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	corviknight: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	corviknightgmax: {
@@ -4457,7 +4457,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	enamorus: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	enamorustherian: {
@@ -4703,7 +4703,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	glimmora: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	shroodle: {
@@ -4876,7 +4876,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	clodsire: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	annihilape: {

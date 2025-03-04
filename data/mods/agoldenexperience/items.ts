@@ -48,33 +48,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 
 	//mega stones
-	jadeorb: {
-		name: "Jade Orb",
-		spritenum: 578,
-		megaStone: "Rayquaza-Mega",
-		megaEvolves: "Rayquaza",
-		itemUser: ["Rayquaza"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -4,
-		gen: 9,
-		desc: "If held by a Rayquaza, this item allows it to Mega Evolve in battle.",
-	},
-	necrosolunite: {
-		name: "Necrosolunite",
-		spritenum: 687,
-		megaStone: "Necrozma-Ultra",
-		itemUser: ["Necrozma-Ultra"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -5,
-		gen: 9,
-		desc: "If held by a Necrozma-Dusk-Mane, this item allows it to Ultra Burst in battle.",
-	},
 	butterfrite: {
 		name: "Butterfrite",
 		spritenum: 578,

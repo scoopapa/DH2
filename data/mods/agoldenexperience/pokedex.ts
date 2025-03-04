@@ -170,10 +170,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 75, atk: 110, def: 120, spa: 45, spd: 55, spe: 85},
 		abilities: {0: "Snow Cloak", 1: "Spiky Body", H: "Slush Rush"},
 	},
-	clefable: {
-		inherit: true,
-		abilities: {0: "Cosmic Energy", 1: "Magic Guard", H: "Unaware"},
-	},
 	ninetales: {
 		inherit: true,
 		baseStats: {hp: 73, atk: 60, def: 80, spa: 105, spd: 80, spe: 107},
@@ -1388,11 +1384,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Bulletproof", H: "Light Metal"},
 	},
-	rayquazamega: {
-		inherit: true,
-		requiredMove: null,
-		requiredItem: "Jade Orb",
-	},
 	jirachi: {
 		inherit: true,
 		abilities: {0: "Karma"},
@@ -1400,6 +1391,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	deoxys: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 110, def: 110, spa: 110, spd: 110, spe: 110},
+		abilities: {0: "Pressure", H: "Cosmic Energy"},
+	},
+	deoxysattack: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Sheer Force"},
+	},
+	deoxysdefense: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Filter"},
+	},
+	deoxysspeed: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Infiltrator"},
 	},
 
 	// Gen 4 :
@@ -1407,6 +1411,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 109, def: 105, spa: 75, spd: 90, spe: 56},
 		abilities: {0: "Overgrow", H: "Microclimate"},
+	},
+	chimchar: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Unconcerned"},
+	},
+	monferno: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Unconcerned"},
 	},
 	infernape: {
 		inherit: true,
@@ -2297,6 +2309,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
 	},
+	floetteeternal: {
+		inherit: true,
+		types: ["Fairy", "Ghost"],
+		abilities: {0: "Flower Veil", 1: "Regenerator", H: "Curse of Life"},
+	},
 	florges: {
 		inherit: true,
 		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
@@ -2797,26 +2814,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 211, atk: 101, def: 71, spa: 97, spd: 71, spe: 19},
 	},
-	necrozmaultra: {
-		num: 800,
-		name: "Necrozma-Ultra",
-		baseSpecies: "Necrozma",
-		forme: "Ultra",
-		types: ["Psychic", "Dragon"],
-		gender: "N",
-		baseStats: {hp: 97, atk: 173, def: 103, spa: 173, spd: 103, spe: 131},
-		abilities: {0: "Neuroforce"},
-		heightm: 7.5,
-		weightkg: 230,
-		color: "Yellow",
-		eggGroups: ["Undiscovered"],
-		requiredItem: "Necrosolunite",
-		battleOnly: ["Necrozma-Dawn-Wings", "Necrozma-Dusk-Mane"],
-	},
-	// naganadel: {
-	// 	inherit: true,
-	// 	baseStats: {hp: 73, atk: 83, def: 73, spa: 113, spd: 79, spe: 119},
-	// },
 
 	// Gen 8 :
 	meltan: {

@@ -1440,6 +1440,16 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
+	aeroblast: {
+		inherit: true,
+		accuracy: 100,
+		desc: "Has a higher chance for a critical hit, and a 20% chance to freeze the target.",
+		shortDesc: "High critical hit ratio. 20% chance to freeze the target.",
+		secondary: {
+			chance: 20,
+			status: 'frz',
+		},
+	},
 	roaroftime: {
 		inherit: true,
 		accuracy: 95,
@@ -1568,6 +1578,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	glitzyglow: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "Lowers the target's Special Attack and Special Defense by 1 stage.",
 		shortDesc: "Lowers target's Sp. Atk, Sp. Def by 1.",
 		self: null,
@@ -1578,6 +1589,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	baddybad: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "Lowers the target's Attack and Defense by 1 stage.",
 		shortDesc: "Lowers target's Atk, Def by 1.",
 		self: null,
@@ -2971,6 +2983,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "allAdjacent",
 		type: "Rock",
 		contestType: "Beautiful",
+	},
+	lightofruin: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	// Everlasting Winter field
 	auroraveil: {

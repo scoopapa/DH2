@@ -66,15 +66,6 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableye-Unova") {
         return null;
       }
-      else if (item.name === "Meteor Fragment" && pokemon.baseSpecies.name === "Rayquaza") {
-        return "Rayquaza-Mega";
-      }
-      else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dusk-Mane") {
-        return "Necrozma-Ultra";
-      }
-      else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dawn-Wings") {
-        return "Necrozma-Ultra";
-      }
       return item.megaStone;
     },
 
@@ -1136,7 +1127,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'golduck').learnset.shadowball = ['9L1'];
     this.modData('Learnsets', 'golduck').learnset.thunderbolt = ['9L1'];
     this.modData('Learnsets', 'arcanine').learnset.bulkup = ['9L1'];
-    this.modData('Learnsets', 'poliwrath').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.lifedew = ['9L1'];
     delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
@@ -1313,7 +1303,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regirock').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'regice').learnset.recover = ['9M'];
     this.modData('Learnsets', 'registeel').learnset.recover = ['9L1'];
-    delete this.modData('Learnsets', 'deoxys').learnset.magiccoat;
 
     // Gen 4:
     this.modData('Learnsets', 'torterra').learnset.weatherball = ['9L1'];
@@ -1563,6 +1552,13 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'delphox').learnset.magicpowder = ['9L1'];
     this.modData('Learnsets', 'pyroar').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'pyroar').learnset.scorchingsands = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.revivalblessing = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.willowisp = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.hex = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.shadowball = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.shadowclaw = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.shadowsneak = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.lightofruin = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
