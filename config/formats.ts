@@ -3625,7 +3625,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 1] Metronome Battle",
 		mod: "gen1metronome",
-		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Desync Clause Mod', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Team Size = 1'],
+		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Desync Clause Mod', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'Max Team Size = 1'],
 		banlist: [`Mewtwo`, 'Unreleased', 'Unobtainable', 'Nonexistent'],
 		unbanlist: [`Mew`, `MissingNo.`],
 		onValidateSet(set) {
