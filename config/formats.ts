@@ -2713,7 +2713,7 @@ export const Formats: FormatList = [
 		desc: `Base stats of 70 and lower get doubled.`,
 		mod: 'badnboosted',
 		ruleset: ['Standard'],
-		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra', 'Cyclizar', 'Polteageist'],
+		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Eviolite', 'Huge Power', 'Pure Power', 'Espathra', 'Cyclizar', 'Polteageist', 'Shadow Tag'],
 		onBegin() {
 			this.add('-message', `Welcome to Bad 'n Boosted!`);
 			this.add('-message', `This is a Generation 9 Pet Mod where Pokemon's base stats of 70 or lower get doubled!`);
