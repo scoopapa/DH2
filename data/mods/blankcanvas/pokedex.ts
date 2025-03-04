@@ -575,7 +575,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9071,
 		name: "Bazhigangquan",
 		types: ["Fighting", "Steel"],
-		baseStats: {hp: 101, atk: 113, def: 110, spa: 35, spd: 61, spe: 68},
+		baseStats: {hp: 101, atk: 104, def: 100, spa: 35, spd: 61, spe: 68},
 		abilities: {0: "Technician"},
 		weightkg: 219,
 	},
