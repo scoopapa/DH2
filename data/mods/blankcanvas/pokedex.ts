@@ -567,7 +567,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9070,
 		name: "Borealis",
 		types: ["Ice", "Flying"],
-		baseStats: {hp: 120, atk: 75, def: 90, spa: 100, spd: 90, spe: 121},
+		baseStats: {hp: 120, atk: 75, def: 90, spa: 100, spd: 90, spe: 131},
 		abilities: {0: "Supreme Overlord"},
 		weightkg: 63,
 	},
