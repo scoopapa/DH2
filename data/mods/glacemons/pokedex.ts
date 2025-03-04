@@ -20,11 +20,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	remoraid: {
 		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Indancesce", H: "Protean"},
+		abilities: {0: "Suction Cups", 1: "Incandesce", H: "Protean"},
 	},
 	octillery: {
 		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Indancesce", H: "Protean"},
+		abilities: {0: "Suction Cups", 1: "Incandesce", H: "Protean"},
 	},
 	castform: {
 		inherit: true,
@@ -73,11 +73,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	blitzle: {
 		inherit: true,
-		abilities: {0: "Indancesce", 1: "Velocity", H: "Sap Sipper"},
+		abilities: {0: "Incandesce", 1: "Velocity", H: "Sap Sipper"},
 	},
 	zebstrika: {
 		inherit: true,
-		abilities: {0: "Indancesce", 1: "Velocity", H: "Sap Sipper"},
+		abilities: {0: "Incandesce", 1: "Velocity", H: "Sap Sipper"},
 	},
 	irontreads: {
 		inherit: true,
@@ -167,7 +167,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	genesectburn: {
 		inherit: true,
-		abilities: {0: "Indancesce"},
+		abilities: {0: "Incandesce"},
 	},
 	genesectchill: {
 		inherit: true,
@@ -1112,58 +1112,58 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Flouresce", 1: "Natural Cure", H: "Analytic"},
 	},
-	// Indancesce 
+	// Incandesce 
 	darumakagalar: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Indancesce", H: "Inner Focus"},
+		abilities: {0: "Hustle", 1: "Incandesce", H: "Inner Focus"},
 	},
 	darmanitangalar: {
 		inherit: true,
-		abilities: {0: "Gorilla Tactics", 1: "Indancesce", H: "Zen Mode"},
+		abilities: {0: "Gorilla Tactics", 1: "Incandesce", H: "Zen Mode"},
 	},
 	solrock: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Indancesce"},
+		abilities: {0: "Levitate", H: "Incandesce"},
 	},
 	pumpkaboo: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	pumpkaboosmall: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	pumpkaboolarge: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	pumpkaboosuper: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeist: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeistsmall: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeistlarge: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeistsuper: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	snubbull: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Indancesce", H: "Rattled"},
+		abilities: {0: "Intimidate", 1: "Incandesce", H: "Rattled"},
 	},
 	granbull: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Indancesce", H: "Rattled"},
+		abilities: {0: "Intimidate", 1: "Incandesce", H: "Rattled"},
 	},
 	// Quick Draw
 	cacnea: {

@@ -1858,4 +1858,19 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		desc: "User's SpD is doubled, but it can only use moves of the same type as itself.",
 	},
+	expertbelt: {
+		inherit: true,
+		onModifyDamage(damage, source, target, move) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || source?.volatiles('expertbelt'))) {
+				if (source?.volatiles('expertbelt')) {
+					pokemon.removeVolatile('expertbelt');
+				}
+				else {
+					pokemon.addVolatile('expertbelt');
+				}
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
+	},
 };

@@ -440,13 +440,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		rating: 3,
 	},
-	indancesce: {
+	incandesce: {
 		num: -8,
-		name: "Indancesce",
+		name: "Incandesce",
 		shortDesc: "On switch in, adds Fire type to the user. Has no effect if the user is Fire-type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Fire')) {
-				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Indancesce');
+				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Incandesce');
 			}
 		},
 		rating: 3,
@@ -954,6 +954,32 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		shortDesc: "Non-Ice: Lose Ice weakness. If Ice: Lose Ice weaknesses; Water-type moves = Ice-type.",
+	},
+	lifestealer: {
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
+			}
+			for (const target of this.getAllActive()) {
+				if (pokemon.volatiles['lifestealer']) {
+					const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
+					if (damage) {
+						this.heal(damage * 2 / 3, target, pokemon);
+					}
+				}
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+			}
+		},
+		flags: {},
+		name: "Life Stealer",
+		rating: 3.5,
+		num: -19,
+		desc: "Whenever an opposing Pokemon takes damage, this Pokemon heals for 2/3 of the damage taken. If this Pokemon tries to drain the health of an opponent with the Liquid Ooze ability, it will take damage instead.",
+		shortDesc: "This Pokemon heals for 2/3 of the damage dealt to opponents.",
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {

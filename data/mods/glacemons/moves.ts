@@ -1722,4 +1722,52 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 	},
+	// Slate 9
+	dragonrend: {
+		num: -27,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Dragon Rend",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondaries: [
+			{
+				chance: 30,
+				volatileStatus: 'flinch',
+			},
+		],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+		shortDesc: "30% chance to flinch the target.",
+	},
+	imprison: { // WIP
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.add('-start', target, 'move: Imprison');
+			},
+			onFoeDisableMove(pokemon) {
+				for (const moveSlot of this.effectState.source.moveSlots) {
+					if (moveSlot.id === 'struggle') continue;
+					pokemon.disableMove(moveSlot.id, 'hidden');
+				}
+				pokemon.maybeDisabled = true;
+			},
+			onFoeBeforeMovePriority: 4,
+			onFoeBeforeMove(attacker, defender, move) {
+				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
+					this.add('cant', attacker, 'move: Imprison', move);
+					return false;
+				}
+			},
+		},
+	},
 };
