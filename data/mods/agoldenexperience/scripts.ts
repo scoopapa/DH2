@@ -1560,7 +1560,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'floetteeternal').learnset.shadowball = ['9L1'];
     this.modData('Learnsets', 'floetteeternal').learnset.shadowclaw = ['9L1'];
     this.modData('Learnsets', 'floetteeternal').learnset.shadowsneak = ['9L1'];
-    this.modData('Learnsets', 'floetteeternal').learnset.lightofruin = ['9L1'];
+    this.modData('Learnsets', 'floetteeternal').learnset.psychicnoise = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
@@ -2633,6 +2633,7 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'pyroar').learnset.hiddenpower;
     delete this.modData('Learnsets', 'flabebe').learnset.hiddenpower;
     delete this.modData('Learnsets', 'floette').learnset.hiddenpower;
+    delete this.modData('Learnsets', 'floetteeternal').learnset.hiddenpower;
     delete this.modData('Learnsets', 'florges').learnset.hiddenpower;
     delete this.modData('Learnsets', 'skiddo').learnset.hiddenpower;
     delete this.modData('Learnsets', 'gogoat').learnset.hiddenpower;
