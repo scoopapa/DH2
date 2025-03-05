@@ -955,6 +955,57 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		shortDesc: "Non-Ice: Lose Ice weakness. If Ice: Lose Ice weaknesses; Water-type moves = Ice-type.",
 	},
+	gulpmissile: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			const currentForme = source.species.id;
+			if (currentForme === 'cramorantgulping' || currentForme === 'cramorantgorging') {
+				return this.chainModify(0.67);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping') {
+					this.boost({def: -1, spd: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+					this.boost({spe: -2}, source, target, null, true);
+				}
+				target.formeChange('cramorant', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (effect?.effectType === 'Move' && (effect?.type === 'Water' || effect?.type === 'Flying') && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				source.formeChange(forme, effect);
+				this.heal(source.baseMaxhp / 8);
+			}
+		},
+		shortDesc: "atp just check the spreadsheet bro",
+	},
+	northernmist: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Northern Mist');
+		},
+		self: {
+			sideCondition: 'mist',
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.volatiles['mist'] && !move.flags['contact']) {
+				return this.chainModify(0.33);
+			}
+		},
+		onModifySecondaries(secondaries) {
+			if (source.volatiles['mist']) {
+				this.debug('Shield Dust prevent secondary');
+				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			}
+		},
+		shortDesc: "On switch in, creates mist. When the user is under Mist the user is immune to secondary effects and takes 2/3 damage from non contact moves",
+	},
 	lifestealer: {
 		onResidualOrder: 8,
 		onResidual(pokemon) {
