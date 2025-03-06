@@ -182,10 +182,12 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 
 	init() {//Tera Blast
-        for (const id in this.dataCache.Pokedex) {
-            const addTeraBlast = this.dataCache?.Pokedex[id];
-            this.modData('Learnsets', id).learnset.terablast = ['9M'];
-        }
+		for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
+				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
+				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["9M"];
+			}
+		}
 		// Other Nerfs or Buffs
 		delete this.modData('Learnsets', 'shaymin').learnset.grasswhistle;
 		delete this.modData('Learnsets', 'goomy').learnset.curse;
