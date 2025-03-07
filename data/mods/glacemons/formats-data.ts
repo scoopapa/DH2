@@ -869,19 +869,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	vaporeon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	jolteon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	flareon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	espeon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	umbreon: {
 		inherit: true,
@@ -889,7 +889,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	leafeon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	glaceon: {
 		inherit: true,
@@ -897,7 +897,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sylveon: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	porygon: {
 		inherit: true,
@@ -2389,27 +2389,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rotom: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	rotomheat: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	rotomwash: {
 		inherit: true,
-		tier: "UU",
+		tier: "(OU)",
 	},
 	rotomfrost: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	rotomfan: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	rotommow: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	uxie: {
 		inherit: true,
@@ -2793,11 +2793,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cofagrigus: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	runerigus: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	tirtouga: {
 		inherit: true,
@@ -3281,7 +3281,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	florges: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	skiddo: {
 		inherit: true,
@@ -3885,19 +3885,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tapukoko: {
 		inherit: true,
-		tier: "OU",
+		tier: "(OU)",
 	},
 	tapulele: {
 		inherit: true,
-		tier: "OU",
+		tier: "(OU)",
 	},
 	tapubulu: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	tapufini: {
 		inherit: true,
-		tier: "UU",
+		tier: "(OU)",
 	},
 	cosmog: {
 		inherit: true,
@@ -4141,7 +4141,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cramorant: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	arrokuda: {
 		inherit: true,
@@ -4325,7 +4325,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zarude: {
 		inherit: true,
-		tier: "RU",
+		tier: "(OU)",
 	},
 	regieleki: {
 		inherit: true,
@@ -4861,7 +4861,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	terapagos: {
 		inherit: true,
-		tier: "(OU)",
+		tier: "OU",
 	},
 	pecharunt: {
 		inherit: true,

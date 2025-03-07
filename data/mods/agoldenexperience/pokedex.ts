@@ -2002,9 +2002,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Shed Skin", 1: "Moxie", H: "Disillusioned"},
 		evos: ["Scrafree"],
 	},
+	yamask: {
+		inherit: true,
+		abilities: {0: "Mummy", H: "Good as Gold"},
+	},
+	yamaskgalar: {
+		inherit: true,
+		abilities: {0: "Wandering Spirit", H: "Cursed Body"},
+	},
 	cofagrigus: {
 		inherit: true,
-		types: ["Ghost", "Steel"],
+		abilities: {0: "Mummy", H: "Good as Gold"},
 	},
 	carracosta: {
 		inherit: true,
@@ -2964,6 +2972,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		types: ["Fighting", "Flying"],
 		abilities: {0: "Sniper", H: "Sharpness"},
+	},
+	runerigus: {
+		inherit: true,
+		abilities: {0: "Wandering Spirit", H: "Cursed Body"},
 	},
 	mrrime: {
 		inherit: true,

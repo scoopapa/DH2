@@ -1810,4 +1810,67 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -29,
 		rating: 3,
 	},
+	silverpowder: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {},
+		onDamage(damage, target, source, effect) {
+			if ((effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge') && source?.hasType('Bug')) {
+				return false;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		desc: "If holder is Bug type, negates entry hazards, and user's Atk, Def, and SpA by 1.2x.",
+	},
+	protector: {
+		inherit: true,
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Protector');
+			this.add('-message', `${pokemon.name} is holding a Protector!`);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.type !== pokemon.types[0] && move.type !== pokemon.types[1]) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(2);
+		},
+		desc: "User's SpD is doubled, but it can only use moves of the same type as itself.",
+	},
+	expertbelt: {
+		inherit: true,
+		onModifyDamage(damage, source, target, move) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || source?.volatiles('expertbelt'))) {
+				if (source?.volatiles('expertbelt')) {
+					pokemon.removeVolatile('expertbelt');
+				}
+				else {
+					pokemon.addVolatile('expertbelt');
+				}
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
+	},
 };

@@ -440,13 +440,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		rating: 3,
 	},
-	indancesce: {
+	incandesce: {
 		num: -8,
-		name: "Indancesce",
+		name: "Incandesce",
 		shortDesc: "On switch in, adds Fire type to the user. Has no effect if the user is Fire-type.",
 		onStart(pokemon) {
 			if (pokemon.addType('Fire')) {
-				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Indancesce');
+				this.add('-start', pokemon, 'typeadd', 'Fire', '[from] ability: Incandesce');
 			}
 		},
 		rating: 3,
@@ -533,7 +533,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		inherit: true,
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Moody');
-			this.add('-message', `This Pokemon is moody!`);
+			this.add('-message', `This Pokemon is feeling moody!`);
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
@@ -954,6 +954,83 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		shortDesc: "Non-Ice: Lose Ice weakness. If Ice: Lose Ice weaknesses; Water-type moves = Ice-type.",
+	},
+	gulpmissile: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			const currentForme = source.species.id;
+			if (currentForme === 'cramorantgulping' || currentForme === 'cramorantgorging') {
+				return this.chainModify(0.67);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping') {
+					this.boost({def: -1, spd: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+					this.boost({spe: -2}, source, target, null, true);
+				}
+				target.formeChange('cramorant', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (effect?.effectType === 'Move' && (effect?.type === 'Water' || effect?.type === 'Flying') && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				source.formeChange(forme, effect);
+				this.heal(source.baseMaxhp / 8);
+			}
+		},
+		shortDesc: "atp just check the spreadsheet bro",
+	},
+	northernmist: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Northern Mist');
+		},
+		self: {
+			sideCondition: 'mist',
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (source.volatiles['mist'] && !move.flags['contact']) {
+				return this.chainModify(0.33);
+			}
+		},
+		onModifySecondaries(secondaries) {
+			if (source.volatiles['mist']) {
+				this.debug('Shield Dust prevent secondary');
+				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			}
+		},
+		shortDesc: "On switch in, creates mist. When the user is under Mist the user is immune to secondary effects and takes 2/3 damage from non contact moves",
+	},
+	lifestealer: {
+		onResidualOrder: 8,
+		onResidual(pokemon) {
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
+			}
+			for (const target of this.getAllActive()) {
+				if (pokemon.volatiles['lifestealer']) {
+					const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
+					if (damage) {
+						this.heal(damage * 2 / 3, target, pokemon);
+					}
+				}
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+			}
+		},
+		flags: {},
+		name: "Life Stealer",
+		rating: 3.5,
+		num: -19,
+		desc: "Whenever an opposing Pokemon takes damage, this Pokemon heals for 2/3 of the damage taken. If this Pokemon tries to drain the health of an opponent with the Liquid Ooze ability, it will take damage instead.",
+		shortDesc: "This Pokemon heals for 2/3 of the damage dealt to opponents.",
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {

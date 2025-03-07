@@ -1722,4 +1722,119 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 	},
+	// Slate 9
+	dragonrend: {
+		num: -27,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Dragon Rend",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondaries: [
+			{
+				chance: 30,
+				volatileStatus: 'flinch',
+			},
+		],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+		shortDesc: "30% chance to flinch the target.",
+	},
+	imprison: { // WIP
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.add('-start', target, 'move: Imprison');
+			},
+			onFoeDisableMove(pokemon) {
+				for (const moveSlot of this.effectState.source.moveSlots) {
+					if (moveSlot.id === 'struggle') continue;
+					pokemon.disableMove(moveSlot.id, 'hidden');
+				}
+				pokemon.maybeDisabled = true;
+			},
+			onFoeBeforeMovePriority: 4,
+			onFoeBeforeMove(attacker, defender, move) {
+				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
+					this.damage(Math.round(target.maxhp / 4), attacker, defender);
+					this.add('cant', attacker, 'move: Imprison', move);
+					return false;
+				}
+			},
+		},
+		shortDesc: "WIP",
+		desc: "WIP",
+	},
+	powderbomb: {
+		num: -28,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Powder Bomb",
+		pp: 16,
+		priority: 2,
+		flags: {noassist: 1, failcopycat: 1, powder: 1, bullet: 1},
+		volatileStatus: 'powderbomb',
+		condition: {
+			onTryHit(target, source, move) {
+				if (target !== source && move.type === 'Fire') {
+					move.accuracy = true;
+					this.damage(Math.round(target.maxhp / 4), source, target);
+					return null;
+				}
+			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rage Powder", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+		desc: "Covers the target in powder in addition to the damage dealt when it is used. If the Pokémon affected by Powder attempts to use a Fire-type move, they take damage equal to 25% of their maximum HP and cannot execute the move (PP is still consumed). If the target Pokémon is part Fire-type, inflicts 1/8 of the target's maximum HP as damage per turn. The Powder effect is removed when the affected Pokémon switches out.",
+		shortDesc: "Covers the target in powder. If the Pokemon attempts to use a Fire move, they take 25% of their max HP.",
+	},
+	milfleur: {
+		num: -29,
+		accuracy: 90,
+		basePower: 0,
+		category: "Physical",
+		name: "Mil Fleur",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hp > pokemon.maxhp * 2 / 3) {
+				move.basePower = 20;
+				move.multihit = [4, 5];
+			} else if (pokemon.hp > pokemon.maxhp / 3) {
+				move.basePower = 50;
+				move.multihit = 2;
+			}
+			else {
+				move.basePower = 120;
+				move.multihit = 1;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fleur Cannon", target);
+			this.add('-anim', source, "Mega Punch", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+		shortDesc: "Amount of hits and power is determined by how much HP the user has left.",
+	},
 };
