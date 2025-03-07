@@ -1461,9 +1461,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Sand Stream", 1: "Moody", H: "Sand Force"},
 	},
+	gastly: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Lifesteal"},
+	},
+	haunter: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Lifesteal"},
+	},
 	gengar: {
 		inherit: true,
-		abilities: {0: "Levitate"},
+		abilities: {0: "Levitate", H: "Lifesteal"},
 	},
 	obstagoon: {
 		inherit: true,
@@ -1717,15 +1725,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	litwick: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Infiltrator"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Lifesteal"},
 	},
 	lampent: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Infiltrator"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Lifesteal"},
 	},
 	chandelure: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Infiltrator"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Lifesteal"},
 	},
 	// Forewarn
 	fennekin: {
@@ -1979,10 +1987,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Grass", "Fire"]
 	},
 	// Slate 8
+	shuppet: {
+		inherit: true,
+		abilities: {0: "Lifesteal", 1: "Frisk", H: "Run It Back"},
+	},
 	banette: {
 		inherit: true,
 		types: ["Ghost", "Normal"],
-		abilities: {0: "Insomnia", 1: "Frisk", H: "Run It Back"},
+		abilities: {0: "Lifesteal", 1: "Frisk", H: "Run It Back"},
 	},
 	banettemega: {
 		inherit: true,
@@ -2094,9 +2106,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Keep Cool", 1: "Chlorophyll", H: "Storm Drain"},
 	},
+	misdreavus: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Lifesteal", H: "Keep Cool"},
+	},
 	mismagius: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Keep Cool"},
+		abilities: {0: "Levitate", 1: "Lifesteal", H: "Keep Cool"},
 	},
 	// Cotton Down
 	buneary: {
@@ -2229,5 +2245,51 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	runerigus: {
 		inherit: true,
 		abilities: {0: "Wandering Spirit", 1: "Nostalgia Trip", H: "Deliquesce"},
+	},
+	// Lifesteal
+	poltchageist: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+	},
+	poltchageistartisan: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+	},
+	sinistcha: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+	},
+	sinistchamasterpiece: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+	},
+	spectrier: {
+		inherit: true,
+		abilities: {0: "Grim Neigh", H: "Lifesteal"},
+	},
+	// Northern Mist
+	amaura: {
+		inherit: true,
+		abilities: {0: "Refrigerate", 1: "Northern Mist", H: "Snow Warning"},
+	},
+	aurorus: {
+		inherit: true,
+		abilities: {0: "Refrigerate", 1: "Northern Mist", H: "Snow Warning"},
+	},
+	articuno: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Northern Mist"},
+	},
+	dewgong: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Northern Mist", H: "Ice Body"},
+	},
+	lapras: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Shell Armor", H: "Northern Mist"},
+	},
+	suicune: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Northern Mist", H: "Inner Focus"},
 	},
 };
