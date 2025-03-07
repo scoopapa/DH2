@@ -575,6 +575,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		onTryHit() {},
 	},
+	thundercage: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 100,
+		pp: 10,
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
