@@ -1972,7 +1972,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	salamencemega: {
 		tier: "Uber",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	beldum: {
 		tier: "LC",
@@ -2037,12 +2037,12 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	rayquazamega: {
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 	},
 	jirachi: {
 		tier: "RU",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	deoxys: {
 		tier: "OU",
@@ -2050,7 +2050,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	deoxysattack: {
 		tier: "Uber",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	deoxysdefense: {
 		tier: "RU",
@@ -2263,7 +2263,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	lucariomega: {
 		tier: "Uber",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	hippopotas: {
 		tier: "LC",
@@ -3923,7 +3923,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	kartana: {
 		tier: "UUBL",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	guzzlord: {
 		tier: "RU",
@@ -3966,7 +3966,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	stakataka: {
 		tier: "NU",
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
 	blacephalon: {
 		tier: "UU",
@@ -4351,7 +4351,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	zamazenta: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
 	zamazentacrowned: {
 		tier: "Uber",
@@ -4370,11 +4370,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	urshifu: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
 	urshifurapidstrike: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
 	urshifugmax: {
 		isNonstandard: "Past",
@@ -4406,7 +4406,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	spectrier: {
 		tier: "Uber",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 	},
 	calyrex: {
 		tier: "ZU",
@@ -4884,7 +4884,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	walkingwake: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	ironleaves: {
