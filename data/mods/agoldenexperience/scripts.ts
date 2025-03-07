@@ -730,6 +730,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'diggersby').learnset.golemstrike = ['9M'];
     this.modData('Learnsets', 'binacle').learnset.golemstrike = ['9M'];
     this.modData('Learnsets', 'barbaracle').learnset.golemstrike = ['9M'];
+    this.modData('Learnsets', 'avalugghisui').learnset.golemstrike = ['9M'];
     this.modData('Learnsets', 'crabrawler').learnset.golemstrike = ['9M'];
     this.modData('Learnsets', 'crabominable').learnset.golemstrike = ['9M'];
     this.modData('Learnsets', 'rockruff').learnset.golemstrike = ['9M'];
@@ -1590,6 +1591,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'avalugg').learnset.fissure = ['9L1'];
     this.modData('Learnsets', 'avalugg').learnset.waterfall = ['9L1'];
     this.modData('Learnsets', 'avalugghisui').learnset.iceshard = ['9L1'];
+    this.modData('Learnsets', 'avalugghisui').learnset.fissure = ['9L1'];
     this.modData('Learnsets', 'noivern').learnset.snarl = ['9L1'];
 
     // Gen 7:
