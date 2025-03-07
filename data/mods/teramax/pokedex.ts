@@ -234,6 +234,18 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 88, atk: 76, def: 95, spa: 95, spd: 127, spe: 99},
 	},
+	regidrago: {
+		inherit: true,
+		baseStats: {hp: 150, atk: 100, def: 75, spa: 100, spd: 75, spe: 80},
+	},
+	ironboulder: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 120, def: 82, spa: 66, spd: 108, spe: 124},
+	},
+	gougingfire: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 65, def: 93, spa: 115, spd: 121, spe: 91},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
