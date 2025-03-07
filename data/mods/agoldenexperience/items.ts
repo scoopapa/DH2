@@ -754,6 +754,35 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by Palafin: Hero Forme on entry.",
 	},
+	lightball: {
+		inherit: true,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			const group1 = ["Pikachu", "Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru"];
+			const group2 = ["Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"];
+			if (pokemon.baseSpecies.baseSpecies.includes(group1)) {
+				return this.chainModify(2);
+			}
+			else if (pokemon.baseSpecies.baseSpecies.includes(group2)) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			const group1 = ["Pikachu", "Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru"];
+			const group2 = ["Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"];
+			if (pokemon.baseSpecies.baseSpecies.includes(group1)) {
+				return this.chainModify(2);
+			}
+			else if (pokemon.baseSpecies.baseSpecies.includes(group2)) {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World",
+			"Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru", "Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"
+		],
+	},
+	shortDesc: "If held by a Pikachu, or a Pikaclone, its Attack and Sp. Atk are doubled or multiplied by 1.5.",
 	// everlasting winter
 	safetygoggles: {
 		inherit: true,

@@ -144,9 +144,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	raichu: {
 		inherit: true,
-		types: ["Electric", "Fighting"],
 		baseStats: {hp: 60, atk: 100, def: 55, spa: 90, spd: 80, spe: 110},
-		abilities: {0: "Reckless", H: "Lightning Rod"},
 	},
 	raichualola: {
 		inherit: true,
@@ -1929,14 +1927,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 60, def: 75, spa: 110, spd: 75, spe: 100},
 	},
-	basculin: {
-		inherit: true,
-		types: ["Water", "Fighting"],
-	},
-	basculinbluestriped: {
-		inherit: true,
-		types: ["Water", "Fighting"],
-	},
 	krookodile: {
 		inherit: true,
 		otherFormes: ["Krookodile-Mega"],
@@ -2970,7 +2960,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	sirfetchd: {
 		inherit: true,
-		types: ["Fighting", "Flying"],
 		abilities: {0: "Sniper", H: "Sharpness"},
 	},
 	runerigus: {
@@ -3030,7 +3019,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	calyrexice: {
 		inherit: true,
-		types: ["Grass", "Ice"],
 		requiredItem: "Ice Mane",
 	},
 	calyrexshadow: {

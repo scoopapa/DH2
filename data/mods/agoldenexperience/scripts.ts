@@ -1100,7 +1100,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'pikachuphd').learnset.psyshock = ['9L1'];
     this.modData('Learnsets', 'pikachulibre').learnset.machpunch = ['9L1'];
     this.modData('Learnsets', 'pikachulibre').learnset.seismictoss = ['9L1'];
-    this.modData('Learnsets', 'raichu').learnset.highjumpkick = ['9L1'];
     this.modData('Learnsets', 'sandslash').learnset.spikyshield = ['9L1'];
     this.modData('Learnsets', 'sandslashalola').learnset.spikyshield = ['9L1'];
     this.modData('Learnsets', 'nidoqueen').learnset.moonlight = ['9L1'];
