@@ -2999,6 +2999,30 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
+	gougingfire: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ragingbolt: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ironcrown: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ironboulder: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	regidrago: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	regieleki: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
 	venusaurgmax: {
 		isNonstandard: null,
 		tier: "TMFE",
