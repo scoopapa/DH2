@@ -318,6 +318,31 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fezandipiti").learnset.healbell = ["9L1"];
 		this.modData("Learnsets", "fezandipiti").learnset.perniciousplume = ["9L1"];
 		this.modData("Learnsets", "pecharunt").learnset.banefulbunker = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.powergem = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.psyshock = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.doubleshock = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.wideguard = ["9L1"];
+		delete this.modData('Learnsets', 'regieleki').learnset.terablast;
+		this.modData("Learnsets", "regidrago").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.meteorbeam = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "regidrago").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.rockslide = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.voltswitch = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "ironboulder").learnset.wideguard = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.workup = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.curse = ["9L1"];
+		this.modData("Learnsets", "gougingfire").learnset.bulkup = ["9L1"];
 	},
 	actions: {
 		inherit: true,
