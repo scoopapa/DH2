@@ -5,7 +5,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['IF'],
+		customTiers: ['Viable', 'Untested', 'Unviable'],
 	},	
 	
 	init() {
@@ -505,13 +505,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	actions: {
 		canTerastallize(pokemon: Pokemon) {
-			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9 || pokemon.volatiles['bigbutton']) {
 				return null;
 			}
 			return pokemon.teraType;
 		},
 
 		terastallize(pokemon: Pokemon) {
+			if (pokemon.volatiles['bigbutton']) return;
 			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
 				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 			}
@@ -521,6 +522,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (pokemon.set.ability === 'I Love Fishing') {
 				canTera = true;
 				type = 'Water';
+			}
+			if (pokemon.set.ability === 'Racer\'s Spirit') {
+				canTera = true;
+				type = 'Steel';
 			}
 			if (type === 'Bug' || canTera) {
 				this.battle.add('-terastallize', pokemon, type);
@@ -546,9 +551,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 				}
 				this.battle.runEvent('AfterTerastallization', pokemon);
-			} else {
-				if(!pokemon.volatiles['bigbutton']) pokemon.addVolatile('bigbutton');
-			}
+			} else pokemon.addVolatile('bigbutton');
 		},
 	
 		modifyDamage(
@@ -567,8 +570,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				baseDamage = this.battle.modify(baseDamage, spreadModifier);
 				if (move.multihitType === 'bestfriends') {
 					// Best Friends modifier
-					this.battle.debug("Best Friends modifier: 0.49");
-					baseDamage = this.battle.modify(baseDamage, 0.49);
+					this.battle.debug("Best Friends modifier: 0.33");
+					baseDamage = this.battle.modify(baseDamage, 0.33);
 				}
 			} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
 				// Parental Bond modifier
@@ -577,8 +580,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				baseDamage = this.battle.modify(baseDamage, bondModifier);
 			} else if (move.multihitType === 'bestfriends') {
 				// Best Friends modifier
-				this.battle.debug("Best Friends modifier: 0.49");
-				baseDamage = this.battle.modify(baseDamage, 0.49);
+				this.battle.debug("Best Friends modifier: 0.33");
+				baseDamage = this.battle.modify(baseDamage, 0.33);
 			}
 
 			// weather modifier
