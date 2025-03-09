@@ -72,7 +72,8 @@ if (pokemon.hasType('Dark')) {
 		onModifyCritRatio(critRatio) {
 				if (move.type === 'Ice') {
 				return critRatio + 2;
-			},
+			}
+		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
