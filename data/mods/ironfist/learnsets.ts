@@ -11148,7 +11148,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			psychicterrain: ["9L1"],
 			mistyterrain: ["9L1"],
 			frigidterrain: ["9L1"],
-			fishyterrain: ["9L1"],
+			fishingterrain: ["9L1"],
 			terrainpulse: ["9L1"],
 			courtchange: ["9L1"],
 			copen: ["9L1"],
