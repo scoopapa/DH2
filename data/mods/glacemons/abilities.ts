@@ -984,7 +984,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.heal(source.baseMaxhp / 8);
 			}
 		},
-		shortDesc: "atp just check the spreadsheet bro",
+		shortDesc: "Cramorant: 1/3 less damage in Gulping/Gourging, +1/8 max HP if uses a Water-/Flying-type move. Arrokuda = -1 Def/-SpD, Pikachu = -2 Spe.",
 	},
 	northernmist: {
 		onStart(pokemon) {
