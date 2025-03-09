@@ -307,7 +307,7 @@ horseserve: {
 		type: "Sound",
 		contestType: "Tough",
 	},
-	Amplify: {
+	amplify: {
 		num: 2568,
 		accuracy: true,
 					shortDesc: "Boosts the power of the user's next Sound move + Raises SpDef by 1.",
