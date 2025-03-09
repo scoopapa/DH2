@@ -3790,6 +3790,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Pokémon North, South, East, West",
+		teambuilderFormat: "National Dex",
 		desc: 'The largest sprite project ever is now the largest Solomod ever...eventually. Content gradually releases in waves!',
 		threads: [
 			`&bullet; <a href="https://https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-8#post-10197171"></a>`,
@@ -3799,7 +3800,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['NSEW','NSEW2','NSEW3', 'NSEW4'];
+			let allowedTiers = ['NSEW','NSEW2','NSEW3', 'NSEW4', 'NSEW5'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3811,6 +3812,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Pokémon Go! Go! Tamagotchi!",
 		desc: 'They did not deserve to be forgotten to Digimon...a Solomod that contains three hundred adult form Tamagotchi!',
+		teambuilderFormat: "National Dex",
 		threads: [
 		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-9#post-10311554"></a>`,
 		],

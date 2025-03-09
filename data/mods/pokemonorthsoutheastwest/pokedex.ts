@@ -457,4 +457,28 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		abilities: {0: "Rough Skin", 1: "Natural Cure", H: "Regenerator"},
 		weightkg: 7.1,
 	},
+	xiyquorii: {
+		num: 58,
+		name: "Xiyquorii",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 120, atk: 118, def: 57, spa: 34, spd: 120, spe: 87},
+		abilities: {0: "Moxie", 1: "Vital Spirit", H: "Quick Feet"},
+		weightkg: 8.4,
+	},
+	same: {
+		num: 59,
+		name: "Same",
+		types: ["Normal"],
+		baseStats: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
+		abilities: {0: "Imposter", H: "Sticky Hold"},
+		weightkg: 3.4,
+	},
+	bruhperial: {
+		num: 60,
+		name: "Bruhperial",
+		types: ["Poison", "Normal"],
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+		abilities: {0: "Defiant", 1: "Competitive", H: "Technician"},
+		weightkg: 6.3,
+	},
 }

@@ -621,4 +621,170 @@ horseserve: {
 		type: "Fighting",
 		contestType: "Tough",
 	},
+		mistyterrain: {
+		num: 581,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Misty Terrain",
+		pp: 10,
+		priority: 0,
+		flags: { nonsky: 1, metronome: 1 },
+		terrain: 'mistyterrain',
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'confusion') {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Fairy' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('misty terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'Misty Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		zMove: { boost: { spd: 1 } },
+		contestType: "Beautiful",
+	},
+	attract: {
+		num: 213,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Attract",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1 },
+		volatileStatus: 'attract',
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(pokemon, source, effect) {
+				if (!(pokemon.gender === 'M' && source.gender === 'F') && !(pokemon.gender === 'F' && source.gender === 'M')) {
+					this.debug('incompatible gender');
+					return false;
+				}
+				if (!this.runEvent('Attract', pokemon, source)) {
+					this.debug('Attract event failed');
+					return false;
+				}
+
+				if (effect.name === 'Cute Charm') {
+					this.add('-start', pokemon, 'Attract', '[from] ability: Cute Charm', `[of] ${source}`);
+				} else if (effect.name === 'Destiny Knot') {
+					this.add('-start', pokemon, 'Attract', '[from] item: Destiny Knot', `[of] ${source}`);
+				} else {
+					this.add('-start', pokemon, 'Attract');
+				}
+			},
+			onUpdate(pokemon) {
+				if (this.effectState.source && !this.effectState.source.isActive && pokemon.volatiles['attract']) {
+					this.debug(`Removing Attract volatile on ${pokemon}`);
+					pokemon.removeVolatile('attract');
+				}
+			},
+			onBeforeMovePriority: 2,
+			onBeforeMove(pokemon, target, move) {
+				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
+				if (this.randomChance(1, 2)) {
+					this.add('cant', pokemon, 'Attract');
+					return false;
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Attract', '[silent]');
+			},
+		},
+		onTryImmunity(target, source) {
+			return (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Cute",
+	},
+	perishsong: {
+		num: 195,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Perish Song",
+		pp: 5,
+		priority: 0,
+		flags: { sound: 1, distance: 1, bypasssub: 1, metronome: 1 },
+		onHitField(target, source, move) {
+			let result = false;
+			let message = false;
+			for (const pokemon of this.getAllActive()) {
+				if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
+					this.add('-miss', source, pokemon);
+					result = true;
+				} else if (this.runEvent('TryHit', pokemon, source, move) === null) {
+					result = true;
+				} else if (!pokemon.volatiles['perishsong']) {
+					pokemon.addVolatile('perishsong');
+					this.add('-start', pokemon, 'perish3', '[silent]');
+					result = true;
+					message = true;
+				}
+			}
+			if (!result) return false;
+			if (message) this.add('-fieldactivate', 'move: Perish Song');
+		},
+		condition: {
+			duration: 4,
+			onEnd(target) {
+				this.add('-start', target, 'perish0');
+				target.faint();
+			},
+			onResidualOrder: 24,
+			onResidual(pokemon) {
+				const duration = pokemon.volatiles['perishsong'].duration;
+				this.add('-start', pokemon, `perish${duration}`);
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ghost",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Beautiful",
+	},
 };
