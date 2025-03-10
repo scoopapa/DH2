@@ -256,7 +256,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Zap Cannon", source);
 				this.boost({atk: 1, spa: 1, def: 2, spd: 2}, target);
-				source.addVolatile('tempboost');
+				source.addVolatile('nanoboosted');
 				// While the move theoretically does not fail, this is here to prevent the slot condition from being set if Ana fails to switch and thus Nanoboosts herself
 				return this.NOT_FAIL;
 			}
@@ -269,7 +269,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-anim', target, "Zap Cannon", target);
 					this.add('-start', target, 'Nano Boost');
 					this.boost({atk: 1, spa: 1, def: 2, spd: 2}, target);
-					target.addVolatile('tempboost');
+					target.addVolatile('nanoboosted');
 					target.side.removeSlotCondition(target, 'nanoboost');
 				}
 			},
