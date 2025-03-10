@@ -1861,8 +1861,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	expertbelt: {
 		inherit: true,
 		onModifyDamage(damage, source, target, move) {
-			if (move && (target.getMoveHitData(move).typeMod > 0 || source?.volatiles('expertbelt'))) {
-				if (source?.volatiles('expertbelt')) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || source.volatiles('expertbelt'))) {
+				if (source.volatiles('expertbelt')) {
 					pokemon.removeVolatile('expertbelt');
 				}
 				else {
