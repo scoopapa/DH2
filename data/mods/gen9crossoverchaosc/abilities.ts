@@ -63,19 +63,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
 				move.multihit = move.multihit[1];
 				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-					move.overrideOffensiveStat = 'atk',
+					move.overrideOffensiveStat = 'atk';
 				}
 				else {
-					move.overrideOffensiveStat = 'spa',
+					move.overrideOffensiveStat = 'spa';
 				}
 			}
 			if (move.multiaccuracy) {
 				delete move.multiaccuracy;
 				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-					move.overrideOffensiveStat = 'atk',
+					move.overrideOffensiveStat = 'atk';
 				}
 				else {
-					move.overrideOffensiveStat = 'spa',
+					move.overrideOffensiveStat = 'spa';
 				}
 			}
 		},
