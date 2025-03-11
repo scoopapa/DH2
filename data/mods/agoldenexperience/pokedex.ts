@@ -2442,8 +2442,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	avalugg: {
 		inherit: true,
-		types: ["Ice", "Water"],
-		abilities: {0: "Refrigerate", 1: "Ice Body", H: "Sturdy"},
+		abilities: {0: "Snow Warning", 1: "Ice Body", H: "Sturdy"},
 	},
 	avalugghisui: {
 		inherit: true,

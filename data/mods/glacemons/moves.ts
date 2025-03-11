@@ -1779,7 +1779,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		basePower: 85,
 		category: "Physical",
 		name: "Powder Bomb",
-		pp: 16,
+		pp: 10,
 		priority: 2,
 		flags: {noassist: 1, failcopycat: 1, powder: 1, bullet: 1},
 		volatileStatus: 'powderbomb',
