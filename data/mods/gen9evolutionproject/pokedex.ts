@@ -1185,4 +1185,301 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	// LEGACY EVO MONS
 
+	eevee: {
+		inherit: true,
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Aleon"],
+	},
+	aleon: {
+		name: "Aleon",
+		copyData: "Eevee",
+
+		baseStats: {hp: 103, atk: 79, def: 53, spa: 89, spd: 67, spe: 134},
+		abilities: {0: "Adaptability", H: "Normalize", S: "Beast Boost"},
+		movepoolAdditions: [
+			"blizzard", "chargebeam", "discharge", "expandingforce", "futuresight", "gigaimpact", "haze", "hyperbeam", "icebeam", "icywind", "magiccoat",
+			"naturepower", "psychic", "psyshock", "reflect", "reflecttype", "risingvoltage", "scald", "shockwave", "signalbeam", "skillswap", "snarl", "solarbeam",
+			"suckerpunch", "surf", "terrainpulse", "thunder", "thunderbolt", "thunderwave", "trick", "voltswitch", "waterpulse", "wonderroom", "zapcannon",
+		],
+
+		prevo: "Eevee",
+		evoType: "levelExtra",
+		evoCondition: "in Ultra Space",
+		creator: "inkbug",
+	},
+
+	qwilfish: {
+		inherit: true,
+		otherFormes: ["Qwilfish-Hisui", "Qwilfish-Kalos", "Qwilfish-Kalos-Zen"],
+		formeOrder: ["Qwilfish", "Qwilfish-Hisui", "Qwilfish-Kalos", "Qwilfish-Kalos-Zen"],
+	},
+	qwilfishkalos: {
+		name: "Qwilfish-Kalos",
+		baseSpecies: "Qwilfish",
+		forme: "Kalos",
+		copyData: "Qwilfish",
+		
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 55, atk: 85, def: 70, spa: 85, spd: 50, spe: 95},
+		abilities: {0: "Poison Point", 1: "Aftermath", H: "Zen Mode"},
+		movepoolAdditions: ["expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		evos: ["Overchill"],
+		creator: "inkbug",
+	},
+	qwilfishkaloszen: {
+		name: "Qwilfish-Kalos-Zen",
+		baseSpecies: "Qwilfish",
+		forme: "Kalos-Zen",
+		copyData: "Qwilfish",
+		
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 55, atk: 115, def: 100, spa: 115, spd: 80, spe: 35},
+		abilities: {0: "Zen Mode"},
+		movepoolAdditions: ["expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		requiredAbility: "Zen Mode",
+		battleOnly: "Qwilfish-Kalos",
+		creator: "inkbug",
+	},
+	overchill: {
+		name: "Overchill",
+		copyData: "Overqwil",
+		copyMoves: "Qwilfish",
+		
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 75, atk: 105, def: 80, spa: 95, spd: 60, spe: 95},
+		abilities: {0: "Poison Point", 1: "Aftermath", H: "Zen Mode"},
+		movepoolAdditions: ["voltswitch", "expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		prevo: "Qwilfish-Kalos",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+	overchillzen: {
+		name: "Overchill-Zen",
+		baseSpecies: "Overchill",
+		forme: "Zen",
+		copyData: "Overqwil",
+		copyMoves: "Qwilfish",
+		
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 75, atk: 125, def: 110, spa: 135, spd: 90, spe: 35},
+		abilities: {0: "Zen Mode"},
+		movepoolAdditions: ["voltswitch", "expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		requiredAbility: "Zen Mode",
+		battleOnly: "Overchill",
+		creator: "inkbug",
+	},
+
+	mantyke: {
+		inherit: true,
+		otherFormes: ["Mantyke-Variant"],
+		formeOrder: ["Mantyke", "Mantyke-Variant"],
+	},
+	mantykevariant: {
+		name: "Mantyke-Variant",
+		baseSpecies: "Mantyke",
+		forme: "Variant",
+		copyData: "Mantyke",
+
+		types: ["Fire"],
+		baseStats: {hp: 45, atk: 20, def: 50, spa: 50, spd: 120, spe: 60},
+		abilities: {0: "Cloud Nine", 1: "Levitate", H: "Flame Body"},
+		movepoolAdditions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "incinerate", "morningsun", "overheat", "solarbeam", "sunnyday", "willowisp"],
+		movepoolDeletions: ["aquaring", "aquatail", "blizzard", "brine", "bubble", "bubblebeam", "dive", "hail", "haze", "hydropump", "icebeam", "icywind", "liquidation", "raindance", "watergun", "waterpulse", "watersport", "waterfall", "whirlpool"],
+
+		evos: ["Mantine-Variant"],
+		creator: "Violet",
+	},
+	mantine: {
+		inherit: true,
+		otherFormes: ["Mantine-Variant"],
+		formeOrder: ["Mantine", "Mantine-Galar"],
+	},
+	mantinevariant: {
+		name: "Mantine-Variant",
+		baseSpecies: "Mantine",
+		forme: "Variant",
+		copyData: "Mantine",
+
+		types: ["Fire"],
+		baseStats: {hp: 85, atk: 40, def: 70, spa: 70, spd: 140, spe: 80},
+		abilities: {0: "Cloud Nine", 1: "Levitate", H: "Flame Body"},
+		movepoolAdditions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "incinerate", "morningsun", "overheat", "solarbeam", "sunnyday", "willowisp"],
+		movepoolDeletions: ["aquaring", "aquatail", "blizzard", "brine", "bubble", "bubblebeam", "dive", "hail", "haze", "hydropump", "icebeam", "icywind", "liquidation", "raindance", "watergun", "waterpulse", "watersport", "waterfall", "whirlpool"],
+
+		prevo: "Mantyke-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	parasect: {
+		inherit: true,
+		evos: ["Parascelium"],
+	},
+	parascelium: {
+		name: "Parascelium",
+		copyData: "Parasect",
+		
+		types: ["Bug", "Grass"],
+		baseStats: {hp: 60, atk: 105, def: 115, spa: 60, spd: 115, spe: 30},
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Analytic"},
+		movepoolAdditions: ["myceliate", "powder", "skittersmack"],
+		
+		prevo: "Parasect",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+
+	inkay: {
+		inherit: true,
+		otherFormes: ["Inkay-Alola"],
+		formeOrder: ["Inkay", "Inkay-Alola"],
+	},
+	inkayalola: {
+		name: "Inkay-Alola",
+		baseSpecies: "Inkay",
+		forme: "Alola",
+		copyData: "Inkay",
+
+		types: ["Dark", "Water"],
+		baseStats: {hp: 53, atk: 59, def: 53, spa: 27, spd: 56, spe: 40},
+		abilities: {0: "Keen Eye", 1: "Prankster", H: "Mimicry"},
+		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
+		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
+
+		evos: ["Malamar-Alola"],
+		creator: "Violet",
+	},
+	malamar: {
+		inherit: true,
+		otherFormes: ["Malamar-Alola"],
+		formeOrder: ["Malamar", "Malamar-Alola"],
+	},
+	malamaralola: {
+		name: "Malamar-Alola",
+		baseSpecies: "Malamar",
+		forme: "Alola",
+		copyData: "Malamar",
+
+		types: ["Dark", "Water"],
+		baseStats: {hp: 86, atk: 102, def: 88, spa: 48, spd: 95, spe: 63},
+		abilities: {0: "Keen Eye", 1: "Prankster", H: "Mimicry"},
+		movepoolAdditions: ["brine", "dive", "firstimpression", "terrainpulse", "scald", "surf", "watergun", "waterpulse"],
+		movepoolDeletions: ["brutalswing", "calmmind", "futuresight", "guardswap", "powersplit", "psybeam", "psyshock", "storedpower"],
+
+		prevo: "Inkay-Alola",
+		evoLevel: 30,
+		evoCondition: "with the console turned upside-down",
+		creator: "Violet",
+	},
+
+	snom: {
+		inherit: true,
+		otherFormes: ["Snom-Ma'adowr"],
+		formeOrder: ["Snom", "Snom-Ma'adowr"],
+	},
+	snommaadowr: {
+		name: "Snom-Ma'adowr",
+		baseSpecies: "Snom",
+		forme: "Ma'adowr",
+		copyData: "Snom",
+
+		types: ["Normal", "Bug"],
+		abilities: {0: "Shield Dust", 1: "Fur Coat", H: "Scale Shift"},
+		movepoolAdditions: ["dispersion", "hypervoice"],
+		movepoolDeletions: ["aurorabeam", "auroraveil", "avalanche", "blizzard", "hail", "icebeam", "iciclespear", "mist", "powdersnow", "tripleaxel"],
+
+		evos: ["Frosmoth-Variant"],
+		creator: "BlueRay",
+	},
+	frosmoth: {
+		inherit: true,
+		otherFormes: ["Frosmoth-Ma'adowr"],
+		formeOrder: ["Frosmoth", "Frosmoth-Ma'adowr"],
+	},
+	frosmothmaadowr: {
+		name: "Frosmoth-Ma'adowr",
+		baseSpecies: "Frosmoth",
+		forme: "Ma'adowr",
+		copyData: "Frosmoth",
+
+		types: ["Normal", "Bug"],
+		abilities: {0: "Shield Dust", 1: "Fur Coat", H: "Scale Shift"},
+		movepoolAdditions: ["dispersion", "hypervoice"],
+		movepoolDeletions: ["aurorabeam", "auroraveil", "avalanche", "blizzard", "hail", "icebeam", "iciclespear", "mist", "powdersnow", "tripleaxel"],
+
+		prevo: "Snom-Ma'adowr",
+		evoType: "levelFriendship",
+		evoCondition: "at night",
+		creator: "BlueRay",
+	},
+
+	drilbur: {
+		inherit: true,
+		otherFormes: ["Drilbur-Hisui"],
+		formeOrder: ["Drilbur", "Drilbur-Hisui"],
+	},
+	drilburhisui: {
+		name: "Drilbur-Hisui",
+		baseSpecies: "Drilbur",
+		forme: "Hisui",
+		copyData: "Drilbur",
+
+		types: ["Ground", "Normal"],
+		abilities: {0: "Centrifuge", 1: "Sand Force", H: "Technician"},
+		movepoolAdditions: ["feint", "knockoff"],
+		movepoolDeletions: ["honeclaws", "irondefense", "ironhead", "metalclaw", "metalsound", "rockslide", "steelbeam", "swordsdance"],
+
+		evos: ["Excadrill-Hisui"],
+		creator: "ausma",
+	},
+	excadrill: {
+		inherit: true,
+		otherFormes: ["Excadrill-Hisui"],
+		formeOrder: ["Excadrill", "Excadrill-Hisui"],
+	},
+	excadrillhisui: {
+		name: "Excadrill-Hisui",
+		baseSpecies: "Excadrill",
+		forme: "Hisui",
+		copyData: "Excadrill",
+
+		types: ["Ground", "Normal"],
+		abilities: {0: "Centrifuge", 1: "Sand Force", H: "Technician"},
+		movepoolAdditions: ["feint", "knockoff"],
+		movepoolDeletions: ["honeclaws", "irondefense", "ironhead", "metalclaw", "metalsound", "rockslide", "steelbeam", "swordsdance"],
+
+		prevo: "Drilbur-Hisui",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	dedenne: {
+		inherit: true,
+		evos: ["Dedellite"],
+	},
+	dedellite: {
+		name: "Dedellite",
+		copyData: "Dedenne",
+		
+		types: ["Electric", "Fairy"],
+		baseStats: {hp: 67, atk: 68, def: 92, spa: 96, spd: 99, spe: 119},
+		abilities: {0: "Cheek Pouch", 1: "Receiver", H: "Plus"},
+		movepoolAdditions: ["drainingkiss", "stockpile", "spitup", "swallow", "terrainpulse"],
+		
+		prevo: "Dedenne",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
+		creator: "quagsi",
+	},
 };
