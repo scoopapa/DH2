@@ -9,6 +9,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Poison Puppeteer",
+		shortDesc: "Chameleos: If this Pokemon poisons a target, the target also becomes confused.",
 		rating: 3,
 		num: 310,
 	},
