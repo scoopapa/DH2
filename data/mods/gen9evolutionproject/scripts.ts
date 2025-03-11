@@ -7,6 +7,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
+			const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
+
+			// movepool corrections
+			if (this.dataCache.Learnsets[id]) {
+				for (const moveid in notm) {
+					if (this.modData('Learnsets', id).learnset[moveid]) {
+						this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter((method) => (!method.includes('M') && !method.includes('T')));
+					}
+				}
+			}
+
+			// Fakemon creation
 			const newMon = this.dataCache.Pokedex[id];
 			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new
 			const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
@@ -28,11 +40,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (copyMoves) {
 				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file
 				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
-				const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
 				const gen9only = ['plankteenie', 'mareaniedrifter', 'toxapexglacial', 'nemesyst']; // certain Fakemon are based on Gen IX movepools specifically
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
-						(method) => !(method.includes('S') && !(notm.contains(move.id) && method.includes('M')) && (!gen9only.contains(id) || method.startsWith('9')))
+						(method) => !(method.includes('S') && !(notm.contains(move.id) && (method.includes('M') || method.includes('T'))) && (!gen9only.contains(id) || method.startsWith('9')))
 					);
 				}
 				if (newMon.movepoolAdditions) {
