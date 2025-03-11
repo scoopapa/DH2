@@ -1,7 +1,7 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-    // sorting the teambuilder by slate / prompt
+		// sorting the teambuilder by slate / prompt
 		customTiers: ['S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
 		customDoublesTiers: ['S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
 	},
@@ -26,15 +26,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (copyMoves) {
 				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file
 				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
-        const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
+				const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
 				for (const moveid in learnset) {
-          this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
-            (method) => !(method.includes('S') && (!notm.contains(move.id) || method.includes('M')))
-          );
+					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
+						(method) => !(method.includes('S') && !(notm.contains(move.id) && method.includes('M')))
+					);
 				}
 				if (newMon.movepoolAdditions) {
 					for (const move of newMon.movepoolAdditions) {
-						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["9M"];
 					}
 				}
 				if (newMon.movepoolDeletions) {
