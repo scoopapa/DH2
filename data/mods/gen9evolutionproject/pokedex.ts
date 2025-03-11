@@ -287,57 +287,270 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "BlueRay",
 	},
 
-/* // SAMPLE
+	plankteenie: {
+		name: "Plankteenie",
+		copyData: "Mareanie",
+		
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 50, atk: 23, def: 32, spa: 23, spd: 22, spe: 25},
+		abilities: {0: "Merciless", 1: "Limber", H: "Cute Charm"},
+		movepoolAdditions: ["toxicthread", "knockoff"],
+		movepoolDeletions: ["recover"],
 
-	croagunk: {
+		evos: ["Mareanie-Drifter"],
+		creator: "Paulluxx",
+	},
+	mareanie: {
 		inherit: true,
-		otherFormes: ["Croagunk-Glacial"],
-		formeOrder: ["Croagunk", "Croagunk-Glacial"],
+		otherFormes: ["Mareanie-Drifter"],
+		formeOrder: ["Mareanie", "Mareanie-Drifter"],
 	},
-	croagunkglacial: {
-		name: "Croagunk-Glacial",
-		baseSpecies: "Croagunk",
-		forme: "Glacial",
-		copyData: "Croagunk",
+	mareaniedrifter: {
+		name: "Mareanie-Drifter",
+		baseSpecies: "Mareanie",
+		forme: "Drifter",
+		copyData: "Mareanie",
+		
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 50, atk: 53, def: 62, spa: 43, spd: 52, spe: 45},
+		abilities: {0: "Merciless", 1: "Limber", H: "Regenerator"},
+		movepoolAdditions: ["swordsdance", "banefulbunker", "toxicthread", "knockoff"],
+		movepoolDeletions: ["recover"],
 
-		evos: ["Toxicroak-Glacial"],
-		creator: "quagsi",
+		prevo: "Plankteenie",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Toxapex-Glacial", "Nemesyst"],
+		creator: "Paulluxx",
 	},
-	toxicroak: {
+	toxapex: {
 		inherit: true,
-		otherFormes: ["Toxicroak-Glacial"],
-		formeOrder: ["Toxicroak", "Toxicroak-Glacial"],
-		evos: ["Mycecroak"],
+		otherFormes: ["Toxapex-Glacial"],
+		formeOrder: ["Toxapex", "Toxapex-Glacial"],
 	},
-	toxicroakglacial: {
-		name: "Toxicroak-Glacial",
-		baseSpecies: "Toxicroak",
+	toxapexglacial: {
+		name: "Toxapex-Glacial",
+		baseSpecies: "Toxapex",
 		forme: "Glacial",
-		copyData: "Toxicroak",
+		copyData: "Toxapex",
+		copyMoves: "Mareanie", // told to inherit from Mareanie, not Toxapex
+		
+		types: ["Dark", "Ice"],
+		baseStats: {hp: 50, atk: 63, def: 152, spa: 53, spd: 142, spe: 35},
+		abilities: {0: "Water Bubble", 1: "Limber", H: "Regenerator"},
+		movepoolAdditions: ["flipturn", "recover", "scald", "swordsdance", "banefulbunker", "toxicthread", "knockoff"],
+		movepoolDeletions: ["recover"],
 
-		prevo: "Croagunk-Glacial",
+		prevo: "Mareanie-Drifter",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		evos: ["Ycecroak"],
-		creator: "quagsi",
+		creator: "Paulluxx",
 	},
-	mycecroak: {
-		name: "Mycecroak",
-		copyData: "Toxicroak",
+	nemesyst: {
+		name: "Nemesyst",
+		copyData: "Toxapex",
+		copyMoves: "Mareanie", // told to inherit from Mareanie, not Toxapex
 
-		prevo: "Toxicroak",
+		types: ["Water", "Poison"],
+		baseStats: {hp: 50, atk: 88, def: 122, spa: 53, spd: 112, spe: 70},
+		abilities: {0: "Merciless", 1: "Limber", H: "Regenerator"},
+		movepoolAdditions: ["banefulbayonet", "swordsdance", "banefulbunker", "toxicthread", "knockoff"],
+		movepoolDeletions: ["recover"],
+
+		prevo: "Mareanie-Drifter",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "BlueRay",
+		creator: "ausma",
 	},
-	ycecroak: {
-		name: "Ycecroak",
-		copyData: "Toxicroak",
 
-		prevo: "Toxicroak-Glacial",
+	bronzor: {
+		inherit: true,
+		evos: ["Bronzong", "Bronzong-New-Year"],
+	},
+	bronzong: {
+		inherit: true,
+		otherFormes: ["Bronzong-New-Year"],
+		formeOrder: ["Bronzong", "Bronzong-New-Year"],
+	},
+	bronzongnewyear: {
+		name: "Bronzong-New-Year",
+		baseSpecies: "Bronzong",
+		forme: "New-Year",
+		copyData: "Bronzong",
+
+		types: ["Steel", "Ice"],
+		baseStats: {hp: 77, atk: 99, def: 94, spa: 89, spd: 108, spe: 33},
+		abilities: {0: "Levitate", 1: "Heatproof", H: "Ice Body"},
+		movepoolAdditions: ["earthpower", "renewingring", "avalanche", "blizzard", "icebeam", "icywind", "snowscape"],
+
+		prevo: "Bronzor",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "quagsi",
+		creator: "Hematite",
 	},
-*/
+
+	seel: {
+		inherit: true,
+		otherFormes: ["Seel-Variant"],
+		formeOrder: ["Seel", "Seel-Variant"],
+	},
+	seelvariant: {
+		name: "Seel-Variant",
+		baseSpecies: "Seel",
+		forme: "Variant",
+		copyData: "Seel",
+
+		types: ["Normal"],
+		baseStats: {hp: 65, atk: 35, def: 55, spa: 65, spd: 70, spe: 35},
+		abilities: {0: "Adaptability", 1: "Hydration", H: "Thick Fat"},
+		movepoolAdditions: ["recover"],
+
+		evos: ["Dewgong-Variant"],
+		creator: "Selene",
+	},
+	dewgong: {
+		inherit: true,
+		otherFormes: ["Dewgong-Variant"],
+		formeOrder: ["Dewgong", "Dewgong-Variant"],
+		evos: ["Narwhirl"],
+	},
+	dewgongvariant: {
+		name: "Dewgong-Variant",
+		baseSpecies: "Dewgong",
+		forme: "Variant",
+		copyData: "Dewgong",
+
+		types: ["Normal"],
+		baseStats: {hp: 90, atk: 50, def: 80, spa: 110, spd: 95, spe: 50},
+		abilities: {0: "Adaptability", 1: "Hydration", H: "Thick Fat"},
+		movepoolAdditions: ["recover"],
+
+		prevo: "Seel-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Selene",
+	},
+	narwhirl: {
+		name: "Narwhirl",
+		copyData: "Dewgong",
+
+		types: ["Water", "Ice"],
+		baseStats: {hp: 95, atk: 85, def: 80, spa: 70, spd: 95, spe: 110},
+		abilities: {0: "Thick Fat", 1: "Hydration", H: "Permafrost"},
+		movepoolAdditions: ["thunderwave", "wavecrash"],
+
+		prevo: "Dewgong",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	bramblin: {
+		inherit: true,
+		evos: ["Brambleghast", "Brambleghast-Variant"],
+	},
+	brambleghast: {
+		inherit: true,
+		otherFormes: ["Brambleghast-Variant"],
+		formeOrder: ["Brambleghast", "Brambleghast-Variant"],
+	},
+	brambleghastvariant: {
+		name: "Brambleghast-Variant",
+		baseSpecies: "Brambleghast",
+		forme: "Variant",
+		copyData: "Brambleghast",
+	
+		types: ["Ice", "Ghost"],
+		baseStats: {hp: 85, atk: 95, def: 70, spa: 80, spd: 70, spe: 80},
+		abilities: {0: "Wind Rider", H: "Prankster"},
+		movepoolAdditions: ["auroraveil", "chillyreception", "blizzard", "icywind"],
+
+		prevo: "Bramblin",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Selene",
+	},
+
+	piloswine: {
+		inherit: true,
+		evos: ["Mamoswine", "Hieroswine"],
+	},
+	hieroswine: {
+		name: "Hieroswine",
+		copyData: "Mamoswine",
+	
+		types: ["Ice", "Ground"],
+		baseStats: {hp: 100, atk: 100, def: 80, spa: 110, spd: 85, spe: 55},
+		abilities: {0: "Mindful", 1: "Snow Cloak", H: "Thick Fat"},
+		movepoolAdditions: ["psychic"],
+
+		prevo: "Piloswine",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "pupugugu",
+	},
+
+	persian: {
+		inherit: true,
+		evos: ["Carnelion", "Carnelion-Variant"],
+	},
+	carnelion: {
+		name: "Carnelion",
+		copyData: "Persian",
+		
+		types: ["Normal", "Rock"],
+		baseStats: {hp: 85, atk: 105, def: 70, spa: 95, spd: 70, spe: 120},
+		abilities: {0: "Limber", 1: "Technician", H: "Unnerve"},
+		movepoolAdditions: ["rockslide", "rocktomb", "sandstorm", "stealthrock", "stoneedge", "terablast"],
+
+		otherFormes: ["Carnelion-Variant"],
+		formeOrder: ["Carnelion", "Carnelion-Variant"],
+		prevo: "Persian",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+	carnelionvariant: {
+		name: "Whiscazu-Variant",
+		copyData: "Persian",
+		baseSpecies: "Carnelion",
+		forme: "Variant",
+	
+		types: ["Normal", "Ice"],
+		baseStats: {hp: 85, atk: 95, def: 70, spa: 105, spd: 70, spe: 120},
+		abilities: {0: "Limber", 1: "Technician", H: "Unnerve"},
+		movepoolAdditions: ["chillyreception", "avalanche", "blizzard", "icebeam", "icespinner", "snowscape", "rockslide", "rocktomb", "sandstorm", "stealthrock", "stoneedge", "terablast"],
+
+		prevo: "Persian",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
+	pyukumuku: {
+		inherit: true,
+		otherFormes: ["Pyukumuku-Hisui"],
+		formeOrder: ["Pyukumuku", "Pyukumuku-Hisui"],
+	},
+	pyukumukuhisui: {
+		name: "Pyukumuku-Hisui",
+		baseSpecies: "Pyukumuku",
+		forme: "Hisui",
+		copyData: "Pyukumuku",
+	
+		types: ["Ice"],
+		baseStats: {hp: 75, atk: 65, def: 115, spa: 20, spd: 115, spe: 20},
+		abilities: {0: "Snowball Effect"},
+		movepoolAdditions: ["iceball", "snowroller"],
+		movepoolDeletions: ["curse"],
+
+		creator: "Albatross",
+	},
+
+	// SLATE 1 PROMPT 2
+
+	// SLATE 1 PROMPT 3
+
+	// LEGACY EVO MONS
+
 };
