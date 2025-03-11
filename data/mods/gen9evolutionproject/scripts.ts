@@ -2,8 +2,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		// sorting the teambuilder by slate / prompt
-		customTiers: ['S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
-		customDoublesTiers: ['S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
+		customTiers: ['Pokémon of the Day!', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
+		customDoublesTiers: ['Pokémon of the Day!', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
@@ -20,6 +20,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
 			if (!newMon.color && copyData.color) newMon.color = copyData.color;
 			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+
+			customList.push(id);
 
 			let copyMoves = newMon.copyData;
 			if (newMon.copyMoves) copyMoves = newMon.copyMoves;
@@ -44,5 +46,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
+
+		let random1 = Math.floor(Math.random() * customList.length);
+		let random2 = Math.floor(Math.random() * (customList.length - 1));
+		let random3 = Math.floor(Math.random() * (customList.length - 2));
+		if (random2 >= random1) random2 += 1;
+		if (random3 >= random1) random3 += 1;
+		if (random3 >= random2) random3 += 1;
+		this.modData('FormatsData', customList[random1]).tier = "Pokémon of the Day!";
+		this.modData('FormatsData', customList[random2]).tier = "Pokémon of the Day!";
+		this.modData('FormatsData', customList[random3]).tier = "Pokémon of the Day!";
 	},
 };
