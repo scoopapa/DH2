@@ -947,6 +947,242 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	// SLATE 1 PROMPT 3
 
+	golett: {
+		inherit: true,
+		evos: ["Golurk", "Golligerent"],
+	},
+	golligerent: {
+		name: "Golligerent",
+		copyData: "Golurk",
+
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 69, atk: 129, def: 60, spa: 85, spd: 60, spe: 80},
+		abilities: {0: "Iron Fist", 1: "Poison Heal", H: "No Guard"},
+		movepoolAdditions: ["shadowbox", "willowisp"],
+		movepoolDeletions: ["darkestlariat", "hyperbeam", "stoneedge", "trick"],
+
+		prevo: "Golett",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Selene",
+	},
+
+	barbaracle: {
+		inherit: true,
+		evos: ["Horroracle"],
+	},
+	horroracle: {
+		name: "Horroracle",
+		copyData: "Barbaracle",
+
+		types: ["Rock", "Psychic"],
+		baseStats: {hp: 72, atk: 115, def: 75, spa: 126, spd: 68, spe: 86},
+		abilities: {0: "Sticky Hold", 1: "Divinated Protection", H: "Wonder Skin"},
+		movepoolAdditions: ["constrict", "extrasensory", "nastyplot", "psychicnoise", "wringout", "calmmind", "expandingforce", "futuresight", "psybeam", "psychic", "shadowball", "skillswap", "trick", "trickroom", "zenheadbutt"],
+
+		prevo: "Barbaracle",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "lydian",
+	},
+
+	uxie: {
+		inherit: true,
+		otherFormes: ["Uxie-Ultra"],
+		formeOrder: ["Uxie", "Uxie-Ultra"],
+	},
+	uxieultra: {
+		name: "Uxie-Ultra",
+		baseSpecies: "Uxie",
+		forme: "Ultra",
+		copyData: "Uxie",
+
+		types: ["Electric"],
+		baseStats: {hp: 79, atk: 89, def: 103, spa: 89, spd: 103, spe: 107},
+		abilities: {0: "Levitate", H: "Tablets of Ruin", S: "Beast Boost"},
+
+		creator: "Paulluxx",
+	},
+
+	clayby: {
+		name: "Clayby",
+		copyData: "Litwick",
+
+		types: ["Ghost", "Rock"],
+		baseStats: {hp: 52, atk: 50, def: 73, spa: 55, spd: 30, spe: 15},
+		abilities: {0: "Well-Baked Body", 1: "Shattering Clay", H: "Sand Stream"},
+		movepoolAdditions: ["bodypress", "powergem", "bulldoze", "earthpower", "meteorbeam", "rockpolish", "rockslide", "rocktomb", "sandstorm", "stealthrock"],
+		movepoolDeletions: ["burningjealousy", "ember", "fireblast", "firespin", "flameburst", "flamecharge", "flamethrower", "flareblitz", "heatwave", "incinerate", "inferno", "mysticalfire", "overheat", "solarbeam", "sunnyday"],
+
+		evos: ["Glament"],
+		creator: "pupugugu",
+	},
+	glament: {
+		name: "Glament",
+		copyData: "Lampent",
+
+		types: ["Ghost", "Rock"],
+		baseStats: {hp: 62, atk: 40, def: 93, spa: 85, spd: 55, spe: 35},
+		abilities: {0: "Well-Baked Body", 1: "Shattering Clay", H: "Sand Stream"},
+		movepoolAdditions: ["bodypress", "powergem", "bulldoze", "earthpower", "meteorbeam", "rockpolish", "rockslide", "rocktomb", "sandstorm", "stealthrock"],
+		movepoolDeletions: ["burningjealousy", "ember", "fireblast", "firespin", "flameburst", "flamecharge", "flamethrower", "flareblitz", "heatwave", "incinerate", "inferno", "mysticalfire", "overheat", "solarbeam", "sunnyday"],
+
+		prevo: "Clayby",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Potthereal"],
+		creator: "pupugugu",
+	},
+	potthereal: {
+		name: "Potthereal",
+		copyData: "Chandelure",
+
+		types: ["Ghost", "Rock"],
+		baseStats: {hp: 72, atk: 85, def: 108, spa: 135, spd: 50, spe: 70},
+		abilities: {0: "Well-Baked Body", 1: "Shattering Clay", H: "Sand Stream"},
+		movepoolAdditions: ["bodypress", "powergem", "bulldoze", "earthpower", "meteorbeam", "rockpolish", "rockslide", "rocktomb", "sandstorm", "stealthrock"],
+		movepoolDeletions: ["burningjealousy", "ember", "fireblast", "firespin", "flameburst", "flamecharge", "flamethrower", "flareblitz", "heatwave", "incinerate", "inferno", "mysticalfire", "overheat", "solarbeam", "sunnyday"],
+
+		prevo: "Glament",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "pupugugu",
+	},
+
+	skiddo: {
+		inherit: true,
+		otherFormes: ["Skiddo-Hadean"],
+		formeOrder: ["Skiddo", "Skiddo-Hadean"],
+	},
+	skiddohadean: {
+		name: "Skiddo-Hadean",
+		baseSpecies: "Skiddo",
+		forme: "Hadean",
+		copyData: "Skiddo",
+
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 66, atk: 72, def: 18, spa: 75, spd: 47, spe: 72},
+		abilities: {0: "Cud Chew", 1: "Flame Body", H: "Grass Pelt"},
+		movepoolAdditions: ["chloroblast", "rekindle", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "overheat", "willowisp"],
+
+		evos: ["Gogoat-Hadean"],
+		creator: "abismal",
+	},
+	gogoat: {
+		inherit: true,
+		otherFormes: ["Gogoat-Hadean"],
+		formeOrder: ["Gogoat", "Gogoat-Hadean"],
+	},
+	gogoathadean: {
+		name: "Gogoat-Hadean",
+		baseSpecies: "Gogoat",
+		forme: "Hadean",
+		copyData: "Gogoat",
+
+		types: ["Grass", "Fire"],
+		baseStats: {hp: 123, atk: 107, def: 32, spa: 110, spd: 61, spe: 98},
+		abilities: {0: "Cud Chew", 1: "Flame Body", H: "Grass Pelt"},
+		movepoolAdditions: ["chloroblast", "rekindle", "fireblast", "firespin", "flamecharge", "flamethrower", "heatwave", "overheat", "willowisp"],
+
+		prevo: "Skiddo-Hadean",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "abismal",
+	},
+
+	nosepass: {
+		inherit: true,
+		evos: ["Probopass", "Rootsnoot"],
+	},
+	rootsnoot: {
+		name: "Rootsnoot",
+		copyData: "Probopass",
+
+		types: ["Rock", "Electric"],
+		baseStats: {hp: 80, atk: 70, def: 50, spa: 100, spd: 160, spe: 65},
+		abilities: {0: "Stalwart", 1: "Grassy Surge", H: "Galvanize"},
+		movepoolAdditions: ["gigadrain", "rapidspin"],
+		movepoolDeletions: ["steelbeam"],
+
+		prevo: "Nosepass",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	corvisquire: {
+		inherit: true,
+		evos: ["Corviknight", "Corviknight-Verdant"],
+	},
+	corviknight: {
+		inherit: true,
+		otherFormes: ["Corviknight-Verdant"],
+		formeOrder: ["Corviknight", "Corviknight-Verdant"],
+	},
+	corviknightverdant: {
+		name: "Corviknight-Verdant",
+		baseSpecies: "Corviknight",
+		forme: "Verdant",
+		copyData: "Corviknight",
+
+		types: ["Psychic", "Grass"],
+		baseStats: {hp: 98, atk: 107, def: 85, spa: 53, spd: 65, spe: 87},
+		abilities: {0: "Chain Link", 1: "Unburden", H: "Withering Glare"},
+		movepoolAdditions: ["grassyglide", "powerwhip", "barrier", "bulletseed", "grassyterrain", "psychicterrain", "seedbomb", "trickroom", "zenheadbutt"],
+		movepoolDeletions: ["irondefense", "metalsound", "steelbeam"],
+
+		prevo: "Corvisquire",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BlueRay",
+	},
+
+	regirock: {
+		inherit: true,
+		otherFormes: ["Regirock-Kanto"],
+		formeOrder: ["Regirock", "Regirock-Kanto"],
+	},
+	regirockkanto: {
+		name: "Regirock-Kanto",
+		baseSpecies: "Regirock",
+		forme: "Kanto",
+		copyData: "Regirock",
+
+		types: ["Rock", "Poison"],
+		baseStats: {hp: 80, atk: 100, def: 125, spa: 100, spd: 100, spe: 75},
+		abilities: {0: "Calcify", H: "Weak Armor"},
+		movepoolAdditions: ["leechseed", "rapidspin", "acidarmor", "acidspray", "sludgebomb", "sludgewave", "venoshock"],
+
+		creator: "Hematite",
+	},
+
+	darumaka: {
+		inherit: true,
+		evos: ["Darmanitan", "Darmanitan-Sage"],
+	},
+	darmanitan: {
+		inherit: true,
+		otherFormes: ["Darmanitan-Zen", "Darmanitan-Galar", "Darmanitan-Galar-Zen", "Darmanitan-Sage"],
+		formeOrder: ["Darmanitan", "Darmanitan-Zen", "Darmanitan-Galar", "Darmanitan-Galar-Zen", "Darmanitan-Sage"],
+	},
+	darmanitansage: {
+		name: "Darmanitan-Sage",
+		baseSpecies: "Darmanitan",
+		forme: "Sage",
+		copyData: "Darmanitan-Zen",
+		copyMoves: "Darmanitan",
+
+		types: ["Fire", "Psychic"],
+		baseStats: {hp: 105, atk: 85, def: 65, spa: 105, spd: 105, spe: 75},
+		abilities: {0: "Slush Rush", 1: "Telepathy", H: "Frigid Focus"},
+		movepoolAdditions: ["gravity", "inferno", "avalanche", "blizzard", "calmmind", "icebeam", "icefang", "icepunch", "iciclecrash", "psychup", "skillswap", "snowscape", "trickroom"],
+
+		prevo: "Darumaka",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
 	// LEGACY EVO MONS
 
 };
