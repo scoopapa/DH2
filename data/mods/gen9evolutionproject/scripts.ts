@@ -29,9 +29,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file
 				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
 				const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
+				const gen9only = ['plankteenie', 'mareaniedrifter', 'toxapexglacial', 'nemesyst']; // certain Fakemon are based on Gen IX movepools specifically
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
-						(method) => !(method.includes('S') && !(notm.contains(move.id) && method.includes('M')))
+						(method) => !(method.includes('S') && !(notm.contains(move.id) && method.includes('M')) && (!gen9only.contains(id) || method.startsWith('9')))
 					);
 				}
 				if (newMon.movepoolAdditions) {
