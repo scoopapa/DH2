@@ -549,6 +549,402 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	// SLATE 1 PROMPT 2
 
+	eelektrik: {
+		inherit: true,
+		evos: ["Eelektross", "Eelektross-Variant"],
+	},
+	eelektross: {
+		inherit: true,
+		otherFormes: ["Eelektross-Variant"],
+		formeOrder: ["Eelektross", "Eelektross-Variant"],
+	},
+	eelektrossvariant: {
+		name: "Eelektross-Variant",
+		baseSpecies: "Eelektross",
+		forme: "Variant",
+		copyData: "Eelektross",
+
+		types: ["Flying", "Electric"],
+		baseStats: {hp: 80, atk: 115, def: 80, spa: 105, spd: 80, spe: 55},
+		abilities: {0: "Storm Chaser", 1: "Wind Rider", H: "Storm Drain"},
+		movepoolAdditions: ["hurricane", "weatherball", "aerialace", "roost", "tailwind"],
+
+		prevo: "Eelektrik",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "quagsi",
+	},
+
+	togepi: {
+		inherit: true,
+		otherFormes: ["Togepi-Variant"],
+		formeOrder: ["Togepi", "Togepi-Variant"],
+	},
+	togepivariant: {
+		name: "Togepi-Variant",
+		baseSpecies: "Togepi",
+		forme: "Variant",
+		copyData: "Togepi",
+
+		types: ["Fairy", "Ground"],
+		baseStats: {hp: 35, atk: 20, def: 65, spa: 40, spd: 65, spe: 20},
+		abilities: {0: "Spiritual", 1: "Serene Grace", H: "Super Luck"},
+		movepoolAdditions: ["bulldoze", "dig", "earthquake", "earthpower", "sandstorm", "strength", "rockslide", "rocktomb", "stoneedge"],
+		movepoolDeletions: ["followme"],
+
+		evos: ["Togetic-Variant"],
+		creator: "Jumpheart",
+	},
+	togetic: {
+		inherit: true,
+		otherFormes: ["Togetic-Variant"],
+		formeOrder: ["Togetic", "Togetic-Variant"],
+		evos: ["Togekiss"],
+	},
+	togeticvariant: {
+		name: "Togetic-Variant",
+		baseSpecies: "Togetic",
+		forme: "Variant",
+		copyData: "Togetic",
+		
+		types: ["Fairy", "Ground"],
+		baseStats: {hp: 55, atk: 40, def: 85, spa: 80, spd: 105, spe: 40},
+		abilities: {0: "Spiritual", 1: "Serene Grace", H: "Super Luck"},
+		movepoolAdditions: ["bulldoze", "dig", "earthquake", "earthpower", "sandstorm", "strength", "rockslide", "rocktomb", "stoneedge"],
+		movepoolDeletions: ["followme"],
+
+		prevo: "Togepi-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Togepries"],
+		creator: "Jumpheart",
+	},
+	togepries: {
+		name: "Togepries",
+		copyData: "Togekiss",
+		
+		types: ["Fairy", "Ground"],
+		baseStats: {hp: 80, atk: 95, def: 125, spa: 85, spd: 85, spe: 75},
+		abilities: {0: "Spiritual", 1: "Serene Grace", H: "Super Luck"},
+		movepoolAdditions: ["bulldoze", "dig", "earthquake", "earthpower", "sandstorm", "strength", "rockslide", "rocktomb", "stoneedge"],
+		movepoolDeletions: ["followme"],
+
+		prevo: "Togetic-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Jumpheart",
+	},
+
+	drampa: {
+		inherit: true,
+		otherFormes: ["Drampa-Shifu"],
+		formeOrder: ["Drampa", "Drampa-Shifu"],
+	},
+	drampashifu: {
+		name: "Drampa-Shifu",
+		baseSpecies: "Drampa",
+		forme: "Shifu",
+		copyData: "Drampa",
+		gender: "M",
+		
+		types: ["Fighting", "Dragon"],
+		baseStats: {hp: 90, atk: 96, def: 91, spa: 63, spd: 97, spe: 108},
+		abilities: {0: "Martial Master"},
+		movepoolAdditions: ["coil", "ironhead", "brickbreak", "coaching", "focuspunch", "reversal", "revenge", "rocksmash", "strength"],
+		movepoolDeletions: ["playnice", "playrough"],
+
+		creator: "lydian",
+	},
+
+	cutiefly: {
+		inherit: true,
+		evos: ["Ribombee", "Thumbulbee"],
+	},
+	thumbulbee: {
+		name: "Thumbulbee",
+		copyData: "Ribombee",
+		copyMoves: "Cutiefly",
+
+		types: ["Bug", "Fairy"],
+		baseStats: {hp: 80, atk: 60, def: 80, spa: 100, spd: 100, spe: 44},
+		abilities: {0: "Honey Gather", 1: "Pollen Basket", H: "Sweet Veil"},
+		movepoolAdditions: ["agility", "gigaimpact", "hyperbeam", "lunge", "solarbeam"],
+
+		prevo: "Cutiefly",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Selene",
+	},
+
+	porygon: {
+		inherit: true,
+		evos: ["Porygon2", "Datagon2"],
+	},
+	datagon2: {
+		name: "Datagon2",
+		copyData: "Porygon2",
+
+		types: ["Dark", "Psychic"],
+		baseStats: {hp: 100, atk: 80, def: 90, spa: 105, spd: 95, spe: 45},
+		abilities: {0: "Patch Note", 1: "Download", H: "Analytic"},
+		movepoolAdditions: ["acid", "poisonsting", "psychicnoise", "reflecttype", "sludge", "calmmind", "taunt", "terablast"],
+		movepoolDeletions: ["signalbeam"],
+
+		evos: ["Datagon-Z"],
+		prevo: "Porygon",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+	datagonz: {
+		name: "Datagon-Z",
+		copyData: "Porygon-Z",
+
+		types: ["Dark", "Psychic"],
+		baseStats: {hp: 100, atk: 80, def: 60, spa: 135, spd: 60, spe: 100},
+		abilities: {0: "Patch Note", 1: "Download", H: "Analytic"},
+		movepoolAdditions: ["acid", "poisonsting", "psychicnoise", "reflecttype", "sludge", "calmmind", "taunt", "terablast"],
+		movepoolDeletions: ["signalbeam"],
+
+		prevo: "Datagon2",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "ausma",
+	},
+
+	noibat: {
+		inherit: true,
+		evos: ["Noivern", "Noivern-Variant", "Noivern-Paldea"],
+	},
+	noivern: {
+		inherit: true,
+		otherFormes: ["Noivern-Variant", "Noivern-Paldea"],
+		formeOrder: ["Noivern", "Noivern-Variant", "Noivern-Paldea"],
+	},
+	noivernvariant: {
+		name: "Noivern-Variant",
+		baseSpecies: "Noivern",
+		forme: "Variant",
+		copyData: "Noivern",
+
+		types: ["Fighting", "Dragon"],
+		baseStats: {hp: 95, atk: 70, def: 80, spa: 97, spd: 80, spe: 113},
+		abilities: {0: "Levitate"},
+		movepoolAdditions: ["aurasphere", "vacuumwave", "bulldoze", "rocktomb"],
+		movepoolDeletions: ["boomburst"],
+
+		prevo: "Noibat",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+	noivernpaldea: {
+		name: "Noivern-Paldea",
+		baseSpecies: "Noivern",
+		forme: "Paldea",
+		copyData: "Noivern",
+
+		types: ["Flying", "Electric"],
+		baseStats: {hp: 85, atk: 70, def: 80, spa: 87, spd: 80, spe: 133},
+		abilities: {0: "Frisk", 1: "Rust Control", H: "Telepathy"},
+		movepoolAdditions: ["metalsound", "overdrive", "spark", "chargebeam", "discharge", "electricterrain", "electroball", "electroweb", "flash", "risingvoltage", "thunder", "thunderwave", "thunderbolt", "voltswitch"],
+		movepoolDeletions: ["dragondance", "dragontail", "moonlight"],
+
+		prevo: "Noibat",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Gravity Monkey",
+	},
+
+	flaaffy: {
+		inherit: true,
+		evos: ["Ampharos", "Ampharos-Urban", "Voltangent"],
+	},
+	ampharos: {
+		inherit: true,
+		otherFormes: ["Ampharos-Urban"],
+		formeOrder: ["Ampharos", "Ampharos-Urban"],
+	},
+	ampharosurban: {
+		name: "Ampharos-Urban",
+		baseSpecies: "Ampharos",
+		forme: "Urban",
+		copyData: "Ampharos",
+
+		types: ["Normal", "Dragon"],
+		baseStats: {hp: 90, atk: 85, def: 75, spa: 115, spd: 90, spe: 55},
+		abilities: {0: "Directing Traffic", H: "Motor Drive"},
+		movepoolAdditions: ["followme", "triattack", "dracometeor", "flamethrower", "workup"],
+
+		prevo: "Flaaffy",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
+	},
+	voltangent: {
+		name: "Voltangent",
+		copyData: "Ampharos",
+
+		types: ["Electric", "Dragon"],
+		baseStats: {hp: 100, atk: 115, def: 85, spa: 75, spd: 90, spe: 45},
+		abilities: {0: "Regenerator", H: "Minus"},
+		movepoolAdditions: ["dracometeor"],
+
+		prevo: "Flaaffy",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Paulluxx",
+	},
+
+	rabsca: {
+		inherit: true,
+		evos: ["Repehk"],
+	},
+	repehk: {
+		name: "Repehk",
+		copyData: "Rabsca",
+
+		types: ["Bug", "Psychic"],
+		baseStats: {hp: 115, atk: 90, def: 50, spa: 145, spd: 55, spe: 80},
+		abilities: {0: "Drought"},
+		movepoolAdditions: ["morningsun", "solarbeam"],
+
+		prevo: "Rabsca",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution", // use generic flavor where not specified
+		creator: "abismal",
+	},
+
+	spoink: {
+		inherit: true,
+		otherFormes: ["Spoink-Alpine"],
+		formeOrder: ["Spoink", "Spoink-Alpine"],
+	},
+	spoinkalpine: {
+		name: "Spoink-Alpine",
+		baseSpecies: "Spoink",
+		forme: "Alpine",
+		copyData: "Spoink",
+		
+		types: ["Rock", "Fighting"],
+		baseStats: {hp: 60, atk: 55, def: 35, spa: 40, spd: 80, spe: 60},
+		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gluttony"},
+		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
+
+		evos: ["Grumpig-Alpine"],
+		creator: "inkbug",
+	},
+	grumpig: {
+		inherit: true,
+		otherFormes: ["Grumpig-Alpine"],
+		formeOrder: ["Grumpig", "Grumpig-Alpine"],
+	},
+	grumpigalpine: {
+		name: "Grumpig-Alpine",
+		baseSpecies: "Grumpig",
+		forme: "Alpine",
+		copyData: "Grumpig",
+
+		types: ["Rock", "Fighting"],
+		baseStats: {hp: 80, atk: 75, def: 65, spa: 60, spd: 110, spe: 80},
+		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gluttony"},
+		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
+
+		prevo: "Spoink-Alpine",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Alpignist"],
+		creator: "inkbug",
+	},
+	alpignist: {
+		name: "Alpignist",
+		copyData: "Grumpig",
+
+		types: ["Rock", "Fighting"],
+		baseStats: {hp: 95, atk: 95, def: 70, spa: 75, spd: 115, spe: 85},
+		abilities: {0: "Thick Fat", 1: "High Climber", H: "Gluttony"},
+		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
+
+		prevo: "Grumpig-Alpine",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+
+	duskull: {
+		inherit: true,
+		otherFormes: ["Duskull-Variant"],
+		formeOrder: ["Duskull", "Duskull-Variant"],
+	},
+	duskullvariant: {
+		name: "Duskull-Variant",
+		baseSpecies: "Duskull",
+		forme: "Variant",
+		copyData: "Duskull",
+
+		types: ["Electric"],
+		baseStats: {hp: 20, atk: 40, def: 90, spa: 30, spd: 90, spe: 25},
+		abilities: {0: "Levitate"},
+		movepoolAdditions: ["blownfuse", "supercellslam", "eerieimpulse", "electricterrain"],
+		movepoolDeletions: ["willowisp"],
+
+		evos: ["Dusclops-Variant"],
+		creator: "Paulluxx",
+	},
+	dusclops: {
+		inherit: true,
+		evos: ["Dusknoir", "Dusglow"],
+		otherFormes: ["Dusclops-Variant"],
+		formeOrder: ["Dusclops", "Dusclops-Variant"],
+	},
+	dusclopsvariant: {
+		name: "Dusclops-Variant",
+		baseSpecies: "Dusclops",
+		forme: "Variant",
+		copyData: "Dusclops",
+
+		types: ["Electric"],
+		baseStats: {hp: 40, atk: 70, def: 130, spa: 60, spd: 130, spe: 25},
+		abilities: {0: "Spiritual", H: "Frisk"},
+		movepoolAdditions: ["blownfuse", "supercellslam", "eerieimpulse", "electricterrain"],
+		movepoolDeletions: ["willowisp"],
+
+		prevo: "Duskull-Variant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Weltenschertz"],
+		creator: "Paulluxx",
+	},
+	dusglow: {
+		name: "Dusglow",
+		copyData: "Dusknoir",
+
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 45, atk: 85, def: 105, spa: 115, spd: 105, spe: 70},
+		abilities: {0: "Pressure", H: "Wandering Spirit"},
+		movepoolAdditions: ["dazzlinggleam", "drainingkiss"],
+
+		prevo: "Dusclops",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Violet",
+	},
+	weltenschertz: {
+		name: "Weltenschertz",
+		copyData: "Dusclops",
+
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 45, atk: 100, def: 135, spa: 65, spd: 135, spe: 45},
+		abilities: {0: "Spiritual", H: "Frisk"},
+		movepoolAdditions: ["blownfuse", "supercellslam", "eerieimpulse", "electricterrain"],
+		movepoolDeletions: ["willowisp"],
+
+		prevo: "Dusclops-Variant",
+		evoType: "trade",
+		evoItem: "Electirizer",
+		creator: "Paulluxx",
+	},
+
 	// SLATE 1 PROMPT 3
 
 	// LEGACY EVO MONS
