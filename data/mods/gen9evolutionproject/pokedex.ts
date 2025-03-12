@@ -547,6 +547,56 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Albatross",
 	},
 
+	numel: {
+		inherit: true,
+		otherFormes: ["Numel-Dormant"],
+		formeOrder: ["Numel", "Numel-Dormant"],
+	},
+	numeldormant: {
+		name: "Numel-Dormant",
+		baseSpecies: "Numel",
+		forme: "Dormant",
+		copyData: "Numel",
+
+		types: ["Rock", "Ice"],
+		abilities: {0: "Comatose", H: "Thick Fat"},
+		movepoolAdditions: ["slackoff", "afteryou", "avalanche", "blizzard", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "snowscape"],
+		movepoolDeletions: ["ember", "eruption", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "lavaplume", "overheat", "temperflare", "willowisp"],
+
+		evos: ["Dormedary"],
+		creator: "BotwNerd",
+	},
+	dormedary: {
+		name: "Dormedary",
+		copyData: "Camerupt",
+
+		types: ["Rock", "Ice"],
+		abilities: {0: "Comatose", H: "Thick Fat"},
+		movepoolAdditions: ["sheercold", "slackoff", "afteryou", "avalanche", "blizzard", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "snowscape"],
+		movepoolDeletions: ["ember", "eruption", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "lavaplume", "overheat", "temperflare", "willowisp"],
+
+		prevo: "Numel-Dormant",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		evos: ["Dormaderupt"],
+		creator: "BotwNerd",
+	},
+	dormaderupt: {
+		name: "Dormaderupt",
+		copyData: "Camerupt",
+
+		types: ["Rock", "Ice"],
+		baseStats: {hp: 110, atk: 100, def: 70, spa: 115, spd: 85, spe: 55},
+		abilities: {0: "Sheer Force", 1: "Speed Boost", H: "Steam Engine"},
+		movepoolAdditions: ["mountaingale", "sheercold", "slackoff", "afteryou", "avalanche", "blizzard", "explosion", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "selfdestruct", "snowscape"],
+		movepoolDeletions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "overheat", "temperflare", "willowisp"],
+
+		prevo: "Dormedary",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "BotwNerd",
+	},
+
 	// SLATE 1 PROMPT 2
 
 	eelektrik: {

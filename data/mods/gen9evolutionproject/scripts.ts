@@ -10,7 +10,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		for (const id in this.dataCache.Pokedex) {
 			const notm = ['terablast', 'hiddenpower']; // certain moves don't count TMs
 			const gen9only = [
-				'plankteenie', 'mareaniedrifter', 'toxapexglacial', 'nemesyst'
+				'plankteenie', 'mareaniedrifter', 'toxapexglacial', 'nemesyst', 'numeldormant', 'cameruptdormant', 'dormaderupt'
 			]; // certain Fakemon are based on Gen IX movepools specifically
 
 			// movepool corrections

@@ -75,6 +75,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pyukumuku: {tier: "Canon"},
 	pyukumukuhisui: {tier: "S1P1"},
 
+	numel: {tier: "Evo (NFE)"},
+	numeldormant: {tier: "Evo (NFE)"},
+	camerupt: {tier: "Canon"},
+	dormedary: {tier: "Evo (NFE)"},
+	dormaderupt: {tier: "S1P1"},
+
 	// SLATE 1 PROMPT 2
 
 	tynamo: {tier: "Evo (NFE)"},
