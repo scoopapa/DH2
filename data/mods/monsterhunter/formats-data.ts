@@ -179,6 +179,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gaismagorm: {
 		tier: "MHOU",
 	},
+	zamtrios: {
+		tier: "MHOU",
+	},
+	zamtriosiced: {
+		tier: "MHOU",
+	},
+	zamtriospuffed: {
+		tier: "MHOU",
+	},
 	redhelmarzuros: {
 		tier: "MHM",
 	},
