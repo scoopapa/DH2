@@ -1776,6 +1776,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
+			poisonjab: ["9L1"],
+			sludgebomb: ["9L1"],
 		},
 	},
 	seaode: {
@@ -1832,7 +1834,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			facade: ["9L1"],
 			substitute: ["9L1"],
 			terablast: ["9L1"],
-			esperwing: ["9L1"],
 		},
 	},
 	porcupyre: {
