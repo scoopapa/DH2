@@ -26,11 +26,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pinsir: {tier: "FE"},
 
 	magikarp: {tier: "NFE"},
-	magikarpeternal: {tier: "WIP"},
+	magikarpeternal: {tier: "FE"},
 	gyarados: {tier: "FE"},
 
 	eevee: {tier: "NFE"},
-	eeveeeternal: {tier: "WIP"},
+	eeveeeternal: {tier: "FE"},
 	vaporeon: {tier: "FE"},
 	jolteon: {tier: "FE"},
 	flareon: {tier: "FE"},

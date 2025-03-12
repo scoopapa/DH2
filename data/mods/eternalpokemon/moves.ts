@@ -1,6 +1,21 @@
 import { inherits } from "util";
 
 export const Moves: { [moveid: string]: ModdedMoveData } = {
+	lightofruin: {
+		num: 617,
+		accuracy: 90,
+		basePower: 140,
+		category: "Special",
+		name: "Light of Ruin",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 
 	// Phase I
 	// Slate I
@@ -12,7 +27,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
         basePower: 0,
         category: 'Status',
         name: 'Call for Family',
-        shortDesc: "+2 to highest stat of last in party fainted, then executes its first move.",
+        shortDesc: "+2 ↑stat of last in party fainted, uses its first move.",
         pp: 10,
         priority: 0,
         flags: {protect: 1, mirror: 1, metronome: 1},
@@ -110,7 +125,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
         basePower: 70,
         category: "Physical",
         name: "Chelicera Prey",
-        shortDesc: "Crit against speed lowered target.",
+        shortDesc: "Crits against speed lowered target.",
         pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
@@ -170,7 +185,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 0,
 		category: "Status",
 		name: "Storm Front",
-        shortDesc: "Stars Rain. User switches out.",
+        shortDesc: "Starts Rain. User switches out.",
 		pp: 10,
 		priority: 0,
 		flags: {},
@@ -228,7 +243,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		category: "Special",
 		name: "Ultra Resonance",
-        shortDesc: "BP = 300 - HP difference between user and target.",
+        shortDesc: "BP = 300 - HP diff of user and target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
@@ -257,7 +272,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 0,
 		category: "Status",
 		name: "Crystallize",
-        shortDesc: "Heals 50% max HP. User becomes immune to status and stat drops.",
+        shortDesc: "Heals 50%. Immune to status moves + stat drops.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -356,7 +371,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 50,
 		category: "Physical",
 		name: "Soul-Splitting Slices",
-        shortDesc: "Hits once calculating effectiviness for each type the target has.",
+        shortDesc: "Hits w/ effectiveness for each type of target.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
@@ -408,7 +423,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 40,
 		category: "Physical",
 		name: "Rocket Wrap",
-        shortDesc: "100% chance to flinch. User switches out. Fails if last Pokémon.",
+        shortDesc: "100% flinch. User switches. Fails if last active.",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -538,7 +553,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		category: "Physical",
 		name: "Fiery Provocation",
-        shortDesc: "BP and burn chance are equal to target's base attack.",
+        shortDesc: "BP + burn % equal to target's base Atk.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -572,6 +587,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 100,
 		category: "Physical",
 		name: "Flytrap",
+		shortDesc: ".5x contact damage + PSN on contact. SE > Bug.",
 		pp: 15,
 		priority: -3,
 		flags: {contact: 1, protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
@@ -614,12 +630,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 
     // Eternal Eevee
-    continuoussteps: { // todo: fix unmodifiable accuracy
+    continuoussteps: {
 		num: -133,
 		accuracy: 50, // unmodifiable accuracy implemented in eternalpokemon/scripts.ts
 		basePower: 50,
 		category: "Physical",
 		name: "Continuous Steps",
+		shortDesc: "Hits 50x. Each hit can miss. Ignores acc modifiers.",
 		pp: 40,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -628,8 +645,9 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		onPrepareHit(target, source) { // animation
             this.add('-anim', source, 'Stomp', target);
-            this.add('-anim', source, 'Stomp', target);
-            this.add('-anim', source, 'Stomp', target);
+		},
+		onHit(target, source) { // animation
+			this.add('-anim', source, 'Stomp', target);
 		},
 		multihit: 50,
 		multiaccuracy: true,
@@ -645,6 +663,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 90,
 		category: "Special",
 		name: "Nine-Orb Assault",
+		shortDesc: "User switches after using a status move.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1, metronome: 1, pulse: 1},
@@ -683,6 +702,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 75,
 		category: "Special",
 		name: "Sirocco",
+		shortDesc: "10% chance to burn. Super effective on Grass.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
@@ -713,6 +733,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 70,
 		category: "Physical",
 		name: "Sentimental Pirouette",
+		shortDesc: "SpD > Atk in calculation. If SpD > Spe, +1 Spe.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -738,8 +759,17 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		num: -672,
 		accuracy: 100,
 		basePower: 75,
-        basePowerCallback(pokemon, target, move) {
-            if (!this.queue.willMove(target)) {
+        basePowerCallback(source, target, move) {
+			let boosted = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === source) continue;
+				if (this.queue.willMove(pokemon)) {
+					boosted = false;
+					break;
+				}
+			}
+
+            if (boosted) {
                 this.debug('Moss Pit damage boost');
 			    return move.basePower * 1.3;
 			}
@@ -748,6 +778,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		category: "Physical",
 		name: "Moss Pit",
+		shortDesc: "30% boost + Grassy Terrain if last to move.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -758,7 +789,16 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
             this.add('-anim', source, 'Head Charge', target);
 		},
 		onHit(target, source, move) {
-            if (!this.queue.willMove(target)) {
+			let boosted = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === source) continue;
+				if (this.queue.willMove(pokemon)) {
+					boosted = false;
+					break;
+				}
+			}
+
+            if (boosted) {
                 this.debug('Moss Pit set grassy terrain');
                 this.field.setTerrain('grassyterrain');
             } else {
@@ -777,6 +817,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 95,
 		category: "Physical",
 		name: "Corkscrew Punch",
+		shortDesc: "Frees user from hazards, binding, Leech Seed.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
@@ -831,6 +872,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		basePower: 0,
 		category: "Status",
 		name: "Cat's Eye",
+		shortDesc: "33% heal. +1 SpA & 33% drain each Dark-type.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},

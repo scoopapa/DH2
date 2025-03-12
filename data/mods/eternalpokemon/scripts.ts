@@ -52,123 +52,71 @@ export const Scripts: ModdedBattleScriptsData = {
 	// modifies getMoveAccuracy to account for Eternal Eevee's Continuous Steps
 	// Gets the current accuracy for a move.
 	// todo: not working
-	battle: {
-		getMoveAccuracy(move: Move, value: ModifiableValue, target?: Pokemon) {
-			console.log("getMoveAccuracy called") // debug
-			console.log(move.name) // debug
-
-			value.reset(move.accuracy === true ? 0 : move.accuracy, true);
-
-			let pokemon = value.pokemon!;
-			// Sure-hit accuracy
-			if (move.id === 'toxic' && this.battle.gen >= 6 && this.pokemonHasType(pokemon, 'Poison')) {
-				value.set(0, "Poison type");
-				return value;
-			}
-			if (move.id === 'blizzard' && this.battle.gen >= 4) {
-				value.weatherModify(0, 'Hail');
-				value.weatherModify(0, 'Snow');
-			}
-			if (['hurricane', 'thunder', 'bleakwindstorm', 'wildboltstorm', 'sandsearstorm'].includes(move.id)) {
-				value.weatherModify(0, 'Rain Dance');
-				value.weatherModify(0, 'Primordial Sea');
-			}
-			value.abilityModify(0, 'No Guard');
-			if (!value.value) return value;
-
-			// OHKO moves don't use standard accuracy / evasion modifiers
-			if (move.ohko) {
-				if (this.battle.gen === 1) {
-					value.set(value.value, `fails if target's Speed is higher`);
-					return value;
-				}
-				if (move.id === 'sheercold' && this.battle.gen >= 7 && !this.pokemonHasType(pokemon, 'Ice')) {
-					value.set(20, 'not Ice-type');
-				}
-				if (target) {
-					if (pokemon.level < target.level) {
-						value.reset(0);
-						value.set(0, "FAILS: target's level is higher");
-					} else if (pokemon.level > target.level) {
-						value.set(value.value + pokemon.level - target.level, "+1% per level above target");
+	actions: {
+		hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+			const hitResults = [];
+			for (const [i, target] of targets.entries()) {
+				this.battle.activeTarget = target;
+				// calculate true accuracy
+				let accuracy = move.accuracy;
+				if (move.ohko) { // bypasses accuracy modifiers
+					if (!target.isSemiInvulnerable()) {
+						accuracy = 30;
+						if (move.ohko === 'Ice' && this.battle.gen >= 7 && !pokemon.hasType('Ice')) {
+							accuracy = 20;
+						}
+						if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
+							(move.ohko === true || !target.hasType(move.ohko))) {
+							accuracy += (pokemon.level - target.level);
+						} else {
+							this.battle.add('-immune', target, '[ohko]');
+							hitResults[i] = false;
+							continue;
+						}
 					}
+				} else if (move.name == "Continuous Steps") // implementing Continuous Steps
+					accuracy = move.accuracy;
+				else {
+					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+					if (accuracy !== true) {
+						let boost = 0;
+						if (!move.ignoreAccuracy) {
+							const boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+							boost = this.battle.clampIntRange(boosts['accuracy'], -6, 6);
+						}
+						if (!move.ignoreEvasion) {
+							const boosts = this.battle.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+							boost = this.battle.clampIntRange(boost - boosts['evasion'], -6, 6);
+						}
+						if (boost > 0) {
+							accuracy = this.battle.trunc(accuracy * (3 + boost) / 3);
+						} else if (boost < 0) {
+							accuracy = this.battle.trunc(accuracy * 3 / (3 - boost));
+						}
+					}
+				}
+				if (move.alwaysHit || (move.id === 'toxic' && this.battle.gen >= 8 && pokemon.hasType('Poison')) ||
+						(move.target === 'self' && move.category === 'Status' && !target.isSemiInvulnerable())) {
+					accuracy = true; // bypasses ohko accuracy modifiers
 				} else {
-					if (pokemon.level < 100) value.set(value.value, "fails if target's level is higher");
-					if (pokemon.level > 1) value.set(value.value, "+1% per level above target");
+					accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
 				}
-				return value;
-			}
-
-			// Eternal Eevee's Continuous steps
-			if (move.name == "Continuous Steps") {
-				return move.accuracy;
-			}
-
-			// Accuracy modifiers start
-
-			let accuracyModifiers = [];
-			if (this.battle.hasPseudoWeather('Gravity')) {
-				accuracyModifiers.push(6840);
-				value.modify(5 / 3, "Gravity");
-			}
-
-			for (const active of pokemon.side.active) {
-				if (!active || active.fainted) continue;
-				const ability = this.getAllyAbility(active);
-				if (ability === 'Victory Star') {
-					accuracyModifiers.push(4506);
-					value.modify(1.1, "Victory Star");
+				if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
+					if (move.smartTarget) {
+						move.smartTarget = false;
+					} else {
+						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
+						this.battle.add('-miss', pokemon, target);
+					}
+					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+						this.battle.boost({spe: 2}, pokemon);
+					}
+					hitResults[i] = false;
+					continue;
 				}
+				hitResults[i] = true;
 			}
-
-			if (value.tryAbility('Hustle') && move.category === 'Physical') {
-				accuracyModifiers.push(3277);
-				value.abilityModify(0.8, "Hustle");
-			} else if (value.tryAbility('Compound Eyes')) {
-				accuracyModifiers.push(5325);
-				value.abilityModify(1.3, "Compound Eyes");
-			}
-
-			if (value.tryItem('Wide Lens')) {
-				accuracyModifiers.push(4505);
-				value.itemModify(1.1, "Wide Lens");
-			}
-
-			// Chaining modifiers
-			let chain = 4096;
-			for (const mod of accuracyModifiers) {
-				if (mod !== 4096) {
-					chain = (chain * mod + 2048) >> 12;
-				}
-			}
-
-			// Applying modifiers
-			value.set(move.accuracy as number);
-
-			if (move.id === 'hurricane' || move.id === 'thunder') {
-				if (value.tryWeather('Sunny Day')) value.set(50, 'Sunny Day');
-				if (value.tryWeather('Desolate Land')) value.set(50, 'Desolate Land');
-			}
-
-			// Chained modifiers round down on 0.5
-			let accuracyAfterChain = (value.value * chain) / 4096;
-			accuracyAfterChain = accuracyAfterChain % 1 > 0.5 ? Math.ceil(accuracyAfterChain) : Math.floor(accuracyAfterChain);
-			value.set(accuracyAfterChain);
-
-			// Unlike for Atk, Def, etc. accuracy and evasion boosts are applied after modifiers
-			if (pokemon?.boosts.accuracy) {
-				if (pokemon.boosts.accuracy > 0) {
-					value.set(Math.floor(value.value * (pokemon.boosts.accuracy + 3) / 3));
-				} else {
-					value.set(Math.floor(value.value * 3 / (3 - pokemon.boosts.accuracy)));
-				}
-			}
-
-			// 1/256 glitch
-			if (this.battle.gen === 1 && !toID(this.battle.tier).includes('stadium')) {
-				value.set((Math.floor(value.value * 255 / 100) / 256) * 100);
-			}
-			return value;
+			return hitResults;
 		}
 	}
 };
