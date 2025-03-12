@@ -114,7 +114,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Renewing Ring",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, heal: 1, metronome: 1},
 		onTryMove(pokemon, target, move) {
 			if (pokemon.hasType('Ice')) return;
 			this.add('-fail', pokemon, 'move: Renewing Ring');
@@ -236,7 +236,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Shadow Box",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
 		secondary: {
 			chance: 100,
 			boosts: {

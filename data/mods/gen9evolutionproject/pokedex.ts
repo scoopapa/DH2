@@ -591,6 +591,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["mountaingale", "sheercold", "slackoff", "afteryou", "avalanche", "blizzard", "explosion", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "selfdestruct", "snowscape"],
 		movepoolDeletions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "overheat", "temperflare", "willowisp"],
 
+		heightm: 2.5,
+		weightkg: 320.5,
+
 		prevo: "Dormedary",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
@@ -1007,7 +1010,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Hawlucha",
 		
 		types: ["Poison", "Flying"],
-		baseStats: {hp: 83, atk: 92, def: 95, spa: 74, spd: 63, spe: 93},
+		baseStats: {hp: 78, atk: 107, def: 90, spa: 64, spd: 63, spe: 98},
 		abilities: {0: "Limber", 1: "Cheap Tricks", H: "Mold Breaker"},
 		movepoolAdditions: ["partingshot", "gunkshot", "sludgebomb", "venoshock"],
 		movepoolDeletions: ["closecombat"],
