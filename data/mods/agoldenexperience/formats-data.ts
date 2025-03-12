@@ -3445,7 +3445,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	xerneas: {
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 	},
 	xerneasneutral: {
@@ -4825,7 +4825,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	koraidon: {
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 	},
 	miraidon: {
