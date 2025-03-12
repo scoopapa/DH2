@@ -13,4 +13,30 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 310,
 	},
+	icearmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+					pokemon.formeChange('Zamtrios-Iced', this.effect, true);
+				}
+			},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
+			notransform: 1},
+		name: "Ice-Armor",
+		shortDesc: "This pokemon will react to a physical attack by encasing it's body in ice.",
+		rating: 3,
+		num: 1000,
+	},
+	puffup: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+					pokemon.formeChange('Zamtrios-Puffed', this.effect, true);
+				}
+			},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
+			notransform: 1},
+		name: "Puff-Up",
+		shortDesc: "This pokemon will react to a special attack by puffing up it's body.",
+		rating: 3,
+		num: 1001,
+	},
 }
