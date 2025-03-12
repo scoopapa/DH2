@@ -2993,8 +2993,6 @@ vikarlarzhu: {
 			payday: ["9L1"],
 			spark: ["9L1"],
 			nastyplot: ["9L1"],
-			moonlight: ["9L1"],
-			moonblast: ["9L1"],
 			darkpulse: ["9L1"],
 			thunderbolt: ["9L1"],
 			wildcharge: ["9L1"],
