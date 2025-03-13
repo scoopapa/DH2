@@ -57,6 +57,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hawlucha").learnset.ragingfury = ["9L1"];
 		this.modData("Learnsets", "hawlucha").learnset.firelash = ["9L1"];
 		this.modData("Learnsets", "hawlucha").learnset.solarblade = ["9L1"];
+		delete this.modData('Learnsets', 'farigiraf').learnset.storedpower;
+		delete this.modData('Learnsets', 'girafarig').learnset.storedpower;
+		this.modData("Learnsets", "primarina").learnset.bugbuzz = ["9L1"];
+		this.modData("Learnsets", "primarina").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.hypervoice = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.dualwingbeat = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -209,6 +215,28 @@ export const Scripts: ModdedBattleScriptsData = {
 				const tera = pokemon.species.id === 'goodra' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
+			if (pokemon.species.baseSpecies === 'Blaziken') {
+				const tera = pokemon.species.id === 'blaziken' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Dragonite') {
+				const tera = pokemon.species.id === 'dragonite' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Farigiraf') {
+				const tera = pokemon.species.id === 'farigiraf' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Primarina' && type === 'Bug') {
+	        pokemon.formeChange('Primarina-Tera', null, true);
+	        pokemon.baseMaxhp = Math.floor(Math.floor(
+	          2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+	        ) * pokemon.level / 100 + 10);
+	        const newMaxHP = pokemon.baseMaxhp;
+	        pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+	        pokemon.maxhp = newMaxHP;
+	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+      	}
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},
