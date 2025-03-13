@@ -84,6 +84,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	hawluchatera: {
 		tier: "Tera",
 	},
+	blazikentera: {
+		tier: "Tera",
+	},
+	dragonitetera: {
+		tier: "Tera",
+	},
+	primarinatera: {
+		tier: "Tera",
+	},
+	farigiraftera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {

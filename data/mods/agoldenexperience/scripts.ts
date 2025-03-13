@@ -1126,7 +1126,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'golduck').learnset.expandingforce = ['9L1'];
     this.modData('Learnsets', 'golduck').learnset.shadowball = ['9L1'];
     this.modData('Learnsets', 'golduck').learnset.thunderbolt = ['9L1'];
-    this.modData('Learnsets', 'arcanine').learnset.bulkup = ['9L1'];
+    this.modData('Learnsets', 'arcanine').learnset.swordsdance = ['9L1'];
+    this.modData('Learnsets', 'arcanine').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.lifedew = ['9L1'];
     delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;

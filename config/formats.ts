@@ -672,6 +672,30 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Eternal Pokémon",
+		mod: 'eternalpokemon',
+		desc: 'A Pet Mod that aims to give Eternal Floette-like formes to other NFE Pokémon.',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Data Mod', 'Terastal Clause', 'Picked Team Size = 6'], // temporarily asks for team order until Magikarp-Eternal situation is solved 
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pok%C3%A9mon.3755140/">Eternal Pokémon on Smogon Forums</a>`,
+		],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Baton Pass'],
+		teambuilderFormat: 'National Dex',
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['FE', 'NFE', 'DNFE'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier == 'Banned') return [set.species + ' is banned in Eteral Pokémon'];
+				if (template.tier == 'WIP') return [set.species + ' has some coding challenges, so it\'s not allowed yet!'];
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not available in Eternal Pokémon.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Eramons",
 		desc: [
 			`<b>Eramons</b>: A Gen 9 Pet Mod based on broad strokes of real-life historical time periods.`,
@@ -963,15 +987,15 @@ export const Formats: FormatList = [
 		],
 		mod: 'sharedpowerironfist',
 		teambuilderFormat: "National Dex",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Mega Rayquaza Clause', 'Big Button Rule', 'MILF Rule', 'Ohmyrod Rule', 'Serious Rule', 'Mario Kart Wii Clause', 'Spooky Secret Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Species Clause', 'Mega Rayquaza Clause', 'Big Button Rule', 'MILF Rule', 'Ohmyrod Rule', 'Serious Rule', 'Mario Kart Wii Clause'],
 		banlist: ['Baton Pass', 'King\'s Rock', 'Razor Fang', 'Moody',
 		'Buginium Z', 'Darkinium Z', 'Dragonium Z', 'Electrium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Normalium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Waterium Z',
-		'Absolite', 'Houndoominite', 'Red Orb', 'Blue Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
+		'Abomasite', 'Absolite', 'Houndoominite', 'Red Orb', 'Fish', 'Diamond Hand', 'Hoenn', 'Copen'],
 		unbanlist: ['Light of Ruin', 'Baddy Bad'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['Viable', 'Unviable', 'Untested'];
+			let allowedTiers = ['IF'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3061,7 +3085,7 @@ export const Formats: FormatList = [
 	 {
 		name: "[Gen 8] Evolution Project",
 		desc: [
-			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
+			`<b>Evolution Project</b>: A small group's creative exercise.`,
 		],
 		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
@@ -3088,7 +3112,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Evolution Project VGC",
 		desc: [
-			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
+			`<b>Evolution Project</b>: A small group's creative exercise.`,
 		],
 		gameType: 'doubles',
 		banlist: ['Aegislash-Base', 'Scizor'],
@@ -3131,6 +3155,87 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'evolutionproject',
+		searchShow: false,
+	},
+	 {
+		name: "[Gen 9] Evolution Project 2",
+		desc: [
+			`<b>Evolution Project</b>: A small group's creative exercise.`,
+		],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Dynamax Clause', 'Data Mod'],
+		banlist: [
+			'Toxapex', 'Noivern-Variant', 'Chandelure', 'Corviknight-Base', 'Darmanitan-Base', 'Darmanitan-Galar', 'Excadrill-Base',
+			'Moody', 'Baton Pass', 'Shed Tail', 'Last Respects',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!customTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in the Evolution Project format.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const item = this.dex.items.get(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not allowed to Mega Evolve.`];
+		},
+		mod: 'gen9evolutionproject',
+		searchShow: false,
+	},
+	{
+		name: "[Gen 9] Evolution Project 2 VGC",
+		desc: [
+			`<b>Evolution Project</b>: A small group's creative exercise. Tera Blast is universal in VGC.`,
+		],
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!customTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in the Evolution Project format.'];
+				}
+			}
+		},
+		checkCanLearn(move, species, lsetData, set) { // Tera Blast is universal in VGC, but not in singles
+			const problem = this.checkCanLearn(move, this.dex.species.get(set.species));
+			if (problem && move.name !== 'Tera Blast') return problem;
+			return null;
+		},
+		onValidateSet(set) {
+			const unobtainables = [
+				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
+				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
+			];
+			const species = this.dex.species.get(set.species);
+			if (unobtainables.includes(species.name)) {
+				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
+				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			if (species.tier === "Unreleased") {
+				const basePokemon = this.toID(species.baseSpecies);
+				if (this.ruleTable.has(`+pokemon:${species.id}`) || this.ruleTable.has(`+basepokemon:${basePokemon}`)) {
+					return;
+				}
+				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			// Items other than Z-Crystals and Pokémon-specific items should be illegal
+			if (!set.item) return;
+			const item = this.dex.items.get(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not allowed to Mega Evolve.`];
+			if (!item.isNonstandard) return;
+			if (['Past', 'Unobtainable'].includes(item.isNonstandard) && !item.zMove && !item.itemUser && !item.forcedForme) {
+				if (this.ruleTable.has(`+item:${item.id}`)) return;
+				return [`${set.name}'s item ${item.name} does not exist in Gen ${this.dex.gen}.`];
+			}
+		},
+		mod: 'gen9evolutionproject',
 		searchShow: false,
 	},
 	{
@@ -5274,6 +5379,7 @@ export const Formats: FormatList = [
 		'Power Suika', 'Power Yukari', 'Power Miko', 'Assist Akyuu', //mons
 		'Miracle Mallet', 'Unique Shield', 'Forward Dash', 'Up Tempo', 'Good Management', 'Usurpation', 'Boundary Blurrer', //stat boosting
 		'Hobgoblin', 'Shadow Stitch', 'Frail Health', 'Vanishing Act', 'Stone Stacker', //misc
+		//'Adaptability', 'Aerilate', 'Aftermath', 'Air Lock', 'Analytic', 'Anger Point', 'Anger Shell', 'Anticipation', 'Arena Trap', 'Armor Tail', 'Aroma Veil', 'As One (Glastrier)', 'As One (Spectrier)', 'Aura Break', 'Bad Dreams', 'Ball Fetch', 'Battery', 'Battle Armor', 'Battle Bond', 'Beads of Ruin', 'Beast Boost', 'Berserk', 'Big Pecks', 'Blaze', 'Bulletproof', 'Cheek Pouch', 'Chilling Neigh', 'Chlorophyll', 'Clear Body', 'Cloud Nine', 'Color Change', 'Comatose', 'Commander', 'Competitive', 'Compound Eyes', 'Contrary', 'Corrosion', 'Costar', 'Cotton Down', 'Cud Chew', 'Curious Medicine', 'Cursed Body', 'Cute Charm', 'Damp', 'Dancer', 'Dark Aura', 'Dauntless Shield', 'Dazzling', 'Defeatist', 'Defiant', 'Delta Stream', 'Desolate Land', 'Disguise', 'Download', 'Dragon\'s Maw', 'Drizzle', 'Dry Skin', 'Early Bird', 'Earth Eater', 'Effect Spore', 'Electric Surge', 'Electromorphosis', 'Emergency Exit', 'Fairy Aura', 'Filter', 'Flame Body', 'Flare Boost', 'Flash Fire', 'Flower Gift', 'Flower Veil', 'Fluffy', 'Forecast', 'Forewarn', 'Friend Guard', 'Frisk', 'Full Metal Body', 'Fur Coat', 'Gale Wings', 'Galvanize', 'Gluttony', 'Good as Gold', 'Gooey', 'Gorilla Tactics', 'Grass Pelt', 'Grassy Surge', 'Grim Neigh', 'Guard Dog', 'Gulp Missile', 'Guts', 'Hadron Engine', 'Harvest', 'Healer', 'Heatproof', 'Heavy Metal', 'Honey Gather', 'Hospitality', 'Huge Power', 'Hunger Switch', 'Hustle', 'Hydration', 'Hyper Cutter', 'Ice Body', 'Ice Face', 'Ice Scales', 'Illuminate', 'Illusion', 'Immunity', 'Imposter', 'Infiltrator', 'Innards Out', 'Inner Focus', 'Insomnia', 'Intimidate', 'Intrepid Sword', 'Iron Barbs', 'Iron Fist', 'Justified', 'Keen Eye', 'Klutz', 'Leaf Guard', 'Levitate', 'Libero', 'Light Metal', 'Lightning Rod', 'Limber', 'Lingering Aroma', 'Liquid Ooze', 'Liquid Voice', 'Long Reach', 'Magic Bounce', 'Magic Guard', 'Magician', 'Magma Armor', 'Magnet Pull', 'Marvel Scale', 'Mega Launcher', 'Merciless', 'Mimicry', 'Mind\s Eye', 'Minus', 'Mirror Armor', 'Misty Surge', 'Mold Breaker', 'Moody', 'Motor Drive', 'Moxie', 'Multiscale', 'Multitype', 'Mummy', 'Mycelium Might', 'Natural Cure', 'Neuroforce', 'Neutralizing Gas', 'No Guard', 'Normalize', 'Oblivious', 'Opportunist', 'Orichalcum Pulse', 'Overcoat', 'Overgrow', 'Own Tempo', 'Parental Bond', 'Pastel Veil', 'Perish Body', 'Pickpocket', 'Pickup', 'Pixilate', 'Plus', 'Poison Heal', 'Poison Point', 'Poison Puppeteer', 'Poison Touch', 'Power Construct', 'Power of Alchemy', 'Power Spot', 'Prankster', 'Pressure', 'Primordial Sea', 'Prism Armor', 'Propeller Tail', 'Protean', 'Protosynthesis', 'Psychic Surge', 'Punk Rock', 'Pure Power', 'Purifying Salt', 'Quark Drive', 'Queenly Majesty', 'Quick Draw', 'Quick Feet', 'Rain Dish', 'Rattled', 'Receiver', 'Reckless', 'Refrigerate', 'Regenerator', 'Ripen', 'Rivalry', 'RKS System', 'Rock Head', 'Rocky Payload', 'Rough Skin', 'Run Away', 'Sand Force', 'Sand Rush', 'Sand Spit', 'Sand Stream', 'Sand Veil', 'Sap Sipper', 'Schooling', 'Scrappy', 'Screen Cleaner', 'Seed Sower', 'Serene Grace', 'Shadow Shield', 'Shadow Tag', 'Sharpness', 'Shed Skin', 'Sheer Force', 'Shell Armor', 'Shield Dust', 'Shields Down', 'Simple', 'Skill Link', 'Slow Start', 'Slush Rush', 'Sniper', 'Snow Cloak', 'Snow Warning', 'Solar Power', 'Solid Rock', 'Soul-Heart', 'Soundproof', 'Speed Boost', 'Stakeout', 'Stall', 'Stalwart', 'Stamina', 'Stance Change', 'Static', 'Steadfast', 'Steam Engine', 'Steelworker', 'Steely Spirit', 'Stench', 'Sticky Hold', 'Storm Drain', 'Strong Jaw', 'Sturdy', 'Suction Cups', 'Super Luck', 'Supersweet Syrup', 'Supreme Overlord', 'Surge Surfer', 'Swarm', 'Sweet Veil', 'Swift Swim', 'Sword of Ruin', 'Symbiosis', 'Synchronize', 'Tablets of Ruin', 'Tangled Feet', 'Tangling Hair', 'Technician', 'Telepathy', 'Tera Shell', 'Tera Shift', 'Teraform Zero', 'Teravolt', 'Thermal Exchange', 'Thick Fat', 'Tinted Lens', 'Torrent', 'Tough Claws', 'Toxic Boost', 'Toxic Chain', 'Toxic Debris', 'Trace', 'Transistor', 'Triage', 'Truant', 'Turboblaze', 'Unaware', 'Unburden', 'Unnerve', 'Unseen Fist', 'Vessel of Ruin', 'Victory Star', 'Vital Spirit', 'Volt Absorb', 'Wandering Spirit', 'Water Absorb', 'Water Bubble', 'Water Compaction', 'Water Veil', 'Weak Armor', 'Well-Baked Body', 'White Smoke', 'Wimp Out', 'Wind Power', 'Wind Rider', 'Wonder Guard', 'Wonder Skin', 'Zen Mode', 'Zero to Hero' //vanilla abils
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/

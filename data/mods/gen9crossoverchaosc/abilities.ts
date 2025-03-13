@@ -37,4 +37,51 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1,
 	},
+	younglion: {
+		shortDesc: "If this Pokemon moves before the opponent, this Pokemon's damaging moves become multi-hit moves that hit twice. The second hit has its damage halved.",
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !(target.newlySwitched || this.queue.willMove(target))) return;
+			move.multihit = 2;
+			move.multihitType = 'parentalbond';
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		flags: {},
+		name: "Young Lion",
+		rating: 4,
+		num: -2,
+	},
+	pandemonicfeast: {
+		shortDesc: "Multi-hit moves hit the maximum number of times, and use the higher attacking stat when calculating damage.",
+		onModifyMove(move, pokemon) {
+			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+				move.multihit = move.multihit[1];
+				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+					move.overrideOffensiveStat = 'atk';
+				}
+				else {
+					move.overrideOffensiveStat = 'spa';
+				}
+			}
+			if (move.multiaccuracy) {
+				delete move.multiaccuracy;
+				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+					move.overrideOffensiveStat = 'atk';
+				}
+				else {
+					move.overrideOffensiveStat = 'spa';
+				}
+			}
+		},
+		flags: {},
+		name: "Pandemonic Feast",
+		rating: 3.5,
+		num: -3,
+	},
 };
