@@ -881,22 +881,26 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
   // New statuses
   nanoboosted: {
 		name: 'Nano Boosted',
-    // Setting turn + 2 turns active
+	   // Setting turn + 2 turns active
 		duration: 3,
+	   onStart(pokemon) {
+			this.add('-start', pokemon 'Nano Boost');
+			this.boost({atk: 1, spa: 1, def: 2, spd: 2}, pokemon);
+		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'Nano Boost');
-      let statName: BoostID;
-      let mod: 1;
-      // If a nanoboosted mon has contrary, their boosts are actually debuffs
-      if (pokemon.ability === 'contrary') {
-        mod = -1;
-      }
-			const nanoStats: BoostID[] = ['atk', 'spa', 'def', 'spd'];
+			let statName: BoostID;
+			let mod: 1;
+			// If a nanoboosted mon has contrary, their boosts are actually debuffs
+			if (pokemon.ability === 'contrary') {
+				mod = -1;
+			}
+			const nanoStats: BoostID[] = ['atk', 'spa', 'def', 'spd']
 			for (const statName in nanoStats) {
-				if ((source.boosts[statName] * mod) > 0) {
-					source.boosts[statName] = 0;
-        }
-      }
+				if ((pokemon.boosts[statName] * mod) > 0) {
+					pokemon.boosts[statName] = 0;
+				}
+			}
 		},
 	},
 };
