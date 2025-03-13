@@ -886,7 +886,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	   onStart(pokemon) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Zap Cannon", pokemon);
-			this.add('-start', pokemon 'Nano Boost');
+			this.add('-start', pokemon, 'Nano Boost');
 			this.boost({atk: 1, spa: 1, def: 2, spd: 2}, pokemon);
 		},
 		onEnd(pokemon) {
