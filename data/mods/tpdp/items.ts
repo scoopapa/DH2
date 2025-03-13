@@ -477,7 +477,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		rating: 1,
 		shortDesc: "When the opposing Puppet's stats are changed the Puppet holding this will reflect the same stat changes.",
 		onFoeAfterBoost(boost, target, source, effect) {
-			if (effect?.fullname?.endsWith('Bronze Mirror')) return;
+			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
 			const boostPlus: SparseBoostsTable = {};
 			let statsRaised = false;
 			let i: BoostID;

@@ -1141,26 +1141,46 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Harassment",
 		shortDesc: "When your stats drop, so does the foe. When the foe's stats increase, your stats increase as well.",
 		onBoost(boost, target, source, effect) {
-			let passedBoosts = boost;
+			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
+			if (!this.effectState.boosts) this.effectState.boosts = {} as SparseBoostsTable;
+			const boostPlus = this.effectState.boosts;
 			let i: BoostID;
-			for (i in passedBoosts) {
-				if (passedBoosts[i]! > 0)
-					passedBoosts[i]! = 0;
-			}
-			for (const foe of target.foes()) {
-				foe.boostBy(passedBoosts);
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					boostPlus[i] = (boostPlus[i] || 0) + boost[i]!;
+				}
 			}
 		},
-		onFoeBoost(boost, target, source, effect) {
-			let passedBoosts = boost;
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
+			if (!this.effectState.boosts) this.effectState.boosts = {} as SparseBoostsTable;
+			const boostPlus = this.effectState.boosts;
 			let i: BoostID;
-			for (i in passedBoosts) {
-				if (passedBoosts[i]! < 0)
-					passedBoosts[i]! = 0;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					boostPlus[i] = (boostPlus[i] || 0) + boost[i]!;
+				}
 			}
-			for (const foe of target.foes()) {
-				foe.boostBy(passedBoosts);
-			}
+		},
+		onAnySwitchInPriority: -3,
+		onAnySwitchIn() {
+			if (!this.effectState.boosts) return;
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+		},
+		onAnyAfterMove() {
+			if (!this.effectState.boosts) return;
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (!this.effectState.boosts) return;
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+		},
+		onEnd() {
+			delete this.effectState.boosts;
 		},
 	},
 	hateincarnate: {
