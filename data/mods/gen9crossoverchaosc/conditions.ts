@@ -884,6 +884,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	   // Setting turn + 2 turns active
 		duration: 3,
 	   onStart(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Zap Cannon", pokemon);
 			this.add('-start', pokemon 'Nano Boost');
 			this.boost({atk: 1, spa: 1, def: 2, spd: 2}, pokemon);
 		},
