@@ -3061,7 +3061,7 @@ export const Formats: FormatList = [
 	 {
 		name: "[Gen 8] Evolution Project",
 		desc: [
-			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
+			`<b>Evolution Project</b>: A small group's creative exercise.`,
 		],
 		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
@@ -3088,7 +3088,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Evolution Project VGC",
 		desc: [
-			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
+			`<b>Evolution Project</b>: A small group's creative exercise.`,
 		],
 		gameType: 'doubles',
 		banlist: ['Aegislash-Base', 'Scizor'],
@@ -3131,6 +3131,87 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'evolutionproject',
+		searchShow: false,
+	},
+	 {
+		name: "[Gen 9] Evolution Project 2",
+		desc: [
+			`<b>Evolution Project</b>: A small group's creative exercise.`,
+		],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Dynamax Clause', 'Data Mod'],
+		banlist: [
+			'Toxapex', 'Noivern-Variant', 'Chandelure', 'Corviknight-Base', 'Darmanitan-Base', 'Darmanitan-Galar', 'Excadrill-Base',
+			'Moody', 'Baton Pass', 'Shed Tail', 'Last Respects',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!customTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in the Evolution Project format.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const item = this.dex.items.get(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not allowed to Mega Evolve.`];
+		},
+		mod: 'gen9evolutionproject',
+		searchShow: false,
+	},
+	{
+		name: "[Gen 9] Evolution Project 2 VGC",
+		desc: [
+			`<b>Evolution Project</b>: A small group's creative exercise. Tera Blast is universal in VGC.`,
+		],
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!customTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in the Evolution Project format.'];
+				}
+			}
+		},
+		checkCanLearn(move, species, lsetData, set) { // Tera Blast is universal in VGC, but not in singles
+			const problem = this.checkCanLearn(move, this.dex.species.get(set.species));
+			if (problem && move.name !== 'Tera Blast') return problem;
+			return null;
+		},
+		onValidateSet(set) {
+			const unobtainables = [
+				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
+				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
+			];
+			const species = this.dex.species.get(set.species);
+			if (unobtainables.includes(species.name)) {
+				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
+				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			if (species.tier === "Unreleased") {
+				const basePokemon = this.toID(species.baseSpecies);
+				if (this.ruleTable.has(`+pokemon:${species.id}`) || this.ruleTable.has(`+basepokemon:${basePokemon}`)) {
+					return;
+				}
+				return [`${set.name || set.species} does not exist in the National Dex.`];
+			}
+			// Items other than Z-Crystals and Pokémon-specific items should be illegal
+			if (!set.item) return;
+			const item = this.dex.items.get(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not allowed to Mega Evolve.`];
+			if (!item.isNonstandard) return;
+			if (['Past', 'Unobtainable'].includes(item.isNonstandard) && !item.zMove && !item.itemUser && !item.forcedForme) {
+				if (this.ruleTable.has(`+item:${item.id}`)) return;
+				return [`${set.name}'s item ${item.name} does not exist in Gen ${this.dex.gen}.`];
+			}
+		},
+		mod: 'gen9evolutionproject',
 		searchShow: false,
 	},
 	{
