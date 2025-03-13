@@ -899,7 +899,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Zamtrios",
 		forme: "Puffed",
 		types: ["Water"],
-		baseStats: {hp: 75, atk: 80, def: 70, spa: 65, spd: 50, spe: 130},
+		baseStats: {hp: 110, atk: 70, def: 110, spa: 90, spd: 120, spe: 60},
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
 		heightm: 1.45,
 		weightkg: 95,
