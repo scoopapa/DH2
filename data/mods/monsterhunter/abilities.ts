@@ -17,7 +17,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
 					target.formeChange('zamtriosiced', this.effect, true);
-					this.add('-ability', pokemon, 'Ice-Armor');
+					this.add('-ability', target, 'Ice-Armor');
 					this.add('-message', `Zamtrios is transforming!`);
 				}
 			},
@@ -32,7 +32,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special') {
 					target.formeChange('zamtriospuffed', this.effect, true);
-					this.add('-ability', pokemon, 'Ice-Armor');
+					this.add('-ability', target, 'Ice-Armor');
 					this.add('-message', `Zamtrios is transforming!`);
 				}
 			},
