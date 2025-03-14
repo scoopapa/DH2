@@ -4645,6 +4645,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 				brine: ["9L1"],
 				bulkup: ["9L1"],
 				crunch: ["9L1"],
+				devour: ["9L1"],
 				dive: ["9L1"],
 				dragontail: ["9L1"],
 				facade: ["9L1"],

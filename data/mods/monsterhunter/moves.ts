@@ -1,4 +1,7 @@
 export const Moves: {[moveid: string]: MoveData} = {
+	/*
+	CUSTOM MOVES
+	*/
 	magnalance: {
 		num: 2000,
 		accuracy: 100,
@@ -79,6 +82,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Beautiful",
 	},
+	devour: {
+		num: 2004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Devour",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		onDisableMove(pokemon) {
+			if (!pokemon.getItem().isBerry) pokemon.disableMove('stuffcheeks');
+		},
+		onTry(source) {
+			return source.getItem().isBerry;
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	/*
+	RE-IMPLEMENTED MOVES
+	*/
 	vcreate: {
 		num: 557,
 		accuracy: 95,

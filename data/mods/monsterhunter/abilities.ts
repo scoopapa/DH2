@@ -23,7 +23,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			},
 			onStart(pokemon) {
 				if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'zamtrios') {
-					this.add('-activate', pokemon, 'ability: Ice-Armor');
 					this.add('-ability', pokemon, 'Ice-Armor');
 					this.add('-message', `Zamtrios is transforming!`);
 					pokemon.formeChange('zamtriosiced', this.effect, true);
