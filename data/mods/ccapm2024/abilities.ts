@@ -396,7 +396,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let stat: BoostID;
 			for (stat in target.boosts) {
 				if (source.boosts[stat] < 6) {
-					if (statPlus === 'evasion') continue;
+					if (stat === 'evasion') continue;
 					stats.push(stat);
 				}
 			}
