@@ -304,9 +304,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-end', pokemon, this.effectState.sourceEffect, '[entanglement]', '[silent]');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
+				const damage = this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor, pokemon, source);
 				if (damage) {
-					this.add('-anim', source, "Dream Eater", target);
+					this.add('-anim', source, "Dream Eater", pokemon);
 					this.add('-anim', source, "Ingrain", source);
 					this.heal(damage, source, pokemon, 'leechseed');
 				}
