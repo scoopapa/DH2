@@ -308,7 +308,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (damage) {
 					this.add('-anim', source, "Dream Eater", pokemon);
 					this.add('-anim', source, "Ingrain", source);
-					this.heal(damage, source, pokemon, 'leechseed');
+					let fakeSeed = {name: 'Leech Seed', id: 'leechseed'}; // silent visual + Big Root compatibility
+					this.heal(damage, source, pokemon, fakeSeed);
 				}
 			},
 			onEnd(pokemon) {
@@ -320,8 +321,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Nasty Plot");
-			this.add('-anim', source, "Frenzy Plant", target);
+			this.add('-anim', source, "Anchor Shot", target);
+			this.add('-anim', source, "Embargo", target);
+			this.add('-anim', source, "Embargo", source);
 		},
 		onHit(target, source, move) {
 			source.addVolatile('trapped', target, move, 'trapper');
