@@ -1463,15 +1463,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	gastly: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Lifesteal"},
+		abilities: {0: "Levitate", H: "Life Stealer"},
 	},
 	haunter: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Lifesteal"},
+		abilities: {0: "Levitate", H: "Life Stealer"},
 	},
 	gengar: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Lifesteal"},
+		abilities: {0: "Levitate", H: "Life Stealer"},
 	},
 	obstagoon: {
 		inherit: true,
@@ -1725,15 +1725,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	litwick: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Lifesteal"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Life Stealer"},
 	},
 	lampent: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Lifesteal"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Life Stealer"},
 	},
 	chandelure: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Lifesteal"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Life Stealer"},
 	},
 	// Forewarn
 	fennekin: {
@@ -1989,12 +1989,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	// Slate 8
 	shuppet: {
 		inherit: true,
-		abilities: {0: "Lifesteal", 1: "Frisk", H: "Run It Back"},
+		abilities: {0: "Life Stealer", 1: "Frisk", H: "Run It Back"},
 	},
 	banette: {
 		inherit: true,
 		types: ["Ghost", "Normal"],
-		abilities: {0: "Lifesteal", 1: "Frisk", H: "Run It Back"},
+		abilities: {0: "Life Stealer", 1: "Frisk", H: "Run It Back"},
 	},
 	banettemega: {
 		inherit: true,
@@ -2108,11 +2108,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	misdreavus: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Lifesteal", H: "Keep Cool"},
+		abilities: {0: "Levitate", 1: "Life Stealer", H: "Keep Cool"},
 	},
 	mismagius: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Lifesteal", H: "Keep Cool"},
+		abilities: {0: "Levitate", 1: "Life Stealer", H: "Keep Cool"},
 	},
 	// Cotton Down
 	buneary: {
@@ -2221,7 +2221,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	rotomfan: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Drizzle", H: "Delta Stream"},
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Magic Guard"},
 	},
 	rotommow: {
 		inherit: true,
@@ -2246,26 +2246,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Wandering Spirit", 1: "Nostalgia Trip", H: "Deliquesce"},
 	},
-	// Lifesteal
+	// Life Stealer
 	poltchageist: {
 		inherit: true,
-		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
 	},
 	poltchageistartisan: {
 		inherit: true,
-		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
 	},
 	sinistcha: {
 		inherit: true,
-		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
 	},
 	sinistchamasterpiece: {
 		inherit: true,
-		abilities: {0: "Hospitality", 1: "Lifesteal", H: "Heatproof"},
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
 	},
 	spectrier: {
 		inherit: true,
-		abilities: {0: "Grim Neigh", H: "Lifesteal"},
+		abilities: {0: "Grim Neigh", H: "Life Stealer"},
 	},
 	// Northern Mist
 	amaura: {
