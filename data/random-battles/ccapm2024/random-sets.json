@@ -318,7 +318,7 @@
         "level": 100,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Bulk Up", "Leaf Blade", "Body Press", "Bitter Blade", "Iron Head", "Spiky Shield"],
                 "teraTypes": ["Steel"]
             },
