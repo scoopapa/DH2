@@ -2,8 +2,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		// sorting the teambuilder by slate / prompt
-		customTiers: ['Pokémon of the Day!', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
-		customDoublesTiers: ['Pokémon of the Day!', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'],
+		customTiers: ['Pokémon of the Day!', 'Evo!', '(Prevo)'],
+		customDoublesTiers: ['Pokémon of the Day!', 'Evo!', '(Prevo)'],
 	},
 	init() {
 		let customList = [];

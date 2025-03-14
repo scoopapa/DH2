@@ -503,18 +503,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Limber", 1: "Technician", H: "Unnerve"},
 		movepoolAdditions: ["rockslide", "rocktomb", "sandstorm", "stealthrock", "stoneedge", "terablast"],
 
-		otherFormes: ["Carnelion-Variant"],
-		formeOrder: ["Carnelion", "Carnelion-Variant"],
+		otherFormes: ["Carnelion-Snowcap"],
+		formeOrder: ["Carnelion", "Carnelion-Snowcap"],
 		prevo: "Persian",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		creator: "abismal",
 	},
-	carnelionvariant: {
-		name: "Whiscazu-Variant",
+	carnelionsnowcap: {
+		name: "Carnelion-Snowcap",
 		copyData: "Persian",
 		baseSpecies: "Carnelion",
-		forme: "Variant",
+		forme: "Snowcap",
 	
 		types: ["Normal", "Ice"],
 		baseStats: {hp: 85, atk: 95, def: 70, spa: 105, spd: 70, spe: 120},
@@ -561,7 +561,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Ice"],
 		abilities: {0: "Comatose", H: "Thick Fat"},
 		movepoolAdditions: ["slackoff", "afteryou", "avalanche", "blizzard", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "snowscape"],
-		movepoolDeletions: ["ember", "eruption", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "lavaplume", "overheat", "temperflare", "willowisp"],
+		movepoolDeletions: ["ember", "eruption", "fireblast", "firespin", "flamecharge", "flamethrower", "flareblitz", "heatcrash", "heatwave", "incinerate", "lavaplume", "overheat", "temperflare", "willowisp"],
 
 		evos: ["Dormedary"],
 		creator: "BotwNerd",
@@ -573,7 +573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Ice"],
 		abilities: {0: "Comatose", H: "Thick Fat"},
 		movepoolAdditions: ["sheercold", "slackoff", "afteryou", "avalanche", "blizzard", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "snowscape"],
-		movepoolDeletions: ["ember", "eruption", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "lavaplume", "overheat", "temperflare", "willowisp"],
+		movepoolDeletions: ["ember", "eruption", "fireblast", "firespin", "flamecharge", "flamethrower", "flareblitz", "heatcrash", "heatwave", "incinerate", "lavaplume", "overheat", "temperflare", "willowisp"],
 
 		prevo: "Numel-Dormant",
 		evoType: "other",
@@ -589,7 +589,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 100, def: 70, spa: 115, spd: 85, spe: 55},
 		abilities: {0: "Sheer Force", 1: "Speed Boost", H: "Steam Engine"},
 		movepoolAdditions: ["mountaingale", "sheercold", "slackoff", "afteryou", "avalanche", "blizzard", "explosion", "icebeam", "icespinner", "iciclecrash", "icywind", "meteorbeam", "selfdestruct", "snowscape"],
-		movepoolDeletions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "heatcrash", "heatwave", "incinerate", "overheat", "temperflare", "willowisp"],
+		movepoolDeletions: ["ember", "fireblast", "firespin", "flamecharge", "flamethrower", "flareblitz", "heatcrash", "heatwave", "incinerate", "overheat", "temperflare", "willowisp"],
 
 		heightm: 2.5,
 		weightkg: 320.5,
@@ -740,7 +740,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Psychic"],
 		baseStats: {hp: 100, atk: 80, def: 90, spa: 105, spd: 95, spe: 45},
 		abilities: {0: "Patch Note", 1: "Download", H: "Analytic"},
-		movepoolAdditions: ["acid", "poisonsting", "psychicnoise", "reflecttype", "sludge", "calmmind", "taunt", "terablast"],
+		movepoolAdditions: ["acid", "darkpulse", "poisonsting", "psychicnoise", "reflecttype", "sludge", "calmmind", "taunt", "terablast"],
 		movepoolDeletions: ["signalbeam"],
 
 		evos: ["Datagon-Z"],
@@ -870,22 +870,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	spoink: {
 		inherit: true,
-		otherFormes: ["Spoink-Alpine"],
-		formeOrder: ["Spoink", "Spoink-Alpine"],
-	},
-	spoinkalpine: {
-		name: "Spoink-Alpine",
-		baseSpecies: "Spoink",
-		forme: "Alpine",
-		copyData: "Spoink",
-		
-		types: ["Rock", "Fighting"],
-		baseStats: {hp: 60, atk: 55, def: 35, spa: 40, spd: 80, spe: 60},
-		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gluttony"},
-		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
-
-		evos: ["Grumpig-Alpine"],
-		creator: "inkbug",
+		evos: ["Grumpig", "Grumpig-Alpine"],
 	},
 	grumpig: {
 		inherit: true,
@@ -898,12 +883,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Alpine",
 		copyData: "Grumpig",
 
-		types: ["Rock", "Fighting"],
+		types: ["Rock", "Psychic"],
 		baseStats: {hp: 80, atk: 75, def: 65, spa: 60, spd: 110, spe: 80},
 		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gluttony"},
 		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
 
-		prevo: "Spoink-Alpine",
+		prevo: "Spoink",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		evos: ["Alpignist"],
@@ -1040,34 +1025,42 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Selene",
 	},
 
-	barbaracle: {
+	binacle: {
 		inherit: true,
+		otherFormes: ["Binacle-Paldea"],
+		formeOrder: ["Binacle", "Binacle-Paldea"],
+	},
+	binaclepaldea: {
+		name: "Binacle-Paldea",
+		baseSpecies: "Binacle",
+		forme: "Paldea",
+		copyData: "Binacle",
+
+		types: ["Rock", "Psychic"],
+		baseStats: {hp: 42, atk: 42, def: 47, spa: 69, spd: 62, spe: 44},
+		abilities: {0: "Sticky Hold", 1: "Divinated Protection", H: "Wonder Skin"},
+		movepoolAdditions: ["constrict", "extrasensory", "nastyplot", "psychicnoise", "wringout", "calmmind", "expandingforce", "futuresight", "psybeam", "psychic", "shadowball", "skillswap", "trick", "trickroom", "zenheadbutt"],
+
 		evos: ["Horroracle"],
+		creator: "lydian",
 	},
 	horroracle: {
 		name: "Horroracle",
 		copyData: "Barbaracle",
 
 		types: ["Rock", "Psychic"],
-		baseStats: {hp: 72, atk: 115, def: 75, spa: 126, spd: 68, spe: 86},
+		baseStats: {hp: 72, atk: 85, def: 75, spa: 114, spd: 95, spe: 59},
 		abilities: {0: "Sticky Hold", 1: "Divinated Protection", H: "Wonder Skin"},
 		movepoolAdditions: ["constrict", "extrasensory", "nastyplot", "psychicnoise", "wringout", "calmmind", "expandingforce", "futuresight", "psybeam", "psychic", "shadowball", "skillswap", "trick", "trickroom", "zenheadbutt"],
 
-		prevo: "Barbaracle",
+		prevo: "Binacle-Paldea",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
 		creator: "lydian",
 	},
 
-	uxie: {
-		inherit: true,
-		otherFormes: ["Uxie-Ultra"],
-		formeOrder: ["Uxie", "Uxie-Ultra"],
-	},
-	uxieultra: {
-		name: "Uxie-Ultra",
-		baseSpecies: "Uxie",
-		forme: "Ultra",
+	ultrauxie: {
+		name: "Ultra Uxie", // can't Tera if "Ultra" is its form name
 		copyData: "Uxie",
 
 		types: ["Electric"],
@@ -1554,5 +1547,24 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		creator: "quagsi",
+	},
+
+	sandaconda: {
+		inherit: true,
+		evos: ["Coilrig"],
+	},
+	coilrig: {
+		name: "Coilrig",
+		copyData: "Sandaconda",
+
+		types: ["Ground", "Poison"],
+		baseStats: {hp: 77, atk: 107, def: 130, spa: 105, spd: 75, spe: 41},
+		abilities: {0: "Sand Spit", 1: "Shed Skin", H: "Liquid Ooze"},
+		movepoolAdditions: ["painsplit", "poisongas", "sludgebomb", "toxic", "venoshock"],
+
+		prevo: "Sandaconda",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "Hematite",
 	},
 };

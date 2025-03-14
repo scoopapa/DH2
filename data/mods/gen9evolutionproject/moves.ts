@@ -306,7 +306,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, source);
 				if (damage) {
-					this.heal(damage, source, pokemon);
+					this.add('-anim', source, "Dream Eater", target);
+					this.add('-anim', source, "Ingrain", source);
+					this.heal(damage, source, pokemon, 'leechseed');
 				}
 			},
 			onEnd(pokemon) {
@@ -316,10 +318,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (this.effectState.source?.isActive) pokemon.tryTrap();
 			},
 		},
-		onPrepareHit(target, source, move) { // Blue picked the animation!
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Nasty Plot");
-			this.add('-anim', source, "Dream Eater", target);
+			this.add('-anim', source, "Frenzy Plant", target);
 		},
 		onHit(target, source, move) {
 			source.addVolatile('trapped', target, move, 'trapper');
