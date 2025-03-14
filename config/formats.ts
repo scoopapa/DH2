@@ -684,7 +684,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['FE', 'NFE', 'DNFE'];
+			let allowedTiers = ['EP', 'EP NFE', 'EP 2NFE'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (template.tier == 'Banned') return [set.species + ' is banned in Eteral Pokémon'];
