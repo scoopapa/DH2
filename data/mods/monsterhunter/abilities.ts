@@ -21,6 +21,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					this.add('-message', `Zamtrios is transforming!`);
 				}
 			},
+			onStart(pokemon) {
+				if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'zamtrios') {
+					this.add('-activate', pokemon, 'ability: Ice-Armor');
+					pokemon.formeChange('zamtriosiced', this.effect, true);
+				}
+			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
 			notransform: 1},
 		name: "Ice-Armor",
