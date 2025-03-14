@@ -3171,15 +3171,16 @@ export const Formats: FormatList = [
 		desc: [
 			`<b>Evolution Project</b>: A small group's creative exercise.`,
 		],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Dynamax Clause', 'Data Mod'],
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Dynamax Clause', 'Data Mod'],
 		banlist: [
-			'Toxapex', 'Noivern-Variant', 'Chandelure', 'Corviknight-Base', 'Darmanitan-Base', 'Darmanitan-Galar', 'Excadrill-Base',
+			'Toxapex-Base', 'Noivern-Variant', 'Chandelure', 'Corviknight-Base', 'Darmanitan-Base', 'Darmanitan-Galar', 'Excadrill-Base', 'Hawlucha-Base',
 			'Moody', 'Baton Pass', 'Shed Tail', 'Last Respects',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
-			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			const customTiers = ['Pokémon of the Day!', 'Evo!', '(Prevo)'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!customTiers.includes(template.tier)) {
@@ -3200,11 +3201,12 @@ export const Formats: FormatList = [
 			`<b>Evolution Project</b>: A small group's creative exercise. Tera Blast is universal in VGC.`,
 		],
 		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
+		teambuilderFormat: "National Dex",
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Open Team Sheets', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
-			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			const customTiers = ['Pokémon of the Day!', 'Evo!', '(Prevo)'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!customTiers.includes(template.tier)) {
