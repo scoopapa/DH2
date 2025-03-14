@@ -357,7 +357,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	witheringglare: { // Verdant Corviknight
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Withering Glare');
-			this.add('-message', `${this.effectState.target.name}'s intensity prevents all Pokémon's stats from being changed!`);
+			this.add('-message', `${pokemon.name}'s intensity prevents all Pokémon's stats from being changed!`);
 		},
 		onAnyTryBoost(boost, target, source, effect) {
 			let showMsg = false;
