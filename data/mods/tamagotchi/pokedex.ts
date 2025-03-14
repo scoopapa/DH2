@@ -2401,7 +2401,7 @@ mametchi: {
 	},
 	octpasketchi: {
 		num: 301,
-		species: "Octpasketchi",
+		name: "Octpasketchi",
 		gender: "M",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 102, atk: 98, def: 86, spa: 80, spd: 100, spe: 44},
@@ -2409,7 +2409,7 @@ mametchi: {
 	},
 	tapepentchi: {
 		num: 302,
-		species: "Tapepentchi",
+		name: "Tapepentchi",
 	   gender: "M",
 		types: ["Water", "Ice"],
 		baseStats: {hp: 78, atk: 89, def: 81, spa: 80, spd: 82, spe: 100},
@@ -2417,7 +2417,7 @@ mametchi: {
 	},
 	bananahairtchi: {
 		num: 303,
-		species: "Banana-hairtchi",
+		name: "Banana-hairtchi",
 		baseSpecies: "Banana",
 		forme: "hairtchi",
 		gender: "M",
@@ -2427,7 +2427,7 @@ mametchi: {
 	},
 	arukotchi: {
 		num: 304,
-		species: "Arukotchi",
+		name: "Arukotchi",
 		gender: "F",
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 92, atk: 85, def: 84, spa: 83, spd: 81, spe: 85},
@@ -2435,7 +2435,7 @@ mametchi: {
 	},
 	watchlin: {
 		num: 305,
-		species: "Watchlin",
+		name: "Watchlin",
 		gender: "F",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 50, atk: 50, def: 155, spa: 60, spd: 155, spe: 40},
