@@ -95,10 +95,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1],
-		onTry(source) {
-			return source.getItem().isBerry;
-		},
 		onHit(pokemon) {
+			if (!this.boost({def: 2})) return null;
 			pokemon.eatItem(true);
 		},
 		secondary: null,
