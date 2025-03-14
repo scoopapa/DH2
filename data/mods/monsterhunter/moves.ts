@@ -96,9 +96,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1],
 		onTry(source) {
-			for (const pokemon of source) {
-				pokemon.eatItem(true);
-			}
+			return source.getItem().isBerry;
+		},
+		onHit(pokemon) {
+			pokemon.eatItem(true);
 		},
 		secondary: null,
 		target: "self",
