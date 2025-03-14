@@ -68,6 +68,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -88,6 +89,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
+		shortDesc: "The user recovers health by devouring meat. If the user is holding a berry, it's effect will activate.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -97,6 +99,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onTry(source) {
 			return source.getItem().isBerry;
+		},
+		onHit(pokemon) {
+			if (!this.boost) return null;
+			pokemon.eatItem(true);
 		},
 		secondary: null,
 		target: "self",
