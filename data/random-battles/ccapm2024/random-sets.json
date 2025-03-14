@@ -93,11 +93,6 @@
         "level": 100,
         "sets": [
             {
-                "role": "Fast Attacker",
-                "movepool": ["Leech Life", "Close Combat", "Knock Off", "Gunk Shot", "Stone Edge", "U-turn", "Rapid Spin"],
-                "teraTypes": ["Steel"]
-            },
-            {
                 "role": "Bulky Support",
                 "movepool": ["Leech Life", "Knock Off", "Rapid Spin", "Spikes", "Toxic", "U-turn"],
                 "teraTypes": ["Steel"]
