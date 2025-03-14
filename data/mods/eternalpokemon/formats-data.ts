@@ -64,6 +64,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gardevoir: {tier: "EP"},
 	gardevoirmega: {tier: "EP"},
 	gallade: {tier: "EP"},
+	gallademega: {tier: "EP"},
 
 	absol: {tier: "EP"},
 	absolmega: {tier: "EP"},
