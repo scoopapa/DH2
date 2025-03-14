@@ -593,6 +593,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	roy: {
 		learnset: {
+			bindingblade: ["9L1"],
 			blazekick: ["9L1"],
 			facade: ["9L1"],
 			flamecharge: ["9L1"],
