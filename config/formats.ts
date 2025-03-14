@@ -411,7 +411,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] CCAPM 2024",
 		threads: [
-			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
 		],
 		mod: 'ccapm2024',
 		teambuilderFormat: "National Dex",
@@ -428,6 +428,15 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 9] CCAPM 2024 Random Battle",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
+		],
+		mod: 'ccapm2024',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Cancel Mod'],
 	},
 	{
 		name: "[Gen 9] Clean Slate Micro 2",
