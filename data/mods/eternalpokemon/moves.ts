@@ -361,7 +361,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Psychic",
+		type: "Psychi",
 	},
 
     // Eternal Doublade

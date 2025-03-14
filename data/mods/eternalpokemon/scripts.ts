@@ -39,7 +39,18 @@ export const Scripts: ModdedBattleScriptsData = {
 						(method) => parseInt(method[0]) == latestGen
 					);
 				}
-				
+
+				// adds prevo moves
+				// only necessary to check one stage cus an eternal pokemon's base forme can only have 1 prevo
+				if (copyData.prevo) {
+					const prevoLearnset = this.dataCache.Learnsets[this.toID(copyData.prevo.toLowerCase())].learnset;
+					for (const moveid in prevoLearnset) { // filter only to allow moves from the latest gen
+						this.modData('Learnsets', id).learnset[moveid] = prevoLearnset[moveid].filter(
+							(method) => parseInt(method[0]) == latestGen
+						);
+					}
+				}
+
 				if (newMon.movepoolAdditions) {
 					for (const move of newMon.movepoolAdditions) {
 						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["9L50"];
