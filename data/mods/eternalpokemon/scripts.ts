@@ -8,6 +8,26 @@ export const Scripts: ModdedBattleScriptsData = {
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
 			if (!newMon) continue;
+
+			if (id == "floette") { // handles floette first to submit a learnset for eternal floette
+				// otherwise floette's learnset gets modified before eternal floette accessess it
+
+				const learnset = this.dataCache.Learnsets[id].learnset;
+				const latestGen = 7;
+				
+				for (const moveid in learnset) { // filter only to allow moves from the latest gen
+					this.modData('Learnsets', "floetteeternal").learnset[moveid] = learnset[moveid].filter(
+						(method) => parseInt(method[0]) == latestGen
+					);
+				}
+
+				this.modData('Learnsets', "floetteeternal").learnset["lightofruin"] = ["9L50"];
+
+				// no continue; to handle base floette's learnset
+			}
+
+			if (id == "floetteeternal") continue;
+
 			if (!newMon.copyData) {
 				// latest gen learnset for all pokemon, not just eternal pokémon
 				// console.log(newMon.name);
