@@ -95,15 +95,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1],
-		onDisableMove(pokemon) {
-			if (!pokemon.getItem().isBerry) pokemon.disableMove('stuffcheeks');
-		},
 		onTry(source) {
-			return source.getItem().isBerry;
-		},
-		onHit(pokemon) {
-			if (!this.boost) return null;
-			pokemon.eatItem(true);
+			for (const pokemon of source) {
+				pokemon.eatItem(true);
+			}
 		},
 		secondary: null,
 		target: "self",
