@@ -878,12 +878,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			return bp;
 		},
 	},
-  // New statuses
-  nanoboosted: {
+	// New statuses
+	nanoboosted: {
 		name: 'Nano Boosted',
-	   // Setting turn + 2 turns active
+		// Setting turn + 2 turns active
 		duration: 3,
-	   onStart(pokemon) {
+	 onStart(pokemon) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Zap Cannon", pokemon);
 			this.add('-start', pokemon, 'Nano Boost');
@@ -898,7 +898,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				mod = -1;
 			}
 			const nanoStats: BoostID[] = ['atk', 'spa', 'def', 'spd']
-			for (const statName in nanoStats) {
+			for (const statName of nanoStats) {
 				if ((pokemon.boosts[statName] * mod) > 0) {
 					pokemon.boosts[statName] = 0;
 				}
