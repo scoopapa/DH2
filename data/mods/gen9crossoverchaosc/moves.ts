@@ -55,7 +55,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-block', target, 'item: Ability Shield');
 			}
 			// Move disable
-			if (target.lastMove && !target.lastMove.isZ && !target.lastMove.isMax && !target.lastMove.id === 'struggle' && !target.volatiles['disable']) {
+			if (target.lastMove && !target.lastMove.isZ && !target.lastMove.isMax && target.lastMove.id !== 'struggle' && !target.volatiles['disable']) {
 				target.addVolatile('disable');
 			}
 	  },
@@ -202,7 +202,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If foe: blocks healing for 2 turns. If ally: heals 50%.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, bullet: 1, metronome: 1, allyanim: 1},
 		onTryHit(target, source, move) {
 			if (source.isAlly(target)) {
 				move.basePower = 0;
@@ -255,22 +255,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {},
 		onTryHit(source) {
 			if (!this.canSwitch(source.side)) {
-				this.attrLastMove('[still]');
-				this.add('-anim', source, "Zap Cannon", source);
-				this.boost({atk: 1, spa: 1, def: 2, spd: 2}, target);
 				source.addVolatile('nanoboosted');
-				// While the move theoretically does not fail, this is here to prevent the slot condition from being set if Ana fails to switch and thus Nanoboosts herself
-				return this.NOT_FAIL;
+				return false;
 			}
 		},
 		slotCondition: 'nanoboost',
 		condition: {
 			onSwap(target) {
 				if (!target.fainted) {
-					this.attrLastMove('[still]');
-					this.add('-anim', target, "Zap Cannon", target);
-					this.add('-start', target, 'Nano Boost');
-					this.boost({atk: 1, spa: 1, def: 2, spd: 2}, target);
 					target.addVolatile('nanoboosted');
 					target.side.removeSlotCondition(target, 'nanoboost');
 				}

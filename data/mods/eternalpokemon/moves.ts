@@ -760,16 +760,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 75,
         basePowerCallback(source, target, move) {
-			let boosted = true;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon === source) continue;
-				if (this.queue.willMove(pokemon)) {
-					boosted = false;
-					break;
-				}
-			}
-
-            if (boosted) {
+			if (!this.queue.willMove(target)) {
                 this.debug('Moss Pit damage boost');
 			    return move.basePower * 1.3;
 			}
@@ -778,7 +769,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		category: "Physical",
 		name: "Moss Pit",
-		shortDesc: "30% boost + Grassy Terrain if last to move.",
+		shortDesc: "30% BP + Grassy Terrain ifn't move before target.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
@@ -786,19 +777,10 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.attrLastMove('[still]');
 		},
 		onPrepareHit(target, source) { // animation
-            this.add('-anim', source, 'Head Charge', target);
+            this.add('-anim', source, 'Wood Hammer', target);
 		},
 		onHit(target, source, move) {
-			let boosted = true;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon === source) continue;
-				if (this.queue.willMove(pokemon)) {
-					boosted = false;
-					break;
-				}
-			}
-
-            if (boosted) {
+			if (!this.queue.willMove(target)) {
                 this.debug('Moss Pit set grassy terrain');
                 this.field.setTerrain('grassyterrain');
             } else {

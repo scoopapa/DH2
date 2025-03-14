@@ -411,7 +411,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] CCAPM 2024",
 		threads: [
-			`<a href="https://www.smogon.com/forums/threads/.3748853/">Iron Fist</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
 		],
 		mod: 'ccapm2024',
 		teambuilderFormat: "National Dex",
@@ -428,6 +428,15 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		name: "[Gen 9] CCAPM 2024 Random Battle",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3754552/">Community Create-A-Pet Mod 2024</a>`,
+		],
+		mod: 'ccapm2024',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Sleep Clause Mod', 'Terastal Clause', 'Cancel Mod', 'Data Mod'],
 	},
 	{
 		name: "[Gen 9] Clean Slate Micro 2",
@@ -684,7 +693,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['FE', 'NFE', 'DNFE'];
+			let allowedTiers = ['EP', 'EP NFE', 'EP 2NFE'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (template.tier == 'Banned') return [set.species + ' is banned in Eteral Pokémon'];
@@ -3162,15 +3171,16 @@ export const Formats: FormatList = [
 		desc: [
 			`<b>Evolution Project</b>: A small group's creative exercise.`,
 		],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Dynamax Clause', 'Data Mod'],
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Dynamax Clause', 'Data Mod'],
 		banlist: [
-			'Toxapex', 'Noivern-Variant', 'Chandelure', 'Corviknight-Base', 'Darmanitan-Base', 'Darmanitan-Galar', 'Excadrill-Base',
+			'Toxapex-Base', 'Noivern-Variant', 'Chandelure', 'Corviknight-Base', 'Darmanitan-Base', 'Darmanitan-Galar', 'Excadrill-Base', 'Hawlucha-Base',
 			'Moody', 'Baton Pass', 'Shed Tail', 'Last Respects',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
-			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			const customTiers = ['Pokémon of the Day!', 'Evo!', '(Prevo)'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!customTiers.includes(template.tier)) {
@@ -3191,11 +3201,12 @@ export const Formats: FormatList = [
 			`<b>Evolution Project</b>: A small group's creative exercise. Tera Blast is universal in VGC.`,
 		],
 		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
+		teambuilderFormat: "National Dex",
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Open Team Sheets', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
-			const customTiers = ['Pokémon of the Day!', 'S4P1', 'S4P2', 'S4P3', 'S3P1', 'S3P2', 'S3P3', 'S2P1', 'S2P2', 'S2P3', 'S1P1', 'S1P2', 'S1P3', 'Evo 1', 'Canon', 'Evo (NFE)'];
+			const customTiers = ['Pokémon of the Day!', 'Evo!', '(Prevo)'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!customTiers.includes(template.tier)) {

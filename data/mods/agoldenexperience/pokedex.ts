@@ -2812,6 +2812,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 211, atk: 101, def: 71, spa: 97, spd: 71, spe: 19},
 	},
+	necrozma: {
+		inherit: true,
+		abilities: {0: "Prism Armor", H: "Neuroforce"},
+	},
 
 	// Gen 8 :
 	meltan: {
@@ -3150,6 +3154,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	veluza: {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Unburden", H: "Sharpness"},
+	},
+	dudunsparce: {
+		inherit: true,
+		baseStats: {hp: 125, atk: 100, def: 90, spa: 85, spd: 85, spe: 55},
+	},
+	dudunsparcethreesegment: {
+		inherit: true,
+		baseStats: {hp: 125, atk: 100, def: 90, spa: 85, spd: 85, spe: 55},
 	},
 	greattusk: {
 		inherit: true,
