@@ -913,7 +913,7 @@
                 "teraTypes": ["Steel"]
             },
             {
-                "role": "Setup Sweeper",
+                "role": "Bulky Setup",
                 "movepool": ["Acid Armor", "Body Press", "Dark Pulse", "Recover"],
                 "teraTypes": ["Steel"]
             },
