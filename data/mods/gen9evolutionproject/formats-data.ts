@@ -150,7 +150,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	horroracle: {tier: "Evo!"},
 
 	uxie: {tier: "Evo!"},
-	ultrauxie: {tier: "Evo!"},
+	uxieultraspace: {tier: "Evo!"},
 
 	litwick: {tier: "(Prevo)"},
 	clayby: {tier: "(Prevo)"},
