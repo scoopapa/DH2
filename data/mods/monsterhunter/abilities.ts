@@ -16,7 +16,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
-					pokemon.formeChange('Zamtrios-Iced', this.effect, true);
+					pokemon.formeChange('zamtriosiced', this.effect, true);
 				}
 			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
@@ -29,7 +29,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special') {
-					pokemon.formeChange('Zamtrios-Puffed', this.effect, true);
+					pokemon.formeChange('zamtriospuffed', this.effect, true);
 				}
 			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 

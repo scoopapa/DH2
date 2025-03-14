@@ -4665,7 +4665,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 				mightycleave: ["9L1"],
 				powdersnow: ["9L1"],
 				protect: ["9L1"],
-				psychicfang: ["9L1"],
+				psychicfangs: ["9L1"],
 				raindance: ["9L1"],
 				rest: ["9L1"],
 				rockblast: ["9L1"],
