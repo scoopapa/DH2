@@ -18,16 +18,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	onix: {tier: "EP NFE"},
 	onixeternal: {tier: "EP"},
 	steelix: {tier: "EP"},
+	steelixmega: {tier: "EP"},
 
 	staryu: {tier: "EP NFE"},
 	staryueternal: {tier: "EP"},
 	starmie: {tier: "EP"},
 
 	pinsir: {tier: "EP"},
+	pinsirmega: {tier: "EP"},
 
 	magikarp: {tier: "EP NFE"},
 	magikarpeternal: {tier: "EP"},
 	gyarados: {tier: "EP"},
+	gyaradosmega: {tier: "EP"},
 
 	eevee: {tier: "EP NFE"},
 	eeveeeternal: {tier: "EP"},
@@ -41,6 +44,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sylveon: {tier: "EP"},
 
 	aerodactyl: {tier: "EP"},
+	aerodactylmega: {tier: "EP"},
 
 	dratini: {tier: "EP 2NFE"},
 	dragonair: {tier: "EP NFE"},
@@ -52,14 +56,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ariados: {tier: "EP"},
 
 	heracross: {tier: "EP"},
+	heracrossmega: {tier: "EP"},
 
 	ralts: {tier: "EP 2NFE"},
 	kirlia: {tier: "EP NFE"},
 	kirliaeternal: {tier: "EP"},
 	gardevoir: {tier: "EP"},
+	gardevoirmega: {tier: "EP"},
 	gallade: {tier: "EP"},
 
 	absol: {tier: "EP"},
+	absolmega: {tier: "EP"},
 
 	hippopotas: {tier: "EP NFE"},
 	hippopotaseternal: {tier: "EP"},
