@@ -2,12 +2,58 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ["Banned", "WIP", "EP", "EP NFE", "EP 2NFE"],
+		customTiers: ["Banned", "WIP", "FE", "1x NFE", "2x NFE"],
 	},
 	init() {		
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
-			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new
+			if (!newMon) continue;
+
+			if (id == "floette") { // handles floette first to submit a learnset for eternal floette
+				// otherwise floette's learnset gets modified before eternal floette accessess it
+
+				const learnset = this.dataCache.Learnsets[id].learnset;
+				const latestGen = 7;
+				
+				for (const moveid in learnset) { // filter only to allow moves from the latest gen
+					this.modData('Learnsets', "floetteeternal").learnset[moveid] = learnset[moveid].filter(
+						(method) => parseInt(method[0]) == latestGen
+					);
+				}
+
+				this.modData('Learnsets', "floetteeternal").learnset["lightofruin"] = ["9L50"];
+
+				// no continue; to handle base floette's learnset
+			}
+
+			if (id == "floetteeternal") continue;
+
+			if (!newMon.copyData) {
+				// latest gen learnset for all pokemon, not just eternal pokémon
+				// console.log(newMon.name);
+				// console.log(this.dataCache.Learnsets[id]);
+				if (!this.dataCache.Learnsets[id] || !this.dataCache.Learnsets[id].learnset) continue;
+
+				const learnset = this.dataCache.Learnsets[id].learnset;
+
+				let currentGen, latestGen = 0;
+				for (const moveid in learnset) { // determine what the latest gen is for this pokémon
+					for (const method in learnset[moveid]) {
+						currentGen = parseInt(learnset[moveid][method][0])
+						if (currentGen > latestGen) latestGen = currentGen;
+					}
+				}
+				
+				for (const moveid in learnset) { // filter only to allow moves from the latest gen
+					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
+						(method) => parseInt(method[0]) == latestGen
+					);
+				}
+
+				continue;
+			}
+			// only new pokémon
+
 			const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
 
 			if (!newMon.types && copyData.types) newMon.types = copyData.types;

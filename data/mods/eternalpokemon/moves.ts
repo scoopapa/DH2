@@ -1,21 +1,6 @@
 import { inherits } from "util";
 
 export const Moves: { [moveid: string]: ModdedMoveData } = {
-	lightofruin: {
-		num: 617,
-		accuracy: 90,
-		basePower: 140,
-		category: "Special",
-		name: "Light of Ruin",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		recoil: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Fairy",
-		contestType: "Beautiful",
-	},
 
 	// Phase I
 	// Slate I
@@ -361,7 +346,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Psychi",
+		type: "Psychic",
 	},
 
     // Eternal Doublade
