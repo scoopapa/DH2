@@ -883,7 +883,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Alpine",
 		copyData: "Grumpig",
 
-		types: ["Rock", "Psychic"],
+		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 80, atk: 75, def: 65, spa: 60, spd: 110, spe: 80},
 		abilities: {0: "Thick Fat", 1: "Own Tempo", H: "Gluttony"},
 		movepoolAdditions: ["jumpkick", "rapidspin", "u-turn", "bulkup", "coaching", "meteorbeam", "rockblast", "rockpolish", "rockslide", "rocksmash", "rockthrow", "rocktomb", "sandstorm", "smackdown", "stealthrock", "stoneedge", "strength", "superpower"],
