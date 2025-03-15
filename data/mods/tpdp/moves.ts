@@ -1102,7 +1102,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.add('-message', `The dead call upon ${source.name}...`);
+				this.add('-message', `The dead call upon ${pokemon.name}...`);
 				this.add('-singlemove', pokemon, 'Call of the Dead');
 			},
 			onFaint(target, source, effect) {
@@ -9674,11 +9674,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hp) {
 					if(pokemon.removeVolatile('drainseed')) this.add('-end', pokemon, 'Drain Seed', '[from] move: Smash Spin', '[of] ' + pokemon);
 					const sideConditions = ['bindtrap', 'minetrap', 'poisontrap', 'stealthtrap'];
+					const success = false;
 					for (const condition of sideConditions) {
 						if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-							this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Smash Spin', '[of] ' + pokemon);
+							success = true;
+							this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Smash Spin', '[of] ' + pokemon, '[silent]');
 						}
 					}
+					if (success) this.add('-message', `${pokemon.name} blew away the surrounding hazards!`);
 					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
 						pokemon.removeVolatile('partiallytrapped');
 					}
