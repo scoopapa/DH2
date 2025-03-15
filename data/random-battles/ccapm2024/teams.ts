@@ -1251,41 +1251,10 @@ export class RandomTeams {
 		teraType: string,
 		role: RandomTeamsTypes.Role,
 	) {
-		if (!isDoubles) {
-			if (
-				!isLead && role === 'Bulky Setup' &&
-				(ability === 'As One (OU)' || ability === 'Iron Thorn')
-			) {
-				return 'Booster Energy';
-			}
-		}
-		if (role === 'Mega') {
-			if (species.id === 'necromaneduskmane') return 'Depleted Ultranecrozmium Z';
-			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
-			let mega = species.id + 'mega';
-			if (mega === 'blasgronmega') {
-				if (moves.has('shellsmash')) mega += 'b';
-				else mega += 'a';
-			}
-			return this.dex.species.get(mega).requiredItems[0];
-		}
 		if (role === 'AV Pivot') return 'Assault Vest';
 		//mon hardcodes
-		if (species.id === 'hooporantunbound') return 'Light Ball';
-		if (species.id === 'zacianoh') return 'Rusted Sword';
-		if (species.id === 'shitto') return 'Black Sludge';
-		if (species.id === 'swalos') return 'Starf Berry';
-		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		if (species.id === 'tipplin') return 'Metronome';
-		if (species.id === 'mimighold') return 'Lum Berry';
-		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || species.id === 'naclinch' || species.id === 'glimmgar') return 'Eviolite';
-		if (species.id === 'exeggumoramora') return 'White Herb';
-		if (species.id === 'rolyklawfy') return 'Focus Sash';
-		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
-		if (species.id === 'gigawrath') return 'Choice Band';
-		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
-		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
+		if (species.id === 'liwyzard') return 'Light Ball';
+		//if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -1299,9 +1268,10 @@ export class RandomTeams {
 			}
 		}
 		if (species.nfe) return 'Eviolite';
-		if ((ability === 'Goon Drive' || moves.has('facade')) && !moves.has('sleeptalk')) {
+		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
 			return (types.includes('Fire') || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
 		}
+		if (ability === 'Contagious') return 'Flame Orb';
 		if (moves.has('courtchange')) return 'Heavy-Duty Boots';
 		if (
 			moves.has('scaleshot') || (species.id === 'torterra' && !isDoubles) ||
@@ -1626,21 +1596,21 @@ export class RandomTeams {
 			ivs.atk = 0;
 		}
 
-		if (moves.has('gyroball') || moves.has('trickroom') || species.baseSpecies === 'Bearlamar') {
+		if (moves.has('gyroball') || moves.has('trickroom') || /*species.baseSpecies === 'Bearlamar'*/) {
 			evs.spe = 0;
 			ivs.spe = 0;
 		}
 		
 		//the funny
-		if (species.baseSpecies === 'Kyuwear') {
-			evs.hp = 252;
+		/*if (species.baseSpecies === 'Noyew') {
+			evs.hp = 0;
 			evs.atk = 0;
-			ivs.atk = 31;
+			ivs.atk = 0;
 			evs.def = 0;
 			evs.spa = 0;
 			evs.spd = 0;
 			evs.spe = 0;
-		}
+		}*/
 
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
@@ -1727,30 +1697,30 @@ export class RandomTeams {
 		const pokemonList = Object.keys(this.randomSets);
 		const [pokemonPool, baseSpeciesPool] = this.getPokemonPool(type, pokemon, isMonotype, pokemonList);
 		const [darkPool, darkBasePool] = this.getPokemonPool('Dark', pokemon, true, pokemonList);
-		const [koraislePool, koraisleBasePool] = this.getPokemonPool(type, pokemon, true, ['koraisle']);
-		const [mirainunPool, mirainunBasePool] = this.getPokemonPool(type, pokemon, true, ['mirainun']);
+		const [rizzquazaPool, rizzquazaBasePool] = this.getPokemonPool(type, pokemon, true, ['rizzquaza']);
+		const [trawlutrePool, trawlutreBasePool] = this.getPokemonPool(type, pokemon, true, ['trawlutre']);
 
 		let leadsRemaining = this.format.gameType === 'doubles' ? 2 : 1;
 		while (baseSpeciesPool.length && pokemon.length < this.maxTeamSize) {
 			let temp;
 			let species;
-			//if koraisle, pick mirainun immediately
-			if(teamDetails.koraisle && teamDetails.koraisle == 1) {
-				if(mirainunPool.length != 0) {
-					temp = mirainunPool[0];
+			//if rizzquaza, pick trawlutre immediately
+			if(teamDetails.rizzquaza && teamDetails.rizzquaza == 1) {
+				if(trawlutrePool.length != 0) {
+					temp = trawlutrePool[0];
 					species = this.dex.species.get(temp);
 				}
-				teamDetails.koraisle ++;
+				teamDetails.rizzquaza ++;
 			}
-			//if mirainun, pick koraisle immediately
-			else if(teamDetails.mirainun && teamDetails.mirainun == 1) {
-				if(koraislePool.length != 0) {
-					temp = koraislePool[0];
+			//if trawlutre, pick rizzquaza immediately
+			else if(teamDetails.trawlutre && teamDetails.trawlutre == 1) {
+				if(rizzquazaPool.length != 0) {
+					temp = rizzquazaPool[0];
 					species = this.dex.species.get(temp);
 				}
-				teamDetails.mirainun ++;
+				teamDetails.trawlutre ++;
 			}
-			else if(teamDetails.beetar && teamDetails.beetar == 1 && this.randomChance(1, 2)) {
+			/*else if(teamDetails.beetar && teamDetails.beetar == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('scolislash');
 				teamDetails.beetar ++;
 			}
@@ -1776,7 +1746,7 @@ export class RandomTeams {
 					if (species.baseSpecies === baseSpecies) currentSpeciesPool.push(species);
 				}
 				species = this.sample(currentSpeciesPool);
-			}
+			}*/
 			//otherwise sample normally
 			else {
 				temp = this.sampleNoReplace(baseSpeciesPool);
@@ -1796,16 +1766,16 @@ export class RandomTeams {
 				continue;
 			}
 
-			// koraisle/mirainun cant be last slot if there isnt the respective pair already there
-			if (((species.baseSpecies === 'Koraisle' && !teamDetails.mirainun) || (species.baseSpecies === 'Mirainun' && !teamDetails.koraisle)) && pokemon.length >= (this.maxTeamSize - 1)) {
+			// Rizzquaza/Trawlutre cant be last slot if there isnt the respective pair already there
+			if (((species.baseSpecies === 'Rizzquaza' && !teamDetails.trawlutre) || (species.baseSpecies === 'Trawlutre' && !teamDetails.rizzquaza)) && pokemon.length >= (this.maxTeamSize - 1)) {
 				continue;
 			}
 			
 			// pair koraisle and mirainun together
-			if (species.baseSpecies === 'Koraisle' && !teamDetails.mirainun) teamDetails.koraisle = 1;
-			if (species.baseSpecies === 'Mirainun' && !teamDetails.koraisle) teamDetails.mirainun = 1;
+			if (species.baseSpecies === 'Rizzquaza' && !teamDetails.trawlutre) teamDetails.rizzquaza = 1;
+			if (species.baseSpecies === 'Trawlutre' && !teamDetails.rizzquaza) teamDetails.trawlutre = 1;
 			
-			// have higher likelihood to pair beetar and scolislash together
+			/*// have higher likelihood to pair beetar and scolislash together
 			if (species.baseSpecies === 'Beetar' && !teamDetails.scolislash) teamDetails.beetar = 1;
 			if (species.baseSpecies === 'Scolislash' && !teamDetails.beetar) teamDetails.scolislash = 1;
 			
@@ -1814,7 +1784,7 @@ export class RandomTeams {
 			if (species.baseSpecies === 'Avalluxe' && !teamDetails.chiruno) teamDetails.avalluxe = 1;
 			
 			// if kingcario start ignoring combining type weaknesses
-			if (species.baseSpecies === 'Kingcario') teamDetails.dark = true;
+			if (species.baseSpecies === 'Kingcario') teamDetails.dark = true;*/
 
 			const types = species.types;
 			const typeCombo = types.slice().sort().join();
@@ -1830,7 +1800,7 @@ export class RandomTeams {
 
 				// Limit two of any type
 				for (const typeName of types) {
-					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && typeCount[typeName] >= 2 * limitFactor) {
+					if (!teamDetails.rizzquaza && !teamDetails.trawlutre && typeCount[typeName] >= 2 * limitFactor) {
 						skip = true;
 						break;
 					}
@@ -1840,7 +1810,7 @@ export class RandomTeams {
 				// Limit three weak to any type
 				for (const typeName of this.dex.types.names()) {
 					// it's weak to the type
-					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && this.dex.getEffectiveness(typeName, species) > 0) {
+					if (!teamDetails.rizzquaza && !teamDetails.trawlutre && this.dex.getEffectiveness(typeName, species) > 0) {
 						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
 						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
 							skip = true;
