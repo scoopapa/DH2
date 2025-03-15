@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Devour",
-		shortDesc: "The user recovers health by devouring food. If the user is holding a berry, it's effect will activate.",
+		shortDesc: "The user recovers some health by devouring food.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},

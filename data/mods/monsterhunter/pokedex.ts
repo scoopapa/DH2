@@ -308,6 +308,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster"],
 	},
+	greatmaccao: {
+		num: 54,
+		species: "Great Maccao",
+		types: ["Fighting", "Grass"],
+		baseStats: {hp: 90, atk: 123, def: 107, spa: 50, spd: 65, spe: 90},
+		abilities: {0: "Reckless", 1: "Propeller Tail"},
+		heightm: 11.1,
+		weightkg: 70,
+		color: "Green",
+		eggGroups: ["Field"],
+	},
  	greatizuchi: {
 		num: 21,
 		name: "Great Izuchi",
