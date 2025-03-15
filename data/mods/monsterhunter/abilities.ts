@@ -15,8 +15,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	icearmor: {
 		onDamagingHit(damage, target, source, move) {
-			if (move.category === 'Physical') {
-					pokemon.formeChange('Zamtrios-Iced', this.effect, true);
+			if (move.category === 'Physical' && target.species.id === 'zamtrios') {
+					this.add('-ability', target, 'Ice-Armor');
+					this.add('-message', `Zamtrios is transforming!`);
+					target.formeChange('zamtriosiced', this.effect, true);
+				}
+			},
+			onStart(pokemon) {
+				if (this.field.isWeather(['hail', 'snow']) && pokemon.species.id === 'zamtrios') {
+					this.add('-ability', pokemon, 'Ice-Armor');
+					this.add('-message', `Zamtrios is transforming!`);
+					pokemon.formeChange('zamtriosiced', this.effect, true);
 				}
 			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 
@@ -28,8 +37,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	puffup: {
 		onDamagingHit(damage, target, source, move) {
-			if (move.category === 'Special') {
-					pokemon.formeChange('Zamtrios-Puffed', this.effect, true);
+			if (move.category === 'Special' && target.species.id === 'zamtrios') {
+					this.add('-ability', target, 'Puff-Up');
+					this.add('-message', `Zamtrios is transforming!`);
+					target.formeChange('zamtriospuffed', this.effect, true);
 				}
 			},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, 

@@ -1,4 +1,7 @@
 export const Moves: {[moveid: string]: MoveData} = {
+	/*
+	CUSTOM MOVES
+	*/
 	magnalance: {
 		num: 2000,
 		accuracy: 100,
@@ -48,6 +51,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 25,
 		category: "Physical",
 		name: "Glide Bomb",
+		shortDesc: "The user attacks by dropping explosive scales onto the target. This move hits two to five times in a row.",
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -65,6 +69,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
+		shortDesc: "The user utilizes a dragonator to impale the target. This may also flinch the target. This move is super effective on Dragon types.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -79,6 +84,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Beautiful",
 	},
+	devour: {
+		num: 2004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Devour",
+		shortDesc: "The user recovers some health by devouring food.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1],
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	/*
+	RE-IMPLEMENTED MOVES
+	*/
 	vcreate: {
 		num: 557,
 		accuracy: 95,

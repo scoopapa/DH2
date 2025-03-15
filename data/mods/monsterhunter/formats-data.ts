@@ -14,6 +14,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	greatbaggi: {
 		tier: "MHOU",
 	},
+	greatmaccao: {
+		tier: "MHOU",
+	},
 	greatizuchi: {
 		tier: "MHOU",
 	},
