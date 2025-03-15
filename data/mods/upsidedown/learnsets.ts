@@ -14945,7 +14945,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			smackdown: ["9M", "9L10", "8L10", "7M", "7L12", "6M", "6L12"],
 			snore: ["8M", "7T", "6T"],
 			//spikes: ["9M"],
-			//stealthrock: ["9M", "9L50", "8M", "8L50", "7T", "7L21", "6T", "6L21"],
+			stealthrock: ["9M", "9L50", "8M", "8L50", "7T", "7L21", "6T", "6L21"],
 			stompingtantrum: ["9M", "8M", "7T"],
 			//stoneedge: ["9M", "9L60", "8M", "8L60", "7M", "7L49", "6M", "6L49"],
 			substitute: ["9M", "8M", "7M", "6M"],

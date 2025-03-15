@@ -1399,6 +1399,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Upside Down LC",
 		doublesTier: "DOU",
 	},
+	archen: {
+		tier: "Upside Down LC",
+		doublesTier: "DOU",
+	},
 	
 };
 
