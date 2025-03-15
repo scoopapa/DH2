@@ -14914,7 +14914,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			irondefense: ["9M", "8M", "7T", "6T"],
 			ironhead: ["9M"],
 			lightscreen: ["9M", "9L30", "8M", "8L30", "7M", "7L60", "6M", "6L60"],
-			magiccoat: ["7T", "6T"],
+			//magiccoat: ["7T", "6T"],
 			magnetrise: ["7T", "6T"],
 			//meteorbeam: ["9M", "8T"],
 			//mistyexplosion: ["9M", "8T"],
