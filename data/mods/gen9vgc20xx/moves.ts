@@ -29,7 +29,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	anguishcry: {
 		num: -2,
 		accuracy: 100,
-		basePower: 55,
+		basePower: 65,
 		category: "Special",
 		shortDesc: "Double damage if user's HP <= 50.",
 		name: "Anguish Cry",
@@ -444,13 +444,13 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	//
-	wukongfire: {
+	wukonginferno: {
 		num: -15,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		shortDesc: "Sets Sun.",
-		name: "Wukong Fire",
+		name: "Wukong Inferno",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -536,10 +536,21 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "Super effective against Ground.",
 		name: "Conductive Spell",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hex", target);
+		},
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Electric'] = true;
+			}
+		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ground') return 1;
 		},
@@ -547,6 +558,155 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	//
+	ironpowder: {
+		num: -19,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Sets Grassy Terrain. Powder move.",
+		name: "Iron Powder",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, powder: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pollen Puff", target);
+		},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				this.field.setTerrain('grassyterrain');
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				this.field.setTerrain('grassyterrain');
+			}
+		},
+		secondary: {},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	//
+	stormslam: {
+		num: -20,
+		accuracy: 80,
+		basePower: 120,
+		shortDesc: "Hits all opposing Pkm. Sky Uppercut effect.",
+		category: "Physical",
+		name: "Storm Slam",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	//
+	paleoblade: {
+		num: -21,
+		accuracy: 70,
+		basePower: 120,
+		shortDesc: "-1 Target's Spe, 30%. Hits in Sand.",
+		category: "Special",
+		name: "Paleo Blade",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stone Axe", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'sandstorm':
+				move.accuracy = true;
+				break;
+			}
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Cool",
+	},
+	//
+	sandgeyser: {
+		num: -22,
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sandstorm");
+			this.add('-anim', source, "Sandsear Storm", target);
+		},
+		category: "Special",
+		shortDesc: "Eruption clone.",
+		name: "Sand Geyser",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	//
+	reverberation: {
+		num: -23,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Reverberation",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		shortDesc: "Mini Earthquake follow-up at 60 BP.",
+		onAfterMove(source) {
+			source.addVolatile('quakingboom');
+			this.actions.useMove('earthquake', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	earthquake: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source && source.volatiles['quakingboom']) {
+				move.basePower = 60;
+			}
+		},
+		onAfterMove(target, source) {
+			// This function is called for each target hit by Earthquake
+			// Check if the target is still alive
+			if (target && target.hp > 0) {
+				// Check how many active Pokémon are still alive
+				const allTargets = this.getAllActive().filter(p => p && p.hp > 0);
+				// If this is the last target being hit, remove the volatile
+				if (allTargets.length === 1) {
+					delete source.volatiles['quakingboom'];
+				}
+			}
+		},
+	},
+	
 	// start
 	belch: {
 		num: 562,
@@ -643,6 +803,52 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+	},
+	//
+	bounce: {
+		num: 340,
+		accuracy: 85,
+		basePower: 85,
+		category: "Physical",
+		name: "Bounce",
+		pp: 5,
+		priority: 0,
+		flags: {
+			contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1,
+			metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1,
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows', 'stormslam'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceBasePower(basePower, target, source, move) {
+				if (move.id === 'gust' || move.id === 'twister') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "any",
+		type: "Flying",
+		contestType: "Cute",
 	},
 	//
 	brine: {
@@ -872,12 +1078,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},	
 	//
-	/*firepledge: {
+	firepledge: {
 		num: 519,
 		accuracy: 100,
 		basePower: 80,
 		basePowerCallback(target, source, move) {
-			if (['grasspledge', 'waterpledge'].includes(move.sourceEffect)) {
+			// Check if the sourceEffect is a non-status, single-target Grass or Water move
+			const sourceMove = this.dex.moves.get(move.sourceEffect);
+			if (
+				sourceMove &&
+				(sourceMove.type === 'Grass' || sourceMove.type === 'Water') &&
+				sourceMove.category !== 'Status' &&
+				sourceMove.target === 'normal'
+			) {
 				this.add('-combine');
 				return 150;
 			}
@@ -908,20 +1121,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 		},
-		onModifyMove(move) {
-			if (move.sourceEffect) {
-				const partnerMove = this.dex.moves.get(move.sourceEffect);
-				if (partnerMove.type === 'Water') {
+		onModifyMove(move, source) {
+			const sourceMove = this.dex.moves.get(move.sourceEffect);
+			if (
+				sourceMove &&
+				sourceMove.category !== 'Status' &&
+				sourceMove.target === 'normal'
+			) {
+				if (sourceMove.type === 'Water') {
 					move.type = 'Water';
 					move.forceSTAB = true;
-					move.self = {sideCondition: 'waterpledge'};
+					move.sideCondition = 'waterpledge';
 				}
-				if (partnerMove.type === 'Grass') {
+				if (sourceMove.type === 'Grass') {
 					move.type = 'Fire';
 					move.forceSTAB = true;
-					move.sideCondition = 'firepledge';
+					move.self = {sideCondition: 'firepledge'};
 				}
 			}
+			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		condition: {
 			duration: 4,
@@ -943,7 +1161,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-	},*/
+	},
 	//
 	flameburst: {
 		num: 481,
@@ -971,6 +1189,49 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},
 	//
+	fly: {
+		num: 19,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Fly",
+		pp: 15,
+		priority: 0,
+		flags: {
+			contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1,
+			metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1,
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows', 'stormslam'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'gust' || move.id === 'twister') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		contestType: "Clever",
+	},
+	//
 	frenzyplant: {
 		num: 338,
 		accuracy: 90,
@@ -992,12 +1253,19 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Cool",
 	},
 	//
-	/*grasspledge: {
+	grasspledge: {
 		num: 520,
 		accuracy: 100,
 		basePower: 80,
 		basePowerCallback(target, source, move) {
-			if (['waterpledge', 'firepledge'].includes(move.sourceEffect)) {
+			// Check if the sourceEffect is a non-status, single-target Water or Fire move
+			const sourceMove = this.dex.moves.get(move.sourceEffect);
+			if (
+				sourceMove &&
+				(sourceMove.type === 'Water' || sourceMove.type === 'Fire') &&
+				sourceMove.category !== 'Status' &&
+				sourceMove.target === 'normal'
+			) {
 				this.add('-combine');
 				return 150;
 			}
@@ -1028,20 +1296,25 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 				}
 			}
 		},
-		onModifyMove(move) {
-			if (move.sourceEffect) {
-				const partnerMove = this.dex.moves.get(move.sourceEffect);
-				if (partnerMove.type === 'Water') {
+		onModifyMove(move, source) {
+			const sourceMove = this.dex.moves.get(move.sourceEffect);
+			if (
+				sourceMove &&
+				sourceMove.category !== 'Status' &&
+				sourceMove.target === 'normal'
+			) {
+				if (sourceMove.type === 'Water') {
 					move.type = 'Grass';
 					move.forceSTAB = true;
-					move.self = {sideCondition: 'grasspledge'};
+					move.sideCondition = 'grasspledge';
 				}
-				if (partnerMove.type === 'Fire') {
+				if (sourceMove.type === 'Fire') {
 					move.type = 'Fire';
 					move.forceSTAB = true;
-					move.sideCondition = 'firepledge';
+					move.self = {sideCondition: 'firepledge'};
 				}
 			}
+			if (source.getStat('atk', false, true) > source.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		condition: {
 			duration: 4,
@@ -1061,7 +1334,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-	},*/
+	},
 	//
 	hydrocannon: {
 		num: 308,
@@ -1101,6 +1374,66 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Steel",
+		contestType: "Cool",
+	},
+	//
+	kingsshield: {
+		num: 588,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		// isNonstandard: "Past",
+		name: "King's Shield",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		volatileStatus: 'kingsshield',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
 	//
@@ -1427,7 +1760,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		contestType: "Beautiful",
 	},*/
 	//
-	/*waterpledge: {
+	waterpledge: {
 		num: 518,
 		accuracy: 100,
 		basePower: 80,
@@ -1521,7 +1854,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},*/
+	},
 	//
 	wildcharge: {
 		num: 528,

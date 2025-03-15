@@ -208,4 +208,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	psyllapse: {
 		tier: "BC OU",
 	},
+	haarstorm: {
+		tier: "BC OU",
+	},
+	borealis: {
+		tier: "BC OU",
+	},
+	bazhigangquan: {
+		tier: "BC OU",
+	},
+	leechmonner: {
+		tier: "BC OU",
+	},
+	ironcrest: {
+		tier: "BC OU",
+	},
+	odonata: {
+		tier: "BC OU",
+	},
+	hebicikuga: {
+		tier: "BC OU",
+	},
+	devestial: {
+		tier: "BC OU",
+	},
+	lundicare: {
+		tier: "BC OU",
+	},
 };

@@ -108,6 +108,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	golduck: {tier: "CM"},
 	
 	applin: {tier: "CM (NFE)"},
+	dipplin: {tier: "CM (NFE)"},
 	appletun: {tier: "CM"},
 	flapple: {tier: "CM"},
 	hydrapple: {tier: "CM"},

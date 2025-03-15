@@ -2585,7 +2585,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		// Effect Chance: 100
 		// Effect ID: 182
 	},
-	drought: {
+	drought: { // yoshi note: should be renamed because this messes with aaa's validation and won't allow the drought ability to be banned without crashing the server
 		name: "Drought",
 		shortDesc: "Weakens the foe.",
 		target: "normal",

@@ -69,4 +69,51 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		num: 47,
 	},
+	blackout: {
+					shortDesc: "This Pokémon sets up Nighttime on switch-in.",
+		onStart(source) {
+			if (source.species.id === 'groudon' && source.item === 'redorb') return;
+			this.field.setWeather('nighttime');
+		},
+		flags: {},
+		name: "Blackout",
+		rating: 4,
+		num: 7066,
+	},
+		ancientspirit: {
+	 shortDesc: "This Pokémon's Ancient Gauge fills in faster. Currently has no effect.",
+		flags: {},
+		name: "Ancient Spirit",
+		rating: 3.5,
+		num: 22530,
+	},
+	defendant: {
+			 shortDesc: "Boosts this Pokémon's Defence and Special Defence by 25% after it loses its item.",
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target) return;
+			pokemon.addVolatile('defendant');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('defendant');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('defendant');
+		},
+		condition: {
+			onModifyDef(spe, pokemon) {
+				if (!pokemon.item && !pokemon.ignoringAbility()) {
+					return this.chainModify(1.25);
+				}
+			},
+						onModifySpD(spe, pokemon) {
+				if (!pokemon.item && !pokemon.ignoringAbility()) {
+					return this.chainModify(1.25);
+				}
+			},
+		},
+		flags: {},
+		name: "Defendant",
+		rating: 3.5,
+		num: 8444,
+	},
 }
