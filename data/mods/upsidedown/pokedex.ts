@@ -3897,8 +3897,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Purple",
 		evos: ["Polteageist"],
 		eggGroups: ["Mineral", "Amorphous"],
-		otherFormes: ["Sinistea-Antique"],
-		formeOrder: ["Sinistea", "Sinistea-Antique"],
+		//otherFormes: ["Sinistea-Antique"],
+		//formeOrder: ["Sinistea", "Sinistea-Antique"],
 	},
 	polteageist: {
 		num: 855,
