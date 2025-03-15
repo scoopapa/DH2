@@ -3917,7 +3917,6 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Pokémon Go! Go! Tamagotchi!",
 		desc: 'They did not deserve to be forgotten to Digimon...a Solomod that contains three hundred adult form Tamagotchi!',
-		teambuilderFormat: "National Dex",
 		threads: [
 		`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/page-9#post-10311554"></a>`,
 		],
