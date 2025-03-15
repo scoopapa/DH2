@@ -43,11 +43,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
 			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax || !(target.newlySwitched || this.queue.willMove(target))) return;
 			move.multihit = 2;
-			move.multihitType = 'parentalbond';
+			move.multihitType = 'younglion';
 		},
 		// Damage modifier implemented in BattleActions#modifyDamage()
 		onSourceModifySecondaries(secondaries, target, source, move) {
-			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+			if (move.multihitType === 'younglion' && move.id === 'secretpower' && move.hit < 2) {
 				// hack to prevent accidentally suppressing King's Rock/Razor Fang
 				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
 			}

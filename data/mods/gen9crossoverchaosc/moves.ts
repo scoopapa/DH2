@@ -171,13 +171,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
-   stormcallersong: {
+	stormcallersong: {
 		num: -6,
 		accuracy: 100,
 		basePower: 25,
 		category: "Special",
 		name: "Stormcaller Song",
-      shortDesc: "Hits 3-5 times.",
+		shortDesc: "Hits 3-5 times.",
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
@@ -241,7 +241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Poison",
-             contestType: "Clever",
+		contestType: "Clever",
 	},
 	nanoboost: {
 		num: -8,
@@ -256,8 +256,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryHit(source) {
 			if (!this.canSwitch(source.side)) {
 				source.addVolatile('nanoboosted');
-				return false;
+				return this.NOT_FAIL;
 			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", source);
 		},
 		slotCondition: 'nanoboost',
 		condition: {
