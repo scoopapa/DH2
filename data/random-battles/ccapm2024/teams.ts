@@ -1596,7 +1596,7 @@ export class RandomTeams {
 			ivs.atk = 0;
 		}
 
-		if (moves.has('gyroball') || moves.has('trickroom') || /*species.baseSpecies === 'Bearlamar'*/) {
+		if (moves.has('gyroball') || moves.has('trickroom') /*|| species.baseSpecies === 'Bearlamar'*/) {
 			evs.spe = 0;
 			ivs.spe = 0;
 		}
