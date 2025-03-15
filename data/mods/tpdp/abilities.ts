@@ -1155,16 +1155,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	harassment: {
 		name: "Harassment",
 		shortDesc: "When your stats drop, so does the foe. When the foe's stats increase, your stats increase as well.",
-		onBoost(boost, target, source, effect) {
+		onAfterBoost(boost, target, source, effect) {
+			console.log(target.name + " " + source.name + " " + effect);
 			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
-			if (!this.effectState.boosts) this.effectState.boosts = {} as SparseBoostsTable;
 			const boostPlus = this.effectState.boosts;
+			if(target.adjacentFoes().length == 0) return;
+			const pokemon = this.sample(target.adjacentFoes());
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					boostPlus[i] = (boostPlus[i] || 0) + boost[i]!;
 				}
 			}
+			this.boost(this.effectState.boosts, pokemon);
 		},
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.name === 'Harassment' || effect?.name === 'Bronze Mirror') return;
@@ -1179,23 +1182,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnySwitchInPriority: -3,
 		onAnySwitchIn() {
-			if (!this.effectState.boosts) return;
+			if (!this.effectState.boosts || !this.effectState.target) return;
+			console.log("1: " + this.effectState.boosts['spa'] + " " + this.effectState.target.name);
 			this.boost(this.effectState.boosts, this.effectState.target);
 			delete this.effectState.boosts;
+			delete this.effectState.target;
 		},
 		onAnyAfterMove() {
-			if (!this.effectState.boosts) return;
+			if (!this.effectState.boosts || !this.effectState.target) return;
+			console.log("2: " + this.effectState.boosts['spa'] + " " + this.effectState.target.name);
 			this.boost(this.effectState.boosts, this.effectState.target);
 			delete this.effectState.boosts;
+			delete this.effectState.target;
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			if (!this.effectState.boosts) return;
+			if (!this.effectState.boosts || !this.effectState.target) return;
+			console.log("3: " + this.effectState.boosts['spa'] + " " + this.effectState.target.name);
 			this.boost(this.effectState.boosts, this.effectState.target);
 			delete this.effectState.boosts;
+			delete this.effectState.target;
 		},
 		onEnd() {
 			delete this.effectState.boosts;
+			delete this.effectState.target;
 		},
 	},
 	hateincarnate: {
