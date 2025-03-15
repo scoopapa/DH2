@@ -16199,7 +16199,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			sleeptalk: ["9M", "8M", "7M"],
 			snarl: ["9M", "8M", "7M"],
 			snore: ["8M", "7T"],
-			//stealthrock: ["9M", "9L44", "8M", "8L44", "7T", "7L29"],
+			stealthrock: ["9M", "9L44", "8M", "8L44", "7T", "7L29"],
 			stompingtantrum: ["9M", "8M", "7T"],
 			stoneedge: ["9M", "9L48", "8M", "8L48", "7M", "7L48"],
 			substitute: ["9M", "8M", "7M"],
