@@ -25,12 +25,12 @@ Ratings and how they work:
 
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
   bloodfueled: {
-    shortDesc: "Restores 1/8 of own max HP, rounded down, upon hitting another Pokemon with a contact move.",
-    onAfterMoveSecondarySelfPriority: -1,
+		shortDesc: "Restores 1/8 of own max HP, rounded down, upon hitting another Pokemon with a contact move.",
+		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-      if (this.checkMoveMakesContact(move, target, pokemon)) {
-        this.heal(pokemon.baseMaxhp / 8);
-      }
+		if (this.checkMoveMakesContact(move, target, pokemon)) {
+        		this.heal(pokemon.baseMaxhp / 8);
+			}
 		},
 		flags: {},
 		name: "Blood-Fueled",
