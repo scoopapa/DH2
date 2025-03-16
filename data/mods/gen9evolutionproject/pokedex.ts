@@ -1037,7 +1037,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Binacle",
 
 		types: ["Rock", "Psychic"],
-		baseStats: {hp: 42, atk: 42, def: 47, spa: 69, spd: 62, spe: 44},
+		baseStats: {hp: 42, atk: 42, def: 47, spa: 69, spd: 59, spe: 47},
 		abilities: {0: "Sticky Hold", 1: "Divinated Protection", H: "Wonder Skin"},
 		movepoolAdditions: ["constrict", "extrasensory", "nastyplot", "psychicnoise", "wringout", "calmmind", "expandingforce", "futuresight", "psybeam", "psychic", "shadowball", "skillswap", "trick", "trickroom", "zenheadbutt"],
 
