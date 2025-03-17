@@ -4744,6 +4744,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 				wavecrash: ["9L1"],
 				whirlpool: ["9L1"],
 				zenheadbutt: ["9L1"],
-			},
+				},
 			}
-		}
+	}
