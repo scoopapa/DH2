@@ -608,7 +608,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Hebicikuga",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 85, atk: 115, def: 75, spa: 80, spd: 95, spe: 115},
-		abilities: {0: "Soul Heart", H: "Technician"},
+		abilities: {0: "Soul-Heart", H: "Technician"},
 		weightkg: 382.5,
 	},
 	devestial: {
