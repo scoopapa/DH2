@@ -1747,7 +1747,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	bigmacintosh: {
 		learnset: {
-			groundshatteringingrain: ["9L1"],
+			shatteringingrain: ["9L1"],
 			applebuck: ["9L1"],
 			headlongrush: ["9L1"],
 			earthquake: ["9M"],

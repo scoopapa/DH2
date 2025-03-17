@@ -110,7 +110,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Heart of Diamond",
-		desc: "This Pokemon's Special Attack is raised by one stage if hit by a Steel move; Steel Immunity",
+		desc: "This Pokemon's SpA is raised by one stage if hit by a Steel move; Steel Immunity",
 		rating: 3,
 		num: -2,
 	},
@@ -219,7 +219,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
         },
 		flags: {},
 		name: "Beat Change",
-		desc: "This Pokemon's type changes to the type of the sound based move it is using. If the sound based move is a special attack, it is turned into a physical attack.",
+		desc: "Type changes to the type of the sound based move it is using. Sound based moves become Physical.",
 		rating: 4,
 		num: -8,
 	},
@@ -265,7 +265,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Might of the Changeling Queen",
-		desc: "This Pokemon’s/Pony’s attacks that are not very effective on a target deal double damage. Attacks with secondary effects have 1.3x power; secondary effects are not nullified.",
+		desc: "Not very effective attacks deal double damage. 1.3x power on attacks with secondary effects; secondary effects are not nullified.",
 		rating: 3.5,
 		num: -10,
 	},
@@ -278,7 +278,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Thirst for Power",
-		desc: "When this Pokemon/Pony knocks out an opponent, its highest stat will be increased by one stage.",
+		desc: "When this Pokemon knocks out an opponent, its highest stat will be increased by 1 stage.",
 		rating: 3,
 		num: -11,
 	},
@@ -309,8 +309,20 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Nightmare Gaze",
-		desc: "On switch-in, this Pony/Pokemon lowers the Defense and Special Defense of opponents by 1 stage. Sleeping foes lose 1/8 of their max hp at the end of each turn",
+		desc: "Lowers Def and SpDef of opponents by 1 stage. Sleeping foes lose 1/8 of their max hp each turn",
 		rating: 3.5,
 		num: -12,
+	},
+	resilience: {
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Resilience",
+		rating: 3.5,
+		num: -13,
 	},
 };

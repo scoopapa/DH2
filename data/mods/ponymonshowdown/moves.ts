@@ -687,12 +687,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	groundshatteringingrain: {
+	shatteringingrain: {
 		num: -18,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
-		name: "Ground Shattering Ingrain",
+		name: "Shattering Ingrain",
 		desc: "Restores the user’s HP by up to half the damage taken by the target.",
 		shortDesc: "User recovers 50% of the damage dealt.",
 		pp: 10,
@@ -754,19 +754,21 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	},
 	scatteredsparks: {
 		num: -22,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 70,
 		category: "Special",
 		name: "Scattered Sparks",
-		desc: "10% chance to Burn the target.",
-		shortDesc: "10% chance to Burn the target.",
-		pp: 10,
+		desc: "Power doubles if statused.",
+		shortDesc: "Power doubles if statused.",
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		secondary: {
-			chance: 10,
-			status: 'brn',
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status && pokemon.status !== 'slp') {
+				return this.chainModify(2);
+			}
 		},
+		secondary: null,
 		target: "normal",
 		type: "Electric",
 		contestType: "Tough",
@@ -778,19 +780,19 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		category: "Status",
 		name: "Bellowing Whistle",
 		desc: "The user’s Attack is raised by one stage and the target’s Defense is lowered by one stage.",
-		shortDesc: "Raises the user's Attack by 1. Decreases the target's Defense by 1.",
+		shortDesc: "Raises the user's Atk by 1. Decreases target's Def by 1.",
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		boosts: {
-			def: -1,
+		self: {
+			boosts: {
+				atk: 1,
+			},
 		},
-		secondary:  {
+		secondary: {
 			chance: 100,
-			self: {
-				boosts: {
-					atk: 1,
-				},
+			boosts: {
+				def: -1,
 			},
 		},
 		target: "allAdjacentFoes",
@@ -947,7 +949,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		category: "Status",
 		name: "Ritual of Aris",
 		desc: "Highest attacking stat is raised by two stages and the user is cured of status conditions.",
-		shortDesc: "Cures user's status, raises highest attacking stat by 2.",
+		shortDesc: "Cures status, raises highest attacking stat by 2.",
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},

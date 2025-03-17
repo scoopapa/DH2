@@ -361,7 +361,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				if (
 					!move.negateSecondary &&
-					!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','forceofnature','sandwrath','overwhelming'])) &&
+					!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','forceofnature','sandwrath','overwhelming','powerbuns'])) &&
 					!move.flags['futuremove']
 				) {
 					const originalHp = pokemon.hp;
@@ -456,7 +456,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 				if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
-				if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['wellbakedflameorb','feistytempo','guts'])
+				if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['wellbakedflameorb','feistytempo','guts','adrenalinearoma'])
 					 && move.id !== 'facade') {
 					//if (this.battle.gen < 6 || move.id !== 'facade') {
 						baseDamage = this.battle.modify(baseDamage, 0.5);
