@@ -310,7 +310,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	greatmaccao: {
 		num: 54,
-		species: "Great Maccao",
+		name: "Great Maccao",
 		types: ["Fighting", "Grass"],
 		baseStats: {hp: 90, atk: 123, def: 107, spa: 50, spd: 65, spe: 90},
 		abilities: {0: "Reckless", 1: "Propeller Tail"},
@@ -391,7 +391,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Kushala Daora",
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 95, atk: 85, def: 105, spa: 127, spd: 130, spe: 73},
-		abilities: {0: "Filter", 1: "Magic Bounce"},
+		abilities: {0: "Bulletproof", 1: "Magic Bounce"},
 		heightm: 3.2,
 		weightkg: 200.4,
 		color: "Gray",
