@@ -5429,7 +5429,7 @@ export const Formats: FormatList = [
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
 		banlist: ['Boundary Trance', 'Dream Shard',
-		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Camouflage', 'Favorable Wind', 'Dead of Night', 'Sand Mask', 'Echelon Charm', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping
 		'Moody',
 		'Backup Plan', //baton pass
@@ -5457,7 +5457,7 @@ export const Formats: FormatList = [
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', '!Obtainable Abilities'],
 		banlist: ['Boundary Trance', 'Dream Shard',
-		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Camouflage', 'Favorable Wind', 'Dead of Night', 'Sand Mask', 'Echelon Charm', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping
 		'Moody',
 		'Backup Plan', //baton pass
@@ -5490,7 +5490,7 @@ export const Formats: FormatList = [
 		desc: `TPDP Stylemons`,
 		ruleset: ['Standard NatDex', 'Stylemons Move Legality', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
 		banlist: ['Boundary Trance', 'Dream Shard',
-		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Camouflage', 'Favorable Wind', 'Dead of Night', 'Sand Mask', 'Echelon Charm', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping
 		'Moody',
 		'Backup Plan', //baton pass
@@ -5518,7 +5518,7 @@ export const Formats: FormatList = [
 		desc: `TPDP Shared Power`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
 		banlist: ['Boundary Trance', 'Dream Shard',
-		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Camouflage', 'Favorable Wind', 'Dead of Night', 'Sand Mask', 'Echelon Charm', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping
 		'Moody',
 		'Backup Plan', //baton pass
@@ -5584,7 +5584,7 @@ export const Formats: FormatList = [
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Obtainable', 'Team Preview', 'Cancel Mod', 'Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
 		banlist: ['Boundary Trance', 'Dream Shard',
-		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Camouflage', 'Favorable Wind', 'Dead of Night', 'Sand Mask', 'Echelon Charm', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping
 		'Moody',
 		'Backup Plan', //baton pass
