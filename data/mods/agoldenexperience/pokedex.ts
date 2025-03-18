@@ -532,18 +532,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit : true,
 		abilities: {0: "Berserk", H: "Flare Boost"},
 	},
-	mewtwo: {
-		inherit : true,
-		abilities: {0: "Pressure", H: "Berserk"},
-	},
-	mewtwomegax: {
-		inherit : true,
-		abilities: {0: "Guts"},
-	},
-	mewtwomegay: {
-		inherit : true,
-		abilities: {0: "Neuroforce"},
-	},
 	mew: {
 		inherit : true,
 		abilities: {0: "Synchronize", H: "Protean"},
@@ -2796,14 +2784,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Mineral"],
 		requiredItem: "Dhelmite",
 	},
-	solgaleo: {
-		inherit: true,
-		baseStats: {hp: 137, atk: 137, def: 113, spa: 89, spd: 107, spe: 97},
-	},
-	lunala: {
-		inherit: true,
-		baseStats: {hp: 137, atk: 89, def: 107, spa: 137, spd: 113, spe: 97},
-	},
 	xurkitree: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 79, def: 67, spa: 173, spd: 71, spe: 97},
@@ -3005,29 +2985,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 122, atk: 130, def: 89, spa: 40, spd: 89, spe: 30},
 		abilities: {0: "Sheer Force", 1: "Dry Skin", H: "Heavy Metal"},
 	},
-	zaciancrowned: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 150, def: 115, spa: 100, spd: 115, spe: 148},
-	},
-	zamazentacrowned: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 130, def: 145, spa: 80, spd: 145, spe: 128},
-	},
 	zarude: {
 		inherit: true,
-		abilities: {0: "Defiant"},
+		abilities: {0: "Leaf Guard", H: "Defiant"},
 	},
 	zarudedada: {
 		inherit: true,
-		abilities: {0: "Defiant"},
-	},
-	calyrexice: {
-		inherit: true,
-		requiredItem: "Ice Mane",
-	},
-	calyrexshadow: {
-		inherit: true,
-		requiredItem: "Phantom Mane",
+		abilities: {0: "Leaf Guard", H: "Defiant"},
 	},
 	wyrdeer: {
 		inherit: true,
@@ -3238,7 +3202,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	koraidon: {
 		inherit: true,
 		baseForme: "Final",
-		requiredItem: "Mighty Sandwich (Koraidon)",
 	},
 	koraidonweakened: {
 		num: 1007,
@@ -3258,7 +3221,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	miraidon: {
 		inherit: true,
 		baseForme: "Final",
-		requiredItem: "Mighty Sandwich (Miraidon)",
 	},
 	miraidonweakened: {
 		num: 1008,
