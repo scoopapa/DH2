@@ -2868,8 +2868,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	greninjabond: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
+		tier: "TMFE",
+		doublesTier: "TMFE",
 	},
 	oshawott: {
 		tier: "TMLC",
