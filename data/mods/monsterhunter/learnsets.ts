@@ -1118,6 +1118,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			aquacutter: ["9M"],
 			attract: ["9M"],
 			bodyslam: ["9M"],
+			bodypress: ["9M"],
 			brickbreak: ["9M"],
 			brine: ["9M"],
 			brutalswing: ["9M"],
@@ -2029,6 +2030,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			junglehealing: ["9M"],
 			knockoff: ["9M", "9L24"],
 			leafstorm: ["9M"],
+			liquidation: ["9M"],
 			lowkick: ["9M"],
 			lowsweep: ["9M"],
 			magicalleaf: ["9M"],
@@ -4742,6 +4744,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 				wavecrash: ["9L1"],
 				whirlpool: ["9L1"],
 				zenheadbutt: ["9L1"],
-			},
+				},
 			}
-		}
+	}
