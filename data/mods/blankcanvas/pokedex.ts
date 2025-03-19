@@ -431,7 +431,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9053,
 		name: "Geoporka",
 		types: ["Grass", "Poison"],
-		baseStats: {hp: 100, atk: 85, def: 95, spa: 70, spd: 110, spe: 45},
+		baseStats: {hp: 100, atk: 85, def: 80, spa: 70, spd: 95, spe: 45},
 		abilities: {0: "Thick Fat"},
 		weightkg: 38,
 	},
