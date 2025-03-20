@@ -1837,4 +1837,69 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		contestType: "Beautiful",
 		shortDesc: "Amount of hits and power is determined by how much HP the user has left.",
 	},
+	// Slate 10
+	skyuppercut: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 95,
+		onAfterMove(target, source, move) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			if (target !== source && move.category !== 'Status' && move.totalDamage) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		desc: "(WIP) Inflicts 1/8 max HP if hazards are up.",
+		shortDesc: "(WIP) Inflicts 1/8 max HP if hazards are up.",
+	},
+	blackout: {
+		num: -30,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Blackout",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Daze", target);
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Lowers the user's SpA and SpD by one afterward.",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	hypnotichorror: {
+		num: -31,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Hypnotic Horror",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hypnosis", target);
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Lowers the user's SpA and SpD by one afterward.",
+		type: "Psychic",
+		contestType: "Tough",
+	},
 };
