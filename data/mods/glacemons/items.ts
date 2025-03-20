@@ -360,11 +360,30 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 	},
+	eviolite: {
+		inherit: true,
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: 538,
+		gen: 5,
+		rating: 3,
+		shortDesc: "If holder's species can evolve, its Def, Sp. Atk and Sp. Def is 1.5x.",
+	},
 	trainingwheels: {
 		name: "Training Wheels",
 		spritenum: 130,
 		fling: {
 			basePower: 40,
+		},
+		onModifyAtkPriority: 2,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
 		},
 		onModifySpePriority: 2,
 		onModifySpe(spe, pokemon) {
@@ -375,7 +394,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -6,
 		gen: 9,
 		rating: 3,
-		shortDesc: "If holder's species can evolve, its Speed is 1.5x.",
+		shortDesc: "If holder's species can evolve, its Atk and Speed is 1.5x.",
 	},
 	palettecleanser: {
 		name: "Palette Cleanser",
