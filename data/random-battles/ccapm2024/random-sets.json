@@ -409,7 +409,7 @@
             },
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Draco Meteor", "Core Enforcer", "Fire Blast", "Stealth Rock"],
+                "movepool": ["Draco Meteor", "Core Enforcer", "Fire Blast", "Close Combat", "Flash Cannon"],
                 "teraTypes": ["Steel"]
             }
         ]
