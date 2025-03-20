@@ -1041,6 +1041,44 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
 	},
+	snowflurry: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Snow Flurry');
+				pokemon.cureStatus();
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('snow')) {
+				if (move.type === 'Ice' || move.type === 'Ghost' || move.type === 'Fairy') {
+					this.debug('Snow Flurry boost');
+					return this.chainModify([5325, 4096]);
+				}
+			}
+			else if (move.type === 'Ice' || move.type === 'Ghost' || move.type === 'Fairy') {
+				this.debug('Snow Flurry boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		shortDesc: "This Pokemon's Ice/Ghost/Fairy attacks do 1.2x, 1.3x in Snow; immunity to Frst.",
+		desc: "This Pokemon's Ice, Ghost, and Fairy attacks have 1.2x power. If Snow is active, this Pokemon's Ice, Ghost, and Fairy attacks instead have 1.3x power and ignore user's Burn. Frostbite immunity.",
+		name: "Snow Flurry",
+		rating: 3,
+		num: -20,
+	},
+	slushrush: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz' || pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Slush Rush');
+				pokemon.cureStatus();
+			}
+		},
+		shortDesc: "This Pokemon cannot be burned and frostbitten. If Hail Snow is active, this Pokemon's speed is doubled.",
+		desc: "This Pokemon cannot be burned and frostbitten. If Hail Snow is active, this Pokemon's speed is doubled.",
+	},
 	lightpower: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
@@ -1083,6 +1121,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		flags: {breakable: 1},
 		desc: "Bug/Ghost/Dark resistances. This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon affected this Pokemon with the Intimidate Ability.",
 		shortDesc: "Bug/Ghost/Dark resistances. Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated.",
+	},
+	savage: {
+		shortDesc: "The Pokémon’s Attack or Special Attack copies from the higher stat (held items does not apply for which is higher). Stat stages and held items apply as normal.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			const currentatk = pokemon.storedStats.atk;
+			const currentspa = pokemon.storedStats.spa;
+			if (currentspa > currentatk) return currentspa;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			const currentatk = pokemon.storedStats.atk;
+			const currentspa = pokemon.storedStats.spa;
+			if (currentatk > currentspa) return currentatk;
+		},
+		flags: {},
+		name: "Savage",
+		rating: 4,
+		num: -24,
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {
