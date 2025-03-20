@@ -1639,12 +1639,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'necrozmaduskmane').learnset.aurasphere = ['9L1'];
     this.modData('Learnsets', 'necrozmadawnwings').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'necrozmadawnwings').learnset.aurasphere = ['9L1'];
-    delete this.modData('Learnsets', 'magearna').learnset.storedpower;
-    delete this.modData('Learnsets', 'magearna').learnset.shiftgear;
-    delete this.modData('Learnsets', 'magearna').learnset.agility;
-    delete this.modData('Learnsets', 'magearnaoriginal').learnset.storedpower;
-    delete this.modData('Learnsets', 'magearnaoriginal').learnset.shiftgear;
-    delete this.modData('Learnsets', 'magearnaoriginal').learnset.agility;
     this.modData('Learnsets', 'stakataka').learnset.zawall = ['9M'];
     this.modData('Learnsets', 'blacephalon').learnset.poltergeist = ['9L1'];
     this.modData('Learnsets', 'blacephalon').learnset.shadowsneak = ['9L1'];
@@ -1756,7 +1750,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'okidogi').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.knockoff = ['9L1'];
-    delete this.modData('Learnsets', 'ironcrown').learnset.storedpower;
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
     delete this.modData('Learnsets', 'flittle').learnset.storedpower;
     delete this.modData('Learnsets', 'espathra').learnset.storedpower;
