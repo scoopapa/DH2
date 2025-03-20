@@ -1883,7 +1883,9 @@ export class BattleActions {
 	runMegaEvo(pokemon: Pokemon) {
 		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
-
+		
+		this.battle.runEvent('PreMega', pokemon);
+		
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
