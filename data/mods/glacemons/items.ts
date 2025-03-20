@@ -1103,7 +1103,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
-		onStart(pokemon) {
+		onPreStart(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
