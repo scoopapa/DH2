@@ -1612,6 +1612,13 @@ export class RandomTeams {
 			evs.spe = 0;
 		}*/
 
+		// to get Ichthyocorn's Hidden Power Fire to work on DH		
+		if (species.baseSpecies === 'Ichthyocorn') {
+			ivs.atk = 30;
+			ivs.spa = 30;
+			ivs.spe = 30;
+		}
+
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
 		this.prng.shuffle(shuffledMoves);
