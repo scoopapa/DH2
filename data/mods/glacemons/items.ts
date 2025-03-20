@@ -1099,7 +1099,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	parallelmegaorb: { 
 		name: "Parallel Mega Orb",
 		onTakeItem: false,
-		onAfterMega(pokemon) {
+		onBeforeMega(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
