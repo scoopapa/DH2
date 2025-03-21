@@ -5679,7 +5679,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
 		],
 		mod: 'moderngen1crossover',
-		ruleset: ['Standard', '+No Ability', '-All Abilities', '-All Items'],
+		ruleset: ['Standard', 'Data Mod', '+No Ability', '-All Abilities', '-All Items'],
 		banlist: ['All Pokemon'],
 		unbanlist: ["Faenuce", "Aqualloy", "Hemerati", "Particlage", "Tanphero", "Turrarbon", "Bondra", "Elscythe",
 			"Frostava", "Blossifoul", "Drigike", "Henchinel", "Cladipon", "Killidinal", "Amber Eyes", "Birreteel", "Negusurp",
