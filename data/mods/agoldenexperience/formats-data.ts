@@ -3906,7 +3906,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	buzzwole: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	pheromosa: {
@@ -4417,7 +4417,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUber",
 	},
 	calyrexshadow: {
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 	},
 	wyrdeer: {

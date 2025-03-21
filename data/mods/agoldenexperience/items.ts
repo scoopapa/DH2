@@ -591,36 +591,36 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Clamperl", "Huntail"],
 	},
 	// sandwiches
-	mightysandwichkoraidon: {
-		name: "Mighty Sandwich (Koraidon)",
-		shortDesc: "Allows Koraidon to be its strongest version.",
-		// spritenum: 699,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 1007) || pokemon.baseSpecies.num === 1007) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Koraidon",
-		itemUser: ["Koraidon"],
-		num: -41,
-		gen: 9,
-	},
-	mightysandwichmiraidon: {
-		name: "Mighty Sandwich (Miraidon)",
-		shortDesc: "Allows Miraidon to be its strongest version.",
-		// spritenum: 699,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 1008) || pokemon.baseSpecies.num === 1008) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Miraidon",
-		itemUser: ["Miraidon"],
-		num: -42,
-		gen: 9,
-	},
+	// mightysandwichkoraidon: {
+	// 	name: "Mighty Sandwich (Koraidon)",
+	// 	shortDesc: "Allows Koraidon to be its strongest version.",
+	// 	// spritenum: 699,
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.num === 1007) || pokemon.baseSpecies.num === 1007) {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	forcedForme: "Koraidon",
+	// 	itemUser: ["Koraidon"],
+	// 	num: -41,
+	// 	gen: 9,
+	// },
+	// mightysandwichmiraidon: {
+	// 	name: "Mighty Sandwich (Miraidon)",
+	// 	shortDesc: "Allows Miraidon to be its strongest version.",
+	// 	// spritenum: 699,
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.num === 1008) || pokemon.baseSpecies.num === 1008) {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	forcedForme: "Miraidon",
+	// 	itemUser: ["Miraidon"],
+	// 	num: -42,
+	// 	gen: 9,
+	// },
 	awakeningeye: {
 		name: "Awakening Eye",
 		shortDesc: "If held by a Meowstic, its Sp. Atk and its Sp. Def are x1.5.",
@@ -641,48 +641,48 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -43,
 		gen: 9,
 	},
-	icemane: {
-		name: "Ice Mane",
-		spritenum: 715,
-		fling: {
-			basePower: 80,
-		},
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.name === 'Calyrex-Ice') || pokemon.baseSpecies.name === 'Calyrex-Ice') {
-				return false;
-			}
-			return true;
-		},
-		onDamage(damage, target, source, effect) {
-			if (source && source.baseSpecies.name === 'Calyrex-Ice' && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb')) {
-				return false;
-			}
-		},
-		itemUser: ["Calyrex-Ice"],
-		desc: "Allows Calyrex to turn into Calyrex-Ice. The holder is immune to entry hazards.",
-		num: -44,
-		gen: 9,
-	},
-	phantommane: {
-		name: "Phantom Mane",
-		spritenum: 663,
-		fling: {
-			basePower: 30,
-		},
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.name === 'Calyrex-Shadow') || pokemon.baseSpecies.name === 'Calyrex-Shadow') {
-				return false;
-			}
-			return true;
-		},
-		onModifyMove(move) {
-			delete move.flags['contact'];
-		},
-		itemUser: ["Calyrex-Shadow"],
-		desc: "Allows Calyrex to turn into Calyrex-Shadow. The holder's contact moves are not contact.",
-		num: -45,
-		gen: 9,
-	},
+	// icemane: {
+	// 	name: "Ice Mane",
+	// 	spritenum: 715,
+	// 	fling: {
+	// 		basePower: 80,
+	// 	},
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.name === 'Calyrex-Ice') || pokemon.baseSpecies.name === 'Calyrex-Ice') {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	onDamage(damage, target, source, effect) {
+	// 		if (source && source.baseSpecies.name === 'Calyrex-Ice' && effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb')) {
+	// 			return false;
+	// 		}
+	// 	},
+	// 	itemUser: ["Calyrex-Ice"],
+	// 	desc: "Allows Calyrex to turn into Calyrex-Ice. The holder is immune to entry hazards.",
+	// 	num: -44,
+	// 	gen: 9,
+	// },
+	// phantommane: {
+	// 	name: "Phantom Mane",
+	// 	spritenum: 663,
+	// 	fling: {
+	// 		basePower: 30,
+	// 	},
+	// 	onTakeItem(item, pokemon, source) {
+	// 		if ((source && source.baseSpecies.name === 'Calyrex-Shadow') || pokemon.baseSpecies.name === 'Calyrex-Shadow') {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	},
+	// 	onModifyMove(move) {
+	// 		delete move.flags['contact'];
+	// 	},
+	// 	itemUser: ["Calyrex-Shadow"],
+	// 	desc: "Allows Calyrex to turn into Calyrex-Shadow. The holder's contact moves are not contact.",
+	// 	num: -45,
+	// 	gen: 9,
+	// },
 	identitycard: { 
 		name: "Identity Card",
 		shortDesc: "Holder's typing cannot be changed by any move.",

@@ -1437,7 +1437,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'shaymin').learnset.aerialace = ['9L1'];
     this.modData('Learnsets', 'shaymin').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'shaymin').learnset.playrough = ['9L1'];
-    this.modData('Learnsets', 'giratina').learnset.teleport = ['9L1'];
 
     // Gen 5:
     this.modData('Learnsets', 'serperior').learnset.hurricane = ['9L1'];
@@ -1546,7 +1545,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'heatmor').learnset.powerwhip = ['9L1'];
     this.modData('Learnsets', 'hydreigon').learnset.nightdaze = ['9L1'];
     this.modData('Learnsets', 'cobalion').learnset.bodypress = ['9L1'];
-    this.modData('Learnsets', 'reshiram').learnset.calmmind = ['9L1'];
 
     // Gen 6:
     this.modData('Learnsets', 'delphox').learnset.recover = ['9L1'];
@@ -1635,10 +1633,12 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'nihilego').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'buzzwole').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'buzzwole').learnset.landslide = ['9L1'];
-    this.modData('Learnsets', 'solgaleo').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'necrozma').learnset.aurasphere = ['9L1'];
     this.modData('Learnsets', 'necrozmaduskmane').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'necrozmaduskmane').learnset.aurasphere = ['9L1'];
     this.modData('Learnsets', 'necrozmadawnwings').learnset.focusblast = ['9L1'];
+    this.modData('Learnsets', 'necrozmadawnwings').learnset.aurasphere = ['9L1'];
     delete this.modData('Learnsets', 'magearna').learnset.storedpower;
     delete this.modData('Learnsets', 'magearna').learnset.shiftgear;
     delete this.modData('Learnsets', 'magearna').learnset.agility;
@@ -1709,8 +1709,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regidrago').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'glastrier').learnset.mountaingale = ['9L1'];
-    this.modData('Learnsets', 'calyrexice').learnset.slackoff = ['9L1'];
-    this.modData('Learnsets', 'calyrexice').learnset.mountaingale = ['9L1'];
 
     // Gen 9
     this.modData('Learnsets', 'typhlosionhisui').learnset.moonlight = ['9L1'];
