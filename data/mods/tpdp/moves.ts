@@ -9674,7 +9674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hp) {
 					if(pokemon.removeVolatile('drainseed')) this.add('-end', pokemon, 'Drain Seed', '[from] move: Smash Spin', '[of] ' + pokemon);
 					const sideConditions = ['bindtrap', 'minetrap', 'poisontrap', 'stealthtrap'];
-					const success = false;
+					let success = false;
 					for (const condition of sideConditions) {
 						if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 							success = true;
