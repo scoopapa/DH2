@@ -550,6 +550,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			solarbeam: ["9M"],
 			spikes: ["9M"],
 			substitute: ["9M"],
+			suckerpunch: ["9M"],
 			swift: ["9M"],
 			tailwhip: ["9L1"],
 			takedown: ["9M"],
