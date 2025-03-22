@@ -683,4 +683,31 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -36,
 	},
+	hauntingmelody: {
+		onModifyMove(move) {
+			const target = move.target;
+			if (move.flags['sound']) {
+				if (target.hasType('Ghost')) return false;
+				if (!target.addType('Ghost')) return false;
+				this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+			}
+		},
+		flags: {},
+		name: "Haunting Melody",
+		shortDesc: "The user's sound moves add ghost type to the target.",
+		rating: 1.5,
+		num: -37,
+	},
+	liquidate: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				this.actions.useMove('soak', this.effectState.target);
+			}
+		},
+		flags: {},
+		name: "Liquidate",
+		shortDesc: "If this pokemon is hit by a physical move, use Soak on the opponent.",
+		rating: 1.5,
+		num: -38,
+	},
 };
