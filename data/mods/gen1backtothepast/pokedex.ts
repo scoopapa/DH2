@@ -617,6 +617,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	masquerain: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 60, def: 62, spa: 100, spd: 100, spe: 80},
+		types: ["Bug", "Water"],
 		gen: 1,
 	},
 	cursola: {
