@@ -1118,11 +1118,15 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	parallelmegaorb: { 
 		name: "Parallel Mega Orb",
 		onTakeItem: false,
+		onBeforeMega(pokemon) {
+			pokemon.addVolatile('gastroacid');
+		},
 		onAfterMega(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			pokemon.removeVolatile('gastroacid');
 		},
-		onStart(pokemon) {
+		onPreStart(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
