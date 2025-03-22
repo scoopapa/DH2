@@ -3946,11 +3946,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "Illegal",
 	},
 	magearna: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	magearnaoriginal: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	marshadow: {

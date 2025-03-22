@@ -538,4 +538,38 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["strengthsap"],
 		megaCreator: "lydian",
 	},
+
+	// slate 12
+
+	ludicolo: {
+		inherit: true,
+		mega: "ludicolomega",
+		megaName: "Ludicolo-Mega",
+		megaAbility: {0: "Magic Bounce"},
+		megaStats: {hp: 80, atk: 70, def: 110, spa: 110, spd: 120, spe: 90},
+		megaStone: "Ludicolinite",
+		movepoolAdditions: ["flipturn"],
+		megaCreator: "okispokis",
+	},
+
+	skeledirge: {
+		inherit: true,
+		mega: "skeledirgemega",
+		megaName: "Skeledirge-Mega",
+		megaAbility: {0: "Haunting Melody"},
+		megaStats: {hp: 104, atk: 80, def: 140, spa: 125, spd: 110, spe: 71},
+		megaStone: "Skeledite",
+		megaCreator: "jazzmat",
+	},
+
+	bellibolt: {
+		inherit: true,
+		mega: "belliboltmega",
+		megaName: "Bellibolt-Mega",
+		megaAbility: {0: "Liquidate"},
+		megaStats: {hp: 109, atk: 79, def: 126, spa: 123, spd: 103, spe: 55},
+		megaStone: "Belliboltite",
+		movepoolAdditions: ["surf"],
+		megaCreator: "War Incarnate",
+	},
 };
