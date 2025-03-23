@@ -708,6 +708,38 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	
 	// start
+	autotomize: {
+		num: 475,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	//	isNonstandard: "Past",
+		name: "Autotomize",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onTryHit(pokemon) {
+			const hasContrary = pokemon.hasAbility('contrary');
+			if ((!hasContrary && pokemon.boosts.spe === 6) || (hasContrary && pokemon.boosts.spe === -6)) {
+				return false;
+			}
+		},
+		boosts: {
+			spe: 2,
+		},
+		onHit(pokemon) {
+			if (pokemon.weighthg > 1) {
+				pokemon.weighthg = Math.max(1, pokemon.weighthg - 1000);
+				this.add('-start', pokemon, 'Autotomize');
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	//
 	belch: {
 		num: 562,
 		accuracy: 90,
