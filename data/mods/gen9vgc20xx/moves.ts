@@ -1506,6 +1506,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Poison",
 	},
 	//
+	purify: {
+		num: 685,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	//	isNonstandard: "Past",
+		name: "Purify",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, heal: 1, metronome: 1},
+		onHit(target, source) {
+			if (!target.cureStatus()) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return this.NOT_FAIL;
+			}
+			this.heal(Math.ceil(source.maxhp * 0.5), source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	//
 	rapidspin: {
 		num: 229,
 		accuracy: 100,
@@ -1558,6 +1583,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+	},
+	//
+	sharpen: {
+		num: 159,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	//	isNonstandard: "Past",
+		name: "Sharpen",
+		pp: 30,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			atk: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cute",
 	},
 	//
 	smackdown: {
