@@ -1141,6 +1141,36 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -24,
 	},
+	pickup: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon === target
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Pickup');
+			pokemon.setItem(item);
+		},
+		flags: {},
+		name: "Pickup",
+		rating: 0.5,
+		num: 53,
+	},
+	resourceful: {
+		num: -25,
+		name: "Resourceful",
+		rating: 4,
+		desc: "If this Pokémon's item would trigger, it triggers again. Once per battle, if this Pokémon's item would be consumed, it isn't.",
+		shortDesc: "Items trigger twice, and can avoid being consumed once.",
+		//onTakeItem(item, pokemon, source) {
+		//	
+		//},
+	},
 	// Legend Plate + Tera Blast field
 	normalize: {
 		inherit: true,
