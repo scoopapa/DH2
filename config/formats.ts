@@ -966,10 +966,9 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="">Spreadsheet for the mod</a>`,
 		],
-		mod: 'glacemons',
+		mod: 'glacemonsuber',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['AG', 'Berserk Gene', 'Arena Trap', 'Sand Veil', 'Snow Cloak', 'Shadow Tag', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
-			'Gengar + Parallel Mega Orb', 'Special Tera Orb',
+		banlist: ['AG', 'Berserk Gene', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Gengar + Parallel Mega Orb',
 		],
 		unbanlist: ['Light of Ruin'],
 		teambuilderFormat: 'National Dex Uber',
