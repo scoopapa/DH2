@@ -4085,7 +4085,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			yawn: ["9L1"],
 		},
 	},
-	belliboltancient: {
+	bellibolttwisted: {
 		learnset: {
 			bite: ["9L1"],
 			crunch: ["9L1"],
