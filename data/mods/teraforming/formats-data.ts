@@ -54,7 +54,46 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	meowscaradatera: {
 		tier: "Tera",
 	},
+	okidogitera: {
+		tier: "Tera",
+	},
+	munkidoritera: {
+		tier: "Tera",
+	},
+	fezandipititera: {
+		tier: "Tera",
+	},
 	terapagosstellar: {
+		tier: "Uber",
+	},
+	diancietera: {
+		tier: "Tera",
+	},
+	basculegionftera: {
+		tier: "Tera",
+	},
+	kleavortera: {
+		tier: "Tera",
+	},
+	avaluggtera: {
+		tier: "Tera",
+	},
+	goodratera: {
+		tier: "Tera",
+	},
+	hawluchatera: {
+		tier: "Tera",
+	},
+	blazikentera: {
+		tier: "Tera",
+	},
+	dragonitetera: {
+		tier: "Tera",
+	},
+	primarinatera: {
+		tier: "Tera",
+	},
+	farigiraftera: {
 		tier: "Tera",
 	},
 	

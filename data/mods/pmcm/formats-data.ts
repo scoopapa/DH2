@@ -8,6 +8,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ceruledge: {tier: "PMCM"},
 	carbink: {tier: "PMCM"},
 	moltres: {tier: "PMCM"},
+	kommoo: {tier: "PMCM"},
 	illumise: {tier: "PMCM"},
 	volbeat: {tier: "PMCM"},
 	abomasnow: {tier: "PMCM"},
@@ -38,5 +39,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cramorant: {tier: "PMCM"},
 	grafaiai: {tier: "PMCM"},
 	tatsugiri: {tier: "PMCM"},
+	kyurem: {tier: "PMCM"},
+	roaringmoon: {tier: "PMCM"},
+	milotic: {tier: "PMCM"},
+	gogoat: {tier: "PMCM"},
+	clodsire: {tier: "PMCM"},
 	
 };

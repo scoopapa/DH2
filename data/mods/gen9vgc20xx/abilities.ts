@@ -308,6 +308,23 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -15,
 	},	
+	//
+	ailuromancy: {
+		shortDesc: "Spotlight on entry.",
+		// Triggered when the Pokémon with Ailuromancy switches in
+		onSwitchIn(pokemon) {
+			// Check if there is an ally present
+			const ally = pokemon.side.active.find(ally => ally && ally !== pokemon);
+			if (ally) {
+				// Add the spotlight volatile to the ally
+				ally.addVolatile('spotlight');
+				this.add('-message', `${ally.name} is now in the spotlight!`);
+			}
+		},
+		name: "Ailuromancy",
+		rating: 3,
+		num: -16,
+	},
 	
 
 	// Changes to abilities

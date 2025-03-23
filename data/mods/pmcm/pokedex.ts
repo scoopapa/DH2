@@ -30,6 +30,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Magic Guard"},
 	},
+	kommoo: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 100, def: 125, spa: 110, spd: 105, spe: 85},
+		abilities: {0: "Punk Rock"},
+	},
 	illumise: {
 		inherit: true,
 		abilities: {0: "Call Volbeat"},
@@ -58,7 +63,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	tyranitar: {
 		inherit: true,
-		abilities: {0: "Sharpness"},
+		abilities: {0: "Sand Stream", H: "Sharpness"},
 	},
 	tyranitarmega: {
 		inherit: true,
@@ -77,12 +82,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	mesprit: {
 		inherit: true,
 		abilities: {0: "Liquid Voice"},
-		types: ["Water", "Psychic"],
+		types: ["Psychic", "Water"],
 	},
 	electrode: {
 		inherit: true,
 		abilities: {0: "Short Fuse"},
-		types: ["Normal", "Electric"],
+		types: ["Electric", "Normal"],
 	},
 	taurospaldeacombat: {
 		inherit: true,
@@ -175,5 +180,26 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	tatsugiri: {
 		inherit: true,
 		abilities: {0: "Dry Skin"},
+	},
+	kyurem: {
+		inherit: true,
+		abilities: {0: "Skill Link"},
+	},
+	roaringmoon: {
+		inherit: true,
+		abilities: {0: "Shadow Shield"},
+	},
+	milotic: {
+		inherit: true,
+		abilities: {0: "Aqua Veil"},
+		types: ["Water", "Fairy"],
+	},
+	gogoat: {
+		inherit: true,
+		types: ["Grass", "Rock"],
+	},
+	clodsire: {
+		inherit: true,
+		abilities: {0: "Still Water"},
 	},
 };

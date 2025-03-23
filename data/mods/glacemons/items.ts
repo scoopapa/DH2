@@ -2,7 +2,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	crystalcrown: {
 		name: "Crystal Crown",
 		num: -1,
-		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera Pokemon. Attacker loses 1/8 max HP.",
+		shortDesc: "0.67x damage from Z-Move/Mega/Dynamax/Tera. Attack = -1/8 HP.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.isZ || (source.volatiles['dynamax'] && source.volatiles['dynamax'].isActive) || source.volatiles['terastallized'] || (source.forme && source.forme.startsWith('Mega'))) {
 				return this.chainModify(0.67);
@@ -316,6 +316,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -3,
 		gen: 9,
+		rating: 3,
 	},
 	iceaxe: {
 		name: "Ice Axe",
@@ -327,6 +328,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -4,
 		gen: 9,
+		rating: 3,
 	},
 	honey: {
 		name: "Honey",
@@ -335,11 +337,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -5,
 		gen: 9,
+		rating: 3,
 		shortDesc: "Restores 1/3 max HP when at 1/2 max HP or less once, -1 Spe vs. Knock Off.",
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4) && pokemon.useItem()) {
-					this.heal(pokemon.baseMaxhp / 4);
+			if (pokemon.hp <= pokemon.maxhp / 3) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 2) && pokemon.useItem()) {
+					this.heal(pokemon.baseMaxhp / 3);
 				}
 			}
 		},
@@ -350,6 +353,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				if (!this.boost({ spe: -1 }, source)) {
 					this.add('-activate', pokemon, 'item: Honey');
 				}
+				return false;
+			}
+			if (source.hasAbility('honeygather')) {
 				return false;
 			}
 		},
@@ -409,6 +415,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -6,
 		gen: 9,
+		rating: 3,
 		shortDesc: "If the user has a stat dropped or raised, remove all stat changes for itself.",
 	},
 	mewniumz: {
@@ -451,12 +458,14 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	},
 	safetygoggles: {
 		inherit: true,
+		onTakeItem: false,
 		onSourceModifyAccuracyPriority: -2,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy === 'number') {
 				return this.chainModify(1.2);
 			}
 		},
+		rating: 3,
 		shortDesc: "Powder and Sandstorm immunity. The accuracy of attacks by the holder is 1.2x.",
 	},
 	speedingticket: {
@@ -474,9 +483,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			const dazzlingHolder = this.effectState.target;
 			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, 'item: Speeding Ticket', move, '[of] ' + target);
+				this.add('cant', dazzlingHolder, 'item: Speeding Ticket', move, '[of] ' + source);
 				target.switchFlag = true;
-				if (target.useItem()) {
+				if (source.useItem()) {
 					source.switchFlag = false;
 				} else {
 					target.switchFlag = false;
@@ -513,6 +522,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		inherit: true,
 		desc: "The holder ignores rain- and sun-based effects. Damage and accuracy calculations from attacks used by the holder are affected by rain and sun, but not attacks used against the holder. The holder takes 3/4 damage and ignores secondary effects while in weathers or terrains.",
 		shortDesc: "Ignores weather; 3/4 damage and ignore secondary effects under weather/terrain.",
+		rating: 3,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (this.field.isWeather() || this.field.isTerrain()) {
 				this.debug('Utility Umbrella neutralize');
@@ -551,6 +561,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 			}
 		},
+		rating: 3,
 		shortDesc: "Holder is immune to Ground-type attacks. Once popped: +1 SpA.",
 	},
 	absorbbulb: {
@@ -560,12 +571,36 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', target, 'Absorb Bulb');
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, source, move){
 			if (move.type === 'Water') {
-				target.useItem();
+				this.add('-immune', target, '[from] item: Absorb Bulb');
 				return null;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Absorb Bulb');
+			this.boost({ spa: 1 });
+			target.item = '';
+			target.itemState = { id: '', target };
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Absorb Bulb');
+				this.boost({ atk: 1 });
+				target.item = '';
+				target.itemState = { id: '', target };
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('absorbbulb'));
+			}
+		},
+//		onTryHit(target, source, move) {
+//			if (move.type === 'Water') {
+//				target.useItem();
+//				return null;
+//			}
+//		},
+		rating: 3,
 		shortDesc: "Holder is immune to Water-type attacks. Once popped: +1 SpA.",
 	},
 	cellbattery: {
@@ -575,12 +610,36 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', target, 'Cell Battery');
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, source, move){
 			if (move.type === 'Electric') {
-				target.useItem();
+				this.add('-immune', target, '[from] item: Cell Battery');
 				return null;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Cell Battery');
+			this.boost({ atk: 1 });
+			target.item = '';
+			target.itemState = { id: '', target };
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Cell Battery');
+				this.boost({ atk: 1 });
+				target.item = '';
+				target.itemState = { id: '', target };
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('cellbattery'));
+			}
+		},
+//		onTryHit(target, source, move) {
+//			if (move.type === 'Electric') {
+//				target.useItem();
+//				return null;
+//			}
+//		},
+		rating: 3,
 		shortDesc: "Holder is immune to Electric-type attacks. Once broken: +1 Atk.",
 	},
 	snowball: {
@@ -590,12 +649,36 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', target, 'Snowball');
 			}
 		},
-		onTryHit(target, source, move) {
+		onTryHit(target, source, move){
 			if (move.type === 'Ice') {
-				target.useItem();
+				this.add('-immune', target, '[from] item: Snowball');
 				return null;
 			}
 		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Snowball');
+			this.boost({ atk: 1 });
+			target.item = '';
+			target.itemState = { id: '', target };
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Snowball');
+				this.boost({ atk: 1 });
+				target.item = '';
+				target.itemState = { id: '', target };
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('snowball'));
+			}
+		},
+//		onTryHit(target, source, move) {
+//			if (move.type === 'Ice') {
+//				target.useItem();
+//				return null;
+//			}
+//		},
+		rating: 3,
 		shortDesc: "Holder is immune to Ice-type attacks. Once broken: +1 Atk.",
 	},
 	indecisiveorb: {
@@ -612,6 +695,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		desc: "Holder's move have 1.3x BP, but it can't use the same move twice in a row.",
 		num: -10,
 		gen: 9,
+		rating: 3,
 	},
 	shedshell: {
 		inherit: true,
@@ -621,7 +705,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return null;
 			}
 		},
-		shortDesc: "Holder may switch out even when trapped by another Pokemon, or by Ingrain and Pursuit.",
+		shortDesc: "Holder may switch out when trapped, even by Ingrain or Pursuit.",
+		rating: 3,
 	},
 	// Slate 4
 	machobrace: {
@@ -629,13 +714,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
-				return this.chainModify(1.3);
+				return this.chainModify(1.2);
 			}
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.hasType('Fighting') || pokemon.hasAbility('Klutz')) {
-				return this.chainModify(1.3);
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpe(spe, pokemon) {
@@ -649,7 +734,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				move.basePower *= 1.5;
 			}
 		},
-		shortDesc: "If Fighting-type or Klutz: 1.3x Atk/Def. If not: 1/2 Spe. 1.5x Fling BP.",
+		shortDesc: "If Fighting-type or Klutz: 1.2x Atk/Def. If not: 1/2 Spe. 1.5x Fling BP.",
+		rating: 3,
 	},
 	cursedbranch: {
 		num: -11,
@@ -674,10 +760,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				volatileStatus: 'mustrecharge',
 			},
 		},
+		onTakeItem: false,
 		// airborneness negation implemented in scripts.ts
 		shortDesc: "Holder is grounded and takes 0.75x damage if hazards are up on holder's side.",
+		rating: 3,
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb')) {
+			if (target.side.getSideCondition('stealthrock') || target.side.getSideCondition('spikes') || target.side.getSideCondition('toxicspikes') || target.side.getSideCondition('stickyweb') || target.side.getSideCondition('gmaxsteelsurge')) { 
 				return this.chainModify(0.75);
 			}
 		},
@@ -685,6 +773,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	laggingtail: {
 		inherit: true,
 		shortDesc: "Moves last in priority bracket, but attacks have their power boosted by 30%.",
+		rating: 3,
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify([5324, 4096]);
 		},
@@ -776,10 +865,11 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		desc: "If this Pokemon has a Substitute, its damaging moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect Doom Desire, Dragon Darts, Dynamax Cannon, Endeavor, Explosion, Final Gambit, Fling, Future Sight, Ice Ball, Rollout, Self-Destruct, any multi-hit move, any move that has multiple targets, or any two-turn move.",
-		shortDesc: "This Pokemon's damaging moves hit twice if it has a Substitute. The second hit has its damage quartered.",
+		shortDesc: "Damaging moves hit twice if behind a Substitute. 2nd hit = 1/4 damage.",
 		flags: {},
 		name: "Puppet Strings",
 		num: -14,
+		rating: 3,
 	},
 	pikaniumz: {
 		inherit: true,
@@ -954,6 +1044,12 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.id === 'waterpulse') return this.chainModify([4915, 4096]);
 		},
+		basePowerCallback(pokemon, target, move) {
+			if (move.id === 'waterpulse' && pokemon.baseSpecies.baseSpecies === 'Clawitzer') {
+				return 80;
+			}
+			return move.basePower;
+		},
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer' && pokemon.addType('Dragon')) {
 				this.add('-start', pokemon, 'typeadd', 'Dragon', '[from] item: Fried Rice');
@@ -963,8 +1059,13 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Clawitzer') return this.chainModify(1.5);
 		},
-		shortDesc: "Water Pulse's damage is x1.2. If Clawitzer: becomes Water/Dragon, and Speed is 1.5x.",
+		shortDesc: "Pulse damage is x1.2. If Clawitzer: becomes Water/Dragon, Speed is 1.5x, and Water Pulse is 80 BP.",
 		num: -14,
+		onTakeItem(item, source){
+			if (source.baseSpecies.baseSpecies === 'Clawitzer') return false;
+			return true;
+		},
+		rating: 3,
 	},
 	ringtarget: {
 		inherit: true,
@@ -992,6 +1093,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		shortDesc: "User's physical and special moves can't miss, but their secondary effects are removed.",
+		rating: 3,
 	},
 	// Slate 6
 	parallelmegaorb: { 
@@ -1008,6 +1110,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
 		num: -15,
 		gen: 9,
+		rating: 3,
 	},
 	legendplate: {
 		name: "Legend Plate",
@@ -1062,6 +1165,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -17,
 		shortDesc: "Holder's ball/bomb moves have 1.3x power, and are physical.",
 		gen: 9,
+		rating: 3,
 	},
 	gooditem: {
 		name: "Good Item",
@@ -1075,7 +1179,6 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Good Item');
 			}
 		},
-		rating: 3,
 		num: -18,
 	},
 	neutralizer: {
@@ -1090,9 +1193,9 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		// Implemented in scripts.js
 		name: "Neutralizer",
-		rating: 4,
 		shortDesc: "User cannot be hit super effectively, and cannot hit for super effective damage.",
 		num: -19,
+		rating: 3,
 	},
 	dreamcatcher: { // WIP, doesn't work currently
 		name: "Dream Catcher",
@@ -1117,7 +1220,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		zMoveFrom: "Water Shuriken",
 		itemUser: ["Greninja-Bond"],
 		onAfterMove(pokemon, target, move) {
-			if (move.id === 'bondslicingshuriken') pokemon.formeChange('Greninja-Ash');
+			if (move.id === 'bondslicingshuriken') pokemon.formeChange('Greninja-Ash', '[from] item: Greninium Z', true);
 		},
 		num: -21,
 		gen: 9,
@@ -1144,7 +1247,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -22,
 		gen: 9,
-		shortDesc: "If holder is below 1/2 of the user's max HP, opponent: -1 Atk and Def. Once per switch-in.",
+		shortDesc: "If holder is below 1/2 max HP, opponent: -1 Atk and Def. Once per switch-in.",
+		rating: 3,
 	},
 	babiriberry: {
 		inherit: true,
@@ -1522,22 +1626,28 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify([dmgMod[numConsecutive], 4096]);
 			},
 		},
-		shortDesc: "Damage of moves used on consecutive turns (even if move failed) is increased. Max 2x after 5 turns.",
+		shortDesc: "Consecutive moves (even if fail) power increases. Max 2x after 5 turns.",
+		rating: 3,
 	},
 	enginebreaker: {
 		name: "Engine Breaker",
 		fling: {
 			basePower: 20,
 		},
+		onStart(pokemon) {
+			pokemon.addVolatile('enginebreaker');
+		},
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (pokemon.useItem()) {
+			if (pokemon.volatiles['enginebreaker']) {
 				move.ignoreAbility = true;
+				pokemon.removeVolatile('enginebreaker');
 			}
 		},
 		num: -23,
 		gen: 9,
-		shortDesc: "Holder's moves ignore abilities once. Item is consumed after use.",
+		shortDesc: "Holder's moves ignore abilities once. Once per switch-in.",
+		rating: 3,
 	},
 	redlicorice: {
 		name: "Red Licorice",
@@ -1566,18 +1676,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -24,
 		gen: 9,
-		shortDesc: "Holder's contact moves have x1.2 power and trap the target. Single use. Consumed after use. Announces itself.",
+		shortDesc: "Holder's contact moves have x1.2 power and trap the target. Single use.",
+		rating: 3,
 	},
 	pokerusvaccine: {
 		name: "Pokerus Vaccine",
 		fling: {
 			basePower: 386,
 		},
+		onTakeItem: false,
 		onStart(pokemon) {
 			this.add('-item', pokemon, 'Pokerus Vaccine');
-			if (pokemon.useItem()) {
-				pokemon.addVolatile('pokerusvaccine');
-			}
+			pokemon.addVolatile('pokerusvaccine');
 		},
 		volatileStatus: 'pokerusvaccine',
 		condition: {
@@ -1589,7 +1699,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				}
 			},
 			onSourceModifySpAPriority: 5,
-			onSourceModifySpA(atk, attacker, defender, move) {
+			onSourceModifySpA(spa, attacker, defender, move) {
 				if (move.type === 'Poison') {
 					this.debug('Thick Fat weaken');
 					return this.chainModify(0.5);
@@ -1611,7 +1721,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		num: -25,
 		gen: 9,
-		shortDesc: "Holder gains a status; 1/2 Poison-type damage and poison immunity. Once per switch-in.",
+		shortDesc: "Gains a status; 1/2 Poison-type damage and poison immunity. Once per switch-in.",
+		rating: 3,
 	},
 	frozenorb: {
 		name: "Frozen Orb",
@@ -1636,7 +1747,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			basePower: 10,
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Arctozolt' || source.baseSpecies.baseSpecies === 'Dracozolt') return false;
+			if (source.baseSpecies.baseSpecies === 'Arctozolt' || source.baseSpecies.baseSpecies === 'Arctovish') return false;
 			return true;
 		},
 		onModifySpePriority: 5,
@@ -1695,7 +1806,71 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		flags: {},
 		desc: "On switch-in, reveals the held items of all opposing Pokemon and negates their effect for two turns.",
-		shortDesc: "On switch-in, reveals the held items of all opposing Pokemon and negates the effects for two turns.",
+		shortDesc: "On switch-in, reveals held items of all foes; negates the effects for two turns.",
 		num: -29,
+		rating: 3,
+	},
+	silverpowder: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {},
+		onDamage(damage, target, source, effect) {
+			if ((effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge') && source?.hasType('Bug')) {
+				return false;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		desc: "If holder is Bug type, negates entry hazards, and user's Atk, Def, and SpA by 1.2x.",
+	},
+	protector: {
+		inherit: true,
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Protector');
+			this.add('-message', `${pokemon.name} is holding a Protector!`);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.type !== pokemon.types[0] && move.type !== pokemon.types[1]) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(2);
+		},
+		desc: "User's SpD is doubled, but it can only use moves of the same type as itself.",
+	},
+	expertbelt: {
+		inherit: true,
+		onModifyDamage(damage, source, target, move) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || source.volatiles('expertbelt'))) {
+				if (source.volatiles('expertbelt')) {
+					pokemon.removeVolatile('expertbelt');
+				}
+				else {
+					pokemon.addVolatile('expertbelt');
+				}
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
 	},
 };

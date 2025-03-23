@@ -406,35 +406,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
 		onStart(source) {
-			if (this.field.getPseudoWeather('ultrasleep')) {
-				this.add('-ability', source, 'Endless Dream');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.source = source;
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			} else {
-				this.add('-ability', source, 'Endless Dream');
-				this.field.addPseudoWeather('ultrasleep');
-				this.hint("All Pokemon are under Comatose effect!");
-				this.field.pseudoWeather.ultrasleep.duration = 0;
-			}
-		},
-		onAnyTryMove(target, source, move) {
-			if (['ultrasleep'].includes(move.id)) {
-				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
-				return false;
-			}
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('endlessdream');
+			this.hint("All Pokemon are under Comatose effect!");
 		},
 		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (target.hasAbility('endlessdream')) {
-					return;
-				}
-			}
-			this.field.removePseudoWeather('ultrasleep');
+			this.field.removePseudoWeather('endlessdream');
 		},
 		name: "Endless Dream",
 		rating: 3,
@@ -709,6 +688,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Striker",
 		num: -35,
 	},
+	deadlyblasts: {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Deadly Blasts",
+		shortDesc: "Boosts the power of bullet, bomb and ball moves by 1.3x",
+		rating: 2.5,
+		num: -36,
+	},
 	insectivorous: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Bug') {
@@ -721,17 +712,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Insectivorous",
 		shortDesc: "This Pokemon heals 1/4 HP when hit by a Bug type move. Immune to Bug type moves.",
 		rating: 3.5,
-		num: -36,
-	},
-	deadlyblasts: {
-		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return this.chainModify([0x1400, 0x1000]);
-			}
-		},
-		name: "Deadly Blasts",
-		shortDesc: "This Pokemon's super effective moves get x1.2 BP.",
-		rating: 2.5,
 		num: -37,
 	},
 	cosmicenergy: {
@@ -883,16 +863,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -45,
 	},
 	angelicnature: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Fairy') {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Angelic Nature');
-				}
-				return null;
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dark'] = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Dark') return;
+			if (move.type === 'Dark' && target.hasType('Fairy')) {
+				this.debug('Angelic Nature boost');
+				return 1;
 			}
 		},
 		name: "Angelic Nature",
-		shortDesc: "This Pokemon heals 1/4 HP when hit by a Fairy type move. Immune to Fairy type moves.",
+		desc: "This Pokemon can hit Fairy type opponents for super effective damages with Dark moves.",
+		shortDesc: "Hits Fairy opponents for super effective damages with Dark moves.",
 		rating: 3.5,
 		num: -46,
 	},
@@ -2070,14 +2056,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "This Pokemon receives 25% less damage from all attacks.",
 		desc: "This Pokemon receives 25% less damage from all attacks.",
 	},
-	rebound: {
+	reboundbelly: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target !== source && move?.category === 'Special' && !move.flags['sound']) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
-		name: "Rebound",
+		name: "Rebound Belly",
 		shortDesc: "The opponent receives 1/8 recoil damage from special non-Sound moves.",
 		rating: 2.5,
 		num: -69,
@@ -2323,22 +2309,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	happygolucky: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			const newAtk = atk * (1 + Math.floor(pokemon.happiness / 25));
+			const newAtk = atk * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newAtk;
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
-			const newDef = def * (1 + Math.floor(pokemon.happiness / 25));
+			const newDef = def * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newDef;
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			const newSpA = spa * (1 + Math.floor(pokemon.happiness / 25));
+			const newSpA = spa * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newSpA;
 		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
-			const newSpD = spd * (1 + Math.floor(pokemon.happiness / 25));
+			const newSpD = spd * (1 + (Math.floor(pokemon.happiness / 25)/100));
 			return newSpD;
 		},
 		flags: {},
@@ -2412,6 +2398,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			target.switchFlag = true;
 			this.add('-activate', target, 'ability: Tactical Escape');
 		},
+		onDamage(damage, target, source, effect) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge')) {
+				return false;
+			}
+		},
 		flags: {},
 		name: "Tactical Escape",
 		rating: 2,
@@ -2465,5 +2456,63 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Soothing Fragrance",
 		rating: 2,
 		num: -79,
+	},
+	tempestuous: {
+		desc: "When replacing a fainted party member, this Pokémon's Special Defense is boosted, and it charges power to double the power of its Electric-type move on its first turn.",
+		shortDesc: "Gains the effect of Charge when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (!pokemon.side.faintedLastTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		onStart(pokemon) {
+			if (!pokemon.side.faintedThisTurn) return;
+			this.boost({spd: 1}, pokemon);
+			this.add('-activate', pokemon, 'move: Charge');
+			pokemon.addVolatile('charge');
+		},
+		name: "Tempestuous",
+		rating: 3,
+		num: -80,
+	},
+	ambush: {
+		shortDesc: "This Pokémon's attacks are critical hits if the user moves before the target.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) return 5;
+		},
+		name: "Ambush",
+		rating: 4,
+		num: -81,
+	},
+	steelbreaker: {
+		shortDesc: "This Pokémon's attacks are critical hits if the target is a Steel-type Pokémon.",
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.hasType('Steel')) return 5;
+		},
+		name: "Steelbreaker",
+		rating: 3,
+		num: -82,
+	},
+	curseoflife: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Curse of Life');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp >= target.maxhp / 2 && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Curse of Life');
+				return target.hp - 1;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Curse of Life",
+		rating: 3,
+		num: -83,
+		desc: "If this Pokemon is at more than half HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
+		shortDesc: "If this Pokemon is at >= 50% HP, it survives one hit with at least 1 HP. Immune to OHKO.",
 	},
 };

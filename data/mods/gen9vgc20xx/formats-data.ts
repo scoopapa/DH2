@@ -39,6 +39,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	meganiumxelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	meowscaradarift: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	spinarak: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -159,6 +167,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	infernapexelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	delphoxrift: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	magikarp: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -194,6 +210,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vulpixalola: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
+	},
+	quaquavalxelian: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	swampertrift: {
+		tier: "VGC",
+		doublesTier: "VGC",
 	},
 	ninetalesalola: {
 		tier: "VGC",
@@ -260,8 +284,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	aegislashlight: {
-		tier: "LZ",
-		doublesTier: "LZ",
+		tier: "VGC",
+		doublesTier: "VGC",
 	},
 	aegislashbladelight: {
 		tier: "Illegal",
@@ -484,8 +508,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	sneasel: {
-		tier: "VGC",
-		doublesTier: "VGC",
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
 	},
 	weavile: {
 		tier: "VGC",

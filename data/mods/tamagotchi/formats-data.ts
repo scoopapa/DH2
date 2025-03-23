@@ -1199,4 +1199,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Go! Go! Tamagotchi!",
 		doublesTier: "Go! Go! Tamagotchi Doubles",
 	},
+	octpasketchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	tapepentchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	bananahairtchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	arukotchi: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
+	watchlin: {
+		tier: "Go! Go! Tamagotchi!",
+		doublesTier: "Go! Go! Tamagotchi Doubles",
+	},
  }

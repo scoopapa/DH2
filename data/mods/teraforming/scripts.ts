@@ -40,6 +40,29 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "weezinggalar").learnset.voltswitch = ["9L1"];
 		this.modData("Learnsets", "meowscarada").learnset.fakeout = ["9L1"];
 		this.modData("Learnsets", "volcanion").learnset.stealthrock = ["9L1"];
+		this.modData("Learnsets", "okidogi").learnset.toxicspikes = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.expandingforce = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.burningjealousy = ["9L1"];
+		this.modData("Learnsets", "munkidori").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.barbbarrage = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.spiritbreak = ["9L1"];
+		this.modData("Learnsets", "fezandipiti").learnset.tripledive = ["9L1"];
+		this.modData("Learnsets", "kleavor").learnset.spookyslash = ["9L1"];
+		this.modData("Learnsets", "kleavor").learnset.shadowsneak = ["9L1"];
+		this.modData("Learnsets", "kleavor").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "diancie").learnset.psychicnoise = ["9L1"];
+		this.modData("Learnsets", "basculegionf").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "hawlucha").learnset.ragingfury = ["9L1"];
+		this.modData("Learnsets", "hawlucha").learnset.firelash = ["9L1"];
+		this.modData("Learnsets", "hawlucha").learnset.solarblade = ["9L1"];
+		delete this.modData('Learnsets', 'farigiraf').learnset.storedpower;
+		delete this.modData('Learnsets', 'girafarig').learnset.storedpower;
+		this.modData("Learnsets", "primarina").learnset.bugbuzz = ["9L1"];
+		this.modData("Learnsets", "primarina").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.hypervoice = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.dualwingbeat = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -150,6 +173,70 @@ export const Scripts: ModdedBattleScriptsData = {
 				const tera = pokemon.species.id === 'meowscarada' ? 'tera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
+			if (pokemon.species.baseSpecies === 'Fezandipiti') {
+				const tera = pokemon.species.id === 'fezandipiti' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Okidogi') {
+				const tera = pokemon.species.id === 'okidogi' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Munkidori') {
+				const tera = pokemon.species.id === 'munkidori' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Kleavor' && type === 'Ghost') {
+	        pokemon.formeChange('Kleavor-Tera', null, true);
+	        pokemon.baseMaxhp = Math.floor(Math.floor(
+	          2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+	        ) * pokemon.level / 100 + 10);
+	        const newMaxHP = pokemon.baseMaxhp;
+	        pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+	        pokemon.maxhp = newMaxHP;
+	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+      	}
+			if (pokemon.species.baseSpecies === 'Basculegion') {
+				const tera = pokemon.species.id === 'basculegion' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Diancie') {
+				const tera = pokemon.species.id === 'diancie' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Hawlucha') {
+				const tera = pokemon.species.id === 'hawlucha' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Avalugg') {
+				const tera = pokemon.species.id === 'avalugg' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Goodra') {
+				const tera = pokemon.species.id === 'goodra' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Blaziken') {
+				const tera = pokemon.species.id === 'blaziken' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Dragonite') {
+				const tera = pokemon.species.id === 'dragonite' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Farigiraf') {
+				const tera = pokemon.species.id === 'farigiraf' ? 'tera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Primarina' && type === 'Bug') {
+	        pokemon.formeChange('Primarina-Tera', null, true);
+	        pokemon.baseMaxhp = Math.floor(Math.floor(
+	          2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+	        ) * pokemon.level / 100 + 10);
+	        const newMaxHP = pokemon.baseMaxhp;
+	        pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+	        pokemon.maxhp = newMaxHP;
+	        this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+      	}
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},

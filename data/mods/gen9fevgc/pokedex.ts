@@ -418,7 +418,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	revarantis: {
 		num: 2047,
 		name: "Revarantis",
-		types: ["Steel", "Grass"],
+		types: ["Poison", "Grass"],
 		baseStats: {hp: 75, atk: 112, def: 90, spa: 87, spd: 78, spe: 67},
 		abilities: {0: "Leaf Coat", H: "Unfiltered"},
 		weightkg: 69.3,

@@ -98,7 +98,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 50, atk: 85, def: 90, spa: 35, spd: 90, spe: 70},
-		abilities: {0: "Compound Eyes", 1: "Compound Eyes", H: "Ill Wind"},
+		abilities: {0: "Compound Eyes", H: "Ill Wind"},
 	//	heightm: 1.0,
 		weightkg: 19.0,
 		color: "Purple",
@@ -179,7 +179,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 90, atk: 110, def: 80, spa: 100, spd: 60, spe: 70},
-		abilities: {0: "Inner Focus", H: "Magic Bounce"},
+		abilities: {0: "Inner Focus", H: "Justified"},
 	//	heightm: 2.0,
 		weightkg: 85.3,
 		color: "Red",
@@ -195,7 +195,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		forme: "Necro",
 		types: ["Fire", "Ghost"],
 		gender: "N",
-		baseStats: {hp: 90, atk: 35, def: 145, spa: 100, spd: 155, spe: 90},
+		baseStats: {hp: 90, atk: 35, def: 145, spa: 100, spd: 155, spe: 50},
 		abilities: {0: "Unnerve"},
 	//	heightm: 1.5,
 		weightkg: 9.7,
@@ -406,7 +406,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Ghost", "Rock"],
 		baseStats: {hp: 45, atk: 110, def: 135, spa: 55, spd: 135, spe: 40},
-		abilities: {0: "Poison Point", 1: "Sturdy", H: "Sandstream"},
+		abilities: {0: "Poison Point", 1: "Sturdy", H: "Sand Stream"},
 		heightm: 2.2,
 		weightkg: 213.2,
 		color: "Brown",
@@ -421,7 +421,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 
 		types: ["Ghost", "Poison"],
 		gender: "N",
-		baseStats: {hp: 80, atk: 135, def: 120, spa: 115, spd: 80, spe: 70},
+		baseStats: {hp: 40, atk: 70, def: 115, spa: 80, spd: 130, spe: 50},
 		abilities: {0: "Pressure", 1: "Poison Touch", H: "Selfish"},
 		weightkg: 0.3,
 		color: "Purple",
@@ -608,7 +608,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 5.2,
 		weightkg: 252.5,
 		color: "Brown",
-		tags: ["Sub-Legendary"],
+		// tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	// end
@@ -625,7 +625,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 7.4,
 		weightkg: 523.5,
 		color: "Blue",
-		tags: ["Sub-Legendary"],
+	//	tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	// end
@@ -642,7 +642,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		heightm: 10.8,
 		weightkg: 123.5,
 		color: "Purple",
-		tags: ["Sub-Legendary"],
+		// tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	// end
@@ -752,6 +752,119 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	// end
 
+	// start
+	meowscaradarift: {
+		num: -1038,
+		name: "Meowscarada-Rift",
+		forme: "Rift",
+
+		types: ["Grass", "Psychic"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 76, atk: 120, def: 70, spa: 71, spd: 70, spe: 123},
+		abilities: {0: "Overgrow", H: "Ailuromancy"},
+	//	category: "Trickster",
+		heightm: 1.5,
+		weightkg: 31.2,
+		color: "Green",
+		eggGroups: ["Field", "Grass"],
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	delphoxrift: {
+		num: -1039,
+		name: "Delphox-Rift",
+		forme: "Rift",
+
+		types: ["Fire", "Fairy"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 75, atk: 69, def: 72, spa: 114, spd: 100, spe: 104},
+		abilities: {0: "Blaze", H: "Curious Medicine"},
+	//	category: "Medic Witch",
+		heightm: 1.5,
+		weightkg: 39.0,
+		color: "Red",
+		eggGroups: ["Field"],
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	swampertrift: {
+		num: -1040,
+		name: "Swampert-Rift",
+		forme: "Rift",
+
+		types: ["Water", "Dark"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 100, atk: 110, def: 90, spa: 85, spd: 90, spe: 60},
+		abilities: {0: "Torrent", H: "Volt Absorb"},
+	//	category: "Trickster",
+		heightm: 1.5,
+		weightkg: 81.9,
+		color: "Blue",
+		eggGroups: ["Monster", "Water 1"],
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	meganiumxelian: {
+		num: -1041,
+		name: "Meganium-Xelian",
+		forme: "Xelian",
+
+		types: ["Grass", "Steel"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 80, atk: 63, def: 100, spa: 122, spd: 100, spe: 60},
+		abilities: {0: "Overgrow", H: "Regenerator"},
+	//	category: "",
+		heightm: 1.9,
+		weightkg: 132.6,
+		color: "Green",
+		eggGroups: ["Monster", "Grass"],
+	//	creator: "Samtendo09",
+	},
+	// end
+
+	// start
+	infernapexelian: {
+		num: -1042,
+		name: "Infernape-Xelian",
+		forme: "Xelian",
+
+		types: ["Fire", "Flying"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 74, atk: 107, def: 71, spa: 107, spd: 71, spe: 104},
+		abilities: {0: "Blaze", H: "Magic Guard"},
+	//	category: "",
+		heightm: 1.2,
+		weightkg: 49.5,
+		color: "Red",
+		eggGroups: ["Field", "Human-like"],
+	//	creator: "Samtendo09",
+	},
+	// end
+
+	// start
+	quaquavalxelian: {
+		num: -1043,
+		name: "Quaquaval-Xelian",
+		forme: "Xelian",
+
+		types: ["Water", "Rock"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 85, atk: 120, def: 70, spa: 105, spd: 70, spe: 80},
+		abilities: {0: "Torrent", H: "No Guard"},
+	//	category: "",
+		heightm: 1.7,
+		weightkg: 91.7,
+		color: "Blue",
+		eggGroups: ["Flying", "Water 1"],
+	//	creator: "Samtendo09",
+	},
+	// end
 
 	// Changes
 	// start

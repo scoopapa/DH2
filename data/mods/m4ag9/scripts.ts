@@ -13,13 +13,13 @@ const uber9 = [
 	"giratinaorigin", "gougingfire", "groudon", "groudonprimal", "hooh", "ironbundle", "kangaskhanmega", "kyogre", "kyogreprimal", "kyuremblack", "kyuremwhite", 
 	"landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", 
 	"necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "ogerponheartflame", "palafin", "palafinhero", "palkia", "palkiaorigin", "pheromosa", "rayquaza", 
-	"reshiram", "roaringmoon", "salamencemega", "shayminsky", "sneasler", "solgaleo", "spectrier", "terapagosstellar", "ursalunabloodmoon", "urshifu", "walkingwake", 
+	"reshiram", "salamencemega", "shayminsky", "sneasler", "solgaleo", "spectrier", "terapagosstellar", "ursalunabloodmoon", "urshifu", "walkingwake", 
 	"yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
 ];
 const viabilityList9 = [
 	"alomomola", "clodsire", "corviknight", "dragapult", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
 	"gliscor", "greattusk", "hatterene", "heatran", "ironcrown", "irontreads", "ironvaliant", "kartana", "kingambit", "kyurem", "landorustherian", "melmetal", 
-	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
+	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "roaringmoon", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
 	"terapagos", "terapagosterastal", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
 const megaViabilityList9 = [
