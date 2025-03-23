@@ -1593,7 +1593,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gallademega: {
 		inherit: true,
-		tier: "Uber",
+		tier: "RU",
 	},
 	surskit: {
 		inherit: true,
@@ -4361,7 +4361,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dragapult: {
 		inherit: true,
-		tier: "Uber",
+		tier: "RU",
 	},
 	zacian: {
 		inherit: true,
