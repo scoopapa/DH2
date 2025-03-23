@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1,
 		gen: 9,
 	},
-	suwakium: {
+	suwakiumz: {
 		name: "Suwakium Z",
 		desc: "If held by Suwako Moriya with Muddy Water, she can use Froggy Braves the Wind and Rain.",
 		spritenum: 633,
@@ -19,6 +19,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMoveFrom: "Muddy Water",
 		itemUser: ["Suwako Moriya"],
 		num: -2,
+		gen: 9,
+	},
+	ananiumz: {
+		name: "Ananium Z",
+		desc: "If held by Ana with Biotic Grenade, she can use Nano Boost.",
+		spritenum: 638,
+		onTakeItem: false,
+		zMove: "Nano Boost",
+		zMoveFrom: "Biotic Grenade",
+		itemUser: ["Ana"],
+		num: -3,
 		gen: 9,
 	},
 };

@@ -255,6 +255,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
+				if (stat === 'accuracy' || stat === 'evasion') continue;
 				if (target.boosts[stat] < 6) {
 					stats.push(stat);
 				}
@@ -265,7 +266,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				boost[randomStat] = -2;
 				this.boost(boost);
 			} else {
-				return false;
+				return;
 			}
 		},
 		secondary: {
@@ -328,7 +329,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Liquidation", target);
 		},
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
 	},

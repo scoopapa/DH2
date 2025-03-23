@@ -2868,8 +2868,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	greninjabond: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
+		tier: "TMFE",
+		doublesTier: "TMFE",
 	},
 	oshawott: {
 		tier: "TMLC",
@@ -2996,6 +2996,30 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	fezandipiti: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	gougingfire: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ragingbolt: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ironcrown: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	ironboulder: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	regidrago: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	regieleki: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},

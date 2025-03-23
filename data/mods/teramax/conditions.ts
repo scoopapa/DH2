@@ -184,7 +184,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (['behemothbash','behemothblade','dynamaxcannon'].includes(move.id)) {
+			if (['behemothbash','behemothblade','dynamaxcannon','terablast'].includes(move.id)) {
 				return this.chainModify(2);
 			}
 		},

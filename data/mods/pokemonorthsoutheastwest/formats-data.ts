@@ -227,4 +227,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NSEW4",
 		doublesTier: "Pokémon North, South, East, and West DOU",
 	},
+	xiyquorii: {
+	tier: "NSEW5",
+	doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	same: {
+		tier: "NSEW5",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
+	bruhperial: {
+		tier: "NSEW5",
+		doublesTier: "Pokémon North, South, East, and West DOU",
+	},
 }

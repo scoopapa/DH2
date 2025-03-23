@@ -1,4 +1,7 @@
 export const Moves: {[moveid: string]: MoveData} = {
+	/*
+	CUSTOM MOVES
+	*/
 	magnalance: {
 		num: 2000,
 		accuracy: 100,
@@ -22,7 +25,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	eggbarrage: {
-		num: 813,
+		num: 2001,
 		accuracy: 90,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
@@ -41,5 +44,85 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {basePower: 120},
 		maxMove: {basePower: 140},
+	},
+	glidebomb: {
+		num: 2002,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Glide Bomb",
+		shortDesc: "The user attacks by dropping explosive scales onto the target. This move hits two to five times in a row.",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Beautiful",
+	},
+	dragonator: {
+		num: 2003,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Dragonator",
+		shortDesc: "The user utilizes a dragonator to impale the target. This may also flinch the target. This move is super effective on Dragon types.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Dragon') return 1;
+		},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
+	devour: {
+		num: 2004,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Devour",
+		shortDesc: "The user recovers some health by devouring food.",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1],
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	/*
+	RE-IMPLEMENTED MOVES
+	*/
+	vcreate: {
+		num: 557,
+		accuracy: 95,
+		basePower: 180,
+		category: "Physical",
+		name: "V-create",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -1,
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {basePower: 220},
+		contestType: "Cool",
 	},
 };

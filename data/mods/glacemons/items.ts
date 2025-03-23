@@ -360,11 +360,30 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 	},
+	eviolite: {
+		inherit: true,
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: 538,
+		gen: 5,
+		rating: 3,
+		shortDesc: "If holder's species can evolve, its Def, Sp. Atk and Sp. Def is 1.5x.",
+	},
 	trainingwheels: {
 		name: "Training Wheels",
 		spritenum: 130,
 		fling: {
 			basePower: 40,
+		},
+		onModifyAtkPriority: 2,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
 		},
 		onModifySpePriority: 2,
 		onModifySpe(spe, pokemon) {
@@ -375,7 +394,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		num: -6,
 		gen: 9,
 		rating: 3,
-		shortDesc: "If holder's species can evolve, its Speed is 1.5x.",
+		shortDesc: "If holder's species can evolve, its Atk and Speed is 1.5x.",
 	},
 	palettecleanser: {
 		name: "Palette Cleanser",
@@ -1099,11 +1118,15 @@ export const Items: { [k: string]: ModdedItemData; } = {
 	parallelmegaorb: { 
 		name: "Parallel Mega Orb",
 		onTakeItem: false,
+		onBeforeMega(pokemon) {
+			pokemon.addVolatile('gastroacid');
+		},
 		onAfterMega(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			pokemon.removeVolatile('gastroacid');
 		},
-		onStart(pokemon) {
+		onPreStart(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 		},
@@ -1809,5 +1832,68 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		shortDesc: "On switch-in, reveals held items of all foes; negates the effects for two turns.",
 		num: -29,
 		rating: 3,
+	},
+	silverpowder: {
+		inherit: true,
+		onBasePower(basePower, user, target, move) {},
+		onDamage(damage, target, source, effect) {
+			if ((effect.id === 'stealthrock' || effect.id === 'spikes' || effect.id === 'toxicspikes' || effect.id === 'stickyweb' || effect.id === 'gmaxsteelsurge') && source?.hasType('Bug')) {
+				return false;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyDefPriority: 5,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.hasType('Bug')) {
+				return this.chainModify(1.2);
+			}
+		},
+		desc: "If holder is Bug type, negates entry hazards, and user's Atk, Def, and SpA by 1.2x.",
+	},
+	protector: {
+		inherit: true,
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Protector');
+			this.add('-message', `${pokemon.name} is holding a Protector!`);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.type !== pokemon.types[0] && move.type !== pokemon.types[1]) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(2);
+		},
+		desc: "User's SpD is doubled, but it can only use moves of the same type as itself.",
+	},
+	expertbelt: {
+		inherit: true,
+		onModifyDamage(damage, source, target, move) {
+			if (move && (target.getMoveHitData(move).typeMod > 0 || source.volatiles('expertbelt'))) {
+				if (source.volatiles('expertbelt')) {
+					pokemon.removeVolatile('expertbelt');
+				}
+				else {
+					pokemon.addVolatile('expertbelt');
+				}
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
 	},
 };

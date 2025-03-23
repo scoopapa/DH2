@@ -20,11 +20,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	remoraid: {
 		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Indancesce", H: "Protean"},
+		abilities: {0: "Suction Cups", 1: "Incandesce", H: "Protean"},
 	},
 	octillery: {
 		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Indancesce", H: "Protean"},
+		abilities: {0: "Suction Cups", 1: "Incandesce", H: "Protean"},
 	},
 	castform: {
 		inherit: true,
@@ -73,11 +73,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	blitzle: {
 		inherit: true,
-		abilities: {0: "Indancesce", 1: "Velocity", H: "Sap Sipper"},
+		abilities: {0: "Incandesce", 1: "Velocity", H: "Sap Sipper"},
 	},
 	zebstrika: {
 		inherit: true,
-		abilities: {0: "Indancesce", 1: "Velocity", H: "Sap Sipper"},
+		abilities: {0: "Incandesce", 1: "Velocity", H: "Sap Sipper"},
 	},
 	irontreads: {
 		inherit: true,
@@ -167,7 +167,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	genesectburn: {
 		inherit: true,
-		abilities: {0: "Indancesce"},
+		abilities: {0: "Incandesce"},
 	},
 	genesectchill: {
 		inherit: true,
@@ -269,10 +269,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Unconcerned", H: "Solar Power"},
 	},
-	leafeon: {
-		inherit: true,
-		abilities: {0: "Solar Power", H: "Chlorophyll"},
-	},
 	bellsprout: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Merciless"},
@@ -284,14 +280,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	victreebel: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Merciless"},
-	},
-	zarude: {
-		inherit: true,
-		abilities: {0: "Leaf Guard", 1: "Moody", H: "Solar Power"},
-	},
-	zarudedada: {
-		inherit: true,
-		abilities: {0: "Leaf Guard", 1: "Moody", H: "Solar Power"},
 	},
 	camerupt: {
 		inherit: true,
@@ -652,22 +640,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	mienshao: {
 		inherit: true,
 		abilities: {0: "Karate", 1: "Regenerator", H: "Long Reach"},
-	},
-	deoxys: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
-	},
-	deoxysattack: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
-	},
-	deoxysdefense: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
-	},
-	deoxysspeed: {
-		inherit: true,
-		abilities: {0: "Pressure", H: "Long Reach"},
 	},
 	minccino: {
 		inherit: true,
@@ -1124,58 +1096,58 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Flouresce", 1: "Natural Cure", H: "Analytic"},
 	},
-	// Indancesce 
+	// Incandesce 
 	darumakagalar: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Indancesce", H: "Inner Focus"},
+		abilities: {0: "Hustle", 1: "Incandesce", H: "Inner Focus"},
 	},
 	darmanitangalar: {
 		inherit: true,
-		abilities: {0: "Gorilla Tactics", 1: "Indancesce", H: "Zen Mode"},
+		abilities: {0: "Gorilla Tactics", 1: "Incandesce", H: "Zen Mode"},
 	},
 	solrock: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Indancesce"},
+		abilities: {0: "Levitate", H: "Incandesce"},
 	},
 	pumpkaboo: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	pumpkaboosmall: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	pumpkaboolarge: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	pumpkaboosuper: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeist: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeistsmall: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeistlarge: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	gourgeistsuper: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Frisk", H: "Indancesce"},
+		abilities: {0: "Pickup", 1: "Frisk", H: "Incandesce"},
 	},
 	snubbull: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Indancesce", H: "Rattled"},
+		abilities: {0: "Intimidate", 1: "Incandesce", H: "Rattled"},
 	},
 	granbull: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Indancesce", H: "Rattled"},
+		abilities: {0: "Intimidate", 1: "Incandesce", H: "Rattled"},
 	},
 	// Quick Draw
 	cacnea: {
@@ -1255,10 +1227,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Rock Head", 1: "Daredevil", H: "Nostalgia Trip"},
 	},
-	lycanrocmidnight: {
-		inherit: true,
-		abilities: {0: "Daredevil", 1: "Vital Spirit", H: "No Guard"},
-	},
 	wattrel: {
 		inherit: true,
 		abilities: {0: "Wind Power", 1: "Volt Absorb", H: "Daredevil"},
@@ -1273,10 +1241,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 
 	// Light Metal
-	celesteela: {
-		inherit: true,
-		abilities: {0: "Beast Boost", H: "Light Metal"},
-	},
 	gimmighoul: {
 		inherit: true,
 		abilities: {0: "Rattled", H: "Light Metal"},
@@ -1393,18 +1357,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Fighting", "Ghost"],
 	},
 	// Moody
-	uxie: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Moody"},
-	},
-	mesprit: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Moody"},
-	},
-	azelf: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Moody"},
-	},
 	victini: {
 		inherit: true,
 		abilities: {0: "Victory Star", 1: "Moody", H: "Pyre"},
@@ -1414,10 +1366,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		abilities: {0: "Bulletproof", 1: "Soundproof", H: "Moody"},
 	},
 	// Sinistrous
-	guzzlord: {
-		inherit: true,
-		abilities: {0: "Beast Boost", H: "Sinistrous"},
-	},
 	deino: {
 		inherit: true,
 		abilities: {0: "Hustle", 1: "Unconcerned", H: "Sinistrous"},
@@ -1473,9 +1421,17 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Sand Stream", 1: "Moody", H: "Sand Force"},
 	},
+	gastly: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Life Stealer"},
+	},
+	haunter: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Life Stealer"},
+	},
 	gengar: {
 		inherit: true,
-		abilities: {0: "Levitate"},
+		abilities: {0: "Levitate", H: "Life Stealer"},
 	},
 	obstagoon: {
 		inherit: true,
@@ -1661,11 +1617,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		requiredItem: null,
 		requiredItems: ["Lopunnite", "Parallel Mega Orb"],
 	},
-	garchompmega: {
-		inherit: true,
-		requiredItem: null,
-		requiredItems: ["Garchompite", "Parallel Mega Orb"],
-	},
 	lucariomega: {
 		inherit: true,
 		requiredItem: null,
@@ -1729,15 +1680,15 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	litwick: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Infiltrator"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Life Stealer"},
 	},
 	lampent: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Infiltrator"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Life Stealer"},
 	},
 	chandelure: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Pyre", H: "Infiltrator"},
+		abilities: {0: "Flash Fire", 1: "Pyre", H: "Life Stealer"},
 	},
 	// Forewarn
 	fennekin: {
@@ -1991,10 +1942,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		types: ["Grass", "Fire"]
 	},
 	// Slate 8
+	shuppet: {
+		inherit: true,
+		abilities: {0: "Life Stealer", 1: "Frisk", H: "Run It Back"},
+	},
 	banette: {
 		inherit: true,
 		types: ["Ghost", "Normal"],
-		abilities: {0: "Insomnia", 1: "Frisk", H: "Run It Back"},
+		abilities: {0: "Life Stealer", 1: "Frisk", H: "Run It Back"},
 	},
 	banettemega: {
 		inherit: true,
@@ -2106,9 +2061,13 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		abilities: {0: "Keep Cool", 1: "Chlorophyll", H: "Storm Drain"},
 	},
+	misdreavus: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Life Stealer", H: "Keep Cool"},
+	},
 	mismagius: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Keep Cool"},
+		abilities: {0: "Levitate", 1: "Life Stealer", H: "Keep Cool"},
 	},
 	// Cotton Down
 	buneary: {
@@ -2143,5 +2102,261 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	glastrier: {
 		inherit: true,
 		abilities: {0: "Chilling Neigh", H: "Ice Body"},
+	},
+	// Slate 9
+	vaporeon: {
+		inherit: true,
+		types: ["Water", "Poison"],
+		abilities: {0: "Drizzle", H: "Lightning Rod"},
+	},
+	jolteon: {
+		inherit: true,
+		types: ["Electric", "Dark"],
+		abilities: {0: "Nostalgia Trip", H: "Regenerator"},
+	},
+	flareon: {
+		inherit: true,
+		types: ["Fire", "Normal"],
+		abilities: {0: "Fur Coat", H: "Magic Guard"},
+	},
+	espeon: {
+		inherit: true,
+		types: ["Psychic", "Steel"],
+		abilities: {0: "Trace", H: "Magic Bounce"},
+	},
+	leafeon: {
+		inherit: true,
+		types: ["Grass", "Fighting"],
+		abilities: {0: "Cotton Down", H: "Sharpness"},
+	},
+	sylveon: {
+		inherit: true,
+		types: ["Fairy", "Ghost"],
+		abilities: {0: "Bulletproof", H: "Pixilate"},
+	},
+	tapukoko: {
+		inherit: true,
+		abilities: {0: "Electric Surge", 1: "Shell Armor",  H: "Shield Dust"},
+	},
+	tapulele: {
+		inherit: true,
+		abilities: {0: "Psychic Surge", 1: "Shell Armor",  H: "Telepathy"},
+	},
+	tapubulu: {
+		inherit: true,
+		abilities: {0: "Grassy Surge", 1: "Shell Armor",  H: "Flower Veil"},
+	},
+	tapufini: {
+		inherit: true,
+		abilities: {0: "Misty Surge", 1: "Shell Armor",  H: "Comatose"},
+	},
+	zarude: {
+		inherit: true,
+		abilities: {0: "Route Closed", 1: "Flower Veil",  H: "Adaptability"},
+	},
+	zarudedada: {
+		inherit: true,
+		abilities: {0: "Route Closed", 1: "Flower Veil",  H: "Adaptability"},
+	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Prankster", H: "Pure Power"},
+	},
+	rotomheat: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Pyre"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Stench"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Snow Warning"},
+	},
+	rotomfan: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Magic Guard"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Evanesce", H: "Contrary"},
+	},
+	florges: {
+		inherit: true,
+		types: ["Fairy", "Ground"],
+		abilities: {0: "Misty Surge", 1: "Sap Sipper", H: "Hospitality"},
+	},
+	yamask: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		abilities: {0: "Mummy", 1: "Overcoat", H: "Honey Gather"},
+	},
+	cofagrigus: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		abilities: {0: "Mummy", 1: "Overcoat", H: "Honey Gather"},
+	},
+	runerigus: {
+		inherit: true,
+		abilities: {0: "Wandering Spirit", 1: "Nostalgia Trip", H: "Deliquesce"},
+	},
+	// Life Stealer
+	poltchageist: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
+	},
+	poltchageistartisan: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
+	},
+	sinistcha: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
+	},
+	sinistchamasterpiece: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Life Stealer", H: "Heatproof"},
+	},
+	spectrier: {
+		inherit: true,
+		abilities: {0: "Grim Neigh", H: "Life Stealer"},
+	},
+	// Northern Mist
+	amaura: {
+		inherit: true,
+		abilities: {0: "Refrigerate", 1: "Northern Mist", H: "Snow Warning"},
+	},
+	aurorus: {
+		inherit: true,
+		abilities: {0: "Refrigerate", 1: "Northern Mist", H: "Snow Warning"},
+	},
+	articuno: {
+		inherit: true,
+		abilities: {0: "Pressure", H: "Northern Mist"},
+	},
+	dewgong: {
+		inherit: true,
+		abilities: {0: "Thick Fat", 1: "Northern Mist", H: "Ice Body"},
+	},
+	lapras: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Shell Armor", H: "Northern Mist"},
+	},
+	suicune: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Northern Mist", H: "Inner Focus"},
+	},
+	// Slate 10
+	garchomp: {
+		inherit: true,
+		abilities: {0: "Skill Link", 1: "Levitate", H: "Rough Skin"},
+	},
+	garchompmega: {
+		inherit: true,
+		abilities: {0: "Unconcerned"},
+		requiredItem: null,
+		requiredItems: ["Garchompite", "Parallel Mega Orb"],
+	},
+	deoxys: {
+		inherit: true,
+		types: ["Psychic", "Normal"],
+		abilities: {0: "Moody", 1: "Trace", H: "Sturdy"},
+	},
+	deoxysattack: {
+		inherit: true,
+		types: ["Psychic", "Ground"],
+		abilities: {0: "Mold Breaker", 1: "Clear Body", H: "No Guard"},
+	},
+	deoxysdefense: {
+		inherit: true,
+		types: ["Psychic", "Steel"],
+		abilities: {0: "Pressure", 1: "Sticky Hold", H: "Natural Cure"},
+	},
+	deoxysspeed: {
+		inherit: true,
+		types: ["Psychic", "Poison"],
+		abilities: {0: "Unconcerned", 1: "Long Reach", H: "Shield Dust"},
+	},
+	empoleon: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Anticipation"},
+	},
+	floetteeternal: {
+		inherit: true,
+		types: ["Fairy", "Dark"],
+		abilities: {0: "Rock Head", H: "Trace"},
+	},
+	lycanroc: {
+		inherit: true,
+		types: ["Rock", "Steel"],
+		abilities: {0: "Armor Tail", 1: "Super Luck", H: "Sand Force"},
+	},
+	lycanrocmidnight: {
+		inherit: true,
+		types: ["Rock", "Ghost"],
+		abilities: {0: "Intimidate", 1: "No Guard", H: "Sand Stream"},
+	},
+	lycanrocdusk: {
+		inherit: true,
+		types: ["Rock", "Fighting"],
+		abilities: {0: "Moody", 1: "Tough Claws", H: "Sand Rush"},
+	},
+	buzzwole: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Dry Skin"},
+	},
+	pheromosa: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Velocity"},
+	},
+	xurkitree: {
+		inherit: true,
+		types: ["Electric", "Poison"],
+		abilities: {0: "Beast Boost", H: "Keep Cool"},
+	},
+	celesteela: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Heavy Metal"},
+	},
+	kartana: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Light Metal"},
+	},
+	guzzlord: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Sinistrous"},
+	},
+	poipole: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Speed Boost"},
+	},
+	naganadel: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Speed Boost"},
+	},
+	stakataka: {
+		inherit: true,
+		types: ["Steel"],
+		abilities: {0: "Beast Boost", H: "Magic Bounce"},
+	},
+	blacephalon: {
+		inherit: true,
+		abilities: {0: "Beast Boost", H: "Regenerator"},
+	},
+	uxie: {
+		inherit: true,
+		types: ["Psychic", "Steel"],
+		abilities: {0: "Levitate", 1: "Telepathy", H: "Moody"},
+	},
+	mesprit: {
+		inherit: true,
+		types: ["Psychic", "Poison"],
+		abilities: {0: "Levitate", 1: "Prankster", H: "Moody"},
+	},
+	azelf: {
+		inherit: true,
+		types: ["Psychic", "Fighting"],
+		abilities: {0: "Levitate", 1: "Karate", H: "Moody"},
 	},
 };

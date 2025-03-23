@@ -437,7 +437,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			crunch: ["9M"],
 			curse: ["9E"],
 			dig: ["9M"],
-			doubledge: ["9L60"],
+			doubleedge: ["9L60"],
 			earthquake: ["9M"],
 			endeavor: ["9E"],
 			flamethrower: ["9M"],

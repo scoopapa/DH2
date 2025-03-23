@@ -665,7 +665,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	richardpetty: {
 		name: "Richard Petty",
 		num: -73,
-		types: ["Normal"],
+		types: ["Normal", "Steel"],
 		baseStats: {hp: 43, atk: 43, def: 43, spa: 43, spd: 43, spe: 200},
 		abilities: {0: "Speed Boost", 1: "Steely Spirit", H: "Racer's Spirit"},
 		weightkg: 60.0,
@@ -1538,7 +1538,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	upvybones: {
 		num: -174,
 		name: "Upvybones",
-		types: ["Water", "Dark"],
+		types: ["Water", "Dark", "Fighting"],
 		baseStats: {hp: 94, atk: 108, def: 99, spa: 90, spd: 114, spe: 70},
 		abilities: {0: "Still Water"},
 		weightkg: 107.3,

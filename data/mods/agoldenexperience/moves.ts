@@ -1440,51 +1440,61 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			},
 		},
 	},
-	roaroftime: {
+	aeroblast: {
 		inherit: true,
-		accuracy: 95,
-		basePower: 100,
-		onHit() {
-			this.field.clearTerrain();
-			this.field.clearWeather();
+		accuracy: 100,
+		desc: "Has a higher chance for a critical hit, and a 20% chance to freeze the target.",
+		shortDesc: "High critical hit ratio. 20% chance to freeze the target.",
+		secondary: {
+			chance: 20,
+			status: 'frz',
 		},
-		onAfterSubDamage() {
-			this.field.clearTerrain();
-			this.field.clearWeather();
-		},
-		self: null,
-		desc: "Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, Psychic Terrain, Chakra Terrain, Snow, Hail, Sun, Rain, and Sand.",
-		shortDesc: "Ends the effects of terrain and weather.",
-		flags: { protect: 1, mirror: 1, metronome: 1 },
 	},
-	spacialrend: {
-		inherit: true,
-		critRatio: 1,
-		onAfterHit: function (target, source) {
-			this.field.removePseudoWeather('trickroom');
-			this.field.removePseudoWeather('magicroom');
-			this.field.removePseudoWeather('wonderroom');
-		},
-		desc: "Ends the effects of Trick Room, Magic Room, and Wonder Room.",
-		shortDesc: "Ends the effects of rooms",
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-	},
-	freezeshock: {
-		inherit: true,
-		flags: { protect: 1, mirror: 1, cantusetwice: 1 },
-		onTryMove(attacker, defender, move) {
-			return;
-		},
-		shortDesc: "Cannot be selected the turn after it's used.",
-	},
-	iceburn: {
-		inherit: true,
-		flags: { protect: 1, mirror: 1, cantusetwice: 1 },
-		onTryMove(attacker, defender, move) {
-			return;
-		},
-		shortDesc: "Cannot be selected the turn after it's used.",
-	},
+	// roaroftime: {
+	// 	inherit: true,
+	// 	accuracy: 95,
+	// 	basePower: 100,
+	// 	onHit() {
+	// 		this.field.clearTerrain();
+	// 		this.field.clearWeather();
+	// 	},
+	// 	onAfterSubDamage() {
+	// 		this.field.clearTerrain();
+	// 		this.field.clearWeather();
+	// 	},
+	// 	self: null,
+	// 	desc: "Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, Psychic Terrain, Chakra Terrain, Snow, Hail, Sun, Rain, and Sand.",
+	// 	shortDesc: "Ends the effects of terrain and weather.",
+	// 	flags: { protect: 1, mirror: 1, metronome: 1 },
+	// },
+	// spacialrend: {
+	// 	inherit: true,
+	// 	critRatio: 1,
+	// 	onAfterHit: function (target, source) {
+	// 		this.field.removePseudoWeather('trickroom');
+	// 		this.field.removePseudoWeather('magicroom');
+	// 		this.field.removePseudoWeather('wonderroom');
+	// 	},
+	// 	desc: "Ends the effects of Trick Room, Magic Room, and Wonder Room.",
+	// 	shortDesc: "Ends the effects of rooms",
+	// 	flags: { protect: 1, mirror: 1, metronome: 1 },
+	// },
+	// freezeshock: {
+	// 	inherit: true,
+	// 	flags: { protect: 1, mirror: 1, cantusetwice: 1 },
+	// 	onTryMove(attacker, defender, move) {
+	// 		return;
+	// 	},
+	// 	shortDesc: "Cannot be selected the turn after it's used.",
+	// },
+	// iceburn: {
+	// 	inherit: true,
+	// 	flags: { protect: 1, mirror: 1, cantusetwice: 1 },
+	// 	onTryMove(attacker, defender, move) {
+	// 		return;
+	// 	},
+	// 	shortDesc: "Cannot be selected the turn after it's used.",
+	// },
 	relicsong: {
 		inherit: true,
 		basePower: 95,
@@ -1507,38 +1517,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	prismaticlaser: {
 		inherit: true,
-		basePower: 130,
-		flags: { charge: 1, protect: 1, mirror: 1, metronome: 1 },
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name);
-			this.boost({ spa: 1 }, attacker, attacker, move);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
+		flags: { charge: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1 },
 		self: null,
-		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
-	},
-	eternabeam: {
-		inherit: true,
-		accuracy: 100,
-		basePower: 150,
-		flags: { protect: 1, mirror: 1 },
-		mindBlownRecoil: true,
-		onAfterMove(pokemon, target, move) {
-			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Eternabeam'), true);
-			}
-		},
-		self: null,
-		desc: "Whether or not this move is successful and even if it would cause fainting, the user loses 1/2 of its maximum HP, rounded up, unless the user has the Magic Guard Ability. This move is prevented from executing and the user does not lose HP if any active Pokemon has the Damp Ability.",
-		shortDesc: "User loses 50% max HP.",
+		shortDesc: "Cannot be selected the turn after it's used.",
+		desc: "Cannot be selected the turn after it's used.",
 	},
 	bouncybubble: {
 		inherit: true,
@@ -1568,6 +1550,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	glitzyglow: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "Lowers the target's Special Attack and Special Defense by 1 stage.",
 		shortDesc: "Lowers target's Sp. Atk, Sp. Def by 1.",
 		self: null,
@@ -1578,6 +1561,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	baddybad: {
 		inherit: true,
+		isNonstandard: null,
 		desc: "Lowers the target's Attack and Defense by 1 stage.",
 		shortDesc: "Lowers target's Atk, Def by 1.",
 		self: null,
@@ -2971,6 +2955,10 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "allAdjacent",
 		type: "Rock",
 		contestType: "Beautiful",
+	},
+	lightofruin: {
+		inherit: true,
+		isNonstandard: null,
 	},
 	// Everlasting Winter field
 	auroraveil: {

@@ -3067,6 +3067,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "Own Tempo"},
 		copyMoves: "Petilil",//??? i think?
 		movepoolAdditions: ["acrobatics", "aerialace", "airslash", "allyswitch", "defog", "fly", "gigaimpact", "grassyterrain", "hurricane", "hyperbeam", "leafblade", "lightscreen", "metronome", "quiverdance", "roleplay", "solarblade", "tailwind", "tropkick"],
+		movepoolDeletions: ["quiverdance"],
 		
 		prevo: "Petilil",
 		evoType: "useItem",

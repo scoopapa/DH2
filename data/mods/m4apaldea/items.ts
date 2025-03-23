@@ -503,4 +503,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Wo-Chien, this item allows it to Mega Evolve in battle.",
 	},
+	ludicolinite: { 
+		name: "Ludicolinite",
+		spritenum: 578,
+		megaStone: "Ludicolo-Mega",
+		megaEvolves: "Ludicolo",
+		itemUser: ["Ludicolo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2037,
+		gen: 9,
+		desc: "If held by a Ludicolo, this item allows it to Mega Evolve in battle.",
+	},
+	skeledite: { 
+		name: "Skeledite",
+		spritenum: 578,
+		megaStone: "Skeledirge-Mega",
+		megaEvolves: "Skeledirge",
+		itemUser: ["Skeledirge"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2038,
+		gen: 9,
+		desc: "If held by a Skeledirge, this item allows it to Mega Evolve in battle.",
+	},
+	belliboltite: { 
+		name: "Belliboltite",
+		spritenum: 578,
+		megaStone: "Bellibolt-Mega",
+		megaEvolves: "Bellibolt",
+		itemUser: ["Bellibolt"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2039,
+		gen: 9,
+		desc: "If held by a Bellibolt, this item allows it to Mega Evolve in battle.",
+	},
 };
