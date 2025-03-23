@@ -866,6 +866,22 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	// end
 
+	// start
+	hattlock: {
+		num: -1044,
+		name: "Hattlock",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 95, atk: 120, def: 145, spa: 60, spd: 75, spe: 65},
+		abilities: {0: "Poison Touch", 1: "Own Tempo", H: "Simple"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 10.0,
+		color: "Green",
+		eggGroups: ["Grass", "Fairy"],
+	//	creator: "PalpitoadChamp",
+	},
+	// end
+
 	// Changes
 	// start
 	shiftry: {
