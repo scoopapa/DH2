@@ -897,7 +897,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		num: -17,
 		desc: "If this Pokemon has a non-volatile status condition, its Sp. Attack is multiplied by 1.5. This Pokemon's special attacks ignore the frostbite effect of halving damage.",
-		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving physical damage.",
+		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving special damage.",
 	},
 	cottondown: {
 		inherit: true,
