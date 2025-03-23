@@ -423,7 +423,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 48,
 		name: "Yizolt",
 		types: ["Electric", "Fairy"],
-		baseStats: {hp: 75, atk: 95, def: 60, spa: 95, spd: 97, spe: 113},
+		baseStats: {hp: 75, atk: 95, def: 60, spa: 85, spd: 97, spe: 113},
 		abilities: {0: "Volt Absorb", 1: "Gluttony", H: "First Flight"},
 		weightkg: 42,
 	},
@@ -535,17 +535,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	swampertancient: {
 		num: 62,
 		species: "Swampert-Ancient",
-		baseSpecies: "Swampert",
-		forme: "Ancient",
 		types: ["Water", "Electric"],
 		baseStats: {hp: 90, atk: 91, def: 102, spa: 99, spd: 88, spe: 65},
 		abilities: {0: "Torrent", H: "Gooey"},
 	},
-	belliboltancient: {
+	bellibolttwisted: {
 		num: 63,
 		species: "Bellibolt-Ancient",
-		baseSpecies: "Bellibolt",
-		forme: "Ancient",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 109, atk: 64, def: 91, spa: 103, spd: 83, spe: 45},
 		abilities: {0: "Electromorphosis", 1: "Static", H: "Dry Skin"},
@@ -553,8 +549,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	salazzleancient: {
 		num: 64,
 		species: "Salazzle-Ancient",
-		baseSpecies: "Salazzle",
-		forme: "Ancient",
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 60, atk: 60, def: 69, spa: 108, spd: 69, spe: 114},
 		abilities: {0: "Oblivious", H: "Intimidate"},
