@@ -1845,10 +1845,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.hasType(move.type)) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "Non-STAB moves have 1.2x power.",
+		shortDesc: "Non-STAB moves have 1.5x power.",
 	},
 	galewings: {
 		inherit: true,
