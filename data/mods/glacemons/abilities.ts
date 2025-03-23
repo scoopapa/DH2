@@ -1162,6 +1162,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 53,
 	},
 	resourceful: {
+		//WIP
 		num: -25,
 		name: "Resourceful",
 		rating: 4,
