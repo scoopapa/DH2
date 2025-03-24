@@ -3198,7 +3198,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			shadowball: ["9M", "9M", "6M", "5M", "4M", "3M"],
 			skyattack: ["9T", "6T", "5T", "4T"],
 			sleeptalk: ["9M", "9M", "9V", "6M", "5T", "4M", "3T"],
-			sludgebomb: ["9M", "9M", "9S1", "6M", "5M", "4M", "4S0", "3M"],
 			snatch: ["9T", "6T", "5T", "4M", "3M"],
 			snore: ["9M", "9T", "9V", "6T", "5T", "4T", "3T"],
 			steelwing: ["9M", "9M", "9V", "6M", "4M", "3M"],
@@ -3217,7 +3216,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uproar: ["9M", "9T", "6T", "5T", "4T"],
 			uturn: ["9M", "9M", "6M", "5M", "4M"],
 			venomdrench: ["9M"],
-			venoshock: ["9M", "9L49", "9M", "9L43", "6M", "6L43", "5M"],
 			wingattack: ["9L13", "9V", "6L13", "5L19", "4L19", "3L21"],
 			xscissor: ["9M", "9M", "6M", "5M", "4M"],
 			zenheadbutt: ["9M", "9T", "6T", "5T", "4T"],
@@ -4087,7 +4085,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			yawn: ["9L1"],
 		},
 	},
-	belliboltancient: {
+	bellibolttwisted: {
 		learnset: {
 			bite: ["9L1"],
 			crunch: ["9L1"],
