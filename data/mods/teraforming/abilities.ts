@@ -227,11 +227,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onUpdate(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (pokemon.hp < pokemon.maxhp) {
-					if (!target.volatiles['torment']) {
+					if (!target.volatiles['torment'] && target !== pokemon) {
 						this.add('-ability', pokemon, 'Hunger Pains');
 						target.addVolatile('torment');
 					}
-					if (!target.volatiles['embargo']) {
+					if (!target.volatiles['embargo'] && target !== pokemon) {
 						this.add('-ability', pokemon, 'Hunger Pains');
 						target.addVolatile('embargo');
 					}
