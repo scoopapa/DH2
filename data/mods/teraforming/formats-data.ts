@@ -96,6 +96,21 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	farigiraftera: {
 		tier: "Tera",
 	},
+	snorlaxtera: {
+		tier: "Tera",
+	},
+	/*leavannytera: {
+		tier: "Tera",
+	},*/
+	ironcrowntera: {
+		tier: "Tera",
+	},
+	palafintera: {
+		tier: "Tera",
+	},
+	palafinherotera: {
+		tier: "Tera",
+	},
 	
 	// Other
 	bulbasaur: {
