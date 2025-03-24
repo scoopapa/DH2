@@ -708,6 +708,38 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	},
 	
 	// start
+	autotomize: {
+		num: 475,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	//	isNonstandard: "Past",
+		name: "Autotomize",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onTryHit(pokemon) {
+			const hasContrary = pokemon.hasAbility('contrary');
+			if ((!hasContrary && pokemon.boosts.spe === 6) || (hasContrary && pokemon.boosts.spe === -6)) {
+				return false;
+			}
+		},
+		boosts: {
+			spe: 2,
+		},
+		onHit(pokemon) {
+			if (pokemon.weighthg > 1) {
+				pokemon.weighthg = Math.max(1, pokemon.weighthg - 1000);
+				this.add('-start', pokemon, 'Autotomize');
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	//
 	belch: {
 		num: 562,
 		accuracy: 90,
@@ -1506,6 +1538,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Poison",
 	},
 	//
+	purify: {
+		num: 685,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	//	isNonstandard: "Past",
+		name: "Purify",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, heal: 1, metronome: 1},
+		onHit(target, source) {
+			if (!target.cureStatus()) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return this.NOT_FAIL;
+			}
+			this.heal(Math.ceil(source.maxhp * 0.5), source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	//
 	rapidspin: {
 		num: 229,
 		accuracy: 100,
@@ -1558,6 +1615,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+	},
+	//
+	sharpen: {
+		num: 159,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	//	isNonstandard: "Past",
+		name: "Sharpen",
+		pp: 30,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			atk: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cute",
 	},
 	//
 	smackdown: {
