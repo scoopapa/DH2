@@ -202,6 +202,56 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		shortDesc: "This Pokemon's Sp. Def is 1.5x, but it can only select damaging moves.",
 	},
+	superioritycomplex: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (!this.queue.willMove(target) || !target.newlySwitched) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Superiority Complex boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		flags: {},
+		name: "Superiority Complex",
+		rating: 2.5,
+		shortDesc: "This Pokemon's attacks have 1.3x power if it is the first to move in a turn.",
+	},
+	hungerpains: {
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (pokemon.hp < pokemon.maxhp) {
+					if (!target.volatiles['torment']) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.addVolatile('torment');
+					}
+					if (!target.volatiles['embargo']) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.addVolatile('embargo');
+					}
+				} else if (pokemon.hp >= pokemon.maxhp) {
+					if (target.volatiles['torment']) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.removeVolatile('torment');
+					}
+					if (target.volatiles['embargo']) {
+						this.add('-ability', pokemon, 'Hunger Pains');
+						target.removeVolatile('embargo');
+					}
+				}
+			}
+		},
+		flags: {breakable: 1},
+		name: "Hunger Pains",
+		rating: 2,
+		shortDesc: "While this Pokemon is active and its HP isn't full, all other Pokemon are affected by Torment and Embargo.",
+	},
 
 	// vanillabilities
 	guarddog: {
