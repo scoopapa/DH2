@@ -3092,7 +3092,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	tinkaton: {
 		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Sheer Force"},
+		abilities: {0: "Mold Breaker", 1: "Sheer Force", H: "Pickpocket"},
 	},
 	wiglett: {
 		inherit: true,
