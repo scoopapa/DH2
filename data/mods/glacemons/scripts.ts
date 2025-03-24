@@ -2975,6 +2975,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'flapple').learnset.syrupbomb = ['9M'];
 		this.modData('Learnsets', 'shuckle').learnset.syrupbomb = ['9M'];
 		this.modData('Learnsets', 'slurpuff').learnset.syrupbomb = ['9M'];
-		this.modData('Learnsets', 'toedcool').learnset.syrupbomb = ['9M'];
+		this.modData('Learnsets', 'toedscool').learnset.syrupbomb = ['9M'];
 	}
 };
