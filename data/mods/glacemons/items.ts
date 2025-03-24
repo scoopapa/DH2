@@ -1896,4 +1896,45 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
 	},
+	cursedfeather: {
+		name: "Cursed Feather",
+		spritenum: 754,
+		fling: {
+			basePower: 80,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.status || source.hasAbility('comatose')) {
+				return this.chainModify([5324, 4096]);
+			}
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status || pokemon.hasAbility('comatose')) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa) {
+			if (pokemon.status === 'frz') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpe(spe) {
+			if (pokemon.status === 'par') {
+				return this.chainModify(2);
+			}
+		},
+		num: -30,
+		gen: 9,
+		rating: 3,
+		desc: "",
+		shortDesc: "",
+	},
 };

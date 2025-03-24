@@ -897,7 +897,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		num: -17,
 		desc: "If this Pokemon has a non-volatile status condition, its Sp. Attack is multiplied by 1.5. This Pokemon's special attacks ignore the frostbite effect of halving damage.",
-		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving physical damage.",
+		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving special damage.",
 	},
 	cottondown: {
 		inherit: true,
@@ -1140,6 +1140,37 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Savage",
 		rating: 4,
 		num: -24,
+	},
+	pickup: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon === target
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Pickup');
+			pokemon.setItem(item);
+		},
+		flags: {},
+		name: "Pickup",
+		rating: 0.5,
+		num: 53,
+	},
+	resourceful: {
+		//WIP
+		num: -25,
+		name: "Resourceful",
+		rating: 4,
+		desc: "If this Pokémon's item would trigger, it triggers again. Once per battle, if this Pokémon's item would be consumed, it isn't.",
+		shortDesc: "Items trigger twice, and can avoid being consumed once.",
+		//onTakeItem(item, pokemon, source) {
+		//	
+		//},
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {

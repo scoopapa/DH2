@@ -2001,4 +2001,62 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		desc: "Has a 10% chance to confuse the target.",
 		shortDesc: "10% chance to confuse the target.",
 	},
+	skyuppercut: {
+		inherit: true,
+		basePower: 95,
+		accuracy: 100,
+		onAfterMove(target, source, move) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (target.side.getSideCondition(condition)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					return;
+				}
+			}
+		},
+	},
+	bonfire: {
+		num: -36,
+		accuracy: 100,
+		basePower: 60,
+		category: 'Special',
+		name: 'Bonfire',
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		onModifyBasePowerPriority: 22,
+		onModifyBasePower(basePower, attacker, defender, move) {
+			let bonfireBP = 0
+			for (const ally of attacker.side.pokemon) {
+				for (const moveSlot of attacker.moveSlots) {
+					if (moveSlot.name === 'Bonfire') {
+						bonfireBP += 20
+					}
+				}
+			}
+			move.basePower += bonfireBP
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	kiblast: {
+		num: -37,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
+		contestType: "Cool",
+	},
 };
