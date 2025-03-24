@@ -541,7 +541,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	bellibolttwisted: {
 		num: 63,
-		name: "Bellibolt-Ancient",
+		name: "Bellibolt-Twisted",
 		types: ["Electric", "Dark"],
 		baseStats: {hp: 109, atk: 64, def: 91, spa: 103, spd: 83, spe: 45},
 		abilities: {0: "Electromorphosis", 1: "Static", H: "Dry Skin"},
