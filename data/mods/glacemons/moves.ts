@@ -1840,16 +1840,19 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	// Slate 10
 	skyuppercut: {
 		inherit: true,
-		accuracy: 100,
 		basePower: 95,
+		accuracy: 100,
 		onAfterMove(target, source, move) {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			if (target !== source && move.category !== 'Status' && move.totalDamage) {
-				this.damage(source.baseMaxhp / 8, source, target);
+			for (const condition of sideConditions) {
+				if (target.side.getSideCondition(condition)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					return;
+				}
 			}
 		},
-		desc: "(WIP) Inflicts 1/8 max HP if hazards are up.",
-		shortDesc: "(WIP) Inflicts 1/8 max HP if hazards are up.",
+		desc: "Inflicts 1/8 max HP if hazards are up.",
+		shortDesc: "Inflicts 1/8 max HP if hazards are up.",
 	},
 	blackout: {
 		num: -30,
@@ -2000,20 +2003,6 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Rock",
 		desc: "Has a 10% chance to confuse the target.",
 		shortDesc: "10% chance to confuse the target.",
-	},
-	skyuppercut: {
-		inherit: true,
-		basePower: 95,
-		accuracy: 100,
-		onAfterMove(target, source, move) {
-			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			for (const condition of sideConditions) {
-				if (target.side.getSideCondition(condition)) {
-					this.damage(source.baseMaxhp / 8, source, target);
-					return;
-				}
-			}
-		},
 	},
 	bonfire: {
 		num: -36,
