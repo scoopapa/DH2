@@ -205,15 +205,29 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	superioritycomplex: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
-			let boosted = true;
+			let boosted = false;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
-				if (!this.queue.willMove(target) || !target.newlySwitched) {
-					boosted = false;
+				if (this.queue.willMove(target)) {
+					boosted = true;
 					break;
 				}
 			}
 			if (boosted) {
+				this.debug('Superiority Complex boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Superiority Complex boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (!defender.activeTurns) {
 				this.debug('Superiority Complex boost');
 				return this.chainModify([5325, 4096]);
 			}
