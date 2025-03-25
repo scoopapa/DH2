@@ -99,9 +99,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	snorlaxtera: {
 		tier: "Tera",
 	},
-	/*leavannytera: {
+	leavannytera: {
 		tier: "Tera",
-	},*/
+	},
 	ironcrowntera: {
 		tier: "Tera",
 	},
