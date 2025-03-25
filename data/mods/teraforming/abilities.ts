@@ -261,10 +261,30 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 		},
-		flags: {breakable: 1},
+		flags: {},
 		name: "Hunger Pains",
 		rating: 2,
 		shortDesc: "While this Pokemon is active and its HP isn't full, all other Pokemon are affected by Torment and Embargo.",
+	},
+	martialmom: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Martial Mom boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Martial Mom boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Martial Mom",
+		rating: 3.5,
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Fighting-type attack.",
 	},
 
 	// vanillabilities
