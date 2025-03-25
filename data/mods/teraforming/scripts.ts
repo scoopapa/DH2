@@ -69,6 +69,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ironcrown").learnset.thunderwave = ["9L1"];
 		this.modData("Learnsets", "ironcrown").learnset.psychicterrain = ["9L1"];
 		this.modData("Learnsets", "snorlax").learnset.gyroball = ["9L1"];
+		this.modData("Learnsets", "leavanny").learnset.vacuumwave = ["9L1"];
+		this.modData("Learnsets", "leavanny").learnset.upperhand = ["9L1"];
+		this.modData("Learnsets", "leavanny").learnset.shadowball = ["9L1"];
+		this.modData("Learnsets", "leavanny").learnset.taunt = ["9L1"];
 	},
 	actions: {
 		inherit: true,
