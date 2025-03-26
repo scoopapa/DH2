@@ -445,4 +445,31 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	zerotohero: {
+		onSwitchOut(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
+			if (pokemon.terastallized) return;
+			if (pokemon.species.forme !== 'Hero') {
+				pokemon.formeChange('Palafin-Hero', this.effect, true);
+			}
+		},
+		onSwitchIn() {
+			if (pokemon.terastallized) return;
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (!this.effectState.switchingIn) return;
+			if (pokemon.terastallized) return;
+			this.effectState.switchingIn = false;
+			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
+			if (!this.effectState.heroMessageDisplayed && pokemon.species.forme === 'Hero') {
+				this.add('-activate', pokemon, 'ability: Zero to Hero');
+				this.effectState.heroMessageDisplayed = true;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
+		name: "Zero to Hero",
+		rating: 5,
+		num: 278,
+	},
 };
