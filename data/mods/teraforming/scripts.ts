@@ -262,11 +262,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 				if (pokemon.species.forme === 'Tera') {
 					pokemon.setAbility('waterbubble', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Water Bubble');
+					this.battle.add('-activate', pokemon, 'ability: Water Bubble');
 				}
 				if (pokemon.species.forme === 'Hero-Tera') {
 					pokemon.setAbility('justified', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Justified');
+					this.battle.add('-activate', pokemon, 'ability: Justified');
 				}
 			}
 			if (pokemon.species.baseSpecies === 'Leavanny') {
