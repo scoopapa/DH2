@@ -444,7 +444,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onSwitchIn() {
-			if (pokemon.terastallized) return;
 			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
