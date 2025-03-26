@@ -1803,6 +1803,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'klawf').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'sandile').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'rockruff').learnset.millstone = ['9L1'];
+		this.modData('Learnsets', 'rockruffdusk').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'magcargo').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'mudbray').learnset.millstone = ['9L1'];
 		this.modData('Learnsets', 'nidoking').learnset.millstone = ['9L1'];

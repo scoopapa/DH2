@@ -1129,6 +1129,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		onPreStart(pokemon) {
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			pokemon.removeVolatile('gastroacid');
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
 		num: -15,

@@ -1869,7 +1869,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Daze", target);
 		},
@@ -1894,7 +1894,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hypnosis", target);
 			this.add('-anim', source, "Psycho Boost", target);
@@ -1910,12 +1910,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
-		name: "Blackout",
+		name: "Syrup Bomb",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		sideCondition: 'grasspledge',
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sludge Bomb", target);
 		},
@@ -1957,7 +1957,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-start', source, 'move: Foul Future');
 			return this.NOT_FAIL;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Jab", target);
 		},
@@ -1977,7 +1977,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dazzling Gleam", target);
 		},
@@ -1988,7 +1988,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 		target: "normal",
-		shortDesc: "Creates a Swamp on the opponent's side of the field.",
+		shortDesc: "30% chance to lower target's SpA by 1.",
 		type: "Fairy",
 		contestType: "Cute",
 	},
@@ -2029,6 +2029,10 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				}
 			}
 			move.basePower += bonfireBP
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Wheel", target);
 		},
 		secondary: null,
 		target: "normal",
