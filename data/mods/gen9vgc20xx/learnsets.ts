@@ -275,7 +275,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		recycle: ["9M"],
 		refresh: ["9M"],
 		rest: ["9M"],
-		rolerole: ["9M"],
+		roleplay: ["9M"],
 		round: ["9M"],
 		seedbomb: ["9M"],
 		seismictoss: ["9M"],
