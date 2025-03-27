@@ -203,7 +203,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		bodyslam: ["9M"],
 		brutalswing: ["9M"],
 		bulldoze: ["9M"],
-		bulletSeed: ["9M"],
+		bulletseed: ["9M"],
 		camouflage: ["9M"],
 		clearsmog: ["9M"],
 		confide: ["9M"],
