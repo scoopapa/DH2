@@ -1,6 +1,7 @@
 import {Pokemon} from '../../../sim/pokemon';
 import {FS} from '../../../lib';
 import {toID} from '../../../sim/dex-data';
+import {randbats} from '../../random-battles/gen9/teams.ts';
 const usergroups: {[userid: string]: string} = {};
 const usergroupData = FS('config/usergroups.csv').readIfExistsSync().split('\n');
 for (const row of usergroupData) {
@@ -2920,4 +2921,280 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Salt The Wound",
 		//shortDesc: "Trapped opponents deal damage to this Pokemon with a halved attacking stat; can't be statused.",
 	},
+
+	stillstanding: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Still Standing');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.status && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Still Standing');
+				return target.hp - 1;
+			}
+		},
+		flags: {},
+		name: "Still Standing",
+		//shortDesc: "Guts + if this Pokemon has a status, it lives any attack at 1 HP.",
+	},
+	wokemindvirus: {
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+
+			if (this.randomChance(3, 10)) {
+				target.addVolatile('wokemindvirus');
+			}
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.effectState.virusTurns = 0;
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'wokemindvirus' + this.effectState.bestStat, '[silent]');
+			},
+			onResidual(pokemon) {
+				this.effectState.virusTurns ++;
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk') return;
+				this.debug('Protosynthesis atk boost');
+				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def') return;
+				this.debug('Protosynthesis def boost');
+				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa') return;
+				this.debug('Protosynthesis spa boost');
+				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd') return;
+				this.debug('Protosynthesis spd boost');
+				return this.chainModify(1 - 0.3 * Math.pow(2, this.effectState.virusTurns));
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe') return;
+				this.debug('Protosynthesis spe boost');
+				return this.chainModify(1 - 0.5 * Math.pow(2, this.effectState.virusTurns));
+			},
+			onEnd(pokemon) {
+				this.effectState.virusTurns = 0;
+			},
+			onSwitchOut(pokemon) {
+				this.effectState.virusTurns = 0;
+			},
+		},
+		flags: {},
+		name: "Woke Mind Virus",
+		//shortDesc: "This Pokemon's attacks have a 30% chance of inflicting Woke Mind Virus.",
+	},
+	sketcher: {
+		name: "Sketcher",
+		onDeductPP(target, source) {
+			const moveSlot = source.lastMove;
+			if (moveSlot === null || target.hasMove(moveSlot)) return;
+			this.attrLastMove('[still]');
+			if (source.moveSlots.length < 0) return false;
+			const learnedMove = {
+				move: this.dex.moves.get(moveSlot.id),
+				id: moveSlot.id,
+				pp: moveSlot.pp,
+				maxpp: moveSlot.pp,
+				target: moveSlot.target,
+				disabled: false,
+				used: false,
+			};
+			target.moveSlots[target.moveSlots.length] = learnedMove;
+			target.baseMoveSlots[target.moveSlots.length - 1] = learnedMove;
+		},
+		//shortDesc: "When this Pokemon is targeted by a move, it adds that move to its moveset.",
+	},
+	epidemiologist: {
+		onStart(pokemon) {
+			let warnMoves: (Move | Pokemon)[][] = [];
+			let warnBp = 1;
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					let bp = move.basePower;
+					if (move.ohko) bp = 150;
+					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
+					if (bp === 1) bp = 80;
+					if (!bp && move.category !== 'Status') bp = 80;
+					if (bp > warnBp) {
+						warnMoves = [[move, target]];
+						warnBp = bp;
+					} else if (bp === warnBp) {
+						warnMoves.push([move, target]);
+					}
+				}
+			}
+			if (!warnMoves.length) return;
+			const [warnMoveName, warnTarget] = this.sample(warnMoves);
+			warnTarget.strongestMove = warnMoveName;
+			warnTarget.addVolatile('epidemiologist');
+		},
+		condition: {
+			onBasePowerPriority: 19,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.name === attacker.strongestMove.name) {
+					return 0;
+				}
+			},
+		},
+		flags: {},
+		name: "Epidemiologist",
+		//shortDesc: "On switchin, the foe's highest power move has its BP set to 0.",
+	},
+	badbees: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.effectiveWeather() === 'alotofbees') {
+					this.damage(target.baseMaxhp / 8, target, pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Bad Bees",
+		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.,
+	},
+	allforone: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (target !== source && move.category !== 'Status') {
+				target.addVolatile('gastroacid');
+				source.addVolatile('ability:' + target.getAbility().id);
+			}
+		},
+		flags: {},
+		name: "All For One",
+		//shortDesc: "This Pokemon steals the ability of targets it damages with an attack.",
+	},
+	seeingstars: {
+		onModifyMove(move) {
+			if (move.id === 'watershuriken') move.multihit = 12;
+		},
+		flags: {},
+		name: "Seeing Stars",
+		//shortDesc: "This Pokemon's Water Shuriken hits 12 times.",
+	},
+	flightresponse: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.boost({ evasion: 1, accuracy: -2 }, target, target);
+			}
+		},
+		flags: {},
+		name: "Flight Response",
+		shortDesc: "When this Pokemon is damaged by a physical attack, evasion +1, accuracy -2.",
+	},
+	grumpossaurus: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['grumpossaurus']) pokemon.removeVolatile('grumpossaurus');
+			pokemon.addVolatile('grumpossaurus');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				const stat = ['atk', 'def', 'spa', 'spd', 'spe'];
+				this.effectState.boostedStat = this.sample(stat);
+				this.add('-start', pokemon, 'grumpossaurus' + this.effectState.boostedStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.boostedStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.boostedStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.boostedStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.boostedStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.boostedStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Protosynthesis spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'grumpossaurusatk', '[silent]');
+				this.add('-end', pokemon, 'grumpossaurusdef', '[silent]');
+				this.add('-end', pokemon, 'grumpossaurusspa', '[silent]');
+				this.add('-end', pokemon, 'grumpossaurusspd', '[silent]');
+				this.add('-end', pokemon, 'grumpossaurusspe', '[silent]');
+			},
+		},
+		flags: {},
+		name: "Grumpossaurus",
+		//shortDesc: "At the end of each turn, this Pokemon gains a Protosynthesis boost to a random non-HP stat.",
+	},
+	genemegamix: {
+		onStart(pokemon) {
+			const pokemonList = isDoubles ? Object.keys(randbats.randomDoublesSets) : Object.keys(randbats.randomSets);
+			const [pokemonPool, baseSpeciesPool] = randbats.getPokemonPool(type, [], isMonotype, pokemonList);
+			console.log(pokemonPool);
+			const newPokemon = this.sample(pokemonPool);
+			console.log(newPokemon);
+			pokemon.formeChange(newPokemon);
+		},
+		flags: {},
+		name: "Gene Megamix",
+		//shortDesc: "Defiant + Competitive",
+	},
+	inflation: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({ atk: 2, spa: 2 }, target, target, null, false, true);
+			}
+		},
+		flags: {},
+		name: "Inflation",
+		//shortDesc: "Defiant + Competitive",
+	},
+	
 };

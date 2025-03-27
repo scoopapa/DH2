@@ -3315,6 +3315,16 @@ export const Formats: FormatList = [
 		ruleset: ['Data Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 	},
 	{
+		name: "[Gen 9] Fusion Evolution Corrupt Council 2",
+
+		mod: 'fecc',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+	{
 		name: "[Gen 9] Fusion Evolution Dondozo",
 		mod: 'dondozo',
 		desc: `dondozo`,
