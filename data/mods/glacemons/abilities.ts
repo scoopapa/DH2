@@ -1004,6 +1004,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
 		},
+		name: "Northern Mist",
 		shortDesc: "On switch in, creates mist. When the user is under Mist the user is immune to secondary effects and takes 2/3 damage from non contact moves",
 	},
 	lifestealer: {
