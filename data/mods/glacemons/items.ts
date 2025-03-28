@@ -1916,18 +1916,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			}
 		},
 		onModifyAtkPriority: 5,
-		onModifyAtk(atk) {
+		onModifyAtk(atk, pokemon) {
 			if (pokemon.status === 'brn') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(spa) {
+		onModifySpA(spa, pokemon) {
 			if (pokemon.status === 'frz') {
 				return this.chainModify(2);
 			}
 		},
-		onModifySpe(spe) {
+		onModifySpe(spe, pokemon) {
 			if (pokemon.status === 'par') {
 				return this.chainModify(2);
 			}
