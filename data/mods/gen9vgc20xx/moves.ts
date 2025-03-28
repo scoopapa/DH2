@@ -604,7 +604,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Close Combat", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
 	},
