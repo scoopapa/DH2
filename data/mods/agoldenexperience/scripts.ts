@@ -347,6 +347,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'annoyog').learnset.swarming = ['9L1'];
     this.modData('Learnsets', 'accelgor').learnset.swarming = ['9L1'];
     this.modData('Learnsets', 'parasect').learnset.swarming = ['9L1'];
+    this.modData('Learnsets', 'vikavolt').learnset.swarming = ['9L1'];
     this.modData('Learnsets', 'slitherwing').learnset.swarming = ['9L1'];
 
     // underdog 
@@ -762,6 +763,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'annihilape').learnset.punishingblow = ['9L1'];
     this.modData('Learnsets', 'slendawful').learnset.punishingblow = ['9L1'];
     this.modData('Learnsets', 'paranormear').learnset.punishingblow = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.punishingblow = ['9M'];
     this.modData('Learnsets', 'trevenant').learnset.punishingblow = ['9M'];
 
     // condensate 
@@ -1523,6 +1525,13 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'vanilluxe').learnset.hydropump = ['9L1'];
     this.modData('Learnsets', 'vanilluxe').learnset.surf = ['9L1'];
     this.modData('Learnsets', 'sawsbuck').learnset.highhorsepower = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.flareblitz = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.flamecharge = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.iceshard = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.iciclecrash = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.tripleaxel = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.poltergeist = ['9L1'];
+    this.modData('Learnsets', 'sawsbuck').learnset.shadowsneak = ['9L1'];
     this.modData('Learnsets', 'escavalier').learnset.firstimpression = ['9L1'];
     this.modData('Learnsets', 'escavalier').learnset.horndrill = ['9L1'];
     this.modData('Learnsets', 'escavalier').learnset.headlongrush = ['9L1'];
@@ -1602,6 +1611,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'brionne').learnset.sonicboom = ['9L1'];
     this.modData('Learnsets', 'primarina').learnset.sonicboom = ['9L1'];
     this.modData('Learnsets', 'gumshoos').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'vikavolt').learnset.electroshot = ['9L1'];
     this.modData('Learnsets', 'crabominable').learnset.mountaingale = ['9L1'];
     this.modData('Learnsets', 'crabominable').learnset.iceshard = ['9L1'];
     this.modData('Learnsets', 'crabominable').learnset.hammerarm = ['9L1'];
