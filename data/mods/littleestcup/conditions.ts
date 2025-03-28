@@ -618,6 +618,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source?.hasItem('smoothrock')) {
 				return 8;
 			}
+			if (effect?.name === "Hail") {
+				return 1000;
+			}
 			return 5;
 		},
 		// This should be applied directly to the stat before any of the other modifiers are chained

@@ -2135,12 +2135,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
-		shortDesc: "Hits 2-5 times in one turn.",
+		shortDesc: "Hits 2 times in one turn. User switches.",
 		name: "Bullet Seed",
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		multihit: [2, 5],
+		multihit: 2,
+		selfSwitch: true,
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -2661,20 +2662,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "User loses 33% of its max HP. +1 to all stats.",
+		shortDesc: "User loses 3% of its max HP. +1 to all stats.",
 		name: "Clangorous Soul",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, sound: 1, dance: 1},
 		onTry(source) {
-			if (source.hp <= (source.maxhp * 33 / 100) || source.maxhp === 1) return false;
+			if (source.hp <= (source.maxhp * 3 / 100) || source.maxhp === 1) return false;
 		},
 		onTryHit(pokemon, target, move) {
 			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
 			delete move.boosts;
 		},
 		onHit(pokemon) {
-			this.directDamage(pokemon.maxhp * 33 / 100);
+			this.directDamage(pokemon.maxhp * 3 / 100);
 		},
 		boosts: {
 			atk: 1,
@@ -4221,14 +4222,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 	doublekick: {
 		num: 24,
 		accuracy: 100,
-		basePower: 30,
+		basePower: 40,
 		category: "Physical",
-		shortDesc: "Hits 2 times in one turn.",
+		shortDesc: "Hits 3 times in one turn.",
 		name: "Double Kick",
 		pp: 30,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		multihit: 2,
+		multihit: 3,
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
@@ -7075,13 +7076,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Physical",
-		shortDesc: "User cannot move next turn.",
+		shortDesc: "User cannot move next turn, unless this move KOs a target.",
 		name: "Giga Impact",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, recharge: 1, protect: 1, mirror: 1, metronome: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
+		onHit(target, source) {
+			if (target.hp) {
+				source.addVolatile('mustrecharge');
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -8653,13 +8656,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "For 5 turns, hail crashes down, damaging non-Ice.",
+		shortDesc: "For 1000 turns, a sandstorm rages. Rock: 1.5x SpD.",
 		isNonstandard: "Past",
 		name: "Hail",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1},
-		weather: 'hail',
+		weather: 'sandstorm',
 		secondary: null,
 		target: "all",
 		type: "Ice",
@@ -12664,17 +12667,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	milkdrink: {
+	milkdrink: { // do this later
 		num: 208,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Heals the user by 50% of its max HP.",
+		shortDesc: "User heals 50% of its max HP all of its teammates.",
 		name: "Milk Drink",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1, 2],
+		onHit(target) {
+			for (const pokemon of target.side.pokemon) {
+				this.effectState.hp = pokemon.maxhp / 2;
+				const damage = this.heal(this.effectState.hp, pokemon, pokemon);
+				if (damage) {
+					this.add('-heal', pokemon, pokemon.getHealth, '[from] move: Milk Drink', '[wisher] ');
+				}
+			}
+		},
 		secondary: null,
 		target: "self",
 		type: "Normal",
@@ -16457,14 +16469,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Physical",
-		shortDesc: "User cannot move next turn.",
+		shortDesc: "User can move next turn.",
 		name: "Rock Wrecker",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, metronome: 1, bullet: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
-		},
 		secondary: null,
 		target: "normal",
 		type: "Rock",
@@ -17868,6 +17877,39 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
+	skatch: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User uses all of the foe's moves.",
+		name: "Skatch",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {
+			bypasssub: 1, allyanim: 1, failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1,
+		},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baton Pass", target);
+		},
+		onHit(target, source) {
+			const move1 = this.dex.moves.get(target.moveSlots[0].id);
+			const move2 = this.dex.moves.get(target.moveSlots[1].id);
+			const move3 = this.dex.moves.get(target.moveSlots[2].id);
+			const move4 = this.dex.moves.get(target.moveSlots[3].id);
+			this.actions.useMove(move1, source);
+			this.actions.useMove(move2, source);
+			this.actions.useMove(move3, source);
+			this.actions.useMove(move4, source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
 	skillswap: {
 		num: 285,
 		accuracy: true,
@@ -19156,28 +19198,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Target's foes' moves are redirected to it this turn.",
+		shortDesc: "Targets' moves are redirected to it this turn.",
 		isNonstandard: "Past",
 		name: "Spotlight",
 		pp: 15,
 		priority: 3,
 		flags: {protect: 1, reflectable: 1, allyanim: 1, noassist: 1, failcopycat: 1},
 		volatileStatus: 'spotlight',
-		onTryHit(target) {
+		/*onTryHit(target) {
 			if (this.activePerHalf === 1) return false;
-		},
+		},*/
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
 				this.add('-singleturn', pokemon, 'move: Spotlight');
 			},
-			onFoeRedirectTargetPriority: 2,
+  			onModifyMove(move, pokemon) {
+				move.target = 'self';
+			},
+			/*onFoeRedirectTargetPriority: 2,
 			onFoeRedirectTarget(target, source, source2, move) {
 				if (this.validTarget(this.effectState.target, source, move.target)) {
 					this.debug("Spotlight redirected target of move");
 					return this.effectState.target;
 				}
-			},
+			},*/
 		},
 		secondary: null,
 		target: "normal",
@@ -21598,12 +21643,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 30,
 		category: "Physical",
-		shortDesc: "Hits 3 times.",
+		shortDesc: "Hits 13 times.",
 		name: "Triple Dive",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		multihit: 3,
+		multihit: 13,
 		secondary: null,
 		target: "normal",
 		type: "Water",
