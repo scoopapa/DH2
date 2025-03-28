@@ -1,7 +1,7 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	eruptive: { // Volcanic Aurorus
 		onDamagingHit(damage, target, source, move) {
-			if (target.volatiles['twoturnmove']) {
+			if (target.volatiles['twoturnmove'] && (target.volatiles['twoturnmove'].duration > 1 || this.queue.willMove(target))) {
 				source.trySetStatus('brn', target);
 			}
 		},
