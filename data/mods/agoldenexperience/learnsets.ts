@@ -4232,6 +4232,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			heatcrash: ["9L1"],
 			wildcharge: ["9L1"],
 			highhorsepower: ["9L1"],
+			backfire: ["9L1"],
 		},
 	},
 	hydrookie: {
