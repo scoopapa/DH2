@@ -41,6 +41,23 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: -1000, // It doesn't seem like Honey item is on DH.. So, it's technically considered a new item here, I guess...
 		gen: 9,
 	},
+	//
+	ancientarmor: {
+		name: "Ancient Armor",
+		spritenum: 581,
+		fling: {
+			basePower: 80,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Ancient Armor neutralize');
+				return this.chainModify(0.75);
+			}
+	   },
+		num: -1001,
+		desc: "User receives 25% less damage from a super effective move.",
+	},
+	// end
 	
 	zoomlens: {
 		name: "Zoom Lens",
