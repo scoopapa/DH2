@@ -59,6 +59,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	ledyba: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	ledian: {
+		tier: "VGC NFE",
+		doublesTier: "VGC NFE",
+	},
+	ledellar: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	scyther: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -140,6 +152,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC",
 	},
 	metagrossprime: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	intestinorm: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
@@ -411,6 +427,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	qullumen: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	makuhita: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",
@@ -456,6 +476,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "VGC NFE",
 	},
 	stoutland: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
+	conotox: {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
