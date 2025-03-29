@@ -3866,7 +3866,6 @@ export const Learnsets = {
 		learnset: {
 			aurasphere: ["9L1"],
 			focusblast: ["9L1"],
-			calmmind: ["9L1"],
 			beatup: ["9L1"],
 			fierywrath: ["9L1"],
 			suckerpunch: ["9L1"],
@@ -3909,7 +3908,6 @@ export const Learnsets = {
 			toxic: ["9L1"],
 			toxicspikes: ["9L1"],
 			amnesia: ["9L1"],
-			calmmind: ["9L1"],
 			lightscreen: ["9L1"],
 			psychicterrain: ["9L1"],
 			sunnyday: ["9L1"],

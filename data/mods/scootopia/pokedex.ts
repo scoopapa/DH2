@@ -315,7 +315,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sturgard",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 105, atk: 110, def: 105, spa: 65, spd: 70, spe: 70},
-		abilities: {0: "Rock Head", 1: "Battle Armor" H: "Mold Breaker"},
+		abilities: {0: "Rock Head", 1: "Battle Armor", H: "Mold Breaker"},
 		weightkg: 143,
 	},
 	avastar: {
