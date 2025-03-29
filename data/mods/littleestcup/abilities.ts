@@ -130,27 +130,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 148,
 	},
 	angerpoint: {
-		onModifyDamage(damage, source, target, move) {
-			if (target.volatiles['monikerboost']) {
-				return this.chainModify(1.5);
+		onHit(target, source, move) {
+			if (!target.hp) return;
+			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
+				this.boost({atk: 12}, target, target);
 			}
 		},
-		onSourceModifyAtkPriority: 6,
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (attacker.volatiles['monikerboost']) {
-				this.debug('Anger Point weaken');
-				return this.chainModify(0.66);
-			}
-		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (attacker.volatiles['monikerboost']) {
-				this.debug('Anger Point weaken');
-				return this.chainModify(0.66);
-			}
-		},
-		flags: {breakable: 1},
-		shortDesc: "This Pokemon deals 1.5x damage to and takes 0.67x damage from Moniker-boosted Pokemon.",
+		flags: {},
 		name: "Anger Point",
 		rating: 1,
 		num: 83,
@@ -1691,7 +1677,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return null;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if ((effect.name === 'Intimidate' || effect.name === 'Oblivious') && boost.atk) {
+			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
 				this.boost({atk: 1}, target, target, null, false, true);
 			}
@@ -1832,10 +1818,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	hospitality: {
 		onStart(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 2);
+			for (const ally of pokemon.adjacentAllies()) {
+				this.heal(ally.baseMaxhp / 4, ally, pokemon);
+			}
 		},
 		flags: {},
-		shortDesc: "On switch-in, this Pokemon restores 1/2 of its maximum HP, rounded down.",
 		name: "Hospitality",
 		rating: 0,
 		num: 299,
@@ -2117,7 +2104,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if ((effect.name === 'Intimidate' || effect.name === 'Oblivious') && boost.atk) {
+			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
 			}
@@ -2977,22 +2964,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of pokemon.adjacentFoes()) {
-				if (!activated) {
-					this.add('-ability', pokemon, 'Oblivious', 'boost');
-					activated = true;
-				}
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else {
-					this.boost({atk: -1}, target, pokemon, null, true);
-				}
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
 			}
 		},
 		flags: {breakable: 1},
-		shortDesc: "This Pokemon cannot be infatuated or taunted. Effects of Intimidate.",
 		name: "Oblivious",
 		rating: 1.5,
 		num: 12,
@@ -3088,7 +3066,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if ((effect.name === 'Intimidate' || effect.name === 'Oblivious') && boost.atk) {
+			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
 			}
@@ -4019,7 +3997,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if ((effect.name === 'Intimidate' || effect.name === 'Oblivious') && boost.atk) {
+			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
 			}
@@ -5118,10 +5096,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	triage: {
 		onModifyPriority(priority, pokemon, target, move) {
-			return priority + 3;
+			if (move?.flags['heal']) return priority + 3;
 		},
 		flags: {},
-		shortDesc: "This Pokemon's moves have their priority increased by 3.",
 		name: "Triage",
 		rating: 3.5,
 		num: 205,

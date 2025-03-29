@@ -2558,17 +2558,6 @@ export const Items: {[itemid: string]: ItemData} = {
 	healball: {
 		name: "Heal Ball",
 		spritenum: 188,
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			this.heal(pokemon.baseMaxhp / 16);
-			if (pokemon.status) {
-				this.debug('healball');
-				this.add('-activate', pokemon, 'item: Heal Ball');
-				pokemon.cureStatus();
-			}
-		},
-		shortDesc: "A remedial Poke Ball that restores the Pokemon's HP and status problems.",
 		num: 14,
 		gen: 4,
 		isPokeball: true,
@@ -3242,7 +3231,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 1886,
-		shortDesc: "Holder's moves that hit 2-5 times hit 4-6 times; Population Bomb hits 4-10 times.",
 		gen: 9,
 	},
 	lopunnite: {
