@@ -9,7 +9,7 @@ const uber9 = [
 	"alakazammega", "annihilape", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", 
 	"arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy",
 	"baxcalibur", "blastoisemega", "blazikenmega", "calyrexice", "chienpao", "chiyu", "darkrai", "darmanitangalar", "deoxys", "deoxysattack", "deoxysspeed", "dialga", 
-	"dialgaorigin", "dracovish", "espathra", "eternatus", "fluttermane", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "giratina", 
+	"dialgaorigin", "dracovish", "dragapult", "espathra", "eternatus", "fluttermane", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "giratina", 
 	"giratinaorigin", "gougingfire", "groudon", "groudonprimal", "hooh", "ironbundle", "kangaskhanmega", "kyogre", "kyogreprimal", "kyuremblack", "kyuremwhite", 
 	"landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", 
 	"necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "ogerponheartflame", "palafin", "palafinhero", "palkia", "palkiaorigin", "pheromosa", "rayquaza", 
@@ -17,7 +17,7 @@ const uber9 = [
 	"yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
 ];
 const viabilityList9 = [
-	"alomomola", "clodsire", "corviknight", "dragapult", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
+	"alomomola", "clodsire", "corviknight", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
 	"gliscor", "greattusk", "hatterene", "heatran", "ironcrown", "irontreads", "ironvaliant", "kartana", "kingambit", "kyurem", "landorustherian", "melmetal", 
 	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "roaringmoon", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
 	"terapagos", "terapagosterastal", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 

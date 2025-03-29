@@ -756,7 +756,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	lightball: {
 		inherit: true,
-		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			const group1 = ["Pikachu", "Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru"];
 			const group2 = ["Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"];
@@ -767,7 +766,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			const group1 = ["Pikachu", "Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru"];
 			const group2 = ["Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"];
@@ -782,6 +780,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			"Pichu", "Plusle", "Minun", "Pachirisu", "Emolga", "Dedenne", "Togedemaru", "Raichu", "Raichu-Alola", "Morpeko", "Morpeko-Hangry", "Pawmi", "Pawmo", "Pawmot"
 		],
 		shortDesc: "If held by a Pikachu, or a Pikaclone, its Attack and Sp. Atk are doubled or multiplied by 1.5.",
+	},
+	leek: {
+		inherit: true,
+		onModifyCritRatio(critRatio, user) {
+			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies))) {
+				return 5;
+			}
+		},
 	},
 	// everlasting winter
 	safetygoggles: {

@@ -3612,6 +3612,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 	terreptile: {
 		learnset: {
 			slash: ["9L1"],
+			crosspoison: ["9L1"],
 			sacredsword: ["9L1"],
 			poisonjab: ["9L33"],
 			earthquake: ["9L37", "9M"],
