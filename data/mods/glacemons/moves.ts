@@ -1797,7 +1797,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Rage Powder", target);
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
