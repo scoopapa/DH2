@@ -5,7 +5,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Poison"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 45, atk: 49, def: 49, spa: 65, spd: 65, spe: 45},
-		abilities: {0: "Overgrow" },
+		abilities: {0: "Overgrow"},
 		heightm: 0.7,
 		weightkg: 6.9,
 		color: "Green",
