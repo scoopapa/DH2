@@ -1769,7 +1769,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,  
 		priority: 0,  
 		flags: {protect: 1, mirror: 1, nosketch: 1}, // for tournament purpose only, nosketch
-		secondary: null,  
+		secondary: {},  
 		target: "allAdjacentFoes",  
 		type: "Bug",  
 		contestType: "Clever", 
