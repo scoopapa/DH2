@@ -165,7 +165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	sandslashalola: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 110, def: 120, spa: 45, spd: 55, spe: 85},
+		baseStats: {hp: 75, atk: 110, def: 120, spa: 25, spd: 65, spe: 85},
 		abilities: {0: "Snow Cloak", 1: "Spiky Body", H: "Slush Rush"},
 	},
 	ninetales: {
