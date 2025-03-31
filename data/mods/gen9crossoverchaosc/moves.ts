@@ -38,7 +38,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTryHit(target) {
 			// If both ability suppression & and move disabling aren't possible (cannot stack with disable)
 			if ((target.getAbility().flags['cantsuppress'] || target.volatiles['gastroacid'] || target.hasItem('Ability Shield'))
-          && (!target.lastMove || target.lastMove.isZ || target.lastMove.isMax || target.lastMove.id === 'struggle' || target.volatiles['disable'] )) {
+			&& (!target.lastMove || target.lastMove.isZ || target.lastMove.isMax || target.lastMove.id === 'struggle' || target.volatiles['disable'] )) {
 				if (target.hasItem('Ability Shield')) {
 				  this.add('-block', target, 'item: Ability Shield');
 				}
@@ -157,7 +157,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		overrideDefensiveStat: 'def',
 		name: "Halbird",
-      shortDesc: "Damages target based on Defense, not Sp. Def.",
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
@@ -207,7 +207,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.isAlly(target)) {
 				move.basePower = 0;
 				move.infiltrates = true;
-            delete move.secondaries;
+				delete move.secondaries;
 			}
 		},
 		onTryMove(source, target, move) {
@@ -285,6 +285,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Shade Mend",
+		shortDesc: "User heals 33% and cures status.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -310,6 +311,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Special",
 		name: "Rude Buster",
+		shortDesc: "Does damage equal to 1/2 target's current HP.",
 		pp: 5,
 		priority: 0,
 		flags: {slicing: 1, protect: 1, mirror: 1, metronome: 1},
@@ -317,7 +319,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dark Pulse", target);
 			this.add('-anim', source, "Air Slash", target);
-		  },
+		},
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
@@ -329,6 +331,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Ultimate Heal",
+		shortDesc: "Susie trained very hard for this.",
 		pp: 1,
 		priority: 0,
 		flags: {heal: 1, bypasssub: 1, allyanim: 1},

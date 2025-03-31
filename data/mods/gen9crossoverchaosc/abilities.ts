@@ -29,7 +29,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 		if (this.checkMoveMakesContact(move, target, pokemon)) {
-        		this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		flags: {},
@@ -85,6 +85,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -3,
 	},
 	shadowpounce: {
+		shortDesc: "This Pokemon retaliates with the move Shadow Sneak whenever it is damaged by an attack.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!move.flags['noreaction'] && target.hp) {
