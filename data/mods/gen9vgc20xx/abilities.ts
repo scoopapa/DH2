@@ -325,7 +325,128 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -16,
 	},
+	//
+	archetype: {
+		shortDesc: "Gains opposite effect of target's lowered stat.",
+		onPrepareHit(source, target, move) {
+			if (move && move.target === 'allAdjacentFoes') {
+				for (const foe of source.foes()) {
+					if (foe.isAdjacent(source)) {
+						const boosts = { ...foe.boosts };
+						foe.addVolatile('archetype', source);
+						foe.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', foe, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${foe.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'allAdjacent') {
+				for (const adjacent of this.getAllActive()) {
+					if (adjacent !== source && adjacent.isAdjacent(source)) {
+						const boosts = { ...adjacent.boosts };
+						adjacent.addVolatile('archetype', source);
+						adjacent.volatiles['archetype'].boosts = boosts;
+					//	this.add('-start', adjacent, 'Archetype', '[from] ability: Archetype');
+					//	this.add('-message', `${adjacent.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+					}
+				}
+			} else if (move && move.target === 'normal') {
+				const boosts = { ...target.boosts };
+				target.addVolatile('archetype', source);
+				target.volatiles['archetype'].boosts = boosts;
+			//	this.add('-start', target, 'Archetype', '[from] ability: Archetype');
+			//	this.add('-message', `${target.name}'s boosts were copied: ${JSON.stringify(boosts)}`);
+			}
+		},
+		onAfterMove(source, target, move) {
+			if (target === source) return; // originally had "target.fainted" but its inclusion might be unnecessary, especially in VGC where if one ally faints, the other becomes unaffected by ability
 	
+			const stats = ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion'] as const;
+			type BoostStatistics = typeof stats[number];
+			const boostGains: Partial<Record<BoostStatistics, number>> = {};
+	
+			for (const activeTarget of this.getAllActive()) {
+				if (!activeTarget.volatiles['archetype']) continue;
+	
+				const storedBoosts = activeTarget.volatiles['archetype'].boosts;
+				const currentBoosts = activeTarget.boosts;
+	
+				for (const stat of stats) {
+					if (currentBoosts[stat] < storedBoosts[stat] || 
+						(currentBoosts[stat] < 0 && currentBoosts[stat] < storedBoosts[stat])) {
+						const difference = storedBoosts[stat] - currentBoosts[stat];
+						boostGains[stat] = (boostGains[stat] || 0) + difference;
+	
+					//	this.add('-message', `${source.name} gains ${difference} ${stat} boost from ${activeTarget.name}'s lower boost.`);
+					}
+				}
+	
+				delete activeTarget.volatiles['archetype'];
+			//	this.add('-end', activeTarget, 'Archetype', '[from] ability: Archetype');
+			}
+	
+			// Apply all boost gains at once and trigger visual display
+			if (Object.keys(boostGains).length > 0) {
+				this.boost(boostGains, source, source, this.effect);
+			}
+		},	
+		flags: {},
+		name: "Archetype",
+		rating: 4,
+		num: -17,
+	},
+	//
+	hearth: {
+		shortDesc: "Ice does 50% less damage against user's side + 1/16 healing.",
+		onAnyModifyDamage(damage, source, target, effect) {
+			if (source && effect && effect.effectType === 'Move' && effect.type === 'Ice') {
+				if (target === this.effectState.target || target.isAlly(this.effectState.target)) {
+					this.debug('Hearth damage reduction from Ice-type move');
+				//	this.add('-message', `${target.name} is protected by Hearth, reducing damage from the Ice-type move!`);
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			// Check if the user or any ally is frozen
+			const allies = pokemon.side.active; // Get all active Pokémon on the user's side
+			for (const ally of allies) {
+				if (ally.status === 'frz') {
+					this.add('-activate', ally, 'ability: Hearth');
+					ally.cureStatus(); // Cure the frozen status for the ally
+				}
+			}
+			 // Also check the user of the ability
+			 if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Hearth');
+				pokemon.cureStatus(); // Cure the frozen status for the user
+			}
+		},
+		onImmunity(type, pokemon) {
+			// Grant immunity to freeze for the user and their allies
+			if (type === 'frz') {
+				const allies = pokemon.side.active; // Get all active Pokémon on the user's side
+				for (const ally of allies) {
+					if (ally === pokemon || ally.isAlly(pokemon)) {
+						this.add('-immune', ally, 'ability: Hearth');
+					}
+				}
+				return false; // Prevent the freeze status from being applied
+			}
+		},
+		onResidualOrder: 26,
+    	onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+			const ally = pokemon.side.active.find(ally => ally && ally !== pokemon && !ally.fainted);
+				if (ally) {
+					this.heal(ally.baseMaxhp / 16, ally);
+			}
+		},
+		flags: {},
+		name: "Hearth",
+		rating: 3,
+		num: -18,
+	},
+	// end
 
 	// Changes to abilities
 	// Start

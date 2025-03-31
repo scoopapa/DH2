@@ -237,7 +237,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,  
 		priority: 0,  
 		flags: {protect: 1, mirror: 1},
-		secondary: null,  
+		secondary: {},  
 		target: "allAdjacentFoes",  
 		type: "Bug",  
 		contestType: "Clever", 
@@ -706,6 +706,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 	},
+	//
+	mantisfists: {
+		num: -24,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Mantis Fists",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		shortDesc: "Hits twice + no contact penalty.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Mega Punch", target);
+		},
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	//
 	
 	// start
 	autotomize: {
@@ -713,7 +738,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-	//	isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Autotomize",
 		pp: 15,
 		priority: 0,
