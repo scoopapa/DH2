@@ -279,6 +279,72 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Beautiful",
 	},
+	shademend: {
+		num: -9,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shade Mend",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
+			return pokemon.cureStatus() || success;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poltergeist", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	rudebuster: {
+		num: -10,
+		accuracy: 90,
+		basePower: 0,
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(target.getUndynamaxedHP() / 2, 1);
+		},
+		category: "Special",
+		name: "Rude Buster",
+		pp: 5,
+		priority: 0,
+		flags: {slicing: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dark Pulse", target);
+			this.add('-anim', source, "Air Slash", target);
+		  },
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	},
+	ultimateheal: {
+		num: -11,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Ultimate Heal",
+		pp: 1,
+		priority: 0,
+		flags: {heal: 1, bypasssub: 1, allyanim: 1},
+		onHit(pokemon) {
+			return this.heal(1, pokemon);
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scale Shot", source);
+			this.add('-anim', source, "Jungle Healing", target);
+		},
+		secondary: null,
+		target: "allies",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
 
 	// Altering Pre-Existing Moves
 	healblock: {
