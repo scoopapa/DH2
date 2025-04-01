@@ -446,6 +446,20 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData } = {
 		rating: 3,
 		num: -18,
 	},
+	//
+	underhanded: {
+		shortDesc: "50% more damage if user's stats lowered this turn.",
+		onBasePower(basePower, source) {
+			if (source.statsLoweredThisTurn) {
+				this.debug('underhanded buff');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Underhanded",
+		rating: 3,
+		num: -19,
+	},
 	// end
 
 	// Changes to abilities
