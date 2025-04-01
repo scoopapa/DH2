@@ -3016,6 +3016,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!target.hasAbility('doubledown') && !target.volatiles['ability:simple']) target.addVolatile('ability:simple');
 			}
 		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['ability:simple']) target.deleteVolatile('ability:simple');
+			}
+		},
 		flags: {},
 		name: "Double Down",
 		//shortDesc: "Serene Grace + this Pokemon's foes have doubled stat changes.",
@@ -3539,6 +3544,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!target.hasAbility('girlofruin') && !target.volatiles['ability:minus']) target.addVolatile('ability:minus');
 			}
 		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['ability:minus']) target.deleteVolatile('ability:minus');
+			}
+		},
 		flags: {},
 		name: "Girl of Ruin",
 		//shortDesc: "If an active Pokémon has Plus/Minus, this Pokemon's SpA is 1.5x. Active Pokemon without this Ability have the Minus ability.",
@@ -3572,13 +3582,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				for (const type of targetTypes) {
 					if (type !== '???' && !source.hasType(type) && source.addType(type)) {
 						success = true;
+						source.addType(type);
 						lostTypes.push(type);
+						this.add('-start', source, 'typeadd', type, '[from] ability: Art Theft');
 					}
 				}	
 				if (success) {
 					target.setType(target.getTypes(true).map(type => lostTypes.includes(type) ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'));
-					this.add('-start', source, 'typeadd', lostTypes.join('/'), '[from] ability: Art Theft');
 				}				
 			}
 		},
@@ -4158,7 +4169,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	ironify: {
 		onUpdate(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!target.volatiles['ability:ironified']) target.addVolatile('ability:ironified');
+				if (target !== pokemon && !target.volatiles['ability:ironified']) target.addVolatile('ability:ironified');
+			}
+		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['ability:ironified']) target.deleteVolatile('ability:ironified');
 			}
 		},
 		flags: {},
