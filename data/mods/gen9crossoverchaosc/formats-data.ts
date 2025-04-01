@@ -59,4 +59,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	mawjaw: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	amingo: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	susie: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };
