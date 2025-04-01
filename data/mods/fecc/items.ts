@@ -44,13 +44,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
 			console.log(pokemon.baseSpecies);
-			if (['basbal', 'naclinch', 'glimmgar'].includes(pokemon.baseSpecies.id)) {
+			if (['basbal', 'naclinch', 'glimmgar', 'roseron'].includes(pokemon.baseSpecies.id)) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (['basbal', 'naclinch', 'glimmgar'].includes(pokemon.baseSpecies.id)) {
+			if (['basbal', 'naclinch', 'glimmgar', 'roseron'].includes(pokemon.baseSpecies.id)) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -81,6 +81,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Absaludon-Mega",
 		megaEvolves: "Absaludon",
 		itemUser: ["Absaludon"],
+		isNonstandard: null,
+	},
+	manectite: {
+		inherit: true,
+		megaStone: "Wo-Man-Mega",
+		megaEvolves: "Wo-Man",
+		itemUser: ["Wo-Man"],
 		isNonstandard: null,
 	},
 };

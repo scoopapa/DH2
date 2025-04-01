@@ -948,16 +948,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 0,
 		category: "Status",
 		name: "Ritual of Aris",
-		desc: "Highest attacking stat is raised by two stages and the user is cured of status conditions.",
-		shortDesc: "Cures status, raises highest attacking stat by 2.",
+		desc: "Highest attacking stat and speed is raised by one stage, the user is cured of status conditions.",
+		shortDesc: "Cures status, raises highest attacking stat and speed by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
 		onHit(target, source) {
 			if (source.getStat('atk', false, true) >= source.getStat('spa', false, true)) {
-				(this.boost({atk: 2}, source))
+				(this.boost({atk: 1, spe: 1}, source))
 			} else if (source.getStat('spa', false, true) > source.getStat('atk', false, true)) {
-				(this.boost({spa: 2}, source))
+				(this.boost({spa: 1, spe: 1}, source))
 			}
 				source.cureStatus();
 		},
@@ -985,18 +985,27 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	streetcattrickery: {
 		num: -33,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 55,
 		category: "Physical",
 		name: "Street Cat Trickery",
-		desc: "Power increased by 2x if the target is holding an item.",
-		shortDesc: "Power increased by 2x if the target is holding an item.",
+		desc: "Power increased by 2x if the target is holding an item. Removes item.",
+		shortDesc: "Power increased by 2x if the target is holding an item. Removes item",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
 			if (item.id) {
 				return this.chainModify(2);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Street Cat Trickery', '[of] ' + source);
+				}
 			}
 		},
 		secondary: null,
