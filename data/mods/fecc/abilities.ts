@@ -3377,7 +3377,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					used: false,
 				};
 				pokemon.moveSlots[i] = learnedMove;
-				pokemon.baseMoveSlots[i] = learnedMove;
 				movepool.splice(movepool.indexOf(temp), 1);
 				if (movepool.length === 0) break;
 			}
