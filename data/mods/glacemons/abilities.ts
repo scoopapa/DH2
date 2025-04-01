@@ -1172,7 +1172,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			pokemon.shieldBoost = true;
 			return false;
 		},
-		onUseItem(pokemon) {
+		onUseItem(pokemon, item) {
 			if (pokemon.swordBoost) return;
 			pokemon.swordBoost = true;
 			this.battle.runEvent('UseItem', this, null, null, item)
