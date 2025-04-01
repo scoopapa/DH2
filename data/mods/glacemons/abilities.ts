@@ -1167,7 +1167,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -25,
 		name: "Resourceful",
 		rating: 4,
-		onTryEatItem(item, pokemon, source) {
+		onTryEatItem(pokemon) {
 			if (pokemon.shieldBoost) return;
 			pokemon.shieldBoost = true;
 			return false;
