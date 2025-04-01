@@ -122,7 +122,7 @@ const PRIORITY_POKEMON = [
 
 /** Pokemon who should never be in the lead slot */
 const NO_LEAD_POKEMON = [
-	'Iron Boulder', 'Slither Wing', 'Zacian', 'Zamazenta',
+	'Wingwambit', 'Kingralts', 'Zacian', 'Zamazenta',
 ];
 const DOUBLES_NO_LEAD_POKEMON = [
 	'Basculegion', 'Houndstone', 'Roaring Moon', 'Zacian', 'Zamazenta',
@@ -718,13 +718,13 @@ export class RandomTeams {
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
 
 		// Enforce Facade if Guts is a possible ability
-		if (movePool.includes('facade') && abilities.has('Guts')) {
+		if (movePool.includes('facade') && abilities.has('Still Standing')) {
 			counter = this.addMove('facade', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 				movePool, teraType, role);
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1279,13 +1279,21 @@ export class RandomTeams {
 		if (species.id === 'tipplin') return 'Metronome';
 		if (species.id === 'mimighold') return 'Lum Berry';
 		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || species.id === 'naclinch' || species.id === 'glimmgar') return 'Eviolite';
+		if (species.id === 'basbal' || 
+			species.id === 'naclinch' || 
+			species.id === 'glimmgar' || 
+			species.id === 'roseron') return 'Eviolite';
 		if (species.id === 'exeggumoramora') return 'White Herb';
 		if (species.id === 'rolyklawfy') return 'Focus Sash';
 		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
 		if (species.id === 'gigawrath') return 'Choice Band';
 		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
+		
+		if (species.id === 'blazer') return 'Focus Sash';
+		if (species.id === 'spinningfire') return 'Berserk Gene';
+		if (species.id === 'snorcannon') return 'Starf Berry';
+		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -1641,6 +1649,14 @@ export class RandomTeams {
 			evs.spd = 0;
 			evs.spe = 0;
 		}
+		if (species.baseSpecies === 'Shedlurk') {
+			evs.hp = 0;
+			evs.atk = 252;
+			evs.def = 0;
+			evs.spa = 0;
+			evs.spd = 0;
+			evs.spe = 252;
+		}
 
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
@@ -1788,7 +1804,6 @@ export class RandomTeams {
 				}
 				species = this.sample(currentSpeciesPool);
 			}
-
 			if (!species.exists) continue;
 
 			// Limit to one of each species (Species Clause)
