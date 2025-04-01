@@ -1466,7 +1466,7 @@
         ]
     },
 	"whiskiaorigin": {
-        "level": 76,
+        "level": 78,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1517,6 +1517,11 @@
                 "role": "Bulky Setup",
                 "movepool": ["Draining Kiss", "Flash Cannon", "Calm Mind", "Iron Defense"],
                 "teraTypes": ["Water", "Flying"]
+            },
+			{
+                "role": "Setup Sweeper",
+                "movepool": ["Shadow Sneak", "Sucker Punch", "Iron Head", "Swords Dance"],
+                "teraTypes": ["Ghost", "Dark", "Water"]
             }
         ]
     },
@@ -1755,8 +1760,13 @@
         "sets": [
 			{
                 "role": "Fast Support",
-                "movepool": ["Ice Beam", "Draining Kiss", "Dazzling Gleam", "Tri Attack", "Air Slash", "Flamethrower", "Roost"],
-                "teraTypes": ["Steel", "Normal", "Flying"]
+                "movepool": ["Ice Beam", "Draining Kiss", "Dazzling Gleam", "Tri Attack", "Flamethrower", "Roost"],
+                "teraTypes": ["Steel", "Fire"]
+            },
+			{
+                "role": "Fast Attacker",
+                "movepool": ["Ice Beam", "Draining Kiss", "Dazzling Gleam", "Flamethrower", "Roost", "Nasty Plot"],
+                "teraTypes": ["Steel", "Fire"]
             }
         ]
     },
@@ -1890,7 +1900,7 @@
         "sets": [
 			{
                 "role": "Fast Support",
-                "movepool": ["Protect", "Aura Wheel", "Nuzzle", "Rapid Spin"],
+                "movepool": ["Protect", "Aura Wheel"],
                 "teraTypes": ["Steel"]
             }
         ]

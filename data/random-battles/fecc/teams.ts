@@ -113,6 +113,7 @@ const MOVE_PAIRS = [
 	['protect', 'wish'],
 	['leechseed', 'protect'],
 	['leechseed', 'substitute'],
+	['irondefense', 'bodypress'],
 ];
 
 /** Pokemon who always want priority STAB, and are fine with it as its only STAB move of that type */
@@ -724,7 +725,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1293,6 +1294,7 @@ export class RandomTeams {
 		if (species.id === 'blazer') return 'Focus Sash';
 		if (species.id === 'spinningfire') return 'Berserk Gene';
 		if (species.id === 'snorcannon') return 'Starf Berry';
+		if (species.id === 'tapuluna') return 'Life Orb';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
@@ -1766,12 +1768,21 @@ export class RandomTeams {
 				}
 				teamDetails.mirainun ++;
 			}
+			//if darkcross, pick beetar immediately
+			else if(teamDetails.darkcross && teamDetails.darkcross == 1) {
+				species = this.dex.species.get('beetar');
+				teamDetails.darkcross ++;
+			}
 			else if(teamDetails.beetar && teamDetails.beetar == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('scolislash');
 				teamDetails.beetar ++;
 			}
+			else if(teamDetails.beetar && teamDetails.beetar == 1 && this.randomChance(1, 2)) {
+				species = this.dex.species.get('darkcross');
+				teamDetails.beetar ++;
+			}
 			else if(teamDetails.scolislash && teamDetails.scolislash == 1 && this.randomChance(1, 2)) {
-				species = this.dex.species.get('scolislash');
+				species = this.dex.species.get('beetar');
 				teamDetails.scolislash ++;
 			}
 			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 4)) {
@@ -1816,6 +1827,11 @@ export class RandomTeams {
 				continue;
 			}
 			
+			//darkcross cant be last slot if there isnt beetar already there
+			if ((species.baseSpecies === 'Darkcross' && !teamDetails.beetar) && pokemon.length >= (this.maxTeamSize - 1)) {
+				continue;
+			}
+			
 			// pair koraisle and mirainun together
 			if (species.baseSpecies === 'Koraisle' && !teamDetails.mirainun) teamDetails.koraisle = 1;
 			if (species.baseSpecies === 'Mirainun' && !teamDetails.koraisle) teamDetails.mirainun = 1;
@@ -1823,6 +1839,7 @@ export class RandomTeams {
 			// have higher likelihood to pair beetar and scolislash together
 			if (species.baseSpecies === 'Beetar' && !teamDetails.scolislash) teamDetails.beetar = 1;
 			if (species.baseSpecies === 'Scolislash' && !teamDetails.beetar) teamDetails.scolislash = 1;
+			if (species.baseSpecies === 'Darkcross' && !teamDetails.darkcross) teamDetails.darkcross = 1;
 			
 			// have higher likelihood to pair chiruno and avalluxe together
 			if (species.baseSpecies === 'Chiruno' && !teamDetails.avalluxe) teamDetails.beetar = 1;
@@ -1845,7 +1862,7 @@ export class RandomTeams {
 
 				// Limit two of any type
 				for (const typeName of types) {
-					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && typeCount[typeName] >= 2 * limitFactor) {
+					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && !teamDetails.darkcross && typeCount[typeName] >= 2 * limitFactor) {
 						skip = true;
 						break;
 					}
@@ -1855,7 +1872,7 @@ export class RandomTeams {
 				// Limit three weak to any type
 				for (const typeName of this.dex.types.names()) {
 					// it's weak to the type
-					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && this.dex.getEffectiveness(typeName, species) > 0) {
+					if (!teamDetails.dark && !teamDetails.koraisle && !teamDetails.mirainun && !teamDetails.beetar && !teamDetails.scolislash && !teamDetails.darkcross && this.dex.getEffectiveness(typeName, species) > 0) {
 						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
 						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
 							skip = true;
