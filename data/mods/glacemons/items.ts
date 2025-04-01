@@ -1897,6 +1897,38 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		desc: "Holder's attacks that are super effective against the target do 1.2x damage. If your super effective attacks hits a target, then your next attack does 1.2x damage regardless.",
 	},
+	// Slate 10
+	polkadotbow: {
+		name: "Polkadot Bow",
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Polkadot Bow');
+			this.add('-message', `${pokemon.name} is holding a Polkadot Bow!`);
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			let type;
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status')
+				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
+				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
+				if (move.id === target.moveSlots[0].id) type = types[0];
+				else if (move.id === target.moveSlots[1].id) type = types[1];
+				move.type = type;
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		flags: {},
+		desc: "Normal Moves transform into the primary type of the user if they are in the first moveslot, or the secondary type if they are in the second moveslot. Announces on switch in / Displayed.",
+		shortDesc: "Normal Moves transform into the primary type of the user if they are in the first moveslot, or the secondary type if they are in the second moveslot. Announces on switch in / Displayed.",
+		num: -31,
+		rating: 3,
+	},
 	cursedfeather: {
 		name: "Cursed Feather",
 		spritenum: 754,
@@ -1932,10 +1964,10 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				return this.chainModify(2);
 			}
 		},
-		num: -30,
+		num: -32,
 		gen: 9,
 		rating: 3,
-		desc: "",
-		shortDesc: "",
+		desc: "If afflicted with status: the holder's attacks deal 1.3x damage, and it restores 1/8th of its max HP at the end of every turn. Ignores stat drops from burn/paralysis/frostbite.",
+		shortDesc: "If afflicted with status: the holder's attacks deal 1.3x damage, and it restores 1/8th of its max HP at the end of every turn. Ignores stat drops from burn/paralysis/frostbite.",
 	},
 };
