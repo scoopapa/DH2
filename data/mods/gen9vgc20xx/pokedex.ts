@@ -954,6 +954,21 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 	},
 	// end
 
+	// start
+	cemmetar: {
+		num: -1049,
+		name: "Cemmetar",
+		types: ["Rock", "Ground"],
+		baseStats: {hp: 80, atk: 135, def: 65, spa: 70, spd: 55, spe: 115},
+		abilities: {0: "Skill Link", 1: "Sand Force", H: "Underhanded"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 108.8,
+		color: "Brown",
+		eggGroups: ["Mineral"],
+	//	creator: "Sugarbear",
+	},
+	// end
 
 	// Changes
 	// start
