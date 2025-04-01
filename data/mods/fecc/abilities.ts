@@ -3390,7 +3390,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const fallen = Math.min(fainted.length, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
+				let i = 0;
+				let msgs = ["I have prepared you for this very moment. Make me proud, child.", "Remember what we've taught you. You got this!", "Don't hold back. Avenge us. Have no mercy.", "Your training has brought you very far, Kingralts. Show them all you've learned from us!", "KICK. THEIR. ASS."];
 				for (const ally of fainted) {
+					this.add(`c:|${Math.floor(Date.now() / 1000)}|${ally.name}|${msgs[i]}`);
+					i ++;
 					pokemon.addVolatile('ability:' + ally.ability);
 				}
 			}
@@ -3400,7 +3404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Friend Power",
-		shortDesc: "This Pokemon gains the abilities of fainted allies.",
+		//shortDesc: "This Pokemon gains the abilities of fainted allies.",
 	},
 	speeeen: {
 		onUpdate(pokemon) {
