@@ -85,7 +85,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -3,
 	},
 	shadowpounce: {
-		shortDesc: "This Pokemon retaliates with the move Shadow Sneak whenever it is damaged by an attack.",
+		shortDesc: "This Pokemon retaliates with Shadow Sneak whenever it is damaged by an attack.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!move.flags['noreaction'] && target.hp) {
