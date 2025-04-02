@@ -3018,7 +3018,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd() {
 			for (const target of this.getAllActive()) {
-				if (target.volatiles['ability:simple']) target.deleteVolatile('ability:simple');
+				if (target.volatiles['ability:simple']) target.removeVolatile('ability:simple');
 			}
 		},
 		flags: {},
@@ -3545,7 +3545,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd() {
 			for (const target of this.getAllActive()) {
-				if (target.volatiles['ability:minus']) target.deleteVolatile('ability:minus');
+				if (target.volatiles['ability:minus']) target.removeVolatile('ability:minus');
 			}
 		},
 		flags: {},
@@ -4176,7 +4176,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd() {
 			for (const target of this.getAllActive()) {
-				if (target.volatiles['ability:ironified']) target.deleteVolatile('ability:ironified');
+				if (target.volatiles['ability:ironified']) target.removeVolatile('ability:ironified');
 			}
 		},
 		flags: {},
