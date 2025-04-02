@@ -431,7 +431,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 9053,
 		name: "Geoporka",
 		types: ["Grass", "Poison"],
-		baseStats: {hp: 100, atk: 85, def: 95, spa: 70, spd: 110, spe: 45},
+		baseStats: {hp: 100, atk: 85, def: 80, spa: 70, spd: 95, spe: 45},
 		abilities: {0: "Thick Fat"},
 		weightkg: 38,
 	},
@@ -608,7 +608,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Hebicikuga",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 85, atk: 115, def: 75, spa: 80, spd: 95, spe: 115},
-		abilities: {0: "Soul Heart", H: "Technician"},
+		abilities: {0: "Soul-Heart", H: "Technician"},
 		weightkg: 382.5,
 	},
 	devestial: {

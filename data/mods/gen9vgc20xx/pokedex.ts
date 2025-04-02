@@ -24,7 +24,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		name: "Valoseus",
 
 		types: ["Grass"],
-		baseStats: {hp: 105, atk: 65, def: 85, spa: 125, spd: 75, spe: 75},
+		baseStats: {hp: 105, atk: 125, def: 85, spa: 65, spd: 75, spe: 30},
 		abilities: {0: "Filter", 1: "Water Bubble", H: "Iron Fist"},
 		heightm: 1.0,
 		weightkg: 2.1,
@@ -863,6 +863,110 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		color: "Blue",
 		eggGroups: ["Flying", "Water 1"],
 	//	creator: "Samtendo09",
+	},
+	// end
+
+	// start
+	hattlock: {
+		num: -1044,
+		name: "Hattlock",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 95, atk: 120, def: 145, spa: 60, spd: 75, spe: 65},
+		abilities: {0: "Poison Touch", 1: "Own Tempo", H: "Simple"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 10.0,
+		color: "Green",
+		eggGroups: ["Grass", "Fairy"],
+	//	creator: "PalpitoadChamp",
+	},
+	// end
+
+	// start
+	intestinorm: {
+		num: -1045,
+		name: "Intestinorm",
+
+		types: ["Bug", "Ground"],
+		gender: "N",
+		baseStats: {hp: 84, atk: 72, def: 138, spa: 132, spd: 78, spe: 96},
+		abilities: {0: "Archetype", H: "Electric Surge"},
+	//	category: "Essence",
+		heightm: 4.2,
+		weightkg: 398.0,
+		color: "Red",
+		tags: ["Sub-Legendary"],
+		eggGroups: ["Undiscovered"],
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	conotox: {
+		num: -1046,
+		name: "Conotox",
+		types: ["Normal", "Poison"],
+		baseStats: {hp: 55, atk: 75, def: 125, spa: 95, spd: 105, spe: 50},
+		abilities: {0: "Weak Armor", 1: "Shell Armor", H: "Mimicry"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 29.9,
+		color: "White",
+		eggGroups: ["Water 1"],
+	//	creator: "BlueRay",
+	},
+	// end
+
+	// start
+	qullumen: {
+		num: -1047,
+		name: "Qullumen",
+		types: ["Rock", "Fairy"],
+		baseStats: {hp: 90, atk: 80, def: 60, spa: 90, spd: 145, spe: 55},
+		abilities: {0: "Hearth", 1: "Flare Boost", H: "Hospitality"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 29.5,
+		color: "Black",
+		eggGroups: ["Mineral"],
+	//	creator: "Genuine_Angus_B33F",
+	},
+	// end
+
+	// start
+	ledian: {
+		inherit: true,
+		evos: ["Ledellar"],
+	},
+	ledellar: {
+		num: -1048,
+		name: "Ledellar",
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: 70, atk: 120, def: 55, spa: 55, spd: 110, spe: 110},
+		abilities: {0: "Defiant", 1: "Mold Breaker", H: "Iron Fist"},
+	//	heightm: ,
+		weightkg: 63.6,
+		color: "Red",
+		eggGroups: ["Bug"],
+
+		prevo: "Ledian",
+		//	creator: "Samtendo09",
+	},
+	// end
+
+	// start
+	cemmetar: {
+		num: -1049,
+		name: "Cemmetar",
+		types: ["Rock", "Ground"],
+		baseStats: {hp: 80, atk: 135, def: 65, spa: 70, spd: 55, spe: 115},
+		abilities: {0: "Skill Link", 1: "Sand Force", H: "Underhanded"},
+	//	category: "",
+	//	heightm: "",
+		weightkg: 108.8,
+		color: "Brown",
+		eggGroups: ["Mineral"],
+	//	creator: "Sugarbear",
 	},
 	// end
 

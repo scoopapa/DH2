@@ -2418,8 +2418,6 @@ mametchi: {
 	bananahairtchi: {
 		num: 303,
 		name: "Banana-hairtchi",
-		baseSpecies: "Banana",
-		forme: "hairtchi",
 		gender: "M",
 		types: ["Grass", "Normal"],
 		baseStats: {hp: 86, atk: 54, def: 100, spa: 70, spd: 110, spe: 90},

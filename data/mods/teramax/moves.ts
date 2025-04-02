@@ -132,7 +132,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	terablast: {
 		inherit: true,
-		desc: "If the user is Terastallized, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes, and this move's type becomes the same as the user's Tera Type. In addition, if the user's Tera Type is Stellar, this move has 100 power, is super effective against Terastallized targets and neutral against other targets, and lowers the user's Attack and Special Attack by 1 stage, unless the target is Dynamax or Gigantamax.",
+		desc: "If the user is Terastallized, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes, and this move's type becomes the same as the user's Tera Type. In addition, if the user's Tera Type is Stellar, this move has 100 power, is super effective against Terastallized targets and neutral against other targets, and lowers the user's Attack and Special Attack by 1 stage, unless the target is Dynamax or Gigantamax. Deals 1.5x damage to the target if it is Dynamax or Gigantamax.",
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 				move.category = 'Physical';
@@ -608,13 +608,45 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
-		desc: "If this move is successful, the user gains the Aqua Ring effect, healing it by 1/8 of its maximum HP, rounded down.",
-		shortDesc: "This Pokemon gains the Aqua Ring effect.",
+		desc: "If this move is successful, the user gains the Aqua Ring effect, healing it by 1/8 of its maximum HP, rounded down, and clears hazards, partial trapping, and Leech Seed from its side of the field.",
+		shortDesc: "User gains the Aqua Ring effect, clears hazards/bind/Leech Seed.",
 		name: "G-Max Cannonade",
 		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Blastoise",
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: G-Max Cannonade', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
 		self: {
 			volatileStatus: 'aquaring',
 		},
@@ -664,27 +696,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.alliesAndSelf()) {
-					pokemon.addVolatile('gmaxchistrike');
+					pokemon.addVolatile('focusenergy');
 				}
-			},
-		},
-		condition: {
-			noCopy: true,
-			onStart(target, source, effect) {
-				this.effectState.layers = 1;
-				if (!['costar', 'imposter', 'psychup', 'transform'].includes(effect?.id)) {
-					this.add('-start', target, 'move: G-Max Chi Strike');
-				}
-			},
-			onRestart(target, source, effect) {
-				if (this.effectState.layers >= 3) return false;
-				this.effectState.layers++;
-				if (!['costar', 'imposter', 'psychup', 'transform'].includes(effect?.id)) {
-					this.add('-start', target, 'move: G-Max Chi Strike');
-				}
-			},
-			onModifyCritRatio(critRatio) {
-				return critRatio + this.effectState.layers;
 			},
 		},
 		secondary: null,
@@ -720,7 +733,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	gmaxdepletion: {
 		num: 1000,
 		accuracy: true,
-		basePower: 110,
+		basePower: 120,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		desc: "If this move is successful, each Pokemon on the opposing side loses 2 PP from its last move used, even if they have a substitute. This Pokemon heals the total PP of the target's moves * 2 in HP.",

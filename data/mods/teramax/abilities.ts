@@ -502,4 +502,69 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 310,
 		shortDesc: "This Pokemon takes 0.75x damage from poisoned foes.",
 	},
+	stellarshift: {
+		onPreStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Terapagos') return;
+			if (pokemon.species.forme !== 'Terastal') {
+				this.add('-activate', pokemon, 'ability: Stellar Shift');
+				pokemon.formeChange('Terapagos-Terastal', this.effect, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
+		name: "Stellar Shift",
+		rating: 3,
+		shortDesc: "If this Pokemon is a Terapagos, it transforms into its Terastal Form on entry.",
+	},
+	stellarshell: {
+		onStart(pokemon) {
+			if (pokemon.terastallized) return;
+			pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || target.species.name !== 'Terapagos-Terastal') return;
+			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (move.category === 'Status' || move.id === 'struggle') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			if (target.hp < target.maxhp) return;
+			this.add('-activate', target, 'ability: Stellar Shell');
+			this.effectState.resisted = true;
+			return -1;
+		},
+		onAnyAfterMove() {
+			this.effectState.resisted = false;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
+		name: "Stellar Shell",
+		rating: 3.5,
+		shortDesc: "Terapagos: Effects of Tera Shell. Terastallize to become Terapagos-Stellar.",
+	},
+	teraformzero: {
+		onAfterTerastallization(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Terapagos-Stellar') return;
+			if (this.field.weather || this.field.terrain) {
+				this.add('-ability', pokemon, 'Teraform Zero');
+				this.field.clearWeather();
+				this.field.clearTerrain();
+			}
+		},
+		onModifySTAB(stab, source, target, move) {
+			if (move.id === 'teraformzero') {
+				if (source.terastallized) {
+					return 2;
+				}
+				return 1.5;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Teraform Zero",
+		rating: 3,
+		num: 309,
+	},
 };

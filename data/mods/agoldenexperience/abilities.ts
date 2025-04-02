@@ -1845,10 +1845,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.hasType(move.type)) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "Non-STAB moves have 1.2x power.",
+		shortDesc: "Non-STAB moves have 1.5x power.",
 	},
 	galewings: {
 		inherit: true,
@@ -2514,5 +2514,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -83,
 		desc: "If this Pokemon is at more than half HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
 		shortDesc: "If this Pokemon is at >= 50% HP, it survives one hit with at least 1 HP. Immune to OHKO.",
+	},
+	seasonpass: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const allTypes = ['Ghost', 'Fire', 'Fairy', 'Ice'];
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes()[0] !== type && allTypes.includes(type)) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typeadd', type, '[from] ability: Season Pass');
+			}
+		},
+		rating: 4.5,
+		flags: {},
+		name: "Season Pass",
+		num: -84,
+		desc: "This Pokemon's first type changes to Ghost/Fire/Fairy/Ice/Normal. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon's first type changes to match the type of the Ghost/Fire/Fairy/Ice/Normal move it is about to use.",
 	},
 };

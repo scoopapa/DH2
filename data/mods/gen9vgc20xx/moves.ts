@@ -237,7 +237,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		pp: 10,  
 		priority: 0,  
 		flags: {protect: 1, mirror: 1},
-		secondary: null,  
+		secondary: {},  
 		target: "allAdjacentFoes",  
 		type: "Bug",  
 		contestType: "Clever", 
@@ -604,7 +604,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			this.add('-anim', source, "Close Combat", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
 	},
@@ -706,8 +706,65 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			}
 		},
 	},
+	//
+	mantisfists: {
+		num: -24,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Mantis Fists",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		shortDesc: "Hits twice + no contact penalty.",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Focus Energy");
+			this.add('-anim', source, "Mega Punch", target);
+		},
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	//
 	
 	// start
+	autotomize: {
+		num: 475,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Autotomize",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onTryHit(pokemon) {
+			const hasContrary = pokemon.hasAbility('contrary');
+			if ((!hasContrary && pokemon.boosts.spe === 6) || (hasContrary && pokemon.boosts.spe === -6)) {
+				return false;
+			}
+		},
+		boosts: {
+			spe: 2,
+		},
+		onHit(pokemon) {
+			if (pokemon.weighthg > 1) {
+				pokemon.weighthg = Math.max(1, pokemon.weighthg - 1000);
+				this.add('-start', pokemon, 'Autotomize');
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
+	//
 	belch: {
 		num: 562,
 		accuracy: 90,
@@ -1168,7 +1225,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 100,
 		basePower:80,
 		category: "Special",
-		isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Flame Burst",
 		pp: 15,
 		priority: 0,
@@ -1382,7 +1439,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		// isNonstandard: "Past",
+		isNonstandard: null,
 		name: "King's Shield",
 		pp: 10,
 		priority: 4,
@@ -1442,7 +1499,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-	//	isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Meditate",
 		pp: 40,
 		priority: 0,
@@ -1506,6 +1563,31 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		type: "Poison",
 	},
 	//
+	purify: {
+		num: 685,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Purify",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, heal: 1, metronome: 1},
+		onHit(target, source) {
+			if (!target.cureStatus()) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return this.NOT_FAIL;
+			}
+			this.heal(Math.ceil(source.maxhp * 0.5), source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	//
 	rapidspin: {
 		num: 229,
 		accuracy: 100,
@@ -1558,6 +1640,26 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+	},
+	//
+	sharpen: {
+		num: 159,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: null,
+		name: "Sharpen",
+		pp: 30,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			atk: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cute",
 	},
 	//
 	smackdown: {
@@ -1645,7 +1747,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
-	//	isNonstandard: "Past",
+		isNonstandard: null,
 		name: "Submission",
 		pp: 20,
 		priority: 0,

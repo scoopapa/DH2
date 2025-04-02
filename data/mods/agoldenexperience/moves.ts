@@ -471,33 +471,20 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	backfire: {
 		num: -20,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 65,
 		basePowerCallback(pokemon, target, move) {
-			let bp = move.basePower;
-			if (pokemon.volatiles['backfire'] && pokemon.volatiles['backfire'].hitCount) {
-				bp += 20 * pokemon.volatiles['backfire'].hitCount;
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Backfire NOT boosted');
+				return move.basePower;
 			}
-			if (pokemon.status !== 'slp') pokemon.addVolatile('backfire');
-			this.debug("Rollout bp: " + bp);
-			return bp;
+			this.debug('Backfire damage boost');
+			return move.basePower * 2;
 		},
+		priority: -1,
 		category: "Physical",
 		name: "Backfire",
 		pp: 15,
-		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
-		condition: {
-			duration: 2,
-			onStart() {
-				this.effectState.hitCount = 1;
-			},
-			onRestart() {
-				this.effectState.hitCount++;
-				if (this.effectState.hitCount < 5) {
-					this.effectState.duration = 2;
-				}
-			},
-		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Overheat", target);
@@ -506,7 +493,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "This move raises in power after each use (5 turns max).",
+		shortDesc: "Usually goes last. Power doubles if the user moves after the target.",
 	},
 	highwater: {
 		num: -21,
@@ -1355,13 +1342,27 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	payback: {
 		inherit: true,
-		basePower: 60,
+		basePower: 65,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Payback NOT boosted');
 				return move.basePower;
 			}
 			this.debug('Payback damage boost');
+			return move.basePower * 2;
+		},
+		shortDesc: "Usually goes last. Power doubles if the user moves after the target.",
+		priority: -1,
+	},
+	avalanche: {
+		inherit: true,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Avalanche NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Avalanche damage boost');
 			return move.basePower * 2;
 		},
 		shortDesc: "Usually goes last. Power doubles if the user moves after the target.",
@@ -1450,51 +1451,51 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 			status: 'frz',
 		},
 	},
-	roaroftime: {
-		inherit: true,
-		accuracy: 95,
-		basePower: 100,
-		onHit() {
-			this.field.clearTerrain();
-			this.field.clearWeather();
-		},
-		onAfterSubDamage() {
-			this.field.clearTerrain();
-			this.field.clearWeather();
-		},
-		self: null,
-		desc: "Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, Psychic Terrain, Chakra Terrain, Snow, Hail, Sun, Rain, and Sand.",
-		shortDesc: "Ends the effects of terrain and weather.",
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-	},
-	spacialrend: {
-		inherit: true,
-		critRatio: 1,
-		onAfterHit: function (target, source) {
-			this.field.removePseudoWeather('trickroom');
-			this.field.removePseudoWeather('magicroom');
-			this.field.removePseudoWeather('wonderroom');
-		},
-		desc: "Ends the effects of Trick Room, Magic Room, and Wonder Room.",
-		shortDesc: "Ends the effects of rooms",
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-	},
-	freezeshock: {
-		inherit: true,
-		flags: { protect: 1, mirror: 1, cantusetwice: 1 },
-		onTryMove(attacker, defender, move) {
-			return;
-		},
-		shortDesc: "Cannot be selected the turn after it's used.",
-	},
-	iceburn: {
-		inherit: true,
-		flags: { protect: 1, mirror: 1, cantusetwice: 1 },
-		onTryMove(attacker, defender, move) {
-			return;
-		},
-		shortDesc: "Cannot be selected the turn after it's used.",
-	},
+	// roaroftime: {
+	// 	inherit: true,
+	// 	accuracy: 95,
+	// 	basePower: 100,
+	// 	onHit() {
+	// 		this.field.clearTerrain();
+	// 		this.field.clearWeather();
+	// 	},
+	// 	onAfterSubDamage() {
+	// 		this.field.clearTerrain();
+	// 		this.field.clearWeather();
+	// 	},
+	// 	self: null,
+	// 	desc: "Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, Psychic Terrain, Chakra Terrain, Snow, Hail, Sun, Rain, and Sand.",
+	// 	shortDesc: "Ends the effects of terrain and weather.",
+	// 	flags: { protect: 1, mirror: 1, metronome: 1 },
+	// },
+	// spacialrend: {
+	// 	inherit: true,
+	// 	critRatio: 1,
+	// 	onAfterHit: function (target, source) {
+	// 		this.field.removePseudoWeather('trickroom');
+	// 		this.field.removePseudoWeather('magicroom');
+	// 		this.field.removePseudoWeather('wonderroom');
+	// 	},
+	// 	desc: "Ends the effects of Trick Room, Magic Room, and Wonder Room.",
+	// 	shortDesc: "Ends the effects of rooms",
+	// 	flags: { protect: 1, mirror: 1, metronome: 1 },
+	// },
+	// freezeshock: {
+	// 	inherit: true,
+	// 	flags: { protect: 1, mirror: 1, cantusetwice: 1 },
+	// 	onTryMove(attacker, defender, move) {
+	// 		return;
+	// 	},
+	// 	shortDesc: "Cannot be selected the turn after it's used.",
+	// },
+	// iceburn: {
+	// 	inherit: true,
+	// 	flags: { protect: 1, mirror: 1, cantusetwice: 1 },
+	// 	onTryMove(attacker, defender, move) {
+	// 		return;
+	// 	},
+	// 	shortDesc: "Cannot be selected the turn after it's used.",
+	// },
 	relicsong: {
 		inherit: true,
 		basePower: 95,
@@ -1521,21 +1522,6 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		self: null,
 		shortDesc: "Cannot be selected the turn after it's used.",
 		desc: "Cannot be selected the turn after it's used.",
-	},
-	eternabeam: {
-		inherit: true,
-		accuracy: 100,
-		basePower: 150,
-		flags: { protect: 1, mirror: 1 },
-		mindBlownRecoil: true,
-		onAfterMove(pokemon, target, move) {
-			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Eternabeam'), true);
-			}
-		},
-		self: null,
-		desc: "Whether or not this move is successful and even if it would cause fainting, the user loses 1/2 of its maximum HP, rounded up, unless the user has the Magic Guard Ability. This move is prevented from executing and the user does not lose HP if any active Pokemon has the Damp Ability.",
-		shortDesc: "User loses 50% max HP.",
 	},
 	bouncybubble: {
 		inherit: true,

@@ -1840,6 +1840,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			celebrate: ["9M"],
 			thunder: ["9M"],
 			expandingforce: ["9M"],
+			moonblast: ["9M"],
+			dazzlinggleam: ["9M"],
 			toxic: ["9M"],
 			helpinghand: ["9M"],
 			protect: ["9M"],

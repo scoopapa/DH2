@@ -897,7 +897,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		num: -17,
 		desc: "If this Pokemon has a non-volatile status condition, its Sp. Attack is multiplied by 1.5. This Pokemon's special attacks ignore the frostbite effect of halving damage.",
-		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving physical damage.",
+		shortDesc: "If this Pokemon is statused, its Sp. Atk is 1.5x; ignores frostbite halving special damage.",
 	},
 	cottondown: {
 		inherit: true,
@@ -1004,6 +1004,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
 		},
+		name: "Northern Mist",
 		shortDesc: "On switch in, creates mist. When the user is under Mist the user is immune to secondary effects and takes 2/3 damage from non contact moves",
 	},
 	lifestealer: {
@@ -1031,6 +1032,146 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -19,
 		desc: "Whenever an opposing Pokemon takes damage, this Pokemon heals for 2/3 of the damage taken. If this Pokemon tries to drain the health of an opponent with the Liquid Ooze ability, it will take damage instead.",
 		shortDesc: "This Pokemon heals for 2/3 of the damage dealt to opponents.",
+	},
+	// Slate 10
+	galewings: {
+		inherit: true,
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move && move.type === 'Flying') return priority + 1;
+		},
+		rating: 4,
+		shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
+	},
+	snowflurry: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Snow Flurry');
+				pokemon.cureStatus();
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('snow')) {
+				if (move.type === 'Ice' || move.type === 'Ghost' || move.type === 'Fairy') {
+					this.debug('Snow Flurry boost');
+					return this.chainModify([5325, 4096]);
+				}
+			}
+			else if (move.type === 'Ice' || move.type === 'Ghost' || move.type === 'Fairy') {
+				this.debug('Snow Flurry boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		shortDesc: "This Pokemon's Ice/Ghost/Fairy attacks do 1.2x, 1.3x in Snow; immunity to Frst.",
+		desc: "This Pokemon's Ice, Ghost, and Fairy attacks have 1.2x power. If Snow is active, this Pokemon's Ice, Ghost, and Fairy attacks instead have 1.3x power and ignore user's Burn. Frostbite immunity.",
+		name: "Snow Flurry",
+		rating: 3,
+		num: -20,
+	},
+	slushrush: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz' || pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Slush Rush');
+				pokemon.cureStatus();
+			}
+		},
+		shortDesc: "This Pokemon cannot be burned and frostbitten. If Hail Snow is active, this Pokemon's speed is doubled.",
+		desc: "This Pokemon cannot be burned and frostbitten. If Hail Snow is active, this Pokemon's speed is doubled.",
+	},
+	lightpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa) {
+			return this.chainModify(2);
+		},
+		name: "Light Power",
+		shortDesc: "This Pokemon's Special Attack is doubled.",
+		rating: 5,
+		num: -21,
+	},
+	cosmicenergy: {
+		desc: "This Pokémon can skip the charging turn of its moves.",
+		shortDesc: "Skip charging turns of moves.",
+		onChargeMove(pokemon, target, move) {
+			this.debug('Solar Core - remove charge turn for ' + move.id);
+			this.attrLastMove('[still]');
+			this.addMove('-anim', pokemon, move.name, target);
+			return false; 
+		},
+		name: "Cosmic Energy",
+		rating: 2,
+		num: -22,
+	},
+	rattled: {
+		inherit: true,
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Dark') {
+				this.debug('Rattled weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' || move.type === 'Ghost' || move.type === 'Dark') {
+				this.debug('Rattled weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		desc: "Bug/Ghost/Dark resistances. This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon affected this Pokemon with the Intimidate Ability.",
+		shortDesc: "Bug/Ghost/Dark resistances. Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated.",
+	},
+	savage: {
+		shortDesc: "The Pokémon’s Attack or Special Attack copies from the higher stat (held items does not apply for which is higher). Stat stages and held items apply as normal.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			const currentatk = pokemon.storedStats.atk;
+			const currentspa = pokemon.storedStats.spa;
+			if (currentspa > currentatk) return currentspa;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			const currentatk = pokemon.storedStats.atk;
+			const currentspa = pokemon.storedStats.spa;
+			if (currentatk > currentspa) return currentatk;
+		},
+		flags: {},
+		name: "Savage",
+		rating: 4,
+		num: -24,
+	},
+	pickup: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon === target
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Pickup');
+			pokemon.setItem(item);
+		},
+		flags: {},
+		name: "Pickup",
+		rating: 0.5,
+		num: 53,
+	},
+	resourceful: {
+		//WIP
+		num: -25,
+		name: "Resourceful",
+		rating: 4,
+		desc: "If this Pokémon's item would trigger, it triggers again. Once per battle, if this Pokémon's item would be consumed, it isn't.",
+		shortDesc: "Items trigger twice, and can avoid being consumed once.",
+		//onTakeItem(item, pokemon, source) {
+		//	
+		//},
 	},
 	// Legend Plate + Tera Blast field
 	normalize: {

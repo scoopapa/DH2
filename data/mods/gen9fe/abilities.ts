@@ -2161,6 +2161,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Hourglass",
 		rating: 3,
 	},
+	
+	piezoelectric: {
+		shortDesc: "Volt Absorb + Pressure",
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Piezoelectric');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && !move.ignoreAbility) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Piezoelectric');
+				}
+				return null;
+			}
+		},
+		flags: {},
+		name: "Piezoelectric",
+		rating: 3,
+	},
 	fieldday: {
 		shortDesc: "If Grassy Terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe(spe) {
@@ -3412,7 +3433,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Innovate",
 		rating: 4,
 	},
-	numbskull: {
+	/*numbskull: {
 		shortDesc: "Unaware + Rock Head",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
@@ -3438,6 +3459,29 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 		name: "Numbskull",
+		rating: 3,
+	},*/
+	
+	prehistoricpresence: {
+		shortDesc: "Unaware + Pressure",
+		onDeductPP(target, source) {
+			if (!target.isAlly(source)) return 1;
+		},
+		//Mold Breaker doesn't hit through Pressure but it hits through Unaware
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Prehistoric Presence');
+			pokemon.addVolatile('ability:unaware');
+		},
+		onSourcePrepareHit(source, target, move) {
+			if (target.volatiles['ability:unaware']) {
+				if (move.ignoreAbility) target.removeVolatile('ability:unaware');
+			} else if (!move.ignoreAbility) target.addVolatile('ability:unaware');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('ability:unaware');
+		},
+		flags: {},
+		name: "Prehistoric Presence",
 		rating: 3,
 	},
 	hotheaded: {
@@ -3909,24 +3953,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 
 	sandsword: {
-		shortDesc: "Sharpness + Sand Veil",
+		shortDesc: "x1.25 power to Slicing moves; x1.5 instead in Sand",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
 				this.debug('Sharpness boost');
-				return this.chainModify(1.5);
+				return this.chainModify(this.field.isWeather('sandstorm') ? 1.5 : 1.25);
 			}
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
-		},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('sandstorm')) {
-				this.debug('Sand Veil - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
-			}
 		},
 		flags: {breakable: 1},
 		name: "Sand Sword",
@@ -4426,7 +4462,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.add('-end', target, 'Slow Start', '[silent]');
 				}
 				const targetAbilID = target.getAbility().id;
-				if (targetAbilID === 'eczema') {
+				if (['eczema','prehistoricpresence'].includes(targetAbilID)) {
 					target.removeVolatile('ability:unaware');
 				} else if (strongWeathers.includes(targetAbilID)) {
 					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
