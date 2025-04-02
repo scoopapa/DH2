@@ -1590,7 +1590,7 @@
         "sets": [
 			{
                 "role": "Fast Support",
-                "movepool": ["Metronome", "Spikes", "Accupressure", "Parting Shot", "Present", "Hold Back", "Celebrate"],
+                "movepool": ["Metronome", "Spikes", "Acupressure", "Parting Shot", "Present", "Hold Back", "Celebrate"],
                 "teraTypes": ["Ghost"]
             },
 			{

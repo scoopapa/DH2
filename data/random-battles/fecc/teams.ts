@@ -1295,6 +1295,7 @@ export class RandomTeams {
 		if (species.id === 'spinningfire') return 'Berserk Gene';
 		if (species.id === 'snorcannon') return 'Starf Berry';
 		if (species.id === 'tapuluna') return 'Life Orb';
+		if (species.id === 'smearccino') return 'Focus Sash';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
@@ -1658,6 +1659,9 @@ export class RandomTeams {
 			evs.spa = 0;
 			evs.spd = 0;
 			evs.spe = 252;
+		}
+		if (species.baseSpecies === 'Smearccino') {
+			ivs.atk = 31;
 		}
 
 		// shuffle moves to add more randomness to camomons

@@ -180,7 +180,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Gorilla",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		volatileStatus: 'gorilla',
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -227,7 +227,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Moisturizer",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		volatileStatus: 'moisturizer',
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
