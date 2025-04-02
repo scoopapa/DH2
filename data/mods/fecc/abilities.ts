@@ -3031,7 +3031,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 
 			if (this.randomChance(3, 10)) {
-				target.addVolatile('wokemindvirus');
+				target.addVolatile('pronounsynthesis');
 			}
 		},
 		condition: {
@@ -3039,7 +3039,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon, source, effect) {
 				this.effectState.virusTurns = 0;
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'wokemindvirus' + this.effectState.bestStat, '[silent]');
+				this.add('-start', pokemon, 'pronounsynthesis' + this.effectState.bestStat, '[silent]');
 			},
 			onResidual(pokemon) {
 				this.effectState.virusTurns ++;
@@ -3554,7 +3554,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	wondershield: {
 		onTryHit(pokemon, target, move) {
-			if (target.hp >= target.maxhp) {
+			if (pokemon.hp >= pokemon.maxhp) {
 				this.add('-immune', pokemon, '[from] ability: Wonder Shield');
 				return null;
 			}
