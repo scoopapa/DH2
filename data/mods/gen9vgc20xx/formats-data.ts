@@ -431,6 +431,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "VGC",
 		doublesTier: "VGC",
 	},
+	cemmetar: {
+		tier: "VGC",
+		doublesTier: "VGC",
+	},
 	makuhita: {
 		tier: "VGC NFE",
 		doublesTier: "VGC NFE",

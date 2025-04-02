@@ -2799,6 +2799,29 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	// end	
 
+	cemmetar: {
+		learnset: {
+			closecombat: ["9M"],
+			earthquake: ["9M"],
+			highhorsepower: ["9M"],
+			lowkick: ["9M"],
+			mightyblow: ["9M"],
+			protect: ["9M"],
+			rockblast: ["9M"],
+			rockslide: ["9M"],
+			rocktomb: ["9M"],
+			sandstorm: ["9M"],
+			sleeptalk: ["9M"],
+			spikes: ["9M"],
+			stealthrock: ["9M"],
+			stompingtantrum: ["9M"],
+			stoneedge: ["9M"],
+			substitute: ["9M"],
+			swordsdance: ["9M"],
+			taunt: ["9M"],
+		},
+	},
+
 	// start
 	kagunawa: {
 		learnset: {
