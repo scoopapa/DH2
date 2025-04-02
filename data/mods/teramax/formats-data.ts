@@ -3023,6 +3023,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMOU",
 		doublesTier: "TMOU",
 	},
+	terapagos: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	terapagosterastal: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
 	venusaurgmax: {
 		isNonstandard: null,
 		tier: "TMFE",
