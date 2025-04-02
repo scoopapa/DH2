@@ -1660,7 +1660,7 @@ export class RandomTeams {
 			evs.spd = 0;
 			evs.spe = 252;
 		}
-		if (species.baseSpecies === 'Smearccino') {
+		if (species.baseSpecies === 'Smearccino' || species.baseSpecies === 'Toxicott') {
 			ivs.atk = 31;
 		}
 

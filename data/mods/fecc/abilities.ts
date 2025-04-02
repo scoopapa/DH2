@@ -3695,7 +3695,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hotpotato: {
 		onSwitchOut(pokemon) {
-			if(pokemon.adjacentFoes().length == 0) return;
+			if(pokemon.adjacentFoes().length === 0) return;
 			const target = this.sample(pokemon.adjacentFoes());
 			if (pokemon.getAbility().flags['failskillswap']) return;
 			
