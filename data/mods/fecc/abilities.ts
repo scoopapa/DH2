@@ -4029,6 +4029,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isWeather('sandstorm')) pokemon.addVolatile('commanding');
 			else pokemon.removeVolatile('commanding');
 		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('commanding');
+		}
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Command the Sand",
 		//shortDesc: "If Sand is active: this Pokemon cannot act or be hit.",
