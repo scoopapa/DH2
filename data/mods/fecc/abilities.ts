@@ -4031,7 +4031,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			pokemon.removeVolatile('commanding');
-		}
+		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Command the Sand",
 		//shortDesc: "If Sand is active: this Pokemon cannot act or be hit.",
