@@ -39,14 +39,17 @@ export const Scripts: ModdedBattleScriptsData = {
 				let currentGen, latestGen = 0;
 				for (const moveid in learnset) { // determine what the latest gen is for this pokémon
 					for (const method in learnset[moveid]) {
-						currentGen = parseInt(learnset[moveid][method][0])
-						if (currentGen > latestGen) latestGen = currentGen;
+						// only looks at non-virtual console moves
+						if (learnset[moveid][method][1] != "V") {
+							currentGen = parseInt(learnset[moveid][method][0])
+							if (currentGen > latestGen) latestGen = currentGen;
+						}
 					}
 				}
 				
 				for (const moveid in learnset) { // filter only to allow moves from the latest gen
 					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
-						(method) => parseInt(method[0]) == latestGen
+						(method) => parseInt(method[0]) == latestGen && method[1] != "V"
 					);
 				}
 
