@@ -3761,10 +3761,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|Let's go gambling!`);
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) {
-				return 50;
-			}
-			return accuracy;
+			return 50;
 		},
 		flags: {},
 		name: "Coinflip Mechanics",
