@@ -567,4 +567,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 309,
 	},
+	stamina: {
+		onDamagingHit(damage, target, source, effect) {
+			if (target === source) return;
+			this.boost({def: 1});
+		},
+		flags: {},
+		name: "Stamina",
+		rating: 4,
+		num: 192,
+	},
 };
