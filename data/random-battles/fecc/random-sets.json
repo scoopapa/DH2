@@ -1665,7 +1665,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Stored Power", "Draining Kiss", "Mystical Fire", "Nuzzle", "Moonlight", "Calm Mind"],
+                "movepool": ["Stored Power", "Dazzling Gleam", "Mystical Fire", "Nuzzle", "Moonlight", "Calm Mind"],
                 "teraTypes": ["Steel", "Fire"]
             }
         ]

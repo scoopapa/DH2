@@ -1223,7 +1223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.hp = Math.floor(pokemon.hp * 2);
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		onSwitchOut(pokemon) {
+		onEnd(pokemon) {
 			pokemon.maxhp = Math.floor(pokemon.maxhp / 2);
 			pokemon.hp = Math.floor(pokemon.hp / 2);
 		},
