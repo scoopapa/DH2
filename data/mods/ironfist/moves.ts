@@ -76,9 +76,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "G-Max Steelsurge", target);
 		},
 		onEffectiveness(typeMod, target, type) {
-		    if(target.baseSpecies.types[0] === type) return 1;
-			else return 0;
-		},
+            if (target.getTypes()[0] === type || target.terastallized) return 1;
+            else return 0;
+        },
 		target: "normal",
 		type: "Steel",
 		shortDesc: "Always super-effective.",
