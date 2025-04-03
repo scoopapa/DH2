@@ -551,6 +551,11 @@
                 "role": "Bulky Support",
                 "movepool": ["Wish", "Heal Bell", "Play Rough", "Knock Off", "Protect", "Roost", "Thunder Wave", "Perish Song", "Whirlpool", "Encore"],
                 "teraTypes": ["Steel", "Electric"]
+            },
+			{
+                "role": "Fast Support",
+                "movepool": ["Wish", "Protect", "Roost", "Play Rough", "Perish Song", "Whirlpool", "Encore"],
+                "teraTypes": ["Steel", "Electric"]
             }
         ]
     },
@@ -1593,11 +1598,6 @@
                 "movepool": ["Metronome", "Spikes", "Acupressure", "Parting Shot", "Present", "Hold Back", "Celebrate"],
                 "teraTypes": ["Ghost"]
             },
-			{
-                "role": "Bulky Support",
-                "movepool": ["Rest", "Sleep Talk", "Present", "Hold Back"],
-                "teraTypes": ["Ghost"]
-            }
         ]
     },
 	"tapuluna": {
@@ -1665,7 +1665,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Stored Power", "Draining Kiss", "Mystical Fire", "Nuzzle", "Moonlight", "Calm Mind"],
+                "movepool": ["Stored Power", "Dazzling Gleam", "Mystical Fire", "Nuzzle", "Moonlight", "Calm Mind"],
                 "teraTypes": ["Steel", "Fire"]
             }
         ]

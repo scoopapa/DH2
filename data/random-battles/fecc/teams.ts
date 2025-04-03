@@ -725,7 +725,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1660,7 +1660,7 @@ export class RandomTeams {
 			evs.spd = 0;
 			evs.spe = 252;
 		}
-		if (species.baseSpecies === 'Smearccino') {
+		if (species.baseSpecies === 'Smearccino' || species.baseSpecies === 'Toxicott') {
 			ivs.atk = 31;
 		}
 

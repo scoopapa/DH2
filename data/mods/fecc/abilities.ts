@@ -1223,7 +1223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.hp = Math.floor(pokemon.hp * 2);
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		onSwitchOut(pokemon) {
+		onEnd(pokemon) {
 			pokemon.maxhp = Math.floor(pokemon.maxhp / 2);
 			pokemon.hp = Math.floor(pokemon.hp / 2);
 		},
@@ -3018,7 +3018,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd() {
 			for (const target of this.getAllActive()) {
-				if (target.volatiles['ability:simple']) target.deleteVolatile('ability:simple');
+				if (target.volatiles['ability:simple']) target.removeVolatile('ability:simple');
 			}
 		},
 		flags: {},
@@ -3545,7 +3545,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd() {
 			for (const target of this.getAllActive()) {
-				if (target.volatiles['ability:minus']) target.deleteVolatile('ability:minus');
+				if (target.volatiles['ability:minus']) target.removeVolatile('ability:minus');
 			}
 		},
 		flags: {},
@@ -3695,7 +3695,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hotpotato: {
 		onSwitchOut(pokemon) {
-			if(pokemon.adjacentFoes().length == 0) return;
+			if(pokemon.adjacentFoes().length === 0) return;
 			const target = this.sample(pokemon.adjacentFoes());
 			if (pokemon.getAbility().flags['failskillswap']) return;
 			
@@ -3761,10 +3761,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|Let's go gambling!`);
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) {
-				return 50;
-			}
-			return accuracy;
+			return 50;
 		},
 		flags: {},
 		name: "Coinflip Mechanics",
@@ -4176,7 +4173,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd() {
 			for (const target of this.getAllActive()) {
-				if (target.volatiles['ability:ironified']) target.deleteVolatile('ability:ironified');
+				if (target.volatiles['ability:ironified']) target.removeVolatile('ability:ironified');
 			}
 		},
 		flags: {},
