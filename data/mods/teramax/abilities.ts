@@ -460,7 +460,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	chillingneigh: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			this.damage(target.baseMaxhp / 8, target, target);
+			this.heal(target.baseMaxhp / 8, target, target);
 		},
 		flags: {},
 		name: "Chilling Neigh",
