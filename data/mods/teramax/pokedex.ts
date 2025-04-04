@@ -410,7 +410,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	corviknightgmax: {
 		inherit: true,
-		abilities: {0: "No Ability"},
+		abilities: {0: "Intimidate"},
 		weightkg: 999.9,
 	},
 	orbeetle: {
