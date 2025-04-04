@@ -79,7 +79,7 @@ export const Conditions: import('../../../sim/dex-moves').ModdedConditionDataTab
 						this.add('-activate', pokemon, 'ability: Stakeout');
 						break;
 					case 'Corviknight':
-						pokemon.setAbility('intimidate', pokemon, true);
+						//pokemon.setAbility('intimidate', pokemon, true);
 						//this.add('-activate', pokemon, 'ability: Intimidate');
 						break;
 					case 'Orbeetle':
