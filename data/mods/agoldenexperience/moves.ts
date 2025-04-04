@@ -2552,6 +2552,8 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 				def: -1,
 			},
 		},
+		desc: "Has a 10% chance to lower the target's Def by 1. If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. If the user's current form is a Paldean Tauros, this move's type changes to match. Fighting type for Combat Breed, Fire type for Blaze Breed, and Water type for Aqua Breed.",
+		shortDesc: "10% chance to lower target's Def by 1. Destroys screens. Type depends on user's form.",
 	},
 	tidyup: {
 		inherit: true,
@@ -2960,6 +2962,449 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	lightofruin: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	froststorm: {
+		num: -68,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		name: "Frost Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target && ['hail', 'snow', 'everlastingwinter'].includes(target.effectiveWeather())) {
+				move.secondaries.push({
+					chance: 100,
+					status: 'frz',
+				});
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", target);
+			this.add('-anim', source, "Blizzard", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		target: "allAdjacentFoes",
+		type: "Ice",
+		shortDesc: "30% chance of Freeze, 100% in Snow.",
+	},
+	thunderstorm: {
+		num: -69,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		name: "Thunder Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target && ['raindance', 'primordialsea'].includes(target.effectiveWeather())) {
+				move.secondaries.push({
+					chance: 100,
+					status: 'par',
+				});
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", target);
+			this.add('-anim', source, "Thunder", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "allAdjacentFoes",
+		type: "Electric",
+		shortDesc: "30% chance of Para, 100% in Rain.",
+	},
+	heatstorm: {
+		num: -70,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		name: "Heat Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				move.secondaries.push({
+					chance: 100,
+					status: 'brn',
+				});
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", target);
+			this.add('-anim', source, "Heat Wave", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Fire",
+		shortDesc: "30% chance of Burn, 100% in Sun.",
+	},
+	genesiswave: {
+		num: -71,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Genesis Wave",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		terrain: 'psychicterrain',
+		boosts: {
+			spa: 1,
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Genesis Supernova", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+		shortDesc: "Raises user's SpA by 1, and sets Psychic Terrain.",
+	},
+	thunderway: {
+		num: -72,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Thunder Way",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, bypasssub: 1, allyanim: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.75));
+			pokemon.addVolatile('taunt');
+			return pokemon.cureStatus() || success;
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thunderclap", source);
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		shortDesc: "Heals 75% of HP and heals status, but the user is Taunted for 2 turns.",
+	},
+	taunt: {
+		inherit: true,
+		volatileStatus: 'taunt',
+		condition: {
+			duration: 3,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Thunder Way") {
+					return 2;
+				}
+				return 3;
+			},
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectState.duration++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+	},
+	fieryfire: {
+		num: -73,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fiery Fire",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			atk: 1,
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('flashfire')
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('flashfire');
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fiery Dance", source);
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+		shortDesc: "Raises Atk by 1, and applies the Flash Fire effect.",
+	},
+	auroraborealis: {
+		num: -74,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Aurora Borealis",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		volatileStatus: 'aquaring',
+		onHit(pokemon) {
+			return pokemon.cureStatus();
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aurora Veil", source);
+			this.add('-anim', source, "Aqua Ring", source);
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+		shortDesc: "Heals user's status, and gives Aqua Ring.",
+	},
+	boulderbuilding: {
+		num: -75,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Boulder Building",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({def: 1}, source, source, this.dex.getActiveMove("Boulder Building"));
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Boulder Building', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Boulder Building', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Blast", source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+		desc: "Raises the user's Defense by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness. If there is a terrain active and this move is successful, the terrain will be cleared.",
+		shortDesc: "+1 Def; clears terrain and hazards on both sides.",
+	},
+	icebergpolish: {
+		num: -76,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Iceberg Polish",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			spe: 2,
+			atk: 1,
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Blast", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+		desc: "Raises the user's Speed by 2 stages and its Sp. Attack by 1 stage.",
+		shortDesc: "Raises the user's Speed by 2 and Sp. Atk by 1.",
+	},
+	alienmetal: {
+		num: -77,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Alien Metal",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, bypasssub: 1},
+		heal: [1, 4],
+		volatileStatus: 'alienmetal',
+		condition: {
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Alien Metal');
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (target.getMoveHitData(move).typeMod > 0) {
+					this.debug('Alien Metal neutralize');
+					return this.chainModify(0.75);
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Alien Metal', '[silent]');
+			},
+		},		
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Blast", target);
+		},
+		secondary: null,
+		target: "allies",
+		type: "Steel",
+		shortDesc: "Heals 25% of the user's HP, and gives Filter effect for 3 turns.",
+	},
+	athosrapier: {
+		num: -78,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Athos Rapier",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		volatileStatus: 'athosrapier',
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smart Strike", source);
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.boost({def: 1}, target, target, this.dex.getActiveMove("Athos Rapier"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.boost({def: 1}, target, target, this.dex.getActiveMove("Athos Rapier"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user raise its Defense by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects from damaging attacks. Contact: +1 Def.",
+	},
+	aramisdagger: {
+		num: -79,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Aramis Dagger",
+		pp: 30,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Leaf Blade", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+		desc: "No additional effect.",
+		shortDesc: "Usually goes first.",
+	},
+	porthosbroadsword: {
+		num: -80,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Porthos Broadsword",
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stone Edge", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+		desc: "Fails if the target did not select a physical attack, special attack, or Me First for use this turn, or if the target moves before the user.",
+		shortDesc: "Usually goes first. Fails if target is not attacking.",
 	},
 	// Everlasting Winter field
 	auroraveil: {

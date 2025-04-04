@@ -305,6 +305,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	rapidashgalar: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 110, def: 70, spa: 70, spd: 80, spe: 105},
+		abilities: {0: "Run Away", 1: "Pastel Veil", H: "Pixilate"},
 	},
 	slowbro: {
 		inherit: true,
@@ -2600,15 +2601,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Black",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Salazzlite",
-	},
-	stufful: {
-		inherit: true,
-		types: ["Fairy", "Fighting"],
-	},
-	bewear: {
-		inherit: true,
-		types: ["Fairy", "Fighting"],
-		baseStats: {hp: 115, atk: 125, def: 80, spa: 50, spd: 70, spe: 60},
 	},
 	tsareena: {
 		inherit: true,
