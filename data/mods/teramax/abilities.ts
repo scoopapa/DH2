@@ -580,11 +580,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	intimidate: {
 		onStart(pokemon) {
 			let activated = false;
-			if (activated) return;
 			for (const target of pokemon.adjacentFoes()) {
+				if (this.effectState.intim) return;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Intimidate', 'boost');
 					activated = true;
+					this.effectState.intim = true;
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
@@ -592,6 +593,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
 			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.intim;
 		},
 		flags: {},
 		name: "Intimidate",
