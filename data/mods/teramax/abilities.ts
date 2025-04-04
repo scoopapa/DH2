@@ -579,8 +579,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	intimidate: {
 		onStart(pokemon) {
-			if (pokemon.gigantamax) return;
 			let activated = false;
+			if (activated) return;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Intimidate', 'boost');
