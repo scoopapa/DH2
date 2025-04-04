@@ -577,4 +577,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 192,
 	},
+	intimidate: {
+		onStart(pokemon) {
+			if (pokemon.gigantamax) return;
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		flags: {},
+		name: "Intimidate",
+		rating: 3.5,
+		num: 22,
+	},
 };
