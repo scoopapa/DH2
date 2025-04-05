@@ -2305,9 +2305,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
 			if (!pokemon.side.trumpcard) pokemon.side.trumpcard = 0;
-			console.log(pokemon.name + " " + pokemon.side.trumpcard);
 			const bp = move.basePower + 20 * pokemon.side.trumpcard;
-			console.log(bp);
 			this.debug('BP: ' + bp);
 			return bp;
 		},
