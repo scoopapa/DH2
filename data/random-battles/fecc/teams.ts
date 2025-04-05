@@ -725,7 +725,7 @@ export class RandomTeams {
 		}
 
 		// Enforce wacky moves
-		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass']) {
+		for (const moveid of ['stuffcheeks', 'headsmash', 'bloodmoon', 'eternabeam', 'terastarstorm', 'attract', 'dragontail', 'boltbeak', 'saltcure', 'sandtomb', 'finalgambit', 'darkvoid', 'aurawheel', 'metronome', 'watershuriken', 'batonpass', 'sandstorm']) {
 			if (movePool.includes(moveid)) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, teraType, role);
@@ -1295,6 +1295,7 @@ export class RandomTeams {
 		if (species.id === 'spinningfire') return 'Berserk Gene';
 		if (species.id === 'snorcannon') return 'Starf Berry';
 		if (species.id === 'tapuluna') return 'Life Orb';
+		if (species.id === 'smearccino') return 'Focus Sash';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';
@@ -1658,6 +1659,9 @@ export class RandomTeams {
 			evs.spa = 0;
 			evs.spd = 0;
 			evs.spe = 252;
+		}
+		if (species.baseSpecies === 'Smearccino' || species.baseSpecies === 'Toxicott') {
+			ivs.atk = 31;
 		}
 
 		// shuffle moves to add more randomness to camomons

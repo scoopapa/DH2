@@ -1223,7 +1223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.hp = Math.floor(pokemon.hp * 2);
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		onSwitchOut(pokemon) {
+		onEnd(pokemon) {
 			pokemon.maxhp = Math.floor(pokemon.maxhp / 2);
 			pokemon.hp = Math.floor(pokemon.hp / 2);
 		},
@@ -3016,6 +3016,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!target.hasAbility('doubledown') && !target.volatiles['ability:simple']) target.addVolatile('ability:simple');
 			}
 		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['ability:simple']) target.removeVolatile('ability:simple');
+			}
+		},
 		flags: {},
 		name: "Double Down",
 		//shortDesc: "Serene Grace + this Pokemon's foes have doubled stat changes.",
@@ -3026,7 +3031,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 
 			if (this.randomChance(3, 10)) {
-				target.addVolatile('wokemindvirus');
+				target.addVolatile('pronounsynthesis');
 			}
 		},
 		condition: {
@@ -3034,7 +3039,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon, source, effect) {
 				this.effectState.virusTurns = 0;
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'wokemindvirus' + this.effectState.bestStat, '[silent]');
+				this.add('-start', pokemon, 'pronounsynthesis' + this.effectState.bestStat, '[silent]');
 			},
 			onResidual(pokemon) {
 				this.effectState.virusTurns ++;
@@ -3372,7 +3377,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					used: false,
 				};
 				pokemon.moveSlots[i] = learnedMove;
-				pokemon.baseMoveSlots[i] = learnedMove;
 				movepool.splice(movepool.indexOf(temp), 1);
 				if (movepool.length === 0) break;
 			}
@@ -3539,13 +3543,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!target.hasAbility('girlofruin') && !target.volatiles['ability:minus']) target.addVolatile('ability:minus');
 			}
 		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['ability:minus']) target.removeVolatile('ability:minus');
+			}
+		},
 		flags: {},
 		name: "Girl of Ruin",
 		//shortDesc: "If an active Pokémon has Plus/Minus, this Pokemon's SpA is 1.5x. Active Pokemon without this Ability have the Minus ability.",
 	},
 	wondershield: {
 		onTryHit(pokemon, target, move) {
-			if (target.hp >= target.maxhp) {
+			if (pokemon.hp >= pokemon.maxhp) {
 				this.add('-immune', pokemon, '[from] ability: Wonder Shield');
 				return null;
 			}
@@ -3572,13 +3581,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				for (const type of targetTypes) {
 					if (type !== '???' && !source.hasType(type) && source.addType(type)) {
 						success = true;
+						source.addType(type);
 						lostTypes.push(type);
+						this.add('-start', source, 'typeadd', type, '[from] ability: Art Theft');
 					}
 				}	
 				if (success) {
 					target.setType(target.getTypes(true).map(type => lostTypes.includes(type) ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'));
-					this.add('-start', source, 'typeadd', lostTypes.join('/'), '[from] ability: Art Theft');
 				}				
 			}
 		},
@@ -3685,7 +3695,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hotpotato: {
 		onSwitchOut(pokemon) {
-			if(pokemon.adjacentFoes().length == 0) return;
+			if(pokemon.adjacentFoes().length === 0) return;
 			const target = this.sample(pokemon.adjacentFoes());
 			if (pokemon.getAbility().flags['failskillswap']) return;
 			
@@ -3751,10 +3761,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|Let's go gambling!`);
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) {
-				return 50;
-			}
-			return accuracy;
+			return 50;
 		},
 		flags: {},
 		name: "Coinflip Mechanics",
@@ -4019,6 +4026,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isWeather('sandstorm')) pokemon.addVolatile('commanding');
 			else pokemon.removeVolatile('commanding');
 		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('commanding');
+		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Command the Sand",
 		//shortDesc: "If Sand is active: this Pokemon cannot act or be hit.",
@@ -4158,7 +4168,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	ironify: {
 		onUpdate(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!target.volatiles['ability:ironified']) target.addVolatile('ability:ironified');
+				if (target !== pokemon && !target.volatiles['ability:ironified']) target.addVolatile('ability:ironified');
+			}
+		},
+		onEnd() {
+			for (const target of this.getAllActive()) {
+				if (target.volatiles['ability:ironified']) target.removeVolatile('ability:ironified');
 			}
 		},
 		flags: {},

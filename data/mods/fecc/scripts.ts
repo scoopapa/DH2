@@ -346,10 +346,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						this.battle.boost({spe: 2}, pokemon);
 					}
 					if (pokemon.hasAbility('coinflipmechanics')) {
-						this.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|Aw dang it`);
+						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${pokemon.name}|Aw dang it`);
 					}
 					if (target.hasAbility('coinflipmechanics')) {
-						this.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|Hey, ${pokemon.side.name}, did you know 99% of gamblers quit right before hitting it big?`);
+						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|Hey, ${pokemon.side.name}, did you know 99% of gamblers quit right before hitting it big?`);
 					}
 					if (target.hasAbility('swallowswallow')) {
 						this.battle.add(`c:|${Math.floor(Date.now() / 1000)}|${target.name}|@${pokemon.name}, sorry, your vote did not follow the format - try again`);
