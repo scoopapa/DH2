@@ -399,7 +399,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			swift: ["2M"],
 			takedown: ["1M"],
 			thief: ["2M"],
-			thief: ["1L45"],
 			toxic: ["2M", "1M"],
 			triattack: ["2L21", "1M", "1L40"],
 			whirlwind: ["1M"],

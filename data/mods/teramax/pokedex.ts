@@ -246,6 +246,23 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 105, atk: 65, def: 93, spa: 115, spd: 121, spe: 91},
 	},
+	terapagos: {
+		inherit: true,
+		abilities: {0: "Tera Shift", H: "Stellar Shift"},
+		forceTeraType: null,
+	},
+	terapagosterastal: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 90, def: 110, spa: 110, spd: 110, spe: 85},
+		abilities: {0: "Tera Shell", H: "Stellar Shell"},
+		forceTeraType: null,
+	},
+	terapagosstellar: {
+		inherit: true,
+		baseStats: {hp: 160, atk: 100, def: 110, spa: 135, spd: 110, spe: 85},
+		abilities: {0: "Teraform Zero"},
+		requiredAbility: "Stellar Shell",
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaur: {

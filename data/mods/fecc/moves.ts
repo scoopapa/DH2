@@ -180,7 +180,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Gorilla",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		volatileStatus: 'gorilla',
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -227,7 +227,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Moisturizer",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		volatileStatus: 'moisturizer',
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -279,6 +279,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.type = 'Fire';
 				break;
 			case 'Tauros-Paldea-Aqua':
+			case 'Grenos-Paldea-Aqua':
 				move.type = 'Water';
 				break;
 			}
@@ -286,29 +287,67 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	aurawheel: {
 		inherit: true,
-		shortDesc: "Morform: Normal; Rainy: Water; Sunny: Fire; Snowy: Ice; 100% +1 Spe.",
-		onTry(source) {
-			if (source.species.baseSpecies === 'Morform') {
-				return;
-			}
-			this.attrLastMove('[still]');
-			this.add('-fail', source, 'move: Aura Wheel');
-			this.hint("Only a Pokemon whose base species is Morform can use this move.");
-			return null;
-		},
+		shortDesc: "Type depends on forme. 100% +1 Spe.",
+		onTry: true,
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
 				case 'Morform':
+				case 'Baseball':
 					move.type = 'Normal';
 					break;
 				case 'Morform-Rainy':
+				case 'Watermelon':
 					move.type = 'Water';
 					break;
 				case 'Morform-Sunny':
+				case 'Basketball':
 					move.type = 'Fire';
 					break;
 				case 'Morform-Snowy':
-					move.type = 'Ice'
+				case 'Snowball':
+					move.type = 'Ice';
+					break;
+				case 'Football':
+					move.type = 'Ground';
+					break;
+				case 'Soccerball':
+					move.type = 'Fighting';
+					break;
+				case 'Tennisball':
+					move.type = 'Flying';
+					break;
+				case 'Cricketball':
+					move.type = 'Bug';
+					break;
+				case 'Cabbage':
+					move.type = 'Grass';
+					break;
+				case 'Plasmaball':
+					move.type = 'Electric';
+					break;
+				case 'Crystalball':
+					move.type = 'Psychic';
+					break;
+				case '8ball':
+					move.type = 'Dark';
+					break;
+				case 'Gumball':
+					move.type = 'Fairy';
+					break;
+				case 'Discoball':
+					move.type = 'Steel';
+					break;
+				case 'TheMoon':
+					move.type = 'Ghost';
+					break;
+				case 'Rock':
+					move.type = 'Rock';
+					break;
+				case 'Virus':
+					move.type = 'Poison';
+					break;
+				case 'Dragonball':
+					move.type = 'Dragon';
 					break;
 			}
 		},

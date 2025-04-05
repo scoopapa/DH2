@@ -1582,6 +1582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	oldduke: {
 		num: -169,
 		name: "Old Duke",
+		fish: true,
 		types: ["Poison", "Water"],
 		baseStats: {hp: 90, atk: 120, def: 70, spa: 75, spd: 65, spe: 100},
 		abilities: {0: "Defiant", H: "Toxic Wisdom"},

@@ -4,27 +4,27 @@ import {toID} from '../../../sim/dex-data';
 const ag9 = ["calyrexshadow", "gengarmega", "koraidon", "miraidon", "rayquazamega", "xerneas"];
 const uber9 = [
 	// M4A first
-	// Nothing here for the moment!
+	"dragapultmega", 
 	// Natdex second
 	"alakazammega", "annihilape", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", 
 	"arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy",
 	"baxcalibur", "blastoisemega", "blazikenmega", "calyrexice", "chienpao", "chiyu", "darkrai", "darmanitangalar", "deoxys", "deoxysattack", "deoxysspeed", "dialga", 
-	"dialgaorigin", "dracovish", "espathra", "eternatus", "fluttermane", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "giratina", 
+	"dialgaorigin", "dracovish", "dragapult", "espathra", "eternatus", "fluttermane", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock", "giratina", 
 	"giratinaorigin", "gougingfire", "groudon", "groudonprimal", "hooh", "ironbundle", "kangaskhanmega", "kyogre", "kyogreprimal", "kyuremblack", "kyuremwhite", 
 	"landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", 
-	"necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "ogerponheartflame", "palafin", "palafinhero", "palkia", "palkiaorigin", "pheromosa", "rayquaza", 
-	"reshiram", "salamencemega", "shayminsky", "sneasler", "solgaleo", "spectrier", "terapagosstellar", "ursalunabloodmoon", "urshifu", "walkingwake", 
-	"yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
+	"necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "ogerponheartflame", "ogerpontera", "ogerponheartflametera", "ogerponcornerstonetera", "ogerponwellspringtera", 
+	"palafin", "palafinhero", "palkia", "palkiaorigin", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "sneasler", "solgaleo", "spectrier", 
+	"terapagosstellar", "ursalunabloodmoon", "urshifu", "walkingwake", "yveltal", "zacian", "zaciancrowned", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", 	
 ];
 const viabilityList9 = [
-	"alomomola", "clodsire", "corviknight", "dragapult", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
+	"alomomola", "clodsire", "corviknight", "dragonite", "ferrothorn", "garchomp", "gholdengo", "glimmora", 
 	"gliscor", "greattusk", "hatterene", "heatran", "ironcrown", "irontreads", "ironvaliant", "kartana", "kingambit", "kyurem", "landorustherian", "melmetal", 
 	"moltres", "nidoqueen", "ogerponwellspring", "pelipper", "ragingbolt", "rillaboom", "roaringmoon", "samurotthisui", "slowkinggalar", "tapulele", "tapukoko", 
 	"terapagos", "terapagosterastal", "toxapex", "urshifurapidstrike", "volcarona", "zamazenta", "zapdos", 
 ];
 const megaViabilityList9 = [
 	"araquanidmega", "bastiodonmega", "bibarelmega", "butterfreemega", "chandeluremega", "charizardmegay", "cinderacemega", "clefablemega", "conkeldurrmega", 
-	"corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemega",	"dragapultmega", "eelektrossmega", "empoleonmega", "falinksmega", "flygonmega", 
+	"corviknightmega", "dhelmisemega", "dianciemega", "dodriomega", "dragalgemega",	"eelektrossmega", "empoleonmega", "falinksmega", "flygonmega", 
 	"froslassmega", "garbodormega", "hawluchamega", "honchkrowmega", "hydreigonmega", "infernapemega", "inteleonmega", "krookodilemega", "lanturnmega", "lopunnymega", 
 	"lurantismega", "luxraymega", "lycanrocmega", "magmortarmega", "meowsticmega", "mimikyumega", "mimikyumegabusted", "nidoqueenmega", "noivernmega", "orbeetlemega", 
 	"raichumega", "regicemega", "reuniclusmega", "scizormega", "sirfetchdmega", "slowkingmega", "slowkinggalarmega", "staraptormega", "starmiemega", "stoutlandmega", 

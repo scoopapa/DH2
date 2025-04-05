@@ -18,7 +18,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Crabominable",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution", // use generic flavor where not specified
-		creator: "ausma",
+		creator: "Jade",
 	},
 
 	croagunk: {
@@ -156,7 +156,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Whiscazu", "Whiscazu-Hisui"],
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "ausma",
+		creator: "Jade",
 	},
 	whiscazuhisui: {
 		name: "Whiscazu-Hisui",
@@ -241,7 +241,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 30, atk: 40, def: 55, spa: 40, spd: 55, spe: 60},
-		abilities: {0: "Awakening", H: "Anticipation"},
+		abilities: {0: "Awakening", H: "Telepathy"},
 		movepoolAdditions: ["curse", "frostbreath", "tripleaxel", "blizzard", "hex", "icebeam", "icywind", "snowscape", "willowisp"],
 		movepoolDeletions: ["closecombat", "firepunch", "sunnyday"],
 
@@ -261,7 +261,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 60, atk: 60, def: 75, spa: 60, spd: 75, spe: 80},
-		abilities: {0: "Awakening", H: "Anticipation"},
+		abilities: {0: "Awakening", H: "Telepathy"},
 		movepoolAdditions: ["curse", "frostbreath", "tripleaxel", "blizzard", "hex", "icebeam", "icywind", "snowscape", "willowisp"],
 		movepoolDeletions: ["closecombat", "firepunch", "sunnyday"],
 
@@ -277,7 +277,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 80, atk: 100, def: 80, spa: 100, spd: 80, spe: 100},
-		abilities: {0: "Awakening", H: "Anticipation"},
+		abilities: {0: "Awakening", H: "Telepathy"},
 		movepoolAdditions: ["curse", "frostbreath", "tripleaxel", "blizzard", "hex", "icebeam", "icywind", "snowscape", "willowisp"],
 		movepoolDeletions: ["closecombat", "firepunch", "sunnyday"],
 
@@ -360,7 +360,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mareanie-Drifter",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "ausma",
+		creator: "Jade",
 	},
 
 	bronzor: {
@@ -747,7 +747,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Porygon",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "ausma",
+		creator: "Jade",
 	},
 	datagonz: {
 		name: "Datagon-Z",
@@ -762,7 +762,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Datagon2",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "ausma",
+		creator: "Jade",
 	},
 
 	noibat: {
@@ -1513,7 +1513,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolDeletions: ["honeclaws", "irondefense", "ironhead", "metalclaw", "metalsound", "rockslide", "steelbeam", "swordsdance"],
 
 		evos: ["Excadrill-Hisui"],
-		creator: "ausma",
+		creator: "Jade",
 	},
 	excadrill: {
 		inherit: true,
@@ -1534,7 +1534,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drilbur-Hisui",
 		evoType: "other",
 		evoCondition: "A newly-discovered evolution",
-		creator: "ausma",
+		creator: "Jade",
 	},
 
 	dedenne: {

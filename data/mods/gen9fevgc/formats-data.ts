@@ -594,4 +594,202 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Reg B",
 		doublesTier: "Reg B",
 	},
+
+	// Reg C
+	volbeasle: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	illuminun: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	oinkeonf: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	sylveodon: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	umbrelotic: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	goleaf: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	excaluza: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ramptrio: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	bombirdstone: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	floakix: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	bearligatr: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	avatitanhisui: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	abomascott: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	klefikyu: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	klefikyuunlocked: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	spidozong: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	miniklawmeteor: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	miniklaw: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	uxelia: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	annihisprit: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	azurustherian: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	cruelustherian: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	squawkorustherian: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	wonamorustherian: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	mabospao: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	metalu: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	chiken: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ogereena: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ogereenatealtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ogereenahearthflame: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ogereenahearthflametera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ogereenawellspring: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ogereenawellspringtera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ogereenacornerstone: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ogereenacornerstonetera: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dogicannon: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	overfez: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	ironmonkey: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	duncefire: {
+		tier: "Reg C",
+		doublesTier: "Reg C",
+	},
+	chonkee: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	shellee: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	eebas: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	eedudee: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	cranidlett: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	nymbuizel: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	cubodile: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	bergtoddle: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	cottover: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
+	tarounzor: {
+		tier: "Reg C LC",
+		doublesTier: "Reg C LC",
+	},
 };

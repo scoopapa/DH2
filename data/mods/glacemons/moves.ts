@@ -1797,7 +1797,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-anim', source, "Rage Powder", target);
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
@@ -1840,16 +1840,19 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 	// Slate 10
 	skyuppercut: {
 		inherit: true,
-		accuracy: 100,
 		basePower: 95,
+		accuracy: 100,
 		onAfterMove(target, source, move) {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			if (target !== source && move.category !== 'Status' && move.totalDamage) {
-				this.damage(source.baseMaxhp / 8, source, target);
+			for (const condition of sideConditions) {
+				if (target.side.getSideCondition(condition)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					return;
+				}
 			}
 		},
-		desc: "(WIP) Inflicts 1/8 max HP if hazards are up.",
-		shortDesc: "(WIP) Inflicts 1/8 max HP if hazards are up.",
+		desc: "Inflicts 1/8 max HP if hazards are up.",
+		shortDesc: "Inflicts 1/8 max HP if hazards are up.",
 	},
 	blackout: {
 		num: -30,
@@ -1866,7 +1869,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Daze", target);
 		},
@@ -1891,7 +1894,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hypnosis", target);
 			this.add('-anim', source, "Psycho Boost", target);
@@ -1907,12 +1910,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
-		name: "Blackout",
+		name: "Syrup Bomb",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
 		sideCondition: 'grasspledge',
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sludge Bomb", target);
 		},
@@ -1954,7 +1957,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			this.add('-start', source, 'move: Foul Future');
 			return this.NOT_FAIL;
 		},
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Jab", target);
 		},
@@ -1974,7 +1977,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		onPrepareHit: function (target, source) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dazzling Gleam", target);
 		},
@@ -1985,7 +1988,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			},
 		},
 		target: "normal",
-		shortDesc: "Creates a Swamp on the opponent's side of the field.",
+		shortDesc: "30% chance to lower target's SpA by 1.",
 		type: "Fairy",
 		contestType: "Cute",
 	},
@@ -2000,5 +2003,53 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		type: "Rock",
 		desc: "Has a 10% chance to confuse the target.",
 		shortDesc: "10% chance to confuse the target.",
+	},
+	bonfire: {
+		num: -36,
+		accuracy: 100,
+		basePower: 60,
+		category: 'Special',
+		name: 'Bonfire',
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		onModifyBasePowerPriority: 22,
+		onModifyBasePower(basePower, attacker, defender, move) {
+			let bonfireBP = 0
+			for (const ally of attacker.side.pokemon) {
+				for (const moveSlot of attacker.moveSlots) {
+					if (moveSlot.name === 'Bonfire') {
+						bonfireBP += 20
+					}
+				}
+			}
+			move.basePower += bonfireBP
+		},
+		onPrepareHit(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Wheel", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	kiblast: {
+		num: -37,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Ki Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
+		contestType: "Cool",
 	},
 };

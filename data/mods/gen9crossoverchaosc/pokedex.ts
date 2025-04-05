@@ -133,5 +133,30 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		abilities: {0: "Regenerator", 1: "Tangling Hair", H: "Sniper"},
 		weightkg: 52.6,
 	},
-
+	mawjaw: {
+		num: 16,
+		name: "Maw Jaw",
+		types: ["Ghost", "Ground"],
+		baseStats: {hp: 110, atk: 95, def: 91, spa: 55, spd: 70, spe: 79},
+		abilities: {0: "Shadow Pounce", H: "Strong Jaw"},
+		weightkg: 24.2,
+	},
+	amingo: {
+		num: 17,
+		name: "Amingo",
+		gender: "M",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 85, atk: 110, def: 120, spa: 70, spd: 90, spe: 59},
+		abilities: {0: "Overgrow", H: "Rough Skin"},
+		weightkg: 90,
+	},
+	susie: {
+		num: 18,
+		name: "Susie",
+		gender: "F",
+		types: ["Dragon", "Fighting"],
+		baseStats: {hp: 80, atk: 105, def: 110, spa: 97, spd: 67, spe: 60},
+		abilities: {0: "Intimidate", H: "Defiant"},
+		weightkg: 80,
+	},
 };

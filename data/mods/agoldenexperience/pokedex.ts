@@ -165,7 +165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	sandslashalola: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 110, def: 120, spa: 45, spd: 55, spe: 85},
+		baseStats: {hp: 75, atk: 110, def: 120, spa: 25, spd: 65, spe: 85},
 		abilities: {0: "Snow Cloak", 1: "Spiky Body", H: "Slush Rush"},
 	},
 	ninetales: {
@@ -234,9 +234,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 80, atk: 62, def: 78, spa: 105, spd: 80, spe: 95},
 		abilities: {0: "Neuroforce", 1: "Cloud Nine", H: "Swift Swim"},
 	},
+	growlithe: {
+		inherit: true,
+		types: ["Fire", "Normal"],
+	},
 	arcanine: {
 		inherit: true,
-		types: ["Fire", "Fairy"],
+		types: ["Fire", "Normal"],
 		baseStats: {hp: 90, atk: 115, def: 90, spa: 75, spd: 90, spe: 95},
 	},
 	arcaninehisui: {
@@ -301,6 +305,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	rapidashgalar: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 110, def: 70, spa: 70, spd: 80, spe: 105},
+		abilities: {0: "Run Away", 1: "Pastel Veil", H: "Pixilate"},
 	},
 	slowbro: {
 		inherit: true,
@@ -863,7 +868,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	donphan: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Rock Head"},
+		abilities: {0: "Sturdy", 1: "Thick Fat", H: "Sand Veil"},
 	},
 	houndour: {
 		inherit: true,
@@ -956,7 +961,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	blazikenmega: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 130, def: 95, spa: 130, spd: 95, spe: 100},
+		baseStats: {hp: 80, atk: 140, def: 85, spa: 130, spd: 85, spe: 110},
 		abilities: {0: "Reckless"},
 	},
 	mightyena: {
@@ -2051,6 +2056,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	sawsbuck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 110, def: 70, spa: 60, spd: 70, spe: 105},
+		abilities: {0: "Chlorophyll", 1: "Sap Sipper", H: "Season Pass"},
 	},
 	emolga: {
 		inherit: true,
@@ -2239,7 +2245,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	// Gen 6 :
 	chesnaught: {
 		inherit: true,
-		abilities: {0: "Overgrow", H: "Spiky Body"},
 		otherFormes: ["Chesnaught-Mega"],
 		formeOrder: ["Chesnaught", "Chesnaught-Mega"],
 	},
@@ -2251,7 +2256,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		types: ["Grass", "Fighting"],
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 88, atk: 137, def: 152, spa: 74, spd: 105, spe: 74},
-		abilities: {0: "Guts"},
+		abilities: {0: "Spiky Body"},
 		heightm: 1.9,
 		weightkg: 130,
 		color: "Green",
@@ -2596,15 +2601,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		color: "Black",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Salazzlite",
-	},
-	stufful: {
-		inherit: true,
-		types: ["Fairy", "Fighting"],
-	},
-	bewear: {
-		inherit: true,
-		types: ["Fairy", "Fighting"],
-		baseStats: {hp: 115, atk: 125, def: 80, spa: 50, spd: 70, spe: 60},
 	},
 	tsareena: {
 		inherit: true,
@@ -3092,7 +3088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	tinkaton: {
 		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Sheer Force"},
+		abilities: {0: "Mold Breaker", 1: "Sheer Force", H: "Pickpocket"},
 	},
 	wiglett: {
 		inherit: true,
@@ -3129,7 +3125,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Rock Head"},
+		abilities: {0: "Protosynthesis", H: "Sand Veil"},
 	},
 	screamtail: {
 		inherit: true,
@@ -3165,7 +3161,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	ironjugulis: {
 		inherit: true,
-		abilities: {0: "Quark Drive", H: "Berserk"},
+		abilities: {0: "Quark Drive", H: "Unconcerned"},
 	},
 	ironmoth: {
 		inherit: true,
