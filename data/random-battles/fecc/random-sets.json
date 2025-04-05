@@ -1662,7 +1662,7 @@
                 "role": "Fast Support",
                 "movepool": ["Metronome", "Spikes", "Acupressure", "Parting Shot", "Present", "Hold Back", "Celebrate"],
                 "teraTypes": ["Ghost"]
-            },
+            }
         ]
     },
 	"tapuluna": {
