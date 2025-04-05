@@ -970,7 +970,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				if (target.species.id === 'cramorantgulping') {
 					this.boost({def: -1, spd: -1}, source, target, null, true);
 				} else {
-					source.trySetStatus('par', target, move);
 					this.boost({spe: -2}, source, target, null, true);
 				}
 				target.formeChange('cramorant', move);
