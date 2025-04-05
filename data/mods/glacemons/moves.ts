@@ -1583,10 +1583,16 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		inherit: true,
 		pp: 5,
 		onTryImmunity(target, source) {},
-		onHit(target) {
-			const type = target.getTypes().join();
-			if (target.hasType(type) || !target.setType(type)) return false;
-			this.add('-start', target, 'typechange', type);
+		onHit(target, source) {
+			const types = target.getTypes().join();
+			const type1 = types[0]
+			const type2 = types[1]
+			if (target.hasType(type1) || !target.setType(type1)) return false;
+			if (types.length() == 1) this.add('-start', source, 'typechange', type1);
+			if (types.length() == 2) {
+				this.add('-start', source, 'typechange', type1);
+				this.add('-start', source, 'typeadd', type2);
+			}			
 		},
 		shortDesc: "Changes user's type to that of the target after hit.",
 	},
