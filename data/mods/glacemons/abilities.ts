@@ -1167,12 +1167,14 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -25,
 		name: "Resourceful",
 		rating: 4,
-		onTryEatItem(pokemon) {
+		onEatItem(pokemon) {
 			if (pokemon.shieldBoost) return;
 			pokemon.shieldBoost = true;
-			return false;
+			pokemon.setItem(pokemon.lastItem);
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Resourceful');
 		},
-		onUseItem(pokemon) {
+		onAfterUseItem(pokemon) {
 			if (pokemon.swordBoost) return;
 			pokemon.swordBoost = true;
 			this.battle.runEvent('UseItem', this, null, null, pokemon)
