@@ -52,7 +52,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 7,
 		name: "Cradily",
 		types: ["Grass", "Water"],
-		baseStats: {hp: 76, atk: 88, def: 103, spa: 108, spd: 113, spe: 47},
+		baseStats: {hp: 76, atk: 88, def: 93, spa: 108, spd: 103, spe: 47},
 		abilities: {0: "Storm Drain", 1: "Solid Rock", H: "Poison Heal"},
 	},
 	anorith: {

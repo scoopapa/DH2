@@ -1290,6 +1290,7 @@ export class RandomTeams {
 		if (species.id === 'gigawrath') return 'Choice Band';
 		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
+		if (species.id === 'chiruno' && moves.has('sheercold')) return 'choicespecs';
 		
 		if (species.id === 'blazer') return 'Focus Sash';
 		if (species.id === 'spinningfire') return 'Berserk Gene';
@@ -1789,11 +1790,11 @@ export class RandomTeams {
 				species = this.dex.species.get('beetar');
 				teamDetails.scolislash ++;
 			}
-			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 4)) {
+			else if(teamDetails.chiruno && teamDetails.chiruno == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('avalluxe');
 				teamDetails.chiruno ++;
 			}
-			else if(teamDetails.avalluxe && teamDetails.avalluxe == 1 && this.randomChance(1, 4)) {
+			else if(teamDetails.avalluxe && teamDetails.avalluxe == 1 && this.randomChance(1, 2)) {
 				species = this.dex.species.get('chiruno');
 				teamDetails.avalluxe ++;
 			}
