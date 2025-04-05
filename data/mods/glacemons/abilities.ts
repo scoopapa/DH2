@@ -1175,7 +1175,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onUseItem(pokemon) {
 			if (pokemon.swordBoost) return;
 			pokemon.swordBoost = true;
-			this.battle.runEvent('UseItem', this, null, null, pokemon.item)
+			this.battle.runEvent('UseItem', this, null, null, pokemon)
 		},
 		onResidualOrder: 28,
 		onResidualSubOrder: 4,
