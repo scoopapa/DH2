@@ -3257,7 +3257,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Steel",
+		type: "Ice",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 		desc: "Raises the user's Speed by 2 stages and its Sp. Attack by 1 stage.",
