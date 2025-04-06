@@ -230,4 +230,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		shortDesc: "Effects of Sturdy and Regenerator.",
 	},
+	juggernaut: {
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Juggernaut');
+				return null;
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Juggernaut weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Juggernaut weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Juggernaut",
+		rating: 3,
+		shortDesc: "Effects of Bulletproof and Thick Fat.",
+	},
 };
