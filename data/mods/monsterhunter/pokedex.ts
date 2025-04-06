@@ -5,7 +5,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire"],
 		baseStats: {hp: 72, atk: 93, def: 102, spa: 110, spd: 95, spe: 80},
 		abilities: {0: "Flame Body", 1: "Solar Power"},
+		heightm: 1.0,
 		weightkg: 60.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	ahtalka: {
 		num: 65,
@@ -13,6 +16,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 89, atk: 113, def: 129, spa: 67, spd: 107, spe: 78},
 		abilities: {0: "Technician", 1: "Steelworker"},
+		heightm: 1.0,
 		weightkg: 45.0,
 	},
 	akantor: {
@@ -21,6 +25,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 90, atk: 115, def: 101, spa: 121, spd: 85, spe: 70},
 		abilities: {0: "Flare Boost", 1: "Sand Rush"},
+		heightm: 1.0,
 		weightkg: 150.0,
 	},
 	aknosom: {
@@ -29,6 +34,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 100, atk: 62, def: 90, spa: 100, spd: 80, spe: 88},
 		abilities: {0: "Flame Body", 1: "Dancer"},
+		heightm: 1.0,
 		weightkg: 39.2,
 	},
 	alatreon: {
@@ -37,6 +43,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 110, atk: 110, def: 105, spa: 110, spd: 105, spe: 105},
 		abilities: {0: "Protean"},
+		heightm: 1.0,
 		weightkg: 210.0,
 	},
 	almudron: {
@@ -45,6 +52,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 112, atk: 108, def: 102, spa: 66, spd: 92, spe: 75},
 		abilities: {0: "Mold Breaker", 1: "Earth Eater"},
+		heightm: 1.0,
 		weightkg: 52.5,
 	},
 	magmadron: {
@@ -53,6 +61,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Fire"],
 		baseStats: {hp: 112, atk: 108, def: 102, spa: 66, spd: 92, spe: 75},
 		abilities: {0: "Flash Fire", 1: "Earth Eater"},
+		heightm: 1.0,
 		weightkg: 52.5,
 	},
 	amatsu: {
@@ -61,6 +70,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 102, atk: 95, def: 90, spa: 130, spd: 124, spe: 94},
 		abilities: {0: "Regenerator", 1: "Delta Stream"},
+		heightm: 1.0,
 		weightkg: 392.0,
 	},
 	anjanath: {
@@ -69,6 +79,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire"],
 		baseStats: {hp: 94, atk: 135, def: 80, spa: 50, spd: 74, spe: 93},
 		abilities: {0: "Strong Jaw", 1: "Anger Point"},
+		heightm: 1.0,
 		weightkg: 155.5,
 	},
 	fulguranjanath: {
@@ -77,6 +88,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric"],
 		baseStats: {hp: 94, atk: 135, def: 80, spa: 50, spd: 74, spe: 93},
 		abilities: {0: "Motor Drive", 1: "Anger Point"},
+		heightm: 1.0,
 		weightkg: 155.5,
 	},
 	arzuros: {
@@ -85,6 +97,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 81, atk: 112, def: 115, spa: 60, spd: 78, spe: 74},
 		abilities: {0: "Hustle", 1: "Tough Claws", H: "Honey Gather"},
+		heightm: 1.0,
 		weightkg: 95.0,
 		otherFormes: ["Redhelm Arzuros"],
 	},
@@ -96,6 +109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 80, atk: 112, def: 144, spa: 90, spd: 94, spe: 100},
 		abilities: {0: "Tough Claws"},
+		heightm: 1.0,
 		weightkg: 178.4,
 		requiredItem: "Arzurite",
 	},
@@ -105,6 +119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 50, atk: 92, def: 84, spa: 117, spd: 112, spe: 125},
 		abilities: {0: "Lightning Rod", 1: "Surge Surfer"},
+		heightm: 1.0,
 		weightkg: 45.5,
 		otherFormes: ["Boltreaver Astalos"],
 	},
@@ -116,6 +131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 60, atk: 114, def: 84, spa: 150, spd: 122, spe: 150},
 		abilities: {0: "Tinted Lens"},
+		heightm: 1.0,
 		weightkg: 45.5,
 		requiredItem: "Astalite",
 	},
@@ -125,6 +141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Ice"],
 		baseStats: {hp: 94, atk: 103, def: 99, spa: 60, spd: 78, spe: 81},
 		abilities: {0: "Ice Body", 1: "Sap Sipper"},
+		heightm: 1.0,
 		weightkg: 95.0,
 	},
 	barioth: {
@@ -133,6 +150,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice"],
 		baseStats: {hp: 103, atk: 110, def: 83, spa: 78, spd: 83, spe: 80},
 		abilities: {0: "Justified", 1: "Slush Rush"},
+		heightm: 1.0,
 		weightkg: 152.2,
 	},
 	barroth: {
@@ -141,6 +159,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 86, atk: 84, def: 90, spa: 72, spd: 110, spe: 70},
 		abilities: {0: "Mega Launcher", 1: "Sand Stream"},
+		heightm: 1.0,
 		weightkg: 105.8,
 	},
  	basarios: {
@@ -149,6 +168,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Poison"],
 		baseStats: {hp: 81, atk: 74, def: 155, spa: 82, spd: 55, spe: 53},
 		abilities: {0: "Sturdy", 1: "Rough Skin"},
+		heightm: 1.0,
 		weightkg: 312.2,
 	},
 	bazelgeuse: {
@@ -157,6 +177,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 102, atk: 120, def: 86, spa: 86, spd: 102, spe: 104},
 		abilities: {0: "Skill Link", 1: "Reckless"},
+		heightm: 1.0,
 		weightkg: 220.5,
 		otherFormes: ["Seething Bazelgeuse"],
 	},
@@ -168,6 +189,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Dark"],
 		baseStats: {hp: 110, atk: 138, def: 86, spa: 129, spd: 117, spe: 120},
 		abilities: {0: "Anger Shell"},
+		heightm: 1.0,
 		weightkg: 280.5,
 		requiredItem: "Bazelnite",
 	},
@@ -177,6 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice"],
 		baseStats: {hp: 72, atk: 106, def: 83, spa: 70, spd: 81, spe: 105},
 		abilities: {0: "Hustle", 1: "Slush Rush"},
+		heightm: 1.0,
 		weightkg: 45.0,
 	},
 	bishaten: {
@@ -185,6 +208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting"],
 		baseStats: {hp: 110, atk: 94, def: 78, spa: 94, spd: 80, spe: 94},
 		abilities: {0: "Ripen", 1: "Magician"},
+		heightm: 1.0,
 		weightkg: 55.0,
 	},
 	orangaten: {
@@ -193,6 +217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Fire"],
 		baseStats: {hp: 110, atk: 94, def: 78, spa: 94, spd: 80, spe: 94},
 		abilities: {0: "Flame Body", 1: "Magician"},
+		heightm: 1.0,
 		weightkg: 55.0,
 	},
 	blangonga: {
@@ -201,6 +226,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 95, atk: 126, def: 91, spa: 65, spd: 79, spe: 74},
 		abilities: {0: "Vital Spirit", 1: "Inner Focus"},
+		heightm: 1.0,
 		weightkg: 95.0,
 	},
 	brachydios: {
@@ -209,6 +235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Poison"],
 		baseStats: {hp: 90, atk: 122, def: 102, spa: 105, spd: 80, spe: 71},
 		abilities: {0: "Iron Fist", 1: "Poison Touch"},
+		heightm: 1.0,
 		weightkg: 105.0,
 	},
 	bulldrome: {
@@ -217,6 +244,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 70, atk: 120, def: 80, spa: 50, spd: 75, spe: 105},
 		abilities: {0: "Hustle"},
+		heightm: 1.0,
 		weightkg: 90.0,
 	},
 	ceadeus: {
@@ -225,6 +253,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Water"],
 		baseStats: {hp: 100, atk: 117, def: 104, spa: 100, spd: 123, spe: 81},
 		abilities: {0: "Shield Dust", 1: "Primordial Sea"},
+		heightm: 1.0,
 		weightkg: 200.0,
 	},
 	cephadrome: {
@@ -233,6 +262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Electric"],
 		baseStats: {hp: 70, atk: 101, def: 84, spa: 56, spd: 104, spe: 100},
 		abilities: {0: "Sand Rush", 1: "Emergency Exit"},
+		heightm: 1.0,
 		weightkg: 48.0,
 	},
 	chameleos: {
@@ -241,6 +271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Poison"],
 		baseStats: {hp: 78, atk: 128, def: 78, spa: 128, spd: 78, spe: 125},
 		abilities: {0: "Neutralizing Gas", 1: "Poison Puppeteer"},
+		heightm: 1.0,
 		weightkg: 150.4,
 	},
 	congalala: {
@@ -249,6 +280,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 87, atk: 83, def: 89, spa: 101, spd: 104, spe: 61},
 		abilities: {0: "Harvest", 1: "Stench"},
+		heightm: 1.0,
 		weightkg: 50.4,
 	},
 	dahrenmohran: {
@@ -257,6 +289,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 114, atk: 123, def: 114, spa: 92, spd: 101, spe: 86},
 		abilities: {0: "Sand Force", 1: "Sand Rush"},
+		heightm: 1.0,
 		weightkg: 205.0,
 	},
 	daimyohermitaur: {
@@ -265,6 +298,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 78, atk: 98, def: 124, spa: 78, spd: 102, spe: 52},
 		abilities: {0: "Shell Armor", 1: "Weak Armor"},
+		heightm: 1.0,
 		weightkg: 160.0,
 	},
 	dalamadur: {
@@ -273,6 +307,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 84, atk: 130, def: 110, spa: 146, spd: 85, spe: 86},
 		abilities: {0: "Power Spot", 1: "Teraform Zero"},
+		heightm: 1.0,
 		weightkg: 500.0,
 	},
 	deviljho: {
@@ -281,6 +316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 105, atk: 120, def: 115, spa: 99, spd: 68, spe: 76},
 		abilities: {0: "Dragon's Maw", 1: "Cud Chew"},
+		heightm: 1.0,
 		weightkg: 120.0,
 	},
 	diablos: {
@@ -289,6 +325,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Ground"],
 		baseStats: {hp: 112, atk: 122, def: 94, spa: 20, spd: 77, spe: 120},
 		abilities: {0: "Rock Head", 1: "Reckless"},
+		heightm: 1.0,
 		weightkg: 170.2,
 		otherFormes: ["Massacre Diablos"],
 	},
@@ -300,6 +337,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 112, atk: 160, def: 138, spa: 20, spd: 85, spe: 130},
 		abilities: {0: "Reckless"},
+		heightm: 1.0,
 		weightkg: 170.2,
 		requiredItem: "Diablite",
 	},
@@ -309,6 +347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 96, atk: 124, def: 94, spa: 125, spd: 126, spe: 55},
 		abilities: {0: "Pressure", 1: "Desolate Land"},
+		heightm: 1.0,
 		weightkg: 335.0,
 	},
 	dodogama: {
@@ -317,6 +356,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock"],
 		baseStats: {hp: 109, atk: 87, def: 96, spa: 74, spd: 91, spe: 43},
 		abilities: {0: "Cheek Pouch", 1: "Stalwart"},
+		heightm: 1.0,
 		weightkg: 48.0,
 	},
 	duramboros: {
@@ -325,6 +365,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 100, atk: 110, def: 90, spa: 100, spd: 80, spe: 40},
 		abilities: {0: "Grass Pelt", 1: "Wind Rider"},
+		heightm: 1.0,
 		weightkg: 110.0,
 	},
 	eruzerion: {
@@ -333,6 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Ice"],
 		baseStats: {hp: 90, atk: 115, def: 89, spa: 121, spd: 107, spe: 103},
 		abilities: {0: "Ice Body", 1: "Flame Body"},
+		heightm: 1.0,
 		weightkg: 150.0,
 	},
 	espinas: {
@@ -341,6 +383,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Unaware", 1: "Toxic Debris"},
+		heightm: 1.0,
 		weightkg: 130.4,
 	},
 	flamingespinas: {
@@ -349,6 +392,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Flash Fire", 1: "Toxic Debris"},
+		heightm: 1.0,
 		weightkg: 130.4,
 	},
 	fatalis: {
@@ -357,6 +401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 100, atk: 120, def: 100, spa: 150, spd: 100, spe: 90},
 		abilities: {0: "Thermal Exchange", 1: "Pressure"},
+		heightm: 1.0,
 		weightkg: 270.0,
 	},
 	gaismagorm: {
@@ -365,6 +410,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 125, atk: 106, def: 117, spa: 103, spd: 114, spe: 60},
 		abilities: {0: "Regenerator", 1: "Dark Aura"},
+		heightm: 1.0,
 		weightkg: 1000.0,
 	},
 	gammoth: {
@@ -373,6 +419,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Ice"],
 		baseStats: {hp: 108, atk: 107, def: 130, spa: 75, spd: 103, spe: 57},
 		abilities: {0: "Dauntless Shield", 1: "Thick Fat"},
+		heightm: 1.0,
 		weightkg: 220.0,
 	},
 	garangolm: {
@@ -381,6 +428,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 113, atk: 115, def: 105, spa: 78, spd: 94, spe: 65},
 		abilities: {0: "Rocky Payload", 1: "Gorilla Tactics"},
+		heightm: 1.0,
 		weightkg: 150.5,
 	},
 	gendrome: {
@@ -389,6 +437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 80, atk: 107, def: 116, spa: 81, spd: 50, spe: 91},
 		abilities: {0: "Sand Rush", 1: "Friend Guard"},
+		heightm: 1.0,
 		weightkg: 30.0,
 	},
 	giadrome: {
@@ -397,6 +446,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice"],
 		baseStats: {hp: 80, atk: 81, def: 50, spa: 107, spd: 116, spe: 91},
 		abilities: {0: "Slush Rush", 1: "Friend Guard"},
+		heightm: 1.0,
 		weightkg: 30.0,
 	},
 	gigginox: {
@@ -405,6 +455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Poison"],
 		baseStats: {hp: 84, atk: 66, def: 68, spa: 77, spd: 122, spe: 98},
 		abilities: {0: "Liquid Ooze", 1: "Long Reach"},
+		heightm: 1.0,
 		weightkg: 50.5,
 	},
 	glavenus: {
@@ -413,6 +464,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 99, atk: 134, def: 105, spa: 80, spd: 70, spe: 92},
 		abilities: {0: "Intrepid Sword", 1: "Beast Boost"},
+		heightm: 1.0,
 		weightkg: 105.0,
 	},
 	gobul: {
@@ -421,6 +473,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 129, atk: 66, def: 99, spa: 107, spd: 106, spe: 23},
 		abilities: {0: "Mimicry", 1: "Color Change"},
+		heightm: 1.0,
 		weightkg: 60.0,
 	},
 	gagmazios: {
@@ -429,6 +482,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 101, atk: 109, def: 111, spa: 130, spd: 109, spe: 70},
 		abilities: {0: "Iron Barbs", 1: "Sheer Force"},
+		heightm: 1.0,
 		weightkg: 300.0,
 	},
 	goremagala: {
@@ -437,6 +491,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Dragon"],
 		baseStats: {hp: 95, atk: 96, def: 108, spa: 128, spd: 50, spe: 98},
 		abilities: {0: "Wandering Spirit", 1: "Overcoat"},
+		heightm: 1.0,
 		weightkg: 230.3,
 	},
 	chaoticgore: {
@@ -445,6 +500,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 100, spd: 95, spe: 95},
 		abilities: {0: "Contrary"},
+		heightm: 1.0,
 		weightkg: 230.3,
 	},
 	gossharag: {
@@ -453,6 +509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Fighting"],
 		baseStats: {hp: 74, atk: 126, def: 104, spa: 60, spd: 102, spe: 66},
 		abilities: {0: "Stakeout", 1: "Adaptability"},
+		heightm: 1.0,
 		weightkg: 240.5,
 	},
 	gravios: {
@@ -461,6 +518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Psychic"],
 		baseStats: {hp: 107, atk: 101, def: 100, spa: 120, spd: 62, spe: 65},
 		abilities: {0: "Flash Fire", 1: "Armor Tail"},
+		heightm: 1.0,
 		weightkg: 250.0,
 	},
   	greatbaggi: {
@@ -469,6 +527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 90, atk: 50, def: 107, spa: 90, spd: 123, spe: 65},
 		abilities: {0: "Comatose", 1: "Vital Spirit"},
+		heightm: 1.0,
 		weightkg: 45.5,
 	},
 	greatgirros: {
@@ -477,6 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Electric"],
 		baseStats: {hp: 107, atk: 123, def: 90, spa: 50, spd: 90, spe: 55},
 		abilities: {0: "Static", 1: "Intimidate"},
+		heightm: 1.0,
 		weightkg: 30.0,
 	},
  	greatizuchi: {
@@ -485,6 +545,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 90, atk: 123, def: 90, spa: 50, spd: 65, spe: 107},
 		abilities: {0: "Hyper Cutter", 1: "Sharpness"},
+		heightm: 1.0,
 		weightkg: 45.5,
 	},
 	greatjaggi: {
@@ -493,6 +554,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 90, atk: 107, def: 90, spa: 50, spd: 123, spe: 65},
 		abilities: {0: "Skill Link", 1: "Normalize"},
+		heightm: 1.0,
 		weightkg: 45.5,
 	},
 	greatjagras: {
@@ -501,6 +563,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Dark"],
 		baseStats: {hp: 123, atk: 90, def: 107, spa: 65, spd: 90, spe: 50},
 		abilities: {0: "Innards Out", 1: "Tangling Hair"},
+		heightm: 1.0,
 		weightkg: 60.0,
 	},
 	greatmaccao: {
@@ -509,6 +572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Grass"],
 		baseStats: {hp: 90, atk: 123, def: 107, spa: 50, spd: 65, spe: 90},
 		abilities: {0: "Reckless", 1: "Propeller Tail"},
+		heightm: 1.0,
 		weightkg: 55.0,
 	},
  	greatwroggi: {
@@ -517,6 +581,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 90, atk: 50, def: 65, spa: 123, spd: 107, spe: 90},
 		abilities: {0: "Merciless", 1: "Dry Skin"},
+		heightm: 1.0,
 		weightkg: 45.5,
 	},
 	gureadomosu: {
@@ -525,6 +590,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Water"],
 		baseStats: {hp: 92, atk: 105, def: 97, spa: 124, spd: 103, spe: 65},
 		abilities: {0: "Storm Drain", 1: "Swift Swim"},
+		heightm: 1.0,
 		weightkg: 170.0,
 	},
 	gypceros: {
@@ -533,6 +599,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 83, atk: 105, def: 93, spa: 67, spd: 86, spe: 92},
 		abilities: {0: "Lightning Rod", 1: "Prankster"},
+		heightm: 1.0,
 		weightkg: 90.0,
 	},
 	harudomerugu: {
@@ -541,6 +608,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 90, atk: 125, def: 110, spa: 100, spd: 95, spe: 100},
 		abilities: {0: "Steelworker", 1: "Full Metal Body"},
+		heightm: 1.0,
 		weightkg: 300.0,
 	},
 	hypnocatrice: {
@@ -549,6 +617,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		baseStats: {hp: 84, atk: 105, def: 102, spa: 56, spd: 70, spe: 100},
 		abilities: {0: "Quick Feet", 1: "Bad Dreams"},
+		heightm: 1.0,
 		weightkg: 70.0,
 	},
 	ibushi: {
@@ -558,6 +627,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 114, atk: 87, def: 112, spa: 102, spd: 122, spe: 88},
 		gender: "M",
 		abilities: {0: "Air Lock", 1: "Minus"},
+		heightm: 1.0,
 		weightkg: 232.3,
 	},
 	iodrome: {
@@ -566,6 +636,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison"],
 		baseStats: {hp: 80, atk: 50, def: 81, spa: 116, spd: 91, spe: 107},
 		abilities: {0: "Merciless", 1: "Friend Guard"},
+		heightm: 1.0,
 		weightkg: 45.0,
 	},
 	jhenmohran: {
@@ -574,6 +645,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 114, atk: 101, def: 123, spa: 92, spd: 114, spe: 86},
 		abilities: {0: "Purifying Salt", 1: "Sand Stream"},
+		heightm: 1.0,
 		weightkg: 330.0,
 	},
 	jyuratodus: {
@@ -582,6 +654,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Water"],
 		baseStats: {hp: 126, atk: 70, def: 60, spa: 114, spd: 85, spe: 75},
 		abilities: {0: "Storm Drain", 1: "Hydration"},
+		heightm: 1.0,
 		weightkg: 90.3,
 	},
 	kechawacha: {
@@ -590,6 +663,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Water"],
 		baseStats: {hp: 68, atk: 75, def: 77, spa: 108, spd: 102, spe: 90},
 		abilities: {0: "Mold Breaker", 1: "Limber"},
+		heightm: 1.0,
 		weightkg: 20.0,
 	},
 	khezu: {
@@ -598,6 +672,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric"],
 		baseStats: {hp: 105, atk: 67, def: 72, spa: 113, spd: 109, spe: 60},
 		abilities: {0: "Electric Surge", 1: "Static"},
+		heightm: 1.0,
 		weightkg: 50.5,
 	},
 	kingshakalaka: {
@@ -606,6 +681,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 75, atk: 112, def: 75, spa: 112, spd: 75, spe: 90},
 		abilities: {0: "Chlorophyll", 1: "Stakeout"},
+		heightm: 1.0,
 		weightkg: 9.0,
 	},
 	kirin: {
@@ -614,6 +690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Electric"],
 		baseStats: {hp: 90, atk: 110, def: 80, spa: 130, spd: 100, spe: 105},
 		abilities: {0: "Grim Neigh", 1: "Chilling Neigh"},
+		heightm: 1.0,
 		weightkg: 1.0,
 	},
  	kuluyaku: {
@@ -622,6 +699,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 75, atk: 105, def: 117, spa: 44, spd: 70, spe: 104},
 		abilities: {0: "Quick Feet", 1: "Unburden"},
+		heightm: 1.0,
 		weightkg: 30.0,
 	},
 	kulvetaroth: {
@@ -630,6 +708,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 107, atk: 90, def: 102, spa: 133, spd: 99, spe: 89},
 		abilities: {0: "Good as Gold", 1: "Magic Guard"},
+		heightm: 1.0,
 		weightkg: 400.0,
 	},
 	kushaladaora: {
@@ -638,6 +717,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 95, atk: 85, def: 105, spa: 127, spd: 130, spe: 73},
 		abilities: {0: "Bulletproof", 1: "Magic Bounce"},
+		heightm: 1.0,
 		weightkg: 200.4,
 	},
 	lagiacrus: {
@@ -646,6 +726,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Electric"],
 		baseStats: {hp: 106, atk: 112, def: 80, spa: 122, spd: 80, spe: 70},
 		abilities: {0: "Surge Surfer", 1: "Swift Swim"},
+		heightm: 1.0,
 		weightkg: 70.0,
 	},
  	lagombi: {
@@ -654,6 +735,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Ice"],
 		baseStats: {hp: 88, atk: 112, def: 83, spa: 46, spd: 76, spe: 115},
 		abilities: {0: "Fur Coat", 1: "Slush Rush"},
+		heightm: 1.0,
 		weightkg: 53.4,	
 		otherFormes: ["Snowbaron Lagombi"],
 	},
@@ -665,6 +747,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Ice"],
 		baseStats: {hp: 88, atk: 148, def: 96, spa: 48, spd: 90, spe: 150},
 		abilities: {0: "Skill Link"},
+		heightm: 1.0,
 		weightkg: 178.4,
 		requiredItem: "Lagombite",
 	},
@@ -674,6 +757,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 111, atk: 111, def: 102, spa: 85, spd: 135, spe: 69},
 		abilities: {0: "Unaware", 1: "Oblivious"},
+		heightm: 1.0,
 		weightkg: 400.0,
 	},
 	lavasioth: {
@@ -682,6 +766,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire"],
 		baseStats: {hp: 70, atk: 102, def: 80, spa: 104, spd: 90, spe: 60},
 		abilities: {0: "Blaze", 1: "Magma Armor"},
+		heightm: 1.0,
 		weightkg: 60.0,
 	},
 	legiana: {
@@ -690,6 +775,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Flying", "Ice"],
 		baseStats: {hp: 63, atk: 80, def: 65, spa: 115, spd: 101, spe: 122},
 		abilities: {0: "Aerilate", 1: "Wind Rider"},
+		heightm: 1.0,
 		weightkg: 45.0,
 	},
 	lunagaron: {
@@ -698,6 +784,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 88, atk: 125, def: 79, spa: 87, spd: 88, spe: 108},
 		abilities: {0: "Hyper Cutter", 1: "Tough Claws"},
+		heightm: 1.0,
 		weightkg: 90.5,
 	},
 	lunastra: {
@@ -706,6 +793,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 85, atk: 115, def: 78, spa: 121, spd: 75, spe: 96},
 		abilities: {0: "Turboblaze", 1: "Berserk"},
+		heightm: 1.0,
 		weightkg: 150.0,
 	},
 	magnamalo: {
@@ -714,6 +802,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Fire"],
 		baseStats: {hp: 105, atk: 115, def: 78, spa: 121, spd: 75, spe: 96},
 		abilities: {0: "Intimidate", 1: "Moxie"},
+		heightm: 1.0,
 		weightkg: 212.2,
 		otherFormes: ["Scorned Magnamalo"],
 	},
@@ -725,6 +814,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 105, atk: 155, def: 80, spa: 134, spd: 110, spe: 106},
 		abilities: {0: "Supreme Overlord"},
+		heightm: 1.0,
 		weightkg: 212.2,
 		requiredItem: "Magnamalite",
 	},
@@ -734,6 +824,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 90, atk: 84, def: 101, spa: 103, spd: 110, spe: 68},
 		abilities: {0: "Wonder Skin", 1: "Trace"},
+		heightm: 1.0,
 		weightkg: 50.0,
 	},
 	malzeno: {
@@ -742,6 +833,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 90, atk: 110, def: 80, spa: 130, spd: 80, spe: 120},
 		abilities: {0: "Multiscale", 1: "Fairy Aura"},
+		heightm: 1.0,
 		weightkg: 85.0,
 		otherFormes: ["Primordial Malzeno"],
 	},
@@ -753,6 +845,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 90, atk: 155, def: 80, spa: 155, spd: 80, spe: 150},
 		abilities: {0: "Soul-Heart"},
+		heightm: 1.0,
 		weightkg: 85.0,
 		requiredItem: "Malzenite",
 	},
@@ -763,6 +856,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 88, atk: 72, def: 90, spa: 116, spd: 102, spe: 112},
 		abilities: {0: "Water Bubble", 1: "Marvel Scale"},
+		heightm: 1.0,
 		weightkg: 70.3,
 		otherFormes: ["Soulseer Mizutsune"],
 	},
@@ -775,6 +869,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		genderRatio: {M: 0.875, F: 0.125},
 		baseStats: {hp: 88, atk: 121, def: 90, spa: 144, spd: 109, spe: 128},
 		abilities: {0: "No Guard"},
+		heightm: 1.0,
 		weightkg: 70.3,
 		requiredItem: "Mizutsunite",
 	},
@@ -784,6 +879,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Fire"],
 		baseStats: {hp: 88, atk: 72, def: 90, spa: 116, spd: 102, spe: 112},
 		abilities: {0: "Serene Grace", 1: "Marvel Scale"},
+		heightm: 1.0,
 		weightkg: 70.3,
 	},
 	monoblos: {
@@ -792,6 +888,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Gorund"],
 		baseStats: {hp: 105, atk: 133, def: 110, spa: 20, spd: 60, spe: 105},
 		abilities: {0: "Intimidate", 1: "Rock Head"},
+		heightm: 1.0,
 		weightkg: 120.0,
 	},
 	najarala: {
@@ -800,6 +897,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Normal"],
 		baseStats: {hp: 97, atk: 70, def: 99, spa: 111, spd: 103, spe: 75},
 		abilities: {0: "Battle Armor", 1: "Soundproof"},
+		heightm: 1.0,
 		weightkg: 100.0,
 	},
 	nakarkos: {
@@ -808,6 +906,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Ghost"],
 		baseStats: {hp: 106, atk: 105, def: 117, spa: 131, spd: 107, spe: 44},
 		abilities: {0: "Vessel of Ruin", 1: "Cursed Body"},
+		heightm: 1.0,
 		weightkg: 250.0,
 	},
 	namielle: {
@@ -816,6 +915,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Electric"],
 		baseStats: {hp: 90, atk: 85, def: 70, spa: 140, spd: 135, spe: 80},
 		abilities: {0: "Water Absorb", 1: "Electromorphosis"},
+		heightm: 1.0,
 		weightkg: 165.0,
 	},
 	nargacuga: {
@@ -824,6 +924,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 88, atk: 116, def: 102, spa: 72, spd: 90, spe: 112},
 		abilities: {0: "Sharpness", 1: "Screen Cleaner"},
+		heightm: 1.0,
 		weightkg: 88.8,
 	},
 	lucentnargacuga: {
@@ -832,6 +933,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 88, atk: 116, def: 102, spa: 72, spd: 90, spe: 112},
 		abilities: {0: "Clear Body", 1: "Screen Cleaner"},
+		heightm: 1.0,
 		weightkg: 88.8,
 	},
 	narwa: {
@@ -841,6 +943,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 114, atk: 102, def: 87, spa: 122, spd: 88, spe: 112},
 		gender: "F",
 		abilities: {0: "Electric Surge", 1: "Plus"},
+		heightm: 1.0,
 		weightkg: 154.3,
 		otherFormes: ["Allmother Narwa"],
 	},
@@ -853,6 +956,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 108, def: 110, spa: 160, spd: 130, spe: 107},
 		gender: "F",
 		abilities: {0: "Electromorphosis"},
+		heightm: 1.0,
 		weightkg: 154.3,
 		requiredItem: "Narwanite",
 	},
@@ -862,6 +966,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fighting"],
 		baseStats: {hp: 93, atk: 119, def: 101, spa: 117, spd: 79, spe: 106},
 		abilities: {0: "Guts", 1: "Unseen Fist"},
+		heightm: 1.0,
 		weightkg: 150.0,
 	},
 	nerscylla: {
@@ -870,6 +975,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Poison"],
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 100, spd: 90, spe: 50},
 		abilities: {0: "Sticky Hold", 1: "Liquid Ooze"},
+		heightm: 1.0,
 		weightkg: 40.0,
 	},
 	nibelsnarf: {
@@ -878,6 +984,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground"],
 		baseStats: {hp: 103, atk: 78, def: 108, spa: 112, spd: 82, spe: 43},
 		abilities: {0: "Water Compaction", 1: "Sand Spit"},
+		heightm: 1.0,
 		weightkg: 60.0,
 	},
 	odagaron: {
@@ -886,6 +993,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark"],
 		baseStats: {hp: 75, atk: 130, def: 70, spa: 85, spd: 70, spe: 85},
 		abilities: {0: "Intimidate", 1: "Guard Dog"},
+		heightm: 1.0,
 		weightkg: 50.0,
 	},
 	paolumu: {
@@ -894,6 +1002,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 102, atk: 105, def: 100, spa: 47, spd: 98, spe: 78},
 		abilities: {0: "Fluffy", 1: "Cotton Down"},
+		heightm: 1.0,
 		weightkg: 40.0,
 	},
 	plesioth: {
@@ -902,6 +1011,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 104, def: 80, spa: 102, spd: 90, spe: 60},
 		abilities: {0: "Torrent", 1: "Water Veil"},
+		heightm: 1.0,
 		weightkg: 50.0,
 	},
 	pukeipukei: {
@@ -910,6 +1020,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison"],
 		baseStats: {hp: 68, atk: 74, def: 70, spa: 112, spd: 98, spe: 108},
 		abilities: {0: "Liquid Ooze", 1: "Merciless"},
+		heightm: 1.0,
 		weightkg: 22.0,
 	},
 	qurupeco: {
@@ -918,6 +1029,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Flying"],
 		baseStats: {hp: 75, atk: 75, def: 75, spa: 80, spd: 120, spe: 80},
 		abilities: {0: "Dancer", 1: "Triage"},
+		heightm: 1.0,
 		weightkg: 20.0,
 	},
 	radobaan: {
@@ -926,6 +1038,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Ghost"],
 		baseStats: {hp: 90, atk: 100, def: 120, spa: 40, spd: 80, spe: 102},
 		abilities: {0: "Solid Rock", 1: "Shadow Shield"},
+		heightm: 1.0,
 		weightkg: 190.0,
 	},
 	rajang: {
@@ -934,6 +1047,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 75, atk: 137, def: 91, spa: 102, spd: 91, spe: 100},
 		abilities: {0: "Anger Point", 1: "Defiant"},
+		heightm: 1.0,
 		weightkg: 90.0,
 		otherFormes: ["Furious Rajang"],
 	},
@@ -945,6 +1059,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 75, atk: 195, def: 95, spa: 126, spd: 95, spe: 110},
 		abilities: {0: "Gorilla Tactics"},
+		heightm: 1.0,
 		weightkg: 113.0,
 		requiredItem: "Rajanite",
 	},
@@ -954,6 +1069,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 100, atk: 104, def: 112, spa: 104, spd: 78, spe: 60},
 		abilities: {0: "Swarm", 1: "Mummy"},
+		heightm: 1.0,
 		weightkg: 188.8,
 	},
  	pyrekadaki: {
@@ -962,6 +1078,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 100, atk: 104, def: 112, spa: 104, spd: 78, spe: 60},
 		abilities: {0: "Blaze", 1: "Mummy"},
+		heightm: 1.0,
 		weightkg: 188.8,
 	},
 	rathalos: {
@@ -971,6 +1088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "M",
 		baseStats: {hp: 70, atk: 120, def: 85, spa: 120, spd: 70, spe: 110},
 		abilities: {0: "Poison Touch", 1: "Gale Wings"},
+		heightm: 1.0,
 		weightkg: 110.5,
 		otherFormes: ["Dreadking Rathalos"],
 	},
@@ -983,6 +1101,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "M",
 		baseStats: {hp: 70, atk: 145, def: 100, spa: 145, spd: 70, spe: 145},
 		abilities: {0: "Desolate Land"},
+		heightm: 1.0,
 		weightkg: 110.5,
 		requiredItem: "Rathalosite",
 	},
@@ -993,6 +1112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "F",
 		baseStats: {hp: 120, atk: 85, def: 115, spa: 70, spd: 115, spe: 70},
 		abilities: {0: "Poison Point", 1: "Queenly Majesty"},
+		heightm: 1.0,
 		weightkg: 110.5,
 		otherFormes: ["Dreadqueen Rathian"],
 	},
@@ -1005,6 +1125,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "F",
 		baseStats: {hp: 145, atk: 100, def: 145, spa: 70, spd: 145, spe: 70},
 		abilities: {0: "Toxic Chain"},
+		heightm: 1.0,
 		weightkg: 110.5,
 		requiredItem: "Rathianite",
 	},
@@ -1014,6 +1135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 113, atk: 107, def: 70, spa: 70, spd: 85, spe: 85},
 		abilities: {0: "Water Absorb", 1: "Swift Swim"},
+		heightm: 1.0,
 		weightkg: 6.9,
 	},
 	safijiiva: {
@@ -1022,6 +1144,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Psychic"],
 		baseStats: {hp: 81, atk: 121, def: 100, spa: 130, spd: 104, spe: 80},
 		abilities: {0: "Beads of Ruin", 1: "Protosynthesis"},
+		heightm: 1.0,
 		weightkg: 200.0,
 	},
 	seltas: {
@@ -1030,6 +1153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Flying"],
 		baseStats: {hp: 60, atk: 110, def: 45, spa: 50, spd: 50, spe: 150},
 		abilities: {0: "Swarm"},
+		heightm: 1.0,
 		weightkg: 20.0,
 	},
 	seltasqueen: {
@@ -1038,6 +1162,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Water"],
 		baseStats: {hp: 92, atk: 89, def: 101, spa: 128, spd: 102, spe: 28},
 		abilities: {0: "Mega Launcher", 1: "Analytic"},
+		heightm: 1.0,
 		weightkg: 180.0,
 	},
 	seregios: {
@@ -1046,6 +1171,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 82, atk: 125, def: 99, spa: 60, spd: 92, spe: 112},
 		abilities: {0: "Weak Armor", 1: "Well-Baked Body"},
+		heightm: 1.0,
 		weightkg: 160.4,
 	},
 	shagarumagala: {
@@ -1054,6 +1180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 107, atk: 82, def: 92, spa: 132, spd: 112, spe: 95},
 		abilities: {0: "Misty Surge", 1: "Overcoat"},
+		heightm: 1.0,
 		weightkg: 230.3,
 	},
 	sharaishvalda: {
@@ -1062,6 +1189,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Rock"],
 		baseStats: {hp: 103, atk: 135, def: 137, spa: 97, spd: 95, spe: 53},
 		abilities: {0: "Earth Eaterr", 1: "Tablets of Ruin"},
+		heightm: 1.0,
 		weightkg: 300.0,
 	},
 	shengaoren: {
@@ -1070,6 +1198,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Dark"],
 		baseStats: {hp: 89, atk: 129, def: 99, spa: 95, spd: 99, spe: 69},
 		abilities: {0: "Adaptability", 1: "Frisk"},
+		heightm: 1.0,
 		weightkg: 300.0,
 	},
 	shogunceanataur: {
@@ -1078,6 +1207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 60, atk: 140, def: 90, spa: 70, spd: 60, spe: 100},
 		abilities: {0: "Sharpness", 1: "Swift Swim"},
+		heightm: 1.0,
 		weightkg: 60.0,
 	},
 	somnacanth: {
@@ -1087,6 +1217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 65, spa: 126, spd: 95, spe: 116},
 		abilities: {0: "Forewarn", 1:"Synchronize"},
+		heightm: 1.0,
 		weightkg: 5.0,
 	},
 	auroracanth: {
@@ -1096,6 +1227,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "F",
 		baseStats: {hp: 70, atk: 60, def: 65, spa: 126, spd: 95, spe: 116},
 		abilities: {0: "Snow Warning", 1: "Synchronize"},
+		heightm: 1.0,
 		weightkg: 5.0,
 	},
 	teostra: {
@@ -1104,6 +1236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 85, atk: 135, def: 120, spa: 105, spd: 74, spe: 96},
 		abilities: {0: "Drought", 1: "Reckless"},
+		heightm: 1.0,
 		weightkg: 113.0,
 	},
  	tetranadon: {
@@ -1112,6 +1245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Grass"],
 		baseStats: {hp: 111, atk: 100, def: 85, spa: 100, spd: 75, spe: 54},
 		abilities: {0: "Thick Fat", 1: "Drizzle"},
+		heightm: 1.0,
 		weightkg: 105.5,
 	},
 	tetsucabra: {
@@ -1120,6 +1254,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Steel"],
 		baseStats: {hp: 110, atk: 135, def: 105, spa: 50, spd: 65, spe: 68},
 		abilities: {0: "Strong Jaw", 1: "Stamina"},
+		heightm: 1.0,
 		weightkg: 110.0,
 	},
 	tigrex: {
@@ -1128,6 +1263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal"],
 		baseStats: {hp: 94, atk: 114, def: 100, spa: 108, spd: 82, spe: 82},
 		abilities: {0: "Punk Rock", 1: "Gluttony"},
+		heightm: 1.0,
 		weightkg: 130.5,
 	},
  	tobikadachi: {
@@ -1136,6 +1272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric"],
 		baseStats: {hp: 60, atk: 105, def: 70, spa: 108, spd: 72, spe: 115},
 		abilities: {0: "Prankster", 1: "Static"},
+		heightm: 1.0,
 		weightkg: 42.4,
 	},
 	tzitziyaku: {
@@ -1144,6 +1281,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Psychic"],
 		baseStats: {hp: 59, atk: 80, def: 80, spa: 126, spd: 103, spe: 80},
 		abilities: {0: "Dazzling", 1: "Anticipation"},
+		heightm: 1.0,
 		weightkg: 40.0,
 	},
 	ukanlos: {
@@ -1152,6 +1290,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Ice"],
 		baseStats: {hp: 90, atk: 110, def: 180, spa: 70, spd: 75, spe: 65},
 		abilities: {0: "Ice Scales", 1: "Mirror Armor"},
+		heightm: 1.0,
 		weightkg: 170.0,
 	},
 	uragaan: {
@@ -1160,6 +1299,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel"],
 		baseStats: {hp: 97, atk: 113, def: 104, spa: 43, spd: 62, spe: 108},
 		abilities: {0: "No Guard", 1: "Klutz"},
+		heightm: 1.0,
 		weightkg: 80.0,
 	},
 	vaalhazak: {
@@ -1168,6 +1308,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Poison"],
 		baseStats: {hp: 95, atk: 110, def: 85, spa: 145, spd: 105, spe: 80},
 		abilities: {0: "Toxic Chain", 1: "Perish Body"},
+		heightm: 1.0,
 		weightkg: 125.0,
 	},
 	valstrax: {
@@ -1176,6 +1317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Steel"],
 		baseStats: {hp: 94, atk: 107, def: 101, spa: 112, spd: 81, spe: 140},
 		abilities: {0: "Prism Armor", 1: "Steely Spirit"},
+		heightm: 1.0,
 		weightkg: 130.0,
 		otherFormes: ["Crimson Glow Valstrax"],
 	},
@@ -1187,6 +1329,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 96, atk: 122, def: 110, spa: 122, spd: 105, spe: 180},
 		abilities: {0: "Dragon's Maw"},
+		heightm: 1.0,
 		weightkg: 130.0,
 		requiredItem: "Valstraxite",
 	},
@@ -1196,6 +1339,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Ice"],
 		baseStats: {hp: 76, atk: 102, def: 65, spa: 148, spd: 106, spe: 128},
 		abilities: {0: "Ice Scales", 1: "Snow Warning"},
+		heightm: 1.0,
 		weightkg: 55.4,
 	},
 	velocidrome: {
@@ -1204,6 +1348,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Flying"],
 		baseStats: {hp: 80, atk: 116, def: 91, spa: 50, spd: 81, spe: 107},
 		abilities: {0: "Big Pecks", 1: "Friend Guard"},
+		heightm: 1.0,
 		weightkg: 45.0,
 	},
 	vespoidqueen: {
@@ -1212,6 +1357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug"],
 		baseStats: {hp: 76, atk: 80, def: 112, spa: 80, spd: 112, spe: 60},
 		abilities: {0: "Swarm", 1: "Static"},
+		heightm: 1.0,
 		weightkg: 9.0,
 	},
  	volvidon: {
@@ -1220,6 +1366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Ground"],
 		baseStats: {hp: 60, atk: 72, def: 116, spa: 82, spd: 104, spe: 80},
 		abilities: {0: "Stench", 1: "Neutralizing Gas"},
+		heightm: 1.0,
 		weightkg: 58.0,
 	},
 	xenojiiva: {
@@ -1228,6 +1375,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Psychic"],
 		baseStats: {hp: 74, atk: 120, def: 60, spa: 125, spd: 90, spe: 116},
 		abilities: {0: "Psychic Surge", 1: "Quark Drive"},
+		heightm: 1.0,
 		weightkg: 125.0,
 	},
 	yamatsukami: {
@@ -1236,6 +1384,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Grass"],
 		baseStats: {hp: 170, atk: 60, def: 100, spa: 70, spd: 105, spe: 95},
 		abilities: {0: "Grassy Surge", 1: "Levitate"},
+		heightm: 1.0,
 		weightkg: 20.0,
 	},
 	yiangaruga: {
@@ -1244,6 +1393,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 71, atk: 105, def: 76, spa: 101, spd: 88, spe: 75},
 		abilities: {0: "Anger Point", 1: "Merciless"},
+		heightm: 1.0,
 		weightkg: 45.0,
 	},
 	yiankutku: {
@@ -1252,6 +1402,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Normal"],
 		baseStats: {hp: 69, atk: 101, def: 70, spa: 105, spd: 80, spe: 80},
 		abilities: {0: "Forewarn", 1: "Blaze"},
+		heightm: 1.0,
 		weightkg: 30.0,
 	},
  	zamtrios: {
@@ -1260,6 +1411,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 110, atk: 90, def: 100, spa: 70, spd: 100, spe: 60},
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
+		heightm: 1.0,
 		weightkg: 90,
 		otherFormes: ["Zamtrios-Iced", "Zamtrios-Puffed"],
 		formeOrder: ["Zamtrios", "Zamtrios-Iced", "Zamtrios-Puffed"],
@@ -1272,6 +1424,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ice"],
 		baseStats: {hp: 110, atk: 110, def: 60, spa: 70, spd: 90, spe: 120},
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
+		heightm: 1.0,
 		weightkg: 110,
 		requiredAbility: "Ice-Armor",
 		battleOnly: "Zamtrios",
@@ -1284,6 +1437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 110, atk: 70, def: 110, spa: 90, spd: 120, spe: 60},
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
+		heightm: 1.0,
 		weightkg: 95,
 		requiredAbility: "Puff-Up",
 		battleOnly: "Zamtrios",
@@ -1294,6 +1448,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Electric"],
 		baseStats: {hp: 73, atk: 103, def: 82, spa: 109, spd: 92, spe: 111},
 		abilities: {0: "Volt Absorb", 1: "Speed Boost"},
+		heightm: 1.0,
 		weightkg: 178.4,
 		otherFormes: ["Thunderlord Zinogre"],
 	},
@@ -1305,6 +1460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric"],
 		baseStats: {hp: 83, atk: 133, def: 82, spa: 144, spd: 92, spe: 136},
 		abilities: {0: "Transistor"},
+		heightm: 1.0,
 		weightkg: 178.4,
 		requiredItem: "Zinogrite",
 	},
@@ -1314,6 +1470,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon", "Fire"],
 		baseStats: {hp: 110, atk: 110, def: 110, spa: 100, spd: 100, spe: 60},
 		abilities: {0: "Slow Start", 1: "Defeatist"},
+		heightm: 1.0,
 		weightkg: 700.0,
 	}
 }
