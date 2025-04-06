@@ -120,4 +120,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Flying"],
 		abilities: {0: "Keen Eye", 1: "Frisk", H: "Speed Boost"},
 	},
+	scyther: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 55, spd: 70, spe: 100},
+		abilities: {0: "Swarm", 1: "Hyper Cutter", H: "Steadfast"},
+	},
+	chespin: {
+		inherit: true,
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 60, atk: 65, def: 65, spa: 48, spd: 45, spe: 38},
+		abilities: {0: "Overgrow", H: "Juggernaut"},
+	},
 };

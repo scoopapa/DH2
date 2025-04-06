@@ -93,6 +93,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'flittle').learnset.psychic;
 		delete this.modData('Learnsets', 'flittle').learnset.psyshock;
 		delete this.modData('Learnsets', 'flittle').learnset.storedpower;
+		delete this.modData('Learnsets', 'scyther').learnset.closecombat;
+		delete this.modData('Learnsets', 'scyther').learnset.brickbreak;
+		delete this.modData('Learnsets', 'scyther').learnset.facade;
+		delete this.modData('Learnsets', 'scyther').learnset.nightslash;
+		delete this.modData('Learnsets', 'scyther').learnset.trailblaze;
+		delete this.modData('Learnsets', 'scyther').learnset.reversal;
+		delete this.modData('Learnsets', 'scyther').learnset.thief;
+		this.modData("Learnsets", "chespin").learnset.bodypress = ["9L1"];
+		this.modData("Learnsets", "chespin").learnset.circlethrow = ["9L1"];
+		this.modData("Learnsets", "chespin").learnset.bulkup = ["9L1"];
 	},
 	pokemon: { 
 		runImmunity(type: string, message?: string | boolean) {
