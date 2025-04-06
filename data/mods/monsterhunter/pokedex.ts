@@ -18,6 +18,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Technician", 1: "Steelworker"},
 		heightm: 1.0,
 		weightkg: 45.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	akantor: {
 		num: 18,
@@ -27,6 +29,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flare Boost", 1: "Sand Rush"},
 		heightm: 1.0,
 		weightkg: 150.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	aknosom: {
 		num: 88,
@@ -36,6 +40,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flame Body", 1: "Dancer"},
 		heightm: 1.0,
 		weightkg: 39.2,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	alatreon: {
 		num: 60,
@@ -45,6 +51,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Protean"},
 		heightm: 1.0,
 		weightkg: 210.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	almudron: {
 		num: 89,
@@ -54,6 +62,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mold Breaker", 1: "Earth Eater"},
 		heightm: 1.0,
 		weightkg: 52.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	magmadron: {
 		num: 89,
@@ -63,6 +73,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash Fire", 1: "Earth Eater"},
 		heightm: 1.0,
 		weightkg: 52.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	amatsu: {
 		num: 61,
@@ -72,6 +84,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Regenerator", 1: "Delta Stream"},
 		heightm: 1.0,
 		weightkg: 392.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	anjanath: {
 		num: 90,
@@ -81,6 +95,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Anger Point"},
 		heightm: 1.0,
 		weightkg: 155.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	fulguranjanath: {
 		num: 90,
@@ -90,6 +106,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Motor Drive", 1: "Anger Point"},
 		heightm: 1.0,
 		weightkg: 155.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	arzuros: {
 		num: 41,
@@ -99,6 +117,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hustle", 1: "Tough Claws", H: "Honey Gather"},
 		heightm: 1.0,
 		weightkg: 95.0,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Redhelm Arzuros"],
 	},
  	redhelmarzuros: {
@@ -111,6 +131,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Tough Claws"},
 		heightm: 1.0,
 		weightkg: 178.4,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Arzurite",
 	},
 	astalos: {
@@ -121,6 +143,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lightning Rod", 1: "Surge Surfer"},
 		heightm: 1.0,
 		weightkg: 45.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Boltreaver Astalos"],
 	},
  	boltreaverastalos: {
@@ -133,6 +157,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Tinted Lens"},
 		heightm: 1.0,
 		weightkg: 45.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Astalite",
 	},
 	banbaro: {
@@ -143,6 +169,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice Body", 1: "Sap Sipper"},
 		heightm: 1.0,
 		weightkg: 95.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	barioth: {
 		num: 42,
@@ -152,6 +180,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Justified", 1: "Slush Rush"},
 		heightm: 1.0,
 		weightkg: 152.2,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	barroth: {
 		num: 43,
@@ -161,6 +191,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mega Launcher", 1: "Sand Stream"},
 		heightm: 1.0,
 		weightkg: 105.8,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	basarios: {
 		num: 1,
@@ -170,6 +202,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sturdy", 1: "Rough Skin"},
 		heightm: 1.0,
 		weightkg: 312.2,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	bazelgeuse: {
 		num: 92,
@@ -179,6 +213,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skill Link", 1: "Reckless"},
 		heightm: 1.0,
 		weightkg: 220.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Seething Bazelgeuse"],
 	},
  	seethingbazelgeuse: {
@@ -191,6 +227,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Anger Shell"},
 		heightm: 1.0,
 		weightkg: 280.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Bazelnite",
 	},
 	beotodus: {
@@ -201,6 +239,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hustle", 1: "Slush Rush"},
 		heightm: 1.0,
 		weightkg: 45.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	bishaten: {
 		num: 94,
@@ -210,6 +250,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ripen", 1: "Magician"},
 		heightm: 1.0,
 		weightkg: 55.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	orangaten: {
 		num: 94,
@@ -219,6 +261,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flame Body", 1: "Magician"},
 		heightm: 1.0,
 		weightkg: 55.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	blangonga: {
 		num: 19,
@@ -228,6 +272,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vital Spirit", 1: "Inner Focus"},
 		heightm: 1.0,
 		weightkg: 95.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	brachydios: {
 		num: 44,
@@ -237,6 +283,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Fist", 1: "Poison Touch"},
 		heightm: 1.0,
 		weightkg: 105.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	bulldrome: {
 		num: 20,
@@ -246,6 +294,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hustle"},
 		heightm: 1.0,
 		weightkg: 90.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	ceadeus: {
 		num: 62,
@@ -255,6 +305,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shield Dust", 1: "Primordial Sea"},
 		heightm: 1.0,
 		weightkg: 200.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	cephadrome: {
 		num: 2,
@@ -264,6 +316,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Rush", 1: "Emergency Exit"},
 		heightm: 1.0,
 		weightkg: 48.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	chameleos: {
 		num: 35,
@@ -273,6 +327,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Neutralizing Gas", 1: "Poison Puppeteer"},
 		heightm: 1.0,
 		weightkg: 150.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	congalala: {
 		num: 21,
@@ -282,6 +338,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Harvest", 1: "Stench"},
 		heightm: 1.0,
 		weightkg: 50.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	dahrenmohran: {
 		num: 82,
@@ -291,6 +349,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Force", 1: "Sand Rush"},
 		heightm: 1.0,
 		weightkg: 205.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	daimyohermitaur: {
 		num: 22,
@@ -300,6 +360,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shell Armor", 1: "Weak Armor"},
 		heightm: 1.0,
 		weightkg: 160.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	dalamadur: {
 		num: 83,
@@ -309,6 +371,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Power Spot", 1: "Teraform Zero"},
 		heightm: 1.0,
 		weightkg: 500.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	deviljho: {
 		num: 45,
@@ -318,6 +382,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dragon's Maw", 1: "Cud Chew"},
 		heightm: 1.0,
 		weightkg: 120.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	diablos: {
 		num: 3,
@@ -327,6 +393,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rock Head", 1: "Reckless"},
 		heightm: 1.0,
 		weightkg: 170.2,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Massacre Diablos"],
 	},
 	massacrediablos: {
@@ -339,6 +407,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reckless"},
 		heightm: 1.0,
 		weightkg: 170.2,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Diablite",
 	},
 	diremiralis: {
@@ -349,6 +419,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pressure", 1: "Desolate Land"},
 		heightm: 1.0,
 		weightkg: 335.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	dodogama: {
 		num: 95,
@@ -358,6 +430,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Cheek Pouch", 1: "Stalwart"},
 		heightm: 1.0,
 		weightkg: 48.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	duramboros: {
 		num: 46,
@@ -367,6 +441,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grass Pelt", 1: "Wind Rider"},
 		heightm: 1.0,
 		weightkg: 110.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	eruzerion: {
 		num: 129,
@@ -376,6 +452,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice Body", 1: "Flame Body"},
 		heightm: 1.0,
 		weightkg: 150.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	espinas: {
 		num: 96,
@@ -385,6 +463,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unaware", 1: "Toxic Debris"},
 		heightm: 1.0,
 		weightkg: 130.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	flamingespinas: {
 		num: 96,
@@ -394,6 +474,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash Fire", 1: "Toxic Debris"},
 		heightm: 1.0,
 		weightkg: 130.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	fatalis: {
 		num: 15,
@@ -403,6 +485,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Thermal Exchange", 1: "Pressure"},
 		heightm: 1.0,
 		weightkg: 270.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gaismagorm: {
 		num: 116,
@@ -412,6 +496,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Regenerator", 1: "Dark Aura"},
 		heightm: 1.0,
 		weightkg: 1000.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gammoth: {
 		num: 67,
@@ -421,6 +507,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dauntless Shield", 1: "Thick Fat"},
 		heightm: 1.0,
 		weightkg: 220.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	garangolm: {
 		num: 97,
@@ -430,6 +518,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rocky Payload", 1: "Gorilla Tactics"},
 		heightm: 1.0,
 		weightkg: 150.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gendrome: {
 		num: 4,
@@ -439,6 +529,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Rush", 1: "Friend Guard"},
 		heightm: 1.0,
 		weightkg: 30.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	giadrome: {
 		num: 23,
@@ -448,6 +540,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Slush Rush", 1: "Friend Guard"},
 		heightm: 1.0,
 		weightkg: 30.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gigginox: {
 		num: 47,
@@ -457,6 +551,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Liquid Ooze", 1: "Long Reach"},
 		heightm: 1.0,
 		weightkg: 50.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	glavenus: {
 		num: 68,
@@ -466,6 +562,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intrepid Sword", 1: "Beast Boost"},
 		heightm: 1.0,
 		weightkg: 105.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gobul: {
 		num: 48,
@@ -475,6 +573,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mimicry", 1: "Color Change"},
 		heightm: 1.0,
 		weightkg: 60.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gagmazios: {
 		num: 84,
@@ -484,6 +584,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Barbs", 1: "Sheer Force"},
 		heightm: 1.0,
 		weightkg: 300.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	goremagala: {
 		num: 70,
@@ -493,6 +595,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wandering Spirit", 1: "Overcoat"},
 		heightm: 1.0,
 		weightkg: 230.3,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	chaoticgore: {
 		num: 70,
@@ -502,6 +606,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Contrary"},
 		heightm: 1.0,
 		weightkg: 230.3,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gossharag: {
 		num: 98,
@@ -511,6 +617,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stakeout", 1: "Adaptability"},
 		heightm: 1.0,
 		weightkg: 240.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gravios: {
 		num: 5,
@@ -520,6 +628,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flash Fire", 1: "Armor Tail"},
 		heightm: 1.0,
 		weightkg: 250.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
   	greatbaggi: {
 		num: 49,
@@ -529,6 +639,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Comatose", 1: "Vital Spirit"},
 		heightm: 1.0,
 		weightkg: 45.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	greatgirros: {
 		num: 99,
@@ -538,6 +650,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Static", 1: "Intimidate"},
 		heightm: 1.0,
 		weightkg: 30.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	greatizuchi: {
 		num: 100,
@@ -547,6 +661,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hyper Cutter", 1: "Sharpness"},
 		heightm: 1.0,
 		weightkg: 45.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	greatjaggi: {
 		num: 50,
@@ -556,6 +672,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skill Link", 1: "Normalize"},
 		heightm: 1.0,
 		weightkg: 45.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	greatjagras: {
 		num: 101,
@@ -565,6 +683,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Innards Out", 1: "Tangling Hair"},
 		heightm: 1.0,
 		weightkg: 60.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	greatmaccao: {
 		num: 71,
@@ -574,6 +694,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reckless", 1: "Propeller Tail"},
 		heightm: 1.0,
 		weightkg: 55.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	greatwroggi: {
 		num: 51,
@@ -583,6 +705,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Merciless", 1: "Dry Skin"},
 		heightm: 1.0,
 		weightkg: 45.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gureadomosu: {
 		num: 130,
@@ -592,6 +716,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Storm Drain", 1: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 170.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	gypceros: {
 		num: 6,
@@ -601,6 +727,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lightning Rod", 1: "Prankster"},
 		heightm: 1.0,
 		weightkg: 90.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	harudomerugu: {
 		num: 131,
@@ -610,6 +738,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Steelworker", 1: "Full Metal Body"},
 		heightm: 1.0,
 		weightkg: 300.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	hypnocatrice: {
 		num: 24,
@@ -619,6 +749,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Feet", 1: "Bad Dreams"},
 		heightm: 1.0,
 		weightkg: 70.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	ibushi: {
 		num: 117,
@@ -629,6 +761,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Air Lock", 1: "Minus"},
 		heightm: 1.0,
 		weightkg: 232.3,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	iodrome: {
 		num: 7,
@@ -638,6 +772,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Merciless", 1: "Friend Guard"},
 		heightm: 1.0,
 		weightkg: 45.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	jhenmohran: {
 		num: 64,
@@ -647,6 +783,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Purifying Salt", 1: "Sand Stream"},
 		heightm: 1.0,
 		weightkg: 330.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	jyuratodus: {
 		num: 102,
@@ -656,6 +794,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Storm Drain", 1: "Hydration"},
 		heightm: 1.0,
 		weightkg: 90.3,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	kechawacha: {
 		num: 72,
@@ -665,6 +805,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mold Breaker", 1: "Limber"},
 		heightm: 1.0,
 		weightkg: 20.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	khezu: {
 		num: 8,
@@ -674,6 +816,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electric Surge", 1: "Static"},
 		heightm: 1.0,
 		weightkg: 50.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	kingshakalaka: {
 		num: 25,
@@ -683,6 +827,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Chlorophyll", 1: "Stakeout"},
 		heightm: 1.0,
 		weightkg: 9.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	kirin: {
 		num: 16,
@@ -692,6 +838,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grim Neigh", 1: "Chilling Neigh"},
 		heightm: 1.0,
 		weightkg: 1.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	kuluyaku: {
 		num: 103,
@@ -701,6 +849,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Quick Feet", 1: "Unburden"},
 		heightm: 1.0,
 		weightkg: 30.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	kulvetaroth: {
 		num: 118,
@@ -710,6 +860,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Good as Gold", 1: "Magic Guard"},
 		heightm: 1.0,
 		weightkg: 400.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	kushaladaora: {
 		num: 36,
@@ -719,6 +871,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Bulletproof", 1: "Magic Bounce"},
 		heightm: 1.0,
 		weightkg: 200.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	lagiacrus: {
 		num: 52,
@@ -728,6 +882,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Surge Surfer", 1: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 70.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	lagombi: {
 		num: 53,
@@ -736,7 +892,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 88, atk: 112, def: 83, spa: 46, spd: 76, spe: 115},
 		abilities: {0: "Fur Coat", 1: "Slush Rush"},
 		heightm: 1.0,
-		weightkg: 53.4,	
+		weightkg: 53.4,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Snowbaron Lagombi"],
 	},
  	snowbaronlagombi: {
@@ -749,6 +907,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Skill Link"},
 		heightm: 1.0,
 		weightkg: 178.4,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Lagombite",
 	},
 	laoshanlung: {
@@ -759,6 +919,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unaware", 1: "Oblivious"},
 		heightm: 1.0,
 		weightkg: 400.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	lavasioth: {
 		num: 26,
@@ -768,6 +930,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Blaze", 1: "Magma Armor"},
 		heightm: 1.0,
 		weightkg: 60.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	legiana: {
 		num: 104,
@@ -777,6 +941,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aerilate", 1: "Wind Rider"},
 		heightm: 1.0,
 		weightkg: 45.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	lunagaron: {
 		num: 105,
@@ -786,6 +952,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hyper Cutter", 1: "Tough Claws"},
 		heightm: 1.0,
 		weightkg: 90.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	lunastra: {
 		num: 37,
@@ -795,6 +963,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Turboblaze", 1: "Berserk"},
 		heightm: 1.0,
 		weightkg: 150.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	magnamalo: {
 		num: 106,
@@ -804,6 +974,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intimidate", 1: "Moxie"},
 		heightm: 1.0,
 		weightkg: 212.2,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Scorned Magnamalo"],
 	},
  	scornedmagnamalo: {
@@ -816,6 +988,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Supreme Overlord"},
 		heightm: 1.0,
 		weightkg: 212.2,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Magnamalite",
 	},
 	malfestio: {
@@ -826,6 +1000,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Wonder Skin", 1: "Trace"},
 		heightm: 1.0,
 		weightkg: 50.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	malzeno: {
 		num: 119,
@@ -835,6 +1011,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Multiscale", 1: "Fairy Aura"},
 		heightm: 1.0,
 		weightkg: 85.0,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Primordial Malzeno"],
 	},
  	primordialmalzeno: {
@@ -847,6 +1025,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Soul-Heart"},
 		heightm: 1.0,
 		weightkg: 85.0,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Malzenite",
 	},
 	mizutsune: {
@@ -858,6 +1038,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Bubble", 1: "Marvel Scale"},
 		heightm: 1.0,
 		weightkg: 70.3,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Soulseer Mizutsune"],
 	},
  	soulseermizutsune: {
@@ -871,6 +1053,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "No Guard"},
 		heightm: 1.0,
 		weightkg: 70.3,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Mizutsunite",
 	},
 	violetmizutsune: {
@@ -881,6 +1065,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Serene Grace", 1: "Marvel Scale"},
 		heightm: 1.0,
 		weightkg: 70.3,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	monoblos: {
 		num: 9,
@@ -890,6 +1076,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intimidate", 1: "Rock Head"},
 		heightm: 1.0,
 		weightkg: 120.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	najarala: {
 		num: 75,
@@ -899,6 +1087,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Battle Armor", 1: "Soundproof"},
 		heightm: 1.0,
 		weightkg: 100.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	nakarkos: {
 		num: 85,
@@ -908,6 +1098,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Vessel of Ruin", 1: "Cursed Body"},
 		heightm: 1.0,
 		weightkg: 250.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	namielle: {
 		num: 120,
@@ -917,6 +1109,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Electromorphosis"},
 		heightm: 1.0,
 		weightkg: 165.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	nargacuga: {
 		num: 27,
@@ -926,6 +1120,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sharpness", 1: "Screen Cleaner"},
 		heightm: 1.0,
 		weightkg: 88.8,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	lucentnargacuga: {
 		num: 27,
@@ -935,6 +1131,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Clear Body", 1: "Screen Cleaner"},
 		heightm: 1.0,
 		weightkg: 88.8,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	narwa: {
 		num: 121,
@@ -945,6 +1143,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electric Surge", 1: "Plus"},
 		heightm: 1.0,
 		weightkg: 154.3,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Allmother Narwa"],
 	},
  	allmothernarwa: {
@@ -958,6 +1158,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electromorphosis"},
 		heightm: 1.0,
 		weightkg: 154.3,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Narwanite",
 	},
 	nergigante: {
@@ -968,6 +1170,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Guts", 1: "Unseen Fist"},
 		heightm: 1.0,
 		weightkg: 150.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	nerscylla: {
 		num: 76,
@@ -977,6 +1181,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sticky Hold", 1: "Liquid Ooze"},
 		heightm: 1.0,
 		weightkg: 40.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	nibelsnarf: {
 		num: 54,
@@ -986,6 +1192,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Compaction", 1: "Sand Spit"},
 		heightm: 1.0,
 		weightkg: 60.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	odagaron: {
 		num: 107,
@@ -995,6 +1203,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intimidate", 1: "Guard Dog"},
 		heightm: 1.0,
 		weightkg: 50.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	paolumu: {
 		num: 108,
@@ -1004,6 +1214,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fluffy", 1: "Cotton Down"},
 		heightm: 1.0,
 		weightkg: 40.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	plesioth: {
 		num: 10,
@@ -1013,6 +1225,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Torrent", 1: "Water Veil"},
 		heightm: 1.0,
 		weightkg: 50.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	pukeipukei: {
 		num: 109,
@@ -1022,6 +1236,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Liquid Ooze", 1: "Merciless"},
 		heightm: 1.0,
 		weightkg: 22.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	qurupeco: {
 		num: 55,
@@ -1031,6 +1247,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dancer", 1: "Triage"},
 		heightm: 1.0,
 		weightkg: 20.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	radobaan: {
 		num: 110,
@@ -1040,6 +1258,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Solid Rock", 1: "Shadow Shield"},
 		heightm: 1.0,
 		weightkg: 190.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	rajang: {
 		num: 28,
@@ -1049,6 +1269,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Anger Point", 1: "Defiant"},
 		heightm: 1.0,
 		weightkg: 90.0,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Furious Rajang"],
 	},
  	furiousrajang: {
@@ -1071,6 +1293,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swarm", 1: "Mummy"},
 		heightm: 1.0,
 		weightkg: 188.8,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	pyrekadaki: {
 		num: 111,
@@ -1080,6 +1304,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Blaze", 1: "Mummy"},
 		heightm: 1.0,
 		weightkg: 188.8,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	rathalos: {
 		num: 11,
@@ -1090,6 +1316,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Touch", 1: "Gale Wings"},
 		heightm: 1.0,
 		weightkg: 110.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Dreadking Rathalos"],
 	},
  	dreadkingrathalos: {
@@ -1103,6 +1331,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Desolate Land"},
 		heightm: 1.0,
 		weightkg: 110.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Rathalosite",
 	},
  	rathian: {
@@ -1114,6 +1344,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Point", 1: "Queenly Majesty"},
 		heightm: 1.0,
 		weightkg: 110.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Dreadqueen Rathian"],
 	},
  	dreadqueenrathian: {
@@ -1127,6 +1359,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Toxic Chain"},
 		heightm: 1.0,
 		weightkg: 110.5,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Rathianite",
 	},
  	royalludroth: {
@@ -1137,6 +1371,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 6.9,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	safijiiva: {
 		num: 123,
@@ -1146,6 +1382,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Beads of Ruin", 1: "Protosynthesis"},
 		heightm: 1.0,
 		weightkg: 200.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	seltas: {
 		num: 77,
@@ -1155,6 +1393,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swarm"},
 		heightm: 1.0,
 		weightkg: 20.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	seltasqueen: {
 		num: 78,
@@ -1164,6 +1404,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mega Launcher", 1: "Analytic"},
 		heightm: 1.0,
 		weightkg: 180.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	seregios: {
 		num: 79,
@@ -1173,6 +1415,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Weak Armor", 1: "Well-Baked Body"},
 		heightm: 1.0,
 		weightkg: 160.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	shagarumagala: {
 		num: 86,
@@ -1182,6 +1426,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Misty Surge", 1: "Overcoat"},
 		heightm: 1.0,
 		weightkg: 230.3,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	sharaishvalda: {
 		num: 125,
@@ -1191,6 +1437,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Earth Eaterr", 1: "Tablets of Ruin"},
 		heightm: 1.0,
 		weightkg: 300.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	shengaoren: {
 		num: 29,
@@ -1200,6 +1448,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Adaptability", 1: "Frisk"},
 		heightm: 1.0,
 		weightkg: 300.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	shogunceanataur: {
 		num: 30,
@@ -1209,6 +1459,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sharpness", 1: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 60.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	somnacanth: {
 		num: 102,
@@ -1219,6 +1471,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Forewarn", 1:"Synchronize"},
 		heightm: 1.0,
 		weightkg: 5.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	auroracanth: {
 		num: 102,
@@ -1229,6 +1483,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", 1: "Synchronize"},
 		heightm: 1.0,
 		weightkg: 5.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	teostra: {
 		num: 38,
@@ -1238,6 +1494,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Drought", 1: "Reckless"},
 		heightm: 1.0,
 		weightkg: 113.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	tetranadon: {
 		num: 113,
@@ -1247,6 +1505,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Thick Fat", 1: "Drizzle"},
 		heightm: 1.0,
 		weightkg: 105.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	tetsucabra: {
 		num: 80,
@@ -1256,6 +1516,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Stamina"},
 		heightm: 1.0,
 		weightkg: 110.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	tigrex: {
 		num: 31,
@@ -1265,6 +1527,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Punk Rock", 1: "Gluttony"},
 		heightm: 1.0,
 		weightkg: 130.5,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	tobikadachi: {
 		num: 114,
@@ -1274,6 +1538,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Prankster", 1: "Static"},
 		heightm: 1.0,
 		weightkg: 42.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	tzitziyaku: {
 		num: 115,
@@ -1283,6 +1549,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dazzling", 1: "Anticipation"},
 		heightm: 1.0,
 		weightkg: 40.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	ukanlos: {
 		num: 32,
@@ -1292,6 +1560,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice Scales", 1: "Mirror Armor"},
 		heightm: 1.0,
 		weightkg: 170.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	uragaan: {
 		num: 57,
@@ -1301,6 +1571,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "No Guard", 1: "Klutz"},
 		heightm: 1.0,
 		weightkg: 80.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	vaalhazak: {
 		num: 125,
@@ -1310,6 +1582,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Toxic Chain", 1: "Perish Body"},
 		heightm: 1.0,
 		weightkg: 125.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	valstrax: {
 		num: 87,
@@ -1319,6 +1593,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Prism Armor", 1: "Steely Spirit"},
 		heightm: 1.0,
 		weightkg: 130.0,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Crimson Glow Valstrax"],
 	},
  	crimsonglowvalstrax: {
@@ -1331,6 +1607,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dragon's Maw"},
 		heightm: 1.0,
 		weightkg: 130.0,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Valstraxite",
 	},
 	velkhana: {
@@ -1341,6 +1619,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice Scales", 1: "Snow Warning"},
 		heightm: 1.0,
 		weightkg: 55.4,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	velocidrome: {
 		num: 13,
@@ -1350,6 +1630,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Big Pecks", 1: "Friend Guard"},
 		heightm: 1.0,
 		weightkg: 45.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	vespoidqueen: {
 		num: 33,
@@ -1359,6 +1641,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swarm", 1: "Static"},
 		heightm: 1.0,
 		weightkg: 9.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	volvidon: {
 		num: 58,
@@ -1368,6 +1652,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stench", 1: "Neutralizing Gas"},
 		heightm: 1.0,
 		weightkg: 58.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	xenojiiva: {
 		num: 127,
@@ -1377,6 +1663,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Psychic Surge", 1: "Quark Drive"},
 		heightm: 1.0,
 		weightkg: 125.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	yamatsukami: {
 		num: 39,
@@ -1386,6 +1674,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grassy Surge", 1: "Levitate"},
 		heightm: 1.0,
 		weightkg: 20.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	yiangaruga: {
 		num: 34,
@@ -1395,6 +1685,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Anger Point", 1: "Merciless"},
 		heightm: 1.0,
 		weightkg: 45.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
 	yiankutku: {
 		num: 14,
@@ -1404,6 +1696,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Forewarn", 1: "Blaze"},
 		heightm: 1.0,
 		weightkg: 30.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	},
  	zamtrios: {
 		num: 81,
@@ -1413,6 +1707,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
 		heightm: 1.0,
 		weightkg: 90,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Zamtrios-Iced", "Zamtrios-Puffed"],
 		formeOrder: ["Zamtrios", "Zamtrios-Iced", "Zamtrios-Puffed"],
 	},
@@ -1426,6 +1722,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
 		heightm: 1.0,
 		weightkg: 110,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredAbility: "Ice-Armor",
 		battleOnly: "Zamtrios",
 	},
@@ -1439,6 +1737,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ice-Armor", 1: "Puff-Up"},
 		heightm: 1.0,
 		weightkg: 95,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredAbility: "Puff-Up",
 		battleOnly: "Zamtrios",
 	},
@@ -1450,6 +1750,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Volt Absorb", 1: "Speed Boost"},
 		heightm: 1.0,
 		weightkg: 178.4,
+		color: "Black",
+		eggGroups: ["Field"],
 		otherFormes: ["Thunderlord Zinogre"],
 	},
  	thunderlordzinogre: {
@@ -1462,6 +1764,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Transistor"},
 		heightm: 1.0,
 		weightkg: 178.4,
+		color: "Black",
+		eggGroups: ["Field"],
 		requiredItem: "Zinogrite",
 	},
 	zorahmagdaros: {
@@ -1472,5 +1776,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Slow Start", 1: "Defeatist"},
 		heightm: 1.0,
 		weightkg: 700.0,
+		color: "Black",
+		eggGroups: ["Field"],
 	}
 }
