@@ -26,7 +26,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	anjanath: {
 		tier: "MHOU",
 	},
-	fulgeranjanath: {
+	fulguranjanath: {
 		tier: "MHOU",
 	},
 	arzuros: {

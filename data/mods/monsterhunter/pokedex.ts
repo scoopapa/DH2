@@ -71,7 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Anger Point"},
 		weightkg: 155.5,
 	},
-	fulgeranjanath: {
+	fulguranjanath: {
 		num: 90,
 		name: "Fuljanath",
 		types: ["Electric"],
