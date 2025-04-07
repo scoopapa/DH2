@@ -1,4 +1,4 @@
-export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
+export const Pokedex: {[k: string]: ModdednameData} = {
 	agnaktor: {
 		num: 40,
 		name: "Agnaktor",
