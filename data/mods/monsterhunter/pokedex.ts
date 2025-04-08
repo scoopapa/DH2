@@ -100,7 +100,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	fulguranjanath: {
 		num: 90,
-		name: "Fuljanath",
+		name: "Fulgur Anjanath",
 		types: ["Electric"],
 		baseStats: {hp: 94, atk: 135, def: 80, spa: 50, spd: 74, spe: 93},
 		abilities: {0: "Motor Drive", 1: "Anger Point"},
@@ -468,7 +468,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	flamingespinas: {
 		num: 96,
-		name: "Flaminas",
+		name: "Flaming Espinas",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Flash Fire", 1: "Toxic Debris"},
