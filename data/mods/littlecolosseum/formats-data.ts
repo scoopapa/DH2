@@ -933,7 +933,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	scyther: {
-		tier: "PU",
+		tier: "LC",
 		doublesTier: "NFE",
 		natDexTier: "NFE",
 	},
