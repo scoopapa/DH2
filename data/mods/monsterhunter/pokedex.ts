@@ -400,7 +400,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	massacrediablos: {
 		num: 3,
 		name: "Massacre Diablos",
-		baseSpecies: "Diablite",
+		baseSpecies: "Diablos",
 		forme: "Mega",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 112, atk: 160, def: 138, spa: 20, spd: 85, spe: 130},
