@@ -1071,7 +1071,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	monoblos: {
 		num: 9,
 		name: "Monoblos",
-		types: ["Gorund"],
+		types: ["Ground"],
 		baseStats: {hp: 105, atk: 133, def: 110, spa: 20, spd: 60, spe: 105},
 		abilities: {0: "Intimidate", 1: "Rock Head"},
 		heightm: 1.0,
