@@ -1188,7 +1188,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 54,
 		name: "Nibelsnarf",
 		types: ["Ground"],
-		baseStats: {hp: 103, atk: 78, def: 108, spa: 112, spd: 82, spe: 43},
+		baseStats: {hp: 103, atk: 112, def: 108, spa: 78, spd: 82, spe: 43},
 		abilities: {0: "Water Compaction", 1: "Sand Spit"},
 		heightm: 1.0,
 		weightkg: 60.0,
