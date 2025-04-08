@@ -124,5 +124,82 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		zMove: {basePower: 220},
 		contestType: "Cool",
-	}
+	},
+	thousandarrows: {
+		num: 614,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+		volatileStatus: 'smackdown',
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	thousandwaves: {
+		num: 615,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Thousand Waves",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	landswrath: {
+		num: 616,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Land's Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 185},
+		contestType: "Beautiful",
+	},
+	healorder: {
+		num: 456,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Heal Order",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
 };
