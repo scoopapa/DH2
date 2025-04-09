@@ -100,7 +100,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	fulguranjanath: {
 		num: 90,
-		name: "Fuljanath",
+		name: "Fulgur Anjanath",
 		types: ["Electric"],
 		baseStats: {hp: 94, atk: 135, def: 80, spa: 50, spd: 74, spe: 93},
 		abilities: {0: "Motor Drive", 1: "Anger Point"},
@@ -400,7 +400,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	massacrediablos: {
 		num: 3,
 		name: "Massacre Diablos",
-		baseSpecies: "Diablite",
+		baseSpecies: "Diablos",
 		forme: "Mega",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 112, atk: 160, def: 138, spa: 20, spd: 85, spe: 130},
@@ -468,7 +468,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	flamingespinas: {
 		num: 96,
-		name: "Flaminas",
+		name: "Flaming Espinas",
 		types: ["Grass", "Fire"],
 		baseStats: {hp: 98, atk: 100, def: 105, spa: 98, spd: 108, spe: 81},
 		abilities: {0: "Flash Fire", 1: "Toxic Debris"},
@@ -1071,7 +1071,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	monoblos: {
 		num: 9,
 		name: "Monoblos",
-		types: ["Gorund"],
+		types: ["Ground"],
 		baseStats: {hp: 105, atk: 133, def: 110, spa: 20, spd: 60, spe: 105},
 		abilities: {0: "Intimidate", 1: "Rock Head"},
 		heightm: 1.0,
@@ -1188,7 +1188,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 54,
 		name: "Nibelsnarf",
 		types: ["Ground"],
-		baseStats: {hp: 103, atk: 78, def: 108, spa: 112, spd: 82, spe: 43},
+		baseStats: {hp: 103, atk: 112, def: 108, spa: 78, spd: 82, spe: 43},
 		abilities: {0: "Water Compaction", 1: "Sand Spit"},
 		heightm: 1.0,
 		weightkg: 60.0,
