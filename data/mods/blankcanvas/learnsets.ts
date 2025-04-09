@@ -558,7 +558,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			earthpower: ["9L1"],
 			toxicspikes: ["9L1"],
 			watershuriken: ["9L1"],
-			nastyplot: ["9L1"],
+			workup: ["9L1"],
 			firepledge: ["9L1"],
 			takedown: ["9L1"],
 			rest: ["9L1"],
