@@ -4992,7 +4992,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			iciclecrash: ["9L1"],
 			iciclespear: ["9L1"],
 			inferno: ["9L1"],
-			judgement: ["9L1"],
+			judgment: ["9L1"],
 			knockoff: ["9L1"],
 			leer: ["9L1"],
 			lightscreen: ["9L1"],
