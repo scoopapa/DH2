@@ -988,17 +988,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	northernmist: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Northern Mist');
+			pokemon.side.addSideCondition('mist');
 		},
 		self: {
 			sideCondition: 'mist',
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.volatiles['mist'] && !move.flags['contact']) {
+			if (source.side.sideConditions['mist'] && !move.flags['contact']) {
 				return this.chainModify(0.33);
 			}
 		},
 		onModifySecondaries(secondaries) {
-			if (source.volatiles['mist']) {
+			const pokemon = this.effectState.target;
+			if (pokemon.side.sideConditions['mist']) {
 				this.debug('Shield Dust prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
@@ -1024,6 +1026,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					return;
 				}
 			}
+		},
+		onModifyMovePriority: 5,
+		onModifyMove(move) {
+			move.drain = [2, 3];
 		},
 		flags: {},
 		name: "Life Stealer",
