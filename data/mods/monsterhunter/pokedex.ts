@@ -3,7 +3,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 40,
 		name: "Agnaktor",
 		types: ["Fire"],
-		baseStats: {hp: 72, atk: 93, def: 102, spa: 110, spd: 95, spe: 80},
+		baseStats: {hp: 72, atk: 103, def: 102, spa: 100, spd: 95, spe: 80},
 		abilities: {0: "Flame Body", 1: "Solar Power"},
 		heightm: 1.0,
 		weightkg: 60.0,
