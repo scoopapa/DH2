@@ -115,7 +115,31 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	anticipation: {
 		inherit: true,
-		onAnySwitchIn(pokemon) {
+		onSwitchIn(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (!pokemon.hasAbility('anticipation')) return;
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						const sourceDef = pokemon.storedStats.def;
+						const sourceSpD = pokemon.storedStats.spd;
+						if (sourceDef >= sourceSpD) {
+							this.boost({ def: 1 }, pokemon);
+						}
+						else {
+							this.boost({ spd: 1 }, pokemon);
+						}
+						return;
+					}
+				}
+			}
+		},
+		onFoeSwitchIn(pokemon) {
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
