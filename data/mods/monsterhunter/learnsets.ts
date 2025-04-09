@@ -4823,7 +4823,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			powertrip: ["9L1"],
 			protect: ["9L1"],
 			psychocut: ["9L1"],
-			quickquard: ["9L1"],
+			quickguard: ["9L1"],
 			rapidspin: ["9L1"],
 			recycle: ["9L1"],
 			reflect: ["9L1"],
