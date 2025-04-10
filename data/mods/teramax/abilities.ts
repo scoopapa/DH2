@@ -260,7 +260,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				move.ignoreAbility = true;
 			}
 		},
-		onAfterMove(source, target, move) {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
 				if (!target.hasType('Grass')) {
 					target.addVolatile('leechseed');
