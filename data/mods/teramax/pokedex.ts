@@ -195,6 +195,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 71, atk: 60, def: 120, spa: 116, spd: 85, spe: 76},
 	},
+	sinistchamasterpiece: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 60, def: 120, spa: 116, spd: 85, spe: 76},
+	},
 	slowbrogalar: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 90, def: 110, spa: 110, spd: 75, spe: 30},
