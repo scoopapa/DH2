@@ -268,6 +268,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "talonflame").learnset.sacredfire = ["9L1"];
 		this.modData("Learnsets", "talonflame").learnset.flyingpress = ["9L1"];
 		this.modData("Learnsets", "sinistcha").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "sinistchamasterpiece").learnset.willowisp = ["9L1"];
 		this.modData("Learnsets", "slowbrogalar").learnset.teleport = ["9L1"];
 		this.modData("Learnsets", "slowbrogalar").learnset.thunderbolt = ["9L1"];
 		this.modData("Learnsets", "slowbrogalar").learnset.scald = ["9L1"];
