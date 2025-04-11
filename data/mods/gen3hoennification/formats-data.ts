@@ -657,7 +657,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber"
 	},
 	mew: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	chikorita: {
 		tier: "LC"
