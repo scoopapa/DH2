@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC"],
+		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
 	},
 	init() {
 		for (const i in this.data.FormatsData) {
