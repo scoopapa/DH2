@@ -516,6 +516,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
 				pokemon.maxhp = newMaxHP;
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				pokemon.setAbility('stellarshell', pokemon, true);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
