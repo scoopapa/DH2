@@ -1584,12 +1584,12 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		pp: 5,
 		onTryImmunity(target, source) {},
 		onHit(target, source) {
-			const types = target.getTypes().join();
+			const types = target.getTypes();
 			const type1 = types[0]
 			const type2 = types[1]
 			if (target.hasType(type1) || !target.setType(type1)) return false;
-			if (types.length() == 1) this.add('-start', source, 'typechange', type1);
-			if (types.length() == 2) {
+			if (types.length == 1) this.add('-start', source, 'typechange', type1);
+			if (types.length == 2) {
 				this.add('-start', source, 'typechange', type1);
 				this.add('-start', source, 'typeadd', type2);
 			}			

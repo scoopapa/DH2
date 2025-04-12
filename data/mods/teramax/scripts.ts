@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC"],
+		customTiers: ["TMOU", "TMFE", "TMNFE", "TMLC", "TMUber"],
 	},
 	init() {
 		for (const i in this.data.FormatsData) {
@@ -268,6 +268,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "talonflame").learnset.sacredfire = ["9L1"];
 		this.modData("Learnsets", "talonflame").learnset.flyingpress = ["9L1"];
 		this.modData("Learnsets", "sinistcha").learnset.willowisp = ["9L1"];
+		this.modData("Learnsets", "sinistchamasterpiece").learnset.willowisp = ["9L1"];
 		this.modData("Learnsets", "slowbrogalar").learnset.teleport = ["9L1"];
 		this.modData("Learnsets", "slowbrogalar").learnset.thunderbolt = ["9L1"];
 		this.modData("Learnsets", "slowbrogalar").learnset.scald = ["9L1"];
@@ -409,6 +410,25 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "terapagos").learnset.encore = ["9L1"];
 		this.modData("Learnsets", "terapagos").learnset.lifedew = ["9L1"];
 		this.modData("Learnsets", "terapagos").learnset.wideguard = ["9L1"];
+		this.modData("Learnsets", "greninjabond").learnset.ceaselessedge = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "rayquaza").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "lunala").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "zekrom").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "reshiram").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "lunala").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "necrozma").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "necrozmaduskmane").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "necrozmadawnwings").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "lunala").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "kyurem").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "kyuremwhite").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "kyuremblack").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "reshiram").learnset.roost = ["9L1"];
+		this.modData("Learnsets", "zekrom").learnset.roost = ["9L1"];
 	},
 	actions: {
 		inherit: true,

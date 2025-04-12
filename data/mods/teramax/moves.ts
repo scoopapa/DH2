@@ -1734,6 +1734,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	geomancy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	oblivionwing: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	landswrath: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandwaves: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandarrows: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	/*
 	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them
