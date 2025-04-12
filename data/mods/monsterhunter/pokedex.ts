@@ -536,7 +536,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 23,
 		name: "Giadrome",
 		types: ["Ice"],
-		baseStats: {hp: 80, atk: 81, def: 50, spa: 107, spd: 116, spe: 91},
+		baseStats: {hp: 80, atk: 107, def: 50, spa: 81, spd: 116, spe: 91},
 		abilities: {0: "Slush Rush", 1: "Friend Guard"},
 		heightm: 1.0,
 		weightkg: 30.0,
@@ -576,7 +576,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 	},
-	gagmazios: {
+	gogmazios: {
 		num: 84,
 		name: "Gogmazios",
 		types: ["Dragon", "Dark"],
@@ -1578,7 +1578,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 125,
 		name: "Vaal Hazak",
 		types: ["Dragon", "Poison"],
-		baseStats: {hp: 95, atk: 110, def: 85, spa: 145, spd: 105, spe: 80},
+		baseStats: {hp: 95, atk: 105, def: 85, spa: 110, spd: 145, spe: 80},
 		abilities: {0: "Toxic Chain", 1: "Perish Body"},
 		heightm: 1.0,
 		weightkg: 125.0,

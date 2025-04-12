@@ -51,7 +51,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 25,
 		category: "Physical",
 		name: "Glide Bomb",
-		shortDesc: "The user attacks by dropping explosive scales onto the target. This move hits two to five times in a row.",
+		shortDesc: "Hits 2-5 times in one turn.",
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
