@@ -2054,7 +2054,11 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		secondary: null,
-		target: "all",
+		target: "normal",
+		onAfterHit(target, pokemon, sourceEffect) {
+			if (target !== "normal") return
+			this.useMove("Ki Blast", pokemon, "self", sourceEffect);
+		},
 		type: "Fighting",
 		contestType: "Cool",
 	},
