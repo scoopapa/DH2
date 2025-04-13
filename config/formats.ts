@@ -3848,7 +3848,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Monster Hunter Megas",
+		name: "[Gen 9] Monster Hunter Ubers",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
@@ -3860,7 +3860,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Monster Hunter Megas.'];
+					return [set.species + ' is not legal in Monster Hunter Ubers.'];
 				}
 			}
 		},
@@ -3933,7 +3933,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-			'Lagombite', 'Arzurite', 'MHOU'
+			'Lagombite', 'Arzurite',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
@@ -3955,7 +3955,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-			'Lagombite', 'Arzurite', 'MHUU', 'MHOU'
+			'Lagombite', 'Arzurite',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
