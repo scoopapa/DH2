@@ -596,6 +596,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		heightm: 1.0,
 		weightkg: 230.3,
 		color: "Black",
+		evos: ["Shagaru Magala"],
 		eggGroups: ["Field"],
 	},
 	chaoticgore: {
@@ -1383,6 +1384,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		heightm: 1.0,
 		weightkg: 200.0,
 		color: "Black",
+		prevo: "Xeno'jiiva",
 		eggGroups: ["Field"],
 	},
 	seltas: {
@@ -1427,6 +1429,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		heightm: 1.0,
 		weightkg: 230.3,
 		color: "Black",
+		prevo: "Gore Magala",
 		eggGroups: ["Field"],
 	},
 	sharaishvalda: {
@@ -1664,6 +1667,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		heightm: 1.0,
 		weightkg: 125.0,
 		color: "Black",
+		evos: ["Safi'jiiva"],
 		eggGroups: ["Field"],
 	},
 	yamatsukami: {
@@ -1681,7 +1685,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 34,
 		name: "Yian Garuga",
 		types: ["Poison", "Dark"],
-		baseStats: {hp: 71, atk: 105, def: 76, spa: 101, spd: 88, spe: 75},
+		baseStats: {hp: 71, atk: 115, def: 81, spa: 101, spd: 96, spe: 76},
 		abilities: {0: "Anger Point", 1: "Merciless"},
 		heightm: 1.0,
 		weightkg: 45.0,

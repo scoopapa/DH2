@@ -3856,7 +3856,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHM'];
+			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3875,7 +3875,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHM'];
+			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3894,7 +3894,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU', 'MHM'];
+			let allowedTiers = ['MHUbers', 'MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
@@ -3916,11 +3916,55 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['MHOU'];
+			let allowedTiers = ['MHOU', 'MHUU', 'MHRU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Monster Hunter OU.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Monster Hunter UU",
+		threads: [],
+		mod: 'monsterhunter',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
+			'Lagombite', 'Arzurite', 'MHOU'
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHUU', 'MHRU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter UU.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Monster Hunter RU",
+		threads: [],
+		mod: 'monsterhunter',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [
+			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
+			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
+			'Lagombite', 'Arzurite', 'MHUU', 'MHOU'
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MHRU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Monster Hunter RU.'];
 				}
 			}
 		},

@@ -1,6 +1,6 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	agnaktor: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	ahtalka: {
 		tier: "MHOU",
@@ -9,7 +9,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	aknosom: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	alatreon: {
 		tier: "MHOU",
@@ -24,70 +24,70 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	anjanath: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	fulguranjanath: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	arzuros: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	astalos: {
 		tier: "MHOU",
 	},
 	banbaro: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	barioth: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	barroth: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	basarios: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	bazelgeuse: {
 		tier: "MHOU",
 	},
 	beotodus: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	bishaten: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	orangaten: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	blangonga: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	brachydios: {
 		tier: "MHOU",
 	},
 	bulldrome: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	ceadeus: {
 		tier: "MHOU",
 	},
 	cephadrome: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	chameleos: {
 		tier: "MHOU",
 	},
 	congalala: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	dahrenmohran: {
 		tier: "MHOU",
 	},
 	daimyohermitaur: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	dalamadur: {
-		tier: "MHOU",
+		tier: "MHUbers",
 	},
 	deviljho: {
 		tier: "MHOU",
@@ -99,10 +99,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	dodogama: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	duramboros: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	eruzerion: {
 		tier: "MHOU",
@@ -114,31 +114,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	fatalis: {
-		tier: "MHOU",
+		tier: "MHUbers",
 	},
 	gaismagorm: {
-		tier: "MHOU",
+		tier: "MHUbers",
 	},
 	gammoth: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	garangolm: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	gendrome: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	giadrome: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	gigginox: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	glavenus: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	gobul: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	gogmazios: {
 		tier: "MHOU",
@@ -150,70 +150,70 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	gossharag: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	gravios: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	greatbaggi: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	greatgirros: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	greatizuchi: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	greatjaggi: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	greatjagras: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	greatmaccao: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	greatwroggi: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	gureadomosu: {
 		tier: "MHOU",
 	},
 	gypceros: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	harudomerugu: {
 		tier: "MHOU",
 	},
 	hypnocatrice: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	ibushi: {
 		tier: "MHOU",
 	},
 	iodrome: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	jhenmohran: {
 		tier: "MHOU",
 	},
 	jyuratodus: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	kechawacha: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	khezu: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	kingshakalaka: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	kirin: {
-		tier: "MHOU",
+		tier: "MHUbers",
 	},
 	kuluyaku: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	kulvetaroth: {
 		tier: "MHOU",
@@ -225,19 +225,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	lagombi: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	laoshanlung: {
 		tier: "MHOU",
 	},
 	lavasioth: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	legiana: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	lunagaron: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	lunastra: {
 		tier: "MHOU",
@@ -246,10 +246,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	malfestio: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	malzeno: {
-		tier: "MHOU",
+		tier: "MHUbers",
 	},
 	mizutsune: {
 		tier: "MHOU",
@@ -258,10 +258,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	monoblos: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	najarala: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	nakarkos: {
 		tier: "MHOU",
@@ -276,43 +276,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	narwa: {
-		tier: "MHOU",
+		tier: "MHUbers",
 	},
 	nergigante: {
 		tier: "MHOU",
 	},
 	nerscylla: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	nibelsnarf: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	odagaron: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	paolumu: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	plesioth: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	pukeipukei: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	qurupeco: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	radobaan: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	rajang: {
 		tier: "MHOU",
 	},
 	raknakadaki: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	pyrekadaki: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	rathalos: {
 		tier: "MHOU",
@@ -321,19 +321,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	royalludroth: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	safijiiva: {
 		tier: "MHOU",
 	},
 	seltas: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	seltasqueen: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	seregios: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	shagarumagala: {
 		tier: "MHOU",
@@ -345,37 +345,37 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	shogunceanataur: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	somnacanth: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	auroracanth: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	teostra: {
 		tier: "MHOU",
 	},
 	tetranadon: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	tetsucabra: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	tigrex: {
 		tier: "MHOU",
 	},
 	tobikadachi: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	tzitziyaku: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	ukanlos: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	uragaan: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	vaalhazak: {
 		tier: "MHOU",
@@ -387,13 +387,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	velocidrome: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	vespoidqueen: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	volvidon: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	xenojiiva: {
 		tier: "MHOU",
@@ -402,19 +402,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	yiangaruga: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	yiankutku: {
-		tier: "MHOU",
+		tier: "MHRU",
 	},
 	zamtrios: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	zamtriosiced: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	zamtriospuffed: {
-		tier: "MHOU",
+		tier: "MHUU",
 	},
 	zinogre: {
 		tier: "MHOU",
@@ -423,45 +423,45 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	allmothernarwa: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	boltreaverastalos: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	massacrediablos: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	primordialmalzeno: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	redhelmarzuros: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	scornedmagnamalo: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	seethingbazelgeuse: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	snowbaronlagombi: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	soulseermizutsune: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	furiousrajang: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	dreadqueenrathian: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	dreadkingrathalos: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	thunderlordzinogre: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 	crimsonglowvalstrax: {
-		tier: "MHM",
+		tier: "MHUbers",
 	},
 };
