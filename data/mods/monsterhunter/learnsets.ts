@@ -3593,6 +3593,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metalclaw: ["9M"],
 			metalsound: ["9M"],
 			mirrorcoat: ["9M"],
+			metalburst: ["9M"],
 			nastyplot: ["9M"],
 			oblivionwing: ["9M"],
 			outrage: ["9M"],
