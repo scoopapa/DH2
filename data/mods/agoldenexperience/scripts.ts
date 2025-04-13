@@ -478,6 +478,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'golisopod').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'araquanid').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'grapploct').learnset.highwater = ['9M'];
+    this.modData('Learnsets', 'overqwil').learnset.highwater = ['9M'];
     this.modData('Learnsets', 'medidragon').learnset.highwater = ['9M'];
 
     // seajaws 
@@ -1751,6 +1752,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'tinkaton').learnset.icepunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.thunderpunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
+    this.modData('Learnsets', 'tinkaton').learnset.spikes = ['9L1'];
     this.modData('Learnsets', 'bombirdier').learnset.fatbombing = ['9L1'];
     this.modData('Learnsets', 'wugtrio').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.seismictoss = ['9L1'];

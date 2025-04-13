@@ -1127,6 +1127,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			pokemon.removeVolatile('gastroacid');
 		},
 		onPreStart(pokemon) {
+			pokemon.addVolatile('gastroacid');
 			let newAbility = pokemon.set.ability
 			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
 			pokemon.removeVolatile('gastroacid');

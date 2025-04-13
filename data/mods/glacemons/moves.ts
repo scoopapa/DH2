@@ -1146,7 +1146,13 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		secondary: {
 			chance: 100,
 			onHit(target, source, move) {
-				if (target?.statsRaisedThisTurn) {
+				let hasBoost = false;
+				let i: BoostID;
+				if (!target) return;
+				for (i in target.boosts) {
+					if (target.boosts[i] !== 0) hasBoost = true;
+				}
+				if (hasBoost) {
 					target.trySetStatus('brn', source, move);
 					this.boost({ spa: 2 }, source, source);
 				}
@@ -1588,9 +1594,8 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			const type1 = types[0]
 			const type2 = types[1]
 			if (target.hasType(type1) || !target.setType(type1)) return false;
-			if (types.length == 1) this.add('-start', source, 'typechange', type1);
-			if (types.length == 2) {
-				this.add('-start', source, 'typechange', type1);
+			this.add('-start', source, 'typechange', type1);
+			if (type2) {
 				this.add('-start', source, 'typeadd', type2);
 			}			
 		},
