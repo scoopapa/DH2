@@ -79,9 +79,25 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
     inherit: true,
     baseStats: {hp: 105, atk: 130, def: 75, spa: 75, spd: 75, spe: 75},
   },
-  venusaur: {
+	venusaur: {
     inherit: true,
     baseStats: {hp: 80, atk: 82, def: 83, spa: 100, spd: 100, spe: 101},
   },
-  
+	weezing: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 90, def: 120, spa: 85, spd: 70, spe: 65},
+	},
+	ampharos: {
+		inherit: true,
+		baseStats: {hp: 125, atk: 75, def: 85, spa: 120, spd: 90, spe: 55},
+	},
+	arcanine: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 115, def: 80, spa: 100, spd: 80, spe: 120},
+	},
+	blastoise: {
+		inherit: true,
+		baseStats: {hp: 99, atk: 83, def: 100, spa: 85, spd: 105, spe: 78},
+	},
+	
 };
