@@ -87,7 +87,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHRU",
 	},
 	dalamadur: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	deviljho: {
 		tier: "MHOU",
@@ -117,7 +117,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUbers",
 	},
 	gaismagorm: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	gammoth: {
 		tier: "MHUU",
@@ -210,7 +210,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	kirin: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	kuluyaku: {
 		tier: "MHRU",
@@ -249,7 +249,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUU",
 	},
 	malzeno: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	mizutsune: {
 		tier: "MHOU",
@@ -276,7 +276,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHOU",
 	},
 	narwa: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	nergigante: {
 		tier: "MHOU",
@@ -435,7 +435,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUbers",
 	},
 	redhelmarzuros: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	scornedmagnamalo: {
 		tier: "MHUbers",
@@ -444,7 +444,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "MHUbers",
 	},
 	snowbaronlagombi: {
-		tier: "MHUbers",
+		tier: "MHOU",
 	},
 	soulseermizutsune: {
 		tier: "MHUbers",
