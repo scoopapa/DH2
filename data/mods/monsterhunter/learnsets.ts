@@ -9339,7 +9339,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			scaleshot: ["9L1"],
 			shadowball: ["9L1"],
 			snarl: ["9L1"],
-			specialrend: ["9L1"],
+			spacialrend: ["9L1"],
 			steelbeam: ["9L1"],
 			storedpower: ["9L1"],
 			substitute: ["9L1"],
