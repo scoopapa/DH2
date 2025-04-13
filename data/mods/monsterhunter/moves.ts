@@ -69,7 +69,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dragonator",
-		shortDesc: "The user utilizes a dragonator to impale the target. This may also flinch the target. This move is super effective on Dragon types.",
+		shortDesc: "This move is super effective on Dragon types. 10% chance to flinch.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
