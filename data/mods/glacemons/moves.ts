@@ -1596,7 +1596,7 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 			console.log("type1: " + type1);
 			const type2 = types[1]
 			console.log("type2: " + type2);
-			if (target.hasType(type1) || !target.setType(type1)) return false;
+			if (source.hasType(type1) || !source.setType(type1)) return false;
 			this.add('-start', source, 'typechange', type1);
 			if (type2) {
 				this.add('-start', source, 'typeadd', type2);
