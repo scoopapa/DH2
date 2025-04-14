@@ -4471,7 +4471,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderbolt: ["9M"],
 			thunderwave: ["9M"],
 			uproar: ["9M"],
-			flipturn: ["9M"],
+			uturn: ["9M"],
 			waterfall: ["9M"],
 			waterpulse: ["9M", "9L1"],
 			waterspout: ["9L90"],
