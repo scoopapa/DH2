@@ -4758,6 +4758,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			slash: ["9L1"],
 			spiritbreak: ["9L1"],
 			spitup: ["9L1"],
+			sizzlyslide: ["9L1"],
 			stockpile: ["9L1"],
 			stompingtantrum: ["9L1"],
 			submission: ["9L1"],

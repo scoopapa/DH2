@@ -294,4 +294,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		contestType: "Cool",
 	},
+	sizzlyslide: {
+			num: 735,
+			accuracy: 100,
+			basePower: 60,
+			category: "Physical",
+			isNonstandard: "LGPE",
+			name: "Sizzly Slide",
+			pp: 20,
+			priority: 0,
+			flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+			secondary: {
+				chance: 100,
+				status: 'brn',
+			},
+			target: "normal",
+			type: "Fire",
+			contestType: "Clever",
+		},
 };
