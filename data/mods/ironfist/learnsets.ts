@@ -11816,6 +11816,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	wishiwashi: {
 		learnset: {
 			helpinghand: ["9L1"],
+			fish: ["9L1"],
 			inherit: true,
 			protect: ["9L1"],
 			substitute: ["9L1"],
@@ -12361,6 +12362,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	chinchou: {
 		learnset: {
 			youwantfun: ["9L1"],
+			fish: ["9L1"],
 			helpinghand: ["9L1"],
 			inherit: true,
 			agility: ["9L1"],
@@ -13105,6 +13107,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			coaching: ["9L1"],
 			cuddie: ["9L1"],
 			darkpulse: ["9L1"],
+			diamondhand: ["9L1"],
 			endure: ["9L1"],
 			epicbeam: ["9L1"],
 			evilscaryuturn: ["9L1"],
@@ -13374,6 +13377,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			abominationsjig: ["9L1"],
 			catchysong: ["9L1"],
+			diamondhand: ["9L1"],
 			metronome: ["9L1"],
 			mogoff: ["9L1"],
 			freakout: ["9L1"],
@@ -13656,6 +13660,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			endure: ["9L1"],
 			epicbeam: ["9L1"],
 			facade: ["9L1"],
+			fish: ["9L1"],
 			fishanddip: ["9L1"],
 			fisheater: ["9L1"],
 			fishingterrain: ["9L1"],

@@ -1743,7 +1743,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: true,
 		pp: 40,
-		shortDesc: "Sets Deluge of Lions for 5 turns.",
+		shortDesc: "For 5 turns, sound moves turn the user into a Lion.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {

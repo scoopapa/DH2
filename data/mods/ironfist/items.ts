@@ -59,7 +59,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 640,
 		gen: 6,
 		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Defense and Sp. Defense.",
-		rating: 3,
+		rating: 2,
 	},
 	fishhook: {
 		name: "Fish Hook",
@@ -213,7 +213,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Balance Board",
 		shortDesc: "If Atk/Def/SpA/SpD is raised, SpA/SpD/Atk/Def is raised. Single use.",
 		spritenum: 716,
-		rating: 3,
+		rating: 2,
 		onAfterBoost(boost, target, source, effect) {
 			if (!boost || effect.id === 'balanceboard') return;
 			let activated = false;
@@ -260,7 +260,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Jar of Mercury",
 		shortDesc: "If the holder were to be hit by DIB, lowers attacker's stats by 1. Single use.",
 		spritenum: 761,
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 10,
 			effect(pokemon) {
@@ -280,7 +280,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	nervecharm: {
 		name: "Nerve Charm",
 		shortDesc: "Holder is immune to moves with nonzero priority. Announces on switchin.",
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 40,
 			priority: 1,
@@ -496,7 +496,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		boosts: {
 			spe: 1,
 		},
-		rating: 3,
+		rating: 2,
 	},
 	cornerstonemask: {
 		inherit: true,
@@ -606,13 +606,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "If holder uses 3 consecutive attacking moves, it gains +1 Attack and Sp. Attack.",
-		rating: 3,
+		rating: 2,
 	},
 	tubeofonebillionlemons: {
 		name: "Tube of One Billion Lemons",
 		shortDesc: "Holder's Lemon-type attacks have 1.2x power.",
 		spritenum: 60,
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 30,
 		},
@@ -627,7 +627,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Comically Large Spoon",
 		shortDesc: "Holder's Silly-type attacks have 1.2x power.",
 		spritenum: 520,
-		rating: 3,
+		rating: 2,
 		fling: {
 			basePower: 80,
 		},
@@ -641,7 +641,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	bobscurse: {
 		name: "Bob\'s Curse",
 		shortDesc: "Holder's bullet attacks have 1.2x power and have a 30% chance to badly poison.",
-		rating: 3,
+		rating: 2,
 		spritenum: 660,
 		fling: {
 			basePower: 90,
@@ -814,7 +814,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Shoe",
 		shortDesc: "Holder's foot attacks have 1.3x power and 1.5x accuracy.",
 		rating: 3,
-		spritenum: 660,
 		fling: {
 			basePower: 90,
 			type: "Fighting",
@@ -911,7 +910,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		boosts: {
 			spe: 1,
 		},
-		rating: 3,
+		rating: 2,
 	},
 	shellierbell: {
 		name: "Shellier Bell",

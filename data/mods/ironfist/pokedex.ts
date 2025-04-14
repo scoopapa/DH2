@@ -479,6 +479,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ground"],
 		baseStats: {hp: 75, atk: 65, def: 55, spa: 65, spd: 55, spe: 69},
 		abilities: {0: "DILF", H: "Impalpable"},
+		weightkg: -17.0,
 	},
 	scrubby: {
 		name: "Scrubby",
@@ -496,6 +497,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Silly"],
 		baseStats: {hp: 120, atk: 100, def: 85, spa: 100, spd: 85, spe: 70},
 		abilities: {0: "MILF", H: "champion"},
+		weightkg: 17.0,
 	},
 	spewpa: {
 		inherit: true,
@@ -609,6 +611,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Steel"],
 		baseStats: {hp: 104, atk: 44, def: 104, spa: 104, spd: 44, spe: 44},
 		abilities: {0: "Stall", 1: "Cursed Body", H: "Mega Launcher"},
+		weightkg: 999.9,
 	},
 	contamicow: {
 		name: "Contamicow",
@@ -978,7 +981,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Lemon", "Water"],
 		baseStats: {hp: 100, atk: 105, def: 80, spa: 60, spd: 60, spe: 80},
 		abilities: {0: "Swift Swim", 1: "Ripen", H: "Lemonade"},
-		weightkg: 1,
+		weightkg: 9,
 	},
 	dracolition: {
 		name: "Dracolition",
