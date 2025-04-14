@@ -479,7 +479,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ground"],
 		baseStats: {hp: 75, atk: 65, def: 55, spa: 65, spd: 55, spe: 69},
 		abilities: {0: "DILF", H: "Impalpable"},
-		weightkg: -17.0,
+		weightkg: 983.9,
 	},
 	scrubby: {
 		name: "Scrubby",
