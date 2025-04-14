@@ -1591,8 +1591,9 @@ export const Moves: { [moveid: string]: ModdedMoveData; } = {
 		onTryImmunity(target, source) {},
 		onHit(target, source) {
 			const types = target.getTypes();
-			const type1 = types[0]
-			const type2 = types[1]
+			const type1 = types[0];
+			const type2;
+			if (types.length == 2) type2 = types[1];
 			if (source.hasType(type1) || !source.setType(type1)) return false;
 			this.add('-start', source, 'typechange', type1);
 			if (type2) {
