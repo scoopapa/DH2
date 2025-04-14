@@ -1434,6 +1434,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mesprit').learnset.moonblast = ['9L1'];
     this.modData('Learnsets', 'mesprit').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'mesprit').learnset.recover = ['9L1'];
+    this.modData('Learnsets', 'mesprit').learnset.afteryou = ['9L1'];
     this.modData('Learnsets', 'mesprit').learnset.fulldevotion = ['9L1'];
     this.modData('Learnsets', 'azelf').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'azelf').learnset.focusblast = ['9L1'];
