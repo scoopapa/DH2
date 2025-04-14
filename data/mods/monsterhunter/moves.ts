@@ -100,6 +100,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	cutwingbarrage: {
+		num: 731,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Cutwing Barrage",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, slicing: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
 	/*
 	RE-IMPLEMENTED MOVES
 	*/
