@@ -3853,6 +3853,7 @@ export const Formats: FormatList = [
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
+		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3872,6 +3873,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
+		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3891,6 +3893,7 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
+		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3911,8 +3914,8 @@ export const Formats: FormatList = [
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-			'Lagombite', 'Arzurite'
 		],
+		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3933,8 +3936,8 @@ export const Formats: FormatList = [
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-			'Lagombite', 'Arzurite',
 		],
+		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3955,8 +3958,8 @@ export const Formats: FormatList = [
 		banlist: [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
-			'Lagombite', 'Arzurite',
 		],
+		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
