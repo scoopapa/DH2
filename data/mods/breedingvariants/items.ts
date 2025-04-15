@@ -195,7 +195,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Cameruptite",
 		spritenum: 625,
 		megaStone: "Camerupt-Mega",
-		altMegaStone: [],
+		altMegaStone: ["Camerupt-Pumpback-Mega"],
 		megaEvolves: "Camerupt",
 		megaExcludes: [],
 		itemUser: ["Camerupt"],

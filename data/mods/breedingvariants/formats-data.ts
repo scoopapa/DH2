@@ -239,4 +239,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	cameruptpumpback: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	cameruptpumpbackmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hariyamagoalkeeper: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	archaludonbifrost: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
