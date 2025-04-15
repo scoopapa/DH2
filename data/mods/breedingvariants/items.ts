@@ -8,7 +8,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Abomasnow"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 674,
@@ -24,7 +24,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Absol"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 677,
@@ -40,7 +40,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Aerodactyl"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 672,
@@ -56,7 +56,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Aggron"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 667,
@@ -72,7 +72,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Alakazam"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 679,
@@ -88,7 +88,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Altaria"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 755,
@@ -104,7 +104,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Ampharos"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 658,
@@ -120,7 +120,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Audino"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 757,
@@ -136,7 +136,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Banette"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 668,
@@ -152,7 +152,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Beedrill"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 770,
@@ -168,7 +168,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Blastoise"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 661,
@@ -184,7 +184,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Blaziken"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 664,
@@ -200,7 +200,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Camerupt"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 767,
@@ -216,7 +216,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 660,
@@ -232,7 +232,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 678,
@@ -248,7 +248,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Diancie"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 764,
@@ -264,7 +264,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Gallade"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 756,
@@ -280,7 +280,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Garchomp"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 683,
@@ -296,7 +296,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Gardevoir"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 657,
@@ -312,7 +312,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Gengar"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 656,
@@ -328,7 +328,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Glalie"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 763,
@@ -344,7 +344,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Gyarados"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 676,
@@ -360,7 +360,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: ["Heracross-Dustdevil"],
 		itemUser: ["Heracross"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 680,
@@ -376,7 +376,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Houndoom"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 666,
@@ -392,7 +392,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Kangaskhan"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 675,
@@ -408,7 +408,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Latias"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 684,
@@ -424,7 +424,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Latios"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 685,
@@ -440,7 +440,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Lopunny"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 768,
@@ -456,7 +456,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Lucario"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 673,
@@ -472,7 +472,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Manectric"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 682,
@@ -488,7 +488,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Mawile"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 681,
@@ -504,7 +504,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Medicham"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 665,
@@ -520,7 +520,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Metagross"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 758,
@@ -536,7 +536,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Mewtwo"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 662,
@@ -552,7 +552,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Mewtwo"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 663,
@@ -568,7 +568,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Pidgeot"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 762,
@@ -584,7 +584,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Pinsir"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 671,
@@ -600,7 +600,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Sableye"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 754,
@@ -616,7 +616,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Salamence"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 769,
@@ -632,7 +632,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Sceptile"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 753,
@@ -648,7 +648,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Scizor"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 670,
@@ -664,7 +664,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Sharpedo"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 759,
@@ -680,7 +680,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Slowbro"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 760,
@@ -696,7 +696,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Steelix"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 761,
@@ -712,7 +712,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Swampert"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 752,
@@ -728,7 +728,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Tyranitar"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 669,
@@ -744,7 +744,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Venusaur"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: 659,
@@ -762,7 +762,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaExcludes: [],
 		itemUser: ["Crucibelle"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies && !item.megaExcludes.includes(source.name)) return false;
 			return true;
 		},
 		num: -1,
