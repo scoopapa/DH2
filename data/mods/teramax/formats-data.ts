@@ -2615,6 +2615,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMFE",
 		doublesTier: "TMFE",
 	},
+	lokix: {
+		tier: "TMFE",
+		doublesTier: "TMFE",
+	},
 	pawmot: {
 		tier: "TMFE",
 		doublesTier: "TMFE",
