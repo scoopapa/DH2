@@ -5595,6 +5595,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			bodypress: ["9L1"],
 			bulkup: ["9L1"],
 			calmmind: ["9L1"],
+			geomancy: ["9L1"],
 			clangingscales: ["9L1"],
 			coil: ["9L1"],
 			coreenforcer: ["9L1"],
