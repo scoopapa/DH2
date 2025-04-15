@@ -14,6 +14,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
 				if (item.megaExcludes.includes(species.name)) return null;
+				if (species.name !== species.baseSpecies && item.altMegaStone.includes(species.name + "-Mega")) {
+					return species.name + "-Mega";
+				}
 				return item.megaStone;
 			}
 			return null;

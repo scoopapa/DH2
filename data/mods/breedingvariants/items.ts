@@ -131,7 +131,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Banettite",
 		spritenum: 582,
 		megaStone: "Banette-Mega",
-		altMegaStone: [],
+		altMegaStone: ["Banette-Blademaster-Mega"],
 		megaEvolves: "Banette",
 		megaExcludes: [],
 		itemUser: ["Banette"],
