@@ -429,7 +429,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		mega: "hydrapplemega",
 		megaName: "Hydrapple-Mega",
-		megaType: ["Grass", "Dragon"],
 		megaAbility: {0: "Sugar Rush"},
 		megaStats: {hp: 106, atk: 100, def: 150, spa: 130, spd: 110, spe: 44},
 		megaStone: "Hydrapplinite",
@@ -571,5 +570,39 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Belliboltite",
 		movepoolAdditions: ["surf"],
 		megaCreator: "War Incarnate",
+	},
+
+	// slate 13
+
+	arcanine: {
+		inherit: true,
+		mega: "arcaninemega",
+		megaName: "Arcanine-Mega",
+		megaType: ["Fire", "Dragon"],
+		megaAbility: {0: "Supreme Overlord"},
+		megaStats: {hp: 90, atk: 130, def: 90, spa: 120, spd: 100, spe: 125},
+		megaStone: "Arcanite",
+		megaCreator: "DrPumpkinz",
+	},
+
+	mabosstiff: {
+		inherit: true,
+		mega: "mabosstiffmega",
+		megaName: "Mabosstiff-Mega",
+		megaAbility: {0: "Regenerator"},
+		megaStats: {hp: 80, atk: 155, def: 120, spa: 65, spd: 90, spe: 95},
+		megaStone: "Mabosstite",
+		movepoolAdditions: ["partingshot"],
+		megaCreator: "okispokis",
+	},
+
+	okidogi: {
+		inherit: true,
+		mega: "okidogimega",
+		megaName: "Okidogi-Mega",
+		megaAbility: {0: "Toxic Gains"},
+		megaStats: {hp: 88, atk: 138, def: 160, spa: 78, spd: 111, spe: 80},
+		megaStone: "Okidogite",
+		megaCreator: "DrPumpkinz",
 	},
 };
