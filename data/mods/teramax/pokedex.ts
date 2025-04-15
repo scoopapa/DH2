@@ -195,6 +195,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 71, atk: 60, def: 120, spa: 116, spd: 85, spe: 76},
 	},
+	sinistchamasterpiece: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 60, def: 120, spa: 116, spd: 85, spe: 76},
+	},
 	slowbrogalar: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 90, def: 110, spa: 110, spd: 75, spe: 30},
@@ -584,5 +588,31 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 100, atk: 120, def: 100, spa: 73, spd: 60, spe: 97},
 		abilities: {0: "Iron Fist"},
 		weightkg: 999.9,
+	},
+
+	// Ubers
+	calyrexshadow: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 90, def: 100, spa: 145, spd: 110, spe: 135},
+	},
+	zaciancrowned: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 150, def: 120, spa: 90, spd: 120, spe: 128},
+	},
+	koraidon: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 135, def: 115, spa: 95, spd: 100, spe: 125},
+	},
+	miraidon: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 95, def: 100, spa: 135, spd: 115, spe: 125},
+	},
+	eternatus: {
+		inherit: true,
+		baseStats: {hp: 140, atk: 85, def: 100, spa: 145, spd: 100, spe: 120},
+	},
+	zamazentacrowned: {
+		inherit: true,
+		baseStats: {hp: 92, atk: 120, def: 140, spa: 90, spd: 140, spe: 118},
 	},
 };

@@ -788,6 +788,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return 5;
 			}
 		},
+		shortDesc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
+		desc: "If held by a Farfetch’d or Sirfetch’d, its moves will always crit.",
 	},
 	// everlasting winter
 	safetygoggles: {

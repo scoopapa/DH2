@@ -115,7 +115,31 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	anticipation: {
 		inherit: true,
-		onAnySwitchIn(pokemon) {
+		onSwitchIn(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (!pokemon.hasAbility('anticipation')) return;
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						const sourceDef = pokemon.storedStats.def;
+						const sourceSpD = pokemon.storedStats.spd;
+						if (sourceDef >= sourceSpD) {
+							this.boost({ def: 1 }, pokemon);
+						}
+						else {
+							this.boost({ spd: 1 }, pokemon);
+						}
+						return;
+					}
+				}
+			}
+		},
+		onFoeSwitchIn(pokemon) {
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -988,17 +1012,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	northernmist: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Northern Mist');
+			pokemon.side.addSideCondition('mist');
 		},
 		self: {
 			sideCondition: 'mist',
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.volatiles['mist'] && !move.flags['contact']) {
+			if (source.side.sideConditions['mist'] && !move.flags['contact']) {
 				return this.chainModify(0.33);
 			}
 		},
 		onModifySecondaries(secondaries) {
-			if (source.volatiles['mist']) {
+			const pokemon = this.effectState.target;
+			if (pokemon.side.sideConditions['mist']) {
 				this.debug('Shield Dust prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
@@ -1024,6 +1050,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					return;
 				}
 			}
+		},
+		onModifyMovePriority: 5,
+		onModifyMove(move) {
+			move.drain = [2, 3];
 		},
 		flags: {},
 		name: "Life Stealer",

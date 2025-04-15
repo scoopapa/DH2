@@ -260,7 +260,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				move.ignoreAbility = true;
 			}
 		},
-		onAfterMove(source, target, move) {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
 				if (!target.hasType('Grass')) {
 					target.addVolatile('leechseed');
@@ -515,6 +516,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
 				pokemon.maxhp = newMaxHP;
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+				pokemon.setAbility('stellarshell', pokemon, true);
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},

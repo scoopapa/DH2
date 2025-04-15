@@ -2965,7 +2965,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	froststorm: {
 		num: -68,
-		accuracy: 80,
+		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		name: "Frost Storm",
@@ -2995,7 +2995,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	thunderstorm: {
 		num: -69,
-		accuracy: 80,
+		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		name: "Thunder Storm",
@@ -3025,7 +3025,7 @@ export const Moves: { [k: string]: ModdedMoveData; } = {
 	},
 	heatstorm: {
 		num: -70,
-		accuracy: 80,
+		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		name: "Heat Storm",

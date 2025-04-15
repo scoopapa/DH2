@@ -1448,8 +1448,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	shedinja: {
-		tier: "Uber",
-		doublesTier: "Uber",
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	hitmonlee: {
 		tier: "TMFE",
@@ -2581,11 +2581,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	koraidon: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	miraidon: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	walkingwake: {
 		tier: "TMOU",
@@ -2612,6 +2612,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMFE",
 	},
 	spidops: {
+		tier: "TMFE",
+		doublesTier: "TMFE",
+	},
+	lokix: {
 		tier: "TMFE",
 		doublesTier: "TMFE",
 	},
@@ -2809,19 +2813,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zacian: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	zaciancrowned: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	zamazentacrowned: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	eternatus: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	squirtle: {
 		tier: "TMLC",
@@ -2853,7 +2857,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	melmetal: {
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "TMUber",
 	},
 	froakie: {
 		tier: "TMLC",
@@ -3030,6 +3034,130 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	terapagosterastal: {
 		tier: "TMOU",
 		doublesTier: "TMOU",
+	},
+	terapagosstellar: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	xerneas: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	yveltal: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zygarde: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	mewtwo: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	hooh: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	lugia: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	groudon: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyogre: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	rayquaza: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	dialga: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	palkia: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	giratina: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	arceus: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	reshiram: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zekrom: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyurem: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyuremwhite: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	kyuremblack: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	xerneas: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	yveltal: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zygarde10: {
+		tier: "TMOU",
+		doublesTier: "TMOU",
+	},
+	zygarde: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	zygardecomplete: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	solgaleo: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	lunala: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	necrozma: {
+		tier: "TMOU",
+		doublesTier: "TMUber",
+	},
+	necrozmaduskmane: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	necrozmadawnwings: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	calyrexshadow: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
+	},
+	calyrexice: {
+		tier: "TMUber",
+		doublesTier: "TMUber",
 	},
 	venusaurgmax: {
 		isNonstandard: null,
