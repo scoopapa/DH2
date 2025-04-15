@@ -451,7 +451,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -26,
 	},
-	congestion: { //rn it only works with one move at a time; will have to correct that
+	/*congestion: { //rn it only works with one move at a time; will have to correct that
 		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
 		shortDesc: "Status moves don't effect until the user switches out.",
 		onBeforeMove(source, target, move) {
@@ -509,7 +509,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Congestion",
 		rating: 3,
 		num: -27,
-	},
+	},*/
+	congestion: {
+			name: "Congestion",
+			shortDesc: "All status moves are delayed until all Congestion users are gone.",
+			rating: 3,
+			num: -27,
+		
+			onUpdate(pokemon) {
+				// Loop over all active Pokémon
+				for (const p of this.getAllActive()) {
+					const slot = p.position;
+					const side = p.side;
+		
+					// Apply the congestionstatus slot condition if not present
+					if (!side.slotConditions[slot]?.congestionstatus) {
+						side.addSlotCondition(p, 'congestionstatus');
+					}
+				}
+			},
+		},
 	twinheart: {
 		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
 		onBeforeMovePriority: 0.5,
