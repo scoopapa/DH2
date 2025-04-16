@@ -1,15 +1,15 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData } = {
-  alakazam: {
-    inherit: true,
-    baseStats: {hp: 85, atk: 50, def: 45, spa: 135, spd: 95, spe: 120},
+	alakazam: {
+   	inherit: true,
+   	baseStats: {hp: 85, atk: 50, def: 45, spa: 135, spd: 95, spe: 120},
   },
-  armaldo: {
-    inherit: true,
-    baseStats: {hp: 105, atk: 125, def: 100, spa: 70, spd: 80, spe: 45},
+	armaldo: {
+   	inherit: true,
+   	baseStats: {hp: 105, atk: 125, def: 100, spa: 70, spd: 80, spe: 45},
   },
-  articuno: {
-    inherit: true,
-    baseStats: {hp: 90, atk: 85, def: 100, spa: 105, spd: 125, spe: 85},
+	articuno: {
+   	inherit: true,
+   	baseStats: {hp: 90, atk: 85, def: 100, spa: 105, spd: 125, spe: 85},
   },
   blaziken: {
     inherit: true,
@@ -99,5 +99,12 @@ export const Pokedex: { [k: string]: ModdedSpeciesData } = {
 		inherit: true,
 		baseStats: {hp: 99, atk: 83, def: 100, spa: 85, spd: 105, spe: 78},
 	},
-	
+	cradily: {
+		inherit: true,
+		baseStats: {hp: 91, atk: 81, def: 97, spa: 81, spd: 107, spe: 43},
+	},
+	electabuzz: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 83, def: 57, spa: 105, spd: 85, spe: 105},
+	},
 };
