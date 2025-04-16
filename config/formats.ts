@@ -1662,7 +1662,7 @@ export const Formats: FormatList = [
 		mod: 'teramax',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [
-			'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Stellar Shift', 'Stellar Shell', 'King\'s Rock', 'Baton Pass',
+			'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'Terapagos + Stellar Shift', 'Terapagos + Stellar Shell', 'King\'s Rock', 'Baton Pass',
 			'Last Respects', 'Shed Tail', 'Wishing Stone > 1', 'Light Clay', 'Melmetal-Gmax', 'Ogerpon-Hearthflame + Close Combat',
 			'Ogerpon-Hearthflame + Rock Blast', 'Ogerpon-Wellspring + Close Combat', 'Ogerpon-Wellspring + Rock Blast',
 			'Ogerpon-Cornerstone + Rock Blast', 'Volcarona', 'Roaring Moon', 'Espathra', 'Baxcalibur',
