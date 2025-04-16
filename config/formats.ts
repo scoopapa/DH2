@@ -3847,6 +3847,7 @@ export const Formats: FormatList = [
 			if (era.length > 1) return ['Each Pokemon needs to be from the same category.'];
 		},
 	},
+	/*
 	{
 		name: "[Gen 9] Monster Hunter Randoms",
 		threads: [],
@@ -3854,6 +3855,7 @@ export const Formats: FormatList = [
 		team: 'random',
 		ruleset: ['Standard', 'Data Mod'],
 	},
+	*/
 	{
 		name: "[Gen 9] Monster Hunter Ubers",
 		teambuilderFormat: "National Dex",
