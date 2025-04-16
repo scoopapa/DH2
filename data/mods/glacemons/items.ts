@@ -1981,4 +1981,23 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		desc: "",
 		shortDesc: "",
 	},
+	surprisebomb: {
+		name: "Surprise Bomb",
+		spritenum: 345,
+		num: -33,
+		gen: 9,
+		rating: 3,
+		onStart(pokemon) {
+			this.battle.useMove(surprise, pokemon, "normal", "[from] item: Surprise Bomb")
+			this.battle.runEvent("EatItem", pokemon)
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.id !== "surprise") return;
+			move.type = pokemon.types[0]
+			move.typeChangerBoosted = this.effect;
+		},
+		desc: "On switch-in, the holder uses a 40 BP Physical move with the holder's primary type, Special if SpAtk > Atk. Single use.",
+		shortDesc: "On switch-in: 40 BP move based on primary type and stronger attack. Single use.",
+	},
 };
