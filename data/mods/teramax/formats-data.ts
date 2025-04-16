@@ -3039,18 +3039,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
-	xerneas: {
-		tier: "TMUber",
-		doublesTier: "TMUber",
-	},
-	yveltal: {
-		tier: "TMUber",
-		doublesTier: "TMUber",
-	},
-	zygarde: {
-		tier: "TMUber",
-		doublesTier: "TMUber",
-	},
 	mewtwo: {
 		tier: "TMUber",
 		doublesTier: "TMUber",
