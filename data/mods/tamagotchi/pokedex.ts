@@ -547,7 +547,7 @@ mametchi: {
 		gender: "M",
 		types: ["Normal"],
 		baseStats: {hp: 98, atk: 64, def: 100, spa: 50, spd: 112, spe: 86},
-		abilities: {0: "Wool Coat", 1: "N", H: "A"},
+		abilities: {0: "Wool Coat", 1: "Fur Coat", H: "Klutz"},
 	},
 	paparatchi: {
 		num: 70,
