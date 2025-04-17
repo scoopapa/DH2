@@ -729,4 +729,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 1.5,
 		num: -38,
 	},
+	toxicgains: {
+		basePowerCallback(pokemon, target, move) {
+			if (move.type !== 'Poison') return move.basePower;
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		flags: {},
+		name: "Toxic Gains",
+		shortDesc: "Poison-type moves gain +20 base power for each stat boost.",
+		rating: 1.5,
+		num: -39,
+	},
 };
