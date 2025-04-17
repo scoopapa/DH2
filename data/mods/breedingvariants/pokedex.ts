@@ -1119,7 +1119,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	cameruptpumpback: {
 		num: 323,
-		species: "Camerupt-Pumpback",
+		name: "Camerupt-Pumpback",
 		baseSpecies: "Camerupt",
 		forme: "Pumpback",
 		types: ["Fire", "Water"],
@@ -1130,7 +1130,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	cameruptpumpbackmega: {
 		num: 323,
-		species: "Camerupt-Pumpback-Mega",
+		name: "Camerupt-Pumpback-Mega",
 		baseSpecies: "Camerupt",
 		forme: "Pumpback-Mega",
 		types: ["Fire", "Water"],
@@ -1150,7 +1150,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	hariyamagoalkeeper: {
 		num: 297,
-		species: "Hariyama-Goalkeeper",
+		name: "Hariyama-Goalkeeper",
 		baseSpecies: "Hariyama",
 		forme: "Goalkeeper",
 		types: ["Fighting", "Fire"],
@@ -1170,7 +1170,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 	},
 	archaludonbifrost: {
 		num: 1018,
-		species: "Archaludon-Bifrost",
+		name: "Archaludon-Bifrost",
 		baseSpecies: "Archaludon",
 		forme: "Bifrost",
 		types: ["Rock", "Dragon"],
