@@ -1575,7 +1575,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	memetchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			playrough: ["9L1"],
 			tidyup: ["9L1"],
@@ -4730,7 +4730,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	himespetchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			alienlaser: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			playrough: ["9L1"],
@@ -4757,7 +4757,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	yumemitchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			yumekirabag: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			drainingkiss: ["9L1"],
@@ -4785,7 +4785,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	kiraritchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			yumekirabag: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			playrough: ["9L1"],
@@ -5539,7 +5539,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pianitchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			smapi: ["9L1"],
 			dazzlinggleam: ["9L1"],
 			psychic: ["9L1"],
@@ -5698,7 +5698,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	coffretchi: {
 		learnset: {
-			kirakira☆dream: ["9L1"],
+			kirakiradream: ["9L1"],
 			moripakucoffretmarch: ["9L1"],
 			dreamcoffretpalette: ["9L1"],
 			dazzlinggleam: ["9L1"],
