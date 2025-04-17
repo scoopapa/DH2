@@ -1665,17 +1665,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	uxie: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 70, def: 130, spa: 70, spd: 130, spe: 95},
-		abilities: {0: "Levitate", H: "Mirror Armor"},
+		abilities: {0: "Levitate", H: "Magic Bounce"},
 	},
 	mesprit: {
 		inherit: true,
-		types: ["Psychic", "Rock"],
+		types: ["Psychic", "Fairy"],
 		abilities: {0: "Levitate", H: "Mental Fortitude"},
 	},
 	azelf: {
 		inherit: true,
-		types: ["Psychic", "Grass"],
-		abilities: {0: "Levitate", H: "Sharpness"},
+		types: ["Psychic", "Fighting"],
+		abilities: {0: "Levitate", H: "Sturdy"},
 	},
 	regigigas: {
 		inherit: true,

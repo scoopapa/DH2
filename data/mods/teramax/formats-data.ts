@@ -2615,6 +2615,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "TMFE",
 		doublesTier: "TMFE",
 	},
+	lokix: {
+		tier: "TMFE",
+		doublesTier: "TMFE",
+	},
 	pawmot: {
 		tier: "TMFE",
 		doublesTier: "TMFE",
@@ -3032,18 +3036,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "TMOU",
 	},
 	terapagosstellar: {
-		tier: "TMUber",
-		doublesTier: "TMUber",
-	},
-	xerneas: {
-		tier: "TMUber",
-		doublesTier: "TMUber",
-	},
-	yveltal: {
-		tier: "TMUber",
-		doublesTier: "TMUber",
-	},
-	zygarde: {
 		tier: "TMUber",
 		doublesTier: "TMUber",
 	},
