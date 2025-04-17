@@ -3783,11 +3783,11 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Monster Hunter Ubers",
+		teambuilderFormat: "National Dex",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
-		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3802,12 +3802,12 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter Doubles",
+		teambuilderFormat: "National Dex",
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'doubles',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
-		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3822,12 +3822,12 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter Free-For-Alls",
+		teambuilderFormat: "National Dex",
 		threads: [],
 		mod: 'monsterhunter',
 		gameType: 'freeforall',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: [],
-		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3842,6 +3842,7 @@ export const Formats: FormatList = [
 	 },
 	 {
 		name: "[Gen 9] Monster Hunter OU",
+		teambuilderFormat: "National Dex",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
@@ -3849,7 +3850,6 @@ export const Formats: FormatList = [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
-		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3864,6 +3864,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Monster Hunter UU",
+		teambuilderFormat: "National Dex",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
@@ -3871,7 +3872,6 @@ export const Formats: FormatList = [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
-		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
@@ -3886,6 +3886,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Monster Hunter RU",
+		teambuilderFormat: "National Dex",
 		threads: [],
 		mod: 'monsterhunter',
 		ruleset: ['Standard', 'Data Mod'],
@@ -3893,7 +3894,6 @@ export const Formats: FormatList = [
 			'Narwanite', 'Astalite', 'Bazelnite', 'Magnamalite', 'Malzenite',
 			'Mizutsunite', 'Rajanite', 'Rathalosite', 'Rathianite', 'Valstraxite', 'Zinogrite', 
 		],
-		unbanlist: ['Fishious Rend', "King's Shield"],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
