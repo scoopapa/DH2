@@ -1265,7 +1265,11 @@ export class RandomTeams {
 			if (species.id === 'woopquaza') return this.sample(['Life Orb', 'Leftovers']);
 			let mega = species.id + 'mega';
 			if (mega === 'blasgronmega') {
-				if (moves.has('shellsmash')) mega += 'b';
+				if (moves.has('shellsmash') || 
+					moves.has('hydropump') ||
+					moves.has('icebeam') ||
+					moves.has('aurasphere') ||
+					moves.has('dragonpulse')) mega += 'b';
 				else mega += 'a';
 			}
 			return this.dex.species.get(mega).requiredItems[0];
