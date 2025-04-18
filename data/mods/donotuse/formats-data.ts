@@ -470,13 +470,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 	},
 	skitty: {
-		tier: "DoNU UU",
+		tier: "DoNU UUBL",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "hypervoice", "thunderbolt", "icebeam", "shadowball"]
 	},
 	skwovet: {
-		tier: "DoNU UU",
+		tier: "DoNU UUBL",
 		doublesTier: "DDoNU",
 		isNonstandard: null,
 		randomBattleMoves: ["bellydrum", "doubleedge", "trailblaze", "irontail"]

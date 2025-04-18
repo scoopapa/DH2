@@ -77,6 +77,8 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 			return move.basePower * boost;
 		},
 		onHit(target, source, move) {
+			if (this.field.getPseudoWeather('trickroom')) return;
+			
 			this.field.addPseudoWeather('trickroom');
 		},
 		onTryMove() {
@@ -153,14 +155,14 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				if (pokemon.hasType(['Water', 'Fire'])) {
+				if (pokemon.hasType(['Fire'])) {
 					return false;
 				}
 				this.add('-start', pokemon, 'Boiling Deluge');
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
-				this.damage(pokemon.baseMaxhp * (pokemon.hasType(['Water', 'Fire']) ? 0 : (1 / 8)));
+				this.damage(pokemon.baseMaxhp * (pokemon.hasType(['Fire']) ? 0 : (1 / 8)));
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Boiling Deluge');
@@ -178,7 +180,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 		},
 		target: "normal",
 		type: "Fire",
-		shortDesc: "Pokemon hit take 1/8 max HP every turn. Water and Fire types are immune.",
+		shortDesc: "Pokemon hit take 1/8 max HP every turn. Fire types are immune.",
 
 	},
 	candlelight: {
@@ -502,7 +504,7 @@ export const Moves: { [moveid: string]: ModdedMoveData } = {
 	sicklysugar: {
 		num: -1014,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 90,
 		category: "Special",
 		name: "Sickly Sugar",
 		pp: 15,
