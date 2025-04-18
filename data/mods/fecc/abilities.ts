@@ -93,7 +93,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
-				if(pokemon.leveled) return;
 				pokemon.level += 20 * fallen;
 				pokemon.set.level += 20 * fallen;
 				pokemon.baseMaxhp = Math.floor(Math.floor(
@@ -107,7 +106,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details, '[silent]');
 				this.add('-message', `${pokemon.name} gained EXP from the fallen and is now at level ${pokemon.level}!`);
-				pokemon.leveled = true;
 			}
 		},
 		onModifyAtk(atk, pokemon) {
