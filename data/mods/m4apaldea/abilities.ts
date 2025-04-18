@@ -365,7 +365,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -26,
 	},
-	congestion: { //rn it only works with one move at a time; will have to correct that
+	/*congestion: { //rn it only works with one move at a time; will have to correct that
 		desc: "This Pokémon's status moves don't take effect until the user is switching out.",
 		shortDesc: "Status moves don't effect until the user switches out.",
 		onBeforeMove(source, target, move) {
@@ -423,7 +423,26 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Congestion",
 		rating: 3,
 		num: -27,
-	},
+	},*/
+	congestion: {
+			name: "Congestion",
+			shortDesc: "All status moves are delayed until all Congestion users are gone.",
+			rating: 3,
+			num: -27,
+		
+			onUpdate(pokemon) {
+				// Loop over all active Pokémon
+				for (const p of this.getAllActive()) {
+					const slot = p.position;
+					const side = p.side;
+		
+					// Apply the congestionstatus slot condition if not present
+					if (!side.slotConditions[slot]?.congestionstatus) {
+						side.addSlotCondition(p, 'congestionstatus');
+					}
+				}
+			},
+		},
 	masquerade: {
 		desc: "This Pokémon inherits the Ability of the last unfainted Pokemon in its party until it takes direct damage from another Pokémon's attack. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "Inherits the Ability of the last party member. Wears off when attacked.",
@@ -709,5 +728,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If this pokemon is hit by a physical move, use Soak on the opponent.",
 		rating: 1.5,
 		num: -38,
+	},
+	toxicgains: {
+		basePowerCallback(pokemon, target, move) {
+			if (move.type !== 'Poison') return move.basePower;
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		flags: {},
+		name: "Toxic Gains",
+		shortDesc: "Poison-type moves gain +20 base power for each stat boost.",
+		rating: 1.5,
+		num: -39,
 	},
 };

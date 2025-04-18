@@ -545,4 +545,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "If held by a Bellibolt, this item allows it to Mega Evolve in battle.",
 	},
+	arcanite: { 
+		name: "Arcanite",
+		spritenum: 578,
+		megaStone: "Arcanine-Mega",
+		megaEvolves: "Arcanine",
+		itemUser: ["Arcanine"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2040,
+		gen: 9,
+		desc: "If held by a Arcanine, this item allows it to Mega Evolve in battle.",
+	},
+	mabosstite: { 
+		name: "Mabosstite",
+		spritenum: 578,
+		megaStone: "Mabosstiff-Mega",
+		megaEvolves: "Mabosstiff",
+		itemUser: ["Mabosstiff"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2041,
+		gen: 9,
+		desc: "If held by a Mabosstiff, this item allows it to Mega Evolve in battle.",
+	},
+	okidogite: { 
+		name: "Okidogite",
+		spritenum: 578,
+		megaStone: "Okidogi-Mega",
+		megaEvolves: "Okidogi",
+		itemUser: ["Okidogi"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -2042,
+		gen: 9,
+		desc: "If held by a Okidogi, this item allows it to Mega Evolve in battle.",
+	},
 };
