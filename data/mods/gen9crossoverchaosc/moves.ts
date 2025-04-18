@@ -58,7 +58,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.lastMove && !target.lastMove.isZ && !target.lastMove.isMax && target.lastMove.id !== 'struggle' && !target.volatiles['disable']) {
 				target.addVolatile('disable');
 			}
-	  },
+		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Nasty Plot", source);
@@ -69,7 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-  },
+	},
 	linkinglighthouselaunch: {
 		num: -2,
 		accuracy: true,
@@ -443,7 +443,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Nano Boost",
+		name: "Galaxia Darkness",
 		shortDesc: "User becomes semi-invulnerable for one turn and slicing attacks used next turn have damaged doubled & crit",
 		pp: 1,
 		priority: 0,
@@ -486,6 +486,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Dark",
 		contestType: "Cool",
+	},
+	gossamerstorm: {
+		num: -16,
+		accuracy: true,
+		basePower: 95,
+		category: "Physical",
+		name: "Gossamer Storm",
+		shortDesc: "Lowers target's speed by 1 stage.",
+		pp: 10,
+		priority: 0,
+		flags: {slicing: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swords Dance", source);
+			this.add('-anim', source, "Air Slash", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Beautiful",
 	},
 
 	// Altering Pre-Existing Moves
