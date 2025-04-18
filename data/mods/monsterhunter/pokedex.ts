@@ -746,7 +746,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		num: 24,
 		name: "Hypnocatrice",
 		types: ["Psychic"],
-		baseStats: {hp: 84, atk: 105, def: 102, spa: 56, spd: 70, spe: 100},
+		baseStats: {hp: 84, atk: 59, def: 90, spa: 105, spd: 92, spe: 100},
 		abilities: {0: "Quick Feet", 1: "Bad Dreams"},
 		heightm: 1.0,
 		weightkg: 70.0,
