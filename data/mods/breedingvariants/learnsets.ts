@@ -1,4 +1,4 @@
-export const Learnsets: {[speciesid: string]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	goodraflame: {
 		learnset: {
 			swordsdance: ["9L1"],

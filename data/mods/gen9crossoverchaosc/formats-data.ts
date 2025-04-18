@@ -71,4 +71,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "CC OU",
 		doublesTier: "DCC OU",
 	},
+	scout: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	metaknight: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
+	hornet: {
+		tier: "CC OU",
+		doublesTier: "DCC OU",
+	},
 };

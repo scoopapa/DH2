@@ -32,4 +32,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -3,
 		gen: 9,
 	},
+	metaknightiumz: {
+		name: "Metaknightium Z",
+		desc: "If held by Meta Knight with Dimensional Cape, he can use Galaxia Darkness.",
+		spritenum: 646,
+		onTakeItem: false,
+		zMove: "Galaxia Darkness",
+		zMoveFrom: "Dimensional Cape",
+		itemUser: ["Meta Knight"],
+		num: -4,
+		gen: 9,
+	}
 };
