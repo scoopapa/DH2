@@ -1276,31 +1276,51 @@ export class RandomTeams {
 		}
 		if (role === 'AV Pivot') return 'Assault Vest';
 		//mon hardcodes
-		if (species.id === 'hooporantunbound') return 'Light Ball';
-		if (species.id === 'zacianoh') return 'Rusted Sword';
-		if (species.id === 'shitto') return 'Black Sludge';
-		if (species.id === 'swalos') return 'Starf Berry';
-		if (species.id === 'koraisle' || species.id === 'mirainun') return 'Destiny Knot';
-		if (species.id === 'tipplin') return 'Metronome';
-		if (species.id === 'mimighold') return 'Lum Berry';
-		if (species.id === 'zamadactylcrowned') return 'Rusted Shield';
-		if (species.id === 'basbal' || 
-			species.id === 'naclinch' || 
-			species.id === 'glimmgar' || 
-			species.id === 'roseron') return 'Eviolite';
-		if (species.id === 'exeggumoramora') return 'White Herb';
-		if (species.id === 'rolyklawfy') return 'Focus Sash';
-		if (species.id === 'necromaneduskmane' || species.id === 'ferrothorns') return 'Booster Energy';
-		if (species.id === 'gigawrath') return 'Choice Band';
-		if (species.id === 'yvenne') return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
+		switch (species.id) {
+			case 'hooporantunbound':
+				return 'Light Ball';
+			case 'zacianoh':
+				return 'Rusted Sword';
+			case 'zamadactylcrowned':
+				return 'Rusted Shield';
+			case 'shitto':
+				return 'Black Sludge';
+			case 'tipplin':
+				return 'Metronome';
+			case 'mimighold':
+				return 'Lum Berry';
+			case 'exeggumoramora':
+				return 'White Herb';
+			case 'gigawrath':
+				return 'Choice Band';
+			case 'spinningfire':
+				return 'Berserk Gene';
+			case 'tapuluna':
+				return 'Life Orb';
+			case 'yvenne':
+				return this.sample(['Shell Bell', 'Life Orb', 'Leftovers', 'Heavy-Duty Boots']);
+			case 'swalos':
+			case 'snorcannon':
+				return 'Starf Berry';
+			case 'necromaneduskmane':
+			case 'ferrothorns':
+				return 'Booster Energy';
+			case 'koraisle':
+			case 'mirainun':
+				return 'Destiny Knot';
+			case 'rolyklawfy':
+			case 'blazer':
+			case 'smearccino':
+				return 'Eviolite';
+			case 'basbal':
+			case 'naclinch':
+			case 'glimmgar':
+			case 'roseron':
+				return 'Eviolite';
+		}
+		
 		if (species.id === 'raichudus' && moves.has('swagger')) return 'lumberry';
 		if (species.id === 'chiruno' && moves.has('sheercold')) return 'choicespecs';
-		
-		if (species.id === 'blazer') return 'Focus Sash';
-		if (species.id === 'spinningfire') return 'Berserk Gene';
-		if (species.id === 'snorcannon') return 'Starf Berry';
-		if (species.id === 'tapuluna') return 'Life Orb';
-		if (species.id === 'smearccino') return 'Focus Sash';
 		
 		if (moves.has('lastrespects') || moves.has('dragonenergy')) return 'Choice Scarf';
 		if (moves.has('bellydrum') && moves.has('substitute')) return 'Salac Berry';

@@ -140,7 +140,7 @@
         ]
     },
 	"talonsprit": {
-        "level": 95,
+        "level": 90,
         "sets": [
             {
                 "role": "Fast Support",
@@ -1846,7 +1846,7 @@
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Toxic", "Charm", "Toxic Spikes", "Defog", "Encore", "Screech", "Shift Gear"],
-                "teraTypes": ["Grass", "Flying"]
+                "teraTypes": ["Steel", "Fire", "Water"]
             }
         ]
     },
