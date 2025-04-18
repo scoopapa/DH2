@@ -2021,7 +2021,7 @@ mametchi: {
 		gender: "F",
 		types: ["Psychic", "Ice"],
 		baseStats: {hp: 129, atk: 44, def: 40, spa: 96, spd: 128, spe: 73},
-		abilities: {0: "Technican", 1: "Pastel Veil", H: "Filter"},
+		abilities: {0: "Technician", 1: "Pastel Veil", H: "Filter"},
 	},
 	mochiusatchi: {
 		num: 254,
