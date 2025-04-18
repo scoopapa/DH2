@@ -3132,7 +3132,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			onBasePowerPriority: 19,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.name === attacker.strongestMove.name) {
+				if (attacker.strongestMove && move.name === attacker.strongestMove.name) {
 					return 0;
 				}
 			},
@@ -3154,7 +3154,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Bad Bees",
-		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.,
+		//shortDesc: "If A Lot of Bees is active, damages adjacent opponents for 1/8 max HP each turn.",
 	},
 	allforone: {
 		onAfterMoveSecondarySelf(source, target, move) {
@@ -3811,6 +3811,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					// Illusion will not disguise as anything
 					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Ogerpon') {
 						pokemon.illusion = possibleTarget;
+						pokemon.toHeal = possibleTarget;
 					}
 					break;
 				}
@@ -3818,10 +3819,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
+				this.add('-start', target, 'typechange', target.baseSpecies.types.join('/'), '[silent]');
 				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, source, move);
 				const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
-				const healed = allies[allies.length - 1];
-				if (healed.hp < healed.baseMaxhp) {
+				const healed = allies.filter(p => p.name === target.toHeal.name)[0];
+				if (healed && !healed.fainted && healed.hp < healed.baseMaxhp) {
 					const toHeal = Math.trunc(Math.min(healed.baseMaxhp / 4, healed.baseMaxhp - healed.hp));
 					healed.hp += toHeal;
 					this.add('-message', `${target.name} paid ${healed.name} ${toHeal} HP in legal settlement for identity theft and defamation.`);
@@ -3831,6 +3833,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd(pokemon) {
 			if (pokemon.illusion) {
 				this.debug('illusion cleared');
+				pokemon.toHeal = pokemon.illusion;
 				pokemon.illusion = null;
 				const details = pokemon.getUpdatedDetails();
 				this.add('replace', pokemon, details);
