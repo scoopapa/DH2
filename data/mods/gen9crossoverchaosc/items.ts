@@ -34,7 +34,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	metaknightiumz: {
 		name: "Metaknightium Z",
-		desc: "If held by Meta Knight with Dimensional Cape, he can use Galaxia Darkness."
+		desc: "If held by Meta Knight with Dimensional Cape, he can use Galaxia Darkness.",
 		spritenum: 646,
 		onTakeItem: false,
 		zMove: "Galaxia Darkness",
