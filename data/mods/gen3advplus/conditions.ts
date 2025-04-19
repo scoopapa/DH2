@@ -9,42 +9,38 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-4 turns
-			this.effectState.time = this.random(2, 6);
+			this.effectData.time = this.random(2, 6);
 			// Turns spent using Sleep Talk/Snore immediately before switching out while asleep
-			this.effectState.skippedTime = 0;
-
-			if (target.removeVolatile('nightmare')) {
-				this.add('-end', target, 'Nightmare', '[silent]');
-			}
+			this.effectData.skippedTime = 0;
 		},
 		onSwitchIn(target) {
-			this.effectState.time += this.effectState.skippedTime;
-			this.effectState.skippedTime = 0;
+			this.effectData.time += this.effectData.skippedTime;
+			this.effectData.skippedTime = 0;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (pokemon.hasAbility('earlybird')) {
-				pokemon.statusState.time--;
+				pokemon.statusData.time--;
 			}
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time <= 0) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
 				pokemon.cureStatus();
 				return;
 			}
 			this.add('cant', pokemon, 'slp');
 			if (move.sleepUsable) {
-				this.effectState.skippedTime++;
+				this.effectData.skippedTime++;
 				return;
 			}
-			this.effectState.skippedTime = 0;
+			this.effectData.skippedTime = 0;
 			return false;
 		},
 	},
 	frz: {
 		inherit: true,
-		onDamagingHit(damage, target, source, move) {
+		onHit(target, source, move) {
 			// don't count Hidden Power or Weather Ball as Fire-type
-			if (this.dex.moves.get(move.id).type === 'Fire' && move.category !== 'Status') {
+			if (move.thawsTarget || this.dex.getMove(move.id).type === 'Fire' && move.category !== 'Status') {
 				target.cureStatus();
 			}
 		},
