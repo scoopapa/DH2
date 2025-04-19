@@ -191,6 +191,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Psycho Cut", target);
+		},
 		secondary: null,
 		self: {
 			volatileStatus: 'ivoryslash',
@@ -233,10 +237,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Silver Wind", target);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
+	},
+	hemlockhit: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Hemlock Hit",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onPrepareHit(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Poison Jab", target);
+		},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
 	},
 	
 	//edited vanilla moves

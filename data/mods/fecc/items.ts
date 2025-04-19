@@ -34,10 +34,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	depletedultranecroziumz: {
 		name: "Depleted Ultranecrozium Z",
 		spritenum: 687,
-		itemUser: ["Necromane-Dusk-Mane"],
+		itemUser: ["Necro Mane-Dusk-Mane"],
 		onTakeItem: false,
 		num: -1001,
-		desc: "If held by a Necromane-Dusk-Mane, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
+		desc: "If held by a Necro Mane-Dusk-Mane, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
 	},
 	eviolite: {
 		inherit: true,
