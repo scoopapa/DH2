@@ -4064,11 +4064,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				let move2 = '';
 				switch (ball) {
 					case 0:
-						move1 = 'extremespeed';
+						move1 = 'boomburst';
 						move2 = 'shadowball';
 						break;
 					case 1:
-						move1 = 'lavaplume';
+						move1 = 'nastyplot';
 						move2 = 'pyroball';
 						break;
 					case 2:
@@ -4092,7 +4092,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'energyball';
 						break;
 					case 7:
-						move1 = 'gigadrain';
+						move1 = 'synthesis';
 						move2 = 'energyball';
 						break;
 					case 8:
@@ -4120,7 +4120,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'shadowball';
 						break;
 					case 14:
-						move1 = 'shadowsneak';
+						move1 = 'moonlight';
 						move2 = 'shadowball';
 						break;
 					case 15:
@@ -4128,11 +4128,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						move2 = 'rollout';
 						break;
 					case 16:
-						move1 = 'poisonjab';
+						move1 = 'barbbarrage';
 						move2 = 'shadowball';
 						break;
 					case 17:
-						move1 = 'dracometeor';
+						move1 = 'dragondance';
 						move2 = 'energyball';
 						break;
 				}
