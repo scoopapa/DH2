@@ -1123,16 +1123,18 @@ export const Items: { [k: string]: ModdedItemData; } = {
 		},
 		onAfterMega(pokemon) {
 			let newAbility = pokemon.set.ability
-			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			const oldAbility = pokemon.setAbility(newAbility);
 			pokemon.removeVolatile('gastroacid');
+			return oldAbility as false | null;
 		},
 		onPreStart(pokemon) {
 			pokemon.addVolatile('gastroacid');
 		},
 		onStart(pokemon) {
 			let newAbility = pokemon.set.ability
-			const oldAbility = pokemon.setAbility(newAbility, pokemon, newAbility, true);
+			const oldAbility = pokemon.setAbility(newAbility);
 			pokemon.removeVolatile('gastroacid');
+			return oldAbility as false | null;
 		},
 		shortDesc: "Mega evolves the holder. The holder keeps the ability it had prior to Mega Evolving.",
 		num: -15,
@@ -1911,7 +1913,7 @@ export const Items: { [k: string]: ModdedItemData; } = {
 			this.add('-message', `${pokemon.name} is holding a Polkadot Bow!`);
 		},
 		onModifyTypePriority: -1,
-		onModifyType(move, pokemon) {
+		onModifyType(move, pokemon, target) {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
