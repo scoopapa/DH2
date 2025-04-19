@@ -1197,7 +1197,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	medichammega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	electrike: {
 		tier: "LC"
