@@ -264,7 +264,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.category === 'Status' && move.target === 'normal') {
 				if (!target.hasType('Grass')) {
-					target.addVolatile('leechseed');
+					this.actions.useMove("Leech Seed", source);
 				}
 			}
 		},
