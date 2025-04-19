@@ -57,7 +57,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	beedrillmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	pidgey: {
 		tier: "LC"
