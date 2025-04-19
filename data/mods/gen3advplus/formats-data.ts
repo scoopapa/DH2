@@ -1377,7 +1377,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	absolmega: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	wynaut: {
 		tier: "LC"
