@@ -1758,6 +1758,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	codebreaker: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Code Breaker');
+			pokemon.addVolatile('ability:corrosion');
 			this.add('-message', `${pokemon.name.toLowerCase()} dont caare`);
 		},
 		onModifyMove(move) {
@@ -4161,6 +4162,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.baseMoveSlots[3] = learnedMove2;
 				this.add('-message', `${pokemon.name} fetched a ${balls[ball]}!`);
 				pokemon.formeChange(balls[ball]);
+				this.add('-start', target, 'typechange', pokemon.baseSpecies.types.join('/'), '[from] ability: Switch Balls', '[silent]');
 			}
 		},
 		flags: {},

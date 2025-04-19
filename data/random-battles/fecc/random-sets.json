@@ -1395,7 +1395,7 @@
         "sets": [
 			{
                 "role": "Fast Attacker",
-                "movepool": ["Seed Flare", "Liquidation", "Scald", "Ice Beam", "Earth Power", "Leech Seed", "Synthesis"],
+                "movepool": ["Seed Flare", "Liquidation", "Scald", "Ice Beam", "Earth Power", "Synthesis"],
                 "teraTypes": ["Steel"]
             }
         ]
