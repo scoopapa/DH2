@@ -3550,7 +3550,7 @@ export const Formats: FormatList = [
 		name: "[Gen 3] Hoennification",
         mod: 'gen3hoennification',
 		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod', 'Baton Pass Mod'],
-		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken', 'Drizzle', 'Drought', 'Soul Dew'],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain', 'Soul Dew', 'Starf Berry', 'Speed Boost + Blaziken', 'Drizzle', 'Drought'],
 	},
 	{
 		name: "[Gen 9] i forgor OU",
