@@ -1922,8 +1922,8 @@ export const Items: { [k: string]: ModdedItemData; } = {
 				!(move.isZ && move.category !== 'Status')
 				&& !(move.name === 'Tera Blast' && pokemon.terastallized)
 				&& !(move.name === 'Tera Blast' && pokemon.hasItem('legendplate'))) {
-				if (move.id === target.moveSlots[0].id) type = types[0];
-				else if (move.id === target.moveSlots[1].id) type = types[1];
+				if (move.id === pokemon.moveSlots[0].id) type = pokemon.types[0];
+				else if (move.id === pokemon.moveSlots[1].id) type = pokemon.types[1];
 				move.type = type;
 				move.typeChangerBoosted = this.effect;
 			}
