@@ -700,6 +700,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				const fallen = Math.min(target.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
 				this.effectState.fallen = fallen;
+			}
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
