@@ -754,6 +754,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onAfterMove(pokemon) {
 				pokemon.removeVolatile('counteract');
 			},
+			onFlinch(pokemon) {
+				pokemon.removeVolatile('counteract');
+			},
+			/* onMoveFail(target, source, move) { // test later
+				source.removeVolatile('counteract');
+			}, */
 		},
 		flags: {},
 		desc: "While this Pokemon is active, opposing Pokemon's moves and their effects ignore its own Ability. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode Abilities.",
