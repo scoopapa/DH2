@@ -95,6 +95,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1, 2],
+		onTry(source) {
+			return source.getItem().isBerry;
+		},
+		onHit(pokemon) {
+			pokemon.eatItem(true);
+		},
 		secondary: null,
 		target: "self",
 		type: "Normal",
@@ -204,12 +210,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		contestType: "Clever",
 	},
-	freezingreprimand: {
+	arcticshriek: {
 		num: 2011,
 		accuracy: 90,
 		basePower: 100,
 		category: "Special",
-		name: "Freezing Reprimand",
+		name: "Arctic Shriek",
 		shortDesc: "Eliminates all stat changes.",
 		pp: 10,
 		priority: 0,
@@ -309,7 +315,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	frenzypulse: {
 		num: 2016,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 100,
 		category: "Special",
 		name: "Frenzy Pulse",
 		shortDesc: "Lowers SpA by 1; Raises Spe by 1.",
