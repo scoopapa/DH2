@@ -1105,7 +1105,7 @@
         ]
     },
 	"yvenne": {
-        "level": 91,
+        "level": 87,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1139,7 +1139,7 @@
             },
 			{
                 "role": "Bulky Setup",
-                "movepool": ["Photon Geyser", "Shell Side Arm", "Focus Blast", "Knock Off", "Calm Mind", "Slack Off", "Calm Mind"],
+                "movepool": ["Photon Geyser", "Shell Side Arm", "Focus Blast", "Knock Off", "Calm Mind", "Slack Off"],
                 "teraTypes": ["Psychic", "Fighting", "Dark"]
             }
         ]
@@ -1571,7 +1571,7 @@
         ]
     },
 	"dirunt": {
-        "level": 87,
+        "level": 91,
         "sets": [
 			{
                 "role": "Fast Support",
@@ -1595,8 +1595,8 @@
             },
 			{
                 "role": "Setup Sweeper",
-                "movepool": ["Shadow Sneak", "Sucker Punch", "Iron Head", "Swords Dance"],
-                "teraTypes": ["Ghost", "Dark", "Water"]
+                "movepool": ["Fire Punch", "Knock Off", "Sucker Punch", "Iron Head", "Swords Dance"],
+                "teraTypes": ["Fire", "Dark", "Flying"]
             }
         ]
     },
@@ -1641,7 +1641,7 @@
 			{
                 "role": "Setup Sweeper",
                 "movepool": ["Shell Smash", "Flare Blitz", "Head Smash", "Earthquake"],
-                "teraTypes": ["Fire", "Rock", "Flying"]
+                "teraTypes": ["Fire", "Rock", "Grass"]
             }
         ]
     },
@@ -1711,7 +1711,7 @@
         ]
     },
 	"manicunogalar": {
-        "level": 77,
+        "level": 84,
         "sets": [
 			{
                 "role": "Fast Attacker",
@@ -1751,7 +1751,7 @@
         ]
     },
 	"cramoraid": {
-        "level": 98,
+        "level": 95,
         "sets": [
 			{
                 "role": "Bulky Attacker",
@@ -1781,7 +1781,7 @@
         ]
     },
 	"servking": {
-        "level": 92,
+        "level": 90,
         "sets": [
 			{
                 "role": "Bulky Setup",

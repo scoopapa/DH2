@@ -767,11 +767,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	goodvibes: {
 		onStart(pokemon) {
+			this.add('-ability', target, 'Good Vibes');
 			pokemon.side.addSideCondition('goodvibe');
 		},
 		onModifyAtkPriority: 6,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.side.getSideCondition('badvibe')) return this.chainModify(1.5);
+			if (pokemon.side.getSideCondition('badvibe')) {
+				this.add('-message', `${pokemon.name} is enjoying the bad vibe!`);
+				return this.chainModify(1.5);
+			}
 		},
 		flags: {},
 		name: "Good Vibes",
@@ -779,11 +783,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	badvibes: {
 		onStart(pokemon) {
+			this.add('-ability', target, 'Bad Vibes');
 			pokemon.side.addSideCondition('badvibe');
 		},
 		onModifySpAPriority: 6,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.side.getSideCondition('goodvibe')) return this.chainModify(1.5);
+			if (pokemon.side.getSideCondition('goodvibe')) {
+				this.add('-message', `${pokemon.name} is enjoying the good vibe!`);
+				return this.chainModify(1.5);
+			}
 		},
 		flags: {},
 		name: "Bad Vibes",
@@ -3356,6 +3364,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		//shortDesc: "Gluttony + This Pokemon eats its berries 5 times.",
 	},
 	transfiguration: {
+		onStart(pokemon) {
+			const pokemonList = Object.keys(randomSets);
+			const newPokemon = this.sample(pokemonList);
+			
+			const sets = randomSets[newPokemon].sets;
+			const set = this.sample(sets);
+			let movepool = set.movepool;
+			for (let i = 0; i < 4; i ++) {
+				const temp = this.sample(movepool);
+				const moveSlot = this.dex.moves.get(temp);
+				const learnedMove = {
+					move: moveSlot,
+					id: moveSlot.id,
+					pp: moveSlot.pp,
+					maxpp: moveSlot.pp,
+					target: moveSlot.target,
+					disabled: false,
+					used: false,
+				};
+				pokemon.moveSlots[i] = learnedMove;
+				movepool.splice(movepool.indexOf(temp), 1);
+				if (movepool.length === 0) break;
+			}
+			pokemon.formeChange(newPokemon);
+		},
 		onResidual(pokemon) {
 			const pokemonList = Object.keys(randomSets);
 			const newPokemon = this.sample(pokemonList);
