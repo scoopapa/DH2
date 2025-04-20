@@ -35,6 +35,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 40, spd: 40, spe: 40},
 		abilities: {0: "Tough Claws", H: "Spiked Fur"},
 	},
+	meowthalola: {
+		inherit: true,
+		baseStats: {hp: 40, atk: 45, def: 35, spa: 50, spd: 50, spe: 90},
+		abilities: {0: "Pickup", 1: "Technician", H: "Faux Fur"},
+	},
 	toxel: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 48, def: 55, spa: 64, spd: 55, spe: 40},
@@ -130,5 +135,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 48, spd: 45, spe: 38},
 		abilities: {0: "Overgrow", H: "Juggernaut"},
+	},
+	hatenna: {
+		inherit: true,
+		types: ["Psychic", "Fairy"],
+		baseStats: {hp: 47, atk: 30, def: 50, spa: 56, spd: 53, spe: 39},
+	},
+	shuppet: {
+		inherit: true,
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 44, atk: 105, def: 45, spa: 43, spd: 43, spe: 15},
+		abilities: {0: "Insomnia", 1: "Prankster", H: "Cursed Body"},
+	},
+	charcadet: {
+		inherit: true,
+		types: ["Fire", "Fighting"],
+		baseStats: {hp: 40, atk: 60, def: 40, spa: 60, spd: 40, spe: 80},
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Quark Drive"},
+		tags: ["Paradox"],
+	},
+	duskull: {
+		inherit: true,
+		types: ["Ghost", "Dark"],
+		abilities: {0: "Levitate"},
 	},
 };
