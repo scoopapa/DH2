@@ -219,7 +219,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Eliminates all stat changes.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		onHit() {
 			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {

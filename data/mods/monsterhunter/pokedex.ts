@@ -581,7 +581,7 @@ export const Pokedex: {[k: string]: ModdednameData} = {
 		name: "Gogmazios",
 		types: ["Dragon", "Dark"],
 		baseStats: {hp: 101, atk: 109, def: 111, spa: 130, spd: 109, spe: 70},
-		abilities: {0: "Iron Barbs", 1: "Sheer Force"},
+		abilities: {0: "Debris", 1: "Sheer Force"},
 		heightm: 1.0,
 		weightkg: 300.0,
 		color: "Black",

@@ -50,4 +50,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 1001,
 	},
+	debris: {
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const toxicSpikes = side.sideConditions['spikes'];
+			if (move.category === 'Physical' && (!toxicSpikes || toxicSpikes.layers < 2)) {
+				this.add('-activate', target, 'ability: Debris');
+				side.addSideCondition('spikes', target);
+			}
+		},
+		flags: {},
+		name: "Debris",
+		rating: 3.5,
+		num: 1002,
+	},
 }
