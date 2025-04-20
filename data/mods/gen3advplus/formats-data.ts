@@ -141,7 +141,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU"
 	},
 	pikachustarter: {
-		tier: "OU"
+		tier: "Uber"
 	},
 	pikachuworld: {
 		tier: "OU"
